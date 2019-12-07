@@ -1,0 +1,230 @@
+<?php
+
+namespace App\Helpers\Indicadores;
+
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Indicadores\InDocPregunta;
+use App\Models\Indicadores\InIndicador;
+use App\Models\Indicadores\InValoracion;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
+class IndicadorHelper
+{
+    private  $indicado;
+    public function __construct()
+    { }
+    public function getIndicado($indicador)
+    {
+        return [
+
+            'cantindi' => 0,
+            'indicado' => $indicador->s_indicador,
+            'cantdocu' => 0,
+            'iavacate' => '',
+            'iavanive' => '',
+            'iavancex' => '',
+            'iaccionx' => '',
+
+            'document' => $indicador->sdocumen,
+            'cantbase' => 0,
+            'linebase' => $indicador->slinbase,
+            'cantacti' => 0,
+            'sactivid' => $indicador->sactivid,
+            'iporcent' => $indicador->iporcent,
+            'itiempox' => $indicador->itiempox . ' ' . $indicador->stiempox,
+            'cantsopo' => 0,
+            'soportex' => $indicador->soportex,
+            'cantpreg' => 0,
+            'pregunta' => $indicador->spregunt,
+            'nivelxxx' => ($indicador->scatagor > 0 && $indicador->scatagor < 4) ? 'BAJO' : ($indicador->scatagor > 3 && $indicador->scatagor < 7) ? 'MEDIO' : 'ALTO',
+            'categori' => $indicador->scatagor,
+            'avancex1' => '',
+            'avancex2' => '',
+            'avancex3' => '',
+            'avancex4' => '',
+            'avancex5' => '',
+            'avancex6' => '',
+            'avancex7' => '',
+            'avancex8' => '',
+            'avancex9' => '',
+        ];
+    }
+    public static function holamundo()
+    {
+        echo 'hola mundo desde el helper';
+    }
+    public static function disparador($tablaidx)
+    {
+        foreach (InDocPregunta::where('sis_tabla_id', $tablaidx)->get() as $docupreg) {
+            DB::table($docupreg->sis_tabla->s_tabla)->select($docupreg->sis_campo_tabla->s_campo . 's')->get();
+        }
+    }
+
+    public static function asignaLineaBase($nnajidxx)
+    {
+        foreach (InDocPregunta::get() as $docupreg) {
+            // $indocpre = InLineabaseNnaj::where('in_doc_pregunta_id', $docupreg->id)->where('sis_nnaj_id', $nnajidxx)->first();
+            // if (!isset($indocpre->id)) {
+            //     InLineabaseNnaj::transaccion([
+            //         'in_doc_pregunta_id' => $docupreg->id,
+            //         'sis_nnaj_id' => $nnajidxx,
+            //         'activo' => 1
+            //     ], '');
+            // }
+        }
+    }
+    public static function getDiasEntreFecha($fechaxx1, $fechaxx2)
+    {
+        return Carbon::parse($fechaxx1)->floatDiffInDays($fechaxx2);
+    }
+    public static function setDiasTranscurridos($nnajidxx)
+    {
+        $datobasi = FiDatosBasico::where('sis_nnaj_id', $nnajidxx)->where('i_prm_linea_base_id', 227)->first();
+        return IndicadorHelper::getDiasEntreFecha(explode(' ', $datobasi->created_at)[0], date('Y-m-d', time()));;
+    }
+    private function documento($iddocume, $indicador, $key)
+    {
+        $idlinbas = '';
+        if ($iddocume != $indicador->idocfuen) {
+            $idlinbas = $indicador->sdocumen;
+            $indicado[$key]['cantdocu'] = 1;
+        } else {
+            $indicado[$key]['cantdocu'] += 1;
+        }
+        return [$idlinbas, $indicado[$key]['cantdocu']];
+    }
+    public function getAcciones($valoavan)
+    {
+        $iaccionx = '';
+        switch ($valoavan->i_prm_avance_id) {
+            case 512:
+                $iaccionx = 'AUMENTA DE NIVEL';
+                break;
+            case 514:
+                $iaccionx = 'AUMENTA DE CATEGORÍA';
+                break;
+            case 559:
+                $iaccionx = 'MANTIENE EL NIVEL Y CATEGORÍA';
+                break;
+            case 1668:
+                $iaccionx = 'DISMINUYE DE NIVEL';
+                break;
+        }
+        return $iaccionx;
+    }
+    //['antiguox'=>'','nuevoxxx'=>'','indicado'=>'','linetota'=>'','posicion'=>'','cantidad'=>'',]
+    public function getValidacion($dataxxxx)
+    {
+
+        $posicion = ($dataxxxx['indicado']['linetota'] == 0) ? 0 : ($dataxxxx['indicado']['linetota'] - $dataxxxx['indicado'][$dataxxxx['posicion']]);
+        if ($dataxxxx['indicado'][$dataxxxx['antiguox']] != $dataxxxx['nuevoxxx']) {
+            $dataxxxx['indicado'][$dataxxxx['antiguox']] = $dataxxxx['nuevoxxx'];
+            if ($dataxxxx['cantidad']=='cantbase'&& $dataxxxx['indicado']['idlinbas'] > 0) {
+                $valoavan = InValoracion::getAvance(['idlinbas' => $dataxxxx['indicado']['idlinbas']]);
+                $indicado['indicado'][$posicion]['iavacate'] = $valoavan->iavacate;
+                $indicado['indicado'][$posicion]['iavanive'] = ($indicado['indicado'][$posicion]['iavacate'] > 0 &&  $indicado['indicado'][$posicion]['iavacate'] < 4) ? 'BAJO' : ($indicado['indicado'][$posicion]['iavacate'] > 3 &&  $indicado['indicado'][$posicion]['iavacate'] < 7) ? 'MEDIO' : 'ALTO';
+                $indicado['indicado'][$posicion]['iavancex'] = $valoavan->iavancex;
+                $indicado['indicado'][$posicion]['iaccionx'] = $dataxxxx['indihelp']->getAcciones($valoavan);
+            }
+
+
+            $dataxxxx['indicado']['indicado'][$posicion][$dataxxxx['cantidad']] = $dataxxxx['indicado'][$dataxxxx['posicion']];
+            $dataxxxx['indicado'][$dataxxxx['posicion']] = 1;
+        } else {
+            $dataxxxx['indicado'][$dataxxxx['posicion']]++;
+        }
+        if ($dataxxxx['keyxxxxx'] == $dataxxxx['totalxxx'] - 1) {
+            $dataxxxx['indicado'][($dataxxxx['indicado']['linetota'] - $dataxxxx['indicado'][$dataxxxx['posicion']]) + 1]['cantindi'] = $dataxxxx['indicado'][$dataxxxx['posicion']];
+        }
+        return $dataxxxx;
+    }
+    public function getAcumuladores()
+    {
+        return [
+            'indicado' => [],
+            'idindica' => 0,
+            'indicont' => 0,
+            'idlinbas' => 0,
+            'idactivi' => 0,
+            'linetota' => 0,
+            'linebase' => 0,
+            'totadocu' => 0,
+            'totactiv' => 0,
+            'iddocume' => 0,
+            'idsoport' => 0,
+            'totasopo' => 0,
+            'idpregun' => 0,
+            'totapreg' => 0,
+        ];
+    }
+    public static function getIndicadores($nnajidxx, $areaidxx)
+    {
+        $indihelp = new IndicadorHelper();
+        $inindica = InIndicador::getConsulta(['nnajidxx' => $nnajidxx]);
+        $indicado = $indihelp->getAcumuladores();
+        $totalxxx = count($inindica);
+        foreach ($inindica as $key => $indicador) {
+            $indicado['indicado'][$key] = $indihelp->getIndicado($indicador);
+            $repuesta = $indihelp->getValidacion([
+                'antiguox' => 'idindica', 'nuevoxxx' => $indicador->id,'keyxxxxx'=>$key,'totalxxx'=>$totalxxx,
+                'indicado' => $indicado, 'posicion' => 'indicont', 'cantidad' => 'cantindi','indihelp'=>$indihelp
+            ]);
+            $indicado = $repuesta['indicado'];
+
+            $repuesta = $indihelp->getValidacion([
+                'antiguox' => 'idlinbas', 'nuevoxxx' => $indicador->idlinbas,'keyxxxxx'=>$key,'totalxxx'=>$totalxxx,
+                'indicado' => $indicado, 'posicion' => 'linebase', 'cantidad' => 'cantbase','indihelp'=>$indihelp
+            ]);
+            $indicado = $repuesta['indicado'];
+
+            // if ($indicador->idlinbas != $indicado['idlinbas']) {
+            //     $posicion = ($indicado['linetota'] == 0) ? 0 : ($indicado['linetota'] - $indicado['linebase']);
+            //     if ($indicado['idlinbas'] > 0) {
+            //         $valoavan = InValoracion::getAvance(['idlinbas' => $indicado['idlinbas']]);
+            //         $indicado['indicado'][$posicion]['iavacate'] = $valoavan->iavacate;
+            //         $indicado['indicado'][$posicion]['iavanive'] = ($indicado['indicado'][$posicion]['iavacate'] > 0 &&  $indicado['indicado'][$posicion]['iavacate'] < 4) ? 'BAJO' : ($indicado['indicado'][$posicion]['iavacate'] > 3 &&  $indicado['indicado'][$posicion]['iavacate'] < 7) ? 'MEDIO' : 'ALTO';
+            //         $indicado['indicado'][$posicion]['iavancex'] = $valoavan->iavancex;
+            //         $indicado['indicado'][$posicion]['iaccionx'] = $indihelp->getAcciones($valoavan);
+            //     }
+            //     $indicado['indicado'][$posicion]['cantbase'] = $indicado['linebase'];
+            //     $indicado['idlinbas'] = $indicador->idlinbas;
+            //     $indicado['linebase'] = 1;
+            // } else {
+            //     $indicado['linebase']++;
+            // }
+            $repuesta = $indihelp->getValidacion([
+                'antiguox' => 'idactivi', 'nuevoxxx' => $indicador->idactivi,'keyxxxxx'=>$key,'totalxxx'=>$totalxxx,
+                'indicado' => $indicado, 'posicion' => 'totactiv', 'cantidad' => 'cantacti','indihelp'=>$indihelp
+            ]);
+            $indicado = $repuesta['indicado'];
+            $repuesta = $indihelp->getValidacion([
+                'antiguox' => 'idsoport', 'nuevoxxx' => $indicador->idsoport,'keyxxxxx'=>$key,'totalxxx'=>$totalxxx,
+                'indicado' => $indicado, 'posicion' => 'totasopo', 'cantidad' => 'cantsopo','indihelp'=>$indihelp
+            ]);
+            $indicado = $repuesta['indicado'];
+            $repuesta = $indihelp->getValidacion([
+                'antiguox' => 'iddocume', 'nuevoxxx' => $indicador->idocfuen,'keyxxxxx'=>$key,'totalxxx'=>$totalxxx,
+                'indicado' => $indicado, 'posicion' => 'totadocu', 'cantidad' => 'cantdocu','indihelp'=>$indihelp
+            ]);
+            $indicado = $repuesta['indicado'];
+            $repuesta = $indihelp->getValidacion([
+                'antiguox' => 'idpregun', 'nuevoxxx' => $indicador->idpregun,'keyxxxxx'=>$key,'totalxxx'=>$totalxxx,
+                'indicado' => $indicado, 'posicion' => 'totapreg', 'cantidad' => 'cantpreg','indihelp'=>$indihelp
+            ]);
+            $indicado = $repuesta['indicado'];
+
+            // if ($key == $totalxxx - 1) {
+            //     $indicado['indicado'][($indicado['linetota'] - $indicado['indicont']) + 1]['cantindi'] = $indicado['indicont'];
+            //     $indicado['indicado'][($indicado['linetota'] - $indicado['linebase']) + 1]['cantbase'] = $indicado['linebase'];
+            //     $indicado['indicado'][($indicado['linetota'] - $indicado['totadocu']) + 1]['cantdocu'] = $indicado['totadocu'];
+            //     $indicado['indicado'][($indicado['linetota'] - $indicado['totactiv']) + 1]['cantacti'] = $indicado['totactiv'];
+            //     $indicado['indicado'][($indicado['linetota'] - $indicado['totasopo']) + 1]['cantsopo'] = $indicado['totasopo'];
+            //     $indicado['indicado'][($indicado['linetota'] - $indicado['totapreg']) + 1]['cantpreg'] = $indicado['totapreg'];
+            // }
+            $indicado['linetota']++;
+        }
+        ddd($indicado);
+        return $indicado['indicado'];
+    }
+}

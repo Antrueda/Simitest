@@ -1,0 +1,112 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateVsiViolenciasTable extends Migration{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up(){
+        Schema::create('vsi_violencias', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('vsi_id')->unsigned();
+            $table->bigInteger('prm_tip_vio_id')->unsigned();
+            $table->bigInteger('prm_fam_fis_id')->unsigned()->nullable();
+            $table->bigInteger('prm_fam_psi_id')->unsigned()->nullable();
+            $table->bigInteger('prm_fam_sex_id')->unsigned()->nullable();
+            $table->bigInteger('prm_fam_eco_id')->unsigned()->nullable();
+            $table->bigInteger('prm_amicol_fis_id')->unsigned()->nullable();
+            $table->bigInteger('prm_amicol_psi_id')->unsigned()->nullable();
+            $table->bigInteger('prm_amicol_sex_id')->unsigned()->nullable();
+            $table->bigInteger('prm_amicol_eco_id')->unsigned()->nullable();
+            $table->bigInteger('prm_par_fis_id')->unsigned()->nullable();
+            $table->bigInteger('prm_par_psi_id')->unsigned()->nullable();
+            $table->bigInteger('prm_par_sex_id')->unsigned()->nullable();
+            $table->bigInteger('prm_par_eco_id')->unsigned()->nullable();
+            $table->bigInteger('prm_compar_fis_id')->unsigned()->nullable();
+            $table->bigInteger('prm_compar_psi_id')->unsigned()->nullable();
+            $table->bigInteger('prm_compar_sex_id')->unsigned()->nullable();
+            $table->bigInteger('prm_compar_eco_id')->unsigned()->nullable();
+            $table->bigInteger('prm_ins_fis_id')->unsigned()->nullable();
+            $table->bigInteger('prm_ins_psi_id')->unsigned()->nullable();
+            $table->bigInteger('prm_ins_sex_id')->unsigned()->nullable();
+            $table->bigInteger('prm_ins_eco_id')->unsigned()->nullable();
+            $table->bigInteger('prm_lab_fis_id')->unsigned()->nullable();
+            $table->bigInteger('prm_lab_psi_id')->unsigned()->nullable();
+            $table->bigInteger('prm_lab_sex_id')->unsigned()->nullable();
+            $table->bigInteger('prm_lab_eco_id')->unsigned()->nullable();
+            $table->bigInteger('prm_dis_gen_id')->unsigned()->nullable();
+            $table->bigInteger('prm_dis_ori_id')->unsigned()->nullable();
+            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_edita_id')->unsigned();
+            $table->boolean('activo')->default(1);
+            $table->timestamps();
+            $table->engine = 'InnoDB';
+            $table->foreign('vsi_id')->references('id')->on('vsis');
+            $table->foreign('prm_tip_vio_id')->references('id')->on('parametros');
+            $table->foreign('prm_fam_fis_id')->references('id')->on('parametros');
+            $table->foreign('prm_fam_psi_id')->references('id')->on('parametros');
+            $table->foreign('prm_fam_sex_id')->references('id')->on('parametros');
+            $table->foreign('prm_fam_eco_id')->references('id')->on('parametros');
+            $table->foreign('prm_amicol_fis_id')->references('id')->on('parametros');
+            $table->foreign('prm_amicol_psi_id')->references('id')->on('parametros');
+            $table->foreign('prm_amicol_sex_id')->references('id')->on('parametros');
+            $table->foreign('prm_amicol_eco_id')->references('id')->on('parametros');
+            $table->foreign('prm_par_fis_id')->references('id')->on('parametros');
+            $table->foreign('prm_par_psi_id')->references('id')->on('parametros');
+            $table->foreign('prm_par_sex_id')->references('id')->on('parametros');
+            $table->foreign('prm_par_eco_id')->references('id')->on('parametros');
+            $table->foreign('prm_compar_fis_id')->references('id')->on('parametros');
+            $table->foreign('prm_compar_psi_id')->references('id')->on('parametros');
+            $table->foreign('prm_compar_sex_id')->references('id')->on('parametros');
+            $table->foreign('prm_compar_eco_id')->references('id')->on('parametros');
+            $table->foreign('prm_ins_fis_id')->references('id')->on('parametros');
+            $table->foreign('prm_ins_psi_id')->references('id')->on('parametros');
+            $table->foreign('prm_ins_sex_id')->references('id')->on('parametros');
+            $table->foreign('prm_ins_eco_id')->references('id')->on('parametros');
+            $table->foreign('prm_lab_fis_id')->references('id')->on('parametros');
+            $table->foreign('prm_lab_psi_id')->references('id')->on('parametros');
+            $table->foreign('prm_lab_sex_id')->references('id')->on('parametros');
+            $table->foreign('prm_lab_eco_id')->references('id')->on('parametros');
+            $table->foreign('prm_dis_gen_id')->references('id')->on('parametros');
+            $table->foreign('prm_dis_ori_id')->references('id')->on('parametros');
+            $table->foreign('user_crea_id')->references('id')->on('users');
+            $table->foreign('user_edita_id')->references('id')->on('users');
+        });
+        Schema::create('vsi_vio_contexto', function (Blueprint $table) {
+            $table->bigInteger('parametro_id')->unsigned();
+            $table->bigInteger('vsi_violencia_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_edita_id')->unsigned();
+            $table->foreign('parametro_id')->references('id')->on('parametros');
+            $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');
+            $table->unique(['parametro_id', 'vsi_violencia_id']);
+            $table->engine = 'InnoDB';
+        });
+        Schema::create('vsi_vio_tipo', function (Blueprint $table) {
+            $table->bigInteger('parametro_id')->unsigned();
+            $table->bigInteger('vsi_violencia_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_edita_id')->unsigned();
+            $table->foreign('parametro_id')->references('id')->on('parametros');
+            $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');
+            $table->unique(['parametro_id', 'vsi_violencia_id']);
+            $table->engine = 'InnoDB';
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down(){
+        Schema::dropIfExists('vsi_vio_tipo');
+        Schema::dropIfExists('vsi_vio_contexto');
+        Schema::dropIfExists('vsi_violencias');
+    }
+}

@@ -1,0 +1,1 @@
+<button type="button" id="eliminar_{{ $id}}" class="btn btn-danger btn-sm eliminar" >Eliminar</button>

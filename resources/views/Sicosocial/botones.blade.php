@@ -1,0 +1,1 @@
+<a class="btn btn-sm btn-primary" href="{{ route('VSI.nnaj', $sis_nnaj_id) }}">Seleccionar</a>

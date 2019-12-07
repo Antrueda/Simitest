@@ -1,0 +1,2 @@
+@include('FichaObservacion.perfil.index')
+

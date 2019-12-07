@@ -1,0 +1,29 @@
+<table class="table table-condensed">
+    <thead>
+      <tr>
+       <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+       <th>6</th>
+       <th>7</th>
+       <th>8</th>
+       <th>9</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      
+    </tbody>
+  </table>

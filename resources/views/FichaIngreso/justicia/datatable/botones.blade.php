@@ -1,0 +1,1 @@
+<a class="btn btn-sm btn-primary" href="{{ route('fi.procesojudicial.editar', [$sis_nnaj_id,$id]) }}">Seleccionar</a>
