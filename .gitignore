@@ -15,3 +15,4 @@ package-lock.json
 composer.lock
 *.lock
 composer.lock
+.DS_Store
