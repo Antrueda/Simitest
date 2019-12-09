@@ -11,10 +11,6 @@ $(document).ready(function() {
         dropdownParent: $('#acciones_div'),
         language: "es"
     });
-    $('#dificultades').select2({
-        dropdownParent: $('#dificultades_div'),
-        language: "es"
-    });
 });
 function doc(valor) {
     if(valor == 228){
@@ -41,8 +37,6 @@ function doc1(valor){
 }
 function doc2(valor){
     if(valor == 228 || valor==235){
-        document.getElementById("dificultades_div").hidden=true;
-        document.getElementById("dificultades").value=[];
         document.getElementById("dia").hidden=true;
         document.getElementById("dia").value='';
         document.getElementById("mes").hidden=true;
@@ -54,7 +48,6 @@ function doc2(valor){
         document.getElementById("descripcion1").hidden=true;
         document.getElementById("descripcion1").value='';
     } else {
-        document.getElementById("dificultades_div").hidden=false;
         document.getElementById("dia").hidden=false;
         document.getElementById("mes").hidden=false;
         document.getElementById("ano").hidden=false;

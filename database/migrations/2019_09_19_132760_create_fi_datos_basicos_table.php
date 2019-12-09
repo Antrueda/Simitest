@@ -16,9 +16,9 @@ class CreateFiDatosBasicosTable extends Migration
         Schema::create('fi_datos_basicos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_primer_nombre');
-            $table->string('s_segundo_nombre');
+            $table->string('s_segundo_nombre')->nullable();
             $table->string('s_primer_apellido');
-            $table->string('s_segundo_apellido');
+            $table->string('s_segundo_apellido')->nullable();
             $table->bigInteger('prm_poblacion_id')->unsigned();
             $table->string('s_documento');
             $table->bigInteger('prm_documento_id')->unsigned();
@@ -26,8 +26,8 @@ class CreateFiDatosBasicosTable extends Migration
 
             $table->bigInteger('sis_municipioexp_id')->unsigned();
             $table->bigInteger('prm_sexo_id')->unsigned();
-            $table->string('s_apodo');
-            $table->string('s_nombre_identitario');
+            $table->string('s_apodo')->nullable();
+            $table->string('s_nombre_identitario')->nullable();
             $table->date('d_nacimiento');
             $table->bigInteger('sis_municipio_id')->unsigned();
             $table->bigInteger('prm_gsanguino_id')->unsigned();

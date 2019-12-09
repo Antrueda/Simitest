@@ -82,10 +82,6 @@ class VsiRelFamiliar extends Model{
         return $this->belongsToMany(Parametro::class,'vsi_relfam_acciones', 'vsi_relfamiliar_id', 'parametro_id');
     }
 
-    public function dificultades(){
-        return $this->belongsToMany(Parametro::class,'vsi_relpar_dificultad', 'vsi_relfamiliar_id', 'parametro_id');
-    }
-
     public function creador(){
         return $this->belongsTo(User::class, 'user_crea_id');
     }

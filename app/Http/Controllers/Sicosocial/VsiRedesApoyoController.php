@@ -146,8 +146,8 @@ class VsiRedesApoyoController extends Controller{
             'prm_tipo_id' => 'required|exists:parametros,id',
             'nombre' => 'required|string|max:120',
             'servicio' => 'required|string|max:4000',
-            'telefono' => 'required|string|max:120',
-            'direccion' => 'required|string|max:120',
+            'telefono' => 'nullable|string|max:120',
+            'direccion' => 'nullable|string|max:120',
         ]);
     }
 }

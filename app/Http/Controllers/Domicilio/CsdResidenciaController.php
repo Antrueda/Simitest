@@ -34,8 +34,14 @@ class CsdResidenciaController extends Controller{
             $tipo[$k] = $d;
         }
         $zona = Tema::findOrFail(37)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $muros = Tema::findOrFail(91)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $pisos = Tema::findOrFail(90)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+        $muros = ['' => 'Seleccione...'];
+        foreach (Tema::findOrFail(91)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
+            $muros[$k] = $d;
+        }
+        $pisos = ['' => 'Seleccione...'];
+        foreach (Tema::findOrFail(90)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
+            $pisos[$k] = $d;
+        }
         $estado= Tema::findOrFail(93)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $condiciones = Tema::findOrFail(42)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $residencia = ['' => 'Seleccione...'];

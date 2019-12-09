@@ -17,8 +17,8 @@ class CreateVsiRedsocActualsTable extends Migration{
             $table->bigInteger('prm_tipo_id')->unsigned();
             $table->string('nombre');
             $table->string('servicio', 4000);
-            $table->string('telefono');
-            $table->string('direccion');
+            $table->string('telefono')->nullable();
+            $table->string('direccion')->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->boolean('activo')->default(1);

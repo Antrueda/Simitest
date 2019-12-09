@@ -34,7 +34,7 @@ class CreateVsiAbuSexualsTable extends Migration{
             $table->bigInteger('prm_denuncia_id')->unsigned()->nullable();
             $table->bigInteger('prm_terapia_id')->unsigned()->nullable();
             $table->bigInteger('prm_estado_id')->unsigned()->nullable();
-            $table->string('informacion', 4000)->nullable()->nullable();
+            $table->string('informacion', 4000)->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->boolean('activo')->default(1);

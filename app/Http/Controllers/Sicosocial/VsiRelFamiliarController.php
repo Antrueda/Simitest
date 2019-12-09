@@ -81,12 +81,6 @@ class VsiRelFamiliarController extends Controller{
             }
         }
 
-        if($request->dificultades){
-            foreach ($request->dificultades as $d) {
-                $dato->dificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-
         return redirect()->route('VSI.relfamiliar', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -133,12 +127,6 @@ class VsiRelFamiliarController extends Controller{
             }
         }
 
-        $dato->dificultades()->detach();
-        if($request->dificultades){
-            foreach ($request->dificultades as $d) {
-                $dato->dificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
         return redirect()->route('VSI.relfamiliar', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -159,7 +147,6 @@ class VsiRelFamiliarController extends Controller{
             'descripcion' => 'required_if:prm_familia_id,227',
             'prm_pareja_id' => 'required|exists:parametros,id',
             'prm_dificultad_id' => 'required_if:prm_pareja_id,227',
-            'dificultades' => 'nullable|array',
             'dia' => 'required_if:prm_dificultad_id,227|min:0|max:99',
             'mes' => 'required_if:prm_dificultad_id,227|min:0|max:99',
             'ano' => 'required_if:prm_dificultad_id,227|min:0|max:99',

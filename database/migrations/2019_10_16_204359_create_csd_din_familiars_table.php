@@ -14,7 +14,7 @@ class CreateCsdDinFamiliarsTable extends Migration{
         Schema::create('csd_din_familiars', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
-            $table->binary('descripcion');
+            $table->binary('descripcion')->nullable();
             $table->binary('relevantes');
             $table->bigInteger('prm_familiar_id')->nullable()->unsigned();
             $table->bigInteger('prm_hogar_id')->nullable()->unsigned();

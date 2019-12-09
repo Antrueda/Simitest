@@ -113,8 +113,10 @@ class CsdDinFamiliarController extends Controller{
         
         $dato = CsdDinFamiliar::create($request->all());
 
-        foreach ($request->antecedentes as $d) {
-            $dato->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        if($request->antecedentes) {
+            foreach ($request->antecedentes as $d) {
+                $dato->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
         }
 
         foreach ($request->problemas as $d) {
@@ -209,8 +211,10 @@ class CsdDinFamiliarController extends Controller{
         $dato = CsdDinFamiliar::findOrFail($id1);
         $dato->fill($request->all())->save();
         $dato->antecedentes()->detach();
-        foreach ($request->antecedentes as $d) {
-            $dato->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        if($request->antecedentes) {
+            foreach ($request->antecedentes as $d) {
+                $dato->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
         }
 
         $dato->problemas()->detach();
@@ -252,7 +256,7 @@ class CsdDinFamiliarController extends Controller{
     protected function validator(array $data){
         return Validator::make($data, [
             'csd_id' => 'required|exists:csds,id',
-            'descripcion' => 'required|string|max:4000',
+            'descripcion' => 'nullable|string|max:4000',
             'relevantes' => 'required|string|max:4000',
             'prm_familiar_id' => 'required_without:prm_hogar_id',
             'prm_hogar_id' => 'required_without:prm_familiar_id',
@@ -278,7 +282,7 @@ class CsdDinFamiliarController extends Controller{
             'prm_negativo_id' => 'required|exists:parametros,id',
             'prm_destaca_id' => 'required|exists:parametros,id',
             'prm_positivo_id' => 'required|exists:parametros,id',
-            'antecedentes' => 'required|array',
+            'antecedentes' => 'nullable|array',
             'problemas' => 'required|array',
             'normas' => 'required_if:prm_norma_id,227|array',
         ]);

@@ -78,16 +78,6 @@ class CreateVsiRelFamiliarsTable extends Migration{
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
             $table->engine = 'InnoDB';
         });
-        Schema::create('vsi_relpar_dificultad', function (Blueprint $table) {
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_relfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('parametro_id')->references('id')->on('parametros');
-            $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');
-            $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
-            $table->engine = 'InnoDB';
-        });
     }
 
     /**
@@ -96,7 +86,6 @@ class CreateVsiRelFamiliarsTable extends Migration{
      * @return void
      */
     public function down(){
-        Schema::dropIfExists('vsi_relpar_dificultad');
         Schema::dropIfExists('vsi_relfam_acciones');
         Schema::dropIfExists('vsi_relfam_dificultad');
         Schema::dropIfExists('vsi_relfam_motivo');

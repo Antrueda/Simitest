@@ -140,18 +140,7 @@
 		@endif
 	</div>
 	<div class="col-md-3">
-		{{ Form::label('dificultades', '3.15.1 ¿Qué tipo de dificultades presenta con su pareja?', ['class' => 'control-label col-form-label-sm']) }}
-		<div id="dificultades_div">
-			{{ Form::select('dificultades[]', $dificultades, null, ['class' => $errors->first('dificultades') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'dificultades', 'multiple', $vsi->activo == 0 ? 'disabled' : '']) }}
-		</div>
-		@if($errors->has('dificultades'))
-			<div class="invalid-feedback d-block">
-			    {{ $errors->first('dificultades') }}
-			</div>
-		@endif
-	</div>
-	<div class="col-md-3">
-		{{ Form::label(null, '3.15.2 ¿Hace cuánto se presentan estas dificultades?', ['class' => 'control-label col-form-label-sm']) }}
+		{{ Form::label(null, '3.15 ¿Hace cuánto se presentan estas dificultades?', ['class' => 'control-label col-form-label-sm']) }}
 		<div class="row">
 			<div class="col-md-4">
 				{{ Form::label('dia', 'Día(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
@@ -182,8 +171,6 @@
 			</div>
 		</div>
 	</div>
-</div>
-<div class="row">
 	<div class="col-md-3">
 		{{ Form::label('prm_responde_id', '3.16 ¿Cómo responden a las dificultades?', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::select('prm_responde_id', $responde, null, ['class' => $errors->first('prm_responde_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $vsi->activo == 0 ? 'disabled' : '']) }}
@@ -193,6 +180,8 @@
 			</div>
 		@endif
 	</div>
+</div>
+<div class="row">
 	<div class="col-md">
 		{{ Form::label('descripcion1', '3.17 Descripción:', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion1', null, ['class' => $errors->first('descripcion1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción de relaciones de pareja', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'style' => 'text-transform:uppercase;', $vsi->activo == 0 ? 'disabled' : '']) }}

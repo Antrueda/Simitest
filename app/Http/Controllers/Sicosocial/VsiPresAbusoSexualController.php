@@ -128,7 +128,7 @@ class VsiPresAbusoSexualController extends Controller{
             'prm_reconoce_id' => 'required_unless:prm_tipo_id,338',
             'prm_apoyo_id' => 'required_unless:prm_tipo_id,338',
             'prm_denuncia_id' => 'required_unless:prm_tipo_id,338',
-            'informacion' => 'required_unless:prm_tipo_id,338',
+            'informacion' => 'nullable|string|max:4000',
         ]);
     }
 }
