@@ -17,7 +17,7 @@ class CrateSisActividadSisDocumentoFuenteTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('sis_actividad_id')->unsigned();
             $table->bigInteger('sis_documento_fuente_id')->unsigned();
-            $table->unique(['sis_actividad_id','sis_documento_fuente_id']);
+            // $table->unique(['sis_actividad_id','sis_documento_fuente_id']);
         });
     }
 
