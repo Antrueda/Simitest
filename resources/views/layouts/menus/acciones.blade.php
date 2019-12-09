@@ -22,10 +22,5 @@
                 @include('layouts.menus.accionesgrupales')
             </li>
         @endcanany
-        @canany(['saludIndex-leer'])
-            <li class="nav-item">
-                @include('layouts.menus.salud')
-            </li>
-        @endcanany
     </ul>
 </li>

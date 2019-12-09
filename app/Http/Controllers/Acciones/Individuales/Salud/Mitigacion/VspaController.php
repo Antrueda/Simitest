@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Salud\Mitigacion\Vspa;
+namespace App\Http\Controllers\Acciones\Individuales\Salud\Mitigacion;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -26,7 +26,7 @@ class VspaController extends Controller{
         $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
         $vspa = $dato->Vspa->where('activo', 1)->sortByDesc('fecha')->all();
 
-        return view('Salud.Mitigacion.index', ['accion' => 'Vspa', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'vspa'));
+        return view('Acciones.Individuales.index', ['accion' => 'Vspa', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'vspa'));
     }
 
     public function create($id){
@@ -116,7 +116,7 @@ class VspaController extends Controller{
         }
         $usuarios = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
 
-        return view('Salud.Mitigacion.index', ['accion' => 'Vspa', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'vspa', 'upis', 
+        return view('Acciones.Individuales.index', ['accion' => 'Vspa', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'vspa', 'upis', 
                                                                                                 'tValoracion', 'sexo', 'genero', 'orientacion',
                                                                                                 'documentos', 'sino', 'escolar', 'ingresos',
                                                                                                 'modalidad', 'acude', 'sitio', 'frecuencia',
@@ -220,7 +220,7 @@ class VspaController extends Controller{
         $usuarios = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
         $valor    = Vspa::findOrFail($id0);
 
-        return view('Salud.Mitigacion.index', ['accion' => 'Vspa', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'vspa', 'upis', 
+        return view('Acciones.Individuales.index', ['accion' => 'Vspa', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'vspa', 'upis', 
                                                                                                 'tValoracion', 'sexo', 'genero', 'orientacion',
                                                                                                 'documentos', 'sino', 'escolar', 'ingresos',
                                                                                                 'modalidad', 'acude', 'sitio', 'frecuencia',

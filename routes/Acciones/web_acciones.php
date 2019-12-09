@@ -14,4 +14,6 @@ Route::group(['prefix' => 'ai'], function () {
   require_once('Individuales/web_evasion.php');
   require_once('Individuales/web_salidamenores.php');
   require_once('Individuales/web_retornosalida.php');
+  require_once('Individuales/Mitigacion/web_vma.php');
+  require_once('Individuales/Mitigacion/web_vspa.php');
 });

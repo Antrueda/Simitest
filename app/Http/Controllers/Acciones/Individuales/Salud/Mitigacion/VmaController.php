@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Salud\Mitigacion\Vma;
+namespace App\Http\Controllers\Acciones\Individuales\Salud\Mitigacion;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -26,7 +26,7 @@ class VmaController extends Controller{
         $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
         $vma  = $dato->MitVma->where('activo', 1)->sortByDesc('fecha')->all();
 
-        return view('Salud.Mitigacion.index', ['accion' => 'Vma', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'vma'));
+        return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'vma'));
     }
 
     public function create($id){
@@ -86,7 +86,7 @@ class VmaController extends Controller{
             $tipoDx[$k] = $d;
         }
 
-        return view('Salud.Mitigacion.index', ['accion' => 'Vma', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'vma', 'upis', 'tValoracion',
+        return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'vma', 'upis', 'tValoracion',
                                                                                                'sino', 'sustancia', 'frecuencia', 'nivel',
                                                                                                'trastorno','apetito','sudoracion','animo',
                                                                                                'tratamiento', 'conducta', 'diagnosticos', 'tipoDx', 
@@ -297,7 +297,7 @@ class VmaController extends Controller{
         }
         $valor = MitVma::findOrFail($id0);
 
-        return view('Salud.Mitigacion.index', ['accion' => 'Vma', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'vma', 'upis', 'tValoracion',
+        return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'vma', 'upis', 'tValoracion',
                                                                                                'sino', 'sustancia', 'frecuencia', 'nivel',
                                                                                                'trastorno','apetito','sudoracion','animo',
                                                                                                'tratamiento', 'conducta', 'diagnosticos', 'tipoDx', 

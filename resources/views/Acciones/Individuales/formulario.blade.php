@@ -51,6 +51,13 @@
                     <a class="dropdown-item{{ ($accion == 'RetornoSalida') ?' active' : '' }}" href="{{ route('ai.retornosalida', $dato->id) }}">Retorno de salidas y permisos con acudiente y/o representante legal</a>
                 </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mitigación</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item{{ ($accion == 'Vspa') ?' active' : '' }}" href="{{ route('mitigacion.vspa', $dato->id) }}">Valoración del Riesgo por Consumo de SPA</a>
+                    <a class="dropdown-item{{ ($accion == 'Vma') ?' active' : '' }}" href="{{ route('mitigacion.vma', $dato->id) }}">Valoración Medicina Alternativa</a>
+                </div>
+            </li>
         </ul>
     </div>
 </div>
@@ -62,4 +69,8 @@
     @include('Acciones.Individuales.SalidaMenores.index')
 @elseif($accion == 'RetornoSalida')
     @include('Acciones.Individuales.RetornoSalida.index')
+@elseif($accion == 'Vspa')
+    @include('Acciones.Individuales.Salud.Mitigacion.Vspa.index')
+@elseif($accion == 'Vma')
+    @include('Acciones.Individuales.Salud.Mitigacion.Vma.index')
 @endif

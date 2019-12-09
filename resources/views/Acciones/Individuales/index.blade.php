@@ -29,5 +29,7 @@
     @include('Acciones.Individuales.SalidaMenores.js')
   @elseif($accion =='RetornoSalida')
     @include('Acciones.Individuales.RetornoSalida.js')
+  @elseif($accion =='Vma')
+    @include('Acciones.Individuales.Salud.Mitigacion.Vma.js')
   @endif
 @endsection

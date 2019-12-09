@@ -1,4 +1,4 @@
-@include('Salud.Mitigacion.Vma.formulario')
+@include('Acciones.Individuales.Salud.Mitigacion.Vma.formulario')
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <h3 class="card-title">

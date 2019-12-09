@@ -46,5 +46,4 @@ Route::group(['middleware' => ['auth']], function () {
   include_once('Acciones/web_acciones.php');
   include_once('ajaxx.php');
   include_once('Indicadores/web_in.php');
-  include_once('Salud/web_salud.php');
 });

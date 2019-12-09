@@ -101,7 +101,7 @@
 </div>
 <div class="form-row">
     <div class="col-md-12">
-        @include('Salud.Mitigacion.Vma.Tabla')
+        @include('Acciones.Individuales.Salud.Mitigacion.Vma.Tabla')
     </div>
 </div>
 <div class="form-row align-items-end">
@@ -438,5 +438,5 @@
     @canany(['vma-crear', 'vma-editar'])
         {{ Form::submit('Guardar', ['class' => 'btn btn-primary']) }}
     @endcanany
-    <a class="btn btn-primary ml-2" href="{{ route('mitigacion.ver', $dato->id) }}">Regresar</a>
+    <a class="btn btn-primary ml-2" href="{{ route('ai.ver', $dato->id) }}">Regresar</a>
 </div>

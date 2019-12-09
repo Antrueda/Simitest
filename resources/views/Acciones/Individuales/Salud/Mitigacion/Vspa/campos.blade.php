@@ -267,7 +267,7 @@
 <div class="form-row mt-3">
     <div class="col-md-12">
         <h6>3.2 Patrones de Consumo</h6>
-        @include('Salud.Mitigacion.Vspa.tabla')
+        @include('Acciones.Individuales.Salud.Mitigacion.Vspa.tabla')
     </div>
 </div>
 <div class="form-row">
@@ -467,7 +467,7 @@
         <h6>4. Realizar pregunta por pregunta y marcar SI o NO, según reporte del NNAJ</h6>
     </div>
     <div class="col-md-12">
-        @include('Salud.Mitigacion.Vspa.tabla2')
+        @include('Acciones.Individuales.Salud.Mitigacion.Vspa.tabla2')
     </div>
 </div>
 <div class="form-row mt-3">
@@ -477,7 +477,7 @@
                 <h6>5. Situaciones asociadas al uso de Sustancias Psicoactivas</h6>
             </div>
             <div class="col-md-12">
-                @include('Salud.Mitigacion.Vspa.tabla3')
+                @include('Acciones.Individuales.Salud.Mitigacion.Vspa.tabla3')
             </div>
         </div>
         <div class="col-md-4">
@@ -485,7 +485,7 @@
                 <h6>6. Direccionamiento Intrainstitucional</h6>
             </div>
             <div class="col-md-12">
-                @include('Salud.Mitigacion.Vspa.tabla4')
+                @include('Acciones.Individuales.Salud.Mitigacion.Vspa.tabla4')
             </div>
         </div>
     </div>
@@ -527,5 +527,5 @@
     @canany(['vspa-crear', 'vspa-editar'])
         {{ Form::submit('Guardar', ['class' => 'btn btn-primary']) }}
     @endcanany
-    <a class="btn btn-primary ml-2" href="{{ route('mitigacion.ver', $dato->id) }}">Regresar</a>
+    <a class="btn btn-primary ml-2" href="{{ route('ai.ver', $dato->id) }}">Regresar</a>
 </div>
