@@ -1,4 +1,27 @@
 <div class="row">
+  <div class="col-md-12">
+    <h6>LUGAR Y FECHA DE DILIGENCIAMIENTO </h6>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    {{ Form::label('departamento_id', 'Departamento', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('departamento_id', $departamentos, (!isset($valor)) ? 6 : null, ['class' => $errors->first('departamento_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'cambiaDepartamento(this.value)']) }}
+    @if($errors->has('departamento_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('departamento_id') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md-4">
+    {{ Form::label('municipio_id', 'Ciudad', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('municipio_id', $municipios, (!isset($valor)) ? 233 : null, ['class' => $errors->first('municipio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('municipio_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('municipio_id') }}
+      </div>
+    @endif
+  </div>
   <div class="col-md-4">
     {{ Form::label('fecha_diligenciamiento', 'Fecha de diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::date('fecha_diligenciamiento', null, ['class' => $errors->first('fecha_diligenciamiento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus']) }}

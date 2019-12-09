@@ -1773,5 +1773,6 @@ class SisParametrosSeeder extends Seeder
                 Parametro::create(['id' => 1755, 'nombre' => 'INSTRUMENTO PROVISIONAL']);
                 Parametro::create(['id' => 1756, 'nombre' => 'SISBEN DISTRITAL']);
                 Parametro::create(['id' => 1757, 'nombre' => 'SISBEN DEPARTAMENTAL']);
+                Parametro::create(['id' => 1758, 'nombre' => 'OCUPACIÓN DEL TIEMPO LIBRE']);
         }
 }

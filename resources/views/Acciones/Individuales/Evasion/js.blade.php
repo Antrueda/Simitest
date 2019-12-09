@@ -1,4 +1,13 @@
 <script>
+  @isset ($depajs)
+    @foreach($depajs as $d)
+      var depa_{{ $d->id }}=[
+        @foreach($d->sis_municipios as $m)
+          [{{$m->id}}, "{{ $m->s_municipio }}"],
+        @endforeach
+      ];
+    @endforeach
+  @endisset
   $(document).ready(function(){
     $('#prm_upi_id').select2({
       language: "es"
@@ -85,6 +94,23 @@
       document.getElementById("hora_denuncia").hidden=false;
       document.getElementById("prm_hor_denuncia_id").hidden=false;
     }
+  }
+
+  function cambiaDepartamento(departamento){
+    if (departamento !== '') {
+      mi_ciudad=eval("depa_" + departamento);
+      num_ciudad = mi_ciudad.length;
+      document.forma.municipio_id.length = num_ciudad;
+      for(i=0;i<num_ciudad;i++){
+        document.forma.municipio_id.options[i].value=mi_ciudad[i][0];
+        document.forma.municipio_id.options[i].text=mi_ciudad[i][1];
+      }
+    }else{
+      document.forma.municipio_id.length = 1;
+      document.forma.municipio_id.options[0].value = "1";
+      document.forma.municipio_id.options[0].text = "NO APLICA";
+    }
+    document.forma.municipio_id.options[0].selected = true;
   }
 
   function carga(){

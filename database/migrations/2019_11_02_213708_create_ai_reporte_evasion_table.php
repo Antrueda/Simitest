@@ -10,6 +10,8 @@ class CreateAiReporteEvasionTable extends Migration{
         Schema::create('ai_reporte_evasions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_nnaj_id')->unsigned();
+            $table->bigInteger('departamento_id')->unsigned();
+            $table->bigInteger('municipio_id')->unsigned();
             $table->date('fecha_diligenciamiento');
             $table->bigInteger('prm_upi_id')->unsigned();
             $table->string('direccion', 120);
@@ -64,6 +66,8 @@ class CreateAiReporteEvasionTable extends Migration{
             $table->timestamps();
             $table->engine = 'InnoDB';
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
+            $table->foreign('departamento_id')->references('id')->on('sis_departamentos');
+            $table->foreign('municipio_id')->references('id')->on('sis_municipios');
             $table->foreign('prm_upi_id')->references('id')->on('sis_dependencias');
             $table->foreign('prm_hor_eva_id')->references('id')->on('parametros');
             $table->foreign('prm_contextura_id')->references('id')->on('parametros');

@@ -712,6 +712,7 @@ class TemasTableSeeder extends Seeder
             767 => $camposmagicos,
             768 => $camposmagicos,
             769 => $camposmagicos,
+            1758 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 64, 'nombre' => 'REPRESENTACION LEGAL']);
         $tema->parametros()->sync([

@@ -11,9 +11,10 @@ use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
+use App\Models\sistema\SisDepartamento;
+use App\Models\sistema\SisMunicipio;
 
 class AIEvasionController extends Controller{
-    
     public function __construct(){
         $this->middleware(['permission:evasion-leer'], ['only' => ['index, show']]);
         $this->middleware(['permission:evasion-crear'], ['only' => ['index, show']]);
@@ -25,7 +26,6 @@ class AIEvasionController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
         $evasiones = $dato->AiReporteEvasion->where('activo', 1)->sortByDesc('fecha')->all();
-
         return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'evasiones'));
     }
 
@@ -49,29 +49,23 @@ class AIEvasionController extends Controller{
         $familiares = Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $atencion   = Tema::findOrFail(306)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $usuarios   = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
-
-        return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'evasiones', 'upis', 
-                                                                                    'ampm', 'contextura', 'rostro', 'piel', 
-                                                                                    'cabello', 'sino', 'tCabello', 'cCabello', 
-                                                                                    'ojos', 'nariz', 'tamanio', 'prendas', 
-                                                                                    'familiares', 'atencion', 'usuarios'));
-    }
+        $depajs = SisDepartamento::orderBy('s_departamento')->get();
+        $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
+        $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 6)->pluck('s_municipio', 'id');
+        return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'evasiones', 'upis', 'ampm', 'contextura', 'rostro', 'piel', 'cabello', 'sino', 'tCabello', 'cCabello', 'ojos', 'nariz', 'tamanio', 'prendas', 'familiares', 'atencion', 'usuarios', 'depajs', 'departamentos', 'municipios'));    }
 
     public function store(Request $request){
         $this->validator($request->all())->validate();
         if($request->prm_tinturado_id != 227) {
             $request["tintura"] = null;
         }
-        
         if($request->prm_tipCabello_id != 227) {
             $request["prm_corCabello_id"] = null;
         }
-
         if($request->prm_tienelunar_id != 227) {
             $request["cuantos"] = null;
             $request["prm_tamlunar_id"] = null;
         }
-
         if($request->prm_reporta_id != 227) {
             $request["prm_llamada_id"] = null;
             $request["radicado"]       = null;
@@ -84,9 +78,7 @@ class AIEvasionController extends Controller{
             $request["hora_denuncia"]  = null;
             $request["prm_hor_denuncia_id"] = null;
         }
-        
         $dato = AiReporteEvasion::create($request->all());
-
         return redirect()->route('ai.evasion', $request->sis_nnaj_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -111,12 +103,10 @@ class AIEvasionController extends Controller{
         $atencion   = Tema::findOrFail(306)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $usuarios   = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
         $valor = AiReporteEvasion::findOrFail($id0);
-
-        return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'evasiones', 'upis', 
-                                                                                    'ampm', 'contextura', 'rostro', 'piel', 
-                                                                                    'cabello', 'sino', 'tCabello', 'cCabello', 
-                                                                                    'ojos', 'nariz', 'tamanio', 'prendas', 
-                                                                                    'familiares', 'atencion', 'usuarios', 'valor'));
+        $depajs = SisDepartamento::orderBy('s_departamento')->get();
+        $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
+        $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', $valor->departamento_id)->pluck('s_municipio', 'id');
+        return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'evasiones', 'upis', 'ampm', 'contextura', 'rostro', 'piel', 'cabello', 'sino', 'tCabello', 'cCabello', 'ojos', 'nariz', 'tamanio', 'prendas', 'familiares', 'atencion', 'usuarios', 'valor', 'depajs', 'departamentos', 'municipios'));
     }
 
     public function update(Request $request, $id, $id0){        
@@ -157,6 +147,8 @@ class AIEvasionController extends Controller{
     protected function validator(array $data){
         return Validator::make($data, [
             'sis_nnaj_id'   => 'required|exists:sis_nnajs,id',
+            'departamento_id' => 'required|exists:sis_departamentos,id',
+            'municipio_id' => 'required|exists:sis_municipios,id',
             'fecha_diligenciamiento' => 'required|date',
             'prm_upi_id'    => 'required|exists:sis_dependencias,id',
             'direccion'     => 'required|string|max:120',

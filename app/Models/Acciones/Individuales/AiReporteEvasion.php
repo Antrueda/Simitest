@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDepartamento;
+use App\Models\sistema\SisMunicipio;
 
 class AiReporteEvasion extends Model{
     
     protected $fillable = [
         'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'activo',
-        'fecha_diligenciamiento', 'prm_upi_id', 'direccion', 'telefono',
+        'departamento_id', 'municipio_id', 'fecha_diligenciamiento', 'prm_upi_id', 'direccion', 'telefono',
         'lugar_evasion', 'fecha_evasion', 'hora_evasion', 'prm_hor_eva_id',
         'nnaj_talla', 'nnaj_peso', 'prm_contextura_id', 'prm_rostro_id',
         'prm_piel_id', 'prm_colCabello_id', 'prm_tinturado_id', 'tintura',
@@ -29,6 +31,14 @@ class AiReporteEvasion extends Model{
 
     public function nnaj(){
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
+    }
+
+    public function departamento(){
+        return $this->belongsTo(SisDepartamento::class, 'departamento_id');
+    }
+
+    public function municipio(){
+        return $this->belongsTo(SisMunicipio::class, 'municipio_id');
     }
     
     public function upis(){
