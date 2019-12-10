@@ -19,8 +19,8 @@ class CreateVsiEducacionsTable extends Migration{
             $table->Integer('mes')->unsigned()->nullable();
             $table->Integer('ano')->unsigned()->nullable();
             $table->bigInteger('prm_motivo_id')->unsigned()->nullable();
-            $table->bigInteger('prm_rendimiento_id')->unsigned();
-            $table->bigInteger('prm_dificultad_id')->unsigned();
+            $table->bigInteger('prm_rendimiento_id')->unsigned()->nullable();
+            $table->bigInteger('prm_dificultad_id')->unsigned()->nullable();
             $table->bigInteger('prm_leer_id')->unsigned()->nullable();
             $table->bigInteger('prm_escribir_id')->unsigned()->nullable();
             $table->string('descripcion', 4000)->nullable();

@@ -65,8 +65,10 @@ class VsiRelFamiliarController extends Controller{
 
         $dato = VsiRelFamiliar::create($request->all());
 
-        foreach ($request->motivos as $d) {
-            $dato->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        if($request->motivos){
+            foreach ($request->motivos as $d) {
+                $dato->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
         }
 
         if($request->famDificultades){
@@ -109,8 +111,10 @@ class VsiRelFamiliarController extends Controller{
         
         
         $dato->motivos()->detach();
-        foreach ($request->motivos as $d) {
-            $dato->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        if($request->motivos){
+            foreach ($request->motivos as $d) {
+                $dato->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
         }
 
         $dato->famDificultades()->detach();
@@ -137,7 +141,7 @@ class VsiRelFamiliarController extends Controller{
             'representativa' => 'required|string|max:4000',
             'prm_mala_id' => 'required|exists:parametros,id',
             'prm_relacion_id' => 'required|exists:parametros,id',
-            'motivos' => 'required|array',
+            'motivos' => 'required_unless:prm_mala_id,235|array',
             'prm_gusto_id' => 'required|exists:parametros,id',
             'porque' => 'required|string|max:4000',
             'prm_familia_id' => 'required|exists:parametros,id',

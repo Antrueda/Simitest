@@ -89,17 +89,25 @@ class VsiGenIngresosController extends Controller{
             $request["cuanto_aporta"] = null;
         }
         $this->validator($request->all())->validate();
+        $dato = Vsi::findOrFail($request->vsi_id);
+        if($dato->nnaj->FiDatosBasico->first()->edad >= 18){
+            $this->validatorMayor($request->all())->validate();
+        }
         $dato = VsiGenIngreso::create($request->all());
         if($request->dias){
             foreach ($request->dias as $d) {
                 $dato->dias()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
-        foreach ($request->quienes as $d) {
-            $dato->quienes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        if($request->quienes){
+            foreach ($request->quienes as $d) {
+                $dato->quienes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
         }
-        foreach ($request->labores as $d) {
-            $dato->labores()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        if($request->labores){
+            foreach ($request->labores as $d) {
+                $dato->labores()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
         }
         return redirect()->route('VSI.genIngresos', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
@@ -145,6 +153,10 @@ class VsiGenIngresosController extends Controller{
             $request["cuanto_aporta"] = null;
         }
         $this->validator($request->all())->validate();
+        $dato = Vsi::findOrFail($request->vsi_id);
+        if($dato->nnaj->FiDatosBasico->first()->edad >= 18){
+            $this->validatorMayor($request->all())->validate();
+        }
         $dato = VsiGenIngreso::findOrFail($id1);
         $dato->fill($request->all())->save();
         $dato->dias()->detach();
@@ -154,12 +166,16 @@ class VsiGenIngresosController extends Controller{
             }
         }
         $dato->quienes()->detach();
-        foreach ($request->quienes as $d) {
-            $dato->quienes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        if($request->quienes){
+            foreach ($request->quienes as $d) {
+                $dato->quienes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
         }
         $dato->labores()->detach();
-        foreach ($request->labores as $d) {
-            $dato->labores()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        if($request->labores){
+            foreach ($request->labores as $d) {
+                $dato->labores()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
         }
         return redirect()->route('VSI.genIngresos', $id)->with('info', 'Registro actualizado con éxito');
     }
@@ -184,9 +200,18 @@ class VsiGenIngresosController extends Controller{
             'prm_aporta_id' => 'required_unless:prm_actividad_id,853',
             'porque' => 'required_if:prm_aporta_id,227',
             'cuanto_aporta' => 'required_if:prm_aporta_id,227',
+            'expectativa' => 'nullable|string|max:4000',
+            'descripcion' => 'nullable|string|max:4000',
+            'dias' => 'required_unless:prm_actividad_id,853',
+            'quienes' => 'nullable|array',
+            'labores' => 'nullable|array',
+        ]);
+    }
+
+    protected function validatorMayor(array $data){
+        return Validator::make($data, [
             'expectativa' => 'required|string|max:4000',
             'descripcion' => 'required|string|max:4000',
-            'dias' => 'required_unless:prm_actividad_id,853',
             'quienes' => 'required|array',
             'labores' => 'required|array',
         ]);

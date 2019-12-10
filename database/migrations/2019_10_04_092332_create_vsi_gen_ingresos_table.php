@@ -31,8 +31,8 @@ class CreateVsiGenIngresosTable extends Migration{
             $table->bigInteger('prm_aporta_id')->unsigned()->nullable();
             $table->string('porque')->nullable();
             $table->Integer('cuanto_aporta')->unsigned()->nullable();
-            $table->string('expectativa', 4000);
-            $table->string('descripcion', 4000);
+            $table->string('expectativa', 4000)->nullable();
+            $table->string('descripcion', 4000)->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->boolean('activo')->default(1);

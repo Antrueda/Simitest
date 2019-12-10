@@ -30,7 +30,10 @@ class VsiEducacionController extends Controller{
             $motivos[$k] = $d;
         }
         $causas = Tema::findOrFail(207)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $rendimientos = Tema::findOrFail(206)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+        $rendimientos = ['' => 'Seleccione...'];
+        foreach (Tema::findOrFail(206)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
+            $rendimientos[$k] = $d;
+        }
         $materias = Tema::findOrFail(208)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $dificultad1 = Tema::findOrFail(209)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $dificultad2 = Tema::findOrFail(210)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -134,14 +137,14 @@ class VsiEducacionController extends Controller{
             'mes' => 'required_if:prm_estudia_id,228|min:0|max:99',
             'ano' => 'required_if:prm_estudia_id,228|min:0|max:99',
             'prm_motivo_id' => 'required_if:prm_estudia_id,228',
-            'prm_rendimiento_id' => 'required|exists:parametros,id',
-            'prm_dificultad_id' => 'required|exists:parametros,id',
+            'prm_rendimiento_id' => 'nullable|exists:parametros,id',
+            'prm_dificultad_id' => 'nullable|exists:parametros,id',
             'prm_leer_id' => 'required_if:prm_dificultad_id,227',
             'prm_escribir_id' => 'required_if:prm_dificultad_id,227',
             'descripcion' => 'required|max:4000',
             'causas' => 'required_if:prm_motivo_id,1022|array',
-            'fortalezas' => 'required_if:prm_estudia_id,227|array',
-            'dificultades' => 'required_if:prm_estudia_id,227|array',
+            'fortalezas' => 'nullable|array',
+            'dificultades' => 'nullable|array',
             'dificultadesa' => 'required_if:prm_dificultad_id,227|array',
             'dificultadesb' => 'required_if:prm_dificultad_id,227|array',
         ]);

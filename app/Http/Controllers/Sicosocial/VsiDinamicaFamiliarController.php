@@ -56,9 +56,6 @@ class VsiDinamicaFamiliarController extends Controller{
             $request['prm_familiar_id'] = null;
         }
         $dato = Vsi::findOrFail($request->vsi_id);
-        if($dato->nnaj->FiDatosBasico->first()->edad < 18){
-            $this->validatorMenor($request->all())->validate();
-        }
         $dato = VsiDinFamiliar::create($request->all());
         if($request->calles){
             foreach ($request->calles as $d) {
@@ -160,9 +157,6 @@ class VsiDinamicaFamiliarController extends Controller{
             $request['prm_familiar_id'] = null;
         }
         $dato = Vsi::findOrFail($request->vsi_id);
-        if($dato->nnaj->FiDatosBasico->first()->edad < 18){
-            $this->validatorMenor($request->all())->validate();
-        }
         $dato = VsiDinFamiliar::findOrFail($id1);
         $dato->fill($request->all())->save();
         $dato->calles()->detach();
@@ -245,12 +239,6 @@ class VsiDinamicaFamiliarController extends Controller{
             'libertades' => 'nullable|array',
             'consumo' => 'nullable|array',
             'salud' => 'nullable|array',
-        ]);
-    }
-
-    protected function validatorMenor(array $data){
-        return Validator::make($data, [
-            'ausencia' => 'required_unless:quien_asume,235|array',
         ]);
     }
 
