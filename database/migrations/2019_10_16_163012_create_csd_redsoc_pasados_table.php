@@ -12,10 +12,10 @@ class CreateCsdRedsocPasadosTable extends Migration{
             $table->bigInteger('csd_id')->unsigned();
             $table->string('nombre');
             $table->string('servicios',120);
-            $table->integer('cantidad');
+            $table->integer('cantidad')->nullable();
             $table->bigInteger('prm_unidad_id')->unsigned();
             $table->integer('ano');
-            $table->string('retiro', 4000);
+            $table->string('retiro', 4000)->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->boolean('activo')->default(1);

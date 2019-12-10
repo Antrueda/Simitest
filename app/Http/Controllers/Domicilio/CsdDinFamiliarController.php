@@ -62,10 +62,7 @@ class CsdDinFamiliarController extends Controller{
         foreach ( Tema::findOrFail(106)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d){
             $acude[$k] = $d;
         }
-        $incumple = ['' => 'Seleccione...'];
-        foreach ( Tema::findOrFail(107)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d){
-            $incumple[$k] = $d;
-        }
+        $incumple = Tema::findOrFail(107)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $destacan = ['' => 'Seleccione...'];
         foreach ( Tema::findOrFail(108)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d){
             $destacan[$k] = $d;
@@ -132,6 +129,12 @@ class CsdDinFamiliarController extends Controller{
         if($request->establecen) {
             foreach ($request->establecen as $d) {
                 $dato->establecen()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+
+        if($request->incumple) {
+            foreach ($request->incumple as $d) {
+                $dato->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
 
@@ -236,6 +239,13 @@ class CsdDinFamiliarController extends Controller{
             }
         }
 
+        $dato->incumple()->detach();
+        if($request->incumple) {
+            foreach ($request->incumple as $d) {
+                $dato->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+
         return redirect()->route('CSD.dinfamiliar', $id)->with('info', 'Registro actualizado con éxito');
     }
 
@@ -268,7 +278,7 @@ class CsdDinFamiliarController extends Controller{
             'jefe2' => 'nullable|string|max:120',
             'prm_jefe2_id' => 'nullable|exists:parametros,id',
             'descripcion_1' => 'required|string|max:4000',
-            'prm_cuidador_id' => 'required|exists:parametros,id',
+            'prm_cuidador_id' => 'nullable|exists:parametros,id',
             'descripcion_2' => 'required|string|max:4000',
             'afronta' => 'required|string|max:4000',
             'prm_norma_id' => 'required|exists:parametros,id',
@@ -276,14 +286,14 @@ class CsdDinFamiliarController extends Controller{
             'establecen' => 'required_if:prm_norma_id,227|array',
             'observacion' => 'required|string|max:4000',
             'prm_actuan_id' => 'required_if:prm_norma_id,227',
-            'porque' => 'required_if:prm_norma_id,227',
+            'porque' => 'nullable|string|max:4000',
             'prm_solucion_id' => 'required|exists:parametros,id',
             'prm_problema_id' => 'required|exists:parametros,id',
-            'prm_negativo_id' => 'required|exists:parametros,id',
             'prm_destaca_id' => 'required|exists:parametros,id',
             'prm_positivo_id' => 'required|exists:parametros,id',
             'antecedentes' => 'nullable|array',
             'problemas' => 'required|array',
+            'incumple' => 'required|array',
             'normas' => 'required_if:prm_norma_id,227|array',
         ]);
     }

@@ -14,6 +14,9 @@
       dropdownParent: $('#establecen_div'),
       language: "es"
     });
+    $('#incumple').select2({
+      language: "es"
+    });
     $('#prm_jefe1_id').select2({
       language: "es"
     });

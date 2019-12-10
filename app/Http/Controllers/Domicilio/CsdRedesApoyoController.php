@@ -68,11 +68,11 @@ class CsdRedesApoyoController extends Controller{
         return Validator::make($data, [
             'csd_id'   => 'required|exists:csds,id',
             'nombre'        => 'required|string|max:120',
-            'cantidad'      => 'required|integer|min:1|max:99',
+            'cantidad'      => 'nullable|integer|min:1|max:99',
             'prm_unidad_id' => 'required|exists:parametros,id',
             'ano'           => 'required|integer|min:2000|max:2030',
             'servicios'     => 'required|string|max:120',
-            'retiro'        => 'required|string|max:120',
+            'retiro'        => 'nullable|string|max:120',
         ]);
     }
 

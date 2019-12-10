@@ -56,7 +56,7 @@ class CsdConclusionesController extends Controller{
       'persona_doc'       => 'required|string|max:10',
       'persona_parent_id' => 'required|exists:parametros,id',
       'user_doc1_id'    => 'required|exists:users,id',
-      'user_doc2_id'    => 'required|exists:users,id',
+      'user_doc2_id'    => 'nullable|exists:users,id',
     ]);
   }
 }

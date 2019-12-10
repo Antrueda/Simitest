@@ -1083,6 +1083,7 @@ class TemasTableSeeder extends Seeder
             584 => $camposmagicos,
             585 => $camposmagicos,
             586 => $camposmagicos,
+            1759 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 104, 'nombre' => 'FORMA ACTUAR NORMAS']);
         $tema->parametros()->sync([

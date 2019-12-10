@@ -254,11 +254,11 @@
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('prm_negativo_id', '6.23 ¿Cuál es el modo de actuar cuando no se cumplen las reglas?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_negativo_id', $incumple, null, ['class' => $errors->first('prm_negativo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('prm_negativo_id'))
+        {{ Form::label('incumple', '6.23 ¿Cuál es el modo de actuar cuando no se cumplen las reglas?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('incumple[]', $incumple, null, ['class' => $errors->first('incumple') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'incumple', 'multiple']) }}
+        @if($errors->has('incumple'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('prm_negativo_id') }}
+                {{ $errors->first('incumple') }}
             </div>
         @endif
     </div>

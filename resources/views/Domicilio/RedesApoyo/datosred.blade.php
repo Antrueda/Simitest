@@ -23,7 +23,11 @@
                     </td>
                     <td>{{ $d->nombre }}</td>
                     <td>{{ $d->servicios }}</td>
-                    <td>{{ $d->cantidad.' '.$d->unidad->nombre }}</td>
+                    <td>
+                        @if ($d->cantidad)
+                            {{ $d->cantidad.' '.$d->unidad->nombre }}
+                        @endif
+                    </td>
                     <td>{{ $d->ano }}</td>
                     <td>{{ $d->retiro }}</td>
                 </tr>

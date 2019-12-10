@@ -21,7 +21,7 @@ class CreateCsdConclusionesTable extends Migration
             $table->string('persona_doc');
             $table->bigInteger('persona_parent_id')->unsigned();
             $table->bigInteger('user_doc1_id')->unsigned();
-            $table->bigInteger('user_doc2_id')->unsigned();
+            $table->bigInteger('user_doc2_id')->unsigned()->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->boolean('activo')->default(1);
