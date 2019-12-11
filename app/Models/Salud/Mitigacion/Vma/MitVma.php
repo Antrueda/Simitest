@@ -48,7 +48,8 @@ class MitVma extends Model{
         'patologicos',          'quirurgicos',      'familiares',           'traumaticos',
         'gineco',               'prm_tatuajes_id',  'prm_piercing_id',      'prm_dx_ppal_id',
         'prm_dx_rel_uno_id',    'prm_dx_rel_dos_id','prm_dx_rel_tres_id',   'prm_dx_rel_com_id',
-        'prm_tipo_dx_id',       'prm_conducta_id',  'alerta',                'observaciones'
+        'prm_tipo_dx_id',       'prm_conducta_id',  'alerta',                'observaciones',
+        'user_doc1_id'
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
@@ -271,5 +272,9 @@ class MitVma extends Model{
 
     public function tratamiento(){
         return $this->belongsToMany(Parametro::class,'mit_vma_ttos', 'mit_vma_id', 'parametro_id');
+    }
+
+    public function firma1(){
+        return $this->belongsTo(User::class, 'user_doc1_id');
     }
 }

@@ -152,6 +152,7 @@ class CreateMitVmasTable extends Migration{
             $table->bigInteger('prm_conducta_id')->unsigned();
             $table->text('alerta',4000)->nullable();
             $table->text('observaciones',4000);
+            $table->bigInteger('user_doc1_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->boolean('activo')->default(1);
@@ -210,6 +211,7 @@ class CreateMitVmasTable extends Migration{
             $table->foreign('prm_dx_rel_com_id')->references('id')->on('sis_diagnosticos');
             $table->foreign('prm_tipo_dx_id')->references('id')->on('parametros');
             $table->foreign('prm_conducta_id')->references('id')->on('parametros');
+            $table->foreign('user_doc1_id')->references('id')->on('users');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->engine = 'InnoDB';

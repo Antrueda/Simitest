@@ -4,13 +4,14 @@ namespace App\Http\Controllers\Acciones\Individuales\Salud\Mitigacion;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 use App\Models\Tema;
 use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisDiagnosticos;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
-use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 class VmaController extends Controller{
 
@@ -85,12 +86,13 @@ class VmaController extends Controller{
         foreach (Tema::findOrFail(335)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
             $tipoDx[$k] = $d;
         }
+        $usuarios = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
 
         return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'vma', 'upis', 'tValoracion',
                                                                                                'sino', 'sustancia', 'frecuencia', 'nivel',
                                                                                                'trastorno','apetito','sudoracion','animo',
                                                                                                'tratamiento', 'conducta', 'diagnosticos', 'tipoDx', 
-                                                                                               'sinoc'));
+                                                                                               'sinoc', 'usuarios'));
     }
 
     public function store(Request $request){
@@ -296,12 +298,13 @@ class VmaController extends Controller{
             $tipoDx[$k] = $d;
         }
         $valor = MitVma::findOrFail($id0);
+        $usuarios = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
 
         return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'vma', 'upis', 'tValoracion',
                                                                                                'sino', 'sustancia', 'frecuencia', 'nivel',
                                                                                                'trastorno','apetito','sudoracion','animo',
                                                                                                'tratamiento', 'conducta', 'diagnosticos', 'tipoDx', 
-                                                                                               'sinoc', 'valor'));
+                                                                                               'sinoc', 'valor', 'usuarios'));
     }
 
     public function update(Request $request, $id, $id1){
@@ -462,7 +465,8 @@ class VmaController extends Controller{
             'prm_conducta_id'   => 'required|exists:parametros,id',
             'alerta'            => 'nullable|string|max:4000',
             'observaciones'     => 'required|string|max:4000',
-            'tratamiento'       => 'required|array'
+            'tratamiento'       => 'required|array',
+            'user_doc1_id'      => 'required|exists:users,id'
         ]);
     }
 }
