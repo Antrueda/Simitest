@@ -101,7 +101,7 @@
 </div>
 <div class="form-row">
     <div class="col-md-12">
-        @include('Acciones.Individuales.Salud.Mitigacion.Vma.Tabla')
+        @include('Acciones.Individuales.Salud.Mitigacion.Vma.tabla')
     </div>
 </div>
 <div class="form-row align-items-end">

@@ -3,12 +3,13 @@
   <div id="text" class="form-inline">
     <div class="input-group" style="display: inline-block">
       <span class="input-group-addon" style="width:auto;">Yo, </span>
-      {{ Form::select('s_nombre_mayor', $todoxxxx["docrepre"], null, ['class' => 'form-control-sm col-2']) }}
+      {{ Form::select('s_nombre_mayor', $todoxxxx["autoriza"], null, ['class' => 'form-control-sm col-2']) }}
       
-      <span class="input-group-addon" style="width:auto;">, mayor de edad identificado(a) con la Cédula de Ciudadanía No. </span>
-      {{ Form::text('i_documento_mayor', null, ['id' => 'i_documento_mayor', 'class' => 'form-control-sm col-2', $todoxxxx['readcedr'], 'placeholder' => 'Cédula de ciudadanía', "onkeypress" => "return soloNumeros(event);"]) }}
+      <span class="input-group-addon" style="width:auto;">, mayor de edad identificado(a) con la Cédula de Ciudadanía No.</span>
+      <span class="input-group-addon" style="width:auto;">{{ $todoxxxx['sdocumen'] }} </span>
+     
       <span class="input-group-addon" style="width:auto;">de</span>
-      {{ Form::text('s_lugarexp_mayor', null, ['class' => 'form-control-sm col-2', $todoxxxx['readluga'], 'placeholder' => 'Lugar de expedición', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);"]) }}
+      {{ Form::text('s_lugarexp_mayor', $todoxxxx['expedici'], ['class' => 'form-control-sm col-2', $todoxxxx['readluga'], 'placeholder' => 'Lugar de expedición', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);"]) }}
       <span class="input-group-addon" style="width:auto;">, por medio del presente escrito AUTORIZO al Instituto Distrital para la Protección de la Niñez y la Juventud IDIPRON para que el/la joven</span>
       {{ Form::select('i_prm_autorizo_id', $todoxxxx["condicio"], null, ['class' => 'form-control-sm col-2']) }}
       <span class="input-group-addon" style="width:auto;">sea VINCULADO(A) al modelo pedagógico y participe en las diferentes actividades y salidas pedagógicas propias del Instituto o interinstitucionales.</span>

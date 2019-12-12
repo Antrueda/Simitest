@@ -116,7 +116,6 @@ class IndicadorHelper
     //['antiguox'=>'','nuevoxxx'=>'','indicado'=>'','linetota'=>'','posicion'=>'','cantidad'=>'',]
     public function getValidacion($dataxxxx)
     {
-
         $posicion = ($dataxxxx['indicado']['linetota'] == 0) ? 0 : ($dataxxxx['indicado']['linetota'] - $dataxxxx['indicado'][$dataxxxx['posicion']]);
         if ($dataxxxx['indicado'][$dataxxxx['antiguox']] != $dataxxxx['nuevoxxx']) {
             $dataxxxx['indicado'][$dataxxxx['antiguox']] = $dataxxxx['nuevoxxx'];
@@ -127,15 +126,13 @@ class IndicadorHelper
                 $indicado['indicado'][$posicion]['iavancex'] = $valoavan->iavancex;
                 $indicado['indicado'][$posicion]['iaccionx'] = $dataxxxx['indihelp']->getAcciones($valoavan);
             }
-
-
             $dataxxxx['indicado']['indicado'][$posicion][$dataxxxx['cantidad']] = $dataxxxx['indicado'][$dataxxxx['posicion']];
             $dataxxxx['indicado'][$dataxxxx['posicion']] = 1;
         } else {
             $dataxxxx['indicado'][$dataxxxx['posicion']]++;
         }
         if ($dataxxxx['keyxxxxx'] == $dataxxxx['totalxxx'] - 1) {
-            $dataxxxx['indicado'][($dataxxxx['indicado']['linetota'] - $dataxxxx['indicado'][$dataxxxx['posicion']]) + 1]['cantindi'] = $dataxxxx['indicado'][$dataxxxx['posicion']];
+           $dataxxxx['indicado']['indicado'][($dataxxxx['indicado']['linetota'] - $dataxxxx['indicado'][$dataxxxx['posicion']]) + 1][$dataxxxx['cantidad']] = $dataxxxx['indicado'][$dataxxxx['posicion']];
         }
         return $dataxxxx;
     }
@@ -171,28 +168,11 @@ class IndicadorHelper
                 'indicado' => $indicado, 'posicion' => 'indicont', 'cantidad' => 'cantindi','indihelp'=>$indihelp
             ]);
             $indicado = $repuesta['indicado'];
-
             $repuesta = $indihelp->getValidacion([
                 'antiguox' => 'idlinbas', 'nuevoxxx' => $indicador->idlinbas,'keyxxxxx'=>$key,'totalxxx'=>$totalxxx,
                 'indicado' => $indicado, 'posicion' => 'linebase', 'cantidad' => 'cantbase','indihelp'=>$indihelp
             ]);
             $indicado = $repuesta['indicado'];
-
-            // if ($indicador->idlinbas != $indicado['idlinbas']) {
-            //     $posicion = ($indicado['linetota'] == 0) ? 0 : ($indicado['linetota'] - $indicado['linebase']);
-            //     if ($indicado['idlinbas'] > 0) {
-            //         $valoavan = InValoracion::getAvance(['idlinbas' => $indicado['idlinbas']]);
-            //         $indicado['indicado'][$posicion]['iavacate'] = $valoavan->iavacate;
-            //         $indicado['indicado'][$posicion]['iavanive'] = ($indicado['indicado'][$posicion]['iavacate'] > 0 &&  $indicado['indicado'][$posicion]['iavacate'] < 4) ? 'BAJO' : ($indicado['indicado'][$posicion]['iavacate'] > 3 &&  $indicado['indicado'][$posicion]['iavacate'] < 7) ? 'MEDIO' : 'ALTO';
-            //         $indicado['indicado'][$posicion]['iavancex'] = $valoavan->iavancex;
-            //         $indicado['indicado'][$posicion]['iaccionx'] = $indihelp->getAcciones($valoavan);
-            //     }
-            //     $indicado['indicado'][$posicion]['cantbase'] = $indicado['linebase'];
-            //     $indicado['idlinbas'] = $indicador->idlinbas;
-            //     $indicado['linebase'] = 1;
-            // } else {
-            //     $indicado['linebase']++;
-            // }
             $repuesta = $indihelp->getValidacion([
                 'antiguox' => 'idactivi', 'nuevoxxx' => $indicador->idactivi,'keyxxxxx'=>$key,'totalxxx'=>$totalxxx,
                 'indicado' => $indicado, 'posicion' => 'totactiv', 'cantidad' => 'cantacti','indihelp'=>$indihelp
@@ -213,18 +193,9 @@ class IndicadorHelper
                 'indicado' => $indicado, 'posicion' => 'totapreg', 'cantidad' => 'cantpreg','indihelp'=>$indihelp
             ]);
             $indicado = $repuesta['indicado'];
-
-            // if ($key == $totalxxx - 1) {
-            //     $indicado['indicado'][($indicado['linetota'] - $indicado['indicont']) + 1]['cantindi'] = $indicado['indicont'];
-            //     $indicado['indicado'][($indicado['linetota'] - $indicado['linebase']) + 1]['cantbase'] = $indicado['linebase'];
-            //     $indicado['indicado'][($indicado['linetota'] - $indicado['totadocu']) + 1]['cantdocu'] = $indicado['totadocu'];
-            //     $indicado['indicado'][($indicado['linetota'] - $indicado['totactiv']) + 1]['cantacti'] = $indicado['totactiv'];
-            //     $indicado['indicado'][($indicado['linetota'] - $indicado['totasopo']) + 1]['cantsopo'] = $indicado['totasopo'];
-            //     $indicado['indicado'][($indicado['linetota'] - $indicado['totapreg']) + 1]['cantpreg'] = $indicado['totapreg'];
-            // }
             $indicado['linetota']++;
         }
-        ddd($indicado);
+        //ddd($indicado);
         return $indicado['indicado'];
     }
 }

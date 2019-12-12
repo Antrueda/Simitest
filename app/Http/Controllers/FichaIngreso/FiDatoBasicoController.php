@@ -14,7 +14,6 @@ use App\Models\sistema\SisPai;
 use App\Models\sistema\SisUpz;
 use App\Models\Tema;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class FiDatoBasicoController extends Controller
 {

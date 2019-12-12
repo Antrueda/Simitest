@@ -7,11 +7,9 @@
         </p>
     </a>
     <ul class="nav nav-treeview">
-        @canany(['vsidatobasico-leer','vsibienvenida-leer','vsiviolencia-leer','vsieducacion-leer','vsirelsocial-leer','fivestuario-leer']) 
-            <li class="nav-item">
-                @include('layouts.menus.sicosocial')
-            </li>
-        @endcanany
+        <li class="nav-item">
+            @include('layouts.menus.sicosocial')
+        </li>
         @can('fichaIngreso-leer')
             <li class="nav-item">
             <a href="{{ route('fi')}}" class="nav-link">

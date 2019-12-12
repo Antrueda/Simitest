@@ -36,13 +36,14 @@ class FiAutorizacionController extends Controller
       'nuevoxxx' => 'o Registro'
     ];
 
-    $this->opciones['docrepre'] = Tema::combo(64,true,false);
-    $this->opciones['modalupi'] = Tema::combo(65,false,false);
-    $this->opciones['docmened'] = Tema::combo(150,true,false);
-    $this->opciones['condicio'] = Tema::combo(23,false,false);
-    $this->opciones['tipodili'] = Tema::combo(302,true,false);
+    $this->opciones['docrepre'] = Tema::combo(64, true, false);
+    $this->opciones['modalupi'] = Tema::combo(65, false, false);
+    $this->opciones['docmened'] = Tema::combo(150, true, false);
+    $this->opciones['condicio'] = Tema::combo(23, false, false);
+    $this->opciones['tipodili'] = Tema::combo(302, true, false);
   }
-
+  private function getAutoriza()
+  { }
   private function view($objetoxx, $nombobje, $accionxx)
   {
     $edad = Carbon::parse($this->opciones['datobasi']->d_nacimiento)->age;
@@ -54,7 +55,19 @@ class FiAutorizacionController extends Controller
     $this->opciones['readcedr'] = '';
     $this->opciones['readluga'] = '';
     //Esconder campos según la edad
-    if($edad >= 18){ // mayor de edad
+    $this->opciones['autoriza'] = [];
+    $this->opciones['sdocumen'] = '';
+    $this->opciones['expedici'] = '';
+    if ($edad >= 18) { // mayor de edad
+      $this->opciones['autoriza'] = [
+        $this->opciones['datobasi']->id =>
+        $this->opciones['datobasi']->s_primer_nombre . ' ' .
+          $this->opciones['datobasi']->s_segundo_nombre . ' ' .
+          $this->opciones['datobasi']->s_primer_apellido . ' ' .
+          $this->opciones['datobasi']->s_segundo_apellido . ' '
+      ];
+      $this->opciones['expedici'] = $this->opciones['datobasi']->sis_pai->s_pais . ' ' . $this->opciones['datobasi']->sis_departamento->s_departamento . ' ' . $this->opciones['datobasi']->sis_municipio->s_municipio;
+      $this->opciones['sdocumen'] = $this->opciones['datobasi']->s_documento;
       $this->opciones['docrepre'] = [1 => 'NO APLICA'];
       $this->opciones['docmened'] = [1 => 'NO APLICA'];
       $this->opciones['readnomn'] = 'disabled';
@@ -157,7 +170,7 @@ class FiAutorizacionController extends Controller
    */
   public function update(FiAutorizacionUpdateRequest $request, $db, $id)
   {
-    return $this->grabar($request->all(), FiAutorizacion::where('id',$id)->first(), 'Autorización actualizada con exito');
+    return $this->grabar($request->all(), FiAutorizacion::where('id', $id)->first(), 'Autorización actualizada con exito');
   }
 
   /**
