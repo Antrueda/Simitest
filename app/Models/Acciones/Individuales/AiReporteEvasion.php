@@ -13,7 +13,7 @@ class AiReporteEvasion extends Model{
     
     protected $fillable = [
         'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'activo',
-        'departamento_id', 'municipio_id', 'fecha_diligenciamiento', 'prm_upi_id', 'direccion', 'telefono',
+        'departamento_id', 'municipio_id', 'fecha_diligenciamiento', 'prm_upi_id',
         'lugar_evasion', 'fecha_evasion', 'hora_evasion', 'prm_hor_eva_id',
         'nnaj_talla', 'nnaj_peso', 'prm_contextura_id', 'prm_rostro_id',
         'prm_piel_id', 'prm_colCabello_id', 'prm_tinturado_id', 'tintura',

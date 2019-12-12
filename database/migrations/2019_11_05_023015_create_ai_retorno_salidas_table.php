@@ -16,10 +16,10 @@ class CreateAiRetornoSalidasTable extends Migration{
             $table->bigInteger('prm_hor_ret_id')->unsigned();
             $table->string('descripcion',4000);
             $table->string('observaciones',4000);
-            $table->string('nombres_retorna',120);
-            $table->bigInteger('prm_doc_id')->unsigned();
-            $table->string('doc_retorna',10);
-            $table->bigInteger('prm_parentezco_id')->unsigned();
+            $table->string('nombres_retorna',120)->nullable();
+            $table->bigInteger('prm_doc_id')->unsigned()->nullable();
+            $table->string('doc_retorna',10)->nullable();
+            $table->bigInteger('prm_parentezco_id')->unsigned()->nullable();
             $table->bigInteger('responsable')->unsigned();
             $table->bigInteger('user_doc1_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();

@@ -11,6 +11,7 @@ use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
+use Illuminate\Support\Carbon;
 
 class AIRetornoSalidaController extends Controller{
     
@@ -34,16 +35,25 @@ class AIRetornoSalidaController extends Controller{
         $valor= $dato->AiRetornoSalida->where('activo', 1)->sortByDesc('id')->first();
         $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $documento = Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $parentezco= Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+        $documento = ['' => 'Seleccione...'];
+        foreach (Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
+            $documento[$k] = $d;
+        }
+        $parentezco = ['' => 'Seleccione...'];
+        foreach (Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
+            $parentezco[$k] = $d;
+        }
         $condiciones = Tema::findOrFail(308)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $usuarios  = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
+        $usuarios = ['' => 'Seleccione...'];
+        foreach (User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
+                $usuarios[$k] = $d;
+        }
         $retorno = $dato->AiRetornoSalida->where('activo', 1)->sortByDesc('fecha')->all();
-
+        $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
         return view('Acciones.Individuales.index', ['accion' => 'RetornoSalida', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'valor', 'upis', 
                                                                                         'ampm', 'usuarios', 'documento', 'parentezco', 
-                                                                                        'condiciones', 'sino', 'retorno'));
+                                                                                        'condiciones', 'sino', 'retorno', 'hoy'));
     }
 
     public function store(Request $request){
@@ -59,17 +69,26 @@ class AIRetornoSalidaController extends Controller{
         $valor= $dato->AiRetornoSalida->where('activo', 1)->sortByDesc('id')->first();
         $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $documento = Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $parentezco= Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+        $documento = ['' => 'Seleccione...'];
+        foreach (Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
+            $documento[$k] = $d;
+        }
+        $parentezco = ['' => 'Seleccione...'];
+        foreach (Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
+            $parentezco[$k] = $d;
+        }
         $condiciones = Tema::findOrFail(308)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $usuarios  = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
+        $usuarios = ['' => 'Seleccione...'];
+        foreach (User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
+                $usuarios[$k] = $d;
+        }
         $retorno = $dato->AiRetornoSalida->where('activo', 1)->sortByDesc('fecha')->all();
         $valor = AiRetornoSalida::findOrFail($id0);
-
+        $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
         return view('Acciones.Individuales.index', ['accion' => 'RetornoSalida', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'valor', 'upis', 
                                                                                         'ampm', 'usuarios', 'documento', 'parentezco', 
-                                                                                        'condiciones', 'sino', 'retorno', 'valor'));
+                                                                                        'condiciones', 'sino', 'retorno', 'valor', 'hoy'));
     }
 
     public function update(Request $request, $id, $id1){
@@ -81,18 +100,19 @@ class AIRetornoSalidaController extends Controller{
     }
 
     protected function validator(array $data){
+        $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
         return Validator::make($data, [
             'sis_nnaj_id'    => 'required|exists:sis_nnajs,id',
             'prm_upi_id'     => 'required|exists:sis_dependencias,id',
-            'fecha'          => 'required|date',
-            'hora_retorno'   => 'required|date_format:H:i',
+            'fecha'          => 'required|date|before_or_equal:'.$hoy,
+            'hora_retorno'   => 'required',
             'prm_hor_ret_id' => 'required|exists:parametros,id',
             'descripcion'    => 'required|string|max:4000',
             'observaciones'  => 'required|string|max:4000',
-            'nombres_retorna'=> 'required|string|max:120',
-            'prm_doc_id'     => 'required|exists:parametros,id',
-            'doc_retorna'    => 'required|integer',
-            'prm_parentezco_id' => 'required|exists:parametros,id',
+            'nombres_retorna'=> 'nullable|string|max:120',
+            'prm_doc_id'     => 'nullable|exists:parametros,id',
+            'doc_retorna'    => 'nullable|integer',
+            'prm_parentezco_id' => 'nullable|exists:parametros,id',
             'responsable'    => 'required|exists:users,id',
             'user_doc1_id'   => 'required|exists:users,id',
         ]);

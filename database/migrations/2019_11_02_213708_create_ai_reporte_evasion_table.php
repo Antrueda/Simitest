@@ -14,8 +14,6 @@ class CreateAiReporteEvasionTable extends Migration{
             $table->bigInteger('municipio_id')->unsigned();
             $table->date('fecha_diligenciamiento');
             $table->bigInteger('prm_upi_id')->unsigned();
-            $table->string('direccion', 120);
-            $table->string('telefono', 10);
             $table->string('lugar_evasion',120);
             $table->date('fecha_evasion');
             $table->time('hora_evasion');
