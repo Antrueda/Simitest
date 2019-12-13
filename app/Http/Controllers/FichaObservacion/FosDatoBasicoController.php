@@ -111,7 +111,9 @@ class FosDatoBasicoController extends Controller
     $this->opciones['areasxxx'] = Area::combo_tema('', true, false);
     $this->opciones['compfami'] = FiComposicionFami::combo($this->opciones['datobasi'], true, false);
     $fechaxxx = explode('-', date('Y-m-d'));
-    $fechaxxx[1] = $fechaxxx[1] + 1;
+    if ($fechaxxx[1] < 12) {
+      $fechaxxx[1] = $fechaxxx[1] + 1;
+    }
     $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
 
 
