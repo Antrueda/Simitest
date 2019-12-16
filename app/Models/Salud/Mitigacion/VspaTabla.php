@@ -23,8 +23,9 @@ class VspaTabla extends Model{
         'prm_mes_cinco_id',     'prm_mes_seis_id',      'prm_mes_siete_id',     'prm_mes_dmi_id',
         'prm_anio_ini_id',      'prm_anio_dos_id',      'prm_anio_tres_id',     'prm_anio_cuatro_id',
         'prm_anio_cinco_id',    'prm_anio_seis_id',     'prm_anio_siete_id',    'prm_anio_dmi_id',
-        'prm_imp_ini_id',       'prm_imp_dos_id',       'prm_imp_tres_id',       'prm_imp_cuatro_id',
-        'prm_imp_cinco_id',     'prm_imp_seis_id',      'prm_imp_siete_id',      'prm_imp_dmi_id',
+        'prm_imp_ini_id',       'prm_imp_dos_id',       'prm_imp_tres_id',      'prm_imp_cuatro_id',
+        'prm_imp_cinco_id',     'prm_imp_seis_id',      'prm_imp_siete_id',     'prm_imp_dmi_id',
+        'mit_vspa_id'
     ];
 
     public function droga_ini(){

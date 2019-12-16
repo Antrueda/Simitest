@@ -17,28 +17,28 @@
         <tr>
             <th>Tipo de Droga</th>
             <td>
-                {{ Form::select('prm_droga_ini_id', $sustancia, null, ['class' => $errors->first('prm_droga_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_ini_id']) }}
+                {{ Form::select('prm_droga_ini_id', $sustancia, null, ['class' => $errors->first('prm_droga_ini_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_ini_id', 'onchange' => 'doc3(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_dos_id', $sustancia, null, ['class' => $errors->first('prm_droga_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_dos_id']) }}
+                {{ Form::select('prm_droga_dos_id', $sustancia, null, ['class' => $errors->first('prm_droga_dos_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_dos_id', 'onchange' => 'doc4(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_tres_id', $sustancia, null, ['class' => $errors->first('prm_droga_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_tres_id']) }}
+                {{ Form::select('prm_droga_tres_id', $sustancia, null, ['class' => $errors->first('prm_droga_tres_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_tres_id', 'onchange' => 'doc5(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_cuatro_id', $sustancia, null, ['class' => $errors->first('prm_droga_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_cuatro_id']) }}
+                {{ Form::select('prm_droga_cuatro_id', $sustancia, null, ['class' => $errors->first('prm_droga_cuatro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_cuatro_id', 'onchange' => 'doc6(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_cinco_id', $sustancia, null, ['class' => $errors->first('prm_droga_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_cinco_id']) }}
+                {{ Form::select('prm_droga_cinco_id', $sustancia, null, ['class' => $errors->first('prm_droga_cinco_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_cinco_id', 'onchange' => 'doc7(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_seis_id', $sustancia, null, ['class' => $errors->first('prm_droga_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_seis_id']) }}
+                {{ Form::select('prm_droga_seis_id', $sustancia, null, ['class' => $errors->first('prm_droga_seis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_seis_id', 'onchange' => 'doc8(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_siete_id', $sustancia, null, ['class' => $errors->first('prm_droga_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_siete_id']) }}
+                {{ Form::select('prm_droga_siete_id', $sustancia, null, ['class' => $errors->first('prm_droga_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_siete_id', 'onchange' => 'doc9(this.value)']) }}
             </td>
             <td>
-                {{ Form::select('prm_droga_dmi_id', $sustancia, null, ['class' => $errors->first('prm_droga_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_dmi_id']) }}
+                {{ Form::select('prm_droga_dmi_id', $sustancia, null, ['class' => $errors->first('prm_droga_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_droga_dmi_id', 'onchange' => 'doc10(this.value)']) }}
             </td>
         </tr>
         <tr>
@@ -92,34 +92,34 @@
                 {{ Form::select('prm_via_siete_id', $via, null, ['class' => $errors->first('prm_via_siete_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_via_siete_id']) }}
             </td>
             <td>
-                {{ Form::select('prm_via_dmi_id', $via, null, ['class' => $errors->first('prm_via_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_fre_dmi_id']) }}
+                {{ Form::select('prm_via_dmi_id', $via, null, ['class' => $errors->first('prm_via_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_via_dmi_id']) }}
             </td>
         </tr>
         <tr>
             <th>Edad en la cual la usó por primera vez</th>
             <td>
-                {{ Form::number('primera_ini', null, ['class' => $errors->first('primera_ini') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('primera_ini', null, ['class' => $errors->first('primera_ini') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'primera_ini']) }}
             </td>
             <td>
-                {{ Form::number('primera_dos', null, ['class' => $errors->first('primera_dos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('primera_dos', null, ['class' => $errors->first('primera_dos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'primera_dos']) }}
             </td>
             <td>
-                {{ Form::number('primera_tres', null, ['class' => $errors->first('primera_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('primera_tres', null, ['class' => $errors->first('primera_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'primera_tres']) }}
             </td>
             <td>
-                {{ Form::number('primera_cuatro', null, ['class' => $errors->first('primera_cuatro') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('primera_cuatro', null, ['class' => $errors->first('primera_cuatro') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'primera_cuatro']) }}
             </td>
             <td>
-                {{ Form::number('primera_cinco', null, ['class' => $errors->first('primera_cinco') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('primera_cinco', null, ['class' => $errors->first('primera_cinco') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'primera_cinco']) }}
             </td>
             <td>
-                {{ Form::number('primera_seis', null, ['class' => $errors->first('primera_seis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('primera_seis', null, ['class' => $errors->first('primera_seis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'primera_seis']) }}
             </td>
             <td>
-                {{ Form::number('primera_siete', null, ['class' => $errors->first('primera_siete') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('primera_siete', null, ['class' => $errors->first('primera_siete') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'primera_siete']) }}
             </td>
             <td>
-                {{ Form::number('primera_dmi', null, ['class' => $errors->first('primera_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('primera_dmi', null, ['class' => $errors->first('primera_dmi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'primera_dmi']) }}
             </td>
         </tr>
         <tr>
@@ -179,28 +179,28 @@
         <tr>
             <th>Edad en la que dejó de consumirla</th>
             <td>
-                {{ Form::number('ultima_ini', null, ['class' => $errors->first('ultima_ini') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('ultima_ini', null, ['class' => $errors->first('ultima_ini') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'ultima_ini']) }}
             </td>
             <td>
-                {{ Form::number('ultima_dos', null, ['class' => $errors->first('ultima_dos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('ultima_dos', null, ['class' => $errors->first('ultima_dos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'ultima_dos']) }}
             </td>
             <td>
-                {{ Form::number('ultima_tres', null, ['class' => $errors->first('ultima_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('ultima_tres', null, ['class' => $errors->first('ultima_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'ultima_tres']) }}
             </td>
             <td>
-                {{ Form::number('ultima_cuatro', null, ['class' => $errors->first('ultima_cuatro') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('ultima_cuatro', null, ['class' => $errors->first('ultima_cuatro') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'ultima_cuatro']) }}
             </td>
             <td>
-                {{ Form::number('ultima_cinco', null, ['class' => $errors->first('ultima_cinco') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('ultima_cinco', null, ['class' => $errors->first('ultima_cinco') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'ultima_cinco']) }}
             </td>
             <td>
-                {{ Form::number('ultima_seis', null, ['class' => $errors->first('ultima_seis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('ultima_seis', null, ['class' => $errors->first('ultima_seis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'ultima_seis']) }}
             </td>
             <td>
-                {{ Form::number('ultima_siete', null, ['class' => $errors->first('ultima_siete') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('ultima_siete', null, ['class' => $errors->first('ultima_siete') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'ultima_siete']) }}
             </td>
             <td>
-                {{ Form::number('ultima_dmi', null, ['class' => $errors->first('ultima_dmi') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99']) }}
+                {{ Form::number('ultima_dmi', null, ['class' => $errors->first('ultima_dmi') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'ultima_dmi']) }}
             </td>
         </tr>
         <tr>

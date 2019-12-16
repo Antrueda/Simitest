@@ -14,10 +14,8 @@ class Vspa extends Model{
 
     protected $fillable = [
         'sis_nnaj_id',          'user_crea_id',     'user_edita_id',        'activo',
-        'prm_upi_id',           'fecha',            'prm_valoracion_id',    'primer_apellido',
-        'segundo_apellido',     'primer_nombre',    'segundo_nombre',       'identitario',
-        'apodo', 'nacimiento',  'prm_sexo_id',      'prm_genero_id',        'prm_sexual_id',
-        'prm_documento_id',     'documento',        'prm_icbf_id',          'previos', 'prm_gestante_id',
+        'prm_upi_id',           'fecha',            'prm_valoracion_id',    'prm_icbf_id',          
+        'previos',              'prm_gestante_id',
         'semanas_gestacion',    'prm_escolar_id',   'prm_ingresos_id',      'prm_modalidad_id',
         'prm_acude_id',         'prm_sitio_id',     'prm_probado_id',       'prm_cantidad_id',  
         'prm_inyectadas_id',    'edad',             'prm_dificultad_id',    'descripcion',          
@@ -39,22 +37,6 @@ class Vspa extends Model{
 
     public function valoracion(){
         return $this->belongsTo(Parametro::class, 'prm_valoracion_id');
-    }
-
-    public function sexo(){
-        return $this->belongsTo(Parametro::class, 'prm_sexo_id');
-    }
-
-    public function genero(){
-        return $this->belongsTo(Parametro::class, 'prm_genero_id');
-    }
-    
-    public function sexual(){
-        return $this->belongsTo(Parametro::class, 'prm_sexual_id');
-    }
-
-    public function documento(){
-        return $this->belongsTo(Parametro::class, 'prm_documento_id');
     }
 
     public function icbf(){
@@ -130,18 +112,18 @@ class Vspa extends Model{
     }
 
     public function vspaTabla(){
-        return $this->hasOne(VspaTabla::class, 'mit_vspa_id', 'id');
+        return $this->hasOne(VspaTabla::class, 'mit_vspa_id');
     }
 
     public function vspaTablaDos(){
-        return $this->hasOne(VspaTablaDos::class, 'mit_vspa_id', 'id');
+        return $this->hasOne(VspaTablaDos::class, 'mit_vspa_id');
     }
 
     public function vspaTablaTres(){
-        return $this->hasOne(VspaTablaTres::class, 'mit_vspa_id', 'id');
+        return $this->hasOne(VspaTablaTres::class, 'mit_vspa_id');
     }
 
     public function vspaTablaCuatro(){
-        return $this->hasOne(VspaTablaCuatro::class, 'mit_vspa_id', 'id');
+        return $this->hasOne(VspaTablaCuatro::class, 'mit_vspa_id');
     }
 }

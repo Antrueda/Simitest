@@ -5,10 +5,14 @@ namespace App\Models\Salud\Mitigacion;
 use Illuminate\Database\Eloquent\Model;
 
 class VspaTablaTres extends Model{
+
+    protected $table = 'mit_vspa_tabla_tres';
+
     protected $fillable = [
         'prm_cinco_uno_id',      'prm_cinco_dos_id',      'prm_cinco_tres_id',     'prm_cinco_cuatro_id',
         'prm_cinco_cinco_id',    'prm_cinco_seis_id',     'prm_cinco_siete_id',    'prm_cinco_ocho_id',
         'prm_cinco_nueve_id',    'prm_cinco_diez_id',     'prm_cinco_once_id',     'prm_cinco_doce_id',
+        'mit_vspa_id'
     ];
 
     public function cinco_uno(){

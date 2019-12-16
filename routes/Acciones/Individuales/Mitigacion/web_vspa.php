@@ -17,7 +17,7 @@
             'middleware' => ['permission:vspa-crear|vspa-editar']
         ])->name('mitigacion.vspa.editar');
         Route::put('editar/{id0}', [
-            'uses' => 'Salud\Mitigacion\Vspa\VspaController@update',
+            'uses' => 'Acciones\Individuales\Salud\Mitigacion\VspaController@update',
             'middleware' => ['permission:vspa-editar']
         ]);
     });
