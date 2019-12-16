@@ -56,7 +56,7 @@
         @endif
     </div>
     <div class="col-md-4">
-        {{ Form::label('prm_sustancia_id', '¿Cual?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_sustancia_id', '¿Cual fue la primera drogra que probó?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_sustancia_id', $sustancia, null, ['class' => $errors->first('prm_sustancia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_sustancia_id'))
             <div class="invalid-feedback d-block">
