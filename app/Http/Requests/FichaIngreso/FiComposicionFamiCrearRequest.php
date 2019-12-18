@@ -31,7 +31,7 @@ class FiComposicionFamiCrearRequest extends FormRequest
             'i_prm_ocupacion_id'=>['required'],
             'i_prm_vinculado_idipron_id'=>['required'],
             'i_prm_convive_nnaj_id'=>['required'],
-            's_documento'=>['required','unique:fi_datos_basicos'],
+            's_documento'=>['required','unique:fi_composicion_famis'],
             's_primer_nombre'=>['required'], 
             's_primer_apellido'=>['required'],
             'd_nacimiento'=>['required'],

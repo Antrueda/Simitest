@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\FichaIngreso;
 
+use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Foundation\Http\FormRequest;
 use Carbon\Carbon;
 
@@ -14,14 +15,16 @@ class FiAutorizacionCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
+            'fi_composicion_fami_id.required' => 'Seleccione un responsable',
             'i_prm_modalidad_id.required' => 'Seleccione la modalidad',
-            'd_fecha_autorizacion.required' => 'Seleccione fecha autorizacion',
+            'd_autorizacion.required' => 'Seleccione fecha autorizacion',
             'i_prm_tipo_diligencia_id.required' => 'Seleccione el tipo de diligenciamiento',
         ];
         $this->_reglasx = [
-            'i_prm_modalidad_id' => ['Required'],
-            'd_fecha_autorizacion' => ['Required'],
             'i_prm_tipo_diligencia_id' => ['Required'],
+            'd_autorizacion' => ['Required'],
+            'i_prm_modalidad_id' => ['Required'],
+            'fi_composicion_fami_id' => ['Required'],
         ];
     }
     /**
@@ -53,11 +56,17 @@ class FiAutorizacionCrearRequest extends FormRequest
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        // $edad = Carbon::parse($dataxxxx['edad_nna'])->age;
-        // if($edad >= 18){ //Mayor de edad
-        //     $this->_mensaje['s_nombre_mayor.required'] = 'Digite el nombre del represntante legal o nna mayor de edad';
-        //     $this->_reglasx['s_nombre_mayor']='Required';
-        // }
-        
+        $nnajxxxx = FiDatosBasico::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])->first();
+        $edad = Carbon::parse($nnajxxxx->d_nacimiento)->age;
+
+        if ($edad < 18) { //Mayor de edad
+            $this->_mensaje['i_prm_parentesco_id.required'] = 'Seleccione el parentesco que tiene con el NNAJ';
+            $this->_reglasx['i_prm_parentesco_id'] = 'Required';
+        }
+        if ($dataxxxx['d_autorizacion'] > date('Y-m-d',time())) { //Mayor de edad
+            $this->_mensaje['d_valida.required'] = 'La fecha de autorización es mayor a hoy';
+            $this->_reglasx['d_valida'] = 'Required';
+        }
+
     }
 }

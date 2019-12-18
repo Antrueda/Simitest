@@ -1034,4 +1034,23 @@ class AjaxxController extends Controller
             return response()->json($dataxxxx);
         }
     }
+    public function getDepartamentosMunicipios(Request $request)
+    {
+        if ($request->ajax()) {
+            $dataxxxx = $request->all();
+            $respuest = [];
+            switch($dataxxxx['tipoxxxx']){
+                case 'sis_departamento_id':
+                    $respuest = ['comboxxx'=>SisMunicipio::combo($dataxxxx['padrexxx'],true),'campoxxx'=>'sis_municipio_id','limpiarx'=>'#sis_municipio_id'];
+                break;
+                case 'sis_pai_id':
+                    $respuest = ['comboxxx'=>SisDepartamento::combo($dataxxxx['padrexxx'],true),'campoxxx'=>'sis_departamento_id','limpiarx'=>'#sis_departamento_id,#sis_municipio_id'];
+                break;
+            }
+            return response()->json($respuest);
+        }
+    }
+    
+
+
 }

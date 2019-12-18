@@ -1551,6 +1551,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 156, 'nombre' => 'OCUPACIÓN']);
         $tema->parametros()->sync([
+            1262 => $camposmagicos,
             647 => $camposmagicos,
             1534 => $camposmagicos,
             1535 => $camposmagicos,

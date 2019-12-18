@@ -38,11 +38,41 @@
             }
         });
         @endif
-
-        //MASCARA DOCUMENTOS
-        $(function(){
+        var f_combo=function(dataxxxx){
+            $.ajax({
+                url : "{{ route('ajaxx.getDepartamentosMunicipios') }}",
+                data :dataxxxx.dataxxxx,
+                type : 'GET',
+                dataType : 'json',
+                success : function(json) {  
+                    $(json.limpiarx).empty();                 
+                    $.each(json.comboxxx,function(i,data){  
+                        var selected='';
+                        if(data.valuexxx==dataxxxx.selected){
+                            selected='selected';
+                        }                          
+                        $('#'+json.campoxxx).append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                    });
+                },
+                error : function(xhr, status) {
+                    alert('Disculpe, existió un problemadddd');
+                },
+            });
+        }
         $('#s_documento').mask('000000000000');
+        @if(old('sis_pai_id')!=null)
+            f_combo({dataxxxx:{tipoxxxx:'sis_pai_id', padrexxx:{{ old('sis_pai_id') }}  } , selected:"{{ old('sis_departamento_id') }}"  });
+            @if(old('sis_departamento_id')!=null)
+                f_combo({dataxxxx:{tipoxxxx:'sis_departamento_id', padrexxx:{{ old('sis_departamento_id') }}  } , selected:"{{ old('sis_municipio_id') }}"  });  
+            @endif 
+        @endif
+        //MASCARA DOCUMENTOS
+        
+        $(".listarxx").change(function(){ 
+            f_combo({dataxxxx:{tipoxxxx:$(this).prop('id'),padrexxx:$(this).val()},selected:''});
         });
+
+        
     });
 
     function soloLetras(e) {
@@ -60,6 +90,7 @@
     }
     if(letras.indexOf(tecla) == -1 && !tecla_especial){
         return false;
-      }
+    }
+   
 }
 </script>  

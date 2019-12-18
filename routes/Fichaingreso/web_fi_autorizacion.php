@@ -31,4 +31,9 @@ Route::group(['prefix' => '{nnaj}/fiautorizacion'], function () {
 		'uses' => 'FichaIngreso\FiAutorizacionController@destroy',
 		'middleware' => ['permission:fiautorizacion-borrar']
 	])->name('fi.autorizacion.borrar');
+
+	Route::get('autoriza', [
+		'uses' => 'FichaIngreso\FiAutorizacionController@autoriza',
+	])->name('fi.autorizacion.autoriza');
 });
+ 

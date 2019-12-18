@@ -5,6 +5,7 @@ Route::group(['prefix' => 'ajaxx'], function () {
 	include_once('route_ajax/fi_escuela.php');
 	include_once('route_ajax/fi_dato_basico.php');
 	include_once('route_ajax/fi_contacto.php');
+	include_once('route_ajax/fi_composicion.php');
 	include_once('route_ajax/fi_bienvenida.php');
 	include_once('route_ajax/fi_violencia.php');
 	include_once('route_ajax/fi_justicia.php');

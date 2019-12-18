@@ -7,8 +7,12 @@ use App\Http\Requests\FichaIngreso\FiComposicionFamiCrearRequest;
 use App\Http\Requests\FichaIngreso\FiComposicionFamiUpdateRequest;
 use App\Models\fichaIngreso\FiComposicionFami;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\sistema\SisDepartamento;
+use App\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisPai;
 use App\Models\Tema;
 use Illuminate\Support\Carbon;
+
 
 class FiComposicionFamiController extends Controller
 {
@@ -35,7 +39,7 @@ class FiComposicionFamiController extends Controller
       'modeloxx' => '',
       'urlxxxxx' => 'api/fi/ficomposicionfamiliar',
       'nuevoxxx' => 'o Registro',
-      
+
     ];
     $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
     $this->opciones['parentes'] = Tema::combo(66, true, false);
@@ -55,20 +59,20 @@ class FiComposicionFamiController extends Controller
       ['td' => 'ESTADO'],
     ];
     $this->opciones['columnsx'] = [
-      ['data' => 'btns','name' => 'btns'],
-      ['data' => 'id','name' => 'id'],
-      ['data' => 's_primer_nombre','name' => 's_primer_nombre'],
-      ['data' => 's_segundo_nombre','name' => 's_segundo_nombre'],
-      ['data' => 's_primer_apellido','name' => 's_primer_apellido'],
-      ['data' => 's_segundo_apellido','name' => 's_segundo_apellido'],
-      ['data' => 's_documento','name' => 's_documento'],
-      ['data' => 'activo','name' => 'activo'],
+      ['data' => 'btns', 'name' => 'btns'],
+      ['data' => 'id', 'name' => 'fi_composicion_famis.id'],
+      ['data' => 's_primer_nombre', 'name' => 'fi_composicion_famis.s_primer_nombre'],
+      ['data' => 's_segundo_nombre', 'name' => 'fi_composicion_famis.s_segundo_nombre'],
+      ['data' => 's_primer_apellido', 'name' => 'fi_composicion_famis.s_primer_apellido'],
+      ['data' => 's_segundo_apellido', 'name' => 'fi_composicion_famis.s_segundo_apellido'],
+      ['data' => 's_documento', 'name' => 'fi_composicion_famis.s_documento'],
+      ['data' => 'activo', 'name' => 'fi_composicion_famis.activo'],
 
     ];
   }
   public function index($datobasi)
   {
-    $this->opciones['esindexx']='';
+    $this->opciones['esindexx'] = '';
     $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
     $this->opciones['nnajregi'] = $datobasi;
     $this->opciones['parametr'] = [$this->opciones['nnajregi']];
@@ -76,16 +80,21 @@ class FiComposicionFamiController extends Controller
   }
   private function view($objetoxx, $nombobje, $accionxx)
   {
+    $this->opciones['pais_idx'] = SisPai::combo(true, false);
 
     $this->opciones['estadoxx'] = 'ACTIVO';
     $this->opciones['accionxx'] = $accionxx;
     $this->opciones['aniosxxx'] = '';
+    $this->opciones['departam'] = ['' => 'Seleccione'];
+    $this->opciones['municipi'] = ['' => 'Seleccione'];
     // indica si se esta actualizando o viendo
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
       $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
       $fechaxxx = explode('-', $objetoxx->d_nacimiento);
-      $this->opciones['aniosxxx'] = Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age ;
+      $this->opciones['aniosxxx'] = Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
+      $this->opciones['municipi'] = SisMunicipio::combo($objetoxx->sis_departamento_id, false);
+      $this->opciones['departam'] = SisDepartamento::combo($objetoxx->sis_pai_id, false);
     }
 
     $this->opciones['parametr'] = [$this->opciones['nnajregi']];
@@ -160,7 +169,7 @@ class FiComposicionFamiController extends Controller
    */
   public function update(FiComposicionFamiUpdateRequest $request,  $db,  $id)
   {
-    return $this->grabar($request->all(), FiComposicionFami::where('id',$id)->first(), 'Composicion familiar actualizada con exito');
+    return $this->grabar($request->all(), FiComposicionFami::where('id', $id)->first(), 'Composicion familiar actualizada con exito');
   }
 
   /**
@@ -173,4 +182,5 @@ class FiComposicionFamiController extends Controller
   {
     //
   }
+ 
 }

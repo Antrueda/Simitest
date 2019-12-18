@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiAutorizacionCrearRequest;
 use App\Http\Requests\FichaIngreso\FiAutorizacionUpdateRequest;
 use App\Models\fichaIngreso\FiAutorizacion;
+use App\Models\fichaIngreso\FiComposicionFami;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Parametro;
 use App\Models\Tema;
 use Carbon\Carbon;
-
+use Illuminate\Http\Request;
 class FiAutorizacionController extends Controller
 {
 
@@ -42,43 +44,36 @@ class FiAutorizacionController extends Controller
     $this->opciones['condicio'] = Tema::combo(23, false, false);
     $this->opciones['tipodili'] = Tema::combo(302, true, false);
   }
-  private function getAutoriza()
-  { }
+  
   private function view($objetoxx, $nombobje, $accionxx)
   {
+    $this->opciones['parentes'] = Tema::combo(66, true, false);
     $edad = Carbon::parse($this->opciones['datobasi']->d_nacimiento)->age;
-    $this->opciones['readnomn'] = '';
-    $this->opciones['readedad'] = '';
-    $this->opciones['readdocu'] = '';
-    $this->opciones['readconc'] = '';
-    $this->opciones['readnomr'] = '';
-    $this->opciones['readcedr'] = '';
-    $this->opciones['readluga'] = '';
+    $compofami=FiComposicionFami::getComboResponsable($this->opciones['datobasi'],true,false,$edad);
+    if ($compofami[0]) {
+      return redirect()
+        ->route('fi.composicion', [$this->opciones['datobasi']->sis_nnaj_id])
+        ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
+    }
+    
+    $this->opciones['edadxxxx'] = $edad;
+
     //Esconder campos según la edad
-    $this->opciones['autoriza'] = [];
+
+
+    $this->opciones['autoriza'] = $compofami[1];
     $this->opciones['sdocumen'] = '';
     $this->opciones['expedici'] = '';
+    $this->opciones['encalida'] = '';
+    $this->opciones['expedici'] = '';
+
+
     if ($edad >= 18) { // mayor de edad
-      $this->opciones['autoriza'] = [
-        $this->opciones['datobasi']->id =>
-        $this->opciones['datobasi']->s_primer_nombre . ' ' .
-          $this->opciones['datobasi']->s_segundo_nombre . ' ' .
-          $this->opciones['datobasi']->s_primer_apellido . ' ' .
-          $this->opciones['datobasi']->s_segundo_apellido . ' '
-      ];
+      $this->opciones['encalida'] = Parametro::where('id', 805)->first()->nombre;
       $this->opciones['expedici'] = $this->opciones['datobasi']->sis_pai->s_pais . ' ' . $this->opciones['datobasi']->sis_departamento->s_departamento . ' ' . $this->opciones['datobasi']->sis_municipio->s_municipio;
       $this->opciones['sdocumen'] = $this->opciones['datobasi']->s_documento;
-      $this->opciones['docrepre'] = [1 => 'NO APLICA'];
-      $this->opciones['docmened'] = [1 => 'NO APLICA'];
-      $this->opciones['readnomn'] = 'disabled';
-      $this->opciones['readedad'] = 'disabled';
-      $this->opciones['readdocu'] = 'disabled';
-      $this->opciones['readconc'] = 'disabled';
     } else { // menor de edad
-      $this->opciones['condicio'] = [1 => 'NO APLICA'];
-      $this->opciones['readnomr'] = 'disabled';
-      $this->opciones['readcedr'] = 'disabled';
-      $this->opciones['readluga'] = 'disabled';
+      //$this->opciones['condicio'] = [1 => 'NO APLICA'];
     }
 
     $this->opciones['estadoxx'] = 'ACTIVO';
@@ -182,5 +177,17 @@ class FiAutorizacionController extends Controller
   public function destroy(FiAutorizacion $objetoxx)
   {
     //
+  }
+  public function autoriza(Request $request,$nnajregi)
+  {
+    if ($request->ajax()) { 
+      $dataxxxx = $request->all();
+      $respuest=['sdocumen'=>' ','expedici'=>' '];
+      if($dataxxxx['padrexxx']!=''){
+        $compofam=FiComposicionFami::where('id',$dataxxxx['padrexxx'])->first();
+        $respuest=['sdocumen'=>$compofam->s_documento,'expedici'=>$compofam->sis_municipio->s_municipio.' ('.$compofam->sis_departamento->s_departamento.')'];
+      }
+      return response()->json($respuest);
+    }
   }
 }

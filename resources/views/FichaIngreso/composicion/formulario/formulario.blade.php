@@ -48,7 +48,33 @@
     {{ Form::label('s_documento', 'Número de Documento', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('s_documento', null, ['class' => 'form-control form-control-sm']) }}
   </div>
-
+  <div class="form-group col-md-4">
+    {{ Form::label('sis_pai_id', 'País de Expedición', ['class' => 'control-label']) }}
+    {{ Form::select('sis_pai_id', $todoxxxx['pais_idx'], null, ['class' => $errors->first('sis_pai_id') ? 'form-control sispaisx form-control-sm is-invalid listarxx' : 'form-control sispaisx form-control-sm listarxx']) }}
+    @if($errors->has('sis_pai_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('sis_pai_id') }}
+      </div>
+    @endif
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('sis_departamento_id', 'Departamento de Expedición', ['class' => 'control-label ']) }}
+    {{ Form::select('sis_departamento_id', $todoxxxx['departam'], null, ['class' => $errors->first('sis_departamento_id') ? 'form-control departam form-control-sm is-invalid listarxx' : 'form-control departam form-control-sm listarxx']) }}
+    @if($errors->has('sis_departamento_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('sis_departamento_id') }}
+      </div>
+    @endif
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('sis_municipio_id', 'Ciudad/Municipio de Expedición', ['class' => 'control-label']) }}
+    {{ Form::select('sis_municipio_id', $todoxxxx['municipi'], null, ['class' => $errors->first('sis_municipio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('sis_municipio_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('sis_municipio_id') }}
+      </div>
+    @endif
+  </div>
   <div class="form-group col-md-4">
     {{ Form::label('i_prm_ocupacion_id', 'Ocupación', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('i_prm_ocupacion_id', $todoxxxx["ocupacio"], null, ['class' => 'form-control form-control-sm']) }}

@@ -2,7 +2,11 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\sistema\SisDepartamento;
+use App\Models\sistema\SisMunicipio;
+use App\Models\sistema\SisPai;
 use App\Models\User;
+use Carbon\Carbon;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -20,11 +24,13 @@ class FiComposicionFami extends Model
     's_documento',
     'd_nacimiento',
     'i_prm_parentesco_id',
+    'sis_pai_id',
+    'sis_departamento_id',
+    'sis_municipio_id',
     'i_prm_ocupacion_id',
     'i_prm_vinculado_idipron_id',
     'i_prm_convive_nnaj_id',
     'fi_nucleo_familiar_id',
-    'sis_nnaj_id',
     'user_crea_id',
     'user_edita_id',
     'prm_documento_id',
@@ -43,7 +49,7 @@ class FiComposicionFami extends Model
   }
   public static function composicion($usuariox)
   {
-    $vestuari = ['composic' => FiComposicionFami::where('sis_nnaj_id', $usuariox)->first(), 'formular' => false];
+    $vestuari = ['composic' => FiComposicionFami::where('', $usuariox)->first(), 'formular' => false];
 
     if ($vestuari['composic'] == null) {
       $vestuari['formular'] = true;
@@ -65,7 +71,7 @@ class FiComposicionFami extends Model
       if ($objetoxx != '') {
         $objetoxx->update($dataxxxx);
       } else {
-        $nnajxxxx = FiDatosBasico::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])->first();
+        $nnajxxxx = FiDatosBasico::where('fi_nucleo_familiar_id', $dataxxxx['fi_nucleo_familiar_id'])->first();
         $dataxxxx['fi_nucleo_familiar_id'] = $nnajxxxx->fi_nucleo_familiar_id;
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiComposicionFami::create($dataxxxx);
@@ -76,13 +82,13 @@ class FiComposicionFami extends Model
     return $objetoxx;
   }
 
-  public static function combo($padrexxx,$cabecera, $ajaxxxxx)
+  public static function combo($padrexxx, $cabecera, $ajaxxxxx)
   {
     $comboxxx = [];
     if ($cabecera) {
       $comboxxx = ['' => 'Seleccione'];
     }
-    foreach (FiComposicionFami::where('fi_nucleo_familiar_id',$padrexxx->fi_nucleo_familiar_id)->get() as $registro) {
+    foreach (FiComposicionFami::where('fi_nucleo_familiar_id', $padrexxx->fi_nucleo_familiar_id)->get() as $registro) {
       if ($ajaxxxxx) {
         $comboxxx[] = [
           'valuexxx' => $registro->id,
@@ -95,5 +101,51 @@ class FiComposicionFami extends Model
       }
     }
     return $comboxxx;
+  }
+
+  /**
+   * Este método comprueba si existe un componte familiar mayor de edad para que sea el responsable del NNAJ
+   */
+  public static function getComboResponsable($padrexxx, $cabecera, $ajaxxxxx,$edadxxxx)
+  {
+    $redirect=true;
+    $comboxxx = [];
+    if ($cabecera &&$edadxxxx<18) {
+      $comboxxx = ['' => 'Seleccione'];
+    }
+    $compofam=FiComposicionFami::where(function($consulta) use($padrexxx,$edadxxxx){
+      $consulta->where('fi_nucleo_familiar_id', $padrexxx->fi_nucleo_familiar_id);
+      if($edadxxxx>=18){
+        $consulta->where('i_prm_parentesco_id', 805);
+      }
+      return $consulta;
+
+    })->get();
+    foreach ($compofam as $registro) {
+      $edad = Carbon::parse($registro->d_nacimiento)->age;
+      if ($edad >= 18) {
+        if ($ajaxxxxx) {
+          $comboxxx[] = [
+            'valuexxx' => $registro->id,
+            'optionxx' => $registro->s_primer_nombre . ' ' . $registro->s_segundo_nombre . ' ' .
+              $registro->s_primer_apellido . ' ' . $registro->s_segundo_apellido
+          ];
+        } else {
+          $comboxxx[$registro->id] = $registro->s_primer_nombre . ' ' . $registro->s_segundo_nombre . ' ' .
+            $registro->s_primer_apellido . ' ' . $registro->s_segundo_apellido;
+        }
+        $redirect=false;
+      }
+    }
+    return [$redirect,$comboxxx];
+  }
+  public function sis_pai(){
+    return $this->belongsTo(SisPai::class);
+  }
+  public function sis_departamento(){
+    return $this->belongsTo(SisDepartamento::class);
+  }
+  public function sis_municipio(){
+    return $this->belongsTo(SisMunicipio::class);
   }
 }

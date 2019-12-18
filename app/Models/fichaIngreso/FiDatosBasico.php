@@ -192,6 +192,7 @@ class FiDatosBasico extends Model
                     //DB::table($tablaxxx)->insert($dataxxxx);
                 } else {
                     /** Actualizar registro */
+                    $dataxxxx['fi_nucleo_familiar_id'] = $objetoxx->fi_nucleo_familiar_id;
                     $objetoxx->update($dataxxxx);
                 }
             } else {
@@ -202,7 +203,18 @@ class FiDatosBasico extends Model
                 $dataxxxx['i_prm_linea_base_id'] = 227;
                 $objetoxx = FiDatosBasico::create($dataxxxx);
                 
+                
             }
+            $dataxxxx['i_prm_ocupacion_id']=1262;
+            $dataxxxx['i_prm_parentesco_id']=805;
+            $dataxxxx['i_prm_vinculado_idipron_id']=227;
+            $dataxxxx['i_prm_convive_nnaj_id']=227;
+            $compofam=FiComposicionFami::where('fi_nucleo_familiar_id',$dataxxxx['fi_nucleo_familiar_id'])->first();
+            if($compofam==null){
+                $compofam='';
+            }
+            FiComposicionFami::transaccion($dataxxxx,$compofam);
+          
             IndicadorHelper::asignaLineaBase($objetoxx->sis_nnaj_id);
             return $objetoxx;
         }, 5);

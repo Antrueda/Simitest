@@ -9,25 +9,18 @@ use Illuminate\Support\Facades\DB;
 
 class FiAutorizacion extends Model{
   protected $fillable = [ 
-    's_nombre_mayor',
-    'i_documento_mayor',
-    's_lugarexp_mayor',
     'i_prm_autorizo_id',
-    'i_prm_parentesco_mayor_id',
-    's_nombre_nna',
-    'i_edad_nna',
-    'i_prm_documento_menor_id',
-    's_documento_nna',
-    's_persona_concerta',
-    'd_fecha_autorizacion',
+    'd_autorizacion',
     'i_prm_tipo_diligencia_id',
+    'i_prm_parentesco_id',
     'sis_nnaj_id', 
+    'fi_composicion_fami_id', 
     'user_crea_id', 
     'user_edita_id',
     'activo'
   ];
 
-  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1,'i_prm_parentesco_id'=>805];
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');
@@ -36,6 +29,11 @@ class FiAutorizacion extends Model{
   {
     return $this->hasMany(FiModalidad::class);
   }
+  public function fi_composicion_fami()
+  {
+    return $this->hasMany(FiComposicionFami::class);
+  }
+
   public function editor()
   {
     return $this->belongsTo(User::class, 'user_edita_id');
