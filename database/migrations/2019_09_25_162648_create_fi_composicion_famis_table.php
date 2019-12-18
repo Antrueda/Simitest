@@ -21,7 +21,7 @@ class CreateFiComposicionFamisTable extends Migration
             $table->string('s_primer_apellido');
             $table->string('s_segundo_apellido')->nullable();
             $table->string('s_nombre_identitario')->nullable();
-            $table->string('s_telefono')->nullable;
+            $table->string('s_telefono')->nullable();
             $table->string('s_documento')->unique();
             $table->date('d_nacimiento'); 
             $table->bigInteger('i_prm_ocupacion_id')->unsigned();

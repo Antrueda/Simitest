@@ -36,29 +36,39 @@ $(function(){
       language: "es"
     });
 
-    $('#i_prm_area_ajuste_id').change(function(){
-       $('#i_prm_subarea_ajuste_id').empty();
+var f_combo=function(dataxxxx){
+  $('#i_prm_subarea_ajuste_id').empty();
        $('#i_prm_subarea_ajuste_id').append('<option selected value="">Seleccione</option>');
       $.ajax({
         url: "{{ route('is.intervencion.subarea',$todoxxxx['nnajregi'])}}",
         type: 'POST',
         data: {_token: $("input[name='_token']").val(),
-           'areaxxxx':$(this).val(),
+           'areaxxxx':dataxxxx.valuexxx,
         },
         dataType: 'json',
-        success: function (json) {
+        success: function (json) { 
           $.each(json.subareax,function(id,data){
-              $('#i_prm_subarea_ajuste_id').append('<option value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+            var selected='';
+            if(data.valuexxx==dataxxxx.selected){
+              selected='selected';
+            }
+              $('#i_prm_subarea_ajuste_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
           });
         },
         error: function (xhr, status) {
           alert('Disculpe, existe un problema');
         }
       });
+}
+    @if(old('i_prm_area_ajuste_id')) 
+    f_combo({valuexxx:{{ old('i_prm_area_ajuste_id') }},selected:'{{ old("i_prm_subarea_ajuste_id") }}'})
+    @endif
+
+    $('#i_prm_area_ajuste_id').change(function(){
+      f_combo({valuexxx:$(this).val(),selected:''})
     });
 
   });
-
   function soloLetras(e) {
     key = e.keyCode || e.which;
     tecla = String.fromCharCode(key).toString();

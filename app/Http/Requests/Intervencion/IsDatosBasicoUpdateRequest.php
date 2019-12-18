@@ -93,5 +93,10 @@ class IsDatosBasicoUpdateRequest extends FormRequest
             $this->_mensaje['i_prm_avance_academ_id.required'] ='Seleccione el avance en subárea académica';
             $this->_reglasx['i_prm_avance_academ_id']='required';
         }
+// ddd(date('Y-m-d',time()).' => '.$dataxxxx['d_fecha_diligencia']);
+        if(date('Y-m-d',time())<$dataxxxx['d_fecha_diligencia']){
+            $this->_mensaje['fechamayor.required'] ='La fecha de dilegenciamiento no puede ser mayor a hoy';
+            $this->_reglasx['fechamayor']='required';
+        }
     }
 }

@@ -180,7 +180,7 @@
       <div class="form-row align-items-end">
         <div class="form-group col-md-4">
           {{ Form::label('d_fecha_proxima', 'Fecha Próxima Sesión', ['class' => 'control-label']) }}
-          {{ Form::date('d_fecha_proxima', \Carbon\Carbon::now(), ['class' => 'form-control form-control-sm', $todoxxxx["readonly"]]) }}
+          {{ Form::date('d_fecha_proxima', null, ['class' => 'form-control form-control-sm', $todoxxxx["readonly"]]) }}
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('i_prm_area_proxima_id', 'Área de ajuste a trabajar en la próxima sesión', ['class' => 'control-label']) }}
