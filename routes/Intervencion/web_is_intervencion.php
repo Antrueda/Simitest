@@ -40,4 +40,9 @@ Route::group(['prefix' => '{nnaj}/isintervencion'], function () {
 		'uses' => 'Intervencion\IsDatoBasicoController@lista',
 		'middleware' => ['permission:isintervencion-leer']
 	])->name('is.intervencion.lista');
+  
+   Route::get('intlista', [
+		'uses' => 'Intervencion\IsDatoBasicoController@intlista',
+		'middleware' => ['permission:isintervencion-leer|isintervencion-crear|isintervencion-editar|isintervencion-borrar']
+	])->name('is.intervencion.intlista');
 });

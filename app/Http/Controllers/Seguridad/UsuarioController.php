@@ -92,7 +92,7 @@ class UsuarioController extends Controller
         $this->opciones['sis_municipio_id'] = ['' => 'Seleccione'];
         if ($nombobje != '') {
             $objetoxx->d_carga=explode(' ',Carbon::now()->subDays($objetoxx->i_tiempo))[0] ;
-            $this->opciones['sis_municipio_id'] = SisMunicipio::combo($objetoxx->sis_departamentoexp_id, false);
+            $this->opciones['sis_municipio_id'] = SisMunicipio::combo($objetoxx->sis_municipio->sis_departamento_id, false);
             $objetoxx->sis_departamento_id = $objetoxx->sis_municipio->sis_departamento_id;
             $this->opciones[$nombobje] = $objetoxx;
         }
@@ -281,7 +281,7 @@ class UsuarioController extends Controller
             $dataxxxx = $request->all();
             // se asigna el rol
             $dato = User::findOrFail($dataxxxx['usuariox']);
-            $dato->sis_dependencias()->attach([$dataxxxx['dependen'] => ['activo' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]]);
+            $dato->sis_dependencias()->attach([$dataxxxx['dependen']]);
             return response()->json(User::dependencia($dato->id));
         }
     }
