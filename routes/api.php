@@ -200,7 +200,6 @@ Route::get('fi/fisaludenfermedad', function (Request $request) {
 	return datatables()
 		->eloquent(FiSalud::select(
 				'fi_enfermedades_familias.id',
-				'fi_composicion_famis.sis_nnaj_id',
 				'fi_saluds.sis_nnaj_id',
 				'fi_enfermedades_familias.activo',
 				'fi_composicion_famis.s_primer_nombre',
@@ -217,7 +216,8 @@ Route::get('fi/fisaludenfermedad', function (Request $request) {
 			->join('parametros as medicina', 'fi_enfermedades_familias.i_prm_recibe_medicina_id', '=', 'medicina.id')
 			->join('parametros as tratamiento', 'fi_enfermedades_familias.i_prm_rec_tratamiento_id', '=', 'tratamiento.id')
 			->join('fi_composicion_famis', 'fi_enfermedades_familias.fi_composicion_fami_id', '=', 'fi_composicion_famis.id')
-			->where('fi_saluds.activo', 1)->where('fi_saluds.sis_nnaj_id', $request->sis_nnaj_id))
+			->join('fi_datos_basicos', 'fi_composicion_famis.fi_nucleo_familiar_id', '=', 'fi_datos_basicos.fi_nucleo_familiar_id')
+			->where('fi_saluds.activo', 1)->where('fi_datos_basicos.sis_nnaj_id', $request->sis_nnaj_id))
 		->addColumn('btns', 'FichaIngreso/salud/datatable/botones')
 		->rawColumns(['btns'])
 		->toJson();

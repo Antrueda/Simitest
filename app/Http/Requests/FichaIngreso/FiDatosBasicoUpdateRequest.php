@@ -111,5 +111,9 @@ $this->_reglasx['s_documento'] = 'required';
         if (isset($unicoxx1->id) and isset($unicoxx0->id)){
             $this->_reglasx['s_documento'] = [ 'unique:fi_datos_basicos'];
         }
+        if ($dataxxxx['prm_doc_fisico_id'] == 228){
+            $this->_mensaje['i_prm_ayuda_id.required'] ='Seleccione porqué no tiene documento';
+            $this->_reglasx['i_prm_ayuda_id']='required';
+        }
     }
 }
