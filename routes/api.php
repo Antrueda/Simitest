@@ -167,7 +167,6 @@ Route::get('fi/fijrfamiliar', function (Request $request) {
 	return datatables()
 		->eloquent(FiJusticiaRestaurativa::select(
 				'fi_proceso_familias.id',
-				'fi_composicion_famis.sis_nnaj_id',
 				'fi_justicia_restaurativas.sis_nnaj_id',
 				'fi_proceso_familias.activo',
 				'fi_composicion_famis.s_primer_nombre',
@@ -185,7 +184,12 @@ Route::get('fi/fijrfamiliar', function (Request $request) {
 			->join('parametros as vigente', 'fi_proceso_familias.i_prm_vigente_id', '=', 'vigente.id')
 			->join('parametros as tiempo', 'fi_proceso_familias.i_prm_tipo_tiempo_id', '=', 'tiempo.id')
 			->join('fi_composicion_famis', 'fi_proceso_familias.fi_composicion_fami_id', '=', 'fi_composicion_famis.id')
-			->where('fi_justicia_restaurativas.activo', 1)->where('fi_justicia_restaurativas.sis_nnaj_id', $request->sis_nnaj_id))
+			->join('fi_datos_basicos', 'fi_composicion_famis.fi_nucleo_familiar_id', '=', 'fi_datos_basicos.fi_nucleo_familiar_id')
+			->where('fi_datos_basicos.activo', 1)
+			->where('fi_justicia_restaurativas.activo', 1)
+			->where('fi_datos_basicos.sis_nnaj_id', $request->sis_nnaj_id)
+		)
+		
 		->addColumn('btns', 'FichaIngreso/justicia/datatable/botones')
 		->rawColumns(['btns'])
 		->toJson();

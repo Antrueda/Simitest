@@ -13,33 +13,30 @@ use App\Models\sistema\SisPai;
 use App\Models\Tema;
 use Illuminate\Support\Carbon;
 
+class FiComposicionFamiController extends Controller {
 
-class FiComposicionFamiController extends Controller
-{
   private $opciones;
 
-  public function __construct()
-  {
+  public function __construct() {
     $this->middleware(['permission:ficomposicion-leer'], ['only' => ['show']]);
     $this->middleware(['permission:ficomposicion-crear'], ['only' => ['show, create, store']]);
     $this->middleware(['permission:ficomposicion-editar'], ['only' => ['show, edit, update']]);
     $this->middleware(['permission:ficomposicion-borrar'], ['only' => ['show, destroy']]);
     $this->opciones = [
-      'tituloxx' => 'Composición familiar',
-      'rutaxxxx' => 'FichaIngreso',
-      'accionxx' => '',
-      'permisox' => 'ficomposicion',
-      'volverax' => 'lista de NNAJ',
-      'readonly' => '',
-      'slotxxxx' => 'composicion',
-      'carpetax' => 'composicion',
-      'routxxxx' => 'fi.datobasico',
-      'routinde' => 'fi',
-      'routnuev' => 'fi.datobasico',
-      'modeloxx' => '',
-      'urlxxxxx' => 'api/fi/ficomposicionfamiliar',
-      'nuevoxxx' => 'o Registro',
-
+        'tituloxx' => 'Composición familiar',
+        'rutaxxxx' => 'FichaIngreso',
+        'accionxx' => '',
+        'permisox' => 'ficomposicion',
+        'volverax' => 'lista de NNAJ',
+        'readonly' => '',
+        'slotxxxx' => 'composicion',
+        'carpetax' => 'composicion',
+        'routxxxx' => 'fi.datobasico',
+        'routinde' => 'fi',
+        'routnuev' => 'fi.datobasico',
+        'modeloxx' => '',
+        'urlxxxxx' => 'api/fi/ficomposicionfamiliar',
+        'nuevoxxx' => 'o Registro',
     ];
     $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
     $this->opciones['parentes'] = Tema::combo(66, true, false);
@@ -50,36 +47,35 @@ class FiComposicionFamiController extends Controller
     $this->opciones['tipodocu'] = Tema::combo(3, true, false);
     $this->opciones['nacicomp'] = '';
     $this->opciones['cabecera'] = [
-      ['td' => 'Id'],
-      ['td' => 'PRIMER NOMBRE'],
-      ['td' => 'SEGUNDO NOMBRE'],
-      ['td' => 'PRIMER APELLIDO'],
-      ['td' => 'SEGUNDO APELLIDO'],
-      ['td' => 'DOCUMENTO'],
-      ['td' => 'ESTADO'],
+        ['td' => 'Id'],
+        ['td' => 'PRIMER NOMBRE'],
+        ['td' => 'SEGUNDO NOMBRE'],
+        ['td' => 'PRIMER APELLIDO'],
+        ['td' => 'SEGUNDO APELLIDO'],
+        ['td' => 'DOCUMENTO'],
+        ['td' => 'ESTADO'],
     ];
     $this->opciones['columnsx'] = [
-      ['data' => 'btns', 'name' => 'btns'],
-      ['data' => 'id', 'name' => 'fi_composicion_famis.id'],
-      ['data' => 's_primer_nombre', 'name' => 'fi_composicion_famis.s_primer_nombre'],
-      ['data' => 's_segundo_nombre', 'name' => 'fi_composicion_famis.s_segundo_nombre'],
-      ['data' => 's_primer_apellido', 'name' => 'fi_composicion_famis.s_primer_apellido'],
-      ['data' => 's_segundo_apellido', 'name' => 'fi_composicion_famis.s_segundo_apellido'],
-      ['data' => 's_documento', 'name' => 'fi_composicion_famis.s_documento'],
-      ['data' => 'activo', 'name' => 'fi_composicion_famis.activo'],
-
+        ['data' => 'btns', 'name' => 'btns'],
+        ['data' => 'id', 'name' => 'fi_composicion_famis.id'],
+        ['data' => 's_primer_nombre', 'name' => 'fi_composicion_famis.s_primer_nombre'],
+        ['data' => 's_segundo_nombre', 'name' => 'fi_composicion_famis.s_segundo_nombre'],
+        ['data' => 's_primer_apellido', 'name' => 'fi_composicion_famis.s_primer_apellido'],
+        ['data' => 's_segundo_apellido', 'name' => 'fi_composicion_famis.s_segundo_apellido'],
+        ['data' => 's_documento', 'name' => 'fi_composicion_famis.s_documento'],
+        ['data' => 'activo', 'name' => 'fi_composicion_famis.activo'],
     ];
   }
-  public function index($datobasi)
-  {
+
+  public function index($datobasi) {
     $this->opciones['esindexx'] = '';
     $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
     $this->opciones['nnajregi'] = $datobasi;
     $this->opciones['parametr'] = [$this->opciones['nnajregi']];
     return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
   }
-  private function view($objetoxx, $nombobje, $accionxx)
-  {
+
+  private function view($objetoxx, $nombobje, $accionxx) {
     $this->opciones['pais_idx'] = SisPai::combo(true, false);
 
     $this->opciones['estadoxx'] = 'ACTIVO';
@@ -110,29 +106,27 @@ class FiComposicionFamiController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function create($datobasi)
-  {
+  public function create($datobasi) {
     $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
     $this->opciones['nnajregi'] = $datobasi;
     return $this->view(true, '', 'Crear');
   }
-  private function grabar($dataxxxx, $objectx, $infoxxxx)
-  {
+
+  private function grabar($dataxxxx, $objectx, $infoxxxx, $datobasi) {
+    $dataxxxx['fi_nucleo_familiar_id'] = FiDatosBasico::usarioNnaj($datobasi)->fi_nucleo_familiar_id;
     return redirect()
-      ->route('fi.composicion.editar', [$dataxxxx['sis_nnaj_id'], FiComposicionFami::transaccion($dataxxxx, $objectx)->id])
-      ->with('info', $infoxxxx);
+                    ->route('fi.composicion.editar', [$dataxxxx['sis_nnaj_id'], FiComposicionFami::transaccion($dataxxxx, $objectx)->id])
+                    ->with('info', $infoxxxx);
   }
+
   /**
    * Store a newly created resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-
-
-  public function store(FiComposicionFamiCrearRequest $request)
-  {
-    return $this->grabar($request->all(), '', 'Composicion familiar creada con exito');
+  public function store(FiComposicionFamiCrearRequest $request, $datobasi) {
+    return $this->grabar($request->all(), '', 'Composicion familiar creada con exito', $datobasi);
   }
 
   /**
@@ -141,8 +135,7 @@ class FiComposicionFamiController extends Controller
    * @param  \App\Models\FiComposicionFami  $residencia
    * @return \Illuminate\Http\Response
    */
-  public function show(FiComposicionFami $reisidencia)
-  {
+  public function show(FiComposicionFami $reisidencia) {
     //
   }
 
@@ -152,12 +145,11 @@ class FiComposicionFamiController extends Controller
    * @param  \App\Models\FiComposicionFami  $objetoxx
    * @return \Illuminate\Http\Response
    */
-  public function edit($nnajregi,  FiComposicionFami $objetoxx)
-  {
+  public function edit($nnajregi, FiComposicionFami $objetoxx) {
     $this->opciones['nnajregi'] = $nnajregi;
     $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($this->opciones['nnajregi']);
 
-    return $this->view($objetoxx,  'modeloxx', 'Editar');
+    return $this->view($objetoxx, 'modeloxx', 'Editar');
   }
 
   /**
@@ -167,9 +159,8 @@ class FiComposicionFamiController extends Controller
    * @param  \App\Models\FiComposicionFami  $objetoxx
    * @return \Illuminate\Http\Response
    */
-  public function update(FiComposicionFamiUpdateRequest $request,  $db,  $id)
-  {
-    return $this->grabar($request->all(), FiComposicionFami::where('id', $id)->first(), 'Composicion familiar actualizada con exito');
+  public function update(FiComposicionFamiUpdateRequest $request, $datobasi, $id) {
+    return $this->grabar($request->all(), FiComposicionFami::where('id', $id)->first(), 'Composicion familiar actualizada con exito', $datobasi);
   }
 
   /**
@@ -178,9 +169,8 @@ class FiComposicionFamiController extends Controller
    * @param  \App\Models\FiComposicionFami  $objetoxx
    * @return \Illuminate\Http\Response
    */
-  public function destroy(FiComposicionFami $objetoxx)
-  {
+  public function destroy(FiComposicionFami $objetoxx) {
     //
   }
- 
+
 }
