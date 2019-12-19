@@ -103,7 +103,7 @@ class IsDatoBasicoController extends Controller {
     if ($fechaxxx[1] < 12) {
       $fechaxxx[1] = $fechaxxx[1] + 1;
     }
-    $tienper = auth()->user()->hasAnyPermission(['intervención sicosocial especializada;']);
+    $tienper = auth()->user()->hasAnyPermission(['intervención sicosocial especializada']);
     if (!$tienper) {
       unset($this->opciones['tipatenc']['1066']);
     }

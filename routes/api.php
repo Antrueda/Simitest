@@ -218,11 +218,7 @@ Route::get('is/intervencion', function (Request $request) {
   if (!$request->ajax())
     return redirect('/');
   //   
-  $tienper = auth()->user()
-          
-          //->hasAnyPermission(['intervención sicosocial especializada'])
-          ;
-          ddd($tienper);
+  $tienper = auth()->user()->hasAnyPermission(['intervención sicosocial especializada']);
   $actualxx = IsDatosBasico::select(
                           'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id', 'is_datos_basicos.sis_nnaj_id', 'tipoaten.nombre as tipoxxxx', 'is_datos_basicos.d_fecha_diligencia', 'sis_dependencias.nombre', 'users.s_primer_nombre', 'is_datos_basicos.activo'
                   )
