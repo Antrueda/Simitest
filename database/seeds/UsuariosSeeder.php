@@ -24,7 +24,7 @@ class UsuariosSeeder extends Seeder {
                 'i_prm_estado_id' => 1636,
                 'i_tiempo' => 30,
                 's_telefono' => '3173809970',
-                'prm_tvinculacion_id' => '4',
+                'prm_tvinculacion_id' => 1672,
                 's_matriculap' => 'ALGO',
                 'sis_cargo_id' => '1',
                 'd_vinculacion' => '2019-09-12',
@@ -47,7 +47,7 @@ class UsuariosSeeder extends Seeder {
                 'user_edita_id' => '1',
                 'i_prm_estado_id' => 1636,
                 's_telefono' => '3173809970',
-                'prm_tvinculacion_id' => '4',
+                'prm_tvinculacion_id' => 1672,
                 'i_tiempo' => 30,
                 's_matriculap' => 'ALGO',
                 'sis_cargo_id' => '1',
@@ -84,6 +84,55 @@ class UsuariosSeeder extends Seeder {
                 's_observacion' => 'observación del registro',
     ]);
     $super->assignRole('PSICÓLOGO(A)');
+
+    $super = User::create([
+                'name' => 'SOL MARINA RODRIGUEZ MARIN',
+                's_primer_nombre' => 'SOL',
+                's_segundo_nombre' => 'MARINA',
+                's_primer_apellido' => 'RODRIGUEZ',
+                's_segundo_apellido' => 'MARIN',
+                'email' => 'solr@idipron.gov.co',
+                'password' => '53141198',
+                'user_crea_id' => '1',
+                'user_edita_id' => '1',
+                'i_prm_estado_id' => 1636,
+                's_telefono' => '313848461',
+                'prm_tvinculacion_id' => '1673',
+                'i_tiempo' => 9,
+                's_matriculap' => '000',
+                'sis_cargo_id' => 5,
+                'd_finvinculacion' => '2019-09-12',
+                'd_vinculacion' => '2019-09-12',
+                's_documento' => '53141198',
+                'prm_documento_id' => 1,
+                'sis_municipio_id' => 233,
+                's_observacion' => 'observación del registro',
+    ]);
+    $super->assignRole('aux_administrativo_territorio');
+    $super = User::create([
+                'name' => 'LUZ FARYDE AYA CORRALES',
+                's_primer_nombre' => 'LUZ',
+                's_segundo_nombre' => 'FARYDE',
+                's_primer_apellido' => 'AYA',
+                's_segundo_apellido' => 'CORRALES',
+                'email' => 'LUZAC@IDIPRON.GOV.CO',
+                'password' => '52223097',
+                'user_crea_id' => '1',
+                'user_edita_id' => '1',
+                'i_prm_estado_id' => 1636,
+                's_telefono' => '313848461',
+                'prm_tvinculacion_id' => '1673',
+                'i_tiempo' => 9,
+                's_matriculap' => '000',
+                'sis_cargo_id' => 5,
+                'd_finvinculacion' => '2019-09-12',
+                'd_vinculacion' => '2019-09-12',
+                's_documento' => '52223097',
+                'prm_documento_id' => 1,
+                'sis_municipio_id' => 233,
+                's_observacion' => 'observación del registro',
+    ]);
+    $super->assignRole('aux_administrativo_territorio');
   }
 
 }
