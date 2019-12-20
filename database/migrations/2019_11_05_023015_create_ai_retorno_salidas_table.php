@@ -37,9 +37,23 @@ class CreateAiRetornoSalidasTable extends Migration{
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+
+        Schema::create('ai_retorno_salidas_condicion', function (Blueprint $table) {
+            $table->bigInteger('parametro_id')->unsigned();
+            $table->bigInteger('retorno_id')->unsigned();
+            $table->bigInteger('valor_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_edita_id')->unsigned();
+            $table->foreign('parametro_id')->references('id')->on('parametros');
+            $table->foreign('retorno_id')->references('id')->on('ai_retorno_salidas');
+            $table->foreign('valor_id')->references('id')->on('parametros');
+            $table->unique(['parametro_id', 'retorno_id']);
+            $table->engine = 'InnoDB';
+        });
     }
 
     public function down(){
+        Schema::dropIfExists('ai_retorno_salidas_condicion');
         Schema::dropIfExists('ai_retorno_salidas');
     }
 }

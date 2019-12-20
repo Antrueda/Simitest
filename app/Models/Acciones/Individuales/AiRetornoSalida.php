@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisDependencia;
+use App\Models\Parametro;
 
 class AiRetornoSalida extends Model{
     protected $fillable = [
@@ -35,5 +36,9 @@ class AiRetornoSalida extends Model{
 
     public function parentezco(){
         return $this->belongsTo(Parametro::class, 'prm_parentezco_id');
+    }
+
+    public function condiciones(){
+        return $this->belongsToMany(Parametro::class,'ai_retorno_salidas_condicion', 'retorno_id', 'parametro_id')->withPivot('valor_id');
     }
 }
