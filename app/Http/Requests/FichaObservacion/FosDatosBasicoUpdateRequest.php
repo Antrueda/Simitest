@@ -14,20 +14,20 @@ class FosDatosBasicoUpdateRequest extends FormRequest
         $this->_mensaje = [
             'sis_dependencia_id.required' => 'Seleccione la unidad de atención integral',
             'd_fecha_diligencia.required' => 'Seleccione la fecha de diligenciamiento',
-            'area_id.required' => 'Seleccione el área',
-            'tema_id.required' => 'Seleccione el tema',
-            'taller_id.required' => 'Seleccione el taller',
+            'prm_area_id.required' => 'Seleccione el área',
+            'prm_seguimiento_id.required' => 'Seleccione el tipo de seguimiento',
+            'prm_sub_tipo_id.required' => 'Seleccione el sub tipo de seguimiento',
             's_observacion.required' => 'Escriba la observación',
-            'fi_composicion_fami_id.required' => 'Escriba el acudiente',
+            //'fi_composicion_fami_id.required' => 'Escriba el acudiente',
         ];
         $this->_reglasx = [
             'sis_dependencia_id' => ['Required'],
             'd_fecha_diligencia' => ['Required'],
-            'area_id' => ['Required'],
-            'tema_id' => ['Required'],
-            'taller_id' => ['Required'],
+            'prm_area_id' => ['Required'],
+            'prm_seguimiento_id' => ['Required'],
+            'prm_sub_tipo_id' => ['Required'],
             's_observacion' => ['Required'],
-            'fi_composicion_fami_id' => ['Required'],
+            //'fi_composicion_fami_id' => ['Required'],
         ];
     }
     /**

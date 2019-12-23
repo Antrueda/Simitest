@@ -2,10 +2,9 @@
 @section('content')
    @component('FichaObservacion.datatable.index', ['todoxxxx'=>$todoxxxx])
       @slot('tableName')
-      tabla
+         tabla
       @endslot
       @slot('class')
       @endslot
-      
-    @endcomponent 
+   @endcomponent
 @endsection

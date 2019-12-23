@@ -48,7 +48,6 @@ class FosController extends Controller
             ['data' => 's_segundo_apellido', 'name' => 's_segundo_apellido'],
             ['data' => 's_apodo',            'name' => 's_apodo'],
         ];
-        //dd($this->opciones['columnsx2']);
         $this->opciones['parametr'] = [];
         return view('fichaobservacion.indexw', ['todoxxxx' => $this->opciones]);
     }
