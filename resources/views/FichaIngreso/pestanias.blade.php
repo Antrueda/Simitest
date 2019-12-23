@@ -8,9 +8,21 @@
         @include('layouts.components.botones.botones')
       @else
         @if($todoxxxx['modeloxx']=='')
-          {!!Form::open(['route'=>['fi.'.$todoxxxx['carpetax'].'.crear',$todoxxxx['nnajregi']]])!!}
+          @if(isset($todoxxxx['archivox']))
+            {!!Form::open(['route'=>[$todoxxxx['routxxxx'].'.crear',$todoxxxx['nnajregi'],$todoxxxx['razonesx']],'files'=>true])!!}
+          @else
+            {!!Form::open(['route'=>['fi.'.$todoxxxx['carpetax'].'.crear',$todoxxxx['nnajregi']]])!!}
+          @endif
+          
         @else
-          {!! Form::model($todoxxxx['modeloxx'],['route'=>['fi.'.$todoxxxx['carpetax'].'.editar',$todoxxxx['nnajregi'],$todoxxxx['modeloxx']->id],'method'=>'PUT']) !!}
+          @if(isset($todoxxxx['archivox']))
+            {!! Form::model($todoxxxx['modeloxx'],['route'=>[$todoxxxx['routxxxx'].'.editar',
+            $todoxxxx['nnajregi'],$todoxxxx['razonesx'],$todoxxxx['modeloxx']->id],'method'=>'PUT','files'=>true]) !!}
+          @else
+            {!! Form::model($todoxxxx['modeloxx'],['route'=>['fi.'.$todoxxxx['carpetax'].'.editar',
+            $todoxxxx['nnajregi'],$todoxxxx['modeloxx']->id],'method'=>'PUT']) !!}
+          @endif
+          
         @endif
         <input id="sis_nnaj_id" name="sis_nnaj_id" type="hidden" value="{{ $todoxxxx['nnajregi'] }}">
         @include('layouts.components.botones.botones')

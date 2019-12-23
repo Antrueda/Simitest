@@ -3,15 +3,13 @@
 namespace App\Http\Controllers\FichaIngreso;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaIngreso\FiRazoneCrearRequest;
-use App\Http\Requests\FichaIngreso\FiRazoneUpdateRequest;
+use App\Http\Requests\FichaIngreso\FiRazoneArchivoCrearRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\Tema;
 use App\Models\User;
-use Illuminate\Http\Request;
 
-class FiRazoneController extends Controller {
+class FiRazonArchivoController extends Controller {
 
   private $opciones;
 
@@ -28,23 +26,19 @@ class FiRazoneController extends Controller {
         'readonly' => '',
         'slotxxxx' => 'razones',
         'carpetax' => 'razones',
-        'routxxxx' => 'fi.datobasico',
+        'routxxxx' => 'fi.archivos',
         'routinde' => 'fi',
-        'routnuev' => 'fi.datobasico',
+        'routnuev' => 'fi.archivos',
         'modeloxx' => '',
-        'nuevoxxx' => 'o Registro'
+        'permisox' => 'firazones',
+        'nuevoxxx' => 'o Registro',
+        'archivox' => ''
     ];
-    $this->opciones['docanexa'] = Tema::combo(155, false, false);
-    $this->opciones['estaingr'] = Tema::combo(303, true, false);
+
+   
   }
 
   private function view($objetoxx, $nombobje, $accionxx) {
-    $this->opciones['permisox'] = 'firazones';
-    $this->opciones['routnuev'] = 'fi.archivos';
-    $this->opciones['routxxxx'] = 'fi.archivos';
-
-  $this->opciones['urlxxxxx'] = 'api/fi/razonarichivo';
-    $this->opciones['parametr'] = [$this->opciones['nnajregi'], $objetoxx->id];
     $this->opciones['cabecera'] = [
         ['td' => 'ID'],
         ['td' => 'DOCUMENTO'],
@@ -57,26 +51,25 @@ class FiRazoneController extends Controller {
         ['data' => 'nombre', 'name' => 'parametros.nombre'],
         ['data' => 'activo', 'name' => 'fi_documentos_anexas.activo'],
     ];
+
+    $this->opciones['permisox'] = 'firazones';
+    $this->opciones['urlxxxxx'] = 'api/fi/razonarichivo';
+    $this->opciones['parametr'] = [$this->opciones['nnajregi'], $this->opciones['razonesx']];
+
+
+
     $this->opciones['usuarios'] = User::combo(true, false);
     $this->opciones['estadoxx'] = 'ACTIVO';
     $this->opciones['accionxx'] = $accionxx;
-
-    $this->opciones['depedile'] = [];
-    $this->opciones['deperesp'] = [];
-    $this->opciones['cargodil'] = '';
-    $this->opciones['cargores'] = '';
     // indica si se esta actualizando o viendo
-
+    $dataxxxx=['razonesx'=>$this->opciones['razonesx'],'selected'=>''];
     if ($nombobje != '') {
+      $dataxxxx['selected']= $objetoxx->i_prm_documento_id;
       $this->opciones[$nombobje] = $objetoxx;
-      $dilegenc = User::comboDependencia($objetoxx->userd_id, false, false);
-      $responsa = User::comboDependencia($objetoxx->userr_id, false, false);
-      $this->opciones['depedile'] = $dilegenc[0];
-      $this->opciones['deperesp'] = $responsa[0];
-      $this->opciones['cargodil'] = $dilegenc[1];
-      $this->opciones['cargores'] = $responsa[1];
       $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
     }
+     $this->opciones['docanexa'] = Tema::combo(155, false, false,$dataxxxx);
+    $this->opciones['estaingr'] = Tema::combo(303, true, false);
     $this->opciones['docuanex'] = FiRazone::getDocumento($objetoxx);
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
@@ -88,26 +81,21 @@ class FiRazoneController extends Controller {
    *
    * @return \Illuminate\Http\Response
    */
-  public function create($datobasi) {
-    $this->opciones['razonesx'] = FiRazone::razones($datobasi);
+  public function create($datobasi, $razonesx) {
     $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    $vestuari = FiRazone::where('sis_nnaj_id', $this->opciones['datobasi']->sis_nnaj_id)->first();
-    if ($vestuari != null) {
-      return redirect()
-                      ->route('fi.razones.editar', [$datobasi, $vestuari->id]);
-    }
+    $this->opciones['razonesx'] = $razonesx;
     $this->opciones['nnajregi'] = $datobasi;
     return $this->view('', '', 'Crear');
   }
 
-  private function grabar($dataxxxx, $objetoxx, $infoxxxx, $nnajxxxx) {
-    $dataxxxx = ['requestx' => $dataxxxx, 'nombarch' => 'archivo'];
+  private function grabar($dataxxxx, $objetoxx, $infoxxxx, $nnajxxxx, $razonesx) {
+    $dataxxxx = ['requestx' => $dataxxxx, 'nombarch' => 's_doc_adjunto'];
     $archivos = new \App\Helpers\Archivos\Archivos();
-    $archivox = $archivos->getRuta($dataxxxx);
-    //ddd($dataxxxx);
+    $dataxxxx['requestx']->request->add(['s_ruta'=>$archivos->getRuta($dataxxxx)]);
+    $dataxxxx['requestx']->request->add(['fi_razone_id'=>$razonesx]);
     return redirect()
-                    ->route('fi.razones.editar', [$nnajxxxx,
-                        FiRazone::transaccion($dataxxxx['requestx']->all(), $objetoxx)->id])
+                    ->route('fi.archivos.editar', [$nnajxxxx,$razonesx,
+                        \App\Models\fichaIngreso\FiDocumentosAnexa::transaccion($dataxxxx['requestx']->all(), $objetoxx)->id])
                     ->with('info', $infoxxxx);
   }
 
@@ -117,9 +105,8 @@ class FiRazoneController extends Controller {
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(FiRazoneCrearRequest $request, $nnajxxxx) {
-
-    return $this->grabar($request, '', 'Razones para ingreso creados creada con exito', $nnajxxxx);
+  public function store(FiRazoneArchivoCrearRequest $request, $nnajxxxx, $razonesx) {
+    return $this->grabar($request, '', 'Razones para ingreso creados creada con exito', $nnajxxxx, $razonesx);
   }
 
   /**
@@ -128,7 +115,7 @@ class FiRazoneController extends Controller {
    * @param  \App\Models\FiRazone  $objetoxx
    * @return \Illuminate\Http\Response
    */
-  public function show(FiRazone $objetoxx) {
+  public function show($nnajregi, $razonesx, \App\Models\fichaIngreso\FiDocumentosAnexa $objetoxx) {
     //
   }
 
@@ -138,9 +125,10 @@ class FiRazoneController extends Controller {
    * @param  \App\Models\FiRazone  $objetoxx
    * @return \Illuminate\Http\Response
    */
-  public function edit($nnajregi, FiRazone $objetoxx) {
+  public function edit($nnajregi, $razonesx, \App\Models\fichaIngreso\FiDocumentosAnexa $objetoxx) {
     $this->opciones['razonesx'] = FiRazone::razones($nnajregi);
     $this->opciones['nnajregi'] = $nnajregi;
+    $this->opciones['razonesx'] = $razonesx;
     $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($this->opciones['nnajregi']);
     return $this->view($objetoxx, 'modeloxx', 'Editar');
   }
@@ -152,8 +140,8 @@ class FiRazoneController extends Controller {
    * @param  \App\Models\FiRazone  $objetoxx
    * @return \Illuminate\Http\Response
    */
-  public function update(FiRazoneUpdateRequest $request, $nnajxxxx, $id) {
-    return $this->grabar($request, FiRazone::where('id', $id)->first(), 'Razones para ingreso actualizados con exito', $nnajxxxx);
+  public function update(FiRazoneArchivoCrearRequest $request, $nnajxxxx, $razonesx, $id) {
+    return $this->grabar($request, \App\Models\fichaIngreso\FiDocumentosAnexa::where('id', $id)->first(), 'Razones para ingreso actualizados con exito', $nnajxxxx, $razonesx);
   }
 
   /**
@@ -162,31 +150,8 @@ class FiRazoneController extends Controller {
    * @param  \App\Models\FiRazone  $objetoxx
    * @return \Illuminate\Http\Response
    */
-  public function destroy(FiRazone $objetoxx) {
+  public function destroy($nnajregi, $razonesx, \App\Models\fichaIngreso\FiDocumentosAnexa $objetoxx) {
     //
-  }
-
-  public function cargos(Request $request, $nnajxxxx) {
-    if ($request->ajax()) {
-      $dataxxxx = $request->all();
-      $respuest = ['comboxxx' => [], 'campoxxx' => '', 'cargoxxx' => '', 'campcarg' => ''];
-      switch ($dataxxxx['campoxxx']) {
-        case 'userd_id':
-          $respuest['campcarg'] = '#s_cargo_diligencia';
-          $respuest['campoxxx'] = '#sis_dependenciad_id';
-          break;
-        case 'userr_id':
-          $respuest['campcarg'] = '#s_cargo_responsable';
-          $respuest['campoxxx'] = '#sis_dependenciar_id';
-          break;
-      }
-      if ($dataxxxx['valuexxx'] != '') {
-        $usuariox = User::comboDependencia($dataxxxx['valuexxx'], true, true);
-        $respuest['comboxxx'] = $usuariox[0];
-        $respuest['cargoxxx'] = $usuariox[1];
-      }
-      return response()->json($respuest);
-    }
   }
 
 }

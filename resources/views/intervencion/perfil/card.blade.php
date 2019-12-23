@@ -18,7 +18,7 @@
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('d_fecha_diligencia', 'Fecha Diligenciamiento', ['class' => 'control-label']) }}
-          {{ Form::date('d_fecha_diligencia', \Carbon\Carbon::now(), ['class' => 'form-control form-control-sm',$todoxxxx["readonly"]]) }}
+          {{ Form::date('d_fecha_diligencia', null, ['class' => 'form-control form-control-sm',$todoxxxx["readonly"]]) }}
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('i_prm_tipo_atencion_id', 'Tipo de Atención', ['class' => 'control-label']) }}
