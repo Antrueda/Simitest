@@ -10,8 +10,6 @@ use App\Models\intervencion\IsDatosBasico;
 use App\Models\sistema\SisDependencia;
 use App\Models\User;
 use App\Models\Tema;
-use Carbon\Carbon;
-use DateTime;
 use Illuminate\Http\Request;
 
 class IsDatoBasicoController extends Controller {
@@ -45,7 +43,7 @@ class IsDatoBasicoController extends Controller {
     $this->opciones['disptabx'] = "block";
     $this->opciones['permisox'] = 'isintervencion';
     $this->opciones['tipatenc'] = Tema::combo(213, true, false);
-   
+
     $this->opciones['areajust'] = Tema::combo(212, true, false);
     $this->opciones['arjustpr'] = Tema::combo(212, false, false);
     $this->opciones['subemoci'] = Tema::combo(162, true, false);
@@ -62,7 +60,7 @@ class IsDatoBasicoController extends Controller {
   public function index(Request $request) {
     $this->opciones['cabecera'] = [
         ['td' => 'Id'],
-        ['td' => 'PRIMER NOMBRE'],
+        ['td' => 'PRIMER NOMBRErr'],
         ['td' => 'SEGUNDO NOMBRE'],
         ['td' => 'DOCUMENTO'],
         ['td' => 'ESTADO'],
@@ -104,6 +102,8 @@ class IsDatoBasicoController extends Controller {
       $fechaxxx[1] = $fechaxxx[1] + 1;
     }
     $tienper = auth()->user()->hasAnyPermission(['intervención sicosocial especializada']);
+
+
     if (!$tienper) {
       unset($this->opciones['tipatenc']['1066']);
     }
@@ -128,6 +128,13 @@ class IsDatoBasicoController extends Controller {
     // indica si se esta actualizando o viendo
     $this->opciones['aniosxxx'] = '';
     if ($nombobje != '') {
+
+      if (!$tienper && $objetoxx->i_prm_tipo_atencion_id == 1066) {
+        return redirect()
+                        ->route('is.intervencion.lista',[$this->opciones['nnajregi']])
+                        ->with('info', 'Superfil no está autorizado para ver intervenciones sicosociales especializadas');
+      }
+
       $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
       $this->opciones[$nombobje] = $objetoxx;
       $this->opciones['subareas'] = $this->casos($objetoxx->i_prm_area_ajuste_id, true, false);
@@ -247,22 +254,17 @@ class IsDatoBasicoController extends Controller {
 
   public function intlista(Request $request, $nnajxxxx) {
     if ($request->ajax()) {
-
-      $actualxx = IsDatosBasico::select(
-                      'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id', 'is_datos_basicos.sis_nnaj_id', 'tipoaten.nombre as tipoxxxx', 'is_datos_basicos.d_fecha_diligencia', 'sis_dependencias.nombre', 'users.s_primer_nombre', 'is_datos_basicos.activo'
+      $actualxx = IsDatosBasico::select([
+                  'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id', 'is_datos_basicos.sis_nnaj_id', 'tipoaten.nombre as tipoxxxx',
+                  'is_datos_basicos.d_fecha_diligencia', 'sis_dependencias.nombre', 'users.s_primer_nombre', 'is_datos_basicos.activo']
               )
               ->join('sis_dependencias', 'is_datos_basicos.sis_dependencia_id', '=', 'sis_dependencias.id')
               ->join('users', 'is_datos_basicos.i_primer_responsable', '=', 'users.id')
               ->join('parametros as tipoaten', 'is_datos_basicos.i_prm_tipo_atencion_id', '=', 'tipoaten.id')
-              ->where(function($queryxxx) use($request, $nnajxxxx) {
+              ->where(function($queryxxx) use($nnajxxxx) {
         $queryxxx->where('is_datos_basicos.activo', 1)->where('is_datos_basicos.sis_nnaj_id', $nnajxxxx);
-        $tienper = auth()->user()->hasAnyPermission(['intervención sicosocial especializada']);
-
-        if (!$tienper) {
-          $queryxxx->whereNotIn('is_datos_basicos.i_prm_tipo_atencion_id', [1066]);
-          //$queryxxx->where('fi_red_apoyo_actuals.activo', 1)->where('fi_red_apoyo_actuals.sis_nnaj_id', $request->all()['nnajxxxx']);
-        }
-      });
+      })
+      ;
 
 
       return datatables()

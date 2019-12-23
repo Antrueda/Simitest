@@ -43,7 +43,7 @@ class FiRazoneController extends Controller {
     $this->opciones['routnuev'] = 'fi.archivos';
     $this->opciones['routxxxx'] = 'fi.archivos';
 
-  $this->opciones['urlxxxxx'] = 'api/fi/razonarichivo';
+    $this->opciones['urlxxxxx'] = 'api/fi/razonarichivo';
     $this->opciones['parametr'] = [$this->opciones['nnajregi'], $objetoxx->id];
     $this->opciones['cabecera'] = [
         ['td' => 'ID'],
@@ -56,6 +56,10 @@ class FiRazoneController extends Controller {
         ['data' => 'id', 'name' => 'fi_documentos_anexas.id'],
         ['data' => 'nombre', 'name' => 'parametros.nombre'],
         ['data' => 'activo', 'name' => 'fi_documentos_anexas.activo'],
+    ];
+    $this->opciones['dataxxxx'] = [
+        ['campoxxx' => 'nnajxxxx', 'dataxxxx' => $this->opciones['nnajregi']],
+        ['campoxxx' => 'botonesx', 'dataxxxx' => 'FichaIngreso/Razones/botones/botonesapi']
     ];
     $this->opciones['usuarios'] = User::combo(true, false);
     $this->opciones['estadoxx'] = 'ACTIVO';

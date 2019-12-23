@@ -34,8 +34,6 @@ class FiRazonArchivoController extends Controller {
         'nuevoxxx' => 'o Registro',
         'archivox' => ''
     ];
-
-   
   }
 
   private function view($objetoxx, $nombobje, $accionxx) {
@@ -56,19 +54,22 @@ class FiRazonArchivoController extends Controller {
     $this->opciones['urlxxxxx'] = 'api/fi/razonarichivo';
     $this->opciones['parametr'] = [$this->opciones['nnajregi'], $this->opciones['razonesx']];
 
-
+    $this->opciones['dataxxxx'] = [
+        ['campoxxx' => 'nnajxxxx', 'dataxxxx' => $this->opciones['nnajregi']],
+        ['campoxxx' => 'botonesx', 'dataxxxx' => 'FichaIngreso/Razones/botones/botonesapi']
+    ];
 
     $this->opciones['usuarios'] = User::combo(true, false);
     $this->opciones['estadoxx'] = 'ACTIVO';
     $this->opciones['accionxx'] = $accionxx;
     // indica si se esta actualizando o viendo
-    $dataxxxx=['razonesx'=>$this->opciones['razonesx'],'selected'=>''];
+    $dataxxxx = ['razonesx' => $this->opciones['razonesx'], 'selected' => ''];
     if ($nombobje != '') {
-      $dataxxxx['selected']= $objetoxx->i_prm_documento_id;
+      $dataxxxx['selected'] = $objetoxx->i_prm_documento_id;
       $this->opciones[$nombobje] = $objetoxx;
       $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
     }
-     $this->opciones['docanexa'] = Tema::combo(155, false, false,$dataxxxx);
+    $this->opciones['docanexa'] = Tema::combo(155, false, false, $dataxxxx);
     $this->opciones['estaingr'] = Tema::combo(303, true, false);
     $this->opciones['docuanex'] = FiRazone::getDocumento($objetoxx);
     // Se arma el titulo de acuerdo al array opciones
@@ -91,10 +92,10 @@ class FiRazonArchivoController extends Controller {
   private function grabar($dataxxxx, $objetoxx, $infoxxxx, $nnajxxxx, $razonesx) {
     $dataxxxx = ['requestx' => $dataxxxx, 'nombarch' => 's_doc_adjunto'];
     $archivos = new \App\Helpers\Archivos\Archivos();
-    $dataxxxx['requestx']->request->add(['s_ruta'=>$archivos->getRuta($dataxxxx)]);
-    $dataxxxx['requestx']->request->add(['fi_razone_id'=>$razonesx]);
+    $dataxxxx['requestx']->request->add(['s_ruta' => $archivos->getRuta($dataxxxx)]);
+    $dataxxxx['requestx']->request->add(['fi_razone_id' => $razonesx]);
     return redirect()
-                    ->route('fi.archivos.editar', [$nnajxxxx,$razonesx,
+                    ->route('fi.archivos.editar', [$nnajxxxx, $razonesx,
                         \App\Models\fichaIngreso\FiDocumentosAnexa::transaccion($dataxxxx['requestx']->all(), $objetoxx)->id])
                     ->with('info', $infoxxxx);
   }

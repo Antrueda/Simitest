@@ -1,12 +1,12 @@
 <script>
   $(document).ready(function() {
   var dataurlx = '';
-  @if (isset($todoxxxx['nnajregi']))
+          @if (isset($todoxxxx['nnajregi']))
           dataurlx = {
           url:"{{ url($todoxxxx['urlxxxxx'])  }}",
                   data:{nnajxxxx:{{ $todoxxxx['nnajregi'] }}}
           }
-  @ else
+  @else
           dataurlx = {
           url:"{{ url($todoxxxx['urlxxxxx'])  }}"
           }

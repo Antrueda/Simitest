@@ -244,14 +244,17 @@ Route::get('fi/actividad', function (Request $request) {
 Route::get('fi/razonarichivo', function (Request $request) {
   if (!$request->ajax())
     return redirect('/');
-  $document = \App\Models\fichaIngreso\FiRazone::select(['fi_documentos_anexas.id', 'fi_razones.sis_nnaj_id', 'fi_documentos_anexas.fi_razone_id', 
-      'fi_documentos_anexas.activo', 'parametros.nombre'])
+
+  $document = \App\Models\fichaIngreso\FiRazone::select(['fi_documentos_anexas.id', 'fi_razones.sis_nnaj_id', 'fi_documentos_anexas.fi_razone_id',
+              'fi_documentos_anexas.activo', 'parametros.nombre'])
           ->join('fi_documentos_anexas', 'fi_razones.id', '=', 'fi_documentos_anexas.fi_razone_id')
           ->join('parametros', 'fi_documentos_anexas.i_prm_documento_id', '=', 'parametros.id')
-          ->where('fi_documentos_anexas.activo', 1);
+          ->where('fi_documentos_anexas.activo', 1)
+          ->where('fi_razones.sis_nnaj_id', $request->all()['nnajxxxx'])
+  ;
   return datatables()
                   ->eloquent($document)
-                  ->addColumn('btns', 'FichaIngreso/Razones/botones/botonesapi')
+                  ->addColumn('btns', $request->all()['botonesx'])
                   ->rawColumns(['btns'])
                   ->toJson();
 });
