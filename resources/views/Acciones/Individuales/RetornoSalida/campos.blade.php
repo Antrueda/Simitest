@@ -48,21 +48,29 @@
 <hr>
 <div class="row">
   <div class="col-md-6">
-    @foreach ($condiciones as $condicion)
+    @foreach ($condiciones as $k => $condicion)
       <div class="row mt-2">
         <div class="col-md-6">
           <label for="{{ $condicion }}">{{ $condicion }}</label>
         </div>
         <div class="col-md-6">
-          {{ Form::select('', $sino, null, ['class' => $errors->first('') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-          @if($errors->has(''))
-            <div class="invalid-feedback d-block">
-              {{ $errors->first('') }}
-            </div>
+          @if (!isset($valor))
+            {{ Form::select('condiciones['.$k.']', $sino, null, ['class' => $errors->first('') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+          @else
+            <select class="form-control form-control-sm" name="condiciones[{{ $k }}]">
+              @foreach ($sino as $a => $b)
+                <option value="{{ $a }}"{{ ($valor->condiciones->where('id', $k)->first()->pivot->valor_id == $a) ? ' selected' : '' }}>{{ $b }}</option>
+              @endforeach
+            </select>
           @endif
         </div>
       </div>
     @endforeach
+    @if($errors->has('condiciones'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('') }}
+      </div>
+    @endif
   </div>
   <div class="col-md-6">
     {{ Form::label('descripcion', 'Descripcion de la condición física y comportamentales en que regresa el/la NNA:', ['class' => 'control-label col-form-label-sm']) }}
