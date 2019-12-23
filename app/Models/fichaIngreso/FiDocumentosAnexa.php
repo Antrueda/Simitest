@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\Tema;
 class FiDocumentosAnexa extends Model {
 
   protected $fillable = [
@@ -69,6 +69,48 @@ class FiDocumentosAnexa extends Model {
               return $objetoxx;
             }, 5);
     return $usuariox;
+  }
+
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @param  $temaxxxx tema que padre de los parámetros
+   * @param  $cabecera indica si el combo se debe devolver con el seleccione
+   * @param  $ajaxxxxx indica si el combo es para devolver en array para objeto json
+   * @return $comboxxx
+   */
+  public static function comboTema($dataxxxx) {
+    $comboxxx = [];
+    if ($dataxxxx['cabecera']) {
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+      } else {
+        $comboxxx = ['' => 'Seleccione'];
+      }
+    }
+    $temaxxxy = Tema::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
+                    ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
+                    ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
+                    ->where(function ($queryxxx) use($dataxxxx) {
+                      $queryxxx->where('temas.id', $dataxxxx['temaxxxx']);
+                      $document = FiDocumentosAnexa::where('fi_razone_id', $dataxxxx['razonesx'])->get();
+                      $notinxxx = [];
+                      foreach ($document as $documenx) {
+                        if ($documenx->i_prm_documento_id != $dataxxxx['selected']) {
+                          $notinxxx[] = $documenx->i_prm_documento_id;
+                        }
+                      }
+                      $queryxxx->whereNotIn('parametros.id', $notinxxx);
+                    }
+                    )->get();
+    foreach ($temaxxxy as $registro) {
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
+      } else {
+        $comboxxx[$registro->valuexxx] = $registro->optionxx;
+      }
+    }
+    return $comboxxx;
   }
 
 }

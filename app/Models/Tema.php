@@ -26,7 +26,7 @@ class Tema extends Model {
    * @param  $ajaxxxxx indica si el combo es para devolver en array para objeto json
    * @return $comboxxx
    */
-  public static function combo($temaxxxx, $cabecera, $ajaxxxxx, $dataxxxx = false) {
+  public static function combo($temaxxxx, $cabecera, $ajaxxxxx) {
     $comboxxx = [];
     if ($cabecera) {
       if ($ajaxxxxx) {
@@ -35,25 +35,13 @@ class Tema extends Model {
         $comboxxx = ['' => 'Seleccione'];
       }
     }
-    $temaxxxy = Tema::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
-                    ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
-                    ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
-                    ->where(function ($queryxxx) use($temaxxxx, $dataxxxx) {
-                      $queryxxx->where('temas.id', $temaxxxx);
-
-                      if ($dataxxxx != false) {
-                        $document = fichaIngreso\FiDocumentosAnexa::where('fi_razone_id', $dataxxxx['razonesx'])->get();
-                        $notinxxx = [];
-                        foreach ($document as $documenx) {
-                          if ($documenx->i_prm_documento_id != $dataxxxx['selected']) {
-                            $notinxxx[] = $documenx->i_prm_documento_id;
-                          }
-                        }
-                        $queryxxx->whereNotIn('parametros.id', $notinxxx);
-                      }
-                    }
-                    )->get();
-    foreach ($temaxxxy as $registro) {
+    $parametr = Tema::select(['parametros.id', 'parametros.nombre'])
+            ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
+            ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
+            ->where('temas.id', $temaxxxx)
+            ->orderBy('parametros.id', 'asc')
+            ->get();
+    foreach ($parametr as $registro) {
       if ($ajaxxxxx) {
         $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
       } else {

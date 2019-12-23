@@ -8,7 +8,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\Tema;
 use App\Models\User;
-
+use App\Models\fichaIngreso\FiDocumentosAnexa;
 class FiRazonArchivoController extends Controller {
 
   private $opciones;
@@ -63,13 +63,13 @@ class FiRazonArchivoController extends Controller {
     $this->opciones['estadoxx'] = 'ACTIVO';
     $this->opciones['accionxx'] = $accionxx;
     // indica si se esta actualizando o viendo
-    $dataxxxx = ['razonesx' => $this->opciones['razonesx'], 'selected' => ''];
+    $dataxxxx = ['razonesx' => $this->opciones['razonesx'], 'selected' => '','temaxxxx'=>155, 'cabecera'=>false, 'ajaxxxxx'=>false];
     if ($nombobje != '') {
       $dataxxxx['selected'] = $objetoxx->i_prm_documento_id;
       $this->opciones[$nombobje] = $objetoxx;
       $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
     }
-    $this->opciones['docanexa'] = Tema::combo(155, false, false, $dataxxxx);
+    $this->opciones['docanexa'] = FiDocumentosAnexa::comboTema($dataxxxx);
     $this->opciones['estaingr'] = Tema::combo(303, true, false);
     $this->opciones['docuanex'] = FiRazone::getDocumento($objetoxx);
     // Se arma el titulo de acuerdo al array opciones
@@ -96,7 +96,7 @@ class FiRazonArchivoController extends Controller {
     $dataxxxx['requestx']->request->add(['fi_razone_id' => $razonesx]);
     return redirect()
                     ->route('fi.archivos.editar', [$nnajxxxx, $razonesx,
-                        \App\Models\fichaIngreso\FiDocumentosAnexa::transaccion($dataxxxx['requestx']->all(), $objetoxx)->id])
+                        FiDocumentosAnexa::transaccion($dataxxxx['requestx']->all(), $objetoxx)->id])
                     ->with('info', $infoxxxx);
   }
 
