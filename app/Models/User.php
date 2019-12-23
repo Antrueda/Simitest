@@ -180,4 +180,24 @@ class User extends Authenticatable
     }
     return $comboxxx;
   }
+  public static function comboDependencia($padrexxx, $cabecera, $ajaxxxxx)
+  {
+    $comboxxx = [];
+    if ($cabecera) {
+      if ($ajaxxxxx) {
+        $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+      } else {
+        $comboxxx = ['' => 'Seleccione'];
+      }
+    }
+    $userxxxx = User::where('id', $padrexxx)->first();
+    foreach ($userxxxx->sis_dependencias as $registro) {
+      if ($ajaxxxxx) {
+        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+      } else {
+        $comboxxx[$registro->id] = $registro->nombre;
+      }
+    }
+    return [$comboxxx,$userxxxx->sis_cargo->s_cargo];
+  }
 }

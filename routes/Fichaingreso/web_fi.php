@@ -24,6 +24,7 @@ Route::group(['prefix' => 'fi'], function () {
 	include_once('web_fi_formacion.php');
 	include_once('web_fi_generacion_ingreso.php');
 	include_once('web_fi_justicia_restaurativa.php');
+  include_once('web_fi_razone_archivo.php');
 	include_once('web_fi_razone.php');
 	include_once('web_fi_redes_apoyo.php');
 	include_once('web_fi_red_apoyo_actual.php');

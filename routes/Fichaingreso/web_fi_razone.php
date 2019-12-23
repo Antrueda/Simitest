@@ -30,4 +30,10 @@ Route::group(['prefix' => '{nnaj}/firazones'], function () {
 		'uses' => 'FichaIngreso\FiRazoneController@destroy',
 		'middleware' => ['permission:firazones-borrar']
 	])->name('fi.razones.borrar');
+  
+  Route::get('cargos', [
+		'uses' => 'FichaIngreso\FiRazoneController@cargos',
+		'middleware' => ['permission:firazones-leer|fidatobasico-crear|fidatobasico-editar|fidatobasico-borrar']
+	])->name('fi.razones.cargos');
+  
 });

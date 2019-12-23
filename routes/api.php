@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\fichaIngreso\FiComposicionFami;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiJusticiaRestaurativa;
@@ -8,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\fichaIngreso\FiSalud;
-use App\Models\intervencion\IsDatosBasico;
 use App\Models\fichaobservacion\FosDatosBasico;
 use Spatie\Permission\Models\Permission;
 
@@ -214,35 +212,6 @@ Route::get('fi/fisustanciaconsumida', function (Request $request) {
                   ->toJson();
 });
 
-Route::get('is/intervencion', function (Request $request) {
-  if (!$request->ajax())
-    return redirect('/');
-  //   
-  $tienper = auth()->user()->hasAnyPermission(['intervención sicosocial especializada']);
-  $actualxx = IsDatosBasico::select(
-                          'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id', 'is_datos_basicos.sis_nnaj_id', 'tipoaten.nombre as tipoxxxx', 'is_datos_basicos.d_fecha_diligencia', 'sis_dependencias.nombre', 'users.s_primer_nombre', 'is_datos_basicos.activo'
-                  )
-                  ->join('sis_dependencias', 'is_datos_basicos.sis_dependencia_id', '=', 'sis_dependencias.id')
-                  ->join('users', 'is_datos_basicos.i_primer_responsable', '=', 'users.id')
-                  ->join('parametros as tipoaten', 'is_datos_basicos.i_prm_tipo_atencion_id', '=', 'tipoaten.id')
-                  ->where(function($queryxxx) use($request,$tienper) {
-                    $queryxxx->where('is_datos_basicos.activo', 1)->where('is_datos_basicos.sis_nnaj_id', $request->all()['nnajxxxx']);
-                    
-
-                    if (!$tienper) {
-                      $queryxxx->whereNotIn('fi_red_apoyo_actuals.i_prm_tipo_red_id', [1066]);
-                      //$queryxxx->where('fi_red_apoyo_actuals.activo', 1)->where('fi_red_apoyo_actuals.sis_nnaj_id', $request->all()['nnajxxxx']);
-                    }
-                  });
-                  
-
-  return datatables()
-                  ->eloquent($actualxx)
-                  ->addColumn('btns', 'intervencion/botones/botones')
-                  ->rawColumns(['btns'])
-                  ->toJson();
-});
-
 Route::get('fos/fichaobservacion', function (Request $request) {
     if (!$request->ajax())
         return redirect('/');
@@ -275,6 +244,23 @@ Route::get('fi/actividad', function (Request $request) {
   return datatables()
                   ->eloquent(FiDatosBasico::where('activo', 1))
                   ->addColumn('btns', 'Indicadores/Admin/Acciongestion/botones/botonesapi')
+                  ->rawColumns(['btns'])
+                  ->toJson();
+});
+Route::get('fi/razonarichivo', function (Request $request) {
+  if (!$request->ajax())
+    return redirect('/');
+
+  $document = \App\Models\fichaIngreso\FiRazone::select(['fi_documentos_anexas.id', 'fi_razones.sis_nnaj_id', 'fi_documentos_anexas.fi_razone_id',
+              'fi_documentos_anexas.activo', 'parametros.nombre'])
+          ->join('fi_documentos_anexas', 'fi_razones.id', '=', 'fi_documentos_anexas.fi_razone_id')
+          ->join('parametros', 'fi_documentos_anexas.i_prm_documento_id', '=', 'parametros.id')
+          ->where('fi_documentos_anexas.activo', 1)
+          ->where('fi_razones.sis_nnaj_id', $request->all()['nnajxxxx'])
+  ;
+  return datatables()
+                  ->eloquent($document)
+                  ->addColumn('btns', $request->all()['botonesx'])
                   ->rawColumns(['btns'])
                   ->toJson();
 });

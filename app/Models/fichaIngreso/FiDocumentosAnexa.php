@@ -6,54 +6,111 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Tema;
+class FiDocumentosAnexa extends Model {
 
-class FiDocumentosAnexa extends Model
-{
-    protected $fillable = [
-        'fi_razone_id',
-        'i_prm_documento_anexa_id',
-        'user_crea_id',
-        'user_edita_id',
-        'activo'
-    ];
+  protected $fillable = [
+      'fi_razone_id',
+      'i_prm_documento_id',
+      'user_crea_id',
+      'user_edita_id',
+      's_ruta',
+      'activo'
+  ];
+  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
-    protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
-    public function creador()
-    {
-        return $this->belongsTo(User::class, 'user_crea_id');
+  public function creador() {
+    return $this->belongsTo(User::class, 'user_crea_id');
+  }
+
+  public function fi_razone() {
+    return $this->belongsTo(FiRazone::class);
+  }
+
+  public function editor() {
+    return $this->belongsTo(User::class, 'user_edita_id');
+  }
+
+  public static function documentos($padrexxx) {
+    $vestuari = ['docanexa' => FiDocumentosAnexa::where('fi_razone_id', $padrexxx)->first(), 'formular' => false];
+    if ($vestuari['docanexa'] == null) {
+      $vestuari['formular'] = true;
     }
-    public function fi_razone()
-    {
-        return $this->belongsTo(FiRazone::class);
-    }
-    public function editor()
-    {
-        return $this->belongsTo(User::class, 'user_edita_id');
-    }
-    public static function documentos($padrexxx)
-    {
-        $vestuari = ['docanexa' => FiDocumentosAnexa::where('fi_razone_id', $padrexxx)->first(), 'formular' => false];
-        if ($vestuari['docanexa'] == null) {
-            $vestuari['formular'] = true;
-        }
-        return $vestuari;
-    }
-    public static function setDocumento($objetoxx, $dataxxxx)
-    {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $datosxxx = [
-                'fi_razone_id' => $objetoxx->id,
-                'user_crea_id' => Auth::user()->id,
-                'user_edita_id' => Auth::user()->id,
-                'activo' => 1,
-            ];
-            // dd($dataxxxx);
-            FiDocumentosAnexa::where('fi_razone_id', $objetoxx->id)->delete();
-            foreach ($dataxxxx['i_prm_documento_anexa_id'] as $diagener) {
+    return $vestuari;
+  }
+
+  public static function setDocumento($objetoxx, $dataxxxx) {
+    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+              $datosxxx = [
+                  'fi_razone_id' => $objetoxx->id,
+                  'user_crea_id' => Auth::user()->id,
+                  'user_edita_id' => Auth::user()->id,
+                  'activo' => 1,
+              ];
+              // dd($dataxxxx);
+              FiDocumentosAnexa::where('fi_razone_id', $objetoxx->id)->delete();
+              foreach ($dataxxxx['i_prm_documento_anexa_id'] as $diagener) {
                 $datosxxx['i_prm_documento_anexa_id'] = $diagener;
                 FiDocumentosAnexa::create($datosxxx);
-            }
-            return $objetoxx;
-        }, 5);
+              }
+              return $objetoxx;
+            }, 5);
+  }
+
+  public static function transaccion($dataxxxx, $objetoxx) {
+    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+              $dataxxxx['user_edita_id'] = Auth::user()->id;
+              if ($objetoxx != '') {
+                $objetoxx->update($dataxxxx);
+              } else {
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $objetoxx = FiDocumentosAnexa::create($dataxxxx);
+              }
+              return $objetoxx;
+            }, 5);
+    return $usuariox;
+  }
+
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @param  $temaxxxx tema que padre de los parámetros
+   * @param  $cabecera indica si el combo se debe devolver con el seleccione
+   * @param  $ajaxxxxx indica si el combo es para devolver en array para objeto json
+   * @return $comboxxx
+   */
+  public static function comboTema($dataxxxx) {
+    $comboxxx = [];
+    if ($dataxxxx['cabecera']) {
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+      } else {
+        $comboxxx = ['' => 'Seleccione'];
+      }
     }
+    $temaxxxy = Tema::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
+                    ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
+                    ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
+                    ->where(function ($queryxxx) use($dataxxxx) {
+                      $queryxxx->where('temas.id', $dataxxxx['temaxxxx']);
+                      $document = FiDocumentosAnexa::where('fi_razone_id', $dataxxxx['razonesx'])->get();
+                      $notinxxx = [];
+                      foreach ($document as $documenx) {
+                        if ($documenx->i_prm_documento_id != $dataxxxx['selected']) {
+                          $notinxxx[] = $documenx->i_prm_documento_id;
+                        }
+                      }
+                      $queryxxx->whereNotIn('parametros.id', $notinxxx);
+                    }
+                    )->get();
+    foreach ($temaxxxy as $registro) {
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
+      } else {
+        $comboxxx[$registro->valuexxx] = $registro->optionxx;
+      }
+    }
+    return $comboxxx;
+  }
+
 }

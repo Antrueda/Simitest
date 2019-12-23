@@ -1,0 +1,1 @@
+<a class="btn btn-sm btn-primary" href="{{ route('fi.archivos.editar', [$sis_nnaj_id,$fi_razone_id,$id]) }}">Editar</a>
