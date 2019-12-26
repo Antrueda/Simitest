@@ -35,6 +35,10 @@ Route::group(['prefix' => '{nnaj}/fosfichaobservacion'], function () {
 		'uses' => 'FichaObservacion\FosDatoBasicoController@lista',
 		'middleware' => ['permission:fosfichaobservacion-leer']
 	 ])->name('fos.fichaobservacion.lista');
-	Route::get('tipoSeguimiento/{id0}','FichaObservacion\FosDatoBasicoController@obtenerTipoSeguimientos');
+
+	 
+
+	 
+	// Route::get('tipoSeguimiento/{id0}','FichaObservacion\FosDatoBasicoController@obtenerTipoSeguimientos');
 	Route::get('subTipoSeguimiento/{id0}/{id1}','FichaObservacion\FosDatoBasicoController@obtenerSubTipoSeguimientos');
 });

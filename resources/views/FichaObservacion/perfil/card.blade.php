@@ -22,7 +22,7 @@
             </div>
             <div class="form-row align-items-end">
                 <div class="form-group col-md-6">
-                    {{ Form::label('prm_area_id', 'Àrea / Contexto Pedagógico', ['class' => 'control-label col-form-label-sm']) }}
+                    {{ Form::label('prm_area_id', 'Área / Contexto Pedagógico', ['class' => 'control-label col-form-label-sm']) }}
                     {{ Form::select('prm_area_id', $todoxxxx["areacont"], null, ['class' => $errors->first('prm_area_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
                 </div>
                 <div class="form-group col-md-6">

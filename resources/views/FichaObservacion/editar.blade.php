@@ -6,6 +6,3 @@
     @include('FichaObservacion.formulario.botones')
   {!! Form::close() !!}
 @endsection
-@section('codigo')
-    @include('FichaObservacion.formulario.js')
-@endsection

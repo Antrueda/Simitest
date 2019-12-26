@@ -50,8 +50,7 @@ class FosDatoBasicoController extends Controller{
         foreach (SisFosArea::orderBy('nombre')->where('activo',1)->pluck('nombre', 'id') as $k => $d) {
             $this->opciones['areacont'][$k] = $d;
         }
-        $this->opciones['seguixxx'] = ['' => 'Seleccione'];
-        $this->opciones['tipsegui'] = ['' => 'Seleccione'];
+       
         $this->opciones['dependen'] = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
         $this->opciones['usuarios'] = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
     }
@@ -95,13 +94,17 @@ class FosDatoBasicoController extends Controller{
             $fechaxxx[1] = $fechaxxx[1] + 1;
         }
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
-
+        $this->opciones['tipsegui'] = ['' => 'Seleccione'];
+        $this->opciones['seguixxx'] = ['' => 'Seleccione'];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         $this->opciones['mindatex'] = "-28y +0m +0d";
         $this->opciones['maxdatex'] = "-6y +0m +0d";
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {
+            $this->opciones['seguixxx'] = SisFosTipoSeguimiento:: combo($objetoxx->prm_area_id, true, false);
+            $this->opciones['tipsegui'] = ['' => 'Seleccione'];
+        
             $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
@@ -132,7 +135,6 @@ class FosDatoBasicoController extends Controller{
     }
 
     public function edit($nnajregi,  FosDatosBasico $fichaobservacion){
-
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
@@ -145,19 +147,27 @@ class FosDatoBasicoController extends Controller{
         return $this->grabar($request->all(), fosDatosBasico::usarioNnaj($db), 'Ficha de observación actualizada con exito');
     }
 
-    public function obtenerTipoSeguimientos(Request $request, $id, $id0){
-
+    public function obtenerTipoSeguimientos(Request $request){
         if($request->ajax()){
-            $tipoSeguimiento = SisFosTipoSeguimiento::tipoSeguimientos($id0);
-            return response()->json($tipoSeguimiento);
-        }
-    }
-
-    public function obtenerSubTipoSeguimientos(Request $request, $id, $id0, $id1){
-    
-        if($request->ajax()){
-            $subTipoSeguimiento = SisFosSubTipoSeguimiento::subTipoSeguimientos($id0, $id1);
-            return response()->json($subTipoSeguimiento);
+            $respuest=[];
+            switch($request->tipoxxxx){
+                case 1:
+                    $respuest=['comboxxx'=> SisFosTipoSeguimiento:: combo(
+                        $request->all()['valuexxx'], true, true),
+                        'campoxxx'=>'#prm_seguimiento_id'
+                    ];
+                break;
+                case 2:
+                    $respuest=['comboxxx'=>SisFosSubTipoSeguimiento::combo([
+                        'ajaxxxxx'=>true,
+                        'cabecera'=>true,
+                        'areaxxxx'=>$request->all()['valuexx1'],
+                        'seguimie'=>$request->all()['valuexxx']]),
+                        'campoxxx'=>'#prm_sub_tipo_id'
+                    ];
+                break;
+            }
+            return response()->json($respuest);
         }
     }
 }

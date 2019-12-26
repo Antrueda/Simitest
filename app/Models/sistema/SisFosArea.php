@@ -20,4 +20,8 @@ class SisFosArea extends Model{
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
     }
+
+    public function sis_fos_tipo_seguimientos(){
+        return $this->hasMany(SisFosTipoSeguimiento::class,'area_id');
+    }
 }

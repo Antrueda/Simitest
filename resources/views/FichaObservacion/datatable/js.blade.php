@@ -28,17 +28,93 @@
         $('#i_responsable').select2({
             language: "es"
         });
+        $('#prm_area_id').select2({
+            language: "es"
+        });
+        $('#sis_dependencia_id').select2({
+            language: "es"
+        });
+        $('#prm_seguimiento_id').select2({
+            language: "es"
+        });
+        $('#prm_sub_tipo_id').select2({
+            language: "es"
+        });
     });
 
     @if(isset($todoxxxx['nnajregi']))
         $(function(){
-            $('#i_primer_responsable').select2({
-                language: "es"
+            var f_cargos = function (dataxxxx){ 
+                $.ajax({
+                    url: "{{ route('fos.fichaobservacion.obtenerTipoSeguimientos')}}",
+                    type: 'GET',
+                    data: dataxxxx.dataxxxx,
+                    dataType: 'json',
+                    success: function (json){
+                        $(json.campoxxx).empty();
+                        $.each(json.comboxxx, function (id, data) {
+                            var selected = '';
+                            if (data.valuexxx == dataxxxx.selected) {
+                                selected = 'selected';
+                            }
+                            $(json.campoxxx).append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                        });
+                    },
+                    error: function (xhr, status) {
+                        alert('Disculpe, existe un problema');
+                    }
+                });
+            }
+
+            //Recuperar datos en caso de tener errores en las validaciones
+            @if(old('prm_area_id')!=null)
+                $("#prm_sub_tipo_id").empty();
+                $("#prm_sub_tipo_id").append(`<option value=""> Seleccione </option>`);
+                f_cargos({
+                    selected:'{{ old("prm_seguimiento_id") }}',
+                    dataxxxx:{
+                        valuexxx:"{{ old('prm_area_id') }}",
+                        'tipoxxxx':1
+                    }
+                });
+                @if(old('prm_seguimiento_id')!=null)
+                    f_cargos({
+                        selected:"{{ old('prm_sub_tipo_id') }}",
+                        dataxxxx:{
+                            valuexxx:"{{ old('prm_seguimiento_id') }}",
+                            valuexx1:"{{ old('prm_area_id') }}",
+                            'tipoxxxx':2 
+                        }
+                    });
+                @endif
+            @endif
+
+            $("#prm_area_id").change(function(){
+                $("#prm_sub_tipo_id").empty();
+                $("#prm_sub_tipo_id").append(`<option value=""> Seleccione </option>`);
+                f_cargos({
+                    selected:'',
+                    dataxxxx:{
+                        valuexxx:$(this).val(),
+                        'tipoxxxx':1
+                    } 
+                });
             });
-            $('#i_segundo_responsable').select2({
-                language: "es"
+
+            $("#prm_seguimiento_id").change(function(){
+                $("#prm_sub_tipo_id").empty();
+                $("#prm_sub_tipo_id").append(`<option value=""> Seleccione </option>`);
+                f_cargos({
+                    selected:'',
+                    dataxxxx:{
+                        valuexxx:$(this).val(),
+                        valuexx1:$('#prm_area_id').val(),
+                        'tipoxxxx':2 
+                    }
+                });
             });
         });
+
         function soloLetras(e) {
             key = e.keyCode || e.which;
             tecla = String.fromCharCode(key).toString();
@@ -88,46 +164,5 @@
                 contador.html(max+"/"+max);
             }
         }
-        $(document).ready(function(){
-            $("#prm_area_id").change(event => {
-                var area = $("select#prm_area_id option:checked").val();
-                if (area != '') {
-                    $.get(`tipoSeguimiento/`+area, function(res, sta){
-                        $("#prm_seguimiento_id").empty();
-                        $("#prm_seguimiento_id").append(`<option value=""> Seleccione </option>`);
-                        $("#prm_sub_tipo_id").empty();
-                        $("#prm_sub_tipo_id").append(`<option value=""> Seleccione </option>`);
-                        res.forEach(element => {
-                            $("#prm_seguimiento_id").append(`<option value=${element.id}> ${element.nombre} </option>`);
-                        });
-                    });
-                    
-                } else {
-                    $("#prm_seguimiento_id").empty();
-                    $("#prm_seguimiento_id").append(`<option value=""> Seleccione </option>`);
-                    $("#prm_sub_tipo_id").empty();
-                    $("#prm_sub_tipo_id").append(`<option value=""> Seleccione </option>`);
-                }
-            });
-            $("#prm_seguimiento_id").change(event => {
-                var area = $("select#prm_area_id option:checked").val();
-                var seguimiento = $("select#prm_seguimiento_id option:checked").val();
-                if (seguimiento != '') {
-                    $.get(`subTipoSeguimiento/`+area+`/`+seguimiento, function(res, sta){
-                        $("#prm_sub_tipo_id").empty();
-                        $("#prm_sub_tipo_id").append(`<option value=""> Seleccione </option>`);
-                        res.forEach(element => {
-                            $("#prm_sub_tipo_id").append(`<option value=${element.id}> ${element.nombre} </option>`);
-                            $('[data-toggle="tooltip"]').tooltip();
-                        });
-                    });
-                    
-                } else {
-                    $("#prm_sub_tipo_id").empty();
-                    $("#prm_sub_tipo_id").append(`<option value=""> Seleccione </option>`);
-                }
-            });
-
-        })
     @endif
 </script>
