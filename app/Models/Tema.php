@@ -35,7 +35,7 @@ class Tema extends Model {
         $comboxxx = ['' => 'Seleccione'];
       }
     }
-    $parametr = Tema::select(['parametros.id', 'parametros.nombre'])
+    $parametr = Tema::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
             ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
             ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
             ->where('temas.id', $temaxxxx)

@@ -191,6 +191,11 @@ return [
          * barra para debug
          */
         Barryvdh\Debugbar\ServiceProvider::class,
+        
+        /**
+         * conexion a oracle
+         */
+        Yajra\Oci8\Oci8ServiceProvider::class,
     ],
 
     /*
