@@ -213,23 +213,29 @@ Route::get('fi/fisustanciaconsumida', function (Request $request) {
 });
 
 Route::get('fos/fichaobservacion', function (Request $request) {
-  if (!$request->ajax())
-    return redirect('/');
-  //   
-  $actualxx = FosDatosBasico::select(
-                          'fos_datos_basicos.id', 'fos_datos_basicos.sis_nnaj_id', 'fos_datos_basicos.sis_nnaj_id', 'fos_datos_basicos.d_fecha_diligencia', 'sis_dependencias.nombre', 'areas.nombre', 'ag_temas.s_tema', 'ag_tallers.s_taller', 'fos_datos_basicos.activo'
-                  )
-                  ->join('sis_dependencias', 'fos_datos_basicos.sis_dependencia_id', '=', 'sis_dependencias.id')
-                  ->join('areas', 'fos_datos_basicos.area_id', '=', 'areas.id')
-                  ->join('ag_temas', 'fos_datos_basicos.tema_id', '=', 'ag_temas.id')
-                  ->join('ag_tallers', 'fos_datos_basicos.taller_id', '=', 'ag_tallers.id')
-                  ->where('fos_datos_basicos.activo', 1)->where('fos_datos_basicos.sis_nnaj_id', $request->all()['nnajxxxx']);
+    if (!$request->ajax())
+        return redirect('/');
+    $actualxx = FosDatosBasico::select(
+        'fos_datos_basicos.id', 
+        'fos_datos_basicos.sis_nnaj_id', 
+        'fos_datos_basicos.d_fecha_diligencia', 
+        'sis_dependencias.nombre as UPI', 
+        'sis_fos_areas.nombre as Area', 
+        'sis_fos_tipo_seguimientos.nombre as Seguimiento', 
+        'sis_fos_sub_tipo_seguimientos.nombre as SubSeguimiento', 
+        'fos_datos_basicos.activo'
+    )
+    ->join('sis_dependencias', 'fos_datos_basicos.sis_dependencia_id', '=', 'sis_dependencias.id')
+    ->join('sis_fos_areas', 'fos_datos_basicos.prm_area_id', '=', 'sis_fos_areas.id')
+    ->join('sis_fos_tipo_seguimientos', 'fos_datos_basicos.prm_seguimiento_id', '=', 'sis_fos_tipo_seguimientos.id')
+    ->join('sis_fos_sub_tipo_seguimientos', 'fos_datos_basicos.prm_sub_tipo_id', '=', 'sis_fos_sub_tipo_seguimientos.id')
+    ->where('fos_datos_basicos.activo', 1)->where('fos_datos_basicos.sis_nnaj_id', $request->all()['nnajxxxx']);
 
-  return datatables()
-                  ->eloquent($actualxx)
-                  ->addColumn('btns', 'FichaObservacion/botones/botones')
-                  ->rawColumns(['btns'])
-                  ->toJson();
+    return datatables()
+    ->eloquent($actualxx)
+    ->addColumn('btns', 'FichaObservacion/botones/botones')
+    ->rawColumns(['btns'])
+    ->toJson();
 });
 
 Route::get('fi/actividad', function (Request $request) {
