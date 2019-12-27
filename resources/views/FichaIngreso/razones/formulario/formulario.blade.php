@@ -1,5 +1,7 @@
+
+
 @if(isset($todoxxxx['archivox']))
-@include('FichaIngreso.Razones.formulario.archivo')
+@include('FichaIngreso.razones.formulario.archivo')
 @else
-@include('FichaIngreso.Razones.formulario.form')
+@include('FichaIngreso.razones.formulario.form')
 @endif

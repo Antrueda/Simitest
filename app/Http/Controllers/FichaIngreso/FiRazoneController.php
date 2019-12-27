@@ -44,7 +44,7 @@ class FiRazoneController extends Controller {
     $this->opciones['routxxxx'] = 'fi.archivos';
 
     $this->opciones['urlxxxxx'] = 'api/fi/razonarichivo';
-    $this->opciones['parametr'] = [$this->opciones['nnajregi'], $objetoxx->id];
+    $this->opciones['parametr'] = [$this->opciones['nnajregi']];
     $this->opciones['cabecera'] = [
         ['td' => 'ID'],
         ['td' => 'DOCUMENTO'],
@@ -72,6 +72,7 @@ class FiRazoneController extends Controller {
     // indica si se esta actualizando o viendo
 
     if ($nombobje != '') {
+      $this->opciones['parametr'][1]= $objetoxx->id;
       $this->opciones[$nombobje] = $objetoxx;
       $dilegenc = User::comboDependencia($objetoxx->userd_id, false, false);
       $responsa = User::comboDependencia($objetoxx->userr_id, false, false);

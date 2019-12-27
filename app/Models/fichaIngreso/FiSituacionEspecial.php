@@ -7,51 +7,48 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class FiSituacionEspecial extends Model
-{
-  protected $fillable = [
-    'sis_nnaj_id',
-    'user_crea_id',
-    'user_edita_id',
-    'i_prm_tipo_id',
-    'i_tiempo',
-    'i_prm_ttiempo_id',
-    'activo'
-  ];
+class FiSituacionEspecial extends Model {
 
+  protected $fillable = [
+      'sis_nnaj_id',
+      'user_crea_id',
+      'user_edita_id',
+      'i_prm_tipo_id',
+      'i_tiempo',
+      'i_prm_ttiempo_id',
+      'activo'
+  ];
   protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
-  public function creador()
-  {
+
+  public function creador() {
     return $this->belongsTo(User::class, 'user_crea_id');
   }
-  public function fi_victima_escnnas()
-  {
+
+  public function fi_victima_escnnas() {
     return $this->hasMany(FiVictimaEscnna::class);
   }
-  public function fi_situacion_vulneracions()
-  {
+
+  public function fi_situacion_vulneracions() {
     return $this->hasMany(FiSituacionVulneracion::class);
   }
-  public function fi_riesgo_escnnas()
-  {
+
+  public function fi_riesgo_escnnas() {
     return $this->hasMany(FiRiesgoEscnna::class);
   }
 
-  public function fi_razon_continuas()
-  {
+  public function fi_razon_continuas() {
     return $this->hasMany(FiRazonContinua::class);
   }
 
-  public function fi_razon_iniciados()
-  {
+  public function fi_razon_iniciados() {
     return $this->hasMany(FiRazonIniciado::class);
   }
-  public function editor()
-  {
+
+  public function editor() {
     return $this->belongsTo(User::class, 'user_edita_id');
   }
-  public static function situaciones($usuariox)
-  {
+
+  public static function situaciones($usuariox) {
 
     $situacio = FiSituacionEspecial::where('sis_nnaj_id', $usuariox)->first();
 
@@ -72,29 +69,28 @@ class FiSituacionEspecial extends Model
     return $vestuari;
   }
 
-
-  private static function grabarOpciones($situacio, $dataxxxx)
-  {
+  private static function grabarOpciones($situacio, $dataxxxx) {
     FiVictimaEscnna::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiSituacionVulneracion::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiRiesgoEscnna::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiRazonContinua::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiRazonIniciado::where('fi_situacion_especial_id', $situacio->id)->delete();
     $datosxxx = [
-      'user_crea_id' => Auth::user()->id,
-      'user_edita_id' => Auth::user()->id,
-      'activo' => 1,
-      'fi_situacion_especial_id' => $situacio->id
+        'user_crea_id' => Auth::user()->id,
+        'user_edita_id' => Auth::user()->id,
+        'activo' => 1,
+        'fi_situacion_especial_id' => $situacio->id
     ];
+    if (isset($dataxxxx['i_prm_victima_escnna_id'])) {
+      foreach ($dataxxxx['i_prm_victima_escnna_id'] as $registro) {
 
-    foreach ($dataxxxx['i_prm_victima_escnna_id'] as $registro) {
-
-      if ($dataxxxx['i_prm_tipo_id'] == 563) {
-        $datosxxx['i_prm_riesgo_escnna_id'] = $registro;
-        FiRiesgoEscnna::create($datosxxx);
-      } else {
-        $datosxxx['i_prm_victima_escnna_id'] = $registro;
-        FiVictimaEscnna::create($datosxxx);
+        if ($dataxxxx['i_prm_tipo_id'] == 563) {
+          $datosxxx['i_prm_riesgo_escnna_id'] = $registro;
+          FiRiesgoEscnna::create($datosxxx);
+        } else {
+          $datosxxx['i_prm_victima_escnna_id'] = $registro;
+          FiVictimaEscnna::create($datosxxx);
+        }
       }
     }
     foreach ($dataxxxx['i_prm_situacion_vulnera_id'] as $registro) {
@@ -114,21 +110,24 @@ class FiSituacionEspecial extends Model
       }
     }
   }
-  public static function transaccion($dataxxxx,  $objetoxx)
-  {
-    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-      $dataxxxx['user_edita_id'] = Auth::user()->id;
-      if ($objetoxx != '') {
 
-        $algo = $objetoxx->update($dataxxxx);
-        FiSituacionEspecial::grabarOpciones($objetoxx, $dataxxxx);
-      } else {
-        $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $objetoxx = FiSituacionEspecial::create($dataxxxx);
-        FiSituacionEspecial::grabarOpciones($objetoxx, $dataxxxx);
-      }
-      return $objetoxx;
-    }, 5);
+  public static function transaccion($dataxxxx, $objetoxx) {
+    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+              $dataxxxx['user_edita_id'] = Auth::user()->id;
+              if ($objetoxx != '') {
+
+                $algo = $objetoxx->update($dataxxxx);
+              } else {
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $objetoxx = FiSituacionEspecial::create($dataxxxx);
+              }
+
+              FiSituacionEspecial::grabarOpciones($objetoxx, $dataxxxx);
+
+
+              return $objetoxx;
+            }, 5);
     return $usuariox;
   }
+
 }

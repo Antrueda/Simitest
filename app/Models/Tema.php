@@ -48,7 +48,7 @@ class Tema extends Model {
         $comboxxx[$registro->valuexxx] = $registro->optionxx;
       }
     } 
-    return $comboxxx;
+    return $comboxxx;    
   }
 
   public static function comboDesc($temaxxxx, $cabecera, $ajaxxxxx) {
