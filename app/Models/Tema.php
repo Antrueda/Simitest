@@ -51,6 +51,9 @@ class Tema extends Model {
     return $comboxxx;    
   }
 
+  
+  
+  
   public static function comboDesc($temaxxxx, $cabecera, $ajaxxxxx) {
     $comboxxx = [];
     if ($cabecera) {
