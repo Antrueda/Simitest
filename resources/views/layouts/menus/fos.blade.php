@@ -11,20 +11,20 @@
             @can('fos-area-admin')
                 <li class="nav-item">
                     <a href="{{ route('fosarea') }}" class="nav-link">
-                    <i class="fas fa-book nav-icon"></i>
-                    <p>Areas</p>
+                        <i class="fas fa-book nav-icon"></i>
+                        <p>Areas</p>
                     </a>
                 </li>
             @endcan
-            {{-- @can('fos-tipo-admin')
+            @can('fos-tipo-admin')
                 <li class="nav-item">
-                    <a href="{{ route('tipo') }}" class="nav-link">
-                    <i class="fas fa-book nav-icon"></i>
-                    <p>Tipo de Seguimiento</p>
+                    <a href="{{ route('fostipo') }}" class="nav-link">
+                        <i class="fas fa-compass nav-icon"></i>
+                        <p>Tipo de Seguimiento</p>
                     </a>
                 </li>
             @endcan
-            @can('fos-sub-tipo-admin')
+            {{-- @can('fos-sub-tipo-admin')
                 <li class="nav-item">
                     <a href="{{ route('subtipo') }}" class="nav-link">
                     <i class="fas fa-book nav-icon"></i>

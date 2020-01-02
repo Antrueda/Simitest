@@ -6,8 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisFosTipoSeguimiento extends Model{
     protected $fillable = [
-        ''
+        'area_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id',
     ];
+
+    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+
+    public function area(){
+        return $this->belongsTo(SisFosArea::class, 'area_id');
+    }
 
     public static function tipoSeguimientos($id0){
 
