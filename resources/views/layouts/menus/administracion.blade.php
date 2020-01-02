@@ -8,6 +8,9 @@
     </a>
 
     <ul class="nav nav-treeview">
+        @canany(['fos-admin', 'fos-area-admin', 'fos-tipo-admin', 'fos-sub-tipo-admin'])
+            @include('layouts.menus.fos')
+        @endcanany
         @canany(['inpreguntas-leer','inlineabase-leer','area-leer','inbasefuente-leer',
             'inbasedocumen-leer','indocindicador-leer','inrespuesta-leer','invalidacion-leer','inacciongestion-leer'])
             @include('layouts.menus.admindicadores')
@@ -17,6 +20,5 @@
             'mapaProceso-leer','entidad-leer','tema-leer','parametro-leer','siscargo-leer'])
             @include('layouts.menus.sistema')
         @endcanany
-
     </ul>
 </li>

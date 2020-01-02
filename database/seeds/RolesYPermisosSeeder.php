@@ -638,7 +638,15 @@ class RolesYPermisosSeeder extends Seeder {
     Permission::create(['name' => 'fsoporte-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
     Permission::create(['name' => 'intervención sicosocial especializada', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
 
-
+    //Permisos para Administración de FOS
+    Permission::create(['name' => 'fos-admin', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
+    Permission::create(['name' => 'fos-area-admin', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
+    Permission::create(['name' => 'fos-tipo-admin', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
+    Permission::create(['name' => 'fos-sub-tipo-admin', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
+    Permission::create(['name' => 'fosarea-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
+    Permission::create(['name' => 'fosarea-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
+    Permission::create(['name' => 'fosarea-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
+    Permission::create(['name' => 'fosarea-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
 
     // crear roles y asignar los permisos
     Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1])->givePermissionTo(Permission::all());
@@ -755,7 +763,9 @@ class RolesYPermisosSeeder extends Seeder {
         //Asignación de permisos para VSPA
         'vspa-leer', 'vspa-crear', 'vspa-editar', 'vspa-borrar',
         'vma-leer', 'vma-crear', 'vma-editar', 'vma-borrar',
-        'intervención sicosocial especializada'
+        'intervención sicosocial especializada',
+        //Asignación de permisos para Administración de FOS
+        'fos-admin', 'fos-area-admin', 'fos-tipo-admin', 'fos-sub-tipo-admin'
     ]);
 
     Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1])->givePermissionTo([
