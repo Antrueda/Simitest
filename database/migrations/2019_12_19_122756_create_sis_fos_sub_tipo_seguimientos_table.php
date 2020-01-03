@@ -11,7 +11,7 @@ class CreateSisFosSubTipoSeguimientosTable extends Migration{
             $table->bigIncrements('id');
             $table->bigInteger('area_id')->unsigned();
             $table->bigInteger('seg_id')->unsigned();
-            $table->text('codigo',6);
+            $table->text('codigo',6)->nullable();
             $table->string('nombre', 120);
             $table->string('descripcion', 4000)->nullable();
             $table->boolean('activo')->default(1);

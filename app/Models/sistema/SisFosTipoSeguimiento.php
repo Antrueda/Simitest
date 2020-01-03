@@ -15,9 +15,9 @@ class SisFosTipoSeguimiento extends Model{
         return $this->belongsTo(SisFosArea::class, 'area_id');
     }
 
-    public static function tipoSeguimientos($id0){
+    public static function tipoSeguimientos($id){
 
-        return SisFosTipoSeguimiento::where(['area_id' => $id0, 'activo' => 1])->pluck('nombre', 'id');
+        return SisFosTipoSeguimiento::where(['area_id' => $id, 'activo' => 1])->get();
     }
 
 

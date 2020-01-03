@@ -24,14 +24,14 @@
                     </a>
                 </li>
             @endcan
-            {{-- @can('fos-sub-tipo-admin')
+            @can('fos-sub-tipo-admin')
                 <li class="nav-item">
-                    <a href="{{ route('subtipo') }}" class="nav-link">
-                    <i class="fas fa-book nav-icon"></i>
+                    <a href="{{ route('fossubtipo') }}" class="nav-link">
+                    <i class="far fa-compass nav-icon"></i>
                     <p>Sub Tipo de Seguimiento</p>
                     </a>
                 </li>
-            @endcan --}}
+            @endcan
         </ul>
     </li>
 @endcan
