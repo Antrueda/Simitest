@@ -52,14 +52,24 @@ class InIndividualController extends Controller
    */
   public function index(Request $request)
   {
-    return view($this->opciones['rutacarp'], ['todoxxxx' => $this->opciones]);
+    
+    $dataxxxx = [
+      'sis_tabla_id' => 1,
+      'user_crea_id' => 1,
+      'user_edita_id' => 1,
+      'sis_nnaj_id' => 2
+    ];
+
+    $dataxxxx = IndicadorHelper::asignaLineaBase($dataxxxx);
+    return $dataxxxx;
+    //return view($this->opciones['rutacarp'], ['todoxxxx' => $this->opciones]);
   }
 
 
   private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
   {
 
-    $this->opciones['indicado'] = IndicadorHelper::getIndicadores($objetoxx->sis_nnaj_id,1);
+    $this->opciones['indicado'] = IndicadorHelper::getIndicadores($objetoxx->sis_nnaj_id, 1);
 
     $this->opciones['esindexx'] = false;
     $this->opciones['estadoxx'] = 'ACTIVO';

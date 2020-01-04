@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class InRespuesta extends Model
 {
-    protected $fillable = [ 
+  protected $fillable = [
     'in_doc_pregunta_id',
     'i_prm_respuesta_id',
-    'user_crea_id', 
+    'user_crea_id',
     'user_edita_id',
     'activo'
   ];
@@ -27,12 +27,13 @@ class InRespuesta extends Model
   {
     return $this->belongsTo(User::class, 'user_edita_id');
   }
-  
-  public function in_validacion(){
+
+  public function in_validacion()
+  {
     return $this->belongsTo(InValidacion::class);
   }
   public static function transaccion($dataxxxx,  $objetoxx)
-  {  
+  {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
       $dataxxxx['user_edita_id'] = Auth::user()->id;
       if ($objetoxx != '') {
@@ -44,5 +45,16 @@ class InRespuesta extends Model
       return $objetoxx;
     }, 5);
     return $usuariox;
+  }
+  /**
+   * Este método permite encontrar la(s) linea(s) base a la(s) que pertenece(n) la(s) respuesta(s) dada(s)
+   */
+  public static function getExisteRespuesta($dataxxxx)
+  {
+    if (!is_array($dataxxxx['i_prm_respuesta_id'])) {
+      $dataxxxx['i_prm_respuesta_id'] = [$dataxxxx['i_prm_respuesta_id']];
+    }
+    $respuest = InRespuesta::whereIn('i_prm_respuesta_id', $dataxxxx['i_prm_respuesta_id'])->where('in_doc_pregunta_id', $dataxxxx['in_doc_pregunta_id'])->get();
+    return count($respuest) == 0 ? false : $respuest;
   }
 }

@@ -26,7 +26,7 @@
   <div class="form-group col-md-3">
     {{ Form::label('sis_dependenciad_id', 'Àrea o equipo', ['class' => 'control-label']) }}
     {{ Form::select('sis_dependenciad_id', $todoxxxx['depedile'], null, ['class' => $errors->first('sis_dependenciad_id') ? 
-    'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos', 
+    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm cargos', 
     'data-placeholder' => 'Digite el responsable']) }}
     @if($errors->has('sis_dependenciad_id'))
     <div class="invalid-feedback d-block">
@@ -62,7 +62,7 @@
   <div class="form-group col-md-3">
     {{ Form::label('sis_dependenciar_id', 'Àrea o equipo', ['class' => 'control-label']) }}
     {{ Form::select('sis_dependenciar_id', $todoxxxx['deperesp'], null, ['class' => $errors->first('sis_dependenciar_id') ? 
-    'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos', 
+    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm cargos', 
     'data-placeholder' => 'Digite el responsable']) }}
     @if($errors->has('sis_dependenciar_id'))
     <div class="invalid-feedback d-block">

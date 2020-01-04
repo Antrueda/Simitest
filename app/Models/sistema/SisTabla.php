@@ -2,6 +2,7 @@
 
 namespace App\Models\sistema;
 
+use App\Models\Indicadores\InDocPregunta;
 use Illuminate\Database\Eloquent\Model;
 
 class SisTabla extends Model
@@ -11,6 +12,13 @@ class SisTabla extends Model
         return $this->hasMany(SisCampoTabla::class);
     }
     
+    public function in_doc_preguntas()
+    {
+        return $this->hasMany(InDocPregunta::class);
+    }
+
+
+
     public static function combo($padrexxx, $cabecera, $ajaxxxxx)
     {
         $comboxxx = [];

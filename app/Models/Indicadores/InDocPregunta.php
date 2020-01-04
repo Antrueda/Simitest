@@ -34,7 +34,8 @@ class InDocPregunta extends Model
     {
         return $this->belongsTo(SisTabla::class);
     }
-    public function sis_campo_tabla(){
+    public function sis_campo_tabla()
+    {
         return $this->belongsTo(SisCampoTabla::class);
     }
     public static function transaccion($dataxxxx,  $objetoxx)
@@ -75,5 +76,9 @@ class InDocPregunta extends Model
             }
         }
         return $comboxxx;
+    }
+    public function in_base_fuente()
+    {
+        return $this->belongsTo(InBaseFuente::class);
     }
 }
