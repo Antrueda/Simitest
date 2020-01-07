@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Acciones\Grupales;
+namespace App\Http\Controllers\Acciones\Grupales;   
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\AgActividadCrearRequest;
@@ -71,14 +71,14 @@ class AgActividadController extends Controller
 
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
-        
-        
+
+
         $this->opciones["urlxxxag"] ='api/ag/responsables';
         $this->opciones['routxxxa'] = 'ag.acti.actividad';
         $this->opciones['cabeceag'] = [
           ['td' => 'PRIMER APELLIDO'],
           ['td' => 'SEGUNDO APELLIDO'],
-          ['td' => 'PRIMER NOMBRE'],      
+          ['td' => 'PRIMER NOMBRE'],
           ['td' => 'SEGUNDO NOMBRE'],
           ['td' => 'RESPONSABLE DE LA ACTIVIDAD'],
           ['td' => 'DOCUMENTO'],
@@ -92,13 +92,13 @@ class AgActividadController extends Controller
           ['data' => 'i_prm_responsable_id','name' => 'parametros.name as i_prm_responsable_id'],
           ['data' => 'documento1','name' => 'user.s_documento as documento1'],
         ];
- 
+
         $this->opciones["urlxxxas"]='api/ag/asistentes';
         $this->opciones['routxxxb'] = 'ag.acti.actividad';
         $this->opciones['cabeceas'] = [
             ['td' => 'PRIMER APELLIDO'],
             ['td' => 'SEGUNDO APELLIDO'],
-            ['td' => 'PRIMER NOMBRE'],      
+            ['td' => 'PRIMER NOMBRE'],
             ['td' => 'SEGUNDO NOMBRE'],
             ['td' => 'DOCUMENTO'],
           ];
@@ -111,7 +111,7 @@ class AgActividadController extends Controller
             ['data' => 'documento2','name' => 'fi_datos_basicos.s_documento as documento2'],
           ];
 
-        
+
 
         $this->opciones['urlxxxre'] = 'api/ag/relaciones';
         $this->opciones['routxxxc'] = 'ag.acti.actividad';
