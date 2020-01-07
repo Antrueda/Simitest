@@ -515,6 +515,11 @@ class RolesYPermisosSeeder extends Seeder {
     Permission::create(['name' => 'inbasedocumen-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
     Permission::create(['name' => 'inbasedocumen-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
 
+    Permission::create(['name' => 'indiagnostico-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
+    Permission::create(['name' => 'indiagnostico-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
+    Permission::create(['name' => 'indiagnostico-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
+    Permission::create(['name' => 'indiagnostico-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
+
     // permisos para agregar componenete familiar a justicia restaurativa
     Permission::create(['name' => 'fijrfamiliar-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);
     Permission::create(['name' => 'fijrfamiliar-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]);

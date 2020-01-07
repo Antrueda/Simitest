@@ -291,6 +291,7 @@ Route::get('indicadores/basennajag', function (Request $request) {
 		->rawColumns(['btns'])
 		->toJson();
 });
+
 Route::get('indicadores/baseactividades', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
 	return datatables()
@@ -331,6 +332,54 @@ Route::get('indicadores/actfuente', function (Request $request) {
 				->where('in_actsoportes.in_accion_gestion_id', $request->all()['activida'])
 		)
 		->addColumn('btns', 'Indicadores/Admin/Acciongestion/Fuentes/botones/botonesapi')
+		->rawColumns(['btns'])
+		->toJson();
+});
+
+
+Route::get('indicadores/nnajlineabase', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	$dataxxxx=$request->all();
+
+	return datatables()
+		->eloquent(
+			InLineabaseNnaj::select([
+				'sis_nnajs.id',
+				'sis_nnajs.activo',
+				'fi_datos_basicos.s_primer_nombre',
+				'fi_datos_basicos.s_segundo_nombre',
+				'fi_datos_basicos.s_primer_apellido',
+				'fi_datos_basicos.s_segundo_apellido',
+			])
+				->join('sis_nnajs', 'in_lineabase_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
+				->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+				->where('i_prm_linea_base_id', 227)
+				->groupBy('sis_nnajs.id')
+				->groupBy('fi_datos_basicos.s_primer_nombre')
+				->groupBy('fi_datos_basicos.s_segundo_nombre')
+				->groupBy('fi_datos_basicos.s_primer_apellido')
+				->groupBy('fi_datos_basicos.s_segundo_apellido')
+		)
+		->addColumn('btns', $dataxxxx['botonesx'])
+		->rawColumns(['btns'])
+		->toJson();
+});
+
+Route::get('indicadores/diagnostico', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	$dataxxxx=$request->all();
+	return datatables()
+		->eloquent(
+			InLineabaseNnaj::select([
+				'in_lineabase_nnajs.id',
+				'in_lineabase_nnajs.activo',
+				'in_linea_bases.s_linea_base',
+				'in_lineabase_nnajs.sis_nnaj_id',
+			])
+				->join('in_fuentes', 'in_lineabase_nnajs.in_fuente_id', '=', 'in_fuentes.id')
+				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
+		)
+		->addColumn('btns', $dataxxxx['botonesx'])
 		->rawColumns(['btns'])
 		->toJson();
 });

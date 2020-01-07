@@ -1,7 +1,7 @@
 <?php
 require_once('web_accion_gestion.php');
 require_once('web_area.php');
-
+require_once('web_diagnostico.php');
 require_once('web_doc_indicador.php');
 require_once('web_grupales.php');
 require_once('web_in_basedocumen.php');

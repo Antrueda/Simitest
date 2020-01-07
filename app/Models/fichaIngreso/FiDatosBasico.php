@@ -214,8 +214,8 @@ class FiDatosBasico extends Model
                 $compofam='';
             }
             FiComposicionFami::transaccion($dataxxxx,$compofam);
-          
-            IndicadorHelper::asignaLineaBase($objetoxx->sis_nnaj_id);
+            $dataxxxx['sis_tabla_id']=1;
+            IndicadorHelper::asignaLineaBase($dataxxxx);
             return $objetoxx;
         }, 5);
         return $objetoxx;

@@ -77,11 +77,11 @@
 
 
 
-    @can('invalidacion-leer')
+    @can('indiagnostico-leer')
     <li class="nav-item">
-        <a href="{{ route('va') }}" class="nav-link">
+        <a href="{{ route('diagnostico') }}" class="nav-link">
         <i class="fas fa-check nav-icon"></i>
-        <p>Peguntas Linea base</p>
+        <p>Diagnóstico</p>
         </a>
     </li>
     @endcan

@@ -106,11 +106,11 @@ class IndicadorHelper
                 $baseline[] = $lineaxxx;
             }
         }
-
+        
         foreach (InBaseFuente::whereIn('in_base_fuentes.in_fuente_id', $baseline)->get() as $basefuent) {
             $actibase = true;
             $tablaxxx = 0;
-            $consulta = [];
+            $consulta = []; 
             foreach ($basefuent->in_doc_preguntas as $docupreg) {
 
                 $campoxxx = $docupreg->sis_campo_tabla->s_campo;
@@ -136,6 +136,7 @@ class IndicadorHelper
              * activar linae base
              */
             if ($actibase) {
+               
                 /**
                  * verificar 
                  */

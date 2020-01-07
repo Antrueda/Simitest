@@ -3,14 +3,8 @@
 namespace App\Http\Controllers\Indicadores;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Indicadores\InAccionGestionCrearRequest;
-use App\Http\Requests\Indicadores\InAccionGestionEditarRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Indicadores\InAccionGestion;
-use App\Models\sistema\SisActividad;
-use App\Models\sistema\SisDocumentoFuente;
-use App\Models\Tema;
-use Illuminate\Http\Request;
+
 
 class InLineabaseNnajController extends Controller
 {

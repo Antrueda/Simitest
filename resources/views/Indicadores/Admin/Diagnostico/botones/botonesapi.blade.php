@@ -1,0 +1,1 @@
+<a class="btn btn-sm btn-primary" href="{{ route('diagnostico.nnajbases', $id) }}">Ver Lineas Base NNAJ</a>
