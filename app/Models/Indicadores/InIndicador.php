@@ -173,7 +173,6 @@ class InIndicador extends Model
         'in_accion_gestions.i_tiempo as itiempox',
         'in_linea_bases.id as idlinbas',
         'in_linea_bases.s_linea_base as slinbase',
-        'scatagor.nombre as scatagor',
         'stiempox.nombre as stiempox',
         'sis_documento_fuentes.id as idocfuen',
         'sis_documento_fuentes.nombre as sdocumen',
@@ -185,7 +184,6 @@ class InIndicador extends Model
     )
       ->join('in_fuentes', 'in_indicadors.id', '=', 'in_fuentes.in_indicador_id')
       ->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
-      ->join('parametros as scatagor', 'in_linea_bases.i_prm_categoria_id', '=', 'scatagor.id')
       ->join('in_base_fuentes', 'in_fuentes.id', '=', 'in_base_fuentes.in_fuente_id')
       ->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
       ->join('in_doc_preguntas', 'in_base_fuentes.id', '=', 'in_doc_preguntas.in_base_fuente_id')

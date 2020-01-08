@@ -8,7 +8,7 @@ use App\Models\sistema\SisFosTipoSeguimiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class FosTiposeguimientoController extends Controller{
+class FosTipoSeguimientoController extends Controller{
     public function __construct(){
         $this->middleware(['permission:fostipo-leer'], ['only' => ['index, show']]);
         $this->middleware(['permission:fostipo-crear'], ['only' => ['index, show, create, store', 'updateParametro']]);
