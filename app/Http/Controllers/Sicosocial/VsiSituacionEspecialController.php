@@ -11,13 +11,13 @@ use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
 
 class VsiSituacionEspecialController extends Controller{
-  
+
     public function __construct(){
         $this->middleware(['permission:vsisituacionespecial-crear'], ['only' => ['show, store']]);
         $this->middleware(['permission:vsisituacionespecial-editar'], ['only' => ['show, update']]);
     }
-  
-    public function show($id){ 
+
+    public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
         $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
@@ -41,6 +41,9 @@ class VsiSituacionEspecialController extends Controller{
                 $dato->riesgos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 104);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 105);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 106);
         return redirect()->route('VSI.situacionespecial', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -60,6 +63,9 @@ class VsiSituacionEspecialController extends Controller{
                 $dato->riesgos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 104);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 105);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 106);
         return redirect()->route('VSI.situacionespecial', $id)->with('info', 'Registro actualizado con éxito');
     }
 

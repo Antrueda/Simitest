@@ -35,6 +35,8 @@ class VsiConceptoController extends Controller{
                 $dato->redes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 46);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 47);
         return redirect()->route('VSI.concepto', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -48,6 +50,8 @@ class VsiConceptoController extends Controller{
                 $dato->redes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 46);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 47);
         return redirect()->route('VSI.concepto', $id)->with('info', 'Registro actualizado con éxito');
     }
 

@@ -18,7 +18,7 @@ class VsiDinamicaFamiliarController extends Controller{
         $this->middleware(['permission:vsidinfamiliar-crear'], ['only' => ['show, store, storeMadre, storePadre']]);
         $this->middleware(['permission:vsidinfamiliar-editar'], ['only' => ['show, update, destroyMadre, destroyPadre']]);
     }
-  
+
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
@@ -97,6 +97,15 @@ class VsiDinamicaFamiliarController extends Controller{
                 $dato->ausencia()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 53);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 54);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 55);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 56);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 57);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 58);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 59);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 62);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 63);
         return redirect()->route('VSI.dinfamiliar', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -112,6 +121,7 @@ class VsiDinamicaFamiliarController extends Controller{
             }
         }
         $dato = VsiDinfamMadre::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 60);
         return redirect()->route('VSI.dinfamiliar', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -136,11 +146,12 @@ class VsiDinamicaFamiliarController extends Controller{
             }
         }
         $dato = VsiDinfamPadre::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 61);
         return redirect()->route('VSI.dinfamiliar', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
     public function update(Request $request, $id, $id1){
-        
+
         if ($request->cuidador) {
             foreach ($request->cuidador as $d) {
                 if ($d == 235) {
@@ -207,6 +218,15 @@ class VsiDinamicaFamiliarController extends Controller{
                 $dato->ausencia()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 53);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 54);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 55);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 56);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 57);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 58);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 59);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 62);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 63);
         return redirect()->route('VSI.dinfamiliar', $id)->with('info', 'Registro actualizado con éxito');
     }
 
@@ -223,7 +243,7 @@ class VsiDinamicaFamiliarController extends Controller{
         $dato->save();
         return redirect()->route('VSI.dinfamiliar', $id)->with('info', 'Registro eliminado con éxito');
     }
-    
+
     protected function validator(array $data){
         return Validator::make($data, [
             'vsi_id' => 'required|exists:vsis,id',

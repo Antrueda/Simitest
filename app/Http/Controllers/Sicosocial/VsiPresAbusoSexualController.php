@@ -48,7 +48,7 @@ class VsiPresAbusoSexualController extends Controller{
             $request["prm_persona_ult_id"] = null;
             $request["prm_tipo_ult_id"] = null;
         }
-        
+
         if ($request->prm_tipo_id == 338) {
             $request["prm_convive_id"] = null;
             $request["prm_presencia_id"] = null;
@@ -62,8 +62,9 @@ class VsiPresAbusoSexualController extends Controller{
         if($request->prm_terapia_id == 228) {
             $request["prm_terapia_id"] = null;
         }
-        
+
         $dato = VsiAbuSexual::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 40);
         return redirect()->route('VSI.presabusosexual', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -86,7 +87,7 @@ class VsiPresAbusoSexualController extends Controller{
             $request["prm_persona_ult_id"] = null;
             $request["prm_tipo_ult_id"] = null;
         }
-        
+
         if($request->prm_tipo_id == 338) {
             $request["prm_convive_id"] = null;
             $request["prm_presencia_id"] = null;
@@ -102,6 +103,7 @@ class VsiPresAbusoSexualController extends Controller{
         }
         $dato = VsiAbuSexual::findOrFail($id1);
         $dato->fill($request->all())->save();
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 40);
         return redirect()->route('VSI.presabusosexual', $id)->with('info', 'Registro creado con éxito');
     }
 

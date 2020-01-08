@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class VsiAreaAjusteController extends Controller{
@@ -68,6 +70,14 @@ class VsiAreaAjusteController extends Controller{
                 $dato->familiares()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+
+        Vsi::indicador($dato->sis_nnaj_id,84);
+        Vsi::indicador($dato->sis_nnaj_id,85);
+        Vsi::indicador($dato->sis_nnaj_id,86);
+        Vsi::indicador($dato->sis_nnaj_id,87);
+        Vsi::indicador($dato->sis_nnaj_id,88);
+        Vsi::indicador($dato->sis_nnaj_id,89);
+        
         return redirect()->route('VSI.areaajuste', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 

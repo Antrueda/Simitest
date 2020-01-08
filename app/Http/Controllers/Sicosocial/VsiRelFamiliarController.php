@@ -45,7 +45,7 @@ class VsiRelFamiliarController extends Controller{
 
     public function store(Request $request){
         $this->validator($request->all())->validate();
-        
+
         if($request['prm_familia_id'] == 228) {
             $request['prm_denuncia_id'] = null;
             $request['descripcion'] = null;
@@ -82,13 +82,16 @@ class VsiRelFamiliarController extends Controller{
                 $dato->acciones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
-
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 96);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 98);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 99);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 100);
         return redirect()->route('VSI.relfamiliar', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
     public function update(Request $request, $id1){
         $this->validator($request->all())->validate();
-        
+
         if($request['prm_familia_id'] == 228) {
             $request['prm_denuncia_id'] = null;
             $request['descripcion'] = null;
@@ -108,8 +111,8 @@ class VsiRelFamiliarController extends Controller{
 
         $dato = VsiRelFamiliar::findOrFail($id1);
         $dato->fill($request->all())->save();
-        
-        
+
+
         $dato->motivos()->detach();
         if($request->motivos){
             foreach ($request->motivos as $d) {
@@ -123,14 +126,17 @@ class VsiRelFamiliarController extends Controller{
                 $dato->famDificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
-        
+
         $dato->acciones()->detach();
         if($request->acciones){
             foreach ($request->acciones as $d) {
                 $dato->acciones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
-
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 96);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 98);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 99);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 100);
         return redirect()->route('VSI.relfamiliar', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 

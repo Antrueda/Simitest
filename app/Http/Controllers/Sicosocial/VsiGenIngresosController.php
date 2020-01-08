@@ -11,7 +11,7 @@ use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
 
 class VsiGenIngresosController extends Controller{
-    
+
     public function __construct(){
         $this->middleware(['permission:vsigeningresos-crear'], ['only' => ['show, store']]);
         $this->middleware(['permission:vsigeningresos-editar'], ['only' => ['show, update']]);
@@ -109,6 +109,10 @@ class VsiGenIngresosController extends Controller{
                 $dato->labores()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 79);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 80);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 81);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 82);
         return redirect()->route('VSI.genIngresos', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -177,6 +181,10 @@ class VsiGenIngresosController extends Controller{
                 $dato->labores()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 79);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 80);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 81);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 82);
         return redirect()->route('VSI.genIngresos', $id)->with('info', 'Registro actualizado con éxito');
     }
 

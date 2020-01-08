@@ -2,12 +2,14 @@
 
 namespace App\Models\sicosocial;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
 use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisDependencia;
+use Illuminate\Support\Facades\Auth;
 
 class Vsi extends Model{
     protected $fillable = ['sis_nnaj_id', 'dependencia_id', 'fecha', 'user_crea_id', 'user_edita_id', 'activo'];
@@ -156,5 +158,14 @@ class Vsi extends Model{
 
     public function familiares(){
         return $this->belongsToMany(Parametro::class,'vsi_nnaj_familiar', 'vsi_id', 'parametro_id');
+    }
+
+    public static function indicador($sis_nnaj_id, $sis_tabla_id)
+    {
+        $dataxxxx['sis_tabla_id'] = $sis_tabla_id;
+        $dataxxxx['sis_nnaj_id'] = $sis_nnaj_id;
+        $dataxxxx['user_crea_id'] = Auth::user()->id;
+        $dataxxxx['user_edita_id'] = Auth::user()->id;
+        IndicadorHelper::asignaLineaBase($dataxxxx);
     }
 }

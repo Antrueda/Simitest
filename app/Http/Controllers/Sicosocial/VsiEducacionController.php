@@ -78,6 +78,12 @@ class VsiEducacionController extends Controller{
                 $dato->dificultadesb()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 64);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 65);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 66);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 67);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 68);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 69);
         return redirect()->route('VSI.educacion', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -126,6 +132,12 @@ class VsiEducacionController extends Controller{
                 $dato->dificultadesb()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 64);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 65);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 66);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 67);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 68);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 69);
         return redirect()->route('VSI.educacion', $id)->with('info', 'Registro actualizado con éxito');
     }
 

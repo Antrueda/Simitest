@@ -33,6 +33,8 @@ class VsiBienvenidaController extends Controller{
         foreach ($request->motivos as $d) {
             $dato->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 45);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 44);
         return redirect()->route('VSI.bienvenida', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -44,6 +46,8 @@ class VsiBienvenidaController extends Controller{
         foreach ($request->motivos as $d) {
             $dato->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 45);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 44);
         return redirect()->route('VSI.bienvenida', $id)->with('info', 'Registro actualizado con éxito');
     }
 

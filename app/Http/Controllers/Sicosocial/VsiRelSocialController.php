@@ -44,6 +44,9 @@ class VsiRelSocialController extends Controller{
         foreach ($request->dificultades as $d) {
             $dato->dificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 97);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 101);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 102);
         return redirect()->route('VSI.relsocial', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -63,6 +66,9 @@ class VsiRelSocialController extends Controller{
         foreach ($request->dificultades as $d) {
             $dato->dificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 97);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 101);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 102);
         return redirect()->route('VSI.relsocial', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 

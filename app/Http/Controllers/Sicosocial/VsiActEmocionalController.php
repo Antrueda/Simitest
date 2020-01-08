@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiActEmocional;
 use App\Models\Tema;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class VsiActEmocionalController extends Controller{
@@ -40,6 +42,7 @@ class VsiActEmocionalController extends Controller{
                 $dato->fisiologicas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id,41);
         return redirect()->route('VSI.actemocional', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -58,6 +61,8 @@ class VsiActEmocionalController extends Controller{
                 $dato->fisiologicas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id,41);
+        Vsi::indicador($dato->vsi->sis_nnaj_id,42);
         return redirect()->route('VSI.actemocional', $id)->with('info', 'Registro actualizado con éxito');
     }
 

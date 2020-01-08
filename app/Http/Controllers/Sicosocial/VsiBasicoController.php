@@ -54,6 +54,9 @@ class VsiBasicoController extends Controller{
         foreach ($request->emociones as $d) {
             $dato->emociones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 52);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 70);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 107);
         return redirect()->route('VSI.basico', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -64,6 +67,7 @@ class VsiBasicoController extends Controller{
         }
         $dato = FiDatosBasico::findOrFail($id1);
         $dato->fill($request->all())->save();
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 52);
         return redirect()->route('VSI.basico', $id)->with('info', 'Registro actualizado con éxito');
     }
 

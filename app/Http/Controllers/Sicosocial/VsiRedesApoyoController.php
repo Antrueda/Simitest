@@ -13,7 +13,7 @@ use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
 
 class VsiRedesApoyoController extends Controller{
-  
+
     public function __construct(){
         $this->middleware(['permission:vsiredesapoyo-crear'], ['only' => ['show, store, storePasado, storeActual']]);
         $this->middleware(['permission:vsiredesapoyo-editar'], ['only' => ['show, update, destroyPasado, destroyActual']]);
@@ -58,18 +58,23 @@ class VsiRedesApoyoController extends Controller{
         foreach ($request->accesos as $d) {
             $dato->accesos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 92);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 91);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 94);
         return redirect()->route('VSI.redesapoyo', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
     public function storePasado(Request $request){
         $this->validatorPasado($request->all())->validate();
         $dato = VsiRedsocPasado::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 95);
         return redirect()->route('VSI.redesapoyo', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
     public function storeActual(Request $request){
         $this->validatorActual($request->all())->validate();
         $dato = VsiRedsocActual::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 93);
         return redirect()->route('VSI.redesapoyo', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -95,6 +100,9 @@ class VsiRedesApoyoController extends Controller{
         foreach ($request->accesos as $d) {
             $dato->accesos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 91);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 92);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 94);
         return redirect()->route('VSI.redesapoyo', $id)->with('info', 'Registro actualizado con éxito');
     }
 

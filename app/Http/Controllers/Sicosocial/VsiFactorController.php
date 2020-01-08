@@ -30,12 +30,14 @@ class VsiFactorController extends Controller{
     public function storeProtector(Request $request){
         $this->validatorProtector($request->all())->validate();
         $dato = VsiFacProtector::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 77);
         return redirect()->route('VSI.factor', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
     public function storeRiesgo(Request $request){
         $this->validatorRiesgo($request->all())->validate();
         $dato = VsiFacRiesgo::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 78);
         return redirect()->route('VSI.factor', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 

@@ -58,6 +58,7 @@ class VsiSaludController extends Controller{
             $request["interrupcion"] = null;
         }
         VsiSalud::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 103);
         return redirect()->route('VSI.salud', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -92,6 +93,7 @@ class VsiSaludController extends Controller{
         }
         $dato = VsiSalud::findOrFail($id1);
         $dato->fill($request->all())->save();
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 103);
         return redirect()->route('VSI.salud', $id)->with('info', 'Registro actualizado con éxito');
     }
 

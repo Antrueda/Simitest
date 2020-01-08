@@ -35,6 +35,7 @@ class VsiConsentimientoController extends Controller{
         $request['cargo1'] = User::findOrFail($request->user_doc1_id)->sis_cargo->s_cargo;
         $request['cargo2'] = User::findOrFail($request->user_doc2_id)->sis_cargo->s_cargo;
         $dato = VsiConsentimiento::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 48);
         return redirect()->route('VSI.consentimiento', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -44,6 +45,7 @@ class VsiConsentimientoController extends Controller{
         $request['cargo2'] = User::findOrFail($request->user_doc2_id)->sis_cargo->s_cargo;
         $dato = VsiConsentimiento::findOrFail($id1);
         $dato->fill($request->all())->save();
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 48);
         return redirect()->route('VSI.consentimiento', $id)->with('info', 'Registro actualizado con éxito');
     }
 

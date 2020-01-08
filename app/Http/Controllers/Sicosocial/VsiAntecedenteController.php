@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiAntecedente;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use phpDocumentor\Reflection\DocBlock\Tags\Author;
 
 class VsiAntecedenteController extends Controller{
 
@@ -27,6 +30,7 @@ class VsiAntecedenteController extends Controller{
     public function store(Request $request){
         $this->validator($request->all())->validate();
         $dato = VsiAntecedente::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id,43);
         return redirect()->route('VSI.antecedente', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -34,6 +38,7 @@ class VsiAntecedenteController extends Controller{
         $this->validator($request->all())->validate();
         $dato = VsiAntecedente::findOrFail($id1);
         $dato->fill($request->all())->save();
+        Vsi::indicador($dato->vsi->sis_nnaj_id,43);
         return redirect()->route('VSI.antecedente', $id)->with('info', 'Registro actualizado con éxito');
     }
 

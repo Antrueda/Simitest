@@ -30,12 +30,14 @@ class VsiMetaController extends Controller{
     public function storePotencialidad(Request $request){
         $this->validatorPotencialidad($request->all())->validate();
         $dato = VsiPotencialidad::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 90);
         return redirect()->route('VSI.meta', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
     public function storeMeta(Request $request){
         $this->validatorMeta($request->all())->validate();
         $dato = VsiMeta::create($request->all());
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 83);
         return redirect()->route('VSI.meta', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 

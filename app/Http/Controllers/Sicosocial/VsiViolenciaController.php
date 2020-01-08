@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 
 
 class VsiViolenciaController extends Controller{
-  
+
   public function __construct(){
     $this->middleware(['permission:vsiviolencia-crear'], ['only' => ['show, store']]);
     $this->middleware(['permission:vsiviolencia-editar'], ['only' => ['show, update']]);
@@ -77,6 +77,9 @@ class VsiViolenciaController extends Controller{
         $dato->tipos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
       }
     }
+    Vsi::indicador($dato->vsi->sis_nnaj_id, 108);
+    Vsi::indicador($dato->vsi->sis_nnaj_id, 109);
+    Vsi::indicador($dato->vsi->sis_nnaj_id, 110);
     return redirect()->route('VSI.violencia', $request->vsi_id)->with('info', 'Registro creado con éxito');
   }
 
@@ -130,9 +133,12 @@ class VsiViolenciaController extends Controller{
         $dato->tipos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
       }
     }
+    Vsi::indicador($dato->vsi->sis_nnaj_id, 110);
+    Vsi::indicador($dato->vsi->sis_nnaj_id, 108);
+    Vsi::indicador($dato->vsi->sis_nnaj_id, 109);
     return redirect()->route('VSI.violencia', $id)->with('info', 'Registro actualizado con éxito');
   }
-  
+
   protected function validator(array $data){
     return Validator::make($data, [
       'vsi_id'       => 'required|exists:vsis,id',

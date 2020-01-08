@@ -59,6 +59,9 @@ class VsiConsumoController extends Controller{
                 $dato->expectativas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 49);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 50);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 51);
         return redirect()->route('VSI.consumo', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -94,6 +97,9 @@ class VsiConsumoController extends Controller{
                 $dato->expectativas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 49);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 50);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 51);
         return redirect()->route('VSI.consumo', $id)->with('info', 'Registro actualizado con éxito');
     }
 

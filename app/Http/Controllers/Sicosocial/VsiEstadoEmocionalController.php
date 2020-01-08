@@ -11,7 +11,7 @@ use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
 
 class VsiEstadoEmocionalController extends Controller{
-  
+
     public function __construct(){
         $this->middleware(['permission:vsiestemocional-crear'], ['only' => ['show, store']]);
         $this->middleware(['permission:vsiestemocional-editar'], ['only' => ['show, update']]);
@@ -102,6 +102,12 @@ class VsiEstadoEmocionalController extends Controller{
                 $dato->lesivas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 71);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 72);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 73);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 74);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 75);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 76);
         return redirect()->route('VSI.estemocional', $request->vsi_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -170,6 +176,12 @@ class VsiEstadoEmocionalController extends Controller{
                 $dato->lesivas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 71);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 72);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 73);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 74);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 75);
+        Vsi::indicador($dato->vsi->sis_nnaj_id, 76);
         return redirect()->route('VSI.estemocional', $id)->with('info', 'Registro actualizado con éxito');
     }
 
