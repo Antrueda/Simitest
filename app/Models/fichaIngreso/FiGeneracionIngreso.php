@@ -2,13 +2,14 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FiGeneracionIngreso extends Model{
-  protected $fillable = [    
+  protected $fillable = [
     'i_prm_actividad_genera_ingreso_id',
     's_trabajo_formal',
     'i_prm_trabajo_informal_id',
@@ -23,8 +24,8 @@ class FiGeneracionIngreso extends Model{
     'i_prm_frec_ingreso_id',
     'i_total_ingreso_mensual',
     'i_prm_tipo_relacion_laboral_id',
-    'sis_nnaj_id', 
-    'user_crea_id', 
+    'sis_nnaj_id',
+    'user_crea_id',
     'user_edita_id',
     'activo'
   ];
@@ -56,8 +57,8 @@ class FiGeneracionIngreso extends Model{
   }
   private static function grabarDiaGenera($digenera,$dataxxxx){
     $datosxxx=[
-      'fi_generacion_ingreso_id'=>$digenera->id, 
-      'user_crea_id'=>Auth::user()->id, 
+      'fi_generacion_ingreso_id'=>$digenera->id,
+      'user_crea_id'=>Auth::user()->id,
       'user_edita_id'=>Auth::user()->id,
       'activo'=>1,
     ];
@@ -69,10 +70,10 @@ class FiGeneracionIngreso extends Model{
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)
-  { 
+  {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
       $dataxxxx['user_edita_id'] = Auth::user()->id;
-      if ($objetoxx != '') { 
+      if ($objetoxx != '') {
         $objetoxx->update($dataxxxx);
       } else {
         $dataxxxx['user_crea_id'] = Auth::user()->id;
@@ -81,6 +82,12 @@ class FiGeneracionIngreso extends Model{
       if(isset($dataxxxx['i_prm_dia_genera_id'])){
         FiGeneracionIngreso::grabarDiaGenera($objetoxx,$dataxxxx);
       }
+
+      $dataxxxx['sis_tabla_id']=15;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
+      $dataxxxx['sis_tabla_id']=10;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
 
       return $objetoxx;
     }, 5);

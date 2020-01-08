@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -89,6 +90,13 @@ class FiFormacion extends Model
       if(isset($dataxxxx['i_prm_motivo_vinc_id'])){
         FiMotivoVinculacion::setMotivosVinculacion($objetoxx,$dataxxxx);
       }
+
+      $dataxxxx['sis_tabla_id']=14;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
+      $dataxxxx['sis_tabla_id']=19;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
       return $objetoxx;
     }, 5);
     return $usuariox;

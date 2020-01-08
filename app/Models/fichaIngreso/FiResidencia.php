@@ -2,11 +2,13 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Parametro;
 use App\Models\sistema\SisBarrio;
+use App\Models\User;
 
 class FiResidencia extends Model
 {
@@ -133,6 +135,13 @@ public function sis_barrio()
         $objetoxx = FiResidencia::create($dataxxxx);
       }
       FiResidencia::grabarOpciones($objetoxx, $dataxxxx);
+
+      $dataxxxx['sis_tabla_id']=30;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
+      $dataxxxx['sis_tabla_id']=6;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
       return $objetoxx;
     }, 5);
     return $usuariox;

@@ -2,13 +2,14 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FiActividadestl extends Model{
-  protected $fillable = [ 
+  protected $fillable = [
     'i_horas_permanencia_calle',
     'i_dias_permanencia_calle',
     'i_prm_pertenece_parche_id',
@@ -16,8 +17,8 @@ class FiActividadestl extends Model{
     'i_prm_acceso_recreacion_id',
     'i_prm_practica_religiosa_id',
     'i_prm_religion_practica_id',
-    'sis_nnaj_id', 
-    'user_crea_id', 
+    'sis_nnaj_id',
+    'user_crea_id',
     'user_edita_id',
     'activo'
   ];
@@ -74,13 +75,13 @@ class FiActividadestl extends Model{
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)
-  {  
+  {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-      
+
 
       $dataxxxx['user_edita_id'] = Auth::user()->id;
       if ($objetoxx != '') {
-        
+
         if(isset($dataxxxx['i_prm_pertenece_parche_id']) && $dataxxxx['i_prm_pertenece_parche_id'] == 228){
           $dataxxxx['s_nombre_parche'] = '';
         }
@@ -112,6 +113,15 @@ class FiActividadestl extends Model{
       if(isset($dataxxxx['i_prm_sacramentos_hechos_id'])){
         FiSacramento::setSacramento($objetoxx,$dataxxxx);
       }
+
+      $dataxxxx['sis_tabla_id']=2;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
+      $dataxxxx['sis_tabla_id']=1;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
+      $dataxxxx['sis_tabla_id']=32;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
 
       return $objetoxx;
     }, 5);

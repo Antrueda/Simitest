@@ -2,13 +2,14 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FiSalud extends Model{
-  protected $fillable = [  
+  protected $fillable = [
     'i_prm_regimen_salud_id',
     'sis_entidad_salud_id',
     'i_prm_tiene_sisben_id',
@@ -35,8 +36,8 @@ class FiSalud extends Model{
     'i_prm_uso_voluntario_id',
     'i_comidas_diarias',
     'i_prm_razon_no_cinco_comidas_id',
-    'sis_nnaj_id', 
-    'user_crea_id', 
+    'sis_nnaj_id',
+    'user_crea_id',
     'user_edita_id',
     'activo'
   ];
@@ -69,8 +70,8 @@ class FiSalud extends Model{
   }
   private static function grabarEventoMedico($evenmedic,$dataxxxx){
     $datosxxx=[
-      'fi_salud_id'=>$evenmedic->id, 
-      'user_crea_id'=>Auth::user()->id, 
+      'fi_salud_id'=>$evenmedic->id,
+      'user_crea_id'=>Auth::user()->id,
       'user_edita_id'=>Auth::user()->id,
       'activo'=>1,
     ];
@@ -82,7 +83,7 @@ class FiSalud extends Model{
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)
-  {  
+  {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
       $dataxxxx['user_edita_id'] = Auth::user()->id;
       if ($objetoxx != '') {
@@ -94,7 +95,13 @@ class FiSalud extends Model{
       if(isset($dataxxxx['i_prm_evento_medico_id'])){
         FiSalud::grabarEventoMedico($objetoxx,$dataxxxx);
       }
-      
+
+      $dataxxxx['sis_tabla_id']=33;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
+      $dataxxxx['sis_tabla_id']=13;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
       return $objetoxx;
     }, 5);
     return $usuariox;

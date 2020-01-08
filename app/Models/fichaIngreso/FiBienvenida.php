@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -9,14 +10,14 @@ use Illuminate\Support\Facades\DB;
 use App\Models\sistema\SisDependencia;
 
 class FiBienvenida extends Model{
-  protected $fillable = [ 
+  protected $fillable = [
     'sis_dependencia_id',
     'i_prm_quiere_entrar_id',
     'i_prm_servicio_id',
     's_porque_quiere_entrar',
     's_que_gustaria_hacer',
-    'sis_nnaj_id', 
-    'user_crea_id', 
+    'sis_nnaj_id',
+    'user_crea_id',
     'user_edita_id',
     'activo'
   ];
@@ -47,7 +48,7 @@ class FiBienvenida extends Model{
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)
-  {  
+  {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
       $dataxxxx['user_edita_id'] = Auth::user()->id;
       if ($objetoxx != '') {
@@ -56,6 +57,10 @@ class FiBienvenida extends Model{
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiBienvenida::create($dataxxxx);
       }
+
+      $dataxxxx['sis_tabla_id']=4;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
       return $objetoxx;
     }, 5);
     return $usuariox;

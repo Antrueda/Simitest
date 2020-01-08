@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -33,8 +34,8 @@ class FiViolencia extends Model{
     'i_prm_tiene_certificado_id',
     'i_prm_depto_certifica_id',
     'i_prm_municipio_certifica_id',
-    'sis_nnaj_id', 
-    'user_crea_id', 
+    'sis_nnaj_id',
+    'user_crea_id',
     'user_edita_id',
     'activo'
   ];
@@ -60,7 +61,7 @@ class FiViolencia extends Model{
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)
-  {  
+  {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
       $dataxxxx['user_edita_id'] = Auth::user()->id;
       if ($objetoxx != '') {
@@ -69,6 +70,10 @@ class FiViolencia extends Model{
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiViolencia::create($dataxxxx);
       }
+
+      $dataxxxx['sis_tabla_id']=38;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
       return $objetoxx;
     }, 5);
     return $usuariox;

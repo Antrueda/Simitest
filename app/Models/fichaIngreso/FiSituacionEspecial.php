@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -123,6 +124,24 @@ class FiSituacionEspecial extends Model {
               }
 
               FiSituacionEspecial::grabarOpciones($objetoxx, $dataxxxx);
+
+              $dataxxxx['sis_tabla_id']=32;
+              IndicadorHelper::asignaLineaBase($dataxxxx);
+
+              $dataxxxx['sis_tabla_id']=31;
+              IndicadorHelper::asignaLineaBase($dataxxxx);
+
+              $dataxxxx['sis_tabla_id']=25;
+              IndicadorHelper::asignaLineaBase($dataxxxx);
+
+              $dataxxxx['sis_tabla_id']=26;
+              IndicadorHelper::asignaLineaBase($dataxxxx);
+
+              $dataxxxx['sis_tabla_id']=35;
+              IndicadorHelper::asignaLineaBase($dataxxxx);
+
+              $dataxxxx['sis_tabla_id']=38;
+              IndicadorHelper::asignaLineaBase($dataxxxx);
 
 
               return $objetoxx;

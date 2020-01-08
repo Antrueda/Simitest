@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +17,8 @@ class FiContacto extends Model{
     'd_fecha_remite_id',
     'i_prm_motivo_contacto_id',
     'i_prm_aut_tratamiento_id',
-    'sis_nnaj_id', 
-    'user_crea_id', 
+    'sis_nnaj_id',
+    'user_crea_id',
     'user_edita_id',
     'activo'
   ];
@@ -43,7 +44,7 @@ class FiContacto extends Model{
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)
-  {  
+  {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
       $dataxxxx['user_edita_id'] = Auth::user()->id;
       if ($objetoxx != '') {
@@ -52,6 +53,10 @@ class FiContacto extends Model{
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiContacto::create($dataxxxx);
       }
+
+      $dataxxxx['sis_tabla_id']=8;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
       return $objetoxx;
     }, 5);
     return $usuariox;

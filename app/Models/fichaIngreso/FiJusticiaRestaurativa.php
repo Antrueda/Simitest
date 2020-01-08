@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +55,19 @@ class FiJusticiaRestaurativa extends Model
       FiProcesoPard::transaccion($dataxxxx,FiProcesoPard::where('fi_justicia_restaurativa_id',$objetoxx->id)->first(), $objetoxx);
       FiProcesoSpoa::transaccion($dataxxxx,FiProcesoSpoa::where('fi_justicia_restaurativa_id',$objetoxx->id)->first(), $objetoxx);
       FiProcesoSrpa::transaccion($dataxxxx,FiProcesoSrpa::where('fi_justicia_restaurativa_id',$objetoxx->id)->first(), $objetoxx);
+
+      $dataxxxx['sis_tabla_id']=17;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
+      $dataxxxx['sis_tabla_id']=22;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
+      $dataxxxx['sis_tabla_id']=23;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
+      $dataxxxx['sis_tabla_id']=24;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
       return $objetoxx;
     }, 5);
     return $usuariox;

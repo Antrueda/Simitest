@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,10 @@ class FiRedApoyoAntecedente extends Model
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = FiRedApoyoAntecedente::create($dataxxxx);
             }
+
+            $dataxxxx['sis_tabla_id']=29;
+            IndicadorHelper::asignaLineaBase($dataxxxx);
+
             return $objetoxx;
         }, 5);
         return $usuariox;

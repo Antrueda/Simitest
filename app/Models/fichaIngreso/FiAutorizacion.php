@@ -2,20 +2,21 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FiAutorizacion extends Model{
-  protected $fillable = [ 
+  protected $fillable = [
     'i_prm_autorizo_id',
     'd_autorizacion',
     'i_prm_tipo_diligencia_id',
     'i_prm_parentesco_id',
-    'sis_nnaj_id', 
-    'fi_composicion_fami_id', 
-    'user_crea_id', 
+    'sis_nnaj_id',
+    'fi_composicion_fami_id',
+    'user_crea_id',
     'user_edita_id',
     'activo'
   ];
@@ -61,7 +62,7 @@ class FiAutorizacion extends Model{
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)
-  {  
+  {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
       $dataxxxx['user_edita_id'] = Auth::user()->id;
       if ($objetoxx != '') {
@@ -70,11 +71,17 @@ class FiAutorizacion extends Model{
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiAutorizacion::create($dataxxxx);
       }
-      
+
       if(isset($dataxxxx['i_prm_modalidad_id'])){
         FiModalidad::setModalidad($objetoxx, $dataxxxx);
       }
-      
+
+      $dataxxxx['sis_tabla_id']=3;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
+      $dataxxxx['sis_tabla_id']=18;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
+
       return $objetoxx;
     }, 5);
     return $usuariox;

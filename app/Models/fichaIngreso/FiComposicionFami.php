@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\sistema\SisDepartamento;
 use App\Models\sistema\SisMunicipio;
 use App\Models\sistema\SisPai;
@@ -68,6 +69,7 @@ class FiComposicionFami extends Model
       $dt = new DateTime($dataxxxx['d_nacimiento']);
       $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
       $dataxxxx['user_edita_id'] = Auth::user()->id;
+
       if ($objetoxx != '') {
         $objetoxx->update($dataxxxx);
       } else {
@@ -76,6 +78,9 @@ class FiComposicionFami extends Model
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiComposicionFami::create($dataxxxx);
       }
+
+      $dataxxxx['sis_tabla_id']=5;
+      IndicadorHelper::asignaLineaBase($dataxxxx);
 
       return $objetoxx;
     }, 5);

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\fichaIngreso; 
+namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\Parametro;
@@ -156,7 +156,7 @@ class FiDatosBasico extends Model
     {
         return FiDatosBasico::where('sis_nnaj_id', $idxxxxxx)->where('activo', 1)->first();
     }
-    
+
     public function grabar($dataxxxx, $objetoxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
@@ -179,7 +179,7 @@ class FiDatosBasico extends Model
                 $datobasi = FiDatosBasico::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])->where('i_prm_linea_base_id', 228)->first();
                 /** Para crearse el nuevo registro deben haber transcurido más de 45 días no haber registro */
                 if ($diasxxxx > 45 && !isset($datobasi->id)) {
-                    /** La línea base se pasa a inactivo para asegurar que no vuelva a ser modificada, 
+                    /** La línea base se pasa a inactivo para asegurar que no vuelva a ser modificada,
                      * solo será consultada */
                     $objetoxx->update(['activo' => 0]);
                     /** El nuevo registro no es línea base */
@@ -202,8 +202,8 @@ class FiDatosBasico extends Model
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['i_prm_linea_base_id'] = 227;
                 $objetoxx = FiDatosBasico::create($dataxxxx);
-                
-                
+
+
             }
             $dataxxxx['i_prm_ocupacion_id']=1262;
             $dataxxxx['i_prm_parentesco_id']=805;
@@ -214,7 +214,7 @@ class FiDatosBasico extends Model
                 $compofam='';
             }
             FiComposicionFami::transaccion($dataxxxx,$compofam);
-            $dataxxxx['sis_tabla_id']=1;
+            $dataxxxx['sis_tabla_id']=9;
             IndicadorHelper::asignaLineaBase($dataxxxx);
             return $objetoxx;
         }, 5);
