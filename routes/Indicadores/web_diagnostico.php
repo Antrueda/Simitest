@@ -25,6 +25,11 @@ Route::group(['prefix' => 'indiagnostico'], function () {
 		'uses' => 'Indicadores\InDiagnosticoController@show',
 		'middleware' => ['permission:indiagnostico-leer']
 	])->name('diagnostico.ver');
+
+
+	Route::get('nivel', [
+		'uses' => 'Indicadores\InDiagnosticoController@nivel',
+	])->name('diagnostico.nivel');
 	Route::delete('ver/{objetoxx}', [
 		'uses' => 'Indicadores\InDiagnosticoController@destroy',
 		'middleware' => ['permission:indiagnostico-borrar']

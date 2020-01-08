@@ -12,6 +12,7 @@ class InLineabaseNnaj extends Model
     protected $fillable = [
     'in_fuente_id',
     'sis_nnaj_id',
+    'i_prm_categoria_id',
     'user_crea_id',
     'user_edita_id',
     'activo'
@@ -35,6 +36,7 @@ class InLineabaseNnaj extends Model
       if ($objetoxx != '') {
         $objetoxx->update($dataxxxx);
       } else {
+        $dataxxxx['i_prm_categoria_id'] = 246;
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = InLineabaseNnaj::create($dataxxxx);
       }

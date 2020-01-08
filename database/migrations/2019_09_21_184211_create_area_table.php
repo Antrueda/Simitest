@@ -42,7 +42,6 @@ class CreateAreaTable extends Migration
 
     Schema::create('in_linea_bases', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->bigInteger('i_prm_categoria_id')->unsigned();
       $table->string('s_linea_base', 300)->unique();
       $table->bigInteger('user_crea_id')->unsigned();
       $table->bigInteger('user_edita_id')->unsigned();

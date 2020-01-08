@@ -12,7 +12,6 @@ class InLineaBase extends Model
 {
   protected $fillable = [
     's_linea_base',
-    'i_prm_categoria_id',
     'user_crea_id',
     'user_edita_id',
     'activo'

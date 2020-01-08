@@ -143,9 +143,9 @@ class InValoracionController extends Controller
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx, $padrexxx)
     {
 
-        $categori = $padrexxx->in_fuente->in_linea_base->i_prm_categoria_id;
+        $categori = $padrexxx->i_prm_categoria_id;
 
-
+        
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
@@ -228,6 +228,7 @@ class InValoracionController extends Controller
      */
     public function edit($valo, InValoracion $objetoxx)
     {
+        return $objetoxx;
         return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'editar', InLineabaseNnaj::where('id', $valo)->first());
     }
     public function lista(InLineabaseNnaj $objetoxx)

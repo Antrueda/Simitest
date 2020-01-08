@@ -15,16 +15,13 @@ class InLineaBaseCrearRequest extends FormRequest
         $this->_mensaje = [
             's_linea_base.required' => 'Ingrese el nombre de la línea base',
             's_linea_base.unique' => 'La línea base ya se encuentra en uso',
-            'i_prm_categoria_id.required' => 'Seleccion una categoria',
+            
             
         ];
         $this->_reglasx = [
 
             
-            'i_prm_categoria_id' =>
-            [
-                'required', //y todos las validaciones a que haya lugar separadas por coma
-            ],
+           
             's_linea_base' =>
             [
                 'required', //y todos las validaciones a que haya lugar separadas por coma

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Indicadores;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Indicadores\InDiagnosticoEditarRequest;
 use App\Models\Indicadores\InLineabaseNnaj;
+use App\Models\Parametro;
 use App\Models\Tema;
 use Illuminate\Http\Request;
 
@@ -25,10 +27,10 @@ class InDiagnosticoController extends Controller
             'routinde' => 'diagnostico',
             'volverax' => 'NNAJ Línea Base',
         ];
-        $this->opciones['readonly']='';
-        $this->opciones['rutaxxxx']='diagnostico';
-        $this->opciones['routnuev']='diagnostico';
-        $this->opciones['routxxxx']='diagnostico';
+        $this->opciones['readonly'] = '';
+        $this->opciones['rutaxxxx'] = 'diagnostico';
+        $this->opciones['routnuev'] = 'diagnostico';
+        $this->opciones['routxxxx'] = 'diagnostico';
     }
 
 
@@ -39,7 +41,7 @@ class InDiagnosticoController extends Controller
      */
     public function index()
     {
-        $this->opciones['vercrear']='';
+        $this->opciones['vercrear'] = '';
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'botonesx', 'dataxxxx' => 'Indicadores/Admin/Diagnostico/botones/botonesapi'],
         ];
@@ -66,7 +68,7 @@ class InDiagnosticoController extends Controller
     }
     public function listar_lieas_base_nnaj($nnajxxxx)
     {
-        $this->opciones['vercrear']='';
+        $this->opciones['vercrear'] = '';
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'botonesx', 'dataxxxx' => 'Indicadores/Admin/Diagnostico/botones/botonesbase'],
         ];
@@ -84,7 +86,7 @@ class InDiagnosticoController extends Controller
             ['data' => 's_linea_base', 'name' => 'in_linea_bases.s_linea_base'],
             ['data' => 'activo', 'name' => 'in_lineabase_nnajs.activo'],
         ];
-        return view('Indicadores.Admin.Diagnostico.base', ['todoxxxx' => $this->opciones]);
+        return view('Indicadores.Admin.Diagnostico.index', ['todoxxxx' => $this->opciones]);
     }
 
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
@@ -94,8 +96,9 @@ class InDiagnosticoController extends Controller
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
-
+        $this->opciones['nivelxxx'] = '';
         if ($nombobje != '') {
+            $this->opciones['nivelxxx'] = $this->getNivel($objetoxx->i_prm_categoria_id);
             $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
@@ -144,13 +147,20 @@ class InDiagnosticoController extends Controller
      */
     public function edit(InLineabaseNnaj $objetoxx)
     {
-        $this->opciones['botoform']=[
-            ['mostrars'=>true,'accionxx'=>'Editar','routingx'=>['diagnostico.editar',[]],'formhref'=>1,'tituloxx'=>''],
-            ['mostrars'=>true,'accionxx'=>'Editar','routingx'=>['diagnostico.nnajbases',[$objetoxx->sis_nnaj_id]],'formhref'=>2,'tituloxx'=>'Volver a Líneas Base NNAJ'],
-            ['mostrars'=>true,'accionxx'=>'Editar','routingx'=>['diagnostico',[]],'formhref'=>2,'tituloxx'=>'Volver a NNAJs'], 
-             
+        $this->opciones['botoform'] = [
+            ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => ['diagnostico.editar', []], 'formhref' => 1, 'tituloxx' => ''],
+            ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => ['diagnostico.nnajbases', [$objetoxx->sis_nnaj_id]], 'formhref' => 2, 'tituloxx' => 'Volver a Líneas Base NNAJ'],
+            ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => ['diagnostico', []], 'formhref' => 2, 'tituloxx' => 'Volver a NNAJs'],
+
         ];
         return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'editar');
+    }
+
+    private function grabar($dataxxxx, $objectx, $infoxxxx)
+    {
+        return redirect()
+            ->route('diagnostico.editar', [InLineabaseNnaj::transaccion($dataxxxx, $objectx)->id])
+            ->with('info', $infoxxxx);
     }
 
     /**
@@ -160,9 +170,10 @@ class InDiagnosticoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InDiagnosticoEditarRequest $request, InLineabaseNnaj $objetoxx)
     {
-        //
+        $dataxxxx = $request->all();
+        return $this->grabar($dataxxxx, $objetoxx, 'Linea base del NNAJ actualizada con éxito');
     }
 
     /**
@@ -174,5 +185,34 @@ class InDiagnosticoController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function getNivel($dataxxxx)
+    {
+        $nivelxxx = '';
+        switch ($dataxxxx) {
+            case 246:
+            case 247:
+            case 248:
+                $nivelxxx = Parametro::where('id', 938)->first()->nombre;
+                break;
+            case 300:
+            case 301:
+            case 302:
+                $nivelxxx = Parametro::where('id', 939)->first()->nombre;
+                break;
+            case 518:
+            case 840:
+            case 841:
+                $nivelxxx = Parametro::where('id', 940)->first()->nombre;
+                break;
+        }
+        return $nivelxxx;
+    }
+    public function nivel(Request $request)
+    {
+        if ($request->ajax()) {
+            $dataxxxx = $request->all();
+            return response()->json(['nivelxxx' => $this->getNivel($dataxxxx['padrexxx'])]);
+        }
     }
 }

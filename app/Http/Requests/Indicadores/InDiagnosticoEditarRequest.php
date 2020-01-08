@@ -4,17 +4,22 @@ namespace App\Http\Requests\Indicadores;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InLineaBaseEditarRequest extends FormRequest
+class InDiagnosticoEditarRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
 
     public function __construct()
     {
-        $this->_mensaje = [
-            's_linea_base.required' => 'Ingrese el nombre de la línea base',
-            's_linea_base.unique' => 'La línea base ya se encuentra en uso',
-           
+
+       $this->_mensaje = [
+            'i_prm_categoria_id.required' => 'Seleccione una categoría',
+        ];
+        $this->_reglasx = [
+            'i_prm_categoria_id' =>
+            [
+                'required', //y todos las validaciones a que haya lugar separadas por coma
+            ],
         ];
     }
     /**
@@ -40,16 +45,12 @@ class InLineaBaseEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        $this->_reglasx['s_linea_base'] =
-            [
-                'required', //y todos las validaciones a que haya lugar separadas por coma
-                'unique:in_linea_bases,s_linea_base,' . $this->segments()[2]
-            ];
         return $this->_reglasx;
     }
 
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        
     }
 }
