@@ -8,17 +8,18 @@ use Illuminate\Http\Request;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdGenIngreso;
 use App\Models\consulta\CsdGeningAporta;
+use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
 
 
 class CsdGeneracionIngresosController extends Controller{
-    
+
     public function __construct(){
         $this->middleware(['permission:csdgeningresos-crear'], ['only' => ['show, store, storeaportante']]);
         $this->middleware(['permission:csdgeningresos-editar'], ['only' => ['show, update, destroyaportante']]);
     }
-    
+
     public function show($id){
         $dato = Csd::findOrFail($id);
         $nnajs = $dato->nnajs->where('activo', 1)->all();
@@ -49,7 +50,7 @@ class CsdGeneracionIngresosController extends Controller{
         return view('Domicilio.index', ['accion' => 'GenIngresos'], compact('dato', 'nnajs', 'valor', 'valorAporta', 'actividad', 'sino', 'familiares', 'ampm', 'dias', 'informal', 'otros', 'laboral', 'tiempo', 'frecuencia'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, $id){
         $this->validator($request->all())->validate();
         if ($request->prm_actividad_id == 626) {
             $request["prm_informal_id"] = null;
@@ -73,7 +74,8 @@ class CsdGeneracionIngresosController extends Controller{
             $request["prm_frecuencia_id"] = null;
             $request["intensidad"] = null;
         }
-        CsdGenIngreso::create($request->all());
+        $dato=CsdGenIngreso::create($request->all());
+        Vsi::indicador($id, 131);
         return redirect()->route('CSD.geningresos', $request->csd_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -103,15 +105,18 @@ class CsdGeneracionIngresosController extends Controller{
         }
         $dato = CsdGenIngreso::findOrFail($id1);
         $dato->fill($request->all())->save();
+
+        Vsi::indicador($id, 130);
         return redirect()->route('CSD.geningresos', $id)->with('info', 'Registro actualizado con éxito');
     }
 
-    public function storeaportante(Request $request){
+    public function storeaportante(Request $request, $id){
         $this->validatorAporta($request->all())->validate();
         $dato = CsdGeningAporta::create($request->all());
         foreach ($request->dias as $d) {
             $dato->dias()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
+        Vsi::indicador($id, 132);
         return redirect()->route('CSD.geningresos', $request->csd_id)->with('info', 'Registro creado con éxito');
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
+use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
 use App\Models\sistema\SisLocalidad;
@@ -14,7 +15,7 @@ use App\Models\sistema\SisUpz;
 use App\Models\sistema\SisBarrio;
 
 class CsdResidenciaController extends Controller{
-  
+
     public function __construct(){
         $this->middleware(['permission:csdresidencia-crear'], ['only' => ['show, store']]);
         $this->middleware(['permission:csdresidencia-editar'], ['only' => ['show, update']]);
@@ -75,7 +76,7 @@ class CsdResidenciaController extends Controller{
         return view('Domicilio.index', ['accion' => 'Residencia'], compact('dato', 'nnajs', 'valor', 'sino', 'residencia', 'tipo', 'actual', 'zona', 'tViaPrincipal', 'alfabeto', 'cuadrante', 'estrato', 'condiciones', 'pisos', 'muros', 'estado', 'localidadjs', 'localidades', 'upzs', 'barrios'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, $id){
         $this->validator($request->all())->validate();
         if ($request->prm_dir_zona_id == 288 || $request->prm_dir_zona_id == 289) {
             $request["prm_dir_via_id"] = null;
@@ -97,6 +98,8 @@ class CsdResidenciaController extends Controller{
         foreach ($request->ambientes as $d) {
             $dato->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
+        Vsi::indicador($id, 138);
+        Vsi::indicador($id, 139);
         return redirect()->route('CSD.residencia', $request->csd_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -124,6 +127,8 @@ class CsdResidenciaController extends Controller{
         foreach ($request->ambientes as $d) {
             $dato->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
+        Vsi::indicador($id, 138);
+        Vsi::indicador($id, 139);
         return redirect()->route('CSD.residencia', $id)->with('info', 'Registro actualizado con éxito');
     }
 

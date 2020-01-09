@@ -9,16 +9,17 @@ use Illuminate\Support\Facades\Validator;
 
 Use App\Models\consulta\Csd;
 Use App\Models\consulta\CsdConclusiones;
+use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use App\Models\User;
 
 class CsdConclusionesController extends Controller{
-  
+
   public function __construct(){
     $this->middleware(['permission:csdconclusiones-crear'], ['only' => ['show, store']]);
     $this->middleware(['permission:csdconclusiones-editar'], ['only' => ['show, update']]);
   }
-  
+
   public function show($id){
 
     $dato  = Csd::findOrFail($id);
@@ -33,11 +34,12 @@ class CsdConclusionesController extends Controller{
     return view('Domicilio.index', ['accion' => 'Conclusiones'], compact('dato', 'nnajs', 'valor', 'sino', 'usuarios', 'familiares'));
   }
 
-  public function store(Request $request){
+  public function store(Request $request, $id){
 
     $this->validator($request->all())->validate();
     $dato = CsdConclusiones::create($request->all());
-    
+    Vsi::indicador($id, 121);
+
     return redirect()->route('CSD.conclusiones', $request->csd_id)->with('info', 'Registro creado con éxito');
   }
 
@@ -45,6 +47,7 @@ class CsdConclusionesController extends Controller{
     $this->validator($request->all())->validate();
     $dato = CsdConclusiones::findOrFail($id1);
     $dato->fill($request->all())->save();
+    Vsi::indicador($id, 121);
     return redirect()->route('CSD.conclusiones', $id)->with('info', 'Registro actualizado con éxito');
   }
 

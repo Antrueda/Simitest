@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
+use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 
 class CsdAlimentacionController extends Controller{
@@ -16,7 +17,7 @@ class CsdAlimentacionController extends Controller{
     $this->middleware(['permission:csdalimentacion-crear'], ['only' => ['show, store']]);
     $this->middleware(['permission:csdalimentacion-editar'], ['only' => ['show, update']]);
   }
-  
+
   public function show($id){
     $dato  = Csd::findOrFail($id);
     $nnajs = $dato->nnajs->where('activo', 1)->all();
@@ -31,10 +32,10 @@ class CsdAlimentacionController extends Controller{
     return view('Domicilio.index', ['accion' => 'Alimentacion'], compact('dato', 'nnajs', 'valor', 'sino', 'frecuencia', 'lugares', 'alimentacion', 'familiares', 'entidad'));
   }
 
-  public function store(Request $request){
-    
+  public function store(Request $request, $id){
+
     $this->validator($request->all())->validate();
-    
+
     if ($request->prm_apoyo_id == 228) {
       $request["prm_entidad_id"] = null;
     }
@@ -64,20 +65,24 @@ class CsdAlimentacionController extends Controller{
         $dato->prepara()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
       }
     }
-    
+    Vsi::indicador($id, 112);
+    Vsi::indicador($id, 115);
+    Vsi::indicador($id, 116);
+    Vsi::indicador($id, 117);
+    Vsi::indicador($id, 118);
     return redirect()->route('CSD.alimentacion', $request->csd_id)->with('info', 'Registro creado con éxito');
   }
 
   public function update(Request $request, $id, $id1){
     $this->validator($request->all())->validate();
-    
+
     if ($request->prm_apoyo_id == 228) {
       $request["prm_entidad_id"] = null;
     }
 
     $dato = CsdAlimentacion::findOrFail($id1);
     $dato->fill($request->all())->save();
-    
+
     if($request->frecuencia) {
       $dato->frecuencia()->detach();
       foreach ($request->frecuencia as $d) {
@@ -105,7 +110,12 @@ class CsdAlimentacionController extends Controller{
         $dato->prepara()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
       }
     }
-    
+    Vsi::indicador($id, 112);
+    Vsi::indicador($id, 115);
+    Vsi::indicador($id, 116);
+    Vsi::indicador($id, 117);
+    Vsi::indicador($id, 118);
+
     return redirect()->route('CSD.alimentacion', $request->csd_id)->with('info', 'Registro creado con éxito');
 
   }

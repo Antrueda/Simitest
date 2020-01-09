@@ -10,16 +10,17 @@ use App\Models\Tema;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdRedsocPasado;
 use App\Models\consulta\CsdRedsocActual;
+use App\Models\sicosocial\Vsi;
 
 class CsdRedesApoyoController extends Controller{
-    
+
     public function __construct(){
         $this->middleware(['permission:csdredesapoyo-crear'], ['only' => ['show, store, storePasado, storeActual']]);
         $this->middleware(['permission:csdredesapoyo-editar'], ['only' => ['show, update, destroyPasado, destroyActual']]);
     }
-    
+
     public function show($id){
-        
+
         $dato  = Csd::findOrFail($id);
         $nnajs = $dato->nnajs->where('activo', 1)->all();
         $valorPasado = $dato->CsdRedsocPasado->where('activo', 1)->sortByDesc('id');
@@ -35,18 +36,18 @@ class CsdRedesApoyoController extends Controller{
 
         return view('Domicilio.index', ['accion' => 'RedesApoyo'], compact('dato', 'nnajs', 'sino', 'beneficio', 'tiempo', 'tipoRed', 'valorPasado', 'valorActual'));
     }
-    
-    public function storePasado(Request $request){
+
+    public function storePasado(Request $request, $id){
         $this->validatorPasado($request->all())->validate();
         $dato = CsdRedsocPasado::create($request->all());
-
+        Vsi::indicador($id, 137);
         return redirect()->route('CSD.redesapoyo', $request->csd_id)->with('info', 'Registro creado con éxito');
     }
 
-    public function storeActual(Request $request){
+    public function storeActual(Request $request, $id){
         $this->validatorActual($request->all())->validate();
         $dato = CsdRedsocActual::create($request->all());
-
+        Vsi::indicador($id, 136);
         return redirect()->route('CSD.redesapoyo', $request->csd_id)->with('info', 'Registro creado con éxito');
     }
 

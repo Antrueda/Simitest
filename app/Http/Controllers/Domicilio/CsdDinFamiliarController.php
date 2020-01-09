@@ -9,6 +9,7 @@ use App\Models\consulta\Csd;
 use App\Models\consulta\CsdDinFamiliar;
 use App\Models\consulta\CsdDinfamMadre;
 use App\Models\consulta\CsdDinfamPadre;
+use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -75,7 +76,7 @@ class CsdDinFamiliarController extends Controller{
         return view('Domicilio.index', ['accion' => 'DinFamiliar'], compact('dato', 'nnajs', 'valor', 'sino', 'antecedentes', 'valorMadre', 'valorPadre', 'familiar', 'hogar', 'familiares', 'separacion', 'traslado', 'problematicas', 'reglas', 'actuan', 'maneras', 'acude', 'incumple', 'destacan', 'sucesos'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, $id){
         $this->validator($request->all())->validate();
         if($request->prm_familiar_id){
             $request['prm_hogar_id'] = null;
@@ -107,7 +108,7 @@ class CsdDinFamiliarController extends Controller{
         if ($paso > 0) {
             $this->validatorMenor($request->all())->validate();
         }
-        
+
         $dato = CsdDinFamiliar::create($request->all());
 
         if($request->antecedentes) {
@@ -137,11 +138,17 @@ class CsdDinFamiliarController extends Controller{
                 $dato->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($id, 123);
+        Vsi::indicador($id, 124);
+        Vsi::indicador($id, 125);
+        Vsi::indicador($id, 126);
+        Vsi::indicador($id, 128);
+        Vsi::indicador($id, 130);
 
         return redirect()->route('CSD.dinfamiliar', $request->csd_id)->with('info', 'Registro creado con éxito');
     }
 
-    public function storeMadre(Request $request){
+    public function storeMadre(Request $request, $id){
         $this->validatorMadre($request->all())->validate();
         if ($request->prm_convive_id==227) {
             if($request->dia + $request->mes + $request->ano == 0){
@@ -153,10 +160,11 @@ class CsdDinFamiliarController extends Controller{
             }
         }
         $dato = CsdDinfamMadre::create($request->all());
+        Vsi::indicador($id, 127);
         return redirect()->route('CSD.dinfamiliar', $request->csd_id)->with('info', 'Registro creado con éxito');
     }
 
-    public function storePadre(Request $request){
+    public function storePadre(Request $request, $id){
         $this->validatorPadre($request->all())->validate();
         if ($request->prm_convive_id==227) {
             if($request->dia + $request->mes + $request->ano == 0){
@@ -168,6 +176,7 @@ class CsdDinFamiliarController extends Controller{
             }
         }
         $dato = CsdDinfamPadre::create($request->all());
+        Vsi::indicador($id, 129);
         return redirect()->route('CSD.dinfamiliar', $request->csd_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -245,6 +254,12 @@ class CsdDinFamiliarController extends Controller{
                 $dato->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+        Vsi::indicador($id, 123);
+        Vsi::indicador($id, 124);
+        Vsi::indicador($id, 125);
+        Vsi::indicador($id, 126);
+        Vsi::indicador($id, 128);
+        Vsi::indicador($id, 130);
 
         return redirect()->route('CSD.dinfamiliar', $id)->with('info', 'Registro actualizado con éxito');
     }
@@ -262,7 +277,7 @@ class CsdDinFamiliarController extends Controller{
         $dato->save();
         return redirect()->route('CSD.dinfamiliar', $id)->with('info', 'Registro eliminado con éxito');
     }
-    
+
     protected function validator(array $data){
         return Validator::make($data, [
             'csd_id' => 'required|exists:csds,id',

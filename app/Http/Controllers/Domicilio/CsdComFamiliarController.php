@@ -10,10 +10,11 @@ use Carbon\Carbon;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdComFamiliar;
 use App\Models\consulta\CsdComFamiliarObservaciones;
+use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 
 class CsdComFamiliarController extends Controller{
-  
+
   public function __construct(){
     $this->middleware(['permission:csdcomfamiliar-crear'], ['only' => ['show, store']]);
     $this->middleware(['permission:csdcomfamiliar-editar'], ['only' => ['show, update']]);
@@ -24,7 +25,7 @@ class CsdComFamiliarController extends Controller{
     $nnajs = $dato->nnajs->where('activo', 1)->all();
     $valord = $dato->CsdComFamiliar->where('activo', 1)->sortByDesc('id')->all();
     $valoro = $dato->CsdComFamiliarObservaciones->where('activo', 1)->sortByDesc('id')->first();
-    
+
     $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $sexo = ['' => 'Seleccione...'];
     foreach (Tema::findOrFail(11)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
@@ -95,13 +96,13 @@ class CsdComFamiliarController extends Controller{
       $valord[$k]['edad'] = $edad;
     }
 
-    return view('Domicilio.index', ['accion' => 'ComFamiliar'], compact('dato', 'nnajs', 'valord', 'sino', 'documentos', 'sexo', 
-                                                                        'estadoCivil', 'genero', 'sexual', 'grupoEtnico', 'ocupacion', 
-                                                                        'familiares', 'vinculado', 'regimen', 'eps0', 'eps1', 'eps2', 'nsnr', 
+    return view('Domicilio.index', ['accion' => 'ComFamiliar'], compact('dato', 'nnajs', 'valord', 'sino', 'documentos', 'sexo',
+                                                                        'estadoCivil', 'genero', 'sexual', 'grupoEtnico', 'ocupacion',
+                                                                        'familiares', 'vinculado', 'regimen', 'eps0', 'eps1', 'eps2', 'nsnr',
                                                                         'discapacidad', 'aprobado', 'educacion', 'grupoIndigena', 'valoro'));
   }
 
-  public function store(Request $request){
+  public function store(Request $request, $id){
     $this->validator($request->all())->validate();
     if ($request->prm_discapacidad_id == 228){
       $request["prm_cual_id"] = null;
@@ -114,13 +115,14 @@ class CsdComFamiliarController extends Controller{
     }
 
     $dato = CsdComFamiliar::create($request->all());
-
+    Vsi::indicador($id, 119);
     return redirect()->route('CSD.comfamiliar', $request->csd_id)->with('info', 'Registro creado con éxito');
   }
 
-  public function storeObservaciones(Request $request){
+  public function storeObservaciones(Request $request, $id){
     $this->validatorObservaciones($request->all())->validate();
     $dato = CsdComFamiliarObservaciones::create($request->all());
+    Vsi::indicador($id, 120);
 
     return redirect()->route('CSD.comfamiliar', $request->csd_id)->with('info', 'Registro creado con éxito');
   }
@@ -129,6 +131,7 @@ class CsdComFamiliarController extends Controller{
     $this->validatorObservaciones($request->all())->validate();
     $dato = CsdComFamiliarObservaciones::findOrFail($id1);
     $dato->fill($request->all())->save();
+    Vsi::indicador($id, 120);
 
     return redirect()->route('CSD.comfamiliar', $request->csd_id)->with('info', 'Registro actualizado con éxito');
   }

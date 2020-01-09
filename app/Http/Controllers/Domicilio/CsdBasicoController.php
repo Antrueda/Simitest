@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Tema;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdDatosBasico;
+use App\Models\sicosocial\Vsi;
 use Illuminate\Support\Facades\Validator;
 use App\Models\sistema\SisPai;
 use App\Models\sistema\SisDepartamento;
@@ -101,7 +102,7 @@ class CsdBasicoController extends Controller{
                                                                        'depajs', 'municipios', 'municipios1'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, $id){
         $this->validator($request->all())->validate();
 
         if ($request->prm_doc_fisico_id == 227) {
@@ -115,7 +116,8 @@ class CsdBasicoController extends Controller{
         if ($request->prm_militar_id == 228) {
             $request["prm_libreta_id"] = null;
         }
-        CsdDatosBasico::create($request->all());
+        $dato =CsdDatosBasico::create($request->all());
+        Vsi::indicador($id, 122);
         return redirect()->route('CSD.basico', $request->csd_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -133,7 +135,8 @@ class CsdBasicoController extends Controller{
             $request["prm_libreta_id"] = null;
         }
         $dato = CsdDatosBasico::findOrFail($id1);
-        $dato->fill($request->all())->save();
+        $dato->fill($request->all())->save(); 
+        Vsi::indicador($id, 122);
         return redirect()->route('CSD.basico', $id)->with('info', 'Registro actualizado con éxito');
     }
 

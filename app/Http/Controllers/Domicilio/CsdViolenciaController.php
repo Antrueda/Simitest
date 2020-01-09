@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Tema;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdViolencia;
+use App\Models\sicosocial\Vsi;
 use Illuminate\Support\Facades\Validator;
 use App\Models\sistema\SisDepartamento;
 use App\Models\sistema\SisMunicipio;
@@ -19,7 +20,7 @@ class CsdViolenciaController extends Controller{
         $this->middleware(['permission:csdviolencia-editar'], ['only' => ['show, update']]);
     }
 
-    public function show($id){ 
+    public function show($id){
         $dato  = Csd::findOrFail($id);
         $nnajs = $dato->nnajs->where('activo', 1)->all();
         $valor = $dato->CsdViolencia->where('activo', 1)->sortByDesc('id')->first();
@@ -36,7 +37,7 @@ class CsdViolenciaController extends Controller{
         return view('Domicilio.index', ['accion' => 'Violencia'], compact('dato', 'nnajs', 'valor', 'sino', 'condicion', 'depajs', 'departamentos', 'municipios', 'municipios1'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, $id){
         $this->validator($request->all())->validate();
         if ($request->prm_condicion_id != 450 && $request->prm_condicion_id != 451 && $request->prm_condicion_id != 452 && $request->prm_condicion_id != 936 && $request->prm_condicion_id != 454) {
             $request["departamento_cond_id"] = null;
@@ -46,7 +47,8 @@ class CsdViolenciaController extends Controller{
             $request["departamento_cert_id"] = null;
             $request["municipio_cert_id"] = null;
         }
-        CsdViolencia::create($request->all());
+        $dato=CsdViolencia::create($request->all());
+        Vsi::indicador($id, 141);
         return redirect()->route('CSD.violencia', $request->csd_id)->with('info', 'Registro creado con éxito');
     }
 
@@ -62,6 +64,7 @@ class CsdViolenciaController extends Controller{
         }
         $dato = CsdViolencia::findOrFail($id1);
         $dato->fill($request->all())->save();
+        Vsi::indicador($id, 141);
         return redirect()->route('CSD.violencia', $id)->with('info', 'Registro actualizado con éxito');
     }
 
