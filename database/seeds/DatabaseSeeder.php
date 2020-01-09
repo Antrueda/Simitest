@@ -2,13 +2,15 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder{
+class DatabaseSeeder extends Seeder
+{
     /**
      * Seed the application's database.
      *
      * @return void
      */
-    public function run(){
+    public function run()
+    {
         $this->call(RolesYPermisosSeeder::class);
         $this->call(SisParametrosSeeder::class);
         $this->call(SisPaisSeeder::class);
@@ -39,12 +41,12 @@ class DatabaseSeeder extends Seeder{
         $this->call(InPreguntasSeeder::class);
         $this->call(SisTablasSeeder::class);
         $this->call(SisCampoTablasSeeder::class);
-        $this->call(InDocPreguntasSeeder::class);
-        $this->call(SisFsoportesSeeder::class);
-        $this->call(InLineabaseNnajsSeeder::class);
-        $this->call(InAccionGestionsSeeder::class);
+        // $this->call(InDocPreguntasSeeder::class);
+        // $this->call(SisFsoportesSeeder::class);
+        // $this->call(InLineabaseNnajsSeeder::class);
+        // $this->call(InAccionGestionsSeeder::class);
 
-        
-        
+
+
     }
 }
