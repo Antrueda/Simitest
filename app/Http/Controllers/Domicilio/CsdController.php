@@ -19,7 +19,7 @@ class CsdController extends Controller{
         $this->middleware(['permission:csddatobasico-borrar'], ['only' => ['index, show']]);
     }
 
-    public function index(Request $request, $id){
+    public function index(Request $request){
         return view('Domicilio.index');
     }
 
