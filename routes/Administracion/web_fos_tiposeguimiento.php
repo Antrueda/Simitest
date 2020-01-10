@@ -11,29 +11,21 @@ Route::group(['prefix' => 'fostipo'], function () {
 	Route::post('nuevo', [
 	    'uses' => 'Administracion\FosTipoSeguimientoController@store',
 	    'middleware' => ['permission:fostipo-crear']
-	]);
-	Route::get('editar/{id}', [
+	])->name('fostipo.crear');
+	Route::get('editar/{objetoxx}', [
 	    'uses' => 'Administracion\FosTipoSeguimientoController@edit',
 	    'middleware' => ['permission:fostipo-editar']
 	])->name('fostipo.editar');
-	Route::put('editar/{id}', [
+	Route::put('editar/{objetoxx}', [
 	    'uses' => 'Administracion\FosTipoSeguimientoController@update',
 	    'middleware' => ['permission:fostipo-editar']
-	]);
-	Route::put('editar/{id}/{id0}', [
-	    'uses' => 'Administracion\FosTipoSeguimientoController@updateParametro',
-	    'middleware' => ['permission:fostipo-crear|fostipo-editar']
-	])->name('fostipo.editarParametro');
-	Route::get('ver/{id}', [
+	])->name('fostipo.editar');
+	Route::get('ver/{objetoxx}', [
 	    'uses' => 'Administracion\FosTipoSeguimientoController@show',
 	    'middleware' => ['permission:fostipo-leer']
 	])->name('fostipo.ver');
-	Route::delete('ver/{id}', [
+	Route::delete('ver/{objetoxx}', [
 	    'uses' => 'Administracion\FosTipoSeguimientoController@destroy',
 	    'middleware' => ['permission:fostipo-borrar']
 	]);
-	Route::delete('ver/{id}/{id0}', [
-	    'uses' => 'Administracion\FosTipoSeguimientoController@destroyParametro',
-	    'middleware' => ['permission:fostipo-borrar']
-	])->name('fostipo.verParametro');
 });

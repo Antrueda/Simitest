@@ -1,13 +1,12 @@
 @extends('layouts.index')
 
 @section('content')
-    <div class="content-header">
-        <h1>Tipo de Seguimientos</h1>
-        <hr>
-    </div>
-    @if(!isset($accion))
-        @include('FichaObservacion.Admin.TipoSeguimiento.datos')
-    @else
-        @include('FichaObservacion.Admin.TipoSeguimiento.formulario')
-    @endif
+	 @component('layouts.components.tablajquery.index', ['todoxxxx'=>$todoxxxx])
+      @slot('tableName')
+      tabla
+      @endslot
+      @slot('class')
+      @endslot
+      
+    @endcomponent 
 @endsection

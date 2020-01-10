@@ -8,16 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisUsuarioActividad;
 
 class FosDatosBasico extends Model{
     protected $fillable = [
         'sis_nnaj_id',
         'sis_dependencia_id',
         'd_fecha_diligencia',
-        'prm_area_id',
-        'prm_seguimiento_id',
-        'prm_sub_tipo_id',
+        'fos_area_id',
+        'fos_tse_id',
+        'fos_stse_id',
         's_observacion',
         'fi_composicion_fami_id',
         'user_crea_id',
@@ -33,9 +32,7 @@ class FosDatosBasico extends Model{
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-    public function sis_usuario_actividad(){
-        return $this->belongsTo(SisUsuarioActividad::class);
-    }
+   
 
     public function SisNnaj(){
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');

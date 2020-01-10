@@ -8,33 +8,29 @@ Route::group(['prefix' => 'fossubtipo'], function () {
 	    'uses' => 'Administracion\FosSubTipoSeguimientoController@create',
 	    'middleware' => ['permission:fossubtipo-crear']
 	])->name('fossubtipo.nuevo');
-	Route::post('nuevo', [
+	Route::post('crear', [
 	    'uses' => 'Administracion\FosSubTipoSeguimientoController@store',
 	    'middleware' => ['permission:fossubtipo-crear']
-	]);
-	Route::get('editar/{id}', [
+	])->name('fossubtipo.crear');
+	Route::get('editar/{objetoxx}', [
 	    'uses' => 'Administracion\FosSubTipoSeguimientoController@edit',
 	    'middleware' => ['permission:fossubtipo-editar']
 	])->name('fossubtipo.editar');
-	Route::put('editar/{id}', [
+	Route::put('editar/{objetoxx}', [
 	    'uses' => 'Administracion\FosSubTipoSeguimientoController@update',
 	    'middleware' => ['permission:fossubtipo-editar']
-	]);
-	Route::put('editar/{id}/{id0}', [
-	    'uses' => 'Administracion\FosSubTipoSeguimientoController@updateParametro',
-	    'middleware' => ['permission:fossubtipo-crear|fossubtipo-editar']
-	])->name('fossubtipo.editarParametro');
-	Route::get('ver/{id}', [
+	])->name('fossubtipo.editar');;
+	
+	Route::get('ver/{objetoxx}', [
 	    'uses' => 'Administracion\FosSubTipoSeguimientoController@show',
 	    'middleware' => ['permission:fossubtipo-leer']
 	])->name('fossubtipo.ver');
-	Route::delete('ver/{id}', [
+	Route::delete('ver/{objetoxx}', [
 	    'uses' => 'Administracion\FosSubTipoSeguimientoController@destroy',
 	    'middleware' => ['permission:fossubtipo-borrar']
 	]);
-	Route::delete('ver/{id}/{id0}', [
-	    'uses' => 'Administracion\FosSubTipoSeguimientoController@destroyParametro',
-	    'middleware' => ['permission:fossubtipo-borrar']
-	])->name('fossubtipo.verParametro');
-	Route::get('tiposeguimientos/{id}','Administracion\FosSubTipoSeguimientoController@getTipoSeguimientos');
+	Route::get('tiposeg', [
+	    'uses' => 'Administracion\FosSubTipoSeguimientoController@tiposeg',
+	    'middleware' => ['permission:fossubtipo-leer|fossubtipo-crear|fossubtipo-editar|fossubtipo-borrar']
+	])->name('fossubtipo.tiposeg');
 });

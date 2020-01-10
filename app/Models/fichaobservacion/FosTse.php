@@ -1,24 +1,23 @@
 <?php
 
-namespace App\Models\sistema;
+namespace App\Models\fichaobservacion;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SisFosTipoSeguimiento extends Model{
+class FosTse extends Model
+{
     protected $fillable = [
-        'area_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id',
+        'fos_area_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id',
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
-    public function area(){
-        return $this->belongsTo(SisFosArea::class, 'area_id');
+    public function fos_area()
+    {
+        return $this->belongsTo(FosArea::class);
     }
 
-    public static function tipoSeguimientos($id){
-
-        return SisFosTipoSeguimiento::where(['area_id' => $id, 'activo' => 1])->get();
-    }
+    
 
 
     /**
@@ -29,31 +28,33 @@ class SisFosTipoSeguimiento extends Model{
      * @param  $ajaxxxxx indica si el combo es para devolver en array para objeto json
      * @return $comboxxx
      */
-    public static function combo($areaxxx, $cabecera, $ajaxxxxx){
+    public static function combo($areaxxx, $cabecera, $ajaxxxxx)
+    {
         $comboxxx = [];
-        if($cabecera){
-            if($ajaxxxxx){
+        if ($cabecera) {
+            if ($ajaxxxxx) {
                 $comboxxx[] = [
-                    'valuexxx' => '', 
-                    'optionxx' => 'Seleccione'];
-            }else {
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
                 $comboxxx = [
                     '' => 'Seleccione'
                 ];
             }
         }
-        $parametr = SisFosTipoSeguimiento::select(['id as valuexxx', 'nombre as optionxx'])
-            ->where('area_id', $areaxxx)
+        $parametr = FosTse::select(['id as valuexxx', 'nombre as optionxx'])
+            ->where('fos_area_id', $areaxxx)
             ->where('activo', '1')
             ->orderBy('id', 'asc')
             ->get();
-        foreach($parametr as $registro){
-            if($ajaxxxxx){
+        foreach ($parametr as $registro) {
+            if ($ajaxxxxx) {
                 $comboxxx[] = [
-                    'valuexxx' => $registro->valuexxx, 
+                    'valuexxx' => $registro->valuexxx,
                     'optionxx' => $registro->optionxx
                 ];
-            }else {
+            } else {
                 $comboxxx[$registro->valuexxx] = $registro->optionxx;
             }
         }

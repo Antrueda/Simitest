@@ -219,16 +219,16 @@ Route::get('fos/fichaobservacion', function (Request $request) {
         'fos_datos_basicos.id', 
         'fos_datos_basicos.sis_nnaj_id', 
         'fos_datos_basicos.d_fecha_diligencia', 
-        'sis_dependencias.nombre as UPI', 
-        'sis_fos_areas.nombre as Area', 
-        'sis_fos_tipo_seguimientos.nombre as Seguimiento', 
-        'sis_fos_sub_tipo_seguimientos.nombre as SubSeguimiento', 
+        'sis_dependencias.nombre as s_upi', 
+        'fos_areas.nombre as s_area', 
+        'fos_tses.nombre as s_tipo', 
+        'fos_stses.nombre as s_sub', 
         'fos_datos_basicos.activo'
     )
     ->join('sis_dependencias', 'fos_datos_basicos.sis_dependencia_id', '=', 'sis_dependencias.id')
-    ->join('sis_fos_areas', 'fos_datos_basicos.prm_area_id', '=', 'sis_fos_areas.id')
-    ->join('sis_fos_tipo_seguimientos', 'fos_datos_basicos.prm_seguimiento_id', '=', 'sis_fos_tipo_seguimientos.id')
-    ->join('sis_fos_sub_tipo_seguimientos', 'fos_datos_basicos.prm_sub_tipo_id', '=', 'sis_fos_sub_tipo_seguimientos.id')
+    ->join('fos_areas', 'fos_datos_basicos.fos_area_id', '=', 'fos_areas.id')
+    ->join('fos_tses', 'fos_datos_basicos.fos_tse_id', '=', 'fos_tses.id')
+    ->join('fos_stses', 'fos_datos_basicos.fos_stse_id', '=', 'fos_stses.id')
     ->where('fos_datos_basicos.activo', 1)->where('fos_datos_basicos.sis_nnaj_id', $request->all()['nnajxxxx']);
 
     return datatables()

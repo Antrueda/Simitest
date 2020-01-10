@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Administracion;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class FosSubTiposeguimientoController extends Controller
+class ControladorModeloController extends Controller
 {
     private $opciones;
 
@@ -59,8 +59,8 @@ class FosSubTiposeguimientoController extends Controller
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'NOMBRE'],
+            ['td' => 'ÁREA'],
             ['td' => 'TIPO SEGUIMIENTO'],
-            ['td' => 'ÁREA'],            
             ['td' => 'ESTADO'],
         ];
         $this->opciones['columnsx'] = [
@@ -82,7 +82,7 @@ class FosSubTiposeguimientoController extends Controller
         // indica si se esta actualizando o viendo
         $this->opciones['nivelxxx'] = '';
         $this->opciones['tiposegu'] = [];
-        if ($nombobje != '') { 
+        if ($nombobje != '') {
             $objetoxx->fos_area_id=$objetoxx->fos_tse->fos_area_id;
             $this->opciones['tiposegu'] =FosTse::combo($objetoxx->fos_area_id, true, false);
             $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';

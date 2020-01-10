@@ -25,21 +25,10 @@
                 "url": "{{ url('/adminlte/plugins/datatables/Spanish.lang') }}"
             }
         });
-        $('#i_responsable').select2({
+        $('.select2').select2({
             language: "es"
         });
-        $('#prm_area_id').select2({
-            language: "es"
-        });
-        $('#sis_dependencia_id').select2({
-            language: "es"
-        });
-        $('#prm_seguimiento_id').select2({
-            language: "es"
-        });
-        $('#prm_sub_tipo_id').select2({
-            language: "es"
-        });
+        
     });
 
     @if(isset($todoxxxx['nnajregi']))
@@ -67,31 +56,29 @@
             }
 
             //Recuperar datos en caso de tener errores en las validaciones
-            @if(old('prm_area_id')!=null)
-                $("#prm_sub_tipo_id").empty();
-                $("#prm_sub_tipo_id").append(`<option value=""> Seleccione </option>`);
+            @if(old('fos_area_id')!=null)
+                $("#fos_stse_id").empty();
                 f_cargos({
-                    selected:'{{ old("prm_seguimiento_id") }}',
+                    selected:'{{ old("fos_tse_id") }}',
                     dataxxxx:{
-                        valuexxx:"{{ old('prm_area_id') }}",
+                        valuexxx:"{{ old('fos_area_id') }}",
                         'tipoxxxx':1
                     }
                 });
-                @if(old('prm_seguimiento_id')!=null)
+                @if(old('fos_tse_id')!=null)
                     f_cargos({
-                        selected:"{{ old('prm_sub_tipo_id') }}",
+                        selected:"{{ old('fos_stse_id') }}",
                         dataxxxx:{
-                            valuexxx:"{{ old('prm_seguimiento_id') }}",
-                            valuexx1:"{{ old('prm_area_id') }}",
+                            valuexxx:"{{ old('fos_tse_id') }}",
+                            valuexx1:"{{ old('fos_area_id') }}",
                             'tipoxxxx':2 
                         }
                     });
                 @endif
             @endif
 
-            $("#prm_area_id").change(function(){
-                $("#prm_sub_tipo_id").empty();
-                $("#prm_sub_tipo_id").append(`<option value=""> Seleccione </option>`);
+            $("#fos_area_id").change(function(){
+                $("#fos_stse_id").empty();
                 f_cargos({
                     selected:'',
                     dataxxxx:{
@@ -101,14 +88,14 @@
                 });
             });
 
-            $("#prm_seguimiento_id").change(function(){
-                $("#prm_sub_tipo_id").empty();
-                $("#prm_sub_tipo_id").append(`<option value=""> Seleccione </option>`);
+            $("#fos_tse_id").change(function(){
+                $("#fos_stse_id").empty();
+                $("#fos_stse_id").append(`<option value=""> Seleccione </option>`);
                 f_cargos({
                     selected:'',
                     dataxxxx:{
                         valuexxx:$(this).val(),
-                        valuexx1:$('#prm_area_id').val(),
+                        valuexx1:$('#fos_area_id').val(),
                         'tipoxxxx':2 
                     }
                 });

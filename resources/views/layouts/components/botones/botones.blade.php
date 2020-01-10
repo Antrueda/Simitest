@@ -4,22 +4,15 @@
             @if ($botoform['mostrars'])
                 @switch($botoform['formhref'])
                     @case(1)
-                        {{ Form::submit($botoform['accionxx'], ['class'=>'btn btn-sm btn-primary']) }}
+                        {{ Form::submit($botoform['accionxx'], ['class'=>$botoform['clasexxx']]) }}
                         @break
                     @case(2)
                         <a href="{{route($botoform['routingx'][0],$botoform['routingx'][1])}}" 
-                        class="btn btn-sm btn-primary" role="button">{{ $botoform['tituloxx'] }}</a>
-                        @break
-                   
-                        
+                        class="{{ $botoform['clasexxx']}}">{{$botoform['tituloxx']}}</a>
+                        @break      
                 @endswitch
             @endif    
-
-        @endforeach
-        
-
-       
-            
+        @endforeach   
     @else
         @if($todoxxxx['accionxx']=='Crear'|| $todoxxxx['accionxx']=='Editar')
             {{ Form::submit($todoxxxx['accionxx'], ['class'=>'btn btn-sm btn-primary']) }}

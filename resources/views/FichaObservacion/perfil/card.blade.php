@@ -22,17 +22,17 @@
             </div>
             <div class="form-row align-items-end">
                 <div class="form-group col-md-6">
-                    {{ Form::label('prm_area_id', 'Área / Contexto Pedagógico', ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::select('prm_area_id', $todoxxxx["areacont"], null, ['class' => $errors->first('prm_area_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
+                    {{ Form::label('fos_area_id', 'Área / Contexto Pedagógico', ['class' => 'control-label col-form-label-sm']) }}
+                    {{ Form::select('fos_area_id', $todoxxxx["areacont"], null, ['class' => $errors->first('fos_area_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
                 </div>
                 <div class="form-group col-md-6">
-                    {{ Form::label('prm_seguimiento_id', 'Tipo de Seguimiento', ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::select('prm_seguimiento_id', $todoxxxx["seguixxx"], null, ['class' => $errors->first('prm_seguimiento_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
+                    {{ Form::label('fos_tse_id', 'Tipo de Seguimiento', ['class' => 'control-label col-form-label-sm']) }}
+                    {{ Form::select('fos_tse_id', $todoxxxx["seguixxx"], null, ['class' => $errors->first('fos_tse_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
                 </div>
                 <div class="form-group col-md-6">
-                    {{ Form::label('prm_sub_tipo_id', 'Sub-Tipo de Seguimiento', ['class' => 'control-label col-form-label-sm']) }}
+                    {{ Form::label('fos_stse_id', 'Sub-Tipo de Seguimiento', ['class' => 'control-label col-form-label-sm']) }}
                     <a href="#" data-toggle="tooltip"><i class="far fa-question-circle"></i></a>
-                    {{ Form::select('prm_sub_tipo_id', $todoxxxx["tipsegui"], null, ['class' => $errors->first('prm_sub_tipo_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
+                    {{ Form::select('fos_stse_id', $todoxxxx["tipsegui"], null, ['class' => $errors->first('fos_stse_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
                 </div>
             </div>
             <div class="form-row align-items-end">

@@ -1,4 +1,4 @@
-INSERT IGNORE INTO `sis_fos_tipo_seguimientos` (`id`, `area_id`, `nombre`, `descripcion`, `activo`, `user_crea_id`, `user_edita_id`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `fos_tses` (`id`, `fos_area_id`, `nombre`, `descripcion`, `activo`, `user_crea_id`, `user_edita_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'ATENCIÓN', NULL, 1, 1, 1, NULL, NULL),
 	(2, 1, 'COMPROMISOS', NULL, 1, 1, 1, NULL, NULL),
 	(3, 1, 'DX', NULL, 1, 1, 1, NULL, NULL),

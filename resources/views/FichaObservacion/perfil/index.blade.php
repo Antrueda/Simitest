@@ -17,10 +17,10 @@
                         $todoxxxx['columnsx'] = [
                             ['data' => 'btns','name'               => 'btns'],
                             ['data' => 'id','name'                 => 'fos_datos_basicos.id'],
-                            ['data' => 'Area','name'             => 'areas.nombre'],
-                            ['data' => 'Seguimiento','name'        => 'sis_fos_tipo_seguimientos.nombre'],
-                            ['data' => 'SubSeguimiento','name'    => 'sis_fos_sub_tipo_seguimientos.nombre'],
-                            ['data' => 'UPI','name'             => 'sis_dependencias.nombre'],
+                            ['data' => 's_area','name'             => 'fos_areas.nombre as s_area'],
+                            ['data' => 's_tipo','name'        => 'fos_tses.nombre as s_tipo'],
+                            ['data' => 's_sub','name'    => 'fos_stses.nombre as s_sub'],
+                            ['data' => 's_upi','name'             => 'sis_dependencias.nombre as s_upi'],
                             ['data' => 'd_fecha_diligencia','name' => 'd_fecha_diligencia'],
                             ['data' => 'activo','name'             => 'fos_datos_basicos.activo'],
                         ];

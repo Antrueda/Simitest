@@ -1,4 +1,4 @@
-INSERT IGNORE INTO `sis_fos_sub_tipo_seguimientos` (`id`, `area_id`, `seg_id`, `codigo`, `nombre`, `descripcion`, `activo`, `user_crea_id`, `user_edita_id`, `created_at`, `updated_at`) VALUES
+INSERT IGNORE INTO `fos_stsess` (`id`, `area_id`, `seg_id`, `codigo`, `nombre`, `descripcion`, `activo`, `user_crea_id`, `user_edita_id`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, 'AMAI', 'INICIAL', '0', 0, 1, 1, NULL, NULL),
 	(2, 1, 2, 'CD48', 'ACADÉMICOS Y ADMINISTRATIVOS', '0', 1, 1, 1, NULL, NULL),
 	(3, 1, 3, 'ASN6', 'ASPECTOS A NIVELAR', 'Este multivalor lo usan los docentes para registrar el diagnóstico realizado a los beneficiarios al ingresar a los procesos académicos, respecto a las nivelaciones a realizar luego del diagnóstico académico.', 1, 1, 1, NULL, NULL),

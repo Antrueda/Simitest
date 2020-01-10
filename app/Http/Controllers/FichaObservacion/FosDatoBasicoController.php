@@ -9,19 +9,18 @@ use Illuminate\Http\Request;
 
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiComposicionFami;
+use App\Models\fichaobservacion\FosArea;
 use App\Models\fichaobservacion\FosDatosBasico;
+use App\Models\fichaobservacion\FosStse;
+use App\Models\fichaobservacion\FosTse;
 use App\Models\sistema\SisDependencia;
-use App\Models\sistema\SisFosArea;
-use App\Models\sistema\SisFosSubTipoSeguimiento;
-use App\Models\sistema\SisFosTipoSeguimiento;
 use App\Models\User;
 
 class FosDatoBasicoController extends Controller{
-    private $bitacora;
+   
     private $opciones;
 
     public function __construct(){
-        $this->bitacora = new FosDatosBasico();
         $this->middleware(['permission:fosfichaobservacion-leer'], ['only' => ['show']]);
         $this->middleware(['permission:fosfichaobservacion-crear'], ['only' => ['show, create, store']]);
         $this->middleware(['permission:fosfichaobservacion-editar'], ['only' => ['show, edit, update']]);
@@ -47,7 +46,7 @@ class FosDatoBasicoController extends Controller{
         $this->opciones['disptabx'] = "block";
         $this->opciones['permisox'] = 'fosfichaobservacion';
         $this->opciones['areacont'] = ['' => 'Seleccione'];
-        foreach (SisFosArea::orderBy('nombre')->where('activo',1)->pluck('nombre', 'id') as $k => $d) {
+        foreach (FosArea::orderBy('nombre')->where('activo',1)->pluck('nombre', 'id') as $k => $d) {
             $this->opciones['areacont'][$k] = $d;
         }
        
@@ -102,8 +101,12 @@ class FosDatoBasicoController extends Controller{
         $this->opciones['maxdatex'] = "-6y +0m +0d";
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {
-            $this->opciones['seguixxx'] = SisFosTipoSeguimiento:: combo($objetoxx->prm_area_id, true, false);
-            $this->opciones['tipsegui'] = ['' => 'Seleccione'];
+            $this->opciones['seguixxx'] = FosTse:: combo($objetoxx->fos_area_id, true, false);
+            
+            $this->opciones['tipsegui'] = FosStse:: combo([
+                'ajaxxxxx'=>false,
+                'cabecera'=>true,
+                'seguimie'=>$objetoxx->fos_tse_id]);
         
             $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
@@ -152,18 +155,18 @@ class FosDatoBasicoController extends Controller{
             $respuest=[];
             switch($request->tipoxxxx){
                 case 1:
-                    $respuest=['comboxxx'=> SisFosTipoSeguimiento:: combo(
+                    $respuest=['comboxxx'=> FosTse:: combo(
                         $request->all()['valuexxx'], true, true),
-                        'campoxxx'=>'#prm_seguimiento_id'
+                        'campoxxx'=>'#fos_tse_id'
                     ];
                 break;
                 case 2:
-                    $respuest=['comboxxx'=>SisFosSubTipoSeguimiento::combo([
+                    $respuest=['comboxxx'=>FosStse::combo([
                         'ajaxxxxx'=>true,
                         'cabecera'=>true,
                         'areaxxxx'=>$request->all()['valuexx1'],
                         'seguimie'=>$request->all()['valuexxx']]),
-                        'campoxxx'=>'#prm_sub_tipo_id'
+                        'campoxxx'=>'#fos_stse_id'
                     ];
                 break;
             }

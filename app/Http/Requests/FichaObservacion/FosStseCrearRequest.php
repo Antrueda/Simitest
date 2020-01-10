@@ -4,26 +4,27 @@ namespace App\Http\Requests\FichaObservacion;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FosDatosBasicoCrearRequest extends FormRequest
+class FosStseCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
 
     public function __construct()
     {
+
+
+       
         $this->_mensaje = [
-            'sis_dependencia_id.required' => 'Seleccione la unidad de atención integral',
-            'd_fecha_diligencia.required' => 'Seleccione la fecha de diligenciamiento',
-            'fos_sub_tipo_id.required' => 'Seleccione el sub tipo de seguimiento',
-            's_observacion.required' => 'Escriba la observación',
-            //'fi_composicion_fami_id.required' => 'Escriba el acudiente',
+            'nombre.required' => 'El nombre es requerido',
+            'fos_tse_id.required' => 'Seleccione una tipo de seguimiento',
+            'nombre.unique' => 'El nombre ya existe',
+            'nombre.max' => 'El nombre debe tener un máximo de 120 caracteres',
+            'nombre.max' => 'La descripción debe tener un máximo de 4000 caracteres',
         ];
         $this->_reglasx = [
-            'sis_dependencia_id' => ['Required'],
-            'd_fecha_diligencia' => ['Required'],
-            'fos_stse_id' => ['Required'],
-            's_observacion' => ['Required'],
-            //'fi_composicion_fami_id' => ['Required'],
+        'nombre' => ['Required','string','max:120','unique:fos_stses'],
+            'fos_tse_id' => ['Required'],
+            'descripcion' => ['nullable','max:4000'],
         ];
     }
     /**

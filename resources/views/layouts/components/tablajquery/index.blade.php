@@ -2,11 +2,19 @@
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <h3 class="card-title">
-            Datos
+            @if (isset($todoxxxx['titulist']))
+                {{ $todoxxxx['titulist'] }}
+            @else
+            Datos  
+            @endif
             @if(!isset($todoxxxx['vercrear']))
                 @can($todoxxxx['permisox'].'-crear')
                     <a class="btn btn-sm btn-primary ml-2" title="Nuevo" href="{{ route($todoxxxx['routxxxx'].'.nuevo',$todoxxxx['parametr']) }}">
-                        Nuevo
+                        @if (isset($todoxxxx['titunuev']))
+                        {{ $todoxxxx['titunuev'] }}
+                        @else
+                          Nuevo  
+                        @endif 
                     </a>
                 @endcan
             @endif
