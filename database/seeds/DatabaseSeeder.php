@@ -43,6 +43,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SisCampoTablasSeeder::class);
         $this->call(InDocPreguntasSeeder::class);
         $this->call(SisFsoportesSeeder::class);
+        $this->call(FosAreasSeeder::class);
+        $this->call(FosTsesSeeder::class);
+        $this->call(FosStsesSeeder::class);
+        $this->call(InRespuestasSeeder::class);
         // $this->call(InLineabaseNnajsSeeder::class);
         // $this->call(InAccionGestionsSeeder::class);
 

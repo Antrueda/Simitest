@@ -5,15 +5,13 @@ namespace App\Http\Controllers\Administracion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosTseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosTseEditarRequest;
-use App\Http\Requests\Indicadores\InDiagnosticoEditarRequest;
 use App\Models\fichaobservacion\FosArea;
 use App\Models\fichaobservacion\FosTse;
-use App\Models\Indicadores\InLineabaseNnaj;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class FosTiposeguimientoController extends Controller
+class FosTipoSeguimientoController extends Controller
 {
     private $opciones;
     public function __construct()
@@ -52,6 +50,7 @@ class FosTiposeguimientoController extends Controller
         $this->opciones['titulist'] = 'Lista de Tipos de Seguimiento';
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'botonesx', 'dataxxxx' => 'FichaObservacion/Admin/TipoSeguimiento/botones/botonesapi'],
+           
         ];
 
         $this->opciones['urlxxxxx'] = 'api/fos/tiposeg';
@@ -66,7 +65,7 @@ class FosTiposeguimientoController extends Controller
             ['data' => 'id', 'name' => 'fos_tses.id'],
             ['data' => 'nombre', 'name' => 'fos_tses.nombre'],
             ['data' => 's_area', 'name' => 'fos_areas.nombre as s_area'],
-            ['data' => 'activo', 'name' => 'fos_tses.activo'],
+            ['data' => 'activo', 'name' => 'fos_tses.activo as activo'],
         ];
         return view($this->opciones['rutacarp'].'index', ['todoxxxx' => $this->opciones]);
     }

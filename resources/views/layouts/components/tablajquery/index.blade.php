@@ -28,7 +28,8 @@
                         <tr class="text-center">
                             <th width="150">Acciones</th>
                             @foreach( $todoxxxx['cabecera'] as $cabecera )
-                                <th>{{  $cabecera['td'] }}</th>
+                            
+                        <th> {{  $cabecera['td']   }}</th>
                             @endforeach
                         </tr>
                     </thead>

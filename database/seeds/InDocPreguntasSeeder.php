@@ -92,7 +92,7 @@ class InDocPreguntasSeeder extends Seeder
         InDocPregunta::create(['in_base_fuente_id' => 28, 'in_pregunta_id' => 54, 'sis_tabla_id' => 39, 'sis_campo_tabla_id' => 134, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //78
         InDocPregunta::create(['in_base_fuente_id' => 28, 'in_pregunta_id' => 55, 'sis_tabla_id' => 66, 'sis_campo_tabla_id' => 66, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //79
         InDocPregunta::create(['in_base_fuente_id' => 29, 'in_pregunta_id' => 8, 'sis_tabla_id' => 109, 'sis_campo_tabla_id' => 293, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //80
-        InDocPregunta::create(['in_base_fuente_id' => 29, 'in_pregunta_id' => 5, 'sis_tabla_id' => 110, 'sis_campo_tabla_id' => 319, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //81
+        InDocPregunta::create(['in_base_fuente_id' => 29, 'in_pregunta_id' => 50, 'sis_tabla_id' => 110, 'sis_campo_tabla_id' => 319, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //81
         InDocPregunta::create(['in_base_fuente_id' => 29, 'in_pregunta_id' => 51, 'sis_tabla_id' => 71, 'sis_campo_tabla_id' => 222, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //82
         InDocPregunta::create(['in_base_fuente_id' => 29, 'in_pregunta_id' => 52, 'sis_tabla_id' => 72, 'sis_campo_tabla_id' => 225, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //83
         InDocPregunta::create(['in_base_fuente_id' => 29, 'in_pregunta_id' => 82, 'sis_tabla_id' => 71, 'sis_campo_tabla_id' => 221, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //84
@@ -156,10 +156,10 @@ class InDocPreguntasSeeder extends Seeder
         InDocPregunta::create(['in_base_fuente_id' => 45, 'in_pregunta_id' => 32, 'sis_tabla_id' => 96, 'sis_campo_tabla_id' => 269, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //142
         InDocPregunta::create(['in_base_fuente_id' => 45, 'in_pregunta_id' => 33, 'sis_tabla_id' => 96, 'sis_campo_tabla_id' => 270, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //143
         InDocPregunta::create(['in_base_fuente_id' => 46, 'in_pregunta_id' => 27, 'sis_tabla_id' => 123, 'sis_campo_tabla_id' => 382, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //144
-        InDocPregunta::create(['in_base_fuente_id' => 47, 'in_pregunta_id' => 9, 'sis_tabla_id' => 52, 'sis_campo_tabla_id' => 187, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //145
+        InDocPregunta::create(['in_base_fuente_id' => 47, 'in_pregunta_id' => 96, 'sis_tabla_id' => 270, 'sis_campo_tabla_id' => 187, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //145
         InDocPregunta::create(['in_base_fuente_id' => 47, 'in_pregunta_id' => 28, 'sis_tabla_id' => 96, 'sis_campo_tabla_id' => 264, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //146
         InDocPregunta::create(['in_base_fuente_id' => 47, 'in_pregunta_id' => 29, 'sis_tabla_id' => 100, 'sis_campo_tabla_id' => 276, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //147
-        InDocPregunta::create(['in_base_fuente_id' => 47, 'in_pregunta_id' => 3, 'sis_tabla_id' => 9, 'sis_campo_tabla_id' => 32, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //148
+        InDocPregunta::create(['in_base_fuente_id' => 47, 'in_pregunta_id' => 33, 'sis_tabla_id' => 9, 'sis_campo_tabla_id' => 32, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //148
         InDocPregunta::create(['in_base_fuente_id' => 47, 'in_pregunta_id' => 40, 'sis_tabla_id' => 102, 'sis_campo_tabla_id' => 278, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //149
         InDocPregunta::create(['in_base_fuente_id' => 47, 'in_pregunta_id' => 41, 'sis_tabla_id' => 97, 'sis_campo_tabla_id' => 272, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //150
         InDocPregunta::create(['in_base_fuente_id' => 48, 'in_pregunta_id' => 19, 'sis_tabla_id' => 123, 'sis_campo_tabla_id' => 381, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //151
@@ -212,5 +212,6 @@ class InDocPreguntasSeeder extends Seeder
         InDocPregunta::create(['in_base_fuente_id' => 58, 'in_pregunta_id' => 16, 'sis_tabla_id' => 124, 'sis_campo_tabla_id' => 384, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //198
         InDocPregunta::create(['in_base_fuente_id' => 58, 'in_pregunta_id' => 25, 'sis_tabla_id' => 123, 'sis_campo_tabla_id' => 300, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //199
         InDocPregunta::create(['in_base_fuente_id' => 58, 'in_pregunta_id' => 26, 'sis_tabla_id' => 126, 'sis_campo_tabla_id' => 386, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //200
+        InDocPregunta::create(['in_base_fuente_id' => 30, 'in_pregunta_id' => 5, 'sis_tabla_id' => 110, 'sis_campo_tabla_id' => 319, 'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1]); //201
     }
 }

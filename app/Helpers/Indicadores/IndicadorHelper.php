@@ -106,11 +106,11 @@ class IndicadorHelper
                 $baseline[] = $lineaxxx;
             }
         }
-        
+
         foreach (InBaseFuente::whereIn('in_base_fuentes.in_fuente_id', $baseline)->get() as $basefuent) {
             $actibase = true;
             $tablaxxx = 0;
-            $consulta = []; 
+            $consulta = [];
             foreach ($basefuent->in_doc_preguntas as $docupreg) {
 
                 $campoxxx = $docupreg->sis_campo_tabla->s_campo;
@@ -124,7 +124,12 @@ class IndicadorHelper
                      */
                     $consulta = DB::table($docupreg->sis_tabla->s_tabla)->first();
                 }
-                $respuest = InRespuesta::where('i_prm_respuesta_id', $consulta->$campoxxx)->first();
+                $respuest = [];
+                if (isset($consulta->id)) {
+                    $respuest = InRespuesta::where('i_prm_respuesta_id', $consulta->$campoxxx)->first();
+                }
+
+
                 /**
                  * validar que si se puede activar la linea base
                  */
@@ -135,8 +140,9 @@ class IndicadorHelper
             /**
              * activar linae base
              */
+
             if ($actibase) {
-               
+
                 /**
                  * verificar 
                  */

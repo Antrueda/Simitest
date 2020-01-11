@@ -15,7 +15,7 @@ $(document).ready(function() {
     	"columns":[
 			@foreach($todoxxxx['columnsx'] as $columnsx)
 			{data:'{{ $columnsx["data"] }}',name:'{{ $columnsx["name"] }}'},
-			@endforeach
+      @endforeach
 		],
     	"language": {
            	"url": "{{ url('/adminlte/plugins/datatables/Spanish.lang') }}"
