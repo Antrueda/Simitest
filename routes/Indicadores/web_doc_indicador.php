@@ -28,9 +28,11 @@ Route::group(['prefix' => 'docindicador'], function () {
 	Route::delete('ver/{objetoxx}', [
 	    'uses' => 'Indicadores\InDocIndicadorController@destroy',
 	    'middleware' => ['permission:documentoFuente-borrar']
-	])->name('di.docindicador.borrar');
+    ])->name('di.docindicador.borrar');
 
 	Route::post('campos', [
 	    'uses' => 'Indicadores\InDocIndicadorController@getCamposAjaxx',
-	])->name('di.campos');
+    ])->name('di.campos');
+        require_once('web_in_dpgru.php');
+
 });

@@ -8,8 +8,8 @@ $(function() {
         url:"{{ url($todoxxxx['urlxxxxx'])  }}",
         data:{in_fuente_id:{{ $todoxxxx["modeloxx"]->id }}}
       },
-      
-       
+
+
     	"columns":[
 			@foreach($todoxxxx['columnsx'] as $columnsx)
 			{data:'{{ $columnsx["data"] }}',name:'{{ $columnsx["name"] }}'},
@@ -30,7 +30,7 @@ $(function() {
         sis_tabla_id:valuexxx,// saber las preguntas que ya se le han asignado al documento
         in_base_fuente_id: {{ $todoxxxx['modeloxx']->id }},
       },
-      success: function( data ) {              
+      success: function( data ) {
         $.each(data,function(i,d){
           $("#sis_campo_id").append('<option value="'+d.valuexxx+'">'+d.optionxx+'</option>');
         });
@@ -59,8 +59,8 @@ $(function() {
           alert('No se pudo asignar la pregunta seleccionada');
         },
       });
-    
-  }  
+
+  }
     $("#pregunta_select").autocomplete({
       source: function( request, response ) {
         $.ajax( {
@@ -78,10 +78,10 @@ $(function() {
               $('#pregunta_select').val('')
               return false;
             }
-         
+
               response( data[0] );
-      
-            
+
+
           }
         } );
       },
@@ -94,11 +94,11 @@ $(function() {
         f_asiganar_pregunta(ui.item.id)
       }
     } );
- 
+
 
       $('#sis_tabla_id').change(function(){
-        campos($(this).val()); 
+        campos($(this).val());
       });
   } );
 
-</script>   
+</script>
