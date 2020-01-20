@@ -171,9 +171,10 @@ class InIndicador extends Model
         'sis_actividads.nombre as sactivid',
         'in_accion_gestions.i_porcentaje as iporcent',
         'in_accion_gestions.i_tiempo as itiempox',
-        'in_linea_bases.id as idlinbas',
+        'in_lineabase_nnajs.id as idlinbas',
         'in_linea_bases.s_linea_base as slinbase',
         'stiempox.nombre as stiempox',
+        'scatagor.nombre as scatagor',
         'sis_documento_fuentes.id as idocfuen',
         'sis_documento_fuentes.nombre as sdocumen',
         'in_preguntas.id as idpregun',
@@ -186,11 +187,15 @@ class InIndicador extends Model
       ->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
       ->join('in_base_fuentes', 'in_fuentes.id', '=', 'in_base_fuentes.in_fuente_id')
       ->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
-      ->join('in_doc_preguntas', 'in_base_fuentes.id', '=', 'in_doc_preguntas.in_base_fuente_id')
+      ->join('in_ligrus', 'in_base_fuentes.id', '=', 'in_ligrus.in_base_fuente_id')
+      ->join('in_doc_preguntas', 'in_ligrus.id', '=', 'in_doc_preguntas.in_ligru_id')
       ->join('in_preguntas', 'in_doc_preguntas.in_pregunta_id', '=', 'in_preguntas.id')
       ->join('in_lineabase_nnajs', 'in_fuentes.id', '=', 'in_lineabase_nnajs.in_fuente_id')
+      ->join('parametros as scatagor', 'in_lineabase_nnajs.i_prm_categoria_id', '=', 'scatagor.id')
+      ->join('in_valoracions', 'in_lineabase_nnajs.id', '=', 'in_valoracions.in_lineabase_nnaj_id')
       ->join('in_accion_gestions', 'in_lineabase_nnajs.id', '=', 'in_accion_gestions.in_lineabase_nnaj_id')
       ->join('parametros as stiempox', 'in_accion_gestions.i_prm_ttiempo_id', '=', 'stiempox.id')
+
       ->join('in_actsoportes', 'in_accion_gestions.id', '=', 'in_actsoportes.in_accion_gestion_id')
       ->join('sis_fsoportes', 'in_actsoportes.sis_fsoporte_id', '=', 'sis_fsoportes.id')
       ->join('sis_actividads', 'sis_fsoportes.sis_actividad_id', '=', 'sis_actividads.id')

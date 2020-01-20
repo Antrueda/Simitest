@@ -22,7 +22,7 @@ class SisCampoTabla extends Model
             }
         }
         $notinxxx = [];
-        $docupreg = InDocPregunta::where('in_base_fuente_id', $padrexxx->in_base_fuente_id)
+        $docupreg = InDocPregunta::where('in_ligru_id', $padrexxx->in_ligru_id)
             ->where('sis_tabla_id', $padrexxx->sis_tabla_id)
             ->get();
 

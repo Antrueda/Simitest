@@ -16,7 +16,7 @@ class CreateInDocPreguntasTable extends Migration
         Schema::create('in_doc_preguntas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('in_pregunta_id')->unsigned();
-            $table->bigInteger('in_base_fuente_id')->unsigned();
+            $table->bigInteger('in_ligru_id')->unsigned();
             $table->bigInteger('sis_tabla_id')->unsigned();
             $table->bigInteger('sis_campo_tabla_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -26,9 +26,8 @@ class CreateInDocPreguntasTable extends Migration
             $table->foreign('sis_tabla_id')->references('id')->on('sis_tablas');
             $table->foreign('sis_campo_tabla_id')->references('id')->on('sis_campo_tablas');
             $table->foreign('in_pregunta_id')->references('id')->on('in_preguntas');
-            $table->foreign('in_base_fuente_id')->references('id')->on('in_base_fuentes');
-            $table->unique(['in_base_fuente_id','in_pregunta_id']);
-            $table->engine = 'InnoDB';
+            $table->foreign('in_ligru_id')->references('id')->on('in_ligrus');
+            $table->unique(['in_ligru_id','in_pregunta_id']);
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });

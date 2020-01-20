@@ -64,7 +64,7 @@ class InAccionGestionController extends Controller
 
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'nnajxxxx', 'dataxxxx' => $nnajxxxx],
-            ['campoxxx' => 'basexxxx', 'dataxxxx' => $basexxxx],
+            ['campoxxx' => 'basexxxx', 'dataxxxx' => $accionxx->in_fuente_id],
         ];
         $this->opciones['urlxxxxx'] = 'api/indicadores/baseactividades';
         $this->opciones['parametr'] = [$nnajxxxx, $basexxxx];
@@ -162,7 +162,7 @@ class InAccionGestionController extends Controller
         return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'editar');
     }
 
-    public function update(InAccionGestionEditarRequest $request, InAccionGestion $objetoxx, $nnaj, $base)
+    public function update($nnaj, $base,InAccionGestionEditarRequest $request, InAccionGestion $objetoxx)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, $objetoxx, 'Indicador actualizado con éxito', $nnaj, $base);

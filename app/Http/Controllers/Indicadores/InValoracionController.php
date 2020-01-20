@@ -228,7 +228,6 @@ class InValoracionController extends Controller
      */
     public function edit($valo, InValoracion $objetoxx)
     {
-        return $objetoxx;
         return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'editar', InLineabaseNnaj::where('id', $valo)->first());
     }
     public function lista(InLineabaseNnaj $objetoxx)

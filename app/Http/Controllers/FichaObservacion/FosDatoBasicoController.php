@@ -146,8 +146,8 @@ class FosDatoBasicoController extends Controller{
         return $this->view($fichaobservacion, 'modeloxx', 'Editar');
     }
 
-    public function update(FosDatosBasicoUpdateRequest $request,  $db, $id){
-        return $this->grabar($request->all(), fosDatosBasico::usarioNnaj($db), 'Ficha de observación actualizada con exito');
+    public function update(FosDatosBasicoUpdateRequest $request,  $db, FosDatosBasico $fichaobservacion){
+        return $this->grabar($request->all(), $fichaobservacion, 'Ficha de observación actualizada con exito');
     }
 
     public function obtenerTipoSeguimientos(Request $request){

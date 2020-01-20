@@ -82,7 +82,7 @@ class InValoracion extends Model
     return $comboxxx;
   }
   public static function getAvance($dataxxxx){
-    return InValoracion::select(['pc.nombre as iavacate', 'pc.nombre as iavancex', 'i_prm_nivel_id', 'i_prm_avance_id'])
+    return InValoracion::select(['pc.nombre as iavacate', 'pa.nombre as iavancex', 'i_prm_nivel_id', 'i_prm_avance_id'])
     ->join('parametros as pc', 'in_valoracions.i_prm_categoria_id', '=', 'pc.id')
     ->join('parametros as pa', 'in_valoracions.i_prm_avance_id', '=', 'pa.id')
     ->join('parametros as pn', 'in_valoracions.i_prm_nivel_id', '=', 'pn.id')
@@ -90,5 +90,16 @@ class InValoracion extends Model
     ->where('in_lineabase_nnaj_id', $dataxxxx['idlinbas'])
     ->orderBy('in_valoracions.updated_at', 'desc')
     ->first();
+  }
+  public static function getValoracion($dataxxxx,$posiciox){
+    $invalora= InValoracion::select(['pc.nombre as iavacate', 's_valoracion'])
+    ->join('parametros as pc', 'in_valoracions.i_prm_categoria_id', '=', 'pc.id')
+    ->where('in_lineabase_nnaj_id', $dataxxxx['indicado']['idlinbas'])
+    ->get();
+
+    foreach($invalora as $invalorx){
+      $dataxxxx['indicado']['indicado'][$posiciox]['avancex'.$invalorx['iavacate']]=$invalorx['s_valoracion']; 
+    }
+    return $dataxxxx;
   }
 }

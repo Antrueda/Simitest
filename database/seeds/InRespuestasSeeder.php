@@ -398,9 +398,9 @@ class InRespuestasSeeder extends Seeder
         InRespuesta::create(['id'=>384,'in_doc_pregunta_id' =>199, 'i_prm_respuesta_id' => '590']);
         InRespuesta::create(['id'=>385,'in_doc_pregunta_id' =>199, 'i_prm_respuesta_id' => '591']);
         InRespuesta::create(['id'=>386,'in_doc_pregunta_id' =>199, 'i_prm_respuesta_id' => '592']);
-        InRespuesta::create(['id'=>387,'in_doc_pregunta_id' =>200, 'i_prm_respuesta_id' => '602']);
-        InRespuesta::create(['id'=>388,'in_doc_pregunta_id' =>200, 'i_prm_respuesta_id' => '603']);
-        InRespuesta::create(['id'=>389,'in_doc_pregunta_id' =>200, 'i_prm_respuesta_id' => '1478']);
-        InRespuesta::create(['id'=>390,'in_doc_pregunta_id' =>201, 'i_prm_respuesta_id' => '227']);
+        // InRespuesta::create(['id'=>387,'in_doc_pregunta_id' =>200, 'i_prm_respuesta_id' => '602']);
+        // InRespuesta::create(['id'=>388,'in_doc_pregunta_id' =>200, 'i_prm_respuesta_id' => '603']);
+        // InRespuesta::create(['id'=>389,'in_doc_pregunta_id' =>200, 'i_prm_respuesta_id' => '1478']);
+        // InRespuesta::create(['id'=>390,'in_doc_pregunta_id' =>201, 'i_prm_respuesta_id' => '227']);
     }
 }

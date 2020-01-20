@@ -17,11 +17,9 @@ class CreateSisEstasTable extends Migration
             $table->bigIncrements('id');
             $table->string('s_estado');
             $table->Integer('i_estado');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+            $table->Integer('user_crea_id');
+            $table->Integer('user_edita_id');
             $table->timestamps();
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
         });
     }
 

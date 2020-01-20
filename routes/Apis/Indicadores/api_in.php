@@ -11,6 +11,7 @@ use App\Models\Indicadores\InLineaBase;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InValidacion;
+use App\Models\Indicadores\InLigru;
 use Illuminate\Http\Request;
 
 Route::get('indicadores/indicador', function (Request $request) {
@@ -27,17 +28,19 @@ Route::get('indicadores/indicador', function (Request $request) {
 
 Route::get('indicadores/documentos', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
+	$dataxxxx=$request->all();
 	return datatables()
 		->eloquent(
 			InBaseFuente::select([
-				'in_base_fuentes.id',  'sis_documento_fuentes.nombre', 'in_linea_bases.s_linea_base', 'in_indicadors.s_indicador'
+				'in_ligrus.id',  'sis_documento_fuentes.nombre', 'in_linea_bases.s_linea_base'
 			])
 				->join('in_fuentes', 'in_base_fuentes.in_fuente_id', '=', 'in_fuentes.id')
 				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
+				->join('in_ligrus', 'in_base_fuentes.id', '=', 'in_ligrus.in_base_fuente_id')
 				->join('in_indicadors', 'in_fuentes.in_indicador_id', '=', 'in_indicadors.id')
 				->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
 		)
-		->addColumn('btns', 'Indicadores/Admin/Docindicador/Datatable/botones')
+		->addColumn('btns', $dataxxxx['botonesx'])
 		->rawColumns(['btns'])
 		->toJson();
 });
@@ -105,6 +108,48 @@ Route::get('indicadores/basefuente', function (Request $request) {
 		)
 		->addColumn('btns', 'Indicadores/Admin/BaseFuente/botones/botonesapi')
 		->rawColumns(['btns'])
+		->toJson();
+});
+
+
+Route::get('indicadores/basegrupos', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	$botonesx = $request->all();
+	return datatables()
+		->eloquent(
+			InBaseFuente::select([
+				'in_base_fuentes.id',
+				'in_linea_bases.s_linea_base',
+				'sis_documento_fuentes.nombre',
+				'in_base_fuentes.activo'
+			])
+				->join('in_fuentes', 'in_base_fuentes.in_fuente_id', '=', 'in_fuentes.id')
+				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
+				->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
+		)
+		->addColumn('btns', $botonesx['botonesx'])
+		->addColumn('activo', 'layouts/components/botones/estadoxx')
+		->rawColumns(['btns', 'activo'])
+		->toJson();
+});
+Route::get('indicadores/grupos', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	$dataxxxx = $request->all();
+	return datatables()
+		->eloquent(
+			InLigru::select([
+				'in_ligrus.id',
+				'in_linea_bases.s_linea_base',
+				'in_ligrus.sis_esta_id as activo'
+			])
+				->join('in_base_fuentes', 'in_ligrus.in_base_fuente_id', '=', 'in_base_fuentes.id')
+				->join('in_fuentes', 'in_base_fuentes.in_fuente_id', '=', 'in_fuentes.id')
+				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
+				->where('in_ligrus.in_base_fuente_id', $dataxxxx['in_base_fuente_id'])
+		)
+		->addColumn('btns', $dataxxxx['botonesx'])
+		->addColumn('activo', 'layouts/components/botones/estadoxx')
+		->rawColumns(['btns', 'activo'])
 		->toJson();
 });
 
@@ -186,15 +231,17 @@ Route::get('indicadores/nnajs', function (Request $request) {
 
 Route::get('indicadores/docpreguntas', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
+
 	return datatables()
 		->eloquent(InDocPregunta::select([
-			'in_doc_preguntas.id', 'in_preguntas.s_pregunta', 'sis_tablas.s_descripcion as s_tabla', 'sis_campo_tablas.s_descripcion as s_campo'
+			'in_doc_preguntas.id', 'in_preguntas.s_pregunta', 'sis_tablas.s_descripcion as s_tabla', 
+			'sis_campo_tablas.s_descripcion as s_campo','in_doc_preguntas.in_ligru_id'
 		])
 			->join('in_preguntas', 'in_doc_preguntas.in_pregunta_id', '=', 'in_preguntas.id')
 			->join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
 			->join('sis_campo_tablas', 'in_doc_preguntas.sis_campo_tabla_id', '=', 'sis_campo_tablas.id')
-			->where('in_doc_preguntas.activo', 1)->where('in_doc_preguntas.in_base_fuente_id', $request->in_fuente_id))
-		->addColumn('btns', 'Indicadores/Admin/DocIndicador/botones/botonesdoc')
+			->where('in_doc_preguntas.activo', 1)->where('in_doc_preguntas.in_ligru_id', $request->in_ligru_id))
+		->addColumn('btns', $request->botonesx )
 		->rawColumns(['btns'])
 		->toJson();
 });
@@ -306,8 +353,8 @@ Route::get('indicadores/baseactividades', function (Request $request) {
 				->join('in_lineabase_nnajs', 'in_accion_gestions.in_lineabase_nnaj_id', '=', 'in_lineabase_nnajs.id')
 				->join('sis_actividads', 'in_accion_gestions.sis_actividad_id', '=', 'sis_actividads.id')
 				->join('sis_documento_fuentes', 'sis_actividads.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
-				->where('in_lineabase_nnajs.sis_nnaj_id', $request->all()['nnajxxxx'])
-				->where('in_lineabase_nnajs.in_fuente_id', $request->all()['basexxxx'])
+				->where('in_lineabase_nnajs.sis_nnaj_id', $request->nnajxxxx)
+				->where('in_lineabase_nnajs.in_fuente_id', $request->basexxxx)
 		)
 		->addColumn('btns', 'Indicadores/Admin/Acciongestion/Actividad/botones/botonesact')
 		->rawColumns(['btns'])
@@ -327,7 +374,7 @@ Route::get('indicadores/actfuente', function (Request $request) {
 				'in_actsoportes.in_accion_gestion_id',
 			])
 				->join('in_accion_gestions', 'in_actsoportes.in_accion_gestion_id', '=', 'in_accion_gestions.id')
-				->join('in_lineabase_nnajs','in_accion_gestions.in_lineabase_nnaj_id','=','in_lineabase_nnajs.id')
+				->join('in_lineabase_nnajs', 'in_accion_gestions.in_lineabase_nnaj_id', '=', 'in_lineabase_nnajs.id')
 				->join('sis_fsoportes', 'in_actsoportes.sis_fsoporte_id', '=', 'sis_fsoportes.id')
 				->where('in_actsoportes.in_accion_gestion_id', $request->all()['activida'])
 		)
@@ -339,7 +386,7 @@ Route::get('indicadores/actfuente', function (Request $request) {
 
 Route::get('indicadores/nnajlineabase', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	$dataxxxx=$request->all();
+	$dataxxxx = $request->all();
 
 	return datatables()
 		->eloquent(
@@ -367,7 +414,7 @@ Route::get('indicadores/nnajlineabase', function (Request $request) {
 
 Route::get('indicadores/diagnostico', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	$dataxxxx=$request->all();
+	$dataxxxx = $request->all();
 	return datatables()
 		->eloquent(
 			InLineabaseNnaj::select([

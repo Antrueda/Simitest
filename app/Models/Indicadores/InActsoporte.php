@@ -4,6 +4,7 @@ namespace App\Models\Indicadores;
 
 use App\Models\sistema\SisActividad;
 use App\Models\sistema\SisFsoporte;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

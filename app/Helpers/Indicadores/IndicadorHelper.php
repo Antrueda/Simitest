@@ -6,12 +6,13 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InDocPregunta;
 use App\Models\Indicadores\InIndicador;
-use App\Models\Indicadores\InLineaBase;
+use App\Models\Indicadores\InLigru;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Indicadores\InValoracion;
 use App\Models\Indicadores\InRespuesta;
-use App\Models\sistema\SisTabla;
+
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class IndicadorHelper
@@ -45,6 +46,10 @@ class IndicadorHelper
             'pregunta' => $indicador->spregunt,
             'nivelxxx' => ($indicador->scatagor > 0 && $indicador->scatagor < 4) ? 'BAJO' : ($indicador->scatagor > 3 && $indicador->scatagor < 7) ? 'MEDIO' : 'ALTO',
             'categori' => $indicador->scatagor,
+
+           
+
+
             'avancex1' => '',
             'avancex2' => '',
             'avancex3' => '',
@@ -58,7 +63,7 @@ class IndicadorHelper
     }
     public static function holamundo()
     {
-        echo 'hola mundo desde el helper';
+        echo 'www';
     }
     public static function disparador($tablaidx)
     {
@@ -93,50 +98,61 @@ class IndicadorHelper
          * 
          *  */
 
-
         /**
          * encontrar todas las linea fuente asociadas la tabla
          */
+
         $docupreg = InDocPregunta::where('sis_tabla_id', $dataxxxx['sis_tabla_id'])
             ->get();
         $baseline = [];
         foreach ($docupreg as $linebase) {
-            $lineaxxx = $linebase->in_base_fuente->in_fuente_id;
+            $lineaxxx = $linebase->in_ligru->in_base_fuente->in_fuente_id;
             if (!in_array($lineaxxx, $baseline)) {
                 $baseline[] = $lineaxxx;
             }
         }
-
-        foreach (InBaseFuente::whereIn('in_base_fuentes.in_fuente_id', $baseline)->get() as $basefuent) {
+        $errorxxx = '';
+        if ($dataxxxx['sis_tabla_id'] == 9)
+            $errorxxx = '';
+        $inbasefu = InDocPregunta::join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
+            ->join('sis_campo_tablas', 'in_doc_preguntas.sis_campo_tabla_id', '=', 'sis_campo_tablas.id')
+            ->join('in_ligrus', 'in_doc_preguntas.in_ligru_id', '=', 'in_ligrus.id')
+            ->join('in_base_fuentes', 'in_ligrus.in_base_fuente_id' . $errorxxx, '=', 'in_base_fuentes.id')
+            ->whereIn('in_base_fuentes.in_fuente_id', $baseline)->get();
+        // $inbasefu=InBaseFuente::
+        // whereIn('in_base_fuentes.in_fuente_id', $baseline)->get();
+        $tablaxxx = 0;
+        foreach ($inbasefu as $basefuent) {
             $actibase = true;
-            $tablaxxx = 0;
+
             $consulta = [];
-            foreach ($basefuent->in_doc_preguntas as $docupreg) {
 
-                $campoxxx = $docupreg->sis_campo_tabla->s_campo;
-                /**
-                 * Solo realizar una vez la consulta
-                 */
-                if ($tablaxxx != $docupreg->sis_tabla_id) {
-                    $tablaxxx = $docupreg->sis_tabla_id;
-                    /**
-                     * traer el registro almacendo en la tabla encontrada
-                     */
-                    $consulta = DB::table($docupreg->sis_tabla->s_tabla)->first();
-                }
-                $respuest = [];
-                if (isset($consulta->id)) {
-                    $respuest = InRespuesta::where('i_prm_respuesta_id', $consulta->$campoxxx)->first();
-                }
-
+            //foreach ($basefuent->in_doc_preguntas as $docupreg) {
+            $campoxxx = $basefuent->s_campo;
+            /**
+             * Solo realizar una vez la consulta
+             */
+            if ($tablaxxx != $basefuent->sis_tabla_id) {
+                $tablaxxx = $basefuent->sis_tabla_id;
 
                 /**
-                 * validar que si se puede activar la linea base
+                 * traer el registro almacendo en la tabla encontrada
                  */
-                if (!isset($respuest->id)) {
-                    $actibase = false;
-                }
+                $consulta = DB::table($basefuent->s_tabla)->first();
             }
+            $respuest = [];
+            if (isset($consulta->id)) {
+                $respuest = InRespuesta::where('i_prm_respuesta_id', $consulta->$campoxxx)->first();
+            }
+
+
+            /**
+             * validar que si se puede activar la linea base
+             */
+            if (!isset($respuest->id)) {
+                $actibase = false;
+            }
+            //}
             /**
              * activar linae base
              */
@@ -150,7 +166,8 @@ class IndicadorHelper
                     ->where('in_fuente_id', $basefuent->in_fuente_id)
                     ->first();
                 if (!isset($nnajbase->id)) {
-                    InLineabaseNnaj::create([
+                    $dataxxxx['user_crea_id'] = Auth::user()->id;
+                    $ddd = InLineabaseNnaj::create([
                         'in_fuente_id' => $basefuent->in_fuente_id,
                         'sis_nnaj_id' => $dataxxxx['sis_nnaj_id'],
                         'user_crea_id' => $dataxxxx['user_crea_id'],
@@ -160,7 +177,6 @@ class IndicadorHelper
                 }
             }
         }
-
 
 
 
@@ -206,19 +222,40 @@ class IndicadorHelper
         }
         return $iaccionx;
     }
-    //['antiguox'=>'','nuevoxxx'=>'','indicado'=>'','linetota'=>'','posicion'=>'','cantidad'=>'',]
+    /**
+     * Realiza las validaciones a que haya lugar para armar los rowspan al armar la tabla en la vista
+     * @param array $dataxxxx trate los parametoros con que se arman las validaciones de manera dinamica
+     * $dataxxxx [
+     *           'antiguox' => 'idindica', // nombre del contador
+     *           'nuevoxxx' => $indicador->id, // valor que se va agregar al contador si el contador esta en 0
+     *           'keyxxxxx' => $key, // posicion donde estan realizando las validaciones
+     *           'totalxxx' => $totalxxx, // se almacena el total del indicador
+     *           'indicado' => $indicado, // indicador que se esta aramando
+     *           'posicion' => 'indicont', 
+     *           'cantidad' => 'cantindi', 
+     *           'indihelp' => $indihelp
+     *       ]
+     */
     public function getValidacion($dataxxxx)
-    {
-        $posicion = ($dataxxxx['indicado']['linetota'] == 0) ? 0 : ($dataxxxx['indicado']['linetota'] - $dataxxxx['indicado'][$dataxxxx['posicion']]);
+    { 
+        $posicion = ($dataxxxx['indicado']['linetota'] == 0) ? 0 : 
+        ($dataxxxx['indicado']['linetota'] - $dataxxxx['indicado'][$dataxxxx['posicion']]);
+        /**
+         * valida si el contrador ya esta incializado
+         */
+        
         if ($dataxxxx['indicado'][$dataxxxx['antiguox']] != $dataxxxx['nuevoxxx']) {
-            $dataxxxx['indicado'][$dataxxxx['antiguox']] = $dataxxxx['nuevoxxx'];
+            $dataxxxx['indicado'][$dataxxxx['antiguox']] = $dataxxxx['nuevoxxx']; 
             if ($dataxxxx['cantidad'] == 'cantbase' && $dataxxxx['indicado']['idlinbas'] > 0) {
                 $valoavan = InValoracion::getAvance(['idlinbas' => $dataxxxx['indicado']['idlinbas']]);
-                $indicado['indicado'][$posicion]['iavacate'] = $valoavan->iavacate;
-                $indicado['indicado'][$posicion]['iavanive'] = ($indicado['indicado'][$posicion]['iavacate'] > 0 &&  $indicado['indicado'][$posicion]['iavacate'] < 4) ? 'BAJO' : ($indicado['indicado'][$posicion]['iavacate'] > 3 &&  $indicado['indicado'][$posicion]['iavacate'] < 7) ? 'MEDIO' : 'ALTO';
-                $indicado['indicado'][$posicion]['iavancex'] = $valoavan->iavancex;
-                $indicado['indicado'][$posicion]['iaccionx'] = $dataxxxx['indihelp']->getAcciones($valoavan);
+                $posiciox=$dataxxxx['indicado'][$dataxxxx['posicion']];
+                $dataxxxx['indicado']['indicado'][$posiciox]['iavacate'] = $valoavan->iavacate;
+                $dataxxxx['indicado']['indicado'][$posiciox]['iavanive'] = ($valoavan->iavacate > 0 &&  $valoavan->iavacate < 4) ? 'BAJO' : ($valoavan->iavacate > 3 &&  $valoavan->iavacate < 7) ? 'MEDIO' : 'ALTO';
+                $dataxxxx['indicado']['indicado'][$posiciox]['iavancex'] = $valoavan->iavancex; 
+                $dataxxxx['indicado']['indicado'][$posiciox]['iaccionx'] = $dataxxxx['indihelp']->getAcciones($valoavan);
+                $dataxxxx=InValoracion::getValoracion($dataxxxx,$posiciox);
             }
+            
             $dataxxxx['indicado']['indicado'][$posicion][$dataxxxx['cantidad']] = $dataxxxx['indicado'][$dataxxxx['posicion']];
             $dataxxxx['indicado'][$dataxxxx['posicion']] = 1;
         } else {
@@ -233,10 +270,12 @@ class IndicadorHelper
     {
         return [
             'indicado' => [],
-            'idindica' => 0,
-            'indicont' => 0,
-            'idlinbas' => 0,
+            'idindica' => 0, // id del indicadro
+            'indicont' => 0, // contador del indicador
+            'idlinbas' => 0, // id de la linea base
             'idactivi' => 0,
+            'idgrupox' => 0,
+            'totagrup' => 0,
             'linetota' => 0,
             'linebase' => 0,
             'totadocu' => 0,
@@ -255,31 +294,51 @@ class IndicadorHelper
         $indicado = $indihelp->getAcumuladores();
         $totalxxx = count($inindica);
         foreach ($inindica as $key => $indicador) {
+            /**
+             * conocer los indicadores
+             */
             $indicado['indicado'][$key] = $indihelp->getIndicado($indicador);
             $repuesta = $indihelp->getValidacion([
                 'antiguox' => 'idindica', 'nuevoxxx' => $indicador->id, 'keyxxxxx' => $key, 'totalxxx' => $totalxxx,
                 'indicado' => $indicado, 'posicion' => 'indicont', 'cantidad' => 'cantindi', 'indihelp' => $indihelp
             ]);
+            /**
+             * conocer las lineas base
+             */
             $indicado = $repuesta['indicado'];
             $repuesta = $indihelp->getValidacion([
                 'antiguox' => 'idlinbas', 'nuevoxxx' => $indicador->idlinbas, 'keyxxxxx' => $key, 'totalxxx' => $totalxxx,
                 'indicado' => $indicado, 'posicion' => 'linebase', 'cantidad' => 'cantbase', 'indihelp' => $indihelp
             ]);
+             
+
+            /**
+             * conocer las actividades
+             */
             $indicado = $repuesta['indicado'];
             $repuesta = $indihelp->getValidacion([
                 'antiguox' => 'idactivi', 'nuevoxxx' => $indicador->idactivi, 'keyxxxxx' => $key, 'totalxxx' => $totalxxx,
                 'indicado' => $indicado, 'posicion' => 'totactiv', 'cantidad' => 'cantacti', 'indihelp' => $indihelp
             ]);
+            /**
+             * conocer los documentos que soportan las actividades
+             */
             $indicado = $repuesta['indicado'];
             $repuesta = $indihelp->getValidacion([
                 'antiguox' => 'idsoport', 'nuevoxxx' => $indicador->idsoport, 'keyxxxxx' => $key, 'totalxxx' => $totalxxx,
                 'indicado' => $indicado, 'posicion' => 'totasopo', 'cantidad' => 'cantsopo', 'indihelp' => $indihelp
             ]);
+            /**
+             * conocer los documentos que soportan las lineas base
+             */
             $indicado = $repuesta['indicado'];
             $repuesta = $indihelp->getValidacion([
                 'antiguox' => 'iddocume', 'nuevoxxx' => $indicador->idocfuen, 'keyxxxxx' => $key, 'totalxxx' => $totalxxx,
                 'indicado' => $indicado, 'posicion' => 'totadocu', 'cantidad' => 'cantdocu', 'indihelp' => $indihelp
             ]);
+            /**
+             * conocer las preguntas de los documentos que soportan las lineas base
+             */
             $indicado = $repuesta['indicado'];
             $repuesta = $indihelp->getValidacion([
                 'antiguox' => 'idpregun', 'nuevoxxx' => $indicador->idpregun, 'keyxxxxx' => $key, 'totalxxx' => $totalxxx,
@@ -288,7 +347,7 @@ class IndicadorHelper
             $indicado = $repuesta['indicado'];
             $indicado['linetota']++;
         }
-        //ddd($indicado);
+        // ddd($indicado);
         return $indicado['indicado'];
     }
 }

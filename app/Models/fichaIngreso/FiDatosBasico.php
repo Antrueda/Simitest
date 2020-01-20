@@ -213,11 +213,15 @@ class FiDatosBasico extends Model
             if($compofam==null){
                 $compofam='';
             }
+            
             FiComposicionFami::transaccion($dataxxxx,$compofam);
-            $dataxxxx['sis_tabla_id']=9;
+            
+            $dataxxxx['sis_tabla_id']=9; 
             IndicadorHelper::asignaLineaBase($dataxxxx);
+           
             return $objetoxx;
         }, 5);
+       
         return $objetoxx;
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
-	 @component('Indicadores.Admin.DocIndicador.datatable.index', ['todoxxxx'=>$todoxxxx])
+	 @component('Indicadores.Admin.DocIndicador.tablajquery.index', ['todoxxxx'=>$todoxxxx])
       @slot('tableName')
       tabla
       @endslot
@@ -10,3 +10,4 @@
       
     @endcomponent 
 @endsection
+

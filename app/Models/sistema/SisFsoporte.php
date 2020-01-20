@@ -117,6 +117,8 @@ class SisFsoporte extends Model
         $comboxxx[$registro->valuexxx] = $registro->optionxx;
       }
     }
+
+  
     return $comboxxx;
   }
 }

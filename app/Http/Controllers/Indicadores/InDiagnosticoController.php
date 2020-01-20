@@ -31,6 +31,13 @@ class InDiagnosticoController extends Controller
         $this->opciones['rutaxxxx'] = 'diagnostico';
         $this->opciones['routnuev'] = 'diagnostico';
         $this->opciones['routxxxx'] = 'diagnostico';
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => 'Volver a Grupos', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
+
     }
 
 
@@ -148,9 +155,9 @@ class InDiagnosticoController extends Controller
     public function edit(InLineabaseNnaj $objetoxx)
     {
         $this->opciones['botoform'] = [
-            ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => ['diagnostico.editar', []], 'formhref' => 1, 'tituloxx' => ''],
-            ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => ['diagnostico.nnajbases', [$objetoxx->sis_nnaj_id]], 'formhref' => 2, 'tituloxx' => 'Volver a Líneas Base NNAJ'],
-            ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => ['diagnostico', []], 'formhref' => 2, 'tituloxx' => 'Volver a NNAJs'],
+            ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => ['diagnostico.editar', []], 'formhref' => 1, 'tituloxx' => '','clasexxx' => 'btn btn-sm btn-primary'],
+            ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => ['diagnostico.nnajbases', [$objetoxx->sis_nnaj_id]], 'formhref' => 2, 'tituloxx' => 'Volver a Líneas Base NNAJ','clasexxx' => 'btn btn-sm btn-primary'],
+            ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => ['diagnostico', []], 'formhref' => 2, 'tituloxx' => 'Volver a NNAJs','clasexxx' => 'btn btn-sm btn-primary'],
 
         ];
         return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'editar');

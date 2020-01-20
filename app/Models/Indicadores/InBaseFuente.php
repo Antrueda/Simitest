@@ -16,9 +16,12 @@ class InBaseFuente extends Model
         'user_edita_id',
         'activo'
     ];
-    public function in_doc_preguntas()
+    public function in_fuente(){
+        return $this->belongsTo(InFuente::class);
+    }
+    public function in_ligrus()
     {
-        return $this->hasMany(InDocPregunta::class, 'in_base_fuente_id');
+        return $this->hasMany(InLigru::class);
     }
     public function sis_documento_fuente()
     {
@@ -30,7 +33,7 @@ class InBaseFuente extends Model
         if ($cabecera) {
             $comboxxx = ['' => 'Seleccione'];
         }
-        $basefuent = InBaseFuente::where('in_base_fuentes.id', $padrexxx)->first();
+        $basefuent = InLigru::where('id', $padrexxx)->first();
 
         foreach ($basefuent->in_doc_preguntas as $registro) {
             if ($ajaxxxxx) {
@@ -45,7 +48,7 @@ class InBaseFuente extends Model
     public static function combobuscar($dataxxxx)
     {
         $comboxxx = [];
-        $basefuent = InDocPregunta::where('in_base_fuente_id', $dataxxxx['document'])->get();
+        $basefuent = InDocPregunta::where('in_ligru_id', $dataxxxx['document'])->get();
         $notinxxx = [];
 //echo count($basefuent->in_doc_preguntas);
         foreach ($basefuent as $pregunta) {

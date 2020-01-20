@@ -7,6 +7,7 @@ use App\Http\Requests\Indicadores\InDocIndicadorCrearRequest;
 use App\Http\Requests\Indicadores\InDocIndicadorEditarRequest;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InDocIndi;
+use App\Models\Indicadores\InLigru;
 use App\Models\sistema\SisCampoTabla;
 use App\Models\sistema\SisDocumentoFuente;
 use App\Models\sistema\SisTabla;
@@ -18,45 +19,29 @@ class InDocIndicadorController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:documentoFuente-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:documentoFuente-crear'], ['only' => ['index, show, create, store', 'updateParametro']]);
-        $this->middleware(['permission:documentoFuente-editar'], ['only' => ['index, show, edit, update', 'updateParametro']]);
-        $this->middleware(['permission:documentoFuente-borrar'], ['only' => ['index, show, destroy, destroyParametro']]);
+
         $this->opciones = [
-            'tituloxx' => 'Preguntas del Documento Fuente',
-            'rutaxxxx' => 'di.docindicador',
-            'rutacarp' => 'Indicadores.Admin.Docindicador.',
-            'accionxx' => '',
-            'volverax' => 'Volver a: Preguntas del Documento Fuente',
-            'readonly' => '', // esta opcion es para cundo está por la parte de ver
-            'carpetax' => 'Docindicador',
-            'modeloxx' => '',
             'permisox' => 'documentoFuente',
-            'routxxxx' => 'di.docindicador',
-            'routinde' => 'di',
             'parametr' => [],
-            'urlxxxxx' => 'api/indicadores/documentos',
-            'routnuev' => 'di.docindicador',
-            'nuevoxxx' => 'Nuevo Registro'
-        ];
-        $this->opciones['cabecera'] = [
-            ['td' => 'ID'],
-            ['td' => 'INDICADOR'],
-            ['td' => 'LÍNEA BASE'],
-            ['td' => 'DOCUMENTO FUENTE'],
-
-        ];
-        $this->opciones['columnsx'] = [
-            ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'id', 'name' => 'id'],
-            ['data' => 's_indicador', 'name' => 'in_indicadors.s_indicador'],
-            ['data' => 's_linea_base', 'name' => 'in_linea_bases.s_linea_base'],
-            ['data' => 'nombre', 'name' => 'sis_documento_fuentes.nombre'],
-
+            'rutacarp' => 'Indicadores.Admin.Docindicador.',
+            'tituloxx' => 'Preguntas del Documento Fuente',
         ];
 
+        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
+        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
+        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
+        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
+        $this->opciones['readonly'] = '';
+        $this->opciones['rutaxxxx'] = 'di.docindicador';
+        //$this->opciones['routnuev'] = 'inligru';
+        $this->opciones['routxxxx'] = 'di.docindicador';
 
-
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => 'Volver a Grupos', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];       
         
     }
     /**
@@ -66,12 +51,47 @@ class InDocIndicadorController extends Controller
      */
     public function index(Request $request)
     {
+        $this->opciones['vercrear'] = ''; // motrar el boton de nuevo registro
+        $this->opciones['titunuev'] = 'Nuevo grupo Línea Base';
+        $this->opciones['titulist'] = 'Listado Grupos Líneas Base';
+        $this->opciones['dataxxxx'] = [
+            ['campoxxx' => 'botonesx', 'dataxxxx' => 'Indicadores/Admin/DocIndicador/botones/botonesgru'],
+        ];
+        $this->opciones['urlxxxxx'] = 'api/indicadores/documentos';
+        $this->opciones['cabecera'] = [
+            ['td' => 'ID'],
+
+            ['td' => 'LÍNEA BASE'],
+            ['td' => 'DOCUMENTO FUENTE'],
+        ];
+        $this->opciones['columnsx'] = [
+            ['data' => 'btns', 'name' => 'btns'],
+            ['data' => 'id', 'name' => 'id'],
+
+            ['data' => 's_linea_base', 'name' => 'in_linea_bases.s_linea_base'],
+            ['data' => 'nombre', 'name' => 'sis_documento_fuentes.nombre'],
+
+        ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }
 
 
-    private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
+    public function preguntas($in_ligru_id)
     {
+        $this->opciones['vercrear'] ='';
+        $this->opciones['campoxxx'] = ['' => 'Seleccione'];
+        $this->opciones['modeloxx']=InLigru::where('id',$in_ligru_id)->first();
+        $this->opciones['tablaxxx'] = SisTabla::comboTabla($this->opciones['modeloxx']->in_base_fuente->sis_documento_fuente->id, true, false);
+        $this->opciones['parametr'] = [$in_ligru_id]; // motrar el boton de nuevo registro
+        //$this->opciones['vercrear'] = '';// motrar el boton de nuevo registro
+        $this->opciones['titunuev'] = 'Nueva Pregunta';
+        $this->opciones['titulist'] = 'Lista Preguntas Grupo';
+        $this->opciones['dataxxxx'] = [
+            ['campoxxx' => 'botonesx', 'dataxxxx' => ''],
+            ['campoxxx' => 'in_ligru_id', 'dataxxxx' => $in_ligru_id],
+        ];
+
+        $this->opciones['urlxxxxx'] = 'api/indicadores/docpreguntas';
         
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
@@ -80,7 +100,7 @@ class InDocIndicadorController extends Controller
             ['td' => 'PREGUNTA'],
 
         ];
-        $this->opciones['columnxx'] = [
+        $this->opciones['columnsx'] = [
             ['data' => 'btns', 'name' => 'btns'],
             ['data' => 'id', 'name' => 'id'],
             ['data' => 's_tabla', 'name' => 'sis_tablas.s_descripcion as s_tabla'],
@@ -88,14 +108,37 @@ class InDocIndicadorController extends Controller
             ['data' => 's_pregunta', 'name' => 'in_preguntas.s_pregunta'],
 
         ];
-        $this->opciones['urlxxxxy'] = 'api/indicadores/docpreguntas';
+        return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
+    }
+
+    private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
+    {
+
+        $this->opciones['urlxxxxx'] = 'api/indicadores/docpreguntas';
+        
+        $this->opciones['cabecera'] = [
+            ['td' => 'ID'],
+            ['td' => 'TABLA'],
+            ['td' => 'CAMPO'],
+            ['td' => 'PREGUNTA'],
+
+        ];
+        $this->opciones['columnsx'] = [
+            ['data' => 'btns', 'name' => 'btns'],
+            ['data' => 'id', 'name' => 'id'],
+            ['data' => 's_tabla', 'name' => 'sis_tablas.s_descripcion as s_tabla'],
+            ['data' => 's_campo', 'name' => 'sis_campo_tablas.s_descripcion as s_campo'],
+            ['data' => 's_pregunta', 'name' => 'in_preguntas.s_pregunta'],
+
+        ];
+
 
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
         $this->opciones['pregunta'] = InBaseFuente::comboPreguntas($objetoxx->id, false, false);;
-        $this->opciones['tablaxxx'] = SisTabla::comboTabla($objetoxx->sis_documento_fuente->id, true, false);
-        $this->opciones['campoxxx']=[''=>'Seleccione'];
+        $this->opciones['tablaxxx'] = SisTabla::comboTabla($objetoxx->in_base_fuente->sis_documento_fuente->id, true, false);
+        $this->opciones['campoxxx'] = ['' => 'Seleccione'];
         if ($nombobje != '') {
 
             $this->opciones[$nombobje] = $objetoxx;
@@ -111,7 +154,7 @@ class InDocIndicadorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($in_ligru_id)
     {
         return $this->view('', '', 'Crear', $this->opciones['rutacarp'] . 'crear');
     }
@@ -130,7 +173,7 @@ class InDocIndicadorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(InDocIndicadorCrearRequest $request)
+    public function store($in_ligru_id,InDocIndicadorCrearRequest $request)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
@@ -142,7 +185,7 @@ class InDocIndicadorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SisDocumentoFuente $objetoxx)
+    public function show($in_ligru_id,InLigru $objetoxx)
     {
         $this->opciones['readonly'] = 'readonly';
         return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'ver');
@@ -154,12 +197,27 @@ class InDocIndicadorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(InBaseFuente $objetoxx)
+    public function edit($in_ligru_id,InLigru $objetoxx)
     {
+
+        $this->opciones['parametr'] = [$in_ligru_id, $objetoxx->id];
+
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Editar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', $this->opciones['parametr']],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.preguntas', $this->opciones['parametr']],
+                'formhref' => 2, 'tituloxx' => 'Volver a Grupos Línea Base', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
         return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'editar');
     }
 
-    public function update(InDocIndicadorEditarRequest $request, InDocIndi $objetoxx)
+    public function update($in_ligru_id,InDocIndicadorEditarRequest $request, InLigru $objetoxx)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
@@ -171,7 +229,7 @@ class InDocIndicadorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SisDocumentoFuente $objetoxx)
+    public function destroy($in_ligru_id,InLigru $objetoxx)
     {
         $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
         $objetoxx->save();
@@ -181,8 +239,8 @@ class InDocIndicadorController extends Controller
 
     function getCamposAjaxx(Request $request)
     {
-        if ($request->ajax()) {            
-            $respuest =  SisCampoTabla::comboTabla($request,false,true);
+        if ($request->ajax()) {
+            $respuest =  SisCampoTabla::comboTabla($request, false, true);
             return response()->json($respuest);
         }
     }

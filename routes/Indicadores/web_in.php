@@ -4,8 +4,9 @@ require_once('web_area.php');
 require_once('web_diagnostico.php');
 require_once('web_doc_indicador.php');
 require_once('web_grupales.php');
-require_once('web_in_basedocumen.php');
 require_once('web_in_fuente.php');
+require_once('web_in_basedocumen.php');
+require_once('web_in_ligru.php');
 
 require_once('web_indicador.php');
 require_once('web_individuales.php');
@@ -14,4 +15,5 @@ require_once('web_pregunta.php');
 require_once('web_respuesta.php');
 require_once('web_validacion.php');
 require_once('web_valoracion.php');
+
 

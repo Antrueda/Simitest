@@ -1,7 +1,9 @@
 <script>
+   var table ='';
 $(document).ready(function() {
-    $('#{{ $tableName }}').DataTable({
-    	"serverSide": true,
+  table =  $('#{{ $tableName }}').DataTable({
+      "serverSide": true,
+      "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
     	"ajax": {
         url:"{{ url($todoxxxx['urlxxxxx'])  }}",
         @if(isset($todoxxxx['dataxxxx']))
@@ -16,10 +18,32 @@ $(document).ready(function() {
 			@foreach($todoxxxx['columnsx'] as $columnsx)
 			{data:'{{ $columnsx["data"] }}',name:'{{ $columnsx["name"] }}'},
       @endforeach
-		],
+    ],
+    
     	"language": {
            	"url": "{{ url('/adminlte/plugins/datatables/Spanish.lang') }}"
        	}
     });
+
+
+  
+ 
+    
+
+
+
 } );
+$(function(){
+  $('#{{ $tableName }} tbody').on( 'click', 'tr', function () {
+  
+        if ( $(this).hasClass('btn-success') ) {
+            $(this).removeClass('btn-success');
+        }
+        else { 
+            table.$('tr.btn-success').removeClass('odd btn-success');
+            $(this).addClass('btn-success');
+        }
+    } );
+
+});
 </script>

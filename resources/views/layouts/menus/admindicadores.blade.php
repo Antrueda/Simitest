@@ -57,9 +57,20 @@
             </a>
         </li>
     @endcan
+
+    @can('indicador-leer')
+        <li class="nav-item">
+            <a href="{{ route('inligru') }}" class="nav-link">
+            <i class="fas fa-check nav-icon"></i>
+            <p>Grupos Línea Base</p>
+            </a>
+        </li>
+    @endcan
+
+
     @can('indocindicador-leer')
         <li class="nav-item">
-            <a href="{{ route('di') }}" class="nav-link">
+            <a href="{{ route('di.docindicador') }}" class="nav-link">
             <i class="fas fa-check nav-icon"></i>
             <p>Documento Preguntas</p>
             </a>

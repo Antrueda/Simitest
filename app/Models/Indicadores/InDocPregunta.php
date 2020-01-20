@@ -14,7 +14,7 @@ class InDocPregunta extends Model
 
     protected $fillable = [
         'in_pregunta_id',
-        'in_base_fuente_id',
+        'in_ligru_id',
         'sis_tabla_id',
         'sis_campo_tabla_id',
         'user_edita_id',
@@ -77,8 +77,8 @@ class InDocPregunta extends Model
         }
         return $comboxxx;
     }
-    public function in_base_fuente()
+    public function in_ligru()
     {
-        return $this->belongsTo(InBaseFuente::class);
+        return $this->belongsTo(InLigru::class);
     }
 }

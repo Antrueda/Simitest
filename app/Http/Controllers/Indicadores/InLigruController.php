@@ -3,26 +3,27 @@
 namespace App\Http\Controllers\Indicadores;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
-use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
+use App\Http\Requests\Indicadores\InLigruCrearRequest;
+use App\Http\Requests\Indicadores\InLigruEditarRequest;
 use App\Models\fichaobservacion\FosArea;
-use App\Models\fichaobservacion\FosStse;
+use App\Models\Indicadores\InLigru;
+use App\Models\Indicadores\InBaseFuente;
 use App\Models\fichaobservacion\FosTse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class InDpgruController extends Controller
+class InLigruController extends Controller
 {
     private $opciones;
 
     public function __construct()
     {
         $this->opciones = [
-            'permisox' => 'documentoFuente',
+            'permisox' => 'indicador',
             'parametr' => [],
-            'rutacarp' => 'Indicadores.Admin.Indpgru.',
-            'tituloxx' => 'Grupo Preguntas',
+            'rutacarp' => 'Indicadores.Admin.Inligru.',
+            'tituloxx' => 'Grupo Línea Base',
         ];
 
         $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
@@ -31,13 +32,15 @@ class InDpgruController extends Controller
         $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
 
         $this->opciones['readonly'] = '';
-        $this->opciones['rutaxxxx'] = 'indpgru';
-        $this->opciones['routnuev'] = 'indpgru';
-        $this->opciones['routxxxx'] = 'indpgru.indpgru';
+        $this->opciones['rutaxxxx'] = 'inligru';
+        //$this->opciones['routnuev'] = 'inligru';
+        $this->opciones['routxxxx'] = 'inligru';
 
         $this->opciones['botoform'] = [
-            ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-            'formhref' => 2, 'tituloxx' => 'Volver a agrupar preguntas', 'clasexxx' => 'btn btn-sm btn-primary'],
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => 'Volver a Líneas Base', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
         ];
     }
 
@@ -47,46 +50,70 @@ class InDpgruController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($in_docpr_id)
+    public function index()
     {
-        $this->opciones['botoform'][0]['routingx'][1] = [$in_docpr_id];
-        $this->opciones['titunuev'] = 'Nuevo grupo de preguntas';
-        $this->opciones['titulist'] = 'Lista de grupo de preguntas';
+        $this->opciones['vercrear'] = ''; // motrar el boton de nuevo registro
+        $this->opciones['titunuev'] = 'Nuevo grupo Línea Base';
+        $this->opciones['titulist'] = 'Listado Líneas Base';
         $this->opciones['dataxxxx'] = [
-            ['campoxxx' => 'botonesx', 'dataxxxx' => 'FichaObservacion/Admin/SubTipoSeguimiento/botones/botonesapi'],
+            ['campoxxx' => 'botonesx', 'dataxxxx' => 'Indicadores/Admin/Inligru/botones/botonesbase'],
         ];
 
-        $this->opciones['urlxxxxx'] = 'api/fos/subtipo';
+        $this->opciones['urlxxxxx'] = 'api/indicadores/basegrupos';
         $this->opciones['cabecera'] = [
+
             ['td' => 'ID'],
-            ['td' => 'NOMBRE'],
-            ['td' => 'ÁREA'],
-            ['td' => 'TIPO SEGUIMIENTO'],
+            ['td' => 'LÍNEA BASE'],
+            ['td' => 'DOCUMENTO FUENTE'],
+            ['td' => 'ESTADO'],
+        ];
+        $this->opciones['columnsx'] = [
+
+            ['data' => 'btns', 'name' => 'btns'],
+            ['data' => 'id', 'name' => 'in_base_fuentes.id'],
+            ['data' => 's_linea_base', 'name' => 'in_linea_bases.s_linea_base'],
+            ['data' => 'nombre', 'name' =>'sis_documento_fuentes.nombre'],
+            ['data' => 'activo', 'name' => 'in_base_fuentes.activo'],
+        ];
+        return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
+    }
+
+    public function grupos($in_linea_id)
+    {
+        $this->opciones['parametr'] = [$in_linea_id]; // motrar el boton de nuevo registro
+        //$this->opciones['vercrear'] = '';// motrar el boton de nuevo registro
+        $this->opciones['titunuev'] = 'Nuevo grupo Línea Base';
+        $this->opciones['titulist'] = 'Lista grupos Línea Base';
+        $this->opciones['dataxxxx'] = [
+            ['campoxxx' => 'botonesx', 'dataxxxx' => 'Indicadores/Admin/Inligru/botones/botonesapi'],
+            ['campoxxx' => 'in_base_fuente_id', 'dataxxxx' => $in_linea_id],
+        ];
+
+        $this->opciones['urlxxxxx'] = 'api/indicadores/grupos';
+        $this->opciones['cabecera'] = [
+
+            ['td' => 'ID'],
+            ['td' => 'LÍNEA BASE'],
+            
             ['td' => 'ESTADO'],
         ];
         $this->opciones['columnsx'] = [
             ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'id', 'name' => 'fos_stses.id'],
-            ['data' => 'nombre', 'name' => 'fos_stses.nombre'],
-            ['data' => 's_seguimiento', 'name' => 'fos_tses.nombre as s_seguimiento'],
-            ['data' => 's_area', 'name' => 'fos_areas.nombre as s_area'],
-            ['data' => 'activo', 'name' => 'fos_stses.activo'],
+            ['data' => 'id', 'name' => 'in_base_fuentes.id'],
+
+            ['data' => 's_linea_base', 'name' => 'in_linea_bases.s_linea_base'],
+           
+            ['data' => 'activo', 'name' => 'in_ligrus.sis_esta_id as activo'],
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
-
-        $this->opciones['fosareas'] =  FosArea::combo( true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
-        $this->opciones['nivelxxx'] = '';
-        $this->opciones['tiposegu'] = [];
         if ($nombobje != '') {
-            $objetoxx->fos_area_id=$objetoxx->fos_tse->fos_area_id;
-            $this->opciones['tiposegu'] =FosTse::combo($objetoxx->fos_area_id, true, false);
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta->s_estado;
             $this->opciones[$nombobje] = $objetoxx;
         }
 
@@ -99,12 +126,24 @@ class InDpgruController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+
+    public function create($in_linea_id)
     {
-        $this->opciones['botoform'][] =
+        $this->opciones['linebase'] = InBaseFuente::where('id', $in_linea_id)->first()->in_fuente->in_linea_base->s_linea_base;
+        $this->opciones['maximoxx'] = InLigru::get()->max('id') == null ? 1 : InLigru::get()->max('id') + 1;
+        $this->opciones['parametr'] = [$in_linea_id];
+        array_unshift(
+            $this->opciones['botoform'],
             [
                 'mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ]
+        );
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.grupos', $this->opciones['parametr']],
+                'formhref' => 2, 'tituloxx' => 'Volver a Grupos Línea Base', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'crear');
     }
@@ -115,9 +154,10 @@ class InDpgruController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FosStseCrearRequest $request)
+    public function store(InLigruCrearRequest $request, $in_linea_id)
     {
         $dataxxxx = $request->all();
+        $dataxxxx['in_base_fuente_id'] = $in_linea_id;
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
     }
 
@@ -127,8 +167,11 @@ class InDpgruController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(FosStse $objetoxx)
+    public function show(InLigru $objetoxx, $in_linea_id)
     {
+        $this->opciones['linebase'] = InBaseFuente::where('id', $in_linea_id)->first()->in_fuente->in_linea_base->s_linea_base;
+        $this->opciones['maximoxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$in_linea_id];
 
         $this->opciones['botoform'][] =
             [
@@ -145,12 +188,22 @@ class InDpgruController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(FosStse $objetoxx)
+    public function edit($in_linea_id, InLigru $objetoxx)
     {
+       
+        $this->opciones['linebase'] = InBaseFuente::where('id', $in_linea_id)->first()->in_fuente->in_linea_base->s_linea_base;
+        $this->opciones['maximoxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$in_linea_id, $objetoxx->id];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'Editar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.grupos', $this->opciones['parametr']],
+                'formhref' => 2, 'tituloxx' => 'Volver a Grupos Línea Base', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'editar');
     }
@@ -162,7 +215,7 @@ class InDpgruController extends Controller
                 $objetoxx->update($dataxxxx);
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FosStse::create($dataxxxx);
+                $objetoxx = InLigru::create($dataxxxx);
             }
             return $objetoxx;
         }, 5);
@@ -170,8 +223,9 @@ class InDpgruController extends Controller
     }
     private function grabar($dataxxxx, $objectx, $infoxxxx)
     {
+        $transacc = $this->transaccion($dataxxxx, $objectx);
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$this->transaccion($dataxxxx, $objectx)->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$transacc->in_base_fuente_id, $transacc->id])
             ->with('info', $infoxxxx);
     }
 
@@ -182,7 +236,7 @@ class InDpgruController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FosStseEditarRequest $request, FosStse $objetoxx)
+    public function update(InLigruEditarRequest $request, $dd, InLigru $objetoxx)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, $objetoxx, 'Linea base del NNAJ actualizada con éxito');
@@ -194,22 +248,13 @@ class InDpgruController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FosStse $objetoxx)
+    public function destroy(InLigru $objetoxx)
     {
 
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id   = ($objetoxx->activo == 2) ? 1 : 2;
         $objetoxx->save();
         $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
 
         return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
-    }
-
-    public function tiposeg(Request $request)
-    {
-        if ($request->ajax()) {
-            $dataxxxx = $request->all();
-
-            return response()->json(FosTse::combo($dataxxxx['padrexxx'], false, true));
-        }
     }
 }

@@ -5,4 +5,5 @@
         @else
         <span class="fas fa-times text-danger" aria-hidden="true"></span>
         @endif
+        {{$activo}}
     </div>
