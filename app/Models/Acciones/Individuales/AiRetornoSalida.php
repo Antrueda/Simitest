@@ -10,7 +10,7 @@ use App\Models\Parametro;
 
 class AiRetornoSalida extends Model{
     protected $fillable = [
-        'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'activo',
+        'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
         'prm_upi_id', 'fecha', 'hora_retorno', 'prm_hor_ret_id',
         'descripcion', 'observaciones', 'nombres_retorna', 'prm_doc_id',
         'doc_retorna', 'prm_parentezco_id', 'responsable', 'user_doc1_id'

@@ -18,7 +18,7 @@ Route::get('indicadores/indicador', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
 	return datatables()
 		->eloquent(
-			InIndicador::select(['in_indicadors.id', 'in_indicadors.s_indicador', 'areas.nombre', 'in_indicadors.activo'])
+			InIndicador::select(['in_indicadors.id', 'in_indicadors.s_indicador', 'areas.nombre', 'in_indicadors.sis_esta_id'])
 				->join('areas', 'in_indicadors.area_id', '=', 'areas.id')
 		)
 		->addColumn('btns', 'Indicadores/Admin/indicador/botones')
@@ -49,7 +49,7 @@ Route::get('indicadores/preguntas', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
 	return datatables()
 		->eloquent(
-			InPregunta::select(['id', 's_pregunta', 'activo'])
+			InPregunta::select(['id', 's_pregunta', 'sis_esta_id'])
 		)
 		->addColumn('btns', 'Indicadores/Admin/Preguntas/botones/botonesapi')
 		->rawColumns(['btns'])
@@ -86,7 +86,7 @@ Route::get('indicadores/lineabase', function (Request $request) {
 			InLineaBase::select(
 				'id',
 				's_linea_base',
-				'activo'
+				'sis_esta_id'
 			)
 		)
 		->addColumn('btns', 'Indicadores/Admin/Lineabase/botones/botonesapi')
@@ -102,7 +102,7 @@ Route::get('indicadores/basefuente', function (Request $request) {
 			InIndicador::select([
 				'in_indicadors.id',
 				'areas.nombre as area', 'in_indicadors.s_indicador',
-				'in_indicadors.activo'
+				'in_indicadors.sis_esta_id'
 			])
 				->join('areas', 'in_indicadors.area_id', '=', 'areas.id')
 		)
@@ -121,15 +121,15 @@ Route::get('indicadores/basegrupos', function (Request $request) {
 				'in_base_fuentes.id',
 				'in_linea_bases.s_linea_base',
 				'sis_documento_fuentes.nombre',
-				'in_base_fuentes.activo'
+				'in_base_fuentes.sis_esta_id'
 			])
 				->join('in_fuentes', 'in_base_fuentes.in_fuente_id', '=', 'in_fuentes.id')
 				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
 				->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
 		)
 		->addColumn('btns', $botonesx['botonesx'])
-		->addColumn('activo', 'layouts/components/botones/estadoxx')
-		->rawColumns(['btns', 'activo'])
+		->addColumn('sis_esta_id', 'layouts/components/botones/estadoxx')
+		->rawColumns(['btns', 'sis_esta_id'])
 		->toJson();
 });
 Route::get('indicadores/grupos', function (Request $request) {
@@ -148,8 +148,8 @@ Route::get('indicadores/grupos', function (Request $request) {
 				->where('in_ligrus.in_base_fuente_id', $dataxxxx['in_base_fuente_id'])
 		)
 		->addColumn('btns', $dataxxxx['botonesx'])
-		->addColumn('activo', 'layouts/components/botones/estadoxx')
-		->rawColumns(['btns', 'activo'])
+		->addColumn('sis_esta_id', 'layouts/components/botones/estadoxx')
+		->rawColumns(['btns', 'sis_esta_id'])
 		->toJson();
 });
 
@@ -160,7 +160,7 @@ Route::get('indicadores/basedocumen', function (Request $request) {
 			InFuente::select([
 				'in_fuentes.id',
 				'in_linea_bases.s_linea_base',
-				'in_fuentes.activo',
+				'in_fuentes.sis_esta_id',
 				'in_indicadors.s_indicador'
 			])
 				->join('in_indicadors', 'in_fuentes.in_indicador_id', '=', 'in_indicadors.id')
@@ -178,7 +178,7 @@ Route::get('indicadores/validacion', function (Request $request) {
 			InValidacion::select([
 				'in_validacions.id',
 				'in_preguntas.s_pregunta',
-				'in_validacions.activo',
+				'in_validacions.sis_esta_id',
 				'sis_tablas.s_descripcion as s_tabla',
 				'sis_campo_tablas.s_descripcion as s_campo',
 				'in_linea_bases.s_linea_base'
@@ -206,7 +206,7 @@ Route::get('indicadores/acciongestion', function (Request $request) {
 				'parametros.nombre  as i_prm_ttiempo_id',
 				'sis_fsoportes.nombre as sis_fsoporte_id',
 				'sis_documento_fuentes.nombre as sis_documento_fuente_id',
-				'in_accion_gestions.activo'
+				'in_accion_gestions.sis_esta_id'
 			])
 				->join('sis_documento_fuentes', 'in_accion_gestions.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
 				->join('sis_fsoportes', 'in_accion_gestions.sis_fsoporte_id', '=', 'sis_fsoportes.id')
@@ -222,7 +222,7 @@ Route::get('indicadores/acciongestion', function (Request $request) {
 Route::get('indicadores/nnajs', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
 	return datatables()
-		->eloquent(FiDatosBasico::where('activo', 1))
+		->eloquent(FiDatosBasico::where('sis_esta_id', 1))
 		->addColumn('btns', 'Indicadores/Dashboard/Individual/datatable/botones')
 		->rawColumns(['btns'])
 		->toJson();
@@ -240,7 +240,7 @@ Route::get('indicadores/docpreguntas', function (Request $request) {
 			->join('in_preguntas', 'in_doc_preguntas.in_pregunta_id', '=', 'in_preguntas.id')
 			->join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
 			->join('sis_campo_tablas', 'in_doc_preguntas.sis_campo_tabla_id', '=', 'sis_campo_tablas.id')
-			->where('in_doc_preguntas.activo', 1)->where('in_doc_preguntas.in_ligru_id', $request->in_ligru_id))
+			->where('in_doc_preguntas.sis_esta_id', 1)->where('in_doc_preguntas.in_ligru_id', $request->in_ligru_id))
 		->addColumn('btns', $request->botonesx )
 		->rawColumns(['btns'])
 		->toJson();
@@ -254,7 +254,7 @@ Route::get('indicadores/valoracion', function (Request $request) {
 		->eloquent(
 			InLineabaseNnaj::select([
 				'sis_nnajs.id',
-				'sis_nnajs.activo',
+				'sis_nnajs.sis_esta_id',
 				'fi_datos_basicos.s_primer_nombre',
 				'fi_datos_basicos.s_segundo_nombre',
 				'fi_datos_basicos.s_primer_apellido',
@@ -280,7 +280,7 @@ Route::get('indicadores/acciongestion', function (Request $request) {
 		->eloquent(
 			InLineabaseNnaj::select([
 				'sis_nnajs.id',
-				'sis_nnajs.activo',
+				'sis_nnajs.sis_esta_id',
 				'fi_datos_basicos.s_primer_nombre',
 				'fi_datos_basicos.s_segundo_nombre',
 				'fi_datos_basicos.s_primer_apellido',
@@ -310,7 +310,7 @@ Route::get('indicadores/basennaj', function (Request $request) {
 		->eloquent(
 			InLineabaseNnaj::select([
 				'in_lineabase_nnajs.id',
-				'in_lineabase_nnajs.activo',
+				'in_lineabase_nnajs.sis_esta_id',
 				'in_linea_bases.s_linea_base',
 			])
 				->join('in_fuentes', 'in_lineabase_nnajs.in_fuente_id', '=', 'in_fuentes.id')
@@ -326,7 +326,7 @@ Route::get('indicadores/basennajag', function (Request $request) {
 		->eloquent(
 			InLineabaseNnaj::select([
 				'in_lineabase_nnajs.id',
-				'in_lineabase_nnajs.activo',
+				'in_lineabase_nnajs.sis_esta_id',
 				'in_linea_bases.s_linea_base',
 				'in_lineabase_nnajs.sis_nnaj_id',
 			])
@@ -346,7 +346,7 @@ Route::get('indicadores/baseactividades', function (Request $request) {
 			InAccionGestion::select([
 				'in_accion_gestions.id',
 				'in_accion_gestions.in_lineabase_nnaj_id',
-				'in_accion_gestions.activo',
+				'in_accion_gestions.sis_esta_id',
 				'sis_actividads.nombre',
 				'in_lineabase_nnajs.sis_nnaj_id',
 			])
@@ -367,7 +367,7 @@ Route::get('indicadores/actfuente', function (Request $request) {
 		->eloquent(
 			InActsoporte::select([
 				'in_actsoportes.id',
-				'in_actsoportes.activo',
+				'in_actsoportes.sis_esta_id',
 				'sis_fsoportes.nombre',
 				'in_lineabase_nnajs.sis_nnaj_id',
 				'in_accion_gestions.in_lineabase_nnaj_id',
@@ -392,7 +392,7 @@ Route::get('indicadores/nnajlineabase', function (Request $request) {
 		->eloquent(
 			InLineabaseNnaj::select([
 				'sis_nnajs.id',
-				'sis_nnajs.activo',
+				'sis_nnajs.sis_esta_id',
 				'fi_datos_basicos.s_primer_nombre',
 				'fi_datos_basicos.s_segundo_nombre',
 				'fi_datos_basicos.s_primer_apellido',
@@ -419,7 +419,7 @@ Route::get('indicadores/diagnostico', function (Request $request) {
 		->eloquent(
 			InLineabaseNnaj::select([
 				'in_lineabase_nnajs.id',
-				'in_lineabase_nnajs.activo',
+				'in_lineabase_nnajs.sis_esta_id',
 				'in_linea_bases.s_linea_base',
 				'in_lineabase_nnajs.sis_nnaj_id',
 			])

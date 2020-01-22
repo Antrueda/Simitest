@@ -14,13 +14,14 @@ class CreateSisMunicipiosTable extends Migration
     public function up()
     {
         Schema::create('sis_municipios', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+            
             $table->bigIncrements('id');
             $table->bigInteger('sis_departamento_id')->unsigned();
             $table->string('s_municipio');
             $table->integer('user_crea_id');
             $table->integer('user_edita_id');
-            $table->boolean('estado');
+            $table->bigInteger('sis_esta_id')->unsigned();
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
         });

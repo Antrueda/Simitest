@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
 class VsiPotencialidad extends Model{
-	protected $fillable = ['vsi_id', 'potencialidad', 'activo', 'user_crea_id', 'user_edita_id'];
+	protected $fillable = ['vsi_id', 'potencialidad', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
 	protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 

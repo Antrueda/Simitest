@@ -20,8 +20,8 @@ class VsiConsumoController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiConsumo->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiConsumo->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $contexto = Tema::findOrFail(171)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $motivo = Tema::findOrFail(180)->parametros()->orderBy('nombre')->pluck('nombre', 'id');

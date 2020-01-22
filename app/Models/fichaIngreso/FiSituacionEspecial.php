@@ -17,9 +17,9 @@ class FiSituacionEspecial extends Model {
       'i_prm_tipo_id',
       'i_tiempo',
       'i_prm_ttiempo_id',
-      'activo'
+      'sis_esta_id'
   ];
-  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
   public function creador() {
     return $this->belongsTo(User::class, 'user_crea_id');
@@ -79,7 +79,7 @@ class FiSituacionEspecial extends Model {
     $datosxxx = [
         'user_crea_id' => Auth::user()->id,
         'user_edita_id' => Auth::user()->id,
-        'activo' => 1,
+        'sis_esta_id' => 1,
         'fi_situacion_especial_id' => $situacio->id
     ];
     if (isset($dataxxxx['i_prm_victima_escnna_id'])) {

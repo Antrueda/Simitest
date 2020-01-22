@@ -24,7 +24,8 @@ class CreateFiVestuarioNnajsTable extends Migration
             $table->bigInteger('prm_sexo_etario_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned();
 
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -33,7 +34,7 @@ class CreateFiVestuarioNnajsTable extends Migration
             $table->foreign('prm_t_zapato_id')->references('id')->on('parametros');
             $table->foreign('prm_sexo_etario_id')->references('id')->on('parametros');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->engine = 'InnoDB';
+            
         });
     }
 

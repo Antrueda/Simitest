@@ -8,7 +8,7 @@
                 {{ Form::hidden('sis_nnaj_id', $nnaj->id) }}
                 @include('Sicosocial.Basico.campos')
             {!! Form::close() !!}
-            @if($vsi->activo == 1)
+            @if($vsi->sis_esta_id == 1)
                 {!! Form::open(['route' => ['VSI.basico.razon', $vsi->id], 'class' => 'form-horizontal']) !!}
                     {{ Form::hidden('vsi_id', $vsi->id) }}
                     @include('Sicosocial.Basico.camposrazon')

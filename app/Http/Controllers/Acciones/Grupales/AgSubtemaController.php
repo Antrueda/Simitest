@@ -53,7 +53,7 @@ class AgSubtemaController extends Controller
             ['data' => 'ag_taller_id','name' => 'ag_tallers.s_taller as ag_taller_id'],
             ['data' => 's_subtema','name' => 'ag_subtemas.s_subtema'],
             ['data' => 's_descripcion','name' => 'ag_subtemas.s_descripcion'],
-            ['data' => 'activo','name' => 'ag_subtemas.activo'],
+            ['data' => 'sis_esta_id','name' => 'ag_subtemas.sis_esta_id'],
 
         ];
     }
@@ -76,7 +76,7 @@ class AgSubtemaController extends Controller
         // indica si se esta actualizando o viendo
 
         if ($nombobje != '') {
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
 
@@ -152,9 +152,9 @@ class AgSubtemaController extends Controller
      */
     public function destroy(AgSubtema $objetoxx)
     {
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $subtvado = $objetoxx->activo == 0 ? 'insubtvado' : 'subtvado';
+        $subtvado = $objetoxx->sis_esta_id == 2 ? 'insubtvado' : 'subtvado';
         return redirect()->route('li')->with('info', 'Registro ' . $subtvado . ' con éxito');
     }
 }

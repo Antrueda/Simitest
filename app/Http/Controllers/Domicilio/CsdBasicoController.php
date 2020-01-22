@@ -23,8 +23,8 @@ class CsdBasicoController extends Controller{
 
     public function show($id){
         $dato = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('activo', 1)->all();
-        $valor = $dato->CsdDatosBasico->where('activo', 1)->sortByDesc('id')->first();
+        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
+        $valor = $dato->CsdDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $documentos = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
             $documentos[$k] = $d;

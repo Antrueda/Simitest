@@ -42,7 +42,8 @@ class CreateRedesApoyosTable extends Migration{
 
       $table->bigInteger('user_crea_id')->unsigned();
       $table->bigInteger('user_edita_id')->unsigned();
-      $table->boolean('estado');
+      $table->bigInteger('sis_esta_id')->unsigned();
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
       
     });

@@ -9,7 +9,7 @@ use App\Models\User;
 
 class VsiConsumo extends Model{
     protected $fillable = [
-        'vsi_id', 'prm_consumo_id', 'cantidad', 'inicio', 'prm_contexto_ini_id', 'prm_consume_id', 'prm_contexto_man_id', 'prm_problema_id', 'porque', 'prm_motivo_id', 'prm_familia_id', 'descripcion', 'user_crea_id', 'user_edita_id', 'activo',
+        'vsi_id', 'prm_consumo_id', 'cantidad', 'inicio', 'prm_contexto_ini_id', 'prm_consume_id', 'prm_contexto_man_id', 'prm_problema_id', 'porque', 'prm_motivo_id', 'prm_familia_id', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
     ];
   
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];

@@ -50,7 +50,7 @@ class FiSituacionEspecialController extends Controller
     $this->opciones['situacio'] = FiSituacionEspecial::situaciones($this->opciones['datobasi']->sis_nnaj_id);
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     
       $this->opciones['viescnna'] =$this->data(['padrexxx'=>$objetoxx->i_prm_tipo_id], false, false)['escnnaxx'];
     }

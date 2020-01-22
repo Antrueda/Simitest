@@ -2,6 +2,8 @@
 
 namespace App\Models\Acciones\Grupales;
 
+use App\Models\Indicadores\InIndicador;
+use App\Models\Indicadores\InPregunta;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +17,7 @@ class AgRelacion extends Model
     'i_cantidad',
     'user_crea_id',
     'user_edita_id',
-    'activo'
+    'sis_esta_id'
   ];
   public function in_indicador()
   {
@@ -25,7 +27,7 @@ class AgRelacion extends Model
   {
     return $this->hasMany(InPregunta::class);
   }
-  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');

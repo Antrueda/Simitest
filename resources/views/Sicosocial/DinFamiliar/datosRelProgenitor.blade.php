@@ -3,7 +3,7 @@
         <thead>
           <tr class="text-center">
             <th rowspan="2">Nº</th>
-            @if($vsi->activo == 1)
+            @if($vsi->sis_esta_id == 1)
                 <th rowspan="2">Acciones</th>
             @endif
             <th rowspan="2">Convivieron</th>
@@ -22,7 +22,7 @@
                 @foreach($valorPadre as $k => $d)
                     <tr>
                         <td>{{ $k+1 }}</td>
-                        @if($vsi->activo == 1)
+                        @if($vsi->sis_esta_id == 1)
                             <td>
                                 {!! Form::open(['route' => ['VSI.dinfamiliar.padre.borrar', $d->vsi_id, $d->id], 'method' => 'DELETE']) !!}
                                     <button class="btn btn-sm btn-danger">Eliminar</button>

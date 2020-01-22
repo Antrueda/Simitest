@@ -18,11 +18,12 @@ class CreateSisEntidadsTable extends Migration
             $table->string('nombre')->unique();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('sis_servicios', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -30,12 +31,13 @@ class CreateSisEntidadsTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
 
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
 
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('sis_entidad_sis_servicio', function (Blueprint $table) {
             $table->bigInteger('sis_entidad_id')->unsigned();
@@ -45,7 +47,7 @@ class CreateSisEntidadsTable extends Migration
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
             $table->unique(['sis_entidad_id', 'sis_servicio_id']);
-            $table->engine = 'InnoDB';
+            
         });
     }
 

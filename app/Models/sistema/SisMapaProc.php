@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class SisMapaProc extends Model{
-    protected $fillable = ['version','sis_entidad_id','vigencia','cierre', 'activo' , 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['version','sis_entidad_id','vigencia','cierre', 'sis_esta_id' , 'user_crea_id', 'user_edita_id'];
     
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 

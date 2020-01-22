@@ -6,9 +6,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class SisLocalidad extends Model{
-    protected $fillable = ['s_localidad', 'estado', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['s_localidad', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
-    protected $attributes = ['estado' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+    protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
     public static function combo(){
         $comboxxx = [''=>'Seleccione'];

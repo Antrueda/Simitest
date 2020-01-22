@@ -49,9 +49,10 @@ class CreateFiDatosBasicosTable extends Migration
             $table->bigInteger('sis_barrio_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->bigInteger('sis_pai_id')->unsigned();
             $table->bigInteger('sis_departamento_id')->unsigned();
             $table->bigInteger('sis_paiexp_id')->unsigned();
@@ -90,7 +91,7 @@ class CreateFiDatosBasicosTable extends Migration
             $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
             $table->foreign('sis_paiexp_id')->references('id')->on('sis_pais');
             $table->foreign('sis_departamentoexp_id')->references('id')->on('sis_departamentos');
-            $table->unique(['activo','s_documento']);
+            $table->unique(['sis_esta_id','s_documento']);
         });
     }
 

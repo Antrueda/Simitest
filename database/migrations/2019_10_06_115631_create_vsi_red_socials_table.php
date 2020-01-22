@@ -24,9 +24,10 @@ class CreateVsiRedSocialsTable extends Migration{
             $table->bigInteger('prm_servicio_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_presenta_id')->references('id')->on('parametros');
             $table->foreign('prm_protector_id')->references('id')->on('parametros');
@@ -47,7 +48,7 @@ class CreateVsiRedSocialsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_redsocial_id')->references('id')->on('vsi_red_socials');
             $table->unique(['parametro_id', 'vsi_redsocial_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_redsoc_acceso', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -57,7 +58,7 @@ class CreateVsiRedSocialsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_redsocial_id')->references('id')->on('vsi_red_socials');
             $table->unique(['parametro_id', 'vsi_redsocial_id']);
-            $table->engine = 'InnoDB';
+            
         });
     }
 

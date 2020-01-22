@@ -20,8 +20,8 @@ class CsdAlimentacionController extends Controller{
 
   public function show($id){
     $dato  = Csd::findOrFail($id);
-    $nnajs = $dato->nnajs->where('activo', 1)->all();
-    $valor = $dato->CsdAlimentacion->where('activo', 1)->sortByDesc('id')->first();
+    $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
+    $valor = $dato->CsdAlimentacion->where('sis_esta_id', 1)->sortByDesc('id')->first();
     $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $frecuencia   = Tema::findOrFail(110)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $lugares      = Tema::findOrFail(111)->parametros()->orderBy('nombre')->pluck('nombre', 'id');

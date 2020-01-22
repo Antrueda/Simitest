@@ -27,7 +27,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '001',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación'
         
         ]);
@@ -44,7 +44,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '002',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI ARBORIZADORA ALTA',
             'i_prm_cvital_id' => 1,
@@ -59,7 +59,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '003',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI BELEN',
             'i_prm_cvital_id' => 1,
@@ -74,7 +74,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '004',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI BOSA',
             'i_prm_cvital_id' => 1,
@@ -89,7 +89,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '005',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI CARMEN DE APICALA',
             'i_prm_cvital_id' => 1,
@@ -104,7 +104,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '006',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI EDEN',
             'i_prm_cvital_id' => 1,
@@ -119,7 +119,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '007',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI EMPRENDER',
             'i_prm_cvital_id' => 1,
@@ -134,7 +134,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '008',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI LA ARCADIA',
             'i_prm_cvital_id' => 1,
@@ -149,7 +149,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '009',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI LA CALERA',
             'i_prm_cvital_id' => 1,
@@ -164,7 +164,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '010',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI LA FAVORITA',
             'i_prm_cvital_id' => 1,
@@ -179,7 +179,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '011',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI LA RIOJA',
             'i_prm_cvital_id' => 1,
@@ -194,7 +194,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '012',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI LA VEGA',
             'i_prm_cvital_id' => 1,
@@ -209,7 +209,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '013',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI LA 27',
             'i_prm_cvital_id' => 1,
@@ -224,7 +224,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '014',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI LA 32',
             'i_prm_cvital_id' => 1,
@@ -239,7 +239,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '015',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI LIBERIA',
             'i_prm_cvital_id' => 1,
@@ -254,7 +254,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '016',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI LUNA PARK',
             'i_prm_cvital_id' => 1,
@@ -269,7 +269,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '017',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI MOLINOS',
             'i_prm_cvital_id' => 1,
@@ -284,7 +284,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '018',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI NORMANDIA',
             'i_prm_cvital_id' => 1,
@@ -299,7 +299,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '019',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI OASIS I',
             'i_prm_cvital_id' => 1,
@@ -314,7 +314,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '020',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI OASIS II',
             'i_prm_cvital_id' => 1,
@@ -329,7 +329,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '021',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI PERDOMO',
             'i_prm_cvital_id' => 1,
@@ -344,7 +344,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '022',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI PREFLORIDA',
             'i_prm_cvital_id' => 1,
@@ -359,7 +359,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '023',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI SAN FRANCISCO',
             'i_prm_cvital_id' => 1,
@@ -374,7 +374,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '024',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI SANTA LUCIA',
             'i_prm_cvital_id' => 1,
@@ -389,7 +389,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '025',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
         SisDependencia::create(['nombre' => 'UPI SERVITA',
             'i_prm_cvital_id' => 1,
@@ -404,7 +404,7 @@ class SisDependenciasSeeder extends Seeder
             's_telefono' => '026',
             's_correo' => 'DDDD',
             'i_tiempo' => 30,
-            'activo'=>1636,
+            'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
     }
 }

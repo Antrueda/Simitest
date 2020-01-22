@@ -14,13 +14,14 @@ class CreateSisDepartamentosTable extends Migration
     public function up()
     {
         Schema::create('sis_departamentos', function (Blueprint $table) {
-             $table->engine = 'InnoDB';
+             
             $table->bigIncrements('id');
             $table->bigInteger('sis_pais_id')->unsigned()->nullable();
             $table->string('s_departamento');
             $table->integer('user_crea_id');
             $table->integer('user_edita_id');
-            $table->boolean('estado');
+            $table->bigInteger('sis_esta_id')->unsigned();
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('sis_pais_id')->references('id')->on('sis_pais');
         });

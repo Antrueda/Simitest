@@ -44,7 +44,7 @@ class InLineaBaseController extends Controller
             ['data' => 'btns','name'=>'btns'],
             ['data' => 'id','name'=>'id'],
             ['data' => 's_linea_base','name'=>'s_linea_base'],
-            ['data' => 'activo','name'=>'activo'],
+            ['data' => 'sis_esta_id','name'=>'sis_esta_id'],
 
         ];
     }
@@ -68,7 +68,7 @@ class InLineaBaseController extends Controller
         // indica si se esta actualizando o viendo
 
         if ($nombobje != '') {
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
 
@@ -144,9 +144,9 @@ class InLineaBaseController extends Controller
      */
     public function destroy(InLineaBase $objetoxx)
     {
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
     }
 }

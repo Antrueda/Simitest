@@ -21,7 +21,7 @@ class FosDatosBasico extends Model{
         'fi_composicion_fami_id',
         'user_crea_id',
         'user_edita_id',
-        'activo'
+        'sis_esta_id'
     ];
 
     public function creador(){

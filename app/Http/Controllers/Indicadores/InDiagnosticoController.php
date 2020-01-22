@@ -69,7 +69,7 @@ class InDiagnosticoController extends Controller
             ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
             ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
             ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
-            ['data' => 'activo', 'name' => 'sis_nnajs.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'sis_nnajs.sis_esta_id'],
         ];
         return view('Indicadores.Admin.Diagnostico.index', ['todoxxxx' => $this->opciones]);
     }
@@ -91,7 +91,7 @@ class InDiagnosticoController extends Controller
             ['data' => 'btns', 'name' => 'btns'],
             ['data' => 'id', 'name' => 'in_lineabase_nnajs.id'],
             ['data' => 's_linea_base', 'name' => 'in_linea_bases.s_linea_base'],
-            ['data' => 'activo', 'name' => 'in_lineabase_nnajs.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'in_lineabase_nnajs.sis_esta_id'],
         ];
         return view('Indicadores.Admin.Diagnostico.index', ['todoxxxx' => $this->opciones]);
     }
@@ -106,7 +106,7 @@ class InDiagnosticoController extends Controller
         $this->opciones['nivelxxx'] = '';
         if ($nombobje != '') {
             $this->opciones['nivelxxx'] = $this->getNivel($objetoxx->i_prm_categoria_id);
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
 

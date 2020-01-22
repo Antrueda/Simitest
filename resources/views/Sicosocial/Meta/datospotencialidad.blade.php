@@ -3,7 +3,7 @@
         <thead>
             <tr class="text-center">
                 <th>Nº</th>
-                @if ($vsi->activo == 1)
+                @if ($vsi->sis_esta_id == 1)
                     <th width="70">Acciones</th>
                 @endif
                 <th>18.1 Potencialidades</th>
@@ -14,7 +14,7 @@
         		@foreach($valorPote as $k => $d)
 	                <tr>
                         <td>{{ $k+1 }}</td>
-                        @if ($vsi->activo == 1)
+                        @if ($vsi->sis_esta_id == 1)
     	                	<td>
     	                		{!! Form::open(['route' => ['VSI.meta.potencialidad.borrar', $d->vsi_id, $d->id], 'method' => 'DELETE']) !!}
                 					<button class="btn btn-sm btn-danger">Eliminar</button>

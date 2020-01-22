@@ -51,7 +51,7 @@ class InBaseDocumenController extends Controller
             ['data' => 's_indicador', 'name' => 'in_indicadors.s_indicador'],
             ['data' => 's_linea_base', 'name' => 'in_linea_bases.s_linea_base'],
             
-            ['data' => 'activo', 'name' => 'in_fuentes.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'in_fuentes.sis_esta_id'],
         ];
     }
     /**
@@ -146,9 +146,9 @@ class InBaseDocumenController extends Controller
      */
     public function destroy(InIndicador $objetoxx)
     {
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('bd')->with('info', 'Registro ' . $activado . ' con éxito');
     }
 

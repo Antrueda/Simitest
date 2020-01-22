@@ -31,13 +31,13 @@ class CreateSisDependenciasTable extends Migration
             $table->string('s_observacion',3000);
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('activo')->unsigned();
+            $table->bigInteger('sis_esta_id')->unsigned();
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
 
             $table->foreign('i_prm_cvital_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tdependen_id')->references('id')->on('parametros');
-            $table->foreign('activo')->references('id')->on('parametros');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('sis_dependencia_id')->references('id')->on('sis_dependencias');
             $table->foreign('i_prm_sexo_id')->references('id')->on('parametros');
             $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');

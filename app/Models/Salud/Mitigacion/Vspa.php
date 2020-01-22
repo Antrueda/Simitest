@@ -13,7 +13,7 @@ class Vspa extends Model{
     protected $table = 'mit_vspa';
 
     protected $fillable = [
-        'sis_nnaj_id',          'user_crea_id',     'user_edita_id',        'activo',
+        'sis_nnaj_id',          'user_crea_id',     'user_edita_id',        'sis_esta_id',
         'prm_upi_id',           'fecha',            'prm_valoracion_id',    'prm_icbf_id',          
         'previos',              'prm_gestante_id',
         'semanas_gestacion',    'prm_escolar_id',   'prm_ingresos_id',      'prm_modalidad_id',

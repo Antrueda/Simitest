@@ -43,7 +43,8 @@ class CreateFiSaludsTable extends Migration
             $table->bigInteger('sis_nnaj_id')->unsigned();//->comment('NNAJ AL QUE SE LE ASIGNA LA SALUD');
             $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo');//->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -66,7 +67,7 @@ class CreateFiSaludsTable extends Migration
             $table->foreign('i_prm_razon_no_cinco_comidas_id')->references('id')->on('parametros');
             $table->foreign('sis_entidad_salud_id')->references('id')->on('sis_entidad_saluds');
 
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_enfermedades_familias', function (Blueprint $table) {
@@ -81,7 +82,8 @@ class CreateFiSaludsTable extends Migration
             
             $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo');//->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -89,7 +91,7 @@ class CreateFiSaludsTable extends Migration
             $table->foreign('fi_composicion_fami_id')->references('id')->on('fi_composicion_famis');
             $table->foreign('i_prm_recibe_medicina_id')->references('id')->on('parametros');
             $table->foreign('i_prm_rec_tratamiento_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_eventos_medicos', function (Blueprint $table) {
@@ -98,13 +100,14 @@ class CreateFiSaludsTable extends Migration
             $table->bigIntegeR('i_prm_evento_medico_id')->unsigned();//->comment('FI 6.15 EVENTOS MÉDICOS');
             $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo');//->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_salud_id')->references('id')->on('fi_saluds');
             $table->foreign('i_prm_evento_medico_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
     }
 

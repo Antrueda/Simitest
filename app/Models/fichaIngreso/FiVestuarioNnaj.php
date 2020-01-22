@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -10,10 +11,10 @@ class FiVestuarioNnaj extends Model
 {
   protected $fillable = [
     'user_crea_id', 'user_edita_id', 'prm_t_pantalon_id',
-    'prm_t_camisa_id', 'prm_t_zapato_id', 'prm_sexo_etario_id', 'sis_nnaj_id', 'activo'
+    'prm_t_camisa_id', 'prm_t_zapato_id', 'prm_sexo_etario_id', 'sis_nnaj_id', 'sis_esta_id'
   ];
 
-  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
   public function creador()
   {

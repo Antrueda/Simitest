@@ -21,7 +21,7 @@
               ['data' => 'd_fecha_diligencia', 'name' => 'd_fecha_diligencia'],
               ['data' => 'nombre', 'name' => 'sis_dependencias.nombre'],
               ['data' => 's_primer_nombre', 'name' => 'users.s_primer_nombre'],
-              ['data' => 'activo', 'name' => 'is_datos_basicos.activo'],
+              ['data' => 'sis_esta_id', 'name' => 'is_datos_basicos.sis_esta_id'],
           ];
           $todoxxxx['tablname'] = 'tbintervenciones';
           $todoxxxx['urlxxxxx'] = route('is.intervencion.intlista',[$todoxxxx['nnajregi']]);

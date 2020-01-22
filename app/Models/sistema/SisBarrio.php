@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisBarrio extends Model
 {
-    protected $fillable = ['sis_upz_id', 's_barrio',  'activo', 'user_crea_id', 'user_edita_id'];
-    protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+    protected $fillable = ['sis_upz_id', 's_barrio',  'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
     public static function combo( $idpadrex,$esajaxxx)
     {

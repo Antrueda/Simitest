@@ -6,7 +6,7 @@ use App\Models\Parametro;
 use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisDiagnosticos;
 use App\Models\sistema\SisNnaj;
-
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class MitVma extends Model{
@@ -14,7 +14,7 @@ class MitVma extends Model{
     protected $table = 'mit_vmas';
 
     protected $fillable = [
-        'sis_nnaj_id',          'user_crea_id',     'user_edita_id',        'activo',
+        'sis_nnaj_id',          'user_crea_id',     'user_edita_id',        'sis_esta_id',
         'prm_upi_id',           'fecha',            'prm_valoracion_id',    'sesion',           
         'prm_probado_id',       'prm_sustancia_id', 'edad', 'prm_calle_id', 'prm_ansiedad_id',
         'prm_mari_sino_id',     'mari_edad',        'prm_mari_frec_id',     'mari_dosis', 'mari_dia',

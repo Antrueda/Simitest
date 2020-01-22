@@ -22,9 +22,9 @@ class CsdComFamiliarController extends Controller{
 
   public function show($id){
     $dato  = Csd::findOrFail($id);
-    $nnajs = $dato->nnajs->where('activo', 1)->all();
-    $valord = $dato->CsdComFamiliar->where('activo', 1)->sortByDesc('id')->all();
-    $valoro = $dato->CsdComFamiliarObservaciones->where('activo', 1)->sortByDesc('id')->first();
+    $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
+    $valord = $dato->CsdComFamiliar->where('sis_esta_id', 1)->sortByDesc('id')->all();
+    $valoro = $dato->CsdComFamiliarObservaciones->where('sis_esta_id', 1)->sortByDesc('id')->first();
 
     $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $sexo = ['' => 'Seleccione...'];
@@ -137,7 +137,7 @@ class CsdComFamiliarController extends Controller{
   }
   public function destroyFamiliar($id, $id1){
     $dato = CsdComFamiliar::findOrFail($id1);
-    $dato->activo = 0;
+    $dato->sis_esta_id = 2;
     $dato->save();
     return redirect()->route('CSD.comfamiliar', $id)->with('info', 'Registro eliminado con éxito');
 }

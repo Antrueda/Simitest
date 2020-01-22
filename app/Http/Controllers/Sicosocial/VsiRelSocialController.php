@@ -20,8 +20,8 @@ class VsiRelSocialController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiRelSociales->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiRelSociales->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $contextos = Tema::findOrFail(160)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $contextos1 = Tema::findOrFail(168)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $dificultades = ['' => 'Seleccione...'];

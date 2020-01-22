@@ -14,7 +14,7 @@ class CreateSisInstitucionEdusTable extends Migration
     public function up()
     {
         Schema::create('sis_institucion_edus', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+            
             $table->bigIncrements('id');
             $table->string('s_nombre');
             $table->string('s_telefono');
@@ -27,7 +27,8 @@ class CreateSisInstitucionEdusTable extends Migration
             $table->bigInteger('i_usr_secretario_id')->unsigned();
             $table->bigInteger('i_usr_coord_academico_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
          
             $table->foreign('user_crea_id')->references('id')->on('users');

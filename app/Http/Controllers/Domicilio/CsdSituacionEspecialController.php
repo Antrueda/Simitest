@@ -19,7 +19,7 @@ class CsdSituacionEspecialController extends Controller{
 
     public function show($id){
         $dato  = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('activo', 1)->all();
+        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
         $situaciones  = Tema::findOrFail(89)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         return view('Domicilio.index', ['accion' => 'SituacionEspecial'], compact('dato', 'nnajs', 'situaciones'));
     }

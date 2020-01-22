@@ -20,9 +20,10 @@ class CreateVsiConceptosTable extends Migration{
             $table->string('cual', 120)->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_ingreso_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -36,7 +37,7 @@ class CreateVsiConceptosTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_concepto_id')->references('id')->on('vsi_conceptos');
             $table->unique(['parametro_id', 'vsi_concepto_id']);
-            $table->engine = 'InnoDB';
+            
         });
     }
 

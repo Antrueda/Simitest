@@ -18,12 +18,12 @@ class FiRedApoyoActual extends Model
         's_servicio',
         's_telefono',
         's_direccion',
-        'activo',
+        'sis_esta_id',
         'user_crea_id',
         'user_edita_id'
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1,'activo'=>1];
+    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1];
 
     public function creador()
     {

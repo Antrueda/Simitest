@@ -21,10 +21,10 @@ class VsiConsentimientoController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiConsentimiento->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiConsentimiento->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $usuarios = ['' => 'Seleccione...'];
-        foreach (User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
+        foreach (User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
                 $usuarios[$k] = $d;
         }
         return view('Sicosocial.index', ['accion' => 'Consentimiento'], compact('vsi', 'dato', 'nnaj', 'valor', 'usuarios'));

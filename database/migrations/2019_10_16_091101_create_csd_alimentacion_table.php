@@ -16,7 +16,8 @@ class CreateCsdAlimentacionTable extends Migration{
       $table->biginteger('prm_entidad_id')->unsigned()->nullable();
       $table->bigInteger('user_crea_id')->unsigned();
       $table->bigInteger('user_edita_id')->unsigned();
-      $table->boolean('activo')->default(1);
+      $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
       $table->foreign('csd_id')->references('id')->on('csds');
       $table->foreign('prm_horario_id')->references('id')->on('parametros');
@@ -24,7 +25,7 @@ class CreateCsdAlimentacionTable extends Migration{
       $table->foreign('prm_entidad_id')->references('id')->on('parametros');
       $table->foreign('user_crea_id')->references('id')->on('users');
       $table->foreign('user_edita_id')->references('id')->on('users');
-      $table->engine = 'InnoDB';
+      
     });
 
     Schema::create('csd_aliment_frec', function (Blueprint $table) {
@@ -35,7 +36,7 @@ class CreateCsdAlimentacionTable extends Migration{
       $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->unique(['parametro_id', 'csd_alimentacion_id']);
-      $table->engine = 'InnoDB';
+      
     });
 
     Schema::create('csd_aliment_compra', function (Blueprint $table) {
@@ -46,7 +47,7 @@ class CreateCsdAlimentacionTable extends Migration{
       $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->unique(['parametro_id', 'csd_alimentacion_id']);
-      $table->engine = 'InnoDB';
+      
     });
 
     Schema::create('csd_aliment_inge', function (Blueprint $table) {
@@ -57,7 +58,7 @@ class CreateCsdAlimentacionTable extends Migration{
       $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->unique(['parametro_id', 'csd_alimentacion_id']);
-      $table->engine = 'InnoDB';
+      
     });
 
     Schema::create('csd_aliment_prepara', function (Blueprint $table) {
@@ -68,7 +69,7 @@ class CreateCsdAlimentacionTable extends Migration{
       $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->unique(['parametro_id', 'csd_alimentacion_id']);
-      $table->engine = 'InnoDB';
+      
     });
   }
 

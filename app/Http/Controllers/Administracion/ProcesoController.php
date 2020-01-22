@@ -64,14 +64,14 @@ class ProcesoController extends Controller{
 
     public function destroy($id){
         $dato = SisProceso::findOrFail($id);
-        $dato->activo = ($dato->activo == 0) ? 1 : 0;
+        $dato->sis_esta_id = ($dato->sis_esta_id == 2) ? 1 : 2;
         $dato->save();
-        $activado = $dato->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $dato->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('proceso')->with('info', 'Registro '.$activado.' con éxito');
     }
 
     protected function datos(array $request){
-        return SisProceso::select('id', 'sis_proceso_id', 'sis_mapa_proc_id', 'prm_proceso_id', 'nombre', 'activo')
+        return SisProceso::select('id', 'sis_proceso_id', 'sis_mapa_proc_id', 'prm_proceso_id', 'nombre', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
                 return $q->where('nombre', 'like', '%'.$buscar.'%');
             })

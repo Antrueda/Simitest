@@ -106,8 +106,8 @@ $this->_reglasx['s_documento'] = 'required';
             $this->_mensaje['prm_poblacion_etnia_id.required'] = 'Seleccione porqué no tiene Sisben';
             $this->_reglasx['prm_poblacion_etnia_id'] = 'required';
         }
-        $unicoxx1 = FiDatosBasico::whereNotIn('sis_nnaj_id', [$dataxxxx['sis_nnaj_id']])->where('activo', 1)->first();
-        $unicoxx0 = FiDatosBasico::whereNotIn('sis_nnaj_id', [$dataxxxx['sis_nnaj_id']])->where('activo', 0)->first();
+        $unicoxx1 = FiDatosBasico::whereNotIn('sis_nnaj_id', [$dataxxxx['sis_nnaj_id']])->where('sis_esta_id', 1)->first();
+        $unicoxx0 = FiDatosBasico::whereNotIn('sis_nnaj_id', [$dataxxxx['sis_nnaj_id']])->where('sis_esta_id', 0)->first();
         if (isset($unicoxx1->id) and isset($unicoxx0->id)){
             $this->_reglasx['s_documento'] = [ 'unique:fi_datos_basicos'];
         }

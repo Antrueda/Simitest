@@ -12,6 +12,6 @@ class FiNucleoFamiliarsTableSeeder extends Seeder
      */
     public function run()
     {
-        FiNucleoFamiliar::create(['i_en_uso' => '1','user_crea_id'=>1,'user_edita_id'=>1,'activo'=>1]);
+        FiNucleoFamiliar::create(['i_en_uso' => '1','user_crea_id'=>1,'user_edita_id'=>1,'sis_esta_id'=>1]);
     }
 }

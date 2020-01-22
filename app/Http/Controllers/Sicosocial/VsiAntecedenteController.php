@@ -22,8 +22,8 @@ class VsiAntecedenteController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiAntecedente->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiAntecedente->where('sis_esta_id', 1)->sortByDesc('id')->first();
         return view('Sicosocial.index', ['accion' => 'Antecedente'], compact('vsi', 'dato', 'nnaj', 'valor'));
     }
 

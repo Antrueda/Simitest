@@ -2,7 +2,10 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class FiRazonIniciado extends Model
 {
@@ -11,10 +14,10 @@ class FiRazonIniciado extends Model
     'i_prm_iniciado_id',
     'user_crea_id', 
     'user_edita_id',
-    'activo'
+    'sis_esta_id'
   ];
 
-  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');

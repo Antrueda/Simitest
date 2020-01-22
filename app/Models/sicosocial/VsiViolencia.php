@@ -9,7 +9,7 @@ use App\Models\User;
 
 class VsiViolencia extends Model{
     protected $fillable = [
-        'vsi_id',       'activo',            'user_crea_id',      'user_edita_id', 'prm_tip_vio_id',
+        'vsi_id',       'sis_esta_id',            'user_crea_id',      'user_edita_id', 'prm_tip_vio_id',
         'prm_fam_fis_id',    'prm_fam_psi_id',    'prm_fam_sex_id',    'prm_fam_eco_id',
         'prm_amicol_fis_id', 'prm_amicol_psi_id', 'prm_amicol_sex_id', 'prm_amicol_eco_id',
         'prm_par_fis_id',    'prm_par_psi_id',    'prm_par_sex_id',    'prm_par_eco_id',

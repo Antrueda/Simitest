@@ -13,7 +13,7 @@ class InPregunta extends Model
 {
   protected $fillable = [
     's_pregunta',
-    'activo',
+    'sis_esta_id',
     'in_doc_indicador_id',
     'sis_tabla_id',
     'sis_campo_tabla_id',

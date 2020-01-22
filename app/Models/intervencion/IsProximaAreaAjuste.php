@@ -14,10 +14,10 @@ class IsProximaAreaAjuste extends Model
         'i_prm_area_proxima_id',
         'user_crea_id',
         'user_edita_id',
-        'activo'
+        'sis_esta_id'
     ];
 
-    protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+    protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
     public function creador()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
@@ -45,7 +45,7 @@ class IsProximaAreaAjuste extends Model
                 'is_datos_basico_id' => $objetoxx->id,
                 'user_crea_id' => Auth::user()->id,
                 'user_edita_id' => Auth::user()->id,
-                'activo' => 1,
+                'sis_esta_id' => 1,
             ];
             // dd($dataxxxx);
             IsProximaAreaAjuste::where('is_datos_basico_id', $objetoxx->id)->delete();

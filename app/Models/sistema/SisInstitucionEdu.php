@@ -16,7 +16,7 @@ class SisInstitucionEdu extends Model
         'user_crea_id',
         'created_at',
         'user_edita_id',
-        'activo',
+        'sis_esta_id',
         'updated_at',
         'i_prm_sector_id',
         'i_usr_rector_id',
@@ -24,7 +24,7 @@ class SisInstitucionEdu extends Model
         'i_usr_coord_academico_id',
     ];
 
-    protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+    protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
     public static function combo($cabecera, $esajaxxx)
     {

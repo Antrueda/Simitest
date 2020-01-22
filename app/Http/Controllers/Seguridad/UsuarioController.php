@@ -69,7 +69,7 @@ class UsuarioController extends Controller
             ['data' => 's_segundo_nombre', 'name' => 's_segundo_nombre'],
             ['data' => 's_primer_apellido', 'name' => 's_primer_apellido'],
             ['data' => 's_segundo_apellido', 'name' => 's_segundo_apellido'],
-            ['data' => 'i_prm_estado_id', 'name' => 'i_prm_estado_id'],
+            ['data' => 'sis_esta_id', 'name' => 'sis_esta_id'],
 
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
@@ -80,7 +80,7 @@ class UsuarioController extends Controller
         $this->opciones['accionxx'] = $accionxx;
 
         //
-        $this->opciones['i_prm_estado_id'] = Tema::combo(303, true, false);
+        $this->opciones['sis_esta_id'] = Tema::combo(303, true, false);
         $this->opciones['sis_cargo_id'] = SisCargo::combo();
         $this->opciones['prm_documento_id'] = Tema::combo(3, true, false);
         $this->opciones['prm_tvinculacion_id'] = Tema::combo(310, true, false);
@@ -106,7 +106,7 @@ class UsuarioController extends Controller
         foreach ($this->opciones['totalxxx'] as $rolexxxx) {
             $regitabl[] =
                 [
-                    'body' => [['td' => $rolexxxx->id], ['td' => $rolexxxx->name], ['td' => $rolexxxx->activo = 1 ? 'ACTIVO' : 'INACTIVO']],
+                    'body' => [['td' => $rolexxxx->id], ['td' => $rolexxxx->name], ['td' => $rolexxxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO']],
                     'id' => $rolexxxx->id
                 ];
         }
@@ -168,7 +168,7 @@ class UsuarioController extends Controller
         // dd($usuario);
         $this->opciones['rolesxxx'] = $this->roles($usuario);
         $this->opciones['dependen'] = User::dependencia($usuario->id);
-        $this->opciones['estadoxx'] = $usuario->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+        $this->opciones['estadoxx'] = $usuario->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         return $this->view($usuario, 'modeloxx', 'Editar');
     }
 
@@ -296,7 +296,7 @@ class UsuarioController extends Controller
     }
     protected function datos(array $request)
     {
-        return User::select('id', 'name', 'activo')
+        return User::select('id', 'name', 'sis_esta_id')
             ->when(request('buscar'), function ($q, $buscar) {
                 return $q->where('name', 'like', '%' . $buscar . '%');
             })

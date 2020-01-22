@@ -22,9 +22,9 @@ class CsdRedesApoyoController extends Controller{
     public function show($id){
 
         $dato  = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('activo', 1)->all();
-        $valorPasado = $dato->CsdRedsocPasado->where('activo', 1)->sortByDesc('id');
-        $valorActual = $dato->CsdRedsocActual->where('activo', 1)->sortByDesc('id');
+        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
+        $valorPasado = $dato->CsdRedsocPasado->where('sis_esta_id', 1)->sortByDesc('id');
+        $valorActual = $dato->CsdRedsocActual->where('sis_esta_id', 1)->sortByDesc('id');
         $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $beneficio = Tema::findOrFail(59)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $tiempo  = Tema::findOrFail(4)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -53,14 +53,14 @@ class CsdRedesApoyoController extends Controller{
 
     public function destroyPasado($id, $id1){
         $dato = CsdRedsocPasado::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('CSD.redesapoyo', $id)->with('info', 'Registro eliminado con éxito');
     }
 
     public function destroyActual($id, $id1){
         $dato = CsdRedsocActual::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('CSD.redesapoyo', $id)->with('info', 'Registro eliminado con éxito');
     }

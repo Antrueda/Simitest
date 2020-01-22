@@ -14,7 +14,7 @@ class SisFsoporte extends Model
   protected $fillable = [
     'nombre',
     'sis_actividad_id',
-    'activo',
+    'sis_esta_id',
     'user_crea_id',
     'user_edita_id'
   ];

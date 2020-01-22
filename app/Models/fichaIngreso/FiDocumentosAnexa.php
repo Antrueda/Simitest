@@ -15,9 +15,9 @@ class FiDocumentosAnexa extends Model {
       'user_crea_id',
       'user_edita_id',
       's_ruta',
-      'activo'
+      'sis_esta_id'
   ];
-  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
   public function creador() {
     return $this->belongsTo(User::class, 'user_crea_id');
@@ -45,7 +45,7 @@ class FiDocumentosAnexa extends Model {
                   'fi_razone_id' => $objetoxx->id,
                   'user_crea_id' => Auth::user()->id,
                   'user_edita_id' => Auth::user()->id,
-                  'activo' => 1,
+                  'sis_esta_id' => 1,
               ];
               // dd($dataxxxx);
               FiDocumentosAnexa::where('fi_razone_id', $objetoxx->id)->delete();

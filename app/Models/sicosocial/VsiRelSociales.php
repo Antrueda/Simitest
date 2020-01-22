@@ -15,7 +15,7 @@ class VsiRelSociales extends Model{
 
     protected $fillable = [
         'vsi_id', 'descripcion', 'prm_dificultad_id', 'completa', 'user_crea_id', 'user_edita_id', 
-        'activo','i_prm_linea_base_id'
+        'sis_esta_id','i_prm_linea_base_id'
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
@@ -58,7 +58,7 @@ class VsiRelSociales extends Model{
                 if ($diasxxxx > 45 && !isset($datobasi->id)) {
                     /** La línea base se pasa a inactivo para asegurar que no vuelva a ser modificada, 
                      * solo será consultada */
-                    $objetoxx->update(['activo' => 0]);
+                    $objetoxx->update(['sis_esta_id' => 0]);
                     /** El nuevo registro no es línea base */
                     $dataxxxx['i_prm_linea_base_id'] = 228;
                     /** Insertar nuevo registro */

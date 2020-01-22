@@ -10,7 +10,7 @@ use App\Models\sistema\SisDependencia;
 
 class AiSalidaMenores extends Model{
     protected $fillable = [
-        'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'activo',
+        'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
         'prm_upi_id', 'fecha', 'hora_salida', 'prm_hor_sal_id',
         'primer_apellido', 'segundo_apellido', 'primer_nombre', 'segundo_nombre',
         'prm_doc_id', 'documento', 'prm_parentezco_id', 'prm_autorizado_id',

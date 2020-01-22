@@ -29,7 +29,8 @@ class User extends Authenticatable
     's_primer_apellido',
     's_segundo_apellido',
     'email',
-    'password', 'i_prm_estado_id',
+    'password', 
+    'sis_esta_id',
     'user_crea_id',
     'user_edita_id',
     's_telefono',
@@ -63,7 +64,7 @@ class User extends Authenticatable
     'email_verified_at' => 'datetime',
   ];
 
-  protected $attributes = ['i_prm_estado_id' => 1];
+  protected $attributes = ['sis_esta_id' => 1];
 
   public function setPasswordAttribute($value)
   {
@@ -167,7 +168,7 @@ class User extends Authenticatable
         $comboxxx = ['' => 'Seleccione'];
       }
     }
-    $userxxxx = User::where('i_prm_estado_id', 1636)
+    $userxxxx = User::where('sis_esta_id', 1)
       ->orderBy('s_primer_nombre')
       ->orderBy('s_segundo_nombre')
       ->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get();

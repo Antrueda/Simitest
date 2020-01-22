@@ -21,9 +21,9 @@ class VsiFactorController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valorProt = $vsi->VsiFacProtector->where('activo', 1)->sortBy('id');
-        $valorRies = $vsi->VsiFacRiesgo->where('activo', 1)->sortBy('id');
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valorProt = $vsi->VsiFacProtector->where('sis_esta_id', 1)->sortBy('id');
+        $valorRies = $vsi->VsiFacRiesgo->where('sis_esta_id', 1)->sortBy('id');
         return view('Sicosocial.index', ['accion' => 'Factor'], compact('vsi', 'dato', 'nnaj', 'valorProt', 'valorRies'));
     }
 
@@ -43,14 +43,14 @@ class VsiFactorController extends Controller{
 
     public function destroyProtector($id, $id1){
         $dato = VsiFacProtector::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('VSI.factor', $id)->with('info', 'Registro eliminado con éxito');
     }
 
     public function destroyRiesgo($id, $id1){
         $dato = VsiFacRiesgo::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('VSI.factor', $id)->with('info', 'Registro eliminado con éxito');
     }

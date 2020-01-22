@@ -23,10 +23,10 @@ class CsdDinFamiliarController extends Controller{
 
     public function show($id){
         $dato = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('activo', 1)->all();
-        $valor = $dato->CsdDinFamiliar->where('activo', 1)->sortByDesc('id')->first();
-        $valorMadre = $dato->CsdDinfamMadre->where('activo', 1)->sortByDesc('id');
-        $valorPadre = $dato->CsdDinfamPadre->where('activo', 1)->sortByDesc('id');
+        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
+        $valor = $dato->CsdDinFamiliar->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valorMadre = $dato->CsdDinfamMadre->where('sis_esta_id', 1)->sortByDesc('id');
+        $valorPadre = $dato->CsdDinfamPadre->where('sis_esta_id', 1)->sortByDesc('id');
         $antecedentes = Tema::findOrFail(97)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $familiar = ['' => 'Seleccione...'];
@@ -98,7 +98,7 @@ class CsdDinFamiliarController extends Controller{
         }
 
         $dato = Csd::findOrFail($request->csd_id);
-        $nnajs = $dato->nnajs->where('activo', 1)->all();
+        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
         $paso = 0;
         foreach ($nnajs as $d) {
             if($d->FiDatosBasico->first()->edad < 18){
@@ -210,7 +210,7 @@ class CsdDinFamiliarController extends Controller{
             $request["porque"] = null;
         }
         $dato = Csd::findOrFail($request->csd_id);
-        $nnajs = $dato->nnajs->where('activo', 1)->all();
+        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
         $paso = 0;
         foreach ($nnajs as $d) {
             if($d->FiDatosBasico->first()->edad < 18){
@@ -266,14 +266,14 @@ class CsdDinFamiliarController extends Controller{
 
     public function destroyMadre($id, $id1){
         $dato = CsdDinfamMadre::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('CSD.dinfamiliar', $id)->with('info', 'Registro eliminado con éxito');
     }
 
     public function destroyPadre($id, $id1){
         $dato = CsdDinfamPadre::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('CSD.dinfamiliar', $id)->with('info', 'Registro eliminado con éxito');
     }

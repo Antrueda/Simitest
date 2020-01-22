@@ -22,8 +22,8 @@ class VsiEducacionController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiEducacion->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiEducacion->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $motivos = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(205)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {

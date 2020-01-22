@@ -49,7 +49,7 @@ class FiRedApoyoActualController extends Controller
       ['data' => 's_servicio', 'name'  => 's_servicio'],
       ['data' => 's_telefono', 'name'  => 's_telefono'],
       ['data' => 's_direccion', 'name'  => 's_direccion'],
-      ['data' => 'activo', 'name'      => 'fi_red_apoyo_actuals.activo'],
+      ['data' => 'sis_esta_id', 'name'      => 'fi_red_apoyo_actuals.sis_esta_id'],
     ];
     $this->opciones['tablname'] = 'tbactuales';
     $this->opciones['urlxxxxx'] = 'api/fi/firedapoyoactual';
@@ -66,7 +66,7 @@ class FiRedApoyoActualController extends Controller
     // indica si se esta actualizando o viendo
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];

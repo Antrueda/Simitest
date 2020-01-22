@@ -8,7 +8,7 @@ use App\Models\Parametro;
 use App\Models\User;
 
 class VsiConcepto extends Model{
-    protected $fillable = ['vsi_id', 'concepto', 'prm_ingreso_id', 'porque', 'cual', 'activo', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['vsi_id', 'concepto', 'prm_ingreso_id', 'porque', 'cual', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
 	protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 

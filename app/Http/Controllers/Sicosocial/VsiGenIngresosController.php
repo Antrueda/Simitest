@@ -20,8 +20,8 @@ class VsiGenIngresosController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiGenIngreso->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiGenIngreso->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $actividad = Tema::findOrFail(114)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $informal = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(115)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {

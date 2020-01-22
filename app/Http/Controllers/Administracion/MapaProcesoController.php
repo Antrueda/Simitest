@@ -53,14 +53,14 @@ class MapaProcesoController extends Controller{
 
     public function destroy($id){
         $dato = SisMapaProc::findOrFail($id);
-        $dato->activo = ($dato->activo == 0) ? 1 : 0;
+        $dato->sis_esta_id = ($dato->sis_esta_id == 2) ? 1 : 2;
         $dato->save();
-        $activado = $dato->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $dato->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('mapaProceso')->with('info', 'Registro '.$activado.' con éxito');
     }
 
     protected function datos(array $request){
-        return SisMapaProc::select('id', 'version', 'sis_entidad_id', 'vigencia', 'cierre', 'activo')
+        return SisMapaProc::select('id', 'version', 'sis_entidad_id', 'vigencia', 'cierre', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
                 return $q->where('version', 'like', '%'.$buscar.'%');
             })

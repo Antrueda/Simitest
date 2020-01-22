@@ -10,7 +10,7 @@ use App\Models\User;
 class CsdBienvenida extends Model{
   
   protected $fillable = [
-    'csd_id', 'user_crea_id', 'user_edita_id', 'activo', 'prm_persona_id'
+    'csd_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id', 'prm_persona_id'
   ];
 
   protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];

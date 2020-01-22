@@ -21,13 +21,13 @@ class FiProcesoPard extends Model
     'fi_justicia_restaurativa_id',
     'user_crea_id',
     'user_edita_id',
-    'activo'
+    'sis_esta_id'
   ];
   public function fi_justicia_restaurativa()
   {
     return $this->belongsTo(FiJusticiaRestaurativa::class);
   }
-  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');

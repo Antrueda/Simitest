@@ -12,7 +12,7 @@ use App\Models\sistema\SisDependencia;
 use Illuminate\Support\Facades\Auth;
 
 class Vsi extends Model{
-    protected $fillable = ['sis_nnaj_id', 'dependencia_id', 'fecha', 'user_crea_id', 'user_edita_id', 'activo'];
+    protected $fillable = ['sis_nnaj_id', 'dependencia_id', 'fecha', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
 
     protected $attributes = ['user_crea_id'=>1,'user_edita_id'=>1];
 

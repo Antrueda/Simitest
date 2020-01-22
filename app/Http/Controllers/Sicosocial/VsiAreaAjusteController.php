@@ -21,7 +21,7 @@ class VsiAreaAjusteController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $emocionales = Tema::findOrFail(162)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sexuales = Tema::findOrFail(163)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $comportamentales = Tema::findOrFail(164)->parametros()->orderBy('nombre')->pluck('nombre', 'id');

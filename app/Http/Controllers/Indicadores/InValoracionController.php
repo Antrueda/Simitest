@@ -59,7 +59,7 @@ class InValoracionController extends Controller
             ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
             ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
             ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
-            ['data' => 'activo', 'name' => 'sis_nnajs.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'sis_nnajs.sis_esta_id'],
         ];
     }
     /**
@@ -160,7 +160,7 @@ class InValoracionController extends Controller
         if ($nombobje != '') {
             //$this->opciones['activida'] = SisActividad::combo($objetoxx->sis_actividad_id, true, false);
             $this->opciones[$nombobje] = $objetoxx;
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $categori = $objetoxx->i_prm_categoria_id;
         }
 
@@ -252,7 +252,7 @@ class InValoracionController extends Controller
             ['data' => 'btns', 'name' => 'btns'],
             ['data' => 'id', 'name' => 'in_lineabase_nnajs.id'],
             ['data' => 's_linea_base', 'name' => 'in_lineabase_nnajs.s_linea_base'],
-            ['data' => 'activo', 'name' => 'in_lineabase_nnajs.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'in_lineabase_nnajs.sis_esta_id'],
         ];
         return view($this->opciones['rutacarp'] . 'base', ['todoxxxx' => $this->opciones]);
     }
@@ -286,9 +286,9 @@ class InValoracionController extends Controller
      */
     public function destroy(InLineabaseNnaj $objetoxx)
     {
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('inva')->with('info', 'Registro ' . $activado . ' con éxito');
     }
     private function getCombos($dataxxxx, $ajaxxxxx, $pselecte)

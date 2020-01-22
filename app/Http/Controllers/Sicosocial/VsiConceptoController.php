@@ -20,8 +20,8 @@ class VsiConceptoController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiConcepto->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiConcepto->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $areas = Tema::findOrFail(211)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         return view('Sicosocial.index', ['accion' => 'Concepto'], compact('vsi', 'dato', 'nnaj', 'valor', 'sino', 'areas'));

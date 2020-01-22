@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisUpz extends Model
 {
-    protected $fillable = ['s_upz', 's_codigo', 'sis_localidad_id',  'activo', 'user_crea_id', 'user_edita_id'];
-    protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+    protected $fillable = ['s_upz', 's_codigo', 'sis_localidad_id',  'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
     public function sis_localidad()
     {

@@ -23,8 +23,8 @@ class CsdResidenciaController extends Controller{
 
     public function show($id, Request $request){
         $dato = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('activo', 1)->all();
-        $valor = $dato->CsdResidencia->where('activo', 1)->sortByDesc('id')->first();
+        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
+        $valor = $dato->CsdResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $actual = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(36)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
@@ -73,7 +73,7 @@ class CsdResidenciaController extends Controller{
             $upzs = $localidadjs->find($valor->sis_localidad_id)->upzs->pluck('codigoNombre', 'id');
             $barrios = $localidadjs->find($valor->sis_localidad_id)->upzs->find($valor->sis_upz_id)->sis_barrios->pluck('s_barrio', 'id');
         }
-        return view('Domicilio.index', ['accion' => 'Residencia'], compact('dato', 'nnajs', 'valor', 'sino', 'residencia', 'tipo', 'actual', 'zona', 'tViaPrincipal', 'alfabeto', 'cuadrante', 'estrato', 'condiciones', 'pisos', 'muros', 'estado', 'localidadjs', 'localidades', 'upzs', 'barrios'));
+        return view('Domicilio.index', ['accion' => 'Residencia'], compact('dato', 'nnajs', 'valor', 'sino', 'residencia', 'tipo', 'actual', 'zona', 'tViaPrincipal', 'alfabeto', 'cuadrante', 'estrato', 'condiciones', 'pisos', 'muros', 'sis_esta_id', 'localidadjs', 'localidades', 'upzs', 'barrios'));
     }
 
     public function store(Request $request, $id){

@@ -19,9 +19,10 @@ class CreateInRespuestasTable extends Migration
             $table->bigInteger('i_prm_respuesta_id')->unsigned();
             $table->integer('user_crea_id');
             $table->integer('user_edita_id');
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('i_prm_respuesta_id')->references('id')->on('parametros');
             $table->foreign('in_doc_pregunta_id')->references('id')->on('in_doc_preguntas');
             $table->unique(['i_prm_respuesta_id','in_doc_pregunta_id']);

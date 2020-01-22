@@ -28,7 +28,7 @@ class CreateTriggerUsers extends Migration{
                 , `prm_tvinculacion_id`
                 , `sis_municipio_id`
                 , `prm_documento_id`
-                , `i_prm_estado_id`
+                , `sis_esta_id`
                  , `i_tiempo`
                 )
                 VALUES (NEW.id, NEW.name, NEW.email, NEW.password, NEW.user_crea_id, now()
@@ -45,7 +45,7 @@ class CreateTriggerUsers extends Migration{
                 , NEW.prm_tvinculacion_id
                 , NEW.sis_municipio_id
                 , NEW.prm_documento_id
-                , NEW.i_prm_estado_id
+                , NEW.sis_esta_id
                , NEW.i_tiempo
                 );
             END
@@ -68,7 +68,7 @@ class CreateTriggerUsers extends Migration{
                 , `prm_tvinculacion_id`
                 , `sis_municipio_id`
                 , `prm_documento_id`
-                , `i_prm_estado_id`
+                , `sis_esta_id`
                 , `i_tiempo`
                 )
                 VALUES (NEW.id, NEW.name, NEW.email, NEW.password, NEW.user_crea_id, now()
@@ -85,7 +85,7 @@ class CreateTriggerUsers extends Migration{
                 , NEW.prm_tvinculacion_id
                 , NEW.sis_municipio_id
                 , NEW.prm_documento_id
-                , NEW.i_prm_estado_id
+                , NEW.sis_esta_id
                 , NEW.i_tiempo
                 );
             END

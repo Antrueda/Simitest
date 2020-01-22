@@ -23,9 +23,10 @@ class CreateInValidacionsTable extends Migration
             $table->bigInteger('sis_campo_tabla_id')->unsigned()->unique();
             $table->integer('user_crea_id');
             $table->integer('user_edita_id');
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();            
-            $table->engine = 'InnoDB';
+            
            // $table->foreign('sis_actividad_id')->references('id')->on('sis_actividads');
             $table->foreign('in_fuente_id')->references('id')->on('in_fuentes');
             $table->foreign('in_pregunta_id')->references('id')->on('in_preguntas');

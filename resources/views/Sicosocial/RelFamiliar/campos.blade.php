@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-3">
 		{{ Form::label('prm_representativa_id', '3.1 ¿Indique cuál es la persona más representativa de su familia?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_representativa_id', $familiares, null, ['class' => $errors->first('prm_representativa_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('prm_representativa_id', $familiares, null, ['class' => $errors->first('prm_representativa_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('prm_representativa_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_representativa_id') }}
@@ -10,7 +10,7 @@
 	</div>
 	<div class="col-md-9">
 		{{ Form::label('representativa', '3.2 ¿Por qué es la más representativa?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::textarea('representativa', null, ['class' => $errors->first('representativa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Por qué es la más representativa', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toCase();", 'style' => 'text-transform:uppercase;', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::textarea('representativa', null, ['class' => $errors->first('representativa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Por qué es la más representativa', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toCase();", 'style' => 'text-transform:uppercase;', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('representativa'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('representativa') }}
@@ -21,7 +21,7 @@
 <div class="row">
 	<div class="col-md-3">
 		{{ Form::label('prm_mala_id', '3.3 ¿Cuál es la persona con quien no tiene buenas relaciones en su familia?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_mala_id', $familiares, null, ['class' => $errors->first('prm_mala_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('prm_mala_id', $familiares, null, ['class' => $errors->first('prm_mala_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('prm_mala_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_mala_id') }}
@@ -30,7 +30,7 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('motivos', '3.4	Mencione el/los motivos por lo cual no existen buenas relaciones', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('motivos[]', $motivos, null, ['class' => $errors->first('motivos') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'motivos', 'multiple', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('motivos[]', $motivos, null, ['class' => $errors->first('motivos') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'motivos', 'multiple', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('motivos'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('motivos') }}
@@ -39,7 +39,7 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('prm_relacion_id', '3.5 ¿Cómo es la relación con su familia?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_relacion_id', $relaciones, null, ['class' => $errors->first('prm_relacion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('prm_relacion_id', $relaciones, null, ['class' => $errors->first('prm_relacion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('prm_relacion_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_relacion_id') }}
@@ -48,7 +48,7 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('prm_gusto_id', '3.6 ¿Se siente a gusto con el tipo de relación?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_gusto_id', $sino, null, ['class' => $errors->first('prm_gusto_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('prm_gusto_id', $sino, null, ['class' => $errors->first('prm_gusto_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('prm_gusto_id'))
 			<div class="invalid-feedback d-block">
 					{{ $errors->first('prm_gusto_id') }}
@@ -59,7 +59,7 @@
 <div class="row">
 	<div class="col-md-12">
 		{{ Form::label('porque', '3.7 ¿Por qué?:', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::textarea('porque', null, ['class' => $errors->first('porque') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '¿Por qué?', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'style' => 'text-transform:uppercase;', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::textarea('porque', null, ['class' => $errors->first('porque') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '¿Por qué?', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'style' => 'text-transform:uppercase;', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('porque'))
 		<div class="invalid-feedback d-block">
 				{{ $errors->first('porque') }}
@@ -70,7 +70,7 @@
 <div class="row">
 	<div class="col-md-3">
 		{{ Form::label('prm_familia_id', '3.8 ¿Se presenta algún tipo de dificultad en su familia?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_familia_id', $sino, null, ['class' => $errors->first('prm_familia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc(this.value)', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('prm_familia_id', $sino, null, ['class' => $errors->first('prm_familia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc(this.value)', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('prm_familia_id'))
 			<div class="invalid-feedback d-block">
 					{{ $errors->first('prm_familia_id') }}
@@ -80,7 +80,7 @@
 	<div class="col-md-3">
 			{{ Form::label('famDificultades', '3.9 ¿cuáles?', ['class' => 'control-label col-form-label-sm']) }}
 			<div id="famDificultades_div">
-				{{ Form::select('famDificultades[]', $dificultades, null, ['class' => $errors->first('famDificultades') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'famDificultades', 'multiple', $vsi->activo == 0 ? 'disabled' : '']) }}
+				{{ Form::select('famDificultades[]', $dificultades, null, ['class' => $errors->first('famDificultades') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'famDificultades', 'multiple', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 			</div>
 			@if($errors->has('famDificultades'))
 				<div class="invalid-feedback d-block">
@@ -91,7 +91,7 @@
 	<div class="col-md-3">
 		{{ Form::label('acciones', '3.10 ¿Qué acciones han realizado ante los casos de violencia?', ['class' => 'control-label col-form-label-sm']) }}
 		<div id="acciones_div">
-			{{ Form::select('acciones[]', $acciones, null, ['class' => $errors->first('acciones') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'acciones', 'multiple', $vsi->activo == 0 ? 'disabled' : '']) }}
+			{{ Form::select('acciones[]', $acciones, null, ['class' => $errors->first('acciones') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'acciones', 'multiple', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		</div>
 		@if($errors->has('acciones'))
 			<div class="invalid-feedback d-block">
@@ -101,7 +101,7 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('prm_denuncia_id', '3.11 ¿Ha denunciado ante las autoridades competentes la violencia presentada?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_denuncia_id', $sino, null, ['class' => $errors->first('prm_denuncia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('prm_denuncia_id', $sino, null, ['class' => $errors->first('prm_denuncia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('prm_denuncia_id'))
 			<div class="invalid-feedback d-block">
 					{{ $errors->first('prm_denuncia_id') }}
@@ -112,7 +112,7 @@
 <div class="row">
 	<div class="col-md-12">
 		{{ Form::label('descripcion', '3.12 Descripción:', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción de relaciones familiares', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'style' => 'text-transform:uppercase;', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción de relaciones familiares', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'style' => 'text-transform:uppercase;', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('descripcion'))
 		<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion') }}
@@ -123,7 +123,7 @@
 <div class="row">
 	<div class="col-md-3">
 		{{ Form::label('prm_pareja_id', '3.13 ¿Tiene pareja?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_pareja_id', $sinona, null, ['class' => $errors->first('prm_pareja_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('prm_pareja_id', $sinona, null, ['class' => $errors->first('prm_pareja_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('prm_pareja_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_pareja_id') }}
@@ -132,7 +132,7 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('prm_dificultad_id', '3.14 ¿Tiene dificultades con su pareja?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_dificultad_id', $sinona, null, ['class' => $errors->first('prm_dificultad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('prm_dificultad_id', $sinona, null, ['class' => $errors->first('prm_dificultad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('prm_dificultad_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_dificultad_id') }}
@@ -144,7 +144,7 @@
 		<div class="row">
 			<div class="col-md-4">
 				{{ Form::label('dia', 'Día(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('dia', null, ['class' => $errors->first('dia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99', $vsi->activo == 0 ? 'disabled' : '']) }}
+				{{ Form::number('dia', null, ['class' => $errors->first('dia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 				@if($errors->has('dia'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('dia') }}
@@ -153,7 +153,7 @@
 			</div>
 			<div class="col-md-4">
 				{{ Form::label('mes', 'Mes(es)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('mes', null, ['class' => $errors->first('mes') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Mes(es)', 'min' => '0', 'max' => '99', $vsi->activo == 0 ? 'disabled' : '']) }}
+				{{ Form::number('mes', null, ['class' => $errors->first('mes') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Mes(es)', 'min' => '0', 'max' => '99', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 				@if($errors->has('mes'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('mes') }}
@@ -162,7 +162,7 @@
 			</div>
 			<div class="col-md-4">
 				{{ Form::label('ano', 'Año(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('ano', null, ['class' => $errors->first('ano') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99', $vsi->activo == 0 ? 'disabled' : '']) }}
+				{{ Form::number('ano', null, ['class' => $errors->first('ano') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 				@if($errors->has('ano'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('ano') }}
@@ -173,7 +173,7 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('prm_responde_id', '3.16 ¿Cómo responden a las dificultades?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_responde_id', $responde, null, ['class' => $errors->first('prm_responde_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('prm_responde_id', $responde, null, ['class' => $errors->first('prm_responde_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('prm_responde_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_responde_id') }}
@@ -184,7 +184,7 @@
 <div class="row">
 	<div class="col-md">
 		{{ Form::label('descripcion1', '3.17 Descripción:', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::textarea('descripcion1', null, ['class' => $errors->first('descripcion1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción de relaciones de pareja', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'style' => 'text-transform:uppercase;', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::textarea('descripcion1', null, ['class' => $errors->first('descripcion1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción de relaciones de pareja', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'style' => 'text-transform:uppercase;', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('descripcion1'))
 		<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion1') }}
@@ -193,7 +193,7 @@
 	</div>
 </div>
 <div class="row mt-3">
-	@if ($vsi->activo == 1)
+	@if ($vsi->sis_esta_id == 1)
 		@canany(['vsirelfamiliar-crear', 'vsirelfamiliar-editar'])
 			{{ Form::submit('Guardar', ['class' => 'btn btn-primary']) }}
 		@endcanany

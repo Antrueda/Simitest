@@ -7,7 +7,7 @@ use App\Models\Parametro;
 use Illuminate\Database\Eloquent\Model;
 
 class SisProceso extends Model{
-     protected $fillable = ['sis_proceso_id','sis_mapa_proc_id','prm_proceso_id','nombre', 'activo' , 'user_crea_id', 'user_edita_id'];
+     protected $fillable = ['sis_proceso_id','sis_mapa_proc_id','prm_proceso_id','nombre', 'sis_esta_id' , 'user_crea_id', 'user_edita_id'];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
     

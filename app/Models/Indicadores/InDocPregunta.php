@@ -19,7 +19,7 @@ class InDocPregunta extends Model
         'sis_campo_tabla_id',
         'user_edita_id',
         'user_crea_id',
-        'activo'
+        'sis_esta_id'
     ];
 
     public function in_pregunta()

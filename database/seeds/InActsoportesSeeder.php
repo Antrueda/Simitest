@@ -14,7 +14,7 @@ class InActsoportesSeeder extends Seeder
     {
         $dataxxxx = [
             'in_accion_gestion_id' => 1, 'sis_fsoporte_id' => 1,
-            'user_crea_id' => 1, 'user_edita_id' => 1, 'activo' => 1, 'created_at' => 1, 'updated_at' => 1,
+            'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => 1, 'updated_at' => 1,
         ];
         InActsoporte::create($dataxxxx);
 

@@ -12,11 +12,12 @@ class CreateFosTsesTable extends Migration{
             $table->bigInteger('fos_area_id')->unsigned();
             $table->string('nombre', 120);
             $table->text('descripcion',4000)->nullable();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
 
             $table->foreign('fos_area_id')->references('id')->on('fos_areas');
             $table->foreign('user_crea_id')->references('id')->on('users');

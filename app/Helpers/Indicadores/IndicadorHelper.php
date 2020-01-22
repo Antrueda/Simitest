@@ -124,9 +124,7 @@ class IndicadorHelper
         $tablaxxx = 0;
         foreach ($inbasefu as $basefuent) {
             $actibase = true;
-
             $consulta = [];
-
             //foreach ($basefuent->in_doc_preguntas as $docupreg) {
             $campoxxx = $basefuent->s_campo;
             /**
@@ -134,7 +132,6 @@ class IndicadorHelper
              */
             if ($tablaxxx != $basefuent->sis_tabla_id) {
                 $tablaxxx = $basefuent->sis_tabla_id;
-
                 /**
                  * traer el registro almacendo en la tabla encontrada
                  */
@@ -144,8 +141,6 @@ class IndicadorHelper
             if (isset($consulta->id)) {
                 $respuest = InRespuesta::where('i_prm_respuesta_id', $consulta->$campoxxx)->first();
             }
-
-
             /**
              * validar que si se puede activar la linea base
              */
@@ -158,7 +153,6 @@ class IndicadorHelper
              */
 
             if ($actibase) {
-
                 /**
                  * verificar 
                  */
@@ -177,10 +171,6 @@ class IndicadorHelper
                 }
             }
         }
-
-
-
-
         //return $sistabla;
     }
     public static function getDiasEntreFecha($fechaxx1, $fechaxx2)

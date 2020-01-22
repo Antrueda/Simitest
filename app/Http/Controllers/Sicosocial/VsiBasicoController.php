@@ -23,7 +23,7 @@ class VsiBasicoController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $documentos = Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sindocumento = Tema::findOrFail(286)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -73,7 +73,7 @@ class VsiBasicoController extends Controller{
 
     public function destroyRazon($id, $id1){
         $dato = VsiDatosVincula::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('VSI.basico', $id)->with('info', 'Registro eliminado con éxito');
     }

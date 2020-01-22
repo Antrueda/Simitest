@@ -74,7 +74,7 @@ class InActFuenteController extends Controller
             ['data' => 'btns', 'name' => 'btns'],
             ['data' => 'id', 'name' => 'in_accion_gestions.id'],
             ['data' => 'nombre', 'name' => 'sis_actividads.nombre'],
-            ['data' => 'activo', 'name' => 'in_accion_gestions.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'in_accion_gestions.sis_esta_id'],
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }
@@ -97,7 +97,7 @@ class InActFuenteController extends Controller
 
             //dd($this->opciones['activida']);
             $this->opciones[$nombobje] = $objetoxx;
-            $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $optionxx=$objetoxx->sis_fsoporte_id;
         }
         $dataxxxx = [
@@ -184,9 +184,9 @@ class InActFuenteController extends Controller
      */
     public function destroy(InActsoporte $objetoxx)
     {
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('in')->with('info', 'Registro ' . $activado . ' con éxito');
     }
 }

@@ -46,12 +46,12 @@ class FosDatoBasicoController extends Controller{
         $this->opciones['disptabx'] = "block";
         $this->opciones['permisox'] = 'fosfichaobservacion';
         $this->opciones['areacont'] = ['' => 'Seleccione'];
-        foreach (FosArea::orderBy('nombre')->where('activo',1)->pluck('nombre', 'id') as $k => $d) {
+        foreach (FosArea::orderBy('nombre')->where('sis_esta_id',1)->pluck('nombre', 'id') as $k => $d) {
             $this->opciones['areacont'][$k] = $d;
         }
        
         $this->opciones['dependen'] = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
-        $this->opciones['usuarios'] = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
+        $this->opciones['usuarios'] = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
     }
     public function index(Request $request){
         $this->opciones['cabecera'] = [
@@ -108,7 +108,7 @@ class FosDatoBasicoController extends Controller{
                 'cabecera'=>true,
                 'seguimie'=>$objetoxx->fos_tse_id]);
         
-            $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
 

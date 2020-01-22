@@ -19,9 +19,10 @@ class CreateAreaTable extends Migration
       $table->string('nombre')->unique();
       $table->integer('user_crea_id');
       $table->integer('user_edita_id');
-      $table->boolean('activo')->default(1);
+      $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
-      $table->engine = 'InnoDB';
+      
     });
 
     Schema::create('in_indicadors', function (Blueprint $table) {
@@ -31,12 +32,13 @@ class CreateAreaTable extends Migration
       $table->bigInteger('area_id')->unsigned();
       $table->bigInteger('user_crea_id')->unsigned();
       $table->bigInteger('user_edita_id')->unsigned();
-      $table->boolean('activo')->default(1);
+      $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
       $table->foreign('area_id')->references('id')->on('areas');
       $table->foreign('user_crea_id')->references('id')->on('users');
       $table->foreign('user_edita_id')->references('id')->on('users');
-      $table->engine = 'InnoDB';
+      
     });
 
 
@@ -45,9 +47,10 @@ class CreateAreaTable extends Migration
       $table->string('s_linea_base', 300)->unique();
       $table->bigInteger('user_crea_id')->unsigned();
       $table->bigInteger('user_edita_id')->unsigned();
-      $table->boolean('activo')->default(1);
+      $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
-      $table->engine = 'InnoDB';
+      
       $table->foreign('user_crea_id')->references('id')->on('users');
       $table->foreign('user_edita_id')->references('id')->on('users');
     });
@@ -60,7 +63,7 @@ class CreateAreaTable extends Migration
       $table->string('s_tabla')->nullable();
       $table->string('s_descripcion')->nullable();
       $table->timestamps();
-      $table->engine = 'InnoDB';
+      
       $table->bigInteger('sis_documento_fuente_id')->unsigned();
       $table->foreign('sis_documento_fuente_id')->references('id')->on('sis_documento_fuentes');
 
@@ -71,7 +74,7 @@ class CreateAreaTable extends Migration
       $table->string('s_descripcion')->nullable();
       $table->bigInteger('sis_tabla_id')->unsigned();
       $table->timestamps();
-      $table->engine = 'InnoDB';
+      
       $table->foreign('sis_tabla_id')->references('id')->on('sis_tablas');
     });
 

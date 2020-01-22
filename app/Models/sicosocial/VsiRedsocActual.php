@@ -9,7 +9,7 @@ use App\Models\User;
 
 class VsiRedsocActual extends Model{
 	protected $fillable = [
-        'vsi_id', 'prm_tipo_id', 'nombre', 'servicio', 'telefono', 'direccion', 'user_crea_id', 'user_edita_id', 'activo',
+        'vsi_id', 'prm_tipo_id', 'nombre', 'servicio', 'telefono', 'direccion', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
     ];
   
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];

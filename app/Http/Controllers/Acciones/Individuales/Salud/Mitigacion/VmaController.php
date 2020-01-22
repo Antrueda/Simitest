@@ -24,16 +24,16 @@ class VmaController extends Controller{
 
     public function index($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $vma  = $dato->MitVma->where('activo', 1)->sortByDesc('fecha')->all();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
 
         return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'vma'));
     }
 
     public function create($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $vma  = $dato->MitVma->where('activo', 1)->sortByDesc('fecha')->all();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
         $tValoracion = ['' => 'Seleccione...'];
         $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -86,7 +86,7 @@ class VmaController extends Controller{
         foreach (Tema::findOrFail(335)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
             $tipoDx[$k] = $d;
         }
-        $usuarios = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
+        $usuarios = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
 
         return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'vma', 'upis', 'tValoracion',
                                                                                                'sino', 'sustancia', 'frecuencia', 'nivel',
@@ -243,8 +243,8 @@ class VmaController extends Controller{
 
     public function edit($id, $id0){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $vma  = $dato->MitVma->where('activo', 1)->sortByDesc('fecha')->all();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
         $tValoracion = ['' => 'Seleccione...'];
         $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -298,7 +298,7 @@ class VmaController extends Controller{
             $tipoDx[$k] = $d;
         }
         $valor = MitVma::findOrFail($id0);
-        $usuarios = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
+        $usuarios = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
 
         return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'vma', 'upis', 'tValoracion',
                                                                                                'sino', 'sustancia', 'frecuencia', 'nivel',

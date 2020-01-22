@@ -3,13 +3,14 @@
 namespace App\Models\Indicadores;
 
 use App\Models\Acciones\Grupales\AgTema;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Area extends Model
 {
   protected $fillable = [
     'nombre',
-    'activo',
+    'sis_esta_id',
     'user_crea_id',
     'user_edita_id'
   ];

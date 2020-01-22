@@ -8,7 +8,7 @@ use App\Models\Parametro;
 use App\Models\User;
 
 class VsiEducacion extends Model{
-	protected $fillable = ['vsi_id', 'prm_estudia_id', 'dia', 'mes', 'ano', 'prm_motivo_id', 'prm_rendimiento_id', 'prm_dificultad_id', 'prm_leer_id', 'prm_escribir_id', 'descripcion', 'user_crea_id', 'user_edita_id', 'activo'];
+	protected $fillable = ['vsi_id', 'prm_estudia_id', 'dia', 'mes', 'ano', 'prm_motivo_id', 'prm_rendimiento_id', 'prm_dificultad_id', 'prm_leer_id', 'prm_escribir_id', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
 
 	protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 

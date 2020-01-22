@@ -24,7 +24,8 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->bigInteger('sis_nnaj_id')->unsigned();//->comment('NNAJ AL QUE SE LE ASIGNA LA JUSTICIA RESTAURATIVA');
             $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo');//->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -33,7 +34,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_causa_vincula_vio_id')->references('id')->on('parametros');
             $table->foreign('i_prm_riesgo_participar_id')->references('id')->on('parametros');
             $table->foreign('i_prm_causa_riesgo_part_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_proceso_pards', function (Blueprint $table) {
@@ -49,7 +50,8 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->string('s_lugar_abierto_pard')->nullable()->comment('FI 10.1.6 LUGAR ABIERTO EL PARD');
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo')->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -58,7 +60,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_actualmente_pard_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_tiempo_pard_id')->references('id')->on('parametros');
             $table->foreign('i_prm_motivo_pard_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_proceso_srpas', function (Blueprint $table) {
@@ -73,7 +75,8 @@ class CreateFiJusticiaRestaurativasTable extends Migration
 
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo')->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -83,7 +86,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_tipo_tiempo_srpa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_motivo_srpa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_sancion_srpa_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_proceso_spoas', function (Blueprint $table) {
@@ -98,7 +101,8 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->bigInteger('i_prm_ha_estado_preso_id')->nullable()->unsigned()->comment('FI 10.3.6 HA ESTADO PRIVADO DE LA LIBERTAD');
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo')->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -109,7 +113,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_motivo_spoa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_mod_cumple_pena_id')->references('id')->on('parametros');
             $table->foreign('i_prm_ha_estado_preso_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_proceso_familias', function (Blueprint $table) {
@@ -124,7 +128,8 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->bigInteger('i_prm_tipo_tiempo_id')->unsigned()->comment('TIPO DE TIEMPO');
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo')->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -132,7 +137,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('fi_composicion_fami_id')->references('id')->on('fi_composicion_famis');
             $table->foreign('i_prm_vigente_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_tiempo_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
     }
 

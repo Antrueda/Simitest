@@ -25,16 +25,16 @@ class VsiController extends Controller{
 
     public function nnaj($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vsis = $dato->Vsi->sortByDesc('fecha')->all();
         return view('Sicosocial.index', ['accion' => 'Nnaj'], compact('dato', 'nnaj', 'vsis'));
     }
 
     public function create(Request $request, $id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vsis = $dato->Vsi->sortByDesc('fecha')->all();
-        $dependencias = SisDependencia::where('activo', 1636)->orderBy('nombre')->pluck('nombre', 'id');
+        $dependencias = SisDependencia::where('sis_esta_id', 1636)->orderBy('nombre')->pluck('nombre', 'id');
         return view('Sicosocial.index', ['accion' => 'Nueva'], compact('dato', 'nnaj', 'vsis', 'dependencias'));
     }
 
@@ -46,13 +46,13 @@ class VsiController extends Controller{
 
     public function edit(Request $request, $id, $id0){
         $valor = Vsi::findOrFail($id0);
-        if($valor->activo == 0) {
+        if($valor->sis_esta_id == 2) {
             return redirect()->route('VSI.nnaj', $id);
         }
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vsis = $dato->Vsi->sortByDesc('fecha')->all();
-        $dependencias = SisDependencia::where('activo', 1636)->orderBy('nombre')->pluck('nombre', 'id');
+        $dependencias = SisDependencia::where('sis_esta_id', 1636)->orderBy('nombre')->pluck('nombre', 'id');
         return view('Sicosocial.index', ['accion' => 'Editar'], compact('dato', 'nnaj', 'vsis', 'dependencias', 'valor'));
     }
 
@@ -65,7 +65,7 @@ class VsiController extends Controller{
 
     public function destroy($id, $id1){
         $dato = Vsi::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('VSI.nnaj', $id)->with('info', 'Registro actualizado con éxito');
     }
@@ -73,7 +73,7 @@ class VsiController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         return view('Sicosocial.index', ['accion' => 'VSI'], compact('vsi', 'dato', 'nnaj'));
     }
 

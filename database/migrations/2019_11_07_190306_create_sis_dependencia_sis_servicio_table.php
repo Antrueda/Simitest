@@ -17,7 +17,7 @@ class CreateSisDependenciaSisServicioTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('sis_dependencia_id')->unsigned();
             $table->bigInteger('sis_servicio_id')->unsigned();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('sis_dependencia_id')->references('id')->on('sis_dependencias');
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
         });

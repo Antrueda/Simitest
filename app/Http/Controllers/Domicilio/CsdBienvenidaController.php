@@ -20,8 +20,8 @@ class CsdBienvenidaController extends Controller{
 
   public function show($id){
     $dato  = Csd::findOrFail($id);
-    $nnajs = $dato->nnajs->where('activo', 1)->all();
-    $valor = $dato->CsdBienvenida->where('activo', 1)->sortByDesc('id')->first();
+    $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
+    $valor = $dato->CsdBienvenida->where('sis_esta_id', 1)->sortByDesc('id')->first();
     $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $personas = Tema::findOrFail(159)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $motivos  = Tema::findOrFail(63)->parametros()->orderBy('nombre')->pluck('nombre', 'id');

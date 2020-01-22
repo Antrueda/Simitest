@@ -8,7 +8,7 @@ use App\Models\Parametro;
 use App\Models\User;
 
 class CsdJusticia extends Model{
-	protected $fillable = ['csd_id', 'prm_vinculado_id', 'prm_vin_causa_id', 'prm_riesgo_id', 'prm_rie_causa_id', 'user_crea_id', 'user_edita_id', 'activo'];
+	protected $fillable = ['csd_id', 'prm_vinculado_id', 'prm_vin_causa_id', 'prm_riesgo_id', 'prm_rie_causa_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
 
     protected $attributes = ['user_crea_id'=>1,'user_edita_id'=>1];
 

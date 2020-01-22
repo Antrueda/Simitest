@@ -49,7 +49,7 @@ class FiProcesoFamiliaController extends Controller
     // indica si se esta actualizando o viendo
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
    
     }
     // Se arma el titulo de acuerdo al array opciones

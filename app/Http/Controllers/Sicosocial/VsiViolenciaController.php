@@ -22,8 +22,8 @@ class VsiViolenciaController extends Controller{
   public function show($id){
     $vsi = Vsi::findOrFail($id);
     $dato = $vsi->nnaj;
-    $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-    $valor = $vsi->VsiViolencia->where('activo', 1)->sortByDesc('id')->first();
+    $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+    $valor = $vsi->VsiViolencia->where('sis_esta_id', 1)->sortByDesc('id')->first();
     $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $contexto = Tema::findOrFail(142)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $violencia = Tema::findOrFail(7)->parametros()->orderBy('nombre')->pluck('nombre', 'id');

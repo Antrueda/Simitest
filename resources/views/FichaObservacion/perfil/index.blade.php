@@ -22,7 +22,7 @@
                             ['data' => 's_sub','name'    => 'fos_stses.nombre as s_sub'],
                             ['data' => 's_upi','name'             => 'sis_dependencias.nombre as s_upi'],
                             ['data' => 'd_fecha_diligencia','name' => 'd_fecha_diligencia'],
-                            ['data' => 'activo','name'             => 'fos_datos_basicos.activo'],
+                            ['data' => 'sis_esta_id','name'             => 'fos_datos_basicos.sis_esta_id'],
                         ];
                         $todoxxxx['tablname']='tbfichas';
                         $todoxxxx['urlxxxxx'] = 'api/fos/fichaobservacion'

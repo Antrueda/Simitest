@@ -78,7 +78,7 @@ class FiJusticiaRestaurativaController extends Controller
       ['data' => 's_motivo', 'name' => 'fi_proceso_familias.s_motivo'],
       ['data' => 'i_hace_cuanto', 'name' => 'fi_proceso_familias.i_hace_cuanto'],
       ['data' => 'tiempo', 'name' => 'parametros.nombre as tiempo'],
-      ['data' => 'activo', 'name' => 'fi_proceso_familias.activo'],
+      ['data' => 'sis_esta_id', 'name' => 'fi_proceso_familias.sis_esta_id'],
     ];
   }
 
@@ -217,7 +217,7 @@ class FiJusticiaRestaurativaController extends Controller
       }
 
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];

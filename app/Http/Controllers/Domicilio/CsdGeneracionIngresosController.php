@@ -22,9 +22,9 @@ class CsdGeneracionIngresosController extends Controller{
 
     public function show($id){
         $dato = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('activo', 1)->all();
-        $valor = $dato->CsdGenIngreso->where('activo', 1)->sortByDesc('id')->first();
-        $valorAporta = $dato->CsdGeningAporta->where('activo', 1)->sortByDesc('id');
+        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
+        $valor = $dato->CsdGenIngreso->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valorAporta = $dato->CsdGeningAporta->where('sis_esta_id', 1)->sortByDesc('id');
         $actividad = Tema::findOrFail(114)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -122,7 +122,7 @@ class CsdGeneracionIngresosController extends Controller{
 
     public function destroyaportante($id, $id1){
         $dato = CsdGeningAporta::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('CSD.geningresos', $id)->with('info', 'Registro eliminado con éxito');
     }

@@ -51,7 +51,7 @@ class FiController extends Controller
             ['data' => 's_segundo_apellido', 'name' => 's_segundo_apellido'],
             ['data' => 's_documento', 'name' => 's_documento'],
             ['data' => 'sis_nnaj_id', 'name' => 'sis_nnaj_id'],
-            ['data' => 'activo', 'name' => 'activo'],
+            ['data' => 'sis_esta_id', 'name' => 'sis_esta_id'],
         ];
         $this->opciones['parametr'] = [];
         return view('FichaIngreso.index', ['todoxxxx' => $this->opciones]);
@@ -60,7 +60,7 @@ class FiController extends Controller
     public function show($id)
     {
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         return view('fichaIngreso.index', ['accion' => 'Editar'], compact('dato', 'nnaj'));
     }
 }

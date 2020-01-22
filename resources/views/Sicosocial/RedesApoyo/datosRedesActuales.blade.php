@@ -3,7 +3,7 @@
         <thead>
             <tr class="text-center">
                 <th rowspan="2">Nº</th>
-                @if ($vsi->activo == 1)
+                @if ($vsi->sis_esta_id == 1)
                     <th rowspan="2" width="70">Acciones</th>
                 @endif
                 <th rowspan="2">Tipo de Red</th>
@@ -21,7 +21,7 @@
                 @foreach($valorActual as $k => $d)
                     <tr>
                         <td>{{ $k+1 }}</td>
-                        @if ($vsi->activo == 1)
+                        @if ($vsi->sis_esta_id == 1)
                             <td>
                                 {!! Form::open(['route' => ['VSI.redesapoyo.actual.borrar', $d->vsi_id, $d->id], 'method' => 'DELETE']) !!}
                                 <button class="btn btn-sm btn-danger">Eliminar</button>

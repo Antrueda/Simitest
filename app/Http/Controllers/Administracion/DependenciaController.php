@@ -60,7 +60,7 @@ class DependenciaController extends Controller
             ['data' => 'sis_barrio_id', 'name' => 'sis_barrios.s_barrio as sis_barrio_id'],
             ['data' => 's_telefono', 'name' => 'sis_dependencias.s_telefono'],
             ['data' => 's_correo', 'name' => 'sis_dependencias.s_correo'],
-            ['data' => 'activo', 'name' => 'sis_dependencias.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'sis_dependencias.sis_esta_id'],
 
         ];
     }
@@ -127,7 +127,7 @@ class DependenciaController extends Controller
             $this->opciones['sis_municipio_id'] = SisMunicipio::combo($objetoxx->sis_departamento_id, false);
             $this->opciones['sis_upz_id'] = SisUpz::combo($objetoxx->sis_localidad_id, false);
         $this->opciones['sis_barrio_id'] = SisBarrio::combo(false, false);
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
 
@@ -204,9 +204,9 @@ class DependenciaController extends Controller
      */
     public function destroy(SisDependencia $objetoxx)
     {
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
     }
 }

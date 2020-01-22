@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\sicosocial\Vsi;
 
 class VsiDatosVincula extends Model{
-    protected $fillable = ['vsi_id', 'prm_razon_id', 'prm_persona_id', 'dia', 'mes', 'ano', 'activo', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['vsi_id', 'prm_razon_id', 'prm_persona_id', 'dia', 'mes', 'ano', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 

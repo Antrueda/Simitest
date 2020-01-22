@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
 class VsiFacProtector extends Model{
-    protected $fillable = ['vsi_id', 'protector', 'activo', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['vsi_id', 'protector', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
 	protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 

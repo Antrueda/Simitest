@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md">
 		{{ Form::label('user_doc1_id', '22.1 Número de Documento - Nombres y apellidos - Cargo', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('user_doc1_id', $usuarios, null, ['class' => $errors->first('user_doc1_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('user_doc1_id', $usuarios, null, ['class' => $errors->first('user_doc1_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('user_doc1_id'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('user_doc1_id') }}
@@ -16,7 +16,7 @@
 <div class="row">
 	<div class="col-md">
 		{{ Form::label('user_doc2_id', '22.2 Número de Documento - Nombres y apellidos - Cargo', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('user_doc2_id', $usuarios, null, ['class' => $errors->first('user_doc2_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', $vsi->activo == 0 ? 'disabled' : '']) }}
+		{{ Form::select('user_doc2_id', $usuarios, null, ['class' => $errors->first('user_doc2_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', $vsi->sis_esta_id == 0 ? 'disabled' : '']) }}
 		@if($errors->has('user_doc2_id'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('user_doc2_id') }}
@@ -35,7 +35,7 @@
 	</div>
 </div>
 <div class="row mt-3">
-	@if ($vsi->activo == 1)
+	@if ($vsi->sis_esta_id == 1)
 		@canany(['vsiconsentimiento-crear', 'vsiconsentimiento-editar'])
 			{{ Form::submit('Guardar', ['class' => 'btn btn-primary']) }}
 		@endcanany

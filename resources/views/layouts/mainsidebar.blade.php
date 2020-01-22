@@ -4,7 +4,7 @@
   <a href="{{ route('/') }}" class="brand-link">
     <img src="{{ asset('img/favicon.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
       style="opacity: .8">
-    <span class="brand-text font-weight-light">SIMI 2.0</span>
+    <span class="brand-text font-weight-light">SIMI</span>
   </a>
   <!-- Brand Logo -->
 

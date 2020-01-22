@@ -26,7 +26,8 @@ class CreateFiRazonesTable extends Migration
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             
             
@@ -40,7 +41,7 @@ class CreateFiRazonesTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('i_prm_estado_ingreso_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_documentos_anexas', function (Blueprint $table) {
@@ -50,13 +51,14 @@ class CreateFiRazonesTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->text('s_ruta');
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_razone_id')->references('id')->on('fi_razones');
             $table->foreign('i_prm_documento_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
     }
 

@@ -42,7 +42,7 @@
 	@if($accion == 'Ver')
 		@can('permiso-borrar')
 			{!! Form::open(['route' => ['actividad.ver', $dato->id], 'method' => 'DELETE']) !!}
-            	@if($dato->activo == 1)
+            	@if($dato->sis_esta_id == 1)
             		<button class="btn btn-danger">Inactivar</button>
             	@else
             		<button class="btn btn-success">Activar</button>

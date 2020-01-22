@@ -22,9 +22,10 @@ class CreatePermissionTables extends Migration
       $table->string('guard_name');
       $table->bigInteger('user_crea_id')->unsigned();
       $table->bigInteger('user_edita_id')->unsigned();
-      $table->boolean('activo');
+      $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
-      $table->engine = 'InnoDB';
+      
     });
 
     Schema::create($tableNames['roles'], function (Blueprint $table) {
@@ -33,9 +34,10 @@ class CreatePermissionTables extends Migration
       $table->string('guard_name');
       $table->bigInteger('user_crea_id')->unsigned();
       $table->bigInteger('user_edita_id')->unsigned();
-      $table->boolean('activo');
+      $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
-      $table->engine = 'InnoDB';
+      
     });
 
     Schema::create($tableNames['model_has_permissions'], function (Blueprint $table) use ($tableNames, $columnNames) {
@@ -54,7 +56,7 @@ class CreatePermissionTables extends Migration
         ['permission_id', $columnNames['model_morph_key'], 'model_type'],
         'model_permiso_pk1'
       );
-      $table->engine = 'InnoDB';
+      
     });
 
     Schema::create($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames) {
@@ -73,7 +75,7 @@ class CreatePermissionTables extends Migration
         ['role_id', $columnNames['model_morph_key'], 'model_type'],
         'model_rol_pk1'
       );
-      $table->engine = 'InnoDB';
+      
     });
 
     Schema::create($tableNames['role_has_permissions'], function (Blueprint $table) use ($tableNames) {
@@ -91,7 +93,7 @@ class CreatePermissionTables extends Migration
         ->onDelete('cascade');
 
       $table->primary(['permission_id', 'role_id'], 'rol_permiso_fk1');
-      $table->engine = 'InnoDB';
+      
     });
 
     app('cache')

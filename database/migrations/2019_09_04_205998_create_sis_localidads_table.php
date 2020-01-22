@@ -14,12 +14,13 @@ class CreateSisLocalidadsTable extends Migration
     public function up()
     {
         Schema::create('sis_localidads', function (Blueprint $table) {
-             $table->engine = 'InnoDB';
+             
             $table->bigIncrements('id');
             $table->string('s_localidad')->unique();
             $table->integer('user_crea_id');
             $table->integer('user_edita_id');
-            $table->boolean('estado');
+            $table->bigInteger('sis_esta_id')->unsigned();
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             // $table->foreign('user_crea_id')->references('id')->on('users');
             // $table->foreign('user_edita_id')->references('id')->on('users');

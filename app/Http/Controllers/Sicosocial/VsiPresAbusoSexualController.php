@@ -19,14 +19,14 @@ class VsiPresAbusoSexualController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiAbuSexual->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiAbuSexual->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $sino       = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $familiares = Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $evento     = Tema::findOrFail(202)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sexual     = Tema::findOrFail(203)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $estado     = Tema::findOrFail(204)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        return view('Sicosocial.index', ['accion' => 'PresAbusoSexual'], compact('vsi', 'dato', 'nnaj', 'valor', 'sino', 'familiares', 'evento', 'sexual', 'estado'));
+        return view('Sicosocial.index', ['accion' => 'PresAbusoSexual'], compact('vsi', 'dato', 'nnaj', 'valor', 'sino', 'familiares', 'evento', 'sexual', 'sis_esta_id'));
     }
 
     public function store(Request $request){

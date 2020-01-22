@@ -135,7 +135,7 @@ class IsDatoBasicoController extends Controller {
                         ->with('info', 'Superfil no está autorizado para ver intervenciones sicosociales especializadas');
       }
 
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
       $this->opciones[$nombobje] = $objetoxx;
       $this->opciones['subareas'] = $this->casos($objetoxx->i_prm_area_ajuste_id, true, false);
     }
@@ -256,13 +256,13 @@ class IsDatoBasicoController extends Controller {
     if ($request->ajax()) {
       $actualxx = IsDatosBasico::select([
                   'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id', 'is_datos_basicos.sis_nnaj_id', 'tipoaten.nombre as tipoxxxx',
-                  'is_datos_basicos.d_fecha_diligencia', 'sis_dependencias.nombre', 'users.s_primer_nombre', 'is_datos_basicos.activo']
+                  'is_datos_basicos.d_fecha_diligencia', 'sis_dependencias.nombre', 'users.s_primer_nombre', 'is_datos_basicos.sis_esta_id']
               )
               ->join('sis_dependencias', 'is_datos_basicos.sis_dependencia_id', '=', 'sis_dependencias.id')
               ->join('users', 'is_datos_basicos.i_primer_responsable', '=', 'users.id')
               ->join('parametros as tipoaten', 'is_datos_basicos.i_prm_tipo_atencion_id', '=', 'tipoaten.id')
               ->where(function($queryxxx) use($nnajxxxx) {
-        $queryxxx->where('is_datos_basicos.activo', 1)->where('is_datos_basicos.sis_nnaj_id', $nnajxxxx);
+        $queryxxx->where('is_datos_basicos.sis_esta_id', 1)->where('is_datos_basicos.sis_nnaj_id', $nnajxxxx);
       })
       ;
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisActividadProceso extends Model
 {
-    protected $fillable = ['sis_actividad_id', 'sis_proceso_id', 'tiempo', 'activo', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['sis_actividad_id', 'sis_proceso_id', 'tiempo', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 

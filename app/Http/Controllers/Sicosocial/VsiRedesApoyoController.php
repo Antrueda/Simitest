@@ -22,10 +22,10 @@ class VsiRedesApoyoController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiRedSocial->where('activo', 1)->sortByDesc('id')->first();
-        $valorPasado = $vsi->VsiRedsocPasado->where('activo', 1)->sortByDesc('id');
-        $valorActual = $vsi->VsiRedsocActual->where('activo', 1)->sortByDesc('id');
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiRedSocial->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valorPasado = $vsi->VsiRedsocPasado->where('sis_esta_id', 1)->sortByDesc('id');
+        $valorActual = $vsi->VsiRedsocActual->where('sis_esta_id', 1)->sortByDesc('id');
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $persona = Tema::findOrFail(70)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $motivos = Tema::findOrFail(72)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -108,14 +108,14 @@ class VsiRedesApoyoController extends Controller{
 
     public function destroyPasado($id, $id1){
         $dato = VsiRedsocPasado::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('VSI.redesapoyo', $id)->with('info', 'Registro eliminado con éxito');
     }
 
     public function destroyActual($id, $id1){
         $dato = VsiRedsocActual::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('VSI.redesapoyo', $id)->with('info', 'Registro eliminado con éxito');
     }

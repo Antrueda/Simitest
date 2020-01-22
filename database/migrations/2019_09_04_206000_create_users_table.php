@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('s_telefono');
             $table->string('s_matriculap');
             $table->string('s_documento');
-            $table->string('s_observacion',3000);
+            $table->string('s_observacion', 3000);
             $table->date('d_vinculacion');
             $table->integer('i_tiempo');
             $table->timestamp('email_verified_at')->nullable();
@@ -38,17 +38,16 @@ class CreateUsersTable extends Migration
             $table->date('d_finvinculacion');
             $table->bigInteger('prm_tvinculacion_id')->unsigned();
             $table->bigInteger('prm_documento_id')->unsigned();
-            $table->bigInteger('i_prm_estado_id')->unsigned();
-            $table->foreign('i_prm_estado_id')->references('id')->on('parametros');
+            $table->integer('sis_esta_id');
+            //$table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('prm_tvinculacion_id')->references('id')->on('parametros');
             $table->foreign('prm_documento_id')->references('id')->on('parametros');
             $table->foreign('sis_cargo_id')->references('id')->on('sis_cargos');
-            
+
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
             $table->unique(['prm_documento_id', 's_documento']);
-            $table->engine = 'InnoDB';
         });
         Schema::create('h_users', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -58,7 +57,7 @@ class CreateUsersTable extends Migration
             $table->string('s_segundo_nombre');
             $table->string('s_primer_apellido');
             $table->string('s_segundo_apellido');
-            $table->string('s_observacion',3000);
+            $table->string('s_observacion', 3000);
             $table->string('email');
             $table->string('password');
             $table->dateTime('created_at');
@@ -66,14 +65,13 @@ class CreateUsersTable extends Migration
             $table->string('s_telefono');
             $table->string('s_matriculap');
             $table->date('d_vinculacion');
-           $table->integer('i_tiempo'); 
+            $table->integer('i_tiempo');
             $table->integer('sis_cargo_id');
             $table->date('d_finvinculacion');
             $table->integer('prm_tvinculacion_id');
             $table->integer('sis_municipio_id');
             $table->integer('prm_documento_id');
-            $table->integer('i_prm_estado_id');
-            $table->engine = 'InnoDB';
+            $table->integer('sis_esta_id');
         });
     }
 

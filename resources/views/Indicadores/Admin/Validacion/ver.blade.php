@@ -11,7 +11,7 @@
         @can('indicador-borrar')
           {!! Form::open(['route' => [$todoxxxx['routxxxx'].'.borrar', $todoxxxx["modeloxx"]->id], 'method' => 'DELETE']) !!}
           
-            @if($todoxxxx["modeloxx"]->activo == 1)
+            @if($todoxxxx["modeloxx"]->sis_esta_id == 1)
               <button class="btn btn-danger">Inactivar</button>
             @else
               <button class="btn btn-success">Activar</button>

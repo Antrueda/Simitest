@@ -48,7 +48,8 @@ class CreateFiViolenciasTable extends Migration
             $table->bigInteger('sis_nnaj_id')->unsigned();//->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
             $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo');//->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -79,7 +80,7 @@ class CreateFiViolenciasTable extends Migration
             $table->foreign('i_prm_depto_certifica_id')->references('id')->on('parametros');
             $table->foreign('i_prm_municipio_certifica_id')->references('id')->on('parametros');
 
-            $table->engine = 'InnoDB';
+            
         });
     }
 

@@ -55,7 +55,7 @@ class FiRazoneController extends Controller {
         ['data' => 'btns', 'name' => 'btns'],
         ['data' => 'id', 'name' => 'fi_documentos_anexas.id'],
         ['data' => 'nombre', 'name' => 'parametros.nombre'],
-        ['data' => 'activo', 'name' => 'fi_documentos_anexas.activo'],
+        ['data' => 'sis_esta_id', 'name' => 'fi_documentos_anexas.sis_esta_id'],
     ];
     $this->opciones['dataxxxx'] = [
         ['campoxxx' => 'nnajxxxx', 'dataxxxx' => $this->opciones['nnajregi']],
@@ -80,7 +80,7 @@ class FiRazoneController extends Controller {
       $this->opciones['deperesp'] = $responsa[0];
       $this->opciones['cargodil'] = $dilegenc[1];
       $this->opciones['cargores'] = $responsa[1];
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
     $this->opciones['docuanex'] = FiRazone::getDocumento($objetoxx);
     // Se arma el titulo de acuerdo al array opciones

@@ -17,9 +17,10 @@ class CreateCsdJusticiasTable extends Migration{
             $table->date('fecha');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
@@ -31,7 +32,7 @@ class CreateCsdJusticiasTable extends Migration{
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->unique(['csd_id', 'sis_nnaj_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('csd_justicias', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -42,9 +43,10 @@ class CreateCsdJusticiasTable extends Migration{
             $table->bigInteger('prm_rie_causa_id')->unsigned()->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_vinculado_id')->references('id')->on('parametros');
             $table->foreign('prm_vin_causa_id')->references('id')->on('parametros');
@@ -61,7 +63,7 @@ class CreateCsdJusticiasTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->unique(['parametro_id', 'csd_id']);
-            $table->engine = 'InnoDB';
+            
         });
     }
 

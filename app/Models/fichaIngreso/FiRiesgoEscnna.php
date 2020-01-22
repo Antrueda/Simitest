@@ -13,10 +13,10 @@ class FiRiesgoEscnna extends Model{
     'user_crea_id', 
     'user_edita_id',
     'i_prm_riesgo_escnna_id',
-    'activo'
+    'sis_esta_id'
   ];
 
-  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');

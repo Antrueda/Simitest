@@ -66,7 +66,7 @@ class FiSaludController extends Controller
         ['data' => 'medicina','name'=>'parametros.nombre as medicina'],
         ['data' => 's_medicamento','name'=>'fi_proceso_familias.s_medicamento'],
         ['data' => 'tratamiento','name'=>'parametros.nombre as tratamiento'],
-        ['data' => 'activo','name'=>'fi_proceso_familias.activo'],
+        ['data' => 'sis_esta_id','name'=>'fi_proceso_familias.sis_esta_id'],
     ];
   }
 
@@ -117,7 +117,7 @@ class FiSaludController extends Controller
       }
 
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];

@@ -27,10 +27,10 @@ class FiGeneracionIngreso extends Model{
     'sis_nnaj_id',
     'user_crea_id',
     'user_edita_id',
-    'activo'
+    'sis_esta_id'
   ];
 
-  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'i_dias_buscando_empleo' => 0,
+  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'i_dias_buscando_empleo' => 0,
   'i_meses_buscando_empleo' => 0, 'i_anos_buscando_empleo' => 0, 's_trabajo_formal' => ' ',];
   public function creador()
   {
@@ -60,7 +60,7 @@ class FiGeneracionIngreso extends Model{
       'fi_generacion_ingreso_id'=>$digenera->id,
       'user_crea_id'=>Auth::user()->id,
       'user_edita_id'=>Auth::user()->id,
-      'activo'=>1,
+      'sis_esta_id'=>1,
     ];
     FiDiasGeneraIngreso::where('fi_generacion_ingreso_id', $digenera->id)->delete();
     foreach($dataxxxx['i_prm_dia_genera_id'] as $diagener){

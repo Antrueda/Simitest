@@ -42,10 +42,10 @@ class FiResidencia extends Model
     'sis_nnaj_id',
     'user_crea_id',
     'user_edita_id',
-    'activo'
+    'sis_esta_id'
   ];
 
-  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');
@@ -116,7 +116,7 @@ public function sis_barrio()
     $datosxxx = [
       'user_crea_id' => Auth::user()->id,
       'user_edita_id' => Auth::user()->id,
-      'activo' => 1,
+      'sis_esta_id' => 1,
       'fi_residencia_id' => $objetoxx->id
     ];
     foreach ($dataxxxx['i_prm_condicion_amb_id'] as $registro) {

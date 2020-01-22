@@ -16,7 +16,7 @@
             {!! Form::close() !!}
         @endif
         <hr>
-        @if ($vsi->activo == 1)
+        @if ($vsi->sis_esta_id == 1)
             {!! Form::open(['route' => ['VSI.redesapoyo.actual', $vsi->id], 'class' => 'form-horizontal']) !!}
                 {{ Form::hidden('vsi_id', $vsi->id) }}
                 @include('Sicosocial.RedesApoyo.camposRedesActuales')
@@ -24,7 +24,7 @@
         @endif
         @include('Sicosocial.RedesApoyo.datosRedesActuales')
         <hr>
-        @if ($vsi->activo == 1)
+        @if ($vsi->sis_esta_id == 1)
             {!! Form::open(['route' => ['VSI.redesapoyo.pasado', $vsi->id], 'class' => 'form-horizontal']) !!}
                 {{ Form::hidden('vsi_id', $vsi->id) }}
                 @include('Sicosocial.RedesApoyo.camposred')

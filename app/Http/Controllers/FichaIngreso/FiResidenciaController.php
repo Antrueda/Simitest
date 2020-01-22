@@ -84,7 +84,7 @@ class FiResidenciaController extends Controller
         $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
       }
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
       $this->opciones['upzxxxxx'] = SisUpz::combo($objetoxx->sis_localidad_id, false);
       $this->opciones['barrioxx'] = SisBarrio::combo($objetoxx->sis_barrio->sis_upz_id, false);
       $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente($objetoxx->id);

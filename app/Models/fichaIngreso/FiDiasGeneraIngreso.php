@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class FiDiasGeneraIngreso extends Model
@@ -11,12 +12,12 @@ class FiDiasGeneraIngreso extends Model
         'fi_generacion_ingreso_id', 
         'user_crea_id', 
         'user_edita_id',
-        'activo'
+        'sis_esta_id'
       ];
     public function fi_generacion_ingreso(){
       return $this->belongsTo(FiGeneracionIngreso::class);
     }
-      protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+      protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
       public function creador()
       {
         return $this->belongsTo(User::class, 'user_crea_id');

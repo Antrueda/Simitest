@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class CsdRedsocPasado extends Model{
 
     protected $fillable = [
-        'csd_id',  'user_crea_id', 'user_edita_id', 'activo',
+        'csd_id',  'user_crea_id', 'user_edita_id', 'sis_esta_id',
         'nombre',   'servicios',    'cantidad',     'prm_unidad_id', 
         'ano', 'retiro'
     ];

@@ -19,7 +19,7 @@ class CreateSisDependenciaUserTable extends Migration
             $table->bigInteger('sis_dependencia_id')->unsigned();
             //$table->bigInteger('i_prm_condicional_id')->unsigned();
             $table->unique(['user_id', 'sis_dependencia_id']);
-            $table->engine = 'InnoDB';
+            
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('sis_dependencia_id')->references('id')->on('sis_dependencias');
             //$table->foreign('i_prm_condicional_id')->references('id')->on('parametros');

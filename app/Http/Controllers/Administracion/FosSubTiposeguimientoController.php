@@ -69,7 +69,7 @@ class FosSubTipoSeguimientoController extends Controller
             ['data' => 'nombre', 'name' => 'fos_stses.nombre'],
             ['data' => 's_seguimiento', 'name' => 'fos_tses.nombre as s_seguimiento'],
             ['data' => 's_area', 'name' => 'fos_areas.nombre as s_area'],
-            ['data' => 'activo', 'name' => 'fos_stses.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'fos_stses.sis_esta_id'],
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }
@@ -85,7 +85,7 @@ class FosSubTipoSeguimientoController extends Controller
         if ($nombobje != '') { 
             $objetoxx->fos_area_id=$objetoxx->fos_tse->fos_area_id;
             $this->opciones['tiposegu'] =FosTse::combo($objetoxx->fos_area_id, true, false);
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
 
@@ -131,8 +131,8 @@ class FosSubTipoSeguimientoController extends Controller
 
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => $objetoxx->activo == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1,
-                'tituloxx' => '', 'clasexxx' => $objetoxx->activo == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'
+                'mostrars' => true, 'accionxx' => $objetoxx->sis_esta_id == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1,
+                'tituloxx' => '', 'clasexxx' => $objetoxx->sis_esta_id == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'
             ];
         $this->opciones['readonly'] = 'readonly';
         return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'ver');
@@ -196,9 +196,9 @@ class FosSubTipoSeguimientoController extends Controller
     public function destroy(FosStse $objetoxx)
     {
 
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
 
         return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
     }

@@ -73,7 +73,7 @@ class InLigruController extends Controller
             ['data' => 'id', 'name' => 'in_base_fuentes.id'],
             ['data' => 's_linea_base', 'name' => 'in_linea_bases.s_linea_base'],
             ['data' => 'nombre', 'name' =>'sis_documento_fuentes.nombre'],
-            ['data' => 'activo', 'name' => 'in_base_fuentes.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'in_base_fuentes.sis_esta_id'],
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }
@@ -103,7 +103,7 @@ class InLigruController extends Controller
 
             ['data' => 's_linea_base', 'name' => 'in_linea_bases.s_linea_base'],
            
-            ['data' => 'activo', 'name' => 'in_ligrus.sis_esta_id as activo'],
+            ['data' => 'sis_esta_id', 'name' => 'in_ligrus.sis_esta_id as activo'],
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }
@@ -175,8 +175,8 @@ class InLigruController extends Controller
 
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => $objetoxx->activo == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1,
-                'tituloxx' => '', 'clasexxx' => $objetoxx->activo == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'
+                'mostrars' => true, 'accionxx' => $objetoxx->sis_esta_id == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1,
+                'tituloxx' => '', 'clasexxx' => $objetoxx->sis_esta_id == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'
             ];
         $this->opciones['readonly'] = 'readonly';
         return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'ver');
@@ -251,9 +251,9 @@ class InLigruController extends Controller
     public function destroy(InLigru $objetoxx)
     {
 
-        $objetoxx->sis_esta_id   = ($objetoxx->activo == 2) ? 1 : 2;
+        $objetoxx->sis_esta_id   = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
 
         return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
     }

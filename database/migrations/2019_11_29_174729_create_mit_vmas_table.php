@@ -155,7 +155,8 @@ class CreateMitVmasTable extends Migration{
             $table->bigInteger('user_doc1_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('prm_upi_id')->references('id')->on('parametros');
@@ -214,7 +215,7 @@ class CreateMitVmasTable extends Migration{
             $table->foreign('user_doc1_id')->references('id')->on('users');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('mit_vma_ttos', function (Blueprint $table) {
@@ -225,7 +226,7 @@ class CreateMitVmasTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('mit_vma_id')->references('id')->on('mit_vmas');
             $table->unique(['parametro_id', 'mit_vma_id']);
-            $table->engine = 'InnoDB';
+            
         });
     }
 

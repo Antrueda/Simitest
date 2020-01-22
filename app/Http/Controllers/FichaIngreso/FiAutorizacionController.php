@@ -82,7 +82,7 @@ class FiAutorizacionController extends Controller
 
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
 
     $this->opciones['modaling'] = FiAutorizacion::getModalidad($objetoxx);

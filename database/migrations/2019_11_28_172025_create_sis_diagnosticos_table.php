@@ -19,7 +19,7 @@ class CreateSisDiagnosticosTable extends Migration
             $table->char('simbolo')->nullable();
             $table->text('descripcion',4000);
             $table->char('sexo');
-            $table->engine = 'InnoDB';
+            
         });
     }
 

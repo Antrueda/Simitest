@@ -24,9 +24,10 @@ class CreateAgConveniosTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->dateTime('d_subscrip');
             $table->dateTime('d_terminac');
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');  
             $table->foreign('i_prm_tconvenio_id')->references('id')->on('parametros');

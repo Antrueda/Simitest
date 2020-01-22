@@ -50,7 +50,7 @@ class FiConsumoController extends Controller
       ['data' => 'sustancia','name'=>'parametros.nombre as sustancia'],
       ['data' => 'i_edad_uso','name'=>'fi_sustancia_consumidas.i_edad_uso'],
       ['data' => 'consume','name'=>'parametros.nombre as consume'],
-      ['data' => 'activo','name'=>'fi_sustancia_consumidas.activo'],
+      ['data' => 'sis_esta_id','name'=>'fi_sustancia_consumidas.sis_esta_id'],
     ];
   }
 
@@ -63,7 +63,7 @@ class FiConsumoController extends Controller
     if ($nombobje != '') {
       $this->opciones['puedexxx'] = '';
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
 
     // Se arma el titulo de acuerdo al array opciones

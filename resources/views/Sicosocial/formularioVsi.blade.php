@@ -34,7 +34,7 @@
                         @foreach($vsis as $d)
                             <tr>
                                 <td>
-                                    @if($d->activo == 1)
+                                    @if($d->sis_esta_id == 1)
                                         @canany(['vsidatobasico-editar'])
                                             <a class="btn btn-sm btn-primary" title="Editar" href="{{ route('VSI.editar', [$dato->id, $d->id]) }}">
                                                 Editar

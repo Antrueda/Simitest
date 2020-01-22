@@ -26,7 +26,7 @@ class RolController extends Controller
   }
   protected function datos(array $request)
   {
-    return Role::select('id', 'name', 'activo')
+    return Role::select('id', 'name', 'sis_esta_id')
       ->when(request('buscar'), function ($q, $buscar) {
         return $q->where('name', 'like', '%' . $buscar . '%');
       })
@@ -46,7 +46,7 @@ class RolController extends Controller
         [
           'body' => [['td' => $rolexxxx->id], ['td' => $rolexxxx->name], ['td' => $rolexxxx->estado = 1 ? 'ACTIVO' : 'INACTIVO']],
           'id' => $rolexxxx->id,
-          'estadoxx' => $rolexxxx->activo,
+          'estadoxx' => $rolexxxx->sis_esta_id,
         ];
     }
     return view($this->opciones['rutaxxxx'] . '.index', [
@@ -84,7 +84,7 @@ class RolController extends Controller
 
     $role = Role::create([
       'name' => $request->all()['name'], 'guard_name' => 'web',
-      'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'activo' => 1
+      'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'sis_esta_id' => 1
     ])
       ->givePermissionTo($request->all()['permissions']);
     return redirect()->route($this->opciones['rutaxxxx'] . '.editar', $role->id)

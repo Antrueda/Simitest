@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Parametro extends Model
 {
-  protected $fillable = ['nombre', 'activo', 'user_crea_id', 'user_edita_id'];
+  protected $fillable = ['nombre', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
   protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 

@@ -56,7 +56,7 @@ class AgConvenioController extends Controller
             ['data' => 'i_nconvenio', 'name' => 'ag_convenios.i_nconvenio'],
             ['data' => 'd_subscrip', 'name' => 'ag_convenios.d_subscrip'],
             ['data' => 'd_terminac', 'name' => 'ag_convenios.d_terminac'],
-            ['data' => 'activo', 'name' => 'ag_convenios.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'ag_convenios.sis_esta_id'],
         ];
     }
     /**
@@ -79,7 +79,7 @@ class AgConvenioController extends Controller
         // indica si se esta actualizando o viendo
 
         if ($nombobje != '') {
-             $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
 
             $this->opciones[$nombobje] = $objetoxx;
         }
@@ -156,9 +156,9 @@ class AgConvenioController extends Controller
      */
     public function destroy(AgConvenio $objetoxx)
     {
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
     }
 }

@@ -20,7 +20,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link{{ ($accion=='Basico') ?' active' : '' }}" href="{{ route('VSI.basico', $vsi->id) }}">
                         1. Datos básicos 
-                        @if($vsi->VsiDatosVincula->where('activo', 1)->count()==0)
+                        @if($vsi->VsiDatosVincula->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -32,7 +32,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link{{ ($accion=='Bienvenida') ?' active' : '' }}" href="{{ route('VSI.bienvenida', $vsi->id) }}">
                         2. Motivos de vinculación y bienvenida
-                        @if($vsi->VsiBienvenida->where('activo', 1)->count()==0)
+                        @if($vsi->VsiBienvenida->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -44,7 +44,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='RelFamiliar') ?' active' : '' }} " href="{{ route('VSI.relfamiliar', $vsi->id) }}">
                         3. Relaciones familiares
-                        @if($vsi->VsiRelFamiliar->where('activo', 1)->count()==0)
+                        @if($vsi->VsiRelFamiliar->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -56,7 +56,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='Violencia') ?' active' : '' }}  " href=" {{ route('VSI.violencia', $vsi->id) }} ">
                         4. Violencias y condición especial
-                        @if($vsi->VsiViolencia->where('activo', 1)->count()==0)
+                        @if($vsi->VsiViolencia->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -68,7 +68,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='DinFamiliar') ?' active' : '' }}" href="{{ route('VSI.dinfamiliar', $vsi->id) }}">
                         5. Dinámica familiar
-                        @if($vsi->VsiDinFamiliar->where('activo', 1)->count()==0)
+                        @if($vsi->VsiDinFamiliar->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -80,7 +80,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='RelSocial') ?' active' : '' }}" href=" {{ route('VSI.relsocial', $vsi->id) }} ">
                         6. Relaciones sociales 
-                        @if($vsi->VsiRelSociales->where('activo', 1)->count()==0)
+                        @if($vsi->VsiRelSociales->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -92,7 +92,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='RedesApoyo') ?' active' : '' }}" href=" {{ route('VSI.redesapoyo', $vsi->id) }} ">
                         7. Redes sociales de apoyo
-                        @if($vsi->VsiRedSocial->where('activo', 1)->count()==0)
+                        @if($vsi->VsiRedSocial->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -104,7 +104,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='Antecedente') ?' active' : '' }} " href="{{ route('VSI.antecedente', $vsi->id) }}">
                         8. Antecedentes
-                        @if($vsi->VsiAntecedente->where('activo', 1)->count()==0)
+                        @if($vsi->VsiAntecedente->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -116,7 +116,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='genIngresos') ?' active' : '' }} " href=" {{ route('VSI.genIngresos', $vsi->id) }} ">
                         9. Generación de ingresos
-                        @if($vsi->VsiGenIngreso->where('activo', 1)->count()==0)
+                        @if($vsi->VsiGenIngreso->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -128,7 +128,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='Educacion') ?' active' : '' }} " href=" {{ route('VSI.educacion', $vsi->id) }} ">
                         10. Educación
-                        @if($vsi->VsiEducacion->where('activo', 1)->count()==0)
+                        @if($vsi->VsiEducacion->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -140,7 +140,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link{{ ($accion=='Salud') ?' active' : '' }}" href="{{ route('VSI.salud', $vsi->id) }}">
                         11. Antecedentes de salud
-                        @if($vsi->VsiSalud->where('activo', 1)->count()==0)
+                        @if($vsi->VsiSalud->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -152,7 +152,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='EstEmocional') ?' active' : '' }}" href=" {{ route('VSI.estemocional', $vsi->id) }} ">
                         12. Estado emocional
-                        @if($vsi->VsiEstEmocional->where('activo', 1)->count()==0)
+                        @if($vsi->VsiEstEmocional->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -164,7 +164,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link{{ ($accion=='ActEmocional') ?' active' : '' }}" href="{{ route('VSI.actemocional', $vsi->id) }}">
                         13. Activación emocional
-                        @if($vsi->VsiActEmocional->where('activo', 1)->count()==0)
+                        @if($vsi->VsiActEmocional->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -176,7 +176,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='PresAbusoSexual') ?' active' : '' }}" href="{{ route('VSI.presabusosexual', $vsi->id) }}">
                         14. Presunto abuso sexual
-                        @if($vsi->VsiAbuSexual->where('activo', 1)->count()==0)
+                        @if($vsi->VsiAbuSexual->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -188,7 +188,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='SituacionEspecial') ?' active' : '' }}" href=" {{ route('VSI.situacionespecial', $vsi->id) }} ">
                         15. Situación especial y ESCNNA
-                        @if($vsi->VsiSitEspecial->where('activo', 1)->count()==0)
+                        @if($vsi->VsiSitEspecial->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -200,7 +200,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link {{ ($accion=='Consumo') ?' active' : '' }} " href="{{ route('VSI.consumo', $vsi->id) }}">
                         16. Consumo de sustancias psicoactivas
-                        @if($vsi->VsiConsumo->where('activo', 1)->count()==0)
+                        @if($vsi->VsiConsumo->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -212,7 +212,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link{{ ($accion=='Factor') ?' active' : '' }}" href="{{ route('VSI.factor', $vsi->id) }}">
                         17. Factores
-                        @if($vsi->VsiFacProtector->where('activo', 1)->count()+$vsi->VsiFacRiesgo->where('activo', 1)->count()==0)
+                        @if($vsi->VsiFacProtector->where('sis_esta_id', 1)->count()+$vsi->VsiFacRiesgo->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -224,7 +224,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link{{ ($accion=='Meta') ?' active' : '' }}" href="{{ route('VSI.meta', $vsi->id) }}">
                         18. Potencialidades y metas
-                        @if($vsi->VsiPotencialidad->where('activo', 1)->count()+$vsi->VsiMeta->where('activo', 1)->count()==0)
+                        @if($vsi->VsiPotencialidad->where('sis_esta_id', 1)->count()+$vsi->VsiMeta->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -236,7 +236,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link{{ ($accion=='AreaAjuste') ?' active' : '' }}" href="{{ route('VSI.areaajuste', $vsi->id) }}">
                         19. Áreas de ajuste sicosocial
-                        @if($vsi->emocionales->where('activo', 1)->count()+$vsi->sexuales->where('activo', 1)->count()+$vsi->comportamentales->where('activo', 1)->count()+$vsi->academicas->where('activo', 1)->count()+$vsi->sociales->where('activo', 1)->count()+$vsi->familiares->where('activo', 1)->count()==0)
+                        @if($vsi->emocionales->where('sis_esta_id', 1)->count()+$vsi->sexuales->where('sis_esta_id', 1)->count()+$vsi->comportamentales->where('sis_esta_id', 1)->count()+$vsi->academicas->where('sis_esta_id', 1)->count()+$vsi->sociales->where('sis_esta_id', 1)->count()+$vsi->familiares->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -248,7 +248,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link{{ ($accion=='Concepto') ?' active' : '' }}" href="{{ route('VSI.concepto', $vsi->id) }}">
                         20. Impresicón diagnóstica y análisis social
-                        @if($vsi->VsiConcepto->where('activo', 1)->count()+$vsi->VsiMeta->where('activo', 1)->count()==0)
+                        @if($vsi->VsiConcepto->where('sis_esta_id', 1)->count()+$vsi->VsiMeta->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>
@@ -260,7 +260,7 @@
                 <li class="nav-item text-sm">
                     <a class="nav-link{{ ($accion=='Consentimiento') ?' active' : '' }}" href="{{ route('VSI.consentimiento', $vsi->id) }}">
                         21. Consentimiento informado
-                        @if($vsi->VsiConsentimiento->where('activo', 1)->count()==0)
+                        @if($vsi->VsiConsentimiento->where('sis_esta_id', 1)->count()==0)
                             <span class="fas fa-times text-danger" aria-hidden="true"></span>
                         @else
                             <span class="fas fa-check text-success" aria-hidden="true"></span>

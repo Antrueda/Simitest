@@ -18,9 +18,10 @@ class CreateVsiDatosBasicosTable extends Migration{
             $table->date('fecha');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('dependencia_id')->references('id')->on('sis_dependencias');
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -34,7 +35,7 @@ class CreateVsiDatosBasicosTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_nnaj_sexual', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -44,7 +45,7 @@ class CreateVsiDatosBasicosTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_nnaj_comportamental', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -54,7 +55,7 @@ class CreateVsiDatosBasicosTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_nnaj_academica', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -64,7 +65,7 @@ class CreateVsiDatosBasicosTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_nnaj_social', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -74,7 +75,7 @@ class CreateVsiDatosBasicosTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_nnaj_familiar', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -84,7 +85,7 @@ class CreateVsiDatosBasicosTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
-            $table->engine = 'InnoDB';
+            
         });
     }
 

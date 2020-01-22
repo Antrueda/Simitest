@@ -16,15 +16,15 @@ Route::get('fos/tiposeg', function (Request $request) {
 					'fos_tses.id',
 					'fos_tses.nombre',
 					'fos_areas.nombre as s_area',
-					'fos_tses.activo'
+					'fos_tses.sis_esta_id'
 				]
 			)
 				->join('fos_areas', 'fos_tses.fos_area_id', '=', 'fos_areas.id')
 
 		)
 		->addColumn('btns', $dataxxxx['botonesx'])
-		->addColumn('activo', 'layouts/components/botones/estadoxx')
-		->rawColumns(['btns', 'activo'])
+		->addColumn('sis_esta_id', 'layouts/components/botones/estadoxx')
+		->rawColumns(['btns', 'sis_esta_id'])
 
 		->toJson();
 });
@@ -40,7 +40,7 @@ Route::get('fos/subtipo', function (Request $request) {
 					'fos_stses.nombre',
 					'fos_areas.nombre as s_area',
 					'fos_tses.nombre as s_seguimiento',
-					'fos_stses.activo'
+					'fos_stses.sis_esta_id'
 				]
 			)
 				->join('fos_tses', 'fos_stses.fos_tse_id', '=', 'fos_tses.id')

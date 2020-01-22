@@ -65,20 +65,20 @@ class FosTipoSeguimientoController extends Controller
             ['data' => 'id', 'name' => 'fos_tses.id'],
             ['data' => 'nombre', 'name' => 'fos_tses.nombre'],
             ['data' => 's_area', 'name' => 'fos_areas.nombre as s_area'],
-            ['data' => 'activo', 'name' => 'fos_tses.activo as activo'],
+            ['data' => 'sis_esta_id', 'name' => 'fos_tses.sis_esta_id as activo'],
         ];
         return view($this->opciones['rutacarp'].'index', ['todoxxxx' => $this->opciones]);
     }
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
 
-        $this->opciones['fosareas'] = $areas = FosArea::orderBy('nombre')->where('activo', '1')->pluck('nombre', 'id');
+        $this->opciones['fosareas'] = $areas = FosArea::orderBy('nombre')->where('sis_esta_id', '1')->pluck('nombre', 'id');
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
         $this->opciones['nivelxxx'] = '';
         if ($nombobje != '') {
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
 
@@ -121,8 +121,8 @@ class FosTipoSeguimientoController extends Controller
     {
 
         $this->opciones['botoform'][] = 
-            ['mostrars' => true, 'accionxx' => $objetoxx->activo == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1, 
-            'tituloxx' => '','clasexxx'=>$objetoxx->activo == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'];
+            ['mostrars' => true, 'accionxx' => $objetoxx->sis_esta_id == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1, 
+            'tituloxx' => '','clasexxx'=>$objetoxx->sis_esta_id == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'];
         $this->opciones['readonly'] = 'readonly';
         return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'ver');
     }
@@ -183,9 +183,9 @@ class FosTipoSeguimientoController extends Controller
     public function destroy(FosTse $objetoxx)
     {
         
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
 
         return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro '.$activado. ' con éxito');
     }

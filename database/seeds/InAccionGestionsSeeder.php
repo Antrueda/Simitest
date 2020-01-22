@@ -21,7 +21,7 @@ class InAccionGestionsSeeder extends Seeder
         'user_edita_id'=>1, 
         'i_tiempo'=>2, 
         'i_porcentaje'=>30, 
-        'activo'=>1, 
+        'sis_esta_id'=>1, 
         'created_at'=>'2019-12-03 00:18:26', 
         'updated_at'=>'2019-12-03 00:18:26',];
      for($i=1; $i<6;$i++){

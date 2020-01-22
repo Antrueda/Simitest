@@ -20,9 +20,10 @@ class CreateAgRelacionsTable extends Migration
             $table->integer('i_cantidad');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('ag_actividad_id')->references('id')->on('ag_actividads');
             $table->foreign('ag_recurso_id')->references('id')->on('ag_recursos');
             $table->foreign('user_crea_id')->references('id')->on('users');

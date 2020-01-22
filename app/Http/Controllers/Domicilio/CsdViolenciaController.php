@@ -22,8 +22,8 @@ class CsdViolenciaController extends Controller{
 
     public function show($id){
         $dato  = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('activo', 1)->all();
-        $valor = $dato->CsdViolencia->where('activo', 1)->sortByDesc('id')->first();
+        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
+        $valor = $dato->CsdViolencia->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $condicion  = Tema::findOrFail(57)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $depajs = SisDepartamento::orderBy('s_departamento')->get();

@@ -11,7 +11,7 @@ Route::get('sis/fsoporte', function (Request $request) {
             'sis_fsoportes.nombre',
             'sis_actividads.nombre as sis_actividad_id'])
             ->join('sis_actividads','sis_fsoportes.sis_actividad_id','=','sis_actividads.id')
-            ->where('sis_fsoportes.activo', 1))
+            ->where('sis_fsoportes.sis_esta_id', 1))
         ->addColumn('btns', 'administracion/fsoporte/botones/botonesapi')
         ->rawColumns(['btns'])
         ->toJson();

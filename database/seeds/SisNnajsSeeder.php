@@ -17,7 +17,7 @@ class SisNnajsSeeder extends Seeder
     {
         $faker = Faker::create('es_ES');
         for ($i = 1; $i <= 10; $i++) {
-            SisNnaj::create(['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+            SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
             DB::table('fi_datos_basicos')->insert(array(
                 's_primer_nombre' => $faker->firstName,
                 's_segundo_nombre' => $faker->firstName,
@@ -35,7 +35,7 @@ class SisNnajsSeeder extends Seeder
                 'prm_factor_rh_id' => $faker->randomElement(['150', '151']),
                 'sis_nnaj_id' => $i,
                 'fi_nucleo_familiar_id' => '1',
-                'activo' => '1',
+                'sis_esta_id' => '1',
                 'user_crea_id' => '1',
                 'user_edita_id' => '1',
                 'prm_estado_civil_id' => 1,

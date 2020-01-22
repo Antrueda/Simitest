@@ -12,7 +12,7 @@ use App\Models\sistema\SisMunicipio;
 class AiReporteEvasion extends Model{
     
     protected $fillable = [
-        'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'activo',
+        'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
         'departamento_id', 'municipio_id', 'fecha_diligenciamiento', 'prm_upi_id',
         'lugar_evasion', 'fecha_evasion', 'hora_evasion', 'prm_hor_eva_id',
         'nnaj_talla', 'nnaj_peso', 'prm_contextura_id', 'prm_rostro_id',

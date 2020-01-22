@@ -21,14 +21,15 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->bigInteger('i_prm_tipo_id')->nullable()->unsigned();
             $table->bigInteger('i_tiempo')->nullable();
             $table->bigInteger('i_prm_ttiempo_id')->nullable()->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('i_prm_tipo_id')->references('id')->on('parametros');
             $table->foreign('i_prm_ttiempo_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_situacion_vulneracions', function (Blueprint $table) {
@@ -38,13 +39,14 @@ class CreateFiSituacionEspecialsTable extends Migration
 
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('i_prm_situacion_vulnera_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_situacion_especial_id')->references('id')->on('fi_situacion_especials');
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('fi_victima_escnnas', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -53,13 +55,14 @@ class CreateFiSituacionEspecialsTable extends Migration
 
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
              $table->foreign('i_prm_victima_escnna_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_situacion_especial_id')->references('id')->on('fi_situacion_especials');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_riesgo_escnnas', function (Blueprint $table) {
@@ -69,13 +72,14 @@ class CreateFiSituacionEspecialsTable extends Migration
 
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('i_prm_riesgo_escnna_id')->references('id')->on('parametros');
             $table->foreign('fi_situacion_especial_id')->references('id')->on('fi_situacion_especials');
-            $table->engine = 'InnoDB';
+            
         });
 
 
@@ -86,13 +90,14 @@ class CreateFiSituacionEspecialsTable extends Migration
 
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('i_prm_iniciado_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_situacion_especial_id')->references('id')->on('fi_situacion_especials');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_razon_continuas', function (Blueprint $table) {
@@ -102,13 +107,14 @@ class CreateFiSituacionEspecialsTable extends Migration
 
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('i_prm_continua_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_situacion_especial_id')->references('id')->on('fi_situacion_especials');
-            $table->engine = 'InnoDB';
+            
         });
 
 

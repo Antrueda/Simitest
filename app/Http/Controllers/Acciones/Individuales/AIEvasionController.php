@@ -25,15 +25,15 @@ class AIEvasionController extends Controller{
 
     public function index($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $evasiones = $dato->AiReporteEvasion->where('activo', 1)->sortByDesc('fecha')->all();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $evasiones = $dato->AiReporteEvasion->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'evasiones'));
     }
 
     public function create($id){
         $dato  = SisNnaj::findOrFail($id);
-        $nnaj  = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $evasiones  = $dato->AiReporteEvasion->where('activo', 1)->sortByDesc('fecha')->all();
+        $nnaj  = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $evasiones  = $dato->AiReporteEvasion->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis  = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
         $ampm  = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $contextura = Tema::findOrFail(273)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -49,7 +49,7 @@ class AIEvasionController extends Controller{
         $prendas    = Tema::findOrFail(304)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $familiares = Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $atencion   = Tema::findOrFail(306)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $usuarios   = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
+        $usuarios   = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
         $depajs = SisDepartamento::orderBy('s_departamento')->get();
         $upisjs = SisDependencia::orderBy('nombre')->get();
         $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
@@ -87,8 +87,8 @@ class AIEvasionController extends Controller{
 
     public function edit($id, $id0){
         $dato  = SisNnaj::findOrFail($id);
-        $nnaj  = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $evasiones  = $dato->AiReporteEvasion->where('activo', 1)->sortByDesc('fecha')->all();
+        $nnaj  = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $evasiones  = $dato->AiReporteEvasion->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis  = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
         $ampm  = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $contextura = Tema::findOrFail(273)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -104,7 +104,7 @@ class AIEvasionController extends Controller{
         $prendas    = Tema::findOrFail(304)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $familiares = Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $atencion   = Tema::findOrFail(306)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $usuarios   = User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
+        $usuarios   = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
         $valor = AiReporteEvasion::findOrFail($id0);
         $depajs = SisDepartamento::orderBy('s_departamento')->get();
         $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');

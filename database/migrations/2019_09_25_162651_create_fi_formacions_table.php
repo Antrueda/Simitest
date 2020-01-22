@@ -32,7 +32,8 @@ class CreateFiFormacionsTable extends Migration
             $table->bigInteger('sis_nnaj_id')->unsigned();//->comment('NNAJ AL QUE SE LE ASIGNA LA FORMACION');
             $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo')->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -47,7 +48,7 @@ class CreateFiFormacionsTable extends Migration
             $table->foreign('i_prm_ultimo_grado_aprobado_id')->references('id')->on('parametros');
             $table->foreign('i_prm_certificado_ultimo_nivel_id')->references('id')->on('parametros');
             $table->foreign('sis_institucion_edu_id')->references('id')->on('sis_institucion_edus');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_motivo_vinculacions', function (Blueprint $table) {
@@ -56,13 +57,14 @@ class CreateFiFormacionsTable extends Migration
             $table->bigIntegeR('i_prm_motivo_vinc_id')->unsigned()->comment('FI 4.12 MOTIVOS DESEA VINCULARSE AL IDIPRON');
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo')->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_formacion_id')->references('id')->on('fi_formacions');
             $table->foreign('i_prm_motivo_vinc_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
     }
 

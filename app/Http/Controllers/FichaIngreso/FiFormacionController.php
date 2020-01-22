@@ -70,7 +70,7 @@ class FiFormacionController extends Controller
         $this->opciones['readanox'] = 'readonly';
       }
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
     $this->opciones['vinculac'] = FiFormacion::getMotivoVinculacion($objetoxx);
 

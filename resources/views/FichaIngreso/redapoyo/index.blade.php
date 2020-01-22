@@ -30,7 +30,7 @@
       ['data' => 'i_tiempo','name' => 'fi_red_apoyo_antecedentes.i_tiempo'],
       ['data' => 'tipotiem','name' => 'tiempo.nombre as tipotiem'],
       ['data' => 'anioxxxx','name' => 'anio.nombre as anioxxxx'],
-      ['data' => 'activo','name' => 'fi_red_apoyo_antecedentes.activo'],
+      ['data' => 'sis_esta_id','name' => 'fi_red_apoyo_antecedentes.sis_esta_id'],
     ];
     
 
@@ -104,7 +104,7 @@
         ['data' => 's_servicio','name'  => 's_servicio'],
 		['data' => 's_telefono','name'  => 's_telefono'],
 		['data' => 's_direccion','name'  => 's_direccion'],
-        ['data' => 'activo','name'      => 'fi_red_apoyo_actuals.activo'],
+        ['data' => 'sis_esta_id','name'      => 'fi_red_apoyo_actuals.sis_esta_id'],
     ];
     $todoxxxx['tablname']='tbactuales';
     $todoxxxx['urlxxxxx'] = 'api/fi/firedapoyoactual'

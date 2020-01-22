@@ -22,10 +22,10 @@ class VsiDinamicaFamiliarController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj  = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiDinFamiliar->where('activo', 1)->sortByDesc('id')->first();
-        $valorMadre = $vsi->VsiDinfamMadre->where('activo', 1)->sortBy('id');
-        $valorPadre = $vsi->VsiDinfamPadre->where('activo', 1)->sortBy('id');
+        $nnaj  = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiDinFamiliar->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valorMadre = $vsi->VsiDinfamMadre->where('sis_esta_id', 1)->sortBy('id');
+        $valorPadre = $vsi->VsiDinfamPadre->where('sis_esta_id', 1)->sortBy('id');
         $sino = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
             $sino[$k] = $d;
@@ -232,14 +232,14 @@ class VsiDinamicaFamiliarController extends Controller{
 
     public function destroyMadre($id, $id1){
         $dato = VsiDinfamMadre::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('VSI.dinfamiliar', $id)->with('info', 'Registro eliminado con éxito');
     }
 
     public function destroyPadre($id, $id1){
         $dato = VsiDinfamPadre::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('VSI.dinfamiliar', $id)->with('info', 'Registro eliminado con éxito');
     }

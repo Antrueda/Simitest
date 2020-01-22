@@ -14,10 +14,10 @@ class FiModalidad extends Model
         'i_prm_modalidad_id',
         'user_crea_id',
         'user_edita_id',
-        'activo'
+        'sis_esta_id'
     ];
 
-    protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+    protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
     public function creador()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
@@ -45,7 +45,7 @@ class FiModalidad extends Model
                 'fi_autorizacion_id' => $objetoxx->id,
                 'user_crea_id' => Auth::user()->id,
                 'user_edita_id' => Auth::user()->id,
-                'activo' => 1,
+                'sis_esta_id' => 1,
             ];
 
             FiModalidad::where('fi_autorizacion_id', $objetoxx->id)->delete();

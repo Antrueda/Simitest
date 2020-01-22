@@ -8,7 +8,7 @@ use App\Models\User;
 
 class VsiConsentimiento extends Model{
 	protected $fillable = [
-        'vsi_id', 'fecha', 'user_doc1_id', 'cargo1', 'user_doc2_id', 'cargo2', 'activo', 'user_crea_id', 'user_edita_id'
+        'vsi_id', 'fecha', 'user_doc1_id', 'cargo1', 'user_doc2_id', 'cargo2', 'sis_esta_id', 'user_crea_id', 'user_edita_id'
     ];
 
 	protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];

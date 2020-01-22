@@ -60,9 +60,10 @@ class CreateAiReporteEvasionTable extends Migration{
             $table->bigInteger('prm_hor_denuncia_id')->unsigned()->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('departamento_id')->references('id')->on('sis_departamentos');
             $table->foreign('municipio_id')->references('id')->on('sis_municipios');

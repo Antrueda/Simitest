@@ -20,8 +20,8 @@ class VsiEstadoEmocionalController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiEstEmocional->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiEstEmocional->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sentimientos = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(170)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {

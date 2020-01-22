@@ -14,12 +14,12 @@ class FiEventosMedico extends Model
         'i_prm_evento_medico_id',
         'user_crea_id',
         'user_edita_id',
-        'activo'
+        'sis_esta_id'
     ];
     public function fi_evento_medico(){
         return $this->belongsTo(FiEventosMedico::class);
       }
-        protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+        protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
         public function creador()
         {
           return $this->belongsTo(User::class, 'user_crea_id');

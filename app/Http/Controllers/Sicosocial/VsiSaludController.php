@@ -21,8 +21,8 @@ class VsiSaludController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiSalud->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiSalud->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $motivos = Tema::findOrFail(87)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         return view('Sicosocial.index', ['accion' => 'Salud'], compact('vsi', 'dato', 'nnaj', 'valor', 'sino', 'motivos'));

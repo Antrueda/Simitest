@@ -49,9 +49,10 @@ class CreateIsDatosBasicosTable extends Migration{
             $table->bigInteger('i_segundo_responsable')->nullable()->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -87,13 +88,14 @@ class CreateIsDatosBasicosTable extends Migration{
             
             $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo');//->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('is_datos_basico_id')->references('id')->on('is_datos_basicos');
             $table->foreign('i_prm_area_proxima_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
     }
 

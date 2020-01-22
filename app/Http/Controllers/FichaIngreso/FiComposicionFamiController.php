@@ -63,7 +63,7 @@ class FiComposicionFamiController extends Controller {
         ['data' => 's_primer_apellido', 'name' => 'fi_composicion_famis.s_primer_apellido'],
         ['data' => 's_segundo_apellido', 'name' => 'fi_composicion_famis.s_segundo_apellido'],
         ['data' => 's_documento', 'name' => 'fi_composicion_famis.s_documento'],
-        ['data' => 'activo', 'name' => 'fi_composicion_famis.activo'],
+        ['data' => 'sis_esta_id', 'name' => 'fi_composicion_famis.sis_esta_id'],
     ];
   }
 
@@ -86,7 +86,7 @@ class FiComposicionFamiController extends Controller {
     // indica si se esta actualizando o viendo
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
       $fechaxxx = explode('-', $objetoxx->d_nacimiento);
       $this->opciones['aniosxxx'] = Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
       $this->opciones['municipi'] = SisMunicipio::combo($objetoxx->sis_departamento_id, false);

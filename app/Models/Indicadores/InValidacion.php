@@ -19,10 +19,10 @@ class InValidacion extends Model
     'sis_campo_tabla_id',
     'user_crea_id',
     'user_edita_id',
-    'activo'
+    'sis_esta_id'
   ];
 
-  protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');
@@ -57,7 +57,7 @@ class InValidacion extends Model
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = InValidacion::create($dataxxxx);
       }
-      $campmagi = ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'activo' => 1];
+      $campmagi = ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'sis_esta_id' => 1];
       $objetoxx->respuestas()->detach();
       $respuest=[];
       foreach ($dataxxxx['i_prm_respuesta_id'] as $d) {

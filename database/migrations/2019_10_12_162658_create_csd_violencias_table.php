@@ -22,9 +22,10 @@ class CreateCsdViolenciasTable extends Migration{
             $table->bigInteger('municipio_cert_id')->unsigned()->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_condicion_id')->references('id')->on('parametros');
             $table->foreign('departamento_cond_id')->references('id')->on('sis_departamentos');

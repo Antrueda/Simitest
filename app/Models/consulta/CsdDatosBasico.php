@@ -12,7 +12,7 @@ use App\Models\sistema\SisPai;
 
 class CsdDatosBasico extends Model{
     protected $fillable = [
-        'csd_id', 'user_crea_id', 'user_edita_id', 'activo',
+        'csd_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
         'primer_nombre', 'segundo_nombre', 'primer_apellido', 'segundo_apellido',
         'identitario', 'apodo', 'prm_sexo_id', 'prm_genero_id', 'prm_sexual_id', 'nacimiento',
         'pais_id', 'departamento_id', 'municipio_id',

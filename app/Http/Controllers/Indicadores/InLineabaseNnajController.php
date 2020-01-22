@@ -49,7 +49,7 @@ class InLineabaseNnajController extends Controller
             ['data' => 'btns', 'name' => 'btns'],
             ['data' => 'id', 'name' => 'in_lineabase_nnajs.id'],
             ['data' => 's_linea_base', 'name' => 'in_lineabase_nnajs.s_linea_base'],
-            ['data' => 'activo', 'name' => 'in_lineabase_nnajs.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'in_lineabase_nnajs.sis_esta_id'],
         ];
         return view('Indicadores.Admin.Acciongestion.bases', ['todoxxxx' => $this->opciones]);
     }

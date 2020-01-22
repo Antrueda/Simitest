@@ -24,9 +24,10 @@ class CreateAiRetornoSalidasTable extends Migration{
             $table->bigInteger('user_doc1_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('prm_upi_id')->references('id')->on('sis_dependencias');
             $table->foreign('prm_hor_ret_id')->references('id')->on('parametros');
@@ -48,7 +49,7 @@ class CreateAiRetornoSalidasTable extends Migration{
             $table->foreign('retorno_id')->references('id')->on('ai_retorno_salidas');
             $table->foreign('valor_id')->references('id')->on('parametros');
             $table->unique(['parametro_id', 'retorno_id']);
-            $table->engine = 'InnoDB';
+            
         });
     }
 

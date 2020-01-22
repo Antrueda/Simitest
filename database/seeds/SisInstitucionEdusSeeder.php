@@ -22,7 +22,7 @@ class SisInstitucionEdusSeeder extends Seeder
             'user_crea_id' => 1,
             'created_at' => '2019-10-09 06:41:26',
             'user_edita_id' => 1,
-            'activo' => 1,
+            'sis_esta_id' => 1,
             'updated_at' => '2019-10-09 06:41:26',
             'i_prm_sector_id' => 1,
             'i_usr_rector_id' => 1,

@@ -49,7 +49,7 @@ class IsDatosBasico extends Model
         'sis_nnaj_id',
         'user_crea_id', 
         'user_edita_id',
-        'activo'
+        'sis_esta_id'
     ];
 
     // public static function usregisro($usuariox)
@@ -76,10 +76,10 @@ class IsDatosBasico extends Model
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-    public function sis_usuario_actividad()
-    {
-        return $this->belongsTo(SisUsuarioActividad::class);
-    }
+    // public function sis_usuario_actividad()
+    // {
+    //     return $this->belongsTo(SisUsuarioActividad::class);
+    // }
 
     public function SisNnaj()
     {
@@ -108,7 +108,7 @@ class IsDatosBasico extends Model
           'is_datos_basico_id'=>$proxiarea->id, 
           'user_crea_id'=>Auth::user()->id, 
           'user_edita_id'=>Auth::user()->id,
-          'activo'=>1,
+          'sis_esta_id'=>1,
         ];
         IsProximaAreaAjuste::where('is_datos_basico_id', $proxiarea->id)->delete();
         foreach($dataxxxx['i_prm_area_proxima_id'] as $proximare){

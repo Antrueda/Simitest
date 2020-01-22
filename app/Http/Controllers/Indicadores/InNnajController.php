@@ -39,7 +39,7 @@ class InNnajController extends Controller
             ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
             ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
             ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
-            ['data' => 'activo', 'name' => 'sis_nnajs.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'sis_nnajs.sis_esta_id'],
         ];
     }
     /**

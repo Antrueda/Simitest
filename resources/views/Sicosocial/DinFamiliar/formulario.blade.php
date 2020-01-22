@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-6">
                     {{ Form::label('archivo', '5.1 GENOGRAMA', ['class' => 'control-label col-form-label-sm']) }}
-                    @if($vsi->activo == 1)
+                    @if($vsi->sis_esta_id == 1)
                         {{ Form::file('archivo', ['accept' => 'image/jpeg']) }}
                         @if($errors->has('archivo'))
                             <div class="invalid-feedback d-block">
@@ -33,7 +33,7 @@
                 <h6><b>5.2. RELACIONES DE PAREJA</b></h6>
             </div>
         </div>
-        @if($vsi->activo == 1)
+        @if($vsi->sis_esta_id == 1)
             {!! Form::open(['route' => ['VSI.dinfamiliar.madre', $vsi->id], 'class' => 'form-horizontal']) !!}
                 {{ Form::hidden('vsi_id', $vsi->id) }}
                 <div class="row">
@@ -45,7 +45,7 @@
             {!! Form::close() !!}
         @endif
         @include('Sicosocial.DinFamiliar.datosRelProgenitora')
-        @if($vsi->activo == 1)
+        @if($vsi->sis_esta_id == 1)
             {!! Form::open(['route' => ['VSI.dinfamiliar.padre', $vsi->id], 'class' => 'form-horizontal']) !!}
                 {{ Form::hidden('vsi_id', $vsi->id) }}
                 <div class="row">

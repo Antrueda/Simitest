@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class FiNucleoFamiliar extends Model
 {
-    protected $fillable = ['i_en_uso', 'activo', 'user_crea_id', 'user_edita_id'];
-    protected $attributes = ['activo' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
+    protected $fillable = ['i_en_uso', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
     public function creador()
     {
         return $this->belongsTo(User::class, 'user_crea_id');

@@ -21,9 +21,9 @@ class VsiMetaController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valorPote = $vsi->VsiPotencialidad->where('activo', 1)->sortBy('id');
-        $valorMeta = $vsi->VsiMeta->where('activo', 1)->sortBy('id');
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valorPote = $vsi->VsiPotencialidad->where('sis_esta_id', 1)->sortBy('id');
+        $valorMeta = $vsi->VsiMeta->where('sis_esta_id', 1)->sortBy('id');
         return view('Sicosocial.index', ['accion' => 'Meta'], compact('vsi', 'dato', 'nnaj', 'valorPote', 'valorMeta'));
     }
 
@@ -43,14 +43,14 @@ class VsiMetaController extends Controller{
 
     public function destroyPotencialidad($id, $id1){
         $dato = VsiPotencialidad::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('VSI.meta', $id)->with('info', 'Registro eliminado con éxito');
     }
 
     public function destroyMeta($id, $id1){
         $dato = VsiMeta::findOrFail($id1);
-        $dato->activo = 0;
+        $dato->sis_esta_id = 2;
         $dato->save();
         return redirect()->route('VSI.meta', $id)->with('info', 'Registro eliminado con éxito');
     }

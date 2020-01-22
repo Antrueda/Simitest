@@ -3,7 +3,7 @@
         <thead>
             <tr class="text-center">
                 <th>Nº</th>
-                @if ($vsi->activo == 1)
+                @if ($vsi->sis_esta_id == 1)
                     <th width="70">Acciones</th>
                 @endif
                 <th>1.11 Razones o problemas por las que el NNAJ se vincula al IDIPRON</th>
@@ -14,11 +14,11 @@
             </tr>
         </thead>
         <tbody>
-        	@if($vsi->VsiDatosVincula && $vsi->VsiDatosVincula->where('activo', 1)->count()>0)
-        		@foreach($vsi->VsiDatosVincula->where('activo', 1) as $k => $d)
+        	@if($vsi->VsiDatosVincula && $vsi->VsiDatosVincula->where('sis_esta_id', 1)->count()>0)
+        		@foreach($vsi->VsiDatosVincula->where('sis_esta_id', 1) as $k => $d)
 	                <tr>
                         <td>{{ $k+1 }}</td>
-                        @if ($vsi->activo == 1)
+                        @if ($vsi->sis_esta_id == 1)
                             <td>
                                 {!! Form::open(['route' => ['VSI.basico.razon.borrar', $d->vsi_id, $d->id], 'method' => 'DELETE']) !!}
                                     <button class="btn btn-sm btn-danger">Eliminar</button>

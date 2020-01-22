@@ -34,7 +34,8 @@ class CreateFiComposicionFamisTable extends Migration
             $table->bigInteger('fi_nucleo_familiar_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('sis_pai_id')->references('id')->on('sis_pais');
@@ -47,7 +48,7 @@ class CreateFiComposicionFamisTable extends Migration
             $table->foreign('i_prm_vinculado_idipron_id')->references('id')->on('parametros');
             $table->foreign('i_prm_convive_nnaj_id')->references('id')->on('parametros');
             $table->foreign('fi_nucleo_familiar_id')->references('id')->on('fi_nucleo_familiars');
-            $table->engine = 'InnoDB';
+            
         });
     }
 

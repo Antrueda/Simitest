@@ -57,7 +57,7 @@ class InValidacionController extends Controller
             ['data' => 's_pregunta', 'name' => 'in_preguntas.s_pregunta'],
             ['data' => 's_tabla', 'name' => 'sis_tablas.s_descripcion as s_tabla'],
             ['data' => 's_campo', 'name' => 'sis_campo_tablas.s_descripcion as s_campo'],
-            ['data' => 'activo', 'name' => 'in_validacions.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'in_validacions.sis_esta_id'],
         ];
     }
     /**
@@ -95,7 +95,7 @@ class InValidacionController extends Controller
             $this->opciones['linebase'] = InFuente::combo($objetoxx->in_indicador_id, true, false);
             //$this->opciones['activida'] = SisActividad::combo($objetoxx->sis_actividad_id, true, false);
             $this->opciones[$nombobje] = $objetoxx;
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones['scampoxx'] = SisTabla::combo($objetoxx->sis_tabla_id, true, false);
             $respauxi = $this->opciones['respuest'];
             $this->opciones['respuest'] = [];
@@ -187,9 +187,9 @@ class InValidacionController extends Controller
      */
     public function destroy(InValidacion $objetoxx)
     {
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('va')->with('info', 'Registro ' . $activado . ' con éxito');
     }
 }

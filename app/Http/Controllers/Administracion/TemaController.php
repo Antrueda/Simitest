@@ -60,9 +60,9 @@ class TemaController extends Controller{
 
     public function destroy($id){
         $dato = Tema::findOrFail($id);
-        $dato->activo = ($dato->activo == 0) ? 1 : 0;
+        $dato->sis_esta_id = ($dato->sis_esta_id == 2) ? 1 : 2;
         $dato->save();
-        $activado = $dato->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $dato->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('tema')->with('info', 'Registro '.$activado.' con éxito');
     }
 
@@ -73,7 +73,7 @@ class TemaController extends Controller{
     }
 
     protected function datos(array $request){
-        return Tema::select('id', 'nombre', 'activo')
+        return Tema::select('id', 'nombre', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
                 return $q->orWhere('nombre', 'like', '%'.$buscar.'%')
                 ->orWhere('id', $buscar);
@@ -82,7 +82,7 @@ class TemaController extends Controller{
     }
 
     protected function datosParametros(array $request){
-        return Parametro::select('id', 'nombre', 'activo')
+        return Parametro::select('id', 'nombre', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
                 return $q->where('nombre', 'like', '%'.$buscar.'%');
             })

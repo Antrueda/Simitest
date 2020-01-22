@@ -16,10 +16,10 @@ class FiSustanciaConsumida extends Model
         'i_prm_consume_id',
         'user_crea_id',
         'user_edita_id',
-        'activo'
+        'sis_esta_id'
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1,'activo'=>1];
+    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1];
 
     public function creador()
     {

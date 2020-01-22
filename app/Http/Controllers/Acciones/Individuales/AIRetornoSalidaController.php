@@ -24,14 +24,14 @@ class AIRetornoSalidaController extends Controller{
 
     public function index($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $retorno = $dato->AiRetornoSalida->where('activo', 1)->sortByDesc('fecha')->all();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $retorno = $dato->AiRetornoSalida->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         return view('Acciones.Individuales.index', ['accion' => 'RetornoSalida', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'retorno'));
     }
 
     public function create($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $documento = ['' => 'Seleccione...'];
@@ -45,10 +45,10 @@ class AIRetornoSalidaController extends Controller{
         $condiciones = Tema::findOrFail(308)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $usuarios = ['' => 'Seleccione...'];
-        foreach (User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
+        foreach (User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
                 $usuarios[$k] = $d;
         }
-        $retorno = $dato->AiRetornoSalida->where('activo', 1)->sortByDesc('fecha')->all();
+        $retorno = $dato->AiRetornoSalida->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
         return view('Acciones.Individuales.index', ['accion' => 'RetornoSalida', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'upis', 
                                                                                         'ampm', 'usuarios', 'documento', 'parentezco', 
@@ -66,7 +66,7 @@ class AIRetornoSalidaController extends Controller{
     
     public function edit($id, $id0){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $documento = ['' => 'Seleccione...'];
@@ -80,10 +80,10 @@ class AIRetornoSalidaController extends Controller{
         $condiciones = Tema::findOrFail(308)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $usuarios = ['' => 'Seleccione...'];
-        foreach (User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
+        foreach (User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
                 $usuarios[$k] = $d;
         }
-        $retorno = $dato->AiRetornoSalida->where('activo', 1)->sortByDesc('fecha')->all();
+        $retorno = $dato->AiRetornoSalida->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $valor = AiRetornoSalida::findOrFail($id0);
         $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
         return view('Acciones.Individuales.index', ['accion' => 'RetornoSalida', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'valor', 'upis', 'ampm', 'usuarios', 'documento', 'parentezco', 'condiciones', 'sino', 'retorno', 'valor', 'hoy'));

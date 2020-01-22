@@ -21,8 +21,8 @@ class VsiBienvenidaController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiBienvenida->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiBienvenida->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $motivos = Tema::findOrFail(63)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         return view('Sicosocial.index', ['accion' => 'Bienvenida'], compact('vsi', 'dato', 'nnaj', 'valor', 'motivos'));
     }

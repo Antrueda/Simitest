@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    @if ($vsi->activo == 1)
+                    @if ($vsi->sis_esta_id == 1)
                         {!! Form::open(['route' => ['VSI.meta.potencialidad', $vsi->id], 'class' => 'form-horizontal']) !!}
                             {{ Form::hidden('vsi_id', $vsi->id) }}
                             @include('Sicosocial.Meta.campospotencialidad')
@@ -15,7 +15,7 @@
                     @include('Sicosocial.Meta.datospotencialidad')
                 </div>
                 <div class="col-md-6">
-                    @if ($vsi->activo == 1)
+                    @if ($vsi->sis_esta_id == 1)
                         {!! Form::open(['route' => ['VSI.meta.meta', $vsi->id], 'class' => 'form-horizontal']) !!}
                             {{ Form::hidden('vsi_id', $vsi->id) }}
                             @include('Sicosocial.Meta.camposmeta')

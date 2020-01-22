@@ -75,7 +75,7 @@ class InRespuestaController extends Controller
     $this->opciones['respuest'] = InDocPregunta::getRespuesta($objetoxx,false); 
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
@@ -149,9 +149,9 @@ class InRespuestaController extends Controller
    */
   public function destroy(InPregunta $objetoxx)
   {
-    $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+    $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
     $objetoxx->save();
-    $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+    $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
     return redirect()->route('re')->with('info', 'Registro ' . $activado . ' con éxito');
   }
 }

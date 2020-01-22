@@ -34,7 +34,8 @@ class CreateFiGeneracionIngresosTable extends Migration
             $table->bigInteger('sis_nnaj_id')->unsigned();//->comment('NNAJ AL QUE SE LE ASIGNA LA GENERACIÓN DE INGRESO');
             $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo');//->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -45,7 +46,7 @@ class CreateFiGeneracionIngresosTable extends Migration
             $table->foreign('i_prm_jornada_genera_ingreso_id')->references('id')->on('parametros');
             $table->foreign('i_prm_frec_ingreso_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_relacion_laboral_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('fi_dias_genera_ingresos', function (Blueprint $table) {
@@ -54,13 +55,14 @@ class CreateFiGeneracionIngresosTable extends Migration
             $table->bigIntegeR('i_prm_dia_genera_id')->unsigned()->comment('FI 7.3 DIA GENERA INGRESO');
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->boolean('activo')->comment('ESTADO DEL REGISTRO');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_generacion_ingreso_id')->references('id')->on('fi_generacion_ingresos');
             $table->foreign('i_prm_dia_genera_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
     }
 

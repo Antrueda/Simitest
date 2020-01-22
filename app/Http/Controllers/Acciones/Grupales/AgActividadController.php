@@ -54,7 +54,7 @@ class AgActividadController extends Controller
             ['data' => 'id', 'name' => 'ag_actividads.id'],
             ['data' => 'd_registro', 'name' => 'ag_actividads.d_registro'],
             ['data' => 'sis_deporigen_id', 'name' => 'sis_dependencias.nombre as sis_deporigen_id'],
-            ['data' => 'activo', 'name' => 'ag_actividads.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'ag_actividads.sis_esta_id'],
 
         ];
     }
@@ -146,7 +146,7 @@ class AgActividadController extends Controller
         // indica si se esta actualizando o viendo
 
         if ($nombobje != '') {
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
 
@@ -223,9 +223,9 @@ class AgActividadController extends Controller
      */
     public function destroy(AgActividad $objetoxx)
     {
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
     }
 }

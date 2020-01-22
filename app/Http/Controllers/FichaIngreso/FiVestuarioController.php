@@ -48,7 +48,7 @@ class FiVestuarioController extends Controller
 
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
 
 
@@ -104,7 +104,7 @@ class FiVestuarioController extends Controller
    * @param  \App\Models\Vestuario  $ve
    * @return \Illuminate\Http\ve
    */
-  public function show(Vestuario $ve)
+  public function show(FiVestuarioNnaj $ve)
   {
     //
   }

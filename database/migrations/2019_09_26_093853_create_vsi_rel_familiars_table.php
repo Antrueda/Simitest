@@ -32,9 +32,10 @@ class CreateVsiRelFamiliarsTable extends Migration{
             $table->string('descripcion1', 4000)->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_representativa_id')->references('id')->on('parametros');
             $table->foreign('prm_mala_id')->references('id')->on('parametros');
@@ -56,7 +57,7 @@ class CreateVsiRelFamiliarsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_relfam_dificultad', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -66,7 +67,7 @@ class CreateVsiRelFamiliarsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_relfam_acciones', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -76,7 +77,7 @@ class CreateVsiRelFamiliarsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
-            $table->engine = 'InnoDB';
+            
         });
     }
 

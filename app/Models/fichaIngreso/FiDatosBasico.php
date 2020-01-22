@@ -38,7 +38,7 @@ class FiDatosBasico extends Model
         'fi_nucleo_familiar_id',
         'prm_poblacion_id',
         's_documento',
-        'activo',
+        'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
         'prm_estado_civil_id',
@@ -154,7 +154,7 @@ class FiDatosBasico extends Model
 
     public static function usarioNnaj($idxxxxxx)
     {
-        return FiDatosBasico::where('sis_nnaj_id', $idxxxxxx)->where('activo', 1)->first();
+        return FiDatosBasico::where('sis_nnaj_id', $idxxxxxx)->where('sis_esta_id', 1)->first();
     }
 
     public function grabar($dataxxxx, $objetoxx)
@@ -181,7 +181,7 @@ class FiDatosBasico extends Model
                 if ($diasxxxx > 45 && !isset($datobasi->id)) {
                     /** La línea base se pasa a inactivo para asegurar que no vuelva a ser modificada,
                      * solo será consultada */
-                    $objetoxx->update(['activo' => 0]);
+                    $objetoxx->update(['sis_esta_id' => 0]);
                     /** El nuevo registro no es línea base */
                     $dataxxxx['i_prm_linea_base_id'] = 228;
                     /** Insertar nuevo registro */

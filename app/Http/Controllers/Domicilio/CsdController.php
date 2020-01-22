@@ -25,15 +25,15 @@ class CsdController extends Controller{
 
     public function nnaj($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $csds = $dato->csds->where('activo', 1)->sortByDesc('fecha')->all();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $csds = $dato->csds->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         return view('Domicilio.index', ['accion' => 'Nnaj'], compact('dato', 'nnaj', 'csds'));
     }
 
     public function create(Request $request, $id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $csds = $dato->csds->where('activo', 1)->sortByDesc('fecha')->all();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $csds = $dato->csds->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
         return view('Domicilio.index', ['accion' => 'Nueva'], compact('dato', 'nnaj', 'csds', 'hoy'));
     }
@@ -47,8 +47,8 @@ class CsdController extends Controller{
 
     public function edit(Request $request, $id, $id0){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $csds = $dato->csds->where('activo', 1)->sortByDesc('fecha')->all();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $csds = $dato->csds->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $valor = Csd::findOrFail($id0);
         $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
         return view('Domicilio.index', ['accion' => 'Editar'], compact('dato', 'nnaj', 'csds', 'valor', 'hoy'));
@@ -63,14 +63,14 @@ class CsdController extends Controller{
 
     public function show($id){
         $dato = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('activo', 1)->all();
+        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
         return view('Domicilio.index', ['accion' => 'Inicio'], compact('dato', 'nnajs'));
     }
 
     public function agregar($id){
         $dato = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('activo', 1)->all();
-        $todos = SisNnaj::where('activo', 1)->get()->sortBy('nnaj_datos')->pluck('nnaj_datos', 'id');
+        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
+        $todos = SisNnaj::where('sis_esta_id', 1)->get()->sortBy('nnaj_datos')->pluck('nnaj_datos', 'id');
         return view('Domicilio.index', ['accion' => 'Agregar'], compact('dato', 'nnajs', 'todos'));
     }
 

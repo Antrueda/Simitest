@@ -8,7 +8,7 @@ use App\Models\User;
 
 class FosArea extends Model{
     protected $fillable = [
-        'nombre', 'contexto', 'descripcion', 'user_crea_id', 'user_edita_id', 'activo',   
+        'nombre', 'contexto', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id',   
     ];
     
     protected $attributes = [ 'user_crea_id' => 1, 'user_edita_id'=> 1 ];
@@ -40,7 +40,7 @@ class FosArea extends Model{
             }
         }
         $parametr = FosArea::select(['id as valuexxx', 'nombre as optionxx'])
-            ->where('activo', '1')
+            ->where('sis_esta_id', '1')
             ->orderBy('id', 'asc')
             ->get();
         foreach ($parametr as $registro) {

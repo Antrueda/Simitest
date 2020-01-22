@@ -6,7 +6,7 @@
 </div>
 @include('Sicosocial.RedesApoyo.camposAntecedentes')
 <div class="row mt-3">
-	@if ($vsi->activo == 1)
+	@if ($vsi->sis_esta_id == 1)
 		@canany(['vsiredesapoyo-crear', 'vsiredesapoyo-editar'])
 			{{ Form::submit('Guardar', ['class' => 'btn btn-primary']) }}
 		@endcanany

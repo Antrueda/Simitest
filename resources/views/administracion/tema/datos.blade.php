@@ -58,7 +58,7 @@
                                             @endif
                                         </td>
                                         <td class="text-center">
-                                            @if($d->activo == 1)
+                                            @if($d->sis_esta_id == 1)
                                                 <span class="fas fa-check text-success" aria-hidden="true"></span>
                                             @else
                                                 <span class="fas fa-times text-danger" aria-hidden="true"></span>

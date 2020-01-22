@@ -47,7 +47,7 @@ class FiRazonArchivoController extends Controller {
         ['data' => 'btns', 'name' => 'btns'],
         ['data' => 'id', 'name' => 'fi_documentos_anexas.id'],
         ['data' => 'nombre', 'name' => 'parametros.nombre'],
-        ['data' => 'activo', 'name' => 'fi_documentos_anexas.activo'],
+        ['data' => 'sis_esta_id', 'name' => 'fi_documentos_anexas.sis_esta_id'],
     ];
 
     $this->opciones['permisox'] = 'firazones';
@@ -67,7 +67,7 @@ class FiRazonArchivoController extends Controller {
     if ($nombobje != '') {
       $dataxxxx['selected'] = $objetoxx->i_prm_documento_id;
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
     $this->opciones['docanexa'] = FiDocumentosAnexa::comboTema($dataxxxx);
     $this->opciones['estaingr'] = Tema::combo(303, true, false);

@@ -52,14 +52,14 @@ class DocumentoFuenteController extends Controller{
 
     public function destroy($id){
         $dato = SisDocumentoFuente::findOrFail($id);
-        $dato->activo = ($dato->activo == 0) ? 1 : 0;
+        $dato->sis_esta_id = ($dato->sis_esta_id == 2) ? 1 : 2;
         $dato->save();
-        $activado = $dato->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $dato->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('documentoFuente')->with('info', 'Registro '.$activado.' con éxito');
     }
 
     protected function datos(array $request){
-        return SisDocumentoFuente::select('id', 'nombre', 'activo')
+        return SisDocumentoFuente::select('id', 'nombre', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
                 return $q->where('nombre', 'like', '%'.$buscar.'%');
             })

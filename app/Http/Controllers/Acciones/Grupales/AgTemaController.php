@@ -46,7 +46,7 @@ class AgTemaController extends Controller
             ['data' => 'id', 'name' => 'ag_temas.id'],
             ['data' => 'nombre', 'name' => 'areas.nombre'],
             ['data' => 's_tema', 'name' => 'ag_temas.s_tema'],
-            ['data' => 'activo', 'name' => 'ag_temas.activo'],
+            ['data' => 'sis_esta_id', 'name' => 'ag_temas.sis_esta_id'],
 
         ];
     }
@@ -71,7 +71,7 @@ class AgTemaController extends Controller
         if ($nombobje != '') {
 
             $this->opciones['indicado'] = Area::combo_tema($objetoxx->area_id, true, false);
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
 
             $this->opciones[$nombobje] = $objetoxx;
         }
@@ -149,9 +149,9 @@ class AgTemaController extends Controller
      */
     public function destroy(AgTema $objetoxx)
     {
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
     }
 }

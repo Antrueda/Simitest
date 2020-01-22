@@ -28,9 +28,10 @@ class CreateVsiConsumosTable extends Migration{
             $table->string('descripcion', 4000)->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_consumo_id')->references('id')->on('parametros');
             $table->foreign('prm_contexto_ini_id')->references('id')->on('parametros');
@@ -51,7 +52,7 @@ class CreateVsiConsumosTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_consumo_id')->references('id')->on('vsi_consumos');
             $table->unique(['parametro_id', 'vsi_consumo_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_consumo_expectativa', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -61,7 +62,7 @@ class CreateVsiConsumosTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_consumo_id')->references('id')->on('vsi_consumos');
             $table->unique(['parametro_id', 'vsi_consumo_id']);
-            $table->engine = 'InnoDB';
+            
         });
     }
 

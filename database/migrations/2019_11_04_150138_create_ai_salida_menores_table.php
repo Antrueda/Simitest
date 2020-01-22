@@ -46,9 +46,10 @@ class CreateAiSalidaMenoresTable extends Migration{
             $table->bigInteger('user_doc1_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('prm_upi_id')->references('id')->on('sis_dependencias');
             $table->foreign('prm_hor_sal_id')->references('id')->on('parametros');
@@ -75,7 +76,7 @@ class CreateAiSalidaMenoresTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('ai_salida_menores_id')->references('id')->on('ai_salida_menores');
             $table->unique(['parametro_id', 'ai_salida_menores_id']);
-            $table->engine = 'InnoDB';
+            
         });
 
         Schema::create('ai_salida_menores_con', function (Blueprint $table) {
@@ -87,7 +88,7 @@ class CreateAiSalidaMenoresTable extends Migration{
             $table->foreign('prm_id')->references('id')->on('parametros');
             $table->foreign('ai_salida_menores_id')->references('id')->on('ai_salida_menores');
             $table->unique(['id', 'prm_id', 'ai_salida_menores_id']);
-            $table->engine = 'InnoDB';
+            
         });
     }
 

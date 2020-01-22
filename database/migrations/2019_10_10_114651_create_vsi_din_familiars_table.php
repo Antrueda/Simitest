@@ -21,9 +21,10 @@ class CreateVsiDinFamiliarsTable extends Migration{
             $table->string('descripcion', 4000);
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_familiar_id')->references('id')->on('parametros');
             $table->foreign('prm_hogar_id')->references('id')->on('parametros');
@@ -39,7 +40,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_dinfam_delito', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -49,7 +50,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_dinfam_prostitucion', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -59,7 +60,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_dinfam_libertad', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -69,7 +70,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_dinfam_consumo', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -79,7 +80,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_dinfam_salud', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -89,7 +90,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_dinfam_cuidador', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -99,7 +100,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
-            $table->engine = 'InnoDB';
+            
         });
         Schema::create('vsi_dinfam_ausencia', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -109,7 +110,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
-            $table->engine = 'InnoDB';
+            
         });
     }
 

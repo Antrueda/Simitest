@@ -1,6 +1,6 @@
 <?php
 Route::group(['prefix' => 'cargo'], function () {
-    Route::get('', [
+    Route::get('', [ 
 	    'uses' => 'Administracion\SisCargoController@index',
 	    'middleware' => ['permission:siscargo-leer|siscargo-crear|siscargo-editar|siscargo-borrar']
 	])->name('sis.cargo');

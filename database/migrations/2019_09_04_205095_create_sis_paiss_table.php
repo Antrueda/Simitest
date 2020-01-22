@@ -14,13 +14,14 @@ class CreateSisPaissTable extends Migration
     public function up()
     {
         Schema::create('sis_pais', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+            
             $table->bigIncrements('id');
             $table->string('s_iso');
             $table->string('s_pais');
             $table->integer('user_crea_id');
             $table->integer('user_edita_id');
-            $table->boolean('estado');
+            $table->bigInteger('sis_esta_id')->unsigned();
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
         });
     }

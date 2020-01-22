@@ -23,7 +23,7 @@ class PermisoController extends Controller
   }
   protected function datos(array $request)
   {
-    return Permissionext::select('id', 'name', 'activo')
+    return Permissionext::select('id', 'name', 'sis_esta_id')
       ->when(request('buscar'), function ($q, $buscar) {
         return $q->where('name', 'like', '%' . $buscar . '%');
       })
@@ -47,7 +47,7 @@ class PermisoController extends Controller
           ['td' => $rolexxxx->estado = 1 ? 'ACTIVO' : 'INACTIVO']
         ],
         'id' => $rolexxxx->id,
-        'estadoxx' => $rolexxxx->activo,
+        'estadoxx' => $rolexxxx->sis_esta_id,
       ];
     }
 

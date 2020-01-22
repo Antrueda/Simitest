@@ -55,7 +55,7 @@ class FosController extends Controller
     public function show($id)
     {
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FosDatosBasico->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FosDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         return view('fichaobservacion.index', ['accion' => 'Editar'], compact('dato', 'nnaj'));
     }
 }

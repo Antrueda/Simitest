@@ -20,11 +20,12 @@ class CreateFiAutorizacionsTable extends Migration
             $table->bigInteger('i_prm_parentesco_id')->unsigned();
             $table->date('d_autorizacion');
             $table->bigInteger('i_prm_tipo_diligencia_id')->unsigned();
-            $table->engine = 'InnoDB';
+            
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -41,13 +42,14 @@ class CreateFiAutorizacionsTable extends Migration
             $table->bigIntegeR('i_prm_modalidad_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo');
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_autorizacion_id')->references('id')->on('fi_autorizacions');
             $table->foreign('i_prm_modalidad_id')->references('id')->on('parametros');
-            $table->engine = 'InnoDB';
+            
         });
 
     }

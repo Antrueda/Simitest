@@ -49,7 +49,7 @@ class InGrupalController extends Controller
       ['data' => 'btns', 'name' => 'btns'],
       ['data' => 'id', 'name' => 'id'],
       ['data' => 's_pregunta', 'name' => 's_pregunta'],
-      ['data' => 'activo', 'name' => 'activo'],
+      ['data' => 'sis_esta_id', 'name' => 'sis_esta_id'],
     ];
   }
   /**
@@ -73,7 +73,7 @@ class InGrupalController extends Controller
     $this->opciones['stablaxx'] = SisTabla::combo('', true, false);
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
@@ -147,9 +147,9 @@ class InGrupalController extends Controller
    */
   public function destroy(InPregunta $objetoxx)
   {
-    $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+    $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
     $objetoxx->save();
-    $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+    $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
     return redirect()->route('pr')->with('info', 'Registro ' . $activado . ' con éxito');
   }
 }

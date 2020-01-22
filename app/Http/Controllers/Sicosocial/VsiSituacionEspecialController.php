@@ -20,8 +20,8 @@ class VsiSituacionEspecialController extends Controller{
     public function show($id){
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('activo', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiSitEspecial->where('activo', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $valor = $vsi->VsiSitEspecial->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $victima = Tema::findOrFail(126)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $riesgo = Tema::findOrFail(58)->parametros()->orderBy('nombre')->pluck('nombre', 'id');

@@ -47,7 +47,7 @@ class InIndicadorController extends Controller
             ['data' => 's_indicador','name'=>'in_indicadors.s_indicador'],
             ['data' => 'nombre','name'=>'areas.nombre'],
 
-            ['data' => 'activo','name'=>'in_indicadors.activo'],
+            ['data' => 'sis_esta_id','name'=>'in_indicadors.sis_esta_id'],
 
         ];
     }
@@ -71,7 +71,7 @@ class InIndicadorController extends Controller
         $this->opciones['areasxxx'] = Area::combo('', true, false);
         if ($nombobje != '') {
             $this->opciones[$nombobje] = $objetoxx;
-            $this->opciones['estadoxx'] = $objetoxx->activo == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
         }
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
@@ -145,9 +145,9 @@ class InIndicadorController extends Controller
      */
     public function destroy(InIndicador $objetoxx)
     {
-        $objetoxx->activo = ($objetoxx->activo == 0) ? 1 : 0;
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->activo == 0 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('in')->with('info', 'Registro ' . $activado . ' con éxito');
     }
 }

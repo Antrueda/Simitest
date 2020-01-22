@@ -55,7 +55,7 @@ class FiRedApoyoAntecedenteController extends Controller
       ['data' => 'i_tiempo','name' => 'fi_red_apoyo_antecedentes.i_tiempo'],
       ['data' => 'tipotiem','name' => 'tiempo.nombre as tipotiem'],
       ['data' => 'anioxxxx','name' => 'anio.nombre as anioxxxx'],
-      ['data' => 'activo','name' => 'fi_red_apoyo_antecedentes.activo'],
+      ['data' => 'sis_esta_id','name' => 'fi_red_apoyo_antecedentes.sis_esta_id'],
     ];
     $this->opciones['tipotiem'] = Tema::combo(4, true, false);
     $this->opciones['anioserv'] = Tema::combo(84, true, false);
@@ -69,7 +69,7 @@ class FiRedApoyoAntecedenteController extends Controller
     // indica si se esta actualizando o viendo
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->activo = 1 ? 'ACTIVO' : 'INACTIVO';
+      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];

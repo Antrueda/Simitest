@@ -21,9 +21,10 @@ class CreateVsiDatosVinculasTable extends Migration{
             $table->Integer('ano')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->boolean('activo')->default(1);
+            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_razon_id')->references('id')->on('parametros');
             $table->foreign('prm_persona_id')->references('id')->on('parametros');
@@ -38,7 +39,7 @@ class CreateVsiDatosVinculasTable extends Migration{
           $table->foreign('parametro_id')->references('id')->on('parametros');
           $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
           $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
-          $table->engine = 'InnoDB';
+          
         });
         Schema::create('vsi_emocion_vincula', function (Blueprint $table) {
           $table->bigInteger('parametro_id')->unsigned();
@@ -48,7 +49,7 @@ class CreateVsiDatosVinculasTable extends Migration{
           $table->foreign('parametro_id')->references('id')->on('parametros');
           $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
           $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
-          $table->engine = 'InnoDB';
+          
         });
     }
 

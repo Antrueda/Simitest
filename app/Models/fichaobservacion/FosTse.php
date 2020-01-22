@@ -45,7 +45,7 @@ class FosTse extends Model
         }
         $parametr = FosTse::select(['id as valuexxx', 'nombre as optionxx'])
             ->where('fos_area_id', $areaxxx)
-            ->where('activo', '1')
+            ->where('sis_esta_id', '1')
             ->orderBy('id', 'asc')
             ->get();
         foreach ($parametr as $registro) {

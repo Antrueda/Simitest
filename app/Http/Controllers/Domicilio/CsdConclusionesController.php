@@ -23,12 +23,12 @@ class CsdConclusionesController extends Controller{
   public function show($id){
 
     $dato  = Csd::findOrFail($id);
-    $nnajs = $dato->nnajs->where('activo', 1)->all();
-    $valor = $dato->CsdConclusiones->where('activo', 1)->sortByDesc('id')->first();
+    $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
+    $valor = $dato->CsdConclusiones->where('sis_esta_id', 1)->sortByDesc('id')->first();
     $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $familiares = Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $usuarios = ['' => 'Seleccione...'];
-    foreach (User::where('i_prm_estado_id', 1636)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
+    foreach (User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
             $usuarios[$k] = $d;
     }
     return view('Domicilio.index', ['accion' => 'Conclusiones'], compact('dato', 'nnajs', 'valor', 'sino', 'usuarios', 'familiares'));
