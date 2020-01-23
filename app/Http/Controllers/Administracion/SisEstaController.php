@@ -1,28 +1,26 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
-use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
-use App\Models\fichaobservacion\FosArea;
-use App\Models\fichaobservacion\FosStse;
-use App\Models\fichaobservacion\FosTse;
+use App\Http\Requests\Sistema\SisEstaCrearRequest;
+use App\Http\Requests\Sistema\SisEstaEditarRequest;
+use App\Models\sistema\SisEsta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class SisEstasController extends Controller
+class SisEstaController extends Controller
 {
     private $opciones;
 
     public function __construct()
     {
         $this->opciones = [
-            'permisox' => 'fossubtipo',
+            'permisox' => 'sisesta',
             'parametr' => [],
-            'rutacarp' => 'FichaObservacion.Admin.SubTipoSeguimiento.',
-            'tituloxx' => 'Sub Tipo Seguimiento',
+            'rutacarp' => 'administracion.Sisestas.',
+            'tituloxx' => 'Estados del sistema',
         ];
 
         $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
@@ -31,13 +29,13 @@ class SisEstasController extends Controller
         $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
 
         $this->opciones['readonly'] = '';
-        $this->opciones['rutaxxxx'] = 'fossubtipo';
-        $this->opciones['routnuev'] = 'fossubtipo';
-        $this->opciones['routxxxx'] = 'fossubtipo';
+        $this->opciones['rutaxxxx'] = 'sisesta';
+        $this->opciones['routnuev'] = 'sisesta';
+        $this->opciones['routxxxx'] = 'sisesta';
 
         $this->opciones['botoform'] = [
             ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []], 
-            'formhref' => 2, 'tituloxx' => 'Volver a Sub Tipo Seguimiento', 'clasexxx' => 'btn btn-sm btn-primary'],
+            'formhref' => 2, 'tituloxx' => 'Volver a Estados', 'clasexxx' => 'btn btn-sm btn-primary'],
         ];
     }
 
@@ -49,46 +47,36 @@ class SisEstasController extends Controller
      */
     public function index()
     {
-        $this->opciones['titunuev'] = 'Nuevo Sub Tipo de Segumineto';
-        $this->opciones['titulist'] = 'Lista de Sub Tipos de Seguimiento';
+        $this->opciones['titunuev'] = 'Nuevo Estado';
+        $this->opciones['titulist'] = 'Lista de Estados';
         $this->opciones['dataxxxx'] = [
-            ['campoxxx' => 'botonesx', 'dataxxxx' => 'FichaObservacion/Admin/SubTipoSeguimiento/botones/botonesapi'],
+            ['campoxxx' => 'botonesx', 'dataxxxx' => 'Administracion/Sisestas/botones/botonesapi'],
         ];
 
-        $this->opciones['urlxxxxx'] = 'api/fos/subtipo';
+        $this->opciones['urlxxxxx'] = 'api/sis/sisesta';
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'NOMBRE'],
-            ['td' => 'ÁREA'],
-            ['td' => 'TIPO SEGUIMIENTO'],
             ['td' => 'ESTADO'],
         ];
         $this->opciones['columnsx'] = [
             ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'id', 'name' => 'fos_stses.id'],
-            ['data' => 'nombre', 'name' => 'fos_stses.nombre'],
-            ['data' => 's_seguimiento', 'name' => 'fos_tses.nombre as s_seguimiento'],
-            ['data' => 's_area', 'name' => 'fos_areas.nombre as s_area'],
-            ['data' => 'sis_esta_id', 'name' => 'fos_stses.sis_esta_id'],
+            ['data' => 'id', 'name' => 'id'],
+            ['data' => 's_estado', 'name' => 's_estado'],
+            ['data' => 'i_estado', 'name' => 'i_estado']
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
-
-        $this->opciones['fosareas'] =  FosArea::combo( true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
-        $this->opciones['nivelxxx'] = '';
         $this->opciones['tiposegu'] = [];
         if ($nombobje != '') {
-            $objetoxx->fos_area_id=$objetoxx->fos_tse->fos_area_id;
-            $this->opciones['tiposegu'] =FosTse::combo($objetoxx->fos_area_id, true, false);
-            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['estadoxx'] = $objetoxx->i_estado == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
-
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
         return view($vistaxxx, ['todoxxxx' => $this->opciones]);
@@ -114,7 +102,7 @@ class SisEstasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FosStseCrearRequest $request)
+    public function store(SisestaCrearRequest $request)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
@@ -126,13 +114,13 @@ class SisEstasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(FosStse $objetoxx)
+    public function show(SisEsta $objetoxx)
     {
 
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => $objetoxx->sis_esta_id == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1,
-                'tituloxx' => '', 'clasexxx' => $objetoxx->sis_esta_id == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'
+                'mostrars' => true, 'accionxx' => $objetoxx->i_estado == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1,
+                'tituloxx' => '', 'clasexxx' => $objetoxx->i_estado == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'
             ];
         $this->opciones['readonly'] = 'readonly';
         return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'ver');
@@ -144,7 +132,7 @@ class SisEstasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(FosStse $objetoxx)
+    public function edit(SisEsta $objetoxx)
     {
         $this->opciones['botoform'][] =
             [
@@ -161,7 +149,7 @@ class SisEstasController extends Controller
                 $objetoxx->update($dataxxxx);
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FosStse::create($dataxxxx);
+                $objetoxx = SisEsta::create($dataxxxx);
             }
             return $objetoxx;
         }, 5);
@@ -181,7 +169,7 @@ class SisEstasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FosStseEditarRequest $request, FosStse $objetoxx)
+    public function update(SisEstaEditarRequest $request, SisEsta $objetoxx)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, $objetoxx, 'Linea base del NNAJ actualizada con éxito');
@@ -193,22 +181,13 @@ class SisEstasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FosStse $objetoxx)
+    public function destroy(SisEsta $objetoxx)
     {
 
-        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
+        $objetoxx->i_estado = ($objetoxx->i_estado == 2) ? 1 : 2;
         $objetoxx->save();
-        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
+        $activado = $objetoxx->i_estado == 2 ? 'inactivado' : 'activado';
 
         return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
-    }
-
-    public function tiposeg(Request $request)
-    {
-        if ($request->ajax()) {
-            $dataxxxx = $request->all();
-         
-            return response()->json(FosTse::combo($dataxxxx['padrexxx'], false, true));
-        }
     }
 }

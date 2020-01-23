@@ -75,8 +75,7 @@ type="text/css" media="all">
   </div>
 <div class="form-group col-md-3">
     {{ Form::label('sis_esta_id','Estado') }} 
-    {{ Form::select('sis_esta_id',$todoxxxx['sis_esta_id'], null,
-    ['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }} 
+    {{ Form::select('sis_esta_id',$todoxxxx['sis_esta_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }} 
   </div>
   <div class="form-group col-md-3" >
     {{ Form::label('vinculac','Tiempo de actualización') }} 
@@ -115,13 +114,5 @@ type="text/css" media="all">
       @endif
     </div>
   </div>
-  
-  <div class="form-group col-md-12">
-    {{ Form::label('s_observacion','Observación del registro') }}
-    {{ Form::textarea('s_observacion', null,['class'=>'form-control form-control-sm']) }}
-  </div>
 </div>
 
-@section('scripts')
-@include($todoxxxx['rutacarp'].'formulario.js')
-@endsection 

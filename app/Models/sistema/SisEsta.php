@@ -14,35 +14,27 @@ class SisEsta extends Model
         's_estado',
         'i_estado',
         'user_crea_id',
-        'user_edita_id',
-        'sis_esta_id',];
+        'user_edita_id',];
 
     protected $attributes = ['i_estado' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
-    public static function combo($padrexxx,$cabecera,$esajaxxx)
+    public static function combo($dataxxxx)
     {
-        if($cabecera){
-            if($esajaxxx){  
+        if($dataxxxx['cabecera']){
+            if($dataxxxx['esajaxxx']){  
                 $comboxxx[] = ['valuexxx'=>'','optionxx'=>'Seleccione'];
             }else{
                 $comboxxx = [''=>'Seleccione'];
             }
             
-        }
-            
-        $entidadx=SisEsta::where(function($query) use($padrexxx){
-            if($padrexxx!=''){
-                $query->where('id',$padrexxx);
-            }
-
-        })->get();
+        }   
+        $entidadx=SisEsta::get();
         foreach ($entidadx as $entisalu) {
-            if($esajaxxx){
+            if($dataxxxx['esajaxxx']){
                 $comboxxx[] = ['valuexxx'=>$entisalu->id, 'optionxx'=>$entisalu->s_estado];
             }else{
                 $comboxxx[$entisalu->id] = $entisalu->s_estado;
             }
-
         }
         return $comboxxx;
     }

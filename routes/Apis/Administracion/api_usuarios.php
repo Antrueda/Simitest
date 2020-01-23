@@ -12,7 +12,7 @@ Route::get('usu/usuarios', function (Request $request) {
 			's_segundo_nombre',
 			's_primer_apellido',
 			's_segundo_apellido',
-			'i_prm_estado_id'
+			'sis_esta_id'
 		]))
 		->addColumn('btns', 'administracion/usuario/botones/botonesapi')
 		->rawColumns(['btns'])

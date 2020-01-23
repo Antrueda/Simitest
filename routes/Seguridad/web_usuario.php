@@ -69,4 +69,11 @@ Route::group(['prefix' => 'usuario'], function () {
 		'uses' => 'Seguridad\UsuarioController@updatepassword',
 		'middleware' => ['permission:usuario-editar']
 	])->name('usuario.password');
+
+	Route::get('setAreas', [
+		'uses' => 'Seguridad\UsuarioController@setAreas',
+	])->name('usuario.setAreas');
+	Route::get('setActinact', [
+		'uses' => 'Seguridad\UsuarioController@setActinact',
+	])->name('usuario.setActinact');
 });

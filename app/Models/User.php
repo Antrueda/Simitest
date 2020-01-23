@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Indicadores\Area;
 use App\Models\sistema\SisCargo;
 use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisMunicipio;
@@ -29,7 +30,7 @@ class User extends Authenticatable
     's_primer_apellido',
     's_segundo_apellido',
     'email',
-    'password', 
+    'password',
     'sis_esta_id',
     'user_crea_id',
     'user_edita_id',
@@ -74,7 +75,10 @@ class User extends Authenticatable
   }
 
 
-
+  public function areas()
+  {
+    return $this->belongsToMany(Area::class)->withTimestamps();
+  }
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');
@@ -158,7 +162,7 @@ class User extends Authenticatable
   }
 
 
-  public static function combo( $cabecera, $ajaxxxxx)
+  public static function combo($cabecera, $ajaxxxxx)
   {
     $comboxxx = [];
     if ($cabecera) {
@@ -199,6 +203,6 @@ class User extends Authenticatable
         $comboxxx[$registro->id] = $registro->nombre;
       }
     }
-    return [$comboxxx,$userxxxx->sis_cargo->s_cargo];
+    return [$comboxxx, $userxxxx->sis_cargo->s_cargo];
   }
 }

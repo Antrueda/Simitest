@@ -3,13 +3,12 @@
   {{-- .card-body --}}
   <div class="card-body box-profile">
     <div class="text-center">
-      <img class="profile-user-img img-fluid img-circle" src="{{ asset('adminlte/dist/img/avatar5.png') }} "
-        alt="User profile picture">
+      <img class="profile-user-img img-fluid img-circle" src="{{ asset('adminlte/dist/img/avatar5.png') }} " alt="User profile picture">
     </div>
     <h3 class="profile-username text-center">
-      {{ $todoxxxx['modeloxx']->s_primer_nombre }} 
-      {{ $todoxxxx['modeloxx']->s_segundo_nombre }} 
-      {{ $todoxxxx['modeloxx']->s_primer_apellido }} 
+      {{ $todoxxxx['modeloxx']->s_primer_nombre }}
+      {{ $todoxxxx['modeloxx']->s_segundo_nombre }}
+      {{ $todoxxxx['modeloxx']->s_primer_apellido }}
       {{ $todoxxxx['modeloxx']->s_segundo_apellido }}</h3>
     <p class="text-muted text-center">{{ $todoxxxx['modeloxx']->sis_cargo->s_cargo }}</p>
     <ul class="list-group list-group-unbordered mb-3">

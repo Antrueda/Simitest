@@ -10,16 +10,18 @@ use App\Http\Requests\Seguridad\UsuarioIdipronCrearRequest as UsuarioIdipronc;
 use App\Http\Requests\Seguridad\UsuarioIdipronEditarRequest as UsuarioIdiprone;
 use App\Http\Requests\Seguridad\UsuarioPasswordEditarRequest as UsuarioPassword;
 use App\Models\Roleext;
+use App\Models\sistema\AreaUser;
 use App\Models\sistema\SisCargo;
 use App\Models\sistema\SisDepartamento;
 use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisEsta;
 use App\Models\sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Realiaza el crud para las tablas users, sis_usuario_bitacoras y sis_documento_usrs
@@ -35,7 +37,9 @@ class UsuarioController extends Controller
         $this->middleware(['permission:usuario-editar'], ['only' => ['index, show, edit, update']]);
         $this->middleware(['permission:usuario-borrar'], ['only' => ['index, show, destroy']]);
         $this->opciones = [
+            'tablenax' => 'areas',
             'tituloxx' => '',
+            'parametr' => [],
             'rutaxxxx' => 'usuario',
             'vistaxxx' => 'administracion.usuario',
             'rutacarp' => 'administracion.usuario.',
@@ -74,13 +78,64 @@ class UsuarioController extends Controller
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }
+    private function getTablaArea($dataxxxx)
+    {
+        $this->opciones['tablasxx'] = [
+            
+        ];
+        
+        $this->opciones['tablasxx'][0]['permisox'] = 'usuario';
+        $this->opciones['tablasxx'][0]['tablenax'] = 'areasuser';
+        $this->opciones['tablasxx'][0]['vercrear'] = false;
+        $this->opciones['tablasxx'][0]['titulist'] = 'Lista de  Áreas Usuario';
+        $this->opciones['tablasxx'][0]['dataxxxx'] = [
+            ['campoxxx' => 'botonesx', 'dataxxxx' => 'layouts.components.botones.actinact'],
+            ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadoxx'],
+            ['campoxxx' => 'userxxxx', 'dataxxxx' => $dataxxxx['userxxxx']],
+        ];
+        $this->opciones['tablasxx'][0]['urlxxxxx'] = 'api/sis/areauser';
+        $this->opciones['tablasxx'][0]['cabecera'] = [
+            ['td' => 'ID'],
+            ['td' => 'ÁREA USUARIO'],
+            ['td' => 'ESTADO'],
+        ];
+        $this->opciones['tablasxx'][0]['columnsx'] = [
+            ['data' => 'btns', 'name' => 'btns'],
+            ['data' => 'id', 'name' => 'id'],
+            ['data' => 'nombre', 'name' => 'areas.nombre'],
+            ['data' => 's_estado', 'name' => 'sis_estas.s_estado']
+        ];
+
+        $this->opciones['tablasxx'][1]['permisox'] = 'usuario';
+        $this->opciones['tablasxx'][1]['tablenax'] = 'areas';
+        $this->opciones['tablasxx'][1]['vercrear'] = false;
+        $this->opciones['tablasxx'][1]['titulist'] = 'Lista de Áreas para Asignar';
+        $this->opciones['tablasxx'][1]['dataxxxx'] = [
+            ['campoxxx' => 'botonesx', 'dataxxxx' => ''],
+            ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadoxx'],
+            ['campoxxx' => 'userxxxx', 'dataxxxx' => $dataxxxx['userxxxx']],
+        ];
+
+        $this->opciones['tablasxx'][1]['urlxxxxx'] = 'api/sis/sisareas';
+        $this->opciones['tablasxx'][1]['cabecera'] = [
+            ['td' => 'ID'],
+            ['td' => 'ÁREA'],
+            ['td' => 'ESTADO'],
+        ];
+        $this->opciones['tablasxx'][1]['columnsx'] = [
+            ['data' => 'btns', 'name' => 'btns'],
+            ['data' => 'id', 'name' => 'areas.id'],
+            ['data' => 'nombre', 'name' => 'areas.nombre'],
+            ['data' => 's_estado', 'name' => 'sis_estas.s_estado']
+        ];
+    }
     /*Es metodo sen encarga de armar la estructura para los metos create, edit y show*/
     private function view($objetoxx, $nombobje, $accionxx)
     {
         $this->opciones['accionxx'] = $accionxx;
-
+        // ddd($objetoxx);  
         //
-        $this->opciones['sis_esta_id'] = Tema::combo(303, true, false);
+        $this->opciones['sis_esta_id'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['sis_cargo_id'] = SisCargo::combo();
         $this->opciones['prm_documento_id'] = Tema::combo(3, true, false);
         $this->opciones['prm_tvinculacion_id'] = Tema::combo(310, true, false);
@@ -91,7 +146,9 @@ class UsuarioController extends Controller
         $this->opciones['registro'] = [];
         $this->opciones['sis_municipio_id'] = ['' => 'Seleccione'];
         if ($nombobje != '') {
-            $objetoxx->d_carga=explode(' ',Carbon::now()->subDays($objetoxx->i_tiempo))[0] ;
+            $this->getTablaArea(['userxxxx'=>$objetoxx->id]);
+            
+            $objetoxx->d_carga = explode(' ', Carbon::now()->subDays($objetoxx->i_tiempo))[0];
             $this->opciones['sis_municipio_id'] = SisMunicipio::combo($objetoxx->sis_municipio->sis_departamento_id, false);
             $objetoxx->sis_departamento_id = $objetoxx->sis_municipio->sis_departamento_id;
             $this->opciones[$nombobje] = $objetoxx;
@@ -117,7 +174,6 @@ class UsuarioController extends Controller
     }
     public function create()
     {
-        $this->opciones['estadoxx'] = 'ACTIVO';
         return $this->view('', '', 'Crear');
     }
     private function transaccion($dataxxxx, $editcrea, $objetoxx)
@@ -168,7 +224,6 @@ class UsuarioController extends Controller
         // dd($usuario);
         $this->opciones['rolesxxx'] = $this->roles($usuario);
         $this->opciones['dependen'] = User::dependencia($usuario->id);
-        $this->opciones['estadoxx'] = $usuario->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         return $this->view($usuario, 'modeloxx', 'Editar');
     }
 
@@ -311,4 +366,38 @@ class UsuarioController extends Controller
             );
         }
     }
+
+    public function setAreas(\Illuminate\Http\Request $request)
+    {
+        if ($request->ajax()) { 
+            $userxxxx=User::where('id',$request->usuariox)->first();
+            $userxxxx->areas()->attach([$request->areaxxxx=>['sis_esta_id'=>1,'user_crea_id'=>Auth::user()->id,
+            'user_edita_id'=>Auth::user()->id]]);
+            return response()->json(
+                []
+            );
+        }
+    }
+    public function setActinact(\Illuminate\Http\Request $request)
+    {
+        if ($request->ajax()) {
+            $userxxxx=AreaUser::where('id',$request->areaxxxx)->first();
+            $mensajex='';
+            $sisestai=0;
+            if($userxxxx->sis_esta_id==1){
+                $sisestai=2;
+                $mensajex='inactivada';
+            }else{
+                $sisestai=1;
+                $mensajex='activada';
+            }
+            
+            $userxxxx->update(['sis_esta_id'=>$sisestai,'user_crea_id'=>Auth::user()->id,
+            'user_edita_id'=>Auth::user()->id]);
+            return response()->json(
+                ['mensajex'=>"área {$mensajex} con éxito"]
+            );
+        }
+    }
+    
 }

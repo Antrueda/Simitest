@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('s_primer_nombre');
-            $table->string('s_segundo_nombre');
+            $table->string('s_segundo_nombre')->nullable();
             $table->string('s_primer_apellido');
-            $table->string('s_segundo_apellido');
+            $table->string('s_segundo_apellido')->nullable();
             $table->string('email')->unique();
             $table->string('s_telefono');
             $table->string('s_matriculap');
@@ -54,9 +54,9 @@ class CreateUsersTable extends Migration
             $table->bigInteger('user_id');
             $table->string('name');
             $table->string('s_primer_nombre');
-            $table->string('s_segundo_nombre');
+            $table->string('s_segundo_nombre')->nullable();
             $table->string('s_primer_apellido');
-            $table->string('s_segundo_apellido');
+            $table->string('s_segundo_apellido')->nullable();
             $table->string('s_observacion', 3000);
             $table->string('email');
             $table->string('password');

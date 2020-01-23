@@ -20,6 +20,11 @@ class Area extends Model
     'user_edita_id' => 1
   ];
 
+  public function users()
+  {
+    return $this->belongsToMany(User::class)->withTimestamps();
+  }
+
   public function in_indicadors()
   {
     return $this->hasMany(InIndicador::class);

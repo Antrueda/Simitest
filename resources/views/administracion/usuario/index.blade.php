@@ -6,6 +6,5 @@
       @endslot
       @slot('class')
       @endslot
-      
     @endcomponent 
 @endsection

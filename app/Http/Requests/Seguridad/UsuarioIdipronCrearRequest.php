@@ -26,9 +26,9 @@ class UsuarioIdipronCrearRequest extends FormRequest
 
         // Mensajes para las validaciones para sis_usuario_botacoras
         $this->_mensaje['s_primer_nombre.required'] = 'Ingrese el primer nombre';
-        $this->_mensaje['s_segundo_nombre.required'] = 'ingrese el segundo nombre';
+        //$this->_mensaje['s_segundo_nombre.required'] = 'ingrese el segundo nombre';
         $this->_mensaje['s_primer_apellido.required'] = 'Ingrese el primer apellido';
-        $this->_mensaje['s_segundo_apellido.required'] = 'Ingrese el segundo apellido';
+        //$this->_mensaje['s_segundo_apellido.required'] = 'Ingrese el segundo apellido';
         $this->_mensaje['s_telefono.required'] = 'Ingrese un número de telefono';
         $this->_mensaje['prm_tvinculacion_id.required'] = 'Seleccione el tipo de vinculacion';
         $this->_mensaje['s_matriculap.required'] = 'Ingrese la matricula profesional';
@@ -46,9 +46,9 @@ class UsuarioIdipronCrearRequest extends FormRequest
         $this->_reglasx['sis_esta_id'] = ['required'];
         // Reglas para las validaciones de la data de sis_usuario_bitacoras
         $this->_reglasx['s_primer_nombre'] = ['required'];
-        $this->_reglasx['s_segundo_nombre'] = ['required'];
+        //$this->_reglasx['s_segundo_nombre'] = ['required'];
         $this->_reglasx['s_primer_apellido'] = ['required'];
-        $this->_reglasx['s_segundo_apellido']  = ['required'];
+        //$this->_reglasx['s_segundo_apellido']  = ['required'];
         $this->_reglasx['s_telefono'] = ['required'];
         $this->_reglasx['prm_tvinculacion_id'] = ['required'];
         $this->_reglasx['s_matriculap'] = ['required'];
