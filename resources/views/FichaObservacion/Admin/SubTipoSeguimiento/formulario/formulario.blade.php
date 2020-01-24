@@ -15,15 +15,15 @@
   
   
   <div class="form-group col-md-6" >
-    {{ Form::label('fos_area_id', 'Area:', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('area_id', 'Area:', ['class' => 'control-label col-form-label-sm']) }}
       @if($todoxxxx['accionxx'] == 'Ver')
-          {{ Form::select('fos_area_id', $todoxxxx['fosareas'], $todoxxxx['modeloxx']->fos_area_id, ['class' => 'form-control-plaintext','id'=>'fos_area_id']) }}
+          {{ Form::select('area_id', $todoxxxx['fosareas'], $todoxxxx['modeloxx']->area_id, ['class' => 'form-control-plaintext','id'=>'area_id']) }}
       @else
-          {{ Form::select('fos_area_id', $todoxxxx['fosareas'], null, ['class' => $errors->first('fos_area_id') ? 'form-control is-invalid select2' : 'form-control select2','id'=>'fos_area_id']) }}
+          {{ Form::select('area_id', $todoxxxx['fosareas'], null, ['class' => $errors->first('area_id') ? 'form-control is-invalid select2' : 'form-control select2','id'=>'area_id']) }}
       @endif
-      @if($errors->has('fos_area_id'))
+      @if($errors->has('area_id'))
         <div class="invalid-feedback d-block">
-          {{ $errors->first('fos_area_id') }}
+          {{ $errors->first('area_id') }}
         </div>
       @endif
   </div>

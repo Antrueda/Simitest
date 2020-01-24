@@ -654,10 +654,6 @@ class RolesYPermisosSeeder extends Seeder {
     Permission::create(['name' => 'fos-area-admin', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     Permission::create(['name' => 'fos-tipo-admin', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     Permission::create(['name' => 'fos-sub-tipo-admin', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-    Permission::create(['name' => 'fosarea-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-    Permission::create(['name' => 'fosarea-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-    Permission::create(['name' => 'fosarea-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-    Permission::create(['name' => 'fosarea-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     Permission::create(['name' => 'fostipo-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     Permission::create(['name' => 'fostipo-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     Permission::create(['name' => 'fostipo-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);

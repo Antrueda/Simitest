@@ -205,4 +205,43 @@ class User extends Authenticatable
     }
     return [$comboxxx, $userxxxx->sis_cargo->s_cargo];
   }
+  public static function getAreasUser($dataxxxx)
+  {
+    $comboxxx = [];
+    if ($dataxxxx['cabecera']) {
+      if ($dataxxxx['esajaxxx']) {
+        $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+      } else {
+        $comboxxx = ['' => 'Seleccione'];
+      }
+    }
+    foreach (Auth::User()->areas as $areasxxx) {
+      if ($dataxxxx['esajaxxx']) {
+        $comboxxx[] = ['valuexxx' => $areasxxx->id, 'optionxx' => $areasxxx->nombre];
+      } else {
+        $comboxxx[$areasxxx->id] = $areasxxx->nombre;
+      }
+    }
+    return $comboxxx;
+  }
+  public static function getDependenciasUser($dataxxxx)
+  {
+    $comboxxx = [];
+    if ($dataxxxx['cabecera']) {
+      if ($dataxxxx['esajaxxx']) {
+        $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+      } else {
+        $comboxxx = ['' => 'Seleccione'];
+      }
+    }
+    foreach (Auth::User()->sis_dependencias as $areasxxx) {
+      if ($dataxxxx['esajaxxx']) {
+        $comboxxx[] = ['valuexxx' => $areasxxx->id, 'optionxx' => $areasxxx->nombre];
+      } else {
+        $comboxxx[$areasxxx->id] = $areasxxx->nombre;
+      }
+    }
+    return $comboxxx;
+  }
+  
 }

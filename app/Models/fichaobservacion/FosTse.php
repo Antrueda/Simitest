@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class FosTse extends Model
 {
     protected $fillable = [
-        'fos_area_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id',
+        'area_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id',
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
     public function fos_area()
     {
-        return $this->belongsTo(FosArea::class);
+        return $this->belongsTo(Area::class);
     }
 
     
@@ -44,7 +44,7 @@ class FosTse extends Model
             }
         }
         $parametr = FosTse::select(['id as valuexxx', 'nombre as optionxx'])
-            ->where('fos_area_id', $areaxxx)
+            ->where('area_id', $areaxxx)
             ->where('sis_esta_id', '1')
             ->orderBy('id', 'asc')
             ->get();

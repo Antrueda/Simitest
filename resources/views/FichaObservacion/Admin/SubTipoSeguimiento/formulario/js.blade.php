@@ -31,10 +31,10 @@
             
         }
 
-        @if(old('fos_area_id')!=null)
-          f_campos({valuexxx:{{ old('fos_area_id') }},selected:{{old('fos_tse_id')}}});
+        @if(old('area_id')!=null)
+          f_campos({valuexxx:{{ old('area_id') }},selected:{{old('fos_tse_id')}}});
         @endif
-        $("#fos_area_id").change(function(){
+        $("#area_id").change(function(){
             f_campos({valuexxx:$(this).val(),selected:''});
         });
     });

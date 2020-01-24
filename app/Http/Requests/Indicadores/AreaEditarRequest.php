@@ -1,25 +1,20 @@
 <?php
 
-namespace App\Http\Requests\FichaObservacion;
+namespace App\Http\Requests\Indicadores;
+
 
 use Illuminate\Foundation\Http\FormRequest;
-
-class FosTseCrearRequest extends FormRequest
+class AreaEditarRequest extends FormRequest
 {
+
     private $_mensaje;
     private $_reglasx;
 
     public function __construct()
     {
         $this->_mensaje = [
-            'nombre.required' => 'El nombre es requerido',
-            'area_id.required' => 'Seleccione una área',
-            'nombre.unique' => 'El nombre ya existe',
-            'nombre.max' => 'El nombre un máximo de 120 caracteres',
-        ];
-        $this->_reglasx = [
-        'nombre' => ['Required','string','max:120','unique:fos_tses'],
-            'area_id' => ['Required'],
+            'nombre.required' => 'Ingrese el nombre del área',
+            'nombre.unique' => 'El área ya se encuentra en uso',
         ];
     }
     /**
@@ -45,11 +40,14 @@ class FosTseCrearRequest extends FormRequest
     public function rules()
     {
         $this->validar();
+        $this->_reglasx['nombre']= ['required',
+            'unique:areas,nombre,' . $this->segments()[2]];
         return $this->_reglasx;
     }
 
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        // unico para relacion multiple
     }
 }

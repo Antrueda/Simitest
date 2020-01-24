@@ -17,13 +17,13 @@
                 </div>
                 <div class="form-group col-md-6">
                     {{ Form::label('d_fecha_diligencia', 'Fecha Diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::date('d_fecha_diligencia', null, ['class' => 'form-control form-control-sm',$todoxxxx["readonly"]]) }}
+                    {{ Form::text('d_fecha_diligencia', null, ['class' => 'form-control form-control-sm',$todoxxxx["readonly"]]) }}
                 </div>
             </div>
             <div class="form-row align-items-end">
                 <div class="form-group col-md-6">
-                    {{ Form::label('fos_area_id', 'Área / Contexto Pedagógico', ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::select('fos_area_id', $todoxxxx["areacont"], null, ['class' => $errors->first('fos_area_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
+                    {{ Form::label('area_id', 'Área / Contexto Pedagógico', ['class' => 'control-label col-form-label-sm']) }}
+                    {{ Form::select('area_id', $todoxxxx["areacont"], null, ['class' => $errors->first('area_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
                 </div>
                 <div class="form-group col-md-6">
                     {{ Form::label('fos_tse_id', 'Tipo de Seguimiento', ['class' => 'control-label col-form-label-sm']) }}

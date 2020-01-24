@@ -2,8 +2,10 @@
 
 namespace App\Models\sistema;
 
+use App\Models\Indicadores\Area;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Support\Facades\Auth;
 
 class AreaUser extends Pivot
 {
@@ -24,4 +26,13 @@ class AreaUser extends Pivot
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
+
+    public function area(){
+        return $this->belongsTo(Area::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    
+    
 }

@@ -5,7 +5,6 @@ include_once('web_dependencia.php');
 include_once('web_documento_fuente.php');
 include_once('web_entidad.php');
 include_once('web_eps.php');
-include_once('web_fos_area.php');
 include_once('web_fos_subtiposeguimiento.php');
 include_once('web_fos_tiposeguimiento.php');
 include_once('web_fsoporte.php');

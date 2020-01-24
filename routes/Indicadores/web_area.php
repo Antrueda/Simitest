@@ -11,29 +11,21 @@ Route::group(['prefix' => 'area'], function () {
 	Route::post('nuevo', [
 	    'uses' => 'Indicadores\AreaController@store',
 	    'middleware' => ['permission:area-crear']
-	]);
-	Route::get('editar/{id}', [
+	])->name('area.crear');
+	Route::get('editar/{objetoxx}', [
 	    'uses' => 'Indicadores\AreaController@edit',
 	    'middleware' => ['permission:area-editar']
 	])->name('area.editar');
-	Route::put('editar/{id}', [
+	Route::put('editar/{objetoxx}', [
 	    'uses' => 'Indicadores\AreaController@update',
 	    'middleware' => ['permission:area-editar']
-	]);
-	Route::put('editar/{id}/{id0}', [
-	    'uses' => 'Indicadores\AreaController@updateParametro',
-	    'middleware' => ['permission:area-crear|area-editar']
-	])->name('area.editarParametro');
-	Route::get('ver/{id}', [
-	    'uses' => 'Indicadores\AreaController@show',
-	    'middleware' => ['permission:area-leer']
+	])->name('area.editar');
+	Route::get('ver/{objetoxx}', [
+		'uses' => 'Indicadores\AreaController@show',
+		'middleware' => ['permission:inacciongestion-leer']
 	])->name('area.ver');
-	Route::delete('ver/{id}', [
+	Route::delete('ver/{objetoxx}', [
 	    'uses' => 'Indicadores\AreaController@destroy',
 	    'middleware' => ['permission:area-borrar']
-	]);
-	Route::delete('ver/{id}/{id0}', [
-	    'uses' => 'Indicadores\AreaController@destroyParametro',
-	    'middleware' => ['permission:area-borrar']
-	])->name('area.verParametro');
+	])->name('area.borrar');
 });

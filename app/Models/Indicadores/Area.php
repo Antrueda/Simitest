@@ -9,10 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Area extends Model
 {
   protected $fillable = [
-    'nombre',
-    'sis_esta_id',
-    'user_crea_id',
-    'user_edita_id'
+    'nombre', 'contexto', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id', 
   ];
 
   protected $attributes = [

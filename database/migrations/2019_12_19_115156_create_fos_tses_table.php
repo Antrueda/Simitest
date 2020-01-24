@@ -9,7 +9,7 @@ class CreateFosTsesTable extends Migration{
     public function up(){
         Schema::create('fos_tses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fos_area_id')->unsigned();
+            $table->bigInteger('area_id')->unsigned();
             $table->string('nombre', 120);
             $table->text('descripcion',4000)->nullable();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
@@ -19,7 +19,7 @@ class CreateFosTsesTable extends Migration{
             $table->timestamps();
             
 
-            $table->foreign('fos_area_id')->references('id')->on('fos_areas');
+            $table->foreign('area_id')->references('id')->on('areas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
 

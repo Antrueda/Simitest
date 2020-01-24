@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
     $(document).ready(function() {
         var dataurlx='';
@@ -56,12 +57,12 @@
             }
 
             //Recuperar datos en caso de tener errores en las validaciones
-            @if(old('fos_area_id')!=null)
+            @if(old('area_id')!=null)
                 $("#fos_stse_id").empty();
                 f_cargos({
                     selected:'{{ old("fos_tse_id") }}',
                     dataxxxx:{
-                        valuexxx:"{{ old('fos_area_id') }}",
+                        valuexxx:"{{ old('area_id') }}",
                         'tipoxxxx':1
                     }
                 });
@@ -70,14 +71,14 @@
                         selected:"{{ old('fos_stse_id') }}",
                         dataxxxx:{
                             valuexxx:"{{ old('fos_tse_id') }}",
-                            valuexx1:"{{ old('fos_area_id') }}",
+                            valuexx1:"{{ old('area_id') }}",
                             'tipoxxxx':2 
                         }
                     });
                 @endif
             @endif
 
-            $("#fos_area_id").change(function(){
+            $("#area_id").change(function(){
                 $("#fos_stse_id").empty();
                 f_cargos({
                     selected:'',
@@ -95,11 +96,23 @@
                     selected:'',
                     dataxxxx:{
                         valuexxx:$(this).val(),
-                        valuexx1:$('#fos_area_id').val(),
+                        valuexx1:$('#area_id').val(),
                         'tipoxxxx':2 
                     }
                 });
             });
+
+            $("#d_fecha_diligencia").datepicker({
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                maxDate:'+0d',
+                yearRange: "-70:+0",
+                onSelect: function(dateText) {
+                
+                }
+            });
+
         });
 
         function soloLetras(e) {

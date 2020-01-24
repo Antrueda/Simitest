@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
-use App\Models\fichaobservacion\FosArea;
+use App\Models\fichaobservacion\Area;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use Illuminate\Http\Request;
@@ -68,7 +68,7 @@ class ControladorModeloController extends Controller
             ['data' => 'id', 'name' => 'fos_stses.id'],
             ['data' => 'nombre', 'name' => 'fos_stses.nombre'],
             ['data' => 's_seguimiento', 'name' => 'fos_tses.nombre as s_seguimiento'],
-            ['data' => 's_area', 'name' => 'fos_areas.nombre as s_area'],
+            ['data' => 's_area', 'name' => 'areas.nombre as s_area'],
             ['data' => 'sis_esta_id', 'name' => 'fos_stses.sis_esta_id'],
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
@@ -76,15 +76,15 @@ class ControladorModeloController extends Controller
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
 
-        $this->opciones['fosareas'] =  FosArea::combo( true, false);
+        $this->opciones['Areas'] =  Area::combo( true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
         $this->opciones['nivelxxx'] = '';
         $this->opciones['tiposegu'] = [];
         if ($nombobje != '') {
-            $objetoxx->fos_area_id=$objetoxx->fos_tse->fos_area_id;
-            $this->opciones['tiposegu'] =FosTse::combo($objetoxx->fos_area_id, true, false);
+            $objetoxx->area_id=$objetoxx->fos_tse->area_id;
+            $this->opciones['tiposegu'] =FosTse::combo($objetoxx->area_id, true, false);
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }

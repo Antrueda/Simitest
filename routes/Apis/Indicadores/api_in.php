@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Indicadores\Area;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InBaseFuente;
@@ -429,4 +430,16 @@ Route::get('indicadores/diagnostico', function (Request $request) {
 		->addColumn('btns', $dataxxxx['botonesx'])
 		->rawColumns(['btns'])
 		->toJson();
+});
+
+Route::get('indicadores/sisareas', function (Request $request) {
+    if (!$request->ajax()) return redirect('/');
+    return datatables()
+        ->eloquent(Area::select(['areas.id','areas.nombre','sis_estas.s_estado','areas.sis_esta_id'])
+        ->join('sis_estas','areas.sis_esta_id','=','sis_estas.id')
+        ) 
+        ->addColumn('btns', $request->botonesx)
+        ->addColumn('s_estado', $request->estadoxx)
+        ->rawColumns(['btns','s_estado'])
+        ->toJson();
 });

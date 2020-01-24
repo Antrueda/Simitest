@@ -13,7 +13,7 @@ class FosTseEditarRequest extends FormRequest
     {
         $this->_mensaje = [
             'nombre.required' => 'El nombre es requerido',
-            'fos_area_id.required' => 'Seleccione una área',
+            'area_id.required' => 'Seleccione una área',
             'nombre.unique' => 'El nombre ya existe',
             'nombre.max' => 'El nombre debe tener un máximo de 120 caracteres',
             'nombre.max' => 'La descripción debe tener un máximo de 4000 caracteres',
@@ -46,7 +46,7 @@ class FosTseEditarRequest extends FormRequest
         $this->validar();
         $this->_reglasx = [
             'nombre' => ['Required','string','max:120','unique:fos_stses,nombre,'. $this->segments()[2]],
-                'fos_area_id' => ['Required'],
+                'area_id' => ['Required'],
                 'descripcion' => ['nullable','max:4000'],
             ];
         return $this->_reglasx;

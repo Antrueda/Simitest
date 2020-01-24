@@ -14,7 +14,7 @@ class FosDatosBasico extends Model{
         'sis_nnaj_id',
         'sis_dependencia_id',
         'd_fecha_diligencia',
-        'fos_area_id',
+        'area_id',
         'fos_tse_id',
         'fos_stse_id',
         's_observacion',

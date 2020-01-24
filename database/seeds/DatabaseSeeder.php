@@ -45,7 +45,6 @@ class DatabaseSeeder extends Seeder
         $this->call(InLigrusSeeder::class);
         $this->call(InDocPreguntasSeeder::class);
         $this->call(SisFsoportesSeeder::class);
-        $this->call(FosAreasSeeder::class);
         $this->call(FosTsesSeeder::class);
         $this->call(FosStsesSeeder::class);
         $this->call(InRespuestasSeeder::class);

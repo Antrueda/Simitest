@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Indicadores;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Indicadores\InLigruCrearRequest;
 use App\Http\Requests\Indicadores\InLigruEditarRequest;
-use App\Models\fichaobservacion\FosArea;
+use App\Models\fichaobservacion\Area;
 use App\Models\Indicadores\InLigru;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\fichaobservacion\FosTse;

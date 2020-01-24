@@ -8,14 +8,6 @@
         </p>
         </a>
         <ul class="nav nav-treeview">
-            @can('fos-area-admin')
-                <li class="nav-item">
-                    <a href="{{ route('fosarea') }}" class="nav-link">
-                        <i class="fas fa-book nav-icon"></i>
-                        <p>Areas</p>
-                    </a>
-                </li>
-            @endcan
             @can('fos-tipo-admin')
                 <li class="nav-item">
                     <a href="{{ route('fostipo') }}" class="nav-link">

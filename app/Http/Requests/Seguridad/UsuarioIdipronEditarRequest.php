@@ -33,7 +33,6 @@ class UsuarioIdipronEditarRequest extends FormRequest
         $this->_mensaje['sis_cargo_id.required'] = 'Seleccione el cargo';
         $this->_mensaje['i_tiempo.required'] = 'Seleccione una fecha para la carga de información';
         $this->_mensaje['d_vinculacion.required'] = 'Seleccione una fecha de vinculación';
-        $this->_mensaje['s_observacion.required'] = 'El registro debe tener una observación';
         $this->_mensaje['sis_esta_id.required'] = 'Seleccione un estado';
 
         // Reglas para las validaciones de la data de sis_documento_usrs
@@ -53,7 +52,6 @@ class UsuarioIdipronEditarRequest extends FormRequest
         $this->_reglasx['sis_cargo_id'] = ['required'];
         $this->_reglasx['i_tiempo'] = ['required'];
         $this->_reglasx['d_vinculacion'] = ['required'];
-        $this->_reglasx['s_observacion'] = ['required'];
         //"required|array|min:3",
     }
     /**

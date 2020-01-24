@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Administracion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosTseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosTseEditarRequest;
-use App\Models\fichaobservacion\FosArea;
 use App\Models\fichaobservacion\FosTse;
-
+use App\Models\Indicadores\Area;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -64,7 +63,7 @@ class FosTipoSeguimientoController extends Controller
             ['data' => 'btns', 'name' => 'btns'],
             ['data' => 'id', 'name' => 'fos_tses.id'],
             ['data' => 'nombre', 'name' => 'fos_tses.nombre'],
-            ['data' => 's_area', 'name' => 'fos_areas.nombre as s_area'],
+            ['data' => 's_area', 'name' => 'areas.nombre as s_area'],
             ['data' => 'sis_esta_id', 'name' => 'fos_tses.sis_esta_id as activo'],
         ];
         return view($this->opciones['rutacarp'].'index', ['todoxxxx' => $this->opciones]);
@@ -72,7 +71,7 @@ class FosTipoSeguimientoController extends Controller
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
 
-        $this->opciones['fosareas'] = $areas = FosArea::orderBy('nombre')->where('sis_esta_id', '1')->pluck('nombre', 'id');
+        $this->opciones['Areas'] = $areas = Area::orderBy('nombre')->where('sis_esta_id', '1')->pluck('nombre', 'id');
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo

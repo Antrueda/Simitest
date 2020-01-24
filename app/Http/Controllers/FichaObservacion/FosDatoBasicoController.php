@@ -9,18 +9,22 @@ use Illuminate\Http\Request;
 
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiComposicionFami;
-use App\Models\fichaobservacion\FosArea;
+use App\Models\fichaobservacion\Area;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
+use App\Models\sistema\AreaUser;
 use App\Models\sistema\SisDependencia;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-class FosDatoBasicoController extends Controller{
-   
+class FosDatoBasicoController extends Controller
+{
+
     private $opciones;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware(['permission:fosfichaobservacion-leer'], ['only' => ['show']]);
         $this->middleware(['permission:fosfichaobservacion-crear'], ['only' => ['show, create, store']]);
         $this->middleware(['permission:fosfichaobservacion-editar'], ['only' => ['show, edit, update']]);
@@ -46,14 +50,14 @@ class FosDatoBasicoController extends Controller{
         $this->opciones['disptabx'] = "block";
         $this->opciones['permisox'] = 'fosfichaobservacion';
         $this->opciones['areacont'] = ['' => 'Seleccione'];
-        foreach (FosArea::orderBy('nombre')->where('sis_esta_id',1)->pluck('nombre', 'id') as $k => $d) {
-            $this->opciones['areacont'][$k] = $d;
-        }
-       
-        $this->opciones['dependen'] = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+
+
+
+
         $this->opciones['usuarios'] = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
     }
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $this->opciones['cabecera'] = [
             ['td' => 'Id'],
             ['td' => 'PRIMER NOMBRE'],
@@ -74,19 +78,24 @@ class FosDatoBasicoController extends Controller{
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }
 
-    private function grabar($dataxxxx, $objectx, $infoxxxx){
-        
+    private function grabar($dataxxxx, $objectx, $infoxxxx)
+    {
+
         return redirect()
             ->route('fos.fichaobservacion.editar', [$dataxxxx['sis_nnaj_id'], FosDatosBasico::transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);
     }
 
-    public function store(FosDatosBasicoCrearRequest $request){
+    public function store(FosDatosBasicoCrearRequest $request)
+    {
 
         return $this->grabar($request->all(), '', 'Ficha de Observación creada con exito');
     }
 
-    private function view($objetoxx, $nombobje, $accionxx){
+    private function view($objetoxx, $nombobje, $accionxx)
+    {
+        $this->opciones['dependen'] = User::getDependenciasUser(['cabecera' => true, 'esajaxxx' => false]);
+        $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['compfami'] = FiComposicionFami::combo($this->opciones['datobasi'], true, false);
         $fechaxxx = explode('-', date('Y-m-d'));
         if ($fechaxxx[1] < 12) {
@@ -101,13 +110,14 @@ class FosDatoBasicoController extends Controller{
         $this->opciones['maxdatex'] = "-6y +0m +0d";
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {
-            $this->opciones['seguixxx'] = FosTse:: combo($objetoxx->fos_area_id, true, false);
-            
-            $this->opciones['tipsegui'] = FosStse:: combo([
-                'ajaxxxxx'=>false,
-                'cabecera'=>true,
-                'seguimie'=>$objetoxx->fos_tse_id]);
-        
+            $this->opciones['seguixxx'] = FosTse::combo($objetoxx->area_id, true, false);
+
+            $this->opciones['tipsegui'] = FosStse::combo([
+                'ajaxxxxx' => false,
+                'cabecera' => true,
+                'seguimie' => $objetoxx->fos_tse_id
+            ]);
+
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
@@ -119,7 +129,8 @@ class FosDatoBasicoController extends Controller{
         return view($rutaxxxx, ['todoxxxx' => $this->opciones]);
     }
 
-    public function create($nnajregi){
+    public function create($nnajregi)
+    {
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
@@ -127,17 +138,20 @@ class FosDatoBasicoController extends Controller{
         return $this->view('', '', 'crear');
     }
 
-    public function lista($nnajregi){
+    public function lista($nnajregi)
+    {
         $this->opciones['nnajregi'] = $nnajregi;
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
         return $this->view('', '', 'crear');
     }
 
-    public function show($nnajregi, FosDatosBasico $db){
+    public function show($nnajregi, FosDatosBasico $db)
+    {
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
     }
 
-    public function edit($nnajregi,  FosDatosBasico $fichaobservacion){
+    public function edit($nnajregi,  FosDatosBasico $fichaobservacion)
+    {
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
@@ -146,29 +160,37 @@ class FosDatoBasicoController extends Controller{
         return $this->view($fichaobservacion, 'modeloxx', 'Editar');
     }
 
-    public function update(FosDatosBasicoUpdateRequest $request,  $db, FosDatosBasico $fichaobservacion){
+    public function update(FosDatosBasicoUpdateRequest $request,  $db, FosDatosBasico $fichaobservacion)
+    {
         return $this->grabar($request->all(), $fichaobservacion, 'Ficha de observación actualizada con exito');
     }
 
-    public function obtenerTipoSeguimientos(Request $request){
-        if($request->ajax()){
-            $respuest=[];
-            switch($request->tipoxxxx){
+    public function obtenerTipoSeguimientos(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            switch ($request->tipoxxxx) {
                 case 1:
-                    $respuest=['comboxxx'=> FosTse:: combo(
-                        $request->all()['valuexxx'], true, true),
-                        'campoxxx'=>'#fos_tse_id'
+                    $respuest = [
+                        'comboxxx' => FosTse::combo(
+                            $request->all()['valuexxx'],
+                            true,
+                            true
+                        ),
+                        'campoxxx' => '#fos_tse_id'
                     ];
-                break;
+                    break;
                 case 2:
-                    $respuest=['comboxxx'=>FosStse::combo([
-                        'ajaxxxxx'=>true,
-                        'cabecera'=>true,
-                        'areaxxxx'=>$request->all()['valuexx1'],
-                        'seguimie'=>$request->all()['valuexxx']]),
-                        'campoxxx'=>'#fos_stse_id'
+                    $respuest = [
+                        'comboxxx' => FosStse::combo([
+                            'ajaxxxxx' => true,
+                            'cabecera' => true,
+                            'areaxxxx' => $request->all()['valuexx1'],
+                            'seguimie' => $request->all()['valuexxx']
+                        ]),
+                        'campoxxx' => '#fos_stse_id'
                     ];
-                break;
+                    break;
             }
             return response()->json($respuest);
         }
