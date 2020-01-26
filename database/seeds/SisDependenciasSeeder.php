@@ -14,6 +14,23 @@ class SisDependenciasSeeder extends Seeder
     public function run()
     {
         SisDependencia::create([
+            'nombre' => 'NO APLICA',
+            'i_prm_cvital_id' => 1,
+            'i_prm_tdependen_id' => 1,
+            'i_prm_sexo_id' => 1,
+            's_direccion' => '00001',
+            'sis_departamento_id' => 1,
+            'sis_municipio_id' => 1,
+            'sis_localidad_id' => 22,
+            'sis_barrio_id' => 1,
+            's_telefono' => '001',
+            's_correo' => 'DDDD',
+            'i_tiempo' => 0,
+            'sis_esta_id'=>1,
+            's_observacion'=>'DEPENDENCIA NO APLICA'
+        
+        ]);
+        SisDependencia::create([
             'nombre' => 'TERRITORIO 1',
             'i_prm_cvital_id' => 1,
             'i_prm_tdependen_id' => 1,

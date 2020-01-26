@@ -134,7 +134,8 @@ class AgActividadController extends Controller
         $this->opciones['entidadx'] = SisEntidad::combo(true, false);
         $this->opciones['dependen'] = SisDependencia::combo(true, false);
         $this->opciones['agtemaxx'] = AgTema::comb(true, false);
-        $this->opciones['lugarxxx'] = Tema::combo(291, true, false);
+        $this->opciones['lugarxxx'] = [1269=>'NO APLICA'];
+        //Tema::combo(291, true, false);
         $this->opciones['tallerxx'] = AgTaller::comb(true, false);
         $this->opciones['subtemax'] = AgSubtema::comb(true, false);
         $this->opciones['dirigido'] = Tema::combo(285, true, false);

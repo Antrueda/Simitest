@@ -10,6 +10,7 @@ use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTema;
+use App\Models\Tema;
 use Illuminate\Http\Request;
 
 Route::get('agr/talleres', function (Request $request) {
@@ -141,4 +142,16 @@ Route::get('ag/relaciones', function (Request $request) {
         ->addColumn('btns', 'Acciones/Grupales/Agactividad/botones/botonelim')
         ->rawColumns(['btns'])
         ->toJson();
+});
+
+Route::get('ag/espacios', function (Request $request) {
+    if (!$request->ajax()) return redirect('/');
+    $respusta=['dataxxxx'=>[['valuexxx'=>1269,'optionxx'=>'NO APLICA']],
+    'readonly'=>true,'campoxxx'=>'s_prm_espac','comboxxx'=>'i_prm_lugar_id'
+];
+    if($request->padrexxx==1){
+        $respusta['dataxxxx']=Tema::combo(291, true, true);
+        $respusta['readonly']=false;
+    }
+    return response()->json($respusta);
 });
