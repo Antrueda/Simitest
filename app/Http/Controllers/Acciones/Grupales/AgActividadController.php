@@ -14,7 +14,6 @@ use App\Models\Indicadores\Area;
 use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisEntidad;
 use App\Models\Tema;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class AgActividadController extends Controller
@@ -27,7 +26,7 @@ class AgActividadController extends Controller
         $this->middleware(['permission:agactividad-editar'], ['only' => ['index, show, edit, update']]);
         $this->middleware(['permission:agactividad-borrar'], ['only' => ['index, show, destroy']]);
         $this->opciones = [
-            'tituloxx' => 'Actividad',
+            'tituloxx' => 'TALLERES Y ACCIONES FORMATIVAS',
             'rutaxxxx' => 'ag.acti.actividad',
             'accionxx' => '',
             'rutacarp' => 'Acciones.Grupales.Agactividad.',

@@ -9,7 +9,11 @@
       {{ Form::text('s_subtema', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"] ,'placeholder' => 'nombre del taller', 'maxlength' => '120', 'autofocus']) }}
     </div>
     <div class="form-group col-md">
-      {{ Form::label('s_descripcion', 'Descripción', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::textarea('s_descripcion', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"] ,'placeholder' => 'nombre del taller', 'maxlength' => '120', 'autofocus']) }}
-    </div>
+      {{ Form::textarea('s_descripcion', null, 
+    ['class' => $errors->first('s_descripcion') ? 'form-control form-control-sm is-invalid contarcaracteres' : 
+    'form-control form-control-sm contarcaracteres', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 
+    'id' => 's_descripcion', 'maxlength' => '6000','contador'=>'agsubtemacontador',
+    "onkeyup" => "javascript:this.value=this.value.toUpperCase()", 'style' => 'text-transform:uppercase' ]) }}
+    <p id="agsubtemacontador">0/6000</p>
+  </div>
 </div>

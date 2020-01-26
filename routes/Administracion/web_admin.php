@@ -14,6 +14,7 @@ include_once('web_proceso.php');
 include_once('web_sis_cargo.php');
 include_once('web_sis_esta.php');
 include_once('web_tema.php');
+include_once('web_tooltips.php');
 
 
 

@@ -13,3 +13,7 @@
   </div>
 </div>
 @endsection
+
+@section('scripts')
+@include($todoxxxx['rutacarp'].'formulario.js')
+@endsection 

@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     {{ Form::label('d_fecha_diligencia', 'Fecha Diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::text('d_fecha_diligencia', null, ['class' => 'form-control form-control-sm',$todoxxxx["readonly"]]) }}
+                    {{ Form::text('d_fecha_diligencia', null, ['class' => 'form-control form-control-sm',$todoxxxx["readonly"],'style'=>'border:1px']) }}
                 </div>
             </div>
             <div class="form-row align-items-end">
@@ -27,12 +27,14 @@
                 </div>
                 <div class="form-group col-md-6">
                     {{ Form::label('fos_tse_id', 'Tipo de Seguimiento', ['class' => 'control-label col-form-label-sm']) }}
+                    <a href="#"  propiedad="fos_tse_id"  class="mouseover" title=""><i class="far fa-question-circle"></i></a>
                     {{ Form::select('fos_tse_id', $todoxxxx["seguixxx"], null, ['class' => $errors->first('fos_tse_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
                 </div>
+               
                 <div class="form-group col-md-6">
                     {{ Form::label('fos_stse_id', 'Sub-Tipo de Seguimiento', ['class' => 'control-label col-form-label-sm']) }}
-                    <a href="#" data-toggle="tooltip"><i class="far fa-question-circle"></i></a>
-                    {{ Form::select('fos_stse_id', $todoxxxx["tipsegui"], null, ['class' => $errors->first('fos_stse_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
+                    <a href="#"  propiedad="fos_stse_id"  class="mouseover" title=""><i class="far fa-question-circle"></i></a>
+                    {{ Form::select('fos_stse_id', $todoxxxx["tipsegui"], null, ['class' => $errors->first('fos_stse_id') ? 'form-control select2 form-control-sm is-invalid mouseover1' : 'form-control select2 form-control-sm mouseover1']) }}
                 </div>
             </div>
             <div class="form-row align-items-end">

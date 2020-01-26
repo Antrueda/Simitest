@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Administracion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
-use App\Models\fichaobservacion\Area;
+use App\Models\Indicadores\Area;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use Illuminate\Http\Request;
@@ -76,7 +76,7 @@ class FosSubTipoSeguimientoController extends Controller
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
 
-        $this->opciones['Areas'] =  Area::combo( true, false);
+        $this->opciones['fosareas'] =  Area::comb( true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo

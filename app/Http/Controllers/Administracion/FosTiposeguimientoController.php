@@ -71,7 +71,7 @@ class FosTipoSeguimientoController extends Controller
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
 
-        $this->opciones['Areas'] = $areas = Area::orderBy('nombre')->where('sis_esta_id', '1')->pluck('nombre', 'id');
+        $this->opciones['fosareas'] = $areas = Area::orderBy('nombre')->where('sis_esta_id', '1')->pluck('nombre', 'id');
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo

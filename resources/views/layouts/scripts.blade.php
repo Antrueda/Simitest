@@ -43,5 +43,7 @@
 <script src="{{ asset('adminlte/plugins/mask/jquery.mask.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/select2/js/i18n/es.js') }}"></script>
+<script src="{{ asset('especiales/contarcaracteres.js') }}"></script>
+<script src="{{ asset('especiales/fechas.js') }}"></script>
 @include('layouts.mensaje')
 @yield('scripts')
