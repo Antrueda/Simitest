@@ -12,12 +12,13 @@ class AgTema extends Model
   protected $fillable = [
     's_tema',
     'area_id',
+    's_descripcion',
     'i_prm_categoria_id',
     'user_crea_id',
     'user_edita_id',
     'sis_esta_id'
   ];
- 
+
   protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
   public function creador()
   {
@@ -51,7 +52,7 @@ class AgTema extends Model
     }
     return $comboxxx;
   }
-  
+
   public static function comb($cabecera, $ajaxxxxx)
     {
         $comboxxx = [];

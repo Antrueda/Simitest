@@ -20,12 +20,13 @@ class CreateAgTemasTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->String('s_descripcion', 6000);
             $table->timestamps();
             $table->foreign('area_id')->references('id')->on('areas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
-            
+
         });
     }
 
