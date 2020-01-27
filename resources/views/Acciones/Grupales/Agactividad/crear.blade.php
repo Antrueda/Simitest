@@ -14,4 +14,5 @@
 </div>
 @endsection
 @section('codigo')
+@include($todoxxxx["rutacarp"].'formulario.js')
 @endsection

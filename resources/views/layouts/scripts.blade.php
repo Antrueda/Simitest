@@ -45,5 +45,6 @@
 <script src="{{ asset('adminlte/plugins/select2/js/i18n/es.js') }}"></script>
 <script src="{{ asset('especiales/contarcaracteres.js') }}"></script>
 <script src="{{ asset('especiales/fechas.js') }}"></script>
+<script src="{{ asset('especiales/combos.js') }}"></script>
 @include('layouts.mensaje')
 @yield('scripts')

@@ -1,5 +1,5 @@
 <div class="form-group card-footer text-muted text-center">
-    @if($todoxxxx['accionxx']!='Ver')z
+    @if($todoxxxx['accionxx']!='Ver')
         {{ Form::submit($todoxxxx['accionxx'], ['class'=>'btn btn-sm btn-primary']) }}
     @endif
     @if($todoxxxx['accionxx']!='Crear')
