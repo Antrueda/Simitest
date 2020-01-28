@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('s_telefono');
             $table->string('s_matriculap');
             $table->string('s_documento');
-            $table->string('s_observacion', 3000);
+           
             $table->date('d_vinculacion');
             $table->integer('i_tiempo');
             $table->timestamp('email_verified_at')->nullable();
@@ -57,7 +57,6 @@ class CreateUsersTable extends Migration
             $table->string('s_segundo_nombre')->nullable();
             $table->string('s_primer_apellido');
             $table->string('s_segundo_apellido')->nullable();
-            $table->string('s_observacion', 3000);
             $table->string('email');
             $table->string('password');
             $table->dateTime('created_at');

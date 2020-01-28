@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Acciones\Grupales\AgSubtema;
+use App\Models\Acciones\Grupales\AgTaller;
+use App\Models\Acciones\Grupales\AgTema;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use Illuminate\Http\Request;
@@ -17,6 +20,26 @@ Route::get('tooltip/tooltip', function (Request $request) {
 				$fostsexx = FosTse::where('id', $request->idxxxxxx)->first();
 				$respuest = ['tooltipx' => $fostsexx->descripcion];
 				break;
+			case 'ag_tema_id':
+					$fostsexx = AgTema::where('id', $request->idxxxxxx)->first();
+					$respuest = ['tooltipx' => $fostsexx->s_descripcion];
+				break;
+
+			case 'ag_taller_id':
+			case 'ag_sttran_id':
+					$fostsexx = AgTaller::where('id', $request->idxxxxxx)->first();
+					$respuest = ['tooltipx' => $fostsexx->s_descripcion];
+				break;
+			case 'ag_sttema_id':
+					$fostsexx = AgSubtema::where('id', $request->idxxxxxx)->first();
+					$respuest = ['tooltipx' => $fostsexx->s_descripcion];
+				break;
+
+			
+					
+					
+					
+				
 		}
 	}
 	//ddd($respuest);

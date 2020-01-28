@@ -157,7 +157,7 @@ Route::get('ag/espacios', function (Request $request) {
         'readonly' => true, 'campoxxx' => 's_prm_espac', 'comboxxx' => 'i_prm_lugar_id'
     ];
     if ($request->padrexxx == 1) {
-        $respusta['dataxxxx'] = Tema::combo(291, true, true);
+        $respusta['dataxxxx'] = Tema::combo(336, true, true);
         $respusta['readonly'] = false;
     }
     return response()->json($respusta);

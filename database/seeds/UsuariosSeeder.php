@@ -32,7 +32,6 @@ class UsuariosSeeder extends Seeder {
                 's_documento' => '145811541',
                 'prm_documento_id' => 1,
                 'sis_municipio_id' => 1,
-                's_observacion' => 'observación del registro',
     ]);
     $super->assignRole('super-administrador');
     $super = User::create([
@@ -56,7 +55,6 @@ class UsuariosSeeder extends Seeder {
                 's_documento' => '12345678',
                 'prm_documento_id' => 1,
                 'sis_municipio_id' => 1,
-                's_observacion' => 'observación del registro',
     ]);
     $super->assignRole('super-administrador');
 
@@ -81,7 +79,6 @@ class UsuariosSeeder extends Seeder {
                 's_documento' => '1031143437',
                 'prm_documento_id' => 1,
                 'sis_municipio_id' => 1,
-                's_observacion' => 'observación del registro',
     ]);
     $super->assignRole('PSICÓLOGO(A)');
 
@@ -106,7 +103,6 @@ class UsuariosSeeder extends Seeder {
                 's_documento' => '53141198',
                 'prm_documento_id' => 1,
                 'sis_municipio_id' => 233,
-                's_observacion' => 'observación del registro',
     ]);
     $super->assignRole('aux_administrativo_territorio');
     $super = User::create([
@@ -130,7 +126,6 @@ class UsuariosSeeder extends Seeder {
                 's_documento' => '52223097',
                 'prm_documento_id' => 1,
                 'sis_municipio_id' => 233,
-                's_observacion' => 'observación del registro',
     ]);
     $super->assignRole('aux_administrativo_territorio');
   }

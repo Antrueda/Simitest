@@ -14,6 +14,7 @@ use App\Models\Indicadores\Area;
 use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisEntidad;
 use App\Models\Tema;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AgActividadController extends Controller
@@ -130,7 +131,7 @@ class AgActividadController extends Controller
         ];
 
 
-        $this->opciones['areaxxxx'] = Area::comb(true, false);
+        $this->opciones['areaxxxx'] = User::getAreasUser(['cabecera'=>true,'esajaxxx'=>false]);
         $this->opciones['entidadx'] = SisEntidad::combo(true, false);
         $this->opciones['dependen'] = SisDependencia::combo(true, false);
         $this->opciones['agtemaxx'] = AgTema::comb(true, false);
@@ -141,12 +142,14 @@ class AgActividadController extends Controller
         $this->opciones['dirigido'] = Tema::combo(285, true, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['recursox'] = AgRecurso::comb(true, false);
-        $this->opciones['estadoxx'] = 'ACTIVO';
+        
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
 
         if ($nombobje != '') {
-            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
+            if($objetoxx->sis_depdestino_id==1){
+                $this->opciones['lugarxxx']=Tema::combo(336, true, false);
+            }
             $this->opciones[$nombobje] = $objetoxx;
         }
 

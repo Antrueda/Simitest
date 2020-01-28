@@ -14,7 +14,7 @@ class SisDependenciasSeeder extends Seeder
     public function run()
     {
         SisDependencia::create([
-            'nombre' => 'NO APLICA',
+            'nombre' => 'ESPACIOS EXTERNOS',
             'i_prm_cvital_id' => 1,
             'i_prm_tdependen_id' => 1,
             'i_prm_sexo_id' => 1,
@@ -27,7 +27,7 @@ class SisDependenciasSeeder extends Seeder
             's_correo' => 'DDDD',
             'i_tiempo' => 0,
             'sis_esta_id'=>1,
-            's_observacion'=>'DEPENDENCIA NO APLICA'
+            's_observacion'=>'ESPACIOS EXTERNOS'
         
         ]);
         SisDependencia::create([

@@ -25,5 +25,22 @@
         $('#sis_depdestino_id').change(function(){ 
             f_campos({valuexxx:$(this).val(),psalecte:''});
         });
+
+        $('#area_id').change(function(){ 
+           // f_campos({valuexxx:$(this).val(),psalecte:''});
+        });
+        $('#ag_tema_id').change(function(){ 
+            //f_campos({valuexxx:$(this).val(),psalecte:''});
+        });
+        $('#ag_taller_id').change(function(){ 
+            //f_campos({valuexxx:$(this).val(),psalecte:''});
+        });
+
+      
+
+
+        // ag_sttema_id
+        
+        // ag_sttran_id
     });
 </script>   
