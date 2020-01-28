@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Acciones\Grupales\ag_taller_ag_tema;
 use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Grupales\AgContexto;
@@ -9,6 +10,7 @@ use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
+use App\Models\Acciones\Grupales\AgTallerAgTema;
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Tema;
 use Illuminate\Http\Request;
@@ -30,6 +32,17 @@ Route::get('agr/temas', function (Request $request) {
             ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
             ->where('ag_temas.sis_esta_id', 1))
         ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi')
+        ->rawColumns(['btns'])
+        ->toJson();
+});
+
+Route::get('agr/ttemas', function (Request $request) {
+    if (!$request->ajax()) return redirect('/');
+            return datatables()
+        ->eloquent(AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre'])
+            ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
+            ->where('ag_temas.sis_esta_id', 1))
+        ->addColumn('btns', 'Acciones/Grupales/Agttema/botones/botonesapi')
         ->rawColumns(['btns'])
         ->toJson();
 });

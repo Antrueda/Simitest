@@ -34,7 +34,12 @@ class AgTaller extends Model
 
   public function editor()
   {
-    return $this->belongsTo(User::class, 'user_edita_id');
+    return $this->belongsToMany(AgTema::class);
+  }
+
+  public function ag_temas()
+  {
+    return $this->belongsToMany(AgTema::class);
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)
@@ -69,7 +74,7 @@ class AgTaller extends Model
     }
     return $comboxxx;
   }
-  
+
   public static function comb($cabecera, $ajaxxxxx)
     {
         $comboxxx = [];
