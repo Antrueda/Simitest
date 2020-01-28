@@ -15,7 +15,7 @@
                 </a>
             </li>
         @endcan
-        @can('agtaller-leer') 
+        @can('agtaller-leer')
             <li class="nav-item">
                 <a href="{{ route('agr') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
@@ -23,11 +23,19 @@
                 </a>
             </li>
         @endcan
+        @can('agtema-leer')
+            <li class="nav-item">
+                <a href="{{ route('ttema') }}" class="nav-link">
+                <i class="fas fa-check nav-icon"></i>
+                <p>Taller-Tema</p>
+                </a>
+            </li>
+        @endcan
         @can('agsubtema-leer')
             <li class="nav-item">
                 <a href="{{ route('ag.subt') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
-                <p>Subtema Taller</p> 
+                <p>Subtema Taller</p>
                 </a>
             </li>
         @endcan
@@ -47,8 +55,8 @@
                 </a>
             </li>
         @endcan
-        @can('agrecurso-leer') 
-            <li class="nav-item"> 
+        @can('agrecurso-leer')
+            <li class="nav-item">
                 <a href="{{ route('ag.recu') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
                 <p>Recurso</p>
@@ -63,13 +71,13 @@
                 </a>
             </li>
         @endcan
-        @can('agactividad-leer') 
+        @can('agactividad-leer')
             <li class="nav-item">
                 <a href="{{ route('ag.acti') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
                 <p>Talleres Educativos</p>
                 </a>
             </li>
-        @endcan    
+        @endcan
     </ul>
 </li>

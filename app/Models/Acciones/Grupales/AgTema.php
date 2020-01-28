@@ -29,6 +29,10 @@ class AgTema extends Model
   {
     return $this->belongsTo(User::class, 'user_edita_id');
   }
+  public function ag_tallers()
+  {
+    return $this->belongsToMany(AgTaller::class);
+  }
 
   public static function transaccion($dataxxxx,  $objetoxx)
   {
