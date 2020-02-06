@@ -16,8 +16,8 @@ class CreateSisTitulosTable extends Migration
         Schema::create('sis_titulos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->text('s_titulo')->unique();
-            $table->text('s_tooltip');
+            $table->string('s_titulo')->unique();
+            $table->string('s_tooltip');
             $table->bigInteger('i_prm_tletra_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
