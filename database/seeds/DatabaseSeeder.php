@@ -48,8 +48,8 @@ class DatabaseSeeder extends Seeder
         $this->call(FosTsesSeeder::class);
         $this->call(FosStsesSeeder::class);
         $this->call(InRespuestasSeeder::class);
-        // $this->call(InLineabaseNnajsSeeder::class);
-        // $this->call(InAccionGestionsSeeder::class);
+        $this->call(AgSubtemasSeeder::class);
+        $this->call(SisTitulosSeeder::class);
 
 
 

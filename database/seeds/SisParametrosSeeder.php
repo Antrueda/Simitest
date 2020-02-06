@@ -1775,5 +1775,8 @@ class SisParametrosSeeder extends Seeder
                 Parametro::create(['id' => 1757, 'nombre' => 'SISBEN DEPARTAMENTAL']);
                 Parametro::create(['id' => 1758, 'nombre' => 'OCUPACIÓN DEL TIEMPO LIBRE']);
                 Parametro::create(['id' => 1759, 'nombre' => 'DEMOCRÁTICO']);
+                Parametro::create(['id' => 1760, 'nombre' => 'TODO EN MAYUSCULAS']);
+                Parametro::create(['id' => 1761, 'nombre' => 'TODO EN MINUSCULAS']);
+                Parametro::create(['id' => 1762, 'nombre' => 'MAYUSCULA PRIMER LETRA DE CADA PALABRA']);
         }
 }

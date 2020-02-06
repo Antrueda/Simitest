@@ -90,6 +90,9 @@ class AgActividadEditarRequest extends FormRequest
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        if($this->sis_depdestino_id==1){
+            $this->_reglasx['s_prm_espac']='required';
+            $this->_mensaje['s_prm_espac.required'] = 'Seleccione el lugar donde se llevó a cabo';
+        }
     }
 }

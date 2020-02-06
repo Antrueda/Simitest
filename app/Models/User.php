@@ -215,13 +215,44 @@ class User extends Authenticatable
         $comboxxx = ['' => 'Seleccione'];
       }
     }
-    foreach (Auth::User()->areas as $areasxxx) {
+    $areaxxxx = User::select(['areas.id', 'areas.nombre'])
+      ->join('area_user', 'users.id', '=', 'area_user.user_id')
+      ->join('areas', 'area_user.area_id', '=', 'areas.id')
+      ->where(function ($queryxxx) use ($dataxxxx) {
+        $queryxxx->where('area_user.user_id', Auth::User()->id);
+        $queryxxx->where('area_user.sis_esta_id', 1);
+        return $queryxxx;
+      })->get();
+
+
+    foreach ($areaxxxx as $areasxxx) {
       if ($dataxxxx['esajaxxx']) {
         $comboxxx[] = ['valuexxx' => $areasxxx->id, 'optionxx' => $areasxxx->nombre];
       } else {
         $comboxxx[$areasxxx->id] = $areasxxx->nombre;
       }
     }
+    /**
+     * En el caso de que el usuario tenga inactiva el area se para que el combo quede con el area que se le asi
+     * asigno sin importar el estado
+     */
+    if (isset($dataxxxx['areasele'])) {
+      $areaxxxy = User::select(['areas.id', 'areas.nombre'])
+        ->join('area_user', 'users.id', '=', 'area_user.user_id')
+        ->join('areas', 'area_user.area_id', '=', 'areas.id')
+        ->where('area_user.user_id', Auth::User()->id)
+        ->where('area_user.sis_esta_id', 2)
+        ->where('area_user.area_id', $dataxxxx['areasele'])
+        ->first();
+      if (isset($areaxxxy->id)) {
+        if ($dataxxxx['esajaxxx']) {
+          $comboxxx[] = ['valuexxx' => $areaxxxy->id, 'optionxx' => $areaxxxy->nombre];
+        } else {
+          $comboxxx[$areaxxxy->id] = $areaxxxy->nombre;
+        }
+      }
+    }
+
     return $comboxxx;
   }
   public static function getDependenciasUser($dataxxxx)
@@ -243,5 +274,4 @@ class User extends Authenticatable
     }
     return $comboxxx;
   }
-  
 }

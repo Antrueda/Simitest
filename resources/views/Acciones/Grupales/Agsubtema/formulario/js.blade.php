@@ -1,41 +1,41 @@
 <script>
    $(function(){
-        var f_campos=function(valuexxx,psalecte,optionxx){
-            if(valuexxx!=''){
-                $.ajax({
-                    url : "{{ route('ajaxx.indicadores') }}",
-                    data : { 
-                        _token: $("input[name='_token']").val(),
-                        padrexxx:valuexxx,
-                        optionxx:optionxx,
-                    },
-                    type : 'POST',
-                    dataType : 'json',
-                    success : function(json) {
-                        $.each(json.indicado,function(i,d){
-                            var selected='';
-                            if(psalecte==d.valuexxx){
-                                selected='selected';
-                            }
-                            $('#in_indicador_id').append('<option '+selected+' value="'+d.valuexxx+'">'+d.optionxx+'</option>');
-                        });
-                    },
-                    error : function(xhr, status) {
-                        alert('Disculpe, existió un problema');
-                    },
-                });
-            }
+    $('.select2').select2({
+      language: "es"
+    });
+
+        
+    var f_campos=function(dataxxxx){
+      $("#fos_tse_id").empty();
+            $.ajax({
+                url : "{{ route('fossubtipo.tiposeg') }}",
+                data : { 
+                    padrexxx:dataxxxx.valuexxx,
+                },
+                type : 'GET',
+                dataType : 'json',
+                success : function(json) {
+                  $.each(json,function(i,d){
+                    var selected='';
+                    if(dataxxxx.selected==d.valuexxx){
+                      selected='selected';
+                    }
+                    $("#fos_tse_id").append('<option '+selected+' value="'+d.valuexxx+'">'+d.optionxx+'</option>');
+                  });
+                    
+                },
+                error : function(xhr, status) {
+                    alert('Disculpe, existió un problema');
+                },
+            });
             
         }
 
         @if(old('area_id')!=null)
-        f_campos({{ old('area_id') }},{{ old('in_indicador_id')  }},1);
+          f_campos({valuexxx:{{ old('area_id') }},selected:{{old('fos_tse_id')}}});
         @endif
-        $('#area_id').change(function(){
-            $('#in_indicador_id').empty();
-            $('#in_indicador_id').append('<option value="">Seleccione</option>');
-            f_campos($(this).val(),'',1);
-
+        $("#area_id").change(function(){
+            f_campos({valuexxx:$(this).val(),selected:''});
         });
     });
 </script>   

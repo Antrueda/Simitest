@@ -31,7 +31,7 @@ class AgTema extends Model
   }
   public function ag_tallers()
   {
-    return $this->belongsToMany(AgTaller::class);
+    return $this->hasMany(AgTaller::class);
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)
@@ -58,18 +58,40 @@ class AgTema extends Model
   }
 
   public static function comb($cabecera, $ajaxxxxx)
-    {
-        $comboxxx = [];
-        if ($cabecera) {
-            $comboxxx = ['' => 'Seleccione'];
-        }
-        foreach (AgTema::get() as $registro) {
-            if ($ajaxxxxx) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_tema];
-            } else {
-                $comboxxx[$registro->id] = $registro->s_tema;
-            }
-        }
-        return $comboxxx;
+  {
+    $comboxxx = [];
+    if ($cabecera) {
+      $comboxxx = ['' => 'Seleccione'];
     }
+    foreach (AgTema::get() as $registro) {
+      if ($ajaxxxxx) {
+        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_tema];
+      } else {
+        $comboxxx[$registro->id] = $registro->s_tema;
+      }
+    }
+    return $comboxxx;
+  }
+  public static function combo_talleres($dataxxxx)
+  {
+    $comboxxx = [];
+    if ($dataxxxx['cabecera']) {
+      if($dataxxxx['ajaxxxxx']){
+        $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+      }else{
+        $comboxxx = ['' => 'Seleccione'];
+      }
+      
+    }
+    $talleres=AgTema::where('id',$dataxxxx['agtemaid'])->first();
+    foreach ($talleres->ag_tallers as $registro) {
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_taller];
+      } else {
+        $comboxxx[$registro->id] = $registro->s_taller;
+      }
+    }
+    return $comboxxx;
+  }
+ 
 }

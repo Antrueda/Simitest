@@ -13,54 +13,82 @@ class AgTallerController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:agtaller-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:agtaller-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:agtaller-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:agtaller-borrar'], ['only' => ['index, show, destroy']]);
-        $this->opciones = [
-            'tituloxx' => 'Taller',
-            'rutaxxxx' => 'agr.taller',
-            'accionxx' => '',
-            'rutacarp'=>'Acciones.Grupales.Agtaller.',
-            'volverax' => 'Volver a talleres',
-            'readonly' => '', // esta opcion es para cundo está por la parte de ver
-            'carpetax' => 'Agtaller',
-            'modeloxx' => '',
-            'permisox' => 'agtaller',
-            'routxxxx' => 'agr.taller',
-            'routinde' => 'agr',
-            'parametr' => [],
-            'urlxxxxx' => 'api/agr/talleres',
-            'routnuev' => 'agr.taller',
-            'nuevoxxx' => 'Nuevo Registro'
-        ];
-        $this->opciones['cabecera'] = [
-            ['td' => 'ID'],
-            ['td' => 'TALLER'],
-            ['td' => 'DESCRIPCION'],
-          
-            ['td' => 'ESTADO'],
-        ];
-        $this->opciones['columnsx'] = [
-            ['data' => 'btns','name' => 'btns'],
-            ['data' => 'id','name' => 'id'],
-            ['data' => 's_taller','name' => 's_taller'],
-            ['data' => 's_descripcion','name' => 's_descripcion'],
-            ['data' => 'sis_esta_id','name' => 'sis_esta_id'],
 
+        $this->opciones = [
+            'permisox' => 'agtaller',
+            'parametr' => [],
+            'rutacarp' => 'Acciones.Grupales.Agtaller.',
+            'tituloxx' => 'Taller',
         ];
+
+        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
+        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
+        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
+        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
+
+        $this->opciones['readonly'] = '';
+        $this->opciones['rutaxxxx'] = 'agrtaller';
+        $this->opciones['routnuev'] = 'agrtaller';
+        $this->opciones['routxxxx'] = 'agrtaller';
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index($agtemaid)
     {
+        $this->opciones['parametr'] = [$agtemaid];
+        $this->opciones['titunuev'] = 'Nuevo Taller';
+        $this->opciones['titulist'] = 'Lista de Taller';
+        $this->opciones['dataxxxx'] = [
+            ['campoxxx' => 'botonesx', 'dataxxxx' => 'Acciones.Grupales/Agtaller/botones/botonesapi'],
+            ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components/botones/estadoxx'],
+        ];
+
+        $this->opciones['urlxxxxx'] = 'api/agr/talleres';
+        $this->opciones['cabecera'] = [
+            ['td' => 'ID'],
+            ['td' => 'TALLER'],
+            ['td' => 'DESCRIPCION'],
+            ['td' => 'ESTADO'],
+        ];
+        $this->opciones['columnsx'] = [
+            ['data' => 'btns','name' => 'btns'],
+            ['data' => 'id','name' => 'ag_tallers.id'],
+            ['data' => 's_taller','name' => 'ag_tallers.s_taller'],
+            ['data' => 's_descripcion','name' => 'ag_tallers.s_descripcion'],
+            ['data' => 's_estado','name' => 'sis_estas.s_estado'],
+
+        ];
         return view($this->opciones['rutacarp'] .'index', ['todoxxxx' => $this->opciones]);
     }
 
+    public function temas()
+    {
+        $this->opciones['vercrear'] = '';
+        $this->opciones['titunuev'] = 'Nuevo Sub Tipo de Segumineto';
+        $this->opciones['titulist'] = 'Lista de Temas';
+        $this->opciones['dataxxxx'] = [
+            ['campoxxx' => 'botonesx', 'dataxxxx' => 'Acciones.Grupales/Agtaller/botones/apitemas'],
+        ];
 
+        $this->opciones['urlxxxxx'] = 'api/agr/tematalleres';
+        $this->opciones['cabecera'] = [
+            ['td' => 'ID'],
+            ['td' => 'TEMA'],
+            ['td' => 'ÁREA'],
+            ['td' => 'ESTADO'],
+        ];
+        $this->opciones['columnsx'] = [
+            ['data' => 'btns', 'name' => 'btns'],
+            ['data' => 'id', 'name' => 'ag_temas.id'],
+            ['data' => 's_tema', 'name' => 'ag_temas.s_tema'],
+            ['data' => 'nombre', 'name' => 'areas.nombre'],
+            ['data' => 'sis_esta_id', 'name' => 'ag_temas.sis_esta_id'],
+        ];
+        return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
+    }
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
       
@@ -85,17 +113,32 @@ class AgTallerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($agtemaid)
     {
+        $this->opciones['parametr'] = [$agtemaid];
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], $this->opciones['parametr']],
+                'formhref' => 2, 'tituloxx' => 'Volver a Talleres', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'] . '.editar', 
+                $this->opciones['parametr']],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
         return $this->view('', '', 'Crear', 'crear');
     }
 
 
     private function grabar($dataxxxx, $objectx, $infoxxxx)
     {
-
+        $agtemaxx=AgTaller::transaccion($dataxxxx, $objectx);
         return redirect()
-            ->route('agr.taller.editar', [AgTaller::transaccion($dataxxxx, $objectx)->id])
+            ->route('agrtaller.editar', [$agtemaxx->ag_tema_id,$agtemaxx->id])
             ->with('info', $infoxxxx);
     }
     /**
@@ -104,9 +147,10 @@ class AgTallerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AgTallerCrearRequest $request)
+    public function store($agtemaid,AgTallerCrearRequest $request)
     {
         $dataxxxx = $request->all();
+        $dataxxxx['ag_tema_id']=$agtemaid;
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
     }
 
@@ -116,9 +160,24 @@ class AgTallerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(AgTaller $objetoxx)
+    public function show($agtemaid,AgTaller $objetoxx)
     {
-        $this->opciones['readonly'] = 'readonly';
+        $this->opciones['parametr'] = [$agtemaid,$objetoxx->id];
+        $this->opciones['botoform'][] = 
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'.temas', []],
+                'formhref' => 2, 'tituloxx' => 'Volver a Temas', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $this->opciones['botoform'][] = 
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], [$agtemaid]],
+                'formhref' => 2, 'tituloxx' => 'Volver a Talleres', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => $objetoxx->sis_esta_id == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], $this->opciones['parametr']], 'formhref' => 1,
+                'tituloxx' => '', 'clasexxx' => $objetoxx->sis_esta_id == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'
+            ];
         return $this->view($objetoxx,  'modeloxx', 'Ver', 'ver');
     }
 
@@ -128,14 +187,31 @@ class AgTallerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(AgTaller $objetoxx)
+    public function edit($agtemaid,AgTaller $objetoxx)
     {
+        $this->opciones['parametr']=[$agtemaid,$objetoxx->id];
+        $this->opciones['botoform'][] = 
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'.temas', []],
+                'formhref' => 2, 'tituloxx' => 'Volver a Temas', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], [$agtemaid]],
+                'formhref' => 2, 'tituloxx' => 'Volver a Talleres', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Editar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', $this->opciones['parametr']],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
         return $this->view($objetoxx,  'modeloxx', 'Editar', 'editar');
     }
 
-    public function update(AgTallerEditarRequest $request, AgTaller $objetoxx)
+    public function update($agtemaid,AgTallerEditarRequest $request, AgTaller $objetoxx)
     {
         $dataxxxx = $request->all();
+        $dataxxxx['ag_tema_id']=$agtemaid;
         return $this->grabar($dataxxxx, $objetoxx, 'Taller actualizado con éxito');
     }
 
@@ -145,11 +221,11 @@ class AgTallerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AgTaller $objetoxx)
+    public function destroy($agtemaid,AgTaller $objetoxx)
     {
         $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
-        return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
+        return redirect()->route($this->opciones['routxxxx'],[$agtemaid])->with('info', 'Registro ' . $activado . ' con éxito');
     }
 }

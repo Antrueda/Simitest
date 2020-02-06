@@ -13,16 +13,11 @@ class AgSubtemaEditarRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            's_descripcion.required' => 'Ingrese el nombre del rol',
-            'ag_taller_id.required' => 'Ingrese el nombre del rol',
-            's_subtema.required' => 'Ingrese el nombre del rol',
-            's_subtema.unique' => 'el rol ya se encuentra en uso',
+            's_descripcion.required' => 'Ingrese la descripcion',
+            's_subtema.required' => 'Ingrese el nombre del subtema',
+            's_subtema.unique' => 'el subtema ya se encuentra en uso',
         ];
-        $this->_reglasx = [
-            's_subtema' =>['required','unique'],
-            'ag_taller_id' =>['required'],
-            's_descripcion' =>['required'],
-        ];
+        
     }
     /**
      * Determine if the user is authorized to make this request.
@@ -47,6 +42,10 @@ class AgSubtemaEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
+        $this->_reglasx = [
+            's_subtema' =>['required','unique:ag_subtemas,s_subtema,'.$this->segments()[3]],
+            's_descripcion' =>['required'],
+        ];
         return $this->_reglasx;
     }
 
@@ -54,9 +53,6 @@ class AgSubtemaEditarRequest extends FormRequest
     {
 
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        if (!isset($dataxxxx['permissions'])) {
-            $this->_mensaje['permissions.required'] = 'Seleccione al menos un permios';
-            $this->_reglasx['permissions'] = 'required';
-        }
+        
     }
 }

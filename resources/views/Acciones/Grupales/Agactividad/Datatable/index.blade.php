@@ -34,11 +34,11 @@
         <div class="card-body">
                 <div class="form-group row">
                     <div class="form-group col-md-4">
-                    {{ Form::label('responsablesf', 'Buscar responsable', ['class' => 'control-label col-form-label-sm']) }}
+                    {{ Form::label('responsablesf', Tr::getTitulo(13,1), ['class' => 'control-label col-form-label-sm']) }}
                     {{ Form::text('responsablesf', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
                     </div>
                     <div class="form-group col-md-4">
-                    {{ Form::label('i_prm_responsable_id', '¿Es responsable?', ['class' => 'control-label col-form-label-sm']) }}
+                    {{ Form::label('i_prm_responsable_id', Tr::getTitulo(14,1), ['class' => 'control-label col-form-label-sm']) }}
                     {{ Form::select('i_prm_responsable_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
                     </div>
                 </div>
@@ -71,7 +71,7 @@
         <div class="card-body">
                 <div class="form-group row">
                     <div class="form-group col-md-4">
-                    {{ Form::label('asistentess', 'Buscar asistente', ['class' => 'control-label col-form-label-sm']) }}
+                    {{ Form::label('asistentess', Tr::getTitulo(15,1), ['class' => 'control-label col-form-label-sm']) }}
                     {{ Form::text('asistentess', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
                     </div>
                 </div>
@@ -104,11 +104,11 @@
         <div class="card-body">
                 <div class="form-group row">
                     <div class="form-group col-md-4">
-                    {{ Form::label('relacionn', 'Buscar recurso', ['class' => 'control-label col-form-label-sm']) }}
+                    {{ Form::label('relacionn', Tr::getTitulo(16,1), ['class' => 'control-label col-form-label-sm']) }}
                     {{ Form::text('relacionn', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
                     </div>
                     <div class="form-group col-md-4">
-                    {{ Form::label('i_cantidad', 'Cantidad', ['class' => 'control-label col-form-label-sm']) }}
+                    {{ Form::label('i_cantidad', Tr::getTitulo(17,1), ['class' => 'control-label col-form-label-sm']) }}
                     {{ Form::number('i_cantidad', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
                     </div>
                 </div>

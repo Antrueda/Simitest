@@ -3141,5 +3141,11 @@ class TemasTableSeeder extends Seeder
             1745 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 336, 'nombre' => 'LUGARES/ESPACIOS EXTERNOS',]);
+        $tema = Tema::create(['id' => 337, 'nombre' => 'TIPO LETRA TITULOS',]);
+        $tema->parametros()->sync([
+            1760 => $camposmagicos,
+            1760 => $camposmagicos,
+            1760 => $camposmagicos,
+        ]);
     }
 }

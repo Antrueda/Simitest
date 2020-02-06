@@ -1,55 +1,55 @@
 
 <div class="form-group row">
   <div class="form-group col-md-4">
-    {{ Form::label('d_registro', 'Fecha registro actividad', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('d_registro',Tr::getTitulo(1,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('d_registro', null, ['class' => 'form-control form-control-sm  d_diligencia','style'=>'height:38px'],'readonly') }}    
   </div>
   <div class="form-group col-md-4" style="height: ">
-    {{ Form::label('area_id', 'Area', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('area_id', Tr::getTitulo(2,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('area_id', $todoxxxx["areaxxxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4" style="height: ">
-    {{ Form::label('sis_deporigen_id', 'UPI/Dependencia de origen', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('sis_deporigen_id', Tr::getTitulo(3,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('sis_deporigen_id', $todoxxxx["dependen"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4" style="height: ">
-    {{ Form::label('ag_tema_id', 'Tema general', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('ag_tema_id', Tr::getTitulo(4,1), ['class' => 'control-label col-form-label-sm']) }}
     <a href="#"  propiedad="ag_tema_id"  class="mouseover" title=""><i class="far fa-question-circle"></i></a>
     {{ Form::select('ag_tema_id', $todoxxxx["agtemaxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('ag_taller_id', 'Nombre taller', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('ag_taller_id', Tr::getTitulo(5,1), ['class' => 'control-label col-form-label-sm']) }}
     <a href="#"  propiedad="ag_taller_id"  class="mouseover" title=""><i class="far fa-question-circle"></i></a>
     {{ Form::select('ag_taller_id', $todoxxxx["tallerxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4" style="height: ">
-    {{ Form::label('ag_sttema_id', 'Subtemas', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('ag_sttema_id', Tr::getTitulo(6,1), ['class' => 'control-label col-form-label-sm']) }}
     <a href="#"  propiedad="ag_sttema_id"  class="mouseover" title=""><i class="far fa-question-circle"></i></a>
     {{ Form::select('ag_sttema_id', $todoxxxx["subtemax"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4" style="height: ">
-    {{ Form::label('ag_sttran_id', 'Taller y acciones transversales', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('ag_sttran_id', Tr::getTitulo(7,1), ['class' => 'control-label col-form-label-sm']) }}
     <a href="#"  propiedad="ag_sttema_id"  class="mouseover" title=""><i class="far fa-question-circle"></i></a>
-    {{ Form::select('ag_sttran_id', $todoxxxx["subtemax"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::select('ag_sttran_id', $todoxxxx["transver"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4" style="height: ">
-    {{ Form::label('sis_depdestino_id', 'UPI/Dependencia/Espacios Externos donde se realiza la actividad y/o taller ', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('sis_depdestino_id', Tr::getTitulo(8,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('sis_depdestino_id', $todoxxxx["dependen"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4" style="height: ">
-    {{ Form::label('i_prm_lugar_id', 'Lugares/Espacios Externos', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('i_prm_lugar_id', Tr::getTitulo(9,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('i_prm_lugar_id', $todoxxxx["lugarxxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4" style="height: ">
-    {{ Form::label('s_prm_espac', 'Espacio/lugar donde se llevó a cabo el taller/actividad', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_prm_espac', Tr::getTitulo(10,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('s_prm_espac', null, ['class' => 'form-control form-control-sm','style'=>'height:38px','readonly']) }}    
   </div>
   <div class="form-group col-md-4" style="height: ">
-    {{ Form::label('i_prm_dirig_id', 'Dirigido a:', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('i_prm_dirig_id', Tr::getTitulo(11,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('i_prm_dirig_id', $todoxxxx["dirigido"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4" style="height: ">
-    {{ Form::label('sis_entidad_id', 'Entidad', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('sis_entidad_id', Tr::getTitulo(12,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('sis_entidad_id', $todoxxxx["entidadx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
 </div>
@@ -64,21 +64,10 @@
         @slot('class')
         @endslot
   @endcomponent
-
-
-
-
 @endif
-
 <div class="form-group row">
- 
-  
-  
-  
-  
-  
   <div class="form-group col-md-6">
-    {{ Form::label('s_introduc', 'Introducción', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_introduc', Tr::getTitulo(18,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('s_introduc', null, 
     ['class' => $errors->first('s_introduc') ? 'form-control form-control-sm is-invalid contarcaracteres' : 
     'form-control form-control-sm contarcaracteres', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 
@@ -87,7 +76,7 @@
     <p id="ags_introduccontador">0/6000</p>
   </div>
   <div class="form-group col-md-6">
-    {{ Form::label('s_justific', 'Justificación', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_justific', Tr::getTitulo(19,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('s_justific', null, 
     ['class' => $errors->first('s_justific') ? 'form-control form-control-sm is-invalid contarcaracteres' : 
     'form-control form-control-sm contarcaracteres', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 
@@ -96,7 +85,7 @@
     <p id="ags_justificcontador">0/6000</p>
   </div>
   <div class="form-group col-md-6">
-    {{ Form::label('s_objetivo', 'Objetivo', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_objetivo', Tr::getTitulo(20,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('s_objetivo', null, 
     ['class' => $errors->first('s_objetivo') ? 'form-control form-control-sm is-invalid contarcaracteres' : 
     'form-control form-control-sm contarcaracteres', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 
@@ -105,7 +94,7 @@
     <p id="ags_objetivocontador">0/6000</p>
   </div>
   <div class="form-group col-md-6">
-    {{ Form::label('s_metodolo', 'Metodología', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_metodolo', Tr::getTitulo(21,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('s_metodolo', null, 
     ['class' => $errors->first('s_metodolo') ? 'form-control form-control-sm is-invalid contarcaracteres' : 
     'form-control form-control-sm contarcaracteres', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 
@@ -114,7 +103,7 @@
     <p id="ags_metodolocontador">0/6000</p>
   </div>
   <div class="form-group col-md-6">
-    {{ Form::label('s_categori', 'Categosría', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_categori', Tr::getTitulo(22,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('s_categori', null, 
     ['class' => $errors->first('s_categori') ? 'form-control form-control-sm is-invalid contarcaracteres' : 
     'form-control form-control-sm contarcaracteres', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 
@@ -123,7 +112,7 @@
     <p id="ags_categoricontador">0/6000</p>
   </div>
   <div class="form-group col-md-6">
-    {{ Form::label('s_contenid', 'Contenido temático', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_contenid', Tr::getTitulo(23,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('s_contenid', null, 
     ['class' => $errors->first('s_contenid') ? 'form-control form-control-sm is-invalid contarcaracteres' : 
     'form-control form-control-sm contarcaracteres', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 
@@ -132,7 +121,7 @@
     <p id="ags_contenidcontador">0/6000</p>
   </div>
   <div class="form-group col-md-6">
-    {{ Form::label('s_estrateg', 'Estrategia de convocatoria (si aplica)', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_estrateg', Tr::getTitulo(24,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('s_estrateg', null, 
     ['class' => $errors->first('s_estrateg') ? 'form-control form-control-sm is-invalid contarcaracteres' : 
     'form-control form-control-sm contarcaracteres', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 
@@ -141,7 +130,7 @@
     <p id="ags_estrategcontador">0/6000</p>
   </div>
   <div class="form-group col-md-6">
-    {{ Form::label('s_resultad', 'Resultado y/o productos', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_resultad', Tr::getTitulo(25,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('s_resultad', null, 
     ['class' => $errors->first('s_resultad') ? 'form-control form-control-sm is-invalid contarcaracteres' : 
     'form-control form-control-sm contarcaracteres', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 
@@ -150,7 +139,7 @@
     <p id="ags_resultadcontador">0/6000</p>
   </div>
   <div class="form-group col-md-6">
-    {{ Form::label('s_evaluaci', 'Evaluación', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_evaluaci', Tr::getTitulo(26,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('s_evaluaci', null, 
     ['class' => $errors->first('s_evaluaci') ? 'form-control form-control-sm is-invalid contarcaracteres' : 
     'form-control form-control-sm contarcaracteres', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 
@@ -159,12 +148,18 @@
     <p id="ags_evaluacicontador">0/6000</p>
   </div>
   <div class="form-group col-md-6">
-    {{ Form::label('s_observac', 'Observaciones', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_observac', Tr::getTitulo(27,1), ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('s_observac', null, 
     ['class' => $errors->first('s_observac') ? 'form-control form-control-sm is-invalid contarcaracteres' : 
     'form-control form-control-sm contarcaracteres', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 
     'id' => 's_observac', 'maxlength' => '6000','contador'=>'ags_observaccontador',
     "onkeyup" => "javascript:this.value=this.value.toUpperCase()", 'style' => 'text-transform:uppercase' ]) }}
     <p id="ags_observaccontador">0/6000</p>
+  </div>
+  <div class="form-row align-items-end form-group col-md-12" style="margin-bottom: 40px">
+    @upload
+    @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto','descripc'=>'Seleccione un archivo',
+    'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf','clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
+    @endupload
   </div>
 </div>

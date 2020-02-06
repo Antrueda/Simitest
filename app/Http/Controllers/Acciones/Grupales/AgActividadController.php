@@ -7,10 +7,7 @@ use App\Http\Requests\Acciones\Grupales\AgActividadCrearRequest;
 use App\Http\Requests\Acciones\Grupales\AgActividadEditarRequest;
 use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\AgRecurso;
-use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
-use App\Models\Acciones\Grupales\AgTema;
-use App\Models\Indicadores\Area;
 use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisEntidad;
 use App\Models\Tema;
@@ -134,11 +131,12 @@ class AgActividadController extends Controller
         $this->opciones['areaxxxx'] = User::getAreasUser(['cabecera'=>true,'esajaxxx'=>false]);
         $this->opciones['entidadx'] = SisEntidad::combo(true, false);
         $this->opciones['dependen'] = SisDependencia::combo(true, false);
-        $this->opciones['agtemaxx'] = AgTema::comb(true, false);
+        $this->opciones['agtemaxx'] = [''=>'Seleccione'];
         $this->opciones['lugarxxx'] = [1269=>'NO APLICA'];
         //Tema::combo(291, true, false);
-        $this->opciones['tallerxx'] = AgTaller::comb(true, false);
-        $this->opciones['subtemax'] = AgSubtema::comb(true, false);
+        $this->opciones['tallerxx'] = [''=>'Seleccione'];
+        $this->opciones['subtemax'] = [1=>'NO APLICA'];
+        $this->opciones['transver'] = AgTaller::comb(true,false);
         $this->opciones['dirigido'] = Tema::combo(285, true, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['recursox'] = AgRecurso::comb(true, false);
@@ -147,9 +145,10 @@ class AgActividadController extends Controller
         // indica si se esta actualizando o viendo
 
         if ($nombobje != '') {
-            if($objetoxx->sis_depdestino_id==1){
+            if($objetoxx->sis_depdestino_id==1){                
                 $this->opciones['lugarxxx']=Tema::combo(336, true, false);
             }
+            $this->opciones['areaxxxx'] = User::getAreasUser(['cabecera'=>true,'esajaxxx'=>false,'areasele'=>$objetoxx->area_id]);
             $this->opciones[$nombobje] = $objetoxx;
         }
 

@@ -19,7 +19,6 @@ class CreateTriggerUsers extends Migration{
                 , `s_segundo_nombre`
                 , `s_primer_apellido`
                 , `s_segundo_apellido`
-                , `s_observacion`
                 , `s_telefono`
                 , `s_matriculap`
                 , `d_vinculacion`
@@ -36,7 +35,6 @@ class CreateTriggerUsers extends Migration{
                 , NEW.s_segundo_nombre
                 , NEW.s_primer_apellido
                 , NEW.s_segundo_apellido
-                , NEW.s_observacion
                 , NEW.s_telefono
                 , NEW.s_matriculap
                 , NEW.d_vinculacion
@@ -59,7 +57,6 @@ class CreateTriggerUsers extends Migration{
                 , `s_segundo_nombre`
                 , `s_primer_apellido`
                 , `s_segundo_apellido`
-                , `s_observacion`
                 , `s_telefono`
                 , `s_matriculap`
                 , `d_vinculacion`
@@ -76,7 +73,6 @@ class CreateTriggerUsers extends Migration{
                 , NEW.s_segundo_nombre
                 , NEW.s_primer_apellido
                 , NEW.s_segundo_apellido
-                , NEW.s_observacion
                 , NEW.s_telefono
                 , NEW.s_matriculap
                 , NEW.d_vinculacion
