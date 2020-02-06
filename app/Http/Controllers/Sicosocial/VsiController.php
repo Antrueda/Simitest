@@ -34,7 +34,7 @@ class VsiController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vsis = $dato->Vsi->sortByDesc('fecha')->all();
-        $dependencias = SisDependencia::where('sis_esta_id', 1636)->orderBy('nombre')->pluck('nombre', 'id');
+        $dependencias = SisDependencia::where('sis_esta_id', 1)->orderBy('nombre')->pluck('nombre', 'id');
         return view('Sicosocial.index', ['accion' => 'Nueva'], compact('dato', 'nnaj', 'vsis', 'dependencias'));
     }
 
@@ -52,7 +52,7 @@ class VsiController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vsis = $dato->Vsi->sortByDesc('fecha')->all();
-        $dependencias = SisDependencia::where('sis_esta_id', 1636)->orderBy('nombre')->pluck('nombre', 'id');
+        $dependencias = SisDependencia::where('sis_esta_id', 1)->orderBy('nombre')->pluck('nombre', 'id');
         return view('Sicosocial.index', ['accion' => 'Editar'], compact('dato', 'nnaj', 'vsis', 'dependencias', 'valor'));
     }
 
