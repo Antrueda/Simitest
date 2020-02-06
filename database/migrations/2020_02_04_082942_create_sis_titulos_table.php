@@ -17,7 +17,7 @@ class CreateSisTitulosTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('s_titulo')->unique();
-            $table->string('s_tooltip');
+            $table->text('s_tooltip');
             $table->bigInteger('i_prm_tletra_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
