@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Area extends Model
 {
   protected $fillable = [
-    'nombre', 'contexto', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id', 
+    'nombre', 'contexto', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
   ];
 
   protected $attributes = [
@@ -41,7 +41,7 @@ class Area extends Model
     return $this->belongsTo(User::class, 'user_edita_id');
   }
 
-public static function combo_tema($padrexxx, $cabecera, $ajaxxxxx)
+  public static function combo_tema($padrexxx, $cabecera, $ajaxxxxx)
   {
     $comboxxx = [];
     if ($cabecera) {
@@ -53,9 +53,9 @@ public static function combo_tema($padrexxx, $cabecera, $ajaxxxxx)
     }
     foreach ($areaxxxx as $registro) {
       if ($ajaxxxxx) {
-        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => ($padrexxx=='')? $registro->nombre:$registro->s_tema];
+        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => ($padrexxx == '') ? $registro->nombre : $registro->s_tema];
       } else {
-        $comboxxx[$registro->id] = ($padrexxx=='')? $registro->nombre:$registro->s_tema;
+        $comboxxx[$registro->id] = ($padrexxx == '') ? $registro->nombre : $registro->s_tema;
       }
     }
     return $comboxxx;
@@ -67,18 +67,18 @@ public static function combo_tema($padrexxx, $cabecera, $ajaxxxxx)
     if ($cabecera) {
       $comboxxx = ['' => 'Seleccione'];
     }
-    
+
     $areaxxxx = Area::get();
-    if ($padrexxx != '') { 
+    if ($padrexxx != '') {
       $areaxxxx = Area::where('id', $padrexxx)->first()->in_indicadors;
     }
 
-    
+
     foreach ($areaxxxx as $registro) {
       if ($ajaxxxxx) {
-        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => ($padrexxx=='')? $registro->nombre:$registro->s_indicador];
+        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => ($padrexxx == '') ? $registro->nombre : $registro->s_indicador];
       } else {
-        $comboxxx[$registro->id] = ($padrexxx=='')? $registro->nombre:$registro->s_indicador;
+        $comboxxx[$registro->id] = ($padrexxx == '') ? $registro->nombre : $registro->s_indicador;
       }
     }
 
@@ -86,18 +86,39 @@ public static function combo_tema($padrexxx, $cabecera, $ajaxxxxx)
   }
 
   public static function comb($cabecera, $ajaxxxxx)
-    {
-        $comboxxx = [];
-        if ($cabecera) {
-            $comboxxx = ['' => 'Seleccione'];
-        }
-        foreach (Area::get() as $registro) {
-            if ($ajaxxxxx) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
-            } else {
-                $comboxxx[$registro->id] = $registro->nombre;
-            }
-        }
-        return $comboxxx;
+  {
+    $comboxxx = [];
+    if ($cabecera) {
+      $comboxxx = ['' => 'Seleccione'];
     }
+    foreach (Area::get() as $registro) {
+      if ($ajaxxxxx) {
+        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+      } else {
+        $comboxxx[$registro->id] = $registro->nombre;
+      }
+    }
+    return $comboxxx;
+  }
+
+  public static function combo_temas($dataxxxx)
+  {
+    $comboxxx = [];
+    if ($dataxxxx['cabecera']) {
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+      } else {
+        $comboxxx = ['' => 'Seleccione'];
+      }
+    }
+    $gruposxx=Area::where('id',$dataxxxx['areaxxxx'])->first();
+    foreach ($gruposxx->ag_temas as $registro) {
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_tema];
+      } else {
+        $comboxxx[$registro->id] = $registro->s_tema;
+      }
+    }
+    return $comboxxx;
+  }
 }

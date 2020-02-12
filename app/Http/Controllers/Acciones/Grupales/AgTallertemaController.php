@@ -41,7 +41,7 @@ class AgTallertemaController extends Controller
 
         $this->opciones['botoform'] = [
             ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-            'formhref' => 2, 'tituloxx' => 'Volver a Sub Tipo Seguimiento', 'clasexxx' => 'btn btn-sm btn-primary'],
+            'formhref' => 2, 'tituloxx' => 'Talleres ', 'clasexxx' => 'btn btn-sm btn-primary'],
         ];
     }
 

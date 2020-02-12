@@ -23,13 +23,11 @@ class Archivos {
 
   private function guardarArchivoCarpeta($dataxxxx) {
     $rutaxxxx = '';
-    
     if ($dataxxxx['requestx']->file($dataxxxx['nombarch'])) {
       //$rutaxxxx= Storage::disk($dataxxxx['diskxxxx'])->put($dataxxxx['rutacarp'],$dataxxxx['requestx']->file($dataxxxx['nombarch']));
       $rutaxxxx = $dataxxxx['requestx']->file($dataxxxx['nombarch'])->store('public/fi/razones');
       //$rutaxxxx = Storage::disk($dataxxxx['diskxxxx'])->put($dataxxxx['rutacarp'], $dataxxxx['requestx']->file($dataxxxx['nombarch']));
     }
-    
     return $rutaxxxx;
   }
 

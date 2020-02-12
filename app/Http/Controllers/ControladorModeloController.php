@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Traductor\Traductor;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
-use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
-use App\Models\fichaobservacion\Area;
-use App\Models\fichaobservacion\FosStse;
+use App\Http\Requests\Sistema\SisEslugCrearRequest;
+use App\Http\Requests\Sistema\SisEslugEditarRequest;
 use App\Models\fichaobservacion\FosTse;
+use App\Models\sistema\SisEslug;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,10 +19,10 @@ class ControladorModeloController extends Controller
     public function __construct()
     {
         $this->opciones = [
-            'permisox' => 'fossubtipo',
+            'permisox' => 'siseslug',
             'parametr' => [],
-            'rutacarp' => 'FichaObservacion.Admin.SubTipoSeguimiento.',
-            'tituloxx' => 'Sub Tipo Seguimiento',
+            'rutacarp' => 'administracion.Siseslugs.',
+            'tituloxx' => Traductor::getTitulo(29,1),
         ];
 
         $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
@@ -31,13 +31,13 @@ class ControladorModeloController extends Controller
         $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
 
         $this->opciones['readonly'] = '';
-        $this->opciones['rutaxxxx'] = 'fossubtipo';
-        $this->opciones['routnuev'] = 'fossubtipo';
-        $this->opciones['routxxxx'] = 'fossubtipo';
+        $this->opciones['rutaxxxx'] = 'siseslug';
+        $this->opciones['routnuev'] = 'siseslug';
+        $this->opciones['routxxxx'] = 'siseslug';
 
         $this->opciones['botoform'] = [
             ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []], 
-            'formhref' => 2, 'tituloxx' => 'Volver a Sub Tipo Seguimiento', 'clasexxx' => 'btn btn-sm btn-primary'],
+            'formhref' => 2, 'tituloxx' => 'VOLVER A '.Traductor::getTitulo(29,1), 'clasexxx' => 'btn btn-sm btn-primary'],
         ];
     }
 
@@ -49,43 +49,33 @@ class ControladorModeloController extends Controller
      */
     public function index()
     {
-        $this->opciones['titunuev'] = 'Nuevo Sub Tipo de Segumineto';
-        $this->opciones['titulist'] = 'Lista de Sub Tipos de Seguimiento';
+        $this->opciones['titunuevo'] = 'NUEVO '.Traductor::getTitulo(29,1);
+        $this->opciones['titulist'] = 'LISTA DE '.Traductor::getTitulo(29,1);
         $this->opciones['dataxxxx'] = [
-            ['campoxxx' => 'botonesx', 'dataxxxx' => 'FichaObservacion/Admin/SubTipoSeguimiento/botones/botonesapi'],
+            ['campoxxx' => 'botonesx', 'dataxxxx' => 'administracion.Siseslugs/botones/botonesapi'],
+            ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts/components/botones/estadoxx'],
         ];
 
-        $this->opciones['urlxxxxx'] = 'api/fos/subtipo';
+        $this->opciones['urlxxxxx'] = 'api/agr/espaluga';
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
-            ['td' => 'NOMBRE'],
-            ['td' => 'ÁREA'],
-            ['td' => 'TIPO SEGUIMIENTO'],
+            ['td' => 'ESPACIO/LUGAR'],
             ['td' => 'ESTADO'],
         ];
         $this->opciones['columnsx'] = [
             ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'id', 'name' => 'fos_stses.id'],
-            ['data' => 'nombre', 'name' => 'fos_stses.nombre'],
-            ['data' => 's_seguimiento', 'name' => 'fos_tses.nombre as s_seguimiento'],
-            ['data' => 's_area', 'name' => 'areas.nombre as s_area'],
-            ['data' => 'sis_esta_id', 'name' => 'fos_stses.sis_esta_id'],
+            ['data' => 'id', 'name' => 'sis_eslugs.id'],
+            ['data' => 's_espaluga', 'name' => 'sis_eslugs.s_espaluga'],
+            ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
 
-        $this->opciones['Areas'] =  Area::combo( true, false);
-        $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
-        $this->opciones['nivelxxx'] = '';
-        $this->opciones['tiposegu'] = [];
         if ($nombobje != '') {
-            $objetoxx->area_id=$objetoxx->fos_tse->area_id;
-            $this->opciones['tiposegu'] =FosTse::combo($objetoxx->area_id, true, false);
-            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
 
@@ -102,10 +92,10 @@ class ControladorModeloController extends Controller
     {
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'crear');
+        return $this->view(true, '', 'CREAR', $this->opciones['rutacarp'] . 'crear');
     }
 
     /**
@@ -114,7 +104,7 @@ class ControladorModeloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FosStseCrearRequest $request)
+    public function store(SisEslugCrearRequest $request)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
@@ -126,9 +116,9 @@ class ControladorModeloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(FosStse $objetoxx)
+    public function show(SisEslug $objetoxx)
     {
-
+        $this->opciones['parametr'] = [$objetoxx->id];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => $objetoxx->sis_esta_id == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1,
@@ -144,14 +134,15 @@ class ControladorModeloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(FosStse $objetoxx)
+    public function edit(SisEslug $objetoxx)
     {
+        $this->opciones['parametr'] = [$objetoxx->id];
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'Editar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'editar');
+        return $this->view($objetoxx,  'modeloxx', 'EDITAR', $this->opciones['rutacarp'] . 'editar');
     }
     private function transaccion($dataxxxx,  $objetoxx)
     {
@@ -161,7 +152,7 @@ class ControladorModeloController extends Controller
                 $objetoxx->update($dataxxxx);
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FosStse::create($dataxxxx);
+                $objetoxx = SisEslug::create($dataxxxx);
             }
             return $objetoxx;
         }, 5);
@@ -181,10 +172,10 @@ class ControladorModeloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(FosStseEditarRequest $request, FosStse $objetoxx)
+    public function update(SisEslugEditarRequest $request, SisEslug $objetoxx)
     {
         $dataxxxx = $request->all();
-        return $this->grabar($dataxxxx, $objetoxx, 'Linea base del NNAJ actualizada con éxito');
+        return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
     }
 
     /**
@@ -193,8 +184,9 @@ class ControladorModeloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FosStse $objetoxx)
+    public function destroy(SisEslug $objetoxx)
     {
+        $this->opciones['parametr'] = [$objetoxx->id];
 
         $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();

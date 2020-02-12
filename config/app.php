@@ -249,6 +249,7 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Indicadores'=>App\Helpers\Indicadores\IndicadorHelper::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Tr'=>App\Helpers\Traductor\Traductor::class,
     ],
 
 ];

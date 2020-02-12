@@ -15,25 +15,33 @@
                 </a>
             </li>
         @endcan
+        @can('siseslug-leer')
+            <li class="nav-item">
+                <a href="{{ route('siseslug') }}" class="nav-link">
+                <i class="fas fa-check nav-icon"></i>
+                <p>Espacio/Lugar</p>
+                </a>
+            </li>
+        @endcan
+        @can('depeluga-leer')
+            <li class="nav-item">
+                <a href="{{ route('depeluga') }}" class="nav-link">
+                <i class="fas fa-check nav-icon"></i>
+                <p>Dependencia E/L</p>
+                </a>
+            </li>
+        @endcan
         @can('agtaller-leer')
             <li class="nav-item">
-                <a href="{{ route('agr') }}" class="nav-link">
+                <a href="{{ route('agrtaller.temas') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
                 <p>Taller</p>
                 </a>
             </li>
         @endcan
-        @can('agtema-leer')
-            <li class="nav-item">
-                <a href="{{ route('ttema') }}" class="nav-link">
-                <i class="fas fa-check nav-icon"></i>
-                <p>Taller-Tema</p>
-                </a>
-            </li>
-        @endcan
         @can('agsubtema-leer')
             <li class="nav-item">
-                <a href="{{ route('ag.subt') }}" class="nav-link">
+                <a href="{{ route('agsubt.talleres') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
                 <p>Subtema Taller</p>
                 </a>

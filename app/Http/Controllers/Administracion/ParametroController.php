@@ -60,7 +60,7 @@ class ParametroController extends Controller{
     protected function datos(array $request){
         return Parametro::select('id', 'nombre', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
-                return $q->where('nombre', 'like', '%'.$buscar.'%');
+                return $q->orWhere('nombre', 'like', '%'.$buscar.'%')->orWhere('id','like','%'.$buscar.'%');
             })
             ->orderBy('nombre')->paginate(10);
     }

@@ -1,20 +1,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
 $(document).ready(function() {
-	@if(!isset($todoxxxx['actualiz']))
-    $('#{{ $tableName }}').DataTable({
-    	"serverSide": true,
-    	"ajax": "{{ url($todoxxxx['urlxxxxx'])  }}",
-    	"columns":[
-			@foreach($todoxxxx['columnsx'] as $columnsx)
-			{data:'{{ $columnsx["data"] }}',name:'{{ $columnsx["name"] }}'},
-			@endforeach
-		],
-    	"language": {
-           	"url": "{{ url('/adminlte/plugins/datatables/Spanish.lang') }}"
-       	}
-	});  
-	@else
+	
 
 	f_asiganar_registro=function(dataxxxx,datatabl){
 		$.ajax( {
@@ -190,8 +177,6 @@ $(document).ready(function() {
 			ag_actividad_id:"{{ $todoxxxx['modeloxx']->id }}"
 		},recursox);
       }
-	} );
-
-	@endif
+	  } );
 } );
 </script>

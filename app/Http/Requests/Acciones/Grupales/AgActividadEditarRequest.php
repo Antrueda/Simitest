@@ -21,7 +21,6 @@ class AgActividadEditarRequest extends FormRequest
             'sis_depdestino_id.required' => 'Seleccione una dependencia de destino',
             'ag_taller_id.required' => 'Seleccione un taller',
             'ag_sttema_id.required' => 'Seleccione un subtema',
-            'ag_sttran_id.required' => 'Seleccione una accion transversal',
             'i_prm_dirig_id.required' => 'Seleccione a quién va dirigido',
             'i_prm_espac_id.required' => 'Seleccione el lugar donde se llevó a cabo',
             's_entidad.required' => 'Seleccione una entidad',
@@ -46,7 +45,6 @@ class AgActividadEditarRequest extends FormRequest
             'd_registro' =>['required'],
             'ag_taller_id' =>['required'],
             'ag_sttema_id' =>['required'],
-            'ag_sttran_id' =>['required'],
             'i_prm_dirig_id' =>['required'],
             'i_prm_espac_id' =>['required'],
             'sis_entidad_id' =>['required'],
@@ -90,6 +88,9 @@ class AgActividadEditarRequest extends FormRequest
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        if($this->sis_depdestino_id==1){
+            $this->_reglasx['s_prm_espac']='required';
+            $this->_mensaje['s_prm_espac.required'] = 'Seleccione el lugar donde se llevó a cabo';
+        }
     }
 }

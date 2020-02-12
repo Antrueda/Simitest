@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\Indicadores\InDocIndi;
 use Illuminate\Foundation\Http\FormRequest;
-class RequeststModeloUpdateRequest extends FormRequest
+class RequeststModeloEditarRequest extends FormRequest
 {
 
     private $_mensaje;

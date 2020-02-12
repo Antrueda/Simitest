@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Acciones\Grupales;   
+namespace App\Http\Controllers\Acciones\Grupales;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\AgActividadCrearRequest;
 use App\Http\Requests\Acciones\Grupales\AgActividadEditarRequest;
 use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\AgRecurso;
-use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Indicadores\Area;
@@ -16,6 +15,7 @@ use App\Models\sistema\SisEntidad;
 use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AgActividadController extends Controller
 {
@@ -71,29 +71,29 @@ class AgActividadController extends Controller
 
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
+        $this->opciones["tiempoxx"] = - (Auth::user()->i_tiempo - 1);
 
-
-        $this->opciones["urlxxxag"] ='api/ag/responsables';
+        $this->opciones["urlxxxag"] = 'api/ag/responsables';
         $this->opciones['routxxxa'] = 'ag.acti.actividad';
         $this->opciones['cabeceag'] = [
-          ['td' => 'PRIMER APELLIDO'],
-          ['td' => 'SEGUNDO APELLIDO'],
-          ['td' => 'PRIMER NOMBRE'],
-          ['td' => 'SEGUNDO NOMBRE'],
-          ['td' => 'RESPONSABLE DE LA ACTIVIDAD'],
-          ['td' => 'DOCUMENTO'],
+            ['td' => 'PRIMER APELLIDO'],
+            ['td' => 'SEGUNDO APELLIDO'],
+            ['td' => 'PRIMER NOMBRE'],
+            ['td' => 'SEGUNDO NOMBRE'],
+            ['td' => 'RESPONSABLE DE LA ACTIVIDAD'],
+            ['td' => 'DOCUMENTO'],
         ];
         $this->opciones['columnag'] = [
-          ['data' => 'btns','name' => 'btns'],
-          ['data' => 'apellido1','name' => 'user.s_primer_apellido as apellido1'],
-          ['data' => 'apellido2','name' => 'user.s_segundo_apellido as apellido2'],
-          ['data' => 'nombre1','name' => 'user.s_primer_nombre as nombre1'],
-          ['data' => 'nombre2','name' => 'user.s_primer_nombre as nombre2'],
-          ['data' => 'i_prm_responsable_id','name' => 'parametros.name as i_prm_responsable_id'],
-          ['data' => 'documento1','name' => 'user.s_documento as documento1'],
+            ['data' => 'btns', 'name' => 'btns'],
+            ['data' => 'apellido1', 'name' => 'user.s_primer_apellido as apellido1'],
+            ['data' => 'apellido2', 'name' => 'user.s_segundo_apellido as apellido2'],
+            ['data' => 'nombre1', 'name' => 'user.s_primer_nombre as nombre1'],
+            ['data' => 'nombre2', 'name' => 'user.s_primer_nombre as nombre2'],
+            ['data' => 'i_prm_responsable_id', 'name' => 'parametros.name as i_prm_responsable_id'],
+            ['data' => 'documento1', 'name' => 'user.s_documento as documento1'],
         ];
 
-        $this->opciones["urlxxxas"]='api/ag/asistentes';
+        $this->opciones["urlxxxas"] = 'api/ag/asistentes';
         $this->opciones['routxxxb'] = 'ag.acti.actividad';
         $this->opciones['cabeceas'] = [
             ['td' => 'PRIMER APELLIDO'],
@@ -101,15 +101,15 @@ class AgActividadController extends Controller
             ['td' => 'PRIMER NOMBRE'],
             ['td' => 'SEGUNDO NOMBRE'],
             ['td' => 'DOCUMENTO'],
-          ];
-          $this->opciones['columnas'] = [
-            ['data' => 'btns','name' => 'btns'],
-            ['data' => 'apellido11','name' => 'fi_datos_basicos.s_primer_apellido as apellido11'],
-            ['data' => 'apellido22','name' => 'fi_datos_basicos.s_segundo_apellido as apellido22'],
-            ['data' => 'nombre11','name' => 'fi_datos_basicos.s_primer_nombre as nombre11'],
-            ['data' => 'nombre22','name' => 'fi_datos_basicos.s_primer_nombre as nombre22'],
-            ['data' => 'documento2','name' => 'fi_datos_basicos.s_documento as documento2'],
-          ];
+        ];
+        $this->opciones['columnas'] = [
+            ['data' => 'btns', 'name' => 'btns'],
+            ['data' => 'apellido11', 'name' => 'fi_datos_basicos.s_primer_apellido as apellido11'],
+            ['data' => 'apellido22', 'name' => 'fi_datos_basicos.s_segundo_apellido as apellido22'],
+            ['data' => 'nombre11', 'name' => 'fi_datos_basicos.s_primer_nombre as nombre11'],
+            ['data' => 'nombre22', 'name' => 'fi_datos_basicos.s_primer_nombre as nombre22'],
+            ['data' => 'documento2', 'name' => 'fi_datos_basicos.s_documento as documento2'],
+        ];
 
 
 
@@ -131,25 +131,39 @@ class AgActividadController extends Controller
         ];
 
 
-        $this->opciones['areaxxxx'] = User::getAreasUser(['cabecera'=>true,'esajaxxx'=>false]);
+        $this->opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['entidadx'] = SisEntidad::combo(true, false);
-        $this->opciones['dependen'] = SisDependencia::combo(true, false);
-        $this->opciones['agtemaxx'] = AgTema::comb(true, false);
-        $this->opciones['lugarxxx'] = [1269=>'NO APLICA'];
+        $this->opciones['dependen'] = User::getDependenciasUser(['cabecera' => true, 'esajaxxx' => false]);
+        $this->opciones['upidepen'] = SisDependencia::combo(true, false);
+
+        //$this->opciones['dependen'] = SisDependencia::combo(true, false);
+        $this->opciones['agtemaxx'] = ['' => 'Seleccione'];
+        $this->opciones['lugarxxx'] = [1 => 'NO APLICA'];
         //Tema::combo(291, true, false);
-        $this->opciones['tallerxx'] = AgTaller::comb(true, false);
-        $this->opciones['subtemax'] = AgSubtema::comb(true, false);
+        $this->opciones['tallerxx'] = ['' => 'Seleccione'];
+        $this->opciones['subtemax'] = [1 => 'NO APLICA'];
+        $this->opciones['transver'] = AgTaller::comb(true, false);
         $this->opciones['dirigido'] = Tema::combo(285, true, false);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(338, true, false);
         $this->opciones['recursox'] = AgRecurso::comb(true, false);
-        
+
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
 
         if ($nombobje != '') {
-            if($objetoxx->sis_depdestino_id==1){
-                $this->opciones['lugarxxx']=Tema::combo(336, true, false);
+            if ($objetoxx->sis_depdestino_id == 1) {
+                $this->opciones['lugarxxx'] = Tema::combo(336, true, false);
             }
+            $this->opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false, 'areasele' => $objetoxx->area_id]);
+            $this->opciones['agtemaxx'] = Area::combo_temas(['cabecera' => true, 'ajaxxxxx' => false, 'areaxxxx' => $objetoxx->area_id]);
+            $this->opciones['tallerxx'] = AgTema::combo_talleres(['cabecera' => true, 'ajaxxxxx' => false, 'agtemaid' => $objetoxx->ag_tema_id]);
+
+            $agtaller = AgTaller::combo_subtemas(['cabecera' => true, 'ajaxxxxx' => false, 'agtaller' => $objetoxx->ag_taller_id]);
+            if (count($agtaller) == 1) {
+                $this->opciones['subtemax'] = [1 => 'NO APLICA'];
+            }
+
+
             $this->opciones[$nombobje] = $objetoxx;
         }
 

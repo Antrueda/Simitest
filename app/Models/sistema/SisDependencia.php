@@ -2,8 +2,6 @@
 
 namespace App\Models\sistema;
 
-use App\Models\Indicadores\Area;
-use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -60,41 +58,66 @@ class SisDependencia extends Model
 
     public static function combo($cabecera, $ajaxxxxx)
     {
-        {
-            $comboxxx = [];
-            if ($cabecera) {
-                if($ajaxxxxx){
-                    $comboxxx = ['valuexxx'=>'','optionxx' => 'Seleccione'];
-                }else{
-                    $comboxxx = ['' => 'Seleccione'];
-                }             
+
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
             }
-            foreach (SisDependencia::get() as $registro) {
-                if ($ajaxxxxx) {
-                    $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
-                } else {
-                    $comboxxx[$registro->id] = $registro->nombre;
-                }
-            }
-            return $comboxxx;
         }
+        foreach (SisDependencia::get() as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+            } else {
+                $comboxxx[$registro->id] = $registro->nombre;
+            }
+        }
+        return $comboxxx;
     }
 
     public function sis_servicios()
     {
-        {
-            return $this->belongsToMany(SisServicio::class);
-        }
+
+        return $this->belongsToMany(SisServicio::class);
     }
 
     public function users()
     {
-        {
-            return $this->belongsToMany(User::class);
-        }
+        return $this->belongsToMany(User::class);
     }
 
-    public function sis_barrio(){
+    public function sis_barrio()
+    {
         return $this->belongsTo(SisBarrio::class);
+    }
+
+    public function sis_eslugs(){
+        return $this->belongsToMany(SisEslug::class)->withTimestamps();
+    }
+
+    public static function getLugares($dataxxxx){
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['esajaxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+        $dependen=SisDependencia::select(['sis_eslugs.id as valuexxx','sis_eslugs.s_espaluga as optionxx'])
+        ->join('sis_dependencia_sis_eslug','sis_dependencias.id','=','sis_dependencia_sis_eslug.sis_dependencia_id')
+        ->join('sis_eslugs','sis_dependencia_sis_eslug.sis_eslug_id','=','sis_eslugs.id')
+        ->where('sis_dependencias.id',$dataxxxx['padrexxx'])
+        ->get();
+        foreach ($dependen as $registro) {
+            if ($dataxxxx['esajaxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\sistema\SisTitulo;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -48,8 +49,11 @@ class DatabaseSeeder extends Seeder
         $this->call(FosTsesSeeder::class);
         $this->call(FosStsesSeeder::class);
         $this->call(InRespuestasSeeder::class);
-        // $this->call(InLineabaseNnajsSeeder::class);
-        // $this->call(InAccionGestionsSeeder::class);
+        $this->call(AgTemasSeeder::class);
+        $this->call(AgTallersSeeder::class);
+        $this->call(AgSubtemasSeeder::class);
+        $this->call(SisTitulosSeeder::class);
+        $this->call(AgRecursosSeeder::class);
 
 
 

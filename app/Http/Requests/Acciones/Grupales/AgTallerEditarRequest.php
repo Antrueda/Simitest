@@ -16,18 +16,7 @@ class AgTallerEditarRequest extends FormRequest
             's_taller.required' => 'Ingrese el nombre del Taller',
             's_descripcion.required' => 'Ingrese la descripción del taller',
         ];
-        $this->_reglasx = [
-            's_taller' =>
-            [
-                'required', //y todos las validaciones a que haya lugar separadas por coma
-                'unique:ag_tallers,s_taller,'
-            ],
-            's_descripcion' =>
-            [
-                'required', //y todos las validaciones a que haya lugar separadas por coma
-                
-            ],
-        ];
+        
     }
     /**
      * Determine if the user is authorized to make this request.
@@ -52,6 +41,17 @@ class AgTallerEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
+        $this->_reglasx = [
+            's_taller' =>
+            [
+                'required', //y todos las validaciones a que haya lugar separadas por coma
+                'unique:ag_tallers,s_taller,'.$this->segments()[3]
+            ],
+            's_descripcion' =>
+            [
+                'required', //y todos las validaciones a que haya lugar separadas por coma 
+            ],
+        ];
         return $this->_reglasx;
     }
 

@@ -594,6 +594,35 @@ class RolesYPermisosSeeder extends Seeder {
     Permission::create(['name' => 'airetornosalida-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
 
+
+// Permisos para AI Retorno Salidas
+Permission::create(['name' => 'sistitulos-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+Permission::create(['name' => 'sistitulos-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+Permission::create(['name' => 'sistitulos-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+Permission::create(['name' => 'sistitulos-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
+
+// Permisos para AI Retorno Salidas
+Permission::create(['name' => 'depeluga-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+Permission::create(['name' => 'depeluga-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+Permission::create(['name' => 'depeluga-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+Permission::create(['name' => 'depeluga-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
+
+// Permisos para AI Retorno Salidas
+Permission::create(['name' => 'siseslug-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+Permission::create(['name' => 'siseslug-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+Permission::create(['name' => 'siseslug-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+Permission::create(['name' => 'siseslug-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
+
+
+
+
+
+
+
+
     // Permisos para que se visualicen los módulos en el menú izquierdo
     /** Módulo territorio */
     Permission::create(['name' => 'territorio-modulo', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);

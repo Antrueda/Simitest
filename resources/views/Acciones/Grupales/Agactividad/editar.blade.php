@@ -7,6 +7,8 @@
   {!! Form::close() !!}
 @endsection
 @section('codigo')
+@include('Acciones.Grupales.Agactividad.Datatable.js')
   @include($todoxxxx["rutacarp"].'formulario.js')
+  @include('Especiales.Jss.Tooltips')
 @endsection
 
