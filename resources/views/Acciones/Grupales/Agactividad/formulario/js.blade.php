@@ -56,16 +56,21 @@
             f_formativas({valuexxx:"{{old('ag_tema_id')}}",psalecte:"{{old('ag_taller_id')}}",casosxxx:'ag_tema_id'});
         @endif
         $('#ag_tema_id').change(function(){ 
+<<<<<<< HEAD
             $('#ag_taller_id,#ag_sttema_id').empty();
             $('#ag_taller_id').append('<option value="">Seleccione</option>')
             $('#ag_sttema_id').append('<option value="1">NO APLICA</option>')
             if($(this).val()!='')
                 f_formativas({valuexxx:$(this).val(),psalecte:'',casosxxx:$(this).prop('id')});
+=======
+            f_formativas({valuexxx:$(this).val(),psalecte:'',casosxxx:$(this).prop('id')});
+>>>>>>> 86f2ded4b7cd4a938307526b2ca65f19d32d9d1b
         });
         @if(old('ag_taller_id')!=null)
             f_formativas({valuexxx:"{{old('ag_taller_id')}}",psalecte:"{{old('ag_sttema_id')}}",casosxxx:'ag_taller_id'});
         @endif
         $('#ag_taller_id').change(function(){ 
+<<<<<<< HEAD
             $('#ag_sttema_id').empty();
             $('#ag_sttema_id').append('<option value="1">NO APLICA</option>')
             if($(this).val()!='')
@@ -83,5 +88,9 @@
             onSelect: function(dateText) {
             }
         });
+=======
+            f_formativas({valuexxx:$(this).val(),psalecte:'',casosxxx:$(this).prop('id')});
+        });
+>>>>>>> 86f2ded4b7cd4a938307526b2ca65f19d32d9d1b
     });
 </script>   

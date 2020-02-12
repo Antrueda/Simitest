@@ -2,7 +2,11 @@
 <div class="form-group row">
   <div class="form-group col-md-4">
     {{ Form::label('d_registro',Tr::getTitulo(1,1), ['class' => 'control-label col-form-label-sm']) }}
+<<<<<<< HEAD
     {{ Form::text('d_registro', null, ['class' => 'form-control form-control-sm ','style'=>'height:38px'],'readonly') }}    
+=======
+    {{ Form::text('d_registro', null, ['class' => 'form-control form-control-sm  d_diligencia','style'=>'height:38px'],'readonly') }}    
+>>>>>>> 86f2ded4b7cd4a938307526b2ca65f19d32d9d1b
   </div>
   <div class="form-group col-md-4" style="height: ">
     {{ Form::label('area_id', Tr::getTitulo(2,1), ['class' => 'control-label col-form-label-sm']) }}

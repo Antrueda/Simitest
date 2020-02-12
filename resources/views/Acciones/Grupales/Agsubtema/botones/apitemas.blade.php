@@ -1,0 +1,1 @@
+<a class="btn btn-sm btn-primary" href="{{ route('agsubt', $id) }}">Ir a Subtemas</a>

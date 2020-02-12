@@ -17,7 +17,11 @@
         @endcan
         @can('siseslug-leer')
             <li class="nav-item">
+<<<<<<< HEAD
                 <a href="{{ route('siseslug') }}" class="nav-link">
+=======
+                <a href="{{ route('agrtaller.temas') }}" class="nav-link">
+>>>>>>> 86f2ded4b7cd4a938307526b2ca65f19d32d9d1b
                 <i class="fas fa-check nav-icon"></i>
                 <p>Espacio/Lugar</p>
                 </a>
