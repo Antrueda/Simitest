@@ -130,7 +130,7 @@ Route::get('ag/responsables', function (Request $request) {
             ->join('users', 'ag_responsables.user_id', '=', 'users.id')
             ->where('ag_responsables.sis_esta_id', 1)
             ->where('ag_responsables.ag_actividad_id', $request->all()['ag_actividad_id']))
-        ->addColumn('btns', 'Acciones/Grupales/Agactividad/botones/botonelim')
+        ->addColumn('btns', 'Acciones/Grupales/Agactividad/botones/elimresp')
         ->rawColumns(['btns'])
         ->toJson();
 });

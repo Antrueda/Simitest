@@ -41,7 +41,7 @@ class CreateFiSaludsTable extends Migration
             $table->bigIntegeR('i_prm_razon_no_cinco_comidas_id')->unsigned();//->comment('FI 6.25 RAZON NO CONSUME 5 COMIDAS AL DIA');
             
             $table->bigInteger('sis_nnaj_id')->unsigned();//->comment('NNAJ AL QUE SE LE ASIGNA LA SALUD');
-            $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
@@ -80,7 +80,7 @@ class CreateFiSaludsTable extends Migration
             $table->string('s_medicamento');//->comment('FI CUAL MEDICAMENTO');
             $table->bigIntegeR('i_prm_rec_tratamiento_id')->unsigned();//->comment('FI HA RECIBIDO TRATAMIENTO');
             
-            $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
@@ -98,7 +98,7 @@ class CreateFiSaludsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_salud_id')->unsigned();//->comment('REGISTRO SALUD AL QUE SE LE ASIGNA EL EVENTO MEDICO');
             $table->bigIntegeR('i_prm_evento_medico_id')->unsigned();//->comment('FI 6.15 EVENTOS MÉDICOS');
-            $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');

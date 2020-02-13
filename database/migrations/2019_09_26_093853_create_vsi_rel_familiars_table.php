@@ -30,7 +30,7 @@ class CreateVsiRelFamiliarsTable extends Migration{
             $table->Integer('ano')->unsigned()->nullable();
             $table->bigInteger('prm_responde_id')->unsigned()->nullable();
             $table->string('descripcion1', 4000)->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -52,7 +52,7 @@ class CreateVsiRelFamiliarsTable extends Migration{
         Schema::create('vsi_relfam_motivo', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');
@@ -62,7 +62,7 @@ class CreateVsiRelFamiliarsTable extends Migration{
         Schema::create('vsi_relfam_dificultad', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');
@@ -72,7 +72,7 @@ class CreateVsiRelFamiliarsTable extends Migration{
         Schema::create('vsi_relfam_acciones', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');

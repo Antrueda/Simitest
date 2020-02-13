@@ -19,7 +19,7 @@ class CreateSisTitulosTable extends Migration
             $table->string('s_titulo')->unique();
             $table->text('s_tooltip');
             $table->bigInteger('i_prm_tletra_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('user_crea_id')->references('id')->on('users');

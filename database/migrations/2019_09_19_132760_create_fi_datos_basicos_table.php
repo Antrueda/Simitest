@@ -47,7 +47,7 @@ class CreateFiDatosBasicosTable extends Migration
             $table->string('s_nombre_focalizacion');
             $table->string('s_lugar_focalizacion');
             $table->bigInteger('sis_barrio_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

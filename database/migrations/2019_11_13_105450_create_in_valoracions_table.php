@@ -20,7 +20,7 @@ class CreateInValoracionsTable extends Migration
             $table->bigInteger('i_prm_cactual_id')->unsigned();
             $table->bigInteger('i_prm_avance_id')->unsigned();
             $table->bigInteger('i_prm_nivel_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->string('s_valoracion',255);
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

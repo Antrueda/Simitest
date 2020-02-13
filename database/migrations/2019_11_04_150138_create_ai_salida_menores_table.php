@@ -44,7 +44,7 @@ class CreateAiSalidaMenoresTable extends Migration{
             $table->string('doc_recoge',120);
             $table->bigInteger('responsable')->unsigned();
             $table->bigInteger('user_doc1_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -71,7 +71,7 @@ class CreateAiSalidaMenoresTable extends Migration{
         Schema::create('ai_salida_menores_obj', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('ai_salida_menores_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('ai_salida_menores_id')->references('id')->on('ai_salida_menores');
@@ -83,7 +83,7 @@ class CreateAiSalidaMenoresTable extends Migration{
             $table->bigIncrements('id');
             $table->bigInteger('prm_id')->unsigned();
             $table->bigInteger('ai_salida_menores_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('prm_id')->references('id')->on('parametros');
             $table->foreign('ai_salida_menores_id')->references('id')->on('ai_salida_menores');

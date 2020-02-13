@@ -15,7 +15,7 @@ class CreateCsdJusticiasTable extends Migration{
             $table->bigIncrements('id');
             $table->string('proposito', 200);
             $table->date('fecha');
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -27,7 +27,7 @@ class CreateCsdJusticiasTable extends Migration{
         Schema::create('csd_sis_nnaj', function (Blueprint $table) {
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
@@ -41,7 +41,7 @@ class CreateCsdJusticiasTable extends Migration{
             $table->bigInteger('prm_vin_causa_id')->unsigned()->nullable();
             $table->bigInteger('prm_riesgo_id')->unsigned();
             $table->bigInteger('prm_rie_causa_id')->unsigned()->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -58,7 +58,7 @@ class CreateCsdJusticiasTable extends Migration{
         Schema::create('csd_nnaj_especial', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_id')->references('id')->on('csds');

@@ -153,7 +153,7 @@ class CreateMitVmasTable extends Migration{
             $table->text('alerta',4000)->nullable();
             $table->text('observaciones',4000);
             $table->bigInteger('user_doc1_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -221,7 +221,7 @@ class CreateMitVmasTable extends Migration{
         Schema::create('mit_vma_ttos', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('mit_vma_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('mit_vma_id')->references('id')->on('mit_vmas');

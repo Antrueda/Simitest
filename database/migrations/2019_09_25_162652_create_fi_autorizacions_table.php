@@ -22,7 +22,7 @@ class CreateFiAutorizacionsTable extends Migration
             $table->bigInteger('i_prm_tipo_diligencia_id')->unsigned();
             
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -40,7 +40,7 @@ class CreateFiAutorizacionsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_autorizacion_id')->unsigned();
             $table->bigIntegeR('i_prm_modalidad_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

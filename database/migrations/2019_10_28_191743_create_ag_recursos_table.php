@@ -18,7 +18,7 @@ class CreateAgRecursosTable extends Migration
             $table->String('s_recurso');
             $table->bigInteger('i_prm_trecurso_id');
             $table->bigInteger('i_prm_umedida_id');
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

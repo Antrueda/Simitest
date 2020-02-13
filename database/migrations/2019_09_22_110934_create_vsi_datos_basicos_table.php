@@ -16,7 +16,7 @@ class CreateVsiDatosBasicosTable extends Migration{
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('dependencia_id')->unsigned();
             $table->date('fecha');
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -30,7 +30,7 @@ class CreateVsiDatosBasicosTable extends Migration{
         Schema::create('vsi_nnaj_emocional', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -40,7 +40,7 @@ class CreateVsiDatosBasicosTable extends Migration{
         Schema::create('vsi_nnaj_sexual', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -50,7 +50,7 @@ class CreateVsiDatosBasicosTable extends Migration{
         Schema::create('vsi_nnaj_comportamental', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -60,7 +60,7 @@ class CreateVsiDatosBasicosTable extends Migration{
         Schema::create('vsi_nnaj_academica', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -70,7 +70,7 @@ class CreateVsiDatosBasicosTable extends Migration{
         Schema::create('vsi_nnaj_social', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -80,7 +80,7 @@ class CreateVsiDatosBasicosTable extends Migration{
         Schema::create('vsi_nnaj_familiar', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');

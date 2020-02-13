@@ -15,7 +15,7 @@ class CreateVsiSitEspecialsTable extends Migration{
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('prm_victima_id')->unsigned()->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -29,7 +29,7 @@ class CreateVsiSitEspecialsTable extends Migration{
         Schema::create('vsi_sitesp_victima', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_sitespecial_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_sitespecial_id')->references('id')->on('vsi_sit_especials');
@@ -39,7 +39,7 @@ class CreateVsiSitEspecialsTable extends Migration{
         Schema::create('vsi_sitesp_riesgo', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_sitespecial_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_sitespecial_id')->references('id')->on('vsi_sit_especials');

@@ -47,7 +47,7 @@ class CreateIsDatosBasicosTable extends Migration{
             $table->date('d_fecha_proxima')->nullable();
             $table->bigInteger('i_primer_responsable')->unsigned();
             $table->bigInteger('i_segundo_responsable')->nullable()->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -86,7 +86,7 @@ class CreateIsDatosBasicosTable extends Migration{
 
             $table->bigIntegeR('i_prm_area_proxima_id')->unsigned();//->comment('ÁREA DE AJUSTE A TRABAJAR EN PRÓXIMA SESIÓN');
             
-            $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');

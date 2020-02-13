@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('sis_municipio_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_cargo_id')->unsigned();
@@ -60,7 +60,7 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->dateTime('created_at');
-            $table->integer('user_crea_id');
+            $table->Integer('user_crea_id'); 
             $table->string('s_telefono');
             $table->string('s_matriculap');
             $table->date('d_vinculacion');

@@ -17,11 +17,7 @@ class AgRecursoEditarRequest extends FormRequest
              'i_prm_umedida_id.required' => 'Seleccione la unidad de medida del recurso',
              'i_prm_trecurso_id.required' => 'Seleccione el tipo del recurso',
          ];
-         $this->_reglasx = [
-             's_recurso' =>['required','unique:ag_recursos,s_recurso,'],
-             'i_prm_umedida_id' =>['required',],
-             'i_prm_trecurso_id' =>['required',],
-         ];
+         
      }
      /**
       * Determine if the user is authorized to make this request.
@@ -46,6 +42,12 @@ class AgRecursoEditarRequest extends FormRequest
       public function rules()
       {
           $this->validar();
+          $this->_reglasx = [
+            's_recurso' =>['required','unique:ag_recursos,s_recurso,'.$this->segments()[2]],
+            'i_prm_umedida_id' =>['required',],
+            'i_prm_trecurso_id' =>['required',],
+        ];
+        return $this->_reglasx;
       }
   
       public function validar()

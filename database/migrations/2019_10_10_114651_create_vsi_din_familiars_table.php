@@ -19,7 +19,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
             $table->string('lugar', 4000);
             $table->bigInteger('prm_motivo_id')->unsigned()->nullable();
             $table->string('descripcion', 4000);
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -35,7 +35,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
         Schema::create('vsi_dinfam_calle', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
@@ -45,7 +45,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
         Schema::create('vsi_dinfam_delito', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
@@ -55,7 +55,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
         Schema::create('vsi_dinfam_prostitucion', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
@@ -65,7 +65,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
         Schema::create('vsi_dinfam_libertad', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
@@ -75,7 +75,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
         Schema::create('vsi_dinfam_consumo', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
@@ -85,7 +85,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
         Schema::create('vsi_dinfam_salud', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
@@ -95,7 +95,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
         Schema::create('vsi_dinfam_cuidador', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
@@ -105,7 +105,7 @@ class CreateVsiDinFamiliarsTable extends Migration{
         Schema::create('vsi_dinfam_ausencia', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');

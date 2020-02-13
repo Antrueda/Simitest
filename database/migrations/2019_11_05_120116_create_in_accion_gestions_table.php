@@ -19,7 +19,7 @@ class CreateInAccionGestionsTable extends Migration
             $table->bigInteger('i_prm_ttiempo_id')->unsigned();
             $table->bigInteger('in_lineabase_nnaj_id')->unsigned();
             $table->bigInteger('sis_documento_fuente_id')->unsigned(); //cambiar por in_linea_fuente en un futuro
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->integer('i_tiempo');
             $table->decimal('i_porcentaje', 5, 2);
@@ -39,7 +39,7 @@ class CreateInAccionGestionsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('in_accion_gestion_id')->unsigned();
             $table->bigInteger('sis_fsoporte_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

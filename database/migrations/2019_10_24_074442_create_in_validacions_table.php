@@ -21,10 +21,13 @@ class CreateInValidacionsTable extends Migration
             $table->bigInteger('sis_tabla_id')->unsigned();
             
             $table->bigInteger('sis_campo_tabla_id')->unsigned()->unique();
-            $table->integer('user_crea_id');
-            $table->integer('user_edita_id');
+            $table->bigInteger('user_crea_id')->unsigned(); 
+            
+            $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('user_crea_id')->references('id')->on('users');
+            $table->foreign('user_edita_id')->references('id')->on('users');
             $table->timestamps();            
             
            // $table->foreign('sis_actividad_id')->references('id')->on('sis_actividads');

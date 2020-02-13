@@ -33,7 +33,7 @@ class CreateVsiGenIngresosTable extends Migration{
             $table->Integer('cuanto_aporta')->unsigned()->nullable();
             $table->string('expectativa', 4000)->nullable();
             $table->string('descripcion', 4000)->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -56,7 +56,7 @@ class CreateVsiGenIngresosTable extends Migration{
         Schema::create('vsi_gening_dias', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_geningreso_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_geningreso_id')->references('id')->on('vsi_gen_ingresos');
@@ -66,7 +66,7 @@ class CreateVsiGenIngresosTable extends Migration{
         Schema::create('vsi_gening_quien', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_geningreso_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_geningreso_id')->references('id')->on('vsi_gen_ingresos');
@@ -76,7 +76,7 @@ class CreateVsiGenIngresosTable extends Migration{
         Schema::create('vsi_gening_labor', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_geningreso_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_geningreso_id')->references('id')->on('vsi_gen_ingresos');

@@ -19,7 +19,7 @@ class CreateInDocPreguntasTable extends Migration
             $table->bigInteger('in_ligru_id')->unsigned();
             $table->bigInteger('sis_tabla_id')->unsigned();
             $table->bigInteger('sis_campo_tabla_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

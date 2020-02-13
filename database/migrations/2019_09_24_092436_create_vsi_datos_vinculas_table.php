@@ -19,7 +19,7 @@ class CreateVsiDatosVinculasTable extends Migration{
             $table->Integer('dia')->unsigned();
             $table->Integer('mes')->unsigned();
             $table->Integer('ano')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -34,7 +34,7 @@ class CreateVsiDatosVinculasTable extends Migration{
         Schema::create('vsi_situacion_vincula', function (Blueprint $table) {
           $table->bigInteger('parametro_id')->unsigned();
           $table->bigInteger('vsi_datos_vincula_id')->unsigned();
-          $table->bigInteger('user_crea_id')->unsigned();
+          $table->bigInteger('user_crea_id')->unsigned(); 
           $table->bigInteger('user_edita_id')->unsigned();
           $table->foreign('parametro_id')->references('id')->on('parametros');
           $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
@@ -44,7 +44,7 @@ class CreateVsiDatosVinculasTable extends Migration{
         Schema::create('vsi_emocion_vincula', function (Blueprint $table) {
           $table->bigInteger('parametro_id')->unsigned();
           $table->bigInteger('vsi_datos_vincula_id')->unsigned();
-          $table->bigInteger('user_crea_id')->unsigned();
+          $table->bigInteger('user_crea_id')->unsigned(); 
           $table->bigInteger('user_edita_id')->unsigned();
           $table->foreign('parametro_id')->references('id')->on('parametros');
           $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');

@@ -24,7 +24,7 @@ class CreateFiRazonesTable extends Migration
             $table->bigInteger('i_prm_estado_ingreso_id')->unsigned();
 
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -48,7 +48,7 @@ class CreateFiRazonesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_razone_id')->unsigned();
             $table->bigInteger('i_prm_documento_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->text('s_ruta');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

@@ -18,7 +18,7 @@ class CreateFiConsumoSpasTable extends Migration
             $table->bigInteger('i_prm_consume_spa_id')->unsigned();
 
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -38,7 +38,7 @@ class CreateFiConsumoSpasTable extends Migration
             $table->bigIntegeR('i_edad_uso')->nullable()->unsigned();
             $table->bigInteger('i_prm_consume_id')->nullable()->unsigned();
             
-            $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');

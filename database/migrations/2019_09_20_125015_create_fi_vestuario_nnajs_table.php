@@ -15,7 +15,7 @@ class CreateFiVestuarioNnajsTable extends Migration
     {
         Schema::create('fi_vestuario_nnajs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
 
             $table->bigInteger('prm_t_pantalon_id')->unsigned();

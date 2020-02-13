@@ -24,7 +24,7 @@ class CreateVsiEducacionsTable extends Migration{
             $table->bigInteger('prm_leer_id')->unsigned()->nullable();
             $table->bigInteger('prm_escribir_id')->unsigned()->nullable();
             $table->string('descripcion', 4000)->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -43,7 +43,7 @@ class CreateVsiEducacionsTable extends Migration{
         Schema::create('vsi_edu_causa', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_educacion_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
@@ -53,7 +53,7 @@ class CreateVsiEducacionsTable extends Migration{
         Schema::create('vsi_edu_fortaleza', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_educacion_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
@@ -63,7 +63,7 @@ class CreateVsiEducacionsTable extends Migration{
         Schema::create('vsi_edu_dificultad', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_educacion_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
@@ -73,7 +73,7 @@ class CreateVsiEducacionsTable extends Migration{
         Schema::create('vsi_edu_diftipo_a', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_educacion_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
@@ -83,7 +83,7 @@ class CreateVsiEducacionsTable extends Migration{
         Schema::create('vsi_edu_diftipo_b', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_educacion_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');

@@ -36,7 +36,7 @@ class CreateAgActividadsTable extends Migration
             $table->text('s_resultad',4000);
             $table->text('s_evaluaci',4000);
             $table->text('s_observac',4000);
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -77,7 +77,7 @@ class CreateAgActividadsTable extends Migration
             $table->text('s_resultad',4000);
             $table->text('s_evaluaci',4000);
             $table->text('s_observac',4000);
-            $table->integer('user_crea_id');
+            $table->Integer('user_crea_id'); 
             $table->integer('user_edita_id');
             $table->integer('sis_esta_id')->default(1);
             $table->timestamps();

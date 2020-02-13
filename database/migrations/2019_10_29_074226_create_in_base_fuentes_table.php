@@ -17,7 +17,7 @@ class CreateInBaseFuentesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('in_fuente_id')->unsigned();
             $table->bigInteger('sis_documento_fuente_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

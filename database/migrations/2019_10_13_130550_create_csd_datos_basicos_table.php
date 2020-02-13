@@ -42,7 +42,7 @@ class CreateCsdDatosBasicosTable extends Migration{
             $table->bigInteger('prm_etnia_id')->unsigned();
             $table->bigInteger('prm_cual_id')->unsigned()->nullable();
             $table->bigInteger('prm_poblacion_id')->unsigned()->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

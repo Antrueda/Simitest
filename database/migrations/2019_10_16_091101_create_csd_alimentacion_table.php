@@ -14,7 +14,7 @@ class CreateCsdAlimentacionTable extends Migration{
       $table->biginteger('prm_horario_id')->unsigned();
       $table->biginteger('prm_apoyo_id')->unsigned();
       $table->biginteger('prm_entidad_id')->unsigned()->nullable();
-      $table->bigInteger('user_crea_id')->unsigned();
+      $table->bigInteger('user_crea_id')->unsigned(); 
       $table->bigInteger('user_edita_id')->unsigned();
       $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -31,7 +31,7 @@ class CreateCsdAlimentacionTable extends Migration{
     Schema::create('csd_aliment_frec', function (Blueprint $table) {
       $table->bigInteger('parametro_id')->unsigned();
       $table->bigInteger('csd_alimentacion_id')->unsigned();
-      $table->bigInteger('user_crea_id')->unsigned();
+      $table->bigInteger('user_crea_id')->unsigned(); 
       $table->bigInteger('user_edita_id')->unsigned();
       $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
       $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -42,7 +42,7 @@ class CreateCsdAlimentacionTable extends Migration{
     Schema::create('csd_aliment_compra', function (Blueprint $table) {
       $table->bigInteger('parametro_id')->unsigned();
       $table->bigInteger('csd_alimentacion_id')->unsigned();
-      $table->bigInteger('user_crea_id')->unsigned();
+      $table->bigInteger('user_crea_id')->unsigned(); 
       $table->bigInteger('user_edita_id')->unsigned();
       $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
       $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -53,7 +53,7 @@ class CreateCsdAlimentacionTable extends Migration{
     Schema::create('csd_aliment_inge', function (Blueprint $table) {
       $table->bigInteger('parametro_id')->unsigned();
       $table->bigInteger('csd_alimentacion_id')->unsigned();
-      $table->bigInteger('user_crea_id')->unsigned();
+      $table->bigInteger('user_crea_id')->unsigned(); 
       $table->bigInteger('user_edita_id')->unsigned();
       $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
       $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -64,7 +64,7 @@ class CreateCsdAlimentacionTable extends Migration{
     Schema::create('csd_aliment_prepara', function (Blueprint $table) {
       $table->bigInteger('parametro_id')->unsigned();
       $table->bigInteger('csd_alimentacion_id')->unsigned();
-      $table->bigInteger('user_crea_id')->unsigned();
+      $table->bigInteger('user_crea_id')->unsigned(); 
       $table->bigInteger('user_edita_id')->unsigned();
       $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
       $table->foreign('parametro_id')->references('id')->on('parametros');

@@ -19,7 +19,7 @@ class CreateVsiRelSocialesTable extends Migration
             $table->string('descripcion', 4000);
             $table->bigInteger('prm_dificultad_id')->nullable()->unsigned();
             $table->string('completa', 4000)->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('i_prm_linea_base_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
@@ -35,7 +35,7 @@ class CreateVsiRelSocialesTable extends Migration
         Schema::create('vsi_relsol_facilita', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relsocial_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
            
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -47,7 +47,7 @@ class CreateVsiRelSocialesTable extends Migration
         Schema::create('vsi_relsol_dificulta', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relsocial_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();    
            
             $table->foreign('parametro_id')->references('id')->on('parametros');

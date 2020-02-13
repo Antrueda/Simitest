@@ -177,6 +177,24 @@ $(document).ready(function() {
 			ag_actividad_id:"{{ $todoxxxx['modeloxx']->id }}"
 		},recursox);
       }
-	  } );
-} );
+    } );
+    
+  var f_eliminar = function(dataxxxx,datatabl){
+    $.ajax( {
+      url : "{{ route('ag.acti.actividad.getEliminar') }}",
+      dataType: "json",
+      type : 'GET',
+      data: dataxxxx,
+      success: function( data ) { 
+        datatabl.ajax.reload();
+      }
+    });
+  }
+  /**
+   * eliminar responsable
+  */
+  // $('#responsables').on('click','.responsa',function(){
+  //   f_eliminar({padrexxx:$(this).prop('id')},responsa)
+  // });
+});
 </script>

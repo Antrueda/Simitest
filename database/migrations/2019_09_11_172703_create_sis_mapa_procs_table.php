@@ -17,7 +17,7 @@ class CreateSisMapaProcsTable extends Migration{
             $table->bigInteger('sis_entidad_id')->unsigned();
             $table->date('vigencia');
             $table->date('cierre');
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

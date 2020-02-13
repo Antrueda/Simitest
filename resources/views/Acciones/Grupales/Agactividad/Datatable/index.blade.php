@@ -29,6 +29,8 @@
     <div class="card-header">
             <h3 class="card-title">
                 Responsable de la actividad 
+                <a class="btn btn-sm btn-primary" href="{{ route('respo.nuevo', $todoxxxx['modeloxx']->id) }}">
+                    Nuevo Responsable</a>
             </h3>
         </div>
         <div class="card-body">
@@ -66,7 +68,10 @@
         <div class="card-header">
                 <h3 class="card-title">
                     Asistentes de la actividad
+                    <a class="btn btn-sm btn-primary" href="{{ route('ag.acti.actividad.editar', $todoxxxx['modeloxx']->id) }}">
+                        Nuevo Asistente</a>
                 </h3>
+                
             </div>
         <div class="card-body">
                 <div class="form-group row">
@@ -99,6 +104,8 @@
         <div class="card-header">
                 <h3 class="card-title">
                     Relación de recursos a emplear
+                    <a class="btn btn-sm btn-primary" href="{{ route('ag.acti.actividad.editar', $todoxxxx['modeloxx']->id) }}">
+                        Nuevo Recurso</a>
                 </h3>
             </div>
         <div class="card-body">

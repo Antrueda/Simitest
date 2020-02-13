@@ -63,8 +63,8 @@ class DepelugaController extends Controller
         ];
         $this->opciones['columnsx'] = [
             ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'id', 'name' => 'sis_dependencia.id'],
-            ['data' => 'nombre', 'name' => 'sis_dependencia.nombre'],
+            ['data' => 'id', 'name' => 'sis_dependencias.id'],
+            ['data' => 'nombre', 'name' => 'sis_dependencias.nombre'],
             ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);

@@ -15,7 +15,7 @@ class CreateCsdBienvenidaTable extends Migration{
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('prm_persona_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -29,7 +29,7 @@ class CreateCsdBienvenidaTable extends Migration{
         Schema::create('csd_bienvenidas_motivos', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_bienvenidas_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_bienvenidas_id')->references('id')->on('csd_bienvenidas');

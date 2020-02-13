@@ -2670,7 +2670,14 @@ class TemasTableSeeder extends Seeder
 
         // ]);
         $tema = Tema::create(['id' => 283, 'nombre' => 'TIPO RECURSO']);
-        $tema->parametros()->sync([]);
+        $tema->parametros()->sync([
+            1764 => $camposmagicos,
+            1765 => $camposmagicos,
+            1766 => $camposmagicos,
+            1767 => $camposmagicos,
+            1768 => $camposmagicos,
+        ]);
+
         $tema = Tema::create(['id' => 284, 'nombre' => 'TIPO DEPENDENCIA']);
         $tema->parametros()->sync([
             805 => $camposmagicos, //opcional
@@ -2703,14 +2710,15 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 288, 'nombre' => 'UNIDAD DE MEDIDA']);
         $tema->parametros()->sync([
-            1680 => $camposmagicos,
-            1681 => $camposmagicos,
-            1682 => $camposmagicos,
-            1683 => $camposmagicos,
-            1684 => $camposmagicos,
-            1685 => $camposmagicos,
-            1686 => $camposmagicos,
-            1687 => $camposmagicos,
+            1680 => $camposmagicos, //CENTÍMETROS
+            1681 => $camposmagicos, //METROS
+            1682 => $camposmagicos, //PULGADAS
+            1683 => $camposmagicos, //LITROS
+            1684 => $camposmagicos, //MILIMETROS
+            1685 => $camposmagicos, //KILOS
+            1686 => $camposmagicos, //GRAMOS
+            1687 => $camposmagicos, //LIBRAS
+            1769 => $camposmagicos, //PLIEGO
         ]);
         $tema = Tema::create(['id' => 289, 'nombre' => 'ESTADO TABLAS']);
 
@@ -3127,7 +3135,7 @@ class TemasTableSeeder extends Seeder
             1243 => $camposmagicos,
             1241 => $camposmagicos,
             1244 => $camposmagicos,
-            ]);
+        ]);
         $tema = Tema::create(['id' => 334, 'nombre' => 'VMA - CONDUCTA',]);
         $tema->parametros()->sync([
             1156 => $camposmagicos,
@@ -3149,9 +3157,8 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 338, 'nombre' => 'RESPONSABLE DE LA ACTIVIDAD',]);
         $tema->parametros()->sync([
-            1763 => $camposmagicos,
-            1764 => $camposmagicos,
+            1770 => $camposmagicos,
+            1771 => $camposmagicos,
         ]);
-
     }
 }

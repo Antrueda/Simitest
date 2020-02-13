@@ -43,7 +43,7 @@ class CreateCsdResidenciasTable extends Migration{
             $table->bigInteger('prm_ventilacion_id')->unsigned();
             $table->bigInteger('prm_iluminacion_id')->unsigned();
             $table->bigInteger('prm_orden_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -78,7 +78,7 @@ class CreateCsdResidenciasTable extends Migration{
         Schema::create('csd_reside_ambiente', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_residencia_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');

@@ -162,8 +162,6 @@ class AgActividadController extends Controller
             if (count($agtaller) == 1) {
                 $this->opciones['subtemax'] = [1 => 'NO APLICA'];
             }
-
-
             $this->opciones[$nombobje] = $objetoxx;
         }
 
@@ -244,5 +242,19 @@ class AgActividadController extends Controller
         $objetoxx->save();
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
+    }
+
+    public function getEliminar(Request $request)
+    {
+        // if ($request->ajax()) {
+        //     $dataxxxx = $request->all();
+        //     switch($request->tablaxxx){
+        //         case 1:
+
+        //         break; 
+        //     }
+        //     return response()->json(FosTse::combo($dataxxxx['padrexxx'], false, true));
+        // }
+
     }
 }

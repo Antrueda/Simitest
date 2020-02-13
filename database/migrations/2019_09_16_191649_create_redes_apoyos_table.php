@@ -40,7 +40,7 @@ class CreateRedesApoyosTable extends Migration{
       $table->foreign('anioPrestServicio_id')->references('id')->on('parametros');
       $table->foreign('servBenePersona_id')->references('id')->on('parametros');
 
-      $table->bigInteger('user_crea_id')->unsigned();
+      $table->bigInteger('user_crea_id')->unsigned(); 
       $table->bigInteger('user_edita_id')->unsigned();
       $table->bigInteger('sis_esta_id')->unsigned();
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

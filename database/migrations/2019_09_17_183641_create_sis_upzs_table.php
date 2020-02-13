@@ -18,7 +18,7 @@ class CreateSisUpzsTable extends Migration
             $table->string('s_upz');
             $table->string('s_codigo', 3);
             $table->bigInteger('sis_localidad_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

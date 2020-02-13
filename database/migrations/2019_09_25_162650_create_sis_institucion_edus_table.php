@@ -18,7 +18,7 @@ class CreateSisInstitucionEdusTable extends Migration
             $table->bigIncrements('id');
             $table->string('s_nombre');
             $table->string('s_telefono');
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->string('s_email');
             $table->bigInteger('sis_municipio_id')->unsigned();
             $table->bigInteger('sis_departamento_id')->unsigned();

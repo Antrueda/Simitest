@@ -20,7 +20,7 @@ class CreateAgConveniosTable extends Migration
             $table->bigInteger('i_prm_entidad_id')->unsigned();
             $table->string('s_descripcion');
             $table->bigInteger('i_nconvenio');
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->dateTime('d_subscrip');
             $table->dateTime('d_terminac');

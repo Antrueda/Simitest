@@ -50,7 +50,7 @@ class CreateVsiEstEmocionalsTable extends Migration{
             $table->integer('mes_alimenticio')->unsigned()->nullable();
             $table->integer('ano_alimenticio')->unsigned()->nullable();
             $table->binary('descripcion_alimenticio')->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -75,7 +75,7 @@ class CreateVsiEstEmocionalsTable extends Migration{
         Schema::create('vsi_estemo_adecuado', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_estemocional_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
@@ -85,7 +85,7 @@ class CreateVsiEstEmocionalsTable extends Migration{
         Schema::create('vsi_estemo_dificulta', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_estemocional_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
@@ -95,7 +95,7 @@ class CreateVsiEstEmocionalsTable extends Migration{
         Schema::create('vsi_estemo_estresante', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_estemocional_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
@@ -105,7 +105,7 @@ class CreateVsiEstEmocionalsTable extends Migration{
         Schema::create('vsi_estemo_motivo', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_estemocional_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
@@ -115,7 +115,7 @@ class CreateVsiEstEmocionalsTable extends Migration{
         Schema::create('vsi_estemo_lesiva', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_estemocional_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');

@@ -24,7 +24,7 @@ class CreateCsdGenIngresosTable extends Migration{
             $table->integer('intensidad')->unsigned()->nullable();
             $table->bigInteger('prm_dificultad_id')->unsigned();
             $table->string('razon', 4000);
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

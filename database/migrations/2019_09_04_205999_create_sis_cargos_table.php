@@ -16,7 +16,7 @@ class CreateSisCargosTable extends Migration
         Schema::create('sis_cargos', function (Blueprint $table) {            
             $table->bigIncrements('id');
             $table->string('s_cargo');
-            $table->integer('user_crea_id');
+            $table->Integer('user_crea_id'); 
             $table->integer('user_edita_id');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

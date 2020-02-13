@@ -17,7 +17,7 @@ class CreateInRespuestasTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('in_doc_pregunta_id')->unsigned();
             $table->bigInteger('i_prm_respuesta_id')->unsigned();
-            $table->integer('user_crea_id');
+            $table->Integer('user_crea_id'); 
             $table->integer('user_edita_id');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

@@ -58,7 +58,7 @@ class CreateAiReporteEvasionTable extends Migration{
             $table->date('fecha_denuncia')->nullable();
             $table->time('hora_denuncia')->nullable();
             $table->bigInteger('prm_hor_denuncia_id')->unsigned()->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

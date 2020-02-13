@@ -126,7 +126,7 @@ class User extends Authenticatable
   }
   public function sis_dependencias()
   {
-    return $this->belongsToMany(SisDependencia::class);
+    return $this->belongsToMany(SisDependencia::class)->withTimestamps();
   }
   public function vinculacion()
   {

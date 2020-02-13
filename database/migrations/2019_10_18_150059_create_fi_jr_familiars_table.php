@@ -23,7 +23,7 @@ class CreateFiJrFamiliarsTable extends Migration
             $table->bigInteger('i_prm_motivo_id')->unsigned();
             $table->bigInteger('i_prm_tiempo_id')->unsigned();
             $table->bigInteger('fi_justicia_restaurativa_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

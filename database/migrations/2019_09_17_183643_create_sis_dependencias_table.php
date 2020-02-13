@@ -29,7 +29,7 @@ class CreateSisDependenciasTable extends Migration
             $table->string('s_correo');
             $table->string('i_tiempo');
             $table->string('s_observacion',3000);
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned();
             $table->timestamps();

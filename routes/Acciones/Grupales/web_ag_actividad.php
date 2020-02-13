@@ -29,5 +29,11 @@ Route::group(['prefix' => 'agactividad'], function () {
 	    'uses' => 'Acciones\Grupales\AgActividadController@destroy',
 	    'middleware' => ['permission:agactividad-borrar']
 	])->name('ag.acti.actividad.borrar');
+
+	Route::get('getEliminar', [
+	    'uses' => 'Acciones\Grupales\AgActividadController@getEliminar',
+	    'middleware' => ['permission:agactividad-leer|agactividad-crear|agactividad-editar|agactividad-borrar']
+	])->name('ag.acti.actividad.getEliminar');
 	
+	require_once('web_ag_responsable.php');
 });

@@ -14,7 +14,7 @@ class CreateParametrosTable extends Migration{
     Schema::create('parametros', function (Blueprint $table){
       $table->bigIncrements('id');
       $table->string('nombre')->unique();
-      $table->integer('user_crea_id');
+      $table->Integer('user_crea_id'); 
       $table->integer('user_edita_id');
       $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

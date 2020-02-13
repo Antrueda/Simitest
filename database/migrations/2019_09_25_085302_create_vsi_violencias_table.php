@@ -41,7 +41,7 @@ class CreateVsiViolenciasTable extends Migration{
             $table->bigInteger('prm_lab_eco_id')->unsigned()->nullable();
             $table->bigInteger('prm_dis_gen_id')->unsigned()->nullable();
             $table->bigInteger('prm_dis_ori_id')->unsigned()->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -81,7 +81,7 @@ class CreateVsiViolenciasTable extends Migration{
         Schema::create('vsi_vio_contexto', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_violencia_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');
@@ -91,7 +91,7 @@ class CreateVsiViolenciasTable extends Migration{
         Schema::create('vsi_vio_tipo', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_violencia_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');

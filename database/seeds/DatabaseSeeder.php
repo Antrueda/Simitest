@@ -54,8 +54,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AgSubtemasSeeder::class);
         $this->call(SisTitulosSeeder::class);
         $this->call(AgRecursosSeeder::class);
-
-
-
+        $this->call(SisObsesSeeder::class);
     }
 }

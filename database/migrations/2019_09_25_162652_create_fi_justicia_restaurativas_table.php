@@ -22,7 +22,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->bigInteger('i_prm_causa_riesgo_part_id')->unsigned();//->comment('FI 10.5.2 CAUSA RIESGO PARTICIPAR ACTOS DELICTIVOS');
 
             $table->bigInteger('sis_nnaj_id')->unsigned();//->comment('NNAJ AL QUE SE LE ASIGNA LA JUSTICIA RESTAURATIVA');
-            $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');

@@ -26,6 +26,7 @@ class Traductor {
         }
     }
     public static function getTitulo($tituloid,$opcionxx) {
+       
         $encontra=SisTitulo::where('id',$tituloid)->first();
         $tituloxx='';
         switch($opcionxx){

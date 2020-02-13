@@ -1780,8 +1780,13 @@ class SisParametrosSeeder extends Seeder
                 Parametro::create(['id' => 1762, 'nombre' => 'MAYUSCULA PRIMER LETRA DE CADA PALABRA']);
 
                 Parametro::create(['id' => 1763, 'nombre' => 'BIBLIOTECA']);
-                Parametro::create(['id' => 1764, 'nombre' => 'CATULINA']);
-                Parametro::create(['id' => 1765, 'nombre' => 'PAPEL BOND']);
-                Parametro::create(['id' => 1766, 'nombre' => 'PLIEGO']);
+                Parametro::create(['id' => 1764, 'nombre' => 'RECURSOS UPI']);
+                Parametro::create(['id' => 1765, 'nombre' => 'INSUMO TALLERES']);
+                Parametro::create(['id' => 1766, 'nombre' => 'TECNOLOGICO']);
+                Parametro::create(['id' => 1767, 'nombre' => 'PEDAGOGICO']);
+                Parametro::create(['id' => 1768, 'nombre' => 'ALIMENTICIOS']);
+                Parametro::create(['id' => 1769, 'nombre' => 'PLIEGO']);
+                Parametro::create(['id' => 1770, 'nombre' => 'ES RESPONSABLE']);
+                Parametro::create(['id' => 1771, 'nombre' => 'NO ES RESPONSABLE']);
         }
 }

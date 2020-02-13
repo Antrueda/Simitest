@@ -32,7 +32,7 @@ class CreateFiGeneracionIngresosTable extends Migration
             $table->bigInteger('i_prm_tipo_relacion_laboral_id')->unsigned();//->comment('FI 7.5 TIPO RELACION LABORAL');
 
             $table->bigInteger('sis_nnaj_id')->unsigned();//->comment('NNAJ AL QUE SE LE ASIGNA LA GENERACIÓN DE INGRESO');
-            $table->bigInteger('user_crea_id')->unsigned();//->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
