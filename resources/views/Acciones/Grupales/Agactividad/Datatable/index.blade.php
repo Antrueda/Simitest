@@ -34,16 +34,6 @@
             </h3>
         </div>
         <div class="card-body">
-            <div class="form-group row">
-                <div class="form-group col-md-4">
-                    {{ Form::label('i_prm_responsable_id', Tr::getTitulo(14,1), ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::select('i_prm_responsable_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
-                </div>
-                <div class="form-group col-md-4">
-                    {{ Form::label('responsablesf', Tr::getTitulo(13,1), ['class' => 'control-label col-form-label-sm']) }}
-                    {{ Form::text('responsablesf', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
-                </div>    
-            </div>
             @canany([$todoxxxx['permisox'].'-leer',$todoxxxx['permisox'].'-crear',$todoxxxx['permisox'].'-editar',$todoxxxx['permisox'].'-borrar'])
                 <div class="table-responsive">
                     <table id="{{ $tableName }}" class="table table-bordered table-striped table-hover table-sm">

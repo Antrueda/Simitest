@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Indicadores\Area;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class SisAreasSeeder extends Seeder
@@ -12,6 +13,9 @@ class SisAreasSeeder extends Seeder
      */
     public function run()
     {
+        $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1];
+
+
         Area::create(['id' => 1, 'nombre' => 'EDUCACION', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //1
         Area::create(['id' => 2, 'nombre' => 'EMPRENDER', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //2
         Area::create(['id' => 3, 'nombre' => 'EMPRENDER AC', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //3
@@ -20,5 +24,18 @@ class SisAreasSeeder extends Seeder
         Area::create(['id' => 6, 'nombre' => 'SICOSOCIAL', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //6
         Area::create(['id' => 7, 'nombre' => 'SOCIOLEGAL', 'contexto' => 'SL', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //7
         Area::create(['id' => 8, 'nombre' => 'TRANSVERSALES', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //8
+    
+        $super =User::where('id',1)->first();
+        $super->areas()->sync([
+            6 => $camposmagicos,
+            7 => $camposmagicos,
+            8 => $camposmagicos,
+          ]);
+          $super =User::where('id',2)->first();
+          $super->areas()->sync([
+            6 => $camposmagicos,
+            7 => $camposmagicos,
+            8 => $camposmagicos,
+          ]);
     }
 }

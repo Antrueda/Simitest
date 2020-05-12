@@ -1,32 +1,35 @@
 <?php
-Route::group(['prefix' => 'indicador'], function () {
-    Route::get('', [
-	    'uses' => 'Indicadores\InIndicadorController@index',
-	    'middleware' => ['permission:indicador-leer|indicador-crear|indicador-editar|indicador-borrar']
-	])->name('in');
-	Route::get('nuevo', [
-	    'uses' => 'Indicadores\InIndicadorController@create',
-	    'middleware' => ['permission:indicador-crear']
-	])->name('in.indicador.nuevo');
-	Route::post('nuevo', [
-	    'uses' => 'Indicadores\InIndicadorController@store',
-	    'middleware' => ['permission:indicador-crear']
-	])->name('in.indicador.crear');
 
+$controll = 'Indicadores\InIndicador';
+$permisox = 'indicador';
+$routexxx = 'in.indicador';
+Route::group(['prefix' => '{padrexxx}/indicador'], function () use ($controll, $routexxx,$permisox) {
+	Route::get('', [
+		'uses' => $controll . 'Controller@index',
+		'middleware' => ['permission:' . $permisox . '-leer|' . $permisox . '-crear|' . $permisox . '-editar|' . $permisox . '-borrar']
+	])->name($routexxx);
+	Route::get('nuevo', [
+		'uses' => $controll . 'Controller@create',
+		'middleware' => ['permission:' . $permisox . '-crear']
+	])->name($routexxx . '.nuevo');
+	Route::post('crear', [
+		'uses' => $controll . 'Controller@store',
+		'middleware' => ['permission:' . $permisox . '-crear']
+	])->name($routexxx . '.crear');
 	Route::get('editar/{objetoxx}', [
-	    'uses' => 'Indicadores\InIndicadorController@edit',
-	    'middleware' => ['permission:indicador-editar']
-	])->name('in.indicador.editar');
+		'uses' => $controll . 'Controller@edit',
+		'middleware' => ['permission:' . $permisox . '-editar']
+	])->name($routexxx . '.editar');
 	Route::put('editar/{objetoxx}', [
-	    'uses' => 'Indicadores\InIndicadorController@update',
-	    'middleware' => ['permission:indicador-editar']
-	])->name('in.indicador.editar');
+		'uses' => $controll . 'Controller@update',
+		'middleware' => ['permission:' . $permisox . '-editar']
+	])->name($routexxx . '.editar');
 	Route::get('ver/{objetoxx}', [
-	    'uses' => 'Indicadores\InIndicadorController@show',
-	    'middleware' => ['permission:indicador-leer']
-	])->name('in.indicador.ver');
-	Route::delete('ver/{objetoxx}', [
-	    'uses' => 'Indicadores\InIndicadorController@destroy',
-	    'middleware' => ['permission:indicador-borrar']
-	])->name('in.indicador.borrar');
+		'uses' => $controll . 'Controller@show',
+		'middleware' => ['permission:' . $permisox . '-leer']
+	])->name($routexxx . '.ver');
+	Route::delete('borrar/{objetoxx}', [
+		'uses' => $controll . 'Controller@destroy',
+		'middleware' => ['permission:' . $permisox . '-borrar']
+	])->name($routexxx . '.borrar');
 });

@@ -13,7 +13,7 @@ class SisActividad extends Model
 
     public function sisDocumentoFuente()
     {
-        return $this->belongsTo(sisDocumentoFuente::class,'sis_documento_fuente_id');
+        return $this->belongsTo(SisDocumentoFuente::class,'sis_documento_fuente_id');
     }
     public function creador()
     {

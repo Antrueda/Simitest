@@ -1,14 +1,29 @@
-
-<div class="form-group row">    
-  <div class="form-group col-md-12">
-    <h1 style="text-align: center">{{ $todoxxxx["modeloxx"]->s_indicador }}</h1> 
-  </div>
-  
-  <div class="form-group col-md-12">
-    {{ Form::label('in_linea_base_id', 'Líneas base del indicador', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('linea_base_select', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"] ,
-    'placeholder' => 'Línea Base del Indicador', 'maxlength' => '120', 'autofocus','id'=>'linea_base_select']) }}
-    {{ Form::select('in_linea_base_id', $todoxxxx["linebase"], null, ['class' => 'form-control form-control-sm',
-    'multiple','style'=>'height:200px', $todoxxxx["readonly"],'id'=>'in_linea_base_id']) }}
+<div class="form-group row"> 
+<div class="form-group col-md-6">
+    {{ Form::label('in_linea_base_id', 'LÍNEA BASE:', ['class' => 'control-label col-form-label-sm']) }}
+        @if($todoxxxx['accionxx'] == 'Ver')
+        {{ Form::select('in_linea_base_id', $todoxxxx['linebase'], $todoxxxx['modeloxx']->in_linea_base_id, ['class' => 'form-control-plaintext','id'=>'in_linea_base_id']) }}
+        @else
+        {{ Form::select('in_linea_base_id', $todoxxxx['linebase'], null, ['class' => $errors->first('in_linea_base_id') ? 'form-control is-invalid select2' : 'form-control select2','id'=>'in_linea_base_id']) }}
+        @endif
+        @if($errors->has('in_linea_base_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('in_linea_base_id') }}
+        </div>
+        @endif
   </div> 
+  <div class="form-group col-md-6">
+  {{ Form::label('sis_documento_fuente_id', 'DOCUMENTO FUENTE:', ['class' => 'control-label col-form-label-sm']) }}
+        @if($todoxxxx['accionxx'] == 'Ver')
+        {{ Form::select('sis_documento_fuente_id', $todoxxxx['document'], $todoxxxx['modeloxx']->sis_documento_fuente_id, ['class' => 'form-control-plaintext','id'=>'sis_documento_fuente_id']) }}
+        @else
+        {{ Form::select('sis_documento_fuente_id', $todoxxxx['document'], null, ['class' => $errors->first('sis_documento_fuente_id') ? 'form-control is-invalid select2' : 'form-control select2','id'=>'sis_documento_fuente_id']) }}
+        @endif
+        @if($errors->has('sis_documento_fuente_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('sis_documento_fuente_id') }}
+        </div>
+        @endif
+  </div> 
+  
 </div>

@@ -23,7 +23,7 @@ class InDocIndicadorController extends Controller
         $this->opciones = [
             'permisox' => 'documentoFuente',
             'parametr' => [],
-            'rutacarp' => 'Indicadores.Admin.Docindicador.',
+            'rutacarp' => 'Indicadores.Admin.DocIndicador.',
             'tituloxx' => 'Preguntas del Documento Fuente',
         ];
 

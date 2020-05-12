@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Indicadores;
 
+use App\Models\Indicadores\InIndicador;
 use Illuminate\Foundation\Http\FormRequest;
 class InIndicadorUpdateRequest extends FormRequest
 {
@@ -22,6 +23,11 @@ class InIndicadorUpdateRequest extends FormRequest
             [
                 'required', //y todos las validaciones a que haya lugar separadas por coma
             ],
+            's_indicador' =>
+            [
+                'required', //y todos las validaciones a que haya lugar separadas por coma
+            ],
+
         ];
     }
     /**
@@ -47,13 +53,11 @@ class InIndicadorUpdateRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        $this->_reglasx['s_indicador']= ['required',
-            'unique:in_indicadors,s_indicador,' . $this->segments()[2]];
         return $this->_reglasx;
     }
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        $this->_reglasx['s_indicador'][1]='unique:in_indicadors,s_indicador,' . $this->segments()[4];
     }
 }

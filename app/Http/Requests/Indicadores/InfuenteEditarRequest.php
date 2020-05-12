@@ -12,15 +12,9 @@ class InfuenteEditarRequest extends FormRequest
     public function __construct()
     {
        $this->_mensaje = [
-            'in_doc_indi_id.required' => 'Seleccione un documento fuente',
             'in_linea_base_id.required' => 'Seleccione una linea base',
         ];
         $this->_reglasx = [
-
-            'in_doc_indi_id' =>
-            [
-                'required', //y todos las validaciones a que haya lugar separadas por coma
-            ],
             'in_linea_base_id' =>
             [
                 'required', //y todos las validaciones a que haya lugar separadas por coma
@@ -56,6 +50,7 @@ class InfuenteEditarRequest extends FormRequest
 
     public function validar()
     {
+        
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
 
     }

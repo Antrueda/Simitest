@@ -83,7 +83,7 @@
             <li class="nav-item">
                 <a href="{{ route('ag.acti') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
-                <p>Talleres Educativos</p>
+                <p>Talleres y Acciones Educativas</p>
                 </a>
             </li>
         @endcan

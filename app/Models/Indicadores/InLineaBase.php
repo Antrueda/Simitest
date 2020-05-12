@@ -44,6 +44,7 @@ class InLineaBase extends Model
     }, 5);
     return $usuariox;
   }
+
   public static function combo($padrexxx, $cabecera, $ajaxxxxx)
   {
     $comboxxx = [];
@@ -63,5 +64,40 @@ class InLineaBase extends Model
   public function categoria()
   {
     return $this->belongsTo(Parametro::class, 'i_prm_categoria_id');
+  }
+
+  public static function getIndicarBases($dataxxxx)
+  {
+    $whereinx = InFuente::select(['in_linea_base_id'])
+      ->where('in_indicador_id', $dataxxxx['padrexxx'])
+      ->get();
+
+    $comboxxx = [];
+    if ($dataxxxx['cabecera']) {
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+      } else {
+        $comboxxx = ['' => 'Seleccione'];
+      }
+    }
+    $activida = InLineaBase::whereNotIn('id', $whereinx)->get();
+    foreach ($activida as $registro) {
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_linea_base];
+      } else {
+        $comboxxx[$registro->id] = $registro->s_linea_base;
+      }
+    }
+    if ($dataxxxx['seleccio'] > 0) {
+      $activida = InLineaBase::where('id', $dataxxxx['seleccio'])->first(); 
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[]=['valuexxx' => $activida->id, 'optionxx' => $activida->s_linea_base];
+
+      } else {
+        $comboxxx[$activida->id] = $activida->s_linea_base;
+      }
+    }
+    
+    return $comboxxx;
   }
 }

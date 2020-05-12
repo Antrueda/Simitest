@@ -26,7 +26,7 @@ class VsiPresAbusoSexualController extends Controller{
         $evento     = Tema::findOrFail(202)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $sexual     = Tema::findOrFail(203)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $estado     = Tema::findOrFail(204)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        return view('Sicosocial.index', ['accion' => 'PresAbusoSexual'], compact('vsi', 'dato', 'nnaj', 'valor', 'sino', 'familiares', 'evento', 'sexual', 'sis_esta_id'));
+        return view('Sicosocial.index', ['accion' => 'PresAbusoSexual'], compact('vsi', 'dato', 'nnaj', 'valor', 'sino', 'familiares', 'evento', 'sexual', 'estado'));
     }
 
     public function store(Request $request){

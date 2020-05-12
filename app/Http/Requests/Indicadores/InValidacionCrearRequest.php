@@ -15,7 +15,7 @@ class InValidacionCrearRequest extends FormRequest
         $this->_mensaje = [
             'in_fuente_id.required' => 'Seleccione una línea base',
             'in_pregunta_id.required' => 'Seleccione una pregunta',
-            'sis_campo_tabla_id.required' => 'Seleccione un campo',
+            'sis_tcampo_id.required' => 'Seleccione un campo',
             'i_prm_respuesta_id.required' => 'Seleccione al menos una respuesta para la pregunta',
         ];
         $this->_reglasx = [
@@ -23,7 +23,7 @@ class InValidacionCrearRequest extends FormRequest
             [
                 'required', //y todos las validaciones a que haya lugar separadas por coma
             ],
-            'sis_campo_tabla_id' =>
+            'sis_tcampo_id' =>
             [
                 'required', //y todos las validaciones a que haya lugar separadas por coma
             ],

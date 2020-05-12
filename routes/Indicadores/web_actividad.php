@@ -36,7 +36,5 @@ Route::group(['prefix' => '{acti}'], function () {
 		'uses' => 'Indicadores\InAccionGestionController@porcentaje',
 
 	])->name('ag.acciongestion.porcentaje');
-
-	
-	require_once('web_fuentes.php');
+	require_once('web_in_act_fuente.php');
 });

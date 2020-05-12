@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\sicosocial;
+namespace App\Http\Controllers\Sicosocial;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ class VsiConsumoController extends Controller{
         $this->middleware(['permission:vsiconsumo-editar'], ['only' => ['show, update']]);
     }
 
-    public function show($id){
+    public function show($id){  
         $vsi = Vsi::findOrFail($id);
         $dato = $vsi->nnaj;
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();

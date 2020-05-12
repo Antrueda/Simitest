@@ -1,0 +1,1 @@
+<a class="btn btn-sm btn-primary" href="{{ route('ag.acciongestion.actividad', [$sis_nnaj_id,$id]) }}">Seleccionar</a>

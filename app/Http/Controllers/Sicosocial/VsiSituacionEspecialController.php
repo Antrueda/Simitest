@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\sicosocial;
+namespace App\Http\Controllers\Sicosocial;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

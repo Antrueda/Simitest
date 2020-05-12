@@ -3,8 +3,7 @@
 namespace App\Models\Indicadores;
 
 use App\Models\Parametro;
-use App\Models\sistema\SisCampoTabla;
-use App\Models\sistema\SisTabla;
+use App\Models\sistema\SisTcampo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,27 +15,21 @@ class InDocPregunta extends Model
         'in_pregunta_id',
         'in_ligru_id',
         'sis_tabla_id',
-        'sis_campo_tabla_id',
+        'sis_tcampo_id',
         'user_edita_id',
         'user_crea_id',
         'sis_esta_id'
     ];
 
-    public function in_pregunta()
-    {
-        return $this->belongsTo(InPregunta::class);
-    }
+    
     public function in_respuestas()
     {
         return $this->belongsToMany(Parametro::class, 'in_respuestas', 'in_doc_pregunta_id', 'i_prm_respuesta_id');
     }
-    public function sis_tabla()
+    
+    public function sis_tcampo()
     {
-        return $this->belongsTo(SisTabla::class);
-    }
-    public function sis_campo_tabla()
-    {
-        return $this->belongsTo(SisCampoTabla::class);
+        return $this->belongsTo(SisTcampo::class);
     }
     public static function transaccion($dataxxxx,  $objetoxx)
     {

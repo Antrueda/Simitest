@@ -12,6 +12,7 @@ class SisObsesSeeder extends Seeder
      */
     public function run()
     {
+        SisObse::create(["s_observ"=>"CREAR REGISTRO","sis_esta_id"=>1,"user_crea_id"=>1,"user_edita_id"=>1]);
         SisObse::create(["s_observ"=>"ACCIONES REALIZADAS EQUIPO PSICOSOCIAL OTRAS UPIS DIFERENTE A LA UPI DE ORIGEN","sis_esta_id"=>1,"user_crea_id"=>1,"user_edita_id"=>1]);
         SisObse::create(["s_observ"=>"CAMBIO DE UPI A LOS PROFESIONALES Y/O SE RESTAURA LA CLAVE","sis_esta_id"=>1,"user_crea_id"=>1,"user_edita_id"=>1]);
         SisObse::create(["s_observ"=>"ADICIÓN CONTRATO Y SE RESTAURA LA CLAVE","sis_esta_id"=>1,"user_crea_id"=>1,"user_edita_id"=>1]);

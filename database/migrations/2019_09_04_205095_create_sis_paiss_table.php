@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -13,8 +14,7 @@ class CreateSisPaissTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_pais', function (Blueprint $table) {
-            
+        Schema::create('sis_pais', function (Blueprint $table) {  
             $table->bigIncrements('id');
             $table->string('s_iso');
             $table->string('s_pais');

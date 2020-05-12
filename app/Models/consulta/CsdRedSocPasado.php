@@ -4,11 +4,10 @@ namespace App\Models\consulta;
 
 use App\Models\Parametro;
 use App\Models\User;
-
 use Illuminate\Database\Eloquent\Model;
 
-class CsdRedsocPasado extends Model{
-
+class CsdRedSocPasado extends Model
+{
     protected $fillable = [
         'csd_id',  'user_crea_id', 'user_edita_id', 'sis_esta_id',
         'nombre',   'servicios',    'cantidad',     'prm_unidad_id', 
@@ -31,5 +30,5 @@ class CsdRedsocPasado extends Model{
 
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
-    }    
+    }   
 }

@@ -1,32 +1,42 @@
 <?php
-Route::group(['prefix' => 'respuesta'], function () {
-    Route::get('', [
-	    'uses' => 'Indicadores\InRespuestaController@index',
-	    'middleware' => ['permission:inrespuesta-leer|inrespuesta-crear|inrespuesta-editar|inrespuesta-borrar']
-	])->name('re');
-	Route::get('nuevo', [
-	    'uses' => 'Indicadores\InRespuestaController@create',
-	    'middleware' => ['permission:inrespuesta-crear']
-	])->name('re.respuesta.nuevo');
-	Route::post('nuevo', [
-	    'uses' => 'Indicadores\InRespuestaController@store',
-	    'middleware' => ['permission:inrespuesta-crear']
-	])->name('re.respuesta.crear');
-	Route::get('editar/{objetoxx}', [
-	    'uses' => 'Indicadores\InRespuestaController@edit',
-	    'middleware' => ['permission:inrespuesta-editar']
-	])->name('re.respuesta.editar');
-	Route::put('editar/{objetoxx}', [
-	    'uses' => 'Indicadores\InRespuestaController@update',
-	    'middleware' => ['permission:inrespuesta-editar']
-	])->name('re.respuesta.editar');
-	Route::get('ver/{objetoxx}', [
-	    'uses' => 'Indicadores\InRespuestaController@show',
-	    'middleware' => ['permission:inrespuesta-leer']
-	])->name('re.respuesta.ver');
-	Route::delete('ver/{objetoxx}', [
-	    'uses' => 'Indicadores\InRespuestaController@destroy',
-	    'middleware' => ['permission:inrespuesta-borrar']
-	])->name('re.respuesta.borrar');
-	
+$controll = 'Indicadores\InRespuesta';
+$permisox = 'inrespuesta';
+$routexxx = 're.respuesta';
+Route::group(['prefix' => '{padrexxx}/preguntas'], function () use ($controll, $routexxx, $permisox) {
+	Route::get('', [
+		'uses' => $controll . 'Controller@getPregresp',
+		'middleware' => ['permission:' . $permisox . '-leer|' . $permisox . '-crear|' . $permisox . '-editar|' . $permisox . '-borrar']
+	])->name($routexxx.'.pregresp');
+	Route::group(['prefix' => '{grupoxxx}/{pregunta}/respuesta'], function () use ($controll, $routexxx, $permisox) {
+		Route::get('', [
+			'uses' => $controll . 'Controller@index',
+			'middleware' => ['permission:' . $permisox . '-leer|' . $permisox . '-crear|' . $permisox . '-editar|' . $permisox . '-borrar']
+		])->name($routexxx);
+		
+		
+		Route::get('nuevo', [
+			'uses' => $controll . 'Controller@create',
+			'middleware' => ['permission:' . $permisox . '-crear']
+		])->name($routexxx . '.nuevo');
+		Route::post('nuevo', [
+			'uses' => $controll . 'Controller@store',
+			'middleware' => ['permission:' . $permisox . '-crear']
+		])->name($routexxx . '.crear');
+		Route::get('editar/{objetoxx}', [
+			'uses' => $controll . 'Controller@edit',
+			'middleware' => ['permission:' . $permisox . '-editar']
+		])->name($routexxx . '.editar');
+		Route::put('editar/{objetoxx}', [
+			'uses' => $controll . 'Controller@update',
+			'middleware' => ['permission:' . $permisox . '-editar']
+		])->name($routexxx . '.editar');
+		Route::get('ver/{objetoxx}', [
+			'uses' => $controll . 'Controller@show',
+			'middleware' => ['permission:' . $permisox . '-leer']
+		])->name($routexxx . '.ver');
+		Route::delete('ver/{objetoxx}', [
+			'uses' => $controll . 'Controller@destroy',
+			'middleware' => ['permission:' . $permisox . '-borrar']
+		])->name($routexxx . '.borrar');
+	});
 });

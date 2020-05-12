@@ -174,6 +174,7 @@ class UsuarioController extends Controller
     }
     public function create()
     {
+		
         return $this->view('', '', 'Crear');
     }
     private function transaccion($dataxxxx, $editcrea, $objetoxx)

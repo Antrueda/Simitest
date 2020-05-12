@@ -47,7 +47,7 @@ class IndicadorHelper
             'nivelxxx' => ($indicador->scatagor > 0 && $indicador->scatagor < 4) ? 'BAJO' : ($indicador->scatagor > 3 && $indicador->scatagor < 7) ? 'MEDIO' : 'ALTO',
             'categori' => $indicador->scatagor,
 
-           
+
 
 
             'avancex1' => '',
@@ -102,7 +102,8 @@ class IndicadorHelper
          * encontrar todas las linea fuente asociadas la tabla
          */
 
-        $docupreg = InDocPregunta::where('sis_tabla_id', $dataxxxx['sis_tabla_id'])
+        $docupreg = InDocPregunta::join('sis_tcampos', 'in_doc_preguntas.sis_tcampo_id', '=', 'sis_tcampos.id')
+            ->where('sis_tcampos.sis_tabla_id', $dataxxxx['sis_tabla_id'])
             ->get();
         $baseline = [];
         foreach ($docupreg as $linebase) {
@@ -114,8 +115,9 @@ class IndicadorHelper
         $errorxxx = '';
         if ($dataxxxx['sis_tabla_id'] == 9)
             $errorxxx = '';
-        $inbasefu = InDocPregunta::join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
-            ->join('sis_campo_tablas', 'in_doc_preguntas.sis_campo_tabla_id', '=', 'sis_campo_tablas.id')
+        $inbasefu = InDocPregunta::
+        //join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
+            join('sis_tcampos', 'in_doc_preguntas.sis_tcampo_id', '=', 'sis_tcampos.id')
             ->join('in_ligrus', 'in_doc_preguntas.in_ligru_id', '=', 'in_ligrus.id')
             ->join('in_base_fuentes', 'in_ligrus.in_base_fuente_id' . $errorxxx, '=', 'in_base_fuentes.id')
             ->whereIn('in_base_fuentes.in_fuente_id', $baseline)->get();
@@ -227,25 +229,24 @@ class IndicadorHelper
      *       ]
      */
     public function getValidacion($dataxxxx)
-    { 
-        $posicion = ($dataxxxx['indicado']['linetota'] == 0) ? 0 : 
-        ($dataxxxx['indicado']['linetota'] - $dataxxxx['indicado'][$dataxxxx['posicion']]);
+    {
+        $posicion = ($dataxxxx['indicado']['linetota'] == 0) ? 0 : ($dataxxxx['indicado']['linetota'] - $dataxxxx['indicado'][$dataxxxx['posicion']]);
         /**
          * valida si el contrador ya esta incializado
          */
-        
+
         if ($dataxxxx['indicado'][$dataxxxx['antiguox']] != $dataxxxx['nuevoxxx']) {
-            $dataxxxx['indicado'][$dataxxxx['antiguox']] = $dataxxxx['nuevoxxx']; 
+            $dataxxxx['indicado'][$dataxxxx['antiguox']] = $dataxxxx['nuevoxxx'];
             if ($dataxxxx['cantidad'] == 'cantbase' && $dataxxxx['indicado']['idlinbas'] > 0) {
                 $valoavan = InValoracion::getAvance(['idlinbas' => $dataxxxx['indicado']['idlinbas']]);
-                $posiciox=$dataxxxx['indicado'][$dataxxxx['posicion']];
+                $posiciox = $dataxxxx['indicado'][$dataxxxx['posicion']];
                 $dataxxxx['indicado']['indicado'][$posiciox]['iavacate'] = $valoavan->iavacate;
                 $dataxxxx['indicado']['indicado'][$posiciox]['iavanive'] = ($valoavan->iavacate > 0 &&  $valoavan->iavacate < 4) ? 'BAJO' : ($valoavan->iavacate > 3 &&  $valoavan->iavacate < 7) ? 'MEDIO' : 'ALTO';
-                $dataxxxx['indicado']['indicado'][$posiciox]['iavancex'] = $valoavan->iavancex; 
+                $dataxxxx['indicado']['indicado'][$posiciox]['iavancex'] = $valoavan->iavancex;
                 $dataxxxx['indicado']['indicado'][$posiciox]['iaccionx'] = $dataxxxx['indihelp']->getAcciones($valoavan);
-                $dataxxxx=InValoracion::getValoracion($dataxxxx,$posiciox);
+                $dataxxxx = InValoracion::getValoracion($dataxxxx, $posiciox);
             }
-            
+
             $dataxxxx['indicado']['indicado'][$posicion][$dataxxxx['cantidad']] = $dataxxxx['indicado'][$dataxxxx['posicion']];
             $dataxxxx['indicado'][$dataxxxx['posicion']] = 1;
         } else {
@@ -300,7 +301,7 @@ class IndicadorHelper
                 'antiguox' => 'idlinbas', 'nuevoxxx' => $indicador->idlinbas, 'keyxxxxx' => $key, 'totalxxx' => $totalxxx,
                 'indicado' => $indicado, 'posicion' => 'linebase', 'cantidad' => 'cantbase', 'indihelp' => $indihelp
             ]);
-             
+
 
             /**
              * conocer las actividades

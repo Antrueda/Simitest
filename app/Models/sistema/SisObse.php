@@ -29,9 +29,9 @@ class SisObse extends Model
         $entidadx=SisObse::get();
         foreach ($entidadx as $entisalu) {
             if($dataxxxx['esajaxxx']){
-                $comboxxx[] = ['valuexxx'=>$entisalu->id, 'optionxx'=>$entisalu->s_estado];
+                $comboxxx[] = ['valuexxx'=>$entisalu->id, 'optionxx'=>$entisalu->s_observ];
             }else{
-                $comboxxx[$entisalu->id] = $entisalu->s_estado;
+                $comboxxx[$entisalu->id] = $entisalu->s_observ;
             }
         }
         return $comboxxx;

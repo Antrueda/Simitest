@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Indicadores;
 
+use App\Models\Indicadores\InFuente;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InfuenteCrearRequest extends FormRequest
@@ -13,15 +14,9 @@ class InfuenteCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'in_doc_indi_id.required' => 'Seleccione un documento fuente',
             'in_linea_base_id.required' => 'Seleccione una linea base',
         ];
         $this->_reglasx = [
-
-            'in_doc_indi_id' =>
-            [
-                'required', //y todos las validaciones a que haya lugar separadas por coma
-            ],
             'in_linea_base_id' =>
             [
                 'required', //y todos las validaciones a que haya lugar separadas por coma
@@ -56,7 +51,10 @@ class InfuenteCrearRequest extends FormRequest
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        
+        $registro = InFuente::where('in_indicador_id', $this->segments()[1])->where('in_linea_base_id', $this->in_linea_base_id)->first();
+        if (isset($registro->id)) {
+            $this->_reglasx['existexx'][] = 'required';
+            $this->_mensaje['existexx.required'] = 'Línea base ya está asignada';
+        }
     }
 }

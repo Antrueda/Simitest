@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
-$(document).ready(function() {
+  $(document).ready(function() {
 	
 
 	f_asiganar_registro=function(dataxxxx,datatabl){
@@ -19,7 +19,9 @@ $(document).ready(function() {
         "ajax": {
             url:"{{ url($todoxxxx['urlxxxag'])  }}",
             data:{
-                ag_actividad_id:{{ $todoxxxx['modeloxx']->id }}
+                ag_actividad_id:{{ $todoxxxx['modeloxx']->id }},
+                botonesx:'Acciones.Grupales.Agactividad.botones.elimresp',
+                estadoxx:'layouts.components.botones.estadoxx'
             }
         },
     	"columns":[

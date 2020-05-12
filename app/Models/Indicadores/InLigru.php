@@ -4,8 +4,9 @@ namespace App\Models\Indicadores;
 
 use App\Models\sistema\SisEsta;
 use App\Models\User;
-use Illuminate\Cache\RetrievesMultipleKeys;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class InLigru extends Model
 {
@@ -37,5 +38,20 @@ class InLigru extends Model
   }
   public function in_base_fuente(){
     return $this->belongsTo(InBaseFuente::class);
+  }
+
+  public static function transaccion($dataxxxx,  $objetoxx)
+  {
+    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+      $dataxxxx['user_edita_id'] = Auth::user()->id;
+      if ($objetoxx != '') {
+        $objetoxx->update($dataxxxx);
+      } else {
+        $dataxxxx['user_crea_id'] = Auth::user()->id;
+        $objetoxx = InLigru::create($dataxxxx);
+      }
+      return $objetoxx;
+    }, 5);
+    return $usuariox;
   }
 }

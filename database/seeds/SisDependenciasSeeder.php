@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Models\sistema\SisDependencia;
+use App\Models\User;
 
 class SisDependenciasSeeder extends Seeder
 {
@@ -423,5 +424,13 @@ class SisDependenciasSeeder extends Seeder
             'i_tiempo' => 30,
             'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
+            $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1];
+            $super =User::where('id',1)->first();
+
+            $super->sis_dependencias()->sync([
+                2 => $camposmagicos,
+                15 => $camposmagicos,
+                23 => $camposmagicos,
+              ]);
     }
 }

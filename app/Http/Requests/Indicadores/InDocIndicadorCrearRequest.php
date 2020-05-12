@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\Indicadores;
 
-use App\Models\Indicadores\InDocIndi;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class InDocIndicadorCrearRequest extends FormRequest
 {
@@ -13,7 +11,6 @@ class InDocIndicadorCrearRequest extends FormRequest
 
     public function __construct()
     {
-
         $this->_mensaje = [
             'in_pregunta_id.required' => 'Asigne una pregunta al documento seleccionado',
             'sis_documento_fuente_id.required' => 'Seleccione un documento fuente',

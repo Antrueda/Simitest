@@ -1,0 +1,2 @@
+<a class="btn btn-sm btn-primary" href="{{ route('lbf.basefuente.editar', [$area_id,$in_indicador_id,$id]) }}">EDITAR</a>
+<a class="btn btn-sm btn-primary" href="{{ route('lbf.basefuente.ver', [$area_id,$in_indicador_id,$id]) }}">VER</a>

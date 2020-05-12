@@ -5,14 +5,9 @@ namespace App\Http\Controllers\Administracion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SisEpsCrearRequest;
 use App\Http\Requests\SisEpsEditarRequest;
-use App\Models\sistema\SisBarrio;
-use App\Models\sistema\SisDepartamento;
 use App\Models\sistema\SisEntidadSalud;
-use App\Models\sistema\SisLocalidad;
-use App\Models\sistema\SisMunicipio;
-use App\Models\sistema\SisUpz;
 use App\Models\Tema;
-use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 
 class EpsController extends Controller

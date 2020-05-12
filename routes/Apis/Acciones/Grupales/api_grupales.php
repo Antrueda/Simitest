@@ -117,21 +117,22 @@ Route::get('ag/responsables', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     return datatables()
         ->eloquent(AgResponsable::select([
-            'parametros.nombre as i_prm_responsable_id',
+            'parametros.nombre as i_prm_responsable_id','ag_responsables.sis_esta_id',
             'users.s_primer_nombre as nombre1',
             'users.s_segundo_nombre as nombre2',
             'users.s_primer_apellido as apellido1',
             'users.s_segundo_apellido as apellido2',
-            'users.s_documento as documento1',
-            'ag_actividads.id',
+            'users.s_documento as documento1','sis_estas.s_estado',
+            'ag_actividads.id','ag_responsables.ag_actividad_id'
         ])
             ->join('ag_actividads', 'ag_responsables.ag_actividad_id', '=', 'ag_actividads.id')
             ->join('parametros', 'ag_responsables.i_prm_responsable_id', '=', 'parametros.id')
             ->join('users', 'ag_responsables.user_id', '=', 'users.id')
-            ->where('ag_responsables.sis_esta_id', 1)
+            ->join('sis_estas', 'ag_responsables.sis_esta_id', '=', 'sis_estas.id')
             ->where('ag_responsables.ag_actividad_id', $request->all()['ag_actividad_id']))
-        ->addColumn('btns', 'Acciones/Grupales/Agactividad/botones/elimresp')
-        ->rawColumns(['btns'])
+        ->addColumn('btns', $request->botonesx)
+        ->addColumn('s_estado', $request->estadoxx)
+        ->rawColumns(['btns','s_estado'])
         ->toJson();
 });
 

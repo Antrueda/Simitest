@@ -8,7 +8,6 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\sistema\SisFsoporte;
-use Illuminate\Http\Request;
 
 class InActFuenteController extends Controller
 {

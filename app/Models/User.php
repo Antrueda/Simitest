@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Indicadores\Area;
 use App\Models\sistema\SisCargo;
 use App\Models\sistema\SisDependencia;
@@ -161,29 +162,37 @@ class User extends Authenticatable
     return $this->s_documento . ' - ' . $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido . ' - ' . $this->sis_cargo->s_cargo;
   }
 
-
-  public static function combo($cabecera, $ajaxxxxx)
+  private static function userCombo($dataxxxx)
   {
     $comboxxx = [];
-    if ($cabecera) {
-      if ($ajaxxxxx) {
+    if ($dataxxxx['cabecera']) {
+      if ($dataxxxx['ajaxxxxx']) {
         $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
       } else {
         $comboxxx = ['' => 'Seleccione'];
       }
     }
-    $userxxxx = User::where('sis_esta_id', 1)
+    $userxxxx = User::where(function ($queryxxx) use ($dataxxxx) {
+      if ($dataxxxx['notinxxx'] != false) {
+        $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
+      }
+      $queryxxx->where('sis_esta_id', 1);
+    })
       ->orderBy('s_primer_nombre')
-      ->orderBy('s_segundo_nombre')
-      ->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get();
+      ->orderBy('s_primer_apellido')
+      ->get();
     foreach ($userxxxx as $registro) {
-      if ($ajaxxxxx) {
+      if ($dataxxxx['ajaxxxxx']) {
         $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->getDocNombreCompletoAttribute()];
       } else {
         $comboxxx[$registro->id] = $registro->getDocNombreCompletoAttribute();
       }
     }
     return $comboxxx;
+  }
+  public static function combo($cabecera, $ajaxxxxx)
+  {
+    return User::userCombo(['cabecera' => $cabecera, 'ajaxxxxx' => $ajaxxxxx, 'notinxxx' => false]);
   }
   public static function comboDependencia($padrexxx, $cabecera, $ajaxxxxx)
   {
@@ -265,9 +274,9 @@ class User extends Authenticatable
         $comboxxx = ['' => 'Seleccione'];
       }
     }
-    $dependen=User::select(['sis_dependencias.id','sis_dependencias.nombre'])
-    ->join('sis_dependencia_user','users.id','=','sis_dependencia_user.user_id')
-    ->join('sis_dependencias','sis_dependencia_user.sis_dependencia_id','=','sis_dependencias.id')->get();
+    $dependen = User::select(['sis_dependencias.id', 'sis_dependencias.nombre'])
+      ->join('sis_dependencia_user', 'users.id', '=', 'sis_dependencia_user.user_id')
+      ->join('sis_dependencias', 'sis_dependencia_user.sis_dependencia_id', '=', 'sis_dependencias.id')->get();
     foreach ($dependen as $areasxxx) {
       if ($dataxxxx['esajaxxx']) {
         $comboxxx[] = ['valuexxx' => $areasxxx->id, 'optionxx' => $areasxxx->nombre];
@@ -297,5 +306,52 @@ class User extends Authenticatable
       }
     }
     return $comboxxx;
+  }
+
+  public static function comboResponsables($dataxxxx)
+  {
+    /**
+     * no incluir los responsables que ya están asignados
+     */
+    $notinxxx = [];
+    $responsa = AgResponsable::where('ag_actividad_id', $dataxxxx['activida'])->get();
+    foreach ($responsa as $userxxxx) {
+      if (isset($dataxxxx['objetoxx']->id)) {
+        if ($userxxxx->user_id != $dataxxxx['objetoxx']->user_id) {
+          $notinxxx[] = $userxxxx->user_id;
+        }
+      } else {
+        $notinxxx[] = $userxxxx->user_id;
+      }
+    }
+
+    $dataxxxx['notinxxx'] = $notinxxx;
+    $comboxxx = User::userCombo($dataxxxx);
+    /** 
+     * cuando es editar
+     */
+
+    if (isset($dataxxxx['objetoxx']->id)) {
+      $registro = User::where('id', $dataxxxx['objetoxx']->user_id)
+        ->where('sis_esta_id', 2)
+        ->first();
+      if (isset($registro->id)) {
+        if ($dataxxxx['ajaxxxxx']) {
+          $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->getDocNombreCompletoAttribute()];
+        } else {
+          $comboxxx[$registro->id] = $registro->getDocNombreCompletoAttribute();
+        }
+      }
+    }
+    return $comboxxx;
+  }
+
+  public static function getPuede($dataxxxx)
+  {
+    $puedexxx = false;
+    if (User::where('id',Auth::user()->id)->first()->can($dataxxxx['permisox'])) {
+      $puedexxx = true;
+    }
+    return $puedexxx;
   }
 }

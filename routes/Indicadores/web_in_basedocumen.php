@@ -1,39 +1,43 @@
 <?php
-Route::group(['prefix' => 'inbasedocumen'], function () {
+$controll = 'Indicadores\InBaseFuente';
+$permisox = 'inbasedocumen';
+$routexxx = 'bd.basedocumen';
+Route::group(['prefix' => '{padrexxx}/documentos'], function () use ($controll, $routexxx,$permisox) {
 	Route::get('', [
-		'uses' => 'Indicadores\InBaseDocumenController@index',
-		'middleware' => ['permission:inbasedocumen-leer|inbasedocumen-crear|inbasedocumen-editar|inbasedocumen-borrar']
-	])->name('bd');
+		'uses' => $controll . 'Controller@index',
+		'middleware' => ['permission:' . $permisox . '-leer|' . $permisox . '-crear|' . $permisox . '-editar|' . $permisox . '-borrar']
+	])->name($routexxx);
 	Route::get('nuevo', [
-		'uses' => 'Indicadores\InBaseDocumenController@create',
-		'middleware' => ['permission:inbasedocumen-crear']
-	])->name('bd.basedocumen.nuevo');
-	Route::post('nuevo', [
-		'uses' => 'Indicadores\InBaseDocumenController@store',
-		'middleware' => ['permission:inbasedocumen-crear']
-	])->name('bd.basedocumen.crear');
-
+		'uses' => $controll . 'Controller@create',
+		'middleware' => ['permission:' . $permisox . '-crear']
+	])->name($routexxx . '.nuevo');
+	Route::post('crear', [
+		'uses' => $controll . 'Controller@store',
+		'middleware' => ['permission:' . $permisox . '-crear']
+	])->name($routexxx . '.crear');
 	Route::get('editar/{objetoxx}', [
-		'uses' => 'Indicadores\InBaseDocumenController@edit',
-		'middleware' => ['permission:inbasedocumen-editar']
-	])->name('bd.basedocumen.editar');
+		'uses' => $controll . 'Controller@edit',
+		'middleware' => ['permission:' . $permisox . '-editar']
+	])->name($routexxx . '.editar');
 	Route::put('editar/{objetoxx}', [
-		'uses' => 'Indicadores\InBaseDocumenController@update',
-		'middleware' => ['permission:inbasedocumen-editar']
-	])->name('bd.basedocumen.editar');
+		'uses' => $controll . 'Controller@update',
+		'middleware' => ['permission:' . $permisox . '-editar']
+	])->name($routexxx . '.editar');
 	Route::get('ver/{objetoxx}', [
-		'uses' => 'Indicadores\InBaseDocumenController@show',
-		'middleware' => ['permission:inbasedocumen-leer']
-	])->name('bd.basedocumen.ver');
-	Route::delete('ver/{objetoxx}', [
-		'uses' => 'Indicadores\InBaseDocumenController@destroy',
-		'middleware' => ['permission:inbasedocumen-borrar']
-	])->name('bd.basedocumen.borrar');
+		'uses' => $controll . 'Controller@show',
+		'middleware' => ['permission:' . $permisox . '-leer']
+	])->name($routexxx . '.ver');
+	Route::delete('borrar/{objetoxx}', [
+		'uses' => $controll . 'Controller@destroy',
+		'middleware' => ['permission:' . $permisox . '-borrar']
+	])->name($routexxx . '.borrar');
+
 
 	Route::post('documentos', [
-		'uses' => 'Indicadores\InBaseDocumenController@documentos',
-	])->name('bd.basedocumen.documentos');
+		'uses' => $controll . 'Controller@documentos',
+	])->name($routexxx . '.documentos');
 	Route::post('asignarlineabase', [
-		'uses' => 'Indicadores\InBaseDocumenController@asignardocumento',
-	])->name('bd.basedocumen.asignarlineabase');
+		'uses' => $controll . 'Controller@asignardocumento',
+	])->name($routexxx . '.asignarlineabase');
+
 });

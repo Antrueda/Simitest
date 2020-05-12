@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\Indicadores;
 
 use App\Http\Controllers\Controller;
-
 use App\Http\Requests\Indicadores\AreaCrearRequest;
 use App\Http\Requests\Indicadores\AreaEditarRequest;
 use App\Models\Indicadores\Area;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use App\Models\sistema\SisEsta;
 
 class AreaController extends Controller
 {
@@ -18,10 +15,25 @@ class AreaController extends Controller
     public function __construct()
     {
         $this->opciones = [
+            'cardhead' => '', // titulo para las pestañas hijas
+            'cardheap' => '', // titulo para las pestañas padres
             'permisox' => 'area',
             'parametr' => [],
-            'rutacarp' => 'Indicadores.Admin.Areasxxx.',
-            'tituloxx' => 'Áreas',
+            'rutacarp' => 'Indicadores.Admin.',
+            'tituloxx' => 'Area',
+            'slotxxxy' => 'diagnost',
+            'slotxxxx' => 'area',
+            'carpetax' => 'Areasxxx',
+            'indecrea' => false,
+            'esindexx' => false,
+            'pestania' => [
+                'indicado'=>['disabled',false],
+                'linebase'=>['disabled',false],
+                'docufuen'=>['disabled',false],
+                'grupoxxx'=>['disabled',false],
+                'pregunta'=>['disabled',false],
+                'respuest'=>['disabled',false]
+            ]
         ];
 
         $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
@@ -35,8 +47,10 @@ class AreaController extends Controller
         $this->opciones['routxxxx'] = 'area';
 
         $this->opciones['botoform'] = [
-            ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []], 
-            'formhref' => 2, 'tituloxx' => 'Volver a Áreas', 'clasexxx' => 'btn btn-sm btn-primary'],
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A AREAS', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
         ];
     }
 
@@ -48,33 +62,48 @@ class AreaController extends Controller
      */
     public function index()
     {
-        $this->opciones['titunuev'] = 'Nueva Área';
-        $this->opciones['titulist'] = 'Lista de Áreas';
-        $this->opciones['dataxxxx'] = [
-            ['campoxxx' => 'botonesx', 'dataxxxx' => 'Indicadores.Admin.Areasxxx.botones.botonesapi'],
-            ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadoxx'],
-        ];
+        $padrexxx = '';
+        $this->opciones['indecrea'] = true;
+        $this->opciones['esindexx'] = true;
+        $this->opciones['accionxx'] = 'index';
+        $this->opciones['padrexxx'] = $padrexxx;
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'AREA',
+                'titulist' => 'LISTA DE CLINICA',
+                'dataxxxx' => [
+                    ['campoxxx' => 'botonesx', 'dataxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],
+                    ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadoxx'],
+                    ['campoxxx' => 'medicame', 'dataxxxx' => $padrexxx],
+                ],
+                'vercrear' => true,
+                'accitabl' => true,
+                'urlxxxxx' => 'api/indicadores/sisareas',
+                'cabecera' => [
+                    ['td' => 'ID'],
+                    ['td' => 'ÁREA'],
+                    ['td' => 'ESTADO'],
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'areas.id'],
+                    ['data' => 'nombre', 'name' => 'areas.nombre'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'tablaareas',
+                'permisox' => 'area',
+                'routxxxx' => 'area',
+                'parametr' => [$padrexxx],
+            ],
 
-        $this->opciones['urlxxxxx'] = 'api/indicadores/sisareas';
-        $this->opciones['cabecera'] = [
-            ['td' => 'ID'],
-            ['td' => 'ÁREA'],
-            ['td' => 'ESTADO'],
         ];
-        $this->opciones['columnsx'] = [
-            ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'id', 'name' => 'areas.id'],
-            ['data' => 'nombre', 'name' => 'areas.nombre'],
-            ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-        ];
-        return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
-        $this->opciones['nivelxxx'] = '';
-        $this->opciones['tiposegu'] = [];
         if ($nombobje != '') {
             $this->opciones[$nombobje] = $objetoxx;
         }
@@ -90,12 +119,14 @@ class AreaController extends Controller
      */
     public function create()
     {
+        $this->opciones['indecrea'] = true;
+        $this->opciones['clinicac'] = true;
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'crear');
+        return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'pestanias');
     }
 
     /**
@@ -118,14 +149,15 @@ class AreaController extends Controller
      */
     public function show(Area $objetoxx)
     {
-
+        $this->opciones['cardheap'] = 'AREA: ' . $objetoxx->nombre;
+        $this->opciones['parametr'] = [$objetoxx->id];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => $objetoxx->sis_esta_id == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1,
                 'tituloxx' => '', 'clasexxx' => $objetoxx->sis_esta_id == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'
             ];
         $this->opciones['readonly'] = 'readonly';
-        return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'ver');
+        return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'pestanias');
     }
 
     /**
@@ -136,31 +168,28 @@ class AreaController extends Controller
      */
     public function edit(Area $objetoxx)
     {
+        $this->opciones['cardheap'] = 'AREA: ' . $objetoxx->nombre;
+        $this->opciones['parametr'] = [$objetoxx->id];
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'Editar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'editar');
+
+            $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [ 'in.indicador', [$objetoxx->id]],
+                'formhref' => 2, 'tituloxx' => 'CREAR INDICADOR', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+
+        return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'pestanias');
     }
-    private function transaccion($dataxxxx,  $objetoxx)
-    {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
-            } else {
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = Area::create($dataxxxx);
-            }
-            return $objetoxx;
-        }, 5);
-        return $usuariox;
-    }
+
     private function grabar($dataxxxx, $objectx, $infoxxxx)
     {
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$this->transaccion($dataxxxx, $objectx)->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [Area::transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);
     }
 
@@ -171,10 +200,10 @@ class AreaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AreaEditarRequest $request, Area $objetoxx)
+    public function update(AreaEditarRequest  $request, Area $objetoxx)
     {
         $dataxxxx = $request->all();
-        return $this->grabar($dataxxxx, $objetoxx, 'área actualizada con éxito');
+        return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
     }
 
     /**
@@ -185,6 +214,7 @@ class AreaController extends Controller
      */
     public function destroy(Area $objetoxx)
     {
+        $this->opciones['parametr'] = [$objetoxx->id];
 
         $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();

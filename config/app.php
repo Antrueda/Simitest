@@ -191,11 +191,10 @@ return [
          * barra para debug
          */
         Barryvdh\Debugbar\ServiceProvider::class,
-        
         /**
-         * conexion a oracle
+         * subir y descargar excel
          */
-        Yajra\Oci8\Oci8ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -250,6 +249,8 @@ return [
         'Indicadores'=>App\Helpers\Indicadores\IndicadorHelper::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Tr'=>App\Helpers\Traductor\Traductor::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        
     ],
 
 ];

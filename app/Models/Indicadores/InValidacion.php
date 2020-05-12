@@ -3,7 +3,6 @@
 namespace App\Models\Indicadores;
 
 use App\Models\Parametro;
-use App\Models\sistema\SisActividad;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +15,7 @@ class InValidacion extends Model
     'in_fuente_id',
     'sis_documento_fuente_id',
     'sis_tabla_id',
-    'sis_campo_tabla_id',
+    'sis_tcampo_id',
     'user_crea_id',
     'user_edita_id',
     'sis_esta_id'

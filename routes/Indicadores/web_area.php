@@ -1,31 +1,39 @@
 <?php
-Route::group(['prefix' => 'area'], function () {
-    Route::get('', [
-	    'uses' => 'Indicadores\AreaController@index',
-	    'middleware' => ['permission:area-leer|area-crear|area-editar|area-borrar']
-	])->name('area');
+$controll = 'Indicadores\Area';
+$routexxx = 'area';
+Route::group(['prefix' => 'area'], function () use ($controll, $routexxx) {
+	Route::get('', [
+		'uses' => $controll . 'Controller@index',
+		'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+	])->name($routexxx);
 	Route::get('nuevo', [
-	    'uses' => 'Indicadores\AreaController@create',
-	    'middleware' => ['permission:area-crear']
-	])->name('area.nuevo');
-	Route::post('nuevo', [
-	    'uses' => 'Indicadores\AreaController@store',
-	    'middleware' => ['permission:area-crear']
-	])->name('area.crear');
+		'uses' => $controll . 'Controller@create',
+		'middleware' => ['permission:' . $routexxx . '-crear']
+	])->name($routexxx . '.nuevo');
+	Route::post('crear', [
+		'uses' => $controll . 'Controller@store',
+		'middleware' => ['permission:' . $routexxx . '-crear']
+	])->name($routexxx . '.crear');
 	Route::get('editar/{objetoxx}', [
-	    'uses' => 'Indicadores\AreaController@edit',
-	    'middleware' => ['permission:area-editar']
-	])->name('area.editar');
+		'uses' => $controll . 'Controller@edit',
+		'middleware' => ['permission:' . $routexxx . '-editar']
+	])->name($routexxx . '.editar');
 	Route::put('editar/{objetoxx}', [
-	    'uses' => 'Indicadores\AreaController@update',
-	    'middleware' => ['permission:area-editar']
-	])->name('area.editar');
+		'uses' => $controll . 'Controller@update',
+		'middleware' => ['permission:' . $routexxx . '-editar']
+	])->name($routexxx . '.editar');
 	Route::get('ver/{objetoxx}', [
-		'uses' => 'Indicadores\AreaController@show',
-		'middleware' => ['permission:inacciongestion-leer']
-	])->name('area.ver');
-	Route::delete('ver/{objetoxx}', [
-	    'uses' => 'Indicadores\AreaController@destroy',
-	    'middleware' => ['permission:area-borrar']
-	])->name('area.borrar');
+		'uses' => $controll . 'Controller@show',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.ver');
+	Route::delete('borrar/{objetoxx}', [
+		'uses' => $controll . 'Controller@destroy',
+		'middleware' => ['permission:' . $routexxx . '-borrar']
+	])->name($routexxx . '.borrar');
+	require_once('web_indicador.php');
+	require_once('web_in_fuente.php');
+	require_once('web_in_basedocumen.php');
+	require_once('web_in_ligru.php');
+	require_once('web_in_preguntas.php');
+	require_once('web_respuesta.php');
 });

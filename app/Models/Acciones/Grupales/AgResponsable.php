@@ -13,6 +13,7 @@ class AgResponsable extends Model
     'i_prm_responsable_id',
     'user_id',
     'ag_actividad_id',
+    'sis_obse_id',
     'user_crea_id',
     'user_edita_id',
     'sis_esta_id'

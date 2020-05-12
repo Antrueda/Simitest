@@ -1,32 +1,34 @@
 <?php
-Route::group(['prefix' => 'inbasefuente'], function () {
-    Route::get('', [
-	    'uses' => 'Indicadores\InBaseFuenteController@index',
-	    'middleware' => ['permission:inbasefuente-leer|inbasefuente-crear|inbasefuente-editar|inbasefuente-borrar']
-	])->name('lbf');
+$controll = 'Indicadores\InFuente';
+$permisox = 'inbasefuente';
+$routexxx = 'lbf.basefuente';
+Route::group(['prefix' => '{padrexxx}/basefuente'], function () use ($controll, $routexxx,$permisox) {
+	Route::get('', [
+		'uses' => $controll . 'Controller@index',
+		'middleware' => ['permission:' . $permisox . '-leer|' . $permisox . '-crear|' . $permisox . '-editar|' . $permisox . '-borrar']
+	])->name($routexxx);
 	Route::get('nuevo', [
-	    'uses' => 'Indicadores\InBaseFuenteController@create',
-	    'middleware' => ['permission:inbasefuente-crear']
-	])->name('lbf.basefuente.nuevo');
-	Route::post('nuevo', [
-	    'uses' => 'Indicadores\InBaseFuenteController@store',
-	    'middleware' => ['permission:inbasefuente-crear'] 
-	])->name('lbf.basefuente.crear');
-
+		'uses' => $controll . 'Controller@create',
+		'middleware' => ['permission:' . $permisox . '-crear']
+	])->name($routexxx . '.nuevo');
+	Route::post('crear', [
+		'uses' => $controll . 'Controller@store',
+		'middleware' => ['permission:' . $permisox . '-crear']
+	])->name($routexxx . '.crear');
 	Route::get('editar/{objetoxx}', [
-	    'uses' => 'Indicadores\InBaseFuenteController@edit',
-	    'middleware' => ['permission:inbasefuente-editar']
-	])->name('lbf.basefuente.editar');
+		'uses' => $controll . 'Controller@edit',
+		'middleware' => ['permission:' . $permisox . '-editar']
+	])->name($routexxx . '.editar');
 	Route::put('editar/{objetoxx}', [
-	    'uses' => 'Indicadores\InBaseFuenteController@update',
-	    'middleware' => ['permission:inbasefuente-editar']
-	])->name('lbf.basefuente.editar');
+		'uses' => $controll . 'Controller@update',
+		'middleware' => ['permission:' . $permisox . '-editar']
+	])->name($routexxx . '.editar');
 	Route::get('ver/{objetoxx}', [
-	    'uses' => 'Indicadores\InBaseFuenteController@show',
-	    'middleware' => ['permission:inbasefuente-leer']
-	])->name('lbf.basefuente.ver');
-	Route::delete('ver/{objetoxx}', [
-	    'uses' => 'Indicadores\InBaseFuenteController@destroy',
-	    'middleware' => ['permission:inbasefuente-borrar']
-	])->name('lbf.basefuente.borrar');
+		'uses' => $controll . 'Controller@show',
+		'middleware' => ['permission:' . $permisox . '-leer']
+	])->name($routexxx . '.ver');
+	Route::delete('borrar/{objetoxx}', [
+		'uses' => $controll . 'Controller@destroy',
+		'middleware' => ['permission:' . $permisox . '-borrar']
+	])->name($routexxx . '.borrar');
 });

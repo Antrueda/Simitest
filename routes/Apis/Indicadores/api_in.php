@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\Indicadores\IndicadorApi;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Indicadores\Area;
 use App\Models\Indicadores\InAccionGestion;
@@ -17,34 +18,80 @@ use Illuminate\Http\Request;
 
 Route::get('indicadores/indicador', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return datatables()
-		->eloquent(
-			InIndicador::select(['in_indicadors.id', 'in_indicadors.s_indicador', 'areas.nombre', 'in_indicadors.sis_esta_id'])
-				->join('areas', 'in_indicadors.area_id', '=', 'areas.id')
-		)
-		->addColumn('btns', 'Indicadores/Admin/indicador/botones')
-		->rawColumns(['btns'])
-		->toJson();
+	return IndicadorApi::getIndicadores($request);
+});
+Route::get('indicadores/sisareas', function (Request $request) {
+    if (!$request->ajax()) return redirect('/');
+	return IndicadorApi::getAreas($request);
+});
+
+Route::get('indicadores/indicadorlineasbase', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	return IndicadorApi::getIndicadorLineasBase($request);
+});
+
+Route::get('indicadores/basedocumen', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	return IndicadorApi::getBaseDocuementos($request);
 });
 
 Route::get('indicadores/documentos', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	$dataxxxx=$request->all();
+	return IndicadorApi::getDocumentos($request); 
+});
+
+
+Route::get('indicadores/basegrupos', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	return IndicadorApi::getBaseGrupos($request); 
+});
+
+Route::get('indicadores/grupos', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	return IndicadorApi::getGrupos($request); 
+});
+
+Route::get('indicadores/docpreguntas', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	return IndicadorApi::getDocPreguntas($request); 
+});
+
+Route::get('indicadores/pregrespuestas', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	return IndicadorApi::getPregRespuestas($request); 
+});
+
+/**
+ * documentos fuentes asignados a la linea base
+ */
+Route::get('indicadores/basefuentes', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	return IndicadorApi::getBaseFuentes($request); 
+});
+
+
+
+
+Route::get('indicadores/respuestas', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
 	return datatables()
 		->eloquent(
 			InBaseFuente::select([
-				'in_ligrus.id',  'sis_documento_fuentes.nombre', 'in_linea_bases.s_linea_base'
+				'in_doc_preguntas.id',  'sis_documento_fuentes.nombre', 'in_linea_bases.s_linea_base',
+				'in_indicadors.s_indicador', 'in_preguntas.s_pregunta'
 			])
+				->join('in_doc_preguntas', 'in_base_fuentes.id', '=', 'in_doc_preguntas.in_base_fuente_id')
+				->join('in_preguntas', 'in_doc_preguntas.in_pregunta_id', '=', 'in_preguntas.id')
 				->join('in_fuentes', 'in_base_fuentes.in_fuente_id', '=', 'in_fuentes.id')
 				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
-				->join('in_ligrus', 'in_base_fuentes.id', '=', 'in_ligrus.in_base_fuente_id')
 				->join('in_indicadors', 'in_fuentes.in_indicador_id', '=', 'in_indicadors.id')
 				->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
 		)
-		->addColumn('btns', $dataxxxx['botonesx'])
+		->addColumn('btns', 'Indicadores/Admin/Respuesta/Datatable/botones')
 		->rawColumns(['btns'])
 		->toJson();
 });
+
 
 Route::get('indicadores/preguntas', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
@@ -57,27 +104,7 @@ Route::get('indicadores/preguntas', function (Request $request) {
 		->toJson();
 });
 
-Route::get('indicadores/respuestas', function (Request $request) {
-	if (!$request->ajax()) return redirect('/');
-	return datatables()
-		->eloquent(
 
-			InBaseFuente::select([
-				'in_doc_preguntas.id',  'sis_documento_fuentes.nombre', 'in_linea_bases.s_linea_base',
-				'in_indicadors.s_indicador', 'in_preguntas.s_pregunta'
-			])
-				->join('in_doc_preguntas', 'in_base_fuentes.id', '=', 'in_doc_preguntas.in_base_fuente_id')
-				->join('in_preguntas', 'in_doc_preguntas.in_pregunta_id', '=', 'in_preguntas.id')
-				->join('in_fuentes', 'in_base_fuentes.in_fuente_id', '=', 'in_fuentes.id')
-				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
-				->join('in_indicadors', 'in_fuentes.in_indicador_id', '=', 'in_indicadors.id')
-				->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
-
-		)
-		->addColumn('btns', 'Indicadores/Admin/Respuesta/Datatable/botones')
-		->rawColumns(['btns'])
-		->toJson();
-});
 
 
 Route::get('indicadores/lineabase', function (Request $request) {
@@ -96,81 +123,13 @@ Route::get('indicadores/lineabase', function (Request $request) {
 });
 
 
-Route::get('indicadores/basefuente', function (Request $request) {
-	if (!$request->ajax()) return redirect('/');
-	return datatables()
-		->eloquent(
-			InIndicador::select([
-				'in_indicadors.id',
-				'areas.nombre as area', 'in_indicadors.s_indicador',
-				'in_indicadors.sis_esta_id'
-			])
-				->join('areas', 'in_indicadors.area_id', '=', 'areas.id')
-		)
-		->addColumn('btns', 'Indicadores/Admin/BaseFuente/botones/botonesapi')
-		->rawColumns(['btns'])
-		->toJson();
-});
 
 
-Route::get('indicadores/basegrupos', function (Request $request) {
-	if (!$request->ajax()) return redirect('/');
-	$botonesx = $request->all();
-	return datatables()
-		->eloquent(
-			InBaseFuente::select([
-				'in_base_fuentes.id',
-				'in_linea_bases.s_linea_base',
-				'sis_documento_fuentes.nombre',
-				'in_base_fuentes.sis_esta_id'
-			])
-				->join('in_fuentes', 'in_base_fuentes.in_fuente_id', '=', 'in_fuentes.id')
-				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
-				->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
-		)
-		->addColumn('btns', $botonesx['botonesx'])
-		->addColumn('sis_esta_id', 'layouts/components/botones/estadoxx')
-		->rawColumns(['btns', 'sis_esta_id'])
-		->toJson();
-});
-Route::get('indicadores/grupos', function (Request $request) {
-	if (!$request->ajax()) return redirect('/');
-	$dataxxxx = $request->all();
-	return datatables()
-		->eloquent(
-			InLigru::select([
-				'in_ligrus.id',
-				'in_linea_bases.s_linea_base',
-				'in_ligrus.sis_esta_id as activo'
-			])
-				->join('in_base_fuentes', 'in_ligrus.in_base_fuente_id', '=', 'in_base_fuentes.id')
-				->join('in_fuentes', 'in_base_fuentes.in_fuente_id', '=', 'in_fuentes.id')
-				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
-				->where('in_ligrus.in_base_fuente_id', $dataxxxx['in_base_fuente_id'])
-		)
-		->addColumn('btns', $dataxxxx['botonesx'])
-		->addColumn('sis_esta_id', 'layouts/components/botones/estadoxx')
-		->rawColumns(['btns', 'sis_esta_id'])
-		->toJson();
-});
 
-Route::get('indicadores/basedocumen', function (Request $request) {
-	if (!$request->ajax()) return redirect('/');
-	return datatables()
-		->eloquent(
-			InFuente::select([
-				'in_fuentes.id',
-				'in_linea_bases.s_linea_base',
-				'in_fuentes.sis_esta_id',
-				'in_indicadors.s_indicador'
-			])
-				->join('in_indicadors', 'in_fuentes.in_indicador_id', '=', 'in_indicadors.id')
-				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
-		)
-		->addColumn('btns', 'Indicadores/Admin/Basedocumen/botones/botonesapi')
-		->rawColumns(['btns'])
-		->toJson();
-});
+
+
+
+
 
 Route::get('indicadores/validacion', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
@@ -230,22 +189,7 @@ Route::get('indicadores/nnajs', function (Request $request) {
 });
 
 
-Route::get('indicadores/docpreguntas', function (Request $request) {
-	if (!$request->ajax()) return redirect('/');
 
-	return datatables()
-		->eloquent(InDocPregunta::select([
-			'in_doc_preguntas.id', 'in_preguntas.s_pregunta', 'sis_tablas.s_descripcion as s_tabla', 
-			'sis_campo_tablas.s_descripcion as s_campo','in_doc_preguntas.in_ligru_id'
-		])
-			->join('in_preguntas', 'in_doc_preguntas.in_pregunta_id', '=', 'in_preguntas.id')
-			->join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
-			->join('sis_campo_tablas', 'in_doc_preguntas.sis_campo_tabla_id', '=', 'sis_campo_tablas.id')
-			->where('in_doc_preguntas.sis_esta_id', 1)->where('in_doc_preguntas.in_ligru_id', $request->in_ligru_id))
-		->addColumn('btns', $request->botonesx )
-		->rawColumns(['btns'])
-		->toJson();
-});
 
 
 
@@ -432,14 +376,3 @@ Route::get('indicadores/diagnostico', function (Request $request) {
 		->toJson();
 });
 
-Route::get('indicadores/sisareas', function (Request $request) {
-    if (!$request->ajax()) return redirect('/');
-    return datatables()
-        ->eloquent(Area::select(['areas.id','areas.nombre','sis_estas.s_estado','areas.sis_esta_id'])
-        ->join('sis_estas','areas.sis_esta_id','=','sis_estas.id')
-        ) 
-        ->addColumn('btns', $request->botonesx)
-        ->addColumn('s_estado', $request->estadoxx)
-        ->rawColumns(['btns','s_estado'])
-        ->toJson();
-});

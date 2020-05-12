@@ -33,57 +33,14 @@
     </li>
     @endcan
 
-    @can('indicador-leer')
-        <li class="nav-item">
-            <a href="{{ route('in') }}" class="nav-link">
-            <i class="fas fa-check nav-icon"></i>
-            <p>Indicadores</p>
-            </a>
-        </li>
-    @endcan
-      @can('inbasefuente-leer')
-        <li class="nav-item">
-            <a href="{{ route('lbf') }}" class="nav-link">
-            <i class="fas fa-check nav-icon"></i>
-            <p>Indicador Línea Base </p>
-            </a>
-        </li>
-    @endcan
-    @can('inbasedocumen-leer')
-        <li class="nav-item">
-            <a href="{{ route('bd') }}" class="nav-link">
-            <i class="fas fa-check nav-icon"></i>
-            <p>Linea Base Documentos</p>
-            </a>
-        </li>
-    @endcan
+    
+      
+   
 
-    @can('indicador-leer')
-        <li class="nav-item">
-            <a href="{{ route('inligru') }}" class="nav-link">
-            <i class="fas fa-check nav-icon"></i>
-            <p>Grupos Línea Base</p>
-            </a>
-        </li>
-    @endcan
+  
 
 
-    @can('indocindicador-leer')
-        <li class="nav-item">
-            <a href="{{ route('di.docindicador') }}" class="nav-link">
-            <i class="fas fa-check nav-icon"></i>
-            <p>Documento Preguntas</p>
-            </a>
-        </li>
-    @endcan
-    @can('inrespuesta-leer')
-        <li class="nav-item">
-            <a href="{{ route('re') }}" class="nav-link">
-            <i class="fas fa-question nav-icon"></i>
-            <p>Respuestas </p>
-            </a>
-        </li>
-    @endcan
+  
 
 
 

@@ -31,7 +31,7 @@
                 <table id="{{ $tableName }}" class="table table-bordered   table-sm">
                     <thead>
                         <tr class="text-center">
-                            <th width="150">Acciones</th>
+                            <th width="250">Acciones</th>
                             @foreach( $todoxxxx['cabecera'] as $cabecera )
                             
                         <th> {{  $cabecera['td']   }}</th>

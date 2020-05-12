@@ -3,7 +3,7 @@
 namespace App\Models\sistema;
 
 use App\Models\Indicadores\InBaseFuente;
-use App\Models\Indicadores\InDocPreguntum;
+use App\Models\Indicadores\InLineaBase;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Indicadores\InPregunta;
 use Illuminate\Database\Eloquent\Model;
@@ -19,6 +19,11 @@ class SisDocumentoFuente extends Model
   public function sisActividads()
   {
     return $this->hasMany(SisActividad::class);
+  }
+
+  public function in_linea_bases()
+  {
+    return $this->hasMany(InLineaBase::class);
   }
 
   public function creador()
@@ -112,5 +117,40 @@ class SisDocumentoFuente extends Model
   public function preguntas()
   {
     return $this->belongsToMany(InPregunta::class, 'in_doc_preguntum', 'sis_documento_fuente_id', 'in_pregunta_id');
+  }
+
+  public static function getBasaDocumentos($dataxxxx)
+  {
+    $whereinx = InBaseFuente::select(['sis_documento_fuente_id'])
+      ->where('in_fuente_id', $dataxxxx['padrexxx'])
+      ->get();
+
+    $comboxxx = [];
+    if ($dataxxxx['cabecera']) {
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+      } else {
+        $comboxxx = ['' => 'Seleccione'];
+      }
+    }
+    $activida = SisDocumentoFuente::whereNotIn('id', $whereinx)->get();
+    foreach ($activida as $registro) {
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+      } else {
+        $comboxxx[$registro->id] = $registro->nombre;
+      }
+    }
+    if ($dataxxxx['seleccio'] > 0) {
+      $activida = SisDocumentoFuente::where('id', $dataxxxx['seleccio'])->first(); 
+      if ($dataxxxx['ajaxxxxx']) {
+        $comboxxx[]=['valuexxx' => $activida->id, 'optionxx' => $activida->nombre];
+
+      } else { 
+        $comboxxx[$activida->id] = $activida->nombre;
+      }
+    }
+    
+    return $comboxxx;
   }
 }

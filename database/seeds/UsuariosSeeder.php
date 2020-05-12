@@ -13,7 +13,6 @@ class UsuariosSeeder extends Seeder
    */
   public function run()
   {
-    $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1];
     $super = User::create([
       'name' => 'Usuario Super Administrador',
       's_primer_nombre' => 'JOSE',
@@ -36,16 +35,8 @@ class UsuariosSeeder extends Seeder
       'prm_documento_id' => 1,
       'sis_municipio_id' => 1,
     ]);
-    $super->areas()->sync([
-      6 => $camposmagicos,
-      7 => $camposmagicos,
-      8 => $camposmagicos,
-    ]);
-    $super->sis_dependencias()->sync([
-      2 => $camposmagicos,
-      15 => $camposmagicos,
-      23 => $camposmagicos,
-    ]);
+   
+    
     $super->assignRole('super-administrador');
     $super = User::create([
       'name' => 'FERNANDO SANABRIA',
@@ -69,11 +60,7 @@ class UsuariosSeeder extends Seeder
       'prm_documento_id' => 1,
       'sis_municipio_id' => 1,
     ]);
-    $super->areas()->sync([
-      6 => $camposmagicos,
-      7 => $camposmagicos,
-      8 => $camposmagicos,
-    ]);
+   
     $super->assignRole('super-administrador');
 
     $super = User::create([
