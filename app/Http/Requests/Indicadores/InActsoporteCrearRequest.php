@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Indicadores;
 
+use App\Models\Indicadores\InActsoporte;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InActsoporteCrearRequest extends FormRequest
@@ -16,7 +17,7 @@ class InActsoporteCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'sis_fsoporte_id' => ['required',],
-            
+
         ];
     }
     /**
@@ -47,6 +48,12 @@ class InActsoporteCrearRequest extends FormRequest
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        $registro = InActsoporte::where('in_accion_gestion_id', $this->sis_fsoporte_id)
+            ->where('sis_fsoporte_id', $this->sis_fsoporte_id)
+            ->first();
+        if (isset($registro->id)) {
+            $this->_reglasx['existexx'] = 'required';
+            $this->_mensaje['existexx.required'] = 'La actividad y el documento fuente ya estan asociados';
+        }
     }
 }

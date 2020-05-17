@@ -5,7 +5,7 @@
     });
     var campos = function(dataxxxx) {
       $.ajax({
-        url: "{{ route('di.docindicador.combos',$todoxxxx['parametr']) }}",
+        url: "{{ route('grupregu.combos',$todoxxxx['parametr']) }}",
         dataType: "json",
         type: 'GET',
         data: dataxxxx.dataxxxx,

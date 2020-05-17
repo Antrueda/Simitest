@@ -30,10 +30,13 @@ Route::group(['prefix' => 'area'], function () use ($controll, $routexxx) {
 		'uses' => $controll . 'Controller@destroy',
 		'middleware' => ['permission:' . $routexxx . '-borrar']
 	])->name($routexxx . '.borrar');
-	require_once('web_indicador.php');
-	require_once('web_in_fuente.php');
-	require_once('web_in_basedocumen.php');
-	require_once('web_in_ligru.php');
-	require_once('web_in_preguntas.php');
-	require_once('web_respuesta.php');
+	
+	
+	
 });
+require_once('web_indicador.php');
+require_once('web_in_fuente.php');
+require_once('web_in_basedocumen.php');
+require_once('web_in_ligru.php');
+require_once('web_in_preguntas.php');
+require_once('web_respuesta.php');

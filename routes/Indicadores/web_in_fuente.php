@@ -2,12 +2,12 @@
 $controll = 'Indicadores\InFuente';
 $permisox = 'inbasefuente';
 $routexxx = 'lbf.basefuente';
-Route::group(['prefix' => '{padrexxx}/basefuente'], function () use ($controll, $routexxx,$permisox) {
-	Route::get('', [
+Route::group(['prefix' => 'lineasbase'], function () use ($controll, $routexxx,$permisox) {
+	Route::get('{padrexxx}', [
 		'uses' => $controll . 'Controller@index',
 		'middleware' => ['permission:' . $permisox . '-leer|' . $permisox . '-crear|' . $permisox . '-editar|' . $permisox . '-borrar']
 	])->name($routexxx);
-	Route::get('nuevo', [
+	Route::get('{padrexxx}/nuevo', [
 		'uses' => $controll . 'Controller@create',
 		'middleware' => ['permission:' . $permisox . '-crear']
 	])->name($routexxx . '.nuevo');

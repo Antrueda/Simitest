@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Individuales\AISalidaMenoresRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -48,8 +49,8 @@ class AISalidaMenoresController extends Controller{
                                                                                           'sino', 'usuarios', 'condiciones', 'sina'));
     }
 
-    public function store(Request $request){
-        $this->validator($request->all())->validate();
+    public function store(AISalidaMenoresRequest $request){
+        //$this->validator($request->all())->validate();
 
         $dato = AiSalidaMenores::create($request->all());        
         foreach ($request->objetivo as $d) {

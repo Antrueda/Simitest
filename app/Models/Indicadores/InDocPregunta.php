@@ -12,9 +12,7 @@ class InDocPregunta extends Model
 {
 
     protected $fillable = [
-        'in_pregunta_id',
         'in_ligru_id',
-        'sis_tabla_id',
         'sis_tcampo_id',
         'user_edita_id',
         'user_crea_id',
@@ -22,14 +20,13 @@ class InDocPregunta extends Model
     ];
 
     
-    public function in_respuestas()
-    {
-        return $this->belongsToMany(Parametro::class, 'in_respuestas', 'in_doc_pregunta_id', 'i_prm_respuesta_id');
-    }
-    
     public function sis_tcampo()
     {
         return $this->belongsTo(SisTcampo::class);
+    }
+    public function in_ligru()
+    {
+        return $this->belongsTo(InLigru::class);
     }
     public static function transaccion($dataxxxx,  $objetoxx)
     {
@@ -70,8 +67,5 @@ class InDocPregunta extends Model
         }
         return $comboxxx;
     }
-    public function in_ligru()
-    {
-        return $this->belongsTo(InLigru::class);
-    }
+    
 }

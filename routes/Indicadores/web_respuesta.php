@@ -1,20 +1,13 @@
 <?php
 $controll = 'Indicadores\InRespuesta';
 $permisox = 'inrespuesta';
-$routexxx = 're.respuesta';
-Route::group(['prefix' => '{padrexxx}/preguntas'], function () use ($controll, $routexxx, $permisox) {
-	Route::get('', [
-		'uses' => $controll . 'Controller@getPregresp',
-		'middleware' => ['permission:' . $permisox . '-leer|' . $permisox . '-crear|' . $permisox . '-editar|' . $permisox . '-borrar']
-	])->name($routexxx.'.pregresp');
-	Route::group(['prefix' => '{grupoxxx}/{pregunta}/respuesta'], function () use ($controll, $routexxx, $permisox) {
-		Route::get('', [
+$routexxx = 'pregresp';
+Route::group(['prefix' => 'respuestas'], function () use ($controll, $routexxx, $permisox) {
+		Route::get('{padrexxx}', [
 			'uses' => $controll . 'Controller@index',
 			'middleware' => ['permission:' . $permisox . '-leer|' . $permisox . '-crear|' . $permisox . '-editar|' . $permisox . '-borrar']
 		])->name($routexxx);
-		
-		
-		Route::get('nuevo', [
+		Route::get('{padrexxx}/nuevo', [
 			'uses' => $controll . 'Controller@create',
 			'middleware' => ['permission:' . $permisox . '-crear']
 		])->name($routexxx . '.nuevo');
@@ -38,5 +31,4 @@ Route::group(['prefix' => '{padrexxx}/preguntas'], function () use ($controll, $
 			'uses' => $controll . 'Controller@destroy',
 			'middleware' => ['permission:' . $permisox . '-borrar']
 		])->name($routexxx . '.borrar');
-	});
 });

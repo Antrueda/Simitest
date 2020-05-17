@@ -2,23 +2,15 @@
 
 namespace App\Models\sistema;
 
-use App\Models\Indicadores\InDocPregunta;
 use Illuminate\Database\Eloquent\Model;
 
 class SisTabla extends Model
 {
-    public function sis_campo_tablas()
+    public function sis_tcampos()
     {
-        return $this->hasMany(SisCampoTabla::class);
+        return $this->hasMany(SisTcampo::class);
     }
     
-    public function in_doc_preguntas()
-    {
-        return $this->hasMany(InDocPregunta::class);
-    }
-
-
-
     public static function combo($padrexxx, $cabecera, $ajaxxxxx)
     {
         $comboxxx = [];

@@ -1,46 +1,45 @@
 <?php
-Route::group(['prefix' => 'indiagnostico'], function () {
-	Route::get('', [
-		'uses' => 'Indicadores\InDiagnosticoController@index',
-		'middleware' => ['permission:indiagnostico-leer|indiagnostico-crear|indiagnostico-editar|indiagnostico-borrar']
-	])->name('diagnostico');
-	Route::get('nuevo', [
-		'uses' => 'Indicadores\InDiagnosticoController@create',
-		'middleware' => ['permission:indiagnostico-crear']
-	])->name('diagnostico.nuevo');
-	Route::post('nuevo', [
-		'uses' => 'Indicadores\InDiagnosticoController@store',
-		'middleware' => ['permission:indiagnostico-crear']
-	])->name('diagnostico.crear');
+$controll = "Indicadores\InValorInicial";
+$permisox = "indiagnostico";
+$routexxx = "valoinic";
+Route::group(["prefix" => "valorinicial"], function () use($controll,$permisox,$routexxx) {
+	Route::get("", [
+		"uses" => $controll."Controller@index",
+		"middleware" => ["permission:{$permisox}-leer|{$permisox}-crear|{$permisox}-editar|{$permisox}-borrar"]
+	])->name($routexxx);
+	Route::get("nuevo", [
+		"uses" => $controll."Controller@create",
+		"middleware" => ["permission:{$permisox}-crear"]
+	])->name($routexxx.".nuevo");
+	Route::post("nuevo", [
+		"uses" => $controll."Controller@store",
+		"middleware" => ["permission:{$permisox}-crear"]
+	])->name($routexxx.".crear");
 
-	Route::get('editar/{objetoxx}', [
-		'uses' => 'Indicadores\InDiagnosticoController@edit',
-		'middleware' => ['permission:indiagnostico-editar']
-	])->name('diagnostico.editar');
-	Route::put('editar/{objetoxx}', [
-		'uses' => 'Indicadores\InDiagnosticoController@update',
-		'middleware' => ['permission:indiagnostico-editar']
-	])->name('diagnostico.editar');
-	Route::get('ver/{objetoxx}', [
-		'uses' => 'Indicadores\InDiagnosticoController@show',
-		'middleware' => ['permission:indiagnostico-leer']
-	])->name('diagnostico.ver');
-
-
-	Route::get('nivel', [
-		'uses' => 'Indicadores\InDiagnosticoController@nivel',
-	])->name('diagnostico.nivel');
-	Route::delete('ver/{objetoxx}', [
-		'uses' => 'Indicadores\InDiagnosticoController@destroy',
-		'middleware' => ['permission:indiagnostico-borrar']
-	])->name('diagnostico.borrar');
-
-	Route::group(['prefix' => '{nnaj}/bases'], function () {
+	Route::get("editar/{objetoxx}", [
+		"uses" => $controll."Controller@edit",
+		"middleware" => ["permission:{$permisox}-editar"]
+	])->name($routexxx.".editar");
+	Route::put("editar/{objetoxx}", [
+		"uses" => $controll."Controller@update",
+		"middleware" => ["permission:{$permisox}-editar"]
+	])->name($routexxx.".editar");
+	Route::get("ver/{objetoxx}", [
+		"uses" => $controll."Controller@show",
+		"middleware" => ["permission:{$permisox}-leer"]
+	])->name($routexxx.".ver");
 
 
-		Route::get('', [
-			'uses' => 'Indicadores\InDiagnosticoController@listar_lieas_base_nnaj',
-			'middleware' => ['permission:indiagnostico-leer|indiagnostico-crear|indiagnostico-editar|indiagnostico-borrar']
-		])->name('diagnostico.nnajbases');
-	});
+	Route::get("nivel", [
+		"uses" => $controll."Controller@nivel",
+	])->name($routexxx.".nivel");
+	Route::delete("ver/{objetoxx}", [
+		"uses" => $controll."Controller@destroy",
+		"middleware" => ["permission:{$permisox}-borrar"]
+	])->name($routexxx.".borrar");
+		Route::get("{padrexxx}/bases", [
+			"uses" => $controll."Controller@bases",
+			"middleware" => ["permission:{$permisox}-leer|{$permisox}-crear|{$permisox}-editar|{$permisox}-borrar"]
+		])->name($routexxx.".nnajbases");
+
 });

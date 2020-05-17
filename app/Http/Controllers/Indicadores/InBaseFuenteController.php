@@ -6,16 +6,16 @@ namespace App\Http\Controllers\Indicadores;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Indicadores\InBaseFuenteCrearRequest;
 use App\Http\Requests\Indicadores\InBaseFuenteEditarRequest;
-use App\Models\Indicadores\Area;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InIndicador;
 use App\Models\sistema\SisDocumentoFuente;
 use App\Models\sistema\SisEsta;
-use Illuminate\Http\Request;
+use App\Traits\Pestanias;
 
 class InBaseFuenteController extends Controller
 {
+    use Pestanias;
     private $opciones;
     public function __construct()
     {
@@ -28,10 +28,10 @@ class InBaseFuenteController extends Controller
             'rutacarp' => 'Indicadores.Admin.', // carpeta padre para las pestañas
             'tituloxx' => '', // se asigna en el create, edit y en el show
             'slotxxxy' => 'diagnost', // indica cual es la pestaña padre que debe estar activa
-            'slotxxxx' => 'inbasedocumen', // indica cual es la pestaña hija que debe estar activa
+            'slotxxxx' => 'basedocu', // indica cual es la pestaña hija que debe estar activa
             'carpetax' => 'Basefuente', // carpeta a la que accede el controlador
             'indecrea' => false,    // false indica que no debe estar dentro una pestaña, 
-                                    //true indica que debe estar dentro de una pestaña
+            //true indica que debe estar dentro de una pestaña
             'esindexx' => false,  // true indica que debe mostrar el index y false el formulario
             'pestania' => [
                 'indicado' => ['', true],
@@ -42,10 +42,11 @@ class InBaseFuenteController extends Controller
                 'respuest' => ['disabled', false]
             ]
         ];
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
+        $this->middleware(['permission:' .
+            $this->opciones['permisox'] . '-leer|' .
+            $this->opciones['permisox'] . '-crear|' .
+            $this->opciones['permisox'] . '-editar|' .
+            $this->opciones['permisox'] . '-borrar']);
         $this->opciones['rutaxxxx'] = 'bd.basedocumen';
         $this->opciones['routnuev'] = 'bd.basedocumen';
         $this->opciones['routxxxx'] = 'bd.basedocumen';
@@ -60,6 +61,9 @@ class InBaseFuenteController extends Controller
     public function index($padrexxx)
     {
         $padrexxx = InFuente::where('id', $padrexxx)->first();
+        $this->opciones['pestania'] = $this->getAreas([
+            'tablaxxx' => $this->opciones['slotxxxx'], 'padrexxx' => $padrexxx, 'routxxxx' => $this->opciones['routxxxx']
+        ]);
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->in_indicador->area->nombre;
@@ -70,8 +74,10 @@ class InBaseFuenteController extends Controller
                 'titulist' => 'DOCUEMENTOS FUENTES',
                 'dataxxxx' => [
                     ['campoxxx' => 'botonesx', 'dataxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],
-                    ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadoxx'],
+                    ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadosx'],
                     ['campoxxx' => 'padrexxx', 'dataxxxx' => $padrexxx->id],
+                    ['campoxxx' => 'puededit', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-editar') ? true : false],
+                    ['campoxxx' => 'puedasig', 'dataxxxx' => auth()->user()->can('grupliba-crear') ? true : false],
                 ],
                 'accitabl' => true,
                 'vercrear' => true,
@@ -95,29 +101,41 @@ class InBaseFuenteController extends Controller
         $this->opciones['accionxx'] = 'index';
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-    private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
+    private function view($dataxxxx)
     {
-        $seleccio=0;
+        $seleccio = 0;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['accionxx'] = $accionxx;
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
-        if ($nombobje != '') {
-            $this->opciones[$nombobje] = $objetoxx;
-            $seleccio=$objetoxx->in_fuente_id;
+        if ($dataxxxx['objetoxx'] != '') {
+            $this->opciones['modeloxx'] = $dataxxxx['objetoxx'];
+            $seleccio = $dataxxxx['objetoxx']->in_fuente_id;
         }
-        $this->opciones['document'] =SisDocumentoFuente::getBasaDocumentos(
-            ['padrexxx' => $this->opciones['parametr'], 'cabecera' => true, 'ajaxxxxx' => false,
-            'seleccio'=>$seleccio]
+        $this->opciones['document'] = SisDocumentoFuente::getBasaDocumentos(
+            [
+                'padrexxx' => $this->opciones['parametr'], 'cabecera' => true, 'ajaxxxxx' => false,
+                'seleccio' => $seleccio
+            ]
         );
-        
-        return view($vistaxxx, ['todoxxxx' => $this->opciones]);
+
+        /**
+         * se crea la funcionalidad de las pestañas para la asignacion de documento fuente a la línea base
+         * cuando se esta en el crear, editar o ver
+         */
+        $this->opciones['pestania'] = $this->getAreas([
+            'tablaxxx' => $this->opciones['slotxxxx'],
+            'padrexxx' => $dataxxxx['padrexxx'],
+            'routxxxx' => $this->opciones['routxxxx']
+        ]);
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     public function create($padrexxx)
     {
 
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx];
         $this->opciones['parametr'] = [$padrexxx];
-        $padrexxx=InFuente::where('id', $padrexxx)->first();
+        $padrexxx = InFuente::where('id', $padrexxx)->first();
         $this->opciones['cardhead'] = 'LINEA BASE: ' . $padrexxx->in_linea_base->s_linea_base;
         $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->in_indicador->area->nombre;
         $this->opciones['linebase'] = [$padrexxx->id => $padrexxx->in_linea_base->s_linea_base];
@@ -127,54 +145,66 @@ class InBaseFuenteController extends Controller
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'pestanias');
+        return $this->view(['objetoxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
     }
 
-    public function store($padrexxx, InBaseFuenteCrearRequest $request)
+    public function store(InBaseFuenteCrearRequest $request)
     {
 
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
     }
-    public function show($padrexxx, InBaseFuente $objetoxx)
+    public function show(InBaseFuente $objetoxx)
     {
-        $padrexxx = InFuente::where('id', $padrexxx)->first();
+        $padrexxx = $objetoxx->in_fuente;
         $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->in_indicador->area->nombre;
         $this->opciones['areasxxx'] = [$padrexxx->id => $padrexxx->nombre];
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
         $this->opciones['indecrea'] = false;
-        $this->opciones['parametr'] = [$padrexxx->id, $objetoxx->id];
+        $this->opciones['parametr'] = [$objetoxx->id];
         $this->opciones['readonly'] = 'readonly';
-        return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'pestanias');
+        $this->opciones['linebase'] = [$padrexxx->id => $padrexxx->in_linea_base->s_linea_base];
+        return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $padrexxx]);
     }
 
-    public function edit($padrexxx, InBaseFuente $objetoxx)
+    public function edit(InBaseFuente $objetoxx)
     {
-        $padrexxx = InFuente::where('id', $padrexxx)->first();
+        $padrexxx = $objetoxx->in_fuente;
         // $this->opciones['cardhead'] = 'INDICADOR: ' . $objetoxx->s_indicador;
         $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->in_indicador->area->nombre;
         $this->opciones['areasxxx'] = [$padrexxx->id => $padrexxx->nombre];
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
         $this->opciones['indecrea'] = false;
-        $this->opciones['parametr'] = [$padrexxx->id, $objetoxx->id];
-        return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'pestanias');
+        $this->opciones['parametr'] = [$objetoxx->id];
+        $this->opciones['linebase'] = [$padrexxx->id => $padrexxx->in_linea_base->s_linea_base];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'MODIFICAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', $this->opciones['parametr']],
+                'formhref' => 1, 'tituloxx' => 'MODIFICAR', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'MODIFICAR', 'routingx' => ['inligru', [$objetoxx->id]],
+                'formhref' => 2, 'tituloxx' => 'ASIGANAR G-LB', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);
     }
 
     private function grabar($dataxxxx, $objectx, $infoxxxx)
     {
         $registro = InFuente::transaccion($dataxxxx, $objectx);
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->in_indicador->id,$registro->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$registro->in_indicador->id, $registro->id])
             ->with('info', $infoxxxx);
     }
 
-    public function update($padrexxx, InBaseFuenteEditarRequest  $request, InFuente $objetoxx)
+    public function update(InBaseFuenteEditarRequest  $request, InFuente $objetoxx)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
     }
 
-    public function destroy($padrexxx, InIndicador $objetoxx)
+    public function destroy(InIndicador $objetoxx)
     {
         $this->opciones['parametr'] = [$objetoxx->id];
         $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;

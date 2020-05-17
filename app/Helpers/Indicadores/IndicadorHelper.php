@@ -3,10 +3,8 @@
 namespace App\Helpers\Indicadores;
 
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InDocPregunta;
 use App\Models\Indicadores\InIndicador;
-use App\Models\Indicadores\InLigru;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Indicadores\InValoracion;
 use App\Models\Indicadores\InRespuesta;

@@ -6,7 +6,7 @@ use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
-class CsdRedSocPasado extends Model
+class CsdRedsocPasado extends Model
 {
     protected $fillable = [
         'csd_id',  'user_crea_id', 'user_edita_id', 'sis_esta_id',

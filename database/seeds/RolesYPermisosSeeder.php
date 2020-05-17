@@ -485,6 +485,12 @@ class RolesYPermisosSeeder extends Seeder {
     Permission::create(['name' => 'inbasefuente-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     Permission::create(['name' => 'inbasefuente-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
+    // permisos para grupos de linea base
+    $grupliba='grupliba';
+    Permission::create(['name' =>  $grupliba.'-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+    Permission::create(['name' =>  $grupliba.'-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+    Permission::create(['name' =>  $grupliba.'-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+    Permission::create(['name' =>  $grupliba.'-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     // permisos para validaciones
     Permission::create(['name' => 'invalidacion-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
     Permission::create(['name' => 'invalidacion-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
@@ -695,7 +701,8 @@ Permission::create(['name' => 'siseslug-borrar', 'user_crea_id' => 1, 'user_edit
     // crear roles y asignar los permisos
     Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(Permission::all());
     Role::create(['name' => 'administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo([
-        'rol-leer', 'rol-crear', 'rol-editar', 'rol-borrar',
+        'rol-leer', 'rol-crear', 'rol-editar', 'rol-borrar', 
+        'grupliba-leer', 'grupliba-crear', 'grupliba-editar', 'grupliba-borrar', 
         'usuario-leer', 'usuario-crear', 'usuario-editar', 'usuario-borrar',
         'siscargo-leer', 'siscargo-crear', 'siscargo-editar', 'siscargo-borrar',
         'persona-leer', 'persona-crear', 'persona-editar', 'persona-borrar',

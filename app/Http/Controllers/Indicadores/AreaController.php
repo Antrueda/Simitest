@@ -7,11 +7,13 @@ use App\Http\Requests\Indicadores\AreaCrearRequest;
 use App\Http\Requests\Indicadores\AreaEditarRequest;
 use App\Models\Indicadores\Area;
 use App\Models\sistema\SisEsta;
+use App\Models\sistema\SisTcampo;
+use App\Traits\Pestanias;
 
 class AreaController extends Controller
 {
     private $opciones;
-
+    use Pestanias;
     public function __construct()
     {
         $this->opciones = [
@@ -21,25 +23,18 @@ class AreaController extends Controller
             'parametr' => [],
             'rutacarp' => 'Indicadores.Admin.',
             'tituloxx' => 'Area',
-            'slotxxxy' => 'diagnost',
-            'slotxxxx' => 'area',
+            'slotxxxy' => '',
+            'slotxxxx' => 'areaxxxx',
             'carpetax' => 'Areasxxx',
             'indecrea' => false,
             'esindexx' => false,
-            'pestania' => [
-                'indicado'=>['disabled',false],
-                'linebase'=>['disabled',false],
-                'docufuen'=>['disabled',false],
-                'grupoxxx'=>['disabled',false],
-                'pregunta'=>['disabled',false],
-                'respuest'=>['disabled',false]
-            ]
+            'pestania' => []
         ];
 
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
+        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer|'
+         . $this->opciones['permisox'] . '-crear|'
+         . $this->opciones['permisox'] . '-editar|'
+          .$this->opciones['permisox'] . '-borrar']);
 
         $this->opciones['readonly'] = '';
         $this->opciones['rutaxxxx'] = 'area';
@@ -62,19 +57,22 @@ class AreaController extends Controller
      */
     public function index()
     {
+        $this->opciones['pestania'] =$this->getAreas(['tablaxxx'=>$this->opciones['slotxxxx'],'routxxxx'=>$this->opciones['routxxxx']]);
         $padrexxx = '';
-        $this->opciones['indecrea'] = true;
-        $this->opciones['esindexx'] = true;
         $this->opciones['accionxx'] = 'index';
         $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'AREA',
-                'titulist' => 'LISTA DE CLINICA',
+                'titunuev' => 'ÁREA',
+                'titulist' => 'LISTA DE ÁREAS',
                 'dataxxxx' => [
                     ['campoxxx' => 'botonesx', 'dataxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],
-                    ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadoxx'],
+                    ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadosx'],
                     ['campoxxx' => 'medicame', 'dataxxxx' => $padrexxx],
+                    ['campoxxx' => 'puededit', 'dataxxxx' => auth()->user()->can('area-editar') ? true : false],
+                    ['campoxxx' => 'puedasig', 'dataxxxx' => auth()->user()->can('indicador-crear') ? true : false],
+                    
+                
                 ],
                 'vercrear' => true,
                 'accitabl' => true,
@@ -97,10 +95,12 @@ class AreaController extends Controller
             ],
 
         ];
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+       return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
+        $this->opciones['pestania'] =$this->getAreas(['tablaxxx'=>$this->opciones['slotxxxx'],'routxxxx'=>$this->opciones['routxxxx']]);
+
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
@@ -119,7 +119,6 @@ class AreaController extends Controller
      */
     public function create()
     {
-        $this->opciones['indecrea'] = true;
         $this->opciones['clinicac'] = true;
         $this->opciones['botoform'][] =
             [
@@ -179,7 +178,7 @@ class AreaController extends Controller
             $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [ 'in.indicador', [$objetoxx->id]],
-                'formhref' => 2, 'tituloxx' => 'CREAR INDICADOR', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'ASIGNAR INDICADOR', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 
 

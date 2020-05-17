@@ -4,15 +4,13 @@ namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
 use App\Models\sistema\SisLocalidad;
-use App\Models\sistema\SisUpz;
-use App\Models\sistema\SisBarrio;
+
 
 class CsdResidenciaController extends Controller{
 
@@ -73,7 +71,7 @@ class CsdResidenciaController extends Controller{
             $upzs = $localidadjs->find($valor->sis_localidad_id)->upzs->pluck('codigoNombre', 'id');
             $barrios = $localidadjs->find($valor->sis_localidad_id)->upzs->find($valor->sis_upz_id)->sis_barrios->pluck('s_barrio', 'id');
         }
-        return view('Domicilio.index', ['accion' => 'Residencia'], compact('dato', 'nnajs', 'valor', 'sino', 'residencia', 'tipo', 'actual', 'zona', 'tViaPrincipal', 'alfabeto', 'cuadrante', 'estrato', 'condiciones', 'pisos', 'muros', 'sis_esta_id', 'localidadjs', 'localidades', 'upzs', 'barrios'));
+        return view('Domicilio.index', ['accion' => 'Residencia'], compact('dato', 'nnajs', 'valor', 'sino', 'residencia', 'tipo', 'actual', 'zona', 'tViaPrincipal', 'alfabeto', 'cuadrante', 'estrato', 'condiciones', 'pisos', 'muros', 'estado', 'localidadjs', 'localidades', 'upzs', 'barrios'));
     }
 
     public function store(Request $request, $id){

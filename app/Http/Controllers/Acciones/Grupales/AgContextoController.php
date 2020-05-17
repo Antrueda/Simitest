@@ -29,7 +29,7 @@ class AgContextoController extends Controller
             'modeloxx' => '',
             'permisox' => 'agcontexto',
             'routxxxx' => 'ag.cont.contexto',
-            'routinde' => 'agr',
+            'routinde' => 'ag',
             'parametr' => [],
             'urlxxxxx' => 'api/ag/contextos',
             'routnuev' => 'ag.cont.contexto',

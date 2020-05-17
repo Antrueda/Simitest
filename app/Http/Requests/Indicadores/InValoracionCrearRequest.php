@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Indicadores;
 
+use App\Models\Indicadores\InValoracion;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InValoracionCrearRequest extends FormRequest
@@ -16,8 +17,8 @@ class InValoracionCrearRequest extends FormRequest
             's_valoracion.required' => 'Ingrese la valoración',
             'i_prm_categoria_id.required' => 'Seleccione una categoría',
             'i_prm_avance_id.required' => 'Seleccione el nivel de avance',
-            
-            
+
+
         ];
         $this->_reglasx = [
             's_valoracion' =>
@@ -32,8 +33,8 @@ class InValoracionCrearRequest extends FormRequest
             [
                 'required', //y todos las validaciones a que haya lugar separadas por coma
             ],
-            
-            
+
+
 
         ];
     }
@@ -65,7 +66,12 @@ class InValoracionCrearRequest extends FormRequest
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-
+        $validaci = InValoracion::where('in_lineabase_nnaj_id', $this->in_lineabase_nnaj_id)
+            ->where('i_prm_cactual_id', $this->i_prm_categoria_id)
+            ->first();
+            if(isset($validaci->id)){
+                $this->_reglasx['existexx']='required';
+                $this->_mensaje['existexx.required']='LA LÍNEA BASE Y LA CATEGORÍA YA ESTÁN ASOCIADAS';
+            }
     }
 }

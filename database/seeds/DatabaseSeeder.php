@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisTitulo;
+use App\Models\sistema\SisTcampo;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
         $this->call(InBaseFuentesSeeder::class);
         $this->call(InPreguntasSeeder::class);
         $this->call(SisTablasSeeder::class);
-        $this->call(SisCampoTablasSeeder::class);
+        $this->call(SisTcamposSeeder::class);
         $this->call(InLigrusSeeder::class);
         $this->call(InDocPreguntasSeeder::class);
         $this->call(SisFsoportesSeeder::class);

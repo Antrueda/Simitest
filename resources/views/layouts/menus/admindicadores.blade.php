@@ -1,126 +1,44 @@
  <li class="nav-item has-treeview">
-    <a href="#" class="nav-link">
-    <i class="nav-icon fas fa-chart-pie"></i>
-    <p>
-        Indicadores
-        <i class="fas fa-angle-left right"></i>
-    </p>
-    </a>
-    <ul class="nav nav-treeview">
-        @can('inpreguntas-leer')
-            <li class="nav-item">
-                <a href="{{ route('pr') }}" class="nav-link">
-                <i class="fas fa-check nav-icon"></i>
-                <p>Peguntas</p>
-                </a>
-            </li>
-        @endcan
+     <a href="#" class="nav-link">
+         <i class="nav-icon fas fa-chart-pie"></i>
+         <p>
+             Indicadores
+             <i class="fas fa-angle-left right"></i>
+         </p>
+     </a>
+     <ul class="nav nav-treeview">
+         @can('inpreguntas-leer')
+         <li class="nav-item">
+             <a href="{{ route('pr') }}" class="nav-link">
+                 <i class="fas fa-check nav-icon"></i>
+                 <p>Peguntas</p>
+             </a>
+         </li>
+         @endcan
 
-        @can('inlineabase-leer')
-        <li class="nav-item">
-            <a href="{{ route('li') }}" class="nav-link">
-            <i class="fas fa-check nav-icon"></i>
-            <p>Líneas Base</p>
-            </a>
-        </li>
-    @endcan
-    @can('area-leer')
-    <li class="nav-item">
-        <a href="{{ route('area') }}" class="nav-link">
-        <i class="fas fa-sitemap nav-icon"></i>
-        <p>Áreas</p>
-        </a>
-    </li>
-    @endcan
-
-    
-      
-   
-
-  
-
-
-  
-
-
-
-
-    @can('indiagnostico-leer')
-    <li class="nav-item">
-        <a href="{{ route('diagnostico') }}" class="nav-link">
-        <i class="fas fa-check nav-icon"></i>
-        <p>Diagnóstico</p>
-        </a>
-    </li>
-    @endcan
-
-
-
-
-    @can('inacciongestion-leer')
-        <li class="nav-item">
-            <a href="{{ route('ag') }}" class="nav-link">
-            <i class="fas fa-check nav-icon"></i>
-            <p>Acción Gestión</p>
-            </a>
-        </li>
-    @endcan
-
-
-
-    @can('invaloracion-leer')
-        <li class="nav-item">
-            <a href="{{ route('inva') }}" class="nav-link">
-            <i class="fas fa-check nav-icon"></i>
-            <p>Valoración</p>
-            </a>
-        </li>
-    @endcan
-
-    @can('fsoporte-leer')
-    <li class="nav-item">
-        <a href="{{ route('fsoporte') }}" class="nav-link">
-        <i class="fas fa-chess-pawn nav-icon"></i>
-        <p>Funtes Soporte</p>
-        </a>
-    </li>
-    @endcan
-
-
-    {{--
-    <li class="nav-item">
-        <a href="pages/layout/top-nav.html" class="nav-link">
-        <i class="far fa-circle nav-icon"></i>
-        <p>Indicadores</p>
-        </a>
-    </li>
-    --}}
-
-    {{--
-    <li class="nav-item">
-        <a href="pages/layout/top-nav.html" class="nav-link">
-        <i class="far fa-circle nav-icon"></i>
-        <p>Línea Base</p>
-        </a>
-    </li>
-    --}}
-
-    {{--
-    <li class="nav-item">
-        <a href="pages/layout/top-nav.html" class="nav-link">
-        <i class="far fa-circle nav-icon"></i>
-        <p>Balidaciones</p>
-        </a>
-    </li>
-    --}}
-
-    {{--
-    <li class="nav-item">
-        <a href="pages/layout/top-nav.html" class="nav-link">
-        <i class="far fa-circle nav-icon"></i>
-        <p>Respuestas</p>
-        </a>
-    </li>
-    --}}
-    </ul>
-</li>
+         @can('inlineabase-leer')
+         <li class="nav-item">
+             <a href="{{ route('li') }}" class="nav-link">
+                 <i class="fas fa-check nav-icon"></i>
+                 <p>Líneas Base</p>
+             </a>
+         </li>
+         @endcan
+         @can('area-leer')
+         <li class="nav-item">
+             <a href="{{ route('area') }}" class="nav-link">
+                 <i class="fas fa-sitemap nav-icon"></i>
+                 <p>Áreas</p>
+             </a>
+         </li>
+         @endcan
+         @can('fsoporte-leer')
+         <li class="nav-item">
+             <a href="{{ route('fsoporte') }}" class="nav-link">
+                 <i class="fas fa-chess-pawn nav-icon"></i>
+                 <p>Funtes Soporte</p>
+             </a>
+         </li>
+         @endcan
+     </ul>
+ </li>

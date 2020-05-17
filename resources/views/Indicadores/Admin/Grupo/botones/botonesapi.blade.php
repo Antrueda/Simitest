@@ -1,2 +1,0 @@
-<a class="btn btn-sm btn-primary" href="{{ route('inligru.editar', [$area_id,$in_linea_base_id,$id]) }}">Editar</a>
-<a class="btn btn-sm btn-primary" href="{{ route('inligru.ver', [$area_id,$in_linea_base_id,$id]) }}">Ver</a>

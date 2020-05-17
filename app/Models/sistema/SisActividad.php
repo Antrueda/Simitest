@@ -20,6 +20,11 @@ class SisActividad extends Model
         return $this->belongsTo(User::class, 'user_crea_id');
     }
 
+    public function sis_fsoportes()
+    {
+        return $this->hasMany(SisFsoporte::class);
+    }
+
     public function editor()
     {
         return $this->belongsTo(User::class, 'user_edita_id');

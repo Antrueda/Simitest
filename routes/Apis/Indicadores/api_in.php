@@ -2,18 +2,12 @@
 
 use App\Helpers\Indicadores\IndicadorApi;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Indicadores\Area;
-use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InBaseFuente;
-use App\Models\Indicadores\InDocPregunta;
-use App\Models\Indicadores\InFuente;
-use App\Models\Indicadores\InIndicador;
 use App\Models\Indicadores\InLineaBase;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InValidacion;
-use App\Models\Indicadores\InLigru;
 use Illuminate\Http\Request;
 
 Route::get('indicadores/indicador', function (Request $request) {
@@ -69,7 +63,13 @@ Route::get('indicadores/basefuentes', function (Request $request) {
 	return IndicadorApi::getBaseFuentes($request); 
 });
 
-
+/**
+ * documentos fuentes asignados a la linea base
+ */
+Route::get('indicadores/valoraciones', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	return IndicadorApi::getValoraciones($request); 
+});
 
 
 Route::get('indicadores/respuestas', function (Request $request) {
@@ -153,32 +153,6 @@ Route::get('indicadores/validacion', function (Request $request) {
 		->rawColumns(['btns'])
 		->toJson();
 });
-
-Route::get('indicadores/acciongestion', function (Request $request) {
-	if (!$request->ajax()) return redirect('/');
-	return datatables()
-		->eloquent(
-			InAccionGestion::select([
-				'in_accion_gestions.id',
-				'sis_actividads.nombre as sis_actividad_id',
-				'in_accion_gestions.i_porcentaje',
-				'in_accion_gestions.i_tiempo',
-				'parametros.nombre  as i_prm_ttiempo_id',
-				'sis_fsoportes.nombre as sis_fsoporte_id',
-				'sis_documento_fuentes.nombre as sis_documento_fuente_id',
-				'in_accion_gestions.sis_esta_id'
-			])
-				->join('sis_documento_fuentes', 'in_accion_gestions.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
-				->join('sis_fsoportes', 'in_accion_gestions.sis_fsoporte_id', '=', 'sis_fsoportes.id')
-				->join('parametros', 'in_accion_gestions.i_prm_ttiempo_id', '=', 'parametros.id')
-				->join('sis_actividads', 'in_accion_gestions.sis_actividad_id', '=', 'sis_actividads.id')
-
-		)
-		->addColumn('btns', 'Indicadores/Admin/Acciongestion/botones/botonesapi')
-		->rawColumns(['btns'])
-		->toJson();
-});
-
 Route::get('indicadores/nnajs', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
 	return datatables()
@@ -187,10 +161,6 @@ Route::get('indicadores/nnajs', function (Request $request) {
 		->rawColumns(['btns'])
 		->toJson();
 });
-
-
-
-
 
 
 Route::get('indicadores/valoracion', function (Request $request) {
@@ -207,17 +177,50 @@ Route::get('indicadores/valoracion', function (Request $request) {
 			])
 				->join('sis_nnajs', 'in_lineabase_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
 				->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-				->where('i_prm_linea_base_id', 227)
-				->groupBy('sis_nnajs.id')
-				->groupBy('fi_datos_basicos.s_primer_nombre')
-				->groupBy('fi_datos_basicos.s_segundo_nombre')
-				->groupBy('fi_datos_basicos.s_primer_apellido')
-				->groupBy('fi_datos_basicos.s_segundo_apellido')
+				// ->where('i_prm_linea_base_id', 227)
+				// ->groupBy('sis_nnajs.id')
+				// ->groupBy('fi_datos_basicos.s_primer_nombre')
+				// ->groupBy('fi_datos_basicos.s_segundo_nombre')
+				// ->groupBy('fi_datos_basicos.s_primer_apellido')
+				// ->groupBy('fi_datos_basicos.s_segundo_apellido')
 		)
 		->addColumn('btns', 'Indicadores/Admin/Valoracion/botones/botonesapi')
 		->rawColumns(['btns'])
 		->toJson();
 });
+
+
+
+// Route::get('indicadores/acciongestion', function (Request $request) {
+// 	if (!$request->ajax()) return redirect('/');
+// 	return datatables()
+// 		->eloquent(
+// 			InAccionGestion::select([
+// 				'in_accion_gestions.id',
+// 				'sis_actividads.nombre as sis_actividad_id',
+// 				'in_accion_gestions.i_porcentaje',
+// 				'in_accion_gestions.i_tiempo',
+// 				'parametros.nombre  as i_prm_ttiempo_id',
+// 				'sis_fsoportes.nombre as sis_fsoporte_id',
+// 				'sis_documento_fuentes.nombre as sis_documento_fuente_id',
+// 				'in_accion_gestions.sis_esta_id'
+// 			])
+// 				->join('sis_documento_fuentes', 'in_accion_gestions.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
+// 				->join('sis_fsoportes', 'in_accion_gestions.sis_fsoporte_id', '=', 'sis_fsoportes.id')
+// 				->join('parametros', 'in_accion_gestions.i_prm_ttiempo_id', '=', 'parametros.id')
+// 				->join('sis_actividads', 'in_accion_gestions.sis_actividad_id', '=', 'sis_actividads.id')
+
+// 		)
+// 		->addColumn('btns', 'Indicadores/Admin/Acciongestion/botones/botonesapi')
+// 		->rawColumns(['btns'])
+// 		->toJson();
+// });
+
+
+
+
+
+
 
 Route::get('indicadores/acciongestion', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
@@ -233,12 +236,12 @@ Route::get('indicadores/acciongestion', function (Request $request) {
 			])
 				->join('sis_nnajs', 'in_lineabase_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
 				->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-				->where('i_prm_linea_base_id', 227)
-				->groupBy('sis_nnajs.id')
-				->groupBy('fi_datos_basicos.s_primer_nombre')
-				->groupBy('fi_datos_basicos.s_segundo_nombre')
-				->groupBy('fi_datos_basicos.s_primer_apellido')
-				->groupBy('fi_datos_basicos.s_segundo_apellido')
+				// ->where('i_prm_linea_base_id', 227)
+				// ->groupBy('sis_nnajs.id')
+				// ->groupBy('fi_datos_basicos.s_primer_nombre')
+				// ->groupBy('fi_datos_basicos.s_segundo_nombre')
+				// ->groupBy('fi_datos_basicos.s_primer_apellido')
+				// ->groupBy('fi_datos_basicos.s_segundo_apellido')
 		)
 		->addColumn('btns', 'Indicadores/Admin/Acciongestion/botones/botonesapi')
 		->rawColumns(['btns'])
@@ -286,24 +289,7 @@ Route::get('indicadores/basennajag', function (Request $request) {
 
 Route::get('indicadores/baseactividades', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	return datatables()
-		->eloquent(
-			InAccionGestion::select([
-				'in_accion_gestions.id',
-				'in_accion_gestions.in_lineabase_nnaj_id',
-				'in_accion_gestions.sis_esta_id',
-				'sis_actividads.nombre',
-				'in_lineabase_nnajs.sis_nnaj_id',
-			])
-				->join('in_lineabase_nnajs', 'in_accion_gestions.in_lineabase_nnaj_id', '=', 'in_lineabase_nnajs.id')
-				->join('sis_actividads', 'in_accion_gestions.sis_actividad_id', '=', 'sis_actividads.id')
-				->join('sis_documento_fuentes', 'sis_actividads.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
-				->where('in_lineabase_nnajs.sis_nnaj_id', $request->nnajxxxx)
-				->where('in_lineabase_nnajs.in_fuente_id', $request->basexxxx)
-		)
-		->addColumn('btns', 'Indicadores/Admin/Acciongestion/Actividad/botones/botonesact')
-		->rawColumns(['btns'])
-		->toJson();
+	return IndicadorApi::getBaseActividades($request); 
 });
 
 Route::get('indicadores/actfuente', function (Request $request) {
@@ -328,51 +314,18 @@ Route::get('indicadores/actfuente', function (Request $request) {
 		->toJson();
 });
 
-
+Route::get('indicadores/actividadfuentes', function (Request $request) {
+	if (!$request->ajax()) return redirect('/');
+	return IndicadorApi::getAtividadFuentes($request); 	
+});
 Route::get('indicadores/nnajlineabase', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
-	$dataxxxx = $request->all();
-
-	return datatables()
-		->eloquent(
-			InLineabaseNnaj::select([
-				'sis_nnajs.id',
-				'sis_nnajs.sis_esta_id',
-				'fi_datos_basicos.s_primer_nombre',
-				'fi_datos_basicos.s_segundo_nombre',
-				'fi_datos_basicos.s_primer_apellido',
-				'fi_datos_basicos.s_segundo_apellido',
-			])
-				->join('sis_nnajs', 'in_lineabase_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
-				->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-				->where('i_prm_linea_base_id', 227)
-				->groupBy('sis_nnajs.id')
-				->groupBy('fi_datos_basicos.s_primer_nombre')
-				->groupBy('fi_datos_basicos.s_segundo_nombre')
-				->groupBy('fi_datos_basicos.s_primer_apellido')
-				->groupBy('fi_datos_basicos.s_segundo_apellido')
-		)
-		->addColumn('btns', $dataxxxx['botonesx'])
-		->rawColumns(['btns'])
-		->toJson();
+	return IndicadorApi::getInLineabaseNnajs($request); 	
 });
 
 Route::get('indicadores/diagnostico', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
 	$dataxxxx = $request->all();
-	return datatables()
-		->eloquent(
-			InLineabaseNnaj::select([
-				'in_lineabase_nnajs.id',
-				'in_lineabase_nnajs.sis_esta_id',
-				'in_linea_bases.s_linea_base',
-				'in_lineabase_nnajs.sis_nnaj_id',
-			])
-				->join('in_fuentes', 'in_lineabase_nnajs.in_fuente_id', '=', 'in_fuentes.id')
-				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
-		)
-		->addColumn('btns', $dataxxxx['botonesx'])
-		->rawColumns(['btns'])
-		->toJson();
+	return IndicadorApi::getValoracionIncial($request); 
 });
 

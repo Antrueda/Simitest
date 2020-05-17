@@ -30,6 +30,11 @@ class InFuente extends Model
   {
     return $this->belongsTo(InLineaBase::class);
   }
+
+  public function in_base_fuente()
+  {
+    return $this->hasMany(InBaseFuente::class);
+  }
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');

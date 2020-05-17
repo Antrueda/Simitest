@@ -1,1 +1,0 @@
-<a class="btn btn-sm btn-primary" href="{{ route('inligru.grupos', [$area_id,$id]) }}">Asignar Grupos</a>

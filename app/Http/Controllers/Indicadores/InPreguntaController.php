@@ -6,10 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Indicadores\InPreguntaCrearRequest;
 use App\Http\Requests\Indicadores\InPreguntaEditarRequest;
-use App\Models\Indicadores\Area;
-use App\Models\Indicadores\InDocIndi;
 use App\Models\Indicadores\InPregunta;
-use App\Models\sistema\SisCampoTabla;
 use App\Models\sistema\SisTabla;
 
 class InPreguntaController extends Controller
@@ -59,11 +56,8 @@ class InPreguntaController extends Controller
   {
     return view($this->opciones['rutacarp'].'index', ['todoxxxx' => $this->opciones]);
   }
-
-
   private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
   {
-
     $this->opciones['estadoxx'] = 'ACTIVO';
     $this->opciones['accionxx'] = $accionxx;
     // indica si se esta actualizando o viendo
@@ -84,7 +78,7 @@ class InPreguntaController extends Controller
    * @return \Illuminate\Http\Response
    */
   public function create()
-  {
+  { 
     return $this->view(true, '', 'Crear', $this->opciones['rutacarp'].'crear');
   }
 

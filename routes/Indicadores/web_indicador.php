@@ -3,12 +3,12 @@
 $controll = 'Indicadores\InIndicador';
 $permisox = 'indicador';
 $routexxx = 'in.indicador';
-Route::group(['prefix' => '{padrexxx}/indicador'], function () use ($controll, $routexxx,$permisox) {
-	Route::get('', [
+Route::group(['prefix' => 'indicador'], function () use ($controll, $routexxx,$permisox) {
+	Route::get('{areaxxxx}', [
 		'uses' => $controll . 'Controller@index',
 		'middleware' => ['permission:' . $permisox . '-leer|' . $permisox . '-crear|' . $permisox . '-editar|' . $permisox . '-borrar']
 	])->name($routexxx);
-	Route::get('nuevo', [
+	Route::get('{areaxxxx}/nuevo', [
 		'uses' => $controll . 'Controller@create',
 		'middleware' => ['permission:' . $permisox . '-crear']
 	])->name($routexxx . '.nuevo');

@@ -21,7 +21,7 @@ class Tema extends Model {
   /**
    * Store a newly created resource in storage.
    *
-   * @param  $temaxxxx tema que padre de los parámetros
+   * @param  $temaxxxx tema padre de los parámetros
    * @param  $cabecera indica si el combo se debe devolver con el seleccione
    * @param  $ajaxxxxx indica si el combo es para devolver en array para objeto json
    * @return $comboxxx

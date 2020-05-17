@@ -13,6 +13,7 @@ class CamposMagicos
         $table->foreign('user_crea_id')->references('id')->on('users');
         $table->foreign('user_edita_id')->references('id')->on('users');
         $table->timestamps();
+        $table->softDeletes();
         return $table;
     }
 
@@ -22,6 +23,7 @@ class CamposMagicos
         $table->integer('user_edita_id');
         $table->integer('sis_esta_id');
         $table->timestamps();
+        $table->softDeletes();
         return $table;
     }
 }

@@ -1,1 +1,3 @@
-<a class="btn btn-sm btn-primary" href="{{ route('diagnostico.nnajbases', $id) }}">Ver Lineas Base NNAJ</a>
+@if($requestx->puedasig)
+<a class="btn btn-sm btn-primary" href="{{ route('valoinic.nnajbases', $queryxxx->id) }}">ASIGNAR VOLARACI&Oacute;N INICIAL</a>
+@endif

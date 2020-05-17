@@ -1,2 +1,0 @@
-<a class="btn btn-sm btn-primary" href="{{ route('pr.preguntas.editar', $id) }}">Asignar Respuestas a la pregunta</a>
-<a class="btn btn-sm btn-primary" href="{{ route('pr.preguntas.ver', $id) }}">Ver</a>
