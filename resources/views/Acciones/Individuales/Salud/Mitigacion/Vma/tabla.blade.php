@@ -352,29 +352,29 @@
                 {{ Form::select('prm_2cb_sino_id', $sinoc, null, ['class' => $errors->first('prm_2cb_sino_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_2cb_sino_id', 'onchange' => 'doc11(this.value)']) }}
             </td>
             <td>
-                {{ Form::number('2cb_edad', null, ['class' => $errors->first('2cb_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => '2cb_edad']) }}
+                {{ Form::number('doscb_edad', null, ['class' => $errors->first('doscb_edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'doscb_edad']) }}
             </td>
             <td>
                 {{ Form::select('prm_2cb_frec_id', $frecuencia, null, ['class' => $errors->first('prm_2cb_frec_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_2cb_frec_id']) }}
             </td>
             <td>
-                {{ Form::number('2cb_dosis', null, ['class' => $errors->first('2cb_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => '2cb_dosis']) }}
+                {{ Form::number('doscb_dosis', null, ['class' => $errors->first('doscb_dosis') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '', 'min' => '0', 'max' => '99', 'id' => 'doscb_dosis']) }}
             </td>
             <td>
                 <div class="row">
                     <div class="col-md-4">
-                        {{ Form::number('2cb_dia', null, ['class' => $errors->first('2cb_dia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '30', 'id' => '2cb_dia']) }}
+                        {{ Form::number('doscb_dia', null, ['class' => $errors->first('doscb_dia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '30', 'id' => 'doscb_dia']) }}
                     </div>
                     <div class="col-md-4">
-                        {{ Form::number('2cb_mes', null, ['class' => $errors->first('2cb_mes') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Mes(es)', 'min' => '0', 'max' => '11', 'id' => '2cb_mes']) }}
+                        {{ Form::number('doscb_mes', null, ['class' => $errors->first('doscb_mes') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Mes(es)', 'min' => '0', 'max' => '11', 'id' => 'doscb_mes']) }}
                     </div>
                     <div class="col-md-4">
-                        {{ Form::number('2cb_anio', null, ['class' => $errors->first('2cb_anio') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99', 'id' => '2cb_anio']) }}
+                        {{ Form::number('doscb_anio', null, ['class' => $errors->first('doscb_anio') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99', 'id' => 'doscb_anio']) }}
                     </div>
                 </div>
             </td>
             <td>
-                {{ Form::number('2cb_dejo', null, ['class' => $errors->first('2cb_dejo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99', 'id' => '2cb_dejo']) }}
+                {{ Form::number('doscb_dejo', null, ['class' => $errors->first('doscb_dejo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99', 'id' => 'doscb_dejo']) }}
             </td>
         </tr>
         <tr>

@@ -210,6 +210,11 @@ class InValorInicialController extends Controller
             ->with('info', $infoxxxx);
     }
 
+
+    public function show(InLineabaseNnaj $objetoxx)
+    {
+        return $this->view(['objetoxx'=>$objetoxx,'accionxx'=>'Ver']);
+    }
     /**
      * Update the specified resource in storage.
      *

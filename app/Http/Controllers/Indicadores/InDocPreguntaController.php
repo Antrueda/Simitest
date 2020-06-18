@@ -56,7 +56,7 @@ class InDocPreguntaController extends Controller
 
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
         $this->opciones['parametr'] = [$padrexxx->id];
-        $this->opciones['cardheap'] = 'Area: ' . $padrexxx->nombre;
+        $this->opciones['cardheap'] = 'Area: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->area->nombre;
 
         $this->opciones['tablasxx'][] =
             [
@@ -137,6 +137,7 @@ class InDocPreguntaController extends Controller
         $this->opciones['grupoxxx'] = $padrexxx;
         $this->opciones['grupoidx'] = [$padrexxx->id => $padrexxx->id];
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
+        $this->opciones['cardhead'] = 'INDICADOR: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->s_indicador;
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->area->nombre;
         $this->opciones['areasxxx'] = [$padrexxx->id => $padrexxx->nombre];
@@ -159,6 +160,7 @@ class InDocPreguntaController extends Controller
         $padrexxx = $objetoxx->in_ligru;
         $this->opciones['grupoxxx'] = $padrexxx;
         $this->opciones['grupoidx'] = [$padrexxx->id => $padrexxx->id];
+        $this->opciones['cardhead'] = 'INDICADOR: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->s_indicador;
         $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->area->nombre;
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
         $this->opciones['indecrea'] = false;
@@ -172,8 +174,8 @@ class InDocPreguntaController extends Controller
         $this->opciones['grupoxxx'] = $padrexxx;
         $this->opciones['grupoidx'] = [$padrexxx->id => $padrexxx->id];
         $this->opciones['tituloxx'] = 'ASIGNAR LÍNEA BASE AL INDICADOR ';
-        $this->opciones['cardhead'] = 'INDICADOR: ' . $objetoxx->s_indicador;
-        $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->nombre;
+        $this->opciones['cardhead'] = 'INDICADOR: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->s_indicador;
+        $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->in_base_fuente->in_fuente->in_indicador->area->nombre;
         $this->opciones['areasxxx'] = [$padrexxx->id => $padrexxx->nombre];
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
 
@@ -189,7 +191,7 @@ class InDocPreguntaController extends Controller
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true,  'routingx' => ['pregresp', [$objetoxx->id]],
-                'formhref' => 2, 'tituloxx' => 'ASIGANAR R', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'ASIGNAR R', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);
     }

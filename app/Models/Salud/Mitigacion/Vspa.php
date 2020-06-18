@@ -3,7 +3,7 @@
 namespace App\Models\Salud\Mitigacion;
 
 use App\Models\Parametro;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDependen;
 use App\Models\sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -32,7 +32,7 @@ class Vspa extends Model{
     }
 
     public function upi(){
-        return $this->belongsTo(SisDependencia::class, 'prm_upi_id');
+        return $this->belongsTo(SisDependen::class, 'prm_upi_id');
     }
 
     public function valoracion(){

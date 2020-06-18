@@ -38,7 +38,7 @@ class SisTabla extends Model
             $comboxxx = ['' => 'Seleccione'];
         }
        
-            $tablaxxx = SisTabla::where('sis_documento_fuente_id', $padrexxx)->get();
+            $tablaxxx = SisTabla::where('sis_docufuen_id', $padrexxx)->get();
       
         foreach ($tablaxxx as $registro) {
             if ($ajaxxxxx) {

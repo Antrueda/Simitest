@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\Acciones\Individuales\AiSalidaMenores;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDependen;
 use App\Models\sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
@@ -34,7 +34,7 @@ class AISalidaMenoresController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $salidas = $dato->AiSalidaMenores->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis = SisDependen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $objetivos = Tema::findOrFail(307)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $documento = Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -68,7 +68,7 @@ class AISalidaMenoresController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $salidas = $dato->AiSalidaMenores->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis = SisDependen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $objetivos = Tema::findOrFail(307)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $documento = Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -106,7 +106,7 @@ class AISalidaMenoresController extends Controller{
     protected function validator(array $data){
         return Validator::make($data, [
             'sis_nnaj_id'       => 'required|exists:sis_nnajs,id',
-            'prm_upi_id'        => 'required|exists:sis_dependencias,id',
+            'prm_upi_id'        => 'required|exists:sis_dependens,id',
             'fecha'             => 'required|date',
             'hora_salida'       => 'required|date_format:h:i',
             'prm_hor_sal_id'    => 'required|exists:parametros,id',

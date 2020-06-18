@@ -83,33 +83,33 @@ class FiSaludController extends Controller
     if ($nombobje != '') {
         $this->opciones['entid_id'] = SisEntidadSalud::combo($objetoxx->i_prm_tentidad_id,true,false);
       $this->opciones['puedexxx'] = '';
-      if ($objetoxx->i_prm_tiene_discapacidad_id == 228) {
+      if ($objetoxx->tiendisc_id == 228) {
         $this->opciones['noapdisc'] = [1 => 'NO APLICA'];
         $this->opciones['tipodisc'] = [1 => 'NO APLICA'];
       }
-      if ($objetoxx->i_prm_conoce_metodos_id == 228 || $objetoxx->i_prm_conoce_metodos_id == 235) {
+      if ($objetoxx->conometo_id == 228 || $objetoxx->conometo_id == 235) {
         $this->opciones['noapdisc'] = [1 => 'NO APLICA'];
         $this->opciones['metantic'] = [1 => 'NO APLICA'];
       }
-      if ($objetoxx->i_prm_regimen_salud_id == 168) {
+      if ($objetoxx->regisalu_id == 168) {
         $this->opciones['entid_id'] = [1 => 'NO APLICA'];
       }
       if ($objetoxx->i_comidas_diarias > 4) {
         $this->opciones['motcomdi'] = [1 => 'NO APLICA'];
       }
-      if ($objetoxx->i_prm_esta_gestando_id == 228 || $objetoxx->i_prm_esta_gestando_id == 235) {
+      if ($objetoxx->estagest_id == 228 || $objetoxx->estagest_id == 235) {
         $this->opciones['readgest'] = 'readonly';
       }
-      if ($objetoxx->i_prm_esta_lactando_id == 228 || $objetoxx->i_prm_esta_lactando_id == 235) {
+      if ($objetoxx->estalact_id == 228 || $objetoxx->estalact_id == 235) {
         $this->opciones['readlact'] = 'readonly';
       }
-      if ($objetoxx->i_prm_tiene_hijos_id == 228) {
+      if ($objetoxx->tienhijo_id == 228) {
         $this->opciones['readhijo'] = 'readonly';
       }
-      if ($objetoxx->i_prm_tiene_problema_salud_id == 228) {
+      if ($objetoxx->probsalu_id == 228) {
         $this->opciones['probsalu'] = [1 => 'NO APLICA'];
       }
-      if ($objetoxx->i_prm_consume_medicamentos_id == 228) {
+      if ($objetoxx->consmedi_id == 228) {
         $this->opciones['cualmedi'] = 'readonly';
       }
       if ($objetoxx->d_puntaje_sisben != '') {

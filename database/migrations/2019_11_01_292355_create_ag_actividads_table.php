@@ -42,8 +42,8 @@ class CreateAgActividadsTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('area_id')->references('id')->on('areas');
-            $table->foreign('sis_deporigen_id')->references('id')->on('sis_dependencias');
-            $table->foreign('sis_depdestino_id')->references('id')->on('sis_dependencias');
+            $table->foreign('sis_deporigen_id')->references('id')->on('sis_dependens');
+            $table->foreign('sis_depdestino_id')->references('id')->on('sis_dependens');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('ag_tema_id')->references('id')->on('ag_temas');

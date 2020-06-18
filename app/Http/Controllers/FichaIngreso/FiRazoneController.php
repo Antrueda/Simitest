@@ -178,11 +178,11 @@ class FiRazoneController extends Controller {
       switch ($dataxxxx['campoxxx']) {
         case 'userd_id':
           $respuest['campcarg'] = '#s_cargo_diligencia';
-          $respuest['campoxxx'] = '#sis_dependenciad_id';
+          $respuest['campoxxx'] = '#sis_dependend_id';
           break;
         case 'userr_id':
           $respuest['campcarg'] = '#s_cargo_responsable';
-          $respuest['campoxxx'] = '#sis_dependenciar_id';
+          $respuest['campoxxx'] = '#sis_dependenr_id';
           break;
       }
       if ($dataxxxx['valuexxx'] != '') {

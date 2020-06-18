@@ -35,8 +35,8 @@
                
             @endif
         @endif
-        @if(old('sis_documento_fuente_id')!=null)
-            f_campos({{ old('sis_documento_fuente_id') }},{{ old('sis_actividad_id')  }},4,'sis_actividad_id');
+        @if(old('sis_docufuen_id')!=null)
+            f_campos({{ old('sis_docufuen_id') }},{{ old('sis_actividad_id')  }},4,'sis_actividad_id');
         @endif
         @if(old('sis_tabla_id')!=null)
             f_campos({{ old('sis_tabla_id') }},{{ old('sis_campo_tabla_id')  }},5,'sis_campo_tabla_id');

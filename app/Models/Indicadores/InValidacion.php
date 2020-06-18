@@ -13,7 +13,7 @@ class InValidacion extends Model
   protected $fillable = [
     'in_pregunta_id',
     'in_fuente_id',
-    'sis_documento_fuente_id',
+    'sis_docufuen_id',
     'sis_tabla_id',
     'sis_tcampo_id',
     'user_crea_id',

@@ -22,16 +22,18 @@
                     <table class="table table-bordered table-striped table-hover table-sm">
                         <thead>
                             <tr class="text-center">
+                            <th>ID</th>
                                 @canany(['entidad-editar','entidad-borrar'])
                                     <th>Acciones</th>
                                 @endcan
-                                <th>Nombre</th> 
-                                <th>Estado</th> 
+                                <th>Nombre</th>
+                                <th>Estado</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($datos as $d)
                                 <tr>
+                                <td>{{ $d->id }}</td>
                                     @canany(['entidad-editar','entidad-borrar'])
                                         <td class='text-center'>
                                             @can('entidad-editar')

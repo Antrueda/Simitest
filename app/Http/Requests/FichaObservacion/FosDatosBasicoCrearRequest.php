@@ -12,14 +12,14 @@ class FosDatosBasicoCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'sis_dependencia_id.required' => 'Seleccione la unidad de atención integral',
+            'sis_dependen_id.required' => 'Seleccione la unidad de atención integral',
             'd_fecha_diligencia.required' => 'Seleccione la fecha de diligenciamiento',
             'fos_sub_tipo_id.required' => 'Seleccione el sub tipo de seguimiento',
             's_observacion.required' => 'Escriba la observación',
             //'fi_composicion_fami_id.required' => 'Escriba el acudiente',
         ];
         $this->_reglasx = [
-            'sis_dependencia_id' => ['Required'],
+            'sis_dependen_id' => ['Required'],
             'd_fecha_diligencia' => ['Required'],
             'fos_stse_id' => ['Required'],
             's_observacion' => ['Required'],

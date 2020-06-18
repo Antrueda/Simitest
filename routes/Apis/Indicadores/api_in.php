@@ -77,7 +77,7 @@ Route::get('indicadores/respuestas', function (Request $request) {
 	return datatables()
 		->eloquent(
 			InBaseFuente::select([
-				'in_doc_preguntas.id',  'sis_documento_fuentes.nombre', 'in_linea_bases.s_linea_base',
+				'in_doc_preguntas.id',  'sis_docufuens.nombre', 'in_linea_bases.s_linea_base',
 				'in_indicadors.s_indicador', 'in_preguntas.s_pregunta'
 			])
 				->join('in_doc_preguntas', 'in_base_fuentes.id', '=', 'in_doc_preguntas.in_base_fuente_id')
@@ -85,7 +85,7 @@ Route::get('indicadores/respuestas', function (Request $request) {
 				->join('in_fuentes', 'in_base_fuentes.in_fuente_id', '=', 'in_fuentes.id')
 				->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
 				->join('in_indicadors', 'in_fuentes.in_indicador_id', '=', 'in_indicadors.id')
-				->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
+				->join('sis_docufuens', 'in_base_fuentes.sis_docufuen_id', '=', 'sis_docufuens.id')
 		)
 		->addColumn('btns', 'Indicadores/Admin/Respuesta/Datatable/botones')
 		->rawColumns(['btns'])
@@ -202,10 +202,10 @@ Route::get('indicadores/valoracion', function (Request $request) {
 // 				'in_accion_gestions.i_tiempo',
 // 				'parametros.nombre  as i_prm_ttiempo_id',
 // 				'sis_fsoportes.nombre as sis_fsoporte_id',
-// 				'sis_documento_fuentes.nombre as sis_documento_fuente_id',
+// 				'sis_docufuens.nombre as sis_docufuen_id',
 // 				'in_accion_gestions.sis_esta_id'
 // 			])
-// 				->join('sis_documento_fuentes', 'in_accion_gestions.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
+// 				->join('sis_docufuens', 'in_accion_gestions.sis_docufuen_id', '=', 'sis_docufuens.id')
 // 				->join('sis_fsoportes', 'in_accion_gestions.sis_fsoporte_id', '=', 'sis_fsoportes.id')
 // 				->join('parametros', 'in_accion_gestions.i_prm_ttiempo_id', '=', 'parametros.id')
 // 				->join('sis_actividads', 'in_accion_gestions.sis_actividad_id', '=', 'sis_actividads.id')

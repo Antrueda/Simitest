@@ -17,8 +17,8 @@
     {{ Form::select('in_pregunta_id', $todoxxxx["pregindi"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('sis_documento_fuente_id', 'Documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_documento_fuente_id', $todoxxxx["docufuen"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::label('sis_docufuen_id', 'Documento', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('sis_docufuen_id', $todoxxxx["docufuen"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('sis_tabla_id', 'Tabla', ['class' => 'control-label col-form-label-sm']) }}

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\Acciones\Individuales\AiReporteEvasion;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDependen;
 use App\Models\sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
@@ -34,7 +34,7 @@ class AIEvasionController extends Controller{
         $dato  = SisNnaj::findOrFail($id);
         $nnaj  = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $evasiones  = $dato->AiReporteEvasion->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis  = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis  = SisDependen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm  = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $contextura = Tema::findOrFail(273)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $rostro= Tema::findOrFail(274)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -51,7 +51,7 @@ class AIEvasionController extends Controller{
         $atencion   = Tema::findOrFail(306)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $usuarios   = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
         $depajs = SisDepartamento::orderBy('s_departamento')->get();
-        $upisjs = SisDependencia::orderBy('nombre')->get();
+        $upisjs = SisDependen::orderBy('nombre')->get();
         $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
         $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 6)->pluck('s_municipio', 'id');
         $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
@@ -89,7 +89,7 @@ class AIEvasionController extends Controller{
         $dato  = SisNnaj::findOrFail($id);
         $nnaj  = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $evasiones  = $dato->AiReporteEvasion->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis  = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis  = SisDependen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm  = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $contextura = Tema::findOrFail(273)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $rostro= Tema::findOrFail(274)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -155,7 +155,7 @@ class AIEvasionController extends Controller{
             'departamento_id' => 'required|exists:sis_departamentos,id',
             'municipio_id' => 'required|exists:sis_municipios,id',
             'fecha_diligenciamiento' => 'required|date',
-            'prm_upi_id'    => 'required|exists:sis_dependencias,id',
+            'prm_upi_id'    => 'required|exists:sis_dependens,id',
             'lugar_evasion' => 'required|string|max:120',
             'fecha_evasion' => 'required|date|before_or_equal:'.$hoy,
             'hora_evasion'  => 'required',

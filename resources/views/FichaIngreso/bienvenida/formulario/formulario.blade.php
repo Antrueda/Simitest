@@ -16,8 +16,8 @@
     <p id="contadorgustariahacer">0/4000</p>
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('sis_dependencia_id', 'UPI', ['class' => 'control-label']) }}
-    {{ Form::select('sis_dependencia_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('sis_dependen_id', 'UPI', ['class' => 'control-label']) }}
+    {{ Form::select('sis_dependen_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('i_prm_servicio_id', 'Servicio', ['class' => 'control-label col-form-label-sm']) }}

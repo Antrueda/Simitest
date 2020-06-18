@@ -1,13 +1,14 @@
 <?php
 
 use App\CamposMagicos\CamposMagicos;
+use App\Traits\Db\DbTrait;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateHInValoracionsTable extends Migration
 {
+    use  DbTrait;
     private $tablaxxx = 'in_valoracions';
     /**
      * Run the migrations.
@@ -29,7 +30,10 @@ class CreateHInValoracionsTable extends Migration
             $table->string('metodoxx', 50);
             $table = CamposMagicos::h_magicos($table);
         });
-        DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+
+        $comments = "TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}";
+        $this->getCommentTable($this->tablaxxx, 'h_', $comments);
+
     }
 
     /**

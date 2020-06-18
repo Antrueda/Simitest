@@ -13,15 +13,15 @@ class FiEnfermedadesFamiliaUpdateRequest extends FormRequest
     {
         $this->_mensaje = [
             'fi_composicion_fami_id.required' => 'Seleccione un miembro de la familia',
-            'i_prm_recibe_medicina_id.required' => 'Indique si recibe algún medicina',
-            'i_prm_rec_tratamiento_id.required' => 'Indique si recibe algún tratamiento',
+            'recimedi_id.required' => 'Indique si recibe algún medicina',
+            'rectrata_id.required' => 'Indique si recibe algún tratamiento',
             's_tipo_enfermedad.required' => 'Escriba el nombre de la enfermedad',
             's_medicamento.required' => 'escriba el nombre del medicamento',      
         ];
         $this->_reglasx = [
             'fi_composicion_fami_id' => ['required'],
-            'i_prm_recibe_medicina_id' => ['required'],
-            'i_prm_rec_tratamiento_id' => ['required'],
+            'recimedi_id' => ['required'],
+            'rectrata_id' => ['required'],
             's_tipo_enfermedad' => ['required'],
             's_medicamento' => ['required'],  
         ];

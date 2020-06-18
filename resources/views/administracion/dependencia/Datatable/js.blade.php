@@ -31,7 +31,7 @@ $(document).ready(function() {
     	"serverSide": true,
     	"ajax": {url:"{{ url($todoxxxx['urlxxxag'])  }}",
 			data: {
-				sis_dependencia_id:{{ $todoxxxx['modeloxx']->id }}
+				sis_dependen_id:{{ $todoxxxx['modeloxx']->id }}
 			}
 		},
     	"columns":[
@@ -51,7 +51,7 @@ $(document).ready(function() {
            type : 'GET',
           data: {
 			   buscarxx: request.term,
-			   sis_dependencia_id:{{ $todoxxxx['modeloxx']->id }}
+			   sis_dependen_id:{{ $todoxxxx['modeloxx']->id }}
           },
           success: function( data ) { 
               response( data );
@@ -66,16 +66,16 @@ $(document).ready(function() {
 		f_asiganar_registro({
 			sis_servicio_id:ui.item.id,
 			tipoxxxx:4,
-			sis_dependencia_id:"{{ $todoxxxx['modeloxx']->id }}"
+			sis_dependen_id:"{{ $todoxxxx['modeloxx']->id }}"
 		},responsa);
       }
 	} );
-	
+
 	var asistent=$('#personals').DataTable({
     	"serverSide": true,
     	"ajax":{url:"{{ url($todoxxxx['urlxxxas'])  }}",
 			data: {
-				sis_dependencia_id:{{ $todoxxxx['modeloxx']->id }}
+				dependen:{{ $todoxxxx['modeloxx']->id }}
 			}
 		},
     	"columns":[
@@ -95,7 +95,7 @@ $(document).ready(function() {
 				type : 'GET',
 				data: {
 					buscarxx: request.term,
-					sis_dependencia_id:{{ $todoxxxx['modeloxx']->id }}
+					sis_dependen_id:{{ $todoxxxx['modeloxx']->id }}
 				},
 				success: function( data ) {
 					response( data );
@@ -110,7 +110,7 @@ $(document).ready(function() {
 			f_asiganar_registro({
 				user_id:ui.item.id,
 				tipoxxxx:5,
-				sis_dependencia_id:"{{ $todoxxxx['modeloxx']->id }}",
+				sis_dependen_id:"{{ $todoxxxx['modeloxx']->id }}",
 				responsable:$('#i_prm_condicional_id').val(),
 			},asistent);
 		}

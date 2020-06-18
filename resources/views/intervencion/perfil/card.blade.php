@@ -13,8 +13,8 @@
       <div class="form-row align-items-end">
           {{ Form::hidden('sis_nnaj_id', $todoxxxx['nnajregi']) }}
         <div class="form-group col-md-4">
-          {{ Form::label('sis_dependencia_id', 'UPI', ['class' => 'control-label']) }}
-		      {{ Form::select('sis_dependencia_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm']) }}
+          {{ Form::label('sis_dependen_id', 'UPI', ['class' => 'control-label']) }}
+		      {{ Form::select('sis_dependen_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm']) }}
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('d_fecha_diligencia', 'Fecha Diligenciamiento', ['class' => 'control-label']) }}

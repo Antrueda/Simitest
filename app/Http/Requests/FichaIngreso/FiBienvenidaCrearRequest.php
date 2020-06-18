@@ -16,14 +16,14 @@ class FiBienvenidaCrearRequest extends FormRequest
             'i_prm_quiere_entrar_id.required' => 'Seleccione quiere entrar al idipron',
             's_porque_quiere_entrar.required' => 'Seleccione porqué quiere entrar',
             's_que_gustaria_hacer.required' => 'Seleccione qué te gustaría hacer en el idipron',
-            'sis_dependencia_id.required' => 'Seleccione una unidad de atención integral',
+            'sis_dependen_id.required' => 'Seleccione una unidad de atención integral',
             'i_prm_servicio_id.required' => 'Seleccione el servicio',
         ];
         $this->_reglasx = [
             'i_prm_quiere_entrar_id' => ['Required'],
             's_porque_quiere_entrar' => ['Required'],
             's_que_gustaria_hacer' => ['Required'],
-            'sis_dependencia_id' => ['Required'],
+            'sis_dependen_id' => ['Required'],
             'i_prm_servicio_id' => ['Required'],
         ];
     }

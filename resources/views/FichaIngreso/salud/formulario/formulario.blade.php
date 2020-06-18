@@ -1,7 +1,7 @@
 <div class="form-row align-items-end">
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_regimen_salud_id', '6.1 Estado de afiliación en Salud', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_regimen_salud_id', $todoxxxx["estafili"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('regisalu_id', '6.1 Estado de afiliación en Salud', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('regisalu_id', $todoxxxx["estafili"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('sis_entidad_salud_id', '6.2 Entidad / Régimen', ['class' => 'control-label col-form-label-sm']) }}
@@ -16,30 +16,30 @@
             {{ Form::text('d_puntaje_sisben', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
         </div>
         <div class="col-md-6">
-          {{ Form::label('i_prm_tiene_sisben_id', 'Tiene SISBEN', ['class' => 'control-label col-form-label-sm d-none']) }}
-          {{ Form::select('i_prm_tiene_sisben_id', $todoxxxx["apsisben"], null, ['class' => 'form-control form-control-sm']) }}
+          {{ Form::label('tiensalu_id', 'Tiene SISBEN', ['class' => 'control-label col-form-label-sm d-none']) }}
+          {{ Form::select('tiensalu_id', $todoxxxx["apsisben"], null, ['class' => 'form-control form-control-sm']) }}
         </div>
       </div>
   </div>
   <div class="form-group col-md-4">
-      {{ Form::label('i_prm_tiene_discapacidad_id', '6.4 ¿Tiene algún tipo de discapacidad?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_tiene_discapacidad_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::label('tiendisc_id', '6.4 ¿Tiene algún tipo de discapacidad?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('tiendisc_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_tipo_discapacidad_id', 'Indicar tipo', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_tipo_discapacidad_id', $todoxxxx["tipodisc"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('tipodisc_id', 'Indicar tipo', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('tipodisc_id', $todoxxxx["tipodisc"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_tiene_cert_discapacidad_id', '6.5 ¿Cuenta con certificado?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_tiene_cert_discapacidad_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('ticedisc_id', '6.5 ¿Cuenta con certificado?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('ticedisc_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_disc_perm_independencia_id', '6.6 ¿Su nivel de discapacidad le permite independencia en la ejecución de sus actividades cotidianas?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_disc_perm_independencia_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('dipeinde_id', '6.6 ¿Su nivel de discapacidad le permite independencia en la ejecución de sus actividades cotidianas?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('dipeinde_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_esta_gestando_id', '6.7 ¿Se encuentra en estado de gestación?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_esta_gestando_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('estagest_id', '6.7 ¿Se encuentra en estado de gestación?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('estagest_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('i_numero_semanas', 'Número de semanas', ['class' => 'control-label col-form-label-sm']) }}
@@ -47,8 +47,8 @@
     {{ Form::number('i_numero_semanas', null, ['class' => $errors->first('i_numero_semanas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $todoxxxx['readgest'], 'placeholder' => 'Edad', 'min' => '1', 'max' => '42']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_esta_lactando_id', '6.8 ¿Se encuentra lactando?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_esta_lactando_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('estalact_id', '6.8 ¿Se encuentra lactando?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('estalact_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('i_numero_meses', 'Número de meses', ['class' => 'control-label col-form-label-sm']) }}
@@ -56,37 +56,37 @@
     {{ Form::number('i_numero_meses', null, ['class' => $errors->first('i_numero_meses') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $todoxxxx['readlact'], 'placeholder' => 'Edad', 'min' => '1', 'max' => '60']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_tiene_problema_salud_id', '6.9 ¿Presenta algún problema de salud?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_tiene_problema_salud_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('probsalu_id', '6.9 ¿Presenta algún problema de salud?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('probsalu_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('i_prm_problema_salud_id', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('i_prm_problema_salud_id', $todoxxxx["probsalu"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_consume_medicamentos_id', '6.10 ¿Consume medicamentos de manera permanente?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_consume_medicamentos_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('consmedi_id', '6.10 ¿Consume medicamentos de manera permanente?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('consmedi_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('s_cual_medicamento', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('s_cual_medicamento', null, ['class' => 'form-control form-control-sm', $todoxxxx['cualmedi'], "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_tiene_hijos_id', '6.11 ¿Tiene hijos?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_tiene_hijos_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('tienhijo_id', '6.11 ¿Tiene hijos?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('tienhijo_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('i_numero_hijos', 'No. Hijos(as)', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('i_numero_hijos', null, ['class' => 'form-control form-control-sm', $todoxxxx['readhijo'], "onkeypress" => "return soloNumeros(event);"]) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_evento_medico_id', '6.12 Mencione los eventos médicos importantes', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('evenmedi_id', '6.12 Mencione los eventos médicos importantes', ['class' => 'control-label col-form-label-sm']) }}
 
-    <select id="i_prm_evento_medico_id" name="i_prm_evento_medico_id[]" class="form-control form-control-sm" multiple="multiple">
+    <select id="evenmedi_id" name="evenmedi_id[]" class="form-control form-control-sm" multiple="multiple">
       @foreach($todoxxxx["evmedico"] as $key=> $eventoxx)
       <?php $selected=''; ?>
         @foreach($todoxxxx["saludxxx"]['eventome'] as $modsalud)
-          @if($key==$modsalud->i_prm_evento_medico_id)
+          @if($key==$modsalud->evenmedi_id)
           <?php $selected='selected'; ?>
           @endif
         @endforeach
@@ -95,20 +95,20 @@
     </select>
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_conoce_metodos_id', '6.13 ¿Tiene conocimiento sobre métodos anticonceptivos?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_conoce_metodos_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('conometo_id', '6.13 ¿Tiene conocimiento sobre métodos anticonceptivos?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('conometo_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_usa_metodos_id', '6.14 ¿Usa métodos anticonceptivos?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_usa_metodos_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('usametod_id', '6.14 ¿Usa métodos anticonceptivos?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('usametod_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_cual_metodo_id', '6.15 ¿Cuál método?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_cual_metodo_id', $todoxxxx["metantic"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('cualmeto_id', '6.15 ¿Cuál método?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('cualmeto_id', $todoxxxx["metantic"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_uso_voluntario_id', '6.16 ¿Lo usa voluntariamente?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_uso_voluntario_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('usovolun_id', '6.16 ¿Lo usa voluntariamente?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('usovolun_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
 
   @if(isset($todoxxxx['puedexxx']))
@@ -147,8 +147,8 @@
 
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_razon_no_cinco_comidas_id', '6.19 ¿Por qué no consumió las 5 comidas diarias?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_razon_no_cinco_comidas_id', $todoxxxx["motcomdi"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('racicomi_id', '6.19 ¿Por qué no consumió las 5 comidas diarias?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('racicomi_id', $todoxxxx["motcomdi"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
 </div>
 
@@ -182,8 +182,8 @@ function soloNumeros(e){
 $(function(){
 
        var f_discapacidad = function(valuexxx){
-           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").empty();
-           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").append('<option value="">Seleccione</>')
+           $("#tipodisc_id, #ticedisc_id, #dipeinde_id").empty();
+           $("#tipodisc_id, #ticedisc_id, #dipeinde_id").append('<option value="">Seleccione</>')
            if(valuexxx != ''){
                $.ajax({
                    url : "{{ route('ajaxx.discapacitado') }}",
@@ -195,16 +195,16 @@ $(function(){
                    dataType : 'json',
                    success : function(json) {
                        if(json[0].discapac[0].valuexxx==1){
-                           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").empty();
+                           $("#tipodisc_id, #ticedisc_id, #dipeinde_id").empty();
                        }
                        $.each(json[0].discapac,function(i,data){
-                           $('#i_prm_tipo_discapacidad_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                           $('#tipodisc_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                        });
                        $.each(json[0].certific,function(i,data){
-                               $('#i_prm_tiene_cert_discapacidad_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                               $('#ticedisc_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                        });
                        $.each(json[0].independ,function(i,data){
-                               $('#i_prm_disc_perm_independencia_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                               $('#dipeinde_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                        });
                    },
                    error : function(xhr, status) {
@@ -214,17 +214,17 @@ $(function(){
            }
        }
 
-       @if(old('i_prm_tiene_discapacidad_id')!=null)
-           f_discapacidad({{ old('i_prm_tiene_discapacidad_id') }});
+       @if(old('tiendisc_id')!=null)
+           f_discapacidad({{ old('tiendisc_id') }});
        @endif
 
-       $("#i_prm_tiene_discapacidad_id").change(function(){
+       $("#tiendisc_id").change(function(){
            f_discapacidad($(this).val());
        });
 
-       $("#i_prm_usa_metodos_id").change(function(){
-           $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id").empty();
-           $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id").append('<option value="">Seleccione</>')
+       $("#usametod_id").change(function(){
+           $("#cualmeto_id, #usovolun_id").empty();
+           $("#cualmeto_id, #usovolun_id").append('<option value="">Seleccione</>')
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.anticonceptivo') }}",
@@ -236,13 +236,13 @@ $(function(){
                dataType : 'json',
                success : function(json) {
                    if(json[0].cuametod[0].valuexxx==1){
-                       $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id").empty();
+                       $("#cualmeto_id, #usovolun_id").empty();
                    }
                    $.each(json[0].cuametod,function(i,data){
-                           $('#i_prm_cual_metodo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                           $('#cualmeto_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                    $.each(json[0].usavolun,function(i,data){
-                           $('#i_prm_uso_voluntario_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                           $('#usovolun_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                },
                error : function(xhr, status) {
@@ -253,7 +253,7 @@ $(function(){
        });
 
 
-       $("#i_prm_regimen_salud_id").change(function(){
+       $("#regisalu_id").change(function(){
            $("#sis_entidad_salud_id").empty();
            $("#sis_entidad_salud_id").append('<option value="">Seleccione</>')
            if($(this).val()!=''){
@@ -283,8 +283,8 @@ $(function(){
        });
 
        $("#i_comidas_diarias").keyup(function(){
-           $("#i_prm_razon_no_cinco_comidas_id").empty();
-           $("#i_prm_razon_no_cinco_comidas_id").append('<option value="">Seleccione</>')
+           $("#racicomi_id").empty();
+           $("#racicomi_id").append('<option value="">Seleccione</>')
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.comidasdiarias') }}",
@@ -296,10 +296,10 @@ $(function(){
                dataType : 'json',
                success : function(json) {
                    if(json[0].nocomida[0].valuexxx==1){
-                       $("#i_prm_razon_no_cinco_comidas_id").empty();
+                       $("#racicomi_id").empty();
                    }
                    $.each(json[0].nocomida,function(i,data){
-                       $('#i_prm_razon_no_cinco_comidas_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                       $('#racicomi_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                },
                error : function(xhr, status) {
@@ -309,7 +309,7 @@ $(function(){
            }
        });
 
-       $("#i_prm_esta_gestando_id").change(function(){
+       $("#estagest_id").change(function(){
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.estagestando') }}",
@@ -330,7 +330,7 @@ $(function(){
            }
        });
 
-       $("#i_prm_esta_lactando_id").change(function(){
+       $("#estalact_id").change(function(){
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.estalactando') }}",
@@ -351,7 +351,7 @@ $(function(){
            }
        });
 
-       $("#i_prm_esta_lactando_id").change(function(){
+       $("#estalact_id").change(function(){
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.estalactando') }}",
@@ -372,7 +372,7 @@ $(function(){
            }
        });
 
-       $("#i_prm_tiene_hijos_id").change(function(){
+       $("#tienhijo_id").change(function(){
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.tienehijos') }}",
@@ -393,7 +393,7 @@ $(function(){
            }
        });
 
-       $("#i_prm_tiene_problema_salud_id").change(function(){
+       $("#probsalu_id").change(function(){
            $("#i_prm_problema_salud_id").empty();
            $("#i_prm_problema_salud_id").append('<option value="">Seleccione</>')
            if($(this).val()!=''){
@@ -420,7 +420,7 @@ $(function(){
            }
        });
 
-       $("#i_prm_consume_medicamentos_id").change(function(){
+       $("#consmedi_id").change(function(){
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.consumedicamen') }}",
@@ -452,10 +452,10 @@ $(function(){
                dataType : 'json',
                success : function(json) {
                    if(json[0].pusisben[0].valuexxx==1){
-                       $("#i_prm_tiene_sisben_id").empty();
+                       $("#tiensalu_id").empty();
                    }
                    $.each(json[0].pusisben,function(i,data){
-                       $('#i_prm_tiene_sisben_id').append('<option value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                       $('#tiensalu_id').append('<option value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                },
                error : function(xhr, status) {
@@ -465,11 +465,11 @@ $(function(){
            // }
        }
        @if(old('d_puntaje_sisben')!=null)
-       f_sisben({{ old('d_puntaje_sisben') }},{{ old('i_prm_tiene_sisben_id')  }});
+       f_sisben({{ old('d_puntaje_sisben') }},{{ old('tiensalu_id')  }});
        @endif
        $("#d_puntaje_sisben").keyup(function(){
-           $("#i_prm_tiene_sisben_id").empty();
-           $("#i_prm_tiene_sisben_id").append('<option value="">Seleccione</>')
+           $("#tiensalu_id").empty();
+           $("#tiensalu_id").append('<option value="">Seleccione</>')
            f_sisben($(this).val(),'');
        });
 

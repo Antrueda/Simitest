@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\sistema\SisActividad;
-use App\Models\sistema\SisDocumentoFuente;
+use App\Models\sistema\SisDocufuen;
 use Illuminate\Support\Facades\Validator;
 
 class ActividadController extends Controller{
@@ -60,7 +60,7 @@ class ActividadController extends Controller{
     }
 
     protected function datos(array $request){
-        return SisActividad::select('id', 'nombre', 'sis_documento_fuente_id', 'sis_esta_id')
+        return SisActividad::select('id', 'nombre', 'sis_docufuen_id', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
                 return $q->where('nombre', 'like', '%'.$buscar.'%');
             })
@@ -68,20 +68,20 @@ class ActividadController extends Controller{
     }
 
     protected function docsFuente(){
-        return SisDocumentoFuente::orderBy('nombre')->pluck('nombre', 'id');
+        return SisDocufuen::orderBy('nombre')->pluck('nombre', 'id');
     }
 
     protected function validator(array $data){
         return Validator::make($data, [
             'nombre' => 'required|string|max:120|unique:sis_actividads',
-            'sis_documento_fuente_id' => 'required|exists:sis_documento_fuentes,id',
+            'sis_docufuen_id' => 'required|exists:sis_docufuens,id',
         ]);
     }
 
     protected function validatorUpdate(array $data, $id){
         return Validator::make($data, [
             'nombre' => 'required|string|max:120|unique:sis_actividads,nombre,'.$id,
-            'sis_documento_fuente_id' => 'required|exists:sis_documento_fuentes,id',
+            'sis_docufuen_id' => 'required|exists:sis_docufuens,id',
         ]);
     }
 }

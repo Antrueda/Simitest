@@ -15,31 +15,31 @@
         </a>
       </li>
       <li class="nav-item">
-      <a class="nav-link {{$todoxxxx['pestania']['nnajxxxx'][0]}}
+        <a class="nav-link {{$todoxxxx['pestania']['nnajxxxx'][0]}}
         {{ $todoxxxx['pestania']['nnajxxxx'][3]}} text-sm" href="
         {{ $todoxxxx['pestania']['nnajxxxx'][2] }}">
-        VALORACIÓN INICIAL
+          VALORACIÓN INICIAL
         </a>
       </li>
       <li class="nav-item">
-      <a class="nav-link {{$todoxxxx['pestania']['accigest'][0]}}
+        <a class="nav-link {{$todoxxxx['pestania']['accigest'][0]}}
         {{ $todoxxxx['pestania']['accigest'][3]}} text-sm" href="
         {{ $todoxxxx['pestania']['accigest'][2] }}">
-        ACCIONES GESTIÓN
+          ACCIONES GESTIÓN
         </a>
       </li>
       <li class="nav-item">
-      <a class="nav-link {{$todoxxxx['pestania']['valosegu'][0]}}
+        <a class="nav-link {{$todoxxxx['pestania']['valosegu'][0]}}
         {{ $todoxxxx['pestania']['valosegu'][3]}} text-sm" href="
         {{ $todoxxxx['pestania']['valosegu'][2] }}">
-        VALORACIÓN
+          VALORACIÓN
         </a>
       </li>
     </ul>
   </div>
   <div class="card-body">
     <div class="tab-content">
-    @if($todoxxxx['pestania']['areaxxxx'][5])
+      @if($todoxxxx['pestania']['areaxxxx'][5])
       @include('Indicadores.Admin.tabsxxxx.diagnost')
       @endif
       @if($todoxxxx['pestania']['nnajxxxx'][5])

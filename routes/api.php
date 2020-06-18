@@ -186,8 +186,8 @@ Route::get('fi/fisaludenfermedad', function (Request $request) {
                                   'fi_enfermedades_familias.id', 'fi_saluds.sis_nnaj_id', 'fi_enfermedades_familias.sis_esta_id', 'fi_composicion_famis.s_primer_nombre', 'fi_composicion_famis.s_segundo_nombre', 'fi_composicion_famis.s_primer_apellido', 'fi_composicion_famis.s_segundo_apellido', 'fi_enfermedades_familias.s_tipo_enfermedad', 'medicina.nombre as medicina', 'fi_enfermedades_familias.s_medicamento', 'tratamiento.nombre as tratamiento'
                           )
                           ->join('fi_enfermedades_familias', 'fi_saluds.id', '=', 'fi_enfermedades_familias.fi_salud_id')
-                          ->join('parametros as medicina', 'fi_enfermedades_familias.i_prm_recibe_medicina_id', '=', 'medicina.id')
-                          ->join('parametros as tratamiento', 'fi_enfermedades_familias.i_prm_rec_tratamiento_id', '=', 'tratamiento.id')
+                          ->join('parametros as medicina', 'fi_enfermedades_familias.recimedi_id', '=', 'medicina.id')
+                          ->join('parametros as tratamiento', 'fi_enfermedades_familias.rectrata_id', '=', 'tratamiento.id')
                           ->join('fi_composicion_famis', 'fi_enfermedades_familias.fi_composicion_fami_id', '=', 'fi_composicion_famis.id')
                           ->join('fi_datos_basicos', 'fi_composicion_famis.fi_nucleo_familiar_id', '=', 'fi_datos_basicos.fi_nucleo_familiar_id')
                           ->where('fi_saluds.sis_esta_id', 1)->where('fi_datos_basicos.sis_nnaj_id', $request->sis_nnaj_id))
@@ -219,13 +219,13 @@ Route::get('fos/fichaobservacion', function (Request $request) {
         'fos_datos_basicos.id', 
         'fos_datos_basicos.sis_nnaj_id', 
         'fos_datos_basicos.d_fecha_diligencia', 
-        'sis_dependencias.nombre as s_upi', 
+        'sis_dependens.nombre as s_upi', 
         'areas.nombre as s_area', 
         'fos_tses.nombre as s_tipo', 
         'fos_stses.nombre as s_sub', 
         'fos_datos_basicos.sis_esta_id'
     )
-    ->join('sis_dependencias', 'fos_datos_basicos.sis_dependencia_id', '=', 'sis_dependencias.id')
+    ->join('sis_dependens', 'fos_datos_basicos.sis_dependen_id', '=', 'sis_dependens.id')
     ->join('areas', 'fos_datos_basicos.area_id', '=', 'areas.id')
     ->join('fos_tses', 'fos_datos_basicos.fos_tse_id', '=', 'fos_tses.id')
     ->join('fos_stses', 'fos_datos_basicos.fos_stse_id', '=', 'fos_stses.id')

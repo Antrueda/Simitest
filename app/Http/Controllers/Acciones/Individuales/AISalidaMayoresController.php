@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\Acciones\Individuales\AiSalidaMayores;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDependen;
 use App\Models\sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
@@ -32,7 +32,7 @@ class AISalidaMayoresController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $salidas = $dato->AiSalidaMayores->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis  = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis  = SisDependen::orderBy('nombre')->pluck('nombre', 'id');
         $razones = Tema::findOrFail(272)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $usuarios = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
         return view('Acciones.Individuales.index', ['accion' => 'SalidaMayores', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'salidas', 'upis', 'razones', 'usuarios'));
@@ -51,7 +51,7 @@ class AISalidaMayoresController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $salidas = $dato->AiSalidaMayores->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis  = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis  = SisDependen::orderBy('nombre')->pluck('nombre', 'id');
         $razones = Tema::findOrFail(272)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $valor = AiSalidaMayores::findOrFail($id0);
         $usuarios = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
@@ -73,7 +73,7 @@ class AISalidaMayoresController extends Controller{
         return Validator::make($data, [
             'sis_nnaj_id' => 'required|exists:sis_nnajs,id',
             'fecha'       => 'required|date',
-            'prm_upi_id'  => 'required|exists:sis_dependencias,id',
+            'prm_upi_id'  => 'required|exists:sis_dependens,id',
             'razones'     => 'required|array',
             'descripcion' => 'required|string|max:4000'
         ]);

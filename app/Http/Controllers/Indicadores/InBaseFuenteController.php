@@ -9,7 +9,7 @@ use App\Http\Requests\Indicadores\InBaseFuenteEditarRequest;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InIndicador;
-use App\Models\sistema\SisDocumentoFuente;
+use App\Models\sistema\SisDocufuen;
 use App\Models\sistema\SisEsta;
 use App\Traits\Pestanias;
 
@@ -90,7 +90,7 @@ class InBaseFuenteController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'in_fuentes.id'],
-                    ['data' => 'nombre', 'name' => 'sis_documento_fuentes.nombre'],
+                    ['data' => 'nombre', 'name' => 'sis_docufuens.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'permisox' => $this->opciones['permisox'],
@@ -109,9 +109,9 @@ class InBaseFuenteController extends Controller
         // indica si se esta actualizando o viendo
         if ($dataxxxx['objetoxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['objetoxx'];
-            $seleccio = $dataxxxx['objetoxx']->in_fuente_id;
+            $seleccio = $dataxxxx['objetoxx']->sis_docufuen_id;
         }
-        $this->opciones['document'] = SisDocumentoFuente::getBasaDocumentos(
+        $this->opciones['document'] = SisDocufuen::getBasaDocumentos(
             [
                 'padrexxx' => $this->opciones['parametr'], 'cabecera' => true, 'ajaxxxxx' => false,
                 'seleccio' => $seleccio
@@ -185,20 +185,21 @@ class InBaseFuenteController extends Controller
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'MODIFICAR', 'routingx' => ['inligru', [$objetoxx->id]],
-                'formhref' => 2, 'tituloxx' => 'ASIGANAR G-LB', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'ASIGNAR G-LB', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);
     }
 
     private function grabar($dataxxxx, $objectx, $infoxxxx)
     {
-        $registro = InFuente::transaccion($dataxxxx, $objectx);
+       
+        $registro = InBaseFuente::transaccion($dataxxxx, $objectx);
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->in_indicador->id, $registro->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
             ->with('info', $infoxxxx);
     }
 
-    public function update(InBaseFuenteEditarRequest  $request, InFuente $objetoxx)
+    public function update(InBaseFuenteEditarRequest  $request, InBaseFuente $objetoxx)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');

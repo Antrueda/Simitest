@@ -52,7 +52,7 @@ class InRespuestaController extends Controller
     {
         $padrexxx = InDocPregunta::find($padrexxx);
         $pregunta = $padrexxx->sis_tcampo;
-        $this->opciones['cardhead'] = $pregunta->s_numero . ' ' . $pregunta->in_pregunta->s_pregunta;
+        $this->opciones['cardhead'] = 'PREGUNTA: '.$pregunta->s_numero . ' ' . $pregunta->in_pregunta->s_pregunta;
         $this->opciones['pestania'] = $this->getAreas([
             'tablaxxx' => $this->opciones['slotxxxx'], 'padrexxx' => $padrexxx, 'routxxxx' => $this->opciones['routxxxx']
         ]);
@@ -125,6 +125,8 @@ class InRespuestaController extends Controller
     public function create($padrexxx)
     {
         $padrexxx = InDocPregunta::find($padrexxx);
+        $pregunta = $padrexxx->sis_tcampo;
+        $this->opciones['cardhead'] = 'PREGUNTA: '.$pregunta->s_numero . ' ' . $pregunta->in_pregunta->s_pregunta;
         $this->opciones['indecrea'] = false;
         $this->opciones['botoform'][] =
             [
@@ -141,12 +143,15 @@ class InRespuestaController extends Controller
     }
     public function show(InRespu $objetoxx)
     {
-
+        $pregunta = $objetoxx->in_doc_pregunta->sis_tcampo;
+        $this->opciones['cardhead'] = 'PREGUNTA: '.$pregunta->s_numero . ' ' . $pregunta->in_pregunta->s_pregunta;
         return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $objetoxx->in_doc_pregunta]);
     }
 
     public function edit(InRespu $objetoxx)
     {
+        $pregunta = $objetoxx->in_doc_pregunta->sis_tcampo;
+        $this->opciones['cardhead'] = 'PREGUNTA: '.$pregunta->s_numero . ' ' . $pregunta->in_pregunta->s_pregunta;
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -158,7 +163,6 @@ class InRespuestaController extends Controller
     private function grabar($dataxxxx, $objectx, $infoxxxx)
     {
         $indicado = InRespu::transaccion($dataxxxx, $objectx);
-
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$indicado->id])
             ->with('info', $infoxxxx);

@@ -5,7 +5,7 @@ namespace App\Models\Acciones\Individuales;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDependen;
 use App\Models\sistema\SisDepartamento;
 use App\Models\sistema\SisMunicipio;
 
@@ -42,7 +42,7 @@ class AiReporteEvasion extends Model{
     }
     
     public function upis(){
-        return $this->belongsTo(SisDependencia::class, 'prm_upi_id');
+        return $this->belongsTo(SisDependen::class, 'prm_upi_id');
     }
 
     public function horaEvasion(){

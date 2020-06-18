@@ -2,7 +2,7 @@
 
 namespace App\Models\Indicadores;
 
-use App\Models\sistema\SisDocumentoFuente;
+use App\Models\sistema\SisDocufuen;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -82,9 +82,9 @@ class InFuente extends Model
     $comboxxx=[];
     foreach ($padrexxx->in_base_fuentes as $registro) {
       if ($ajaxxxxx) {
-        $comboxxx[] = ['valuexxx' => $registro->sis_documento_fuente->id, 'optionxx' => $registro->sis_documento_fuente->nombre];
+        $comboxxx[] = ['valuexxx' => $registro->sis_docufuen->id, 'optionxx' => $registro->sis_docufuen->nombre];
       } else {
-        $comboxxx[$registro->id] = $registro->sis_documento_fuente->nombre;
+        $comboxxx[$registro->id] = $registro->sis_docufuen->nombre;
       }
     }
 
@@ -113,9 +113,9 @@ class InFuente extends Model
     $notinxxx = [];
     $document = InFuente::where('id', $dataxxxx['padrexxx'])->first();
     foreach ($document->in_base_fuentes as $pregunta) {
-      $notinxxx[] = $pregunta->sis_documento_fuente->id;
+      $notinxxx[] = $pregunta->sis_docufuen->id;
     }
-    foreach (SisDocumentoFuente::where('nombre', 'like', '%' . $dataxxxx['buscarxx'] . '%')->whereNotIn('id', $notinxxx)->get() as $registro) {
+    foreach (SisDocufuen::where('nombre', 'like', '%' . $dataxxxx['buscarxx'] . '%')->whereNotIn('id', $notinxxx)->get() as $registro) {
       $comboxxx[] = ['id' => $registro->id, 'label' => $registro->nombre, 'value' => $registro->nombre];
     }
     return $comboxxx;
@@ -124,11 +124,11 @@ class InFuente extends Model
   {
     $objetoxx = InFuente::where('id', $dataxxxx['padrexxx'])->first();
     $pregunta[] = $dataxxxx['hijoxxxx'];
-    foreach ($objetoxx->sis_documento_fuentes as $inpregun) {
+    foreach ($objetoxx->sis_docufuens as $inpregun) {
       $pregunta[] = $inpregun->id;
     }
-    $objetoxx->sis_documento_fuentes()->detach();
+    $objetoxx->sis_docufuens()->detach();
 
-    $objetoxx->sis_documento_fuentes()->attach($pregunta);
+    $objetoxx->sis_docufuens()->attach($pregunta);
   }
 }

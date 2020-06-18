@@ -2,7 +2,7 @@
 
 namespace App\Models\Indicadores;
 
-use App\Models\sistema\SisDocumentoFuente;
+use App\Models\sistema\SisDocufuen;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -11,7 +11,7 @@ class InBaseFuente extends Model
 {
     protected $fillable = [
         'in_fuente_id',
-        'sis_documento_fuente_id',
+        'sis_docufuen_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id'
@@ -23,9 +23,9 @@ class InBaseFuente extends Model
     {
         return $this->hasMany(InLigru::class);
     }
-    public function sis_documento_fuente()
+    public function sis_docufuen()
     {
-        return $this->belongsTo(SisDocumentoFuente::class);
+        return $this->belongsTo(SisDocufuen::class);
     }
     public static function comboPreguntas($padrexxx, $cabecera, $ajaxxxxx)
     {

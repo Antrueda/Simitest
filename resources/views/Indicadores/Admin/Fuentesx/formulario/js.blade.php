@@ -54,7 +54,7 @@
         }
 
     
-        $('#sis_documento_fuente_id').change(function(){
+        $('#sis_docufuen_id').change(function(){
             $('#sis_actividad_id, #sis_fsoporte_id').empty();
             if($(this).val()!=''){
                 $('#sis_fsoporte_id').append('<option value="">Seleccione</option>');

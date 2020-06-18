@@ -15,20 +15,11 @@
              </a>
          </li>
          @endcan
-
          @can('inlineabase-leer')
          <li class="nav-item">
              <a href="{{ route('li') }}" class="nav-link">
                  <i class="fas fa-check nav-icon"></i>
                  <p>Líneas Base</p>
-             </a>
-         </li>
-         @endcan
-         @can('area-leer')
-         <li class="nav-item">
-             <a href="{{ route('area') }}" class="nav-link">
-                 <i class="fas fa-sitemap nav-icon"></i>
-                 <p>Áreas</p>
              </a>
          </li>
          @endcan
@@ -40,5 +31,14 @@
              </a>
          </li>
          @endcan
+         @can('area-leer')
+         <li class="nav-item">
+             <a href="{{ route('area') }}" class="nav-link">
+                 <i class="fas fa-sitemap nav-icon"></i>
+                 <p>Indicadores</p>
+             </a>
+         </li>
+         @endcan
+         
      </ul>
  </li>

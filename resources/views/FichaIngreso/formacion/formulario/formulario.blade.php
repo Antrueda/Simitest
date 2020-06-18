@@ -16,12 +16,12 @@
     {{ Form::select('i_prm_estudia_id', $todoxxxx["actuestu"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_jornada_estudio_id', '4.5 ¿En qué jornada estudia?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_jornada_estudio_id', $todoxxxx["jornestu"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('jornestu_id', '4.5 ¿En qué jornada estudia?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('jornestu_id', $todoxxxx["jornestu"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_naturaleza_entidad_id', '4.6 ¿Naturaleza de la entidad en la que estudia?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_naturaleza_entidad_id', $todoxxxx["natuenti"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('natuenti_id', '4.6 ¿Naturaleza de la entidad en la que estudia?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('natuenti_id', $todoxxxx["natuenti"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('sis_institucion_edu_id', '4.7 Nombre de la institución', ['class' => 'control-label col-form-label-sm']) }}
@@ -45,16 +45,16 @@
     </div>
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_ultimo_nivel_estudio_id', '4.9 ¿Cuál es su último nivel de estudio?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_ultimo_nivel_estudio_id', $todoxxxx["ulnivest"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('nivestud_id', '4.9 ¿Cuál es su último nivel de estudio?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('nivestud_id', $todoxxxx["ulnivest"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_ultimo_grado_aprobado_id', '4.10 Último grado, modulo o semestre aprobado', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_ultimo_grado_aprobado_id', $todoxxxx["ulgradap"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('gradapro_id', '4.10 Último grado, modulo o semestre aprobado', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('gradapro_id', $todoxxxx["ulgradap"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_certificado_ultimo_nivel_id', '4.11 ¿Tiene certificado del último nivel de estudio alcanzado?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_certificado_ultimo_nivel_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('certnive_id', '4.11 ¿Tiene certificado del último nivel de estudio alcanzado?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('certnive_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('i_prm_motivo_vinc_id', '4.12 ¿Cuáles son los motivos por los cuales desea vincularse al IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}

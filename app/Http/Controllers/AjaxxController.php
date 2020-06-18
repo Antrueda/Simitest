@@ -28,13 +28,14 @@ use App\Models\sistema\SisMunicipio;
 use App\Models\sistema\SisPai;
 use App\Models\sistema\SisTabla;
 use App\Models\sistema\SisServicio;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDependen;
 use App\Models\sistema\SisEp;
 use App\Models\sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class AjaxxController extends Controller
 {
@@ -891,16 +892,21 @@ class AjaxxController extends Controller
                     AgRelacion::transaccion($dataxxxx, '');
                     break;
                 case 4: // servicios
-                    SisDependencia::where('id', $dataxxxx['sis_dependencia_id'])->first()->sis_servicios()->attach([$dataxxxx['sis_servicio_id']]);
+                    SisDependen::where('id', $dataxxxx['sis_dependen_id'])->first()->sis_servicios()->attach([$dataxxxx['sis_servicio_id']]);
                     break;
                 case 5: // personal
-                    SisDependencia::where('id', $dataxxxx['sis_dependencia_id'])->first()->users()->attach([$dataxxxx['user_id'] => ['i_prm_condicional_id' => $dataxxxx['responsable']]]);
+                    SisDependen::where('id', $dataxxxx['sis_dependen_id'])->first()->users()->attach([$dataxxxx['user_id'] => [
+                        'i_prm_responsable_id' => $dataxxxx['responsable'],
+                        'user_crea_id'=>Auth::user()->id,
+                        'user_edita_id'=>Auth::user()->id,
+                        'sis_esta_id'=>1,
+                    ]]);
                     break;
                 case 6: // servicios
                     SisEp::where('id', $dataxxxx['sis_ep_id'])->first()->sis_servicios()->attach([$dataxxxx['sis_servicio_id']]);
                     break;
                 case 7: // personal
-                    SisEp::where('id', $dataxxxx['sis_ep_id'])->first()->users()->attach([$dataxxxx['user_id'] => ['i_prm_condicional_id' => $dataxxxx['responsable']]]);
+                    SisEp::where('id', $dataxxxx['sis_ep_id'])->first()->users()->attach([$dataxxxx['user_id'] => ['i_prm_responsable_id' => $dataxxxx['responsable']]]);
                     break;
             }
             return response()->json($respuest);
@@ -929,7 +935,7 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $notinxxx = [];
-            $responsa = SisDependencia::where('id', $dataxxxx['sis_dependencia_id'])->first()->sis_servicios;
+            $responsa = SisDependen::where('id', $dataxxxx['sis_dependen_id'])->first()->sis_servicios;
             foreach ($responsa as $responsx) {
                 $notinxxx[] = $responsx->id;
             }
@@ -953,7 +959,7 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $notinxxx = [];
-            $responsa = SisDependencia::where('id', $dataxxxx['sis_dependencia_id'])->first()->users;
+            $responsa = SisDependen::where('id', $dataxxxx['sis_dependen_id'])->first()->users;
             foreach ($responsa as $responsx) {
                 $notinxxx[] = $responsx->id;
             }

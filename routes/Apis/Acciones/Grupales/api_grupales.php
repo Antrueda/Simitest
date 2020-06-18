@@ -11,7 +11,7 @@ use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Indicadores\Area;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDependen;
 use App\Models\sistema\SisEslug;
 use App\Models\Tema;
 use Illuminate\Http\Request;
@@ -105,8 +105,8 @@ Route::get('ag/subtemas', function (Request $request) {
 Route::get('ag/actividades', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     return datatables()
-        ->eloquent(AgActividad::select(['ag_actividads.id', 'ag_actividads.d_registro', 'sis_dependencias.nombre as sis_deporigen_id', 'ag_actividads.sis_esta_id'])
-            ->join('sis_dependencias', 'ag_actividads.sis_deporigen_id', '=', 'sis_dependencias.id')
+        ->eloquent(AgActividad::select(['ag_actividads.id', 'ag_actividads.d_registro', 'sis_dependens.nombre as sis_deporigen_id', 'ag_actividads.sis_esta_id'])
+            ->join('sis_dependens', 'ag_actividads.sis_deporigen_id', '=', 'sis_dependens.id')
             ->where('ag_actividads.sis_esta_id', 1))
         ->addColumn('btns', 'Acciones/Grupales/Agactividad/botones/botonesapi')
         ->rawColumns(['btns'])
@@ -256,13 +256,13 @@ Route::get('agr/dependencias', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     return datatables()
         ->eloquent(
-            SisDependencia::select([
-                'sis_dependencias.id', 'sis_dependencias.nombre',  'sis_dependencias.sis_esta_id',
+            SisDependen::select([
+                'sis_dependens.id', 'sis_dependens.nombre',  'sis_dependens.sis_esta_id',
                 'sis_estas.s_estado'
             ])
 
-                ->join('sis_estas', 'sis_dependencias.sis_esta_id', '=', 'sis_estas.id')
-                ->where('sis_dependencias.sis_esta_id',1)
+                ->join('sis_estas', 'sis_dependens.sis_esta_id', '=', 'sis_estas.id')
+                ->where('sis_dependens.sis_esta_id',1)
         )
         ->addColumn('s_estado', $request->estadoxx)
         ->addColumn('btns', $request->botonesx)
@@ -278,7 +278,7 @@ Route::get('ag/espacios', function (Request $request) {
     ];
 
     
-       $respusta['dataxxxx'] = SisDependencia::getLugares(['cabecera'=>true,'esajaxxx'=>true,
+       $respusta['dataxxxx'] = SisDependen::getLugares(['cabecera'=>true,'esajaxxx'=>true,
         'padrexxx'=>$request->padrexxx]); 
 
         $cantidad=count($respusta['dataxxxx']);

@@ -56,7 +56,7 @@ class SisEstaCrearRequest extends FormRequest
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
         // unico para relacion multiple
         // $docuindi = InDocIndi::where('in_indicador_id', $dataxxxx['in_indicador_id'])
-        //     ->where('sis_documento_fuente_id', $dataxxxx['sis_documento_fuente_id'])->first();
+        //     ->where('sis_docufuen_id', $dataxxxx['sis_docufuen_id'])->first();
         // if (isset($docuindi->id)) {
         //     $this->_mensaje['asociacion.required'] = 'la asociacion del indicador y el docuemnto fuente ya existe';
         //     $this->_reglasx['asociacion'] = 'required';

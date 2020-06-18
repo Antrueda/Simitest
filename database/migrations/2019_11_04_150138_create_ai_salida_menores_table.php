@@ -51,7 +51,7 @@ class CreateAiSalidaMenoresTable extends Migration{
             $table->timestamps();
             
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('prm_upi_id')->references('id')->on('sis_dependencias');
+            $table->foreign('prm_upi_id')->references('id')->on('sis_dependens');
             $table->foreign('prm_hor_sal_id')->references('id')->on('parametros');
             $table->foreign('prm_doc_id')->references('id')->on('parametros');
             $table->foreign('prm_parentezco_id')->references('id')->on('parametros');
@@ -61,40 +61,18 @@ class CreateAiSalidaMenoresTable extends Migration{
             $table->foreign('prm_carta_id')->references('id')->on('parametros');
             $table->foreign('prm_copiaDoc_id')->references('id')->on('parametros');
             $table->foreign('prm_copiaDoc2_id')->references('id')->on('parametros');
-            $table->foreign('prm_upi2_id')->references('id')->on('sis_dependencias');
+            $table->foreign('prm_upi2_id')->references('id')->on('sis_dependens');
             $table->foreign('responsable')->references('id')->on('users');
             $table->foreign('user_doc1_id')->references('id')->on('users');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
 
-        Schema::create('ai_salida_menores_obj', function (Blueprint $table) {
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('ai_salida_menores_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('parametro_id')->references('id')->on('parametros');
-            $table->foreign('ai_salida_menores_id')->references('id')->on('ai_salida_menores');
-            $table->unique(['parametro_id', 'ai_salida_menores_id']);
-            
-        });
+        
 
-        Schema::create('ai_salida_menores_con', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('prm_id')->unsigned();
-            $table->bigInteger('ai_salida_menores_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('prm_id')->references('id')->on('parametros');
-            $table->foreign('ai_salida_menores_id')->references('id')->on('ai_salida_menores');
-            $table->unique(['id', 'prm_id', 'ai_salida_menores_id']);
-            
-        });
     }
 
     public function down(){
-        Schema::dropIfExists('ai_salida_menores_con');
-        Schema::dropIfExists('ai_salida_menores_obj');
         Schema::dropIfExists('ai_salida_menores');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDependen;
 
 class AiSalidaMenores extends Model{
     protected $fillable = [
@@ -28,7 +28,7 @@ class AiSalidaMenores extends Model{
     }
 
     public function upis(){
-        return $this->belongsTo(SisDependencia::class, 'prm_upi_id');
+        return $this->belongsTo(SisDependen::class, 'prm_upi_id');
     }
     
     public function horaSalida(){

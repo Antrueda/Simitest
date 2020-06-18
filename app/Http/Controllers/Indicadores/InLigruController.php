@@ -141,11 +141,9 @@ class InLigruController extends Controller
         $this->opciones['linebase'] = [$padrexxx->id => $padrexxx->in_fuente->in_linea_base->s_linea_base];
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
         $this->opciones['cardheap'] = 'ÁREA: ' .  $padrexxx->in_fuente->in_indicador->area->nombre;
-        $this->opciones['areasxxx'] = [$padrexxx->id => $padrexxx->nombre];
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
         $this->opciones['indecrea'] = false;
         $this->opciones['parametr'] = [$padrexxx->id, $objetoxx->id];
-        $this->opciones['readonly'] = 'readonly';
         return $this->view(['objetoxx'=>$objetoxx,'accionxx'=>'Ver','padrexxx'=>$padrexxx]);
     }
 
@@ -156,8 +154,7 @@ class InLigruController extends Controller
         $this->opciones['maximoxx'] = [$objetoxx->id => $objetoxx->id];
         $this->opciones['linebase'] = [$objetoxx->id => $padrexxx->in_fuente->in_linea_base->s_linea_base];
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
-        $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->nombre;
-        $this->opciones['areasxxx'] = [$padrexxx->id => $padrexxx->nombre];
+        $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->in_fuente->in_indicador->area->nombre;
         $this->opciones['indecrea'] = false;
         $this->opciones['parametr'] = [$padrexxx->id, $objetoxx->id];
         $this->opciones['botoform'][] =
@@ -169,7 +166,7 @@ class InLigruController extends Controller
             $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'MODIFICAR', 'routingx' => ['grupregu', [$objetoxx->id]],
-                'formhref' => 2, 'tituloxx' => 'ASIGANAR P', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'ASIGNAR P', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
             return $this->view(['objetoxx'=>$objetoxx,'accionxx'=>'Editar','padrexxx'=>$padrexxx]);
     }
@@ -178,7 +175,7 @@ class InLigruController extends Controller
     {
         $indicado = InLigru::transaccion($dataxxxx, $objectx);
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$indicado->in_base_fuente->in_fuente->in_indicador->area_id, $indicado->in_base_fuente_id, $indicado->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$indicado->id])
             ->with('info', $infoxxxx);
     }
 

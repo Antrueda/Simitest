@@ -47,7 +47,7 @@
                                             @endcan
                                         </td>
                                         <td>{{ $d->nombre }}</td>
-                                        <td>{{ $d->sisDocumentoFuente->nombre }}</td>
+                                        <td>{{ $d->SisDocufuen->nombre }}</td>
                                         <td class="text-center">
                                             @if($d->sis_esta_id == 1)
                                                 <span class="fas fa-check text-success" aria-hidden="true"></span>

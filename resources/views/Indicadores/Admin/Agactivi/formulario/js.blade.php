@@ -49,12 +49,12 @@
                 },
             });
         }
-        @if(old('sis_documento_fuente_id')!=null)
+        @if(old('sis_docufuen_id')!=null)
         $('#sis_actividad_id').empty();
-            f_campos({{ old('sis_documento_fuente_id') }},{{ old('sis_actividad_id') }},1,'sis_actividad_id');
+            f_campos({{ old('sis_docufuen_id') }},{{ old('sis_actividad_id') }},1,'sis_actividad_id');
         @endif
     
-        $('#sis_documento_fuente_id').change(function(){
+        $('#sis_docufuen_id').change(function(){
             $('#sis_actividad_id').empty();
             f_campos($(this).val(),'',1,'sis_actividad_id');
         });

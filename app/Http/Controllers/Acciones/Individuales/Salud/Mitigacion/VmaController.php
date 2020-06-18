@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Models\Tema;
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDependen;
 use App\Models\sistema\SisDiagnosticos;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\User;
@@ -34,7 +34,7 @@ class VmaController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis = SisDependen::orderBy('nombre')->pluck('nombre', 'id');
         $tValoracion = ['' => 'Seleccione...'];
         $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         foreach (Tema::findOrFail(312)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
@@ -192,13 +192,13 @@ class VmaController extends Controller{
             $request['heroina_dejo'] = null;
         }
         if($request->prm_2cb_sino_id == 228){
-            $request['2cb_edad'] = null;
+            $request['doscb_edad'] = null;
             $request['prm_2cb_frec_id'] = null;
-            $request['2cb_dosis'] = null;
-            $request['2cb_dia'] = null;
-            $request['2cb_mes'] = null;
-            $request['2cb_anio'] = null;
-            $request['2cb_dejo'] = null;
+            $request['doscb_dosis'] = null;
+            $request['doscb_dia'] = null;
+            $request['doscb_mes'] = null;
+            $request['doscb_anio'] = null;
+            $request['doscb_dejo'] = null;
         }
         if($request->prm_acidos_sino_id == 228){
             $request['acidos_edad'] = null;
@@ -245,7 +245,7 @@ class VmaController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis = SisDependen::orderBy('nombre')->pluck('nombre', 'id');
         $tValoracion = ['' => 'Seleccione...'];
         $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         foreach (Tema::findOrFail(312)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
@@ -323,7 +323,7 @@ class VmaController extends Controller{
     protected function validator(array $data){
         return Validator::make($data, [
             'sis_nnaj_id'       => 'required|exists:sis_nnajs,id',
-            'prm_upi_id'        => 'required|exists:sis_dependencias,id',
+            'prm_upi_id'        => 'required|exists:sis_dependens,id',
             'fecha'             => 'required|date',
             'prm_valoracion_id' => 'required|exists:parametros,id',
             'sesion'            => 'required|integer',
@@ -413,13 +413,13 @@ class VmaController extends Controller{
             'heroina_anio'      => 'required_if:prm_heroina_sino_id,227',
             'heroina_dejo'      => 'required_if:prm_heroina_sino_id,227',
             'prm_2cb_sino_id'   => 'required|exists:parametros,id',
-            '2cb_edad'          => 'required_if:prm_2cb_sino_id,227',
+            'doscb_edad'          => 'required_if:prm_2cb_sino_id,227',
             'prm_2cb_frec_id'   => 'required_if:prm_2cb_sino_id,227',
-            '2cb_dosis'         => 'required_if:prm_2cb_sino_id,227',
-            '2cb_dia'           => 'required_if:prm_2cb_sino_id,227',
-            '2cb_mes'           => 'required_if:prm_2cb_sino_id,227',
-            '2cb_anio'          => 'required_if:prm_2cb_sino_id,227',
-            '2cb_dejo'          => 'required_if:prm_2cb_sino_id,227',
+            'doscb_dosis'         => 'required_if:prm_2cb_sino_id,227',
+            'doscb_dia'           => 'required_if:prm_2cb_sino_id,227',
+            'doscb_mes'           => 'required_if:prm_2cb_sino_id,227',
+            'doscb_anio'          => 'required_if:prm_2cb_sino_id,227',
+            'doscb_dejo'          => 'required_if:prm_2cb_sino_id,227',
             'prm_acidos_sino_id'=> 'required|exists:parametros,id',
             'acidos_edad'       => 'required_if:prm_acidos_sino_id,227',
             'prm_acidos_frec_id'=> 'required_if:prm_acidos_sino_id,227',

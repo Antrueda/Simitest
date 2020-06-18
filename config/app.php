@@ -191,10 +191,16 @@ return [
          * barra para debug
          */
         Barryvdh\Debugbar\ServiceProvider::class,
+        
         /**
          * subir y descargar excel
          */
         Maatwebsite\Excel\ExcelServiceProvider::class,
+
+        /**
+         * conectar con oracle
+         */
+        Yajra\Oci8\Oci8ServiceProvider::class,
     ],
 
     /*

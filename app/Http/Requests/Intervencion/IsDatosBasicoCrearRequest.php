@@ -12,7 +12,7 @@ class IsDatosBasicoCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'sis_dependencia_id.required' => 'Seleccione Unidad de atención integral',
+            'sis_dependen_id.required' => 'Seleccione Unidad de atención integral',
             'd_fecha_diligencia.required' => 'Seleccione Fecha de diligenciamiento',
             'i_primer_responsable.required' => 'Escriba el primer del responsable',
             'i_prm_tipo_atencion_id.required' => 'Seleccione Tipo de atención',
@@ -24,7 +24,7 @@ class IsDatosBasicoCrearRequest extends FormRequest
             's_conclusiones_sesion.required' => 'Seleccione Conclusiones de la sesión',
         ];
         $this->_reglasx = [
-            'sis_dependencia_id' => ['Required'],
+            'sis_dependen_id' => ['Required'],
             'd_fecha_diligencia' => ['Required'],
             'i_primer_responsable' => ['Required'],
             'i_prm_tipo_atencion_id' => ['Required'],

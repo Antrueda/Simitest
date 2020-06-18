@@ -58,6 +58,6 @@ class InIndicadorUpdateRequest extends FormRequest
 
     public function validar()
     {
-        $this->_reglasx['s_indicador'][1]='unique:in_indicadors,s_indicador,' . $this->segments()[4];
+        $this->_reglasx['s_indicador'][1]='unique:in_indicadors,s_indicador,' . $this->segments()[2];
     }
 }

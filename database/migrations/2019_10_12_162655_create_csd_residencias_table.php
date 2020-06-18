@@ -58,8 +58,8 @@ class CreateCsdResidenciasTable extends Migration{
             $table->foreign('prm_dir_alfavp_id')->references('id')->on('parametros');
             $table->foreign('prm_dir_bis_id')->references('id')->on('parametros');
             $table->foreign('prm_dir_alfabis_id')->references('id')->on('parametros');
-            $table->foreign('prm_dir_cuadrantevp_id')->references('id')->on('parametros');
-            $table->foreign('prm_dir_alfavg_id')->references('id')->on('parametros');
+            //$table->foreign('prm_dir_cuadrantevp_id')->references('id')->on('parametros');
+            //  $table->foreign('prm_dir_alfavg_id')->references('id')->on('parametros');
             $table->foreign('prm_dir_cuadrantevg_id')->references('id')->on('parametros');
             $table->foreign('prm_estrato_id')->references('id')->on('parametros');
             $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');

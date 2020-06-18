@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FiNucleoFamiliarsTableSeeder::class);
         $this->call(SisUpzsSeeder::class);
         $this->call(SisBarriosSeeder::class);
-        $this->call(SisDependenciasSeeder::class);
+        $this->call(SisDependensSeeder::class);
         $this->call(SisEntidadsSeeder::class);
         $this->call(SisEntidadSaludsSeeder::class);
         $this->call(SisInstitucionEdusSeeder::class);

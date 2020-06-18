@@ -4,13 +4,13 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SisDependenciaEditarRequest extends FormRequest
+class SisDependenCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
 
     public function __construct()
-    { 
+    {
 
         $this->_mensaje = [
             's_observacion.required' => 'Ingrese una observación para el registro',
@@ -23,7 +23,7 @@ class SisDependenciaEditarRequest extends FormRequest
             'i_prm_sexo_id.required' => 'Seleccione un sexo',
             'i_prm_tdependen_id.required' => 'Seleccione un tipo de dependencia',
             'i_prm_cvital_id.required' => 'Seleccione un ciclo vital',
-           
+            'nombre.required' => 'Igrese un nombre',
 
         ];
         $this->_reglasx = [
@@ -37,7 +37,7 @@ class SisDependenciaEditarRequest extends FormRequest
             'i_prm_sexo_id' => ['required'],
             'i_prm_tdependen_id' => ['required'],
             'i_prm_cvital_id' => ['required'],
-            
+            'nombre' => ['required'],
         ];
     }
     /**

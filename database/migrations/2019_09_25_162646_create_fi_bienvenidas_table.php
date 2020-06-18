@@ -16,7 +16,7 @@ class CreateFiBienvenidasTable extends Migration
         Schema::create('fi_bienvenidas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_quiere_entrar_id')->unsigned();
-            $table->bigInteger('sis_dependencia_id')->unsigned();
+            $table->bigInteger('sis_dependen_id')->unsigned();
             $table->bigInteger('i_prm_servicio_id')->unsigned();
             $table->text('s_porque_quiere_entrar');
             $table->text('s_que_gustaria_hacer');
@@ -31,7 +31,7 @@ class CreateFiBienvenidasTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('i_prm_quiere_entrar_id')->references('id')->on('parametros');
-            $table->foreign('sis_dependencia_id')->references('id')->on('sis_dependencias');
+            $table->foreign('sis_dependen_id')->references('id')->on('sis_dependens');
             $table->foreign('i_prm_servicio_id')->references('id')->on('parametros');
         });
 

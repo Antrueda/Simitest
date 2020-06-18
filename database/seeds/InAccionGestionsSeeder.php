@@ -16,7 +16,7 @@ class InAccionGestionsSeeder extends Seeder
         'sis_actividad_id'=>1, 
         'i_prm_ttiempo_id'=>400, 
         'in_lineabase_nnaj_id'=>1,
-         'sis_documento_fuente_id'=>3, 
+         'sis_docufuen_id'=>3, 
         'user_crea_id'=>1, 
         'user_edita_id'=>1, 
         'i_tiempo'=>2, 
