@@ -10,32 +10,32 @@ use Illuminate\Support\Facades\DB;
 
 class FiSalud extends Model{
   protected $fillable = [
-    'regisalu_id',
+    'i_prm_regimen_salud_id',
     'sis_entidad_salud_id',
-    'tiensalu_id',
+    'i_prm_tiene_sisben_id',
     'd_puntaje_sisben',
-    'tiendisc_id',
-    'tipodisc_id',
-    'ticedisc_id',
-    'dipeinde_id',
-    'estagest_id',
+    'i_prm_tiene_discapacidad_id',
+    'i_prm_tipo_discapacidad_id',
+    'i_prm_tiene_cert_discapacidad_id',
+    'i_prm_disc_perm_independencia_id',
+    'i_prm_esta_gestando_id',
     'i_numero_semanas',
-    'estalact_id',
+    'i_prm_esta_lactando_id',
     'i_numero_meses',
-    'probsalu_id',
+    'i_prm_tiene_problema_salud_id',
     'i_prm_problema_salud_id',
-    'consmedi_id',
+    'i_prm_consume_medicamentos_id',
     's_cual_medicamento',
-    'tienhijo_id',
+    'i_prm_tiene_hijos_id',
     'i_numero_hijos',
     'i_numero_hijos',
     's_evento_medico',
-    'conometo_id',
-    'usametod_id',
-    'cualmeto_id',
-    'usovolun_id',
+    'i_prm_conoce_metodos_id',
+    'i_prm_usa_metodos_id',
+    'i_prm_cual_metodo_id',
+    'i_prm_uso_voluntario_id',
     'i_comidas_diarias',
-    'racicomi_id',
+    'i_prm_razon_no_cinco_comidas_id',
     'sis_nnaj_id',
     'user_crea_id',
     'user_edita_id',
@@ -76,8 +76,8 @@ class FiSalud extends Model{
       'sis_esta_id'=>1,
     ];
     FiEventosMedico::where('fi_salud_id', $evenmedic->id)->delete();
-    foreach($dataxxxx['evenmedi_id'] as $evmedico){
-      $datosxxx['evenmedi_id']=$evmedico;
+    foreach($dataxxxx['i_prm_evento_medico_id'] as $evmedico){
+      $datosxxx['i_prm_evento_medico_id']=$evmedico;
       FiEventosMedico::create($datosxxx);
     }
   }
@@ -92,7 +92,7 @@ class FiSalud extends Model{
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiSalud::create($dataxxxx);
       }
-      if(isset($dataxxxx['evenmedi_id'])){
+      if(isset($dataxxxx['i_prm_evento_medico_id'])){
         FiSalud::grabarEventoMedico($objetoxx,$dataxxxx);
       }
 

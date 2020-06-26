@@ -59,7 +59,7 @@ class FiGeneracionIngresoController extends Controller
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
       $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-      if($objetoxx->jogeingr_id!=467){
+      if($objetoxx->i_prm_jornada_genera_ingreso_id!=467){
         $this->opciones['readhora'] ='readonly';
       }
       

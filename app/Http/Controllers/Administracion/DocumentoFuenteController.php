@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Administracion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Models\sistema\SisDocufuen;
+use App\Models\sistema\SisDocumentoFuente;
 use Illuminate\Support\Facades\Validator;
 
 class DocumentoFuenteController extends Controller{
@@ -29,29 +29,29 @@ class DocumentoFuenteController extends Controller{
 
     public function store(Request $request){
         $this->validator($request->all())->validate();
-        SisDocufuen::create($request->all());
+        SisDocumentoFuente::create($request->all());
         return redirect()->route('documentoFuente')->with('info', 'Registro creado con éxito');
     }
 
     public function show($id){
-        $dato = SisDocufuen::findOrFail($id);
+        $dato = SisDocumentoFuente::findOrFail($id);
         return view('administracion.documentoFuente.index', ['accion' => 'Ver'], compact('dato'));
     }
 
     public function edit($id){
-        $dato = SisDocufuen::findOrFail($id);
+        $dato = SisDocumentoFuente::findOrFail($id);
         return view('administracion.documentoFuente.index', ['accion' => 'Editar'], compact('dato'));
     }
 
     public function update(Request $request, $id){
         $this->validatorUpdate($request->all(), $id)->validate();
-        $dato = SisDocufuen::findOrFail($id);
+        $dato = SisDocumentoFuente::findOrFail($id);
         $dato->fill($request->all())->save();
         return redirect()->route('documentoFuente')->with('info', 'Registro actualizado con éxito');
     }
 
     public function destroy($id){
-        $dato = SisDocufuen::findOrFail($id);
+        $dato = SisDocumentoFuente::findOrFail($id);
         $dato->sis_esta_id = ($dato->sis_esta_id == 2) ? 1 : 2;
         $dato->save();
         $activado = $dato->sis_esta_id == 2 ? 'inactivado' : 'activado';
@@ -59,7 +59,7 @@ class DocumentoFuenteController extends Controller{
     }
 
     protected function datos(array $request){
-        return SisDocufuen::select('id', 'nombre', 'sis_esta_id')
+        return SisDocumentoFuente::select('id', 'nombre', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
                 return $q->where('nombre', 'like', '%'.$buscar.'%');
             })
@@ -68,13 +68,13 @@ class DocumentoFuenteController extends Controller{
 
     protected function validator(array $data){
         return Validator::make($data, [
-            'nombre' => 'required|string|max:120|unique:sis_docufuens',
+            'nombre' => 'required|string|max:120|unique:sis_documento_fuentes',
         ]);
     }
 
     protected function validatorUpdate(array $data, $id){
         return Validator::make($data, [
-            'nombre' => 'required|string|max:120|unique:sis_docufuens,nombre,'.$id,
+            'nombre' => 'required|string|max:120|unique:sis_documento_fuentes,nombre,'.$id,
         ]);
     }
 }

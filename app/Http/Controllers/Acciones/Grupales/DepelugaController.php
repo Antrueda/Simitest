@@ -6,7 +6,7 @@ use App\Helpers\Traductor\Traductor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Sistema\DepelugaCrearRequest;
 use App\Http\Requests\Sistema\DepelugaEditarRequest;
-use App\Models\sistema\SisDependen;
+use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisEslug;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -63,8 +63,8 @@ class DepelugaController extends Controller
         ];
         $this->opciones['columnsx'] = [
             ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'id', 'name' => 'sis_dependens.id'],
-            ['data' => 'nombre', 'name' => 'sis_dependens.nombre'],
+            ['data' => 'id', 'name' => 'sis_dependencias.id'],
+            ['data' => 'nombre', 'name' => 'sis_dependencias.nombre'],
             ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
@@ -93,7 +93,7 @@ class DepelugaController extends Controller
     public function create($depeluga)
     {
 
-        if(isset(SisDependen::where('id',$depeluga)->first()->id)){
+        if(isset(SisDependencia::where('id',$depeluga)->first()->id)){
             return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', 
             [$depeluga,$depeluga]);
@@ -129,7 +129,7 @@ class DepelugaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SisDependen $objetoxx)
+    public function show(SisDependencia $objetoxx)
     {
         $this->opciones['parametr'] = [$objetoxx->id];
 
@@ -154,7 +154,7 @@ private function getSeleccionados($objetoxx){
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($depeluga,SisDependen $objetoxx)
+    public function edit($depeluga,SisDependencia $objetoxx)
     {
         $objetoxx->lugaresx= $this->getSeleccionados($objetoxx);
         
@@ -172,7 +172,7 @@ private function getSeleccionados($objetoxx){
             $syncxxxx=[];
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if ($objetoxx == '') {
-                $objetoxx=SisDependen::where('id',$dataxxxx['depeluga'])->first();               
+                $objetoxx=SisDependencia::where('id',$dataxxxx['depeluga'])->first();               
             } 
 
             foreach($dataxxxx['lugaresx'] as $lugaresx){
@@ -207,7 +207,7 @@ private function getSeleccionados($objetoxx){
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($depeluga,DepelugaEditarRequest $request, SisDependen $objetoxx)
+    public function update($depeluga,DepelugaEditarRequest $request, SisDependencia $objetoxx)
     {
         $dataxxxx = $request->all();
         $dataxxxx['depeluga']=$depeluga;
@@ -220,7 +220,7 @@ private function getSeleccionados($objetoxx){
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SisDependen $objetoxx)
+    public function destroy(SisDependencia $objetoxx)
     {
 
         $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;

@@ -19,7 +19,7 @@
               ['data' => 'id', 'name' => 'is_datos_basicos.id'],
               ['data' => 'tipoxxxx', 'name' => 'tipoaten.nombre'],
               ['data' => 'd_fecha_diligencia', 'name' => 'd_fecha_diligencia'],
-              ['data' => 'nombre', 'name' => 'sis_dependens.nombre'],
+              ['data' => 'nombre', 'name' => 'sis_dependencias.nombre'],
               ['data' => 's_primer_nombre', 'name' => 'users.s_primer_nombre'],
               ['data' => 'sis_esta_id', 'name' => 'is_datos_basicos.sis_esta_id'],
           ];

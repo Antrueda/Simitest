@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Models\sistema\SisDocufuen;
+use App\Models\sistema\SisDocumentoFuente;
 
 class SisDocumentosFuentesSeeder extends Seeder{
     /**
@@ -11,9 +11,9 @@ class SisDocumentosFuentesSeeder extends Seeder{
      * @return void
      */
     public function run(){
-        SisDocufuen::create(['nombre' => 'CREAR USUARIO SISTEMA']);
-        SisDocufuen::create(['nombre' => 'FICHA DE INGRESO']);
-        SisDocufuen::create(['nombre' => 'VALORACIÓN PSICOSOCIAL']);
-        SisDocufuen::create(['nombre' => 'CONSULTA SOCIAL EN DOMICILIO']);
+        SisDocumentoFuente::create(['nombre' => 'CREAR USUARIO SISTEMA']);
+        SisDocumentoFuente::create(['nombre' => 'FICHA DE INGRESO']);
+        SisDocumentoFuente::create(['nombre' => 'VALORACIÓN PSICOSOCIAL']);
+        SisDocumentoFuente::create(['nombre' => 'CONSULTA SOCIAL EN DOMICILIO']);
     }
 }

@@ -14,10 +14,10 @@ class FiEventosMedicoCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'evenmedi_id.required' => 'Seleccione un evento médico',
+            'i_prm_evento_medico_id.required' => 'Seleccione un evento médico',
         ];
         $this->_reglasx = [
-            'evenmedi_id' => ['required'],
+            'i_prm_evento_medico_id' => ['required'],
         ];
     }
     /**

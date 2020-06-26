@@ -23,7 +23,7 @@ class CreateVsiDatosBasicosTable extends Migration{
             $table->timestamps();
             
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('dependencia_id')->references('id')->on('sis_dependens');
+            $table->foreign('dependencia_id')->references('id')->on('sis_dependencias');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });

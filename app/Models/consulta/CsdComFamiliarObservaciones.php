@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
 class CsdComFamiliarObservaciones extends Model{
-    protected $table = "csd_cfobservacis";
+    protected $table = "csd_com_familiars_observacions";
     protected $fillable = [
         'csd_id', 'observaciones', 'user_crea_id', 'user_edita_id', 'sis_esta_id'
     ];

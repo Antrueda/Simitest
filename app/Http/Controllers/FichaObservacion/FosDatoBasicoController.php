@@ -14,7 +14,7 @@ use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\sistema\AreaUser;
-use App\Models\sistema\SisDependen;
+use App\Models\sistema\SisDependencia;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 

@@ -19,8 +19,8 @@ class CreateSisTablasTable extends Migration
             $table->string('s_descripcion')->nullable();
             $table->timestamps();
             
-            $table->bigInteger('sis_docufuen_id')->unsigned();
-            $table->foreign('sis_docufuen_id')->references('id')->on('sis_docufuens');
+            $table->bigInteger('sis_documento_fuente_id')->unsigned();
+            $table->foreign('sis_documento_fuente_id')->references('id')->on('sis_documento_fuentes');
       
           });
     }

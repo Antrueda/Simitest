@@ -13,15 +13,15 @@
         @endif
   </div> 
   <div class="form-group col-md-6">
-  {{ Form::label('sis_docufuen_id', 'DOCUMENTO FUENTE:', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::label('sis_documento_fuente_id', 'DOCUMENTO FUENTE:', ['class' => 'control-label col-form-label-sm']) }}
         @if($todoxxxx['accionxx'] == 'Ver')
-        {{ Form::select('sis_docufuen_id', $todoxxxx['document'], $todoxxxx['modeloxx']->sis_docufuen_id, ['class' => 'form-control-plaintext','id'=>'sis_docufuen_id']) }}
+        {{ Form::select('sis_documento_fuente_id', $todoxxxx['document'], $todoxxxx['modeloxx']->sis_documento_fuente_id, ['class' => 'form-control-plaintext','id'=>'sis_documento_fuente_id']) }}
         @else
-        {{ Form::select('sis_docufuen_id', $todoxxxx['document'], null, ['class' => $errors->first('sis_docufuen_id') ? 'form-control is-invalid select2' : 'form-control select2','id'=>'sis_docufuen_id']) }}
+        {{ Form::select('sis_documento_fuente_id', $todoxxxx['document'], null, ['class' => $errors->first('sis_documento_fuente_id') ? 'form-control is-invalid select2' : 'form-control select2','id'=>'sis_documento_fuente_id']) }}
         @endif
-        @if($errors->has('sis_docufuen_id'))
+        @if($errors->has('sis_documento_fuente_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('sis_docufuen_id') }}
+            {{ $errors->first('sis_documento_fuente_id') }}
         </div>
         @endif
   </div> 

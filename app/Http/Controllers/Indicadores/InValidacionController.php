@@ -9,7 +9,7 @@ use App\Models\Indicadores\Area;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InValidacion;
-use App\Models\sistema\SisDocufuen;
+use App\Models\sistema\SisDocumentoFuente;
 use App\Models\sistema\SisTabla;
 use App\Models\Tema;
 use Illuminate\Http\Request;
@@ -78,7 +78,7 @@ class InValidacionController extends Controller
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
         $this->opciones['areasxxx'] = Area::combo('', true, false);
-        $this->opciones['docufuen'] = SisDocufuen::combo(true, false);
+        $this->opciones['docufuen'] = SisDocumentoFuente::combo(true, false);
         $this->opciones['indicado'] = ['' => 'Seleccione'];
         $this->opciones['linebase'] = ['' => 'Seleccione'];
         $this->opciones['pregindi'] = InPregunta::combo(true, false);
@@ -90,7 +90,7 @@ class InValidacionController extends Controller
         if ($nombobje != '') {
             $objetoxx->area_id = $objetoxx->in_fuente->in_indicador->area_id;
             $objetoxx->in_indicador_id = $objetoxx->in_fuente->in_indicador_id;
-            //$objetoxx->sis_docufuen_id = $objetoxx->sis_actividad->sis_docufuen_id; 
+            //$objetoxx->sis_documento_fuente_id = $objetoxx->sis_actividad->sis_documento_fuente_id; 
             $this->opciones['indicado'] = Area::combo($objetoxx->area_id, true, false);
             $this->opciones['linebase'] = InFuente::combo($objetoxx->in_indicador_id, true, false);
             //$this->opciones['activida'] = SisActividad::combo($objetoxx->sis_actividad_id, true, false);

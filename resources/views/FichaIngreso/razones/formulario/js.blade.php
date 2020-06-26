@@ -29,10 +29,10 @@
       });
     }
     @if (old('userd_id')!=null))
-      f_cargos({dataxxxx: {valuexxx: {{old('userd_id')}}, campoxxx: 'userd_id', selected: '{{old("sis_dependend_id")}}'});
+      f_cargos({dataxxxx: {valuexxx: {{old('userd_id')}}, campoxxx: 'userd_id', selected: '{{old("sis_dependenciad_id")}}'});
     @endif
     @if (old('userr_id')!=null))
-      f_cargos({dataxxxx: {valuexxx: {{old('userr_id')}}, campoxxx: 'userr_id', selected: '{{old("sis_dependenr_id")}}'});
+      f_cargos({dataxxxx: {valuexxx: {{old('userr_id')}}, campoxxx: 'userr_id', selected: '{{old("sis_dependenciar_id")}}'});
     @endif
     $('.cargos').change(function () {
       f_cargos({dataxxxx: {valuexxx: $(this).val(), campoxxx: $(this).prop('id')}, selected: ''});

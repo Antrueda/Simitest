@@ -15,7 +15,7 @@ class SisEslug extends Model
 
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
-    public function sis_dependens(){
-        return $this->belongsToMany(SisDependen::class);
+    public function sis_dependencias(){
+        return $this->belongsToMany(SisDependencia::class);
     }
 }

@@ -20,8 +20,8 @@ addEnfermedadFamiliar
   </div>
   <div class="form-row align-items-end">
     <div class="form-group col-md-2">
-      {{ Form::label('recimedi_id', '¿Recibe medicamentos de forma permanente?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('recimedi_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm', 'required' => 'required']) }}
+      {{ Form::label('i_prm_recibe_medicina_id', '¿Recibe medicamentos de forma permanente?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('i_prm_recibe_medicina_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm', 'required' => 'required']) }}
     </div>
     <div class="form-group col-md-8">
       {{ Form::label('s_medicamento', 'Cuál(es)', ['class' => 'control-label col-form-label-sm']) }}
@@ -29,8 +29,8 @@ addEnfermedadFamiliar
      "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) }}
     </div>
     <div class="form-group col-md-2">
-      {{ Form::label('rectrata_id', '¿Ha recibido tratamiento?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('rectrata_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm', 'required' => 'required']) }}
+      {{ Form::label('i_prm_rec_tratamiento_id', '¿Ha recibido tratamiento?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('i_prm_rec_tratamiento_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm', 'required' => 'required']) }}
     </div>
   </div>
 @slot('footer')

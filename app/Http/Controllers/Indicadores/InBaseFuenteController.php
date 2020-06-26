@@ -9,7 +9,7 @@ use App\Http\Requests\Indicadores\InBaseFuenteEditarRequest;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InIndicador;
-use App\Models\sistema\SisDocufuen;
+use App\Models\sistema\SisDocumentoFuente;
 use App\Models\sistema\SisEsta;
 use App\Traits\Pestanias;
 
@@ -90,7 +90,7 @@ class InBaseFuenteController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'in_fuentes.id'],
-                    ['data' => 'nombre', 'name' => 'sis_docufuens.nombre'],
+                    ['data' => 'nombre', 'name' => 'sis_documento_fuentes.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'permisox' => $this->opciones['permisox'],
@@ -109,9 +109,9 @@ class InBaseFuenteController extends Controller
         // indica si se esta actualizando o viendo
         if ($dataxxxx['objetoxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['objetoxx'];
-            $seleccio = $dataxxxx['objetoxx']->sis_docufuen_id;
+            $seleccio = $dataxxxx['objetoxx']->sis_documento_fuente_id;
         }
-        $this->opciones['document'] = SisDocufuen::getBasaDocumentos(
+        $this->opciones['document'] = SisDocumentoFuente::getBasaDocumentos(
             [
                 'padrexxx' => $this->opciones['parametr'], 'cabecera' => true, 'ajaxxxxx' => false,
                 'seleccio' => $seleccio

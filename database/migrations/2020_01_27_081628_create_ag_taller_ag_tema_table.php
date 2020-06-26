@@ -17,16 +17,16 @@ class CreateAgTallerAgTemaTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('ag_taller_id')->unsigned();
             $table->bigInteger('ag_tema_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->unique(['ag_taller_id','ag_tema_id']);
+            $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->foreign('ag_taller_id')->references('id')->on('ag_tallers');
-            $table->foreign('ag_tema_id')->references('id')->on('ag_temas');
-            //$table->unique(['ag_taller_id','ag_tema_id']);
+            $table->timestamps();
+
         });
     }
 

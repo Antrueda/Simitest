@@ -42,7 +42,7 @@ trait CombosTrait
         $comboxxx = $this->getCabecera($dataxxxx);
         $linebase = InLineabaseNnaj::where('id', $dataxxxx['padrexxx'])->first()->in_fuente->in_base_fuente;
         foreach ($linebase as $registro) {
-            $document = $registro->sis_docufuen->nombre;
+            $document = $registro->sis_documento_fuente->nombre;
             if ($dataxxxx['ajaxxxxx']) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $document];
             } else {

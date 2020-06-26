@@ -76,7 +76,7 @@ class IndicadorApi
     public static function getDocumentos($request)
     {
         $paciente = InBaseFuente::select([
-            'in_ligrus.id',  'sis_docufuens.nombre', 'in_linea_bases.s_linea_base', 'in_base_fuentes.sis_esta_id',
+            'in_ligrus.id',  'sis_documento_fuentes.nombre', 'in_linea_bases.s_linea_base', 'in_base_fuentes.sis_esta_id',
             'sis_estas.s_estado', 'in_indicadors.sis_esta_id', 'in_indicadors.area_id'
         ])
             ->join('sis_estas', 'in_base_fuentes.sis_esta_id', '=', 'sis_estas.id')
@@ -86,7 +86,7 @@ class IndicadorApi
             ->join('in_ligrus', 'in_base_fuentes.id', '=', 'in_ligrus.in_base_fuente_id')
             ->join('in_indicadors', 'in_fuentes.in_indicador_id', '=', 'in_indicadors.id')
             ->join('areas', 'in_indicadors.area_id', '=', 'areas.id')
-            ->join('sis_docufuens', 'in_base_fuentes.sis_docufuen_id', '=', 'sis_docufuens.id')
+            ->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
             ->where('in_indicadors.area_id', $request->padrexxx);
         return DatatableHelper::getDatatable($paciente, $request);
     }
@@ -101,7 +101,7 @@ class IndicadorApi
         $paciente = InBaseFuente::select([
             'in_base_fuentes.id',
             'in_linea_bases.s_linea_base',
-            'sis_docufuens.nombre',
+            'sis_documento_fuentes.nombre',
             'in_base_fuentes.sis_esta_id',
             'sis_estas.s_estado',
             'in_indicadors.area_id',
@@ -111,7 +111,7 @@ class IndicadorApi
             ->join('in_fuentes', 'in_base_fuentes.in_fuente_id', '=', 'in_fuentes.id')
             ->join('in_indicadors', 'in_fuentes.in_indicador_id', '=', 'in_indicadors.id')
             ->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
-            ->join('sis_docufuens', 'in_base_fuentes.sis_docufuen_id', '=', 'sis_docufuens.id')
+            ->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
             ->where('in_indicadors.area_id', $request->padrexxx);
         return DatatableHelper::getDatatable($paciente, $request);
     }
@@ -171,11 +171,11 @@ class IndicadorApi
     public static function getBaseFuentes($request)
     {
         $dataxxxx = InBaseFuente::select([
-            'in_base_fuentes.id', 'sis_docufuens.nombre', 'in_base_fuentes.in_fuente_id',
+            'in_base_fuentes.id', 'sis_documento_fuentes.nombre', 'in_base_fuentes.in_fuente_id',
             'sis_estas.s_estado', 'in_base_fuentes.sis_esta_id',
         ])
             ->join('sis_estas', 'in_base_fuentes.sis_esta_id', '=', 'sis_estas.id')
-            ->join('sis_docufuens', 'in_base_fuentes.sis_docufuen_id', '=', 'sis_docufuens.id')
+            ->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
             ->where('in_base_fuentes.in_fuente_id', $request->padrexxx);
         return DatatableHelper::getDt($dataxxxx, $request);
     }
@@ -225,7 +225,7 @@ class IndicadorApi
             ->join('sis_estas', 'in_accion_gestions.sis_esta_id', '=', 'sis_estas.id')
             ->join('in_lineabase_nnajs', 'in_accion_gestions.in_lineabase_nnaj_id', '=', 'in_lineabase_nnajs.id')
             ->join('sis_actividads', 'in_accion_gestions.sis_actividad_id', '=', 'sis_actividads.id')
-            ->join('sis_docufuens', 'sis_actividads.sis_docufuen_id', '=', 'sis_docufuens.id')
+            ->join('sis_documento_fuentes', 'sis_actividads.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
             ->where('in_lineabase_nnajs.id', $request->padrexxx);
         return DatatableHelper::getDt($dataxxxx, $request);
     }

@@ -9,7 +9,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\sistema\SisActividad;
-use App\Models\sistema\SisDocufuen;
+use App\Models\sistema\SisDocumentoFuente;
 use App\Models\Tema;
 use Illuminate\Http\Request;
 
@@ -91,12 +91,12 @@ class InAccionGestionController extends Controller
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
-        $this->opciones['docufuen'] = SisDocufuen::getDocBase(true, false, $this->opciones['parametr']);
+        $this->opciones['docufuen'] = SisDocumentoFuente::getDocBase(true, false, $this->opciones['parametr']);
         $this->opciones['ttiempox'] = Tema::combo(4, true, false);
         $this->opciones['fsoporte'] = ['' => 'Seleccione'];
         $this->opciones['activida'] = ['' => 'Seleccione'];
         if ($nombobje != '') {
-            $this->opciones['activida'] = SisActividad::combo($objetoxx->sis_docufuen_id, true, false);
+            $this->opciones['activida'] = SisActividad::combo($objetoxx->sis_documento_fuente_id, true, false);
             //dd($this->opciones['activida']);
             $this->opciones[$nombobje] = $objetoxx;
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';

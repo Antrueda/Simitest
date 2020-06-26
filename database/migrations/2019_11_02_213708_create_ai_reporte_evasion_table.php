@@ -67,7 +67,7 @@ class CreateAiReporteEvasionTable extends Migration{
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('departamento_id')->references('id')->on('sis_departamentos');
             $table->foreign('municipio_id')->references('id')->on('sis_municipios');
-            $table->foreign('prm_upi_id')->references('id')->on('sis_dependens');
+            $table->foreign('prm_upi_id')->references('id')->on('sis_dependencias');
             $table->foreign('prm_hor_eva_id')->references('id')->on('parametros');
             $table->foreign('prm_contextura_id')->references('id')->on('parametros');
             $table->foreign('prm_rostro_id')->references('id')->on('parametros');
@@ -81,11 +81,11 @@ class CreateAiReporteEvasionTable extends Migration{
             $table->foreign('prm_tienelunar_id')->references('id')->on('parametros');
             $table->foreign('prm_tamlunar_id')->references('id')->on('parametros');
             $table->foreign('prm_familiar1_id')->references('id')->on('parametros');
-            // $table->foreign('prm_familiar2_id')->references('id')->on('parametros');
+            $table->foreign('prm_familiar2_id')->references('id')->on('parametros');
             $table->foreign('prm_reporta_id')->references('id')->on('parametros');
             $table->foreign('prm_llamada_id')->references('id')->on('parametros');
             $table->foreign('user_doc1_id')->references('id')->on('users');
-            // $table->foreign('user_doc2_id')->references('id')->on('users');
+            $table->foreign('user_doc2_id')->references('id')->on('users');
             $table->foreign('responsable')->references('id')->on('users');
             $table->foreign('prm_hor_denuncia_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');

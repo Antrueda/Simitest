@@ -2,8 +2,8 @@
 <script>
     $(function(){
         var f_estudia = function(valuexxx){
-            $("#jornestu_id, #natuenti_id, #sis_institucion_edu_id").empty();
-            $("#jornestu_id, #natuenti_id, #sis_institucion_edu_id").append('<option value="">Seleccione</>')
+            $("#i_prm_jornada_estudio_id, #i_prm_naturaleza_entidad_id, #sis_institucion_edu_id").empty();
+            $("#i_prm_jornada_estudio_id, #i_prm_naturaleza_entidad_id, #sis_institucion_edu_id").append('<option value="">Seleccione</>')
             if(valuexxx != ''){
                 $.ajax({
                 url : "{{ route('ajaxx.estudiando') }}",
@@ -18,13 +18,13 @@
                     $('#i_meses_sin_estudio').prop('readonly',json[0].mesnoest);
                     $('#i_anos_sin_estudio').prop('readonly',json[0].anonoest);
                     if(json[0].jornadax[0].valuexxx==1){
-                        $("#jornestu_id, #natuenti_id, #sis_institucion_edu_id").empty();
+                        $("#i_prm_jornada_estudio_id, #i_prm_naturaleza_entidad_id, #sis_institucion_edu_id").empty();
                     }
                     $.each(json[0].jornadax,function(i,data){                            
-                        $('#jornestu_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                        $('#i_prm_jornada_estudio_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     }); 
                     $.each(json[0].naturale,function(i,data){                            
-                        $('#natuenti_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                        $('#i_prm_naturaleza_entidad_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
                     $.each(json[0].instituc,function(i,data){                            
                         $('#sis_institucion_edu_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')

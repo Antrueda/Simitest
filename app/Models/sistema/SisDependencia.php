@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class SisDependen extends Model
+class SisDependencia extends Model
 {
     protected $fillable = [
         'id',
         'nombre',
         'i_prm_cvital_id',
         'i_prm_tdependen_id',
-        'sis_dependen_id',
+        'sis_dependencia_id',
         'i_prm_sexo_id',
         's_direccion',
         'sis_departamento_id',
@@ -48,7 +48,7 @@ class SisDependen extends Model
                 $objetoxx->update($dataxxxx);
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = SisDependen::create($dataxxxx);
+                $objetoxx = SisDependencia::create($dataxxxx);
             }
             return $objetoxx;
         }, 5);
@@ -67,7 +67,7 @@ class SisDependen extends Model
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        foreach (SisDependen::get() as $registro) {
+        foreach (SisDependencia::get() as $registro) {
             if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
             } else {
@@ -106,10 +106,10 @@ class SisDependen extends Model
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $dependen=SisDependen::select(['sis_eslugs.id as valuexxx','sis_eslugs.s_espaluga as optionxx'])
-        ->join('sis_dependen_sis_eslug','sis_dependens.id','=','sis_dependen_sis_eslug.sis_dependen_id')
-        ->join('sis_eslugs','sis_dependen_sis_eslug.sis_eslug_id','=','sis_eslugs.id')
-        ->where('sis_dependens.id',$dataxxxx['padrexxx'])
+        $dependen=SisDependencia::select(['sis_eslugs.id as valuexxx','sis_eslugs.s_espaluga as optionxx'])
+        ->join('sis_dependencia_sis_eslug','sis_dependencias.id','=','sis_dependencia_sis_eslug.sis_dependencia_id')
+        ->join('sis_eslugs','sis_dependencia_sis_eslug.sis_eslug_id','=','sis_eslugs.id')
+        ->where('sis_dependencias.id',$dataxxxx['padrexxx'])
         ->get();
         foreach ($dependen as $registro) {
             if ($dataxxxx['esajaxxx']) {

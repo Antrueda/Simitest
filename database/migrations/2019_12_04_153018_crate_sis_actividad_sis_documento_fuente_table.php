@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrateSisActividadSisDocufuenTable extends Migration
+class CrateSisActividadSisDocumentoFuenteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CrateSisActividadSisDocufuenTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_activida_sis_docufuen', function (Blueprint $table) {
+        Schema::create('sis_activida_sis_documento_fuente', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_actividad_id')->unsigned();
-            $table->bigInteger('sis_docufuen_id')->unsigned();
-            // $table->unique(['sis_actividad_id','sis_docufuen_id']);
+            $table->bigInteger('sis_documento_fuente_id')->unsigned();
+            // $table->unique(['sis_actividad_id','sis_documento_fuente_id']);
         });
     }
 
@@ -28,6 +28,6 @@ class CrateSisActividadSisDocufuenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_activida_sis_docufuen');
+        Schema::dropIfExists('sis_activida_sis_documento_fuente');
     }
 }

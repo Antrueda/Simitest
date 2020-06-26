@@ -1,6 +1,5 @@
 <?php
 
-use App\Traits\Db\DbTrait;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -8,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class CreateInRespusTable extends Migration
 {
-    use  DbTrait;
     private $tablaxxx = 'in_respus';
     /**
      * Run the migrations.
@@ -30,9 +28,8 @@ class CreateInRespusTable extends Migration
             $table->foreign('in_doc_pregunta_id')->references('id')->on('in_doc_preguntas');
             $table->unique(['prm_respuesta_id', 'in_doc_pregunta_id']);
         });
-        $comments = "TABLA QUE ALMACENA LAS RESPUESTAS CON LAS QUE
-         SE EVALUARAN LOS INDICADORES  {$this->tablaxxx}";
-        $this->getCommentTable($this->tablaxxx, '', $comments);
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RESPUESTAS CON LAS QUE
+         SE EVALUARAN LOS INDICADORES  {$this->tablaxxx}'");
     }
 
     /**

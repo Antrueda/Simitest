@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SisDependenCrearRequest;
-use App\Http\Requests\SisDependenEditarRequest;
+use App\Http\Requests\SisDependenciaCrearRequest;
+use App\Http\Requests\SisDependenciaEditarRequest;
 use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisDependen;
+use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisLocalidad;
 use App\Models\sistema\SisMunicipio;
 use App\Models\sistema\SisUpz;
@@ -53,14 +53,14 @@ class DependenciaController extends Controller
         ];
         $this->opciones['columnsx'] = [
             ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'nombre', 'name' => 'sis_dependens.nombre'],
+            ['data' => 'nombre', 'name' => 'sis_dependencias.nombre'],
             ['data' => 'i_prm_sexo_id', 'name' => 'parametros.nombre as i_prm_sexo_id'],
-            ['data' => 's_direccion', 'name' => 'sis_dependens.s_direccion'],
+            ['data' => 's_direccion', 'name' => 'sis_dependencias.s_direccion'],
             ['data' => 'sis_localidad_id', 'name' => 'sis_localidads.s_localidad as sis_localidad_id'],
             ['data' => 'sis_barrio_id', 'name' => 'sis_barrios.s_barrio as sis_barrio_id'],
-            ['data' => 's_telefono', 'name' => 'sis_dependens.s_telefono'],
-            ['data' => 's_correo', 'name' => 'sis_dependens.s_correo'],
-            ['data' => 'sis_esta_id', 'name' => 'sis_dependens.sis_esta_id'],
+            ['data' => 's_telefono', 'name' => 'sis_dependencias.s_telefono'],
+            ['data' => 's_correo', 'name' => 'sis_dependencias.s_correo'],
+            ['data' => 'sis_esta_id', 'name' => 'sis_dependencias.sis_esta_id'],
 
         ];
     }
@@ -109,7 +109,7 @@ class DependenciaController extends Controller
 
         $this->opciones['i_prm_cvital_id'] = Tema::combo(311 ,true, false);
         $this->opciones['i_prm_tdependen_id'] = Tema::combo(192, true, false);
-        $this->opciones['sis_dependen_id'] = SisDependen::combo(true, false);
+        $this->opciones['sis_dependencia_id'] = SisDependencia::combo(true, false);
         $this->opciones['i_prm_sexo_id'] = Tema::combo(11, true, false);
         $this->opciones['responsa'] = Tema::comboDesc(23, false, false);
         $this->opciones['sis_departamento_id'] = SisDepartamento::combo(2, false);
@@ -151,7 +151,7 @@ class DependenciaController extends Controller
     {
 
         return redirect()
-            ->route('dependencia.editar', [SisDependen::transaccion($dataxxxx, $objectx)->id])
+            ->route('dependencia.editar', [SisDependencia::transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);
     }
     /**
@@ -160,7 +160,7 @@ class DependenciaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SisDependenCrearRequest $request)
+    public function store(SisDependenciaCrearRequest $request)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
@@ -172,7 +172,7 @@ class DependenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SisDependen $objetoxx)
+    public function show(SisDependencia $objetoxx)
     {
         $this->opciones['readonly'] = 'readonly';
         return $this->view($objetoxx,  'modeloxx', 'Ver', 'ver');
@@ -184,13 +184,13 @@ class DependenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(SisDependen $objetoxx)
+    public function edit(SisDependencia $objetoxx)
     {
         $this->opciones['actualiz'] = '';
         return $this->view($objetoxx,  'modeloxx', 'Editar', 'editar');
     }
 
-    public function update(SisDependenEditarRequest $request, SisDependen $objetoxx)
+    public function update(SisDependenciaEditarRequest $request, SisDependencia $objetoxx)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, $objetoxx, 'Indicador actualizado con éxito');
@@ -202,7 +202,7 @@ class DependenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SisDependen $objetoxx)
+    public function destroy(SisDependencia $objetoxx)
     {
         $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();

@@ -1,14 +1,13 @@
 <?php
 
 use App\CamposMagicos\CamposMagicos;
-use App\Traits\Db\DbTrait;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateInValoracionsTable extends Migration
 {
-    use  DbTrait;
     private $tablaxxx = 'in_valoracions';
     /**
      * Run the migrations.
@@ -30,12 +29,12 @@ class CreateInValoracionsTable extends Migration
             $table->foreign('i_prm_cactual_id')->references('id')->on('parametros');
             $table->foreign('i_prm_avance_id')->references('id')->on('parametros');
             $table->foreign('i_prm_nivel_id')->references('id')->on('parametros');
-            //$table->unique(['in_lineabase_nnaj_id','i_prm_cactual_id']);
+            $table->unique(['in_lineabase_nnaj_id','i_prm_cactual_id']);
             $table = CamposMagicos::magicos($table);
         });
-        $comments = "TABLA QUE ALMACENA LAS VALORACIONES REALIZADAS AL NNAJ";
-        $this->getCommentTable($this->tablaxxx, '', $comments);
-    }
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS VALORACIONES REALIZADAS AL NNAJ");
+   
+         }
 
     /**
      * Reverse the migrations.

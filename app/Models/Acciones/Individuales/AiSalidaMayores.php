@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDependen;
+use App\Models\sistema\SisDependencia;
 use App\Models\User;
 
 class AiSalidaMayores extends Model{
@@ -23,7 +23,7 @@ class AiSalidaMayores extends Model{
     }
 
     public function upi(){
-        return $this->belongsTo(SisDependen::class, 'prm_upi_id');
+        return $this->belongsTo(SisDependencia::class, 'prm_upi_id');
     }
 
     public function razones(){

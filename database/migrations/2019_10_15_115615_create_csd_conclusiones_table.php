@@ -31,7 +31,7 @@ class CreateCsdConclusionesTable extends Migration
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('persona_parent_id')->references('id')->on('parametros');
             $table->foreign('user_doc1_id')->references('id')->on('users');
-            // $table->foreign('user_doc2_id')->references('id')->on('users');
+            $table->foreign('user_doc2_id')->references('id')->on('users');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });

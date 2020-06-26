@@ -3,8 +3,8 @@
     $(function(){
 
         var f_discapacidad = function(valuexxx){
-            $("#tipodisc_id, #ticedisc_id, #dipeinde_id").empty();
-            $("#tipodisc_id, #ticedisc_id, #dipeinde_id").append('<option value="">Seleccione</>')
+            $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").empty();
+            $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").append('<option value="">Seleccione</>')
             if(valuexxx != ''){
                 $.ajax({
                     url : "{{ route('ajaxx.discapacitado') }}",
@@ -16,16 +16,16 @@
                     dataType : 'json',
                     success : function(json) {
                         if(json[0].discapac[0].valuexxx==1){
-                            $("#tipodisc_id, #ticedisc_id, #dipeinde_id").empty();
+                            $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").empty();
                         }
                         $.each(json[0].discapac,function(i,data){
-                            $('#tipodisc_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                            $('#i_prm_tipo_discapacidad_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
                         $.each(json[0].certific,function(i,data){
-                                $('#ticedisc_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                                $('#i_prm_tiene_cert_discapacidad_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
                         $.each(json[0].independ,function(i,data){
-                                $('#dipeinde_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                                $('#i_prm_disc_perm_independencia_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
                     },
                     error : function(xhr, status) {
@@ -35,17 +35,17 @@
             }
         }
 
-        @if(old('tiendisc_id')!=null)
-            f_discapacidad({{ old('tiendisc_id') }});
+        @if(old('i_prm_tiene_discapacidad_id')!=null)
+            f_discapacidad({{ old('i_prm_tiene_discapacidad_id') }});
         @endif
 
-        $("#tiendisc_id").change(function(){
+        $("#i_prm_tiene_discapacidad_id").change(function(){
             f_discapacidad($(this).val());
         });
 
-        $("#conometo_id").change(function(){
-            $("#usametod_id, #cualmeto_id, #usovolun_id").empty();
-            $("#usametod_id, #cualmeto_id, #usovolun_id").append('<option value="">Seleccione</>')
+        $("#i_prm_conoce_metodos_id").change(function(){
+            $("#i_prm_usa_metodos_id, #i_prm_cual_metodo_id, #i_prm_uso_voluntario_id").empty();
+            $("#i_prm_usa_metodos_id, #i_prm_cual_metodo_id, #i_prm_uso_voluntario_id").append('<option value="">Seleccione</>')
             if($(this).val()!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.anticonceptivo') }}",
@@ -57,16 +57,16 @@
                 dataType : 'json',
                 success : function(json) {
                     if(json[0].usametod[0].valuexxx==1){
-                        $("#usametod_id, #cualmeto_id, #usovolun_id").empty();
+                        $("#i_prm_usa_metodos_id, #i_prm_cual_metodo_id, #i_prm_uso_voluntario_id").empty();
                     }
                     $.each(json[0].usametod,function(i,data){
-                        $('#usametod_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                        $('#i_prm_usa_metodos_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
                     $.each(json[0].cuametod,function(i,data){
-                            $('#cualmeto_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                            $('#i_prm_cual_metodo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
                     $.each(json[0].usavolun,function(i,data){
-                            $('#usovolun_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                            $('#i_prm_uso_voluntario_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
                 },
                 error : function(xhr, status) {
@@ -77,7 +77,7 @@
         });
 
 
-        $("#regisalu_id").change(function(){
+        $("#i_prm_regimen_salud_id").change(function(){
             $("#sis_entidad_salud_id").empty();
             $("#sis_entidad_salud_id").append('<option value="">Seleccione</>')
             if($(this).val()!=''){
@@ -105,8 +105,8 @@
         });
 
         $("#i_comidas_diarias").keyup(function(){
-            $("#racicomi_id").empty();
-            $("#racicomi_id").append('<option value="">Seleccione</>')
+            $("#i_prm_razon_no_cinco_comidas_id").empty();
+            $("#i_prm_razon_no_cinco_comidas_id").append('<option value="">Seleccione</>')
             if($(this).val()!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.comidasdiarias') }}",
@@ -118,10 +118,10 @@
                 dataType : 'json',
                 success : function(json) {
                     if(json[0].nocomida[0].valuexxx==1){
-                        $("#racicomi_id").empty();
+                        $("#i_prm_razon_no_cinco_comidas_id").empty();
                     }
                     $.each(json[0].nocomida,function(i,data){
-                        $('#racicomi_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                        $('#i_prm_razon_no_cinco_comidas_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
                 },
                 error : function(xhr, status) {
@@ -131,7 +131,7 @@
             }
         });
 
-        $("#estagest_id").change(function(){
+        $("#i_prm_esta_gestando_id").change(function(){
             if($(this).val()!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.estagestando') }}",
@@ -152,7 +152,7 @@
             }
         });
 
-        $("#estalact_id").change(function(){
+        $("#i_prm_esta_lactando_id").change(function(){
             if($(this).val()!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.estalactando') }}",
@@ -173,7 +173,7 @@
             }
         });
 
-        $("#estalact_id").change(function(){
+        $("#i_prm_esta_lactando_id").change(function(){
             if($(this).val()!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.estalactando') }}",
@@ -194,7 +194,7 @@
             }
         });
 
-        $("#tienhijo_id").change(function(){
+        $("#i_prm_tiene_hijos_id").change(function(){
             if($(this).val()!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.tienehijos') }}",
@@ -215,7 +215,7 @@
             }
         });
 
-        $("#probsalu_id").change(function(){
+        $("#i_prm_tiene_problema_salud_id").change(function(){
             $("#i_prm_problema_salud_id").empty();
             $("#i_prm_problema_salud_id").append('<option value="">Seleccione</>')
             if($(this).val()!=''){
@@ -242,7 +242,7 @@
             }
         });
 
-        $("#consmedi_id").change(function(){
+        $("#i_prm_consume_medicamentos_id").change(function(){
             if($(this).val()!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.consumedicamen') }}",
@@ -274,10 +274,10 @@
                 dataType : 'json',
                 success : function(json) {
                     if(json[0].pusisben[0].valuexxx==1){
-                        $("#tiensalu_id").empty();
+                        $("#i_prm_tiene_sisben_id").empty();
                     }
                     $.each(json[0].pusisben,function(i,data){
-                        $('#tiensalu_id').append('<option value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                        $('#i_prm_tiene_sisben_id').append('<option value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
                 },
                 error : function(xhr, status) {
@@ -287,11 +287,11 @@
             // }
         }
         @if(old('d_puntaje_sisben')!=null)
-        f_sisben({{ old('d_puntaje_sisben') }},{{ old('tiensalu_id')  }});
+        f_sisben({{ old('d_puntaje_sisben') }},{{ old('i_prm_tiene_sisben_id')  }});
         @endif
         $("#d_puntaje_sisben").keyup(function(){
-            $("#tiensalu_id").empty();
-            $("#tiensalu_id").append('<option value="">Seleccione</>')
+            $("#i_prm_tiene_sisben_id").empty();
+            $("#i_prm_tiene_sisben_id").append('<option value="">Seleccione</>')
             f_sisben($(this).val(),'');
         });
 

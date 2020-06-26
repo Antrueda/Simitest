@@ -42,10 +42,10 @@ class SisServicio extends Model
         return $comboxxx;
     }
 
-    public function sis_dependens()
+    public function sis_dependencias()
     {
         {
-            return $this->belongsToMany(SisDependen::class);
+            return $this->belongsToMany(SisDependencia::class);
         }
     }
 

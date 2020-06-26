@@ -3,7 +3,7 @@
 namespace App\Models\Indicadores;
 
 use App\Models\Parametro;
-use App\Models\sistema\SisDocufuen;
+use App\Models\sistema\SisDocumentoFuente;
 use App\Models\sistema\SisTabla;
 use App\Models\sistema\SisTcampo;
 use App\Models\User;
@@ -101,7 +101,7 @@ class InPregunta extends Model
     $pregunta = SisTcampo::select(['sis_tcampos.id', 'sis_tcampos.s_numero', 'in_preguntas.s_pregunta'])
       ->join('sis_tablas', 'sis_tcampos.sis_tabla_id', '=', 'sis_tablas.id')
       ->join('in_preguntas', 'sis_tcampos.in_pregunta_id', '=', 'in_preguntas.id')
-      ->where('sis_tablas.sis_docufuen_id', $dataxxxx['grupoxxx']->in_base_fuente->sis_docufuen_id)
+      ->where('sis_tablas.sis_documento_fuente_id', $dataxxxx['grupoxxx']->in_base_fuente->sis_documento_fuente_id)
       ->get();
     foreach ($pregunta as $registro) {
       if (!in_array($registro->id, $notinxxx)||in_array($dataxxxx['seleccio'], $notinxxx)) {

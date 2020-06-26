@@ -13,9 +13,9 @@ class FiEnfermedadesFamilia extends Model
         'fi_salud_id',
         'fi_composicion_fami_id',
         's_tipo_enfermedad',
-        'recimedi_id',
+        'i_prm_recibe_medicina_id',
         's_medicamento',
-        'rectrata_id',
+        'i_prm_rec_tratamiento_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id'

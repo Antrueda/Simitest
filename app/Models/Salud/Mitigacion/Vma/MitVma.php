@@ -3,7 +3,7 @@
 namespace App\Models\Salud\Mitigacion\Vma;
 
 use App\Models\Parametro;
-use App\Models\sistema\SisDependen;
+use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisDiagnosticos;
 use App\Models\sistema\SisNnaj;
 use App\Models\User;
@@ -36,8 +36,8 @@ class MitVma extends Model{
         'cocaina_dosis',        'cocaina_dia',      'cocaina_mes',          'cocaina_anio',
         'cocaina_dejo',         'prm_heroina_sino_id', 'heroina_edad',      'prm_heroina_frec_id',
         'heroina_dosis',        'heroina_dia',      'heroina_mes',          'heroina_anio',
-        'heroina_dejo',         'prm_2cb_sino_id',  'doscb_edad',             'prm_2cb_frec_id',
-        'doscb_dosis',            'doscb_dia',          'doscb_mes',              'doscb_anio', 'doscb_dejo',
+        'heroina_dejo',         'prm_2cb_sino_id',  '2cb_edad',             'prm_2cb_frec_id',
+        '2cb_dosis',            '2cb_dia',          '2cb_mes',              '2cb_anio', '2cb_dejo',
         'prm_acidos_sino_id',   'acidos_edad',      'prm_acidos_frec_id',   'acidos_dosis',
         'acidos_dia',           'acidos_mes',       'acidos_anio',          'acidos_dejo',
         'prm_lsd_sino_id',      'lsd_edad',         'prm_lsd_frec_id',      'lsd_dosis',
@@ -59,7 +59,7 @@ class MitVma extends Model{
     }
 
     public function upi(){
-        return $this->belongsTo(SisDependen::class, 'prm_upi_id');
+        return $this->belongsTo(SisDependencia::class, 'prm_upi_id');
     }
 
     public function valoracion(){

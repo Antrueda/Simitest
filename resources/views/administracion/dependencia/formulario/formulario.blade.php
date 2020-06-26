@@ -12,8 +12,8 @@
     {{ Form::select('i_prm_tdependen_id', $todoxxxx["i_prm_tdependen_id"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4" style="height: ">
-    {{ Form::label('sis_dependen_id', 'Dependencia padre', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_dependen_id', $todoxxxx["sis_dependen_id"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::label('sis_dependencia_id', 'Dependencia padre', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('sis_dependencia_id', $todoxxxx["sis_dependencia_id"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4" style="height: ">
     {{ Form::label('i_prm_sexo_id', 'Sexo', ['class' => 'control-label col-form-label-sm']) }}

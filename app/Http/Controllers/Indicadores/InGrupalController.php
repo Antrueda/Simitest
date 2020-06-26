@@ -10,7 +10,7 @@ use App\Models\Indicadores\InLineaBase;
 use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InValidacion;
 use App\Models\sistema\SisActividad;
-use App\Models\sistema\SisDocufuen;
+use App\Models\sistema\SisDocumentoFuente;
 use App\Models\sistema\SisTabla;
 use Illuminate\Http\Request;
 

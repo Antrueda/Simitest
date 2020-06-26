@@ -9,7 +9,7 @@ use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InDocIndi;
 use App\Models\Indicadores\InLigru;
 use App\Models\sistema\SisCampoTabla;
-use App\Models\sistema\SisDocufuen;
+use App\Models\sistema\SisDocumentoFuente;
 use App\Models\sistema\SisTabla;
 use Illuminate\Http\Request;
 
@@ -69,7 +69,7 @@ class InDocIndicadorController extends Controller
             ['data' => 'id', 'name' => 'id'],
 
             ['data' => 's_linea_base', 'name' => 'in_linea_bases.s_linea_base'],
-            ['data' => 'nombre', 'name' => 'sis_docufuens.nombre'],
+            ['data' => 'nombre', 'name' => 'sis_documento_fuentes.nombre'],
 
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
@@ -81,7 +81,7 @@ class InDocIndicadorController extends Controller
         $this->opciones['vercrear'] ='';
         $this->opciones['campoxxx'] = ['' => 'Seleccione'];
         $this->opciones['modeloxx']=InLigru::where('id',$in_ligru_id)->first();
-        $this->opciones['tablaxxx'] = SisTabla::comboTabla($this->opciones['modeloxx']->in_base_fuente->sis_docufuen->id, true, false);
+        $this->opciones['tablaxxx'] = SisTabla::comboTabla($this->opciones['modeloxx']->in_base_fuente->sis_documento_fuente->id, true, false);
         $this->opciones['parametr'] = [$in_ligru_id]; // motrar el boton de nuevo registro
         //$this->opciones['vercrear'] = '';// motrar el boton de nuevo registro
         $this->opciones['titunuev'] = 'Nueva Pregunta';
@@ -137,7 +137,7 @@ class InDocIndicadorController extends Controller
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
         $this->opciones['pregunta'] = InBaseFuente::comboPreguntas($objetoxx->id, false, false);;
-        $this->opciones['tablaxxx'] = SisTabla::comboTabla($objetoxx->in_base_fuente->sis_docufuen->id, true, false);
+        $this->opciones['tablaxxx'] = SisTabla::comboTabla($objetoxx->in_base_fuente->sis_documento_fuente->id, true, false);
         $this->opciones['campoxxx'] = ['' => 'Seleccione'];
         if ($nombobje != '') {
 

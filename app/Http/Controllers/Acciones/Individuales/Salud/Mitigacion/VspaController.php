@@ -11,7 +11,7 @@ use App\Models\Salud\Mitigacion\VspaTabla;
 use App\Models\Salud\Mitigacion\VspaTablaDos;
 use App\Models\Salud\Mitigacion\VspaTablaTres;
 use App\Models\Salud\Mitigacion\VspaTablaCuatro;
-use App\Models\sistema\SisDependen;
+use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
@@ -37,7 +37,7 @@ class VspaController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vspa = $dato->Vspa->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis = SisDependen::orderBy('nombre')->pluck('nombre', 'id');
+        $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
         $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $tValoracion = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(312)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
@@ -259,7 +259,7 @@ class VspaController extends Controller{
         //$vspaTablaCuatro = $dato->VspaTablaCuatro->where('sis_esta_id', 1)->all();
 
         //dd($vspaTabla4);
-        $upis = SisDependen::orderBy('nombre')->pluck('nombre', 'id');
+        $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
         $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $tValoracion = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(312)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
@@ -475,7 +475,7 @@ class VspaController extends Controller{
     protected function validator(array $data){
         return Validator::make($data, [
             'sis_nnaj_id'       => 'required|exists:sis_nnajs,id',
-            'prm_upi_id'        => 'required|exists:sis_dependens,id',
+            'prm_upi_id'        => 'required|exists:sis_dependencias,id',
             'fecha'             => 'required|date',
             'prm_valoracion_id' => 'required|exists:parametros,id',
             'prm_icbf_id'       => 'required|exists:parametros,id',

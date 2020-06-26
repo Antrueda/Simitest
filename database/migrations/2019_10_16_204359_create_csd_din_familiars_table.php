@@ -50,8 +50,8 @@ class CreateCsdDinFamiliarsTable extends Migration{
             $table->foreign('prm_bogota_id')->references('id')->on('parametros');
             $table->foreign('prm_traslado_id')->references('id')->on('parametros');
             $table->foreign('prm_jefe1_id')->references('id')->on('parametros');
-            // $table->foreign('prm_jefe2_id')->references('id')->on('parametros');
-             $table->foreign('prm_cuidador_id')->references('id')->on('parametros');
+            $table->foreign('prm_jefe2_id')->references('id')->on('parametros');
+            $table->foreign('prm_cuidador_id')->references('id')->on('parametros');
             $table->foreign('prm_norma_id')->references('id')->on('parametros');
             $table->foreign('prm_conoce_id')->references('id')->on('parametros');
             $table->foreign('prm_actuan_id')->references('id')->on('parametros');

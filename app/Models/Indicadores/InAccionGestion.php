@@ -16,7 +16,7 @@ class InAccionGestion extends Model
     'i_tiempo',
     'in_lineabase_nnaj_id',
     'i_prm_ttiempo_id',
-    'sis_docufuen_id',
+    'sis_documento_fuente_id',
     'user_crea_id', 
     'user_edita_id',
     'sis_esta_id'

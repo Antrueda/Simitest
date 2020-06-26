@@ -5,7 +5,7 @@ namespace App\Http\Controllers\FichaIngreso;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiBienvenidaCrearRequest;
 use App\Http\Requests\FichaIngreso\FiBienvenidaUpdateRequest;
-use App\Models\sistema\SisDependen;
+use App\Models\sistema\SisDependencia;
 use App\Models\fichaIngreso\FiBienvenida;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Tema;
@@ -36,7 +36,7 @@ class FiBienvenidaController extends Controller
       'nuevoxxx' => 'o Registro'
     ];
     $this->opciones['condicio'] = Tema::combo(23,true,false);
-    $this->opciones['dependen'] = SisDependen::combo(true,false);
+    $this->opciones['dependen'] = SisDependencia::combo(true,false);
     $this->opciones['servicio'] = Tema::combo(65,true,false);
   }
 

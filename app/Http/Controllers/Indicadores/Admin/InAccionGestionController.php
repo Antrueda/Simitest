@@ -127,7 +127,7 @@ class InAccionGestionController extends Controller
          * indica si se esta actualizando o viendo
          */
         if ($dataxxxx['objetoxx'] != '') {
-            $this->opciones['activida'] = SisActividad::combo($dataxxxx['objetoxx']->sis_docufuen_id, true, false);
+            $this->opciones['activida'] = SisActividad::combo($dataxxxx['objetoxx']->sis_documento_fuente_id, true, false);
             $this->opciones['modeloxx'] = $dataxxxx['objetoxx'];
         }
         /**

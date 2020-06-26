@@ -13,7 +13,7 @@ use App\Models\Roleext;
 use App\Models\sistema\AreaUser;
 use App\Models\sistema\SisCargo;
 use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisDependen;
+use App\Models\sistema\SisDependencia;
 use App\Models\sistema\SisEsta;
 use App\Models\sistema\SisMunicipio;
 use App\Models\Tema;
@@ -140,7 +140,7 @@ class UsuarioController extends Controller
         $this->opciones['prm_documento_id'] = Tema::combo(3, true, false);
         $this->opciones['prm_tvinculacion_id'] = Tema::combo(310, true, false);
         $this->opciones['prm_tdependencia_id'] = Tema::combo(3, true, false);
-        $this->opciones['sis_dependen_id'] = SisDependen::combo('', true, false);
+        $this->opciones['sis_dependencia_id'] = SisDependencia::combo('', true, false);
         $this->opciones['sis_departamento_id'] = SisDepartamento::combo(2, false);
         // indica si se esta actualizando o viendo
         $this->opciones['registro'] = [];
@@ -325,7 +325,7 @@ class UsuarioController extends Controller
             $dataxxxx = $request->all();
 
             return datatables()
-                ->collection(User::where('id', $dataxxxx['usuariox'])->first()->sis_dependens)
+                ->collection(User::where('id', $dataxxxx['usuariox'])->first()->sis_dependencias)
                 ->addColumn('btn', 'actions')
                 ->rawColumns(['btn'])
                 ->toJson();
@@ -337,7 +337,7 @@ class UsuarioController extends Controller
             $dataxxxx = $request->all();
             // se asigna el rol
             $dato = User::findOrFail($dataxxxx['usuariox']);
-            $dato->sis_dependens()->attach([$dataxxxx['dependen']]);
+            $dato->sis_dependencias()->attach([$dataxxxx['dependen']]);
             return response()->json(User::dependencia($dato->id));
         }
     }
@@ -346,7 +346,7 @@ class UsuarioController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $dato = User::findOrFail($dataxxxx['usuariox']);
-            $dato->sis_dependens()->detach(explode('_', $dataxxxx['dependen'])[1]);
+            $dato->sis_dependencias()->detach(explode('_', $dataxxxx['dependen'])[1]);
             return response()->json(User::dependencia($dato->id));
         }
     }

@@ -133,7 +133,7 @@ class InIndicador extends Model
                 'cantbase' => 0,
                 'linebase' => $fuentexx->in_linea_base->s_linea_base,
                 'cantdocu' => 0,
-                'document' => $documenx->sis_docufuen->nombre,
+                'document' => $documenx->sis_documento_fuente->nombre,
                 'pregunta' => $pregunta->in_pregunta->s_pregunta
               ];
 
@@ -175,8 +175,8 @@ class InIndicador extends Model
         'in_linea_bases.s_linea_base as slinbase',
         'stiempox.nombre as stiempox',
         'scatagor.nombre as scatagor',
-        'sis_docufuens.id as idocfuen',
-        'sis_docufuens.nombre as sdocumen',
+        'sis_documento_fuentes.id as idocfuen',
+        'sis_documento_fuentes.nombre as sdocumen',
         'in_preguntas.id as idpregun',
         'in_preguntas.s_pregunta as spregunt',
         'sis_fsoportes.id as idsoport',
@@ -186,7 +186,7 @@ class InIndicador extends Model
       ->join('in_fuentes', 'in_indicadors.id', '=', 'in_fuentes.in_indicador_id')
       ->join('in_linea_bases', 'in_fuentes.in_linea_base_id', '=', 'in_linea_bases.id')
       ->join('in_base_fuentes', 'in_fuentes.id', '=', 'in_base_fuentes.in_fuente_id')
-      ->join('sis_docufuens', 'in_base_fuentes.sis_docufuen_id', '=', 'sis_docufuens.id')
+      ->join('sis_documento_fuentes', 'in_base_fuentes.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
       ->join('in_ligrus', 'in_base_fuentes.id', '=', 'in_ligrus.in_base_fuente_id')
       ->join('in_doc_preguntas', 'in_ligrus.id', '=', 'in_doc_preguntas.in_ligru_id')
       ->join('in_preguntas', 'in_doc_preguntas.in_pregunta_id', '=', 'in_preguntas.id')

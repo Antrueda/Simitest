@@ -1,6 +1,6 @@
 <div class="form-group row">  
   <div class="form-group col-md-12">
-    <h1 style="text-align: center">DOCUMENTO FUENTE: {{ $todoxxxx["grupoxxx"]->in_base_fuente->sis_docufuen->nombre }}</h1> 
+    <h1 style="text-align: center">DOCUMENTO FUENTE: {{ $todoxxxx["grupoxxx"]->in_base_fuente->sis_documento_fuente->nombre }}</h1> 
   </div>
   
   <div class="form-group col-md-6">
