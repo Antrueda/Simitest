@@ -80,7 +80,7 @@ class InIndicadorController extends Controller
                     ['data' => 'id', 'name' => 'in_indicadors.id'],
                     ['data' => 's_indicador', 'name' => 'in_indicadors.s_indicador'],
                     ['data' => 'nombre', 'name' => 'areas.nombre'],
-                    ['data' => 's_estado', 'name' => 'in_indicadors.s_estado'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'tablaindicadores',
                 'permisox' => $this->opciones['permisox'],
@@ -170,7 +170,7 @@ class InIndicadorController extends Controller
     {
         $indicado = InIndicador::transaccion($dataxxxx, $objectx);
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$indicado->area_id, $indicado->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$indicado->id])
             ->with('info', $infoxxxx);
     }
 

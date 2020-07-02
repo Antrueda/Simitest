@@ -104,7 +104,7 @@ class FiDatoBasicoController extends Controller
     $this->opciones['poblindi'] = ['' => 'Seleccione'];
     $this->opciones['neciayud'] = ['' => 'Seleccione'];
     $this->opciones['readfisi'] = '';
-    // indica si se esta actualizando o viendo 
+    // indica si se esta actualizando o viendo
     $this->opciones['aniosxxx'] = '';
     if ($nombobje != '') {
       $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';

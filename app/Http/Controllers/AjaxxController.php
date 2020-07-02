@@ -35,6 +35,7 @@ use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class AjaxxController extends Controller
 {
@@ -894,13 +895,18 @@ class AjaxxController extends Controller
                     SisDependencia::where('id', $dataxxxx['sis_dependencia_id'])->first()->sis_servicios()->attach([$dataxxxx['sis_servicio_id']]);
                     break;
                 case 5: // personal
-                    SisDependencia::where('id', $dataxxxx['sis_dependencia_id'])->first()->users()->attach([$dataxxxx['user_id'] => ['i_prm_condicional_id' => $dataxxxx['responsable']]]);
+                    SisDependencia::where('id', $dataxxxx['sis_dependencia_id'])->first()->users()->attach([$dataxxxx['user_id'] => [
+                        'i_prm_responsable_id' => $dataxxxx['responsable'],
+                        'user_crea_id'=>Auth::user()->id,
+                        'user_edita_id'=>Auth::user()->id,
+                        'sis_esta_id'=>1,
+                    ]]);
                     break;
                 case 6: // servicios
                     SisEp::where('id', $dataxxxx['sis_ep_id'])->first()->sis_servicios()->attach([$dataxxxx['sis_servicio_id']]);
                     break;
                 case 7: // personal
-                    SisEp::where('id', $dataxxxx['sis_ep_id'])->first()->users()->attach([$dataxxxx['user_id'] => ['i_prm_condicional_id' => $dataxxxx['responsable']]]);
+                    SisEp::where('id', $dataxxxx['sis_ep_id'])->first()->users()->attach([$dataxxxx['user_id'] => ['i_prm_responsable_id' => $dataxxxx['responsable']]]);
                     break;
             }
             return response()->json($respuest);

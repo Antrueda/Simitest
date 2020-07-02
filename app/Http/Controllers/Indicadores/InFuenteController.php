@@ -88,7 +88,7 @@ class InFuenteController extends Controller
                 ],
                 'permisox' => $this->opciones['permisox'],
                 'routxxxx' => 'lbf.basefuente',
-                'parametr' => [$padrexxx->area_id, $padrexxx->id],
+                'parametr' => [$padrexxx->id],
                 'tablaxxx' => 'tablaprincipal',
             ];
         $this->opciones['accionxx'] = 'index';
@@ -181,7 +181,7 @@ class InFuenteController extends Controller
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'MODIFICAR', 'routingx' => ['bd.basedocumen', [$objetoxx->id]],
-                'formhref' => 2, 'tituloxx' => 'ASIGANAR DF', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'ASIGNAR DF', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
             return $this->view(['objetoxx'=>$objetoxx,'accionxx'=>'Editar','padrexxx'=>$padrexxx]);
     }
@@ -190,7 +190,7 @@ class InFuenteController extends Controller
     {
         $registro = InFuente::transaccion($dataxxxx, $objectx);
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->in_indicador->id, $registro->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
             ->with('info', $infoxxxx);
     }
 

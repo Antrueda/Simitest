@@ -92,7 +92,7 @@ class DependenciaController extends Controller
 
         ];
 
-        $this->opciones["urlxxxas"]='api/user';
+        $this->opciones["urlxxxas"]='api/sis/user';
         $this->opciones['routxxxb'] = 'dependencia';
         $this->opciones['cabeceas'] = [
             ['td' => 'ID'],

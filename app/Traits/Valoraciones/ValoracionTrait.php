@@ -106,12 +106,14 @@ trait ValoracionTrait
         $acategor = [246, 247, 248, 300, 301, 302, 840, 518, 841];
         $encatego = array_search($dataxxxx['cateactu'], $acategor);
         $respuest = [];
+
         switch ($dataxxxx['avancexx']) {
             case 512: //avanza  
+                $guardado = $ajaxxxxx == false ? $avancexx[3] : $avancexx[3] + 1;
                 $parametr = Parametro::where('id', $avancexx[3] + 1)->first();
                 $respuest = [
                     'nivelxxx' => [['valuexxx' => $parametr->id, 'optionxx' => $parametr->nombre]],
-                    'categori' => $this->getCombo($avancexx[3] + 1, $ajaxxxxx)
+                    'categori' => $this->getCombo($guardado, $ajaxxxxx)
                 ];
                 break;
             case 514: // avance parcial                    
@@ -180,8 +182,8 @@ trait ValoracionTrait
         $puedexxx = false;
         $valoraci = InValoracion::where('in_lineabase_nnaj_id', $dataxxxx['libannaj'])
             ->where('created_at', 'LIKE', date('Y-m-d', time()) . '%')->first();
-        $existexx = isset($valoraci->id)==true ? false : true;
-        if ((auth()->user()->can($this->opciones['permisox'] . '-crear') ? true : false)==true && $existexx==true) {
+        $existexx = isset($valoraci->id) == true ? false : true;
+        if ((auth()->user()->can($this->opciones['permisox'] . '-crear') ? true : false) == true && $existexx == true) {
             $categori = Tema::where('id', 295)->first()->parametros;
             foreach ($categori as $registro) {
                 $valoraci = InValoracion::where('in_lineabase_nnaj_id', $dataxxxx['libannaj'])
@@ -195,27 +197,24 @@ trait ValoracionTrait
         return $puedexxx;
     }
 
-    public function getGuardado($dataxxxx){
-$categori=Parametro::find($dataxxxx['categori']);
+    public function getGuardado($dataxxxx)
+    {
+        $categori = Parametro::find($dataxxxx['categori']);
         switch ($dataxxxx['avancexx']) {
             case 512: //avanza  
                 // 1 - 3
-                
+
                 // 4 - 6
-
-
-
-
                 break;
             case 514: // avance parcial                    
-                
+
                 break;
             case 559: // no avanza
-               
+
 
                 break;
             case 1688: // retrocede
-               
+
                 break;
         }
     }

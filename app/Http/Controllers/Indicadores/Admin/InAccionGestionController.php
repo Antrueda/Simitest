@@ -161,7 +161,7 @@ class InAccionGestionController extends Controller
     public function show(InAccionGestion $objetoxx)
     {
 
-        return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $objetoxx->in_doc_pregunta]);
+        return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $objetoxx->in_lineabase_nnaj]);
     }
 
     public function edit(InAccionGestion $objetoxx)

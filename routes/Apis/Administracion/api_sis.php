@@ -41,16 +41,17 @@ Route::get('sis/dependencia', function (Request $request) {
         ->toJson();
 });
 
-Route::get('user', function (Request $request) {
-    if (!$request->ajax()) return redirect('/');
+Route::get('sis/user', function (Request $request) {
+    if (!$request->ajax()) return redirect('/'); 
     return datatables()
         ->eloquent(User::select([
             'users.id',
             'users.name',
-            'parametros.nombre'])            
+            'parametros.nombre'
+            ])            
             ->join('sis_dependencia_user','users.id','=','sis_dependencia_user.user_id')
-            ->join('parametros','sis_dependencia_user.i_prm_condicional_id','=','parametros.id')
-            ->where('sis_dependencia_user.sis_dependencia_id',$request->all()['sis_dependencia_id'])
+             ->join('parametros','sis_dependencia_user.i_prm_responsable_id','=','parametros.id')
+            ->where('sis_dependencia_user.sis_dependencia_id',$request->dependen)
             )
         ->addColumn('btns', 'administracion/dependencia/botones/botonelim')
         ->rawColumns(['btns'])

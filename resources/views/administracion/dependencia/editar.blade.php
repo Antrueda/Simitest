@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('content')
-  {!! $todoxxxx['modeloxx'],['route'=>[$todoxxxx['rutaxxxx'].'.editar',$todoxxxx['modeloxx']->id],'method'=>'PUT']) !!}
+  {!!Form::model( $todoxxxx['modeloxx'],['route'=>[$todoxxxx['rutaxxxx'].'.editar',$todoxxxx['modeloxx']->id],'method'=>'PUT']) !!}
     @include($todoxxxx["rutacarp"].'botones.botones')  
     @include($todoxxxx["rutacarp"].'formulario.formulario')
     @include($todoxxxx["rutacarp"].'botones.botones')  

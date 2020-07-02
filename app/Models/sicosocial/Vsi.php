@@ -162,10 +162,10 @@ class Vsi extends Model{
 
     public static function indicador($sis_nnaj_id, $sis_tabla_id)
     {
-        $dataxxxx['sis_tabla_id'] = $sis_tabla_id;
-        $dataxxxx['sis_nnaj_id'] = $sis_nnaj_id;
-        $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $dataxxxx['user_edita_id'] = Auth::user()->id;
-        IndicadorHelper::asignaLineaBase($dataxxxx);
+        // $dataxxxx['sis_tabla_id'] = $sis_tabla_id;
+        // $dataxxxx['sis_nnaj_id'] = $sis_nnaj_id;
+        // $dataxxxx['user_crea_id'] = Auth::user()->id;
+        // $dataxxxx['user_edita_id'] = Auth::user()->id;
+        // IndicadorHelper::asignaLineaBase($dataxxxx);
     }
 }

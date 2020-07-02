@@ -104,9 +104,6 @@ class InPregunta extends Model
       ->where('sis_tablas.sis_documento_fuente_id', $dataxxxx['grupoxxx']->in_base_fuente->sis_documento_fuente_id)
       ->get();
     foreach ($pregunta as $registro) {
-
-
-
       if (!in_array($registro->id, $notinxxx)||in_array($dataxxxx['seleccio'], $notinxxx)) {
       
         if ($dataxxxx['ajaxxxxx']) {
@@ -116,7 +113,6 @@ class InPregunta extends Model
         }
       }
     }
-   
     return $comboxxx;
   }
 }

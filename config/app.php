@@ -183,7 +183,7 @@ return [
 
 
         /**
-         * Datatable 
+         * Datatable
          */
         Yajra\DataTables\DataTablesServiceProvider::class,
 
@@ -191,10 +191,16 @@ return [
          * barra para debug
          */
         Barryvdh\Debugbar\ServiceProvider::class,
+
         /**
          * subir y descargar excel
          */
         Maatwebsite\Excel\ExcelServiceProvider::class,
+
+        /**
+         * conectar con oracle
+         */
+        //Yajra\Oci8\Oci8ServiceProvider::class,
     ],
 
     /*
@@ -227,6 +233,7 @@ return [
         'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
+        'Http' => Illuminate\Support\Facades\Http::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
@@ -250,7 +257,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Tr'=>App\Helpers\Traductor\Traductor::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        
+
     ],
 
 ];

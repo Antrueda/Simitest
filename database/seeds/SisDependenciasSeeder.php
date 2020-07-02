@@ -29,7 +29,7 @@ class SisDependenciasSeeder extends Seeder
             'i_tiempo' => 0,
             'sis_esta_id'=>1,
             's_observacion'=>'ESPACIOS EXTERNOS'
-        
+
         ]);
         SisDependencia::create([
             'nombre' => 'TERRITORIO 1',
@@ -47,7 +47,7 @@ class SisDependenciasSeeder extends Seeder
             'i_tiempo' => 30,
             'sis_esta_id'=>1,
             's_observacion'=>'Observación'
-        
+
         ]);
         SisDependencia::create(['nombre' => 'TERRITORIO 2',
             'i_prm_cvital_id' => 1,
@@ -424,7 +424,7 @@ class SisDependenciasSeeder extends Seeder
             'i_tiempo' => 30,
             'sis_esta_id'=>1,
             's_observacion'=>'Observación']);
-            $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1];
+            $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'i_prm_responsable_id'=>227];
             $super =User::where('id',1)->first();
 
             $super->sis_dependencias()->sync([

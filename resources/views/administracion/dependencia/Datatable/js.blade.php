@@ -70,12 +70,12 @@ $(document).ready(function() {
 		},responsa);
       }
 	} );
-	
+
 	var asistent=$('#personals').DataTable({
     	"serverSide": true,
     	"ajax":{url:"{{ url($todoxxxx['urlxxxas'])  }}",
 			data: {
-				sis_dependencia_id:{{ $todoxxxx['modeloxx']->id }}
+				dependen:{{ $todoxxxx['modeloxx']->id }}
 			}
 		},
     	"columns":[

@@ -17,6 +17,7 @@ class CreateSisDependenciaUserTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('sis_dependencia_id')->unsigned();
+            $table->bigInteger('i_prm_responsable_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
@@ -25,16 +26,18 @@ class CreateSisDependenciaUserTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('sis_dependencia_id')->references('id')->on('sis_dependencias');
+            $table->foreign('i_prm_responsable_id')->references('id')->on('parametros');
             $table->unique(['user_id', 'sis_dependencia_id']);
             $table->timestamps();
         });
         Schema::create('h_sis_dependencia_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->integer('sis_dependencia_id');
-            $table->Integer('user_crea_id'); 
-            $table->integer('user_edita_id');
-            $table->integer('sis_esta_id')->default(1);
+            $table->bigInteger('user_id');
+            $table->bigInteger('sis_dependencia_id');
+            $table->bigInteger('i_prm_responsable_id');
+            $table->bigInteger('user_crea_id'); 
+            $table->bigInteger('user_edita_id');
+            $table->bigInteger('sis_esta_id');
             $table->timestamps();
         });
     }

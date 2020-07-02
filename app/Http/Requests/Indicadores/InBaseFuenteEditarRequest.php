@@ -52,7 +52,7 @@ class InBaseFuenteEditarRequest extends FormRequest
     public function validar()
     {
         $registro=InBaseFuente::
-        where('in_base_fuente_id',$this->segments()[1])
+        where('in_fuente_id',$this->segments()[2])
         ->where('sis_documento_fuente_id',$this->sis_documento_fuente_id)
         ->first();
         if(isset($registro->id)){
