@@ -28,8 +28,16 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 		'uses' => $controll . 'Controller@show',
 		'middleware' => ['permission:' . $routexxx . '-leer']
 	])->name($routexxx . '.ver');
+
+	Route::get('armarSeeder', [
+		'uses' => $controll . 'Controller@armarSeeder',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.armarSeeder');
+
 	Route::delete('borrar/{objetoxx}', [
 		'uses' => $controll . 'Controller@destroy',
 		'middleware' => ['permission:' . $routexxx . '-borrar']
 	])->name($routexxx . '.borrar');
+
+	
 });

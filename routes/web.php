@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
   include_once('Intervencion/web_is.php');
   include_once('Fichaobservacion/web_fos.php');
   include_once('Acciones/web_acciones.php');
+  include_once('webs/excel/web_excel.php');
   include_once('ajaxx.php');
   include_once('Indicadores/web_in.php');
-  include_once('webs/excel/web_excel.php');
 });
