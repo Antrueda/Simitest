@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Administracion\EpEditarRequest;
-use App\Models\Administracion\Ep;
+
 use App\Models\Sistema\SisEsta;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -139,26 +138,26 @@ class ExcelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ep $objetoxx)
-    {
-        $this->opciones['tituloxx'] = 'Editar: EPS';
-        $this->opciones['indecrea'] = false;
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->id];
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-        return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'pestanias');
-    }
+    // public function edit(Ep $objetoxx)
+    // {
+    //     $this->opciones['tituloxx'] = 'Editar: EPS';
+    //     $this->opciones['indecrea'] = false;
+    //     $this->opciones['padrexxx'] = $objetoxx->id;
+    //     $this->opciones['parametr'] = [$objetoxx->id];
+    //     $this->opciones['botoform'][] =
+    //         [
+    //             'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+    //             'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+    //         ];
+    //     return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'pestanias');
+    // }
 
-    private function grabar($dataxxxx, $objectx, $infoxxxx)
-    {
-        return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [Ep::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
+    // private function grabar($dataxxxx, $objectx, $infoxxxx)
+    // {
+    //     return redirect()
+    //         ->route($this->opciones['routxxxx'] . '.editar', [Ep::transaccion($dataxxxx, $objectx)->id])
+    //         ->with('info', $infoxxxx);
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -167,11 +166,11 @@ class ExcelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EpEditarRequest  $request, Ep $objetoxx)
-    {
-        $dataxxxx = $request->all();
-        return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
-    }
+    // public function update(EpEditarRequest  $request, Ep $objetoxx)
+    // {
+    //     $dataxxxx = $request->all();
+    //     return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
+    // }
 
     /**
      * Remove the specified resource from storage.
@@ -179,14 +178,14 @@ class ExcelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ep $objetoxx)
-    {
-        $this->opciones['parametr'] = [$objetoxx->id];
+    // public function destroy(Ep $objetoxx)
+    // {
+    //     $this->opciones['parametr'] = [$objetoxx->id];
 
-        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
-        $objetoxx->save();
-        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
+    //     $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
+    //     $objetoxx->save();
+    //     $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
 
-        return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
-    }
+    //     return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
+    // }
 }
