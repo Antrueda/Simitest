@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
+use App\Imports\Csd\CsdAlimentacionImport;
+use App\Imports\Csd\CsdAlimentCompraImport;
+use App\Imports\Csd\CsdAlimentFrecImport;
+use App\Imports\Csd\CsdAlimentIngeImport;
+use App\Imports\Csd\CsdAlimentPreparaImport;
 use App\Imports\Csd\CsdComFamiliarObservacionesImport;
+use App\Imports\Csd\CsdConclusionesImport;
 use App\Imports\csd\CsdDinfamPadreImport;
 use App\Imports\Csd\CsdImport;
 use App\Imports\Csd\CsdJusticiaImport;
@@ -13,9 +19,15 @@ use App\Imports\Csd\CsdResidenciaImport;
 use App\Imports\Csd\CsdViolenciaImport;
 use App\Imports\Vsi\VsiEducacionsImport;
 use App\Models\consulta\Csd;
+use App\Models\consulta\CsdAlimentacion;
+use App\Models\consulta\CsdConclusiones;
 use App\Models\consulta\CsdJusticia;
 use App\Models\consulta\CsdResidencia;
 use App\Models\consulta\CsdViolencia;
+use App\Models\consulta\pivotes\CsdAlimentCompra;
+use App\Models\consulta\pivotes\CsdAlimentFrec;
+use App\Models\consulta\pivotes\CsdAlimentInge;
+use App\Models\consulta\pivotes\CsdAlimentPrepara;
 use App\Models\consulta\pivotes\CsdNnajEspecial;
 use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdSisNnaj;
@@ -135,25 +147,15 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = CsdViolencia::get();
+        $dataxxxx = CsdAlimentPrepara::get();
         // {$registro->}
+
         foreach ($dataxxxx as $registro) {
-
-
-            $seederxx = "CsdViolencia::create([";
-            $seederxx .= "'id'=> {$registro->id},";
-            $seederxx .= "'csd_id'=> {$registro->csd_id},";
-            $seederxx .= "'prm_condicion_id'=> {$registro->prm_condicion_id},";
-            $seederxx .= "'departamento_cond_id'=> {$registro->departamento_cond_id},";
-            $seederxx .= "'municipio_cond_id'=> {$registro->municipio_cond_id},";
-            $seederxx .= "'prm_certificado_id'=> {$registro->prm_certificado_id},";
-            $seederxx .= "'departamento_cert_id'=> {$registro->departamento_cert_id},";
-            $seederxx .= "'municipio_cert_id'=> {$registro->municipio_cert_id},";
+            $seederxx = "CsdAlimentPrepara::create([";
+            $seederxx .= "'parametro_id'=> {$registro->parametro_id},";
+            $seederxx .= "'csd_alimentacion_id'=> {$registro->csd_alimentacion_id},";
             $seederxx .= "'prm_tipofuen_id'=> {$registro->prm_tipofuen_id},";
             $seederxx .= "
-            'sis_esta_id'=> {$registro->sis_esta_id},
-            'created_at'=> '{$registro->created_at}',
-            'updated_at'=> '{$registro->updated_at}',
                 'user_crea_id'=> {$registro->user_crea_id},
                 'user_edita_id'=> {$registro->user_edita_id},
                 ]); <br>";
@@ -180,13 +182,20 @@ class ExcelController extends Controller
         // Excel::import(new CsdNnajEspecialImport, $excelxxx); //ok
         // Excel::import(new CsdResidenciaImport, $excelxxx); //ok
         // Excel::import(new CsdResideambienteImport, $excelxxx); //ok
-        Excel::import(new CsdViolenciaImport, $excelxxx);
+        // Excel::import(new CsdViolenciaImport, $excelxxx); //ok
+        // datos basicos
 
+        // Excel::import(new CsdConclusionesImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentacionImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentFrecImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentCompraImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentIngeImport, $excelxxx); // ok
+        Excel::import(new CsdAlimentPreparaImport, $excelxxx); // ok
         // Excel::import(new CsdComFamiliarObservacionesImport, $excelxxx);
-        //Excel::import(new CsdAlimentacionImport, $excelxxx);
 
-        //Excel::import(new CsdConclusionesImport, $excelxxx);
-        //Excel::import(new CsdConclusionesImport, $excelxxx);
+
+
+
         //Excel::import(new CsdGenIngresoImport, $excelxxx);
         //Excel::import(new CsdComFamiliarImport, $excelxxx);
         //Excel::import(new CsdDinfamPadreImport, $excelxxx);

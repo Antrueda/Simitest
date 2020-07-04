@@ -16,18 +16,20 @@ class CreateCsdConclusionesTable extends Migration
         Schema::create('csd_conclusiones', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
-            $table->string('conclusiones', 4000);
+            $table->string('conclusiones', 6000);
             $table->string('persona_nombre');
             $table->string('persona_doc');
             $table->bigInteger('persona_parent_id')->unsigned();
             $table->bigInteger('user_doc1_id')->unsigned();
             $table->bigInteger('user_doc2_id')->unsigned()->nullable();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            
+
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('persona_parent_id')->references('id')->on('parametros');
             $table->foreign('user_doc1_id')->references('id')->on('users');

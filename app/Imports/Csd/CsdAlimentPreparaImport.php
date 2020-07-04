@@ -2,8 +2,7 @@
 
 namespace App\Imports\Csd;
 
-
-use App\Models\consulta\pivotes\CsdAlimentPrepara as PivotesCsdAlimentPrepara;
+use App\Models\consulta\pivotes\CsdAlimentPrepara;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class CsdAlimentPreparaImport implements ToModel
@@ -15,8 +14,12 @@ class CsdAlimentPreparaImport implements ToModel
     */
     public function model(array $row)
     {
-        return new PivotesCsdAlimentPrepara([
-            //
+        return new CsdAlimentPrepara([
+            'parametro_id'=>$row[1],
+            'prm_tipofuen_id'=>2316,
+            'csd_alimentacion_id'=>$row[0],
+            'user_crea_id'=>1,
+            'user_edita_id'=>1,
         ]);
     }
 }

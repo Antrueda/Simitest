@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Imports\Csd;
-use App\Models\consulta\CsdConclusiones as ConsultaCsdConclusiones;
+use App\Models\consulta\CsdConclusiones;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class CsdConclusionesImport implements ToModel
@@ -13,7 +13,7 @@ class CsdConclusionesImport implements ToModel
     */
     public function model(array $row)
     {
-        return new ConsultaCsdConclusiones([
+        return new CsdConclusiones([
             'csd_id'=>$row[0],
             'conclusiones'=>$row[1], //Se le incremento la longitud a 6000 caracteres
             'user_crea_id'=> 1,
@@ -22,8 +22,9 @@ class CsdConclusionesImport implements ToModel
             'persona_nombre'=>1,
             'persona_doc'=>1,
             'persona_parent_id'=>1,
+            'prm_tipofuen_id'=>2316,
             'user_doc1_id'=>1,
-            'user_doc2_id'
+            'user_doc2_id'=>1
         ]);
     }
 }

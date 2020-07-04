@@ -2,10 +2,10 @@
 
 namespace App\Imports\Csd;
 
-use App\Models\consulta\pivotes\CsdAlimentCompra;
+use App\Models\consulta\pivotes\CsdAlimentInge;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class CsdAlimentCompraImport implements ToModel
+class CsdAlimentIngeImport implements ToModel
 {
     /**
     * @param array $row
@@ -14,7 +14,7 @@ class CsdAlimentCompraImport implements ToModel
     */
     public function model(array $row)
     {
-        return new CsdAlimentCompra([
+        return new CsdAlimentInge([
             'parametro_id'=>$row[1],
             'prm_tipofuen_id'=>2316,
             'csd_alimentacion_id'=>$row[0],

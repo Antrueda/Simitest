@@ -39,10 +39,19 @@ class DatabaseSeeder extends Seeder
         $this->call(SisNnajsSeeder::class);
 
         $this->call(CsdsSeeder::class);
+        $this->call(CsdSisNnajSeeder::class);
         $this->call(CsdJusticiasSeeder::class);
         $this->call(CsdNnajEspecialSeeder::class);
         $this->call(CsdResidenciaSeeder::class);
-
+        $this->call(CsdResideambienteSeeder::class);
+        $this->call(CsdViolenciasSeeder::class);
+        $this->call(CsdDatosBasicosSieeder::class);
+        $this->call(CsdConclusionesSeeder::class);
+        $this->call(CsdAlimentacionsSeeder::class);
+        $this->call(CsdAlimentFrecSeeder::class);
+        $this->call(CsdAlimentCompraSeeder::class);
+        $this->call(CsdAlimentIngeSeeder::class);
+        $this->call(CsdAlimentPreparaSeeder::class);
 
 
         $this->call(InLineaBasesSeeder::class);

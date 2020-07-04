@@ -8,10 +8,11 @@ use App\Models\Parametro;
 use App\Models\User;
 
 class CsdConclusiones extends Model{
-  
+
   protected $fillable = [
     'csd_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
     'conclusiones', 'persona_nombre', 'persona_doc', 'persona_parent_id',
+    'prm_tipofuen_id',
     'user_doc1_id', 'user_doc2_id'
   ];
 
@@ -28,7 +29,7 @@ class CsdConclusiones extends Model{
   public function firma_1(){
     return $this->belongsTo(Parametro::class, 'user_doc1_id');
   }
-  
+
   public function firma_2(){
     return $this->belongsTo(Parametro::class, 'user_doc2_id');
   }

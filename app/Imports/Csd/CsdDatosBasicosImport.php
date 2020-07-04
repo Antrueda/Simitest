@@ -48,7 +48,6 @@ class CsdDatosBasicosImport implements ToModel
             'user_edita_id',
             'sis_esta_id',
             'prm_tipofuen_id',
-
         ]);
     }
 }
