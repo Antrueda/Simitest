@@ -37,6 +37,14 @@ class DatabaseSeeder extends Seeder
         $this->call(SisProcesosSeeder::class);
         $this->call(SisActividadProcesosSeeder::class);
         $this->call(SisNnajsSeeder::class);
+
+        $this->call(CsdsSeeder::class);
+        $this->call(CsdJusticiasSeeder::class);
+        $this->call(CsdNnajEspecialSeeder::class);
+        $this->call(CsdResidenciaSeeder::class);
+
+
+
         $this->call(InLineaBasesSeeder::class);
         $this->call(InFuentesSeeder::class);
         $this->call(InBaseFuentesSeeder::class);

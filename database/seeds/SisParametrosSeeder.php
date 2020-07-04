@@ -2333,6 +2333,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2312, 'nombre' => '1968']);
         Parametro::create(['id' => 2313, 'nombre' => '1951']);
         Parametro::create(['id' => 2314, 'nombre' => '1996']);
-        Parametro::create(['id' => 2315, 'nombre' => 'MIGRACION BASES PLANAS']);
+        Parametro::create(['id' => 2315, 'nombre' => 'CREACION POR EL SISTEMA']);
+        Parametro::create(['id' => 2316, 'nombre' => 'MIGRACION BASES PLANAS']);
     }
 }

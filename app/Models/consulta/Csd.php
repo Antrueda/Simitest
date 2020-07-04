@@ -9,7 +9,8 @@ use App\Models\Parametro;
 
 class Csd extends Model{
 
-	protected $fillable = ['proposito', 'fecha', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
+    protected $fillable = ['proposito', 'fecha', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
+    'sis_nnaj_id','prm_tipofuen_id'];
 
   	protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 

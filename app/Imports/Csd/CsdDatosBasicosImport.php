@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Imports;
+
+use App\Models\consulta\CsdDatosBasico;
+use Maatwebsite\Excel\Concerns\ToModel;
+
+class CsdDatosBasicosImport implements ToModel
+{
+    /**
+     * @param array $row
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
+    public function model(array $row)
+    {
+        return new CsdDatosBasico([
+            'csd_id',
+            'primer_nombre',
+            'segundo_nombre',
+            'primer_apellido',
+            'segundo_apellido',
+            'identitario',
+            'apodo',
+            'prm_sexo_id',
+            'prm_genero_id',
+            'prm_sexual_id',
+            'nacimiento',
+            'pais_id',
+            'departamento_id',
+            'municipio_id',
+            'prm_documento_id',
+            'prm_doc_fisico_id',
+            'prm_sin_fisico_id',
+            'documento',
+            'pais_docum_id',
+            'departamento_docum_id',
+            'municipio_docum_id',
+            'prm_gruposang_id',
+            'prm_factorsang_id',
+            'prm_militar_id',
+            'prm_libreta_id',
+            'prm_civil_id',
+            'prm_etnia_id',
+            'prm_cual_id',
+            'prm_poblacion_id',
+            'user_crea_id',
+            'user_edita_id',
+            'sis_esta_id',
+            'prm_tipofuen_id',
+
+        ]);
+    }
+}

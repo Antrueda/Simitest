@@ -4,13 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCsdDatosBasicosTable extends Migration{
+class CreateCsdDatosBasicosTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
+    public function up()
+    {
         Schema::create('csd_datos_basicos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
@@ -42,12 +44,14 @@ class CreateCsdDatosBasicosTable extends Migration{
             $table->bigInteger('prm_etnia_id')->unsigned();
             $table->bigInteger('prm_cual_id')->unsigned()->nullable();
             $table->bigInteger('prm_poblacion_id')->unsigned()->nullable();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            
+
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_sexo_id')->references('id')->on('parametros');
             $table->foreign('prm_genero_id')->references('id')->on('parametros');
@@ -79,7 +83,8 @@ class CreateCsdDatosBasicosTable extends Migration{
      *
      * @return void
      */
-    public function down(){
+    public function down()
+    {
         Schema::dropIfExists('csd_datos_basicos');
     }
 }

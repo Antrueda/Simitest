@@ -4,13 +4,15 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCsdResidenciasTable extends Migration{
+class CreateCsdResidenciasTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
+    public function up()
+    {
         Schema::create('csd_residencias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
@@ -29,13 +31,13 @@ class CreateCsdResidenciasTable extends Migration{
             $table->integer('dir_placa')->nullable();
             $table->bigInteger('prm_dir_cuadrantevg_id')->unsigned()->nullable();
             $table->bigInteger('prm_estrato_id')->unsigned()->nullable();
-            $table->string('dir_complemento')->nullable();
+            $table->string('dir_complemento', 300)->nullable();
             $table->bigInteger('sis_localidad_id')->unsigned();
             $table->bigInteger('sis_upz_id')->unsigned();
             $table->bigInteger('sis_barrio_id')->unsigned()->nullable();
-            $table->string('telefono_uno',10)->nullable();
-            $table->string('telefono_dos',10);
-            $table->string('telefono_tres',10)->nullable();
+            $table->string('telefono_uno', 10)->nullable();
+            $table->string('telefono_dos', 10);
+            $table->string('telefono_tres', 10)->nullable();
             $table->string('email')->nullable();
             $table->bigInteger('prm_piso_id')->unsigned();
             $table->bigInteger('prm_muro_id')->unsigned();
@@ -43,12 +45,14 @@ class CreateCsdResidenciasTable extends Migration{
             $table->bigInteger('prm_ventilacion_id')->unsigned();
             $table->bigInteger('prm_iluminacion_id')->unsigned();
             $table->bigInteger('prm_orden_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            
+
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_tipo_id')->references('id')->on('parametros');
             $table->foreign('prm_es_id')->references('id')->on('parametros');
@@ -78,12 +82,13 @@ class CreateCsdResidenciasTable extends Migration{
         Schema::create('csd_reside_ambiente', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_residencia_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
+            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table->unique(['parametro_id', 'csd_residencia_id']);
-            
         });
     }
 
@@ -92,7 +97,8 @@ class CreateCsdResidenciasTable extends Migration{
      *
      * @return void
      */
-    public function down(){
+    public function down()
+    {
         Schema::dropIfExists('csd_reside_ambiente');
         Schema::dropIfExists('csd_residencias');
     }

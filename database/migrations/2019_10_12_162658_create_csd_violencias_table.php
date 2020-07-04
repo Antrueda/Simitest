@@ -4,13 +4,15 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCsdViolenciasTable extends Migration{
+class CreateCsdViolenciasTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
+    public function up()
+    {
         Schema::create('csd_violencias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
@@ -20,12 +22,14 @@ class CreateCsdViolenciasTable extends Migration{
             $table->bigInteger('prm_certificado_id')->unsigned()->nullable();
             $table->bigInteger('departamento_cert_id')->unsigned()->nullable();
             $table->bigInteger('municipio_cert_id')->unsigned()->nullable();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            
+
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_condicion_id')->references('id')->on('parametros');
             $table->foreign('departamento_cond_id')->references('id')->on('sis_departamentos');
@@ -43,7 +47,8 @@ class CreateCsdViolenciasTable extends Migration{
      *
      * @return void
      */
-    public function down(){
+    public function down()
+    {
         Schema::dropIfExists('csd_violencias');
     }
 }

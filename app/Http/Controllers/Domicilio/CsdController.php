@@ -40,7 +40,10 @@ class CsdController extends Controller{
 
     public function store(Request $request, $id){
         $this->validator($request->all())->validate();
-        $dato = Csd::create($request->all());
+        $dataxxxx= $request->all();
+        $dataxxxx['sis_nnaj_id']=$id;
+        $dataxxxx['prm_tipofuen_id']=2315;
+        $dato = Csd::create($dataxxxx);
         $dato->nnajs()->attach($id, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         return redirect()->route('csd.nnaj', $id)->with('info', 'Registro creado con éxito');
     }
