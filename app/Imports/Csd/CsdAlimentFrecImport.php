@@ -2,7 +2,8 @@
 
 namespace App\Imports\Csd;
 
-use App\Models\consulta\pivotes\CsdAlimentFrec;
+
+use App\Models\consulta\pivotes\CsdAlimentFrec as PivotesCsdAlimentFrec;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class CsdAlimentFrecImport implements ToModel
@@ -14,12 +15,8 @@ class CsdAlimentFrecImport implements ToModel
     */
     public function model(array $row)
     {
-        return new CsdAlimentFrec([
-            'parametro_id'=>$row[1],
-            'csd_alimentacion_id'=>$row[0],
-            'user_crea_id'=>1,
-            'user_edita_id'=>1,
-            'prm_tipofuen_id'=>2316,
+        return new PivotesCsdAlimentFrec([
+            //
         ]);
     }
 }
