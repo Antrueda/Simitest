@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\consulta\CsdComFamiliar;
+
 use Illuminate\Database\Seeder;
 
 class CsdComFamiliarSeeder extends Seeder
