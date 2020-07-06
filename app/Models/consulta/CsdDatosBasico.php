@@ -19,7 +19,7 @@ class CsdDatosBasico extends Model{
         'prm_documento_id', 'prm_doc_fisico_id', 'prm_sin_fisico_id', 'documento',
         'pais_docum_id', 'departamento_docum_id', 'municipio_docum_id',
         'prm_gruposang_id', 'prm_factorsang_id', 'prm_militar_id', 'prm_libreta_id',
-        'prm_civil_id', 'prm_etnia_id', 'prm_cual_id', 'prm_poblacion_id'
+        'prm_civil_id', 'prm_etnia_id', 'prm_cual_id', 'prm_poblacion_id','prm_tipofuen_id'
     ];
 
     protected $attributes = ['user_crea_id'=>1,'user_edita_id'=>1];

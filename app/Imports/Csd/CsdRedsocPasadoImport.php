@@ -16,16 +16,16 @@ class CsdRedsocPasadoImport implements ToModel
     public function model(array $row)
     {
         return new ConsultaCsdRedsocPasado([
-            'csd_id',
-            'user_crea_id',
-            'user_edita_id',
-            'sis_esta_id',
-            'nombre',
-            'servicios',
-            'cantidad',
-            'prm_unidad_id',
-            'ano',
-            'retiro'
+            'csd_id'=> $row[0],
+            'nombre'=> $row[1],
+            'servicios'=> $row[2],
+            'cantidad'=> $row[3],
+            'prm_unidad_id'=> $row[4],
+            'ano'=> $row[5],
+            'retiro'=> $row[6],
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1
         ]);
     }
 }

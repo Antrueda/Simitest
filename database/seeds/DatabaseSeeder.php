@@ -45,13 +45,20 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdResidenciaSeeder::class);
         $this->call(CsdResideambienteSeeder::class);
         $this->call(CsdViolenciasSeeder::class);
-        $this->call(CsdDatosBasicosSieeder::class);
+        
         $this->call(CsdConclusionesSeeder::class);
         $this->call(CsdAlimentacionsSeeder::class);
         $this->call(CsdAlimentFrecSeeder::class);
         $this->call(CsdAlimentCompraSeeder::class);
         $this->call(CsdAlimentIngeSeeder::class);
         $this->call(CsdAlimentPreparaSeeder::class);
+        $this->call(CsdGeningAportarSeeder::class);
+        $this->call(CsdRedsocActualSeeder::class);
+        $this->call(CsdRedsocPasadoSeeder::class);
+        $this->call(CsdComFamiliarSeeder::class);
+        $this->call(CsdDatosBasicoSeeder::class);
+        $this->call(CsdGenIngresoSeeder::class);
+        $this->call(CsdBienvenidaSeeder::class);
 
 
         $this->call(InLineaBasesSeeder::class);
