@@ -17,7 +17,7 @@ class CsdComFamiliar extends Model{
     'prm_vin_actual_id', 'prm_vin_pasado_id', 'prm_regimen_id',   'prm_cualeps_id',
     'sisben',            'prm_sisben_id',     'prm_discapacidad_id', 'prm_cual_id', 
     'prm_peso_id',       'prm_peso_dos_id',   'prm_leer_id',       'prm_escribir_id', 
-    'prm_operaciones_id','prm_aprobado_id',   'prm_educacion_id',  'prm_estudia_id', 'prm_cualGrupo_id'
+    'prm_operaciones_id','prm_aprobado_id',   'prm_educacion_id',  'prm_estudia_id', 'prm_cualGrupo_id','prm_tipofuen_id'
   ];
 
   protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];

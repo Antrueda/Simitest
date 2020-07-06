@@ -24,6 +24,10 @@ class CreateCsdBienvenidaTable extends Migration{
             $table->foreign('prm_persona_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
+            $table->bigInteger('prm_tipofuen_id')->unsigned();
+
+
+            $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             
         });
         Schema::create('csd_bienvenidas_motivos', function (Blueprint $table) {

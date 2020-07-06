@@ -24,6 +24,9 @@ class CreateCsdRedsocActualsTable extends Migration{
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('prm_tipo_id')->references('id')->on('parametros');
+            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
+            
             
         });
     }

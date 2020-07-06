@@ -26,6 +26,9 @@ class CreateCsdGeningAportasTable extends Migration{
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
+            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
+            
             
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_aporta_id')->references('id')->on('parametros');

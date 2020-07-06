@@ -45,7 +45,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdResidenciaSeeder::class);
         $this->call(CsdResideambienteSeeder::class);
         $this->call(CsdViolenciasSeeder::class);
-        
         $this->call(CsdConclusionesSeeder::class);
         $this->call(CsdAlimentacionsSeeder::class);
         $this->call(CsdAlimentFrecSeeder::class);
