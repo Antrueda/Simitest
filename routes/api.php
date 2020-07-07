@@ -40,7 +40,7 @@ Route::get('csd/nnajs', function (Request $request) {
   if (!$request->ajax())
     return redirect('/');
   return datatables()
-                  ->eloquent(FiDatosBasico::select('s_primer_nombre', 's_segundo_nombre', 's_primer_apellido', 's_segundo_apellido', 's_apodo', 's_nombre_identitario', 'id', 'sis_nnaj_id', 'sis_esta_id')
+                  ->eloquent(FiDatosBasico::select('s_documento','s_primer_nombre', 's_segundo_nombre', 's_primer_apellido', 's_segundo_apellido', 's_apodo', 's_nombre_identitario', 'id', 'sis_nnaj_id', 'sis_esta_id')
                           ->where('sis_esta_id', 1))
                   ->addColumn('botones', 'Domicilio/botones')
                   ->rawColumns(['botones'])
@@ -111,7 +111,7 @@ Route::get('fi/firedapoyoantecedente', function (Request $request) {
 Route::get('fi/firedapoyoactual', function (Request $request) {
   if (!$request->ajax())
     return redirect('/');
-  //   
+  //
   $actualxx = FiRedApoyoActual::select(
                   'fi_red_apoyo_actuals.id', 'fi_red_apoyo_actuals.sis_nnaj_id', 'red.nombre as redxxxxx', 'fi_red_apoyo_actuals.s_nombre_persona', 'fi_red_apoyo_actuals.s_servicio', 'fi_red_apoyo_actuals.s_telefono', 'fi_red_apoyo_actuals.s_direccion', 'fi_red_apoyo_actuals.sis_esta_id'
           )
@@ -216,13 +216,13 @@ Route::get('fos/fichaobservacion', function (Request $request) {
     if (!$request->ajax())
         return redirect('/');
     $actualxx = FosDatosBasico::select(
-        'fos_datos_basicos.id', 
-        'fos_datos_basicos.sis_nnaj_id', 
-        'fos_datos_basicos.d_fecha_diligencia', 
-        'sis_dependencias.nombre as s_upi', 
-        'areas.nombre as s_area', 
-        'fos_tses.nombre as s_tipo', 
-        'fos_stses.nombre as s_sub', 
+        'fos_datos_basicos.id',
+        'fos_datos_basicos.sis_nnaj_id',
+        'fos_datos_basicos.d_fecha_diligencia',
+        'sis_dependencias.nombre as s_upi',
+        'areas.nombre as s_area',
+        'fos_tses.nombre as s_tipo',
+        'fos_stses.nombre as s_sub',
         'fos_datos_basicos.sis_esta_id'
     )
     ->join('sis_dependencias', 'fos_datos_basicos.sis_dependencia_id', '=', 'sis_dependencias.id')

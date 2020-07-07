@@ -39,30 +39,30 @@ class CsdAlimentacionController extends Controller{
     if ($request->prm_apoyo_id == 228) {
       $request["prm_entidad_id"] = null;
     }
-
+    $request["prm_tipofuen_id"]=2315;
     $dato = CsdAlimentacion::create($request->all());
 
     if($request->frecuencia) {
       foreach ($request->frecuencia as $d) {
-        $dato->frecuencia()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        $dato->frecuencia()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
       }
     }
 
     if($request->compra) {
       foreach ($request->compra as $d) {
-        $dato->compra()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        $dato->compra()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
       }
     }
 
     if($request->ingeridas) {
       foreach ($request->ingeridas as $d) {
-        $dato->ingeridas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        $dato->ingeridas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
       }
     }
 
     if($request->prepara) {
       foreach ($request->prepara as $d) {
-        $dato->prepara()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        $dato->prepara()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
       }
     }
     Vsi::indicador($id, 112);
@@ -86,28 +86,28 @@ class CsdAlimentacionController extends Controller{
     if($request->frecuencia) {
       $dato->frecuencia()->detach();
       foreach ($request->frecuencia as $d) {
-        $dato->frecuencia()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        $dato->frecuencia()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
       }
     }
 
     if($request->compra) {
       $dato->compra()->detach();
       foreach ($request->compra as $d) {
-        $dato->compra()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        $dato->compra()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
       }
     }
 
     if($request->ingeridas) {
       $dato->ingeridas()->detach();
       foreach ($request->ingeridas as $d) {
-        $dato->ingeridas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        $dato->ingeridas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
       }
     }
 
     if($request->prepara) {
       $dato->prepara()->detach();
       foreach ($request->prepara as $d) {
-        $dato->prepara()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        $dato->prepara()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
       }
     }
     Vsi::indicador($id, 112);

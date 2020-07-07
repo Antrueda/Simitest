@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 Use App\Models\consulta\Csd;
@@ -37,6 +36,7 @@ class CsdConclusionesController extends Controller{
   public function store(Request $request, $id){
 
     $this->validator($request->all())->validate();
+    $request["prm_tipofuen_id"]=2315;
     $dato = CsdConclusiones::create($request->all());
     Vsi::indicador($id, 121);
 

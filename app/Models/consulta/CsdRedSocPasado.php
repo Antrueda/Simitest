@@ -10,10 +10,10 @@ class CsdRedsocPasado extends Model
 {
     protected $fillable = [
         'csd_id',  'user_crea_id', 'user_edita_id', 'sis_esta_id',
-        'nombre',   'servicios',    'cantidad',     'prm_unidad_id', 
+        'nombre',   'servicios',    'cantidad',     'prm_unidad_id',
         'ano', 'retiro','prm_tipofuen_id'
     ];
-  
+
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
     public function csd(){
@@ -30,5 +30,5 @@ class CsdRedsocPasado extends Model
 
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
-    }   
+    }
 }

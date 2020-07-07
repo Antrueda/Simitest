@@ -74,6 +74,7 @@ class CsdGeneracionIngresosController extends Controller{
             $request["prm_frecuencia_id"] = null;
             $request["intensidad"] = null;
         }
+        $request['prm_tipofuen']=2315;
         $dato=CsdGenIngreso::create($request->all());
         Vsi::indicador($id, 131);
         return redirect()->route('CSD.geningresos', $request->csd_id)->with('info', 'Registro creado con éxito');
@@ -114,7 +115,7 @@ class CsdGeneracionIngresosController extends Controller{
         $this->validatorAporta($request->all())->validate();
         $dato = CsdGeningAporta::create($request->all());
         foreach ($request->dias as $d) {
-            $dato->dias()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $dato->dias()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
         }
         Vsi::indicador($id, 132);
         return redirect()->route('CSD.geningresos', $request->csd_id)->with('info', 'Registro creado con éxito');

@@ -11,6 +11,7 @@
         <thead>
           <tr class="text-center">
             <th width="70">Acciones</th>
+            <th>Cédula</th>
             <th>Primer nombre</th>
             <th>Segundo nombre</th>
             <th>Primer apellido</th>

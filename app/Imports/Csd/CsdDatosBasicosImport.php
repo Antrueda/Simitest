@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Imports;
+namespace App\Imports\Csd;
 
 use App\Models\consulta\CsdDatosBasico;
 use Maatwebsite\Excel\Concerns\ToModel;

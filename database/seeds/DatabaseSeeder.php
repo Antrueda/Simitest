@@ -37,7 +37,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SisProcesosSeeder::class);
         $this->call(SisActividadProcesosSeeder::class);
         $this->call(SisNnajsSeeder::class);
-
         $this->call(CsdsSeeder::class);
         $this->call(CsdSisNnajSeeder::class);
         $this->call(CsdJusticiasSeeder::class);
@@ -51,15 +50,17 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdAlimentCompraSeeder::class);
         $this->call(CsdAlimentIngeSeeder::class);
         $this->call(CsdAlimentPreparaSeeder::class);
-        $this->call(CsdGeningAportarSeeder::class);
-        $this->call(CsdRedsocActualSeeder::class);
-        $this->call(CsdRedsocPasadoSeeder::class);
-        $this->call(CsdComFamiliarSeeder::class);
-        $this->call(CsdDatosBasicoSeeder::class);
-        $this->call(CsdGenIngresoSeeder::class);
-        $this->call(CsdBienvenidaSeeder::class);
+        $this->call(CsdDinFamiliarSeeder::class);
 
-
+        $this->call(CsdDinfamMadreSeeder::class);
+        $this->call(CsdDinfamPadresSeeder::class);
+        $this->call(CsdDatosBasicoSeeder::class); // Jorge
+        $this->call(CsdGeningAportarSeeder::class); // Jorge
+        $this->call(CsdRedsocActualSeeder::class); // Jorge
+        $this->call(CsdRedsocPasadoSeeder::class); // Jorge
+        $this->call(CsdComFamiliarSeeder::class); // Jorge
+        $this->call(CsdGenIngresoSeeder::class); // Jorge
+        $this->call(CsdBienvenidaSeeder::class); // Jorge
         $this->call(InLineaBasesSeeder::class);
         $this->call(InFuentesSeeder::class);
         $this->call(InBaseFuentesSeeder::class);

@@ -32,10 +32,11 @@ class CsdBienvenidaController extends Controller{
   public function store(Request $request, $id){
 
     $this->validator($request->all())->validate();
+    $request["prm_tipofuen_id"]=2315;
     $dato = CsdBienvenida::create($request->all());
 
     foreach ($request->motivos as $d) {
-      $dato->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+      $dato->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
     }
     Vsi::indicador($id, 117);
     Vsi::indicador($id, 118);
@@ -51,7 +52,7 @@ class CsdBienvenidaController extends Controller{
 
     $dato->motivos()->detach();
     foreach ($request->motivos as $d) {
-      $dato->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+      $dato->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id']);
     }
     Vsi::indicador($id, 117);
     Vsi::indicador($id, 118);

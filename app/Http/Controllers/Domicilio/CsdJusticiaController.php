@@ -35,6 +35,7 @@ class CsdJusticiaController extends Controller{
         if ($request->prm_riesgo_id == 228) {
             $request["prm_rie_causa_id"] = null;
         }
+        $request['prm_tipofuen_id']=2315;
         $dato=CsdJusticia::create($request->all());
         Vsi::indicador($id, 134);
         return redirect()->route('CSD.justicia', $request->csd_id)->with('info', 'Registro creado con éxito');

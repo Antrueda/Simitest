@@ -76,6 +76,7 @@ class CsdResidenciaController extends Controller{
 
     public function store(Request $request, $id){
         $this->validator($request->all())->validate();
+        $request["prm_tipofuen_id"]=2315;
         if ($request->prm_dir_zona_id == 288 || $request->prm_dir_zona_id == 289) {
             $request["prm_dir_via_id"] = null;
             $request["dir_nombre"] = null;
@@ -94,7 +95,7 @@ class CsdResidenciaController extends Controller{
         }
         $dato = CsdResidencia::create($request->all());
         foreach ($request->ambientes as $d) {
-            $dato->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $dato->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1, 'prm_tipofuen_id'=>2315]);
         }
         Vsi::indicador($id, 138);
         Vsi::indicador($id, 139);
@@ -123,7 +124,7 @@ class CsdResidenciaController extends Controller{
         $dato->fill($request->all())->save();
         $dato->ambientes()->detach();
         foreach ($request->ambientes as $d) {
-            $dato->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $dato->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
         }
         Vsi::indicador($id, 138);
         Vsi::indicador($id, 139);

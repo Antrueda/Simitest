@@ -108,34 +108,34 @@ class CsdDinFamiliarController extends Controller{
         if ($paso > 0) {
             $this->validatorMenor($request->all())->validate();
         }
-
+        $request["prm_tipofuen_id"]=2315;
         $dato = CsdDinFamiliar::create($request->all());
 
         if($request->antecedentes) {
             foreach ($request->antecedentes as $d) {
-                $dato->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dato->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
             }
         }
 
         foreach ($request->problemas as $d) {
-            $dato->problemas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $dato->problemas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
         }
 
         if($request->prm_norma_id == 227) {
             foreach ($request->normas as $d) {
-                $dato->normas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dato->normas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
             }
         }
 
         if($request->establecen) {
             foreach ($request->establecen as $d) {
-                $dato->establecen()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dato->establecen()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
             }
         }
 
         if($request->incumple) {
             foreach ($request->incumple as $d) {
-                $dato->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dato->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
             }
         }
         Vsi::indicador($id, 123);
@@ -225,33 +225,33 @@ class CsdDinFamiliarController extends Controller{
         $dato->antecedentes()->detach();
         if($request->antecedentes) {
             foreach ($request->antecedentes as $d) {
-                $dato->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dato->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
             }
         }
 
         $dato->problemas()->detach();
         foreach ($request->problemas as $d) {
-            $dato->problemas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $dato->problemas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
         }
 
         $dato->normas()->detach();
         if($request->prm_norma_id == 227) {
             foreach ($request->normas as $d) {
-                $dato->normas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dato->normas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
             }
         }
 
         $dato->establecen()->detach();
         if($request->establecen) {
             foreach ($request->establecen as $d) {
-                $dato->establecen()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dato->establecen()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
             }
         }
 
         $dato->incumple()->detach();
         if($request->incumple) {
             foreach ($request->incumple as $d) {
-                $dato->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dato->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
             }
         }
         Vsi::indicador($id, 123);

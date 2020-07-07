@@ -30,7 +30,7 @@ class CsdSituacionEspecialController extends Controller{
         $dato->especiales()->detach();
         if($request->especiales){
             foreach ($request->especiales as $d) {
-                $dato->especiales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dato->especiales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
             }
         }
         Vsi::indicador($id, 135);

@@ -5,6 +5,7 @@ $(document).ready(function() {
         "ajax": "{{ url('api/csd/nnajs') }}",
         "columns": [
             {data: 'botones'},
+            {data: 's_documento'},
             {data: 's_primer_nombre'},
             {data: 's_segundo_nombre'},
             {data: 's_primer_apellido'},

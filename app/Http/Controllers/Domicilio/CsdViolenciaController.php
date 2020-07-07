@@ -47,6 +47,7 @@ class CsdViolenciaController extends Controller{
             $request["departamento_cert_id"] = null;
             $request["municipio_cert_id"] = null;
         }
+        $request['prm_tipofuen_id']=2315;
         $dato=CsdViolencia::create($request->all());
         Vsi::indicador($id, 141);
         return redirect()->route('CSD.violencia', $request->csd_id)->with('info', 'Registro creado con éxito');

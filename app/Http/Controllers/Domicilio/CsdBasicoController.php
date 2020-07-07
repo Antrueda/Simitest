@@ -104,7 +104,7 @@ class CsdBasicoController extends Controller{
 
     public function store(Request $request, $id){
         $this->validator($request->all())->validate();
-
+        $request["prm_tipofuen_id"]=2315;
         if ($request->prm_doc_fisico_id == 227) {
             $request["prm_sin_fisico_id"] = null;
         }
@@ -135,7 +135,7 @@ class CsdBasicoController extends Controller{
             $request["prm_libreta_id"] = null;
         }
         $dato = CsdDatosBasico::findOrFail($id1);
-        $dato->fill($request->all())->save(); 
+        $dato->fill($request->all())->save();
         Vsi::indicador($id, 122);
         return redirect()->route('CSD.basico', $id)->with('info', 'Registro actualizado con éxito');
     }

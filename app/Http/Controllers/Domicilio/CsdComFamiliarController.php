@@ -113,7 +113,7 @@ class CsdComFamiliarController extends Controller{
     if ($request->prm_grupo_etnico_id != 157) {
       $request['prm_cualGrupo_id'] = null;
     }
-
+    $request["prm_tipofuen_id"]=2315;
     $dato = CsdComFamiliar::create($request->all());
     Vsi::indicador($id, 119);
     return redirect()->route('CSD.comfamiliar', $request->csd_id)->with('info', 'Registro creado con éxito');
