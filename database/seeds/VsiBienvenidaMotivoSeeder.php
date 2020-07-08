@@ -19,9 +19,9 @@ class VsiBienvenidaMotivoSeeder extends Seeder
         VsiBienvenidaMotivo::create(['parametro_id' => 763, 'vsi_bienvenida_id' => 9, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiBienvenidaMotivo::create(['parametro_id' => 761, 'vsi_bienvenida_id' => 13, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiBienvenidaMotivo::create(['parametro_id' => 762, 'vsi_bienvenida_id' => 13, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiBienvenidaMotivo::create(['parametro_id' => 1055, 'vsi_bienvenida_id' => 18, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiBienvenidaMotivo::create(['parametro_id' => 736, 'vsi_bienvenida_id' => 18, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiBienvenidaMotivo::create(['parametro_id' => 762, 'vsi_bienvenida_id' => 18, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiBienvenidaMotivo::create(['parametro_id' => 1055, 'vsi_bienvenida_id' => 18, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiBienvenidaMotivo::create(['parametro_id' => 761, 'vsi_bienvenida_id' => 20, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiBienvenidaMotivo::create(['parametro_id' => 761, 'vsi_bienvenida_id' => 21, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiBienvenidaMotivo::create(['parametro_id' => 761, 'vsi_bienvenida_id' => 25, 'user_crea_id' => 1, 'user_edita_id' => 1,]);

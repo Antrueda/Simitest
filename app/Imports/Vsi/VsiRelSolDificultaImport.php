@@ -2,10 +2,10 @@
 
 namespace App\Imports\Vsi;
 
-use App\Models\sicosocial\Pivotes\VsiBienvenidaMotivo;
+use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class VsiBienvenidaMotivoImport implements ToModel
+class VsiRelSolDificultaImport implements ToModel
 {
     /**
     * @param array $row
@@ -14,14 +14,14 @@ class VsiBienvenidaMotivoImport implements ToModel
     */
     public function model(array $row)
     {
-        echo $row[1].'<pre>';
+        // echo $row[2].'<pre>';
         $dataxxxx = [
             'parametro_id' => $row[0],
-            'vsi_bienvenida_id' => $row[1],
+            'vsi_relsocial_id' => $row[1],
             'user_crea_id' => 1,
             'user_edita_id' => 1,
         ];
-        print_r($dataxxxx);
-        return new VsiBienvenidaMotivo($dataxxxx);
+        //print_r($dataxxxx);
+        return new VsiRelSolDificulta($dataxxxx);
     }
 }

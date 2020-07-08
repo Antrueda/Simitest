@@ -2,12 +2,10 @@
 
 namespace App\Imports\Vsi;
 
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiRelFamiliar;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class VsiRelFamiliarsImport implements ToModel
+class VsiRelFamiliarImport implements ToModel
 {
     /**
      * @param array $row

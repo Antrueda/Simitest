@@ -1,0 +1,21 @@
+<?php
+
+use Illuminate\Database\Seeder;
+use App\Models\sicosocial\Pivotes\VsiRedSocMotivo;
+
+class VsiRedSocMotivoSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        VsiRedSocMotivo::create(['parametro_id' => 32, 'vsi_redsocial_id' => 55, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRedSocMotivo::create(['parametro_id' => 32, 'vsi_redsocial_id' => 44, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRedSocMotivo::create(['parametro_id' => 32, 'vsi_redsocial_id' => 19, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRedSocMotivo::create(['parametro_id' => 32, 'vsi_redsocial_id' => 50, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRedSocMotivo::create(['parametro_id' => 1803, 'vsi_redsocial_id' => 316, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+    }
+}
