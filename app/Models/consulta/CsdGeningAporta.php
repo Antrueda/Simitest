@@ -8,7 +8,7 @@ use App\Models\Parametro;
 use App\Models\User;
 
 class CsdGeningAporta extends Model{
-	protected $fillable = ['csd_id', 'prm_aporta_id', 'mensual', 'aporte', 'jornada_entre', 'prm_entre_id', 'jornada_a', 'prm_a_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id','prm_tipofuen_id'=>2316];
+	protected $fillable = ['csd_id', 'prm_aporta_id', 'mensual', 'aporte', 'jornada_entre', 'prm_entre_id', 'jornada_a', 'prm_a_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id','prm_tipofuen_id'];
 
     protected $attributes = ['user_crea_id'=>1,'user_edita_id'=>1];
 

@@ -25,7 +25,7 @@ class CsdComFamiliarImport implements ToModel
             'segundo_nombre' =>  $row[4] == '' ? ' ' : $row[4],
             'identitario' => $row[5],
             'prm_documento_id' => $row[6],
-            'documento' => $row[7] == '' ? 0 :$row[2],
+            'documento' => $row[7] == '' ? 0 :$row[7],
             'nacimiento' => date('Y-m-d', $row[8]),
             'prm_sexo_id' => $row[9],
             'prm_estadoivil_id' => $row[10] == '' ? 2316 : $row[10],// en el caso de que sean combos, el seeder los campos no pueden quedar vacíos
@@ -56,6 +56,7 @@ class CsdComFamiliarImport implements ToModel
             'user_crea_id' => 1,
             'user_edita_id' => 1,
             'sis_esta_id' => 1,
+            'prm_tipofuen_id'=> 2316
         ]);
     }
 }

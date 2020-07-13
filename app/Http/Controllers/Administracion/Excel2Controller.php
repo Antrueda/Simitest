@@ -163,7 +163,7 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = CsdResidencia::get();
+        $dataxxxx = CsdAlimentPrepara::get();
         // {$registro->}
 
 
@@ -189,9 +189,18 @@ class ExcelController extends Controller
             'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id},'sis_esta_id'=>{$registro->sis_esta_id}]);<br>";
             
             
-            $seederxx = "CsdRedsocActual::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id}, 'prm_tipo_id'=>{$registro->prm_tipo_id},
-            'nombre'=>'$registro->nombre','servicios'=>'$registro->servicios', 'telefono'=>{$registro->telefono},'direccion'=>'$registro->direccion',
+            $seederxx = "CsdResidencia::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id}, 'prm_tipo_id'=>{$registro->prm_tipo_id}, 
+            'prm_es_id'=>{$registro->prm_es_id},'prm_dir_tipo_id'=>{$registro->prm_dir_tipo_id}, 'prm_dir_zona_id'=>{$registro->prm_dir_zona_id}, 
+            'prm_dir_via_id'=>'$registro->prm_dir_via_id','dir_nombre'=>'$registro->dir_nombre','prm_dir_alfavp_id'=>{$registro->prm_dir_alfavp_id},
+            'prm_dir_bis_id'=>{$registro->prm_dir_bis_id},'prm_dir_alfabis_id'=>{$registro->prm_dir_alfabis_id},'prm_dir_cuadrantevp_id'=>{$registro->prm_dir_cuadrantevp_id},
+            'dir_generadora'=>{$registro->dir_generadora},'prm_dir_alfavg_id'=>{$registro->prm_dir_alfavg_id},'dir_placa'=>{$registro->dir_placa},
+            'prm_dir_cuadrantevg_id'=>{$registro->prm_dir_cuadrantevg_id},'prm_estrato_id'=>{$registro->prm_estrato_id},'dir_complemento'=>'$registro->dir_complemento',
+            'sis_localidad_id'=>{$registro->sis_localidad_id},'sis_upz_id'=>{$registro->sis_upz_id},'sis_barrio_id'=>{$registro->sis_barrio_id},
+            'telefono_uno'=>{$registro->telefono_uno},'telefono_dos'=>{$registro->telefono_dos},'telefono_tres'=>{$registro->telefono_tres},
+            'email'=>'$registro->email','prm_piso_id'=>{$registro->prm_piso_id},'prm_muro_id'=>{$registro->prm_muro_id},
+            'prm_higiene_id'=>{$registro->prm_higiene_id},'prm_ventilacion_id'=>{$registro->prm_ventilacion_id},'prm_iluminacion_id'=>{$registro->prm_iluminacion_id},'prm_orden_id'=>{$registro->prm_orden_id},
             'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id},'sis_esta_id'=>{$registro->sis_esta_id},'prm_tipofuen_id'=>{$registro->prm_tipofuen_id}]);<br>";
+                 
             /*
               
             $seederxx = "CsdGenIngreso::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id}, 'observacion'=>'$registro->nombre',
@@ -215,38 +224,22 @@ $seederxx = "CsdDinfamPadre::create(['id'=>{$registro->id},'csd_id'=>{$registro-
             'departamento_cert_id'=>{$registro->departamento_cert_id},'municipio_cert_id'=>{$registro->municipio_cert_id}, 
             'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id},'sis_esta_id'=>{$registro->sis_esta_id},'prm_tipofuen_id'=>{$registro->prm_tipofuen_id}]);<br>";
 
-
-*/            $seederxx = "CsdResidencia::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id}, 'prm_tipo_id'=>{$registro->prm_tipo_id}, 
-            'prm_es_id'=>{$registro->prm_es_id},'prm_dir_tipo_id'=>{$registro->prm_dir_tipo_id}, 'prm_dir_zona_id'=>{$registro->prm_dir_zona_id}, 
-            'prm_dir_via_id'=>'$registro->prm_dir_via_id','dir_nombre'=>'$registro->dir_nombre','prm_dir_alfavp_id'=>{$registro->prm_dir_alfavp_id},
-            'prm_dir_bis_id'=>{$registro->prm_dir_bis_id},'prm_dir_alfabis_id'=>{$registro->prm_dir_alfabis_id},'prm_dir_cuadrantevp_id'=>{$registro->prm_dir_cuadrantevp_id},
-            'dir_generadora'=>{$registro->dir_generadora},'prm_dir_alfavg_id'=>{$registro->prm_dir_alfavg_id},'dir_placa'=>'$registro->dir_placa',
-            'prm_dir_cuadrantevg_id'=>{$registro->prm_grupo_etnico_id},'prm_estrato_id'=>{$registro->prm_estrato_id},'dir_complemento'=>'$registro->dir_complemento',
-            'sis_localidad_id'=>{$registro->sis_localidad_id},'sis_upz_id'=>{$registro->sis_upz_id},'sis_barrio_id'=>{$registro->sis_barrio_id},
-            'telefono_uno'=>{$registro->telefono_uno},'telefono_dos'=>{$registro->telefono_dos},'telefono_tres'=>{$registro->telefono_tres},
-            'email'=>{$registro->email},'prm_piso_id'=>{$registro->prm_piso_id},'prm_muro_id'=>{$registro->prm_muro_id},
-            'prm_higiene_id'=>{$registro->prm_higiene_id},'prm_ventilacion_id'=>{$registro->prm_ventilacion_id},'prm_iluminacion_id'=>{$registro->prm_iluminacion_id},'prm_orden_id'=>{$registro->prm_orden_id},
-            'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id},'sis_esta_id'=>{$registro->sis_esta_id},'prm_tipofuen_id'=>{$registro->prm_tipofuen_id}]);<br>";
-                     
 /*          
-            'sis_barrio_id'=> $row[19],
-            'telefono_uno'=> $row[20],
-            'telefono_dos'=> $row[21],
-            'telefono_tres'=> $row[22],
-            'email'=> $row[23],
-            'prm_piso_id'=> $row[24],
-            'prm_muro_id'=> $row[25],
-            'prm_higiene_id'=> $row[26]==''?2316:$row[26],
-            'prm_ventilacion_id'=> $row[27]==''?2316:$row[27],
-            'prm_iluminacion_id'=> $row[28]==''?2316:$row[28],
-            'prm_orden_id'=> $row[29]==''?2316:$row[29],
-            'user_crea_id'=> 1,
-            'user_edita_id'=> 1,
-            'sis_esta_id'=> 1,
-            
+        $seederxx = "CsdAlimentacion::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id},'cant_personas'=>{$registro->cant_personas},'prm_horario_id'=>{$registro->prm_horario_id},
+            'prm_apoyo_id'=>{$registro->prm_apoyo_id},'prm_entidad_id'=>{$registro->prm_entidad_id},'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},
+            'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id}]);<br>";
+
+                $seederxx = "CsdResideambiente::create(['parametro_id'=>{$registro->parametro_id},'csd_residencia_id'=>{$registro->csd_residencia_id}, 
+            'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id}]);<br>";
+
+             $seederxx = "CsdAlimentacion::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id},'cant_personas'=>{$registro->cant_personas},'prm_horario_id'=>{$registro->prm_horario_id},
+            'prm_apoyo_id'=>{$registro->prm_apoyo_id},'prm_entidad_id'=>{$registro->prm_entidad_id},'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},
+            'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id}]);<br>";
             */
-
-
+    
+            
+            $seederxx = "CsdAlimentPrepara::create(['parametro_id'=>{$registro->parametro_id},'csd_alimentacion_id'=>{$registro->csd_alimentacion_id}, 
+            'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id}]);<br>";
 
 
         echo $seederxx;
@@ -270,18 +263,18 @@ $seederxx = "CsdDinfamPadre::create(['id'=>{$registro->id},'csd_id'=>{$registro-
        // Excel::import(new CsdImport, $excelxxx); //ok
         // Excel::import(new CsdJusticiaImport, $excelxxx); // ok
         // Excel::import(new CsdNnajEspecialImport, $excelxxx); //ok
-         Excel::import(new CsdResidenciaImport, $excelxxx); //ok
+        // Excel::import(new CsdResidenciaImport, $excelxxx); //ok
         // Excel::import(new CsdResideambienteImport, $excelxxx); //ok
-      //   Excel::import(new CsdRedsocActualImport, $excelxxx); //ok
+       //  Excel::import(new CsdResidenciaImport, $excelxxx); //ok
         //Excel::import(new CsdGeningAportarImport, $excelxxx);
         // datos basicos
 
         // Excel::import(new CsdConclusionesImport, $excelxxx); // ok
         // Excel::import(new CsdAlimentacionImport, $excelxxx); // ok
-        // Excel::import(new CsdAlimentFrecImport, $excelxxx); // ok
-        // Excel::import(new CsdAlimentCompraImport, $excelxxx); // ok
+         //Excel::import(new CsdAlimentFrecImport, $excelxxx); // ok
+        //Excel::import(new CsdAlimentCompraImport, $excelxxx); // ok
         // Excel::import(new CsdAlimentIngeImport, $excelxxx); // ok
-        // Excel::import(new CsdAlimentPreparaImport, $excelxxx); // ok
+         Excel::import(new CsdAlimentPreparaImport, $excelxxx); // ok
         //Excel::import(new CsdDinfamPadreImport, $excelxxx); // ok
         // Excel::import(new CsdDinfamPadreImport, $excelxxx); // ok
         // Excel::import(new CsdDinFamiliarImport, $excelxxx); // ok

@@ -22,7 +22,8 @@ class CsdAlimentacionImport implements ToModel
             'cant_personas'=> $row[1],
             'prm_horario_id'=> $row[2],
             'prm_apoyo_id'=> $row[3],
-            'prm_entidad_id'=> $row[4]
+            'prm_entidad_id'=> $row[4],
+            'prm_tipofuen_id'=>2316,
         ]);
     }
 }
