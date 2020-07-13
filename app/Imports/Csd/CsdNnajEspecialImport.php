@@ -15,14 +15,12 @@ class CsdNnajEspecialImport implements ToModel
     public function model(array $row)
     {
         return new CsdNnajEspecial([
-
                 'csd_id' => $row[0],
                 'parametro_id' =>$row[1],
                 'prm_tipofuen_id' => 2316,
                 'user_crea_id' => 1,
                 'user_edita_id' => 1,
                 'sis_esta_id' => 1,
-
         ]);
     }
 }

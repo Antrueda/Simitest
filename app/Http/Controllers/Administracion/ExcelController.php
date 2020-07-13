@@ -10,6 +10,7 @@ use App\Imports\Csd\CsdAlimentIngeImport;
 use App\Imports\Csd\CsdAlimentPreparaImport;
 use App\Imports\Csd\CsdComFamiliarObservacionesImport;
 use App\Imports\Csd\CsdConclusionesImport;
+use App\Imports\Csd\CsdDatosBasicosImport;
 use App\Imports\Csd\CsdDinFamiliarImport;
 use App\Imports\Csd\CsdDinfamIncumpleImport;
 use App\Imports\Csd\CsdDinfamMadreImport;
@@ -178,14 +179,14 @@ class ExcelController extends Controller
         $excelxxx = $request->file('excelxxx');
 
         //los excel comentados son los ya realizados
-        Excel::import(new CsdImport, $excelxxx); //ok
+      //  Excel::import(new CsdImport, $excelxxx); //ok
         // Excel::import(new CsdJusticiaImport, $excelxxx); // ok
         // Excel::import(new CsdNnajEspecialImport, $excelxxx); //ok
         // Excel::import(new CsdResidenciaImport, $excelxxx); //ok
         // Excel::import(new CsdResideambienteImport, $excelxxx); //ok
         // Excel::import(new CsdViolenciaImport, $excelxxx); //ok
         // datos basicos
-
+        Excel::import(new CsdDatosBasicosImport, $excelxxx); //ok
         // Excel::import(new CsdConclusionesImport, $excelxxx); // ok
         // Excel::import(new CsdAlimentacionImport, $excelxxx); // ok
         // Excel::import(new CsdAlimentFrecImport, $excelxxx); // ok
