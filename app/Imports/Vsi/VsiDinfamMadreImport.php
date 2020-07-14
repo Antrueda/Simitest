@@ -2,7 +2,7 @@
 
 namespace App\Imports\Vsi;
 
-use App\Models\sicosocial\VsiDinfamMadre;
+use App\Models\sicosocial\Pivotes\VsiDinfamMadre;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class VsiDinfamMadreImport implements ToModel

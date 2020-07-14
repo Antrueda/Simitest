@@ -2,8 +2,6 @@
 
 namespace App\Imports\Vsi;
 
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiGenIngreso;
 use Maatwebsite\Excel\Concerns\ToModel;
 

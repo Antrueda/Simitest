@@ -3,7 +3,6 @@
 namespace App\Imports\Vsi;
 
 use App\Models\sicosocial\VsiActEmocional;
-use App\Models\sicosocial\VsiActEmocionals;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class VsiActEmocionalsImport implements ToModel
@@ -18,8 +17,6 @@ class VsiActEmocionalsImport implements ToModel
         $dataxxxx = [
 
         ];
-
-
         return new VsiActEmocional($dataxxxx);
     }
 }

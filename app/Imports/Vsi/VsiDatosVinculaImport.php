@@ -2,8 +2,6 @@
 
 namespace App\Imports\Vsi;
 
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiDatosVincula;
 use Maatwebsite\Excel\Concerns\ToModel;
 
@@ -16,26 +14,22 @@ class VsiDatosVinculaImport implements ToModel
     */
     public function model(array $row)
     {
-        //echo "'{$row[0]}',<br>";    //muestra en forma de columna las cedulas
-
         /**
          * todas las validaciones se necesiten se hacen acá para que sea por cada registro
          */
-        
-        
+        // echo $row[1].'<pre>';
         $dataxxxx=[
-            'vsi_id' => $row[1],//  tabla padre que indica que un  nnaj puede tener varias vsi
-            'prm_razon_id' => $row[3], 
-            'prm_persona_id' => $row[4],
-            'dia' => $row[5],
-            'mes' => $row[6],
-            'ano' => $row[7],
+            'vsi_id' => $row[0],
+            'prm_razon_id' => $row[1], 
+            'prm_persona_id' => $row[2],
+            'dia' => $row[3],
+            'mes' => $row[4],
+            'ano' => $row[5],
             'user_crea_id' => 1,
             'user_edita_id' => 1,
             'sis_esta_id' => 1,
-            
         ];
-        
+        // print_r($dataxxxx);        
         return new VsiDatosVincula($dataxxxx);
     }
 }

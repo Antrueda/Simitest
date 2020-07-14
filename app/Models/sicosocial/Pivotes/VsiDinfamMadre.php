@@ -20,7 +20,7 @@ class VsiDinfamMadre extends Model
         'user_edita_id',
         'sis_esta_id',
     ];
-
+// no estoy seguro de los atributos protegidos, confirmatr
     protected $attributes = [
         'user_crea_id' => 1,
         'user_edita_id' => 1

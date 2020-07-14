@@ -42,7 +42,6 @@ class VsiEducacionsImport implements ToModel
             'prm_rendimiento_id' => $row[6],
             'prm_dificultad_id' => $row[7],
             
-            
             'prm_leer_id' => $row[10],
             'prm_escribir_id' => $row[11],
             'descripcion' => $row[12],

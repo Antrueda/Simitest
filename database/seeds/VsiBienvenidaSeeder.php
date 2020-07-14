@@ -11,6 +11,7 @@ class VsiBienvenidaSeeder extends Seeder
      * @return void
      */
     public function run()
+    
     {
         VsiBienvenida::create(['vsi_id' => 1, 'descripcion' => 'LA JOVEN INGRESA A IDIPRON PARA PODER TERMINAR SU BACHILLERATO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2020-07-08 10:22:51', 'updated_at' => '2020-07-08 10:22:51',]);
         VsiBienvenida::create(['vsi_id' => 2, 'descripcion' => 'LA JOVEN INGRESA A IDIPRON PARA PODER TERMINAR SU BACHILLERATO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2020-07-08 10:22:51', 'updated_at' => '2020-07-08 10:22:51',]);

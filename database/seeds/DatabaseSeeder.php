@@ -80,7 +80,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AgRecursosSeeder::class);
         $this->call(SisObsesSeeder::class);
 
-        // -- Modulo SICO SOCIAL, Javier 
+        // -- Modulo SICO SOCIAL, Javier ....
         $this->call(VsisSeeder::class);
         $this->call(VsiBienvenidaSeeder::class);        // padre
         $this->call(VsiBienvenidaMotivoSeeder::class);  // hija
