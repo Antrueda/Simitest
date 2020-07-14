@@ -12,6 +12,7 @@ class VsisSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         Vsi::create(['id'=>1,'sis_nnaj_id'=>1, 'dependencia_id'=>28, 'fecha'=>'2020-06-24', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1,]);
         Vsi::create(['id'=>2,'sis_nnaj_id'=>3, 'dependencia_id'=>28, 'fecha'=>'2020-06-24', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1,]);
         Vsi::create(['id'=>3,'sis_nnaj_id'=>4, 'dependencia_id'=>28, 'fecha'=>'2020-06-24', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1,]);
@@ -344,5 +345,8 @@ class VsisSeeder extends Seeder
         Vsi::create(['id'=>330,'sis_nnaj_id'=>393, 'dependencia_id'=>28, 'fecha'=>'2020-06-24', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1,]);
         Vsi::create(['id'=>331,'sis_nnaj_id'=>394, 'dependencia_id'=>28, 'fecha'=>'2020-06-24', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1,]);
 
+=======
+        // Vsi::create(['id'=>1,'sis_nnaj_id'=>3, 'dependencia_id'=>1, 'fecha'=>'2020-06-24', 'user_crea_id'=>1, 'user_edita_id'=>1, 'sis_esta_id'=>1,]);
+>>>>>>> 7b66a3b452ded66510f03b422a7ca2a09a004d7e
     }
 }

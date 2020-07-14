@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 use App\Imports\Vsi\VsiAntecedenteImport;
 use App\Imports\Vsi\VsiBienvenidaImport;
 use App\Imports\Vsi\VsiBienvenidaMotivoImport;
@@ -11,6 +12,26 @@ use App\Imports\Vsi\VsiDinfamAusenciaImport;
 use App\Imports\Vsi\VsiDinfamCuidadorImport;
 use App\Imports\Vsi\VsiDinFamiliarImport;
 use App\Imports\Vsi\VsiDinfamMadreImport;
+=======
+use App\Imports\Csd\CsdAlimentacionImport;
+use App\Imports\Csd\CsdAlimentCompraImport;
+use App\Imports\Csd\CsdAlimentFrecImport;
+use App\Imports\Csd\CsdAlimentIngeImport;
+use App\Imports\Csd\CsdAlimentPreparaImport;
+use App\Imports\Csd\CsdComFamiliarObservacionesImport;
+use App\Imports\Csd\CsdConclusionesImport;
+use App\Imports\Csd\CsdDatosBasicosImport;
+use App\Imports\Csd\CsdDinFamiliarImport;
+use App\Imports\Csd\CsdDinfamIncumpleImport;
+use App\Imports\Csd\CsdDinfamMadreImport;
+use App\Imports\csd\CsdDinfamPadreImport;
+use App\Imports\Csd\CsdImport;
+use App\Imports\Csd\CsdJusticiaImport;
+use App\Imports\Csd\CsdNnajEspecialImport;
+use App\Imports\Csd\CsdResideambienteImport;
+use App\Imports\Csd\CsdResidenciaImport;
+use App\Imports\Csd\CsdViolenciaImport;
+>>>>>>> 7b66a3b452ded66510f03b422a7ca2a09a004d7e
 use App\Imports\Vsi\VsiEducacionsImport;
 use App\Imports\Vsi\VsiRedsocAcesoImport;
 use App\Imports\Vsi\VsiRedSocialImport;
@@ -364,6 +385,7 @@ class ExcelController extends Controller
         }
     }
 
+<<<<<<< HEAD
     public function armarSeederX28()
     {
         $dataxxxx = VsiDinFamiliar::get();
@@ -403,6 +425,26 @@ class ExcelController extends Controller
             ]); <br />";;
         }
     }
+=======
+        //los excel comentados son los ya realizados
+      //  Excel::import(new CsdImport, $excelxxx); //ok
+        // Excel::import(new CsdJusticiaImport, $excelxxx); // ok
+        // Excel::import(new CsdNnajEspecialImport, $excelxxx); //ok
+        // Excel::import(new CsdResidenciaImport, $excelxxx); //ok
+        // Excel::import(new CsdResideambienteImport, $excelxxx); //ok
+        // Excel::import(new CsdViolenciaImport, $excelxxx); //ok
+        // datos basicos
+        Excel::import(new CsdDatosBasicosImport, $excelxxx); //ok
+        // Excel::import(new CsdConclusionesImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentacionImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentFrecImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentCompraImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentIngeImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentPreparaImport, $excelxxx); // ok
+        // Excel::import(new CsdDinfamMadreImport, $excelxxx); // ok
+        // Excel::import(new CsdDinfamPadreImport, $excelxxx); // ok
+        // Excel::import(new CsdDinFamiliarImport, $excelxxx); // ok
+>>>>>>> 7b66a3b452ded66510f03b422a7ca2a09a004d7e
 
     public function armarSeederX10()
     {
