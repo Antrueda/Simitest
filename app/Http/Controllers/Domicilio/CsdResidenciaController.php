@@ -7,76 +7,57 @@ use Illuminate\Http\Request;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
 use App\Models\sicosocial\Vsi;
+use App\Models\sistema\SisBarrio;
 use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
 use App\Models\sistema\SisLocalidad;
+use App\Models\sistema\SisUpz;
 
+class CsdResidenciaController extends Controller
+{
 
-class CsdResidenciaController extends Controller{
-
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware(['permission:csdresidencia-crear'], ['only' => ['show, store']]);
         $this->middleware(['permission:csdresidencia-editar'], ['only' => ['show, update']]);
     }
 
-    public function show($id, Request $request){
+    public function show($id, Request $request)
+    {
         $dato = Csd::findOrFail($id);
         $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
         $valor = $dato->CsdResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $actual = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(36)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $actual[$k] = $d;
-        }
-        $tipo = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(34)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $tipo[$k] = $d;
-        }
-        $zona = Tema::findOrFail(37)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $muros = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(91)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $muros[$k] = $d;
-        }
-        $pisos = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(90)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $pisos[$k] = $d;
-        }
-        $estado= Tema::findOrFail(93)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $condiciones = Tema::findOrFail(42)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $residencia = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(35)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $residencia[$k] = $d;
-        }
-        $estrato = Tema::findOrFail(41)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $alfabeto = ['' => ''];
-        foreach (Tema::findOrFail(39)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $alfabeto[$k] = $d;
-        }
-        $cuadrante = ['' => ''];
-        foreach (Tema::findOrFail(38)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $cuadrante[$k] = $d;
-        }
-        $tViaPrincipal = Tema::findOrFail(62)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+        $sino = Tema::combo(23, true, false);
+
+        $actual = Tema::combo(36, true, false);
+
+        $tipo = Tema::combo(34, true, false);
+        $zona = Tema::combo(37, true, false);
+        $muros = Tema::combo(91, true, false);
+        $pisos = Tema::combo(90, true, false);
+        $estado = Tema::combo(93, true, false);
+        $condiciones = Tema::combo(42, true, false);
+        $residencia = Tema::combo(35, true, false);
+        $estrato = Tema::combo(41, true, false);
+        $alfabeto = Tema::combo(39, true, false);
+        $cuadrante = Tema::combo(38, true, false);
+        $tViaPrincipal = Tema::combo(62, true, false);
         $localidadjs = SisLocalidad::orderBy('s_localidad')->get();
         $localidades = $localidadjs->pluck('s_localidad', 'id');
-        if(!$valor){
-            if(!$request->old()){
-                $upzs = $localidadjs->first()->upzs->pluck('codigoNombre', 'id');
-                $barrios = $localidadjs->first()->upzs->first()->sis_barrios->pluck('s_barrio', 'id');
-            } else {
-                $upzs = $localidadjs->find($request->old('sis_localidad_id'))->upzs->pluck('codigoNombre', 'id');
-                $barrios = $localidadjs->find($request->old('sis_localidad_id'))->upzs->find($request->old('sis_upz_id'))->sis_barrios->pluck('s_barrio', 'id');
-            }
-        } else {
-            $upzs = $localidadjs->find($valor->sis_localidad_id)->upzs->pluck('codigoNombre', 'id');
-            $barrios = $localidadjs->find($valor->sis_localidad_id)->upzs->find($valor->sis_upz_id)->sis_barrios->pluck('s_barrio', 'id');
+        $upzs = ['' => 'Seleccione'];
+        $barrios = ['' => 'Seleccione'];
+        if (isset($valor->id)) {
+            // ddd($valor->sis_localidad_id . ' ' . $valor->sis_upz_id);
+            $upzs = SisUpz::combo($valor->sis_localidad_id, false);
+            $barrios = SisBarrio::combo($valor->sis_upz_id, false);
         }
         return view('Domicilio.index', ['accion' => 'Residencia'], compact('dato', 'nnajs', 'valor', 'sino', 'residencia', 'tipo', 'actual', 'zona', 'tViaPrincipal', 'alfabeto', 'cuadrante', 'estrato', 'condiciones', 'pisos', 'muros', 'estado', 'localidadjs', 'localidades', 'upzs', 'barrios'));
     }
 
-    public function store(Request $request, $id){
+    public function store(Request $request, $id)
+    {
         $this->validator($request->all())->validate();
-        $request["prm_tipofuen_id"]=2315;
+        $request["prm_tipofuen_id"] = 2315;
         if ($request->prm_dir_zona_id == 288 || $request->prm_dir_zona_id == 289) {
             $request["prm_dir_via_id"] = null;
             $request["dir_nombre"] = null;
@@ -95,14 +76,15 @@ class CsdResidenciaController extends Controller{
         }
         $dato = CsdResidencia::create($request->all());
         foreach ($request->ambientes as $d) {
-            $dato->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1, 'prm_tipofuen_id'=>2315]);
+            $dato->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1, 'prm_tipofuen_id' => 2315]);
         }
         Vsi::indicador($id, 138);
         Vsi::indicador($id, 139);
         return redirect()->route('CSD.residencia', $request->csd_id)->with('info', 'Registro creado con éxito');
     }
 
-    public function update(Request $request, $id, $id1){
+    public function update(Request $request, $id, $id1)
+    {
         $this->validator($request->all())->validate();
         if ($request->prm_dir_zona_id == 288 || $request->prm_dir_zona_id == 289) {
             $request["prm_dir_via_id"] = null;
@@ -124,14 +106,15 @@ class CsdResidenciaController extends Controller{
         $dato->fill($request->all())->save();
         $dato->ambientes()->detach();
         foreach ($request->ambientes as $d) {
-            $dato->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+            $dato->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1, 'prm_tipofuen_id' => 2315]);
         }
         Vsi::indicador($id, 138);
         Vsi::indicador($id, 139);
         return redirect()->route('CSD.residencia', $id)->with('info', 'Registro actualizado con éxito');
     }
 
-    protected function validator(array $data){
+    protected function validator(array $data)
+    {
         return Validator::make($data, [
             'csd_id' => 'required|exists:csds,id',
             'prm_tipo_id' => 'required|exists:parametros,id',
@@ -152,7 +135,7 @@ class CsdResidenciaController extends Controller{
             'dir_complemento' => 'required_if:prm_dir_zona_id,288|max:120',
             'sis_localidad_id' => 'required|exists:sis_localidads,id',
             'sis_upz_id' => 'required|exists:sis_upzs,id',
-            'sis_barrio_id' => 'nullable|exists:sis_barrios,id',
+            'sis_barrio_id' => 'exists:sis_barrios,id',
             'telefono_uno' => 'nullable|string|max:120',
             'telefono_dos' => 'required|string|max:120',
             'telefono_tres' => 'nullable|string|max:120',

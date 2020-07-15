@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\sicosocial;
+namespace App\Models\sicosocial\Pivotes;
 
 use Illuminate\Database\Eloquent\Model;
 

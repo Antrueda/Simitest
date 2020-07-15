@@ -32,15 +32,16 @@ class SisUpz extends Model
         })->get();
         foreach ($upzxxxxx as $registro) {
             if ($esajaxxx) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_upz];
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_codigo.' - '.$registro->s_upz];
             } else {
-                $comboxxx[$registro->id] = $registro->s_upz;
+                $comboxxx[$registro->id] = $registro->s_codigo.' - '.$registro->s_upz;
             }
         }
         return $comboxxx;
     }
 
-    public function getCodigoNombreAttribute(){
+    public function getCodigoNombreAttribute()
+    {
         return $this->s_codigo . ' - ' . $this->s_upz;
     }
 

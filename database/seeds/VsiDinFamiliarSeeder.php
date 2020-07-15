@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sicosocial\VsiDinFamiliar;
+use App\Models\sicosocial\Pivotes\VsiDinFamiliar;
 use Illuminate\Database\Seeder;
 
 class VsiDinFamiliarSeeder extends Seeder
