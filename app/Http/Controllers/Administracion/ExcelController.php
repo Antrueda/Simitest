@@ -13,6 +13,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\Vsi\VsiBienvenidaImport;
 use App\Imports\Vsi\VsiConceptoImport;
 use App\Imports\Vsi\VsiConsumoImport;
+use App\Imports\Vsi\VsiDatosVinculaImport;
 use App\Imports\Vsi\VsiDinFamiliarImport;
 use App\Imports\Vsi\VsiEducacionImport;
 use App\Imports\Vsi\VsiEducacionsImport;
@@ -21,7 +22,9 @@ use App\Imports\Vsi\VsiRedSocialImport;
 use App\Imports\Vsi\VsiRelFamiliarImport;
 use App\Imports\Vsi\VsiRelSocialesImport;
 use App\Imports\Vsi\VsiSaludImport;
+use App\Imports\Vsi\VsisImport;
 use App\Imports\Vsi\VsiSitEspecialImport;
+use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiActEmocional;
 use App\Models\sicosocial\VsiAntecedente;
 use App\Models\sicosocial\VsiBienvenida;
@@ -137,27 +140,21 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiConsumo::get();
+        $dataxxxx = VsiDatosVincula::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiConsumo::create([
+            echo "VsiDatosVincula::create([
                 'vsi_id' => {$registro->vsi_id},
-                'prm_consumo_id' => {$registro->prm_consumo_id},
-                'cantidad' => {$registro->cantidad},
-                'inicio' => {$registro->inicio},
-                'prm_contexto_ini_id' => {$registro->prm_contexto_ini_id},
-                'prm_consume_id' => {$registro->prm_consume_id},
-                'prm_contexto_man_id' => {$registro->prm_contexto_man_id},
-                'prm_problema_id' => {$registro->prm_problema_id},
-                'porque' => '{$registro->porque}',
-                'prm_motivo_id' => {$registro->prm_motivo_id},
-                'prm_expectativa_id' => {$registro->prm_expectativa_id},
-                'prm_familia_id' => {$registro->prm_familia_id},
-                'descripcion' => '{$registro->descripcion}',
+                'prm_razon_id' => {$registro->prm_razon_id},
+                'prm_persona_id' => {$registro->prm_persona_id},
+                'dia' => {$registro->dia},
+                'mes' => {$registro->mes},
+                'ano' => {$registro->ano},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 'sis_esta_id' => {$registro->sis_esta_id},
-                'created_at' => '{$registro->created_at}',
-                'updated_at' => '{$registro->updated_at}',
+                'created_at' => {$registro->created_at},
+                'updated_at' => {$registro->updated_at},
+                
             ]); <br />";;
         }
     }
@@ -172,7 +169,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiConsumoImport(), $excelxxx);
+        Excel::import(new VsiDatosVinculaImport(), $excelxxx);
         //return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
