@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 use App\Imports\Vsi\VsiBienvenidaImport;
+use App\Imports\Vsi\VsiConceptoImport;
+use App\Imports\Vsi\VsiConsumoImport;
 use App\Imports\Vsi\VsiDinFamiliarImport;
 use App\Imports\Vsi\VsiEducacionImport;
 use App\Imports\Vsi\VsiEducacionsImport;
@@ -19,9 +21,12 @@ use App\Imports\Vsi\VsiRedSocialImport;
 use App\Imports\Vsi\VsiRelFamiliarImport;
 use App\Imports\Vsi\VsiRelSocialesImport;
 use App\Imports\Vsi\VsiSaludImport;
+use App\Imports\Vsi\VsiSitEspecialImport;
 use App\Models\sicosocial\VsiActEmocional;
 use App\Models\sicosocial\VsiAntecedente;
 use App\Models\sicosocial\VsiBienvenida;
+use App\Models\sicosocial\VsiConcepto;
+use App\Models\sicosocial\VsiConsumo;
 use App\Models\sicosocial\VsiDatosVincula;
 use App\Models\sicosocial\VsiDinFamiliar;
 use App\Models\sicosocial\VsiEducacion;
@@ -132,9 +137,9 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiSitEspecial::get();
+        $dataxxxx = VsiConsumo::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiSitEspecial::create([
+            echo "VsiConsumo::create([
                 'vsi_id' => {$registro->vsi_id},
                 'prm_consumo_id' => {$registro->prm_consumo_id},
                 'cantidad' => {$registro->cantidad},
@@ -157,6 +162,7 @@ class ExcelController extends Controller
         }
     }
 
+
     /**
      * Store a newly created resource in storage.
      * toma los datos existentes en el archivo XLS y los importa a la tabla
@@ -166,7 +172,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiSitEspecial(), $excelxxx);
+        Excel::import(new VsiConsumoImport(), $excelxxx);
         //return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
