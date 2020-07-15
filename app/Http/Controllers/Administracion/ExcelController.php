@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
+use App\Imports\Vsi\VsiActEmocionalImport;
+use App\Imports\Vsi\VsiActEmocionalsImport;
 use App\Imports\Vsi\VsiAntecedenteImport;
 use App\Models\sistema\SisEsta;
 use Illuminate\Http\Request;
@@ -16,6 +18,8 @@ use App\Imports\Vsi\VsiGenIngresoImport;
 use App\Imports\Vsi\VsiRedSocialImport;
 use App\Imports\Vsi\VsiRelFamiliarImport;
 use App\Imports\Vsi\VsiRelSocialesImport;
+use App\Imports\Vsi\VsiSaludImport;
+use App\Models\sicosocial\VsiActEmocional;
 use App\Models\sicosocial\VsiAntecedente;
 use App\Models\sicosocial\VsiBienvenida;
 use App\Models\sicosocial\VsiDatosVincula;
@@ -25,7 +29,8 @@ use App\Models\sicosocial\VsiGenIngreso;
 use App\Models\sicosocial\VsiRedSocial;
 use App\Models\sicosocial\VsiRelFamiliar;
 use App\Models\sicosocial\VsiRelSociales;
-
+use App\Models\sicosocial\VsiSalud;
+use App\Models\sicosocial\VsiSitEspecial;
 
 class ExcelController extends Controller
 {
@@ -127,19 +132,21 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiEducacion::get();
+        $dataxxxx = VsiSitEspecial::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiEducacion::create([
+            echo "VsiSitEspecial::create([
                 'vsi_id' => {$registro->vsi_id},
-                'prm_estudia_id' => {$registro->prm_estudia_id},
-                'dia' => {$registro->dia},
-                'mes' => {$registro->mes},
-                'ano' => {$registro->ano},
+                'prm_consumo_id' => {$registro->prm_consumo_id},
+                'cantidad' => {$registro->cantidad},
+                'inicio' => {$registro->inicio},
+                'prm_contexto_ini_id' => {$registro->prm_contexto_ini_id},
+                'prm_consume_id' => {$registro->prm_consume_id},
+                'prm_contexto_man_id' => {$registro->prm_contexto_man_id},
+                'prm_problema_id' => {$registro->prm_problema_id},
+                'porque' => '{$registro->porque}',
                 'prm_motivo_id' => {$registro->prm_motivo_id},
-                'prm_rendimiento_id' => {$registro->prm_rendimiento_id},
-                'prm_dificultad_id' => {$registro->prm_dificultad_id},
-                'prm_leer_id' => {$registro->prm_leer_id},
-                'prm_escribir_id' => {$registro->prm_escribir_id},
+                'prm_expectativa_id' => {$registro->prm_expectativa_id},
+                'prm_familia_id' => {$registro->prm_familia_id},
                 'descripcion' => '{$registro->descripcion}',
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
@@ -159,7 +166,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiEducacionImport(), $excelxxx);
+        Excel::import(new VsiSitEspecial(), $excelxxx);
         //return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }

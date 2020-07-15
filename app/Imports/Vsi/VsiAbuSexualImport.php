@@ -2,7 +2,7 @@
 
 namespace App\Imports\Vsi;
 
-use App\VsiAbuSexual;
+use App\Models\sicosocial\VsiAbuSexual;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class VsiAbuSexualImport implements ToModel
@@ -14,8 +14,11 @@ class VsiAbuSexualImport implements ToModel
     */
     public function model(array $row)
     {
-        return new VsiAbuSexual([
-            //
-        ]);
+        echo $row[0].'<pre>';
+        $dataxxxx = [
+            
+        ];
+        print_r($dataxxxx);            
+        return new VsiAbuSexual($dataxxxx);
     }
 }
