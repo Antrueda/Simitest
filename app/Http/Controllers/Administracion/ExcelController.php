@@ -11,19 +11,31 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 use App\Imports\Vsi\VsiBienvenidaImport;
+use App\Imports\Vsi\VsiBienvenidaMotivoImport;
 use App\Imports\Vsi\VsiConceptoImport;
 use App\Imports\Vsi\VsiConsumoImport;
 use App\Imports\Vsi\VsiDatosVinculaImport;
 use App\Imports\Vsi\VsiDinFamiliarImport;
 use App\Imports\Vsi\VsiEducacionImport;
 use App\Imports\Vsi\VsiEducacionsImport;
+use App\Imports\Vsi\VsiEmocionVinculaImport;
 use App\Imports\Vsi\VsiGenIngresoImport;
 use App\Imports\Vsi\VsiRedSocialImport;
+use App\Imports\Vsi\VsiRelfamAccionesImport;
+use App\Imports\Vsi\VsiRelfamDificultadImport;
 use App\Imports\Vsi\VsiRelFamiliarImport;
+use App\Imports\Vsi\VsiRelfamMotivoImport;
 use App\Imports\Vsi\VsiRelSocialesImport;
 use App\Imports\Vsi\VsiSaludImport;
 use App\Imports\Vsi\VsisImport;
 use App\Imports\Vsi\VsiSitEspecialImport;
+use App\Imports\Vsi\VsiSituacionVinculaImport;
+use App\Models\sicosocial\Pivotes\VsiBienvenidaMotivo;
+use App\Models\sicosocial\Pivotes\VsiEmocionVincula;
+use App\Models\sicosocial\Pivotes\VsiRelfamAcciones;
+use App\Models\sicosocial\Pivotes\VsiRelfamDificultad;
+use App\Models\sicosocial\Pivotes\VsiRelfamMotivo;
+use App\Models\sicosocial\Pivotes\VsiSituacionVincula;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiActEmocional;
 use App\Models\sicosocial\VsiAntecedente;
@@ -140,21 +152,13 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiDatosVincula::get();
+        $dataxxxx = VsiEmocionVincula::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiDatosVincula::create([
-                'vsi_id' => {$registro->vsi_id},
-                'prm_razon_id' => {$registro->prm_razon_id},
-                'prm_persona_id' => {$registro->prm_persona_id},
-                'dia' => {$registro->dia},
-                'mes' => {$registro->mes},
-                'ano' => {$registro->ano},
+            echo "VsiEmocionVincula::create([
+                'parametro_id' => {$registro->parametro_id},
+                'vsi_datos_vincula_id' => {$registro->vsi_datos_vincula_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
-                'sis_esta_id' => {$registro->sis_esta_id},
-                'created_at' => {$registro->created_at},
-                'updated_at' => {$registro->updated_at},
-                
             ]); <br />";;
         }
     }
@@ -169,7 +173,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiDatosVinculaImport(), $excelxxx);
-        //return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
+        Excel::import(new VsiEmocionVinculaImport(), $excelxxx);
+        //return redirect()->route('excel.nuevo')->with('info', 'Rem,mgistro migracion realizada con éxito');
     }
 }
