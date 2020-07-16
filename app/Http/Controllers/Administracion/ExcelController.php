@@ -35,6 +35,8 @@ use App\Imports\Vsi\VsiRelfamAccionesImport;
 use App\Imports\Vsi\VsiRelfamDificultadImport;
 use App\Imports\Vsi\VsiRelFamiliarImport;
 use App\Imports\Vsi\VsiRelfamMotivoImport;
+use App\Imports\Vsi\VsiSitespRiesgoImport;
+use App\Imports\Vsi\VsiSitespVictimaImport;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
 use App\Models\consulta\CsdConclusiones;
@@ -64,6 +66,8 @@ use App\Models\sicosocial\Pivotes\VsiGeningQuien;
 use App\Models\sicosocial\Pivotes\VsiRelfamAcciones;
 use App\Models\sicosocial\Pivotes\VsiRelfamDificultad;
 use App\Models\sicosocial\Pivotes\VsiRelfamMotivo;
+use App\Models\sicosocial\Pivotes\VsiSitespRiesgo;
+use App\Models\sicosocial\Pivotes\VsiSitespVictima;
 use App\Models\sicosocial\VsiDatosVincula;
 use App\Models\sicosocial\VsiBienvenida;
 use App\Models\sicosocial\VsiEducacion;
@@ -176,11 +180,11 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiActemoFisiologica::get();
+        $dataxxxx = VsiSitespVictima::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiActemoFisiologica::create([
+            echo "VsiSitespVictima::create([
                 'parametro_id' => {$registro->parametro_id},
-                'vsi_actemocional_id' => {$registro->vsi_actemocional_id},
+                'vsi_sitespecial_id' => {$registro->vsi_sitespecial_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
             ]); <br />";;
@@ -196,7 +200,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiActemoFisiologicaImport(), $excelxxx);
+        Excel::import(new VsiSitespVictimaImport(), $excelxxx);
         // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
