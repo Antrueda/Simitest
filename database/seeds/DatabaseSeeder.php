@@ -99,9 +99,11 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiRedsocAcesoSeeder::class);  //50 ok
 
         $this->call(VsiRedSocMotivoSeeder::class);  //53 ok
+         $this->call(VsiRelFamiliarSeeder::class);  //57 ok
         $this->call(VsiRelfamAccionesSeeder::class);  //55 estan mal los id de vsi_relfamiliar_id
-        $this->call(VsiRelFamiliarSeeder::class);  //57 ok
-        $this->call(VsiRelfamDificultadSeeder::class);  //56 ok
+        //56 estan mal los id de vsi_relfamiliar_id, vsi_relfamiliar tiene solo 331 se le estan
+        //asignando valores superiores que no cumplen con la integridad referencial
+        $this->call(VsiRelfamDificultadSeeder::class);
 
         $this->call(VsiRelfamMotivoSeeder::class);  //58 ok
         $this->call(VsiRelSocialesSeeder::class);  //59  ok
@@ -111,8 +113,9 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiVioContextoSeeder::class);  //65 ok
 
         $this->call(VsiVioTipoSeeder::class);  //67 ok
-
-
+        $this->call(VsiEmocionVinculaSeeder::class);  //30 ok
+        $this->call(VsiSitEspecialSeeder::class);
+        $this->call(VsiSituacionVinculaSeeder::class);  //64 falta
         // $this->call(VsiAbuSexualSeeder::class);  //4  falta
         // $this->call(VsiActemoFisiologicaSeeder::class);  //5 falta
         // $this->call(VsiConcepRedSeeder::class);  //7 falta
@@ -132,7 +135,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(VsiEduDiftipoASeeder::class);  //27 falta
         // $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
         // $this->call(VsiEduFortalezaSeeder::class);  //29 falta
-        // $this->call(VsiEmocionVinculaSeeder::class);  //30 falta
+
         // $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta
         // $this->call(VsiEstemoDificultaSeeder::class);  //32 falta
         // $this->call(VsiEstemoEstresanteSeeder::class);  //33 falta
@@ -155,6 +158,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(VsiRedsocPasadoSeeder::class);  //54 falta
         // $this->call(VsiSitespRiesgoSeeder::class);  //62 falta
         // $this->call(VsiSitespVictimaSeeder::class);  //63 falta
-        // $this->call(VsiSituacionVinculaSeeder::class);  //64 falta
+
     }
 }
