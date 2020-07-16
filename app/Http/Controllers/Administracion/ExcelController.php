@@ -21,7 +21,16 @@ use App\Imports\Csd\CsdNnajEspecialImport;
 use App\Imports\Csd\CsdResideambienteImport;
 use App\Imports\Csd\CsdResidenciaImport;
 use App\Imports\Csd\CsdViolenciaImport;
+use App\Imports\Vsi\VsiActemoFisiologicaImport;
+use App\Imports\Vsi\VsiDinfamAusenciaImport;
+use App\Imports\Vsi\VsiDinfamCuidadorImport;
 use App\Imports\Vsi\VsiEducacionsImport;
+use App\Imports\Vsi\VsiEduCausaImport;
+use App\Imports\Vsi\VsiEduDificultadImport;
+use App\Imports\Vsi\VsiEduFortalezaImport;
+use App\Imports\Vsi\VsiGeningDiaImport;
+use App\Imports\Vsi\VsiGeningLaborImport;
+use App\Imports\Vsi\VsiGeningQuienImport;
 use App\Imports\Vsi\VsiRelfamAccionesImport;
 use App\Imports\Vsi\VsiRelfamDificultadImport;
 use App\Imports\Vsi\VsiRelFamiliarImport;
@@ -42,7 +51,16 @@ use App\Models\consulta\pivotes\CsdAlimentPrepara;
 use App\Models\consulta\pivotes\CsdNnajEspecial;
 use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\sicosocial\Pivotes\VsiActemoFisiologica;
 use App\Models\sicosocial\Pivotes\VsiBienvenidaMotivo;
+use App\Models\sicosocial\Pivotes\VsiDinfamAusencia;
+use App\Models\sicosocial\Pivotes\VsiDinfamCuidador;
+use App\Models\sicosocial\Pivotes\VsiEduCausa;
+use App\Models\sicosocial\Pivotes\VsiEduDificultad;
+use App\Models\sicosocial\Pivotes\VsiEduFortaleza;
+use App\Models\sicosocial\Pivotes\VsiGeningDia;
+use App\Models\sicosocial\Pivotes\VsiGeningLabor;
+use App\Models\sicosocial\Pivotes\VsiGeningQuien;
 use App\Models\sicosocial\Pivotes\VsiRelfamAcciones;
 use App\Models\sicosocial\Pivotes\VsiRelfamDificultad;
 use App\Models\sicosocial\Pivotes\VsiRelfamMotivo;
@@ -158,11 +176,11 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiRelfamMotivo::get();
+        $dataxxxx = VsiActemoFisiologica::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiRelfamMotivo::create([
+            echo "VsiActemoFisiologica::create([
                 'parametro_id' => {$registro->parametro_id},
-                'vsi_relfamiliar_id' => {$registro->vsi_relfamiliar_id},
+                'vsi_actemocional_id' => {$registro->vsi_actemocional_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
             ]); <br />";;
@@ -178,7 +196,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiRelfamMotivoImport(), $excelxxx);
+        Excel::import(new VsiActemoFisiologicaImport(), $excelxxx);
         // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
