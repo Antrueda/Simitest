@@ -22,6 +22,10 @@ use App\Imports\Csd\CsdResideambienteImport;
 use App\Imports\Csd\CsdResidenciaImport;
 use App\Imports\Csd\CsdViolenciaImport;
 use App\Imports\Vsi\VsiEducacionsImport;
+use App\Imports\Vsi\VsiRelfamAccionesImport;
+use App\Imports\Vsi\VsiRelfamDificultadImport;
+use App\Imports\Vsi\VsiRelFamiliarImport;
+use App\Imports\Vsi\VsiRelfamMotivoImport;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
 use App\Models\consulta\CsdConclusiones;
@@ -39,6 +43,9 @@ use App\Models\consulta\pivotes\CsdNnajEspecial;
 use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\sicosocial\Pivotes\VsiBienvenidaMotivo;
+use App\Models\sicosocial\Pivotes\VsiRelfamAcciones;
+use App\Models\sicosocial\Pivotes\VsiRelfamDificultad;
+use App\Models\sicosocial\Pivotes\VsiRelfamMotivo;
 use App\Models\sicosocial\VsiDatosVincula;
 use App\Models\sicosocial\VsiBienvenida;
 use App\Models\sicosocial\VsiEducacion;
@@ -149,24 +156,18 @@ class ExcelController extends Controller
         return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'pestanias');
     }
 
-
-
-
     public function armarSeeder()
     {
-        $dataxxxx = Csd::get();
-        // {$registro->}
-
-
+        $dataxxxx = VsiRelfamMotivo::get();
         foreach ($dataxxxx as $registro) {
-            $seederxx = " CsdSisNnaj::create(['csd_id' => {$registro->id}, 'sis_nnaj_id' => {$registro->sis_nnaj_id},
-            'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1,]); <br>";
-            echo $seederxx;
+            echo "VsiRelfamMotivo::create([
+                'parametro_id' => {$registro->parametro_id},
+                'vsi_relfamiliar_id' => {$registro->vsi_relfamiliar_id},
+                'user_crea_id' => {$registro->user_crea_id},
+                'user_edita_id' => {$registro->user_edita_id},
+            ]); <br />";;
         }
     }
-
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -177,36 +178,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-
-        //los excel comentados son los ya realizados
-      //  Excel::import(new CsdImport, $excelxxx); //ok
-        //Excel::import(new CsdJusticiaImport, $excelxxx); // ok
-        // Excel::import(new CsdNnajEspecialImport, $excelxxx); //ok
-        // Excel::import(new CsdResidenciaImport, $excelxxx); //ok
-        // Excel::import(new CsdResideambienteImport, $excelxxx); //ok
-        // Excel::import(new CsdViolenciaImport, $excelxxx); //ok
-        // datos basicos
-        Excel::import(new CsdDatosBasicosImport, $excelxxx); //ok
-        // Excel::import(new CsdConclusionesImport, $excelxxx); // ok
-        // Excel::import(new CsdAlimentacionImport, $excelxxx); // ok
-        // Excel::import(new CsdAlimentFrecImport, $excelxxx); // ok
-        // Excel::import(new CsdAlimentCompraImport, $excelxxx); // ok
-        // Excel::import(new CsdAlimentIngeImport, $excelxxx); // ok
-        // Excel::import(new CsdAlimentPreparaImport, $excelxxx); // ok
-        // Excel::import(new CsdDinfamMadreImport, $excelxxx); // ok
-        // Excel::import(new CsdDinfamPadreImport, $excelxxx); // ok
-        // Excel::import(new CsdDinFamiliarImport, $excelxxx); // ok
-
-        // Excel::import(new CsdDinfamIncumpleImport, $excelxxx); //
-        // Excel::import(new CsdComFamiliarObservacionesImport, $excelxxx);
-
-
-
-
-        //Excel::import(new CsdGenIngresoImport, $excelxxx);
-        //Excel::import(new CsdComFamiliarImport, $excelxxx);
-
-
-       // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
+        Excel::import(new VsiRelfamMotivoImport(), $excelxxx);
+        // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }

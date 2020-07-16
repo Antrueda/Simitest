@@ -1,4 +1,4 @@
-git commit	<?php
+<?php
 
 use App\Models\sicosocial\Pivotes\VsiRelfamAcciones;
 use Illuminate\Database\Seeder;
