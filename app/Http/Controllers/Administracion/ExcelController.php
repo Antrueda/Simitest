@@ -154,13 +154,35 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = Csd::get();
+        $dataxxxx = VsiRelFamiliar::get();
         // {$registro->}
 
 
         foreach ($dataxxxx as $registro) {
-            $seederxx = " CsdSisNnaj::create(['csd_id' => {$registro->id}, 'sis_nnaj_id' => {$registro->sis_nnaj_id},
-            'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1,]); <br>";
+            $seederxx = " VsiRelFamiliar::create([
+                'id'=>$registro->id
+                'vsi_id' => $registro->vsi_id,
+                'prm_representativa_id' => $registro->prm_representativa_id,
+            'representativa' => '$registro->representativa',
+            'prm_mala_id' => $registro->prm_mala_id,
+            'prm_relacion_id' => $registro->prm_relacion_id,
+            'prm_gusto_id' => $registro->prm_gusto_id,
+            'porque' => '$registro->porque',
+            'prm_familia_id' => $registro->prm_familia_id,
+            'prm_denuncia_id' => $registro->prm_denuncia_id,
+            'descripcion' => '$registro->descripcion',
+            'prm_pareja_id' => $registro->prm_pareja_id,
+            'prm_dificultad_id' => $registro->prm_dificultad_id,
+            'dia' => $registro->dia,
+            'mes' => $registro->mes,
+            'ano' => $registro->ano,
+            'prm_responde_id' => $registro->prm_responde_id,
+            'descripcion1' => '$registro->descripcion1',
+            'user_crea_id' => $registro->user_crea_id,
+            'user_edita_id' => $registro->user_edita_id,
+            'sis_esta_id' => $registro->sis_esta_id,
+            'created_at' => '$registro->created_at',
+            'updated_at' => '$registro->updated_at',]); <br>";
             echo $seederxx;
         }
     }
