@@ -3,54 +3,54 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Imports\Vsi\VsiActEmocionalImport;
-use App\Imports\Vsi\VsiActEmocionalsImport;
-use App\Imports\Vsi\VsiAntecedenteImport;
-use App\Models\sistema\SisEsta;
-use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
-
-use App\Imports\Vsi\VsiBienvenidaImport;
-use App\Imports\Vsi\VsiBienvenidaMotivoImport;
-use App\Imports\Vsi\VsiConceptoImport;
-use App\Imports\Vsi\VsiConsumoImport;
-use App\Imports\Vsi\VsiDatosVinculaImport;
-use App\Imports\Vsi\VsiDinFamiliarImport;
-use App\Imports\Vsi\VsiEducacionImport;
+use App\Imports\Csd\CsdAlimentacionImport;
+use App\Imports\Csd\CsdAlimentCompraImport;
+use App\Imports\Csd\CsdAlimentFrecImport;
+use App\Imports\Csd\CsdAlimentIngeImport;
+use App\Imports\Csd\CsdAlimentPreparaImport;
+use App\Imports\Csd\CsdComFamiliarObservacionesImport;
+use App\Imports\Csd\CsdConclusionesImport;
+use App\Imports\Csd\CsdDatosBasicosImport;
+use App\Imports\Csd\CsdDinFamiliarImport;
+use App\Imports\Csd\CsdDinfamIncumpleImport;
+use App\Imports\Csd\CsdDinfamMadreImport;
+use App\Imports\csd\CsdDinfamPadreImport;
+use App\Imports\Csd\CsdImport;
+use App\Imports\Csd\CsdJusticiaImport;
+use App\Imports\Csd\CsdNnajEspecialImport;
+use App\Imports\Csd\CsdResideambienteImport;
+use App\Imports\Csd\CsdResidenciaImport;
+use App\Imports\Csd\CsdViolenciaImport;
 use App\Imports\Vsi\VsiEducacionsImport;
-use App\Imports\Vsi\VsiEmocionVinculaImport;
-use App\Imports\Vsi\VsiGenIngresoImport;
-use App\Imports\Vsi\VsiRedSocialImport;
-use App\Imports\Vsi\VsiRelfamAccionesImport;
-use App\Imports\Vsi\VsiRelfamDificultadImport;
-use App\Imports\Vsi\VsiRelFamiliarImport;
-use App\Imports\Vsi\VsiRelfamMotivoImport;
-use App\Imports\Vsi\VsiRelSocialesImport;
-use App\Imports\Vsi\VsiSaludImport;
-use App\Imports\Vsi\VsisImport;
-use App\Imports\Vsi\VsiSitEspecialImport;
-use App\Imports\Vsi\VsiSituacionVinculaImport;
+use App\Models\consulta\Csd;
+use App\Models\consulta\CsdAlimentacion;
+use App\Models\consulta\CsdConclusiones;
+use App\Models\consulta\CsdDinFamiliar;
+use App\Models\consulta\CsdDinfamMadre;
+use App\Models\consulta\CsdDinfamPadre;
+use App\Models\consulta\CsdJusticia;
+use App\Models\consulta\CsdResidencia;
+use App\Models\consulta\CsdViolencia;
+use App\Models\consulta\pivotes\CsdAlimentCompra;
+use App\Models\consulta\pivotes\CsdAlimentFrec;
+use App\Models\consulta\pivotes\CsdAlimentInge;
+use App\Models\consulta\pivotes\CsdAlimentPrepara;
+use App\Models\consulta\pivotes\CsdNnajEspecial;
+use App\Models\consulta\pivotes\CsdResideambiente;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\sicosocial\Pivotes\VsiBienvenidaMotivo;
-use App\Models\sicosocial\Pivotes\VsiEmocionVincula;
-use App\Models\sicosocial\Pivotes\VsiRelfamAcciones;
-use App\Models\sicosocial\Pivotes\VsiRelfamDificultad;
-use App\Models\sicosocial\Pivotes\VsiRelfamMotivo;
-use App\Models\sicosocial\Pivotes\VsiSituacionVincula;
-use App\Models\sicosocial\Vsi;
-use App\Models\sicosocial\VsiActEmocional;
-use App\Models\sicosocial\VsiAntecedente;
-use App\Models\sicosocial\VsiBienvenida;
-use App\Models\sicosocial\VsiConcepto;
-use App\Models\sicosocial\VsiConsumo;
 use App\Models\sicosocial\VsiDatosVincula;
-use App\Models\sicosocial\VsiDinFamiliar;
+use App\Models\sicosocial\VsiBienvenida;
 use App\Models\sicosocial\VsiEducacion;
 use App\Models\sicosocial\VsiGenIngreso;
 use App\Models\sicosocial\VsiRedSocial;
 use App\Models\sicosocial\VsiRelFamiliar;
-use App\Models\sicosocial\VsiRelSociales;
-use App\Models\sicosocial\VsiSalud;
-use App\Models\sicosocial\VsiSitEspecial;
+use App\Models\sistema\SisEsta;
+
+use App\Models\sicosocial\VsiDinFamiliar;
+
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelController extends Controller
 {
@@ -82,6 +82,7 @@ class ExcelController extends Controller
         $this->opciones['routnuev'] = 'excel';
         $this->opciones['routxxxx'] = 'excel';
     }
+
 
     /**
      * Display a listing of the resource.
@@ -148,20 +149,23 @@ class ExcelController extends Controller
         return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'pestanias');
     }
 
-    // ------------------------------------------------------------------------------------------------------
+
+
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiEmocionVincula::get();
+        $dataxxxx = Csd::get();
+        // {$registro->}
+
+
         foreach ($dataxxxx as $registro) {
-            echo "VsiEmocionVincula::create([
-                'parametro_id' => {$registro->parametro_id},
-                'vsi_datos_vincula_id' => {$registro->vsi_datos_vincula_id},
-                'user_crea_id' => {$registro->user_crea_id},
-                'user_edita_id' => {$registro->user_edita_id},
-            ]); <br />";;
+            $seederxx = " CsdSisNnaj::create(['csd_id' => {$registro->id}, 'sis_nnaj_id' => {$registro->sis_nnaj_id},
+            'prm_tipofuen_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1,]); <br>";
+            echo $seederxx;
         }
     }
+
+
 
 
     /**
@@ -173,7 +177,36 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiEmocionVinculaImport(), $excelxxx);
-        //return redirect()->route('excel.nuevo')->with('info', 'Rem,mgistro migracion realizada con éxito');
+
+        //los excel comentados son los ya realizados
+      //  Excel::import(new CsdImport, $excelxxx); //ok
+        //Excel::import(new CsdJusticiaImport, $excelxxx); // ok
+        // Excel::import(new CsdNnajEspecialImport, $excelxxx); //ok
+        // Excel::import(new CsdResidenciaImport, $excelxxx); //ok
+        // Excel::import(new CsdResideambienteImport, $excelxxx); //ok
+        // Excel::import(new CsdViolenciaImport, $excelxxx); //ok
+        // datos basicos
+        Excel::import(new CsdDatosBasicosImport, $excelxxx); //ok
+        // Excel::import(new CsdConclusionesImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentacionImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentFrecImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentCompraImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentIngeImport, $excelxxx); // ok
+        // Excel::import(new CsdAlimentPreparaImport, $excelxxx); // ok
+        // Excel::import(new CsdDinfamMadreImport, $excelxxx); // ok
+        // Excel::import(new CsdDinfamPadreImport, $excelxxx); // ok
+        // Excel::import(new CsdDinFamiliarImport, $excelxxx); // ok
+
+        // Excel::import(new CsdDinfamIncumpleImport, $excelxxx); //
+        // Excel::import(new CsdComFamiliarObservacionesImport, $excelxxx);
+
+
+
+
+        //Excel::import(new CsdGenIngresoImport, $excelxxx);
+        //Excel::import(new CsdComFamiliarImport, $excelxxx);
+
+
+       // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
