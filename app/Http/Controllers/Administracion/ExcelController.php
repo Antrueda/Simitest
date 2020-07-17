@@ -21,10 +21,11 @@ use App\Imports\Csd\CsdNnajEspecialImport;
 use App\Imports\Csd\CsdResideambienteImport;
 use App\Imports\Csd\CsdResidenciaImport;
 use App\Imports\Csd\CsdViolenciaImport;
-use App\Imports\Csd\CsdBienvenidaImport;
 use App\Imports\Vsi\VsiActemoFisiologicaImport;
+use App\Imports\Vsi\VsiConcepRedImport;
 use App\Imports\Vsi\VsiDinfamAusenciaImport;
 use App\Imports\Vsi\VsiDinfamCuidadorImport;
+use App\Imports\Vsi\VsiDinfamMadreImport;
 use App\Imports\Vsi\VsiEducacionsImport;
 use App\Imports\Vsi\VsiEduCausaImport;
 use App\Imports\Vsi\VsiEduDificultadImport;
@@ -38,9 +39,9 @@ use App\Imports\Vsi\VsiRelFamiliarImport;
 use App\Imports\Vsi\VsiRelfamMotivoImport;
 use App\Imports\Vsi\VsiSitespRiesgoImport;
 use App\Imports\Vsi\VsiSitespVictimaImport;
+use App\Imports\Vsi\VsiViolenciaImport;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
-use App\Models\consulta\CsdBienvenida;
 use App\Models\consulta\CsdConclusiones;
 use App\Models\consulta\CsdDinFamiliar;
 use App\Models\consulta\CsdDinfamMadre;
@@ -57,8 +58,10 @@ use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\sicosocial\Pivotes\VsiActemoFisiologica;
 use App\Models\sicosocial\Pivotes\VsiBienvenidaMotivo;
+use App\Models\sicosocial\Pivotes\VsiConcepRed;
 use App\Models\sicosocial\Pivotes\VsiDinfamAusencia;
 use App\Models\sicosocial\Pivotes\VsiDinfamCuidador;
+use App\Models\sicosocial\Pivotes\VsiDinfamMadre;
 use App\Models\sicosocial\Pivotes\VsiEduCausa;
 use App\Models\sicosocial\Pivotes\VsiEduDificultad;
 use App\Models\sicosocial\Pivotes\VsiEduFortaleza;
@@ -79,7 +82,7 @@ use App\Models\sicosocial\VsiRelFamiliar;
 use App\Models\sistema\SisEsta;
 
 use App\Models\sicosocial\VsiDinFamiliar;
-
+use App\Models\sicosocial\VsiViolencia;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -182,17 +185,21 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = CsdBienvenida::get();
+        $dataxxxx = VsiDinfamMadre::get();
         foreach ($dataxxxx as $registro) {
-            echo "CsdBienvenida::create([
-                'csd_id' => {$registro->csd_id},
-                'prm_persona_id' => {$registro->prm_persona_id},
-                'prm_tipofuen_id'=> {$registro->prm_tipofuen_id},
+            echo "VsiDinfamMadre::create([
+                'vsi_id' => {$registro->vsi_id},
+                'prm_convive_id' => {$registro->prm_convive_id},
+                'dia' => {$registro->dia},
+                'mes' => {$registro->mes},
+                'ano' => {$registro->ano},
+                'hijo' => {$registro->hijo},
+                'prm_separa_id' => {$registro->prm_separa_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
-                'sis_esta_id' => 1,{$registro->sis_esta_id},
-                
-
+                'sis_esta_id' => {$registro->sis_esta_id},
+                'created_at' => '{$registro->created_at}',
+                'updated_at' => '{$registro->updated_at}',
             ]); <br />";;
         }
     }
@@ -206,7 +213,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new CsdBienvenidaImport, $excelxxx);
+        Excel::import(new VsiDinfamMadreImport(), $excelxxx);
         // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }

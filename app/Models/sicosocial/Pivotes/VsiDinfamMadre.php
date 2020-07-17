@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Models\sicosocial\Pivotes;
+
 use Illuminate\Database\Eloquent\Model;
 
 class VsiDinfamMadre extends Model
 {
-    public $timestamps = false;
     protected $table = 'vsi_dinfam_madres';
 
     protected $fillable = [
@@ -19,8 +19,10 @@ class VsiDinfamMadre extends Model
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
+        'created_at',
+        'updated_at',
     ];
-// no estoy seguro de los atributos protegidos, confirmatr
+
     protected $attributes = [
         'user_crea_id' => 1,
         'user_edita_id' => 1
