@@ -648,7 +648,7 @@ class SisBarriosSeeder extends Seeder
         SisBarrio::create(['id' => 634, 'sis_upz_id' => 73, 's_barrio' => 'MARCO FIDEL SUAREZ I']); //634
         SisBarrio::create(['id' => 635, 'sis_upz_id' => 72, 's_barrio' => 'Marco Fidel Suárez Sector La Cañada']); //635
         SisBarrio::create(['id' => 636, 'sis_upz_id' => 124, 's_barrio' => 'Maria Cano']); //636
-        SisBarrio::create(['id' => 637, 'sis_upz_id' => 121, 's_barrio' => 'MARIA PAZ']); //637
+        SisBarrio::create(['id' => 637, 'sis_upz_id' => 27, 's_barrio' => 'MARIA PAZ']); //637
         SisBarrio::create(['id' => 638, 'sis_upz_id' => 45, 's_barrio' => 'Marichuela']); //638
         SisBarrio::create(['id' => 639, 'sis_upz_id' => 125, 's_barrio' => 'Mariscal Sucre']); //639
         SisBarrio::create(['id' => 640, 'sis_upz_id' => 73, 's_barrio' => 'Marruecos II Sector']); //640
@@ -4810,5 +4810,28 @@ class SisBarriosSeeder extends Seeder
         SisBarrio::create(['id' => 4796, 'sis_upz_id' => 109, 's_barrio' => 'Los Cerezos']); //4796
         SisBarrio::create(['id' => 4797, 'sis_upz_id' => 118, 's_barrio' => 'Los Cerezos San Joaquín']); //4797
         SisBarrio::create(['id' => 4798, 'sis_upz_id' => 125, 's_barrio' => 'Los Cerros']); //4798
+
+        SisBarrio::create(['id' => 4799, 'sis_upz_id' => 27,'s_barrio' => 'AMPARO CAÑIZARES']);
+        SisBarrio::create(['id' => 4800, 'sis_upz_id' => 27,'s_barrio' => 'MARÍA PAZ']);
+        SisBarrio::create(['id' => 4801, 'sis_upz_id' => 27,'s_barrio' => 'CHUCUA DE LA VACA']);
+        SisBarrio::create(['id' => 4802, 'sis_upz_id' => 27,'s_barrio' => 'PINAR DEL RÍO']);
+        SisBarrio::create(['id' => 4803, 'sis_upz_id' => 27,'s_barrio' => 'EL AMPARO']);
+        SisBarrio::create(['id' => 4804, 'sis_upz_id' => 27,'s_barrio' => 'PINAR DEL RÍO II']);
+        SisBarrio::create(['id' => 4805, 'sis_upz_id' => 27,'s_barrio' => 'EL LLANITO']);
+        SisBarrio::create(['id' => 4806, 'sis_upz_id' => 27,'s_barrio' => 'SAN CARLOS']);
+        SisBarrio::create(['id' => 4807, 'sis_upz_id' => 27,'s_barrio' => 'EL OLIVO']);
+        SisBarrio::create(['id' => 4808, 'sis_upz_id' => 27,'s_barrio' => 'VILLA DE LA LOMA']);
+        SisBarrio::create(['id' => 4809, 'sis_upz_id' => 27,'s_barrio' => 'EL PORTAL DE PATIO BONITO']);
+        SisBarrio::create(['id' => 4810, 'sis_upz_id' => 27,'s_barrio' => 'VILLA DE LA LOMA II SECTOR MZ 31 Y 32']);
+        SisBarrio::create(['id' => 4811, 'sis_upz_id' => 27,'s_barrio' => 'EL SAUCEDAL']);
+        SisBarrio::create(['id' => 4812, 'sis_upz_id' => 27,'s_barrio' => 'VILLA DE LA TORRE']);
+        SisBarrio::create(['id' => 4813, 'sis_upz_id' => 27,'s_barrio' => 'LA CONCORDIA']);
+        SisBarrio::create(['id' => 4814, 'sis_upz_id' => 27,'s_barrio' => 'VILLA EMILIA, AMPARO II SECTOR']);
+        SisBarrio::create(['id' => 4815, 'sis_upz_id' => 27,'s_barrio' => 'LA ESPERANZA']);
+        SisBarrio::create(['id' => 4816, 'sis_upz_id' => 27,'s_barrio' => 'VILLA NELLY']);
+        SisBarrio::create(['id' => 4817, 'sis_upz_id' => 27,'s_barrio' => 'LA MARÍA']);
+        SisBarrio::create(['id' => 4818, 'sis_upz_id' => 27,'s_barrio' => 'VILLA NELLY – LOS ALISOS']);
+        SisBarrio::create(['id' => 4819, 'sis_upz_id' => 27,'s_barrio' => 'LLANO GRANDE']);
+        SisBarrio::create(['id' => 4820, 'sis_upz_id' => 27,'s_barrio' => 'VISTA HERMOSA (PORTAL PATIO BONITO)']);
     }
 }

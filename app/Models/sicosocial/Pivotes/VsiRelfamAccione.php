@@ -4,11 +4,11 @@ namespace App\Models\sicosocial\Pivotes;
 
 use Illuminate\Database\Eloquent\Model;
 
-class VsiRelfamAcciones extends Model
+class VsiRelfamAccione extends Model
 {
     public $timestamps = false;
     protected $table = 'vsi_relfam_acciones';
-    
+
     protected $fillable = [
         'parametro_id',
         'vsi_relfamiliar_id',
@@ -17,7 +17,7 @@ class VsiRelfamAcciones extends Model
     ];
 
     protected $attributes = [
-        'user_crea_id' => 1, 
+        'user_crea_id' => 1,
         'user_edita_id' => 1
-    ];    
+    ];
 }

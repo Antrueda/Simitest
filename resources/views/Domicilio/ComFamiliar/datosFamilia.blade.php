@@ -23,7 +23,8 @@
         <th>7.17</th>
         <th>7.18</th>
         <th>7.19</th>
-        <th colspan="2">7.20</th>
+        <th >7.20</th>
+        <th>Tiene Sisben</th>
         <th>7.21</th>
         <th>7.22</th>
         <th>7.23</th>
