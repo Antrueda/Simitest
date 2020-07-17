@@ -45,10 +45,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdResidenciaSeeder::class);
         $this->call(CsdResideambienteSeeder::class);
         $this->call(CsdViolenciasSeeder::class);
-<<<<<<< HEAD
-       
-=======
->>>>>>> 12d5226672379b13ecb6f34604f402802b94c1e8
         $this->call(CsdConclusionesSeeder::class);
         $this->call(CsdAlimentacionsSeeder::class);
         $this->call(CsdAlimentFrecSeeder::class);
@@ -59,25 +55,16 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdDinfamIncumpleSeeder::class);
         $this->call(CsdDinfamAntecedenteSeeder::class);
         $this->call(CsdDinfamProblemaSeeder::class);
-<<<<<<< HEAD
-        
-
-=======
->>>>>>> 12d5226672379b13ecb6f34604f402802b94c1e8
         $this->call(CsdDinfamMadreSeeder::class);
         $this->call(CsdDinfamPadresSeeder::class);
         $this->call(CsdDatosBasicoSeeder::class); // Jorge
         $this->call(CsdGeningAportarSeeder::class); // Jorge
-<<<<<<< HEAD
-        $this->call(CsdRedsocActualSeeder::class); 
-=======
         $this->call(CsdRedsocActualSeeder::class);
->>>>>>> 12d5226672379b13ecb6f34604f402802b94c1e8
         $this->call(CsdRedsocPasadoSeeder::class); // Jorge
         $this->call(CsdComFamiliarSeeder::class);
         $this->call(CsdComFamiliarObservacionesSeeder::class); // Jorge
         $this->call(CsdGenIngresoSeeder::class); // Jorge
-        $this->call(CsdBienvenidaSeeder::class); // Jorge
+        //$this->call(CsdBienvenidaSeeder::class); // Jorge
         $this->call(InLineaBasesSeeder::class);
         $this->call(InFuentesSeeder::class);
         $this->call(InBaseFuentesSeeder::class);
@@ -97,15 +84,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AgRecursosSeeder::class);
         $this->call(SisObsesSeeder::class);
 
-<<<<<<< HEAD
-        // -- Modulo SICO SOCIAL, Javier 
-       // $this->call(VsisSeeder::class);
-      //  $this->call(VsiBienvenidaSeeder::class);        // padre
-       // $this->call(VsiBienvenidaMotivoSeeder::class);  // hija
-        
-    }
-}
-=======
         // -- Modulo SICO SOCIAL, Javier
         $this->call(VsisSeeder::class); // ok  //1
         $this->call(VsiBienvenidaSeeder::class);        // ok // 2
@@ -183,4 +161,3 @@ class DatabaseSeeder extends Seeder
 
     }
 }
->>>>>>> 12d5226672379b13ecb6f34604f402802b94c1e8

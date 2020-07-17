@@ -21,6 +21,7 @@ use App\Imports\Csd\CsdNnajEspecialImport;
 use App\Imports\Csd\CsdResideambienteImport;
 use App\Imports\Csd\CsdResidenciaImport;
 use App\Imports\Csd\CsdViolenciaImport;
+use App\Imports\Csd\CsdBienvenidaImport;
 use App\Imports\Vsi\VsiActemoFisiologicaImport;
 use App\Imports\Vsi\VsiDinfamAusenciaImport;
 use App\Imports\Vsi\VsiDinfamCuidadorImport;
@@ -39,6 +40,7 @@ use App\Imports\Vsi\VsiSitespRiesgoImport;
 use App\Imports\Vsi\VsiSitespVictimaImport;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
+use App\Models\consulta\CsdBienvenida;
 use App\Models\consulta\CsdConclusiones;
 use App\Models\consulta\CsdDinFamiliar;
 use App\Models\consulta\CsdDinfamMadre;
@@ -180,13 +182,17 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiSitespVictima::get();
+        $dataxxxx = CsdBienvenida::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiSitespVictima::create([
-                'parametro_id' => {$registro->parametro_id},
-                'vsi_sitespecial_id' => {$registro->vsi_sitespecial_id},
+            echo "CsdBienvenida::create([
+                'csd_id' => {$registro->csd_id},
+                'prm_persona_id' => {$registro->prm_persona_id},
+                'prm_tipofuen_id'=> {$registro->prm_tipofuen_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
+                'sis_esta_id' => 1,{$registro->sis_esta_id},
+                
+
             ]); <br />";;
         }
     }
@@ -200,7 +206,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiSitespVictimaImport(), $excelxxx);
+        Excel::import(new CsdBienvenidaImport, $excelxxx);
         // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
