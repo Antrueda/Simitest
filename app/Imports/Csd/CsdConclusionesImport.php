@@ -19,9 +19,9 @@ class CsdConclusionesImport implements ToModel
             'user_crea_id'=> 1,
             'user_edita_id'=> 1,
             'sis_esta_id'=> 1,
-            'persona_nombre'=>1,
+            'persona_nombre'=>' ',
             'persona_doc'=>1,
-            'persona_parent_id'=>1,
+            'persona_parent_id'=>2316,
             'prm_tipofuen_id'=>2316,
             'user_doc1_id'=>1,
             'user_doc2_id'=>1

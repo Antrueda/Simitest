@@ -15,11 +15,14 @@ class CsdDinfamIncumpleImport implements ToModel
     public function model(array $row)
     {
         return new CsdDinfamIncumple([
-            'csd_id'=> $row[0],
-            'csd_dinfamiliar_id'=> $row[1],
+            'parametro_id'=> $row[1],
+            'csd_dinfamiliar_id'=> $row[0],
             'prm_tipofuen_id'=> 2316,
             'user_crea_id'=> 1,
             'user_edita_id'=> 1,
+            
+
+
         ]);
     }
 }

@@ -19,7 +19,8 @@ class CsdComFamiliarObservacionesImport implements ToModel
             'observaciones'=> $row[1],
             'user_crea_id'=> 1,
             'user_edita_id'=> 1,
-            'sis_esta_id'=> 1
+            'sis_esta_id'=> 1,
+            'prm_tipofuen_id'=> 2316
         ]);
     }
 }

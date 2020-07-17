@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\consulta\pivotes\CsdDinfamAntecedente;
 use App\Models\sistema\SisTcampo;
 use Illuminate\Database\Seeder;
 
@@ -44,21 +45,27 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdResidenciaSeeder::class);
         $this->call(CsdResideambienteSeeder::class);
         $this->call(CsdViolenciasSeeder::class);
+       
         $this->call(CsdConclusionesSeeder::class);
         $this->call(CsdAlimentacionsSeeder::class);
-       // $this->call(CsdAlimentFrecSeeder::class);
-        //$this->call(CsdAlimentCompraSeeder::class);
-       // $this->call(CsdAlimentIngeSeeder::class);
-       // $this->call(CsdAlimentPreparaSeeder::class);
+        $this->call(CsdAlimentFrecSeeder::class);
+        $this->call(CsdAlimentCompraSeeder::class);
+        $this->call(CsdAlimentIngeSeeder::class);
+        $this->call(CsdAlimentPreparaSeeder::class);
         $this->call(CsdDinFamiliarSeeder::class);
+        $this->call(CsdDinfamIncumpleSeeder::class);
+        $this->call(CsdDinfamAntecedenteSeeder::class);
+        $this->call(CsdDinfamProblemaSeeder::class);
+        
 
         $this->call(CsdDinfamMadreSeeder::class);
         $this->call(CsdDinfamPadresSeeder::class);
-     //   $this->call(CsdDatosBasicoSeeder::class); // Jorge
+        $this->call(CsdDatosBasicoSeeder::class); // Jorge
         $this->call(CsdGeningAportarSeeder::class); // Jorge
         $this->call(CsdRedsocActualSeeder::class); 
         $this->call(CsdRedsocPasadoSeeder::class); // Jorge
-        $this->call(CsdComFamiliarSeeder::class); // Jorge
+        $this->call(CsdComFamiliarSeeder::class);
+        $this->call(CsdComFamiliarObservacionesSeeder::class); // Jorge
         $this->call(CsdGenIngresoSeeder::class); // Jorge
         $this->call(CsdBienvenidaSeeder::class); // Jorge
         $this->call(InLineaBasesSeeder::class);
@@ -80,10 +87,10 @@ class DatabaseSeeder extends Seeder
         $this->call(AgRecursosSeeder::class);
         $this->call(SisObsesSeeder::class);
 
-        // -- Modulo SICO SOCIAL, Javier
-        // $this->call(VsisSeeder::class);
-        // $this->call(VsiBienvenidaSeeder::class);        // padre
-        // $this->call(VsiBienvenidaMotivoSeeder::class);  // hija
-
+        // -- Modulo SICO SOCIAL, Javier 
+       // $this->call(VsisSeeder::class);
+      //  $this->call(VsiBienvenidaSeeder::class);        // padre
+       // $this->call(VsiBienvenidaMotivoSeeder::class);  // hija
+        
     }
 }

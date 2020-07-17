@@ -11,10 +11,12 @@ use App\Imports\Csd\CsdAlimentPreparaImport;
 use App\Imports\Csd\CsdComFamiliarImport;
 use App\Imports\Csd\CsdComFamiliarObservacionesImport;
 use App\Imports\Csd\CsdConclusionesImport;
+use App\Imports\Csd\CsdDinfamAntecedenteImport;
 use App\Imports\Csd\CsdDinFamiliarImport;
 use App\Imports\Csd\CsdDinfamIncumpleImport;
 use App\Imports\Csd\CsdDinfamMadreImport;
 use App\Imports\csd\CsdDinfamPadreImport;
+use App\Imports\Csd\CsdDinfamProblemaImport;
 use App\Imports\Csd\CsdGeningAportarImport;
 use App\Imports\Csd\CsdGenIngresoImport;
 use App\Imports\Csd\CsdImport;
@@ -29,6 +31,7 @@ use App\Imports\Vsi\VsiEducacionsImport;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
 use App\Models\consulta\CsdComFamiliar;
+use App\Models\consulta\CsdComFamiliarObservaciones;
 use App\Models\consulta\CsdConclusiones;
 use App\Models\consulta\CsdDinFamiliar;
 use App\Models\consulta\CsdDinfamMadre;
@@ -44,6 +47,9 @@ use App\Models\consulta\pivotes\CsdAlimentCompra;
 use App\Models\consulta\pivotes\CsdAlimentFrec;
 use App\Models\consulta\pivotes\CsdAlimentInge;
 use App\Models\consulta\pivotes\CsdAlimentPrepara;
+use App\Models\consulta\pivotes\CsdDinfamAntecedente;
+use App\Models\consulta\pivotes\CsdDinfamIncumple;
+use App\Models\consulta\pivotes\CsdDinfamProblema;
 use App\Models\consulta\pivotes\CsdNnajEspecial;
 use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdSisNnaj;
@@ -163,15 +169,15 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = CsdAlimentPrepara::get();
+        $dataxxxx = CsdComFamiliar::get();
         // {$registro->}
 
 
         foreach ($dataxxxx as $registro) {
-            /*
+            
             $seederxx = "CsdComFamiliar::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id}, 'primer_nombre'=>'$registro->primer_nombre', 
             'segundo_nombre'=>'$registro->segundo_nombre','primer_apellido'=>'$registro->primer_apellido', 'segundo_apellido'=>'$registro->segundo_apellido', 
-            'identitario'=>'$registro->identitario','prm_documento_id'=>'$registro->prm_documento_id','documento'=>{$registro->documento},'nacimiento'=>{$registro->nacimiento},
+            'identitario'=>'$registro->identitario','prm_documento_id'=>{$registro->prm_documento_id},'documento'=>{$registro->documento},'nacimiento'=>{$registro->nacimiento},
             'prm_sexo_id'=>{$registro->prm_sexual_id},'prm_estadoivil_id'=>{$registro->prm_estadoivil_id},'prm_genero_id'=>{$registro->prm_genero_id},
             'prm_sexual_id'=>{$registro->prm_sexual_id},'prm_grupo_etnico_id'=>{$registro->prm_grupo_etnico_id},'prm_documento_id'=>{$registro->prm_documento_id},
             'prm_grupo_etnico_id'=>{$registro->prm_grupo_etnico_id},'prm_ocupacion_id'=>{$registro->prm_ocupacion_id},'prm_parentezco_id'=>{$registro->prm_parentezco_id},
@@ -203,7 +209,7 @@ class ExcelController extends Controller
                  
             /*
               
-            $seederxx = "CsdGenIngreso::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id}, 'observacion'=>'$registro->nombre',
+            $seederxx = "CsdGenIngreso::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id}, 'observacion'=>'$registro->observacion',
             'trabaja'=>'$registro->trabaja','prm_actividad_id'=>{$registro->prm_actividad_id}, 'prm_informal_id'=>{$registro->prm_informal_id},'prm_otra_id'=>{$registro->prm_otra_id},
             'prm_laboral_id'=>'{$registro->prm_laboral_id}','prm_frecuencia_id'=>'{$registro->prm_frecuencia_id}','intensidad'=>'{$registro->intensidad}',
             'prm_dificultad_id'=>'{$registro->prm_dificultad_id}','razon'=>'{$registro->razon}',
@@ -232,14 +238,52 @@ $seederxx = "CsdDinfamPadre::create(['id'=>{$registro->id},'csd_id'=>{$registro-
                 $seederxx = "CsdResideambiente::create(['parametro_id'=>{$registro->parametro_id},'csd_residencia_id'=>{$registro->csd_residencia_id}, 
             'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id}]);<br>";
 
+             $seederxx = "CsdAlimentInge::create(['parametro_id'=>{$registro->parametro_id},'csd_alimentacion_id'=>{$registro->csd_alimentacion_id}, 
+            'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id}]);<br>";
+
              $seederxx = "CsdAlimentacion::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id},'cant_personas'=>{$registro->cant_personas},'prm_horario_id'=>{$registro->prm_horario_id},
             'prm_apoyo_id'=>{$registro->prm_apoyo_id},'prm_entidad_id'=>{$registro->prm_entidad_id},'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},
             'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id}]);<br>";
-            */
-    
+
+
+  $seederxx = "CsdDinFamiliar::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id},'prm_familiar_id'=>{$registro->prm_familiar_id},
+            'prm_hogar_id'=>{$registro->prm_hogar_id},'descripcion_0'=>'$registro->descripcion_0','prm_bogota_id'=>{$registro->prm_bogota_id},
+            'prm_traslado_id'=>{$registro->prm_traslado_id},'descripcion_1'=>'$registro->descripcion_1','afronta'=>'$registro->afronta',
+            'prm_norma_id'=>{$registro->prm_norma_id},'prm_conoce_id'=>{$registro->prm_conoce_id},'observacion'=>'$registro->observacion',
+            'prm_actuan_id'=>{$registro->prm_actuan_id},'porque'=>'$registro->porque','prm_solucion_id'=>{$registro->prm_solucion_id},
+            'prm_problema_id'=>{$registro->prm_problema_id},'prm_destaca_id'=>{$registro->prm_destaca_id},'prm_positivo_id'=>{$registro->prm_positivo_id},
+            'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},'prm_cuidador_id'=>{$registro->prm_cuidador_id},'relevantes'=>'$registro->relevantes',
+            'prm_jefe1_id'=>{$registro->prm_jefe1_id},'descripcion'=>'$registro->descripcion','jefe1'=>'$registro->jefe1',
+            'prm_jefe2_id'=>{$registro->prm_jefe2_id},'jefe2'=>'$registro->jefe2','descripcion_2'=>'$registro->descripcion_2',
+            'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id},'sis_esta_id'=>{$registro->sis_esta_id}]);<br>";
             
-            $seederxx = "CsdAlimentPrepara::create(['parametro_id'=>{$registro->parametro_id},'csd_alimentacion_id'=>{$registro->csd_alimentacion_id}, 
+                $seederxx = "CsdComFamiliarObservaciones::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id}, 'observaciones'=>'$registro->observaciones',
+                            'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id},'sis_esta_id'=>{$registro->sis_esta_id}],'prm_tipofuen_id'=>{$registro->prm_tipofuen_id}]);<br>";;
+
+    $seederxx = "CsdDinFamiliar::create(['id'=>{$registro->id},'csd_id'=>{$registro->csd_id},'prm_familiar_id'=>{$registro->prm_familiar_id},
+            'prm_hogar_id'=>{$registro->prm_hogar_id},'descripcion_0'=>'$registro->descripcion_0','prm_bogota_id'=>{$registro->prm_bogota_id},
+            'prm_traslado_id'=>{$registro->prm_traslado_id},'descripcion_1'=>'$registro->descripcion_1','afronta'=>'$registro->afronta',
+            'prm_norma_id'=>{$registro->prm_norma_id},'prm_conoce_id'=>{$registro->prm_conoce_id},'observacion'=>'$registro->observacion',
+            'prm_actuan_id'=>{$registro->prm_actuan_id},'porque'=>'$registro->porque','prm_solucion_id'=>{$registro->prm_solucion_id},
+            'prm_problema_id'=>{$registro->prm_problema_id},'prm_destaca_id'=>{$registro->prm_destaca_id},'prm_positivo_id'=>{$registro->prm_positivo_id},
+            'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},'prm_cuidador_id'=>{$registro->prm_cuidador_id},'relevantes'=>'$registro->relevantes',
+            'prm_jefe1_id'=>{$registro->prm_jefe1_id},'descripcion'=>'$registro->descripcion','jefe1'=>'$registro->jefe1',
+            'prm_jefe2_id'=>{$registro->prm_jefe2_id},'jefe2'=>'$registro->jefe2','descripcion_2'=>'$registro->descripcion_2',
+            'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id},'sis_esta_id'=>{$registro->sis_esta_id}]);<br>";
+            
+            $seederxx = "CsdDinfamProblema::create(['parametro_id'=>{$registro->parametro_id},'csd_dinfamiliar_id'=>{$registro->csd_dinfamiliar_id}, 
             'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id}]);<br>";
+              
+
+  $seederxx = "CsdDinfamIncumple::create(['parametro_id'=>{$registro->parametro_id},'csd_dinfamiliar_id'=>{$registro->csd_dinfamiliar_id}, 
+                'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},'user_crea_id'=>{$registro->user_crea_id},'user_edita_id'=>{$registro->user_edita_id}]);<br>";
+                */
+            
+             
+            
+
+ 
+
 
 
         echo $seederxx;
@@ -262,31 +306,31 @@ $seederxx = "CsdDinfamPadre::create(['id'=>{$registro->id},'csd_id'=>{$registro-
         //los excel comentados son los ya realizados
        // Excel::import(new CsdImport, $excelxxx); //ok
         // Excel::import(new CsdJusticiaImport, $excelxxx); // ok
-        // Excel::import(new CsdNnajEspecialImport, $excelxxx); //ok
+         //Excel::import(new CsdNnajEspecialImport, $excelxxx); //ok
         // Excel::import(new CsdResidenciaImport, $excelxxx); //ok
         // Excel::import(new CsdResideambienteImport, $excelxxx); //ok
        //  Excel::import(new CsdResidenciaImport, $excelxxx); //ok
         //Excel::import(new CsdGeningAportarImport, $excelxxx);
+//        Excel::import(new CsdGenIngresoImport, $excelxxx);
         // datos basicos
 
         // Excel::import(new CsdConclusionesImport, $excelxxx); // ok
         // Excel::import(new CsdAlimentacionImport, $excelxxx); // ok
          //Excel::import(new CsdAlimentFrecImport, $excelxxx); // ok
         //Excel::import(new CsdAlimentCompraImport, $excelxxx); // ok
-        // Excel::import(new CsdAlimentIngeImport, $excelxxx); // ok
-         Excel::import(new CsdAlimentPreparaImport, $excelxxx); // ok
+       //  Excel::import(new CsdAlimentIngeImport, $excelxxx); // ok
+        //  Excel::import(new CsdAlimentPreparaImport, $excelxxx); // ok
         //Excel::import(new CsdDinfamPadreImport, $excelxxx); // ok
         // Excel::import(new CsdDinfamPadreImport, $excelxxx); // ok
-        // Excel::import(new CsdDinFamiliarImport, $excelxxx); // ok
-
-        // Excel::import(new CsdDinfamIncumpleImport, $excelxxx); //
+         //Excel::import(new CsdDinfamProblemaImport, $excelxxx); // ok
+         //Excel::import(new CsdDinfamIncumpleImport, $excelxxx); //
         // Excel::import(new CsdComFamiliarObservacionesImport, $excelxxx);
 
 
 
 
         //Excel::import(new CsdGenIngresoImport, $excelxxx);
-        //Excel::import(new CsdComFamiliarImport, $excelxxx);
+        Excel::import(new CsdComFamiliarImport, $excelxxx);
 
 
        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
