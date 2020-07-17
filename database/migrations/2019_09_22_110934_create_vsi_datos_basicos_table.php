@@ -27,6 +27,7 @@ class CreateVsiDatosBasicosTable extends Migration{
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        
         Schema::create('vsi_nnaj_emocional', function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();

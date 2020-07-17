@@ -25,7 +25,7 @@ class CsdComFamiliarImport implements ToModel
             'segundo_nombre' =>  $row[4] == '' ? ' ' : $row[4],
             'identitario' => $row[5],
             'prm_documento_id' => $row[6],
-            'documento' => $row[7] == ' ' ? 0 :$row[7],
+            'documento' => $row[7] ==' ' ? 0 :$row[7],
             'nacimiento' => date('Y-m-d',$date ),
             'prm_sexo_id' => $row[9],
             'prm_estadoivil_id' => $row[10] == '' ? 2316 : $row[10],// en el caso de que sean combos, el seeder los campos no pueden quedar vacíos

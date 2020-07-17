@@ -241,7 +241,7 @@ class CsdDinfamAntecedenteSeeder extends Seeder
         CsdDinfamAntecedente::create(['parametro_id'=>561,'csd_dinfamiliar_id'=>47, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'user_edita_id'=>1]);
         CsdDinfamAntecedente::create(['parametro_id'=>561,'csd_dinfamiliar_id'=>56, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'user_edita_id'=>1]);
         CsdDinfamAntecedente::create(['parametro_id'=>569,'csd_dinfamiliar_id'=>56, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'user_edita_id'=>1]);
-        CsdDinfamAntecedente::crseate(['parametro_id'=>573,'csd_dinfamiliar_id'=>56, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'user_edita_id'=>1]);
+        CsdDinfamAntecedente::create(['parametro_id'=>573,'csd_dinfamiliar_id'=>56, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'user_edita_id'=>1]);
         CsdDinfamAntecedente::create(['parametro_id'=>576,'csd_dinfamiliar_id'=>56, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'user_edita_id'=>1]);
         CsdDinfamAntecedente::create(['parametro_id'=>577,'csd_dinfamiliar_id'=>56, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'user_edita_id'=>1]);
         CsdDinfamAntecedente::create(['parametro_id'=>578,'csd_dinfamiliar_id'=>56, 'prm_tipofuen_id'=>2316,'user_crea_id'=>1,'user_edita_id'=>1]);

@@ -5,7 +5,7 @@ namespace App\Imports\Vsi;
 use App\Models\sicosocial\VsiEducacion;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class VsiEducacionsImport implements ToModel
+class VsiEducacionImport implements ToModel
 {
     /**
      * @param array $row
@@ -41,18 +41,15 @@ class VsiEducacionsImport implements ToModel
             'prm_motivo_id' => $row[5],
             'prm_rendimiento_id' => $row[6],
             'prm_dificultad_id' => $row[7],
-            
-            
-            'prm_leer_id' => $row[10],
-            'prm_escribir_id' => $row[11],
-            'descripcion' => $row[12],
-            'user_crea_id' => 1,
-            'user_edita_id' => 1,
-            'sis_esta_id' => 1,
-            'created_at' => 1,
-            'updated_at' => 1,
+            'prm_leer_id' => $row[8],
+            'prm_escribir_id' => $row[9],
+            'descripcion' => $row[10],
+            'user_crea_id => 1',
+            'user_edita_id => 1',
+            'sis_esta_id => 1',
+            'created_at => 1',
+            'updated_at => 1',
         ];
-
         return new VsiEducacion($dataxxxx);
     }
 }

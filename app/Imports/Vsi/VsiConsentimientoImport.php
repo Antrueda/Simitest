@@ -2,10 +2,10 @@
 
 namespace App\Imports\Vsi;
 
-use App\VsiAntecedentes;
+use App\VsiConsentimiento;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class VsiAntecedentes implements ToModel
+class VsiConsentimientoImport implements ToModel
 {
     /**
     * @param array $row
@@ -14,7 +14,7 @@ class VsiAntecedentes implements ToModel
     */
     public function model(array $row)
     {
-        return new VsiAntecedentes([
+        return new VsiConsentimiento([
             //
         ]);
     }

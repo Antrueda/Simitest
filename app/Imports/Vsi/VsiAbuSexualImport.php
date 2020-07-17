@@ -2,11 +2,10 @@
 
 namespace App\Imports\Vsi;
 
-use App\Models\sicosocial\VsiActEmocional;
-use App\Models\sicosocial\VsiActEmocionals;
+use App\Models\sicosocial\VsiAbuSexual;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class VsiActEmocionalsImport implements ToModel
+class VsiAbuSexualImport implements ToModel
 {
     /**
     * @param array $row
@@ -15,11 +14,11 @@ class VsiActEmocionalsImport implements ToModel
     */
     public function model(array $row)
     {
+        echo $row[0].'<pre>';
         $dataxxxx = [
-
+            
         ];
-
-
-        return new VsiActEmocional($dataxxxx);
+        print_r($dataxxxx);            
+        return new VsiAbuSexual($dataxxxx);
     }
 }

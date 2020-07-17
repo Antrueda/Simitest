@@ -14,6 +14,9 @@ class CsdDatosBasicosImport implements ToModel
      */
     public function model(array $row)
     {
+        $date = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToTimestamp($row[10]+1);
+        // echo $date.'<br>';
+        // echo date('Y-m-d', $date).'<br>';
         echo "CsdDatosBasico::create([
             'id'=> $row[29],
             'csd_id'=> $row[0],
@@ -26,7 +29,7 @@ class CsdDatosBasicosImport implements ToModel
             'prm_sexo_id'=> $row[7],
             'prm_genero_id'=> $row[8],
             'prm_sexual_id'=> $row[9],
-            'nacimiento'=> '".date('Y-m-d',$row[10])."',
+            'nacimiento'=> '".date('Y-m-d',$date)."',
             'pais_id'=> $row[11],
             'departamento_id'=> $row[12],
             'municipio_id'=> $row[13],

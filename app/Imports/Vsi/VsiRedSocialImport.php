@@ -25,11 +25,11 @@ class VsiRedSocialImport implements ToModel
             'prm_ruptura_sexual_id' => $row[6],
             'prm_acceso_id' => $row[7],
             'prm_servicio_id' => $row[8],
-            'user_crea_id' => 1,
-            'user_edita_id' => 1,
-            'sis_esta_id' => 1,
-            'created_at' => 1,
-            'updated_at' => 1,
+            'user_crea_id => 1',
+            'user_edita_id => 1',
+            'sis_esta_id => 1',
+            'created_at => 1',
+            'updated_at => 1',
         ];
         // print_r($dataxxxx);
         return new VsiRedSocial($dataxxxx);

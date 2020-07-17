@@ -14,7 +14,7 @@ class VsiRelFamiliarImport implements ToModel
      */
     public function model(array $row)
     {
-        // echo $row[2].'<pre>';
+        echo $row[2].'<pre>';
         $dataxxxx = [
             'vsi_id' => $row[0],
             'prm_representativa_id' => $row[1],
@@ -39,7 +39,7 @@ class VsiRelFamiliarImport implements ToModel
             'created_at' => 1,
             'updated_at' => 1,
         ];
-        // print_r($dataxxxx);
+         print_r($dataxxxx);
         return new VsiRelFamiliar($dataxxxx);
     }
 }
