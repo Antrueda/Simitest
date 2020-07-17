@@ -33,10 +33,15 @@ use App\Imports\Vsi\VsiEduFortalezaImport;
 use App\Imports\Vsi\VsiGeningDiaImport;
 use App\Imports\Vsi\VsiGeningLaborImport;
 use App\Imports\Vsi\VsiGeningQuienImport;
+use App\Imports\Vsi\VsiRedsocActualImport;
+use App\Imports\Vsi\VsiRedSocMotivoImport;
 use App\Imports\Vsi\VsiRelfamAccionesImport;
 use App\Imports\Vsi\VsiRelfamDificultadImport;
 use App\Imports\Vsi\VsiRelFamiliarImport;
 use App\Imports\Vsi\VsiRelfamMotivoImport;
+use App\Imports\Vsi\VsiRelSolDificultaImport;
+use App\Imports\Vsi\VsiRelSolFacilitaImport;
+use App\Imports\Vsi\VsiSaludImport;
 use App\Imports\Vsi\VsiSitespRiesgoImport;
 use App\Imports\Vsi\VsiSitespVictimaImport;
 use App\Imports\Vsi\VsiViolenciaImport;
@@ -68,9 +73,13 @@ use App\Models\sicosocial\Pivotes\VsiEduFortaleza;
 use App\Models\sicosocial\Pivotes\VsiGeningDia;
 use App\Models\sicosocial\Pivotes\VsiGeningLabor;
 use App\Models\sicosocial\Pivotes\VsiGeningQuien;
+use App\Models\sicosocial\Pivotes\VsiRedsocActual;
+use App\Models\sicosocial\Pivotes\VsiRedSocMotivo;
 use App\Models\sicosocial\Pivotes\VsiRelfamAcciones;
 use App\Models\sicosocial\Pivotes\VsiRelfamDificultad;
 use App\Models\sicosocial\Pivotes\VsiRelfamMotivo;
+use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
+use App\Models\sicosocial\Pivotes\VsiRelSolFacilita;
 use App\Models\sicosocial\Pivotes\VsiSitespRiesgo;
 use App\Models\sicosocial\Pivotes\VsiSitespVictima;
 use App\Models\sicosocial\VsiDatosVincula;
@@ -82,6 +91,7 @@ use App\Models\sicosocial\VsiRelFamiliar;
 use App\Models\sistema\SisEsta;
 
 use App\Models\sicosocial\VsiDinFamiliar;
+use App\Models\sicosocial\VsiSalud;
 use App\Models\sicosocial\VsiViolencia;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -185,21 +195,32 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiDinfamMadre::get();
+        $dataxxxx = VsiSalud::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiDinfamMadre::create([
+            echo "VsiSalud::create([
                 'vsi_id' => {$registro->vsi_id},
-                'prm_convive_id' => {$registro->prm_convive_id},
-                'dia' => {$registro->dia},
-                'mes' => {$registro->mes},
-                'ano' => {$registro->ano},
+                'prm_atencion_id' => {$registro->prm_atencion_id},
+                'prm_condicion_id' => {$registro->prm_condicion_id},
+                'prm_medicamento_id' => {$registro->prm_medicamento_id},
+                'prm_prescripcion_id' => {$registro->prm_prescripcion_id},
+                'prm_sexual_id' => {$registro->prm_sexual_id},
+                'prm_activa_id' => {$registro->prm_activa_id},
+                'prm_embarazo_id' => {$registro->prm_embarazo_id},
+                'prm_hijo_id' => {$registro->prm_hijo_id},
+                'prm_interrupcion_id' => {$registro->prm_interrupcion_id},
+                'medicamento' => {$registro->medicamento},
+                'descripcion' => {$registro->descripcion},
+                'edad' => {$registro->edad},
+                'embarazo' => {$registro->embarazo},
                 'hijo' => {$registro->hijo},
-                'prm_separa_id' => {$registro->prm_separa_id},
+                'interrupcion' => {$registro->interrupcion},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 'sis_esta_id' => {$registro->sis_esta_id},
-                'created_at' => '{$registro->created_at}',
-                'updated_at' => '{$registro->updated_at}',
+                'created_at' => {$registro->created_at},
+                'updated_at' => {$registro->updated_at},
+                
+
             ]); <br />";;
         }
     }
@@ -213,7 +234,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiDinfamMadreImport(), $excelxxx);
+        Excel::import(new VsiSaludImport(), $excelxxx);
         // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
