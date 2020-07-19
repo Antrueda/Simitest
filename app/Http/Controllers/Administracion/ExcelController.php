@@ -3,96 +3,14 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Imports\Csd\CsdAlimentacionImport;
-use App\Imports\Csd\CsdAlimentCompraImport;
-use App\Imports\Csd\CsdAlimentFrecImport;
-use App\Imports\Csd\CsdAlimentIngeImport;
-use App\Imports\Csd\CsdAlimentPreparaImport;
-use App\Imports\Csd\CsdComFamiliarObservacionesImport;
-use App\Imports\Csd\CsdConclusionesImport;
-use App\Imports\Csd\CsdDatosBasicosImport;
-use App\Imports\Csd\CsdDinFamiliarImport;
-use App\Imports\Csd\CsdDinfamIncumpleImport;
-use App\Imports\Csd\CsdDinfamMadreImport;
-use App\Imports\csd\CsdDinfamPadreImport;
-use App\Imports\Csd\CsdImport;
-use App\Imports\Csd\CsdJusticiaImport;
-use App\Imports\Csd\CsdNnajEspecialImport;
-use App\Imports\Csd\CsdResideambienteImport;
-use App\Imports\Csd\CsdResidenciaImport;
-use App\Imports\Csd\CsdViolenciaImport;
-use App\Imports\Vsi\VsiActemoFisiologicaImport;
-use App\Imports\Vsi\VsiConcepRedImport;
-use App\Imports\Vsi\VsiDinfamAusenciaImport;
-use App\Imports\Vsi\VsiDinfamCuidadorImport;
-use App\Imports\Vsi\VsiDinfamMadreImport;
-use App\Imports\Vsi\VsiEducacionsImport;
-use App\Imports\Vsi\VsiEduCausaImport;
-use App\Imports\Vsi\VsiEduDificultadImport;
-use App\Imports\Vsi\VsiEduFortalezaImport;
-use App\Imports\Vsi\VsiGeningDiaImport;
-use App\Imports\Vsi\VsiGeningLaborImport;
-use App\Imports\Vsi\VsiGeningQuienImport;
-use App\Imports\Vsi\VsiRedsocActualImport;
-use App\Imports\Vsi\VsiRedSocMotivoImport;
-use App\Imports\Vsi\VsiRelfamAccionesImport;
-use App\Imports\Vsi\VsiRelfamDificultadImport;
-use App\Imports\Vsi\VsiRelFamiliarImport;
-use App\Imports\Vsi\VsiRelfamMotivoImport;
-use App\Imports\Vsi\VsiRelSolDificultaImport;
-use App\Imports\Vsi\VsiRelSolFacilitaImport;
-use App\Imports\Vsi\VsiSaludImport;
-use App\Imports\Vsi\VsiSitespRiesgoImport;
-use App\Imports\Vsi\VsiSitespVictimaImport;
-use App\Imports\Vsi\VsiViolenciaImport;
-use App\Models\consulta\Csd;
-use App\Models\consulta\CsdAlimentacion;
-use App\Models\consulta\CsdConclusiones;
-use App\Models\consulta\CsdDinFamiliar;
-use App\Models\consulta\CsdDinfamMadre;
-use App\Models\consulta\CsdDinfamPadre;
-use App\Models\consulta\CsdJusticia;
-use App\Models\consulta\CsdResidencia;
-use App\Models\consulta\CsdViolencia;
-use App\Models\consulta\pivotes\CsdAlimentCompra;
-use App\Models\consulta\pivotes\CsdAlimentFrec;
-use App\Models\consulta\pivotes\CsdAlimentInge;
-use App\Models\consulta\pivotes\CsdAlimentPrepara;
-use App\Models\consulta\pivotes\CsdNnajEspecial;
-use App\Models\consulta\pivotes\CsdResideambiente;
-use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\sicosocial\Pivotes\VsiActemoFisiologica;
-use App\Models\sicosocial\Pivotes\VsiBienvenidaMotivo;
-use App\Models\sicosocial\Pivotes\VsiConcepRed;
-use App\Models\sicosocial\Pivotes\VsiDinfamAusencia;
-use App\Models\sicosocial\Pivotes\VsiDinfamCuidador;
-use App\Models\sicosocial\Pivotes\VsiDinfamMadre;
-use App\Models\sicosocial\Pivotes\VsiEduCausa;
-use App\Models\sicosocial\Pivotes\VsiEduDificultad;
-use App\Models\sicosocial\Pivotes\VsiEduFortaleza;
-use App\Models\sicosocial\Pivotes\VsiGeningDia;
-use App\Models\sicosocial\Pivotes\VsiGeningLabor;
-use App\Models\sicosocial\Pivotes\VsiGeningQuien;
-use App\Models\sicosocial\Pivotes\VsiRedsocActual;
-use App\Models\sicosocial\Pivotes\VsiRedSocMotivo;
-use App\Models\sicosocial\Pivotes\VsiRelfamAcciones;
-use App\Models\sicosocial\Pivotes\VsiRelfamDificultad;
-use App\Models\sicosocial\Pivotes\VsiRelfamMotivo;
-use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
-use App\Models\sicosocial\Pivotes\VsiRelSolFacilita;
-use App\Models\sicosocial\Pivotes\VsiSitespRiesgo;
-use App\Models\sicosocial\Pivotes\VsiSitespVictima;
-use App\Models\sicosocial\VsiDatosVincula;
-use App\Models\sicosocial\VsiBienvenida;
-use App\Models\sicosocial\VsiEducacion;
-use App\Models\sicosocial\VsiGenIngreso;
-use App\Models\sicosocial\VsiRedSocial;
-use App\Models\sicosocial\VsiRelFamiliar;
+
+use App\Imports\Vsi\VsiEstEmocionalImport;
+
 use App\Models\sistema\SisEsta;
 
-use App\Models\sicosocial\VsiDinFamiliar;
-use App\Models\sicosocial\VsiSalud;
-use App\Models\sicosocial\VsiViolencia;
+use App\Models\sicosocial\VsiEstEmocional;
+
+
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -195,32 +113,51 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiSalud::get();
+        $dataxxxx = VsiEstEmocional::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiSalud::create([
+            echo "VsiEstEmocional::create([
                 'vsi_id' => {$registro->vsi_id},
-                'prm_atencion_id' => {$registro->prm_atencion_id},
-                'prm_condicion_id' => {$registro->prm_condicion_id},
-                'prm_medicamento_id' => {$registro->prm_medicamento_id},
-                'prm_prescripcion_id' => {$registro->prm_prescripcion_id},
-                'prm_sexual_id' => {$registro->prm_sexual_id},
-                'prm_activa_id' => {$registro->prm_activa_id},
-                'prm_embarazo_id' => {$registro->prm_embarazo_id},
-                'prm_hijo_id' => {$registro->prm_hijo_id},
-                'prm_interrupcion_id' => {$registro->prm_interrupcion_id},
-                'medicamento' => {$registro->medicamento},
-                'descripcion' => {$registro->descripcion},
-                'edad' => {$registro->edad},
-                'embarazo' => {$registro->embarazo},
-                'hijo' => {$registro->hijo},
-                'interrupcion' => {$registro->interrupcion},
+                'prm_siente_id' => {$registro->prm_siente_id},
+                'prm_contexto_id' => {$registro->prm_contexto_id},
+                'descripcion_siente' => {$registro->descripcion_siente},
+                'prm_reacciona_id' => {$registro->prm_reacciona_id},
+                'descripcion_reacciona' => {$registro->descripcion_reacciona},
+                'descripcion_adecuado' => {$registro->descripcion_adecuado},
+                'descripcion_dificulta' => {$registro->descripcion_dificulta},
+                'prm_estresante_id' => {$registro->prm_estresante_id},
+                'descripcion_estresante' => {$registro->descripcion_estresante},
+                'prm_morir_id' => {$registro->prm_morir_id},
+                'dia_morir' => {$registro->dia_morir},
+                'mes_morir' => {$registro->mes_morir},
+                'ano_morir' => {$registro->ano_morir},
+                'prm_pensamiento_id' => {$registro->prm_pensamiento_id},
+                'prm_amenaza_id' => {$registro->prm_amenaza_id},
+                'prm_intento_id' => {$registro->prm_intento_id},
+                'ideacion' => {$registro->ideacion},
+                'amenaza' => {$registro->amenaza},
+                'intento' => {$registro->intento},
+                'prm_riesgo_id' => {$registro->prm_riesgo_id},
+                'dia_ultimo' => {$registro->dia_ultimo},
+                'mes_ultimo' => {$registro->mes_ultimo},
+                'ano_ultimo' => {$registro->ano_ultimo},
+                'descripcion_motivo' => {$registro->descripcion_motivo},
+                'prm_lesiva_id' => {$registro->prm_lesiva_id},
+                'descripcion_lesiva' => {$registro->descripcion_lesiva},
+                'prm_sueno_id' => {$registro->prm_sueno_id},
+                'dia_sueno' => {$registro->dia_sueno},
+                'mes_sueno' => {$registro->mes_sueno},
+                'ano_sueno' => {$registro->ano_sueno},
+                'descripcion_sueno' => {$registro->descripcion_sueno},
+                'prm_alimenticio_id' => {$registro->prm_alimenticio_id},
+                'dia_alimenticio' => {$registro->dia_alimenticio},
+                'mes_alimenticio' => {$registro->mes_alimenticio},
+                'ano_alimenticio' => {$registro->ano_alimenticio},
+                'descripcion_alimenticio' => {$registro->descripcion_alimenticio},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 'sis_esta_id' => {$registro->sis_esta_id},
                 'created_at' => {$registro->created_at},
                 'updated_at' => {$registro->updated_at},
-                
-
             ]); <br />";;
         }
     }
@@ -234,7 +171,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiSaludImport(), $excelxxx);
+        Excel::import(new VsiEstEmocionalImport(), $excelxxx);
         // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
