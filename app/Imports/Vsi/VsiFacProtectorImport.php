@@ -14,7 +14,7 @@ class VsiFacProtectorImport implements ToModel
      */
     public function model(array $row)
     {
-        // echo $row[2].'<pre>';
+        // echo $row[0].'<pre>';
         $dataxxxx = [
             'vsi_id' => $row[0],
             'protector' => $row[1],

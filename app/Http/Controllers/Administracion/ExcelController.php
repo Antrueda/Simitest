@@ -3,9 +3,27 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-
+use App\Imports\Vsi\VsiConsumoExpectativaImport;
+use App\Imports\Vsi\VsiConsumoImport;
+use App\Imports\Vsi\VsiConsumoQuienImport;
+use App\Imports\Vsi\VsiEstemoAdecuadoImport;
 use App\Imports\Vsi\VsiEstEmocionalImport;
-
+use App\Imports\Vsi\VsiEstemoDificultaImport;
+use App\Imports\Vsi\VsiEstemoEstresanteImport;
+use App\Imports\Vsi\VsiEstemoLesivaImport;
+use App\Imports\Vsi\VsiEstemoMotivoImport;
+use App\Imports\Vsi\VsiFacProtectorImport;
+use App\Imports\Vsi\VsiFacRiesgoImport;
+use App\Models\sicosocial\Pivotes\VsiConsumoExpectativa;
+use App\Models\sicosocial\Pivotes\VsiConsumoQuien;
+use App\Models\sicosocial\Pivotes\VsiEstemoAdecuado;
+use App\Models\sicosocial\Pivotes\VsiEstemoDificulta;
+use App\Models\sicosocial\Pivotes\VsiEstemoEstresante;
+use App\Models\sicosocial\Pivotes\VsiEstemoLesiva;
+use App\Models\sicosocial\Pivotes\VsiEstemoMotivo;
+use App\Models\sicosocial\Pivotes\VsiFacProtector;
+use App\Models\sicosocial\Pivotes\VsiFacRiesgo;
+use App\Models\sicosocial\VsiConsumo;
 use App\Models\sistema\SisEsta;
 
 use App\Models\sicosocial\VsiEstEmocional;
@@ -113,46 +131,11 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiEstEmocional::get();
+        $dataxxxx = VsiFacRiesgo::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiEstEmocional::create([
+            echo "VsiFacRiesgo::create([
                 'vsi_id' => {$registro->vsi_id},
-                'prm_siente_id' => {$registro->prm_siente_id},
-                'prm_contexto_id' => {$registro->prm_contexto_id},
-                'descripcion_siente' => {$registro->descripcion_siente},
-                'prm_reacciona_id' => {$registro->prm_reacciona_id},
-                'descripcion_reacciona' => {$registro->descripcion_reacciona},
-                'descripcion_adecuado' => {$registro->descripcion_adecuado},
-                'descripcion_dificulta' => {$registro->descripcion_dificulta},
-                'prm_estresante_id' => {$registro->prm_estresante_id},
-                'descripcion_estresante' => {$registro->descripcion_estresante},
-                'prm_morir_id' => {$registro->prm_morir_id},
-                'dia_morir' => {$registro->dia_morir},
-                'mes_morir' => {$registro->mes_morir},
-                'ano_morir' => {$registro->ano_morir},
-                'prm_pensamiento_id' => {$registro->prm_pensamiento_id},
-                'prm_amenaza_id' => {$registro->prm_amenaza_id},
-                'prm_intento_id' => {$registro->prm_intento_id},
-                'ideacion' => {$registro->ideacion},
-                'amenaza' => {$registro->amenaza},
-                'intento' => {$registro->intento},
-                'prm_riesgo_id' => {$registro->prm_riesgo_id},
-                'dia_ultimo' => {$registro->dia_ultimo},
-                'mes_ultimo' => {$registro->mes_ultimo},
-                'ano_ultimo' => {$registro->ano_ultimo},
-                'descripcion_motivo' => {$registro->descripcion_motivo},
-                'prm_lesiva_id' => {$registro->prm_lesiva_id},
-                'descripcion_lesiva' => {$registro->descripcion_lesiva},
-                'prm_sueno_id' => {$registro->prm_sueno_id},
-                'dia_sueno' => {$registro->dia_sueno},
-                'mes_sueno' => {$registro->mes_sueno},
-                'ano_sueno' => {$registro->ano_sueno},
-                'descripcion_sueno' => {$registro->descripcion_sueno},
-                'prm_alimenticio_id' => {$registro->prm_alimenticio_id},
-                'dia_alimenticio' => {$registro->dia_alimenticio},
-                'mes_alimenticio' => {$registro->mes_alimenticio},
-                'ano_alimenticio' => {$registro->ano_alimenticio},
-                'descripcion_alimenticio' => {$registro->descripcion_alimenticio},
+                'riesgo' => {$registro->riesgo},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 'sis_esta_id' => {$registro->sis_esta_id},
@@ -171,7 +154,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiEstEmocionalImport(), $excelxxx);
+        Excel::import(new VsiFacRiesgoImport(), $excelxxx);
         // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
