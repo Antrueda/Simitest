@@ -47,8 +47,6 @@ class VsiViolenciaImport implements ToModel
             'user_crea_id' => 1,
             'user_edita_id' => 1,
             'sis_esta_id' => 1,
-            'created_at' => 1,
-            'updated_at' => 1,
         ];
         print_r($dataxxxx);
         return new VsiViolencia($dataxxxx);

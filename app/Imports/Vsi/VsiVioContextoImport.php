@@ -18,8 +18,8 @@ class VsiVioContextoImport implements ToModel
         $dataxxxx = [
             'parametro_id' => $row[0],
             'vsi_violencia_id' => $row[1],
-            'user_crea_id' => 1,
-            'user_edita_id' => 1,
+            'user_crea_id => 1',
+            'user_edita_id => 1',
         ];
         // print_r($dataxxxx);
         return new VsiVioContexto($dataxxxx);

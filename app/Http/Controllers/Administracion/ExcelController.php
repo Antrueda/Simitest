@@ -3,38 +3,22 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Imports\Vsi\VsiAbuSexualImport;
-use App\Imports\Vsi\VsiConcepRedImport;
-use App\Imports\Vsi\VsiConceptoImport;
-use App\Imports\Vsi\VsiDinFamiliarImport;
-use App\Imports\Vsi\VsiDinfamLibertadImport;
+
 use App\Models\sistema\SisEsta;
 
-use App\Imports\Vsi\VsiMetaImport;
-use App\Imports\Vsi\VsiNnajAcademicaImport;
-use App\Imports\Vsi\VsiNnajComportamentalImport;
-use App\Imports\Vsi\VsiNnajEmocionalImport;
-use App\Imports\Vsi\VsiNnajFamiliarImport;
-use App\Imports\Vsi\VsiNnajSocialImport;
-use App\Imports\Vsi\VsiRedSocMotivoImport;
-use App\Imports\Vsi\VsiRelSolDificultaImport;
-use App\Imports\Vsi\VsiRelSolFacilitaImport;
-use App\Models\sicosocial\Pivotes\VsiConcepRed;
-use App\Models\sicosocial\Pivotes\VsiDinFamiliar;
-use App\Models\sicosocial\Pivotes\VsiDinfamLibertad;
-use App\Models\sicosocial\Pivotes\VsiNnajAcademica;
-use App\Models\sicosocial\Pivotes\VsiNnajComportamental;
-use App\Models\sicosocial\Pivotes\VsiNnajEmocional;
-use App\Models\sicosocial\Pivotes\VsiNnajFamiliar;
-use App\Models\sicosocial\Pivotes\VsiNnajSocial;
-use App\Models\sicosocial\Pivotes\VsiRedSocMotivo;
-use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
-use App\Models\sicosocial\Pivotes\VsiRelSolFacilita;
-use App\Models\sicosocial\VsiAbuSexual;
-use App\Models\sicosocial\VsiConcepto;
-use App\Models\sicosocial\VsiMeta;
-use App\Models\sicosocial\VsiPotencialidad;
-use App\Models\sicosocial\VsiSalud;
+
+use App\Imports\Vsi\VsiRedsocAcesoImport;
+use App\Imports\Vsi\VsiRedsocActualImport;
+use App\Imports\Vsi\VsiRedsocPasadoImport;
+use App\Imports\Vsi\VsiVioContextoImport;
+use App\Imports\Vsi\VsiViolenciaImport;
+use App\Imports\Vsi\VsiVioTipoImport;
+use App\Models\sicosocial\Pivotes\VsiRedsocAceso;
+use App\Models\sicosocial\Pivotes\VsiVioContexto;
+use App\Models\sicosocial\Pivotes\VsiVioTipo;
+use App\Models\sicosocial\VsiRedsocActual;
+use App\Models\sicosocial\VsiRedsocPasado;
+use App\Models\sicosocial\VsiViolencia;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -137,13 +121,21 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiRedSocMotivo::get();
+        $dataxxxx = VsiRedsocPasado::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiRedSocMotivo::create([
-                'parametro_id' => {$registro->parametro_id},
-                'vsi_redsocial_id' => {$registro->vsi_redsocial_id},
+            echo "VsiRedsocPasado::create([
+                'vsi_id' => {$registro->vsi_id},
+                'nombre' => '{$registro->nombre}',
+                'servicio' => '{$registro->servicio}',
+                'dia' => {$registro->dia},
+                'mes' => {$registro->mes},
+                'ano' => {$registro->ano},
+                'ano_prestacion' => {$registro->ano_prestacion},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
+                'sis_esta_id' => {$registro->sis_esta_id},
+                'created_at' => '{$registro->created_at}',
+                'updated_at' => '{$registro->updated_at}',
             ]); <br />";;
         }
     }
@@ -158,7 +150,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiRedSocMotivoImport(), $excelxxx);
+        Excel::import(new VsiRedsocPasadoImport(), $excelxxx);
         // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
