@@ -3,7 +3,14 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-
+use App\Imports\Csd\CsdAlimentCompraImport;
+use App\Imports\Csd\CsdAlimentFrecImport;
+use App\Imports\Csd\CsdAlimentIngeImport;
+use App\Imports\Csd\CsdAlimentPreparaImport;
+use App\Imports\Csd\CsdDinfamAntecedenteImport;
+use App\Imports\Csd\CsdDinFamiliarImport;
+use App\Imports\Csd\CsdDinfamIncumpleImport;
+use App\Imports\Csd\CsdDinfamProblemaImport;
 use App\Models\sistema\SisEsta;
 
 
@@ -13,6 +20,14 @@ use App\Imports\Vsi\VsiRedsocPasadoImport;
 use App\Imports\Vsi\VsiVioContextoImport;
 use App\Imports\Vsi\VsiViolenciaImport;
 use App\Imports\Vsi\VsiVioTipoImport;
+use App\Models\consulta\CsdDinFamiliar;
+use App\Models\consulta\pivotes\CsdAlimentCompra;
+use App\Models\consulta\pivotes\CsdAlimentFrec;
+use App\Models\consulta\pivotes\CsdAlimentInge;
+use App\Models\consulta\pivotes\CsdAlimentPrepara;
+use App\Models\consulta\pivotes\CsdDinfamAntecedente;
+use App\Models\consulta\pivotes\CsdDinfamIncumple;
+use App\Models\consulta\pivotes\CsdDinfamProblema;
 use App\Models\sicosocial\Pivotes\VsiRedsocAceso;
 use App\Models\sicosocial\Pivotes\VsiVioContexto;
 use App\Models\sicosocial\Pivotes\VsiVioTipo;
@@ -121,22 +136,29 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiRedsocPasado::get();
+        $dataxxxx = CsdDinfamProblema::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiRedsocPasado::create([
-                'vsi_id' => {$registro->vsi_id},
-                'nombre' => '{$registro->nombre}',
-                'servicio' => '{$registro->servicio}',
-                'dia' => {$registro->dia},
-                'mes' => {$registro->mes},
-                'ano' => {$registro->ano},
-                'ano_prestacion' => {$registro->ano_prestacion},
+            echo "CsdDinfamProblema::create([
+                
+                'parametro_id'=>{$registro->parametro_id},
+                'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},
+                'csd_dinfamiliar_id'=>{$registro->csd_dinfamiliar_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
-                'sis_esta_id' => {$registro->sis_esta_id},
-                'created_at' => '{$registro->created_at}',
-                'updated_at' => '{$registro->updated_at}',
-            ]); <br />";;
+
+            ]); <br />";
+
+            
+/*"CsdDinfamIncumple::create([
+                
+                'parametro_id'=>{$registro->parametro_id},
+                'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},
+                'csd_dinfamiliar_id'=>{$registro->csd_dinfamiliar_id},
+                'user_crea_id' => {$registro->user_crea_id},
+                'user_edita_id' => {$registro->user_edita_id},
+
+            ]); <br />";;*/
+
         }
     }
 
@@ -150,7 +172,8 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiRedsocPasadoImport(), $excelxxx);
-        // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
+        //Excel::import(new VsiRedsocPasadoImport(), $excelxxx);
+        Excel::import(new CsdDinfamProblemaImport, $excelxxx);
+         return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
