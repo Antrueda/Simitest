@@ -3,32 +3,38 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Imports\Vsi\VsiConsumoExpectativaImport;
-use App\Imports\Vsi\VsiConsumoImport;
-use App\Imports\Vsi\VsiConsumoQuienImport;
-use App\Imports\Vsi\VsiEstemoAdecuadoImport;
-use App\Imports\Vsi\VsiEstEmocionalImport;
-use App\Imports\Vsi\VsiEstemoDificultaImport;
-use App\Imports\Vsi\VsiEstemoEstresanteImport;
-use App\Imports\Vsi\VsiEstemoLesivaImport;
-use App\Imports\Vsi\VsiEstemoMotivoImport;
-use App\Imports\Vsi\VsiFacProtectorImport;
-use App\Imports\Vsi\VsiFacRiesgoImport;
-use App\Models\sicosocial\Pivotes\VsiConsumoExpectativa;
-use App\Models\sicosocial\Pivotes\VsiConsumoQuien;
-use App\Models\sicosocial\Pivotes\VsiEstemoAdecuado;
-use App\Models\sicosocial\Pivotes\VsiEstemoDificulta;
-use App\Models\sicosocial\Pivotes\VsiEstemoEstresante;
-use App\Models\sicosocial\Pivotes\VsiEstemoLesiva;
-use App\Models\sicosocial\Pivotes\VsiEstemoMotivo;
-use App\Models\sicosocial\Pivotes\VsiFacProtector;
-use App\Models\sicosocial\Pivotes\VsiFacRiesgo;
-use App\Models\sicosocial\VsiConsumo;
+use App\Imports\Vsi\VsiAbuSexualImport;
+use App\Imports\Vsi\VsiConcepRedImport;
+use App\Imports\Vsi\VsiConceptoImport;
+use App\Imports\Vsi\VsiDinFamiliarImport;
+use App\Imports\Vsi\VsiDinfamLibertadImport;
 use App\Models\sistema\SisEsta;
 
-use App\Models\sicosocial\VsiEstEmocional;
-
-
+use App\Imports\Vsi\VsiMetaImport;
+use App\Imports\Vsi\VsiNnajAcademicaImport;
+use App\Imports\Vsi\VsiNnajComportamentalImport;
+use App\Imports\Vsi\VsiNnajEmocionalImport;
+use App\Imports\Vsi\VsiNnajFamiliarImport;
+use App\Imports\Vsi\VsiNnajSocialImport;
+use App\Imports\Vsi\VsiRedSocMotivoImport;
+use App\Imports\Vsi\VsiRelSolDificultaImport;
+use App\Imports\Vsi\VsiRelSolFacilitaImport;
+use App\Models\sicosocial\Pivotes\VsiConcepRed;
+use App\Models\sicosocial\Pivotes\VsiDinFamiliar;
+use App\Models\sicosocial\Pivotes\VsiDinfamLibertad;
+use App\Models\sicosocial\Pivotes\VsiNnajAcademica;
+use App\Models\sicosocial\Pivotes\VsiNnajComportamental;
+use App\Models\sicosocial\Pivotes\VsiNnajEmocional;
+use App\Models\sicosocial\Pivotes\VsiNnajFamiliar;
+use App\Models\sicosocial\Pivotes\VsiNnajSocial;
+use App\Models\sicosocial\Pivotes\VsiRedSocMotivo;
+use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
+use App\Models\sicosocial\Pivotes\VsiRelSolFacilita;
+use App\Models\sicosocial\VsiAbuSexual;
+use App\Models\sicosocial\VsiConcepto;
+use App\Models\sicosocial\VsiMeta;
+use App\Models\sicosocial\VsiPotencialidad;
+use App\Models\sicosocial\VsiSalud;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -131,19 +137,17 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiFacRiesgo::get();
+        $dataxxxx = VsiRedSocMotivo::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiFacRiesgo::create([
-                'vsi_id' => {$registro->vsi_id},
-                'riesgo' => {$registro->riesgo},
+            echo "VsiRedSocMotivo::create([
+                'parametro_id' => {$registro->parametro_id},
+                'vsi_redsocial_id' => {$registro->vsi_redsocial_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
-                'sis_esta_id' => {$registro->sis_esta_id},
-                'created_at' => {$registro->created_at},
-                'updated_at' => {$registro->updated_at},
             ]); <br />";;
         }
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -154,7 +158,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiFacRiesgoImport(), $excelxxx);
+        Excel::import(new VsiRedSocMotivoImport(), $excelxxx);
         // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }

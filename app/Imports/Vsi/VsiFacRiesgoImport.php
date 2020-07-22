@@ -2,7 +2,7 @@
 
 namespace App\Imports\Vsi;
 
-use App\Models\sicosocial\Pivotes\VsiFacRiesgo;
+use App\Models\sicosocial\VsiFacRiesgo;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class VsiFacRiesgoImport implements ToModel
@@ -21,8 +21,6 @@ class VsiFacRiesgoImport implements ToModel
             'user_crea_id' => 1,
             'user_edita_id' => 1,
             'sis_esta_id' => 1,
-            'created_at' => 1,
-            'updated_at' => 1,
         ];
         // print_r($dataxxxx);        
         return new VsiFacRiesgo($dataxxxx);

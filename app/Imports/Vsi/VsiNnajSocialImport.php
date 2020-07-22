@@ -14,7 +14,7 @@ class VsiNnajSocialImport implements ToModel
      */
     public function model(array $row)
     {
-        // echo $row[2].'<pre>';
+        // echo $row[0].'<pre>';
         $dataxxxx = [
             'parametro_id' => $row[0],
             'vsi_id' => $row[1],

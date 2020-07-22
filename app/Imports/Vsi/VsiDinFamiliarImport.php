@@ -2,7 +2,7 @@
 
 namespace App\Imports\Vsi;
 
-use App\Models\sicosocial\VsiDinFamiliar;
+use App\Models\sicosocial\Pivotes\VsiDinFamiliar;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class VsiDinFamiliarImport implements ToModel
@@ -14,7 +14,7 @@ class VsiDinFamiliarImport implements ToModel
     */
     public function model(array $row)
     {
-        // echo $row[2].'<pre>';
+        // echo $row[0].'<pre>';
         $dataxxxx=[
             'vsi_id' => $row[0],
             'prm_familiar_id' => $row[1],
@@ -25,8 +25,6 @@ class VsiDinFamiliarImport implements ToModel
             'user_crea_id' => 1,
             'user_edita_id' => 1,
             'sis_esta_id' => 1,
-            'created_at' => 1,
-            'updated_at' => 1,
         ];
         // print_r($dataxxxx);
         return new VsiDinFamiliar($dataxxxx);
