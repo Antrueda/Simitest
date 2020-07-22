@@ -2,7 +2,7 @@
 
 namespace App\Imports\Vsi;
 
-use App\Models\sicosocial\Pivotes\VsiRedsocPasado;
+use App\Models\sicosocial\VsiRedsocPasado;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class VsiRedsocPasadoImport implements ToModel
@@ -14,7 +14,7 @@ class VsiRedsocPasadoImport implements ToModel
      */
     public function model(array $row)
     {
-        // echo $row[2].'<pre>';
+        // echo $row[0].'<pre>';-
         $dataxxxx = [
             'vsi_id' => $row[0],
             'nombre' => $row[1],
