@@ -12,6 +12,6 @@ class VsiAbuSexualSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }
