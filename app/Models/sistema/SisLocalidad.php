@@ -18,8 +18,8 @@ class SisLocalidad extends Model{
         return $comboxxx;
     }
 
-    public function upzs(){
-        return $this->hasMany(SisUpz::class, 'sis_localidad_id');
+    public function sis_localupzs(){
+        return $this->hasMany(SisLocalupz::class);
     }
 
     public function creador(){

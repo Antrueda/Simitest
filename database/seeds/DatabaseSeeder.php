@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->call(FiNucleoFamiliarsTableSeeder::class);
         $this->call(SisUpzsSeeder::class);
         $this->call(SisBarriosSeeder::class);
+        $this->call(SisLocalupzSeeder::class);
+        $this->call(SisUpzbarrisSeeder::class);
         $this->call(SisDependenciasSeeder::class);
         $this->call(SisEntidadsSeeder::class);
         $this->call(SisEntidadSaludsSeeder::class);
@@ -41,8 +43,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdSisNnajSeeder::class);
         $this->call(CsdJusticiasSeeder::class);
         $this->call(CsdNnajEspecialSeeder::class);
-        $this->call(CsdResidenciaSeeder::class);
-        $this->call(CsdResideambienteSeeder::class);
         $this->call(CsdViolenciasSeeder::class);
         $this->call(CsdConclusionesSeeder::class);
         $this->call(CsdAlimentacionsSeeder::class);
@@ -82,6 +82,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SisTitulosSeeder::class);
         $this->call(AgRecursosSeeder::class);
         $this->call(SisObsesSeeder::class);
+
+        $this->call(CsdResidenciaSeeder::class);
+        $this->call(CsdResideambienteSeeder::class);
+
 
         // -- Modulo SICO SOCIAL, Javier
         $this->call(VsisSeeder::class); // ok  //1
@@ -127,46 +131,52 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiGeningQuienSeeder::class);  //40
         $this->call(VsiSitespRiesgoSeeder::class);  //62
         $this->call(VsiSitespVictimaSeeder::class);  //63
-        // $this->call(VsiAbuSexualSeeder::class);  //4  falta
-        //
-        // $this->call(VsiConcepRedSeeder::class);  //7 falta
-        // $this->call(VsiConceptoSeeder::class);  //8 falta
-        // $this->call(VsiConsentimientoSeeder::class);  //9 falta
-        // $this->call(VsiConsumoSeeder::class);  //10 falta
-        // $this->call(VsiConsumoExpectativaSeeder::class);  //11 falta
-        // $this->call(VsiConsumoQuienSeeder::class);  //12 falta
-        // $this->call(VsiDinfamCalleSeeder::class);  //16 falta
-        // $this->call(VsiDinfamConsumoSeeder::class);  //17 falta
-        // $this->call(VsiDinfamDelitoSeeder::class);  //19 falta
-        // $this->call(VsiDinfamLibertadSeeder::class);  //20 falta
-        // $this->call(VsiDinfamPadreSeeder::class);  //22 falta
-        // $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
-        //
-        //
-        // $this->call(VsiEduDiftipoASeeder::class);  //27 falta
-        // $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
-        //  falta
 
-        // $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta
-        // $this->call(VsiEstemoDificultaSeeder::class);  //32 falta
-        // $this->call(VsiEstemoEstresanteSeeder::class);  //33 falta
-        // $this->call(VsiEstemoLesivaSeeder::class);  //34 falta
-        // $this->call(VsiEstemoMotivoSeeder::class);  //35 falta
-        // $this->call(VsiFacProtectorSeeder::class);  //36 falta
-        // $this->call(VsiFacRiesgoSeeder::class);  //37 falta
-        //  falta
-        //  falta
-        //  falta
-        // $this->call(VsiMetaSeeder::class);  //41 falta
-        // $this->call(VsiNnajAcademicaSeeder::class);  //42 falta
-        // $this->call(VsiNnajComportamentalSeeder::class);  //43 falta
-        // $this->call(VsiNnajEmocionalSeeder::class);  //44 falta
-        // $this->call(VsiNnajFamiliarSeeder::class);  //46 falta
-        // $this->call(VsiNnajSexualSeeder::class);  //47 falta
-        // $this->call(VsiNnajSocialSeeder::class);  //48 falta
-        // $this->call(VsiPotencialidadSeeder::class);  //49 falta
-        // $this->call(VsiRedsocActualSeeder::class);  //51 falta
-        // $this->call(VsiRedsocPasadoSeeder::class);  //54 falta
+
+
+
+
+
+
+        $this->call(VsiAbuSexualSeeder::class);  //4  falta
+ $this->call(VsiConceptoSeeder::class);  //8 falta
+        $this->call(VsiConcepRedSeeder::class);  //7 falta
+        $this->call(VsiConsentimientoSeeder::class);  //9 falta
+        $this->call(VsiConsumoSeeder::class);  //10 falta
+        $this->call(VsiConsumoExpectativaSeeder::class);  //11 falta
+        $this->call(VsiConsumoQuienSeeder::class);  //12 falta
+        $this->call(VsiDinfamCalleSeeder::class);  //16 falta
+        $this->call(VsiDinfamConsumoSeeder::class);  //17 falta
+        $this->call(VsiDinfamDelitoSeeder::class);  //19 falta
+        $this->call(VsiDinfamLibertadSeeder::class);  //20 falta
+        $this->call(VsiDinfamPadreSeeder::class);  //22 falta
+        $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
+
+
+        $this->call(VsiEduDiftipoASeeder::class);  //27 falta
+        $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
+        $this->call(VsiEstEmocionalSeeder::class);
+        $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta
+        $this->call(VsiEstemoDificultaSeeder::class);  //32 falta
+        $this->call(VsiEstemoEstresanteSeeder::class);  //33 falta
+        $this->call(VsiEstemoLesivaSeeder::class);  //34 falta
+        $this->call(VsiEstemoMotivoSeeder::class);  //35 falta
+        $this->call(VsiFacProtectorSeeder::class);  //36 falta
+        $this->call(VsiFacRiesgoSeeder::class);  //37 falta
+
+        $this->call(VsiMetaSeeder::class);  //41 falta
+        $this->call(VsiNnajAcademicaSeeder::class);  //42 falta
+        $this->call(VsiNnajComportamentalSeeder::class);  //43 falta
+        $this->call(VsiNnajEmocionalSeeder::class);  //44 falta
+        $this->call(VsiNnajFamiliarSeeder::class);  //46 falta
+        $this->call(VsiNnajSexualSeeder::class);  //47 falta
+        $this->call(VsiNnajSocialSeeder::class);  //48 falta
+        $this->call(VsiPotencialidadSeeder::class);  //49 falta
+        $this->call(VsiRedsocActualSeeder::class);  //51 falta
+        $this->call(VsiRedsocPasadoSeeder::class);  //54 falta
+
+
+        $this->call(VsiSaludSeeder::class);
         //  falta
         //  falta
 

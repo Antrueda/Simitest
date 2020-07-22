@@ -32,9 +32,9 @@ class CreateCsdResidenciasTable extends Migration
             $table->bigInteger('prm_dir_cuadrantevg_id')->unsigned()->nullable();
             $table->bigInteger('prm_estrato_id')->unsigned()->nullable();
             $table->string('dir_complemento', 300)->nullable();
-            $table->bigInteger('sis_localidad_id')->unsigned();
-            $table->bigInteger('sis_upz_id')->unsigned();
-            $table->bigInteger('sis_barrio_id')->unsigned()->nullable();
+            // $table->bigInteger('sis_localidad_id')->unsigned();
+            // $table->bigInteger('sis_upz_id')->unsigned();
+            $table->bigInteger('sis_upzbarri_id')->unsigned()->nullable();
             $table->string('telefono_uno', 10)->nullable();
             $table->string('telefono_dos', 10);
             $table->string('telefono_tres', 10)->nullable();
@@ -66,9 +66,9 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('prm_dir_alfavg_id')->references('id')->on('parametros');
             $table->foreign('prm_dir_cuadrantevg_id')->references('id')->on('parametros');
             $table->foreign('prm_estrato_id')->references('id')->on('parametros');
-            $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
-            $table->foreign('sis_upz_id')->references('id')->on('sis_upzs');
-            $table->foreign('sis_barrio_id')->references('id')->on('sis_barrios');
+            // $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
+            // $table->foreign('sis_upz_id')->references('id')->on('sis_upzs');
+            $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
             $table->foreign('prm_piso_id')->references('id')->on('parametros');
             $table->foreign('prm_muro_id')->references('id')->on('parametros');
             $table->foreign('prm_higiene_id')->references('id')->on('parametros');

@@ -8,16 +8,16 @@ var localidad =[
 ];
 @foreach($localidadjs as $d)
     var loca_{{ $d->id }}=[
-        @foreach($d->upzs as $e)
-            [{{$e->id}}, "{{ $e->codigoNombre }}"],
+        @foreach($d->sis_localupzs as $e)
+            [{{$e->sis_upz->id}}, "{{ $e->sis_upz->codigoNombre }}"],
         @endforeach
     ];
 @endforeach
 @foreach($localidadjs as $d)
-    @foreach($d->upzs as $e)
+    @foreach($d->sis_localupzs as $e)
         var upz_{{ $e->id }}=[
-            @foreach($e->sis_barrios as $f)
-                [{{$f->id}}, "{{ $f->s_barrio }}"],
+            @foreach($e->sis_upzbarris as $f)
+                [{{$f->sis_barrio->id}}, "{{ $f->sis_barrio->s_barrio }}"],
             @endforeach
         ];
     @endforeach

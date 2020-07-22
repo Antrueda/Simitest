@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSisBarriosTable extends Migration
+class CreateSisLocalupzsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,20 @@ class CreateSisBarriosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_barrios', function (Blueprint $table) {
+        Schema::create('sis_localupzs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('s_barrio')->unique();
+            $table->bigInteger('sis_localidad_id')->unsigned();
+            $table->bigInteger('sis_upz_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
+            $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
+            $table->foreign('sis_upz_id')->references('id')->on('sis_upzs');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->unique(['sis_localidad_id','sis_upz_id']);
+            $table->timestamps();
         });
     }
 
@@ -33,6 +37,6 @@ class CreateSisBarriosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_barrios');
+        Schema::dropIfExists('sis_localupzs');
     }
 }
