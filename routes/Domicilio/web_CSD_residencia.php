@@ -12,4 +12,8 @@ Route::group(['prefix' => '{id}/residencia'], function () {
     'uses' => 'Domicilio\CsdResidenciaController@update',
     'middleware' => ['permission:csdresidencia-editar']
   ])->name('CSD.residencia.editar');
+
+  Route::get('getLocaliUpz', [
+    'uses' => 'Domicilio\CsdResidenciaController@getLocaliUpz',
+  ])->name('CSD.getLocaliUpz');
 });

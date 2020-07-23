@@ -23,11 +23,11 @@ class VsiController extends Controller{
         return view('Sicosocial.index');
     }
 
-    public function nnaj($id){ 
+    public function nnaj($id){
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vsis = $dato->Vsi->sortByDesc('fecha')->all();
-        
+
         return view('Sicosocial.index', ['accion' => 'Nnaj'], compact('dato', 'nnaj', 'vsis'));
     }
 
@@ -73,7 +73,6 @@ class VsiController extends Controller{
 
     public function show($id){
         $vsi = Vsi::findOrFail($id);
-        ddd($vsi->VsiDinFamiliar);
         $dato = $vsi->nnaj;
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         return view('Sicosocial.index', ['accion' => 'VSI'], compact('vsi', 'dato', 'nnaj'));
