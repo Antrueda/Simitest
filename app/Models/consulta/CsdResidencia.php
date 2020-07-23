@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\sistema\SisUpz;
 use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisLocalidad;
+use App\Models\sistema\SisUpzbarri;
 
 class CsdResidencia extends Model{
 
@@ -101,16 +102,10 @@ class CsdResidencia extends Model{
         return $this->belongsTo(Parametro::class, 'prm_estrato_id');
     }
 
-    public function localidad(){
-        return $this->belongsTo(SisLocalidad::class, 'sis_localidad_id');
-    }
 
-    public function upz(){
-        return $this->belongsTo(SisUpz::class, 'sis_upz_id');
-    }
 
-    public function barrio(){
-        return $this->belongsTo(SisBarrio::class, 'sis_barrio_id');
+    public function sis_upzbarri(){
+        return $this->belongsTo(SisUpzbarri::class);
     }
 
     public function piso(){

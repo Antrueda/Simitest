@@ -29,7 +29,7 @@ Route::get('vsi/nnajs', function (Request $request) {
   if (!$request->ajax())
     return redirect('/');
   return datatables()
-                  ->eloquent(FiDatosBasico::select('s_primer_nombre', 's_segundo_nombre', 's_primer_apellido', 's_segundo_apellido', 's_apodo', 's_nombre_identitario', 'id', 'sis_nnaj_id', 'sis_esta_id')
+                  ->eloquent(FiDatosBasico::select('s_primer_nombre','s_documento', 's_segundo_nombre', 's_primer_apellido', 's_segundo_apellido', 's_apodo', 's_nombre_identitario', 'id', 'sis_nnaj_id', 'sis_esta_id')
                           ->where('sis_esta_id', 1))
                   ->addColumn('botones', 'Sicosocial/botones')
                   ->rawColumns(['botones'])
