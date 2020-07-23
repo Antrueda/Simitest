@@ -155,7 +155,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('sis_localidad_id', '5.6 Localidad', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_localidad_id', $localidades, null, ['class' => $errors->first('sis_localidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'cambiaLocalidad(this.value)']) }}
+        {{ Form::select('sis_localidad_id', $localidades, null, ['class' => $errors->first('sis_localidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('sis_localidad_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('sis_localidad_id') }}
@@ -164,7 +164,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('sis_upz_id', '5.7 Nº UPZ - 5.8 Nombre de UPZ', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_upz_id', $upzs, null, ['class' => $errors->first('sis_upz_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'cambiaUpz(this.value)']) }}
+        {{ Form::select('sis_upz_id', $upzs, null, ['class' => $errors->first('sis_upz_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('sis_upz_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('sis_upz_id') }}
@@ -174,11 +174,11 @@
 </div>
 <div class="row">
     <div class="col-md-3">
-        {{ Form::label('sis_barrio_id', '5.9 Barrio', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_barrio_id', $barrios, null, ['class' => $errors->first('sis_barrio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('sis_barrio_id'))
+        {{ Form::label('sis_upzbarri_id', '5.9 Barrio', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('sis_upzbarri_id', $barrios, null, ['class' => $errors->first('sis_upzbarri_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('sis_upzbarri_id'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('sis_barrio_id') }}
+                {{ $errors->first('sis_upzbarri_id') }}
             </div>
         @endif
     </div>
