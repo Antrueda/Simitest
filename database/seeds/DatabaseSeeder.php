@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdAlimentacionsSeeder::class);
         $this->call(CsdAlimentFrecSeeder::class);
         $this->call(CsdAlimentCompraSeeder::class);
-        $this->call(CsdAlimentIngeSeeder::class);
+       $this->call(CsdAlimentIngeSeeder::class);
         $this->call(CsdAlimentPreparaSeeder::class);
         $this->call(CsdDinFamiliarSeeder::class);
         $this->call(CsdDinfamIncumpleSeeder::class);
