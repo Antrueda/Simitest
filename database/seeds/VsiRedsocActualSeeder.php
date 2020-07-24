@@ -7,7 +7,7 @@ class VsiRedsocActualSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Pregunta 7 1 4
+     * Pregunta 7 1 10 - 13
      * @return void
      */
     public function run()

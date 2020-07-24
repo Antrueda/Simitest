@@ -7,7 +7,7 @@ class VsiRelSolDificultaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * Pregunta 6 3
      * @return void
      */
     public function run()

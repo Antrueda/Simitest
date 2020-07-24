@@ -20,6 +20,9 @@ use App\Models\sicosocial\VsiAbuSexual;
 use App\Imports\Vsi\VsiRedsocAcesoImport;
 use App\Imports\Vsi\VsiRedsocActualImport;
 use App\Imports\Vsi\VsiRedsocPasadoImport;
+use App\Imports\Vsi\VsiRelSocialesImport;
+use App\Imports\Vsi\VsiRelSolDificultaImport;
+use App\Imports\Vsi\VsiRelSolFacilitaImport;
 use App\Imports\Vsi\VsiVioContextoImport;
 use App\Imports\Vsi\VsiViolenciaImport;
 use App\Imports\Vsi\VsiVioTipoImport;
@@ -33,10 +36,13 @@ use App\Models\consulta\pivotes\CsdDinfamAntecedente;
 use App\Models\consulta\pivotes\CsdDinfamIncumple;
 use App\Models\consulta\pivotes\CsdDinfamProblema;
 use App\Models\sicosocial\Pivotes\VsiRedsocAceso;
+use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
+use App\Models\sicosocial\Pivotes\VsiRelSolFacilita;
 use App\Models\sicosocial\Pivotes\VsiVioContexto;
 use App\Models\sicosocial\Pivotes\VsiVioTipo;
 use App\Models\sicosocial\VsiRedsocActual;
 use App\Models\sicosocial\VsiRedsocPasado;
+use App\Models\sicosocial\VsiRelSociales;
 use App\Models\sicosocial\VsiViolencia;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -139,36 +145,17 @@ class ExcelController extends Controller
         return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'pestanias');
     }
 
+
     public function armarSeeder()
     {
-        $dataxxxx = CsdViolencia::get();
+        $dataxxxx = VsiRelSolDificulta::get();
         foreach ($dataxxxx as $registro) {
-            echo "CsdViolencia::create([
-                
-                'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},
+            echo "VsiRelSolDificulta::create([
+                'parametro_id' => {$registro->parametro_id},
+                'vsi_relsocial_id' => {$registro->vsi_relsocial_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
-                'csd_id'=>{$registro->csd_id}, 
-                'prm_condicion_id' =>{$registro->prm_condicion_id},  
-                'departamento_cond_id' =>{$registro->departamento_cond_id},   
-                'municipio_cond_id' =>{$registro->municipio_cond_id},   
-                'prm_certificado_id' =>{$registro->prm_certificado_id},   
-                'departamento_cert_id' =>{$registro->departamento_cert_id},   
-                'municipio_cert_id' =>{$registro->municipio_cert_id},   
-                'sis_esta_id'=>{$registro->sis_esta_id}
-            ]); <br />";
-
-            
-/*"CsdDinfamIncumple::create([
-                
-                'parametro_id'=>{$registro->parametro_id},
-                'prm_tipofuen_id'=>{$registro->prm_tipofuen_id},
-                'csd_dinfamiliar_id'=>{$registro->csd_dinfamiliar_id},
-                'user_crea_id' => {$registro->user_crea_id},
-                'user_edita_id' => {$registro->user_edita_id},
-
-            ]); <br />";;*/
-
+            ]); <br />";;
         }
     }
 
@@ -181,8 +168,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        //Excel::import(new VsiRedsocPasadoImport(), $excelxxx);
-        Excel::import(new CsdViolenciaImport, $excelxxx);
-         return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
+        Excel::import(new VsiRelSolDificultaImport(), $excelxxx);
+//        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }

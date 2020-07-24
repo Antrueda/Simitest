@@ -14,7 +14,7 @@ class VsiViolenciaImport implements ToModel
      */
     public function model(array $row)
     {
-        echo $row[2] . '<pre>';
+//        echo $row[1] . '<pre>';
         $dataxxxx = [
             'vsi_id' => $row[0],
             'prm_tip_vio_id' => $row[1],
@@ -48,7 +48,7 @@ class VsiViolenciaImport implements ToModel
             'user_edita_id' => 1,
             'sis_esta_id' => 1,
         ];
-        print_r($dataxxxx);
+//        print_r($dataxxxx);
         return new VsiViolencia($dataxxxx);
     }
 }
