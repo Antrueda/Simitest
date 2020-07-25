@@ -3111,6 +3111,7 @@ class TemasTableSeeder extends Seeder
             1368 => $camposmagicos,
             1395 => $camposmagicos,
             2316=> $camposmagicos,
+            853 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 299, 'nombre' => 'TIPO DE RED VI']);
         $tema->parametros()->sync([
