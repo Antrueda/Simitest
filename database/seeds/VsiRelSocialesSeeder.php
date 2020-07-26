@@ -7,7 +7,7 @@ class VsiRelSocialesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * Sección 6
      * @return void
      */
     public function run()

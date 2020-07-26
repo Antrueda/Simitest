@@ -30,6 +30,7 @@ use App\Models\sicosocial\VsiAbuSexual;
 
 use App\Imports\Vsi\VsiRedsocAcesoImport;
 use App\Imports\Vsi\VsiRedsocActualImport;
+use App\Imports\Vsi\VsiRedSocialImport;
 use App\Imports\Vsi\VsiRedsocPasadoImport;
 use App\Imports\Vsi\VsiRelFamiliarImport;
 use App\Imports\Vsi\VsiRelfamMotivoImport;
@@ -65,6 +66,7 @@ use App\Models\sicosocial\VsiFacRiesgo;
 use App\Models\sicosocial\VsiMeta;
 use App\Models\sicosocial\VsiPotencialidad;
 use App\Models\sicosocial\VsiRedsocActual;
+use App\Models\sicosocial\VsiRedSocial;
 use App\Models\sicosocial\VsiRedsocPasado;
 use App\Models\sicosocial\VsiRelFamiliar;
 use App\Models\sicosocial\VsiRelSociales;
@@ -173,18 +175,26 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiRelfamMotivo::get();
+        $dataxxxx = VsiRedSocial::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiRelfamMotivo::create([
-                'parametro_id' => {$registro->parametro_id},
-                'vsi_relfamiliar_id' => {$registro->vsi_relfamiliar_id},
+            echo "VsiRedSocial::create([
+                'vsi_id' => {$registro->vsi_id},
+                'prm_presenta_id' => {$registro->prm_presenta_id},
+                'prm_protector_id' => {$registro->prm_protector_id},
+                'prm_dificultad_id' => {$registro->prm_dificultad_id},
+                'prm_quien_id' => {$registro->prm_quien_id},
+                'prm_ruptura_genero_id' => {$registro->prm_ruptura_genero_id},
+                'prm_ruptura_sexual_id' => {$registro->prm_ruptura_sexual_id},
+                'prm_acceso_id' => {$registro->prm_acceso_id},
+                'prm_servicio_id' => {$registro->prm_servicio_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
+                'sis_esta_id' => {$registro->sis_esta_id},
+                'created_at' => '{$registro->created_at}',
+                'updated_at' => '{$registro->updated_at}',
             ]); <br />";;
         }
     }
-
-
 
 
     /**
@@ -196,7 +206,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiRelfamMotivoImport(), $excelxxx);
+        Excel::import(new VsiRedSocialImport(), $excelxxx);
 //        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
