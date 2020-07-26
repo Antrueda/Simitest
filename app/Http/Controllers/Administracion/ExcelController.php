@@ -21,6 +21,7 @@ use App\Imports\Vsi\VsiConsumoQuienImport;
 use App\Imports\Vsi\VsiEstEmocionalImport;
 use App\Imports\Vsi\VsiFacProtectorImport;
 use App\Imports\Vsi\VsiFacRiesgoImport;
+use App\Imports\Vsi\VsiGenIngresoImport;
 use App\Imports\Vsi\VsiMetaImport;
 use App\Imports\Vsi\VsiPotencialidadImport;
 use App\Models\sistema\SisEsta;
@@ -63,6 +64,7 @@ use App\Models\sicosocial\VsiConsumo;
 use App\Models\sicosocial\VsiEstEmocional;
 use App\Models\sicosocial\VsiFacProtector;
 use App\Models\sicosocial\VsiFacRiesgo;
+use App\Models\sicosocial\VsiGenIngreso;
 use App\Models\sicosocial\VsiMeta;
 use App\Models\sicosocial\VsiPotencialidad;
 use App\Models\sicosocial\VsiRedsocActual;
@@ -175,18 +177,29 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiRedSocial::get();
+        $dataxxxx = VsiGenIngreso::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiRedSocial::create([
+            echo "VsiGenIngreso::create([
                 'vsi_id' => {$registro->vsi_id},
-                'prm_presenta_id' => {$registro->prm_presenta_id},
-                'prm_protector_id' => {$registro->prm_protector_id},
-                'prm_dificultad_id' => {$registro->prm_dificultad_id},
-                'prm_quien_id' => {$registro->prm_quien_id},
-                'prm_ruptura_genero_id' => {$registro->prm_ruptura_genero_id},
-                'prm_ruptura_sexual_id' => {$registro->prm_ruptura_sexual_id},
-                'prm_acceso_id' => {$registro->prm_acceso_id},
-                'prm_servicio_id' => {$registro->prm_servicio_id},
+                'prm_actividad_id' => {$registro->prm_actividad_id},
+                'trabaja' => '{$registro->trabaja}',
+                'prm_informal_id' => {$registro->prm_informal_id},
+                'prm_otra_id' => {$registro->prm_otra_id},
+                'prm_no_id' => {$registro->prm_no_id},
+                'cuanto' => {$registro->cuanto},
+                'prm_periodo_id' => {$registro->prm_periodo_id},
+                'jornada_entre' => {$registro->jornada_entre},
+                'prm_jor_entre_id' => {$registro->prm_jor_entre_id},
+                'jornada_a' => {$registro->jornada_a},
+                'prm_jor_a_id' => {$registro->prm_jor_a_id},
+                'prm_frecuencia_id' => {$registro->prm_frecuencia_id},
+                'aporte' => {$registro->aporte},
+                'prm_laboral_id' => {$registro->prm_laboral_id},
+                'prm_aporta_id' => {$registro->prm_aporta_id},
+                'porque' => '{$registro->porque}',
+                'cuanto_aporta' => {$registro->cuanto_aporta},
+                'expectativa' => '{$registro->expectativa}',
+                'descripcion' => '{$registro->descripcion}',
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 'sis_esta_id' => {$registro->sis_esta_id},
@@ -206,7 +219,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiRedSocialImport(), $excelxxx);
+        Excel::import(new VsiGenIngresoImport(), $excelxxx);
 //        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
