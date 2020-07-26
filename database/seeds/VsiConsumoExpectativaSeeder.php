@@ -9,34 +9,35 @@ class VsiConsumoExpectativaSeeder extends Seeder
     /**
      * Run the database seeds.
      * Pregunta 16 8
+     * cambio de 164 por 689 ene l campo parametro_id
      * @return void
      */
     public function run()
     {
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 9, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 24, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 37, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 51, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 52, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 60, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 70, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 75, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 92, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 148, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 164, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 177, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 195, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 200, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 209, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 215, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 225, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 253, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 255, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 260, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 270, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 276, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 294, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiConsumoExpectativa::create(['parametro_id' => 164, 'vsi_consumo_id' => 307, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 9, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 24, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 37, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 51, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 52, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 60, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 70, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 75, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 92, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 148, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 164, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 177, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 195, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 200, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 209, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 215, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 225, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 253, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 255, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 260, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 270, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 276, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 294, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiConsumoExpectativa::create(['parametro_id' => 689, 'vsi_consumo_id' => 307, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiConsumoExpectativa::create(['parametro_id' => 684, 'vsi_consumo_id' => 116, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiConsumoExpectativa::create(['parametro_id' => 684, 'vsi_consumo_id' => 221, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiConsumoExpectativa::create(['parametro_id' => 688, 'vsi_consumo_id' => 2, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
