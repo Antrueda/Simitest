@@ -7,7 +7,7 @@ class VsiDinfamLibertadSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Pregunta 
+     * Pregunta 5 8 4
      * @return void
      */
     public function run()
