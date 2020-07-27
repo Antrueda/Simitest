@@ -3046,6 +3046,9 @@ class TemasTableSeeder extends Seeder
             268 => $camposmagicos,
             335 => $camposmagicos,
             476 => $camposmagicos,
+            1269 => $camposmagicos,
+            1798 => $camposmagicos,
+            1799 => $camposmagicos,
             2316=> $camposmagicos,
         ]);
 

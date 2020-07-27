@@ -18,6 +18,10 @@ use App\Imports\Vsi\VsiConceptoImport;
 use App\Imports\Vsi\VsiConsumoExpectativaImport;
 use App\Imports\Vsi\VsiConsumoImport;
 use App\Imports\Vsi\VsiConsumoQuienImport;
+use App\Imports\Vsi\VsiDinfamAusenciaImport;
+use App\Imports\Vsi\VsiDinfamCuidadorImport;
+use App\Imports\Vsi\VsiDinFamiliarImport;
+use App\Imports\Vsi\VsiDinfamMadreImport;
 use App\Imports\Vsi\VsiEduDiftipoAImport;
 use App\Imports\Vsi\VsiEduDiftipoBImport;
 use App\Imports\Vsi\VsiEstEmocionalImport;
@@ -55,6 +59,10 @@ use App\Models\consulta\pivotes\CsdDinfamProblema;
 use App\Models\sicosocial\Pivotes\VsiConcepRed;
 use App\Models\sicosocial\Pivotes\VsiConsumoExpectativa;
 use App\Models\sicosocial\Pivotes\VsiConsumoQuien;
+use App\Models\sicosocial\Pivotes\VsiDinfamAusencia;
+use App\Models\sicosocial\Pivotes\VsiDinfamCuidador;
+use App\Models\sicosocial\Pivotes\VsiDinFamiliar;
+use App\Models\sicosocial\Pivotes\VsiDinfamMadre;
 use App\Models\sicosocial\Pivotes\VsiEduDiftipoA;
 use App\Models\sicosocial\Pivotes\VsiEduDiftipoB;
 use App\Models\sicosocial\Pivotes\VsiRedsocAceso;
@@ -178,45 +186,16 @@ class ExcelController extends Controller
         return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'pestanias');
     }
 
-
     public function armarSeeder()
     {
-        $dataxxxx = VsiViolencia::get();
+        $dataxxxx = VsiDinfamAusencia::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiViolencia::create([
-                'vsi_id' => {$registro->vsi_id},
-                'prm_tip_vio_id' => {$registro->prm_tip_vio_id},
-                'prm_fam_fis_id' => {$registro->prm_fam_fis_id},
-                'prm_fam_psi_id' => {$registro->prm_fam_psi_id},
-                'prm_fam_sex_id' => {$registro->prm_fam_sex_id},
-                'prm_fam_eco_id' => {$registro->prm_fam_eco_id},
-                'prm_amicol_fis_id' => {$registro->prm_amicol_fis_id},
-                'prm_amicol_psi_id' => {$registro->prm_amicol_psi_id},
-                'prm_amicol_sex_id' => {$registro->prm_amicol_sex_id},
-                'prm_amicol_eco_id' => {$registro->prm_amicol_eco_id},
-                'prm_par_fis_id' => {$registro->prm_par_fis_id},
-                'prm_par_psi_id' => {$registro->prm_par_psi_id},
-                'prm_par_sex_id' => {$registro->prm_par_sex_id},
-                'prm_par_eco_id' => {$registro->prm_par_eco_id},
-                'prm_compar_fis_id' => {$registro->prm_compar_fis_id},
-                'prm_compar_psi_id' => {$registro->prm_compar_psi_id},
-                'prm_compar_sex_id' => {$registro->prm_compar_sex_id},
-                'prm_compar_eco_id' => {$registro->prm_compar_eco_id},
-                'prm_ins_fis_id' => {$registro->prm_ins_fis_id},
-                'prm_ins_psi_id' => {$registro->prm_ins_psi_id},
-                'prm_ins_sex_id' => {$registro->prm_ins_sex_id},
-                'prm_ins_eco_id' => {$registro->prm_ins_eco_id},
-                'prm_lab_fis_id' => {$registro->prm_lab_fis_id},
-                'prm_lab_psi_id' => {$registro->prm_lab_psi_id},
-                'prm_lab_sex_id' => {$registro->prm_lab_sex_id},
-                'prm_lab_eco_id' => {$registro->prm_lab_eco_id},
-                'prm_dis_gen_id' => {$registro->prm_dis_gen_id},
-                'prm_dis_ori_id' => {$registro->prm_dis_ori_id},
+            echo "VsiDinfamAusencia::create([
+                'parametro_id' => {$registro->parametro_id},
+                'vsi_dinfamiliar_id' => {$registro->vsi_dinfamiliar_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
-                'sis_esta_id' => {$registro->sis_esta_id},
-                'created_at' => '{$registro->created_at}',
-                'updated_at' => '{$registro->updated_at}',
+                
             ]); <br />";;
         }
     }
@@ -231,7 +210,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiViolenciaImport(), $excelxxx);
+        Excel::import(new VsiDinfamAusenciaImport(), $excelxxx);
 //        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
