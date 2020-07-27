@@ -7,7 +7,7 @@ class VsiDinfamAusenciaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * Pregunta 5 7
      * @return void
      */
     public function run()

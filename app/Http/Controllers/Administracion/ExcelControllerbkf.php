@@ -3,23 +3,19 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Imports\BarriosImportportBorrar;
 use App\Imports\Csd\CsdResidenciaImport;
 use App\Models\consulta\CsdResidencia;
 use App\Models\sistema\SisEsta;
 
 use App\Models\sistema\SisBarrio;
-use App\Models\sistema\SisBarriobk;
-use App\Models\sistema\SisBarriobks;
-use App\Models\sistema\SisLocalupz;
-use App\Models\sistema\SisUpzbarri;
+use App\Traits\GestionTiempos\ManageDateTrait;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
-class ExcelControllerbk extends Controller
+class ExcelControllerbkf extends Controller
 {
     private $opciones;
-
+    use ManageDateTrait;
     public function __construct()
     {
         $this->opciones = [
@@ -109,12 +105,14 @@ class ExcelControllerbk extends Controller
      */
     public function create()
     {
+echo $this->getFirstOLastDayMonth(['datexxxx'=>'10-07-2020','optionxx'=>1,'formatxx'=>'Y-m-d']).'<br>';
+echo $this->getFirstOLastDayMonth(['datexxxx'=>'10-07-2020','optionxx'=>2,'formatxx'=>'Y-m-d']);
         $this->opciones['padrexxx'] = '';
-        return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'pestanias');
+        // return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'pestanias');
     }
     public function armarSeeder()
     {
-        foreach (CsdResidencia::orderBy('csd_id','asc')->get() as $key => $value) {
+        foreach (CsdResidencia::orderBy('csd_id', 'asc')->get() as $key => $value) {
             echo "
             CsdResidencia::create([
                 'id' =>$value->csd_id,

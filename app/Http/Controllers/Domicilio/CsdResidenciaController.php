@@ -42,16 +42,25 @@ class CsdResidenciaController extends Controller
         $alfabeto = Tema::combo(39, true, false);
         $cuadrante = Tema::combo(38, true, false);
         $tViaPrincipal = Tema::combo(62, true, false);
-        $localidadjs = SisLocalidad::orderBy('s_localidad')->get();
-        $localidades = $localidadjs->pluck('s_localidad', 'id');
+        // $localidadjs = SisLocalidad::orderBy('s_localidad')->get();
+        $localidades = SisLocalidad::combo();
         $upzs = ['' => 'Seleccione'];
         $barrios = ['' => 'Seleccione'];
         if (isset($valor->id)) {
+            $barrioxx=$valor->sis_upzbarri->sis_localupz;
+            $valor->sis_localidad_id=$barrioxx->sis_localidad_id;
+            $valor->sis_upz_id=$barrioxx->id;
             // ddd($valor->sis_localidad_id . ' ' . $valor->sis_upz_id);
-            $upzs = SisUpz::combo($valor->sis_localidad_id, false);
-            $barrios = SisBarrio::combo($valor->sis_upz_id, false);
+            $upzs = SisUpz::combo($barrioxx->sis_localidad_id, false);
+            $barrios = SisBarrio::combo($barrioxx->id, false);
         }
-        return view('Domicilio.index', ['accion' => 'Residencia'], compact('dato', 'nnajs', 'valor', 'sino', 'residencia', 'tipo', 'actual', 'zona', 'tViaPrincipal', 'alfabeto', 'cuadrante', 'estrato', 'condiciones', 'pisos', 'muros', 'estado', 'localidadjs', 'localidades', 'upzs', 'barrios'));
+
+        return view('Domicilio.index', ['accion' => 'Residencia'],
+        compact('dato', 'nnajs', 'valor', 'sino', 'residencia', 'tipo', 'actual',
+        'zona', 'tViaPrincipal', 'alfabeto', 'cuadrante', 'estrato', 'condiciones',
+        'pisos', 'muros', 'estado',
+        // 'localidadjs',
+        'localidades', 'upzs', 'barrios'));
     }
 
     public function store(Request $request, $id)
@@ -148,5 +157,21 @@ class CsdResidenciaController extends Controller
             'prm_orden_id' => 'required|exists:parametros,id',
             'ambientes' => 'required|array',
         ]);
+    }
+
+    public function getLocaliUpz(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            switch ($request->upzbarri) {
+                case 1: // upzs
+                    $respuest = SisUpz::combo($request->padrexxx, true);
+                    break;
+                case 2: // barrios
+                    $respuest = SisBarrio::combo($request->padrexxx, true);
+                    break;
+            }
+            return response()->json($respuest);
+        }
     }
 }

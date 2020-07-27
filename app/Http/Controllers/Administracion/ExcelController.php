@@ -3,26 +3,83 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
+use App\Imports\Csd\CsdAlimentCompraImport;
+use App\Imports\Csd\CsdAlimentFrecImport;
+use App\Imports\Csd\CsdAlimentIngeImport;
+use App\Imports\Csd\CsdAlimentPreparaImport;
+use App\Imports\Csd\CsdDinfamAntecedenteImport;
+use App\Imports\Csd\CsdDinFamiliarImport;
+use App\Imports\Csd\CsdDinfamIncumpleImport;
+use App\Imports\Csd\CsdDinfamProblemaImport;
+use App\Imports\Csd\CsdViolenciaImport;
 use App\Imports\Vsi\VsiAbuSexualImport;
+use App\Imports\Vsi\VsiConcepRedImport;
+use App\Imports\Vsi\VsiConceptoImport;
+use App\Imports\Vsi\VsiConsumoExpectativaImport;
+use App\Imports\Vsi\VsiConsumoImport;
+use App\Imports\Vsi\VsiConsumoQuienImport;
+use App\Imports\Vsi\VsiEduDiftipoAImport;
+use App\Imports\Vsi\VsiEduDiftipoBImport;
+use App\Imports\Vsi\VsiEstEmocionalImport;
+use App\Imports\Vsi\VsiFacProtectorImport;
+use App\Imports\Vsi\VsiFacRiesgoImport;
+use App\Imports\Vsi\VsiGenIngresoImport;
+use App\Imports\Vsi\VsiMetaImport;
+use App\Imports\Vsi\VsiPotencialidadImport;
 use App\Models\sistema\SisEsta;
+
+use App\Models\sicosocial\VsiAbuSexual;
 
 
 use App\Imports\Vsi\VsiRedsocAcesoImport;
 use App\Imports\Vsi\VsiRedsocActualImport;
+use App\Imports\Vsi\VsiRedSocialImport;
 use App\Imports\Vsi\VsiRedsocPasadoImport;
+use App\Imports\Vsi\VsiRelFamiliarImport;
+use App\Imports\Vsi\VsiRelfamMotivoImport;
+use App\Imports\Vsi\VsiRelSocialesImport;
+use App\Imports\Vsi\VsiRelSolDificultaImport;
+use App\Imports\Vsi\VsiRelSolFacilitaImport;
 use App\Imports\Vsi\VsiVioContextoImport;
 use App\Imports\Vsi\VsiViolenciaImport;
 use App\Imports\Vsi\VsiVioTipoImport;
+use App\Models\consulta\CsdDinFamiliar;
+use App\Models\consulta\CsdViolencia;
+use App\Models\consulta\pivotes\CsdAlimentCompra;
+use App\Models\consulta\pivotes\CsdAlimentFrec;
+use App\Models\consulta\pivotes\CsdAlimentInge;
+use App\Models\consulta\pivotes\CsdAlimentPrepara;
+use App\Models\consulta\pivotes\CsdDinfamAntecedente;
+use App\Models\consulta\pivotes\CsdDinfamIncumple;
+use App\Models\consulta\pivotes\CsdDinfamProblema;
+use App\Models\sicosocial\Pivotes\VsiConcepRed;
+use App\Models\sicosocial\Pivotes\VsiConsumoExpectativa;
+use App\Models\sicosocial\Pivotes\VsiConsumoQuien;
+use App\Models\sicosocial\Pivotes\VsiEduDiftipoA;
+use App\Models\sicosocial\Pivotes\VsiEduDiftipoB;
 use App\Models\sicosocial\Pivotes\VsiRedsocAceso;
+use App\Models\sicosocial\Pivotes\VsiRelfamMotivo;
+use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
+use App\Models\sicosocial\Pivotes\VsiRelSolFacilita;
 use App\Models\sicosocial\Pivotes\VsiVioContexto;
 use App\Models\sicosocial\Pivotes\VsiVioTipo;
-use App\Models\sicosocial\VsiAbuSexual;
+use App\Models\sicosocial\VsiConcepto;
+use App\Models\sicosocial\VsiConsumo;
+use App\Models\sicosocial\VsiEstEmocional;
+use App\Models\sicosocial\VsiFacProtector;
+use App\Models\sicosocial\VsiFacRiesgo;
+use App\Models\sicosocial\VsiGenIngreso;
+use App\Models\sicosocial\VsiMeta;
+use App\Models\sicosocial\VsiPotencialidad;
 use App\Models\sicosocial\VsiRedsocActual;
+use App\Models\sicosocial\VsiRedSocial;
 use App\Models\sicosocial\VsiRedsocPasado;
+use App\Models\sicosocial\VsiRelFamiliar;
+use App\Models\sicosocial\VsiRelSociales;
 use App\Models\sicosocial\VsiViolencia;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use VsiAbuSexualSeeder;
+
 
 class ExcelController extends Controller
 {
@@ -121,42 +178,49 @@ class ExcelController extends Controller
         return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'pestanias');
     }
 
+
     public function armarSeeder()
     {
-        $dataxxxx = VsiAbuSexual::get();
+        $dataxxxx = VsiViolencia::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiAbuSexuals::create([
+            echo "VsiViolencia::create([
                 'vsi_id' => {$registro->vsi_id},
-                'prm_evento_id' => {$registro->prm_evento_id},
-                'dia' => {$registro->dia},
-                'mes' => {$registro->mes},
-                'ano' => {$registro->ano},
-                'prm_momento_id' => {$registro->prm_momento_id},
-
-                'prm_tipo_id' => {$registro->prm_tipo_id},
-                'dia_ult' => {$registro->dia_ult},
-                'mes_ult' => {$registro->mes_ult},
-                'ano_ult' => {$registro->ano_ult},
-                'prm_momento_ult_id' => {$registro->prm_momento_ult_id},
-                'prm_persona_ult_id' => {$registro->prm_persona_ult_id},
-                'prm_tipo_ult_id' => {$registro->prm_tipo_ult_id},
-                'prm_convive_id' => {$registro->prm_convive_id},
-                'prm_presencia_id' => {$registro->prm_presencia_id},
-                'prm_reconoce_id' => {$registro->prm_reconoce_id},
-                'prm_apoyo_id' => {$registro->prm_apoyo_id},
-                'prm_denuncia_id' => {$registro->prm_denuncia_id},
-                'prm_terapia_id' => {$registro->prm_terapia_id},
-                'prm_estado_id' => {$registro->prm_estado_id},
-                'informacion' => '{$registro->informacion}',
+                'prm_tip_vio_id' => {$registro->prm_tip_vio_id},
+                'prm_fam_fis_id' => {$registro->prm_fam_fis_id},
+                'prm_fam_psi_id' => {$registro->prm_fam_psi_id},
+                'prm_fam_sex_id' => {$registro->prm_fam_sex_id},
+                'prm_fam_eco_id' => {$registro->prm_fam_eco_id},
+                'prm_amicol_fis_id' => {$registro->prm_amicol_fis_id},
+                'prm_amicol_psi_id' => {$registro->prm_amicol_psi_id},
+                'prm_amicol_sex_id' => {$registro->prm_amicol_sex_id},
+                'prm_amicol_eco_id' => {$registro->prm_amicol_eco_id},
+                'prm_par_fis_id' => {$registro->prm_par_fis_id},
+                'prm_par_psi_id' => {$registro->prm_par_psi_id},
+                'prm_par_sex_id' => {$registro->prm_par_sex_id},
+                'prm_par_eco_id' => {$registro->prm_par_eco_id},
+                'prm_compar_fis_id' => {$registro->prm_compar_fis_id},
+                'prm_compar_psi_id' => {$registro->prm_compar_psi_id},
+                'prm_compar_sex_id' => {$registro->prm_compar_sex_id},
+                'prm_compar_eco_id' => {$registro->prm_compar_eco_id},
+                'prm_ins_fis_id' => {$registro->prm_ins_fis_id},
+                'prm_ins_psi_id' => {$registro->prm_ins_psi_id},
+                'prm_ins_sex_id' => {$registro->prm_ins_sex_id},
+                'prm_ins_eco_id' => {$registro->prm_ins_eco_id},
+                'prm_lab_fis_id' => {$registro->prm_lab_fis_id},
+                'prm_lab_psi_id' => {$registro->prm_lab_psi_id},
+                'prm_lab_sex_id' => {$registro->prm_lab_sex_id},
+                'prm_lab_eco_id' => {$registro->prm_lab_eco_id},
+                'prm_dis_gen_id' => {$registro->prm_dis_gen_id},
+                'prm_dis_ori_id' => {$registro->prm_dis_ori_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 'sis_esta_id' => {$registro->sis_esta_id},
                 'created_at' => '{$registro->created_at}',
                 'updated_at' => '{$registro->updated_at}',
-                                
             ]); <br />";;
         }
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -167,7 +231,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiAbuSexualImport(), $excelxxx);
-        // return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
+        Excel::import(new VsiViolenciaImport(), $excelxxx);
+//        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }

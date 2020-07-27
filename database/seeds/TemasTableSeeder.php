@@ -2079,6 +2079,8 @@ class TemasTableSeeder extends Seeder
             875 => $camposmagicos,
             915 => $camposmagicos,
             916 => $camposmagicos,
+            926 => $camposmagicos,
+            970 => $camposmagicos,
             2316=> $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 195, 'nombre' => 'SENTIMIENTOS Y  EMOCIONES  VI']);
@@ -2098,6 +2100,9 @@ class TemasTableSeeder extends Seeder
             929 => $camposmagicos,
             930 => $camposmagicos,
             931 => $camposmagicos,
+            1857 => $camposmagicos,
+            1783 => $camposmagicos,
+            1858 => $camposmagicos,
             2316=> $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 196, 'nombre' => 'NIVELES LÍNEA BASE']);
@@ -3111,6 +3116,7 @@ class TemasTableSeeder extends Seeder
             1368 => $camposmagicos,
             1395 => $camposmagicos,
             2316=> $camposmagicos,
+            853 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 299, 'nombre' => 'TIPO DE RED VI']);
         $tema->parametros()->sync([

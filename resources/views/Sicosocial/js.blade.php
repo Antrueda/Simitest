@@ -4,8 +4,10 @@ $(document).ready(function() {
     	"serverSide": true,
     	"ajax": "{{ url('api/vsi/nnajs') }}",
     	"columns": [
-    		{data: 'botones'},
-    		{data: 's_primer_nombre'},
+            {data: 'botones'},
+            {data: 's_documento'},
+            {data: 's_primer_nombre'},
+
     		{data: 's_segundo_nombre'},
     		{data: 's_primer_apellido'},
     		{data: 's_segundo_apellido'},

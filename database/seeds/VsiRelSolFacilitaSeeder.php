@@ -7,7 +7,7 @@ class VsiRelSolFacilitaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * Pregunta 6 1
      * @return void
      */
     public function run()
@@ -306,37 +306,37 @@ class VsiRelSolFacilitaSeeder extends Seeder
         VsiRelSolFacilita::create(['parametro_id' => 548, 'vsi_relsocial_id' => 260, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiRelSolFacilita::create(['parametro_id' => 548, 'vsi_relsocial_id' => 281, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiRelSolFacilita::create(['parametro_id' => 1805, 'vsi_relsocial_id' => 116, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 12, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 29, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 34, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 35, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 37, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 40, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 43, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 48, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 49, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 66, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 69, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 80, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 101, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 105, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 139, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 151, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 157, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 176, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 188, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 200, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 203, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 209, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 232, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 234, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 269, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 274, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 275, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 278, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 282, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 328, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiRelSolFacilita::create(['parametro_id' => 2134, 'vsi_relsocial_id' => 331, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 12, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 29, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 34, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 35, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 37, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 40, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 43, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 48, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 49, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 66, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 69, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 80, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 101, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 105, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 139, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 151, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 157, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 176, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 188, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 200, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 203, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 209, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 232, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 234, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 269, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 274, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 275, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 278, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 282, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 328, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiRelSolFacilita::create(['parametro_id' => 2316, 'vsi_relsocial_id' => 331, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiRelSolFacilita::create(['parametro_id' => 2151, 'vsi_relsocial_id' => 32, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiRelSolFacilita::create(['parametro_id' => 2151, 'vsi_relsocial_id' => 76, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiRelSolFacilita::create(['parametro_id' => 2151, 'vsi_relsocial_id' => 327, 'user_crea_id' => 1, 'user_edita_id' => 1,]);

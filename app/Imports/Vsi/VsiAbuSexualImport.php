@@ -9,7 +9,7 @@ class VsiAbuSexualImport implements ToModel
 {
     /**
     * @param array $row
-    *
+    * Seccion 14
     * @return \Illuminate\Database\Eloquent\Model|null
     */
     public function model(array $row)
@@ -43,6 +43,6 @@ class VsiAbuSexualImport implements ToModel
             'sis_esta_id => 1',
         ];
         print_r($dataxxxx);            
-        return new VsiAbuSexual($dataxxxx);
+//        return new VsiAbuSexual($dataxxxx);
     }
 }

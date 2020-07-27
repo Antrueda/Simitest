@@ -106,6 +106,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiRelfamAccionesSeeder::class);  //55 estan mal los id de vsi_relfamiliar_id
         //56 estan mal los id de vsi_relfamiliar_id, vsi_relfamiliar tiene solo 331 se le estan
         //asignando valores superiores que no cumplen con la integridad referencial
+        $this->call(VsiEstEmocionalSeeder::class);
         $this->call(VsiRelfamDificultadSeeder::class);
         $this->call(VsiActEmocionalSeeder::class);
         $this->call(VsiActemoFisiologicaSeeder::class);
@@ -155,7 +156,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(VsiEduDiftipoASeeder::class);  //27 falta
         $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
-        $this->call(VsiEstEmocionalSeeder::class);
+
         $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta
         $this->call(VsiEstemoDificultaSeeder::class);  //32 falta
         $this->call(VsiEstemoEstresanteSeeder::class);  //33 falta
