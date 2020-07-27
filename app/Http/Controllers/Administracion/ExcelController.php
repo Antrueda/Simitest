@@ -8,6 +8,7 @@ use App\Imports\Csd\CsdAlimentFrecImport;
 use App\Imports\Csd\CsdAlimentIngeImport;
 use App\Imports\Csd\CsdAlimentPreparaImport;
 use App\Imports\Csd\CsdDinfamAntecedenteImport;
+use App\Imports\Csd\CsdDinfamEstablecenImport;
 use App\Imports\Csd\CsdDinFamiliarImport;
 use App\Imports\Csd\CsdDinfamIncumpleImport;
 use App\Imports\Csd\CsdDinfamProblemaImport;
@@ -54,6 +55,7 @@ use App\Models\consulta\pivotes\CsdAlimentFrec;
 use App\Models\consulta\pivotes\CsdAlimentInge;
 use App\Models\consulta\pivotes\CsdAlimentPrepara;
 use App\Models\consulta\pivotes\CsdDinfamAntecedente;
+use App\Models\consulta\pivotes\CsdDinfamEstablecen;
 use App\Models\consulta\pivotes\CsdDinfamIncumple;
 use App\Models\consulta\pivotes\CsdDinfamProblema;
 use App\Models\sicosocial\Pivotes\VsiConcepRed;
@@ -188,18 +190,28 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiDinfamAusencia::get();
+        $dataxxxx = CsdAlimentPrepara::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiDinfamAusencia::create([
+            echo  "CsdAlimentPrepara::create([
                 'parametro_id' => {$registro->parametro_id},
-                'vsi_dinfamiliar_id' => {$registro->vsi_dinfamiliar_id},
+                'csd_alimentacion_id' => {$registro->csd_alimentacion_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
+                'prm_tipofuen_id'=>{$registro->prm_tipofuen_id}
                 
             ]); <br />";;
         }
     }
-
+/*
+    echo "CsdDinfamAntecedente::create([
+        'parametro_id' => {$registro->parametro_id},
+        'csd_dinfamiliar_id' => {$registro->csd_dinfamiliar_id},
+        'user_crea_id' => {$registro->user_crea_id},
+        'user_edita_id' => {$registro->user_edita_id},
+        'prm_tipofuen_id'=>{$registro->prm_tipofuen_id}
+        
+    ]); <br />";;
+*/
 
     /**
      * Store a newly created resource in storage.
@@ -210,7 +222,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiDinfamAusenciaImport(), $excelxxx);
-//        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
+        Excel::import(new CsdAlimentPreparaImport, $excelxxx);
+        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }

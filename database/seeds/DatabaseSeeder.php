@@ -54,6 +54,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdDinfamIncumpleSeeder::class);
         $this->call(CsdDinfamAntecedenteSeeder::class);
         $this->call(CsdDinfamProblemaSeeder::class);
+        $this->call(CsdDinfamEstablecenSeeder::class);
         $this->call(CsdDinfamMadreSeeder::class);
         $this->call(CsdDinfamPadresSeeder::class);
         $this->call(CsdDatosBasicoSeeder::class); // Jorge
