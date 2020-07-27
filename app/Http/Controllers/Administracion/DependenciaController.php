@@ -79,54 +79,58 @@ class DependenciaController extends Controller
     {
 
 
-        $this->opciones["urlxxxag"] ='api/sis/servicio';
+        $this->opciones["urlxxxag"] = 'api/sis/servicio';
         $this->opciones['routxxxa'] = 'dependencia';
         $this->opciones['cabeceag'] = [
-          ['td' => 'ID'],
-          ['td' => 'SERVICIO'],
+            ['td' => 'ID'],
+            ['td' => 'SERVICIO'],
         ];
         $this->opciones['columnag'] = [
-          ['data' => 'btns','name' => 'btns'],
-          ['data' => 'id','name' => 'users.id'],
-          ['data' => 'sis_servicio_id','name' => 'sis_servicios.s_servicio as sis_servicio_id'],
+            ['data' => 'btns', 'name' => 'btns'],
+            ['data' => 'id', 'name' => 'users.id'],
+            ['data' => 'sis_servicio_id', 'name' => 'sis_servicios.s_servicio as sis_servicio_id'],
 
         ];
 
-        $this->opciones["urlxxxas"]='api/sis/user';
+        $this->opciones["urlxxxas"] = 'api/sis/user';
         $this->opciones['routxxxb'] = 'dependencia';
         $this->opciones['cabeceas'] = [
             ['td' => 'ID'],
             ['td' => 'USUARIO'],
             ['td' => 'RESPONSABLE'],
-          ];
-          $this->opciones['columnas'] = [
-            ['data' => 'btns','name' => 'btns'],
-            ['data' => 'id','name' => 'users.id'],
-            ['data' => 'name','name' => 'users.name'], 
-            ['data' => 'nombre','name' => 'parametros.nombre'],
-          ];
+        ];
+        $this->opciones['columnas'] = [
+            ['data' => 'btns', 'name' => 'btns'],
+            ['data' => 'id', 'name' => 'users.id'],
+            ['data' => 'name', 'name' => 'users.name'],
+            ['data' => 'nombre', 'name' => 'parametros.nombre'],
+        ];
 
 
-        $this->opciones['i_prm_cvital_id'] = Tema::combo(311 ,true, false);
+        $this->opciones['i_prm_cvital_id'] = Tema::combo(311, true, false);
         $this->opciones['i_prm_tdependen_id'] = Tema::combo(192, true, false);
         $this->opciones['sis_dependencia_id'] = SisDependencia::combo(true, false);
         $this->opciones['i_prm_sexo_id'] = Tema::combo(11, true, false);
         $this->opciones['responsa'] = Tema::comboDesc(23, false, false);
         $this->opciones['sis_departamento_id'] = SisDepartamento::combo(2, false);
-        $this->opciones['sis_municipio_id'] = [''=>'Seleccione'];
+        $this->opciones['sis_municipio_id'] = ['' => 'Seleccione'];
         $this->opciones['sis_localidad_id'] = SisLocalidad::combo(true, false);
-        $this->opciones['sis_upz_id'] = [''=>'Seleccione'];
-        $this->opciones['sis_barrio_id'] = [''=>'Seleccione'];
+        $this->opciones['sis_upz_id'] = ['' => 'Seleccione'];
+        $this->opciones['sis_barrio_id'] = ['' => 'Seleccione'];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
 
         if ($nombobje != '') {
-            $objetoxx->d_carga=explode(' ',Carbon::now()->subDays($objetoxx->i_tiempo))[0] ;
-            $objetoxx->sis_upz_id=$objetoxx->sis_barrio->sis_upz_id;
+            $objetoxx->dtiestan = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiestan days"));
+            $objetoxx->dtiegabe = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiegabe days"));
+
             $this->opciones['sis_municipio_id'] = SisMunicipio::combo($objetoxx->sis_departamento_id, false);
-            $this->opciones['sis_upz_id'] = SisUpz::combo($objetoxx->sis_localidad_id, false);
-        $this->opciones['sis_barrio_id'] = SisBarrio::combo(false, false);
+
+            $barrioxx = $objetoxx->sis_upzbarri;
+            $objetoxx->sis_upz_id = $barrioxx->sis_upz_id;
+            $this->opciones['sis_upz_id'] = SisUpz::combo($barrioxx->sis_localidad_id, false);
+            $this->opciones['sis_barrio_id'] = SisBarrio::combo($objetoxx->sis_localupz_id, false);
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }

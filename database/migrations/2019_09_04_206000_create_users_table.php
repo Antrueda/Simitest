@@ -24,14 +24,15 @@ class CreateUsersTable extends Migration
             $table->string('s_telefono');
             $table->string('s_matriculap');
             $table->string('s_documento');
-           
+
             $table->date('d_vinculacion');
-            $table->integer('i_tiempo');
+            $table->Integer('itiestan')->default(0);
+            $table->Integer('itiegabe')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('sis_municipio_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_cargo_id')->unsigned();
@@ -60,11 +61,12 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->dateTime('created_at');
-            $table->Integer('user_crea_id'); 
+            $table->Integer('user_crea_id');
             $table->string('s_telefono');
             $table->string('s_matriculap');
             $table->date('d_vinculacion');
-            $table->integer('i_tiempo');
+            $table->Integer('itiestan')->default(0);
+            $table->Integer('itiegabe')->default(0);
             $table->integer('sis_cargo_id');
             $table->date('d_finvinculacion');
             $table->integer('prm_tvinculacion_id');

@@ -24,7 +24,8 @@ class UsuariosSeeder extends Seeder
       'user_crea_id' => '1',
       'user_edita_id' => '1',
       'sis_esta_id' => 1,
-      'i_tiempo' => 30,
+      'itiestan'=>10,
+      'itiegabe'=>0,
       's_telefono' => '3173809970',
       'prm_tvinculacion_id' => 1672,
       's_matriculap' => 'ALGO',
@@ -35,8 +36,8 @@ class UsuariosSeeder extends Seeder
       'prm_documento_id' => 1,
       'sis_municipio_id' => 1,
     ]);
-   
-    
+
+
     $super->assignRole('super-administrador');
     $super = User::create([
       'name' => 'FERNANDO SANABRIA',
@@ -51,7 +52,8 @@ class UsuariosSeeder extends Seeder
       'sis_esta_id' => 1,
       's_telefono' => '3173809970',
       'prm_tvinculacion_id' => 1672,
-      'i_tiempo' => 30,
+      'itiestan'=>10,
+      'itiegabe'=>0,
       's_matriculap' => 'ALGO',
       'sis_cargo_id' => '1',
       'd_finvinculacion' => '2019-09-12',
@@ -60,7 +62,7 @@ class UsuariosSeeder extends Seeder
       'prm_documento_id' => 1,
       'sis_municipio_id' => 1,
     ]);
-   
+
     $super->assignRole('super-administrador');
 
     $super = User::create([
@@ -76,7 +78,8 @@ class UsuariosSeeder extends Seeder
       'sis_esta_id' => 1,
       's_telefono' => '3197533728',
       'prm_tvinculacion_id' => '1673',
-      'i_tiempo' => 9,
+      'itiestan'=>10,
+      'itiegabe'=>0,
       's_matriculap' => '159236',
       'sis_cargo_id' => 1,
       'd_finvinculacion' => '2019-09-12',
@@ -100,7 +103,8 @@ class UsuariosSeeder extends Seeder
       'sis_esta_id' => 1,
       's_telefono' => '313848461',
       'prm_tvinculacion_id' => '1673',
-      'i_tiempo' => 9,
+      'itiestan'=>10,
+      'itiegabe'=>0,
       's_matriculap' => '000',
       'sis_cargo_id' => 5,
       'd_finvinculacion' => '2019-09-12',
@@ -123,7 +127,8 @@ class UsuariosSeeder extends Seeder
       'sis_esta_id' => 1,
       's_telefono' => '313848461',
       'prm_tvinculacion_id' => '1673',
-      'i_tiempo' => 9,
+      'itiestan'=>10,
+      'itiegabe'=>0,
       's_matriculap' => '000',
       'sis_cargo_id' => 5,
       'd_finvinculacion' => '2019-09-12',

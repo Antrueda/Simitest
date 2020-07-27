@@ -33,7 +33,7 @@ class UsuarioIdipronCrearRequest extends FormRequest
         $this->_mensaje['prm_tvinculacion_id.required'] = 'Seleccione el tipo de vinculacion';
         $this->_mensaje['s_matriculap.required'] = 'Ingrese la matricula profesional';
         $this->_mensaje['sis_cargo_id.required'] = 'Seleccione el cargo';
-        $this->_mensaje['i_tiempo.required'] = 'Seleccione una fecha para la carga de información';
+
         $this->_mensaje['d_vinculacion.required'] = 'Seleccione una fecha de vinculación';
         $this->_mensaje['sis_esta_id.required'] = 'Seleccione un estado';
         // Reglas para las validaciones de la data de sis_documento_usrs
@@ -52,7 +52,6 @@ class UsuarioIdipronCrearRequest extends FormRequest
         $this->_reglasx['prm_tvinculacion_id'] = ['required'];
         $this->_reglasx['s_matriculap'] = ['required'];
         $this->_reglasx['sis_cargo_id'] = ['required'];
-        $this->_reglasx['i_tiempo'] = ['required'];
         $this->_reglasx['d_vinculacion'] = ['required'];
     }
     /**

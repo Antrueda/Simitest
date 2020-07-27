@@ -19,11 +19,13 @@ class SisDependencia extends Model
         's_direccion',
         'sis_departamento_id',
         'sis_municipio_id',
-        'sis_localidad_id',
-        'sis_barrio_id',
+        // 'sis_localidad_id',
+        // 'sis_barrio_id',
+        'sis_upzbarri_id',
         's_telefono',
         's_correo',
-        'i_tiempo',
+        'itiestan',
+        'itiegabe',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
@@ -88,16 +90,18 @@ class SisDependencia extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function sis_barrio()
+    public function sis_upzbarris()
     {
-        return $this->belongsTo(SisBarrio::class);
+        return $this->hasMany(SisUpzbarri::class);
     }
 
-    public function sis_eslugs(){
+    public function sis_eslugs()
+    {
         return $this->belongsToMany(SisEslug::class)->withTimestamps();
     }
 
-    public static function getLugares($dataxxxx){
+    public static function getLugares($dataxxxx)
+    {
         $comboxxx = [];
         if ($dataxxxx['cabecera']) {
             if ($dataxxxx['esajaxxx']) {
@@ -106,11 +110,11 @@ class SisDependencia extends Model
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $dependen=SisDependencia::select(['sis_eslugs.id as valuexxx','sis_eslugs.s_espaluga as optionxx'])
-        ->join('sis_dependencia_sis_eslug','sis_dependencias.id','=','sis_dependencia_sis_eslug.sis_dependencia_id')
-        ->join('sis_eslugs','sis_dependencia_sis_eslug.sis_eslug_id','=','sis_eslugs.id')
-        ->where('sis_dependencias.id',$dataxxxx['padrexxx'])
-        ->get();
+        $dependen = SisDependencia::select(['sis_eslugs.id as valuexxx', 'sis_eslugs.s_espaluga as optionxx'])
+            ->join('sis_dependencia_sis_eslug', 'sis_dependencias.id', '=', 'sis_dependencia_sis_eslug.sis_dependencia_id')
+            ->join('sis_eslugs', 'sis_dependencia_sis_eslug.sis_eslug_id', '=', 'sis_eslugs.id')
+            ->where('sis_dependencias.id', $dataxxxx['padrexxx'])
+            ->get();
         foreach ($dependen as $registro) {
             if ($dataxxxx['esajaxxx']) {
                 $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];

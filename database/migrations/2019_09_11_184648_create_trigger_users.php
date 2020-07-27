@@ -28,7 +28,8 @@ class CreateTriggerUsers extends Migration{
                 , `sis_municipio_id`
                 , `prm_documento_id`
                 , `sis_esta_id`
-                 , `i_tiempo`
+                , `itiestan`
+                , `itiegabe`
                 )
                 VALUES (NEW.id, NEW.name, NEW.email, NEW.password, NEW.user_crea_id, now()
                 , NEW.s_primer_nombre
@@ -44,11 +45,12 @@ class CreateTriggerUsers extends Migration{
                 , NEW.sis_municipio_id
                 , NEW.prm_documento_id
                 , NEW.sis_esta_id
-               , NEW.i_tiempo
+               , NEW.itiestan
+               , NEW.itiegabe
                 );
             END
         ');
-      
+
         DB::unprepared('
         CREATE TRIGGER trigger_users_edita AFTER UPDATE ON `users` FOR EACH ROW
             BEGIN
@@ -66,7 +68,8 @@ class CreateTriggerUsers extends Migration{
                 , `sis_municipio_id`
                 , `prm_documento_id`
                 , `sis_esta_id`
-                , `i_tiempo`
+                , `itiestan`
+                , `itiegabe`
                 )
                 VALUES (NEW.id, NEW.name, NEW.email, NEW.password, NEW.user_crea_id, now()
                 , NEW.s_primer_nombre
@@ -82,7 +85,8 @@ class CreateTriggerUsers extends Migration{
                 , NEW.sis_municipio_id
                 , NEW.prm_documento_id
                 , NEW.sis_esta_id
-                , NEW.i_tiempo
+                , NEW.itiestan
+               , NEW.itiegabe
                 );
             END
         ');

@@ -12,7 +12,7 @@ Route::get('sis/cargo', function (Request $request) {
 	if (!$request->ajax()) return redirect('/');
 	return datatables()
 		->eloquent(
-			SisCargo::select(['id', 's_cargo', 'sis_esta_id'])
+			SisCargo::select(['id', 's_cargo', 'sis_esta_id','itiestan','itiegabe'])
 		)
 		->addColumn('btns', 'administracion/cargo/botones/botonesapi')
 		->rawColumns(['btns'])
@@ -26,11 +26,11 @@ Route::get('sis/dependencia', function (Request $request) {
         ->eloquent(SisDependencia::select([
             'sis_dependencias.id',
             'sis_dependencias.nombre',
-            'parametros.nombre as i_prm_sexo_id', 
-            'sis_dependencias.s_direccion', 
-            'sis_localidads.s_localidad as sis_localidad_id', 
-            'sis_barrios.s_barrio as sis_barrio_id', 
-            'sis_dependencias.s_telefono', 
+            'parametros.nombre as i_prm_sexo_id',
+            'sis_dependencias.s_direccion',
+            'sis_localidads.s_localidad as sis_localidad_id',
+            'sis_barrios.s_barrio as sis_barrio_id',
+            'sis_dependencias.s_telefono',
             'sis_dependencias.s_correo','sis_dependencias.sis_esta_id'])
             ->join('parametros','sis_dependencias.i_prm_sexo_id','=','parametros.id')
             ->join('sis_localidads','sis_dependencias.sis_localidad_id','=','sis_localidads.id')
@@ -42,13 +42,13 @@ Route::get('sis/dependencia', function (Request $request) {
 });
 
 Route::get('sis/user', function (Request $request) {
-    if (!$request->ajax()) return redirect('/'); 
+    if (!$request->ajax()) return redirect('/');
     return datatables()
         ->eloquent(User::select([
             'users.id',
             'users.name',
             'parametros.nombre'
-            ])            
+            ])
             ->join('sis_dependencia_user','users.id','=','sis_dependencia_user.user_id')
              ->join('parametros','sis_dependencia_user.i_prm_responsable_id','=','parametros.id')
             ->where('sis_dependencia_user.sis_dependencia_id',$request->dependen)
@@ -64,7 +64,7 @@ Route::get('sis/servicio', function (Request $request) {
         ->eloquent(SisServicio::select([
             'sis_servicios.id',
             'sis_servicios.s_servicio as sis_servicio_id',
-            'sis_dependencias.nombre as sis_dependencia_id', 
+            'sis_dependencias.nombre as sis_dependencia_id',
             'sis_servicios.sis_esta_id'])
             ->join('sis_dependencia_sis_servicio','sis_servicios.id','=','sis_dependencia_sis_servicio.sis_servicio_id')
             ->join('sis_dependencias','sis_dependencia_sis_servicio.sis_dependencia_id','=','sis_dependencias.id')
@@ -78,7 +78,7 @@ Route::get('sis/servicio', function (Request $request) {
 Route::get('sis/sisesta', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     return datatables()
-        ->eloquent(SisEsta::select(['id','s_estado','i_estado'])) 
+        ->eloquent(SisEsta::select(['id','s_estado','i_estado']))
         ->addColumn('btns', $request->botonesx)
         ->rawColumns(['btns'])
         ->toJson();
@@ -92,7 +92,7 @@ Route::get('sis/areauser', function (Request $request) {
     ->join('sis_estas','area_user.sis_esta_id','=','sis_estas.id')
     ->where('users.id',$request->userxxxx);
     return datatables()
-        ->eloquent($consulta) 
+        ->eloquent($consulta)
         ->addColumn('btns', $request->botonesx)
         ->addColumn('s_estado', $request->estadoxx)
         ->rawColumns(['btns','s_estado'])
@@ -110,12 +110,12 @@ Route::get('sis/sisareas', function (Request $request) {
         ->eloquent(Area::select(['areas.id','areas.nombre','sis_estas.s_estado','areas.sis_esta_id'])
         ->join('sis_estas','areas.sis_esta_id','=','sis_estas.id')
         ->whereNotIn('areas.id',$notinxxx)
-        ) 
+        )
         ->addColumn('btns', $request->botonesx)
         ->addColumn('s_estado', $request->estadoxx)
         ->rawColumns(['btns','s_estado'])
-        
-        
+
+
         ->toJson();
 });
 

@@ -14,7 +14,6 @@ class SisDependenciaCrearRequest extends FormRequest
 
         $this->_mensaje = [
             's_observacion.required' => 'Ingrese una observación para el registro',
-            'i_tiempo.required' => 'Seleccione el tiempo de actualización',
             's_correo.required' => 'Ingrese un correo',
             's_telefono.required' => 'Igrese un telefono',
             'sis_barrio_id.required' => 'Seleccione un barrio',
@@ -28,7 +27,6 @@ class SisDependenciaCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             's_observacion' => ['required'],
-            'i_tiempo' => ['required'],
             's_correo' => ['required'],
             's_telefono' => ['required'],
             'sis_barrio_id' => ['required'],
