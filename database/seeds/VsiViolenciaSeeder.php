@@ -7,7 +7,7 @@ class VsiViolenciaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Sección 4
+     * Sección 4 .
      * @return void
      */
     public function run()
