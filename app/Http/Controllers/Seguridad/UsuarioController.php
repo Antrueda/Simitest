@@ -81,9 +81,9 @@ class UsuarioController extends Controller
     private function getTablaArea($dataxxxx)
     {
         $this->opciones['tablasxx'] = [
-            
+
         ];
-        
+
         $this->opciones['tablasxx'][0]['permisox'] = 'usuario';
         $this->opciones['tablasxx'][0]['tablenax'] = 'areasuser';
         $this->opciones['tablasxx'][0]['vercrear'] = false;
@@ -133,7 +133,7 @@ class UsuarioController extends Controller
     private function view($objetoxx, $nombobje, $accionxx)
     {
         $this->opciones['accionxx'] = $accionxx;
-        // ddd($objetoxx);  
+        // ddd($objetoxx);
         //
         $this->opciones['sis_esta_id'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['sis_cargo_id'] = SisCargo::combo();
@@ -147,8 +147,8 @@ class UsuarioController extends Controller
         $this->opciones['sis_municipio_id'] = ['' => 'Seleccione'];
         if ($nombobje != '') {
             $this->getTablaArea(['userxxxx'=>$objetoxx->id]);
-            
-            $objetoxx->d_carga = explode(' ', Carbon::now()->subDays($objetoxx->i_tiempo))[0];
+            $objetoxx->dtiestan = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiestan days"));
+            $objetoxx->dtiegabe = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiegabe days"));
             $this->opciones['sis_municipio_id'] = SisMunicipio::combo($objetoxx->sis_municipio->sis_departamento_id, false);
             $objetoxx->sis_departamento_id = $objetoxx->sis_municipio->sis_departamento_id;
             $this->opciones[$nombobje] = $objetoxx;
@@ -174,7 +174,7 @@ class UsuarioController extends Controller
     }
     public function create()
     {
-		
+
         return $this->view('', '', 'Crear');
     }
     private function transaccion($dataxxxx, $editcrea, $objetoxx)
@@ -370,7 +370,7 @@ class UsuarioController extends Controller
 
     public function setAreas(\Illuminate\Http\Request $request)
     {
-        if ($request->ajax()) { 
+        if ($request->ajax()) {
             $userxxxx=User::where('id',$request->usuariox)->first();
             $userxxxx->areas()->attach([$request->areaxxxx=>['sis_esta_id'=>1,'user_crea_id'=>Auth::user()->id,
             'user_edita_id'=>Auth::user()->id]]);
@@ -392,7 +392,7 @@ class UsuarioController extends Controller
                 $sisestai=1;
                 $mensajex='activada';
             }
-            
+
             $userxxxx->update(['sis_esta_id'=>$sisestai,'user_crea_id'=>Auth::user()->id,
             'user_edita_id'=>Auth::user()->id]);
             return response()->json(
@@ -400,5 +400,5 @@ class UsuarioController extends Controller
             );
         }
     }
-    
+
 }

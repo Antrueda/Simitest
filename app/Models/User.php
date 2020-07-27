@@ -45,7 +45,8 @@ class User extends Authenticatable
     'prm_documento_id',
     'sis_municipio_id',
     's_observacion',
-    'i_tiempo'
+    'itiestan',
+    'itiegabe'
   ];
 
   /**
@@ -327,7 +328,7 @@ class User extends Authenticatable
 
     $dataxxxx['notinxxx'] = $notinxxx;
     $comboxxx = User::userCombo($dataxxxx);
-    /** 
+    /**
      * cuando es editar
      */
 
