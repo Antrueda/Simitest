@@ -18,6 +18,8 @@ use App\Imports\Vsi\VsiConceptoImport;
 use App\Imports\Vsi\VsiConsumoExpectativaImport;
 use App\Imports\Vsi\VsiConsumoImport;
 use App\Imports\Vsi\VsiConsumoQuienImport;
+use App\Imports\Vsi\VsiEduDiftipoAImport;
+use App\Imports\Vsi\VsiEduDiftipoBImport;
 use App\Imports\Vsi\VsiEstEmocionalImport;
 use App\Imports\Vsi\VsiFacProtectorImport;
 use App\Imports\Vsi\VsiFacRiesgoImport;
@@ -53,6 +55,8 @@ use App\Models\consulta\pivotes\CsdDinfamProblema;
 use App\Models\sicosocial\Pivotes\VsiConcepRed;
 use App\Models\sicosocial\Pivotes\VsiConsumoExpectativa;
 use App\Models\sicosocial\Pivotes\VsiConsumoQuien;
+use App\Models\sicosocial\Pivotes\VsiEduDiftipoA;
+use App\Models\sicosocial\Pivotes\VsiEduDiftipoB;
 use App\Models\sicosocial\Pivotes\VsiRedsocAceso;
 use App\Models\sicosocial\Pivotes\VsiRelfamMotivo;
 use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
@@ -177,38 +181,16 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiGenIngreso::get();
+        $dataxxxx = VsiEduDiftipoB::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiGenIngreso::create([
-                'vsi_id' => {$registro->vsi_id},
-                'prm_actividad_id' => {$registro->prm_actividad_id},
-                'trabaja' => '{$registro->trabaja}',
-                'prm_informal_id' => {$registro->prm_informal_id},
-                'prm_otra_id' => {$registro->prm_otra_id},
-                'prm_no_id' => {$registro->prm_no_id},
-                'cuanto' => {$registro->cuanto},
-                'prm_periodo_id' => {$registro->prm_periodo_id},
-                'jornada_entre' => {$registro->jornada_entre},
-                'prm_jor_entre_id' => {$registro->prm_jor_entre_id},
-                'jornada_a' => {$registro->jornada_a},
-                'prm_jor_a_id' => {$registro->prm_jor_a_id},
-                'prm_frecuencia_id' => {$registro->prm_frecuencia_id},
-                'aporte' => {$registro->aporte},
-                'prm_laboral_id' => {$registro->prm_laboral_id},
-                'prm_aporta_id' => {$registro->prm_aporta_id},
-                'porque' => '{$registro->porque}',
-                'cuanto_aporta' => {$registro->cuanto_aporta},
-                'expectativa' => '{$registro->expectativa}',
-                'descripcion' => '{$registro->descripcion}',
+            echo "VsiEduDiftipoB::create([
+                'parametro_id' => {$registro->parametro_id},
+                'vsi_educacion_id' => {$registro->vsi_educacion_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
-                'sis_esta_id' => {$registro->sis_esta_id},
-                'created_at' => '{$registro->created_at}',
-                'updated_at' => '{$registro->updated_at}',
             ]); <br />";;
         }
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -219,7 +201,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiGenIngresoImport(), $excelxxx);
+        Excel::import(new VsiEduDiftipoBImport(), $excelxxx);
 //        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }

@@ -2079,6 +2079,7 @@ class TemasTableSeeder extends Seeder
             875 => $camposmagicos,
             915 => $camposmagicos,
             916 => $camposmagicos,
+            926 => $camposmagicos,
             2316=> $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 195, 'nombre' => 'SENTIMIENTOS Y  EMOCIONES  VI']);
