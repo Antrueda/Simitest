@@ -2107,7 +2107,7 @@ class TemasTableSeeder extends Seeder
             1857 => $camposmagicos,
             1783 => $camposmagicos,
             1858 => $camposmagicos,
-            2316=> $camposmagicos,
+            2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 196, 'nombre' => 'NIVELES LÍNEA BASE']);
         // $tema->parametros()->sync([
