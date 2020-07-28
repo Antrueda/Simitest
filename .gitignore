@@ -16,3 +16,4 @@ composer.lock
 *.lock
 composer.lock
 .DS_Store
+/app/Http/Controllers/Administracion/excelcontroller.php

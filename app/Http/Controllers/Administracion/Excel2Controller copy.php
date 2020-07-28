@@ -3,99 +3,21 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Imports\Csd\CsdAlimentCompraImport;
-use App\Imports\Csd\CsdAlimentFrecImport;
-use App\Imports\Csd\CsdAlimentIngeImport;
-use App\Imports\Csd\CsdAlimentPreparaImport;
-use App\Imports\Csd\CsdBienvenidaImport;
 use App\Imports\Csd\CsdBienvenidaMotivosImport;
-use App\Imports\Csd\CsdDinfamAntecedenteImport;
-use App\Imports\Csd\CsdDinfamEstablecenImport;
-use App\Imports\Csd\CsdDinFamiliarImport;
-use App\Imports\Csd\CsdDinfamIncumpleImport;
-use App\Imports\Csd\CsdDinfamProblemaImport;
-use App\Imports\Csd\CsdViolenciaImport;
-use App\Imports\Vsi\VsiAbuSexualImport;
-use App\Imports\Vsi\VsiConcepRedImport;
-use App\Imports\Vsi\VsiConceptoImport;
-use App\Imports\Vsi\VsiConsumoExpectativaImport;
-use App\Imports\Vsi\VsiConsumoImport;
-use App\Imports\Vsi\VsiConsumoQuienImport;
-use App\Imports\Vsi\VsiDinfamAusenciaImport;
-use App\Imports\Vsi\VsiDinfamCuidadorImport;
-use App\Imports\Vsi\VsiDinFamiliarImport;
-use App\Imports\Vsi\VsiDinfamMadreImport;
-use App\Imports\Vsi\VsiEduDiftipoAImport;
-use App\Imports\Vsi\VsiEduDiftipoBImport;
-use App\Imports\Vsi\VsiEstEmocionalImport;
-use App\Imports\Vsi\VsiFacProtectorImport;
-use App\Imports\Vsi\VsiFacRiesgoImport;
-use App\Imports\Vsi\VsiGenIngresoImport;
-use App\Imports\Vsi\VsiMetaImport;
-use App\Imports\Vsi\VsiPotencialidadImport;
 use App\Models\sistema\SisEsta;
 
-use App\Models\sicosocial\VsiAbuSexual;
 
 
-use App\Imports\Vsi\VsiRedsocAcesoImport;
-use App\Imports\Vsi\VsiRedsocActualImport;
-use App\Imports\Vsi\VsiRedSocialImport;
-use App\Imports\Vsi\VsiRedsocPasadoImport;
-use App\Imports\Vsi\VsiRelFamiliarImport;
-use App\Imports\Vsi\VsiRelfamMotivoImport;
-use App\Imports\Vsi\VsiRelSocialesImport;
-use App\Imports\Vsi\VsiRelSolDificultaImport;
-use App\Imports\Vsi\VsiRelSolFacilitaImport;
-use App\Imports\Vsi\VsiVioContextoImport;
-use App\Imports\Vsi\VsiViolenciaImport;
-use App\Imports\Vsi\VsiVioTipoImport;
-use App\Models\consulta\CsdBienvenida;
-use App\Models\consulta\CsdDinFamiliar;
-use App\Models\consulta\CsdViolencia;
-use App\Models\consulta\pivotes\CsdAlimentCompra;
-use App\Models\consulta\pivotes\CsdAlimentFrec;
-use App\Models\consulta\pivotes\CsdAlimentInge;
-use App\Models\consulta\pivotes\CsdAlimentPrepara;
+
+
 use App\Models\consulta\pivotes\CsdBienvenidaMotivos;
-use App\Models\consulta\pivotes\CsdDinfamAntecedente;
-use App\Models\consulta\pivotes\CsdDinfamEstablecen;
-use App\Models\consulta\pivotes\CsdDinfamIncumple;
-use App\Models\consulta\pivotes\CsdDinfamProblema;
-use App\Models\sicosocial\Pivotes\VsiConcepRed;
-use App\Models\sicosocial\Pivotes\VsiConsumoExpectativa;
-use App\Models\sicosocial\Pivotes\VsiConsumoQuien;
-use App\Models\sicosocial\Pivotes\VsiDinfamAusencia;
-use App\Models\sicosocial\Pivotes\VsiDinfamCuidador;
-use App\Models\sicosocial\Pivotes\VsiDinFamiliar;
-use App\Models\sicosocial\Pivotes\VsiDinfamMadre;
-use App\Models\sicosocial\Pivotes\VsiEduDiftipoA;
-use App\Models\sicosocial\Pivotes\VsiEduDiftipoB;
-use App\Models\sicosocial\Pivotes\VsiRedsocAceso;
-use App\Models\sicosocial\Pivotes\VsiRelfamMotivo;
-use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
-use App\Models\sicosocial\Pivotes\VsiRelSolFacilita;
-use App\Models\sicosocial\Pivotes\VsiVioContexto;
-use App\Models\sicosocial\Pivotes\VsiVioTipo;
-use App\Models\sicosocial\VsiConcepto;
-use App\Models\sicosocial\VsiConsumo;
-use App\Models\sicosocial\VsiEstEmocional;
-use App\Models\sicosocial\VsiFacProtector;
-use App\Models\sicosocial\VsiFacRiesgo;
-use App\Models\sicosocial\VsiGenIngreso;
-use App\Models\sicosocial\VsiMeta;
-use App\Models\sicosocial\VsiPotencialidad;
-use App\Models\sicosocial\VsiRedsocActual;
-use App\Models\sicosocial\VsiRedSocial;
-use App\Models\sicosocial\VsiRedsocPasado;
-use App\Models\sicosocial\VsiRelFamiliar;
-use App\Models\sicosocial\VsiRelSociales;
-use App\Models\sicosocial\VsiViolencia;
+
+
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 
-class Excel2Controller extends Controller
+class ExcelController extends Controller
 {
     private $opciones;
 
@@ -194,9 +116,28 @@ class Excel2Controller extends Controller
 
     public function armarSeeder()
     {
-       
-       
+        $dataxxxx = CsdBienvenidaMotivos::get();
+        foreach ($dataxxxx as $registro) {
+            echo  "CsdBienvenidaMotivos::create([
+                'csd_bienvenidas_id' => {$registro->csd_bienvenidas_id},
+                'parametro_id' => {$registro->parametro_id},
+                'user_crea_id' => {$registro->user_crea_id},
+                'user_edita_id' => {$registro->user_edita_id},
+                'prm_tipofuen_id'=>{$registro->prm_tipofuen_id}
+                
+                
+            ]); <br />";;
+        }
     }
+/*
+            'csd_id'=> $row[0],
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1,
+            'prm_persona_id'=> $row[1],
+            'prm_tipofuen_id'=>2316,
+    ]); <br />";;
+*/
 
     /**
      * Store a newly created resource in storage.
