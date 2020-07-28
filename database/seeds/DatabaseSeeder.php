@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Models\consulta\pivotes\CsdBienvenidaMotivos;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -65,6 +65,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdComFamiliarObservacionesSeeder::class); // Jorge
         $this->call(CsdGenIngresoSeeder::class); // Jorge
         $this->call(CsdBienvenidaSeeder::class); // Jorge
+        //$this->call(CsdBienvenidaMotivosSeeder::class); // Jorge
         $this->call(InLineaBasesSeeder::class);
         $this->call(InFuentesSeeder::class);
         $this->call(InBaseFuentesSeeder::class);

@@ -7,6 +7,8 @@ use App\Imports\Csd\CsdAlimentCompraImport;
 use App\Imports\Csd\CsdAlimentFrecImport;
 use App\Imports\Csd\CsdAlimentIngeImport;
 use App\Imports\Csd\CsdAlimentPreparaImport;
+use App\Imports\Csd\CsdBienvenidaImport;
+use App\Imports\Csd\CsdBienvenidaMotivosImport;
 use App\Imports\Csd\CsdDinfamAntecedenteImport;
 use App\Imports\Csd\CsdDinfamEstablecenImport;
 use App\Imports\Csd\CsdDinFamiliarImport;
@@ -48,12 +50,14 @@ use App\Imports\Vsi\VsiRelSolFacilitaImport;
 use App\Imports\Vsi\VsiVioContextoImport;
 use App\Imports\Vsi\VsiViolenciaImport;
 use App\Imports\Vsi\VsiVioTipoImport;
+use App\Models\consulta\CsdBienvenida;
 use App\Models\consulta\CsdDinFamiliar;
 use App\Models\consulta\CsdViolencia;
 use App\Models\consulta\pivotes\CsdAlimentCompra;
 use App\Models\consulta\pivotes\CsdAlimentFrec;
 use App\Models\consulta\pivotes\CsdAlimentInge;
 use App\Models\consulta\pivotes\CsdAlimentPrepara;
+use App\Models\consulta\pivotes\CsdBienvenidaMotivos;
 use App\Models\consulta\pivotes\CsdDinfamAntecedente;
 use App\Models\consulta\pivotes\CsdDinfamEstablecen;
 use App\Models\consulta\pivotes\CsdDinfamIncumple;
@@ -190,26 +194,26 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = CsdAlimentPrepara::get();
+        $dataxxxx = CsdBienvenidaMotivos::get();
         foreach ($dataxxxx as $registro) {
-            echo  "CsdAlimentPrepara::create([
+            echo  "CsdBienvenidaMotivos::create([
+                'csd_bienvenidas_id' => {$registro->csd_bienvenidas_id},
                 'parametro_id' => {$registro->parametro_id},
-                'csd_alimentacion_id' => {$registro->csd_alimentacion_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 'prm_tipofuen_id'=>{$registro->prm_tipofuen_id}
+                
                 
             ]); <br />";;
         }
     }
 /*
-    echo "CsdDinfamAntecedente::create([
-        'parametro_id' => {$registro->parametro_id},
-        'csd_dinfamiliar_id' => {$registro->csd_dinfamiliar_id},
-        'user_crea_id' => {$registro->user_crea_id},
-        'user_edita_id' => {$registro->user_edita_id},
-        'prm_tipofuen_id'=>{$registro->prm_tipofuen_id}
-        
+            'csd_id'=> $row[0],
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1,
+            'prm_persona_id'=> $row[1],
+            'prm_tipofuen_id'=>2316,
     ]); <br />";;
 */
 
@@ -222,7 +226,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new CsdAlimentPreparaImport, $excelxxx);
+        Excel::import(new CsdBienvenidaMotivosImport, $excelxxx);
         return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }

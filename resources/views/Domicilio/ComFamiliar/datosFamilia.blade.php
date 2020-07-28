@@ -24,6 +24,7 @@
         <th>7.18</th>
         <th>7.19</th>
         <th >7.20</th>
+        <th>EPS</th>
         <th>Tiene Sisben</th>
         <th>7.21</th>
         <th>7.22</th>
@@ -86,6 +87,7 @@
           @else
             <td></td>
           @endif
+          <td>{{ $d->prm_sisben->nombre }}</td>
           <td>{{ $d->sisben }}</td>
           <td>{{ $d->discapacidad->nombre }}</td>
           @if (!empty($d->cualDiscapacidad->nombre))

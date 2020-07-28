@@ -25,6 +25,7 @@ class CsdBienvenidaController extends Controller{
     $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $personas = Tema::findOrFail(159)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $motivos  = Tema::findOrFail(63)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+   // ddd( $motivos);
 
     return view('Domicilio.index', ['accion' => 'Bienvenida'], compact('dato', 'nnajs', 'valor', 'sino', 'personas', 'motivos'));
   }

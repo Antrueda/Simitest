@@ -38,6 +38,8 @@ class CreateCsdBienvenidaTable extends Migration{
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_bienvenidas_id')->references('id')->on('csd_bienvenidas');
             $table->unique(['parametro_id', 'csd_bienvenidas_id']);
+            $table->bigInteger('prm_tipofuen_id')->unsigned();
+           $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             
         });
     }
