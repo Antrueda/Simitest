@@ -7,7 +7,7 @@ class VsiBienvenidaMotivoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Pregunta 2.1
+     * Pregunta 2.1.
      * @return void
      */
     public function run()

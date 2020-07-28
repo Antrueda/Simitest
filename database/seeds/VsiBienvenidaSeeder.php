@@ -7,7 +7,7 @@ class VsiBienvenidaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Seccción 2, Pregunta 2.2
+     * Seccción 2, Pregunta 2.2.
      * @return void
      */
     public function run()

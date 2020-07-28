@@ -2161,7 +2161,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2140, 'nombre' => 'NO QUIERO VERME EN LA CALLE OTRA VEZ']);
         Parametro::create(['id' => 2141, 'nombre' => 'ANTECEDENTE DE PRESUNTO AS']);
         Parametro::create(['id' => 2142, 'nombre' => 'EL BARRIO']);
-        Parametro::create(['id' => 2143, 'nombre' => 'INFORMACIóN FALTANTE EN LA MIGRACIóN DE BASE PLANA VALORACIóN SICOSOCIAL']);
+        Parametro::create(['id' => 2143, 'nombre' => 'INFORMACIÓN FALTANTE EN LA MIGRACIóN DE BASE PLANA VALORACIóN SICOSOCIAL']);
         Parametro::create(['id' => 2144, 'nombre' => 'PRIMA/ ABUELO/HERMANO']);
         Parametro::create(['id' => 2145, 'nombre' => 'NO HAY RELACION']);
         Parametro::create(['id' => 2146, 'nombre' => 'SOMO UNIDOS']);
@@ -2335,5 +2335,10 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2314, 'nombre' => '1996']);
         Parametro::create(['id' => 2315, 'nombre' => 'CREACION POR EL SISTEMA']);
         Parametro::create(['id' => 2316, 'nombre' => 'MIGRACION BASES PLANAS']);
+        
+        Parametro::create(['id' => 2317, 'nombre' => 'TALLER VOCACIONAL']);
+        Parametro::create(['id' => 2318, 'nombre' => 'IMPOTENTE']);
+        Parametro::create(['id' => 2320, 'nombre' => 'SUCESOS RELACIONADOS CON MUERTE']);
+        Parametro::create(['id' => 2321, 'nombre' => 'NADA']);
     }
 }
