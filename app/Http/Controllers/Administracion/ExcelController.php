@@ -13,6 +13,8 @@ use App\Imports\Csd\CsdDinfamIncumpleImport;
 use App\Imports\Csd\CsdDinfamProblemaImport;
 use App\Imports\Csd\CsdViolenciaImport;
 use App\Imports\Vsi\VsiAbuSexualImport;
+use App\Imports\Vsi\VsiBienvenidaImport;
+use App\Imports\Vsi\VsiBienvenidaMotivoImport;
 use App\Imports\Vsi\VsiConcepRedImport;
 use App\Imports\Vsi\VsiConceptoImport;
 use App\Imports\Vsi\VsiConsumoExpectativaImport;
@@ -56,6 +58,7 @@ use App\Models\consulta\pivotes\CsdAlimentPrepara;
 use App\Models\consulta\pivotes\CsdDinfamAntecedente;
 use App\Models\consulta\pivotes\CsdDinfamIncumple;
 use App\Models\consulta\pivotes\CsdDinfamProblema;
+use App\Models\sicosocial\Pivotes\VsiBienvenidaMotivo;
 use App\Models\sicosocial\Pivotes\VsiConcepRed;
 use App\Models\sicosocial\Pivotes\VsiConsumoExpectativa;
 use App\Models\sicosocial\Pivotes\VsiConsumoQuien;
@@ -71,6 +74,7 @@ use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
 use App\Models\sicosocial\Pivotes\VsiRelSolFacilita;
 use App\Models\sicosocial\Pivotes\VsiVioContexto;
 use App\Models\sicosocial\Pivotes\VsiVioTipo;
+use App\Models\sicosocial\VsiBienvenida;
 use App\Models\sicosocial\VsiConcepto;
 use App\Models\sicosocial\VsiConsumo;
 use App\Models\sicosocial\VsiEstEmocional;
@@ -188,18 +192,17 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiDinfamAusencia::get();
+        $dataxxxx = VsiBienvenidaMotivo::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiDinfamAusencia::create([
+            echo "VsiBienvenidaMotivo::create([
                 'parametro_id' => {$registro->parametro_id},
-                'vsi_dinfamiliar_id' => {$registro->vsi_dinfamiliar_id},
+                'vsi_bienvenida_id' => {$registro->vsi_bienvenida_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 
             ]); <br />";;
         }
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -210,7 +213,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiDinfamAusenciaImport(), $excelxxx);
+        Excel::import(new VsiBienvenidaMotivoImport(), $excelxxx);
 //        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
