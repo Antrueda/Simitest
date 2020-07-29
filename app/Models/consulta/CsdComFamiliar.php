@@ -86,7 +86,7 @@ class CsdComFamiliar extends Model{
     return $this->belongsTo(Parametro::class, 'prm_cualeps_id');
   }
 
-  public function sisben(){
+  public function prm_sisben(){
     return $this->belongsTo(Parametro::class, 'prm_sisben_id');
   }
 

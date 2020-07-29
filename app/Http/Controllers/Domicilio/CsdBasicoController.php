@@ -63,6 +63,7 @@ class CsdBasicoController extends Controller{
             $tPoblacion[$k] = $d;
         }
         $paises = SisPai::orderBy('s_pais')->pluck('s_pais', 'id');
+    
         $depajs = SisDepartamento::orderBy('s_departamento')->get();
         if(!$valor){
             $departamentos = $departamentos1 = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
@@ -74,7 +75,9 @@ class CsdBasicoController extends Controller{
         } else {
             if($valor->pais_id == 2){
                 $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
-                $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', $valor->departamento_id)->pluck('s_municipio', 'id');
+                $municipios = SisMunicipio::combo($valor->departamento_id,false) ;
+               // $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', $valor->departamento_id)->pluck('s_municipio', 'id');
+                //ddd($municipios);
             } else {
                 $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', '!=', 2)->pluck('s_departamento', 'id');
                 $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 1)->pluck('s_municipio', 'id');

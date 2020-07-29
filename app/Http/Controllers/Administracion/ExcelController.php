@@ -7,6 +7,11 @@ use App\Imports\Csd\CsdAlimentCompraImport;
 use App\Imports\Csd\CsdAlimentFrecImport;
 use App\Imports\Csd\CsdAlimentIngeImport;
 use App\Imports\Csd\CsdAlimentPreparaImport;
+<<<<<<< HEAD
+=======
+use App\Imports\Csd\CsdBienvenidaImport;
+use App\Imports\Csd\CsdBienvenidaMotivosImport;
+>>>>>>> 0a4a5b99ab1a9a30c3a7e174aadca93a0b0c4739
 use App\Imports\Csd\CsdDinfamAntecedenteImport;
 use App\Imports\Csd\CsdDinfamEstablecenImport;
 use App\Imports\Csd\CsdDinFamiliarImport;
@@ -14,8 +19,11 @@ use App\Imports\Csd\CsdDinfamIncumpleImport;
 use App\Imports\Csd\CsdDinfamProblemaImport;
 use App\Imports\Csd\CsdViolenciaImport;
 use App\Imports\Vsi\VsiAbuSexualImport;
+<<<<<<< HEAD
 use App\Imports\Vsi\VsiBienvenidaImport;
 use App\Imports\Vsi\VsiBienvenidaMotivoImport;
+=======
+>>>>>>> 0a4a5b99ab1a9a30c3a7e174aadca93a0b0c4739
 use App\Imports\Vsi\VsiConcepRedImport;
 use App\Imports\Vsi\VsiConceptoImport;
 use App\Imports\Vsi\VsiConsumoExpectativaImport;
@@ -28,7 +36,10 @@ use App\Imports\Vsi\VsiDinfamMadreImport;
 use App\Imports\Vsi\VsiEduDiftipoAImport;
 use App\Imports\Vsi\VsiEduDiftipoBImport;
 use App\Imports\Vsi\VsiEstEmocionalImport;
+<<<<<<< HEAD
 use App\Imports\Vsi\VsiEstemoEstresanteImport;
+=======
+>>>>>>> 0a4a5b99ab1a9a30c3a7e174aadca93a0b0c4739
 use App\Imports\Vsi\VsiFacProtectorImport;
 use App\Imports\Vsi\VsiFacRiesgoImport;
 use App\Imports\Vsi\VsiGenIngresoImport;
@@ -51,17 +62,28 @@ use App\Imports\Vsi\VsiRelSolFacilitaImport;
 use App\Imports\Vsi\VsiVioContextoImport;
 use App\Imports\Vsi\VsiViolenciaImport;
 use App\Imports\Vsi\VsiVioTipoImport;
+<<<<<<< HEAD
+=======
+use App\Models\consulta\CsdBienvenida;
+>>>>>>> 0a4a5b99ab1a9a30c3a7e174aadca93a0b0c4739
 use App\Models\consulta\CsdDinFamiliar;
 use App\Models\consulta\CsdViolencia;
 use App\Models\consulta\pivotes\CsdAlimentCompra;
 use App\Models\consulta\pivotes\CsdAlimentFrec;
 use App\Models\consulta\pivotes\CsdAlimentInge;
 use App\Models\consulta\pivotes\CsdAlimentPrepara;
+<<<<<<< HEAD
+=======
+use App\Models\consulta\pivotes\CsdBienvenidaMotivos;
+>>>>>>> 0a4a5b99ab1a9a30c3a7e174aadca93a0b0c4739
 use App\Models\consulta\pivotes\CsdDinfamAntecedente;
 use App\Models\consulta\pivotes\CsdDinfamEstablecen;
 use App\Models\consulta\pivotes\CsdDinfamIncumple;
 use App\Models\consulta\pivotes\CsdDinfamProblema;
+<<<<<<< HEAD
 use App\Models\sicosocial\Pivotes\VsiBienvenidaMotivo;
+=======
+>>>>>>> 0a4a5b99ab1a9a30c3a7e174aadca93a0b0c4739
 use App\Models\sicosocial\Pivotes\VsiConcepRed;
 use App\Models\sicosocial\Pivotes\VsiConsumoExpectativa;
 use App\Models\sicosocial\Pivotes\VsiConsumoQuien;
@@ -71,14 +93,20 @@ use App\Models\sicosocial\Pivotes\VsiDinFamiliar;
 use App\Models\sicosocial\Pivotes\VsiDinfamMadre;
 use App\Models\sicosocial\Pivotes\VsiEduDiftipoA;
 use App\Models\sicosocial\Pivotes\VsiEduDiftipoB;
+<<<<<<< HEAD
 use App\Models\sicosocial\Pivotes\VsiEstemoEstresante;
+=======
+>>>>>>> 0a4a5b99ab1a9a30c3a7e174aadca93a0b0c4739
 use App\Models\sicosocial\Pivotes\VsiRedsocAceso;
 use App\Models\sicosocial\Pivotes\VsiRelfamMotivo;
 use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
 use App\Models\sicosocial\Pivotes\VsiRelSolFacilita;
 use App\Models\sicosocial\Pivotes\VsiVioContexto;
 use App\Models\sicosocial\Pivotes\VsiVioTipo;
+<<<<<<< HEAD
 use App\Models\sicosocial\VsiBienvenida;
+=======
+>>>>>>> 0a4a5b99ab1a9a30c3a7e174aadca93a0b0c4739
 use App\Models\sicosocial\VsiConcepto;
 use App\Models\sicosocial\VsiConsumo;
 use App\Models\sicosocial\VsiEstEmocional;
@@ -97,7 +125,11 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 
+<<<<<<< HEAD
 class ExcelController extends Controller
+=======
+class Excel2Controller extends Controller
+>>>>>>> 0a4a5b99ab1a9a30c3a7e174aadca93a0b0c4739
 {
     private $opciones;
 
@@ -196,6 +228,7 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
+<<<<<<< HEAD
         $dataxxxx = VsiEstemoEstresante::get();
         foreach ($dataxxxx as $registro) {
             echo "VsiEstemoEstresante::create([
@@ -205,6 +238,10 @@ class ExcelController extends Controller
                 'user_edita_id' => {$registro->user_edita_id},
             ]); <br />";;
         }
+=======
+       
+       
+>>>>>>> 0a4a5b99ab1a9a30c3a7e174aadca93a0b0c4739
     }
 
     /**
@@ -216,7 +253,14 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
+<<<<<<< HEAD
         Excel::import(new VsiEstemoEstresanteImport(), $excelxxx);
         return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
+=======
+        Excel::import(new CsdBienvenidaMotivosImport, $excelxxx);
+        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
+    }
+}
+>>>>>>> 0a4a5b99ab1a9a30c3a7e174aadca93a0b0c4739
