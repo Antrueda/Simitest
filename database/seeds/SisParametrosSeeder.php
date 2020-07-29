@@ -8,7 +8,7 @@ class SisParametrosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * Listado de parámetros del sistema
      * @return void
      */
     public function run()
@@ -2335,10 +2335,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2314, 'nombre' => '1996']);
         Parametro::create(['id' => 2315, 'nombre' => 'CREACION POR EL SISTEMA']);
         Parametro::create(['id' => 2316, 'nombre' => 'MIGRACION BASES PLANAS']);
-        
-        Parametro::create(['id' => 2317, 'nombre' => 'TALLER VOCACIONAL']);
-        Parametro::create(['id' => 2318, 'nombre' => 'IMPOTENTE']);
-        Parametro::create(['id' => 2320, 'nombre' => 'SUCESOS RELACIONADOS CON MUERTE']);
-        Parametro::create(['id' => 2321, 'nombre' => 'NADA']);
+       
+
     }
 }
