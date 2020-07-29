@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 
-class ExcelController extends Controller
+class ExcelControllerX extends Controller
 {
     private $opciones;
 
