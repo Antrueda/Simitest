@@ -24,6 +24,7 @@ use App\Imports\Vsi\VsiConsumoQuienImport;
 use App\Imports\Vsi\VsiDinfamAusenciaImport;
 use App\Imports\Vsi\VsiDinfamCuidadorImport;
 use App\Imports\Vsi\VsiDinFamiliarImport;
+use App\Imports\Vsi\VsiDinfamLibertadImport;
 use App\Imports\Vsi\VsiDinfamMadreImport;
 use App\Imports\Vsi\VsiEduDiftipoAImport;
 use App\Imports\Vsi\VsiEduDiftipoBImport;
@@ -68,6 +69,7 @@ use App\Models\sicosocial\Pivotes\VsiConsumoQuien;
 use App\Models\sicosocial\Pivotes\VsiDinfamAusencia;
 use App\Models\sicosocial\Pivotes\VsiDinfamCuidador;
 use App\Models\sicosocial\Pivotes\VsiDinFamiliar;
+use App\Models\sicosocial\Pivotes\VsiDinfamLibertad;
 use App\Models\sicosocial\Pivotes\VsiDinfamMadre;
 use App\Models\sicosocial\Pivotes\VsiEduDiftipoA;
 use App\Models\sicosocial\Pivotes\VsiEduDiftipoB;
@@ -194,56 +196,40 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiEstEmocional::get();
+        $dataxxxx = VsiAbuSexual::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiEstEmocional::create([
+            echo "VsiAbuSexual::create([
                 'vsi_id' => {$registro->vsi_id},
-                'prm_siente_id' => {$registro->prm_siente_id},
-                'prm_contexto_id' => {$registro->prm_contexto_id},
-                'descripcion_siente' => '{$registro->descripcion_siente}',
-                'prm_reacciona_id' => {$registro->prm_reacciona_id},
-                'descripcion_reacciona' => '{$registro->descripcion_reacciona}',
-                'descripcion_adecuado' =>' {$registro->descripcion_adecuado}',
-                'descripcion_dificulta' => '{$registro->descripcion_dificulta}',
-                'prm_estresante_id' => {$registro->prm_estresante_id},
-                'descripcion_estresante' => '{$registro->descripcion_estresante}',
-                'prm_morir_id' => {$registro->prm_morir_id},
-                'dia_morir' => {$registro->dia_morir},
-                'mes_morir' => {$registro->mes_morir},
-                'ano_morir' => {$registro->ano_morir},
-                'prm_pensamiento_id' => {$registro->prm_pensamiento_id},
-                'prm_amenaza_id' => {$registro->prm_amenaza_id},
-                'prm_intento_id' => {$registro->prm_intento_id},
-                'ideacion' => {$registro->ideacion},
-                'amenaza' => {$registro->amenaza},
-                'intento' => {$registro->intento},
-                'prm_riesgo_id' => {$registro->prm_riesgo_id},
-                'dia_ultimo' => {$registro->dia_ultimo},
-                'mes_ultimo' => {$registro->mes_ultimo},
-                'ano_ultimo' => {$registro->ano_ultimo},
-                'descripcion_motivo' => '{$registro->descripcion_motivo}',
-                'prm_lesiva_id' => {$registro->prm_lesiva_id},
-                'descripcion_lesiva' => '{$registro->descripcion_lesiva}',
-                'prm_sueno_id' => {$registro->prm_sueno_id},
-                'dia_sueno' => {$registro->dia_sueno},
-                'mes_sueno' => {$registro->mes_sueno},
-                'ano_sueno' => {$registro->ano_sueno},
-                'descripcion_sueno' => '{$registro->descripcion_sueno}',
-                'prm_alimenticio_id' => {$registro->prm_alimenticio_id},
-                'dia_alimenticio' => {$registro->dia_alimenticio},
-                'mes_alimenticio' => {$registro->mes_alimenticio},
-                'ano_alimenticio' => {$registro->ano_alimenticio},
-                'descripcion_alimenticio' => '{$registro->descripcion_alimenticio}',
+                'prm_evento_id' => {$registro->prm_evento_id},
+                'dia' => {$registro->dia},
+                'mes' => {$registro->mes},
+                'ano' => {$registro->ano},
+                'prm_momento_id' => {$registro->prm_momento_id},
+
+                'prm_tipo_id' => {$registro->prm_tipo_id},
+                'dia_ult' => {$registro->dia_ult},
+                'mes_ult' => {$registro->mes_ult},
+                'ano_ult' => {$registro->ano_ult},
+                'prm_momento_ult_id' => {$registro->prm_momento_ult_id},
+                'prm_persona_ult_id' => {$registro->prm_persona_ult_id},
+                'prm_tipo_ult_id' => {$registro->prm_tipo_ult_id},
+                'prm_convive_id' => {$registro->prm_convive_id},
+                'prm_presencia_id' => {$registro->prm_presencia_id},
+                'prm_reconoce_id' => {$registro->prm_reconoce_id},
+                'prm_apoyo_id' => {$registro->prm_apoyo_id},
+                'prm_denuncia_id' => {$registro->prm_denuncia_id},
+                'prm_terapia_id' => {$registro->prm_terapia_id},
+                'prm_estado_id' => {$registro->prm_estado_id},
+                'informacion' => '{$registro->informacion}',
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 'sis_esta_id' => {$registro->sis_esta_id},
                 'created_at' => '{$registro->created_at}',
                 'updated_at' => '{$registro->updated_at}',
-                
+                                
             ]); <br />";;
         }
     }
-
 
 
     /**
@@ -255,7 +241,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiEstEmocionalImport(), $excelxxx);
+        Excel::import(new VsiAbuSexualImport(), $excelxxx);
         return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
