@@ -1124,6 +1124,9 @@ class TemasTableSeeder extends Seeder
             493 => $camposmagicos,
             520 => $camposmagicos,
             534 => $camposmagicos,
+            546 => $camposmagicos,
+            1639 => $camposmagicos,
+            2150 => $camposmagicos,
             2316=> $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 99, 'nombre' => 'TIPOLOGIA DE HOGAR']);
