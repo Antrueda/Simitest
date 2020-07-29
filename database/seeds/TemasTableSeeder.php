@@ -1872,6 +1872,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 170, 'nombre' => 'CÓMO SE SIENTE LA MAYOR PARTE DEL TIEMPO? VI']);
         $tema->parametros()->sync([
+            28 => $camposmagicos,
             282 => $camposmagicos,
             875 => $camposmagicos,
             909 => $camposmagicos,
@@ -1881,7 +1882,8 @@ class TemasTableSeeder extends Seeder
             916 => $camposmagicos,
             952 => $camposmagicos,
             970 => $camposmagicos,
-            2316=> $camposmagicos,
+            1739 => $camposmagicos,
+            2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 171, 'nombre' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI']);
         $tema->parametros()->sync([
