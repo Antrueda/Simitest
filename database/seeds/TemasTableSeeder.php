@@ -2092,6 +2092,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 195, 'nombre' => 'SENTIMIENTOS Y  EMOCIONES  VI']);
         $tema->parametros()->sync([
+            28 => $camposmagicos,
             917 => $camposmagicos,
             918 => $camposmagicos,
             919 => $camposmagicos,
@@ -2110,6 +2111,7 @@ class TemasTableSeeder extends Seeder
             1857 => $camposmagicos,
             1783 => $camposmagicos,
             1858 => $camposmagicos,
+            1895 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 196, 'nombre' => 'NIVELES LÍNEA BASE']);
