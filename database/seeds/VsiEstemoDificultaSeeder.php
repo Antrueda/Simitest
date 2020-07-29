@@ -12,13 +12,13 @@ class VsiEstemoDificultaSeeder extends Seeder
      */
     public function run()
     {
-        VsiEstemoDificulta::create(['parametro_id' => 807, 'vsi_estemocional_id' => 34, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiEstemoDificulta::create(['parametro_id' => 807, 'vsi_estemocional_id' => 46, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiEstemoDificulta::create(['parametro_id' => 807, 'vsi_estemocional_id' => 73, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiEstemoDificulta::create(['parametro_id' => 807, 'vsi_estemocional_id' => 144, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiEstemoDificulta::create(['parametro_id' => 807, 'vsi_estemocional_id' => 151, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiEstemoDificulta::create(['parametro_id' => 807, 'vsi_estemocional_id' => 286, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiEstemoDificulta::create(['parametro_id' => 807, 'vsi_estemocional_id' => 307, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiEstemoDificulta::create(['parametro_id' => 28, 'vsi_estemocional_id' => 34, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiEstemoDificulta::create(['parametro_id' => 28, 'vsi_estemocional_id' => 46, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiEstemoDificulta::create(['parametro_id' => 28, 'vsi_estemocional_id' => 73, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiEstemoDificulta::create(['parametro_id' => 28, 'vsi_estemocional_id' => 144, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiEstemoDificulta::create(['parametro_id' => 28, 'vsi_estemocional_id' => 151, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiEstemoDificulta::create(['parametro_id' => 28, 'vsi_estemocional_id' => 286, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiEstemoDificulta::create(['parametro_id' => 28, 'vsi_estemocional_id' => 307, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiEstemoDificulta::create(['parametro_id' => 917, 'vsi_estemocional_id' => 3, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiEstemoDificulta::create(['parametro_id' => 917, 'vsi_estemocional_id' => 12, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
         VsiEstemoDificulta::create(['parametro_id' => 917, 'vsi_estemocional_id' => 37, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
