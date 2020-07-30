@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateFiBienvenidasTable extends Migration
+class CreateHFiBienvenidasTable extends Migration
 {
-    private $tablaxxx = 'fi_bienvenidas';
+    private $tablaxxx = 'h_fi_bienvenidas';
     /**
      * Run the migrations.
      *
@@ -15,7 +15,7 @@ class CreateFiBienvenidasTable extends Migration
      */
     public function up()
     {
-        Schema::create('fi_bienvenidas', function (Blueprint $table) {
+        Schema::create('h_fi_bienvenidas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_quiere_entrar_id')->unsigned();
             $table->bigInteger('sis_dependencia_id')->unsigned();
@@ -27,16 +27,10 @@ class CreateFiBienvenidasTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            
             $table->timestamps();
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
-            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('i_prm_quiere_entrar_id')->references('id')->on('parametros');
-            $table->foreign('sis_dependencia_id')->references('id')->on('sis_dependencias');
-            $table->foreign('i_prm_servicio_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS MOTIVOS POR LOS QUE SE VINCULA UNA PERSONA A LOS SERVICIOS DEL IDIPRON.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
