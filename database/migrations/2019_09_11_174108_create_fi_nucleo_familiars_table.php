@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateFiNucleoFamiliarsTable extends Migration
 {
+    private $tablaxxx = 'fi_nucleo_familiars';
     /**
      * Run the migrations.
      *
@@ -13,18 +15,18 @@ class CreateFiNucleoFamiliarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fi_nucleo_familiars', function (Blueprint $table) {
-            
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('i_en_uso');
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO QUE DESCRIBE EL NÚCLEO FAMILIAR DE UN NNAJ.'");
     }
 
     /**
@@ -34,6 +36,6 @@ class CreateFiNucleoFamiliarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fi_nucleo_familiars');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }
