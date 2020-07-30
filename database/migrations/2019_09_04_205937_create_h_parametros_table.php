@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
-class CreateSisCargosTable extends Migration
+class CreateHParametrosTable extends Migration
 {
-    private $tablaxxx = 'sis_cargos';
+    private $tablaxxx = 'h_parametros';
     /**
      * Run the migrations.
      *
@@ -17,16 +17,12 @@ class CreateSisCargosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('s_cargo');
-            $table->Integer('itiestan')->default(0);
-            $table->Integer('itiegabe')->default(0);
+            $table->string('nombre')->unique();
             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DE LOS CARGOS DE LOS USUARIOS DEL SISTEMA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**
