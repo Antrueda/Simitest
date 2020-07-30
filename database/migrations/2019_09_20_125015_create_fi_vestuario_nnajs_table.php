@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateFiVestuarioNnajsTable extends Migration
 {
+    private $tablaxxx = 'fi_vestuario_nnajs';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateFiVestuarioNnajsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fi_vestuario_nnajs', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
@@ -36,6 +38,7 @@ class CreateFiVestuarioNnajsTable extends Migration
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL VESTUARIO BRINDADO A LOS NNAJ.'");
     }
 
     /**
@@ -45,6 +48,6 @@ class CreateFiVestuarioNnajsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fi_vestuario_nnajs');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }
