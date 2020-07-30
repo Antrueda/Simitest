@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateSisDependenciasTable extends Migration
+class CreateHSisDependenciasTable extends Migration
 {
-    private $tablaxxx = 'sis_dependencias';
+    private $tablaxxx = 'h_sis_dependencias';
     /**
      * Run the migrations.
      *
@@ -35,22 +35,9 @@ class CreateSisDependenciasTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned();
+
             $table->timestamps();
-
-
-            $table->foreign('i_prm_cvital_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_tdependen_id')->references('id')->on('parametros');
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->foreign('sis_dependencia_id')->references('id')->on('sis_dependencias');
-            $table->foreign('i_prm_sexo_id')->references('id')->on('parametros');
-            $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
-            $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
-            // $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
-            $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS DEPENDENCIAS DEL IDIPRON CONTENIENDO LOS DATOS DE UBICACIÓN Y DE CONTACTO'");
     }
 
     /**
