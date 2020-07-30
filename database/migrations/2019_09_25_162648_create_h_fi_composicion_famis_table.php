@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateFiComposicionFamisTable extends Migration
+class CreateHFiComposicionFamisTable extends Migration
 {
-    private $tablaxxx = 'fi_composicion_famis';
+    private $tablaxxx = 'h_fi_composicion_famis';
     /**
      * Run the migrations.
      *
@@ -37,21 +37,9 @@ class CreateFiComposicionFamisTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('sis_pai_id')->references('id')->on('sis_pais');
-            $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
-            $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
-            $table->foreign('user_edita_id')->references('id')->on('users');
-            $table->foreign('i_prm_parentesco_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_ocupacion_id')->references('id')->on('parametros');
-            $table->foreign('prm_documento_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_vinculado_idipron_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_convive_nnaj_id')->references('id')->on('parametros');
-            $table->foreign('fi_nucleo_familiar_id')->references('id')->on('fi_nucleo_familiars');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BÁSICOS DE LAS PERSONAS REGISTRADAS USANDO LA FICHA DE INGRESO.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
