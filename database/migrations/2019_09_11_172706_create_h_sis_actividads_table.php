@@ -16,7 +16,7 @@ class CreateHSisActividadsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('nombre');
             $table->bigInteger('sis_documento_fuente_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
