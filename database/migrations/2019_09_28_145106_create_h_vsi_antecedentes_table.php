@@ -15,7 +15,7 @@ class CreateHVsiAntecedentesTable extends Migration
      */
     public function up()
     {
-        Schema::create('h_vsi_antecedentes', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
             $table->string('descripcion', 4000);

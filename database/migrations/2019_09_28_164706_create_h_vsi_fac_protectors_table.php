@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateVsiFacProtectorsTable extends Migration
+class CreateHVsiFacProtectorsTable extends Migration
 {
-    private $tablaxxx = 'vsi_fac_protectors';
+    private $tablaxxx = 'h_vsi_fac_protectors';
     /**
      * Run the migrations.
      *
@@ -22,14 +22,9 @@ class CreateVsiFacProtectorsTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-
-            $table->foreign('vsi_id')->references('id')->on('vsis');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS FACTORES PROTECTORES DE UN NNAJ, PERTENECE A LA SECCIÓN 17 DE LA FICHA SICOSOCIAL.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
