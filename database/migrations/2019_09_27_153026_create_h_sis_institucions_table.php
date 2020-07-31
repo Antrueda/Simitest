@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateSisInstitucionsTable extends Migration
+class CreateHSisInstitucionsTable extends Migration
 {
-    private $tablaxxx = 'sis_institucions';
+    private $tablaxxx = 'h_sis_institucions';
     /**
      * Run the migrations.
      *
@@ -21,12 +21,9 @@ class CreateSisInstitucionsTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LAS INSTITUCIONES.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
