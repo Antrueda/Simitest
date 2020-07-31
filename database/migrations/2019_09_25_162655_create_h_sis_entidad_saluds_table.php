@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateSisEntidadSaludsTable extends Migration
+class CreateHSisEntidadSaludsTable extends Migration
 {
-    private $tablaxxx = 'sis_entidad_saluds';
+    private $tablaxxx = 'h_sis_entidad_saluds';
     /**
      * Run the migrations.
      *
@@ -22,12 +22,9 @@ class CreateSisEntidadSaludsTable extends Migration
             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-
-            $table->foreign('i_prm_tentidad_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CLASIFICACIÓN DE LAS EPS.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
