@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateVsiAntecedentesTable extends Migration
+class CreateHVsiAntecedentesTable extends Migration
 {
-    private $tablaxxx = 'vsi_antecedentes';
+    private $tablaxxx = 'h_vsi_antecedentes';
     /**
      * Run the migrations.
      *
@@ -15,21 +15,16 @@ class CreateVsiAntecedentesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vsi_antecedentes', function (Blueprint $table) {
+        Schema::create('h_vsi_antecedentes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
             $table->string('descripcion', 4000);
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-
-            $table->foreign('vsi_id')->references('id')->on('vsis');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS ANTECEDENTES DE LOS NNAJ.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
