@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreatePasswordResetsTable extends Migration
+class CreateHPasswordResetsTable extends Migration
 {
-    private $tablaxxx = 'password_resets';
+    private $tablaxxx = 'h_password_resets';
     /**
      * Run the migrations.
      *
@@ -18,10 +18,9 @@ class CreatePasswordResetsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->string('email')->index();
             $table->string('token');
-            $table->timestamp('created_at')->nullable();
-            
+            $table->timestamps();
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS REINICIOS DE CLAVE DE ACCESO DE LOS USUARIOS DEL SISTEMA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
