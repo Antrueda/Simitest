@@ -7,11 +7,11 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDepen;
 
 class FiBienvenida extends Model{
   protected $fillable = [
-    'sis_dependencia_id',
+    'sis_depen_id',
     'i_prm_quiere_entrar_id',
     'i_prm_servicio_id',
     's_porque_quiere_entrar',
@@ -25,7 +25,7 @@ class FiBienvenida extends Model{
   protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
   public function dependencia(){
-    return $this->belongsTo(SisDependencia::class, 'sis_dependencia_id');
+    return $this->belongsTo(SisDepen::class, 'sis_depen_id');
   }
 
   public function creador()

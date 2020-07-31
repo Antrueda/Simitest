@@ -71,6 +71,23 @@ class RolesYPermisosSeeder extends Seeder
         Permission::create(['name' => 'dependencia-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Permission::create(['name' => 'dependencia-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
+        /**
+         * servicios que ofrece la dependencia
+         */
+        $grupliba = 'servdepe';
+        Permission::create(['name' =>  $grupliba . '-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        /**
+         * usuarios de la dependencia
+         */
+        $grupliba = 'usuadepe';
+        Permission::create(['name' =>  $grupliba . '-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
         // crear ficha de documentoFuente
         Permission::create(['name' => 'documentoFuente-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Permission::create(['name' => 'documentoFuente-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
@@ -701,11 +718,11 @@ class RolesYPermisosSeeder extends Seeder
         Permission::create(['name' => 'fossubtipo-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
 
-//permisos para el cargue excel
-Permission::create(['name' => 'excel-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-Permission::create(['name' => 'excel-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-Permission::create(['name' => 'excel-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-Permission::create(['name' => 'excel-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        //permisos para el cargue excel
+        Permission::create(['name' => 'excel-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' => 'excel-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' => 'excel-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' => 'excel-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
 
 

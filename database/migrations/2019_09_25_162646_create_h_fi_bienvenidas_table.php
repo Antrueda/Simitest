@@ -18,7 +18,7 @@ class CreateHFiBienvenidasTable extends Migration
         Schema::create('h_fi_bienvenidas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_quiere_entrar_id')->unsigned();
-            $table->bigInteger('sis_dependencia_id')->unsigned();
+            $table->bigInteger('sis_depen_id')->unsigned();
             $table->bigInteger('i_prm_servicio_id')->unsigned();
             $table->text('s_porque_quiere_entrar');
             $table->text('s_que_gustaria_hacer');

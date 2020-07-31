@@ -19,27 +19,28 @@ $(document).ready(function() {
 			{data:'{{ $columnsx["data"] }}',name:'{{ $columnsx["name"] }}'},
       @endforeach
     ],
-    
+
     	"language": {
            	"url": "{{ url('/adminlte/plugins/datatables/Spanish.lang') }}"
        	}
     });
 
 
-  
- 
-    
+
+
+
 
 
 
 } );
+
 $(function(){
   $('#{{ $tableName }} tbody').on( 'click', 'tr', function () {
-  
+
         if ( $(this).hasClass('btn-success') ) {
             $(this).removeClass('btn-success');
         }
-        else { 
+        else {
             table.$('tr.btn-success').removeClass('odd btn-success');
             $(this).addClass('btn-success');
         }

@@ -4,8 +4,7 @@ namespace App\Models\sistema;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+
 
 class SisServicio extends Model
 {
@@ -21,8 +20,9 @@ class SisServicio extends Model
     {
         return $this->belongsTo(User::class, 'user_crea_id');
     }
-    
-    public function sis_entidads(){
+
+    public function sis_entidads()
+    {
         return $this->belongsToMany(SisEntidad::class);
     }
 
@@ -42,11 +42,37 @@ class SisServicio extends Model
         return $comboxxx;
     }
 
-    public function sis_dependencias()
-    {
-        {
-            return $this->belongsToMany(SisDependencia::class);
+    public function sis_depens()
+    { {
+            return $this->belongsToMany(SisDepen::class);
         }
     }
 
+
+
+    public static function gitServicioDepe($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $notinxxx = SisServicio::whereNotIn('id', SisDepeServ::whereNotIn('sis_servicio_id', [$dataxxxx['selectxx']])
+                ->where('sis_depen_id',$dataxxxx['dependen'])
+                ->get(['sis_servicio_id']))
+            ->get();
+
+        foreach ($notinxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_servicio];
+            } else {
+                $comboxxx[$registro->id] = $registro->s_servicio;
+            }
+        }
+        return $comboxxx;
+    }
 }

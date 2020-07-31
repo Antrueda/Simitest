@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\consulta\pivotes\CsdBienvenidaMotivos;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -28,7 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisBarriosSeeder::class);
         $this->call(SisLocalupzSeeder::class);
         $this->call(SisUpzbarrisSeeder::class);
-        $this->call(SisDependenciasSeeder::class);
+        $this->call(SisDepensSeeder::class);
         $this->call(SisEntidadsSeeder::class);
         $this->call(SisEntidadSaludsSeeder::class);
         $this->call(SisInstitucionEdusSeeder::class);
@@ -65,7 +64,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdComFamiliarObservacionesSeeder::class); // Jorge
         $this->call(CsdGenIngresoSeeder::class); // Jorge
         $this->call(CsdBienvenidaSeeder::class); // Jorge
-        //$this->call(CsdBienvenidaMotivosSeeder::class); // Jorge
+        $this->call(CsdBienvenidaMotivosSeeder::class); // Jorge
         $this->call(InLineaBasesSeeder::class);
         $this->call(InFuentesSeeder::class);
         $this->call(InBaseFuentesSeeder::class);
@@ -88,7 +87,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdResidenciaSeeder::class);
         $this->call(CsdResideambienteSeeder::class);
 
-
         // -- Modulo SICO SOCIAL, Javier
         $this->call(VsisSeeder::class); // ok  //1
         $this->call(VsiBienvenidaSeeder::class);        // ok // 2
@@ -104,7 +102,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiRedsocAcesoSeeder::class);  //50 ok
 
         $this->call(VsiRedSocMotivoSeeder::class);  //53 ok
-         $this->call(VsiRelFamiliarSeeder::class);  //57 ok
+        $this->call(VsiRelFamiliarSeeder::class);  //57 ok
         $this->call(VsiRelfamAccionesSeeder::class);  //55 estan mal los id de vsi_relfamiliar_id
         //56 estan mal los id de vsi_relfamiliar_id, vsi_relfamiliar tiene solo 331 se le estan
         //asignando valores superiores que no cumplen con la integridad referencial
@@ -122,11 +120,11 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiVioTipoSeeder::class);  //67 ok
         $this->call(VsiEmocionVinculaSeeder::class);  //30 ok
         $this->call(VsiSitEspecialSeeder::class);
-        $this->call(VsiSituacionVinculaSeeder::class);  //64 falta
+        $this->call(VsiSituacionVinculaSeeder::class);  //64
 
 
         $this->call(VsiEduCausaSeeder::class);  //25
-        $this->call(VsiEduDificultadSeeder::class);  //26 falta
+        $this->call(VsiEduDificultadSeeder::class);  //26
         $this->call(VsiEduFortalezaSeeder::class);  //29
         $this->call(VsiGenIngresoSeeder::class);
         $this->call(VsiGeningDiaSeeder::class);  //38
@@ -134,54 +132,39 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiGeningQuienSeeder::class);  //40
         $this->call(VsiSitespRiesgoSeeder::class);  //62
         $this->call(VsiSitespVictimaSeeder::class);  //63
+        $this->call(VsiAbuSexualSeeder::class);  //4
+        $this->call(VsiConceptoSeeder::class);  //8
+        $this->call(VsiConcepRedSeeder::class);  //7
+        $this->call(VsiConsentimientoSeeder::class);  //9
+        $this->call(VsiConsumoSeeder::class);  //10
+        $this->call(VsiConsumoExpectativaSeeder::class);  //11
+        $this->call(VsiConsumoQuienSeeder::class);  //12
+        $this->call(VsiDinfamCalleSeeder::class);  //16
+        $this->call(VsiDinfamConsumoSeeder::class);  //17
+        $this->call(VsiDinfamDelitoSeeder::class);  //19
+        $this->call(VsiDinfamLibertadSeeder::class);  //20
+        $this->call(VsiDinfamPadreSeeder::class);  //22
+        $this->call(VsiDinfamProstitucionSeeder::class);  //23
+        $this->call(VsiEduDiftipoASeeder::class);  //27
+        $this->call(VsiEduDiftipoBSeeder::class);  //28
+        $this->call(VsiEstemoAdecuadoSeeder::class);  //31
+        $this->call(VsiEstemoDificultaSeeder::class);  //32
+        $this->call(VsiEstemoEstresanteSeeder::class);  //33
+        $this->call(VsiEstemoLesivaSeeder::class);  //34
+        $this->call(VsiEstemoMotivoSeeder::class);  //35
+        $this->call(VsiFacProtectorSeeder::class);  //36
+        $this->call(VsiFacRiesgoSeeder::class);  //37
 
-
-
-
-
-
-
-        $this->call(VsiAbuSexualSeeder::class);  //4  falta
- $this->call(VsiConceptoSeeder::class);  //8 falta
-        $this->call(VsiConcepRedSeeder::class);  //7 falta
-        $this->call(VsiConsentimientoSeeder::class);  //9 falta
-        $this->call(VsiConsumoSeeder::class);  //10 falta
-        $this->call(VsiConsumoExpectativaSeeder::class);  //11 falta
-        $this->call(VsiConsumoQuienSeeder::class);  //12 falta
-        $this->call(VsiDinfamCalleSeeder::class);  //16 falta
-        $this->call(VsiDinfamConsumoSeeder::class);  //17 falta
-        $this->call(VsiDinfamDelitoSeeder::class);  //19 falta
-        $this->call(VsiDinfamLibertadSeeder::class);  //20 falta
-        $this->call(VsiDinfamPadreSeeder::class);  //22 falta
-        $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
-
-
-        $this->call(VsiEduDiftipoASeeder::class);  //27 falta
-        $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
-
-        $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta
-        $this->call(VsiEstemoDificultaSeeder::class);  //32 falta
-        $this->call(VsiEstemoEstresanteSeeder::class);  //33 falta
-        $this->call(VsiEstemoLesivaSeeder::class);  //34 falta
-        $this->call(VsiEstemoMotivoSeeder::class);  //35 falta
-        $this->call(VsiFacProtectorSeeder::class);  //36 falta
-        $this->call(VsiFacRiesgoSeeder::class);  //37 falta
-
-        $this->call(VsiMetaSeeder::class);  //41 falta
-        $this->call(VsiNnajAcademicaSeeder::class);  //42 falta
-        $this->call(VsiNnajComportamentalSeeder::class);  //43 falta
-        $this->call(VsiNnajEmocionalSeeder::class);  //44 falta
-        $this->call(VsiNnajFamiliarSeeder::class);  //46 falta
-        $this->call(VsiNnajSexualSeeder::class);  //47 falta
-        $this->call(VsiNnajSocialSeeder::class);  //48 falta
-        $this->call(VsiPotencialidadSeeder::class);  //49 falta
-        $this->call(VsiRedsocActualSeeder::class);  //51 falta
-        $this->call(VsiRedsocPasadoSeeder::class);  //54 falta
-
-
+        $this->call(VsiMetaSeeder::class);  //41
+        $this->call(VsiNnajAcademicaSeeder::class);  //42
+        $this->call(VsiNnajComportamentalSeeder::class);  //43
+        $this->call(VsiNnajEmocionalSeeder::class);  //44
+        $this->call(VsiNnajFamiliarSeeder::class);  //46
+        $this->call(VsiNnajSexualSeeder::class);  //47
+        $this->call(VsiNnajSocialSeeder::class);  //48
+        $this->call(VsiPotencialidadSeeder::class);  //49
+        $this->call(VsiRedsocActualSeeder::class);  //51
+        $this->call(VsiRedsocPasadoSeeder::class);  //54
         $this->call(VsiSaludSeeder::class);
-        //  falta
-        //  falta
-
     }
 }

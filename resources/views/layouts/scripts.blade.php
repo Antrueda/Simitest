@@ -5,7 +5,7 @@
 
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -46,5 +46,59 @@
 <script src="{{ asset('especiales/contarcaracteres.js') }}"></script>
 <script src="{{ asset('especiales/fechas.js') }}"></script>
 <script src="{{ asset('especiales/combos.js') }}"></script>
+<script>
+    var f_inactivar = function(dataxxxx) {
+        $.ajax({
+            url: dataxxxx.urlxxxxx,
+            data: dataxxxx.dataxxxx,
+            type: dataxxxx.typexxxx,
+            dataType: 'json',
+            success: function(json) {
+                setTimeout(function() {
+                    dataxxxx.datatabl.ajax.reload();
+                }, 2000);
+
+                toastr.success(json.tituloxx, json.messagex);
+            },
+            error: function(xhr, status) {
+                alert(dataxxxx.msnxxxxx);
+            },
+        });
+    }
+
+    var f_reconfirm = function(dataxxxx) {
+        var idxxxxxx = 'reconfirmar';
+        var confirmx = "<button type='button' id='" + idxxxxxx + "' class='btn clear'>SI</button>";
+        confirmx +='<button type="button" class="btn clear" role="button">NO</button>';
+        toastr.error(
+            confirmx,
+            dataxxxx.reconfir, {
+                closeButton: false,
+                allowHtml: true,
+                onShown: function(toast) {
+                    $("#" + idxxxxxx).click(function() {
+                        f_inactivar(dataxxxx)
+                    });
+                }
+            });
+    }
+    var f_confirm = function(dataxxxx) {
+        var idxxxxxx = 'confirmar';
+        var confirmx = "<div class='btn clear'><button type='button' id='" + idxxxxxx + "' class='btn clear'>SI</button>";
+        confirmx +='<button type="button" class="btn clear" role="button">NO</button></div>';
+        toastr.error(
+            confirmx,
+            dataxxxx.confirmx, {
+                closeButton: false,
+                allowHtml: true,
+                onShown: function(toast) {
+                    $("#" + idxxxxxx).click(function() {
+
+                        f_reconfirm(dataxxxx)
+                    });
+                }
+            });
+    }
+</script>
 @include('layouts.mensaje')
 @yield('scripts')

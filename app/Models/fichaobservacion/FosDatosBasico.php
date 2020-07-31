@@ -12,7 +12,7 @@ use App\Models\sistema\SisNnaj;
 class FosDatosBasico extends Model{
     protected $fillable = [
         'sis_nnaj_id',
-        'sis_dependencia_id',
+        'sis_depen_id',
         'd_fecha_diligencia',
         'area_id',
         'fos_tse_id',

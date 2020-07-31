@@ -10,7 +10,7 @@ use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Indicadores\Area;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisEntidad;
 use App\Models\Tema;
 use App\Models\User;
@@ -53,7 +53,7 @@ class AgActividadController extends Controller
             ['data' => 'btns', 'name' => 'btns'],
             ['data' => 'id', 'name' => 'ag_actividads.id'],
             ['data' => 'd_registro', 'name' => 'ag_actividads.d_registro'],
-            ['data' => 'sis_deporigen_id', 'name' => 'sis_dependencias.nombre as sis_deporigen_id'],
+            ['data' => 'sis_deporigen_id', 'name' => 'sis_depens.nombre as sis_deporigen_id'],
             ['data' => 'sis_esta_id', 'name' => 'ag_actividads.sis_esta_id'],
 
         ];
@@ -134,9 +134,9 @@ class AgActividadController extends Controller
         $this->opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['entidadx'] = SisEntidad::combo(true, false);
         $this->opciones['dependen'] = User::getDependenciasUser(['cabecera' => true, 'esajaxxx' => false]);
-        $this->opciones['upidepen'] = SisDependencia::combo(true, false);
+        $this->opciones['upidepen'] = SisDepen::combo(true, false);
 
-        //$this->opciones['dependen'] = SisDependencia::combo(true, false);
+        //$this->opciones['dependen'] = SisDepen::combo(true, false);
         $this->opciones['agtemaxx'] = ['' => 'Seleccione'];
         $this->opciones['lugarxxx'] = [1 => 'NO APLICA'];
         //Tema::combo(291, true, false);

@@ -51,7 +51,7 @@ class CreateAiSalidaMenoresTable extends Migration{
             $table->timestamps();
             
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('prm_upi_id')->references('id')->on('sis_dependencias');
+            $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
             $table->foreign('prm_hor_sal_id')->references('id')->on('parametros');
             $table->foreign('prm_doc_id')->references('id')->on('parametros');
             $table->foreign('prm_parentezco_id')->references('id')->on('parametros');
@@ -61,7 +61,7 @@ class CreateAiSalidaMenoresTable extends Migration{
             $table->foreign('prm_carta_id')->references('id')->on('parametros');
             $table->foreign('prm_copiaDoc_id')->references('id')->on('parametros');
             $table->foreign('prm_copiaDoc2_id')->references('id')->on('parametros');
-            $table->foreign('prm_upi2_id')->references('id')->on('sis_dependencias');
+            $table->foreign('prm_upi2_id')->references('id')->on('sis_depens');
             $table->foreign('responsable')->references('id')->on('users');
             $table->foreign('user_doc1_id')->references('id')->on('users');
             $table->foreign('user_crea_id')->references('id')->on('users');

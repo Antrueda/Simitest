@@ -2230,7 +2230,7 @@ CREATE TABLE IF NOT EXISTS `in_validacions` (
 DROP TABLE IF EXISTS `is_datos_basicos`;
 CREATE TABLE IF NOT EXISTS `is_datos_basicos` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `sis_dependencia_id` bigint(20) UNSIGNED NOT NULL,
+  `sis_depen_id` bigint(20) UNSIGNED NOT NULL,
   `sis_nnaj_id` bigint(20) UNSIGNED NOT NULL,
   `d_fecha_diligencia` date NOT NULL,
   `s_primer_apel_resp` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
@@ -2295,7 +2295,7 @@ CREATE TABLE IF NOT EXISTS `is_datos_basicos` (
   KEY `is_datos_basicos_i_prm_area_academica_id_foreign` (`i_prm_area_academica_id`),
   KEY `is_datos_basicos_i_prm_area_social_id_foreign` (`i_prm_area_social_id`),
   KEY `is_datos_basicos_i_prm_area_familiar_id_foreign` (`i_prm_area_familiar_id`),
-  KEY `is_datos_basicos_sis_dependencia_id_foreign` (`sis_dependencia_id`)
+  KEY `is_datos_basicos_sis_depen_id_foreign` (`sis_depen_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -2374,8 +2374,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2019_09_11_173413_create_sis_usuario_actividads_table', 1),
 (19, '2019_09_11_174108_create_fi_nucleo_familiars_table', 1),
 (20, '2019_09_11_184648_create_trigger_users', 1),
-(21, '2019_09_12_161505_create_sis_dependencias_table', 1),
-(22, '2019_09_16_184338_create_sis_dependencia_user_table', 1),
+(21, '2019_09_12_161505_create_sis_depens_table', 1),
+(22, '2019_09_16_184338_create_sis_depen_user_table', 1),
 (23, '2019_09_16_191649_create_redes_apoyos_table', 1),
 (24, '2019_09_17_183641_create_sis_upzs_table', 1),
 (25, '2019_09_17_183642_create_sis_barrios_table', 1),
@@ -12061,11 +12061,11 @@ INSERT INTO `sis_departamentos` (`id`, `sis_pais_id`, `s_departamento`, `user_cr
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sis_dependencias`
+-- Estructura de tabla para la tabla `sis_depens`
 --
 
-DROP TABLE IF EXISTS `sis_dependencias`;
-CREATE TABLE IF NOT EXISTS `sis_dependencias` (
+DROP TABLE IF EXISTS `sis_depens`;
+CREATE TABLE IF NOT EXISTS `sis_depens` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
   `user_crea_id` bigint(20) UNSIGNED NOT NULL,
@@ -12074,16 +12074,16 @@ CREATE TABLE IF NOT EXISTS `sis_dependencias` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `sis_dependencias_nombre_unique` (`nombre`),
-  KEY `sis_dependencias_user_crea_id_foreign` (`user_crea_id`),
-  KEY `sis_dependencias_user_edita_id_foreign` (`user_edita_id`)
+  UNIQUE KEY `sis_depens_nombre_unique` (`nombre`),
+  KEY `sis_depens_user_crea_id_foreign` (`user_crea_id`),
+  KEY `sis_depens_user_edita_id_foreign` (`user_edita_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
--- Volcado de datos para la tabla `sis_dependencias`
+-- Volcado de datos para la tabla `sis_depens`
 --
 
-INSERT INTO `sis_dependencias` (`id`, `nombre`, `user_crea_id`, `user_edita_id`, `activo`, `created_at`, `updated_at`) VALUES
+INSERT INTO `sis_depens` (`id`, `nombre`, `user_crea_id`, `user_edita_id`, `activo`, `created_at`, `updated_at`) VALUES
 (1, 'TERRITORIO 1', 1, 1, 1, '2019-10-18 17:06:38', '2019-10-18 17:06:38'),
 (2, 'TERRITORIO 2', 1, 1, 1, '2019-10-18 17:06:38', '2019-10-18 17:06:38'),
 (3, 'UPI ARBORIZADORA ALTA', 1, 1, 1, '2019-10-18 17:06:38', '2019-10-18 17:06:38'),
@@ -12114,13 +12114,13 @@ INSERT INTO `sis_dependencias` (`id`, `nombre`, `user_crea_id`, `user_edita_id`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `sis_dependencia_user`
+-- Estructura de tabla para la tabla `sis_depen_user`
 --
 
-DROP TABLE IF EXISTS `sis_dependencia_user`;
-CREATE TABLE IF NOT EXISTS `sis_dependencia_user` (
+DROP TABLE IF EXISTS `sis_depen_user`;
+CREATE TABLE IF NOT EXISTS `sis_depen_user` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `sis_dependencia_id` bigint(20) UNSIGNED NOT NULL,
+  `sis_depen_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `user_crea_id` bigint(20) UNSIGNED NOT NULL,
   `user_edita_id` bigint(20) UNSIGNED NOT NULL,
@@ -12128,10 +12128,10 @@ CREATE TABLE IF NOT EXISTS `sis_dependencia_user` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `sis_dependencia_user_user_crea_id_foreign` (`user_crea_id`),
-  KEY `sis_dependencia_user_user_edita_id_foreign` (`user_edita_id`),
-  KEY `sis_dependencia_user_sis_dependencia_id_foreign` (`sis_dependencia_id`),
-  KEY `sis_dependencia_user_user_id_foreign` (`user_id`)
+  KEY `sis_depen_user_user_crea_id_foreign` (`user_crea_id`),
+  KEY `sis_depen_user_user_edita_id_foreign` (`user_edita_id`),
+  KEY `sis_depen_user_sis_depen_id_foreign` (`sis_depen_id`),
+  KEY `sis_depen_user_user_id_foreign` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -19532,7 +19532,7 @@ ALTER TABLE `is_datos_basicos`
   ADD CONSTRAINT `is_datos_basicos_i_prm_subarea_sexual_id_foreign` FOREIGN KEY (`i_prm_subarea_sexual_id`) REFERENCES `parametros` (`id`),
   ADD CONSTRAINT `is_datos_basicos_i_prm_subarea_social_id_foreign` FOREIGN KEY (`i_prm_subarea_social_id`) REFERENCES `parametros` (`id`),
   ADD CONSTRAINT `is_datos_basicos_i_prm_tipo_atencion_id_foreign` FOREIGN KEY (`i_prm_tipo_atencion_id`) REFERENCES `parametros` (`id`),
-  ADD CONSTRAINT `is_datos_basicos_sis_dependencia_id_foreign` FOREIGN KEY (`sis_dependencia_id`) REFERENCES `sis_dependencias` (`id`),
+  ADD CONSTRAINT `is_datos_basicos_sis_depen_id_foreign` FOREIGN KEY (`sis_depen_id`) REFERENCES `sis_depens` (`id`),
   ADD CONSTRAINT `is_datos_basicos_sis_nnaj_id_foreign` FOREIGN KEY (`sis_nnaj_id`) REFERENCES `sis_nnajs` (`id`),
   ADD CONSTRAINT `is_datos_basicos_user_crea_id_foreign` FOREIGN KEY (`user_crea_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `is_datos_basicos_user_edita_id_foreign` FOREIGN KEY (`user_edita_id`) REFERENCES `users` (`id`);
@@ -19610,11 +19610,11 @@ ALTER TABLE `sis_departamentos`
   ADD CONSTRAINT `sis_departamentos_sis_pais_id_foreign` FOREIGN KEY (`sis_pais_id`) REFERENCES `sis_pais` (`id`);
 
 --
--- Filtros para la tabla `sis_dependencias`
+-- Filtros para la tabla `sis_depens`
 --
-ALTER TABLE `sis_dependencias`
-  ADD CONSTRAINT `sis_dependencias_user_crea_id_foreign` FOREIGN KEY (`user_crea_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `sis_dependencias_user_edita_id_foreign` FOREIGN KEY (`user_edita_id`) REFERENCES `users` (`id`);
+ALTER TABLE `sis_depens`
+  ADD CONSTRAINT `sis_depens_user_crea_id_foreign` FOREIGN KEY (`user_crea_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `sis_depens_user_edita_id_foreign` FOREIGN KEY (`user_edita_id`) REFERENCES `users` (`id`);
 
 --
 -- Filtros para la tabla `sis_documento_fuentes`

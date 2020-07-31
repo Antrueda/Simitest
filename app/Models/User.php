@@ -5,7 +5,8 @@ namespace App\Models;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Indicadores\Area;
 use App\Models\sistema\SisCargo;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDepen;
+use App\Models\sistema\SisDepeUsua;
 use App\Models\sistema\SisMunicipio;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -126,9 +127,9 @@ class User extends Authenticatable
     }
     return $objetoxx;
   }
-  public function sis_dependencias()
+  public function sis_depens()
   {
-    return $this->belongsToMany(SisDependencia::class)->withTimestamps();
+    return $this->belongsToMany(SisDepen::class)->withTimestamps();
   }
   public function vinculacion()
   {
@@ -137,10 +138,10 @@ class User extends Authenticatable
   public static function dependencia($usuariox)
   {
     $dependen = [];
-    foreach (User::where('id', $usuariox)->first()->sis_dependencias as $fdepende) {
+    foreach (User::where('id', $usuariox)->first()->sis_depens as $fdepende) {
       $dependen[] = $fdepende->id;
     }
-    return SisDependencia::whereNotIn('id', $dependen)->get();
+    return SisDepen::whereNotIn('id', $dependen)->get();
   }
   public function sis_cargo()
   {
@@ -206,7 +207,7 @@ class User extends Authenticatable
       }
     }
     $userxxxx = User::where('id', $padrexxx)->first();
-    foreach ($userxxxx->sis_dependencias as $registro) {
+    foreach ($userxxxx->sis_depens as $registro) {
       if ($ajaxxxxx) {
         $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
       } else {
@@ -275,9 +276,9 @@ class User extends Authenticatable
         $comboxxx = ['' => 'Seleccione'];
       }
     }
-    $dependen = User::select(['sis_dependencias.id', 'sis_dependencias.nombre'])
-      ->join('sis_dependencia_user', 'users.id', '=', 'sis_dependencia_user.user_id')
-      ->join('sis_dependencias', 'sis_dependencia_user.sis_dependencia_id', '=', 'sis_dependencias.id')->get();
+    $dependen = User::select(['sis_depens.id', 'sis_depens.nombre'])
+      ->join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
+      ->join('sis_depens', 'sis_depen_user.sis_depen_id', '=', 'sis_depens.id')->get();
     foreach ($dependen as $areasxxx) {
       if ($dataxxxx['esajaxxx']) {
         $comboxxx[] = ['valuexxx' => $areasxxx->id, 'optionxx' => $areasxxx->nombre];
@@ -291,12 +292,12 @@ class User extends Authenticatable
      * asigno sin importar el estado
      */
     if (isset($dataxxxx['depesele'])) {
-      $areaxxxy = User::select(['sis_dependencias.id', 'sis_dependencias.nombre'])
-        ->join('sis_dependencia_user', 'users.id', '=', 'sis_dependencia_user.user_id')
-        ->join('sis_dependencias', 'area_user.sis_dependencia_id', '=', 'sis_dependencias.id')
-        ->where('sis_dependencia_user.user_id', Auth::User()->id)
-        ->where('sis_dependencia_user.sis_esta_id', 2)
-        ->where('sis_dependencia_user.sis_dependencia_id', $dataxxxx['depesele'])
+      $areaxxxy = User::select(['sis_depens.id', 'sis_depens.nombre'])
+        ->join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
+        ->join('sis_depens', 'area_user.sis_depen_id', '=', 'sis_depens.id')
+        ->where('sis_depen_user.user_id', Auth::User()->id)
+        ->where('sis_depen_user.sis_esta_id', 2)
+        ->where('sis_depen_user.sis_depen_id', $dataxxxx['depesele'])
         ->first();
       if (isset($areaxxxy->id)) {
         if ($dataxxxx['esajaxxx']) {
@@ -355,4 +356,30 @@ class User extends Authenticatable
     }
     return $puedexxx;
   }
+
+  public static function gitDependenciaUser($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $notinxxx = User::whereNotIn('id', SisDepeUsua::whereNotIn('user_id', [$dataxxxx['selectxx']])
+                ->where('sis_depen_id',$dataxxxx['dependen'])
+                ->get(['user_id']))
+            ->get();
+
+        foreach ($notinxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->name];
+            } else {
+                $comboxxx[$registro->id] = $registro->name;
+            }
+        }
+        return $comboxxx;
+    }
 }

@@ -14,7 +14,7 @@ class CreateFosDatosBasicosTable extends Migration{
         Schema::create('fos_datos_basicos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('sis_dependencia_id')->unsigned();
+            $table->bigInteger('sis_depen_id')->unsigned();
             $table->date('d_fecha_diligencia');
             $table->bigInteger('area_id')->unsigned();
             $table->bigInteger('fos_tse_id')->unsigned();
@@ -29,7 +29,7 @@ class CreateFosDatosBasicosTable extends Migration{
             
 
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('sis_dependencia_id')->references('id')->on('sis_dependencias');
+            $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table->foreign('area_id')->references('id')->on('areas');
             $table->foreign('fos_tse_id')->references('id')->on('fos_tses');
             $table->foreign('fos_stse_id')->references('id')->on('fos_stses');

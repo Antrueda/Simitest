@@ -15,7 +15,7 @@ class CreateIsDatosBasicosTable extends Migration{
             $table->bigIncrements('id');
 
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('sis_dependencia_id')->unsigned();
+            $table->bigInteger('sis_depen_id')->unsigned();
             $table->date('d_fecha_diligencia');
             $table->bigInteger('i_prm_tipo_atencion_id')->unsigned();
             $table->bigInteger('i_prm_area_ajuste_id')->unsigned();
@@ -77,7 +77,7 @@ class CreateIsDatosBasicosTable extends Migration{
             $table->foreign('i_prm_area_academica_id')->references('id')->on('parametros');
             $table->foreign('i_prm_area_social_id')->references('id')->on('parametros');
             $table->foreign('i_prm_area_familiar_id')->references('id')->on('parametros');
-            $table->foreign('sis_dependencia_id')->references('id')->on('sis_dependencias');
+            $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
         });
 
         Schema::create('is_proxima_area_ajustes', function (Blueprint $table) {

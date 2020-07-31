@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDepen;
 use Illuminate\Support\Facades\Auth;
 
 class Vsi extends Model{
@@ -21,7 +21,7 @@ class Vsi extends Model{
     }
 
     public function dependencia(){
-        return $this->belongsTo(SisDependencia::class, 'dependencia_id');
+        return $this->belongsTo(SisDepen::class, 'dependencia_id');
     }
 
     public function VsiDatosVincula(){
