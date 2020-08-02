@@ -1,5 +1,3 @@
-ddsdsdsdsd
-
 <div class="card card-outline card-secondary">
     <style>
        .selected{

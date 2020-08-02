@@ -344,7 +344,7 @@ class TemasTableSeeder extends Seeder
             226 => $camposmagicos,
             2316=> $camposmagicos,
         ]);
-        $tema = Tema::create(['id' => 23, 'nombre' => 'Condicional']);
+        $tema = Tema::create(['id' => 23, 'nombre' => 'SI/NO']);
         $tema->parametros()->sync([
             227 => $camposmagicos,
             228 => $camposmagicos,

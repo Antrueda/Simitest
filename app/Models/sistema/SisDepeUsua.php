@@ -59,4 +59,31 @@ class SisDepeUsua extends Model
         }, 5);
         return $usuariox;
     }
+
+    public static function getDependenciasUsuario($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $notinxxx = SisDepen::whereNotIn('id', SisDepeUsua::whereNotIn('sis_depen_id', [$dataxxxx['selectxx']])
+            ->where('user_id', $dataxxxx['padrexxx'])
+            ->get(['sis_depen_id']))
+            ->get();
+
+        foreach ($notinxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+            } else {
+                $comboxxx[$registro->id] = $registro->nombre;
+            }
+        }
+        return $comboxxx;
+    }
+
 }

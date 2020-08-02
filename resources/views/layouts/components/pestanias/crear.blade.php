@@ -7,9 +7,9 @@
     <form method = "POST" id="formulario" action= "{{route($todoxxxx["routxxxx"].'.crear', $todoxxxx["parametr"])}}"
     enctype="multipart/form-data">
       @csrf
-      @include('layouts.components.botones.botones')  
+      @include('layouts.components.botones.botones')
       @include($todoxxxx["rutacarp"].$todoxxxx["carpetax"].'.formulario.formulario')
-      @include('layouts.components.botones.botones')   
+      @include('layouts.components.botones.botones')
     {!!Form::close()!!}
   </div>
 </div>

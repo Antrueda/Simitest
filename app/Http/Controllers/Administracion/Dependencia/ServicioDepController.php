@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Administracion\Dependencia;
+namespace app\Http\Controllers\Administracion\Dependencia;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SisDepeServCrearRequest;

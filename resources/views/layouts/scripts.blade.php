@@ -47,6 +47,23 @@
 <script src="{{ asset('especiales/fechas.js') }}"></script>
 <script src="{{ asset('especiales/combos.js') }}"></script>
 <script>
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "9000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
     var f_inactivar = function(dataxxxx) {
         $.ajax({
             url: dataxxxx.urlxxxxx,
@@ -69,7 +86,7 @@
     var f_reconfirm = function(dataxxxx) {
         var idxxxxxx = 'reconfirmar';
         var confirmx = "<button type='button' id='" + idxxxxxx + "' class='btn clear'>SI</button>";
-        confirmx +='<button type="button" class="btn clear" role="button">NO</button>';
+        confirmx += '<button type="button" class="btn clear" role="button">NO</button>';
         toastr.error(
             confirmx,
             dataxxxx.reconfir, {
@@ -85,7 +102,7 @@
     var f_confirm = function(dataxxxx) {
         var idxxxxxx = 'confirmar';
         var confirmx = "<div class='btn clear'><button type='button' id='" + idxxxxxx + "' class='btn clear'>SI</button>";
-        confirmx +='<button type="button" class="btn clear" role="button">NO</button></div>';
+        confirmx += '<button type="button" class="btn clear" role="button">NO</button></div>';
         toastr.error(
             confirmx,
             dataxxxx.confirmx, {

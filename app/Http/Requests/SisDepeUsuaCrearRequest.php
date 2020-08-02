@@ -13,12 +13,14 @@ class SisDepeUsuaCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'user_id.required' => 'Seleccione un servicio',
+            'user_id.required' => 'Seleccione un usuario',
+            'sis_depen_id.required' => 'Seleccione una dependencia',
             'i_prm_responsable_id.required' => 'Indique si es responsable o no',
         ];
         $this->_reglasx = [
             'user_id' => ['required'],
             'i_prm_responsable_id' => ['required'],
+            'sis_depen_id' => ['required'],
         ];
     }
     /**

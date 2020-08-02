@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Administracion\Dependencia;
+namespace app\Http\Controllers\Administracion\Dependencia;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SisDepeServCrearRequest;
-use App\Http\Requests\SisDepeServEditarRequest;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisDepeServ;
+use App\Http\Requests\SisDepeUsuaCrearRequest;
+use App\Http\Requests\SisDepeUsuaEditarRequest;
+use App\Models\sistema\SisDepeUsua;
 use App\Models\Sistema\SisEsta;
-use App\Models\sistema\SisServicio;
+use App\Models\Tema;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,13 +20,13 @@ class ServicioDepController extends Controller
     {
         $this->opciones = [
             'pestpadr' => false, // true indica si solo muestra la pestaña dependencias false muestra la pestaña padre y las hijas
-            'permisox' => 'servdepe',
+            'permisox' => 'usudepen',
             'parametr' => [],
-            'rutacarp' => 'administracion.dependencia.',
-            'tituloxx' => 'Servicios',
-            'carpetax' => 'Servicio',
-            'slotxxxx' => 'servdepe',
-            'tablaxxx' => 'serviciosdep',
+            'rutacarp' => 'administracion.Usuario.',
+            'tituloxx' => 'DEPENDENCIAS',
+            'carpetax' => 'UsuDepen',
+            'slotxxxx' => 'usudepen',
+            'tablaxxx' => 'datatable',
             'indecrea' => false, // false muestra las pestañas
             'esindexx' => false,
             'tituhead' => '',
@@ -34,6 +34,15 @@ class ServicioDepController extends Controller
             'fechedit' => '',
             'usercrea' => '',
             'useredit' => '',
+            'conperfi' => '', // indica si la vista va a tener perfil
+            'usuariox' => [],
+
+            'confirmx' => 'Desea inactivar la dependencia: ',
+            'reconfir' => 'Realmente desea inactivar la dependencia: ',
+            'msnxxxxx' => 'No se puedo inactivar la dependencia',
+            'rutaxxxx' => 'usudepen',
+            'routnuev' => 'usudepen',
+            'routxxxx' => 'usudepen',
         ];
 
         $this->middleware(['permission:'
@@ -42,15 +51,12 @@ class ServicioDepController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-        $this->opciones['readonly'] = '';
-        $this->opciones['rutaxxxx'] = 'servdepe';
-        $this->opciones['routnuev'] = 'servdepe';
-        $this->opciones['routxxxx'] = 'servdepe';
+
 
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A SERVICIOS', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A DEPENDENCIAS', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
     }
@@ -61,8 +67,9 @@ class ServicioDepController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(SisDepen $padrexxx)
+    public function index(User $padrexxx)
     {
+        $this->opciones['usuariox'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['tituhead'] = $padrexxx->nombre;
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
@@ -70,8 +77,8 @@ class ServicioDepController extends Controller
         $this->opciones['esindexx'] = true;
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'SERVICIO',
-                'titulist' => 'Lista de Sevicios',
+                'titunuev' => 'DEPENDENCIA',
+                'titulist' => 'LISTA DE DEPENDENCIAS',
                 'dataxxxx' => [
                     ['campoxxx' => 'botonesx', 'dataxxxx' =>
                     $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],
@@ -81,26 +88,27 @@ class ServicioDepController extends Controller
                     ['campoxxx' => 'puedever', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-leer')],
                     ['campoxxx' => 'puedinac', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-borrar')],
                     ['campoxxx' => 'routexxx', 'dataxxxx' => $this->opciones['routxxxx']],
-
                 ],
 
                 'accitabl' => true,
                 'vercrear' => true,
-                'urlxxxxx' => 'api/sis/servicio',
+                'urlxxxxx' => 'api/usu/dependencias',
                 'cabecera' => [
                     ['td' => 'ID'],
-                    ['td' => 'SERVICIO'],
+                    ['td' => 'DEPENDENCIA'],
+                    ['td' => 'RESPONSABLE'],
                     ['td' => 'ESTADO'],
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'sis_depen_sis_servicio.id'],
-                    ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
+                    ['data' => 'id', 'name' => 'sis_depen_user.id'],
+                    ['data' => 'dependenica', 'name' => 'sis_depens.nombre as dependenica'],
+                    ['data' => 'nombre', 'name' => 'parametros.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => $this->opciones['tablaxxx'],
-                'permisox' => 'servdepe',
-                'routxxxx' => 'servdepe',
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
                 'parametr' => $this->opciones['botoform'][0]['routingx'][1],
             ]
 
@@ -111,9 +119,11 @@ class ServicioDepController extends Controller
 
     private function view($dataxxxx)
     {
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nombre;
+        $this->opciones['responsa'] = Tema::comboDesc(23, false, false);
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         $selectxx = 0;
-        $this->opciones['dependen'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->nombre];
+        $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
@@ -135,8 +145,8 @@ class ServicioDepController extends Controller
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-        $this->opciones['servicio'] = SisServicio::gitServicioDepe([
-            'dependen' => $dataxxxx['padrexxx']->id,
+        $this->opciones['dependen'] = SisDepeUsua::getDependenciasUsuario([
+            'padrexxx' => $dataxxxx['padrexxx']->id,
             'cabecera' => true,
             'ajaxxxxx' => false,
             'selectxx' => $selectxx
@@ -148,12 +158,12 @@ class ServicioDepController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(SisDepen $padrexxx)
+    public function create(User $padrexxx)
     {
 
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx]],
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx]],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
@@ -165,10 +175,13 @@ class ServicioDepController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SisDepeServCrearRequest $request)
+    public function store(SisDepeUsuaCrearRequest $request)
     {
-        $dataxxxx = $request->all();
-        return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
+        return $this->grabar([
+            'dataxxxx' => $request->all(),
+            'modeloxx' => '',
+            'menssage' => 'Registro creado con éxito'
+        ]);
     }
 
     /**
@@ -177,11 +190,11 @@ class ServicioDepController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SisDepeServ $objetoxx)
+    public function show(SisDepeUsua $objetoxx)
     {
         $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $objetoxx->sis_depen]);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $objetoxx->user]);
     }
 
     /**
@@ -190,7 +203,7 @@ class ServicioDepController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(SisDepeServ $objetoxx)
+    public function edit(SisDepeUsua $objetoxx)
     {
         $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];
@@ -201,13 +214,13 @@ class ServicioDepController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->sis_depen]);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->user]);
     }
 
     private function grabar($dataxxxx)
     {
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [SisDepeServ::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [SisDepeUsua::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id])
             ->with('info', $dataxxxx['menssage']);
     }
 
@@ -218,7 +231,7 @@ class ServicioDepController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SisDepeServEditarRequest $request, SisDepeServ $objetoxx)
+    public function update(SisDepeUsuaEditarRequest $request, SisDepeUsua $objetoxx)
     {
         return $this->grabar([
             'dataxxxx' => $request->all(),
@@ -236,9 +249,9 @@ class ServicioDepController extends Controller
     public function destroy(Request $request)
     {
         if ($request->ajax()) {
-            $flight = SisDepeServ::find($request->padrexxx);
+            $flight = SisDepeUsua::where('id', $request->padrexxx)->first();
             $flight->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-            return response()->json(['messagex' => 'Se ha inactivado el servicio: ' . $flight->id]);
+            return response()->json(['messagex' => 'Se ha inactivado el área: ' . $flight->id]);
         }
     }
 }

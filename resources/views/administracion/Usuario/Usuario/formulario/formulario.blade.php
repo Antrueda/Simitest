@@ -1,0 +1,93 @@
+<div class="form-group row">
+<div class="form-group col-md-4">
+    {{ Form::label('prm_documento_id','Tipo de documento') }}
+    {{ Form::select('prm_documento_id',$todoxxxx['prm_documento_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('s_documento','Número de Documento') }}
+    {{ Form::text('s_documento', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('sis_departamento_id','Departamento Exp. Documento') }}
+    {{ Form::select('sis_departamento_id',$todoxxxx['sis_departamento_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('sis_municipio_id','Municipio Exp. Documento') }}
+    {{ Form::select('sis_municipio_id',$todoxxxx['sis_municipio_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+
+  <div class="form-group col-md-4">
+    {{ Form::label('s_primer_nombre','Primer Nombre') }}
+    {{ Form::text('s_primer_nombre', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('s_segundo_nombre','Segundo Nombre') }}
+    {{ Form::text('s_segundo_nombre', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('s_primer_apellido','Primer Apellido') }}
+    {{ Form::text('s_primer_apellido', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('s_segundo_apellido','Segundo Apellido') }}
+    {{ Form::text('s_segundo_apellido', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+
+  <div class="form-group col-md-4">
+    {{ Form::label('s_telefono','Teléfono') }}
+    {{ Form::text('s_telefono', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('email','Correo Electrónico') }}
+    {{ Form::text('email', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('prm_tvinculacion_id','Tipo de Vinculación') }}
+    {{ Form::select('prm_tvinculacion_id',$todoxxxx['prm_tvinculacion_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('s_matriculap','Tarjeta Profesional') }}
+    {{ Form::text('s_matriculap', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+
+
+  <div class="form-group col-md-4">
+    {{ Form::label('sis_cargo_id','Cargo') }}
+    {{ Form::select('sis_cargo_id',$todoxxxx['sis_cargo_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('d_vinculacion','Fecha de Vinculación') }}
+    {{Form::date('d_vinculacion', \Carbon\Carbon::now(),['class'=>'form-control form-control-sm',$todoxxxx['readonly']])}}
+  </div>
+
+  <div class="form-group col-md-4">
+    {{ Form::label('d_finvinculacion','Fecha lí­mite de vinculación') }}
+    {{Form::date('d_finvinculacion', \Carbon\Carbon::now(),
+    ['class'=>'form-control form-control-sm',$todoxxxx['readonly']])}}
+  </div>
+<div class="form-group col-md-12">
+    {{ Form::label('sis_esta_id','Estado') }}
+    {{ Form::select('sis_esta_id',$todoxxxx['sis_esta_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+  </div>
+  <div class="form-group col-md-6">
+        {{ Form::label('dtiestan', 'Fecha Tiempo Standard', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('dtiestan', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"] ,'id'=>'dtiestan','readonly' ,'placeholder' => 'Fecha Tiempo Standard', 'maxlength' => '120', 'autofocus']) }}
+    </div>
+    <div class="form-group col-md-6">
+        {{ Form::label('itiestan', 'Tiempo Standard', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('itiestan', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"],'id'=>'itiestan','readonly' ,'placeholder' => 'Tiempo Standard', 'maxlength' => '120', 'autofocus']) }}
+    </div>
+    <div class="form-group col-md-6">
+        {{ Form::label('dtiegabe', 'Fecha Tiempo Gabela', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('dtiegabe', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"] ,'id'=>'dtiegabe','readonly','placeholder' => 'Tiempo Gabela', 'maxlength' => '120', 'autofocus']) }}
+    </div>
+    <div class="form-group col-md-6">
+        {{ Form::label('itiegabe', 'Tiempo Gabela', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('itiegabe', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"],'id'=>'itiegabe' ,'readonly','placeholder' => 'Tiempo Gabela', 'maxlength' => '120', 'autofocus']) }}
+    </div>
+
+
+
+
+    @include('layouts.registro')
+</div>

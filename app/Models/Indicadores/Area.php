@@ -4,6 +4,7 @@ namespace App\Models\Indicadores;
 
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\User;
+use App\Models\Usuario\SisAreaUsua;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -136,5 +137,31 @@ class Area extends Model
             return $objetoxx;
         }, 5);
         return $usuariox;
+    }
+
+    public static function getUsuarioAreas($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $notinxxx = Area::whereNotIn('id', SisAreaUsua::whereNotIn('area_id', [$dataxxxx['selectxx']])
+            ->where('user_id', $dataxxxx['padrexxx'])
+            ->get(['area_id']))
+            ->get();
+
+        foreach ($notinxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+            } else {
+                $comboxxx[$registro->id] = $registro->nombre;
+            }
+        }
+        return $comboxxx;
     }
 }

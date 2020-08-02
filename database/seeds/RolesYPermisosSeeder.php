@@ -35,6 +35,11 @@ class RolesYPermisosSeeder extends Seeder
         Permission::create(['name' => 'usuario-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Permission::create(['name' => 'usuario-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
+        /**
+         * cabio de contraseña
+         */
+        Permission::create(['name' => 'contrase-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
         /** Crea permisos para cargos */
         Permission::create(['name' => 'siscargo-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Permission::create(['name' => 'siscargo-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
@@ -83,6 +88,28 @@ class RolesYPermisosSeeder extends Seeder
          * usuarios de la dependencia
          */
         $grupliba = 'usuadepe';
+        Permission::create(['name' =>  $grupliba . '-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+
+        $grupliba = 'usudepen';
+        Permission::create(['name' =>  $grupliba . '-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        /**
+         * areas del usuario
+         */
+        $grupliba = 'areausua';
+        Permission::create(['name' =>  $grupliba . '-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        Permission::create(['name' =>  $grupliba . '-borrar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        /**
+         * reles del usuario
+         */
+        $grupliba = 'roleusua';
         Permission::create(['name' =>  $grupliba . '-leer', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Permission::create(['name' =>  $grupliba . '-crear', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Permission::create(['name' =>  $grupliba . '-editar', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
@@ -925,7 +952,8 @@ class RolesYPermisosSeeder extends Seeder
         ]);
 
 
-        Role::create(['name' => 'PSICÓLOGO(A) CLÍNICO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(['intervención sicosocial especializada']);
+        Role::create(['name' => 'PSICÓLOGO(A) CLÍNICO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
+            ->givePermissionTo(['intervención sicosocial especializada']);
         Role::create(['name' => 'PRUEBA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['name' => 'aux_administrativo_territorio', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
             ->givePermissionTo([

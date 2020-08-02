@@ -3,9 +3,7 @@
 use App\Helpers\Dependencias\DependenciaApi;
 use App\Models\Indicadores\Area;
 use App\Models\sistema\SisCargo;
-use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisEsta;
-use App\Models\sistema\SisServicio;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -46,20 +44,7 @@ Route::get('sis/sisesta', function (Request $request) {
         ->toJson();
 });
 
-Route::get('sis/areauser', function (Request $request) {
-    if (!$request->ajax()) return redirect('/');
-    $consulta=User::select(['areas.id','areas.nombre','area_user.sis_esta_id','sis_estas.s_estado','area_user.id as userarea'])
-    ->join('area_user','users.id','=','area_user.user_id')
-    ->join('areas','area_user.area_id','=','areas.id')
-    ->join('sis_estas','area_user.sis_esta_id','=','sis_estas.id')
-    ->where('users.id',$request->userxxxx);
-    return datatables()
-        ->eloquent($consulta)
-        ->addColumn('btns', $request->botonesx)
-        ->addColumn('s_estado', $request->estadoxx)
-        ->rawColumns(['btns','s_estado'])
-        ->toJson();
-});
+
 Route::get('sis/sisareas', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     $userxxxx=User::where('id',$request->userxxxx)->first();
