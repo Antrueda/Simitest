@@ -32,6 +32,8 @@ class SisCargo extends Model
 
     public static function transaccion($dataxxxx,  $objetoxx)
     {
+        $dataxxxx['itiestan']=$dataxxxx['itiestan']==''?0:$dataxxxx['itiestan'];
+        $dataxxxx['itiegabe']=$dataxxxx['itiegabe']==''?0:$dataxxxx['itiegabe'];
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
         $dataxxxx['user_edita_id'] = Auth::user()->id;
         $dataxxxx['s_cargo'] = strtoupper($dataxxxx['s_cargo']);

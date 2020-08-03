@@ -3,7 +3,7 @@
 namespace App\Models\Salud\Mitigacion\Vma;
 
 use App\Models\Parametro;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisDiagnosticos;
 use App\Models\sistema\SisNnaj;
 use App\Models\User;
@@ -59,7 +59,7 @@ class MitVma extends Model{
     }
 
     public function upi(){
-        return $this->belongsTo(SisDependencia::class, 'prm_upi_id');
+        return $this->belongsTo(SisDepen::class, 'prm_upi_id');
     }
 
     public function valoracion(){

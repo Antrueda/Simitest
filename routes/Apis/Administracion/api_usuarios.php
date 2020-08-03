@@ -1,20 +1,27 @@
 <?php
 
-use App\Models\User;
+use App\Helpers\Usuarios\UsuarioApi;
 use Illuminate\Http\Request;
 
-Route::get('usu/usuarios', function (Request $request) { 
-	if (!$request->ajax()) return redirect('/');
-	return datatables()
-		->eloquent(User::select(
-			['id',
-			's_primer_nombre',
-			's_segundo_nombre',
-			's_primer_apellido',
-			's_segundo_apellido',
-			'sis_esta_id'
-		]))
-		->addColumn('btns', 'administracion/usuario/botones/botonesapi')
-		->rawColumns(['btns'])
-		->toJson();
+Route::get('usu/usuarios', function (Request $request) {
+    if (!$request->ajax()) return redirect('/');
+    return UsuarioApi::getUsuarios($request);
 });
+
+Route::get('sis/areauser', function (Request $request) {
+    if (!$request->ajax()) return redirect('/');
+    return UsuarioApi::getUsuarioArea($request);
+});
+
+Route::get('usu/dependencias', function (Request $request) {
+    if (!$request->ajax()) return redirect('/');
+    return UsuarioApi::getDependenciaUser($request);
+});
+
+Route::get('usu/roles', function (Request $request) {
+    if (!$request->ajax()) return redirect('/');
+    return UsuarioApi::getUsuarioRoles($request);
+});
+
+
+

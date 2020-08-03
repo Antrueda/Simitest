@@ -29,7 +29,7 @@ class CreateAiRetornoSalidasTable extends Migration{
             $table->timestamps();
             
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('prm_upi_id')->references('id')->on('sis_dependencias');
+            $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
             $table->foreign('prm_hor_ret_id')->references('id')->on('parametros');
             $table->foreign('prm_doc_id')->references('id')->on('parametros');
             $table->foreign('prm_parentezco_id')->references('id')->on('parametros');

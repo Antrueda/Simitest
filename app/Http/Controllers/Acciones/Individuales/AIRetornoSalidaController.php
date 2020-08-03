@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\Acciones\Individuales\AiRetornoSalida;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
@@ -32,7 +32,7 @@ class AIRetornoSalidaController extends Controller{
     public function create($id){
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $documento = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
@@ -67,7 +67,7 @@ class AIRetornoSalidaController extends Controller{
     public function edit($id, $id0){
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $documento = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
@@ -104,7 +104,7 @@ class AIRetornoSalidaController extends Controller{
         $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
         return Validator::make($data, [
             'sis_nnaj_id'    => 'required|exists:sis_nnajs,id',
-            'prm_upi_id'     => 'required|exists:sis_dependencias,id',
+            'prm_upi_id'     => 'required|exists:sis_depens,id',
             'fecha'          => 'required|date|before_or_equal:'.$hoy,
             'hora_retorno'   => 'required',
             'prm_hor_ret_id' => 'required|exists:parametros,id',

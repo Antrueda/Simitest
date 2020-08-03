@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateFiComposicionFamisTable extends Migration
 {
+    private $tablaxxx = 'fi_composicion_famis';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateFiComposicionFamisTable extends Migration
      */
     public function up()
     {
-        Schema::create('fi_composicion_famis', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_parentesco_id')->unsigned();
             $table->string('s_primer_nombre');
@@ -48,8 +50,8 @@ class CreateFiComposicionFamisTable extends Migration
             $table->foreign('i_prm_vinculado_idipron_id')->references('id')->on('parametros');
             $table->foreign('i_prm_convive_nnaj_id')->references('id')->on('parametros');
             $table->foreign('fi_nucleo_familiar_id')->references('id')->on('fi_nucleo_familiars');
-            
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BÁSICOS DE LAS PERSONAS REGISTRADAS USANDO LA FICHA DE INGRESO.'");
     }
 
     /**
@@ -59,6 +61,6 @@ class CreateFiComposicionFamisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fi_composicion_famis');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

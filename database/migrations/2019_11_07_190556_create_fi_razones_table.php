@@ -18,9 +18,9 @@ class CreateFiRazonesTable extends Migration
             $table->text('s_porque_ingresar');
             $table->bigInteger('userd_id')->unsigned();
             
-            $table->bigInteger('sis_dependenciad_id')->unsigned();
+            $table->bigInteger('sis_depend_id')->unsigned();
             $table->bigInteger('userr_id')->unsigned();
-            $table->bigInteger('sis_dependenciar_id')->unsigned();
+            $table->bigInteger('sis_depenr_id')->unsigned();
             $table->bigInteger('i_prm_estado_ingreso_id')->unsigned();
 
             $table->bigInteger('sis_nnaj_id')->unsigned();
@@ -34,8 +34,8 @@ class CreateFiRazonesTable extends Migration
             $table->foreign('userd_id')->references('id')->on('users');
             $table->foreign('userr_id')->references('id')->on('users');
             
-            $table->foreign('sis_dependenciad_id')->references('id')->on('sis_dependencias');
-            $table->foreign('sis_dependenciar_id')->references('id')->on('sis_dependencias');
+            $table->foreign('sis_depend_id')->references('id')->on('sis_depens');
+            $table->foreign('sis_depenr_id')->references('id')->on('sis_depens');
             
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');

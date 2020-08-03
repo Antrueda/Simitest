@@ -21,7 +21,7 @@ class CreateAiSalidamayoresTable extends Migration{
             $table->timestamps();
             
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('prm_upi_id')->references('id')->on('sis_dependencias');
+            $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
             $table->foreign('user_doc1_id')->references('id')->on('users');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');

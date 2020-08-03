@@ -1,41 +1,63 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace app\Http\Controllers\Administracion\Dependencia;
 
-use App\Helpers\Traductor\Traductor;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Sistema\SisEslugCrearRequest;
-use App\Http\Requests\Sistema\SisEslugEditarRequest;
-use App\Models\fichaobservacion\FosTse;
-use App\Models\sistema\SisEslug;
+use App\Http\Requests\SisDepeUsuaCrearRequest;
+use App\Http\Requests\SisDepeUsuaEditarRequest;
+use App\Models\sistema\SisDepeUsua;
+use App\Models\Sistema\SisEsta;
+use App\Models\Tema;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class ControladorModeloController extends Controller
+class ServicioDepController extends Controller
 {
     private $opciones;
 
     public function __construct()
     {
         $this->opciones = [
-            'permisox' => 'siseslug',
+            'pestpadr' => false, // true indica si solo muestra la pestaña dependencias false muestra la pestaña padre y las hijas
+            'permisox' => 'usudepen',
             'parametr' => [],
-            'rutacarp' => 'administracion.Siseslugs.',
-            'tituloxx' => Traductor::getTitulo(29,1),
+            'rutacarp' => 'administracion.Usuario.',
+            'tituloxx' => 'DEPENDENCIAS',
+            'carpetax' => 'UsuDepen',
+            'slotxxxx' => 'usudepen',
+            'tablaxxx' => 'datatable',
+            'indecrea' => false, // false muestra las pestañas
+            'esindexx' => false,
+            'tituhead' => '',
+            'fechcrea' => '',
+            'fechedit' => '',
+            'usercrea' => '',
+            'useredit' => '',
+            'conperfi' => '', // indica si la vista va a tener perfil
+            'usuariox' => [],
+
+            'confirmx' => 'Desea inactivar la dependencia: ',
+            'reconfir' => 'Realmente desea inactivar la dependencia: ',
+            'msnxxxxx' => 'No se puedo inactivar la dependencia',
+            'rutaxxxx' => 'usudepen',
+            'routnuev' => 'usudepen',
+            'routxxxx' => 'usudepen',
         ];
-        $this->middleware (['permission:' . $this->opciones['permisox'] . '-leer|'
-        . $this->opciones['permisox'] . '-crear|'
-        . $this->opciones['permisox'] . '-editar|'
-        . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['readonly'] = '';
-        $this->opciones['rutaxxxx'] = 'siseslug';
-        $this->opciones['routnuev'] = 'siseslug';
-        $this->opciones['routxxxx'] = 'siseslug';
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
+
 
         $this->opciones['botoform'] = [
-            ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []], 
-            'formhref' => 2, 'tituloxx' => 'VOLVER A '.Traductor::getTitulo(29,1), 'clasexxx' => 'btn btn-sm btn-primary'],
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A DEPENDENCIAS', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
         ];
     }
 
@@ -45,55 +67,106 @@ class ControladorModeloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $padrexxx)
     {
-        $this->opciones['titunuevo'] = 'NUEVO '.Traductor::getTitulo(29,1);
-        $this->opciones['titulist'] = 'LISTA DE '.Traductor::getTitulo(29,1);
-        $this->opciones['dataxxxx'] = [
-            ['campoxxx' => 'botonesx', 'dataxxxx' => 'administracion.Siseslugs/botones/botonesapi'],
-            ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts/components/botones/estadoxx'],
-        ];
+        $this->opciones['usuariox'] = $padrexxx;
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->opciones['tituhead'] = $padrexxx->nombre;
+        $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
+        $this->opciones['padrexxx'] = '';
+        $this->opciones['esindexx'] = true;
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'DEPENDENCIA',
+                'titulist' => 'LISTA DE DEPENDENCIAS',
+                'dataxxxx' => [
+                    ['campoxxx' => 'botonesx', 'dataxxxx' =>
+                    $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],
+                    ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadosx'],
+                    ['campoxxx' => 'padrexxx', 'dataxxxx' => $padrexxx->id],
+                    ['campoxxx' => 'pueditar', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-editar')],
+                    ['campoxxx' => 'puedever', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-leer')],
+                    ['campoxxx' => 'puedinac', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-borrar')],
+                    ['campoxxx' => 'routexxx', 'dataxxxx' => $this->opciones['routxxxx']],
+                ],
 
-        $this->opciones['urlxxxxx'] = 'api/agr/espaluga';
-        $this->opciones['cabecera'] = [
-            ['td' => 'ID'],
-            ['td' => 'ESPACIO/LUGAR'],
-            ['td' => 'ESTADO'],
+                'accitabl' => true,
+                'vercrear' => true,
+                'urlxxxxx' => 'api/usu/dependencias',
+                'cabecera' => [
+                    ['td' => 'ID'],
+                    ['td' => 'DEPENDENCIA'],
+                    ['td' => 'RESPONSABLE'],
+                    ['td' => 'ESTADO'],
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'sis_depen_user.id'],
+                    ['data' => 'dependenica', 'name' => 'sis_depens.nombre as dependenica'],
+                    ['data' => 'nombre', 'name' => 'parametros.nombre'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => $this->opciones['tablaxxx'],
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => $this->opciones['botoform'][0]['routingx'][1],
+            ]
+
         ];
-        $this->opciones['columnsx'] = [
-            ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'id', 'name' => 'sis_eslugs.id'],
-            ['data' => 's_espaluga', 'name' => 'sis_eslugs.s_espaluga'],
-            ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-        ];
-        return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
+        $this->opciones['accionxx'] = 'index';
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-    private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
+
+    private function view($dataxxxx)
     {
-
-        $this->opciones['accionxx'] = $accionxx;
+        $this->opciones['responsa'] = Tema::comboDesc(23, false, false);
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $selectxx = 0;
+        $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
-        if ($nombobje != '') {
-            $this->opciones[$nombobje] = $objetoxx;
-        }
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $selectxx = $dataxxxx['modeloxx']->sis_servicio_id;
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
 
-        // Se arma el titulo de acuerdo al array opciones
-        $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
-        return view($vistaxxx, ['todoxxxx' => $this->opciones]);
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
+        }
+        $this->opciones['dependen'] = SisDepeUsua::getDependenciasUsuario([
+            'padrexxx' => $dataxxxx['padrexxx']->id,
+            'cabecera' => true,
+            'ajaxxxxx' => false,
+            'selectxx' => $selectxx
+        ]);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $padrexxx)
     {
+
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx]],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(true, '', 'CREAR', $this->opciones['rutacarp'] . 'crear');
+        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -102,10 +175,13 @@ class ControladorModeloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SisEslugCrearRequest $request)
+    public function store(SisDepeUsuaCrearRequest $request)
     {
-        $dataxxxx = $request->all();
-        return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
+        return $this->grabar([
+            'dataxxxx' => $request->all(),
+            'modeloxx' => '',
+            'menssage' => 'Registro creado con éxito'
+        ]);
     }
 
     /**
@@ -114,16 +190,11 @@ class ControladorModeloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SisEslug $objetoxx)
+    public function show(SisDepeUsua $objetoxx)
     {
+        $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => $objetoxx->sis_esta_id == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1,
-                'tituloxx' => '', 'clasexxx' => $objetoxx->sis_esta_id == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'
-            ];
-        $this->opciones['readonly'] = 'readonly';
-        return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'ver');
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $objetoxx->user]);
     }
 
     /**
@@ -132,35 +203,25 @@ class ControladorModeloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(SisEslug $objetoxx)
+    public function edit(SisDepeUsua $objetoxx)
     {
+        $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-        return $this->view($objetoxx,  'modeloxx', 'EDITAR', $this->opciones['rutacarp'] . 'editar');
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->user]);
     }
-    private function transaccion($dataxxxx,  $objetoxx)
-    {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
-            } else {
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = SisEslug::create($dataxxxx);
-            }
-            return $objetoxx;
-        }, 5);
-        return $usuariox;
-    }
-    private function grabar($dataxxxx, $objectx, $infoxxxx)
+
+    private function grabar($dataxxxx)
     {
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$this->transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
+            ->route($this->opciones['routxxxx'] . '.editar', [SisDepeUsua::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id])
+            ->with('info', $dataxxxx['menssage']);
     }
 
     /**
@@ -170,10 +231,13 @@ class ControladorModeloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SisEslugEditarRequest $request, SisEslug $objetoxx)
+    public function update(SisDepeUsuaEditarRequest $request, SisDepeUsua $objetoxx)
     {
-        $dataxxxx = $request->all();
-        return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
+        return $this->grabar([
+            'dataxxxx' => $request->all(),
+            'modeloxx' => $objetoxx,
+            'menssage' => 'Registro actualizado con éxito'
+        ]);
     }
 
     /**
@@ -182,23 +246,12 @@ class ControladorModeloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SisEslug $objetoxx)
-    {
-        $this->opciones['parametr'] = [$objetoxx->id];
-
-        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
-        $objetoxx->save();
-        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
-
-        return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
-    }
-
-    public function tiposeg(Request $request)
+    public function destroy(Request $request)
     {
         if ($request->ajax()) {
-            $dataxxxx = $request->all();
-         
-            return response()->json(FosTse::combo($dataxxxx['padrexxx'], false, true));
+            $flight = SisDepeUsua::where('id', $request->padrexxx)->first();
+            $flight->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+            return response()->json(['messagex' => 'Se ha inactivado el área: ' . $flight->id]);
         }
     }
 }

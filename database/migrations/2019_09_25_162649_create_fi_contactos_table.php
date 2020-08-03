@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateFiContactosTable extends Migration
 {
+    private $tablaxxx = 'fi_contactos';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateFiContactosTable extends Migration
      */
     public function up()
     {
-        Schema::create('fi_contactos', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_tipo_contacto_id')->unsigned();
             $table->string('s_contacto_condicion')->nullable();
@@ -38,6 +40,7 @@ class CreateFiContactosTable extends Migration
             $table->foreign('i_prm_aut_tratamiento_id')->references('id')->on('parametros');
             
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE CONTACTO DE LAS PERSONAS QUE SE PUEDEN CONTACTAR CON LOS NNAJ'");
     }
 
     /**
@@ -47,6 +50,6 @@ class CreateFiContactosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fi_contactos');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

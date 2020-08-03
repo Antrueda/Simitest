@@ -3,113 +3,123 @@
 namespace App\Http\Controllers\Administracion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SisDependenciaCrearRequest;
-use App\Http\Requests\SisDependenciaEditarRequest;
+use App\Http\Requests\SisDepenCrearRequest;
+use App\Http\Requests\SisDepenEditarRequest;
 use App\Models\sistema\SisBarrio;
 use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDepen;
+use App\Models\Sistema\SisEsta;
 use App\Models\sistema\SisLocalidad;
 use App\Models\sistema\SisMunicipio;
 use App\Models\sistema\SisUpz;
 use App\Models\Tema;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class DependenciaController extends Controller
 {
     private $opciones;
+
     public function __construct()
     {
-        $this->middleware(['permission:dependencia-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:dependencia-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:dependencia-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:dependencia-borrar'], ['only' => ['index, show, destroy']]);
         $this->opciones = [
-            'tituloxx' => 'Dependencia',
-            'rutaxxxx' => 'dependencia',
-            'accionxx' => '',
-            'rutacarp' => 'administracion.dependencia.',
-            'volverax' => 'Volver a Dependencias',
-            'readonly' => '', // esta opcion es para cundo está por la parte de ver
-            'carpetax' => 'dependencia',
-            'modeloxx' => '',
+            'pestpadr'=>true,// true indica si solo muestra la pestaña dependencias false muestra la pestaña padre y las hijas
             'permisox' => 'dependencia',
-            'routxxxx' => 'dependencia',
-            'routinde' => 'dependencia',
             'parametr' => [],
-            'urlxxxxx' => 'api/sis/dependencia',
-            'routnuev' => 'dependencia',
-            'nuevoxxx' => 'Nuevo Registro',
+            'rutacarp' => 'administracion.dependencia.',
+            'tituloxx' => 'Dependencia',
+            'carpetax' => 'Dependencia',
+            'slotxxxx' => 'dependen',
+            'indecrea' => false,
+            'esindexx' => false,
+            'tituhead' => '',
+            'fechcrea' => '',
+            'fechedit' => '',
+            'usercrea' => '',
+            'useredit' => '',
         ];
-        $this->opciones['cabecera'] = [
-            ['td' => 'DEPENDENCIA'],
-            ['td' => 'SEXO'],
-            ['td' => 'DIRECCION'],
-            ['td' => 'LOCALIDAD'],
-            ['td' => 'BARRIO'],
-            ['td' => 'TELÉFONO'],
-            ['td' => 'CORREO'],
-            ['td' => 'ESTADO'],
-        ];
-        $this->opciones['columnsx'] = [
-            ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'nombre', 'name' => 'sis_dependencias.nombre'],
-            ['data' => 'i_prm_sexo_id', 'name' => 'parametros.nombre as i_prm_sexo_id'],
-            ['data' => 's_direccion', 'name' => 'sis_dependencias.s_direccion'],
-            ['data' => 'sis_localidad_id', 'name' => 'sis_localidads.s_localidad as sis_localidad_id'],
-            ['data' => 'sis_barrio_id', 'name' => 'sis_barrios.s_barrio as sis_barrio_id'],
-            ['data' => 's_telefono', 'name' => 'sis_dependencias.s_telefono'],
-            ['data' => 's_correo', 'name' => 'sis_dependencias.s_correo'],
-            ['data' => 'sis_esta_id', 'name' => 'sis_dependencias.sis_esta_id'],
 
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
+        $this->opciones['readonly'] = '';
+        $this->opciones['rutaxxxx'] = 'dependencia';
+        $this->opciones['routnuev'] = 'dependencia';
+        $this->opciones['routxxxx'] = 'dependencia';
+
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => 'Volver a dependencias', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
         ];
     }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
-    }
+        $this->opciones['padrexxx'] = '';
+        $this->opciones['indecrea'] = false;
+        $this->opciones['esindexx'] = true;
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'Nueva Dependencia',
+                'titulist' => 'Lista de Dependencias',
+                'dataxxxx' => [
+                    ['campoxxx' => 'botonesx', 'dataxxxx' =>
+                    $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],
+                    ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadosx'],
+                ],
 
+                'accitabl' => true,
+                'vercrear' => true,
+                'urlxxxxx' => 'api/sis/dependencia',
+                'cabecera' => [
+                    ['td' => 'DEPENDENCIA'],
+                    ['td' => 'SEXO'],
+                    ['td' => 'DIRECCION'],
+                    ['td' => 'LOCALIDAD'],
+                    ['td' => 'BARRIO'],
+                    ['td' => 'TELÉFONO'],
+                    ['td' => 'CORREO'],
+                    ['td' => 'ESTADO'],
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
+                    ['data' => 'i_prm_sexo_id', 'name' => 'parametros.nombre as i_prm_sexo_id'],
+                    ['data' => 's_direccion', 'name' => 'sis_depens.s_direccion'],
+                    ['data' => 'sis_localidad_id', 'name' => 'sis_localidads.s_localidad as sis_localidad_id'],
+                    ['data' => 'sis_barrio_id', 'name' => 'sis_barrios.s_barrio as sis_barrio_id'],
+                    ['data' => 's_telefono', 'name' => 'sis_depens.s_telefono'],
+                    ['data' => 's_correo', 'name' => 'sis_depens.s_correo'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'dependencia',
+                'permisox' => 'dependencia',
+                'routxxxx' => 'dependencia',
+                'parametr' => [],
+            ]
+
+        ];
+        $this->opciones['accionxx']='index';
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
 
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
 
-
-        $this->opciones["urlxxxag"] = 'api/sis/servicio';
-        $this->opciones['routxxxa'] = 'dependencia';
-        $this->opciones['cabeceag'] = [
-            ['td' => 'ID'],
-            ['td' => 'SERVICIO'],
-        ];
-        $this->opciones['columnag'] = [
-            ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'id', 'name' => 'users.id'],
-            ['data' => 'sis_servicio_id', 'name' => 'sis_servicios.s_servicio as sis_servicio_id'],
-
-        ];
-
-        $this->opciones["urlxxxas"] = 'api/sis/user';
-        $this->opciones['routxxxb'] = 'dependencia';
-        $this->opciones['cabeceas'] = [
-            ['td' => 'ID'],
-            ['td' => 'USUARIO'],
-            ['td' => 'RESPONSABLE'],
-        ];
-        $this->opciones['columnas'] = [
-            ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'id', 'name' => 'users.id'],
-            ['data' => 'name', 'name' => 'users.name'],
-            ['data' => 'nombre', 'name' => 'parametros.nombre'],
-        ];
-
-
+        $this->opciones['indecrea'] = false;
+        $this->opciones['padrexxx'] = '';
         $this->opciones['i_prm_cvital_id'] = Tema::combo(311, true, false);
         $this->opciones['i_prm_tdependen_id'] = Tema::combo(192, true, false);
-        $this->opciones['sis_dependencia_id'] = SisDependencia::combo(true, false);
+        $this->opciones['sis_depen_id'] = SisDepen::combo(true, false);
         $this->opciones['i_prm_sexo_id'] = Tema::combo(11, true, false);
         $this->opciones['responsa'] = Tema::comboDesc(23, false, false);
         $this->opciones['sis_departamento_id'] = SisDepartamento::combo(2, false);
@@ -117,29 +127,34 @@ class DependenciaController extends Controller
         $this->opciones['sis_localidad_id'] = SisLocalidad::combo(true, false);
         $this->opciones['sis_upz_id'] = ['' => 'Seleccione'];
         $this->opciones['sis_barrio_id'] = ['' => 'Seleccione'];
-        $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
-
         if ($nombobje != '') {
+            $this->opciones['padrexxx'] = $objetoxx->id;
+            $this->opciones['pestpadr']=false;
             $objetoxx->dtiestan = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiestan days"));
             $objetoxx->dtiegabe = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiegabe days"));
 
             $this->opciones['sis_municipio_id'] = SisMunicipio::combo($objetoxx->sis_departamento_id, false);
 
             $barrioxx = $objetoxx->sis_upzbarri;
-            $objetoxx->sis_upz_id = $barrioxx->sis_upz_id;
-            $this->opciones['sis_upz_id'] = SisUpz::combo($barrioxx->sis_localidad_id, false);
-            $this->opciones['sis_barrio_id'] = SisBarrio::combo($objetoxx->sis_localupz_id, false);
-            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
+            $objetoxx->sis_localidad_id = $barrioxx->sis_localupz->sis_localidad_id;
+            $objetoxx->sis_upz_id = $barrioxx->sis_localupz->sis_upz_id;
+            $this->opciones['sis_upz_id'] = SisUpz::combo($barrioxx->sis_localupz->sis_localidad_id, false);
+            $this->opciones['sis_barrio_id'] = SisBarrio::combo($objetoxx->sis_upzbarri_id, false);
             $this->opciones[$nombobje] = $objetoxx;
+
+            $this->opciones['fechcrea'] = $objetoxx->created_at;
+            $this->opciones['fechedit'] = $objetoxx->updated_at;
+            $this->opciones['usercrea'] = $objetoxx->creador->name;
+            $this->opciones['useredit'] = $objetoxx->editor->name;
         }
 
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
-        return view($this->opciones['rutacarp'] . $vistaxxx, ['todoxxxx' => $this->opciones]);
+        return view($vistaxxx, ['todoxxxx' => $this->opciones]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -147,24 +162,22 @@ class DependenciaController extends Controller
      */
     public function create()
     {
-        return $this->view('', '', 'Crear', 'crear');
+        $this->opciones['indecrea'] = true;
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . '.pestanias');
     }
 
-
-    private function grabar($dataxxxx, $objectx, $infoxxxx)
-    {
-
-        return redirect()
-            ->route('dependencia.editar', [SisDependencia::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SisDependenciaCrearRequest $request)
+    public function store(SisDepenCrearRequest $request)
     {
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
@@ -176,10 +189,12 @@ class DependenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SisDependencia $objetoxx)
+    public function show(SisDepen $objetoxx)
     {
+        $this->opciones['padrexxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$objetoxx->id];
         $this->opciones['readonly'] = 'readonly';
-        return $this->view($objetoxx,  'modeloxx', 'Ver', 'ver');
+        return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'pestanias');
     }
 
     /**
@@ -188,16 +203,36 @@ class DependenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(SisDependencia $objetoxx)
+    public function edit(SisDepen $objetoxx)
     {
-        $this->opciones['actualiz'] = '';
-        return $this->view($objetoxx,  'modeloxx', 'Editar', 'editar');
+        $this->opciones['padrexxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$objetoxx->id];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Editar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'pestanias');
     }
 
-    public function update(SisDependenciaEditarRequest $request, SisDependencia $objetoxx)
+    private function grabar($dataxxxx, $objectx, $infoxxxx)
+    {
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [SisDepen::transaccion($dataxxxx, $objectx)->id])
+            ->with('info', $infoxxxx);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(SisDepenEditarRequest $request, SisDepen $objetoxx)
     {
         $dataxxxx = $request->all();
-        return $this->grabar($dataxxxx, $objetoxx, 'Indicador actualizado con éxito');
+        return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
     }
 
     /**
@@ -206,11 +241,14 @@ class DependenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SisDependencia $objetoxx)
+    public function destroy(SisDepen $objetoxx)
     {
+        $this->opciones['parametr'] = [$objetoxx->id];
+
         $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
-        return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
+
+        return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
     }
 }

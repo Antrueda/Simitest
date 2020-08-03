@@ -1,79 +1,107 @@
 <?php
-Route::group(['prefix' => 'usuario'], function () {
-	Route::get('', [
-		'uses' => 'Seguridad\UsuarioController@index',
-		'middleware' => ['permission:usuario-leer|usuario-crear|usuario-editar|usuario-borrar']
-	])->name('usuario');
-	Route::get('nuevo', [
-		'uses' => 'Seguridad\UsuarioController@create',
-		'middleware' => ['permission:usuario-crear']
-	])->name('usuario.nuevo');
-	Route::post('crear', [
-		'uses' => 'Seguridad\UsuarioController@store',
-		'middleware' => ['permission:usuario-crear']
-	])->name('usuario.crear');
-	Route::get('editar/{usuario}', [
-		'uses' => 'Seguridad\UsuarioController@edit',
-		'middleware' => ['permission:usuario-editar']
-	])->name('usuario.editar');
-	Route::put('editar/{usuario}', [
-		'uses' => 'Seguridad\UsuarioController@update',
-		'middleware' => ['permission:usuario-editar']
-	])->name('usuario.editar');
-	Route::get('ver/{usuario}', [
-		'uses' => 'Seguridad\UsuarioController@show',
-		'middleware' => ['permission:usuario-leer']
-	])->name('usuario.ver');
-	Route::delete('borrar/{usuario}', [
-		'uses' => 'Seguridad\UsuarioController@destroy',
-		'middleware' => ['permission:usuario-borrar']
-	])->name('usuario.borrar');
 
-	Route::post('municipio', [
-		'uses' => 'Seguridad\UsuarioController@municipioajax',
+$controll = 'Seguridad\Usuario\Usuario';
+$routexxx = 'usuario';
+Route::group(['prefix' => 'usuario'], function () use ($controll, $routexxx) {
 
-	])->name('usuario.municipio');
-	Route::post('roles', [
-		'uses' => 'Seguridad\UsuarioController@rolesajax',
+    Route::get('', [
+        'uses' => $controll . 'Controller@index',
+        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+    ])->name($routexxx);
+    Route::get('nuevo', [
+        'uses' => $controll . 'Controller@create',
+        'middleware' => ['permission:' . $routexxx . '-crear']
+    ])->name($routexxx . '.nuevo');
+    Route::post('crear', [
+        'uses' => $controll . 'Controller@store',
+        'middleware' => ['permission:' . $routexxx . '-crear']
+    ])->name($routexxx . '.crear');
+    Route::get('editar/{objetoxx}', [
+        'uses' => $controll . 'Controller@edit',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editar');
+    Route::put('editar/{objetoxx}', [
+        'uses' => $controll . 'Controller@update',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editar');
+    Route::get('ver/{objetoxx}', [
+        'uses' => $controll . 'Controller@show',
+        'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.ver');
 
-	])->name('usuario.roles');
-	Route::post('asignar', [
-		'uses' => 'Seguridad\UsuarioController@asignaRolesAjax',
+    Route::get('borrar', [
+        'uses' => $controll . 'Controller@destroy',
+        'middleware' => ['permission:' . $routexxx . '-borrar']
+    ])->name($routexxx . '.borrar');
 
-	])->name('usuario.asignar');
-	Route::post('eliminarol', [
-		'uses' => 'Seguridad\UsuarioController@elinarRolAjax',
-	])->name('usuario.eliminarol');
 
-	Route::post('dasignadas', [
-		'uses' => 'Seguridad\UsuarioController@asignadasAjax',
-	])->name('usuario.dasignadas');
 
-	Route::post('dasignar', [
-		'uses' => 'Seguridad\UsuarioController@asignaDependenciaAjax',
-	])->name('usuario.dasignar');
 
-	Route::post('eliminadependencia', [
-		'uses' => 'Seguridad\UsuarioController@elinarDependenciaAjax',
-	])->name('usuario.eliminadependencia');
+    Route::post('municipio', [
+        'uses' => $controll . 'Controller@municipioajax',
+    ])->name($routexxx . '.municipio');
 
-	Route::get('tiempocarga', [
-		'uses' => 'Seguridad\UsuarioController@tiempocarga',
-	])->name('usuario.tiempocarga');
-	/** Cambiar la contraseña */
-	Route::get('password/{usuario}', [
-		'uses' => 'Seguridad\UsuarioController@editpassword',
-		'middleware' => ['permission:usuario-editar']
-	])->name('usuario.password');
-	Route::put('password/{usuario}', [
-		'uses' => 'Seguridad\UsuarioController@updatepassword',
-		'middleware' => ['permission:usuario-editar']
-	])->name('usuario.password');
 
-	Route::get('setAreas', [
-		'uses' => 'Seguridad\UsuarioController@setAreas',
-	])->name('usuario.setAreas');
-	Route::get('setActinact', [
-		'uses' => 'Seguridad\UsuarioController@setActinact',
-	])->name('usuario.setActinact');
+
+
+    Route::get('tiempocarga', [
+        'uses' => $controll . 'Controller@tiempocarga',
+    ])->name($routexxx . '.tiempocarga');
+
+
+    /** Cambiar la contraseña */
+    Route::get('password/{usuario}', [
+        'uses' => $controll . 'Controller@editpassword',
+        'middleware' => ['permission:usuario-editar']
+    ])->name($routexxx . '.password');
+    Route::put('password/{usuario}', [
+        'uses' => $controll . 'Controller@updatepassword',
+        'middleware' => ['permission:usuario-editar']
+    ])->name($routexxx . '.password');
+
+
+
+
+    $controll = 'Seguridad\Usuario\AreaUser';
+    $routexxx = 'areausua';
+    Route::group(['prefix' => '{padrexxx}/areas'], function () use ($controll, $routexxx) {
+        Route::get('', [
+            'uses' => $controll . 'Controller@index',
+            'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+        ])->name($routexxx);
+        Route::get('nuevo', [
+            'uses' => $controll . 'Controller@create',
+            'middleware' => ['permission:' . $routexxx . '-crear']
+        ])->name($routexxx . '.nuevo');
+    });
+
+    $controll = 'Seguridad\Usuario\UsuDepen';
+    $routexxx = 'usudepen';
+    Route::group(['prefix' => '{padrexxx}/dependencias'], function () use ($controll, $routexxx) {
+        Route::get('', [
+            'uses' => $controll . 'Controller@index',
+            'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+        ])->name($routexxx);
+        Route::get('nuevo', [
+            'uses' => $controll . 'Controller@create',
+            'middleware' => ['permission:' . $routexxx . '-crear']
+        ])->name($routexxx . '.nuevo');
+    });
+
+    $controll = 'Seguridad\Usuario\UsuaRol';
+    $routexxx = 'roleusua';
+    Route::group(['prefix' => '{padrexxx}/roles'], function () use ($controll, $routexxx) {
+        Route::get('', [
+            'uses' => $controll . 'Controller@index',
+            'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+        ])->name($routexxx);
+        Route::get('nuevo', [
+            'uses' => $controll . 'Controller@create',
+            'middleware' => ['permission:' . $routexxx . '-crear']
+        ])->name($routexxx . '.nuevo');
+    });
 });
+require_once('web_area_user.php');
+require_once('web_depe_user.php');
+require_once('web_role_user.php');
+require_once('web_contrasenia_user.php');

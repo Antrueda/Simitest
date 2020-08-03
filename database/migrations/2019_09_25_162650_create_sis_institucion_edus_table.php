@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateSisInstitucionEdusTable extends Migration
 {
+    private $tablaxxx = 'sis_institucion_edus';
     /**
      * Run the migrations.
      *
@@ -13,12 +15,11 @@ class CreateSisInstitucionEdusTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_institucion_edus', function (Blueprint $table) {
-            
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_nombre');
             $table->string('s_telefono');
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->string('s_email');
             $table->bigInteger('sis_municipio_id')->unsigned();
             $table->bigInteger('sis_departamento_id')->unsigned();
@@ -28,12 +29,11 @@ class CreateSisInstitucionEdusTable extends Migration
             $table->bigInteger('i_usr_coord_academico_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-         
+
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
-
 
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
             $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
@@ -42,6 +42,7 @@ class CreateSisInstitucionEdusTable extends Migration
             $table->foreign('i_usr_secretario_id')->references('id')->on('users');
             $table->foreign('i_usr_coord_academico_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DE IDENTIFICACIÓN, UBICACIÓN Y DE CONTACTO DE CENTROS EDUCATIVOS'");
     }
 
     /**
@@ -51,6 +52,6 @@ class CreateSisInstitucionEdusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_institucion_edus');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

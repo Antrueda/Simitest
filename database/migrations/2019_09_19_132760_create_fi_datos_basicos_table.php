@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateFiDatosBasicosTable extends Migration
 {
+    private $tablaxxx = 'fi_datos_basicos';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateFiDatosBasicosTable extends Migration
      */
     public function up()
     {
-        Schema::create('fi_datos_basicos', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_primer_nombre');
             $table->string('s_segundo_nombre')->nullable();
@@ -93,6 +95,7 @@ class CreateFiDatosBasicosTable extends Migration
             $table->foreign('sis_departamentoexp_id')->references('id')->on('sis_departamentos');
             $table->unique(['sis_esta_id','s_documento']);
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DE LAS PERSONAS QUE HACEN PARTE DE LA COMPOSICIÓN FAMILIAR DEL NNAJ, YA SEA QUE VENGAN DE LA FICHA DE INGRESO, VALORACIÓN SICOSOCIAL O CONSULTA SOCIAL EN DOMICILIO.'");
     }
 
     /**
@@ -102,6 +105,6 @@ class CreateFiDatosBasicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fi_datos_basicos');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

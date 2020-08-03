@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateSisActividadProcesosTable extends Migration
 {
+    private $tablaxxx = 'sis_actividad_procesos';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateSisActividadProcesosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_actividad_procesos', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_actividad_id')->unsigned();
             $table->bigInteger('sis_proceso_id')->unsigned();
@@ -29,6 +31,7 @@ class CreateSisActividadProcesosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LAS ACTIVIDADES Y LOS PROCESOS DEL SISTEMA'");
     }
 
     /**
@@ -38,6 +41,6 @@ class CreateSisActividadProcesosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_actividad_procesos');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

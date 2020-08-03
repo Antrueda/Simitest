@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-      Schema::defaultStringLength(120);
+      Schema::defaultStringLength(190);
       Blade::component('layouts.components.archivos.upload','upload');
     }
 }

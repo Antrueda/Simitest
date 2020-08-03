@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 class IsDatosBasico extends Model
 {
     protected $fillable = [
-        'sis_dependencia_id',
+        'sis_depen_id',
         'd_fecha_diligencia',
         'i_prm_tipo_atencion_id',
         'i_prm_area_ajuste_id',

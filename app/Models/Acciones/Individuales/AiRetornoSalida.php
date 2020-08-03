@@ -5,7 +5,7 @@ namespace App\Models\Acciones\Individuales;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDepen;
 use App\Models\Parametro;
 
 class AiRetornoSalida extends Model{
@@ -23,7 +23,7 @@ class AiRetornoSalida extends Model{
     }
 
     public function upis(){
-        return $this->belongsTo(SisDependencia::class, 'prm_upi_id');
+        return $this->belongsTo(SisDepen::class, 'prm_upi_id');
     }
 
     public function horaRetorno(){

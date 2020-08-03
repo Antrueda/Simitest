@@ -67,7 +67,7 @@ class CreateAiReporteEvasionTable extends Migration{
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('departamento_id')->references('id')->on('sis_departamentos');
             $table->foreign('municipio_id')->references('id')->on('sis_municipios');
-            $table->foreign('prm_upi_id')->references('id')->on('sis_dependencias');
+            $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
             $table->foreign('prm_hor_eva_id')->references('id')->on('parametros');
             $table->foreign('prm_contextura_id')->references('id')->on('parametros');
             $table->foreign('prm_rostro_id')->references('id')->on('parametros');

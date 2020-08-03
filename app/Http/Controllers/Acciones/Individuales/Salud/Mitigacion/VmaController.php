@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Models\Tema;
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisDiagnosticos;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\User;
@@ -34,7 +34,7 @@ class VmaController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $tValoracion = ['' => 'Seleccione...'];
         $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         foreach (Tema::findOrFail(312)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
@@ -245,7 +245,7 @@ class VmaController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis = SisDependencia::orderBy('nombre')->pluck('nombre', 'id');
+        $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $tValoracion = ['' => 'Seleccione...'];
         $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         foreach (Tema::findOrFail(312)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
@@ -323,7 +323,7 @@ class VmaController extends Controller{
     protected function validator(array $data){
         return Validator::make($data, [
             'sis_nnaj_id'       => 'required|exists:sis_nnajs,id',
-            'prm_upi_id'        => 'required|exists:sis_dependencias,id',
+            'prm_upi_id'        => 'required|exists:sis_depens,id',
             'fecha'             => 'required|date',
             'prm_valoracion_id' => 'required|exists:parametros,id',
             'sesion'            => 'required|integer',

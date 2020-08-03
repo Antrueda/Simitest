@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDependencia;
+use App\Models\sistema\SisDepen;
 use App\Models\sicosocial\Vsi;
 use Illuminate\Support\Facades\Validator;
 
@@ -35,7 +35,7 @@ class VsiController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vsis = $dato->Vsi->sortByDesc('fecha')->all();
-        $dependencias = SisDependencia::where('sis_esta_id', 1)->orderBy('nombre')->pluck('nombre', 'id');
+        $dependencias = SisDepen::where('sis_esta_id', 1)->orderBy('nombre')->pluck('nombre', 'id');
         return view('Sicosocial.index', ['accion' => 'Nueva'], compact('dato', 'nnaj', 'vsis', 'dependencias'));
     }
 
@@ -53,7 +53,7 @@ class VsiController extends Controller{
         $dato = SisNnaj::findOrFail($id);
         $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $vsis = $dato->Vsi->sortByDesc('fecha')->all();
-        $dependencias = SisDependencia::where('sis_esta_id', 1)->orderBy('nombre')->pluck('nombre', 'id');
+        $dependencias = SisDepen::where('sis_esta_id', 1)->orderBy('nombre')->pluck('nombre', 'id');
         return view('Sicosocial.index', ['accion' => 'Editar'], compact('dato', 'nnaj', 'vsis', 'dependencias', 'valor'));
     }
 
@@ -81,7 +81,7 @@ class VsiController extends Controller{
     protected function validator(array $data){
         return Validator::make($data, [
             'sis_nnaj_id' => 'required|exists:sis_nnajs,id',
-            'dependencia_id' => 'required|exists:sis_dependencias,id',
+            'dependencia_id' => 'required|exists:sis_depens,id',
             'fecha' => 'required|date',
         ]);
     }

@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateSisCargosTable extends Migration
 {
+    private $tablaxxx = 'sis_cargos';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateSisCargosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_cargos', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_cargo');
             $table->Integer('itiestan')->default(0);
@@ -24,6 +26,7 @@ class CreateSisCargosTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DE LOS CARGOS DE LOS USUARIOS DEL SISTEMA'");
     }
 
     /**
@@ -33,6 +36,6 @@ class CreateSisCargosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_cargos');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }
