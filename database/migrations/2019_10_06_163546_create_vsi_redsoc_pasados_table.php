@@ -34,7 +34,7 @@ class CreateVsiRedsocPasadosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES DE LOS ANTECEDENTES INSTITUCIONALES, EN EL PUNTO 7.2 DE LA FICHA SICOSOCIAL.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES DE LOS ANTECEDENTES INSTITUCIONALES DE LAS REDES SOCIALES, EN EL PUNTO 7.2 DE LA FICHA SICOSOCIAL.'");
     }
 
     /**
