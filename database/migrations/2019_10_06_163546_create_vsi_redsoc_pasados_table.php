@@ -15,7 +15,7 @@ class CreateVsiRedsocPasadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('vsi_redsoc_pasados', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
             $table->string('nombre');
