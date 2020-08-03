@@ -3,7 +3,7 @@
         <a href="#" class="nav-link">
         <i class="nav-icon fas fa-search"></i>
         <p>
-            FOS
+            Ficha de Observación y/o Seguimiento
             <i class="fas fa-angle-left right"></i>
         </p>
         </a>

@@ -830,7 +830,7 @@ class TemasTableSeeder extends Seeder
             1480 => $camposmagicos,
             1594 => $camposmagicos,
             2316 => $camposmagicos,
-            2322 => $camposmagicos,
+          //  2322 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 67, 'nombre' => 'CSD - RÉGIMEN ESPECIAL EN SALUD']);
         $tema->parametros()->sync([

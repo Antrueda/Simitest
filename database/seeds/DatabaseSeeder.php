@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdComFamiliarObservacionesSeeder::class); // Jorge
         $this->call(CsdGenIngresoSeeder::class); // Jorge
         $this->call(CsdBienvenidaSeeder::class); // Jorge
-        //$this->call(CsdBienvenidaMotivosSeeder::class); // Jorge
+        $this->call(CsdBienvenidaMotivosSeeder::class); // Jorge
         $this->call(InLineaBasesSeeder::class);
         $this->call(InFuentesSeeder::class);
         $this->call(InBaseFuentesSeeder::class);
@@ -92,7 +92,7 @@ class DatabaseSeeder extends Seeder
         // -- Modulo SICO SOCIAL, Javier
         $this->call(VsisSeeder::class); // ok  //1
         $this->call(VsiBienvenidaSeeder::class);        // ok // 2
-        $this->call(VsiBienvenidaMotivoSeeder::class);  // ok // 3
+       // $this->call(VsiBienvenidaMotivoSeeder::class);  // ok // 3
         $this->call(VsiAntecedenteSeeder::class);  // ok //6
         $this->call(VsiDatosVinculaSeeder::class);  //13 ok
         $this->call(VsiDinFamiliarSeeder::class);  //14 ok
@@ -131,7 +131,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiGenIngresoSeeder::class);
         $this->call(VsiGeningDiaSeeder::class);  //38
         $this->call(VsiGeningLaborSeeder::class);  //39
-        $this->call(VsiGeningQuienSeeder::class);  //40
+       // $this->call(VsiGeningQuienSeeder::class);  //40
         $this->call(VsiSitespRiesgoSeeder::class);  //62
         $this->call(VsiSitespVictimaSeeder::class);  //63
 
@@ -161,7 +161,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta
         $this->call(VsiEstemoDificultaSeeder::class);  //32 falta
-        $this->call(VsiEstemoEstresanteSeeder::class);  //33 falta
+        //$this->call(VsiEstemoEstresanteSeeder::class);  //33 falta
         $this->call(VsiEstemoLesivaSeeder::class);  //34 falta
         $this->call(VsiEstemoMotivoSeeder::class);  //35 falta
         $this->call(VsiFacProtectorSeeder::class);  //36 falta
