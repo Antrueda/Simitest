@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateFiViolenciasTable extends Migration
+class CreateHFiViolenciasTable extends Migration
 {
-    private $tablaxxx = 'fi_violencias';
+    private $tablaxxx = 'h_fi_violencias';
     /**
      * Run the migrations.
      *
@@ -51,38 +51,9 @@ class CreateFiViolenciasTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
-            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-
-            $table->foreign('i_prm_presenta_violencia_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_familiar_fisica_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_amistad_fisica_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_pareja_fisica_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_comunidad_fisica_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_familiar_psico_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_amistad_psico_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_pareja_psico_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_comunidad_psico_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_familiar_sexual_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_amistad_sexual_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_pareja_sexual_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_comunidad_sexual_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_familiar_econo_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_amistad_econo_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_pareja_econo_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_comunidad_econo_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_violencia_genero_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_condicion_presenta_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_depto_condicion_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_municipio_condicion_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_tiene_certificado_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_depto_certifica_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_municipio_certifica_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES SOBRE LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
