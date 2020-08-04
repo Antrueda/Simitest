@@ -48,7 +48,8 @@ class CreateFiDatosBasicosTable extends Migration
             $table->bigInteger('prm_vestimenta_id')->unsigned();
             $table->string('s_nombre_focalizacion');
             $table->string('s_lugar_focalizacion');
-            $table->bigInteger('sis_barrio_id')->unsigned();
+           // $table->bigInteger('sis_barrio_id')->unsigned();
+            $table->bigInteger('sis_upzbarri_id')->unsigned()->nullable();
             $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
@@ -83,7 +84,7 @@ class CreateFiDatosBasicosTable extends Migration
             $table->foreign('prm_etnia_id')->references('id')->on('parametros');
             $table->foreign('prm_poblacion_etnia_id')->references('id')->on('parametros');
             $table->foreign('prm_vestimenta_id')->references('id')->on('parametros');
-            $table->foreign('sis_barrio_id')->references('id')->on('sis_barrios');
+            $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
             $table->foreign('prm_documento_id')->references('id')->on('parametros');
             $table->foreign('prm_doc_fisico_id')->references('id')->on('parametros');
             $table->foreign('i_prm_ayuda_id')->references('id')->on('parametros');

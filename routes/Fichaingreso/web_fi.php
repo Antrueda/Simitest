@@ -8,6 +8,10 @@ Route::group(['prefix' => 'fi'], function () {
 	    'uses' => 'FichaIngreso\FiDatoBasicoController@create',
 	    'middleware' => ['permission:fidatobasico-crear']
 	])->name('fi.datobasico.nuevo');
+	Route::get('{id}', [
+	    'uses' => 'FichaIngreso\FiDatoBasicoController@show',
+	    'middleware' => ['permission:fidatobasico-leer|fidatobasico-crear|fidatobasico-editar|fidatobasico-borrar']
+	])->name('fi.datobasico.ver');
 	Route::post('crear', [
 	    'uses' => 'FichaIngreso\FiDatoBasicoController@store',
 	    'middleware' => ['permission:fidatobasico-crear']

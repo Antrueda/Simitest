@@ -12,6 +12,7 @@ use Carbon\Carbon;
 
 use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisPai;
+use App\Models\sistema\SisUpzbarri;
 use App\Models\User;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
@@ -51,7 +52,7 @@ class FiDatosBasico extends Model
         'prm_vestimenta_id',
         's_nombre_focalizacion',
         's_lugar_focalizacion',
-        'sis_barrio_id',
+        'sis_upzbarri_id',
         'prm_documento_id',
         'prm_doc_fisico_id',
 
@@ -90,9 +91,9 @@ class FiDatosBasico extends Model
         return $this->belongsTo(Parametro::class, 'prm_poblacion_id');
     }
 
-    public function sis_barrio()
-    {
-        return $this->belongsTo(SisBarrio::class);
+
+    public function sis_upzbarri(){
+        return $this->belongsTo(SisUpzbarri::class);
     }
 
     public static function usregisro($usuariox)

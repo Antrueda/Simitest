@@ -81,7 +81,7 @@
                 departam='sis_departamento_id';
             }else if(campoxxx=='sis_localidad_id'){
                 departam='sis_upz_id';
-                municipi='sis_barrio_id';
+                municipi='sis_upzbarri_id';
                 routexxx="{{ route('ajaxx.upz') }}";
                 localida=true; 
             }
@@ -115,7 +115,7 @@
             if(campoxxx=='sis_departamento_id'){
                 municipi='sis_municipio_id';
             }else if(campoxxx=='sis_upz_id'){
-                municipi='sis_barrio_id';
+                municipi='sis_upzbarri_id';
                 routexxx="{{ route('ajaxx.barrio') }}"
             }else if(campoxxx=='prm_etnia_id'){
                 municipi='prm_poblacion_etnia_id';
@@ -247,7 +247,7 @@
             datadepa('sis_localidad_id',{{ old('sis_localidad_id') }},{{ old('sis_upz_id') }});
            
             @if(old('sis_upz_id')!==null)
-                datamuni('sis_upz_id',{{ old('sis_upz_id') }},{{ old('sis_barrio_id') }});
+                datamuni('sis_upz_id',{{ old('sis_upz_id') }},{{ old('sis_upzbarri_id') }});
             @endif
         @endif
          @if(old('prm_doc_fisico_id')!==null)

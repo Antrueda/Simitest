@@ -18,7 +18,7 @@ class ChangePasswordEditarRequest extends FormRequest
             'password_confirmation.min' => 'La confirmación de la contraseña debe tener al menos 8 carracteres',
         ];
         $this->_reglasx = [
-            'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/|',
+            'password' => 'min:8|required_with:password_confirmation|same:password_confirmation|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/| expire => 30,',
             'password_confirmation' => ['min:8']
         ];
     }

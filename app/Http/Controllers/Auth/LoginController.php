@@ -43,4 +43,5 @@ class LoginController extends Controller
     {
         return array_merge($request->only($this->username(), 'password'), ['sis_esta_id' => 1]);
     }
+    
 }

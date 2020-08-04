@@ -4,6 +4,11 @@ Route::group(['prefix' => 'fos'], function () {
 		'uses' => 'FichaObservacion\FosDatoBasicoController@index',
 		'middleware' => ['permission:fosfichaobservacion-leer|fosfichaobservacion-crear|fosfichaobservacion-editar|fosfichaobservacion-borrar']
 	])->name('fos');
+
+	Route::get('{id}', [
+		'uses' => 'FichaObservacion\FosDatoBasicoController@lista',
+		'middleware' => ['permission:fosfichaobservacion-leer|fosfichaobservacion-crear|fosfichaobservacion-editar|fosfichaobservacion-borrar']
+	])->name('fos.ver');
 	
 	Route::get('obtenerTipoSeguimientos', [
 		'uses' => 'FichaObservacion\FosDatoBasicoController@obtenerTipoSeguimientos',

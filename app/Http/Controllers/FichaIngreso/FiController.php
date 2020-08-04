@@ -34,11 +34,7 @@ class FiController extends Controller
 
     public function index(Request $request)
     {
-        $parametr = Parametro::where('id', '>', 1771)->get();
-        foreach ($parametr as $key => $registro) {
-            echo "Parametro::create(['id' => {$registro->id}, 'nombre' => '{$registro->nombre}']);<br>";
-        }
-
+     
 
         // $respuest = Http::get('http://localhost:8085/areas')->json();
         // // echo '<pre>';
@@ -67,7 +63,7 @@ class FiController extends Controller
             ['data' => 'sis_esta_id', 'name' => 'sis_esta_id'],
         ];
         $this->opciones['parametr'] = [];
-        ///return view('FichaIngreso.index', ['todoxxxx' => $this->opciones]);
+        return view('FichaIngreso.index', ['todoxxxx' => $this->opciones]);
     }
 
     public function show($id)

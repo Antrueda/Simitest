@@ -109,8 +109,16 @@ class FiDatoBasicoController extends Controller
     if ($nombobje != '') {
       $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
 
-      $objetoxx->sis_localidad_id = $objetoxx->sis_barrio->sis_upz->sis_localidad_id;
-      $objetoxx->sis_upz_id = $objetoxx->sis_barrio->sis_upz_id;
+     // $objetoxx->sis_localidad_id = $objetoxx->sis_barrio->sis_upz->sis_localidad_id;
+     // $objetoxx->sis_upz_id = $objetoxx->sis_barrio->sis_upz_id;
+
+            $barrioxx=$objetoxx->sis_upzbarri->sis_localupz;
+            $objetoxx->sis_localidad_id=$barrioxx->sis_localidad_id;
+            $objetoxx->sis_upz_id=$barrioxx->id;
+            // ddd($valor->sis_localidad_id . ' ' . $valor->sis_upz_id);
+            $this->opciones['upzxxxxx']  = SisUpz::combo($barrioxx->sis_localidad_id, false);
+            $this->opciones['barrioxx'] = SisBarrio::combo($barrioxx->id, false);
+
 
       $this->opciones[$nombobje] = $objetoxx;
 
@@ -122,8 +130,7 @@ class FiDatoBasicoController extends Controller
       $this->opciones['deparexp'] = SisDepartamento::combo($objetoxx->sis_paiexp_id, false);
 
 
-      $this->opciones['upzxxxxx'] = SisUpz::combo($objetoxx->sis_barrio->sis_upz->sis_localidad_id, false);
-      $this->opciones['barrioxx'] = SisBarrio::combo($objetoxx->sis_barrio->sis_upz_id, false);
+     
       $fechaxxx = explode('-', $objetoxx->d_nacimiento);
       $this->opciones['aniosxxx'] = Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
 

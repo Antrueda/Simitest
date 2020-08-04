@@ -132,7 +132,6 @@ class DatabaseSeeder extends Seeder
        // $this->call(VsiGeningQuienSeeder::class);  //40
         $this->call(VsiSitespRiesgoSeeder::class);  //62
         $this->call(VsiSitespVictimaSeeder::class);  //63
-<<<<<<< HEAD
 
 
 
@@ -178,41 +177,6 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiRedsocPasadoSeeder::class);  //54 falta
 
 
-=======
-        $this->call(VsiAbuSexualSeeder::class);  //4
-        $this->call(VsiConceptoSeeder::class);  //8
-        $this->call(VsiConcepRedSeeder::class);  //7
-        $this->call(VsiConsentimientoSeeder::class);  //9
-        $this->call(VsiConsumoSeeder::class);  //10
-        $this->call(VsiConsumoExpectativaSeeder::class);  //11
-        $this->call(VsiConsumoQuienSeeder::class);  //12
-        $this->call(VsiDinfamCalleSeeder::class);  //16
-        $this->call(VsiDinfamConsumoSeeder::class);  //17
-        $this->call(VsiDinfamDelitoSeeder::class);  //19
-        $this->call(VsiDinfamLibertadSeeder::class);  //20
-        $this->call(VsiDinfamPadreSeeder::class);  //22
-        $this->call(VsiDinfamProstitucionSeeder::class);  //23
-        $this->call(VsiEduDiftipoASeeder::class);  //27
-        $this->call(VsiEduDiftipoBSeeder::class);  //28
-        $this->call(VsiEstemoAdecuadoSeeder::class);  //31
-        $this->call(VsiEstemoDificultaSeeder::class);  //32
-        $this->call(VsiEstemoEstresanteSeeder::class);  //33
-        $this->call(VsiEstemoLesivaSeeder::class);  //34
-        $this->call(VsiEstemoMotivoSeeder::class);  //35
-        $this->call(VsiFacProtectorSeeder::class);  //36
-        $this->call(VsiFacRiesgoSeeder::class);  //37
-
-        $this->call(VsiMetaSeeder::class);  //41
-        $this->call(VsiNnajAcademicaSeeder::class);  //42
-        $this->call(VsiNnajComportamentalSeeder::class);  //43
-        $this->call(VsiNnajEmocionalSeeder::class);  //44
-        $this->call(VsiNnajFamiliarSeeder::class);  //46
-        $this->call(VsiNnajSexualSeeder::class);  //47
-        $this->call(VsiNnajSocialSeeder::class);  //48
-        $this->call(VsiPotencialidadSeeder::class);  //49
-        $this->call(VsiRedsocActualSeeder::class);  //51
-        $this->call(VsiRedsocPasadoSeeder::class);  //54
->>>>>>> 7fc5a28dc26bdaac0366b85a6acccdc1982bec09
         $this->call(VsiSaludSeeder::class);
     }
 }

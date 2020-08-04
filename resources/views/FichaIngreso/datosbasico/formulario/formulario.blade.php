@@ -344,11 +344,11 @@
     @endif
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('sis_barrio_id', '1.19(c) Barrio', ['class' => 'control-label']) }}
-    {{ Form::select('sis_barrio_id', $todoxxxx['barrioxx'], null, ['class' => $errors->first('sis_barrio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('sis_barrio_id'))
+    {{ Form::label('sis_upzbarri_id', '1.19(c) Barrio', ['class' => 'control-label']) }}
+    {{ Form::select('sis_upzbarri_id', $todoxxxx['barrioxx'], null, ['class' => $errors->first('sis_upzbarri_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('sis_upzbarri_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('sis_barrio_id') }}
+        {{ $errors->first('sis_upzbarri_id') }}
       </div>
     @endif
   </div>
