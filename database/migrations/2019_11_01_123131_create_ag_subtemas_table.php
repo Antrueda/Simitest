@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateAgSubtemasTable extends Migration
 {
+    private $tablaxxx = 'ag_subtemas';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateAgSubtemasTable extends Migration
      */
     public function up()
     {
-        Schema::create('ag_subtemas', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('ag_taller_id')->unsigned()->nullable();
             $table->string('s_subtema');
@@ -28,6 +30,7 @@ class CreateAgSubtemasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -37,6 +40,6 @@ class CreateAgSubtemasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ag_subtemas');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

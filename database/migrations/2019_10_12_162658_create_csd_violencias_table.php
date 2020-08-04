@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateCsdViolenciasTable extends Migration
 {
+    private $tablaxxx = 'csd_violencias';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateCsdViolenciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('csd_violencias', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('prm_condicion_id')->unsigned();
@@ -40,6 +42,7 @@ class CreateCsdViolenciasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -49,6 +52,6 @@ class CreateCsdViolenciasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('csd_violencias');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

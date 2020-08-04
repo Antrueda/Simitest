@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateAgRelacionsTable extends Migration
 {
+    private $tablaxxx = 'ag_relacions';
     /**
      * Run the migrations.
      *
@@ -13,22 +15,23 @@ class CreateAgRelacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ag_relacions', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('ag_actividad_id')->unsigned();
             $table->bigInteger('ag_recurso_id')->unsigned();
             $table->integer('i_cantidad');
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            
+
             $table->foreign('ag_actividad_id')->references('id')->on('ag_actividads');
             $table->foreign('ag_recurso_id')->references('id')->on('ag_recursos');
             $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users'); 
+            $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -38,6 +41,6 @@ class CreateAgRelacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ag_relacions');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateSisDiagnosticosTable extends Migration
 {
+    private $tablaxxx = 'sis_diagnosticos';
     /**
      * Run the migrations.
      *
@@ -13,14 +15,14 @@ class CreateSisDiagnosticosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_diagnosticos', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('codigo',4);
+            $table->string('codigo', 4);
             $table->char('simbolo')->nullable();
-            $table->text('descripcion',4000);
+            $table->text('descripcion', 4000);
             $table->char('sexo');
-            
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -30,6 +32,6 @@ class CreateSisDiagnosticosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_diagnosticos');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

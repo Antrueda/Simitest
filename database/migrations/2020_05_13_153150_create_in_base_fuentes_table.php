@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateInBaseFuentesTable extends Migration
 {
+    private $tablaxxx = 'in_base_fuentes';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateInBaseFuentesTable extends Migration
      */
     public function up()
     {
-        Schema::create('in_base_fuentes', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('in_fuente_id')->unsigned();
             $table->bigInteger('sis_documento_fuente_id')->unsigned();
@@ -28,6 +30,7 @@ class CreateInBaseFuentesTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -37,6 +40,6 @@ class CreateInBaseFuentesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('in_base_fuentes');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

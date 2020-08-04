@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateCsdDatosBasicosTable extends Migration
 {
+    private $tablaxxx = 'csd_datos_basicos';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateCsdDatosBasicosTable extends Migration
      */
     public function up()
     {
-        Schema::create('csd_datos_basicos', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->string('primer_nombre');
@@ -76,6 +78,7 @@ class CreateCsdDatosBasicosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -85,6 +88,6 @@ class CreateCsdDatosBasicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('csd_datos_basicos');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

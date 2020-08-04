@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateSisDiaFestivosTable extends Migration
 {
+    private $tablaxxx = 'sis_dia_festivos';
     /**
      * Run the migrations.
      *
@@ -13,10 +15,11 @@ class CreateSisDiaFestivosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_dia_festivos', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS VALORACIONES REALIZADAS AL NNAJ'");
     }
 
     /**
@@ -26,6 +29,6 @@ class CreateSisDiaFestivosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_dia_festivos');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

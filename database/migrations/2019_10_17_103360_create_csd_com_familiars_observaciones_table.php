@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateCsdComFamiliarsObservacionesTable extends Migration
 {
+    private $tablaxxx = 'csd_com_familiars_observacions';
     /**
      * Run the migrations.
      *
@@ -13,10 +15,10 @@ class CreateCsdComFamiliarsObservacionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('csd_com_familiars_observacions', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
-            $table->longText('observaciones',4000);
+            $table->longText('observaciones', 4000);
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
@@ -28,9 +30,8 @@ class CreateCsdComFamiliarsObservacionesTable extends Migration
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
-
-
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -40,6 +41,6 @@ class CreateCsdComFamiliarsObservacionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('csd_com_familiars_observacions');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

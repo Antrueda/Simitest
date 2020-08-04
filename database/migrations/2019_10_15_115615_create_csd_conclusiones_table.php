@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateCsdConclusionesTable extends Migration
 {
+    private $tablaxxx = 'csd_conclusiones';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateCsdConclusionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('csd_conclusiones', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->string('conclusiones', 6000);
@@ -37,6 +39,7 @@ class CreateCsdConclusionesTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -46,6 +49,6 @@ class CreateCsdConclusionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('csd_conclusiones');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }
