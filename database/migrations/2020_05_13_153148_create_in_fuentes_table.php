@@ -31,7 +31,7 @@ class CreateInFuentesTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->unique(['in_indicador_id', 'in_linea_base_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LOS INDICADORES CON LOS PARAMETROS DE LA LINEA DE BASE.'");
     }
 
     /**
