@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateFiViolenciasTable extends Migration
 {
+    private $tablaxxx = 'fi_violencias';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateFiViolenciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('fi_violencias', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_presenta_violencia_id')->unsigned();//->comment('FI 12.1 PRESENTA ALGÚN TIPO DE VIOLENCIA');
 
@@ -79,9 +81,8 @@ class CreateFiViolenciasTable extends Migration
             $table->foreign('i_prm_tiene_certificado_id')->references('id')->on('parametros');
             $table->foreign('i_prm_depto_certifica_id')->references('id')->on('parametros');
             $table->foreign('i_prm_municipio_certifica_id')->references('id')->on('parametros');
-
-            
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES SOBRE LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA.'");
     }
 
     /**
@@ -91,6 +92,6 @@ class CreateFiViolenciasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fi_violencias');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

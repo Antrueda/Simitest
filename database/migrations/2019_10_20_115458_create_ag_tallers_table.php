@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateAgTallersTable extends Migration
 {
+    private $tablaxxx = 'ag_tallers';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateAgTallersTable extends Migration
      */
     public function up()
     {
-        Schema::create('ag_tallers', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->String('s_taller');
             $table->text('s_descripcion');
@@ -23,10 +25,12 @@ class CreateAgTallersTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
+            
             $table->foreign('ag_tema_id')->references('id')->on('ag_temas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -36,6 +40,6 @@ class CreateAgTallersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ag_tallers');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

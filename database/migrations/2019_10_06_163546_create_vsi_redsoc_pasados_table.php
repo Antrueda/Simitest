@@ -3,15 +3,19 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class CreateVsiRedsocPasadosTable extends Migration{
+class CreateVsiRedsocPasadosTable extends Migration
+{
+    private $tablaxxx = 'vsi_redsoc_pasados';
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
-        Schema::create('vsi_redsoc_pasados', function (Blueprint $table) {
+    public function up()
+    {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
             $table->string('nombre');
@@ -20,16 +24,17 @@ class CreateVsiRedsocPasadosTable extends Migration{
             $table->integer('mes');
             $table->integer('ano');
             $table->integer('ano_prestacion');
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            
+
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES DE LOS ANTECEDENTES INSTITUCIONALES DE LAS REDES SOCIALES, EN EL PUNTO 7.2 DE LA FICHA SICOSOCIAL.'");
     }
 
     /**
@@ -37,7 +42,8 @@ class CreateVsiRedsocPasadosTable extends Migration{
      *
      * @return void
      */
-    public function down(){
-        Schema::dropIfExists('vsi_redsoc_pasados');
+    public function down()
+    {
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

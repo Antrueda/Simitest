@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateCsdComFamiliarsTable extends Migration
 {
+    private $tablaxxx = 'csd_com_familiars';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateCsdComFamiliarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('csd_com_familiars', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->string('primer_apellido');
@@ -52,12 +54,12 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->bigInteger('prm_estudia_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
-            
 
-            $table->bigInteger('user_crea_id')->unsigned(); 
+
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 
             $table->foreign('csd_id')->references('id')->on('csds');
@@ -89,9 +91,8 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->foreign('prm_estudia_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
-
-            
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -101,6 +102,6 @@ class CreateCsdComFamiliarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('csd_com_familiars');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

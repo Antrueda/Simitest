@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateAgConveniosTable extends Migration
 {
+    private $tablaxxx = 'ag_convenios';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateAgConveniosTable extends Migration
      */
     public function up()
     {
-        Schema::create('ag_convenios', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_convenio');
             $table->bigInteger('i_prm_tconvenio_id')->unsigned();
@@ -25,7 +27,7 @@ class CreateAgConveniosTable extends Migration
             $table->dateTime('d_subscrip');
             $table->dateTime('d_terminac');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -34,6 +36,7 @@ class CreateAgConveniosTable extends Migration
             $table->foreign('i_prm_entidad_id')->references('id')->on('parametros');            
             
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -43,6 +46,6 @@ class CreateAgConveniosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ag_convenios');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class CrateSisActividadSisDocumentoFuenteTable extends Migration
+class CreateSisActividadSisDocumentoFuenteTable extends Migration
 {
+    private $tablaxxx = 'sis_actividad_sis_documento_fuente';
     /**
      * Run the migrations.
      *
@@ -13,12 +15,12 @@ class CrateSisActividadSisDocumentoFuenteTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_activida_sis_documento_fuente', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_actividad_id')->unsigned();
             $table->bigInteger('sis_documento_fuente_id')->unsigned();
-            // $table->unique(['sis_actividad_id','sis_documento_fuente_id']);
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
     }
 
     /**
@@ -28,6 +30,6 @@ class CrateSisActividadSisDocumentoFuenteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_activida_sis_documento_fuente');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }
