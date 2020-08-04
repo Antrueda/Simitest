@@ -39,7 +39,7 @@ class CreateFiJrFamiliarsTable extends Migration
             $table->foreign('i_prm_tiempo_id')->references('id')->on('parametros');
             $table->foreign('fi_composicion_fami_id')->references('id')->on('fi_composicion_famis');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS FAMILIARES QUE TIENEN PROBLEMAS JUDICIALES.'");
     }
 
     /**
