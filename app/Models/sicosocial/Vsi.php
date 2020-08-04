@@ -2,7 +2,7 @@
 
 namespace App\Models\sicosocial;
 
-use App\Helpers\Indicadores\IndicadorHelper;
+
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
@@ -10,9 +10,10 @@ use App\Models\Parametro;
 use App\Models\sistema\SisNnaj;
 use App\Models\sistema\SisDepen;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Vsi extends Model{
-    protected $fillable = ['sis_nnaj_id', 'dependencia_id', 'fecha', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
+    protected $fillable = ['sis_nnaj_id', 'sis_depen_id', 'fecha', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
 
     protected $attributes = ['user_crea_id'=>1,'user_edita_id'=>1];
 
@@ -20,8 +21,8 @@ class Vsi extends Model{
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
 
-    public function dependencia(){
-        return $this->belongsTo(SisDepen::class, 'dependencia_id');
+    public function sis_depen(){
+        return $this->belongsTo(SisDepen::class);
     }
 
     public function VsiDatosVincula(){
@@ -168,4 +169,20 @@ class Vsi extends Model{
         // $dataxxxx['user_edita_id'] = Auth::user()->id;
         // IndicadorHelper::asignaLineaBase($dataxxxx);
     }
+
+    public static function transaccion($dataxxxx,  $objetoxx)
+    {
+        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+        $dataxxxx['user_edita_id'] = Auth::user()->id;
+        if ($objetoxx != '') {
+            $objetoxx->update($dataxxxx);
+        } else {
+            $dataxxxx['user_crea_id'] = Auth::user()->id;
+            $objetoxx = Vsi::create($dataxxxx);
+        }
+        return $objetoxx;
+        }, 5);
+        return $usuariox;
+    }
+
 }

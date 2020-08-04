@@ -33,7 +33,11 @@ class SisCargoController extends Controller
             'parametr' => [],
             'urlxxxxx' => 'api/sis/cargo',
             'routnuev' => 'sis.cargo',
-            'nuevoxxx' => 'Nuevo Registro'
+            'nuevoxxx' => 'Nuevo Registro',
+            'fechcrea' => '',
+            'fechedit' => '',
+            'usercrea' => '',
+            'useredit' => '',
         ];
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
@@ -73,9 +77,13 @@ class SisCargoController extends Controller
         if ($nombobje != '') {
             $objetoxx->dtiestan = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiestan days"));
             $objetoxx->dtiegabe = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiegabe days"));
-
+            $objetoxx->dtigafin = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itigafin days"));
             $this->opciones[$nombobje] = $objetoxx;
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['fechcrea'] = $objetoxx->created_at;
+            $this->opciones['fechedit'] = $objetoxx->updated_at;
+            $this->opciones['usercrea'] = $objetoxx->creador->name;
+            $this->opciones['useredit'] = $objetoxx->editor->name;
         }
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];

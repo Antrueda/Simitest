@@ -135,8 +135,9 @@ class DependenciaController extends Controller
             $this->opciones['pestpadr']=false;
             $objetoxx->dtiestan = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiestan days"));
             $objetoxx->dtiegabe = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiegabe days"));
+            $objetoxx->dtigafin = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itigafin days"));
 
-            $this->opciones['sis_municipio_id'] = SisMunicipio::combo($objetoxx->sis_departamento_id, false);
+           $this->opciones['sis_municipio_id'] = SisMunicipio::combo($objetoxx->sis_departamento_id, false);
 
             $barrioxx = $objetoxx->sis_upzbarri;
             $objetoxx->sis_localidad_id = $barrioxx->sis_localupz->sis_localidad_id;

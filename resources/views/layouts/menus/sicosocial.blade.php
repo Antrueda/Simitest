@@ -9,7 +9,7 @@
   <ul class="nav nav-treeview">
       @can('vsidatobasico-leer')
     <li class="nav-item">
-      <a href="{{ route('vsi')}}" class="nav-link">
+      <a href="{{ route('vsinnajs')}}" class="nav-link">
         <i class="fas fa-map-marker-alt nav-icon"></i>
         <p>Valoración Sicosocial</p>
       </a>

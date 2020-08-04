@@ -1,15 +1,27 @@
 <?php
-Route::group(['prefix' => '{id}/relfamiliar'], function (){
-	Route::get('', [
-		'uses' => 'Sicosocial\VsiRelFamiliarController@show',
-		'middleware' => ['permission:vsirelfamiliar-crear|vsirelfamiliar-editar']
-	])->name('VSI.relfamiliar');
-	Route::post('', [
-		'uses' => 'Sicosocial\VsiRelFamiliarController@store',
-		'middleware' => ['permission:vsirelfamiliar-crear']
-	]);
-	Route::put('{id1}', [
-		'uses' => 'Sicosocial\VsiRelFamiliarController@update',
-		'middleware' => ['permission:vsirelfamiliar-editar']
-	])->name('VSI.relfamiliar.editar');
+$routexxx='vsirefam';
+$controll='Sicosocial\VsiRelFamiliar';
+Route::group(['prefix' => 'relfamiliar'], function () use($routexxx,$controll) {
+
+    Route::get('{padrexxx}/nuevo', [
+        'uses' => $controll.'Controller@create',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.nuevo');
+    Route::post('{padrexxx}/crear', [
+        'uses' => $controll.'Controller@store',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.crear');
+	Route::get('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@edit',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::put('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@update',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::get('ver/{objetoxx}', [
+	    'uses' => $controll.'Controller@show',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
 });
+

@@ -30,7 +30,7 @@ class CreateFiJrFamiliarsTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            
+
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_justicia_restaurativa_id')->references('id')->on('fi_justicia_restaurativas');
@@ -39,7 +39,7 @@ class CreateFiJrFamiliarsTable extends Migration
             $table->foreign('i_prm_tiempo_id')->references('id')->on('parametros');
             $table->foreign('fi_composicion_fami_id')->references('id')->on('fi_composicion_famis');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS FAMILIARES QUE TIENEN PROBLEMAS JUDICIALES.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**

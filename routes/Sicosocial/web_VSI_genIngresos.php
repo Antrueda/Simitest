@@ -1,15 +1,27 @@
 <?php
-Route::group(['prefix' => '{id}/genIngresos'], function (){
-	Route::get('', [
-		'uses' => 'Sicosocial\VsiGenIngresosController@show',
-		'middleware' => ['permission:vsigeningresos-crear|vsigeningresos-editar']
-	])->name('VSI.genIngresos');
-	Route::post('', [
-		'uses' => 'Sicosocial\VsiGenIngresosController@store',
-		'middleware' => ['permission:vsigeningresos-crear']
-	]);
-	Route::put('{id1}', [
-		'uses' => 'Sicosocial\VsiGenIngresosController@update',
-		'middleware' => ['permission:vsigeningresos-editar']
-	])->name('VSI.genIngresos.editar');
+
+$routexxx='vsigener';
+$controll='Sicosocial\VsiGenIngresos';
+Route::group(['prefix' => 'genIngresos'], function () use($routexxx,$controll) {
+
+    Route::get('{padrexxx}/nuevo', [
+        'uses' => $controll.'Controller@create',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.nuevo');
+    Route::post('{padrexxx}/crear', [
+        'uses' => $controll.'Controller@store',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.crear');
+	Route::get('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@edit',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::put('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@update',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::get('ver/{objetoxx}', [
+	    'uses' => $controll.'Controller@show',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
 });

@@ -29,14 +29,14 @@ class CreateInIndicadorsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DIFERENTES INDICADORES RELACIONADOS CON EL ANALISIS DE LA SITUACIÓN DE LA PERSONA ENTREVISTADA.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**
      * Reverse the migrations.
      *
      * @return void
-     */ 
+     */
     public function down()
     {
         Schema::dropIfExists($this->tablaxxx);

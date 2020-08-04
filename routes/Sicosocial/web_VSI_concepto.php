@@ -1,15 +1,23 @@
 <?php
-Route::group(['prefix' => '{id}/concepto'], function (){
-	Route::get('', [
-		'uses' => 'Sicosocial\VsiConceptoController@show',
-		'middleware' => ['permission:vsiconcepto-crear|vsiconcepto-editar']
-	])->name('VSI.concepto');
-	Route::post('', [
-		'uses' => 'Sicosocial\VsiConceptoController@store',
-		'middleware' => ['permission:vsiconcepto-crear']
-	]);
-	Route::put('{id1}', [
-		'uses' => 'Sicosocial\VsiConceptoController@update',
-		'middleware' => ['permission:vsiconcepto-editar']
-	])->name('VSI.concepto.editar');
+
+$routexxx='vsisocia';
+$controll='Sicosocial\VsiConcepto';
+Route::group(['prefix' => 'concepto'], function () use($routexxx,$controll) {
+
+    Route::get('{padrexxx}/nuevo', [
+        'uses' => $controll.'Controller@create',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.nuevo');
+    Route::post('{padrexxx}/crear', [
+        'uses' => $controll.'Controller@store',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.crear');
+	Route::get('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@edit',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::put('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@update',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
 });

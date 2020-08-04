@@ -1,15 +1,26 @@
 <?php
-Route::group(['prefix' => '{id}/antecedente'], function (){
-	Route::get('', [
-		'uses' => 'Sicosocial\VsiAntecedenteController@show',
-		'middleware' => ['permission:vsiantecedente-crear|vsiantecedente-editar']
-	])->name('VSI.antecedente');
-	Route::post('', [
-		'uses' => 'Sicosocial\VsiAntecedenteController@store',
-		'middleware' => ['permission:vsiantecedente-crear']
-	]);
-	Route::put('{id1}', [
-		'uses' => 'Sicosocial\VsiAntecedenteController@update',
-		'middleware' => ['permission:vsiantecedente-editar']
-	])->name('VSI.antecedente.editar');
+$routexxx='vsiantec';
+$controll='Sicosocial\VsiAntecedente';
+Route::group(['prefix' => 'antecedente'], function () use($routexxx,$controll) {
+
+    Route::get('{padrexxx}/nuevo', [
+        'uses' => $controll.'Controller@create',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.nuevo');
+    Route::post('{padrexxx}/crear', [
+        'uses' => $controll.'Controller@store',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.crear');
+	Route::get('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@edit',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::put('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@update',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::get('ver/{objetoxx}', [
+	    'uses' => $controll.'Controller@show',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
 });
