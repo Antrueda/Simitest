@@ -2,6 +2,7 @@
 
 namespace App\Traits\GestionTiempos;
 
+
 /**
  * este trait permite gestionar permisos de acuerdo al tiempo asignado para el carge de informacion
  * el cargue se debe gestionar de la siguiente manenera:
@@ -14,14 +15,15 @@ namespace App\Traits\GestionTiempos;
  */
 trait ManageTimeTrait
 {
-
+    use ManageDateTrait;
     /**
      * gestiona el cargue de información de acuerdo al tiempo asignado al usuario registrado
      *
      * @return void
      */
-    public function getPersonal()
+    public function getPersonal(array $dataxxxx)
     {
+        return $this->getGabelaFinMes($dataxxxx);
     }
 
     /**
@@ -29,27 +31,32 @@ trait ManageTimeTrait
      *
      * @return void
      */
-    public function getPosition()
+    public function getCargo(array $dataxxxx)
     {
+        return  $this->getGabelaFinMes($dataxxxx);
     }
     /**
      * gistiona el cargue de información de acuerdo al tiempo asignado a la upi asignada al usuario registrado
      *
      * @return void
      */
-    public function getUpi()
+    public function getUpi(array $dataxxxx)
     {
+        return $this->getGabelaFinMes($dataxxxx);
     }
 
     /**
-     * gestiona los permiso de acuerdo al tiempo asignado para todo lo que tiene que ver con las gestiones
+     * gestiona los permiso de acuerdo al tiempo asignado para todo lo que tiene que ver con las acciones
      *
      * @return void
      */
-    public function getActions()
+    public function getAcciones(array $dataxxxx)
     {
-        $this->getPosition();
-        $this->getPersonal();
+        $itieusua = $dataxxxx['usuariox']->itiestan + $dataxxxx['usuariox']->itiegabe;
+        $itiecarg = $dataxxxx['usuariox']->sis_cargo->itiestan + $dataxxxx['usuariox']->sis_cargo->itiegabe;
+        $dataxxxx=($itieusua > $itiecarg) ? $this->getPersonal($dataxxxx) : $this->getCargo($dataxxxx);
+
+        return $dataxxxx;
     }
 
     /**
@@ -57,9 +64,9 @@ trait ManageTimeTrait
      *
      * @return void
      */
-    public function getAssists()
+    public function getAsistencias(array $dataxxxx)
     {
-        $this->getUpi();
+        $this->getUpi($dataxxxx);
     }
 
     /**
@@ -69,8 +76,19 @@ trait ManageTimeTrait
      * por acciones o por asistencias
      * @return void
      */
-    public function getPermissions()
+    public function getPuedeCargar(array $dataxxxx)
     {
+
+        $respuest = [];
+        switch ($dataxxxx['estoyenx']) {
+            case 1: // cargue por acciones
+                $respuest = $this->getAcciones($dataxxxx);
+                break;
+            case 2: // cargue por asistencias
+                $respuest = $this->getAsistencias($dataxxxx);
+                break;
+        }
+        return $respuest;
     }
 
     /**

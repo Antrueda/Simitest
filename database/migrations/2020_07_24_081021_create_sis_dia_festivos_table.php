@@ -19,7 +19,11 @@ class CreateSisDiaFestivosTable extends Migration
             $table->id();
             $table->timestamps();
         });
+<<<<<<< HEAD
         ////DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS VALORACIONES REALIZADAS AL NNAJ'");
+=======
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+>>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
     }
 
     /**

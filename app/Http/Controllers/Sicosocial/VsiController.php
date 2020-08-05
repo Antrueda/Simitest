@@ -2,87 +2,260 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Vsi\VsiCrearRequest;
+use App\Http\Requests\Vsi\VsiEditarRequest;
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Sistema\SisEsta;
 
-use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDepen;
+
+use App\Traits\Vsi\VsiTrait;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\sicosocial\Vsi;
-use Illuminate\Support\Facades\Validator;
+use App\Models\sistema\SisDepen;
 
-class VsiController extends Controller{
+class VsiController extends Controller
+{
+    use VsiTrait;
+    private $opciones;
 
-    public function __construct(){
-        $this->middleware(['permission:vsidatobasico-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:vsidatobasico-crear'], ['only' => ['index, show']]);
-        $this->middleware(['permission:vsidatobasico-editar'], ['only' => ['index, show']]);
-        $this->middleware(['permission:vsidatobasico-borrar'], ['only' => ['index, show']]);
+    public function __construct()
+    {
+        $this->opciones = [
+            'pestpadr' => 2, // true indica si solo muestra la pestaña dependencias false muestra la pestaña padre y las hijas
+            'permisox' => 'vsixxxxx',
+            'parametr' => [],
+            'rutacarp' => 'Sicosocial.',
+            'tituloxx' => 'VSIS',
+            'carpetax' => 'Vsi',
+            'slotxxxx' => 'vsixxxxx',
+            'tablaxxx' => 'datatable',
+            'indecrea' => false, // false muestra las pestañas
+            'esindexx' => false,
+            'tituhead' => '',
+            'fechcrea' => '',
+            'fechedit' => '',
+            'usercrea' => '',
+            'useredit' => '',
+            'conperfi' => '', // indica si la vista va a tener perfil
+            'usuariox' => [],
+
+            'confirmx' => 'Desea inactivar la vsi: ',
+            'reconfir' => 'Realmente desea inactivar la vsi: ',
+            'msnxxxxx' => 'No se puedo inactivar la vsi',
+            'rutaxxxx' => 'vsixxxxx',
+            'routnuev' => 'vsixxxxx',
+            'routxxxx' => 'vsixxxxx',
+        ];
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
+
+
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A VSI', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
     }
 
-    public function index(Request $request){
-        return view('Sicosocial.index');
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(FiDatosBasico $padrexxx)
+    {
+        $this->opciones['usuariox'] = $padrexxx;
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->opciones['tituhead'] = $padrexxx->nombre;
+        $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
+        $this->opciones['padrexxx'] = '';
+        $this->opciones['esindexx'] = true;
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'VSI',
+                'titulist' => 'LISTA DE VSIS',
+                'dataxxxx' => [
+
+                ],
+
+                'accitabl' => true,
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['routxxxx'].'.vsisxxxx',$this->opciones['parametr']),
+                'cabecera' => [
+                    ['td' => 'ID'],
+                    ['td' => 'DEPENDENCIA'],
+                    ['td' => 'FECHA DILIGENCIAMIENDO'],
+                    ['td' => 'ESTADO'],
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'vsis.id'],
+                    ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
+                    ['data' => 'fecha', 'name' => 'vsis.fecha'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => $this->opciones['tablaxxx'],
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => $this->opciones['botoform'][0]['routingx'][1],
+            ]
+
+        ];
+        $this->opciones['accionxx'] = 'index';
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-
-    public function nnaj($id){
-        $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $vsis = $dato->Vsi->sortByDesc('fecha')->all();
-
-        return view('Sicosocial.index', ['accion' => 'Nnaj'], compact('dato', 'nnaj', 'vsis'));
-    }
-
-    public function create(Request $request, $id){
-        $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $vsis = $dato->Vsi->sortByDesc('fecha')->all();
-        $dependencias = SisDepen::where('sis_esta_id', 1)->orderBy('nombre')->pluck('nombre', 'id');
-        return view('Sicosocial.index', ['accion' => 'Nueva'], compact('dato', 'nnaj', 'vsis', 'dependencias'));
-    }
-
-    public function store(Request $request, $id){
-        $this->validator($request->all())->validate();
-        $dato = Vsi::create($request->all());
-        return redirect()->route('VSI.nnaj', $id)->with('info', 'Registro creado con éxito');
-    }
-
-    public function edit(Request $request, $id, $id0){
-        $valor = Vsi::findOrFail($id0);
-        if($valor->sis_esta_id == 2) {
-            return redirect()->route('VSI.nnaj', $id);
+    public function getVsi(Request $request)
+    {
+        if ($request->ajax()) {
+            $request->puedleer=auth()->user()->can('vsixxxxx-leer');
+            $request->routexxx=[$this->opciones['routxxxx'],'vsixxxxx'];
+            $request->botonesx= $this->opciones['rutacarp'] .
+            $this->opciones['carpetax'] . '.botones.botonesapi';
+            $request->estadoxx='layouts.components.botones.estadosx';
+            return $this->getVsis($request);
         }
-        $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $vsis = $dato->Vsi->sortByDesc('fecha')->all();
-        $dependencias = SisDepen::where('sis_esta_id', 1)->orderBy('nombre')->pluck('nombre', 'id');
-        return view('Sicosocial.index', ['accion' => 'Editar'], compact('dato', 'nnaj', 'vsis', 'dependencias', 'valor'));
+    }
+    private function view($dataxxxx)
+    {
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['dependen'] = SisDepen::combo(true,false);
+        $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        // indica si se esta actualizando o viendo
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['pestpadr']=3;
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
+        }
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FiDatosBasico $padrexxx)
+    {
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
     }
 
-    public function update(Request $request, $id, $id0){
-        $this->validator($request->all(), $id)->validate();
-        $dato = Vsi::findOrFail($id0);
-        $dato->fill($request->all())->save();
-        return redirect()->route('VSI.nnaj', $id)->with('info', 'Registro actualizado con éxito');
-    }
-
-    public function destroy($id, $id1){
-        $dato = Vsi::findOrFail($id1);
-        $dato->sis_esta_id = 2;
-        $dato->save();
-        return redirect()->route('VSI.nnaj', $id)->with('info', 'Registro actualizado con éxito');
-    }
-
-    public function show($id){
-        $vsi = Vsi::findOrFail($id);
-        $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        return view('Sicosocial.index', ['accion' => 'VSI'], compact('vsi', 'dato', 'nnaj'));
-    }
-
-    protected function validator(array $data){
-        return Validator::make($data, [
-            'sis_nnaj_id' => 'required|exists:sis_nnajs,id',
-            'dependencia_id' => 'required|exists:sis_depens,id',
-            'fecha' => 'required|date',
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(VsiCrearRequest $request,$padrexxx)
+    {
+        $dataxxxx=$request->all();
+        $dataxxxx['sis_nnaj_id']=FiDatosBasico::find($padrexxx)->sis_nnaj_id;
+        return $this->grabar([
+            'dataxxxx' => $dataxxxx,
+            'modeloxx' => '',
+            'menssage' => 'Registro creado con éxito'
         ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Vsi $objetoxx)
+    {
+        $this->opciones['padrexxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$objetoxx->id];
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $objetoxx->nnaj->fi_datos_basico]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Vsi $objetoxx)
+    {
+
+        $this->opciones['padrexxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$objetoxx->id];
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->nnaj->fi_datos_basico]);
+    }
+
+    private function grabar($dataxxxx)
+    {
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [Vsi::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id])
+            ->with('info', $dataxxxx['menssage']);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(VsiEditarRequest $request, Vsi $objetoxx)
+    {
+        return $this->grabar([
+            'dataxxxx' => $request->all(),
+            'modeloxx' => $objetoxx,
+            'menssage' => 'Registro actualizado con éxito'
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request)
+    {
+        if ($request->ajax()) {
+            $registro = Vsi::where('id', $request->padrexxx)->first();
+            $registro->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+            return response()->json(['messagex' => 'Se ha inactivado la VSI: ' . $registro->id]);
+        }
     }
 }

@@ -26,8 +26,9 @@ class CreateUsersTable extends Migration
             $table->string('s_documento');
 
             $table->date('d_vinculacion');
-            $table->Integer('itiestan')->default(0);
-            $table->Integer('itiegabe')->default(0);
+            $table->Integer('itiestan')->default(0)->comment('TIEMPO STANDAR PARA EL CARGUE DE INFORMACION');
+            $table->Integer('itiegabe')->default(0)->comment('TIEMPO GABELA PARA EL CARGUE DE INFORMACION');
+            $table->Integer('itigafin')->default(0)->comment('TIEMPO GABELA FIN DE MES PARA EL CARGE DE INFORMACION');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -65,8 +66,9 @@ class CreateUsersTable extends Migration
             $table->string('s_telefono');
             $table->string('s_matriculap');
             $table->date('d_vinculacion');
-            $table->Integer('itiestan')->default(0);
-            $table->Integer('itiegabe')->default(0);
+            $table->Integer('itiestan')->default(0)->comment('TIEMPO STANDAR PARA EL CARGUE DE INFORMACION');
+            $table->Integer('itiegabe')->default(0)->comment('TIEMPO GABELA PARA EL CARGUE DE INFORMACION');
+            $table->Integer('itigafin')->default(0)->comment('TIEMPO GABELA FIN DE MES PARA EL CARGE DE INFORMACION');
             $table->integer('sis_cargo_id');
             $table->date('d_finvinculacion');
             $table->integer('prm_tvinculacion_id');

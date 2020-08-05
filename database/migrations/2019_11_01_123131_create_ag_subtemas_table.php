@@ -20,7 +20,7 @@ class CreateAgSubtemasTable extends Migration
             $table->bigInteger('ag_taller_id')->unsigned()->nullable();
             $table->string('s_subtema');
             $table->text('s_descripcion');
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -30,7 +30,11 @@ class CreateAgSubtemasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+<<<<<<< HEAD
         //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DIVERSOS SUB TEMAS EXISTENTES DENTRO DE UN TEMA PERTENECIENTE A UN TALLER DENTRO DE LAS ACCIONES GRUPALES.'");
+=======
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+>>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
     }
 
     /**

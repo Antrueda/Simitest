@@ -1,15 +1,26 @@
 <?php
-Route::group(['prefix' => '{id}/salud'], function (){
-	Route::get('', [
-		'uses' => 'Sicosocial\VsiSaludController@show',
-		'middleware' => ['permission:vsisalud-crear|vsisalud-editar']
-	])->name('VSI.salud');
-	Route::post('', [
-		'uses' => 'Sicosocial\VsiSaludController@store',
-		'middleware' => ['permission:vsisalud-crear']
-	]);
-	Route::put('{id1}', [
-		'uses' => 'Sicosocial\VsiSaludController@update',
-		'middleware' => ['permission:vsisalud-editar']
-	])->name('VSI.salud.editar');
+$routexxx='vsisalud';
+$controll='Sicosocial\VsiSalud';
+Route::group(['prefix' => 'salud'], function () use($routexxx,$controll) {
+
+    Route::get('{padrexxx}/nuevo', [
+        'uses' => $controll.'Controller@create',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.nuevo');
+    Route::post('{padrexxx}/crear', [
+        'uses' => $controll.'Controller@store',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.crear');
+	Route::get('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@edit',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::put('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@update',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::get('ver/{objetoxx}', [
+	    'uses' => $controll.'Controller@show',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
 });

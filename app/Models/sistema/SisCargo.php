@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class SisCargo extends Model
 {
 
-    protected $fillable = ['s_cargo','itiestan','itiegabe', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['s_cargo','itiestan','itiegabe','itigafin', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
     public static function combo()
     {
@@ -34,6 +34,7 @@ class SisCargo extends Model
     {
         $dataxxxx['itiestan']=$dataxxxx['itiestan']==''?0:$dataxxxx['itiestan'];
         $dataxxxx['itiegabe']=$dataxxxx['itiegabe']==''?0:$dataxxxx['itiegabe'];
+        $dataxxxx['itigafin']=$dataxxxx['itigafin']==''?0:$dataxxxx['itigafin'];
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
         $dataxxxx['user_edita_id'] = Auth::user()->id;
         $dataxxxx['s_cargo'] = strtoupper($dataxxxx['s_cargo']);

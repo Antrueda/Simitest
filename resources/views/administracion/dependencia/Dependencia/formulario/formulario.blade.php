@@ -1,30 +1,3 @@
-<style>
-    /* Tooltip */
-    .test + .tooltip > .tooltip-inner {
-      background-color: #3C8DBC;
-      color: #FFFFFF;
-      border: 1px solid black;
-      padding: 15px;
-      font-size: 15px;
-    }
-    /* Tooltip on top */
-    .test + .tooltip.top > .tooltip-arrow {
-      border-top: 5px solid black;
-    }
-    /* Tooltip on bottom */
-    .test + .tooltip.bottom > .tooltip-arrow {
-      border-bottom: 5px solid blue;
-    }
-    /* Tooltip on left */
-    .test + .tooltip.left > .tooltip-arrow {
-      border-left: 5px solid red;
-    }
-    /* Tooltip on right */
-    .test + .tooltip.right > .tooltip-arrow {
-      border-right: 5px solid black;
-    }
-  </style>
-
 <div class="form-group row">
     <div class="form-group col-md-4">
         {{ Form::label('nombre', 'Nombre', ['class' => 'control-label col-form-label-sm']) }}
@@ -91,27 +64,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('dtiestan', 'Fecha Tiempo Standard', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('dtiestan', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"] ,'id'=>'dtiestan','readonly' ,'placeholder' => 'Fecha Tiempo Standard', 'maxlength' => '120', 'autofocus']) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('itiestan', 'Tiempo Standard', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('itiestan', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"],'id'=>'itiestan','readonly' ,'placeholder' => 'Tiempo Standard', 'maxlength' => '120', 'autofocus']) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('dtiegabe', 'Fecha Tiempo Gabela', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('dtiegabe', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"] ,'id'=>'dtiegabe','readonly','placeholder' => 'Tiempo Gabela', 'maxlength' => '120', 'autofocus']) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('itiegabe', 'Tiempo Gabela', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('itiegabe', null, ['class' =>'form-control col-form-label-sm',$todoxxxx["readonly"],'id'=>'itiegabe' ,'readonly','placeholder' => 'Tiempo Gabela', 'maxlength' => '120', 'autofocus']) }}
-    </div>
-
-    <div class="form-group col-md-12">
-        {{ Form::label('s_observacion','Observación del registro') }}
-        {{ Form::textarea('s_observacion', null,['class'=>'form-control form-control-sm']) }}
-    </div>
+    @include('layouts.tiempos')
     @include('layouts.registro')
 </div>
 

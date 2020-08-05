@@ -34,7 +34,13 @@ class CreateVsiRedsocActualsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+<<<<<<< HEAD
       //  //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA RED DE CONTACTO DE UN NNAJ, PERTENECE AL PUNTO 7.1.10 DE LA SECCIÓN 7 REDES SOCIALES DE APOYO.'");
+=======
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+
+
+>>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
     }
 
     /**

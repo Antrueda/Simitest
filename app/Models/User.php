@@ -47,7 +47,8 @@ class User extends Authenticatable
         'sis_municipio_id',
         's_observacion',
         'itiestan',
-        'itiegabe'
+        'itiegabe',
+        'itigafin'
     ];
 
     /**
@@ -108,8 +109,9 @@ class User extends Authenticatable
     public static function transaccion($dataxxxx, $objetoxx)
     {
         $usuariox = DB::transaction(function () use ($dataxxxx,  $objetoxx) {
-            $dataxxxx['itiestan'] = $dataxxxx['itiestan'] == '' ? 0 : $dataxxxx['itiestan'];
-            $dataxxxx['itiegabe'] = $dataxxxx['itiegabe'] == '' ? 0 : $dataxxxx['itiegabe'];
+            $dataxxxx['itiestan']=$dataxxxx['itiestan']==''?0:$dataxxxx['itiestan'];
+            $dataxxxx['itiegabe']=$dataxxxx['itiegabe']==''?0:$dataxxxx['itiegabe'];
+            $dataxxxx['itigafin']=$dataxxxx['itigafin']==''?0:$dataxxxx['itigafin'];
             $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
             $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
             $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);

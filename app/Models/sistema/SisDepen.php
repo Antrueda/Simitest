@@ -26,6 +26,7 @@ class SisDepen extends Model
         's_correo',
         'itiestan',
         'itiegabe',
+        'itigafin',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
@@ -46,6 +47,7 @@ class SisDepen extends Model
     {
         $dataxxxx['itiestan']=$dataxxxx['itiestan']==''?0:$dataxxxx['itiestan'];
         $dataxxxx['itiegabe']=$dataxxxx['itiegabe']==''?0:$dataxxxx['itiegabe'];
+        $dataxxxx['itigafin']=$dataxxxx['itigafin']==''?0:$dataxxxx['itigafin'];
 
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
             $dataxxxx['user_edita_id'] = Auth::user()->id;

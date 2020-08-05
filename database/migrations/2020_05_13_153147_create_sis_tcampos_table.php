@@ -34,7 +34,12 @@ class CreateSisTcamposTable extends Migration
             $table->unique(['sis_tabla_id', 'in_pregunta_id', 'tema_id']);
             $table->timestamps();
         });
+<<<<<<< HEAD
         //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS CAMPOS EXISTENTES EN LOS FORMULARIOS UTILIZADOS PARA RECOLECTAR DATOS DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON, INDICA LA PREGUNTA, ENUMERACIÓN, TEMA Y LA TABLA A LA QUE PERTENECE.'");
+=======
+
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+>>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
     }
 
     /**

@@ -16,12 +16,13 @@ class CreateHSisCargosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();       
+            $table->id();
             $table->string('s_cargo');
-            $table->Integer('itiestan')->default(0);
-            $table->Integer('itiegabe')->default(0);
+            $table->Integer('itiestan')->default(0)->comment('TIEMPO STANDAR PARA EL CARGUE DE INFORMACION');
+            $table->Integer('itiegabe')->default(0)->comment('TIEMPO GABELA PARA EL CARGUE DE INFORMACION');
+            $table->Integer('itigafin')->default(0)->comment('TIEMPO GABELA FIN DE MES PARA EL CARGE DE INFORMACION');
             $table->Integer('user_crea_id');
-            $table->integer('user_edita_id');            
+            $table->integer('user_edita_id');
             $table->timestamps();
         });
         ////DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");    //3

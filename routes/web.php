@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
   include_once('Administracion/web_admin.php');
   include_once('Seguridad/web_permiso.php');
   include_once('Fichaingreso/web_fichaingreso.php');
-  include_once('Sicosocial/web_vsi.php');
+  include_once('Sicosocial/web_nnajsvsi.php');
   include_once('Domicilio/web_csd.php');
   include_once('Fichaingreso/web_fi.php');
   include_once('Intervencion/web_is.php');
