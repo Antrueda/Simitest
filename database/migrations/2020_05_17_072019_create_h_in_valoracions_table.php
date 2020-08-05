@@ -29,7 +29,7 @@ class CreateHInValoracionsTable extends Migration
             $table->string('metodoxx', 50);
             $table = CamposMagicos::h_magicos($table);
         });
-        DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+        ////DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**

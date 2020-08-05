@@ -28,7 +28,7 @@ class CreateAgContextosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS DESCRIPCIONES DE LOS CONTEXTOS PEDAGOGICOS DENTRO DE LAS ACCIONES GRUPALES .'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS DESCRIPCIONES DE LOS CONTEXTOS PEDAGOGICOS DENTRO DE LAS ACCIONES GRUPALES .'");
     }
 
     /**

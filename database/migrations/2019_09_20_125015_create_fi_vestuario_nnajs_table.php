@@ -38,7 +38,7 @@ class CreateFiVestuarioNnajsTable extends Migration
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL VESTUARIO BRINDADO A LOS NNAJ.'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL VESTUARIO BRINDADO A LOS NNAJ.'");
     }
 
     /**

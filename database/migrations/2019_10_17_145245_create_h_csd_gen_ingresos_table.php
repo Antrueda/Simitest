@@ -34,7 +34,7 @@ class CreateHCsdGenIngresosTable extends Migration
             $table->timestamps();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

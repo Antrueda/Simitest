@@ -50,7 +50,7 @@ class CreateRedesApoyosTable extends Migration
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
     });
-    DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS SERVICIOS BRINDADOS A LOS BENEFICIARIOS POR PARTE DE ENTIDADES DISTINTAS A IDIPRON.'");
+    //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS SERVICIOS BRINDADOS A LOS BENEFICIARIOS POR PARTE DE ENTIDADES DISTINTAS A IDIPRON.'");
   }
 
   /**

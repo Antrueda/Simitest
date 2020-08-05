@@ -82,7 +82,7 @@ class CreateFiViolenciasTable extends Migration
             $table->foreign('i_prm_depto_certifica_id')->references('id')->on('parametros');
             $table->foreign('i_prm_municipio_certifica_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES SOBRE LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA.'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES SOBRE LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA.'");
     }
 
     /**

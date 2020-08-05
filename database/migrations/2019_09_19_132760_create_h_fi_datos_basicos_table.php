@@ -61,7 +61,7 @@ class CreateHFiDatosBasicosTable extends Migration
             $table->bigInteger('sis_departamentoexp_id')->unsigned();
             $table->bigInteger('i_prm_linea_base_id')->unsigned();
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

@@ -20,6 +20,12 @@ Route::group(['middleware' => ['guest']], function () {
   Route::post('login', 'Auth\LoginController@Login');
 });
 
+Route::middleware(['auth'])->group(function () {
+  Route::resource('post', 'PostController');
+});
+
+
+
 Route::group(['middleware' => ['auth']], function () {
   Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   include_once('Seguridad/web_rol.php');
