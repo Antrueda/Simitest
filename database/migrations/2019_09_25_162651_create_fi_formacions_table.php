@@ -51,7 +51,7 @@ class CreateFiFormacionsTable extends Migration
             $table->foreign('i_prm_certificado_ultimo_nivel_id')->references('id')->on('parametros');
             $table->foreign('sis_institucion_edu_id')->references('id')->on('sis_institucion_edus');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -67,7 +67,7 @@ class CreateFiFormacionsTable extends Migration
             $table->foreign('fi_formacion_id')->references('id')->on('fi_formacions');
             $table->foreign('i_prm_motivo_vinc_id')->references('id')->on('parametros');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     /**

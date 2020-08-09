@@ -51,7 +51,7 @@ class CreateFiComposicionFamisTable extends Migration
             $table->foreign('i_prm_convive_nnaj_id')->references('id')->on('parametros');
             $table->foreign('fi_nucleo_familiar_id')->references('id')->on('fi_nucleo_familiars');
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BÁSICOS DE LAS PERSONAS REGISTRADAS USANDO LA FICHA DE INGRESO.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BÁSICOS DE LAS PERSONAS REGISTRADAS USANDO LA FICHA DE INGRESO.'");
     }
 
     /**

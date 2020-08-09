@@ -40,7 +40,7 @@ class CreateFiActividadestlsTable extends Migration
             $table->foreign('i_prm_practica_religiosa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_religion_practica_id')->references('id')->on('parametros');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -56,7 +56,7 @@ class CreateFiActividadestlsTable extends Migration
             $table->foreign('fi_actividadestl_id')->references('id')->on('fi_actividadestls');
             $table->foreign('i_prm_actividad_tl_id')->references('id')->on('parametros');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -72,7 +72,7 @@ class CreateFiActividadestlsTable extends Migration
             $table->foreign('fi_actividadestl_id')->references('id')->on('fi_actividadestls');
             $table->foreign('i_prm_sacramentos_hechos_id')->references('id')->on('parametros');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");            
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
     }
 
     /**

@@ -37,7 +37,7 @@ class CreateFiAutorizacionsTable extends Migration
             $table->foreign('i_prm_tipo_diligencia_id')->references('id')->on('parametros');
             $table->foreign('fi_composicion_fami_id')->references('id')->on('fi_composicion_famis');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -53,7 +53,7 @@ class CreateFiAutorizacionsTable extends Migration
             $table->foreign('fi_autorizacion_id')->references('id')->on('fi_autorizacions');
             $table->foreign('i_prm_modalidad_id')->references('id')->on('parametros');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     /**

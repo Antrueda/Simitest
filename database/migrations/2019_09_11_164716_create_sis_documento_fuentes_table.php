@@ -21,14 +21,9 @@ class CreateSisDocumentoFuentesTable extends Migration
             $table->string('nombre')->unique();
             $table = CamposMagicos::magicos($table);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LOS DOCUMENTOS DEL SISTEMA'");
 
-        Schema::create('h_' . $this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nombre');
-            $table = CamposMagicos::h_magicos($table);
-        });
-        // DB::statement("ALTER TABLE `{'h_'.$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+
     }
 
     /**

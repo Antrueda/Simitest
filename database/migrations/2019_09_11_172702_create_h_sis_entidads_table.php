@@ -35,16 +35,16 @@ class CreateHSisEntidadsTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
-        Schema::create($this->tablaxxx, function (Blueprint $table) {
+        Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('sis_entidad_id')->unsigned();
             $table->bigInteger('sis_servicio_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['sis_entidad_id', 'sis_servicio_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
     }
 
     /**

@@ -27,7 +27,7 @@ class CreateTemasTable extends Migration
     });
     DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS REGISTRADOS EN EL SISTEMA'");
 
-    Schema::create($this->tablaxxx, function (Blueprint $table) {
+    Schema::create($this->tablaxxx2, function (Blueprint $table) {
       $table->bigInteger('parametro_id')->unsigned();
       $table->bigInteger('tema_id')->unsigned();
       $table->bigInteger('user_crea_id')->unsigned();

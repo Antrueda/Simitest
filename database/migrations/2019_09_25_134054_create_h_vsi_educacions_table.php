@@ -5,14 +5,14 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateVsiEducacionsTable extends Migration
+class CreateHVsiEducacionsTable extends Migration
 {
-    private $tablaxxx = 'vsi_educacions';
-    private $tablaxxx2 = 'vsi_edu_causa';
-    private $tablaxxx3 = 'vsi_edu_fortaleza';
-    private $tablaxxx4 = 'vsi_edu_dificultad';
-    private $tablaxxx5 = 'vsi_edu_diftipo_a';
-    private $tablaxxx6 = 'vsi_edu_diftipo_b';
+    private $tablaxxx = 'h_vsi_educacions';
+    private $tablaxxx2 = 'h_vsi_edu_causa';
+    private $tablaxxx3 = 'h_vsi_edu_fortaleza';
+    private $tablaxxx4 = 'h_vsi_edu_dificultad';
+    private $tablaxxx5 = 'h_vsi_edu_diftipo_a';
+    private $tablaxxx6 = 'h_vsi_edu_diftipo_b';
 
     /**
      * Run the migrations.
@@ -37,75 +37,54 @@ class CreateVsiEducacionsTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-
-            $table->foreign('vsi_id')->references('id')->on('vsis');
-            $table->foreign('prm_estudia_id')->references('id')->on('parametros');
-            $table->foreign('prm_motivo_id')->references('id')->on('parametros');
-            $table->foreign('prm_rendimiento_id')->references('id')->on('parametros');
-            $table->foreign('prm_dificultad_id')->references('id')->on('parametros');
-            $table->foreign('prm_leer_id')->references('id')->on('parametros');
-            $table->foreign('prm_escribir_id')->references('id')->on('parametros');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_educacion_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('parametro_id')->references('id')->on('parametros');
-            $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
             $table->unique(['parametro_id', 'vsi_educacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_educacion_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('parametro_id')->references('id')->on('parametros');
-            $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
             $table->unique(['parametro_id', 'vsi_educacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_educacion_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('parametro_id')->references('id')->on('parametros');
-            $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
             $table->unique(['parametro_id', 'vsi_educacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_educacion_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('parametro_id')->references('id')->on('parametros');
-            $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
             $table->unique(['parametro_id', 'vsi_educacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_educacion_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('parametro_id')->references('id')->on('parametros');
-            $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
             $table->unique(['parametro_id', 'vsi_educacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");
     }
 
     /**

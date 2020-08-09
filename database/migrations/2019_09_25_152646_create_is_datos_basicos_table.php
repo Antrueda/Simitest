@@ -84,7 +84,7 @@ class CreateIsDatosBasicosTable extends Migration
             $table->foreign('i_prm_area_familiar_id')->references('id')->on('parametros');
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
@@ -103,7 +103,7 @@ class CreateIsDatosBasicosTable extends Migration
             $table->foreign('is_datos_basico_id')->references('id')->on('is_datos_basicos');
             $table->foreign('i_prm_area_proxima_id')->references('id')->on('parametros');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     /**
