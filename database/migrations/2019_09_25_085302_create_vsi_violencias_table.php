@@ -95,7 +95,7 @@ class CreateVsiViolenciasTable extends Migration
             $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');
             $table->unique(['parametro_id', 'vsi_violencia_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -106,7 +106,7 @@ class CreateVsiViolenciasTable extends Migration
             $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');
             $table->unique(['parametro_id', 'vsi_violencia_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
     }
 
     /**

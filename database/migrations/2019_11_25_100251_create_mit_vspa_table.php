@@ -86,7 +86,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -216,7 +216,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -249,7 +249,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -283,7 +283,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -305,7 +305,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");        
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");        
     }
 
     /**

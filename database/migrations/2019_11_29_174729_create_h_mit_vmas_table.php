@@ -225,7 +225,7 @@ class CreateHMitVmasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -236,7 +236,7 @@ class CreateHMitVmasTable extends Migration
             $table->foreign('mit_vma_id')->references('id')->on('mit_vmas');
             $table->unique(['parametro_id', 'mit_vma_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");        
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");        
     }
 
     public function down()

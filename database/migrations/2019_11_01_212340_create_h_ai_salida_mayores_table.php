@@ -28,7 +28,7 @@ class CreateHAiSalidaMayoresTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->timestamps();
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -37,7 +37,7 @@ class CreateHAiSalidaMayoresTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'ai_salmay_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     public function down()

@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class CreateHVsiBienvenidasTable extends Migration
 {
-    private $tablaxxx = 'vsi_bienvenidas';
-    private $tablaxxx2 = 'vsi_bienvenida_motivo';    
+    private $tablaxxx = 'h_vsi_bienvenidas';
+    private $tablaxxx2 = 'h_vsi_bienvenida_motivo';    
     /**
      * Run the migrations.
      *

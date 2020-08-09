@@ -22,7 +22,7 @@ class CreateHSisTablasTable extends Migration
             $table->timestamps();
             $table->bigInteger('sis_documento_fuente_id')->unsigned();
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

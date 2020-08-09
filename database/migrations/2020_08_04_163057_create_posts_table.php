@@ -23,7 +23,7 @@ class CreatePostsTable extends Migration
             $table->timestamps();
         });
     }
-    // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+    DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
     /**
      * Reverse the migrations.

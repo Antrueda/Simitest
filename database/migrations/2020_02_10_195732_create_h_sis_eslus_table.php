@@ -23,7 +23,7 @@ class CreateHSisEslusTable extends Migration
             $table->integer('sis_esta_id')->default(1);
             $table->timestamps();
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

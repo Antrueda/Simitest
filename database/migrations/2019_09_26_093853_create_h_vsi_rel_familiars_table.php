@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class CreateHVsiRelFamiliarsTable extends Migration
 {
-    private $tablaxxx = 'vsi_rel_familiars';
-    private $tablaxxx2 = 'vsi_relfam_motivo';
-    private $tablaxxx3 = 'vsi_relfam_dificultad';
-    private $tablaxxx4 = 'vsi_relfam_acciones';
+    private $tablaxxx = 'h_vsi_rel_familiars';
+    private $tablaxxx2 = 'h_vsi_relfam_motivo';
+    private $tablaxxx3 = 'h_vsi_relfam_dificultad';
+    private $tablaxxx4 = 'h_vsi_relfam_acciones';
     /**
      * Run the migrations.
      *
@@ -42,7 +42,7 @@ class CreateHVsiRelFamiliarsTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->timestamps();
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -51,7 +51,7 @@ class CreateHVsiRelFamiliarsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -60,7 +60,7 @@ class CreateHVsiRelFamiliarsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -69,7 +69,7 @@ class CreateHVsiRelFamiliarsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
     }
 
     /**

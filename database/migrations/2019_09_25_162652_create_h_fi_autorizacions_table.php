@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class CreateHFiAutorizacionsTable extends Migration
 {
-    private $tablaxxx = 'fi_autorizacions';
-    private $tablaxxx2 = 'fi_modalidads';
+    private $tablaxxx = 'h_fi_autorizacions';
+    private $tablaxxx2 = 'h_fi_modalidads';
     /**
      * Run the migrations.
      *

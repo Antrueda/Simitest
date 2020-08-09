@@ -65,7 +65,7 @@ class CreateHVsiEstEmocionalsTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->timestamps();
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -74,7 +74,7 @@ class CreateHVsiEstEmocionalsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -83,7 +83,7 @@ class CreateHVsiEstEmocionalsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
         
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -92,7 +92,7 @@ class CreateHVsiEstEmocionalsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -101,7 +101,7 @@ class CreateHVsiEstEmocionalsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -110,7 +110,7 @@ class CreateHVsiEstEmocionalsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");
     }
 
     /**

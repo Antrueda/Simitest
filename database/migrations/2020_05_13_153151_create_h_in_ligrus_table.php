@@ -23,7 +23,7 @@ class CreateHInLigrusTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned();
             $table->timestamps();
         });
-        ////DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

@@ -68,7 +68,7 @@ class CreateFiResidenciasTable extends Migration
             $table->foreign('i_prm_estrato_id')->references('id')->on('parametros');
             $table->foreign('i_prm_espacio_parcha_id')->references('id')->on('parametros');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -83,7 +83,7 @@ class CreateFiResidenciasTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_residencia_id')->references('id')->on('fi_residencias');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     /**

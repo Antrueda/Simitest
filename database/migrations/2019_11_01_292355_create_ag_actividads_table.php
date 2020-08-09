@@ -56,7 +56,7 @@ class CreateAgActividadsTable extends Migration
             $table->foreign('i_prm_dirig_id')->references('id')->on('parametros');
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -86,7 +86,7 @@ class CreateAgActividadsTable extends Migration
             $table->integer('sis_esta_id')->default(1);
             $table->timestamps();
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

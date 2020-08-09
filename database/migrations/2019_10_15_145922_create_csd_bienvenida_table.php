@@ -32,7 +32,7 @@ class CreateCsdBienvenidaTable extends Migration
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -45,7 +45,7 @@ class CreateCsdBienvenidaTable extends Migration
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     /**

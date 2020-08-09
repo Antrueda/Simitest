@@ -40,7 +40,7 @@ class CreateCsdGeningAportasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -51,7 +51,7 @@ class CreateCsdGeningAportasTable extends Migration
             $table->foreign('csd_geningreso_id')->references('id')->on('csd_gening_aportas');
             $table->unique(['parametro_id', 'csd_geningreso_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     /**

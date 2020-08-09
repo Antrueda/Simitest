@@ -70,7 +70,7 @@ class CreateFiSaludsTable extends Migration
             $table->foreign('i_prm_razon_no_cinco_comidas_id')->references('id')->on('parametros');
             $table->foreign('sis_entidad_salud_id')->references('id')->on('sis_entidad_saluds');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -92,7 +92,7 @@ class CreateFiSaludsTable extends Migration
             $table->foreign('i_prm_recibe_medicina_id')->references('id')->on('parametros');
             $table->foreign('i_prm_rec_tratamiento_id')->references('id')->on('parametros');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -108,7 +108,7 @@ class CreateFiSaludsTable extends Migration
             $table->foreign('fi_salud_id')->references('id')->on('fi_saluds');
             $table->foreign('i_prm_evento_medico_id')->references('id')->on('parametros');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
     }
 
     /**
