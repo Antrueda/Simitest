@@ -27,7 +27,7 @@ class CreateSisCargosTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
         });
-        ////DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DE LOS CARGOS DE LOS USUARIOS DEL SISTEMA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DE LOS CARGOS DE LOS USUARIOS DEL SISTEMA'");
     }
 
     /**

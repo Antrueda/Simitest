@@ -23,17 +23,7 @@ class CreateSisEstasTable extends Migration
             $table->Integer('user_edita_id');
             $table->timestamps();
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
-
-        Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('s_estado');
-            $table->Integer('i_estado');
-            $table->Integer('user_crea_id'); 
-            $table->Integer('user_edita_id');
-            $table->timestamps();
-        });
-        // DB::statement("ALTER TABLE `{'h_'.$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS DESCRIPCIONES DE LOS ESTADOS DEL SISTEMA'");
     }
 
     /**
@@ -44,6 +34,5 @@ class CreateSisEstasTable extends Migration
     public function down()
     {
         Schema::dropIfExists($this->tablaxxx);
-        Schema::dropIfExists('h_' . $this->tablaxxx);        
     }
 }

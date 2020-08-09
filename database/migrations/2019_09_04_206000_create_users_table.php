@@ -53,7 +53,7 @@ class CreateUsersTable extends Migration
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
             $table->unique(['prm_documento_id', 's_documento']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS USUARIOS REGISTRADOS EN EL SISTEMA'");
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -80,7 +80,7 @@ class CreateUsersTable extends Migration
             $table->integer('prm_documento_id');
             $table->integer('sis_esta_id');
         });
-        // DB::statement("ALTER TABLE `{'h_'.$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{'h_'.$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
 
     }
 

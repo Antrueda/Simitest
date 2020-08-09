@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateHFiNucleoFamiliarsTable extends Migration
+class CreateHSisEstasTable extends Migration
 {
-    private $tablaxxx = 'h_fi_nucleo_familiars';
+    private $tablaxxx = 'h_sis_estas';
     /**
      * Run the migrations.
      *
@@ -17,12 +17,13 @@ class CreateHFiNucleoFamiliarsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->string('s_estado');
+            $table->Integer('i_estado');
+            $table->Integer('user_crea_id'); 
+            $table->Integer('user_edita_id');
             $table->timestamps();
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**

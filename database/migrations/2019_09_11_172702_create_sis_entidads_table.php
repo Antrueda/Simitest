@@ -17,7 +17,7 @@ class CreateSisEntidadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_entidads', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre')->unique();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -28,10 +28,10 @@ class CreateSisEntidadsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS ENTIDADES REGISTRADAS EN EL SISTEMA.'");
 
 
-        Schema::create('sis_servicios', function (Blueprint $table) {
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_servicio')->unique();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -43,10 +43,9 @@ class CreateSisEntidadsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS SERVICIOS INSTITUCIONALES'");
 
-
-        Schema::create('sis_entidad_sis_servicio', function (Blueprint $table) {
+        Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('sis_entidad_id')->unsigned();
             $table->bigInteger('sis_servicio_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -55,8 +54,7 @@ class CreateSisEntidadsTable extends Migration
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
             $table->unique(['sis_entidad_id', 'sis_servicio_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
-
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE ENTIDADES Y SERVICIOS INSTITUCIONALES'");
     }
 
     /**
