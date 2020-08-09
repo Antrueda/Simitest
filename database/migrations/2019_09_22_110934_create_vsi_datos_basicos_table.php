@@ -3,9 +3,18 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateVsiDatosBasicosTable extends Migration
 {
+    private $tablaxxx = 'vsis';
+    private $tablaxxx2 = 'vsi_nnaj_familiar';
+    private $tablaxxx3 = 'vsi_nnaj_social';
+    private $tablaxxx4 = 'vsi_nnaj_academica';
+    private $tablaxxx5 = 'vsi_nnaj_comportamental';
+    private $tablaxxx6 = 'vsi_nnaj_sexual';
+    private $tablaxxx7 = 'vsi_nnaj_emocional';
+
     /**
      * Run the migrations.
      *
@@ -13,7 +22,7 @@ class CreateVsiDatosBasicosTable extends Migration
      */
     public function up()
     {
-        Schema::create('vsis', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('sis_depen_id')->unsigned();
@@ -29,8 +38,9 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
-        Schema::create('vsi_nnaj_emocional', function (Blueprint $table) {
+        Schema::create($this->tablaxxx7, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -39,7 +49,9 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
-        Schema::create('vsi_nnaj_sexual', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'P'");
+
+        Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -48,7 +60,9 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
-        Schema::create('vsi_nnaj_comportamental', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'P'");
+
+        Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -57,7 +71,9 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
-        Schema::create('vsi_nnaj_academica', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'P'");
+
+        Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -66,7 +82,9 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
-        Schema::create('vsi_nnaj_social', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
+
+        Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -75,7 +93,9 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
-        Schema::create('vsi_nnaj_familiar', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -84,6 +104,7 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     /**
@@ -93,12 +114,12 @@ class CreateVsiDatosBasicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vsi_nnaj_familiar');
-        Schema::dropIfExists('vsi_nnaj_social');
-        Schema::dropIfExists('vsi_nnaj_academica');
-        Schema::dropIfExists('vsi_nnaj_comportamental');
-        Schema::dropIfExists('vsi_nnaj_sexual');
-        Schema::dropIfExists('vsi_nnaj_emocional');
-        Schema::dropIfExists('vsis');
+        Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx3);
+        Schema::dropIfExists($this->tablaxxx4);
+        Schema::dropIfExists($this->tablaxxx5);
+        Schema::dropIfExists($this->tablaxxx6);
+        Schema::dropIfExists($this->tablaxxx7);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

@@ -3,11 +3,20 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class CreateMitVmasTable extends Migration{
-
-    public function up(){
-        Schema::create('mit_vmas', function (Blueprint $table) {
+class CreateMitVmasTable extends Migration
+{
+    private $tablaxxx = 'mit_vmas';
+    private $tablaxxx2 = 'mit_vma_ttos';
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('prm_upi_id')->unsigned();
@@ -136,11 +145,11 @@ class CreateMitVmasTable extends Migration{
             $table->bigInteger('prm_tanimo_id')->unsigned()->nullable();
             $table->bigInteger('prm_palpitaciones_id')->unsigned();
             $table->bigInteger('prm_dolor_id')->unsigned();
-            $table->text('patologicos',4000);
-            $table->text('quirurgicos',4000);
-            $table->text('familiares',4000);
-            $table->text('traumaticos',4000);
-            $table->text('gineco',4000)->nullable();
+            $table->text('patologicos', 4000);
+            $table->text('quirurgicos', 4000);
+            $table->text('familiares', 4000);
+            $table->text('traumaticos', 4000);
+            $table->text('gineco', 4000)->nullable();
             $table->bigInteger('prm_tatuajes_id')->unsigned();
             $table->bigInteger('prm_piercing_id')->unsigned();
             $table->bigInteger('prm_dx_ppal_id')->unsigned();
@@ -150,13 +159,13 @@ class CreateMitVmasTable extends Migration{
             $table->bigInteger('prm_dx_rel_com_id')->unsigned()->nullable();
             $table->bigInteger('prm_tipo_dx_id')->unsigned();
             $table->bigInteger('prm_conducta_id')->unsigned();
-            $table->text('alerta',4000)->nullable();
-            $table->text('observaciones',4000);
+            $table->text('alerta', 4000)->nullable();
+            $table->text('observaciones', 4000);
             $table->bigInteger('user_doc1_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('prm_upi_id')->references('id')->on('parametros');
@@ -215,23 +224,24 @@ class CreateMitVmasTable extends Migration{
             $table->foreign('user_doc1_id')->references('id')->on('users');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
-            
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
-        Schema::create('mit_vma_ttos', function (Blueprint $table) {
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('mit_vma_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('mit_vma_id')->references('id')->on('mit_vmas');
             $table->unique(['parametro_id', 'mit_vma_id']);
-            
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");        
     }
 
-    public function down(){
-        Schema::dropIfExists('mit_vma_ttos');
-        Schema::dropIfExists('mit_vmas');
+    public function down()
+    {
+        Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

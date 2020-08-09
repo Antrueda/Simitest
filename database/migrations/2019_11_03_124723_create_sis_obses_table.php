@@ -27,11 +27,7 @@ class CreateSisObsesTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->timestamps();
         });
-<<<<<<< HEAD
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS PARAMETROS A LAS OBSERVACIONES DEL SISTEMA USADOS PARA JUSTIFICAR ALGUNAS ACCIONES REALIZADAS POR EL USUARIO.'");
-=======
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
->>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**

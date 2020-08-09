@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class CreatePostsTable extends Migration
+class CreateHSisDependenciaSisEslugTable extends Migration
 {
+    private $tablaxxx = 'h_sis_dependencia_sis_eslug';
     /**
      * Run the migrations.
      *
@@ -15,11 +17,9 @@ class CreatePostsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->string('titulo');
-            $table->string('descripcion');
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
         });
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

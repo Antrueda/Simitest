@@ -35,12 +35,7 @@ class CreateCsdRedsocActualsTable extends Migration
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
         });
-<<<<<<< HEAD
         //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS REDES SOCIALES EN EL PASADO QUE TIENE LA PERSONA REGISTRADA EN EL SISTEMA.'");
-=======
-
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
->>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
     }
 
     public function down()

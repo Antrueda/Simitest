@@ -32,11 +32,7 @@ class CreateInValoracionsTable extends Migration
             $table->unique(['in_lineabase_nnaj_id', 'i_prm_cactual_id']);
             $table = CamposMagicos::magicos($table);
         });
-<<<<<<< HEAD
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS VALORACIONES REALIZADAS AL NNAJ'");
-=======
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
->>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**

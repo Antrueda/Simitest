@@ -3,9 +3,12 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateSisEslusTable extends Migration
 {
+    private $tablaxxx = 'sis_eslugs';
+
     /**
      * Run the migrations.
      *
@@ -13,10 +16,10 @@ class CreateSisEslusTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_eslugs', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_espaluga')->comment('ESPACIO/LUGAR DONDE SE REALIZA LA ACTIVIDAD');
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -25,14 +28,7 @@ class CreateSisEslusTable extends Migration
             $table->unique(['s_espaluga']);
             $table->timestamps();
         });
-        Schema::create('h_sis_eslugs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('s_espaluga')->comment('ESPACIO/LUGAR DONDE SE REALIZA LA ACTIVIDAD');
-            $table->Integer('user_crea_id'); 
-            $table->integer('user_edita_id');
-            $table->integer('sis_esta_id')->default(1);
-            $table->timestamps();
-        });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**
@@ -42,7 +38,6 @@ class CreateSisEslusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_sis_eslugs');
-        Schema::dropIfExists('sis_eslugs');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

@@ -40,11 +40,7 @@ class CreateInValidacionsTable extends Migration
 
             $table->unique(['in_fuente_id', 'in_pregunta_id']);
         });
-<<<<<<< HEAD
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA OBLIGATORIEDAD DE LA RELACION ENTRE: PREGUNTAS, TABLAS Y CAMPOS REGISTRADOS EN EL SISTEMA.'");
-=======
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
->>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**

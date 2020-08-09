@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateAgActividadsTable extends Migration
 {
+    private $tablaxxx = 'ag_actividads';
+    private $tablaxxx2 = 'h_ag_actividads';
     /**
      * Run the migrations.
      *
@@ -13,7 +16,7 @@ class CreateAgActividadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ag_actividads', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->dateTime('d_registro');
             $table->bigInteger('area_id')->unsigned();
@@ -53,8 +56,9 @@ class CreateAgActividadsTable extends Migration
             $table->foreign('i_prm_dirig_id')->references('id')->on('parametros');
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
-        Schema::create('h_ag_actividads', function (Blueprint $table) {
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->dateTime('d_registro');
             $table->integer('area_id');
@@ -82,6 +86,7 @@ class CreateAgActividadsTable extends Migration
             $table->integer('sis_esta_id')->default(1);
             $table->timestamps();
         });
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
@@ -91,7 +96,7 @@ class CreateAgActividadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_ag_actividads');
-        Schema::dropIfExists('ag_actividads');
+        Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

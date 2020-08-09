@@ -23,11 +23,7 @@ class CreateSisDepenSisServicioTable extends Migration
             $table = CamposMagicos::getForeign($table, 'sis_servicio');
             $table = CamposMagicos::magicos($table);
         });
-<<<<<<< HEAD
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS SERVICIOS BRINDADOS POR LAS DEPENDENCIAS REGISTRADAS EN EL SISTEMA.'");
-=======
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
->>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**

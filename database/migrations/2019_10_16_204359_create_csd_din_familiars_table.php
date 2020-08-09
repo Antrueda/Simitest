@@ -3,9 +3,16 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateCsdDinFamiliarsTable extends Migration
 {
+    private $tablaxxx = 'csd_din_familiars';
+    private $tablaxxx2 = 'csd_dinfam_antecedente';
+    private $tablaxxx3 = 'csd_dinfam_problema';
+    private $tablaxxx4 = 'csd_dinfam_norma';
+    private $tablaxxx5 = 'csd_dinfam_establecen';
+    private $tablaxxx6 = 'csd_dinfam_incumple';
     /**
      * Run the migrations.
      *
@@ -13,7 +20,7 @@ class CreateCsdDinFamiliarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('csd_din_familiars', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->binary('descripcion')->nullable();
@@ -47,7 +54,6 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_familiar_id')->references('id')->on('parametros');
             $table->foreign('prm_hogar_id')->references('id')->on('parametros');
@@ -66,7 +72,9 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        Schema::create('csd_dinfam_antecedente', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -77,7 +85,9 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
         });
-        Schema::create('csd_dinfam_problema', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+
+        Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -88,7 +98,9 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
         });
-        Schema::create('csd_dinfam_norma', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+
+        Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -99,7 +111,9 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
         });
-        Schema::create('csd_dinfam_establecen', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
+
+        Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -110,7 +124,9 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
         });
-        Schema::create('csd_dinfam_incumple', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'P'");
+
+        Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -121,6 +137,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'P'");
     }
 
     /**
@@ -130,11 +147,11 @@ class CreateCsdDinFamiliarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('csd_dinfam_incumple');
-        Schema::dropIfExists('csd_dinfam_establecen');
-        Schema::dropIfExists('csd_dinfam_norma');
-        Schema::dropIfExists('csd_dinfam_problema');
-        Schema::dropIfExists('csd_dinfam_antecedente');
-        Schema::dropIfExists('csd_din_familiars');
+        Schema::dropIfExists($this->tablaxxx6);
+        Schema::dropIfExists($this->tablaxxx5);
+        Schema::dropIfExists($this->tablaxxx4);
+        Schema::dropIfExists($this->tablaxxx3);
+        Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

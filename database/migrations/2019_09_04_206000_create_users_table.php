@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateUsersTable extends Migration
 {
+    private $tablaxxx = 'users';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('s_primer_nombre');
@@ -51,7 +53,9 @@ class CreateUsersTable extends Migration
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
             $table->unique(['prm_documento_id', 's_documento']);
         });
-        Schema::create('h_users', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+
+        Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->string('name');
@@ -76,6 +80,8 @@ class CreateUsersTable extends Migration
             $table->integer('prm_documento_id');
             $table->integer('sis_esta_id');
         });
+        // DB::statement("ALTER TABLE `{'h_'.$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+
     }
 
     /**
@@ -85,7 +91,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_users');
-        Schema::dropIfExists('users');
+        Schema::dropIfExists($this->tablaxxx);
+        Schema::dropIfExists('h_'.$this->tablaxxx);
     }
 }

@@ -3,15 +3,22 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class CreateVsiRelFamiliarsTable extends Migration{
+class CreateVsiRelFamiliarsTable extends Migration
+{
+    private $tablaxxx = 'vsi_rel_familiars';
+    private $tablaxxx2 = 'vsi_relfam_motivo';
+    private $tablaxxx3 = 'vsi_relfam_dificultad';
+    private $tablaxxx4 = 'vsi_relfam_acciones';
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
-        Schema::create('vsi_rel_familiars', function (Blueprint $table) {
+    public function up()
+    {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('prm_representativa_id')->unsigned();
@@ -30,12 +37,11 @@ class CreateVsiRelFamiliarsTable extends Migration{
             $table->Integer('ano')->unsigned()->nullable();
             $table->bigInteger('prm_responde_id')->unsigned()->nullable();
             $table->string('descripcion1', 4000)->nullable();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_representativa_id')->references('id')->on('parametros');
             $table->foreign('prm_mala_id')->references('id')->on('parametros');
@@ -49,36 +55,40 @@ class CreateVsiRelFamiliarsTable extends Migration{
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        Schema::create('vsi_relfam_motivo', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
-            
         });
-        Schema::create('vsi_relfam_dificultad', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+
+        Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
-            
         });
-        Schema::create('vsi_relfam_acciones', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+
+        Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
-            
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
     }
 
     /**
@@ -86,10 +96,11 @@ class CreateVsiRelFamiliarsTable extends Migration{
      *
      * @return void
      */
-    public function down(){
-        Schema::dropIfExists('vsi_relfam_acciones');
-        Schema::dropIfExists('vsi_relfam_dificultad');
-        Schema::dropIfExists('vsi_relfam_motivo');
-        Schema::dropIfExists('vsi_rel_familiars');
+    public function down()
+    {
+        Schema::dropIfExists($this->tablaxxx4);
+        Schema::dropIfExists($this->tablaxxx3);
+        Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

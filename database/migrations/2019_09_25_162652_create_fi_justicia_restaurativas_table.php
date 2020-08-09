@@ -3,9 +3,15 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateFiJusticiaRestaurativasTable extends Migration
 {
+    private $tablaxxx = 'fi_justicia_restaurativas';
+    private $tablaxxx2 = 'fi_proceso_pards';
+    private $tablaxxx3 = 'fi_proceso_srpas';
+    private $tablaxxx4 = 'fi_proceso_spoas';
+    private $tablaxxx5 = 'fi_proceso_familias';
     /**
      * Run the migrations.
      *
@@ -13,19 +19,17 @@ class CreateFiJusticiaRestaurativasTable extends Migration
      */
     public function up()
     {
-        Schema::create('fi_justicia_restaurativas', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-
-            $table->bigInteger('i_prm_vinculado_violencia_id')->unsigned();//->comment('FI 10.4.1 ESTA VINCULADO A DELINCUENCIA O VIOLENCIA');
-            $table->bigInteger('i_prm_causa_vincula_vio_id')->unsigned();//->comment('FI 10.4.2 CAUSA VINCULACIÓN A DELINCUENCIA O VIOLENCIA');
-            $table->bigInteger('i_prm_riesgo_participar_id')->unsigned();//->comment('FI 10.5.1 ESTA EN RIESGO DE PARTICIPAR ACTOS DELICTIVOS');
-            $table->bigInteger('i_prm_causa_riesgo_part_id')->unsigned();//->comment('FI 10.5.2 CAUSA RIESGO PARTICIPAR ACTOS DELICTIVOS');
-
-            $table->bigInteger('sis_nnaj_id')->unsigned();//->comment('NNAJ AL QUE SE LE ASIGNA LA JUSTICIA RESTAURATIVA');
+            $table->bigInteger('i_prm_vinculado_violencia_id')->unsigned(); //->comment('FI 10.4.1 ESTA VINCULADO A DELINCUENCIA O VIOLENCIA');
+            $table->bigInteger('i_prm_causa_vincula_vio_id')->unsigned(); //->comment('FI 10.4.2 CAUSA VINCULACIÓN A DELINCUENCIA O VIOLENCIA');
+            $table->bigInteger('i_prm_riesgo_participar_id')->unsigned(); //->comment('FI 10.5.1 ESTA EN RIESGO DE PARTICIPAR ACTOS DELICTIVOS');
+            $table->bigInteger('i_prm_causa_riesgo_part_id')->unsigned(); //->comment('FI 10.5.2 CAUSA RIESGO PARTICIPAR ACTOS DELICTIVOS');
+            $table->bigInteger('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA JUSTICIA RESTAURATIVA');
             $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
+            $table->bigInteger('user_edita_id')->unsigned(); //->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas'); //->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -34,10 +38,10 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_causa_vincula_vio_id')->references('id')->on('parametros');
             $table->foreign('i_prm_riesgo_participar_id')->references('id')->on('parametros');
             $table->foreign('i_prm_causa_riesgo_part_id')->references('id')->on('parametros');
-            
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
-        Schema::create('fi_proceso_pards', function (Blueprint $table) {
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('fi_justicia_restaurativa_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL PARD');
             $table->bigInteger('i_prm_ha_estado_pard_id')->unsigned()->comment('FI 10.1.1 HA ESTADO EN PARD');
@@ -51,7 +55,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -60,10 +64,10 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_actualmente_pard_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_tiempo_pard_id')->references('id')->on('parametros');
             $table->foreign('i_prm_motivo_pard_id')->references('id')->on('parametros');
-            
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
 
-        Schema::create('fi_proceso_srpas', function (Blueprint $table) {
+        Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('fi_justicia_restaurativa_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SRPA');
             $table->bigInteger('i_prm_ha_estado_srpa_id')->unsigned()->comment('FI 10.2.1 HA ESTADO EN SRPA');
@@ -72,11 +76,10 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->bigInteger('i_cuanto_srpa')->nullable()->comment('FI 10.2.3.2 HACE CUANTO ESTÁ EN SRPA');
             $table->bigInteger('i_prm_motivo_srpa_id')->nullable()->unsigned()->comment('FI 10.2.4 MOTIVO SRPA');
             $table->bigInteger('i_prm_sancion_srpa_id')->nullable()->unsigned()->comment('FI 10.2.5 SANCIÓN PEDAGÓGICA SRPA');
-
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -86,10 +89,10 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_tipo_tiempo_srpa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_motivo_srpa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_sancion_srpa_id')->references('id')->on('parametros');
-            
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
 
-        Schema::create('fi_proceso_spoas', function (Blueprint $table) {
+        Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('fi_justicia_restaurativa_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SPOA');
             $table->bigInteger('i_prm_ha_estado_spoa_id')->unsigned()->comment('FI 10.3.1 HA ESTADO EN SPOA');
@@ -102,7 +105,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -113,10 +116,10 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_motivo_spoa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_mod_cumple_pena_id')->references('id')->on('parametros');
             $table->foreign('i_prm_ha_estado_preso_id')->references('id')->on('parametros');
-            
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
 
-        Schema::create('fi_proceso_familias', function (Blueprint $table) {
+        Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('fi_justicia_restaurativa_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL PROCESO DE LA FAMILIA');
             $table->bigInteger('fi_composicion_fami_id')->unsigned()->comment('MIEMBRO DE LA FAMILIA');
@@ -137,8 +140,8 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('fi_composicion_fami_id')->references('id')->on('fi_composicion_famis');
             $table->foreign('i_prm_vigente_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_tiempo_id')->references('id')->on('parametros');
-            
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'P'");
     }
 
     /**
@@ -148,11 +151,10 @@ class CreateFiJusticiaRestaurativasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fi_proceso_familias');
-        Schema::dropIfExists('fi_proceso_spoas');
-        Schema::dropIfExists('fi_proceso_srpas');
-        Schema::dropIfExists('fi_proceso_pards');
-        Schema::dropIfExists('fi_justicia_restaurativas');
-        
+        Schema::dropIfExists($this->tablaxxx5);
+        Schema::dropIfExists($this->tablaxxx4);
+        Schema::dropIfExists($this->tablaxxx3);
+        Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

@@ -24,12 +24,12 @@ class CreateFiContactosTable extends Migration
             $table->date('d_fecha_remite_id')->nullable();
             $table->bigInteger('i_prm_motivo_contacto_id')->nullable()->unsigned();
             $table->bigInteger('i_prm_aut_tratamiento_id')->unsigned();
-            
+
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -38,7 +38,6 @@ class CreateFiContactosTable extends Migration
             $table->foreign('i_prm_contacto_opcion_id')->references('id')->on('parametros');
             $table->foreign('i_prm_motivo_contacto_id')->references('id')->on('parametros');
             $table->foreign('i_prm_aut_tratamiento_id')->references('id')->on('parametros');
-            
         });
         //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE CONTACTO DE LAS PERSONAS QUE SE PUEDEN CONTACTAR CON LOS NNAJ'");
     }

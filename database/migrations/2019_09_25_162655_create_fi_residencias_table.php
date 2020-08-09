@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateFiResidenciasTable extends Migration
 {
+    private $tablaxxx = 'fi_residencias';
+    private $tablaxxx2 = 'fi_condicion_ambientes';
     /**
      * Run the migrations.
      *
@@ -13,9 +16,8 @@ class CreateFiResidenciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('fi_residencias', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            
             $table->bigInteger('i_prm_tiene_dormir_id')->unsigned(); //->comment('FI 3.1 TIENE LUGAR DONDE DORMIR');
             $table->bigInteger('i_prm_tipo_duerme_id')->unsigned(); //->comment('FI 3.2 TIPO DE RESIDENCIA O LUGAR DONDE DUERME');
             $table->bigInteger('i_prm_tipo_tenencia_id')->unsigned(); //->comment('FI 3.3 LA RESIDENCIA ES');
@@ -42,7 +44,6 @@ class CreateFiResidenciasTable extends Migration
             $table->string('s_telefono_dos')->nullable(); //->comment('FI 3.13 TELEFONO 2');
             $table->string('s_telefono_tres')->nullable(); //->comment('FI 3.14 TELEFONO 3');
             $table->string('s_email_facebook')->nullable(); //->comment('FI 3.15 EMAIL O FACEBOOK');
-
             $table->bigInteger('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
             $table->bigInteger('user_crea_id')->unsigned();  //->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned(); //->comment('USUARIO QUE EDITA EL REGISTRO');
@@ -67,8 +68,9 @@ class CreateFiResidenciasTable extends Migration
             $table->foreign('i_prm_estrato_id')->references('id')->on('parametros');
             $table->foreign('i_prm_espacio_parcha_id')->references('id')->on('parametros');
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
-        Schema::create('fi_condicion_ambientes', function (Blueprint $table) {
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('fi_residencia_id')->unsigned()->comment('REGISTRO RESIDENCIA AL QUE SE LE ASIGNA LA CONDICION DEL AMBIENTE');
             $table->bigInteger('i_prm_condicion_amb_id')->unsigned()->comment('FI 3.16 CONDICIONES DEL AMBIENTE');
@@ -80,8 +82,8 @@ class CreateFiResidenciasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_residencia_id')->references('id')->on('fi_residencias');
-            
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     /**
@@ -91,7 +93,7 @@ class CreateFiResidenciasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fi_condicion_ambientes');
-        Schema::dropIfExists('fi_residencias');
+        Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

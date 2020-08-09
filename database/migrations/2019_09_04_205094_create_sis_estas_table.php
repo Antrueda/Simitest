@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateSisEstasTable extends Migration
 {
+    private $tablaxxx = 'sis_estas';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateSisEstasTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_estas', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_estado');
             $table->Integer('i_estado');
@@ -21,7 +23,9 @@ class CreateSisEstasTable extends Migration
             $table->Integer('user_edita_id');
             $table->timestamps();
         });
-        Schema::create('h_sis_estas', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+
+        Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_estado');
             $table->Integer('i_estado');
@@ -29,6 +33,7 @@ class CreateSisEstasTable extends Migration
             $table->Integer('user_edita_id');
             $table->timestamps();
         });
+        // DB::statement("ALTER TABLE `{'h_'.$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**
@@ -38,7 +43,7 @@ class CreateSisEstasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_sis_estas');
-        Schema::dropIfExists('sis_estas');
+        Schema::dropIfExists($this->tablaxxx);
+        Schema::dropIfExists('h_' . $this->tablaxxx);        
     }
 }

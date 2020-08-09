@@ -3,15 +3,20 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class CreateCsdGeningAportasTable extends Migration{
+class CreateCsdGeningAportasTable extends Migration
+{
+    private $tablaxxx = 'csd_gening_aportas';
+    private $tablaxxx2 = 'csd_gening_dias';
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
-        Schema::create('csd_gening_aportas', function (Blueprint $table) {
+    public function up()
+    {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('prm_aporta_id')->unsigned();
@@ -21,15 +26,13 @@ class CreateCsdGeningAportasTable extends Migration{
             $table->bigInteger('prm_entre_id')->unsigned();
             $table->Integer('jornada_a')->unsigned();
             $table->bigInteger('prm_a_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
-            
-            
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_aporta_id')->references('id')->on('parametros');
             $table->foreign('prm_entre_id')->references('id')->on('parametros');
@@ -37,16 +40,18 @@ class CreateCsdGeningAportasTable extends Migration{
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        Schema::create('csd_gening_dias', function (Blueprint $table) {
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_geningreso_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_geningreso_id')->references('id')->on('csd_gening_aportas');
             $table->unique(['parametro_id', 'csd_geningreso_id']);
-            
         });
+        // DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     /**
@@ -54,8 +59,9 @@ class CreateCsdGeningAportasTable extends Migration{
      *
      * @return void
      */
-    public function down(){
-        Schema::dropIfExists('csd_gening_dias');
-        Schema::dropIfExists('csd_gening_aportas');
+    public function down()
+    {
+        Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }
