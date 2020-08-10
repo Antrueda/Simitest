@@ -30,8 +30,7 @@ class CreateAgSubtemasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DIVERSOS SUB TEMAS EXISTENTES DENTRO DE UN TEMA PERTENECIENTE A UN TALLER DENTRO DE LAS ACCIONES GRUPALES.'");
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS SUBTEMAS ASOCIADOS A UN TEMA EXISTENTE DENTRO DE UN TALLER ASOCIADO A LAS ACCIONES GRUPALES'");
     }
 
     /**
