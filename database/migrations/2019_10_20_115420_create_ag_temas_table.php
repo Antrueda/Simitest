@@ -25,12 +25,11 @@ class CreateAgTemasTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->String('s_descripcion', 6000);
             $table->timestamps();
-
             $table->foreign('area_id')->references('id')->on('areas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS DE LAS ACTIVIDADES GRUPALES'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS DE LAS ACTIVIDADES GRUPALES'");
     }
 
     /**

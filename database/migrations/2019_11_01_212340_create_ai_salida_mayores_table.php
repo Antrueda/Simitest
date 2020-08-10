@@ -34,7 +34,7 @@ class CreateAiSalidamayoresTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA DESCRIPCIÓN DE LA SALIA DE UN BENEFICIARIO DE LOS SERVICIOS DE UNA UPI'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -45,7 +45,7 @@ class CreateAiSalidamayoresTable extends Migration
             $table->foreign('ai_salmay_id')->references('id')->on('ai_salida_mayores');
             $table->unique(['parametro_id', 'ai_salmay_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS PORMENORES DE LA SALIA DE UN BENEFICIARIO DE LOS SERVICIOS DE UNA UPI'");
     }
 
     public function down()
