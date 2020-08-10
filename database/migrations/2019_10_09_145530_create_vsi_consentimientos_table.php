@@ -34,7 +34,8 @@ class CreateVsiConsentimientosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL CONSENTIMIENTO INFORMADO POR EL NNAJ AL IDIPRON MEDIANTE LAS FIRMAS PUNTO 21 Y 22 SECCION 21'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL CONSENTIMIENTO INFORMADO POR EL NNAJ AL IDIPRON MEDIANTE LAS FIRMAS PUNTO 21 Y 22 SECCION 21'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
     }
 
     /**

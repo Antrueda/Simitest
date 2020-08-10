@@ -61,7 +61,7 @@ class CreateVsiEducacionsTable extends Migration
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
             $table->unique(['parametro_id', 'vsi_educacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA TIENE LOS DETALLES DE LA EDUCACION FORMAL DE LA PERSONA ENTREVISTADA, SECCION 10'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();

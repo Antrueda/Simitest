@@ -36,7 +36,8 @@ class CreateAgConveniosTable extends Migration
             $table->foreign('i_prm_entidad_id')->references('id')->on('parametros');
 
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS CONVENIOS REGISTRADOS EN EL SISTEMA DENTRO DE LAS ACCIONES GRUPALES.'");
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS CONVENIOS REGISTRADOS EN EL SISTEMA DENTRO DE LAS ACCIONES GRUPALES.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
     }
 
     /**

@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('titulo');
             $table->string('descripcion');
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+//            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
