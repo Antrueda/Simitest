@@ -27,7 +27,7 @@ class VspaController extends Controller{
 
     public function index($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $vspa = $dato->Vspa->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
 
         return view('Acciones.Individuales.index', ['accion' => 'Vspa', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'vspa'));
@@ -35,7 +35,7 @@ class VspaController extends Controller{
 
     public function create($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $vspa = $dato->Vspa->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $sinoc= Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -105,10 +105,10 @@ class VspaController extends Controller{
         }
         $usuarios = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
 
-        return view('Acciones.Individuales.index', ['accion' => 'Vspa', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'vspa', 'upis', 
-                                                                                                'tValoracion', 'sino', 'escolar', 
+        return view('Acciones.Individuales.index', ['accion' => 'Vspa', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'vspa', 'upis',
+                                                                                                'tValoracion', 'sino', 'escolar',
                                                                                                 'ingresos', 'modalidad', 'acude', 'sitio', 'frecuencia',
-                                                                                                'via', 'impacto', 'sustancia', 'cantidad', 
+                                                                                                'via', 'impacto', 'sustancia', 'cantidad',
                                                                                                 'obtiene', 'medida', 'costumbre', 'comparte',
                                                                                                 'usuarios', 'sinoc'));
     }
@@ -254,7 +254,7 @@ class VspaController extends Controller{
 
     public function edit($id, $id0){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $vspa = $dato->Vspa->where('mit_vspa_id', 1)->sortByDesc('fecha')->all();
         //$vspaTablaCuatro = $dato->VspaTablaCuatro->where('sis_esta_id', 1)->all();
 
@@ -328,10 +328,10 @@ class VspaController extends Controller{
         $usuarios = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
         $valor    = Vspa::findOrFail($id0);
 
-        return view('Acciones.Individuales.index', ['accion' => 'Vspa', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'vspa', 'upis', 
+        return view('Acciones.Individuales.index', ['accion' => 'Vspa', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'vspa', 'upis',
                                                                                                 'tValoracion', 'sino', 'escolar', 'ingresos',
                                                                                                 'modalidad', 'acude', 'sitio', 'frecuencia',
-                                                                                                'via', 'impacto', 'sustancia', 'cantidad', 
+                                                                                                'via', 'impacto', 'sustancia', 'cantidad',
                                                                                                 'obtiene', 'medida', 'costumbre', 'comparte',
                                                                                                 'usuarios', 'valor', 'sinoc'));
 
@@ -469,7 +469,7 @@ class VspaController extends Controller{
         $dato = Vspa::findOrFail($id1);
         $dato->fill($request->all())->save();
 
-        return redirect()->route('mitigacion.vspa', $id)->with('info', 'Registro actualizado con éxito');        
+        return redirect()->route('mitigacion.vspa', $id)->with('info', 'Registro actualizado con éxito');
     }
 
     protected function validator(array $data){

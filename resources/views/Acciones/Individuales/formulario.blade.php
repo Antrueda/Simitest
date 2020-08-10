@@ -62,7 +62,7 @@
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sicosocial</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item{{ ($accion == 'fi') ?' active' : '' }}" href="{{ route('fi.datobasico.ver', $dato->id) }}">Ficha de Ingreso</a>
-                    <a class="dropdown-item{{ ($accion == 'vsi') ?' active' : '' }}" href="{{ route('VSI.ver', $dato->id) }}">Valoración Sicosocial</a>
+                    <a class="dropdown-item{{ ($accion == 'vsi') ?' active' : '' }}" href="{{ route('vsixxxxx.ver', $dato->id) }}">Valoración Sicosocial</a>
                     <a class="dropdown-item{{ ($accion == 'csd') ?' active' : '' }}" href="{{ route('csd.ver', $dato->id) }}">Consulta Social en Domicilio</a>
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('is.ver', $dato->id) }}">Intervencion Sicosocial</a>
                     <a class="dropdown-item{{ ($accion == 'fos') ?' active' : '' }}" href="{{ route('fos.ver', $dato->id) }}">Ficha de Observacion</a>

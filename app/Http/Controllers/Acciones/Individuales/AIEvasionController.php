@@ -25,14 +25,14 @@ class AIEvasionController extends Controller{
 
     public function index($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $evasiones = $dato->AiReporteEvasion->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'evasiones'));
     }
 
     public function create($id){
         $dato  = SisNnaj::findOrFail($id);
-        $nnaj  = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj  = $dato->fi_datos_basico;
         $evasiones  = $dato->AiReporteEvasion->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis  = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm  = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -87,7 +87,7 @@ class AIEvasionController extends Controller{
 
     public function edit($id, $id0){
         $dato  = SisNnaj::findOrFail($id);
-        $nnaj  = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj  = $dato->fi_datos_basico;
         $evasiones  = $dato->AiReporteEvasion->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis  = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm  = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -113,13 +113,13 @@ class AIEvasionController extends Controller{
         return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'evasiones', 'upis', 'ampm', 'contextura', 'rostro', 'piel', 'cabello', 'sino', 'tCabello', 'cCabello', 'ojos', 'nariz', 'tamanio', 'prendas', 'familiares', 'atencion', 'usuarios', 'valor', 'depajs', 'departamentos', 'municipios', 'hoy'));
     }
 
-    public function update(Request $request, $id, $id0){        
+    public function update(Request $request, $id, $id0){
         $this->validator($request->all())->validate();
 
         if($request->prm_tinturado_id != 227) {
             $request["tintura"] = null;
         }
-        
+
         if($request->prm_tipCabello_id != 227) {
             $request["prm_corCabello_id"] = null;
         }

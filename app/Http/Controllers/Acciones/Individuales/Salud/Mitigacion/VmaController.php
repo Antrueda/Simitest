@@ -24,7 +24,7 @@ class VmaController extends Controller{
 
     public function index($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
 
         return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'vma'));
@@ -32,7 +32,7 @@ class VmaController extends Controller{
 
     public function create($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $tValoracion = ['' => 'Seleccione...'];
@@ -73,7 +73,7 @@ class VmaController extends Controller{
             $animo[$k] = $d;
         }
         $tratamiento = Tema::findOrFail(333)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        
+
         $conducta = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(334)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
             $conducta[$k] = $d;
@@ -91,7 +91,7 @@ class VmaController extends Controller{
         return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'vma', 'upis', 'tValoracion',
                                                                                                'sino', 'sustancia', 'frecuencia', 'nivel',
                                                                                                'trastorno','apetito','sudoracion','animo',
-                                                                                               'tratamiento', 'conducta', 'diagnosticos', 'tipoDx', 
+                                                                                               'tratamiento', 'conducta', 'diagnosticos', 'tipoDx',
                                                                                                'sinoc', 'usuarios'));
     }
 
@@ -243,7 +243,7 @@ class VmaController extends Controller{
 
     public function edit($id, $id0){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $vma  = $dato->MitVma->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $tValoracion = ['' => 'Seleccione...'];
@@ -284,7 +284,7 @@ class VmaController extends Controller{
             $animo[$k] = $d;
         }
         $tratamiento = Tema::findOrFail(333)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        
+
         $conducta = ['' => 'Seleccione...'];
         foreach (Tema::findOrFail(334)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
             $conducta[$k] = $d;
@@ -303,7 +303,7 @@ class VmaController extends Controller{
         return view('Acciones.Individuales.index', ['accion' => 'Vma', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'vma', 'upis', 'tValoracion',
                                                                                                'sino', 'sustancia', 'frecuencia', 'nivel',
                                                                                                'trastorno','apetito','sudoracion','animo',
-                                                                                               'tratamiento', 'conducta', 'diagnosticos', 'tipoDx', 
+                                                                                               'tratamiento', 'conducta', 'diagnosticos', 'tipoDx',
                                                                                                'sinoc', 'valor', 'usuarios'));
     }
 
