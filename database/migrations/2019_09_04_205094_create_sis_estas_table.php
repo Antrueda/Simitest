@@ -23,8 +23,7 @@ class CreateSisEstasTable extends Migration
             $table->Integer('user_edita_id');
             $table->timestamps();
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS DESCRIPCIONES DE LOS ESTADOS DEL SISTEMA'");
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS DESCRIPCIONES DE LOS ESTADOS DEL SISTEMA'");
     }
 
     /**
