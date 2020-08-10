@@ -14,7 +14,7 @@ use App\Models\Tema;
 use App\Models\User;
 
 class AISalidaMenoresController extends Controller{
-    
+
     public function __construct(){
         $this->middleware(['permission:aisalidamenores-leer'], ['only' => ['index, show']]);
         $this->middleware(['permission:aisalidamenores-crear'], ['only' => ['index, show']]);
@@ -24,7 +24,7 @@ class AISalidaMenoresController extends Controller{
 
     public function index($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $salidas = $dato->AiSalidaMenores->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
 
         return view('Acciones.Individuales.index', ['accion' => 'SalidaMenores', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'salidas'));
@@ -32,7 +32,7 @@ class AISalidaMenoresController extends Controller{
 
     public function create($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $salidas = $dato->AiSalidaMenores->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -44,15 +44,15 @@ class AISalidaMenoresController extends Controller{
         $condiciones = Tema::findOrFail(308)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $usuarios    = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
 
-        return view('Acciones.Individuales.index', ['accion' => 'SalidaMenores', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'salidas', 'upis', 
-                                                                                          'ampm','objetivos', 'documento', 'parentezco', 
+        return view('Acciones.Individuales.index', ['accion' => 'SalidaMenores', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'salidas', 'upis',
+                                                                                          'ampm','objetivos', 'documento', 'parentezco',
                                                                                           'sino', 'usuarios', 'condiciones', 'sina'));
     }
 
     public function store(AISalidaMenoresRequest $request){
         //$this->validator($request->all())->validate();
 
-        $dato = AiSalidaMenores::create($request->all());        
+        $dato = AiSalidaMenores::create($request->all());
         foreach ($request->objetivo as $d) {
             $dato->objetivo()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
@@ -66,7 +66,7 @@ class AISalidaMenoresController extends Controller{
 
     public function edit($id, $id0){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $salidas = $dato->AiSalidaMenores->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -79,8 +79,8 @@ class AISalidaMenoresController extends Controller{
         $usuarios    = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
         $valor = AiSalidaMenores::findOrFail($id0);
 
-        return view('Acciones.Individuales.index', ['accion' => 'SalidaMenores', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'salidas', 'upis', 
-                                                                                          'ampm','objetivos', 'documento', 'parentezco', 
+        return view('Acciones.Individuales.index', ['accion' => 'SalidaMenores', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'salidas', 'upis',
+                                                                                          'ampm','objetivos', 'documento', 'parentezco',
                                                                                           'sino', 'usuarios', 'condiciones', 'sina', 'valor'));
     }
 
@@ -102,7 +102,7 @@ class AISalidaMenoresController extends Controller{
 
         return redirect()->route('ai.salidamenores', $id)->with('info', 'Registro actualizado con éxito');
     }
-    
+
     protected function validator(array $data){
         return Validator::make($data, [
             'sis_nnaj_id'       => 'required|exists:sis_nnajs,id',

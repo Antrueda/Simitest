@@ -2,148 +2,171 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-use App\Models\sistema\SisNnaj;
-use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiEducacion;
-
+use App\Models\sistema\SisEsta;
+use App\Traits\Vsi\VsiTrait;
+use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+class VsiEducacionController extends Controller
+{
+    use VsiTrait;
+    private $opciones;
 
-class VsiEducacionController extends Controller{
+    public function __construct()
+    {
+        $this->opciones = [
+            'pestpadr' => 3, // true indica si solo muestra la pestaña dependencias false muestra la pestaña padre y las hijas
+            'permisox' => 'vsieduca',
+            'parametr' => [],
+            'rutacarp' => 'Sicosocial.',
+            'tituloxx' => 'EDUCACION',
+            'carpetax' => 'Educacion',
+            'slotxxxx' => 'vsieduca',
+            'tablaxxx' => 'datatable',
+            'indecrea' => false, // false muestra las pestañas
+            'esindexx' => false,
+            'tituhead' => '',
+            'fechcrea' => '',
+            'fechedit' => '',
+            'usercrea' => '',
+            'useredit' => '',
+            'conperfi' => '', // indica si la vista va a tener perfil
+            'usuariox' => [],
 
-    public function __construct(){
-        $this->middleware(['permission:vsieducacion-crear'], ['only' => ['show, store']]);
-        $this->middleware(['permission:vsieducacion-editar'], ['only' => ['show, update']]);
+            'confirmx' => 'Desea inactivar la vsi: ',
+            'reconfir' => 'Realmente desea inactivar la vsi: ',
+            'msnxxxxx' => 'No se puedo inactivar la vsi',
+            'rutaxxxx' => 'vsieduca',
+            'routnuev' => 'vsieduca',
+            'routxxxx' => 'vsieduca',
+        ];
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar']);
     }
 
-    public function show($id){
-        $vsi = Vsi::findOrFail($id);
-        $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiEducacion->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $motivos = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(205)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $motivos[$k] = $d;
+    private function view($dataxxxx)
+    {
+        $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
+        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
+        $this->opciones['motivosx'] = Tema::combo(205, true, false);
+        $this->opciones['causasxx'] = Tema::combo(207, false, false);
+        $this->opciones['rendimie'] = Tema::combo(206, true, false);
+        $this->opciones['materias'] = Tema::combo(208, false, false);
+        $this->opciones['dificulx'] = Tema::combo(209, false, false);
+        $this->opciones['dificuly'] = Tema::combo(210, false, false);
+
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        // indica si se esta actualizando o viendo
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['pestpadr'] = 3;
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-        $causas = Tema::findOrFail(207)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $rendimientos = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(206)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $rendimientos[$k] = $d;
-        }
-        $materias = Tema::findOrFail(208)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $dificultad1 = Tema::findOrFail(209)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $dificultad2 = Tema::findOrFail(210)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        return view('Sicosocial.index', ['accion' => 'Educacion'], compact('vsi', 'dato', 'nnaj', 'valor', 'sino', 'motivos', 'causas', 'rendimientos', 'materias', 'dificultad1', 'dificultad2'));
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Vsi $padrexxx)
+    {
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
     }
 
-    public function store(Request $request){
-        $this->validator($request->all())->validate();
-        if ($request->prm_estudia_id == 227) {
-            $request["dia"] = null;
-            $request["mes"] = null;
-            $request["ano"] = null;
-            $request["prm_motivo_id"] = null;
-        }
-        if ($request->prm_dificultad_id == 228) {
-            $request["prm_leer_id"] = null;
-            $request["prm_escribir_id"] = null;
-        }
-        $dato = VsiEducacion::create($request->all());
-        if($request->causas){
-            foreach ($request->causas as $d) {
-                $dato->causas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        if($request->fortalezas){
-            foreach ($request->fortalezas as $d) {
-                $dato->fortalezas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        if($request->dificultades){
-            foreach ($request->dificultades as $d) {
-                $dato->dificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        if($request->dificultadesa){
-            foreach ($request->dificultadesa as $d) {
-                $dato->dificultadesa()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        if($request->dificultadesb){
-            foreach ($request->dificultadesb as $d) {
-                $dato->dificultadesb()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 64);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 65);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 66);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 67);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 68);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 69);
-        return redirect()->route('VSI.educacion', $request->vsi_id)->with('info', 'Registro creado con éxito');
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request, $padrexxx)
+    {
+       $request->request->add(['vsi_id' => $padrexxx]);
+        return $this->grabar([
+            'requestx' => $request,
+            'modeloxx' => '',
+            'menssage' => 'Registro creado con éxito'
+        ]);
     }
 
-    public function update(Request $request, $id, $id1){
-        $this->validator($request->all())->validate();
-        if ($request->prm_estudia_id == 227) {
-            $request["dia"] = null;
-            $request["mes"] = null;
-            $request["ano"] = null;
-            $request["prm_motivo_id"] = null;
-        }
-        if ($request->prm_dificultad_id == 228) {
-            $request["prm_leer_id"] = null;
-            $request["prm_escribir_id"] = null;
-        }
 
-        $dato = VsiEducacion::findOrFail($id1);
-        $dato->fill($request->all())->save();
-        $dato->causas()->detach();
-        if($request->causas){
-            foreach ($request->causas as $d) {
-                $dato->causas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(VsiEducacion $objetoxx)
+    {
+
+        $this->opciones['padrexxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
         }
-        $dato->fortalezas()->detach();
-        if($request->fortalezas){
-            foreach ($request->fortalezas as $d) {
-                $dato->fortalezas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        $dato->dificultades()->detach();
-        if($request->dificultades){
-            foreach ($request->dificultades as $d) {
-                $dato->dificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        $dato->dificultadesa()->detach();
-        if($request->dificultadesa){
-            foreach ($request->dificultadesa as $d) {
-                $dato->dificultadesa()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        $dato->dificultadesb()->detach();
-        if($request->dificultadesb){
-            foreach ($request->dificultadesb as $d) {
-                $dato->dificultadesb()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 64);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 65);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 66);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 67);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 68);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 69);
-        return redirect()->route('VSI.educacion', $id)->with('info', 'Registro actualizado con éxito');
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+    }
+
+    private function grabar($dataxxxx)
+    {
+        $this->validator($dataxxxx['requestx']->all())->validate();
+        $registro = VsiEducacion::transaccion($dataxxxx);
+
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
+            ->with('info', $dataxxxx['menssage']);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, VsiEducacion $objetoxx)
+    {
+        return $this->grabar([
+            'requestx' => $request,
+            'modeloxx' => $objetoxx,
+            'menssage' => 'Registro actualizado con éxito'
+        ]);
     }
 
     protected function validator(array $data){
         return Validator::make($data, [
-            'vsi_id' => 'required|exists:vsis,id',
             'prm_estudia_id' => 'required|exists:parametros,id',
             'dia' => 'required_if:prm_estudia_id,228|min:0|max:99',
             'mes' => 'required_if:prm_estudia_id,228|min:0|max:99',

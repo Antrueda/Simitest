@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="card-body">
-        <h6>NNAJ VISITADO(A) 
+        <h6>NNAJ VISITADO(A)
             @if ($accion!='Agregar')
                 <a class="btn btn-sm btn-primary ml-2" title="Agregar" href="{{ route('csd.agregar', $dato->id) }}">
                     Agregar
@@ -62,11 +62,11 @@
                                     </a>
                                 @endif
                             </td>
-                            <td>{{ $d->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first()->s_primer_apellido }}</td>
-                            <td>{{ $d->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first()->s_segundo_apellido }}</td>
-                            <td>{{ $d->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first()->s_primer_nombre }}</td>
-                            <td>{{ $d->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first()->s_segundo_nombre }}</td>
-                            <td>{{ $d->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first()->s_documento }}</td>
+                            <td>{{ $d->fi_datos_basico->s_primer_apellido }}</td>
+                            <td>{{ $d->fi_datos_basico->s_segundo_apellido }}</td>
+                            <td>{{ $d->fi_datos_basico->s_primer_nombre }}</td>
+                            <td>{{ $d->fi_datos_basico->s_segundo_nombre }}</td>
+                            <td>{{ $d->fi_datos_basico->s_documento }}</td>
                             <td>
                                 @if($d->FiBienvenida->where('sis_esta_id', 1)->sortByDesc('id')->first())
                                     {{ $d->FiBienvenida->where('sis_esta_id', 1)->sortByDesc('id')->first()->dependencia->nombre }}

@@ -41,120 +41,117 @@
             <?php
             $pestania='2. Motivos de vinculación y bienvenida';
             $permisox='vsibienv';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiBienvenida->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='3. Relaciones familiares';
             $permisox='vsirefam';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiRelFamiliar->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='4. Violencias y condición especial';
             $permisox='vsiviole';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiViolencia->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='5. Dinámica familiar';
             $permisox='vsidinam';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiDinFamiliar->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
             <?php
             $pestania='6. Relaciones sociales';
             $permisox='vsirelac';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiRelSociale->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='7. Redes sociales de apoyo';
             $permisox='vsiredes';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiRedSocial->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='8. Antecedentes';
             $permisox='vsiantec';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiAntecedente->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='9. Generación de ingresos';
             $permisox='vsigener';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiGenIngreso->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='10. Educación';
             $permisox='vsieduca';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiEducacion->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='11. Antecedentes de salud';
             $permisox='vsisalud';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiSalud->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='12. Estado emocional';
             $permisox='vsiemoci';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiEstEmocional->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='13. Activación emocional';
             $permisox='vsiactiv';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiActEmocional->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='14. Presunto abuso sexual';
             $permisox='vsiabuso';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiAbuSexual->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='15. Situación especial y ESCNNA';
             $permisox='vsisitua';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiSitEspecial->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='16. Consumo de sustancias psicoactivas';
             $permisox='vsiconsu';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiConsumo->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
-            <?php
-            $pestania='17. Factores';
-            $permisox='vsifacto';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
-            ?>
-            @include('Sicosocial.tabsxxxx.pestaniascheck')
+            @canany(['vsifacto-factorxx'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsifacto') ?' active' : '' }}
+        text-sm" href="{{ route('vsifacto.factorxx',$todoxxxx['parametr']) }}">17. Factores</a></li>
+            @endcanany
 
-            <?php
-            $pestania='18. Potencialidades y metas';
-            $permisox='vsimetas';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
-            ?>
-            @include('Sicosocial.tabsxxxx.pestaniascheck')
+            @canany(['vsimetas-metaxxxx'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsimetas') ?' active' : '' }}
+        text-sm" href="{{ route('vsimetas.metaxxxx',$todoxxxx['parametr']) }}">18. Potencialidades y metas</a></li>
+            @endcanany
+
 
             <?php
             $pestania='19. Áreas de ajuste sicosocial';
@@ -166,14 +163,14 @@
             <?php
             $pestania='20. Impresicón diagnóstica y análisis social';
             $permisox='vsisocia';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiConcepto->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
             $pestania='21. Consentimiento informado';
             $permisox='vsiconse';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula->where('sis_esta_id', 1)->count();
+            $checkxxx=$todoxxxx['vsixxxxx']->VsiConsentimiento->where('sis_esta_id', 1)->count();
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
@@ -196,11 +193,63 @@
                 @if(isset($vsibienv))
                 {{ $vsibienv }}
                 @endif
-                @if(isset($roleusua))
-                {{ $roleusua }}
+                @if(isset($vsirefam))
+                {{ $vsirefam }}
                 @endif
-                @if(isset($contrase))
-                {{ $contrase }}
+                @if(isset($vsiviole))
+                {{ $vsiviole }}
+                @endif
+                @if(isset($vsidinam))
+                {{ $vsidinam }}
+                @endif
+
+                @if(isset($vsirelac))
+                {{ $vsirelac }}
+                @endif
+                @if(isset($vsiredes))
+                {{ $vsiredes }}
+                @endif
+                @if(isset($vsiantec))
+                {{ $vsiantec }}
+                @endif
+                @if(isset($vsigener))
+                {{ $vsigener }}
+                @endif
+                @if(isset($vsieduca))
+                {{ $vsieduca }}
+                @endif
+                @if(isset($vsisalud))
+                {{ $vsisalud }}
+                @endif
+                @if(isset($vsiemoci))
+                {{ $vsiemoci }}
+                @endif
+                @if(isset($vsiactiv))
+                {{ $vsiactiv }}
+                @endif
+                @if(isset($vsiabuso))
+                {{ $vsiabuso }}
+                @endif
+                @if(isset($vsisitua))
+                {{ $vsisitua }}
+                @endif
+                @if(isset($vsiconsu))
+                {{ $vsiconsu }}
+                @endif
+                @if(isset($vsifacto))
+                {{ $vsifacto }}
+                @endif
+                @if(isset($vsimetas))
+                {{ $vsimetas }}
+                @endif
+                @if(isset($vsiareas))
+                {{ $vsiareas }}
+                @endif
+                @if(isset($vsisocia))
+                {{ $vsisocia }}
+                @endif
+                @if(isset($vsiconse))
+                {{ $vsiconse }}
                 @endif
             </div>
         </div>

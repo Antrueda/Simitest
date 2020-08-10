@@ -1,9 +1,19 @@
+<?php
+
+$tablaxxx='principa';
+if(isset($todoxxxx['rowscols'])){
+    $tablaxxx=$todoxxxx['rowscols'];
+}
+
+?>
+
 @foreach ($todoxxxx['tablasxx'] as $tablasxx)
-  @component('layouts.components.tablajquery.principa', ['todoxxxx'=>$tablasxx])
+
+  @component('layouts.components.tablajquery.'.$tablaxxx, ['todoxxxx'=>$tablasxx])
     @slot('tableName')
     {{$tablasxx['tablaxxx'] }}
     @endslot
     @slot('class')
-    @endslot 
+    @endslot
   @endcomponent
 @endforeach

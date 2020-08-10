@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class VsiEducacion extends Model{
 	protected $fillable = ['vsi_id', 'prm_estudia_id', 'dia', 'mes', 'ano', 'prm_motivo_id', 'prm_rendimiento_id', 'prm_dificultad_id', 'prm_leer_id', 'prm_escribir_id', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
@@ -66,5 +68,56 @@ class VsiEducacion extends Model{
 
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
+    public static function transaccion($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            if ($dataxxxx['requestx']->prm_estudia_id == 227) {
+                $dataxxxx['requestx']->request->add(["dia" => null]);
+                $dataxxxx['requestx']->request->add(["mes" => null]);
+                $dataxxxx['requestx']->request->add(["ano" => null]);
+                $dataxxxx['requestx']->request->add(["prm_motivo_id" => null]);
+            }
+            if ($dataxxxx['requestx']->prm_dificultad_id == 228) {
+                $dataxxxx['requestx']->request->add(["prm_leer_id" => null]);
+                $dataxxxx['requestx']->request->add(["prm_escribir_id" => null]);
+            }
+
+
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            if ($dataxxxx['modeloxx'] != '') {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['modeloxx'] = VsiEducacion::create($dataxxxx['requestx']->all());
+            }
+            $dataxxxx['modeloxx']->fortalezas()->detach();
+        if($dataxxxx['requestx']->fortalezas){
+            foreach ($dataxxxx['requestx']->fortalezas as $d) {
+                $dataxxxx['modeloxx']->fortalezas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+        $dataxxxx['modeloxx']->dificultades()->detach();
+        if($dataxxxx['requestx']->dificultades){
+            foreach ($dataxxxx['requestx']->dificultades as $d) {
+                $dataxxxx['modeloxx']->dificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+        $dataxxxx['modeloxx']->dificultadesa()->detach();
+        if($dataxxxx['requestx']->dificultadesa){
+            foreach ($dataxxxx['requestx']->dificultadesa as $d) {
+                $dataxxxx['modeloxx']->dificultadesa()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+        $dataxxxx['modeloxx']->dificultadesb()->detach();
+        if($dataxxxx['requestx']->dificultadesb){
+            foreach ($dataxxxx['requestx']->dificultadesb as $d) {
+                $dataxxxx['modeloxx']->dificultadesb()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return $objetoxx;
     }
 }

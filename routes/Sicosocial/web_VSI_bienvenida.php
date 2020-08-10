@@ -2,7 +2,6 @@
 $routexxx='vsibienv';
 $controll='Sicosocial\VsiBienvenida';
 Route::group(['prefix' => 'bienvenida'], function () use($routexxx,$controll) {
-
     Route::get('{padrexxx}/nuevo', [
         'uses' => $controll.'Controller@create',
         'middleware' => ['permission:'.$routexxx.'-crear']
@@ -19,8 +18,4 @@ Route::group(['prefix' => 'bienvenida'], function () use($routexxx,$controll) {
 	    'uses' => $controll.'Controller@update',
 	    'middleware' => ['permission:'.$routexxx.'-editar']
 	])->name($routexxx.'.editar');
-	Route::get('ver/{objetoxx}', [
-	    'uses' => $controll.'Controller@show',
-	    'middleware' => ['permission:'.$routexxx.'-leer']
-	])->name($routexxx.'.ver');
 });

@@ -23,14 +23,14 @@ class AISalidaMayoresController extends Controller{
 
     public function index($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $salidas = $dato->AiSalidaMayores->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         return view('Acciones.Individuales.index', ['accion' => 'SalidaMayores', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'salidas'));
     }
 
     public function create($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $salidas = $dato->AiSalidaMayores->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis  = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $razones = Tema::findOrFail(272)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -49,7 +49,7 @@ class AISalidaMayoresController extends Controller{
 
     public function edit($id, $id0){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $salidas = $dato->AiSalidaMayores->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $upis  = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $razones = Tema::findOrFail(272)->parametros()->orderBy('nombre')->pluck('nombre', 'id');

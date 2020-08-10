@@ -2,190 +2,177 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-use App\Models\sicosocial\Vsi;
+use App\Http\Requests\Vsi\VsiGenIngresoCrearRequest;
+use App\Http\Requests\Vsi\VsiGenIngresoEditarRequest;
 use App\Models\sicosocial\VsiGenIngreso;
+use App\Models\sistema\SisEsta;
+use App\Traits\Vsi\VsiTrait;
+use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+class VsiGenIngresosController extends Controller
+{
+    use VsiTrait;
+    private $opciones;
 
-class VsiGenIngresosController extends Controller{
+    public function __construct()
+    {
+        $this->opciones = [
+            'pestpadr' => 3, // true indica si solo muestra la pestaña dependencias false muestra la pestaña padre y las hijas
+            'permisox' => 'vsigener',
+            'parametr' => [],
+            'rutacarp' => 'Sicosocial.',
+            'tituloxx' => 'GENERACION DE INGRESOS',
+            'carpetax' => 'Geningreso',
+            'slotxxxx' => 'vsigener',
+            'tablaxxx' => 'datatable',
+            'indecrea' => false, // false muestra las pestañas
+            'esindexx' => false,
+            'tituhead' => '',
+            'fechcrea' => '',
+            'fechedit' => '',
+            'usercrea' => '',
+            'useredit' => '',
+            'conperfi' => '', // indica si la vista va a tener perfil
+            'usuariox' => [],
 
-    public function __construct(){
-        $this->middleware(['permission:vsigeningresos-crear'], ['only' => ['show, store']]);
-        $this->middleware(['permission:vsigeningresos-editar'], ['only' => ['show, update']]);
+            'confirmx' => 'Desea inactivar la vsi: ',
+            'reconfir' => 'Realmente desea inactivar la vsi: ',
+            'msnxxxxx' => 'No se puedo inactivar la vsi',
+            'rutaxxxx' => 'vsigener',
+            'routnuev' => 'vsigener',
+            'routxxxx' => 'vsigener',
+        ];
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar']);
     }
 
-    public function show($id){
-        $vsi = Vsi::findOrFail($id);
-        $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiGenIngreso->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $actividad = Tema::findOrFail(114)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $informal = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(115)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $informal[$k] = $d;
+    private function view($dataxxxx)
+    {
+        $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
+        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['activida'] = Tema::combo(114, false, false);
+        $this->opciones['informal'] = Tema::combo(115, TRUE, false);
+        $this->opciones['otrosxxx'] = Tema::combo(116, TRUE, false);
+        $this->opciones['ningunax'] = Tema::combo(122, false, false);
+        $this->opciones['tiempoxx'] = Tema::combo(4, false, false);
+        $this->opciones['ampmxxxx'] = Tema::combo(5, false, false);
+        $this->opciones['semanaxx'] = Tema::combo(129, false, false);
+        $this->opciones['frecuenc'] = Tema::combo(6, true, false);
+        $this->opciones['laboralx'] = Tema::combo(117, true, false);
+        $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
+        $this->opciones['parentes'] = Tema::combo(66, false, false);
+
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        // indica si se esta actualizando o viendo
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['pestpadr'] = 3;
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-        $otros = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(116)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $otros[$k] = $d;
-        }
-        $ninguna = Tema::findOrFail(122)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $tiempo = Tema::findOrFail(4)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $semana = Tema::findOrFail(129)->parametros()->orderBy('id')->pluck('nombre', 'id');
-        $frecuencia = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(6)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $frecuencia[$k] = $d;
-        }
-        $laboral = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(117)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $laboral[$k] = $d;
-        }
-        $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $parentesco = Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        return view('Sicosocial.index', ['accion' => 'genIngresos'], compact('vsi', 'dato', 'nnaj', 'valor', 'actividad', 'informal', 'otros', 'ninguna', 'tiempo', 'ampm', 'semana', 'frecuencia', 'laboral', 'sino', 'parentesco'));
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Vsi $padrexxx)
+    {
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
     }
 
-    public function store(Request $request){
-        if ($request->prm_actividad_id == 626) {
-            $request["prm_informal_id"] = null;
-            $request["prm_otra_id"] = null;
-            $request["prm_no_id"] = null;
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request, $padrexxx)
+    {
+       $request->request->add(['vsi_id' => $padrexxx]);
+        return $this->grabar([
+            'requestx' => $request,
+            'modeloxx' => '',
+            'menssage' => 'Registro creado con éxito'
+        ]);
+    }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(VsiGenIngreso $objetoxx)
+    {
+
+        $this->opciones['padrexxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
         }
-        if ($request->prm_actividad_id == 627) {
-            $request["trabaja"] = null;
-            $request["prm_otra_id"] = null;
-            $request["prm_no_id"] = null;
-            $request["prm_laboral_id"] = null;
-        }
-        if ($request->prm_actividad_id == 628) {
-            $request["trabaja"] = null;
-            $request["prm_informal_id"] = null;
-            $request["prm_no_id"] = null;
-            $request["prm_laboral_id"] = null;
-        }
-        if ($request->prm_actividad_id == 853) {
-            $request["trabaja"] = null;
-            $request["prm_informal_id"] = null;
-            $request["prm_otra_id"] = null;
-            $request["jornada_entre"] = null;
-            $request["prm_jor_entre_id"] = null;
-            $request["jornada_a"] = null;
-            $request["prm_jor_a_id"] = null;
-            $request["dias"] = null;
-            $request["prm_frecuencia_id"] = null;
-            $request["prm_laboral_id"] = null;
-            $request["aporte"] = null;
-            $request["prm_aporta_id"] = null;
-        }
-        if ($request->prm_actividad_id != 853 && $request->prm_no_id != 711) {
-            $request["cuanto"] = null;
-            $request["prm_periodo_id"] = null;
-        }
-        if ($request->prm_actividad_id == 853 && $request->prm_aporta_id != 227) {
-            $request["porque"] = null;
-            $request["cuanto_aporta"] = null;
-        }
-        $this->validator($request->all())->validate();
-        $dato = Vsi::findOrFail($request->vsi_id);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+    }
+
+    private function grabar($dataxxxx)
+    {
+        $this->validator($dataxxxx['requestx']->all())->validate();
+        $dato = Vsi::findOrFail($dataxxxx['requestx']->vsi_id);
         if($dato->nnaj->FiDatosBasico->first()->edad >= 18){
-            $this->validatorMayor($request->all())->validate();
+            $this->validatorMayor($dataxxxx['requestx']->all())->validate();
         }
-        $dato = VsiGenIngreso::create($request->all());
-        if($request->dias){
-            foreach ($request->dias as $d) {
-                $dato->dias()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        if($request->quienes){
-            foreach ($request->quienes as $d) {
-                $dato->quienes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        if($request->labores){
-            foreach ($request->labores as $d) {
-                $dato->labores()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 79);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 80);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 81);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 82);
-        return redirect()->route('VSI.genIngresos', $request->vsi_id)->with('info', 'Registro creado con éxito');
+        $registro = VsiGenIngreso::transaccion($dataxxxx);
+
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
+            ->with('info', $dataxxxx['menssage']);
     }
 
-    public function update(Request $request, $id, $id1){
-        if ($request->prm_actividad_id == 626) {
-            $request["prm_informal_id"] = null;
-            $request["prm_otra_id"] = null;
-            $request["prm_no_id"] = null;
-        }
-        if ($request->prm_actividad_id == 627) {
-            $request["trabaja"] = null;
-            $request["prm_otra_id"] = null;
-            $request["prm_no_id"] = null;
-            $request["prm_laboral_id"] = null;
-        }
-        if ($request->prm_actividad_id == 628) {
-            $request["trabaja"] = null;
-            $request["prm_informal_id"] = null;
-            $request["prm_no_id"] = null;
-            $request["prm_laboral_id"] = null;
-        }
-        if ($request->prm_actividad_id == 853) {
-            $request["trabaja"] = null;
-            $request["prm_informal_id"] = null;
-            $request["prm_otra_id"] = null;
-            $request["jornada_entre"] = null;
-            $request["prm_jor_entre_id"] = null;
-            $request["jornada_a"] = null;
-            $request["prm_jor_a_id"] = null;
-            $request["dias"] = null;
-            $request["prm_frecuencia_id"] = null;
-            $request["prm_laboral_id"] = null;
-            $request["aporte"] = null;
-            $request["prm_aporta_id"] = null;
-        }
-        if ($request->prm_actividad_id != 853 && $request->prm_no_id != 711) {
-            $request["cuanto"] = null;
-            $request["prm_periodo_id"] = null;
-        }
-        if ($request->prm_actividad_id == 853 && $request->prm_aporta_id != 227) {
-            $request["porque"] = null;
-            $request["cuanto_aporta"] = null;
-        }
-        $this->validator($request->all())->validate();
-        $dato = Vsi::findOrFail($request->vsi_id);
-        if($dato->nnaj->FiDatosBasico->first()->edad >= 18){
-            $this->validatorMayor($request->all())->validate();
-        }
-        $dato = VsiGenIngreso::findOrFail($id1);
-        $dato->fill($request->all())->save();
-        $dato->dias()->detach();
-        if($request->dias){
-            foreach ($request->dias as $d) {
-                $dato->dias()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        $dato->quienes()->detach();
-        if($request->quienes){
-            foreach ($request->quienes as $d) {
-                $dato->quienes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        $dato->labores()->detach();
-        if($request->labores){
-            foreach ($request->labores as $d) {
-                $dato->labores()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 79);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 80);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 81);
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 82);
-        return redirect()->route('VSI.genIngresos', $id)->with('info', 'Registro actualizado con éxito');
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, VsiGenIngreso $objetoxx)
+    {
+        return $this->grabar([
+            'requestx' => $request,
+            'modeloxx' => $objetoxx,
+            'menssage' => 'Registro actualizado con éxito'
+        ]);
     }
 
     protected function validator(array $data){

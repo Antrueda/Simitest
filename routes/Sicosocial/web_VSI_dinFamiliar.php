@@ -1,6 +1,6 @@
 <?php
 $routexxx='vsidinam';
-$controll='Sicosocial\VsiDinamicaFamiliar';
+$controll='Sicosocial\VsiDinFamiliar';
 Route::group(['prefix' => 'dinfamiliar'], function () use($routexxx,$controll) {
 
     Route::get('{padrexxx}/nuevo', [
@@ -22,6 +22,23 @@ Route::group(['prefix' => 'dinfamiliar'], function () use($routexxx,$controll) {
 	Route::get('ver/{objetoxx}', [
 	    'uses' => $controll.'Controller@show',
 	    'middleware' => ['permission:'.$routexxx.'-leer']
-	])->name($routexxx.'.ver');
+    ])->name($routexxx.'.ver');
+
+    Route::post('genograma', [
+        'uses' => $controll.'Controller@storeGenograma',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.genograma');
+
+
+    Route::post('madre', [
+		'uses' => $controll.'Controller@storeMadre',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.madre');
+
+    Route::post('padre', [
+		'uses' => $controll.'Controller@storePadre',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.padre');
+
 });
 

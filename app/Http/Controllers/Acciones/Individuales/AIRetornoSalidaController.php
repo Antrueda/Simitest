@@ -14,7 +14,7 @@ use App\Models\User;
 use Illuminate\Support\Carbon;
 
 class AIRetornoSalidaController extends Controller{
-    
+
     public function __construct(){
         $this->middleware(['permission:airetornosalida-leer'], ['only' => ['index, show']]);
         $this->middleware(['permission:airetornosalida-crear'], ['only' => ['index, show']]);
@@ -24,14 +24,14 @@ class AIRetornoSalidaController extends Controller{
 
     public function index($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $retorno = $dato->AiRetornoSalida->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         return view('Acciones.Individuales.index', ['accion' => 'RetornoSalida', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'retorno'));
     }
 
     public function create($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $documento = ['' => 'Seleccione...'];
@@ -50,8 +50,8 @@ class AIRetornoSalidaController extends Controller{
         }
         $retorno = $dato->AiRetornoSalida->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
         $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
-        return view('Acciones.Individuales.index', ['accion' => 'RetornoSalida', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'upis', 
-                                                                                        'ampm', 'usuarios', 'documento', 'parentezco', 
+        return view('Acciones.Individuales.index', ['accion' => 'RetornoSalida', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'upis',
+                                                                                        'ampm', 'usuarios', 'documento', 'parentezco',
                                                                                         'condiciones', 'sino', 'retorno', 'hoy'));
     }
 
@@ -63,10 +63,10 @@ class AIRetornoSalidaController extends Controller{
         }
         return redirect()->route('ai.retornosalida', $request->sis_nnaj_id)->with('info', 'Registro creado con éxito');
     }
-    
+
     public function edit($id, $id0){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
         $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $documento = ['' => 'Seleccione...'];

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class VsiActEmocional extends Model{
 	protected $fillable = ['vsi_id', 'prm_activa_id', 'descripcion', 'conductual', 'cognitiva', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
@@ -30,5 +32,33 @@ class VsiActEmocional extends Model{
 
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
+    public static function transaccion($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            if ($dataxxxx['requestx']->prm_activa_id == 228) {
+                $dataxxxx['requestx']->request->add(["descripcion" => null]);
+                $dataxxxx['requestx']->request->add(["conductual" => null]);
+                $dataxxxx['requestx']->request->add(["cognitiva" => null]);
+            }
+
+
+            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            if ($dataxxxx['modeloxx'] != '') {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['modeloxx'] = VsiActEmocional::create($dataxxxx['requestx']->all());
+            }
+            $dataxxxx['modeloxx']->fisiologicas()->detach();
+            if($dataxxxx['requestx']->fisiologicas){
+                foreach ($dataxxxx['requestx']->fisiologicas as $d) {
+                    $dataxxxx['modeloxx']->fisiologicas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return $objetoxx;
     }
 }

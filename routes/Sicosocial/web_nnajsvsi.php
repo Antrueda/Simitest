@@ -34,10 +34,14 @@ Route::group(['prefix' => 'nnajsvsi'], function () use ($routexxx, $controll) {
 });
 include_once('web_vsi.php');
 include_once('web_VSI_basico.php');
+include_once('web_vsi_vsidatbi.php');
 include_once('web_VSI_bienvenida.php');
 include_once('web_VSI_violencia.php');
 include_once('web_VSI_educacion.php');
 include_once('web_VSI_dinFamiliar.php');
+include_once('web_vsi_dinfampadre.php');
+include_once('web_vsi_dinfamadre.php');
+
 include_once('web_VSI_relfamiliar.php');
 include_once('web_VSI_relsocial.php');
 include_once('web_VSI_genIngresos.php');

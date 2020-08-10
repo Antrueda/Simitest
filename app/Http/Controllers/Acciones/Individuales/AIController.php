@@ -22,7 +22,7 @@ class AIController extends Controller{
 
     public function show($id){
         $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
+        $nnaj = $dato->fi_datos_basico;
         return view('Acciones.Individuales.index', ['accion' => 'Editar'], compact('dato', 'nnaj'));
     }
 }

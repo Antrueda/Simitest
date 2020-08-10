@@ -2,20 +2,12 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
-use App\Helpers\Indicadores\IndicadorHelper;
+
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Seguridad\UsuarioIdipronCrearRequest;
-use App\Http\Requests\Seguridad\UsuarioIdipronEditarRequest;
-use App\Models\sistema\SisCargo;
-use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisDepen;
-use App\Models\Sistema\SisEsta;
-use App\Models\sistema\SisMunicipio;
-use App\Models\Tema;
-use App\Models\User;
+
 use App\Traits\Vsi\VsiTrait;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 
 class VsiNnajController extends Controller
 {

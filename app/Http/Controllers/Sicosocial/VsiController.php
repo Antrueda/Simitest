@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiCrearRequest;
 use App\Http\Requests\Vsi\VsiEditarRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Sistema\SisEsta;
+use App\Models\sistema\SisEsta;
 
 
 use App\Traits\Vsi\VsiTrait;
@@ -130,12 +130,12 @@ class VsiController extends Controller
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         $this->opciones['dependen'] = SisDepen::combo(true,false);
         $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
-        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['vsixxxxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr']=3;
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {

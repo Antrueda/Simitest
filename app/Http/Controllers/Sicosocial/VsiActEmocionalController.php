@@ -2,78 +2,163 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
-use App\Helpers\Indicadores\IndicadorHelper;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-use App\Models\sicosocial\Vsi;
+use App\Http\Requests\Vsi\VsiActEmocionalCrearRequest;
+use App\Http\Requests\Vsi\VsiActEmocionalEditarRequest;
 use App\Models\sicosocial\VsiActEmocional;
+use App\Models\sistema\SisEsta;
+use App\Traits\Vsi\VsiTrait;
+use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
+class VsiActEmocionalController extends Controller
+{
+    use VsiTrait;
+    private $opciones;
 
-class VsiActEmocionalController extends Controller{
+    public function __construct()
+    {
+        $this->opciones = [
+            'pestpadr' => 3, // true indica si solo muestra la pestaña dependencias false muestra la pestaña padre y las hijas
+            'permisox' => 'vsiactiv',
+            'parametr' => [],
+            'rutacarp' => 'Sicosocial.',
+            'tituloxx' => 'ACTIVIDAD EMOCIONAL',
+            'carpetax' => 'Actemocional',
+            'slotxxxx' => 'vsiactiv',
+            'tablaxxx' => 'datatable',
+            'indecrea' => false, // false muestra las pestañas
+            'esindexx' => false,
+            'tituhead' => '',
+            'fechcrea' => '',
+            'fechedit' => '',
+            'usercrea' => '',
+            'useredit' => '',
+            'conperfi' => '', // indica si la vista va a tener perfil
+            'usuariox' => [],
 
-    public function __construct(){
-        $this->middleware(['permission:vsiactemocional-crear'], ['only' => ['show, store']]);
-        $this->middleware(['permission:vsiactemocional-editar'], ['only' => ['show, update']]);
+            'confirmx' => 'Desea inactivar la vsi: ',
+            'reconfir' => 'Realmente desea inactivar la vsi: ',
+            'msnxxxxx' => 'No se puedo inactivar la vsi',
+            'rutaxxxx' => 'vsiactiv',
+            'routnuev' => 'vsiactiv',
+            'routxxxx' => 'vsiactiv',
+        ];
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar']);
     }
 
-    public function show($id){
-        $vsi = Vsi::findOrFail($id);
-        $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $valor = $vsi->VsiActEmocional->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $motivos = Tema::findOrFail(201)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        return view('Sicosocial.index', ['accion' => 'ActEmocional'], compact('vsi', 'dato', 'nnaj', 'valor', 'sino', 'motivos'));
-    }
+    private function view($dataxxxx)
+    {
+        $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
+        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
+        $this->opciones['motivosx'] = Tema::combo(201, false, false);
 
-    public function store(Request $request){
-        $this->validator($request->all())->validate();
-        if ($request->prm_activa_id == 228) {
-            $request["descripcion"] = null;
-            $request["conductual"] = null;
-            $request["cognitiva"] = null;
-        }
-        $dato = VsiActEmocional::create($request->all());
-        if($request->fisiologicas){
-            foreach ($request->fisiologicas as $d) {
-                $dato->fisiologicas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        // indica si se esta actualizando o viendo
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['pestpadr'] = 3;
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
             }
+
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-        Vsi::indicador($dato->vsi->sis_nnaj_id,41);
-        return redirect()->route('VSI.actemocional', $request->vsi_id)->with('info', 'Registro creado con éxito');
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Vsi $padrexxx)
+    {
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
     }
 
-    public function update(Request $request, $id, $id1){
-        $this->validator($request->all())->validate();
-        if ($request->prm_activa_id == 228) {
-            $request["descripcion"] = null;
-            $request["conductual"] = null;
-            $request["cognitiva"] = null;
-        }
-        $dato = VsiActEmocional::findOrFail($id1);
-        $dato->fill($request->all())->save();
-        $dato->fisiologicas()->detach();
-        if($request->fisiologicas){
-            foreach ($request->fisiologicas as $d) {
-                $dato->fisiologicas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        Vsi::indicador($dato->vsi->sis_nnaj_id,41);
-        Vsi::indicador($dato->vsi->sis_nnaj_id,42);
-        return redirect()->route('VSI.actemocional', $id)->with('info', 'Registro actualizado con éxito');
-    }
-
-    protected function validator(array $data){
-        return Validator::make($data, [
-            'vsi_id' => 'required|exists:vsis,id',
-            'prm_activa_id' => 'required|exists:parametros,id',
-            'descripcion' => 'required_if:prm_activa_id,227|max:4000',
-            'conductual' => 'required_if:prm_activa_id,227|max:4000',
-            'cognitiva' => 'required_if:prm_activa_id,227|max:4000',
-            'fisiologicas' => 'required_if:prm_activa_id,227|array',
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(VsiActEmocionalCrearRequest $request, $padrexxx)
+    {
+       $request->request->add(['vsi_id' => $padrexxx]);
+        return $this->grabar([
+            'requestx' => $request,
+            'modeloxx' => '',
+            'menssage' => 'Registro creado con éxito'
         ]);
     }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(VsiActEmocional $objetoxx)
+    {
+
+        $this->opciones['padrexxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+    }
+
+    private function grabar($dataxxxx)
+    {
+        $registro = VsiActEmocional::transaccion($dataxxxx);
+
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
+            ->with('info', $dataxxxx['menssage']);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(VsiActEmocionalEditarRequest $request, VsiActEmocional $objetoxx)
+    {
+        return $this->grabar([
+            'requestx' => $request,
+            'modeloxx' => $objetoxx,
+            'menssage' => 'Registro actualizado con éxito'
+        ]);
+    }
+
+
 }

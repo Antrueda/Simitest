@@ -15,24 +15,26 @@ use Illuminate\Support\Facades\Storage;
  *
  * @author Ing. José Dúmar Jiménez Ruíz (nowen21@gmail.com)
  */
-class Archivos {
+class Archivos
+{
 
-  public function __construct() {
-    
-  }
-
-  private function guardarArchivoCarpeta($dataxxxx) {
-    $rutaxxxx = '';
-    if ($dataxxxx['requestx']->file($dataxxxx['nombarch'])) {
-      //$rutaxxxx= Storage::disk($dataxxxx['diskxxxx'])->put($dataxxxx['rutacarp'],$dataxxxx['requestx']->file($dataxxxx['nombarch']));
-      $rutaxxxx = $dataxxxx['requestx']->file($dataxxxx['nombarch'])->store('public/fi/razones');
-      //$rutaxxxx = Storage::disk($dataxxxx['diskxxxx'])->put($dataxxxx['rutacarp'], $dataxxxx['requestx']->file($dataxxxx['nombarch']));
+    public function __construct()
+    {
     }
-    return $rutaxxxx;
-  }
 
-  public function getRuta($dataxxxx) {
-    return $this->guardarArchivoCarpeta($dataxxxx);
-  }
+    private static function guardarArchivoCarpeta($dataxxxx)
+    {
+        $rutaxxxx = false;
+        if ($dataxxxx['requestx']->hasFile($dataxxxx['nombarch'])) {
+            $archivox = $dataxxxx['nomguard'].'_' . str_replace(['-', ' ', ':'], "_", date('Y-m-d H:m:s', time())) .
+                '.' . $dataxxxx['requestx']->file($dataxxxx['nombarch'])->extension();
+            $rutaxxxx = $dataxxxx['requestx']->file($dataxxxx['nombarch'])->storeAs('public/' . $dataxxxx['rutaxxxx'], $archivox);
+        }
+        return $rutaxxxx;
+    }
 
+    public static function getRuta($dataxxxx)
+    {
+        return Archivos::guardarArchivoCarpeta($dataxxxx);
+    }
 }
