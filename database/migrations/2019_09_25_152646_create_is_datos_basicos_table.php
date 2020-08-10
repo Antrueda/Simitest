@@ -3,15 +3,20 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
-class CreateIsDatosBasicosTable extends Migration{
+class CreateIsDatosBasicosTable extends Migration
+{
+    private $tablaxxx = 'is_datos_basicos';
+    private $tablaxxx2 = 'is_proxima_area_ajustes';    
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
-        Schema::create('is_datos_basicos', function (Blueprint $table) {
+    public function up()
+    {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->bigInteger('sis_nnaj_id')->unsigned();
@@ -47,12 +52,12 @@ class CreateIsDatosBasicosTable extends Migration{
             $table->date('d_fecha_proxima')->nullable();
             $table->bigInteger('i_primer_responsable')->unsigned();
             $table->bigInteger('i_segundo_responsable')->nullable()->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            
+
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
@@ -79,24 +84,26 @@ class CreateIsDatosBasicosTable extends Migration{
             $table->foreign('i_prm_area_familiar_id')->references('id')->on('parametros');
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
-        Schema::create('is_proxima_area_ajustes', function (Blueprint $table) {
+
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('is_datos_basico_id')->unsigned();//->comment('REGISTRO INTERVENCIÓN AL QUE SE LE ASIGNA LA PRÓXIMA ÁREA DE AJUSTE');
+            $table->bigInteger('is_datos_basico_id')->unsigned(); //->comment('REGISTRO INTERVENCIÓN AL QUE SE LE ASIGNA LA PRÓXIMA ÁREA DE AJUSTE');
 
-            $table->bigIntegeR('i_prm_area_proxima_id')->unsigned();//->comment('ÁREA DE AJUSTE A TRABAJAR EN PRÓXIMA SESIÓN');
-            
+            $table->bigIntegeR('i_prm_area_proxima_id')->unsigned(); //->comment('ÁREA DE AJUSTE A TRABAJAR EN PRÓXIMA SESIÓN');
+
             $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
+            $table->bigInteger('user_edita_id')->unsigned(); //->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas'); //->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('is_datos_basico_id')->references('id')->on('is_datos_basicos');
             $table->foreign('i_prm_area_proxima_id')->references('id')->on('parametros');
-            
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     /**
@@ -104,8 +111,9 @@ class CreateIsDatosBasicosTable extends Migration{
      *
      * @return void
      */
-    public function down(){
-        Schema::dropIfExists('is_proxima_area_ajustes');
-        Schema::dropIfExists('is_datos_basicos');
+    public function down()
+    {
+        Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

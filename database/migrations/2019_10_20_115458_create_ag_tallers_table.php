@@ -25,12 +25,12 @@ class CreateAgTallersTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-
             $table->foreign('ag_tema_id')->references('id')->on('ag_temas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+//        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS DE LOS TALLERES REGISTRADOS EN EL SISTEMA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
     }
 
     /**

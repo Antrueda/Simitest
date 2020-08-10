@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateCsdResidenciasTable extends Migration
 {
+    private $tablaxxx = 'csd_residencias';
+    private $tablaxxx2 = 'csd_reside_ambiente';
     /**
      * Run the migrations.
      *
@@ -13,7 +16,7 @@ class CreateCsdResidenciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('csd_residencias', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('prm_tipo_id')->unsigned();
@@ -78,8 +81,9 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
-        Schema::create('csd_reside_ambiente', function (Blueprint $table) {
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_residencia_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -90,6 +94,7 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table->unique(['parametro_id', 'csd_residencia_id']);
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
     }
 
     /**
@@ -99,7 +104,7 @@ class CreateCsdResidenciasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('csd_reside_ambiente');
-        Schema::dropIfExists('csd_residencias');
+        Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

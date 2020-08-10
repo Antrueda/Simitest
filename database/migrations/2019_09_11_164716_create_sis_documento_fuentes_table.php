@@ -1,11 +1,14 @@
 <?php
+
 use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateSisDocumentoFuentesTable extends Migration
 {
+    private $tablaxxx = 'sis_documento_fuentes';
     /**
      * Run the migrations.
      *
@@ -13,17 +16,14 @@ class CreateSisDocumentoFuentesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_documento_fuentes', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre')->unique();
-            $table=CamposMagicos::magicos($table);
+            $table = CamposMagicos::magicos($table);
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LOS DOCUMENTOS DEL SISTEMA'");
 
-        Schema::create('h_sis_documento_fuentes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nombre');
-            $table=CamposMagicos::h_magicos($table);
-        });
+
     }
 
     /**
@@ -33,7 +33,6 @@ class CreateSisDocumentoFuentesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_sis_documento_fuentes');
-        Schema::dropIfExists('sis_documento_fuentes');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

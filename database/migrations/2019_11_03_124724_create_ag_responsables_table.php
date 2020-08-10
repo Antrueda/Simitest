@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateAgResponsablesTable extends Migration
 {
+    private $tablaxxx = 'ag_responsables';
     /**
      * Run the migrations.
      *
@@ -13,7 +15,7 @@ class CreateAgResponsablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ag_responsables', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_responsable_id')->unsigned();
             $table->bigInteger('ag_actividad_id')->unsigned();
@@ -31,17 +33,7 @@ class CreateAgResponsablesTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');  
         });
-        Schema::create('h_ag_responsables', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('i_prm_responsable_id');
-            $table->integer('ag_actividad_id');
-            $table->integer('sis_obse_id');
-            $table->integer('user_id');
-            $table->integer('user_crea_id'); 
-            $table->integer('user_edita_id');
-            $table->integer('sis_esta_id');
-            $table->timestamps(); 
-        });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LOS RESPONSABLES Y LAS ACTIVIDADES DENTRO DE LAS ACCIONES GRUPALES'");
     }
 
     /**
@@ -51,7 +43,6 @@ class CreateAgResponsablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_ag_responsables');
-        Schema::dropIfExists('ag_responsables');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

@@ -36,7 +36,7 @@ class CreateVsiDinfamMadresTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+      //  DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA SEPARACIÓN DEL JOVEN VINCULADO AL IDIPRON CON LA PROGENITORA, PERTENECE AL PUNTO 5.2.1 RELACIONES DE LA PROGENITORA DE LA SECCIÓN 5 DINÁMICA FAMILIAR.'");
     }
 
     /**

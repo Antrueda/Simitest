@@ -37,7 +37,7 @@ class CreateVsiDinfamPadresTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
 
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**

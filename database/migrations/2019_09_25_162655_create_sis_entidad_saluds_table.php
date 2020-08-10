@@ -27,7 +27,7 @@ class CreateSisEntidadSaludsTable extends Migration
 
             $table->foreign('i_prm_tentidad_id')->references('id')->on('parametros');
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CLASIFICACIÓN DE LAS EPS.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS EPS.'");
     }
 
     /**

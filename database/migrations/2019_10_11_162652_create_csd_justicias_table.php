@@ -3,9 +3,14 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateCsdJusticiasTable extends Migration
 {
+    private $tablaxxx = 'csds';
+    private $tablaxxx2 = 'csd_sis_nnaj';
+    private $tablaxxx3 = 'csd_justicias';
+    private $tablaxxx4 = 'csd_nnaj_especial';    
     /**
      * Run the migrations.
      *
@@ -13,7 +18,7 @@ class CreateCsdJusticiasTable extends Migration
      */
     public function up()
     {
-        Schema::create('csds', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('proposito', 200);
             $table->date('fecha');
@@ -26,24 +31,25 @@ class CreateCsdJusticiasTable extends Migration
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        Schema::create('csd_sis_nnaj', function (Blueprint $table) {
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->bigInteger('user_edita_id')->unsigned();
-
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-
             $table->unique(['csd_id', 'sis_nnaj_id']);
         });
-        Schema::create('csd_justicias', function (Blueprint $table) {
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+
+        Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('prm_vinculado_id')->unsigned();
@@ -56,7 +62,6 @@ class CreateCsdJusticiasTable extends Migration
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_vinculado_id')->references('id')->on('parametros');
             $table->foreign('prm_vin_causa_id')->references('id')->on('parametros');
@@ -66,7 +71,9 @@ class CreateCsdJusticiasTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
         });
-        Schema::create('csd_nnaj_especial', function (Blueprint $table) {
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+
+        Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
@@ -77,6 +84,7 @@ class CreateCsdJusticiasTable extends Migration
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->unique(['parametro_id', 'csd_id']);
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
     }
 
     /**
@@ -86,9 +94,9 @@ class CreateCsdJusticiasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('csd_nnaj_especial');
-        Schema::dropIfExists('csd_justicias');
-        Schema::dropIfExists('csd_sis_nnaj');
-        Schema::dropIfExists('csds');
+        Schema::dropIfExists($this->tablaxxx4);
+        Schema::dropIfExists($this->tablaxxx3);
+        Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

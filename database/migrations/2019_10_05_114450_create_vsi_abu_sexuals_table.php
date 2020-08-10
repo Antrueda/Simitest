@@ -63,7 +63,7 @@ class CreateVsiAbuSexualsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES DEL ABUSO SEXUAL QUE PUDO EXPERIMENTAR UN NNAJ.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES DEL ABUSO SEXUAL QUE PUDO EXPERIMENTAR UNA PERSONA REGISTRADA EN EL SISTEMA'");
     }
 
     /**

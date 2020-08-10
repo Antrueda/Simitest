@@ -29,7 +29,7 @@ class CreateVsiPotencialidadsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS POTENCIALIDADES DE UN NNAJ, PERTENECE A LA SECCIÓN 18 DE LA FICHA SICOSOCIAL.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS POTENCIALIDADES DE UNA PERSONA REGISTRADA EN EL SISTEMA, PERTENECE A LA SECCIÓN 18 DE LA FICHA SICOSOCIAL.'");
     }
 
     /**

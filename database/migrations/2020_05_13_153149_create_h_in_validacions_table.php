@@ -27,7 +27,7 @@ class CreateHInValidacionsTable extends Migration
             $table->timestamps();
             $table->unique(['in_fuente_id', 'in_pregunta_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

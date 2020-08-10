@@ -22,7 +22,7 @@ class CreateHSisDiagnosticosTable extends Migration
             $table->text('descripcion', 4000);
             $table->char('sexo');
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
