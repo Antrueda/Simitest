@@ -90,7 +90,7 @@ class CreateHVsiDinFamiliarsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx7}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx7}'");
 
         Schema::create($this->tablaxxx8, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -99,7 +99,7 @@ class CreateHVsiDinFamiliarsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx8}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx8}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx8}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx8}'");
 
         Schema::create($this->tablaxxx9, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -108,7 +108,7 @@ class CreateHVsiDinFamiliarsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx9}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx9}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx9}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx9}'");
     }
 
     /**

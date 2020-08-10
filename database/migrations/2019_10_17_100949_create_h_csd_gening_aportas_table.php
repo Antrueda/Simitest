@@ -29,16 +29,8 @@ class CreateHCsdGeningAportasTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
-            $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
-            $table->foreign('csd_id')->references('id')->on('csds');
-            $table->foreign('prm_aporta_id')->references('id')->on('parametros');
-            $table->foreign('prm_entre_id')->references('id')->on('parametros');
-            $table->foreign('prm_a_id')->references('id')->on('parametros');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
@@ -47,8 +39,6 @@ class CreateHCsdGeningAportasTable extends Migration
             $table->bigInteger('csd_geningreso_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('parametro_id')->references('id')->on('parametros');
-            $table->foreign('csd_geningreso_id')->references('id')->on('csd_gening_aportas');
             $table->unique(['parametro_id', 'csd_geningreso_id']);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");

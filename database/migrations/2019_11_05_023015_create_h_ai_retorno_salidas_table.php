@@ -34,17 +34,7 @@ class CreateHAiRetornoSalidasTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
-            $table->foreign('prm_hor_ret_id')->references('id')->on('parametros');
-            $table->foreign('prm_doc_id')->references('id')->on('parametros');
-            $table->foreign('prm_parentezco_id')->references('id')->on('parametros');
-            $table->foreign('responsable')->references('id')->on('users');
-            $table->foreign('user_doc1_id')->references('id')->on('users');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
@@ -54,9 +44,6 @@ class CreateHAiRetornoSalidasTable extends Migration
             $table->bigInteger('valor_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('parametro_id')->references('id')->on('parametros');
-            $table->foreign('retorno_id')->references('id')->on('ai_retorno_salidas');
-            $table->foreign('valor_id')->references('id')->on('parametros');
             $table->unique(['parametro_id', 'retorno_id']);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
