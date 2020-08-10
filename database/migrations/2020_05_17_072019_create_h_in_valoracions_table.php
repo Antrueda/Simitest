@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateHInValoracionsTable extends Migration
 {
-    private $tablaxxx = 'in_valoracions';
+    private $tablaxxx = 'h_in_valoracions';
     /**
      * Run the migrations.
      *
