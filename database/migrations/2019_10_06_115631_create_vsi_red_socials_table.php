@@ -46,7 +46,7 @@ class CreateVsiRedSocialsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS REDES SOCIALES DE APOYO DE LA PERSONA ENTREVISTADA, SECCIÓN 7'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -57,7 +57,7 @@ class CreateVsiRedSocialsTable extends Migration
             $table->foreign('vsi_redsocial_id')->references('id')->on('vsi_red_socials');
             $table->unique(['parametro_id', 'vsi_redsocial_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS MOTIVOS DE DIFICULTAD DE LAS REDES SOCIALES DE APOYO DE LA PERSONA ENTREVISTADA, PREGUNTA 7.1.4'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -68,7 +68,7 @@ class CreateVsiRedSocialsTable extends Migration
             $table->foreign('vsi_redsocial_id')->references('id')->on('vsi_red_socials');
             $table->unique(['parametro_id', 'vsi_redsocial_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS MOTIVOS DE RESTRICCION DE LAS REDES SOCIALES DE APOYO DE LA PERSONA ENTREVISTADA, PREGUNTA 7.1.8'");
     }
 
     /**

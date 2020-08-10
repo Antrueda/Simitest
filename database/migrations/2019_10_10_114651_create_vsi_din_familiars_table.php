@@ -43,7 +43,7 @@ class CreateVsiDinFamiliarsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA DINAMICA FAMILIAR LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, SECCIÓN 5'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -54,7 +54,7 @@ class CreateVsiDinFamiliarsTable extends Migration
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA '");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -65,7 +65,7 @@ class CreateVsiDinFamiliarsTable extends Migration
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA '");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -76,7 +76,7 @@ class CreateVsiDinFamiliarsTable extends Migration
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA '");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -87,7 +87,7 @@ class CreateVsiDinFamiliarsTable extends Migration
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA '");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -98,7 +98,7 @@ class CreateVsiDinFamiliarsTable extends Migration
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA '");
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -109,7 +109,7 @@ class CreateVsiDinFamiliarsTable extends Migration
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA '");
 
         Schema::create($this->tablaxxx8, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -120,7 +120,7 @@ class CreateVsiDinFamiliarsTable extends Migration
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx8}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx8}` comment 'TABLA QUE ALMACENA QUIENES ASUMEN CUIDADO DE LOS MENORES DE 18 AÑOS, PREGUNTA 5.5'");
 
         Schema::create($this->tablaxxx9, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -131,7 +131,7 @@ class CreateVsiDinFamiliarsTable extends Migration
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx9}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx9}` comment 'TABLA QUE ALMACENA LOS MOTIVOS DE LA AUSCENCIA DE LOS REPRESENTANTES LEGALES, PREGUNTA 5.7'");
     }
 
     /**

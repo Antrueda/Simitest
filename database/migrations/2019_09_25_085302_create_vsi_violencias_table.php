@@ -84,7 +84,7 @@ class CreateVsiViolenciasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE DETALLES DE LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, SECCIÓN 4'");
         
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -95,7 +95,7 @@ class CreateVsiViolenciasTable extends Migration
             $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');
             $table->unique(['parametro_id', 'vsi_violencia_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL CONTEXTO DE DISCRIMINACION DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, SECCIÓN 4 PREGUNTA 4.4'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -106,7 +106,7 @@ class CreateVsiViolenciasTable extends Migration
             $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');
             $table->unique(['parametro_id', 'vsi_violencia_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL TIPO DE VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, SECCIÓN 4 PREGUNTA 4.5'");
     }
 
     /**
