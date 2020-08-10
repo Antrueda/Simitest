@@ -174,7 +174,8 @@ class RolesYPermisosSeeder extends Seeder
         //Crear areas para VSI Factores riesgo
         $this->getPermisos(['permisox' => 'vsifacri', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
 
-
+         //permisos para las alertas
+         $this->getPermisos(['permisox'=>'alertas','permisos'=>['leer','crear','editar','borrar']]);
 
         //Crear areas para VSI Potencialidades y metas
         $this->getPermisos(['permisox' => 'vsimetas', 'permisos' => ['metaxxxx']]);
@@ -444,6 +445,7 @@ class RolesYPermisosSeeder extends Seeder
             'vsinnajs-leer',
             'vsidatbi-leer', 'vsidatbi-crear', 'vsidatbi-editar', 'vsidatbi-borrar',
             'rol-leer', 'rol-crear', 'rol-editar', 'rol-borrar',
+            'alertas-leer', 'alertas-crear', 'alertas-editar', 'alertas-borrar',
             'grupliba-leer', 'grupliba-crear', 'grupliba-editar', 'grupliba-borrar',
             'usuario-leer', 'usuario-crear', 'usuario-editar', 'usuario-borrar',
             'siscargo-leer', 'siscargo-crear', 'siscargo-editar', 'siscargo-borrar',
