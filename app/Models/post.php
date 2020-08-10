@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class Post extends Model
 {
-  
+
     protected $fillable = ['titulo', 'descripcion', 'sis_esta_id','user_crea_id','user_edita_id','user_id'];
     protected $attributes = ['sis_esta_id' => 1,'user_crea_id'=>1,'user_edita_id'=>1];
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);

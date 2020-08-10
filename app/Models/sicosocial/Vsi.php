@@ -49,8 +49,8 @@ class Vsi extends Model{
         return $this->hasMany(VsiRelFamiliar::class, 'vsi_id');
     }
 
-    public function VsiRelSociales(){
-        return $this->hasMany(VsiRelSociales::class, 'vsi_id');
+    public function VsiRelSociale(){
+        return $this->hasMany(VsiRelSociale::class, 'vsi_id');
     }
 
     public function VsiAntecedente(){

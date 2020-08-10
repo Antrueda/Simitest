@@ -104,6 +104,9 @@ class RolesYPermisosSeeder extends Seeder
         //Crear areas para VSI datos básicos
         $this->getPermisos(['permisox' => 'vsidabas', 'permisos' => ['leer', 'crear', 'editar']]);
 
+        //Crear areas para VSI razones datos básicos
+        $this->getPermisos(['permisox' => 'vsidatbi', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
+
         //Crear areas para VSI bienvenida
         $this->getPermisos(['permisox' => 'vsibienv', 'permisos' => ['leer', 'crear', 'editar']]);
 
@@ -122,6 +125,12 @@ class RolesYPermisosSeeder extends Seeder
         //Crear areas para VSI Dinámica Familiar
         $this->getPermisos(['permisox' => 'vsidinam', 'permisos' => ['leer', 'crear', 'editar']]);
 
+        //Crear areas para VSI Dinámica Familiar padre
+        $this->getPermisos(['permisox' => 'vsidfpad', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
+
+        //Crear areas para VSI Dinámica Familiar madre
+        $this->getPermisos(['permisox' => 'vsidfmad', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
+
         //Crear areas para VSI Relación Familiar
         $this->getPermisos(['permisox' => 'vsirefam', 'permisos' => ['leer', 'crear', 'editar']]);
 
@@ -137,6 +146,13 @@ class RolesYPermisosSeeder extends Seeder
         //Crear areas para VSI Redes Sociales y Apoyo
         $this->getPermisos(['permisox' => 'vsiredes', 'permisos' => ['leer', 'crear', 'editar']]);
 
+        //Crear areas para VSI Redes Sociales y Apoyo actuales
+        $this->getPermisos(['permisox' => 'vsiredac', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
+
+        //Crear areas para VSI Redes Sociales y Apoyo antecedentes institucionales
+        $this->getPermisos(['permisox' => 'vsiredpa', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
+
+
         //Crear areas para VSI Situación Especial y ESCNNA
         $this->getPermisos(['permisox' => 'vsisitua', 'permisos' => ['leer', 'crear', 'editar']]);
 
@@ -150,10 +166,34 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'vsiconsu', 'permisos' => ['leer', 'crear', 'editar']]);
 
         //Crear areas para VSI Factores
-        $this->getPermisos(['permisox' => 'vsifacto', 'permisos' => ['leer', 'crear', 'editar']]);
+        $this->getPermisos(['permisox' => 'vsifacto', 'permisos' => ['factorxx']]);
+
+        //Crear areas para VSI Factores protector
+        $this->getPermisos(['permisox' => 'vsifacpr', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
+
+        //Crear areas para VSI Factores riesgo
+        $this->getPermisos(['permisox' => 'vsifacri', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
+
+
 
         //Crear areas para VSI Potencialidades y metas
-        $this->getPermisos(['permisox' => 'vsimetas', 'permisos' => ['leer', 'crear', 'editar']]);
+        $this->getPermisos(['permisox' => 'vsimetas', 'permisos' => ['metaxxxx']]);
+
+        //Crear areas para VSI Potencialidades
+        $this->getPermisos(['permisox' => 'vsimetpo', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
+
+        //Crear areas para VSI metas
+        $this->getPermisos(['permisox' => 'vsimetme', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
+
+        //Crear areas para VSI Áreas de ajuste sicosocial
+        $this->getPermisos(['permisox' => 'vsiareas', 'permisos' => ['leer', 'crear', 'editar']]);
+
+        //Crear areas para VSI concepto
+        $this->getPermisos(['permisox' => 'vsisocia', 'permisos' => ['leer', 'crear', 'editar']]);
+
+        //Crear areas para VSI consentimiento
+        $this->getPermisos(['permisox' => 'vsiconse', 'permisos' => ['leer', 'crear', 'editar']]);
+
 
         //Crear permisos para fivestuario
         $this->getPermisos(['permisox' => 'fivestuario', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
@@ -209,14 +249,7 @@ class RolesYPermisosSeeder extends Seeder
         //Crear   datos básicos para FI
         $this->getPermisos(['permisox' => 'fiautorizacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
 
-        //Crear areas para VSI Áreas de ajuste sicosocial
-        $this->getPermisos(['permisox' => 'vsiareas', 'permisos' => ['leer', 'crear', 'editar']]);
 
-        //Crear areas para VSI concepto
-        $this->getPermisos(['permisox' => 'vsisocia', 'permisos' => ['leer', 'crear', 'editar']]);
-
-        //Crear areas para VSI consentimiento
-        $this->getPermisos(['permisox' => 'vsiconse', 'permisos' => ['leer', 'crear', 'editar']]);
 
         //Crear areas para CSD datos básicos
         $this->getPermisos(['permisox' => 'csddatobasico', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
@@ -382,38 +415,35 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'vspaIndex', 'permisos' => ['leer']]);
 
         //Creación de Permisos para VSPA
-        $this->getPermisos(['permisox'=>'vspa','permisos'=>['leer','crear','editar','borrar']]);
+        $this->getPermisos(['permisox' => 'vspa', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
 
         //Creación de Permisos para VMA
-        $this->getPermisos(['permisox'=>'vma','permisos'=>['leer','crear','editar','borrar']]);
+        $this->getPermisos(['permisox' => 'vma', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
 
         //Creación de Permisos para el crud de estados
-        $this->getPermisos(['permisox'=>'sisesta','permisos'=>['leer','crear','editar','borrar']]);
+        $this->getPermisos(['permisox' => 'sisesta', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
 
         //Creación de Permisos para Fsoporte
-        $this->getPermisos(['permisox'=>'fsoporte','permisos'=>['leer','crear','editar','borrar']]);
+        $this->getPermisos(['permisox' => 'fsoporte', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
 
         Permission::create(['name' => 'intervención sicosocial especializada', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
 
         //Permisos para Administración de FOS
-        $this->getPermisos(['permisox'=>'fos','permisos'=>['admin','area-admin','tipo-admin','sub-tipo-admin']]);
+        $this->getPermisos(['permisox' => 'fos', 'permisos' => ['admin', 'area-admin', 'tipo-admin', 'sub-tipo-admin']]);
 
-        $this->getPermisos(['permisox'=>'fostipo','permisos'=>['leer','crear','editar','borrar']]);
+        $this->getPermisos(['permisox' => 'fostipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
 
-        $this->getPermisos(['permisox'=>'fossubtipo','permisos'=>['leer','crear','editar','borrar']]);
+        $this->getPermisos(['permisox' => 'fossubtipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
 
         //permisos para el cargue excel
-        $this->getPermisos(['permisox'=>'excel','permisos'=>['leer','crear','editar','borrar']]);
-
-        //permisos para las alertas
-        $this->getPermisos(['permisox'=>'alertas','permisos'=>['leer','crear','editar','borrar']]);
-
+        $this->getPermisos(['permisox' => 'excel', 'permisos' => ['leer', 'crear', 'editar', 'borrar']]);
 
         // crear roles y asignar los permisos
         Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(Permission::all());
         Role::create(['name' => 'administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo([
+            'vsinnajs-leer',
+            'vsidatbi-leer', 'vsidatbi-crear', 'vsidatbi-editar', 'vsidatbi-borrar',
             'rol-leer', 'rol-crear', 'rol-editar', 'rol-borrar',
-            'alertas-leer', 'alertas-crear', 'alertas-editar', 'alertas-borrar',
             'grupliba-leer', 'grupliba-crear', 'grupliba-editar', 'grupliba-borrar',
             'usuario-leer', 'usuario-crear', 'usuario-editar', 'usuario-borrar',
             'siscargo-leer', 'siscargo-crear', 'siscargo-editar', 'siscargo-borrar',
@@ -437,7 +467,10 @@ class RolesYPermisosSeeder extends Seeder
             'fivestuario-leer', 'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar',
             'firesidencia-leer', 'firesidencia-crear', 'firesidencia-editar', 'firesidencia-borrar',
             'vsisalud-leer', 'vsisalud-crear', 'vsisalud-editar',
-            'vsidinam-leer', 'vsidinam-crear', 'vsidinam-editar',
+            'vsidfpad-leer', 'vsidfpad-crear', 'vsidfpad-editar', 'vsidfpad-borrar',
+            'vsidfmad-leer', 'vsidfmad-crear', 'vsidfmad-editar', 'vsidfmad-borrar',
+
+
             'vsirefam-leer', 'vsirefam-crear', 'vsirefam-editar',
             'vsirelac-leer', 'vsirelac-crear', 'vsirelac-editar',
             'vsiconsu-leer', 'vsiconsu-crear', 'vsiconsu-editar',
@@ -459,9 +492,17 @@ class RolesYPermisosSeeder extends Seeder
             'vsiactiv-leer', 'vsiactiv-crear', 'vsiactiv-editar',
             'vsiabuso-leer', 'vsiabuso-crear', 'vsiabuso-editar',
             'vsisitua-leer', 'vsisitua-crear', 'vsisitua-editar',
-            'vsifacto-leer', 'vsifacto-crear', 'vsifacto-editar',
-            'vsimetas-leer', 'vsimetas-crear', 'vsimetas-editar',
+            'vsifacto-factorxx',
+            'vsifacpr-leer', 'vsifacpr-crear', 'vsifacpr-editar', 'vsifacpr-borrar',
+            'vsifacri-leer', 'vsifacri-crear', 'vsifacri-editar', 'vsifacri-borrar',
+            'vsimetas-metaxxxx',
+            'vsimetpo-leer', 'vsimetpo-crear', 'vsimetpo-editar', 'vsimetpo-borrar',
+            'vsimetme-leer', 'vsimetme-crear', 'vsimetme-editar', 'vsimetme-borrar',
+
             'vsiredes-leer', 'vsiredes-crear', 'vsiredes-editar',
+            'vsiredac-leer', 'vsiredac-crear', 'vsiredac-editar', 'vsiredac-borrar',
+            'vsiredpa-leer', 'vsiredpa-crear', 'vsiredpa-editar', 'vsiredpa-borrar',
+
             'fidatobasico-leer', 'fidatobasico-crear', 'fidatobasico-editar', 'fidatobasico-borrar',
             'fiautorizacion-leer', 'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar',
             'vsiareas-leer', 'vsiareas-crear', 'vsiareas-editar',
@@ -541,6 +582,8 @@ class RolesYPermisosSeeder extends Seeder
             'vsieduca-leer', 'vsieduca-crear', 'vsieduca-editar',
             'vsisalud-leer', 'vsisalud-crear', 'vsisalud-editar',
             'vsidinam-leer', 'vsidinam-crear', 'vsidinam-editar',
+            'vsidfpad-leer', 'vsidfpad-crear', 'vsidfpad-editar', 'vsidfpad-borrar',
+            'vsidfmad-leer', 'vsidfmad-crear', 'vsidfmad-editar', 'vsidfmad-borrar',
             'vsirefam-leer', 'vsirefam-crear', 'vsirefam-editar',
             'vsirelac-leer', 'vsirelac-crear', 'vsirelac-editar',
             'vsiconsu-leer', 'vsiconsu-crear', 'vsiconsu-editar',
@@ -549,9 +592,15 @@ class RolesYPermisosSeeder extends Seeder
             'vsiactiv-leer', 'vsiactiv-crear', 'vsiactiv-editar',
             'vsiabuso-leer', 'vsiabuso-crear', 'vsiabuso-editar',
             'vsisitua-leer', 'vsisitua-crear', 'vsisitua-editar',
-            'vsifacto-leer', 'vsifacto-crear', 'vsifacto-editar',
-            'vsimetas-leer', 'vsimetas-crear', 'vsimetas-editar',
+            'vsifacto-factorxx',
+            'vsifacpr-leer', 'vsifacpr-crear', 'vsifacpr-editar', 'vsifacpr-borrar',
+            'vsifacri-leer', 'vsifacri-crear', 'vsifacri-editar', 'vsifacri-borrar',
+            'vsimetas-metaxxxx',
+            'vsimetpo-leer', 'vsimetpo-crear', 'vsimetpo-editar', 'vsimetpo-borrar',
+            'vsimetme-leer', 'vsimetme-crear', 'vsimetme-editar', 'vsimetme-borrar',
             'vsiredes-leer', 'vsiredes-crear', 'vsiredes-editar',
+            'vsiredac-leer', 'vsiredac-crear', 'vsiredac-editar', 'vsiredac-borrar',
+            'vsiredpa-leer', 'vsiredpa-crear', 'vsiredpa-editar', 'vsiredpa-borrar',
             'vsiareas-leer', 'vsiareas-crear', 'vsiareas-editar',
             'vsisocia-leer', 'vsisocia-crear', 'vsisocia-editar',
             'vsiemoci-leer', 'vsiemoci-crear', 'vsiemoci-editar',

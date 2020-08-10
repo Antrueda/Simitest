@@ -30,6 +30,7 @@ class CreateHVsiDinFamiliarsTable extends Migration
             $table->bigInteger('prm_hogar_id')->nullable()->unsigned();
             $table->string('lugar', 4000);
             $table->bigInteger('prm_motivo_id')->unsigned()->nullable();
+            $table->string('s_doc_adjunto', 150)->nullable();
             $table->string('descripcion', 4000);
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();

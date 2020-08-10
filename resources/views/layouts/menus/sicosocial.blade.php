@@ -7,7 +7,7 @@
     </p>
   </a>
   <ul class="nav nav-treeview">
-      @can('vsidatobasico-leer')
+      @can('vsinnajs-leer')
     <li class="nav-item">
       <a href="{{ route('vsinnajs')}}" class="nav-link">
         <i class="fas fa-map-marker-alt nav-icon"></i>

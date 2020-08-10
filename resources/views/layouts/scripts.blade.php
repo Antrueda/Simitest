@@ -71,7 +71,7 @@
             type: dataxxxx.typexxxx,
             dataType: 'json',
             success: function(json) {
-                setTimeout(function() {
+                setTimeout(function() { console.log(dataxxxx.datatabl)
                     dataxxxx.datatabl.ajax.reload();
                 }, 2000);
 

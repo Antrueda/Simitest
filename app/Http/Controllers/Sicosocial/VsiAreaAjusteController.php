@@ -2,94 +2,201 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
-use App\Helpers\Indicadores\IndicadorHelper;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Vsi\VsiAreaAjusteCrearRequest;
+use App\Http\Requests\Vsi\VsiAreaAjusteEditarRequest;
 
+use App\Models\sistema\SisEsta;
+use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
+class VsiAreaAjusteController extends Controller
+{
+    use VsiTrait;
+    private $opciones;
 
-class VsiAreaAjusteController extends Controller{
+    public function __construct()
+    {
+        $this->opciones = [
+            'pestpadr' => 3, // true indica si solo muestra la pestaña dependencias false muestra la pestaña padre y las hijas
+            'permisox' => 'vsiareas',
+            'parametr' => [],
+            'rutacarp' => 'Sicosocial.',
+            'tituloxx' => 'AREAS DE AJUSTE SICOSOCIAL',
+            'carpetax' => 'Areajuste',
+            'slotxxxx' => 'vsiareas',
+            'tablaxxx' => 'datatable',
+            'indecrea' => false, // false muestra las pestañas
+            'esindexx' => false,
+            'tituhead' => '',
+            'fechcrea' => '',
+            'fechedit' => '',
+            'usercrea' => '',
+            'useredit' => '',
+            'conperfi' => '', // indica si la vista va a tener perfil
+            'usuariox' => [],
 
-    public function __construct(){
-        $this->middleware(['permission:vsiareaajuste-crear'], ['only' => ['show, store']]);
-        $this->middleware(['permission:vsiareaajuste-editar'], ['only' => ['show, store']]);
+            'confirmx' => 'Desea inactivar la vsi: ',
+            'reconfir' => 'Realmente desea inactivar la vsi: ',
+            'msnxxxxx' => 'No se puedo inactivar la vsi',
+            'rutaxxxx' => 'vsiareas',
+            'routnuev' => 'vsiareas',
+            'routxxxx' => 'vsiareas',
+        ];
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar']);
     }
 
-    public function show($id){
-        $vsi = Vsi::findOrFail($id);
-        $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $emocionales = Tema::findOrFail(162)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $sexuales = Tema::findOrFail(163)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $comportamentales = Tema::findOrFail(164)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $academicas = Tema::findOrFail(165)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $sociales = Tema::findOrFail(166)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $familiares = Tema::findOrFail(167)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        return view('Sicosocial.index', ['accion' => 'AreaAjuste'], compact('vsi', 'dato', 'nnaj', 'emocionales', 'sexuales', 'comportamentales', 'academicas', 'sociales', 'familiares'));
+    private function view($dataxxxx)
+    {
+        $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
+        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['emociona'] = Tema::combo(162, false, false);
+        $this->opciones['sexuales'] = Tema::combo(163, false, false);
+        $this->opciones['comporta'] = Tema::combo(164, false, false);
+        $this->opciones['academic'] = Tema::combo(165, false, false);
+        $this->opciones['sociales'] = Tema::combo(166, false, false);
+        $this->opciones['familiar'] = Tema::combo(167, false, false);
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        // indica si se esta actualizando o viendo
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['pestpadr'] = 3;
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
+        }
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Vsi $padrexxx)
+    {
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
     }
 
-    public function store(Request $request){
-        $this->validator($request->all())->validate();
-        $dato = Vsi::findOrFail($request->vsi_id);
-        $dato->emocionales()->detach();
-        if($request->emocionales){
-            foreach ($request->emocionales as $d) {
-                $dato->emocionales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        $dato->sexuales()->detach();
-        if($request->sexuales){
-            foreach ($request->sexuales as $d) {
-                $dato->sexuales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        $dato->comportamentales()->detach();
-        if($request->comportamentales){
-            foreach ($request->comportamentales as $d) {
-                $dato->comportamentales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        $dato->academicas()->detach();
-        if($request->academicas){
-            foreach ($request->academicas as $d) {
-                $dato->academicas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        $dato->sociales()->detach();
-        if($request->sociales){
-            foreach ($request->sociales as $d) {
-                $dato->sociales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-        $dato->familiares()->detach();
-        if($request->familiares){
-            foreach ($request->familiares as $d) {
-                $dato->familiares()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-            }
-        }
-
-        Vsi::indicador($dato->sis_nnaj_id,84);
-        Vsi::indicador($dato->sis_nnaj_id,85);
-        Vsi::indicador($dato->sis_nnaj_id,86);
-        Vsi::indicador($dato->sis_nnaj_id,87);
-        Vsi::indicador($dato->sis_nnaj_id,88);
-        Vsi::indicador($dato->sis_nnaj_id,89);
-        
-        return redirect()->route('VSI.areaajuste', $request->vsi_id)->with('info', 'Registro creado con éxito');
-    }
-
-    protected function validator(array $data){
-        return Validator::make($data, [
-            'vsi_id' => 'required|exists:vsis,id',
-            'emocionales' => 'nullable|array',
-            'sexuales' => 'nullable|array',
-            'comportamentales' => 'nullable|array',
-            'academicas' => 'nullable|array',
-            'sociales' => 'nullable|array',
-            'familiares' => 'nullable|array',
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(VsiAreaAjusteCrearRequest $request, $padrexxx)
+    {
+       $request->request->add(['vsi_id' => $padrexxx]);
+        return $this->grabar([
+            'requestx' => $request,
+            'modeloxx' => '',
+            'menssage' => 'Registro creado con éxito'
         ]);
     }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Vsi $objetoxx)
+    {
+
+        $this->opciones['padrexxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$objetoxx->id];
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
+    }
+
+    private function grabar($dataxxxx)
+    {
+
+        $dataxxxx['modeloxx']->emocionales()->detach();
+        if($dataxxxx['requestx']->emocionales){
+            foreach ($dataxxxx['requestx']->emocionales as $d) {
+                $dataxxxx['modeloxx']->emocionales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+        $dataxxxx['modeloxx']->sexuales()->detach();
+        if($dataxxxx['requestx']->sexuales){
+            foreach ($dataxxxx['requestx']->sexuales as $d) {
+                $dataxxxx['modeloxx']->sexuales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+        $dataxxxx['modeloxx']->comportamentales()->detach();
+        if($dataxxxx['requestx']->comportamentales){
+            foreach ($dataxxxx['requestx']->comportamentales as $d) {
+                $dataxxxx['modeloxx']->comportamentales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+        $dataxxxx['modeloxx']->academicas()->detach();
+        if($dataxxxx['requestx']->academicas){
+            foreach ($dataxxxx['requestx']->academicas as $d) {
+                $dataxxxx['modeloxx']->academicas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+        $dataxxxx['modeloxx']->sociales()->detach();
+        if($dataxxxx['requestx']->sociales){
+            foreach ($dataxxxx['requestx']->sociales as $d) {
+                $dataxxxx['modeloxx']->sociales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+        $dataxxxx['modeloxx']->familiares()->detach();
+        if($dataxxxx['requestx']->familiares){
+            foreach ($dataxxxx['requestx']->familiares as $d) {
+                $dataxxxx['modeloxx']->familiares()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
+
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$dataxxxx['modeloxx']->id])
+            ->with('info', $dataxxxx['menssage']);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(VsiAreaAjusteEditarRequest $request, Vsi $objetoxx)
+    {
+        return $this->grabar([
+            'requestx' => $request,
+            'modeloxx' => $objetoxx,
+            'menssage' => 'Registro actualizado con éxito'
+        ]);
+    }
+
+
 }

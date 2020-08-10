@@ -92,7 +92,8 @@ class FiDatosBasico extends Model
     }
 
 
-    public function sis_upzbarri(){
+    public function sis_upzbarri()
+    {
         return $this->belongsTo(SisUpzbarri::class);
     }
 
@@ -140,11 +141,13 @@ class FiDatosBasico extends Model
         return $this->belongsTo(SisMunicipio::class, 'sis_municipioexp_id');
     }
 
-    public function getNombreCompletoAttribute(){
+    public function getNombreCompletoAttribute()
+    {
         return $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido;
     }
 
-    public function getEdadAttribute(){
+    public function getEdadAttribute()
+    {
         return Carbon::parse($this->d_nacimiento)->age;
     }
 
@@ -157,7 +160,27 @@ class FiDatosBasico extends Model
     {
         return FiDatosBasico::where('sis_nnaj_id', $idxxxxxx)->where('sis_esta_id', 1)->first();
     }
+    public static function getTransactionVsi($dataxxxx, $objetoxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+            $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
+            $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
+            $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
+            $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['s_segundo_apellido']);
+            $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
+            $dt = new DateTime($dataxxxx['d_nacimiento']);
+            $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
+            $dataxxxx['s_apodo'] = strtoupper($dataxxxx['s_apodo']);
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if($dataxxxx['i_prm_ayuda_id']==null){
+                $dataxxxx['i_prm_ayuda_id']=235;
+            }
+            $objetoxx->update($dataxxxx);
+            return $objetoxx;
+        }, 5);
 
+        return $objetoxx;
+    }
     public function grabar($dataxxxx, $objetoxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
@@ -203,26 +226,24 @@ class FiDatosBasico extends Model
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['i_prm_linea_base_id'] = 227;
                 $objetoxx = FiDatosBasico::create($dataxxxx);
-
-
             }
-            $dataxxxx['i_prm_ocupacion_id']=1262;
-            $dataxxxx['i_prm_parentesco_id']=805;
-            $dataxxxx['i_prm_vinculado_idipron_id']=227;
-            $dataxxxx['i_prm_convive_nnaj_id']=227;
-            $compofam=FiComposicionFami::where('fi_nucleo_familiar_id',$dataxxxx['fi_nucleo_familiar_id'])->first();
-            if($compofam==null){
-                $compofam='';
+            $dataxxxx['i_prm_ocupacion_id'] = 1262;
+            $dataxxxx['i_prm_parentesco_id'] = 805;
+            $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
+            $dataxxxx['i_prm_convive_nnaj_id'] = 227;
+            $compofam = FiComposicionFami::where('fi_nucleo_familiar_id', $dataxxxx['fi_nucleo_familiar_id'])->first();
+            if ($compofam == null) {
+                $compofam = '';
             }
-            
-            FiComposicionFami::transaccion($dataxxxx,$compofam);
-            
-            $dataxxxx['sis_tabla_id']=9; 
+
+            FiComposicionFami::transaccion($dataxxxx, $compofam);
+
+            $dataxxxx['sis_tabla_id'] = 9;
             IndicadorHelper::asignaLineaBase($dataxxxx);
-           
+
             return $objetoxx;
         }, 5);
-       
+
         return $objetoxx;
     }
 }

@@ -2,70 +2,150 @@
 
 namespace App\Http\Controllers\Sicosocial;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\sistema\SisEsta;
+use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
-use App\Models\sicosocial\VsiFacProtector;
-use App\Models\sicosocial\VsiFacRiesgo;
-use Illuminate\Support\Facades\Validator;
+class VsiFactorController extends Controller
+{
+    use VsiTrait;
+    private $opciones;
 
-class VsiFactorController extends Controller{
+    public function __construct()
+    {
+        $this->opciones = [
+            'pestpadr' => 3, // true indica si solo muestra la pestaña dependencias false muestra la pestaña padre y las hijas
+            'permisox' => 'vsifacto',
+            'parametr' => [],
+            'rutacarp' => 'Sicosocial.',
+            'tituloxx' => 'FACTORES',
+            'carpetax' => 'Factor',
+            'slotxxxx' => 'vsifacto',
+            'tablaxxx' => 'datatable',
+            'indecrea' => false, // false muestra las pestañas
+            'esindexx' => false,
+            'tituhead' => '',
+            'fechcrea' => '',
+            'fechedit' => '',
+            'usercrea' => '',
+            'useredit' => '',
+            'conperfi' => '', // indica si la vista va a tener perfil
+            'usuariox' => [],
 
-    public function __construct(){
-        $this->middleware(['permission:vsifactor-crear'], ['only' => ['show, storeProtector, storeRiesgo']]);
-        $this->middleware(['permission:vsifactor-editar'], ['only' => ['show, storeProtector, storeRiesgo']]);
-        $this->middleware(['permission:vsifactor-borrar'], ['only' => ['show, destroyProtector, destroyRiesgo']]);
+            'confirmx' => 'Desea inactivar la vsi: ',
+            'reconfir' => 'Realmente desea inactivar la vsi: ',
+            'msnxxxxx' => 'No se puedo inactivar la vsi',
+            'rutaxxxx' => 'vsifacto',
+            'routnuev' => 'vsifacto',
+            'routxxxx' => 'vsifacto',
+        ];
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-factorxx'
+            ]);
     }
+    private function view($dataxxxx)
+    {
+        $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
+        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
 
-    public function show($id){
-        $vsi = Vsi::findOrFail($id);
-        $dato = $vsi->nnaj;
-        $nnaj = $dato->FiDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $valorProt = $vsi->VsiFacProtector->where('sis_esta_id', 1)->sortBy('id');
-        $valorRies = $vsi->VsiFacRiesgo->where('sis_esta_id', 1)->sortBy('id');
-        return view('Sicosocial.index', ['accion' => 'Factor'], compact('vsi', 'dato', 'nnaj', 'valorProt', 'valorRies'));
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        $this->opciones['archivox']='';
+        // indica si se esta actualizando o viendo
+        if ($dataxxxx['modeloxx'] != '') {
+            foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
+                $this->opciones['archivox'] = $value;
+            }
+
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['pestpadr'] = 3;
+            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
+            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
+            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
+            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
+        }
+
+        $this->opciones['rowscols'] = 'rowspancolspan';
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'CREAR FACTOR PROCTECTOR',
+                'titulist' => 'LISTA DE FACTORES PROTECTORES',
+                'dataxxxx' => [['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id]],
+                'relacion' => '17.1 FACTOR PROTECTOR',
+                'accitabl' => true,
+                'vercrear' => true,
+                'urlxxxxx' => route('vsifacpr', $this->opciones['parametr']),
+                'cabecera' => [
+                    [
+                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FACTOR PROTECTOR', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+
+
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'vsi_fac_protectors.id'],
+                    ['data' => 'protector', 'name' => 'vsi_fac_protectors.protector'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatableprotec',
+                'permisox' => 'vsifacpr',
+                'routxxxx' => 'vsifacpr',
+                'parametr' => $this->opciones['parametr'],
+            ],
+            [
+                'titunuev' => 'CREAR FACTOR RIESGO',
+                'titulist' => 'LISTA DE FACTORES DE RIESGO',
+                'dataxxxx' => [['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id]],
+                'relacion' => '17.2 FACTOR RIESGO',
+                'accitabl' => true,
+                'vercrear' => true,
+                'urlxxxxx' => route('vsifacri', $this->opciones['parametr']),
+                'cabecera' => [
+                    [
+                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FACTOR RIESGO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'vis_fac_riesgos.id'],
+                    ['data' => 'riesgo', 'name' => 'vis_fac_riesgos.riesgo'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatableriesgo',
+                'permisox' => 'vsifacri',
+                'routxxxx' => 'vsifacri',
+                'parametr' => $this->opciones['parametr'],
+            ]
+
+        ];
+
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-
-    public function storeProtector(Request $request){
-        $this->validatorProtector($request->all())->validate();
-        $dato = VsiFacProtector::create($request->all());
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 77);
-        return redirect()->route('VSI.factor', $request->vsi_id)->with('info', 'Registro creado con éxito');
-    }
-
-    public function storeRiesgo(Request $request){
-        $this->validatorRiesgo($request->all())->validate();
-        $dato = VsiFacRiesgo::create($request->all());
-        Vsi::indicador($dato->vsi->sis_nnaj_id, 78);
-        return redirect()->route('VSI.factor', $request->vsi_id)->with('info', 'Registro creado con éxito');
-    }
-
-    public function destroyProtector($id, $id1){
-        $dato = VsiFacProtector::findOrFail($id1);
-        $dato->sis_esta_id = 2;
-        $dato->save();
-        return redirect()->route('VSI.factor', $id)->with('info', 'Registro eliminado con éxito');
-    }
-
-    public function destroyRiesgo($id, $id1){
-        $dato = VsiFacRiesgo::findOrFail($id1);
-        $dato->sis_esta_id = 2;
-        $dato->save();
-        return redirect()->route('VSI.factor', $id)->with('info', 'Registro eliminado con éxito');
-    }
-
-    protected function validatorProtector(array $data){
-        return Validator::make($data, [
-            'vsi_id' => 'required|exists:vsis,id',
-            'protector' => 'required|string|max:120'
-        ]);
-    }
-
-    protected function validatorRiesgo(array $data){
-        return Validator::make($data, [
-            'vsi_id' => 'required|exists:vsis,id',
-            'riesgo' => 'required|string|max:120'
-        ]);
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function factor(Vsi $objetoxx)
+    {
+        $this->opciones['parametr'] = [$objetoxx->id];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$objetoxx->id]],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => 'Sin', 'padrexxx' => $objetoxx]);
     }
 }

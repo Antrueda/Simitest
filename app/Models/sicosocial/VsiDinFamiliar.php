@@ -2,13 +2,24 @@
 
 namespace App\Models\sicosocial;
 
+use App\Helpers\Archivos\Archivos;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class VsiDinFamiliar extends Model{
-	protected $fillable = ['vsi_id', 'prm_familiar_id', 'prm_hogar_id', 'lugar', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
+    protected $fillable = ['vsi_id',
+    'prm_familiar_id',
+    'prm_hogar_id',
+    'lugar',
+    's_doc_adjunto',
+    'descripcion',
+    'user_crea_id',
+    'user_edita_id',
+    'sis_esta_id'];
 
     protected $attributes = ['user_crea_id'=>1,'user_edita_id'=>1];
 
@@ -62,5 +73,27 @@ class VsiDinFamiliar extends Model{
 
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
+    public static function transaccion($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $rutaxxxx = Archivos::getRuta(['requestx'=>$dataxxxx['requestx'],
+            'nombarch'=>'s_doc_adjunto_ar',
+            'rutaxxxx'=>'vsi/dinfamiliar','nomguard'=>'genograma']);
+            if($rutaxxxx!=false){
+               $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
+
+            }
+            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            if ($dataxxxx['modeloxx'] != '') {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['modeloxx'] = VsiDinFamiliar::create($dataxxxx['requestx']->all());
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return $objetoxx;
     }
 }

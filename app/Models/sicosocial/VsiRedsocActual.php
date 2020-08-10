@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class VsiRedsocActual extends Model{
 	protected $fillable = [
         'vsi_id', 'prm_tipo_id', 'nombre', 'servicio', 'telefono', 'direccion', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
     ];
-  
+
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
     public function vsi(){
@@ -28,5 +30,21 @@ class VsiRedsocActual extends Model{
 
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
+    public static function transaccion($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+
+            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            if ($dataxxxx['modeloxx'] != '') {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['modeloxx'] = VsiRedsocActual::create($dataxxxx['requestx']->all());
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return $objetoxx;
     }
 }

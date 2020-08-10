@@ -25,3 +25,5 @@ Route::group(['prefix' => 'redesapoyo'], function () use($routexxx,$controll) {
 	])->name($routexxx.'.ver');
 });
 
+require_once('web_vsi_redactual.php');
+require_once('web_vsi_redpasado.php');

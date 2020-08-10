@@ -34,6 +34,12 @@
 @case('Ver')
 @include('layouts.components.pestanias.ver')
 @break
+@case('Destroy')
+@include('layouts.components.pestanias.destroy')
+@break
+@case('Sin')
+@include('layouts.components.pestanias.sinform')
+@break
 @endswitch
 @endslot
 @endcomponent

@@ -1,7 +1,7 @@
 <?php
 
 $routexxx='vsisocia';
-$controll='Sicosocial\VsiConcepto';
+$controll='Sicosocial\VsiImpresion';
 Route::group(['prefix' => 'concepto'], function () use($routexxx,$controll) {
 
     Route::get('{padrexxx}/nuevo', [

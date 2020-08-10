@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class VsiConsumo extends Model{
     protected $fillable = [
         'vsi_id', 'prm_consumo_id', 'cantidad', 'inicio', 'prm_contexto_ini_id', 'prm_consume_id', 'prm_contexto_man_id', 'prm_problema_id', 'porque', 'prm_motivo_id', 'prm_familia_id', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
     ];
-  
+
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
     public function vsi(){
@@ -49,7 +51,7 @@ class VsiConsumo extends Model{
     public function quienes(){
         return $this->belongsToMany(Parametro::class,'vsi_consumo_quien', 'vsi_consumo_id', 'parametro_id');
     }
-    
+
     public function expectativas(){
         return $this->belongsToMany(Parametro::class,'vsi_consumo_expectativa', 'vsi_consumo_id', 'parametro_id');
     }
@@ -60,5 +62,49 @@ class VsiConsumo extends Model{
 
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
+    public static function transaccion($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            if($dataxxxx['requestx']->prm_consumo_id == 228){
+                $dataxxxx['requestx']->request->add(['cantidad' => null]);
+                $dataxxxx['requestx']->request->add(['inicio' => null]);
+                $dataxxxx['requestx']->request->add(['prm_contexto_ini_id' => null]);
+                $dataxxxx['requestx']->request->add(['prm_consume_id' => null]);
+            }
+            if($dataxxxx['requestx']->prm_consume_id != 227){
+                $dataxxxx['requestx']->request->add(['prm_contexto_man_id' => null]);
+                $dataxxxx['requestx']->request->add(['prm_problema_id' => null]);
+                $dataxxxx['requestx']->request->add(['porque' => null]);
+                $dataxxxx['requestx']->request->add(['prm_motivo_id' => null]);
+                $dataxxxx['requestx']->request->add(['expectativas' => null]);
+            }
+            if($dataxxxx['requestx']->prm_consumo_id == 228){
+                $dataxxxx['requestx']->request->add(['quienes' => null]);
+            }
+
+            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            if ($dataxxxx['modeloxx'] != '') {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['modeloxx'] = VsiConsumo::create($dataxxxx['requestx']->all());
+            }
+            $dataxxxx['modeloxx']->quienes()->detach();
+            if($dataxxxx['requestx']->quienes){
+                foreach ($dataxxxx['requestx']->quienes as $d) {
+                    $dataxxxx['modeloxx']->quienes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
+            }
+            $dataxxxx['modeloxx']->expectativas()->detach();
+            if($dataxxxx['requestx']->expectativas){
+                foreach ($dataxxxx['requestx']->expectativas as $d) {
+                    $dataxxxx['modeloxx']->expectativas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return $objetoxx;
     }
 }

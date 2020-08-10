@@ -201,6 +201,12 @@ return [
          * conectar con oracle
          */
         //Yajra\Oci8\Oci8ServiceProvider::class,
+
+
+        /**
+         * helpers personalizados
+         */
+        App\Providers\VsiDvProvider::class,
     ],
 
     /*
@@ -257,6 +263,12 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Tr'=>App\Helpers\Traductor\Traductor::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+
+        /**
+         * helpers personalizads
+         */
+
+        'VsiDv' => App\Helpers\Vsi\VsiDvHelper::class,
 
     ],
 
