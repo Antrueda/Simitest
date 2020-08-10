@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 class CreateSisDepenSisEslugTable extends Migration
 {
     private $tablaxxx = 'sis_depen_sis_eslug';
-    private $tablaxxx2 = 'h_sis_depen_sis_eslug';
     /**
      * Run the migrations.
      *
@@ -31,18 +30,7 @@ class CreateSisDepenSisEslugTable extends Migration
             $table->unique(['sis_depen_id', 'sis_eslug_id']);
             $table->timestamps();
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
-
-        Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('sis_eslug_id');
-            $table->integer('sis_depen_id');
-            $table->Integer('user_crea_id');
-            $table->integer('user_edita_id');
-            $table->integer('sis_esta_id')->default(1);
-            $table->timestamps();
-        });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**
@@ -52,7 +40,6 @@ class CreateSisDepenSisEslugTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->tablaxxx2);
         Schema::dropIfExists($this->tablaxxx);
     }
 }

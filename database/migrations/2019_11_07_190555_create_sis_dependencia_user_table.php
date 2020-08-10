@@ -32,8 +32,8 @@ class CreateSisDependenciaUserTable extends Migration
             $table->unique(['user_id', 'sis_dependencia_id']);
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
     }
-    DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
     /**
      * Reverse the migrations.

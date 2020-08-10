@@ -22,8 +22,8 @@ class CreatePostsTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
     }
-    DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
     /**
      * Reverse the migrations.

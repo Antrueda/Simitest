@@ -29,7 +29,7 @@ class CreateInRespusTable extends Migration
             $table->foreign('in_doc_pregunta_id')->references('id')->on('in_doc_preguntas');
             $table->unique(['prm_respuesta_id', 'in_doc_pregunta_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**

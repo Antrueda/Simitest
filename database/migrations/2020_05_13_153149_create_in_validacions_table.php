@@ -40,7 +40,7 @@ class CreateInValidacionsTable extends Migration
 
             $table->unique(['in_fuente_id', 'in_pregunta_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**

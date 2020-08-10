@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateHInFuentesTable extends Migration
+class CreateHSisDepenUserTable extends Migration
 {
-    private $tablaxxx = 'h_in_fuentes';
+    private $tablaxxx = 'h_sis_depen_user';
     /**
      * Run the migrations.
      *
@@ -17,13 +17,13 @@ class CreateHInFuentesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('in_linea_base_id')->unsigned();
-            $table->bigInteger('in_indicador_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->bigInteger('user_id');
+            $table->bigInteger('sis_depen_id');
+            $table->bigInteger('i_prm_responsable_id');
+            $table->bigInteger('user_crea_id');
+            $table->bigInteger('user_edita_id');
+            $table->bigInteger('sis_esta_id');
             $table->timestamps();
-            $table->unique(['in_indicador_id', 'in_linea_base_id']);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

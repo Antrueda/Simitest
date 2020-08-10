@@ -22,9 +22,7 @@ class CreateHInBaseFuentesTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-
             $table->timestamps();
-
             $table->unique(['in_fuente_id', 'sis_documento_fuente_id']);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

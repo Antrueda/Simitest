@@ -24,7 +24,7 @@ class CreateSisTablasTable extends Migration
             $table->bigInteger('sis_documento_fuente_id')->unsigned();
             $table->foreign('sis_documento_fuente_id')->references('id')->on('sis_documento_fuentes');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**

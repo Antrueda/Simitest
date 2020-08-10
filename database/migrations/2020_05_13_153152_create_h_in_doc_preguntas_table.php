@@ -25,7 +25,7 @@ class CreateHInDocPreguntasTable extends Migration
             $table->unique(['in_ligru_id', 'sis_tcampo_id']);
             $table->timestamps();
         });
-      //  DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

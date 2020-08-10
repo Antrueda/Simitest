@@ -29,7 +29,7 @@ class CreateAgTallerAgTemaTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
     }
 
     /**

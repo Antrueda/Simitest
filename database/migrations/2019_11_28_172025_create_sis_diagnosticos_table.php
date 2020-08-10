@@ -22,7 +22,7 @@ class CreateSisDiagnosticosTable extends Migration
             $table->text('descripcion', 4000);
             $table->char('sexo');
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");        
     }
 
     /**
