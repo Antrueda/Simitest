@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 class CreateAgResponsablesTable extends Migration
 {
     private $tablaxxx = 'ag_responsables';
-    private $tablaxxx2 = 'h_ag_responsables';
     /**
      * Run the migrations.
      *
@@ -36,18 +35,7 @@ class CreateAgResponsablesTable extends Migration
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
 
-        Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('i_prm_responsable_id');
-            $table->integer('ag_actividad_id');
-            $table->integer('sis_obse_id');
-            $table->integer('user_id');
-            $table->integer('user_crea_id'); 
-            $table->integer('user_edita_id');
-            $table->integer('sis_esta_id');
-            $table->timestamps(); 
-        });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+
     }
 
     /**
@@ -57,7 +45,6 @@ class CreateAgResponsablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->tablaxxx2);
         Schema::dropIfExists($this->tablaxxx);
     }
 }

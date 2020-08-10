@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateHAgResponsablesTable extends Migration
 {
+    private $tablaxxx = 'h_ag_responsables';
     /**
      * Run the migrations.
      *
@@ -13,10 +15,18 @@ class CreateHAgResponsablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('h_ag_responsables', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('i_prm_responsable_id');
+            $table->integer('ag_actividad_id');
+            $table->integer('sis_obse_id');
+            $table->integer('user_id');
+            $table->integer('user_crea_id'); 
+            $table->integer('user_edita_id');
+            $table->integer('sis_esta_id');
+            $table->timestamps(); 
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
@@ -26,6 +36,6 @@ class CreateHAgResponsablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_ag_responsables');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }
