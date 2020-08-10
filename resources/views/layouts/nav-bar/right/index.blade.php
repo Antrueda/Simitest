@@ -17,13 +17,50 @@
                     </form>
                 </div>
             </li>
+    
+    
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                  <i class="far fa-bell" style="font-size:26px"></i>
+                  <span class="badge badge-warning navbar-badge">
+                      @if (count(auth()->user()->unreadNotifications))
+                      <span class="badge badge-warning"  style="font-size:9px">{{count(auth()->user()->unreadNotifications)}}</span>
+                      @endif
+                  </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <div class="dropdown-header">Notificaiones no Leidas</div>
+                    @forelse(auth()->user()->unreadNotifications as $notification)
+                    <a href="{{ route('alertas.ver', $notification->data['post'])}}" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i>{{$notification->data['titulo']}} 
+                        <span class="ml-3 float-right text-muted text-sm">{{$notification->created_at->diffForHumans()}} </span>
+                      </a>
+                      @empty 
+                      <span class="ml-3 pull-right text-muted text-sm">Sin notificaciones por leer</span>
+                    @endforelse
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-header">Notificaiones Leidas</div>
+                    @forelse (auth()->user()->readNotifications as $notification)
+                    <a href="{{ route('alertas.ver', $notification->data['post'])}}" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> {{$notification->data['descripcion']}}
+                        <span class="ml-3 pull-right text-muted text-sm">{{$notification->created_at->diffForHumans()}}</span>
+                      </a>
+                      @empty 
+                      <span class="ml-3 pull-right text-muted text-sm">Sin notificaciones leidas</span>
+                    @endforelse 
+                 
+                  <div class="dropdown-divider"></div>
+                  <a href="{{route('markAsRead')}} " class="dropdown-item dropdown-footer">Marcar todas como leidas</a>
+                </div>
+              </li>
+            </ul>            
         @endguest
   <!-- Messages Dropdown Menu -->
   {{-- @include('layout.nav-bar.right.messages.index') --}}
   <!-- End Messages Dropdown Menu -->
 
   <!-- Notifications Dropdown Menu -->
-  {{-- @include('layout.nav-bar.right.notifications') --}}
+{{-- @include('layout.nav-bar.right.notifications') --}}
   <!-- Notifications Dropdown Menu -->
 
   <!-- Controls -->
@@ -33,4 +70,3 @@
     </a>
   </li> --}}
   <!-- End Controls -->
-</ul>

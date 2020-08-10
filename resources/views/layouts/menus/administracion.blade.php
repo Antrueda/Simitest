@@ -17,7 +17,7 @@
         @endcanany
          @canany(['parametro-leer','dependencia-leer', 'actividadproceso-leer',
             'usuario-leer','rol-leer','permiso-leer','actividad-leer','documentoFuente-leer','proceso-leer',
-            'mapaProceso-leer','entidad-leer','tema-leer','parametro-leer','siscargo-leer'])
+            'mapaProceso-leer','entidad-leer','tema-leer','parametro-leer','siscargo-leer','alertas-leer'])
             @include('layouts.menus.sistema')
         @endcanany
     </ul>

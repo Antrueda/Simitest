@@ -194,7 +194,14 @@
              </a>
          </li>
          @endcan
-
+         @can('alertas-leer')
+         <li class="nav-item">
+             <a href="{{ route('alertas') }}" class="nav-link">
+                 <i class="fas fa-chess-pawn nav-icon"></i>
+                 <p>Mensajes</p>
+             </a>
+         </li>
+         @endcan
          @can('eps-leer')
          <li class="nav-item">
              <a href="{{ route('eps') }}" class="nav-link">
@@ -203,6 +210,7 @@
              </a>
          </li>
          @endcan
+
 
      </ul>
  </li>

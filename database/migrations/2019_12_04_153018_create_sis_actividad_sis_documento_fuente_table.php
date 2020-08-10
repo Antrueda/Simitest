@@ -20,11 +20,7 @@ class CreateSisActividadSisDocumentoFuenteTable extends Migration
             $table->bigInteger('sis_actividad_id')->unsigned();
             $table->bigInteger('sis_documento_fuente_id')->unsigned();
         });
-<<<<<<< HEAD
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES '");
-=======
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
->>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
     }
 
     /**

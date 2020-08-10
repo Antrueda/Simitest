@@ -27,11 +27,7 @@ class CreateInLineaBasesTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->timestamps();
         });
-<<<<<<< HEAD
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS DESCRIPCIONES INICIALES DE UNA PERSONA ENTREVISTADA, ESTABLECIENDO LA LÍNEA DE BASE QUE DEFINE LAS CONDICIONES EN QUE LLEGO UNA PERSONA AL IDIPRON.'");
-=======
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
->>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
     }
 
     /**

@@ -30,11 +30,7 @@ class CreateSisTitulosTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('i_prm_tletra_id')->references('id')->on('parametros');
         });
-<<<<<<< HEAD
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TITULOS USADOS EN LOS FORMULARIOS DEL SISTEMA.'");
-=======
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
->>>>>>> 70ad6171092e1840d78cae2433f2e6814035c86a
     }
 
     /**

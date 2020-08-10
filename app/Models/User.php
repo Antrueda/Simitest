@@ -8,6 +8,7 @@ use App\Models\sistema\SisCargo;
 use App\Models\sistema\SisDepen;
 use App\Models\sistema\SisDepeUsua;
 use App\Models\sistema\SisMunicipio;
+use App\post;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
@@ -91,6 +92,11 @@ class User extends Authenticatable
     public function editor()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(post::class);
     }
 
     public static function cambiarcontasenia($dataxxxx, $objetoxx)

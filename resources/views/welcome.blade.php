@@ -1,5 +1,6 @@
 @extends('layouts.index')
 @section('content')
+
   <div class="jumbotron text-center">
   <h1 class="display-4">SIMI</h1>
   <p class="lead">IDIPRON</p>
@@ -9,6 +10,8 @@
   <img src="{{ asset('img/login_r4_c7_s1.png') }}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
  
 </div>
+@guest
+@else
 <div class="jumbotron text-center">
   <table class="table table-bordered table-striped table-hover table-sm" border="1px solid black" >    
     <thead bgcolor="orange">
@@ -39,4 +42,5 @@
     </tbody>
   </table>
   </div>
+  @endguest
 @endsection

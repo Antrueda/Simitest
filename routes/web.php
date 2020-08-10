@@ -24,6 +24,11 @@ Route::middleware(['auth'])->group(function () {
   Route::resource('post', 'PostController');
 });
 
+Route::get('markAsRead',function(){
+  auth()->user()->unreadNotifications->markAsRead();
+  return redirect()->back();}
+  )->name('markAsRead');
+Route::post('/mark-as-read','AlertaController@markNotification')->name('markNotification');
 
 
 Route::group(['middleware' => ['auth']], function () {

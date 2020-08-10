@@ -45,6 +45,7 @@ class CsdController extends Controller{
         $dataxxxx['prm_tipofuen_id']=2315;
         $dato = Csd::create($dataxxxx);
         $dato->nnajs()->attach($id, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+      
         return redirect()->route('csd.nnaj', $id)->with('info', 'Registro creado con éxito');
     }
 

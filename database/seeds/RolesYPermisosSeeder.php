@@ -405,10 +405,15 @@ class RolesYPermisosSeeder extends Seeder
         //permisos para el cargue excel
         $this->getPermisos(['permisox'=>'excel','permisos'=>['leer','crear','editar','borrar']]);
 
+        //permisos para las alertas
+        $this->getPermisos(['permisox'=>'alertas','permisos'=>['leer','crear','editar','borrar']]);
+
+
         // crear roles y asignar los permisos
         Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(Permission::all());
         Role::create(['name' => 'administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo([
             'rol-leer', 'rol-crear', 'rol-editar', 'rol-borrar',
+            'alertas-leer', 'alertas-crear', 'alertas-editar', 'alertas-borrar',
             'grupliba-leer', 'grupliba-crear', 'grupliba-editar', 'grupliba-borrar',
             'usuario-leer', 'usuario-crear', 'usuario-editar', 'usuario-borrar',
             'siscargo-leer', 'siscargo-crear', 'siscargo-editar', 'siscargo-borrar',
