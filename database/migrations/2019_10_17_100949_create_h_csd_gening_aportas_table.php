@@ -32,7 +32,7 @@ class CreateHCsdGeningAportasTable extends Migration
             $table->timestamps();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -41,7 +41,7 @@ class CreateHCsdGeningAportasTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->unique(['parametro_id', 'csd_geningreso_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
     }
 
     /**
