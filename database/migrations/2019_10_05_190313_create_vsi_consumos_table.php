@@ -50,7 +50,7 @@ class CreateVsiConsumosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DEL CONSUMO DE SUSTANCIAS PSICOACTIVAS DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DEL CONSUMO DE SUSTANCIAS PSICOACTIVAS DE LA PERSONA ENTREVISTADA, SECCIÓN 16 CONSUMO DE SUSTANCIAS PSICOACTIVAS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -61,7 +61,7 @@ class CreateVsiConsumosTable extends Migration
             $table->foreign('vsi_consumo_id')->references('id')->on('vsi_consumos');
             $table->unique(['parametro_id', 'vsi_consumo_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE LAS PERSONAS PERTENECIENTES EN EL NUCLEO FAMILIAR QUE CONSUMEN SUSTANCIAS PSICOACTIVAS DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE LAS PERSONAS PERTENECIENTES EN EL NUCLEO FAMILIAR QUE CONSUMEN SUSTANCIAS PSICOACTIVAS DE LA PERSONA ENTREVISTADA, SECCIÓN 16 CONSUMO DE SUSTANCIAS PSICOACTIVAS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -72,7 +72,7 @@ class CreateVsiConsumosTable extends Migration
             $table->foreign('vsi_consumo_id')->references('id')->on('vsi_consumos');
             $table->unique(['parametro_id', 'vsi_consumo_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE CONTIENE LAS EXPECTATIVAS DEL CONSUMO DE LAS SUSTANCIAS PSICOACTIVAS EXPERIMENTADAS POR LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE CONTIENE LAS EXPECTATIVAS DEL CONSUMO DE LAS SUSTANCIAS PSICOACTIVAS EXPERIMENTADAS POR LA PERSONA ENTREVISTADA, SECCIÓN 16 CONSUMO DE SUSTANCIAS PSICOACTIVAS DE LA FICHA SICOSOCIAL'");
     }
 
     /**

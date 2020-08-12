@@ -32,7 +32,7 @@ class CreateVsiSitEspecialsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA PERSONA VICTIMA DE ESCCNA, SECCIÓN 15 SITUACION ESPECIAL Y ESCNNA DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -43,7 +43,7 @@ class CreateVsiSitEspecialsTable extends Migration
             $table->foreign('vsi_sitespecial_id')->references('id')->on('vsi_sit_especials');
             $table->unique(['parametro_id', 'vsi_sitespecial_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE LISTADO DE LAS OPCIONES DE VICTIMA DE ESCCNA, PREGUNTA 15.1 SECCIÓN 15 SITUACION ESPECIAL Y ESCNNA DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -54,7 +54,7 @@ class CreateVsiSitEspecialsTable extends Migration
             $table->foreign('vsi_sitespecial_id')->references('id')->on('vsi_sit_especials');
             $table->unique(['parametro_id', 'vsi_sitespecial_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE CONTIENE LISTADO DE LAS OPCIONES DE RIESGO DE ESCCNA, PREGUNTA 15.2 SECCIÓN 15 SITUACION ESPECIAL Y ESCNNA DE LA FICHA SICOSOCIAL'");
     }
 
     /**

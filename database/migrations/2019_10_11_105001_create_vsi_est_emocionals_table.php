@@ -82,7 +82,7 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL ESTADO EMOCIONAL EN LA PERSONA ENTREVISTADA, SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -93,7 +93,7 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE SENTIMIENTOS QUE LOGRA EXPRESAR ADECUADAMENTE EN LA PERSONA ENTREVISTADA, PREGUNTA 12.6 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -104,7 +104,7 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SENTIMIENTOS QUE SE LE DIFICULTA EXPRESAR ADECUADAMENTE EN LA PERSONA ENTREVISTADA, PREGUNTA 12.8 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
         
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -115,7 +115,7 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE ACONTECIMIENTOS ESTRESANTES EN LA PERSONA ENTREVISTADA, PREGUNTA 12.10 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -126,7 +126,7 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE PENSAMIENTOS RELACIONADOS CON EL SUICIDIO EN LA PERSONA ENTREVISTADA, PREGUNTA 12.20 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -137,8 +137,7 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'P'");
-
+        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDUCTAS AUTO LESIVAS EN LA PERSONA ENTREVISTADA, PREGUNTA 12.23 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
     }
 
     /**

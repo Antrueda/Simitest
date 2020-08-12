@@ -34,7 +34,7 @@ class CreateCsdJusticiasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS CONSULTAS EN DOMICILIO ASOCIADAS A UNA PERSONA ENTREVISTADA, CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('csd_id')->unsigned();
@@ -47,7 +47,7 @@ class CreateCsdJusticiasTable extends Migration
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->unique(['csd_id', 'sis_nnaj_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL NUMERO CONSECUTIVO DEL DILIGENCIAMIENTO DE UNA CONSULTA SOCIAL EN DOMICILIO Y SERVIRA PARA AGRUPAR A LAS 12 SECCIONES DE ESTE FORMATO, CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -71,7 +71,7 @@ class CreateCsdJusticiasTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA JUSTICIA RESTAURATIVA DE LA PERSONA ENTEVISTADA, SECCION 4 JUSTICIA RESTAURATIVA DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -84,7 +84,7 @@ class CreateCsdJusticiasTable extends Migration
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->unique(['parametro_id', 'csd_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE RELACIONA LA PERSONA ENTREVISTADA CON EL NUMERO CONSECUTIVO DE DILIGENCIAMIENTO DE UNA CONSULTA SOCIAL EN DOMICILIO'");
     }
 
     /**

@@ -32,7 +32,7 @@ class CreateSisDepenUserTable extends Migration
             $table->unique(['user_id', 'sis_depen_id']);
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LOS USUARIOS Y LAS DEPENDENCIAS'");
     }
 
     /**

@@ -36,7 +36,7 @@ class CreateFiBienvenidasTable extends Migration
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table->foreign('i_prm_servicio_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS MOTIVOS POR LOS QUE SE VINCULA UNA PERSONA A LOS SERVICIOS DEL IDIPRON.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS MOTIVOS POR LOS QUE SE VINCULA UNA PERSONA A LOS SERVICIOS DEL IDIPRON, SECCION 15 DE LA FICHA DE INGRESO'");
     }
 
     /**

@@ -39,7 +39,7 @@ class CreateFiRazonesTable extends Migration
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('i_prm_estado_ingreso_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA LAS RAZONES DE INGRESO AL IDIPRON, SECCION 15 BIENVENIDA DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -56,7 +56,7 @@ class CreateFiRazonesTable extends Migration
             $table->foreign('fi_razone_id')->references('id')->on('fi_razones');
             $table->foreign('i_prm_documento_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE REGISTRA LOS DOCUMENTOS ANEXOS ASOCIADOS A LAS RAZONES PARA INGRESAR AL IDIPRON, SECCION 15 BIENVENIDA DE LA FICHA DE INGRESO'");
     }
 
     /**

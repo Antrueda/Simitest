@@ -39,7 +39,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_riesgo_participar_id')->references('id')->on('parametros');
             $table->foreign('i_prm_causa_riesgo_part_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS MOTIVOS PARA ESTAR VINCULADO A LA DELINCUENCIA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -65,7 +65,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_tipo_tiempo_pard_id')->references('id')->on('parametros');
             $table->foreign('i_prm_motivo_pard_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE PARD DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -90,7 +90,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_motivo_srpa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_sancion_srpa_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SRPA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -117,7 +117,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_mod_cumple_pena_id')->references('id')->on('parametros');
             $table->foreign('i_prm_ha_estado_preso_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE SPOA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -141,7 +141,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->foreign('i_prm_vigente_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_tiempo_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE MIEMBROS DE LA FAMILIA QUE TIENEN ESTAN EN PROCESO DE JUSTICIA RESTAURATIVA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
     }
 
     /**

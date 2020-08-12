@@ -32,7 +32,7 @@ class CreateCsdBienvenidaTable extends Migration
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA CONSULTA SOCIAL EN DOMICILIO DE UNA PERSONA ENTREVISTADA, DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -45,7 +45,7 @@ class CreateCsdBienvenidaTable extends Migration
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS MOTIVOS DE LA CONSULTA SOCIAL EN DOMICILIO DE UNA PERSONA ENTREVISTADA, DE CONSULTA SOCIAL EN DOMICILIO'");
     }
 
     /**

@@ -77,7 +77,7 @@ class CreateAiSalidaMenoresTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA DESCRIPCIÓN DE LA SALIA DE UN BENEFICIARIO MENOR DE EDAD DE LOS SERVICIOS DE UNA UPI INDICANDO LOS DATOD BASICOS DE IDENTIFICACIÓN Y DE CONTACTO DEL AFULTO RESPONSABLE'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA DESCRIPCIÓN DE LA SALIDA DEL MENOR DE EDAD DE LOS SERVICIOS DE UNA UPI INDICANDO LOS DATOD BASICOS DE IDENTIFICACIÓN Y DE CONTACTO DEL ADULTO RESPONSABLE, ACCIONES INDIVIDUALES'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -88,7 +88,7 @@ class CreateAiSalidaMenoresTable extends Migration
             $table->foreign('ai_salida_menores_id')->references('id')->on('ai_salida_menores');
             $table->unique(['parametro_id', 'ai_salida_menores_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE OBJETIVOS DE LA SALIDA DEL MENOR DE EDAD, ACCIONES INDIVIDUALES'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -100,7 +100,7 @@ class CreateAiSalidaMenoresTable extends Migration
             $table->foreign('ai_salida_menores_id')->references('id')->on('ai_salida_menores');
             $table->unique(['id', 'prm_id', 'ai_salida_menores_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES DE SALIDA DEL MENOR DE EDAD, ACCIONES INDIVIDUALES'");
     }
 
     public function down()

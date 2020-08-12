@@ -40,7 +40,7 @@ class CreateCsdAlimentacionTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA ALIMENTACION DE LA FAMILIA A LA QUE PERTENECE EL ENTREVISTADO, SECCION 9 ALIMENTACION DE LA FAMILIA DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -53,7 +53,7 @@ class CreateCsdAlimentacionTable extends Migration
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->unique(['parametro_id', 'csd_alimentacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE VECES QUE LA FAMILIA COMPRA ALIMENTOS, PREGUNTA 9.2 SECCION 9 ALIMENTACION DE LA FAMILIA DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -66,7 +66,7 @@ class CreateCsdAlimentacionTable extends Migration
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->unique(['parametro_id', 'csd_alimentacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SITIOS DONDE ES REALIZADA LA COMPRA DE ALIMENTOS, PREGUNTA 9.3 SECCION 9 ALIMENTACION DE LA FAMILIA DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -79,7 +79,7 @@ class CreateCsdAlimentacionTable extends Migration
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->unique(['parametro_id', 'csd_alimentacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE COMIDAS CONSUMIDAS EN EL DIA, PREGUNTA 9.4 SECCION 9 ALIMENTACION DE LA FAMILIA DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -92,7 +92,7 @@ class CreateCsdAlimentacionTable extends Migration
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->unique(['parametro_id', 'csd_alimentacion_id']);
         });
-        // DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE PERSONAS QUE REALIZAN LA PREPARACION DE ALIMENTOS, PREGUNTA 9.6 SECCION 9 ALIMENTACION DE LA FAMILIA DE CONSULTA SOCIAL EN DOMICILIO'");
     }
 
     public function down()

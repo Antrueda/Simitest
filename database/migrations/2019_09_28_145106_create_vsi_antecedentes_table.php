@@ -29,7 +29,7 @@ class CreateVsiAntecedentesTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ANTECEDENTES DE LAS PERSONAS REGISTRADAS EN EL SISTEMA, SECCION 8'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS ANTECEDENTES DE LAS PERSONAS REGISTRADAS EN EL SISTEMA, SECCION 8 ANTECEDENTES DE LA FICHA SICOSOCIAL'");
     }
 
     /**

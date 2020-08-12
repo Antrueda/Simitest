@@ -38,7 +38,7 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS   '");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LOS NNAJ CON LAS DEPENDENCIAS REGISTRADAS EN EL SISTEMA'");
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -49,7 +49,7 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA EMOCIONAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.1 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -60,7 +60,7 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA SEXUAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.2 SECCION AREAS AJUSTES SICOSOCIAL  DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -71,7 +71,7 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA COMPORTAMENTAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.3 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -82,7 +82,7 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA ACADEMICA DE LA PERSONA ENTREVISTADA, PREGUNTA 19.4 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -93,7 +93,7 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA SOCIAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.5 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
@@ -104,7 +104,7 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA FAMILIAR DE LA PERSONA ENTREVISTADA, PREGUNTA 19.6 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
     }
 
     /**

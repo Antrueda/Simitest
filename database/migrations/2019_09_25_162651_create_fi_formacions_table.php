@@ -51,7 +51,7 @@ class CreateFiFormacionsTable extends Migration
             $table->foreign('i_prm_certificado_ultimo_nivel_id')->references('id')->on('parametros');
             $table->foreign('sis_institucion_edu_id')->references('id')->on('sis_institucion_edus');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA EDUCACIÓN ADQUIRIDA POR LA PERSONA ENTREVISTADA, SECCION 4 ESCUELA DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -67,7 +67,7 @@ class CreateFiFormacionsTable extends Migration
             $table->foreign('fi_formacion_id')->references('id')->on('fi_formacions');
             $table->foreign('i_prm_motivo_vinc_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS MOTIVOS PARA VINCULARSE AL IDIPRON POR PARTE DE LA PERSONA ENTREVISTADA, PREGUNTA 4.12 SECCION 4 ESCUELA DE LA FICHA DE INGRESO'");
     }
 
     /**

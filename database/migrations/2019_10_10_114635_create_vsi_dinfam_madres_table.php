@@ -29,14 +29,13 @@ class CreateVsiDinfamMadresTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_convive_id')->references('id')->on('parametros');
             $table->foreign('prm_separa_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-      //  DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA SEPARACIÓN DEL JOVEN VINCULADO AL IDIPRON CON LA PROGENITORA, PERTENECE AL PUNTO 5.2.1 RELACIONES DE LA PROGENITORA DE LA SECCIÓN 5 DINÁMICA FAMILIAR.'");
+      DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA SEPARACIÓN DE LA PERSONA ENTREVISTADA CON LA PROGENITORA, PREGUNTA 5.2.1 SECCION 5 DINÁMICA FAMILIAR DE LA FICHA SICOSOCIAL'");
     }
 
     /**

@@ -37,7 +37,7 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->foreign('i_prm_tipo_id')->references('id')->on('parametros');
             $table->foreign('i_prm_ttiempo_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA SITUACION ESPECIAL DE LA PERSONA ENTREVISTADA, FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -53,7 +53,7 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_situacion_especial_id')->references('id')->on('fi_situacion_especials');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE CONTIENE EL LISTADO DE SITUACIONES QUE VULNERAN A LA PERSONA ENTREVISTADA, FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -69,7 +69,7 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_situacion_especial_id')->references('id')->on('fi_situacion_especials');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE CONTIENE EL LISTADO DE SITUACIONES QUE HACEN VICTIMIZAN A LA PERSONA ENTREVISTADA COMO ESCNNAS, FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -85,7 +85,7 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->foreign('i_prm_riesgo_escnna_id')->references('id')->on('parametros');
             $table->foreign('fi_situacion_especial_id')->references('id')->on('fi_situacion_especials');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE SITUACIONES QUE PONEN EN RIESGO A LA PERSONA ENTREVISTADA DE ESCNNAS, FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -101,7 +101,7 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_situacion_especial_id')->references('id')->on('fi_situacion_especials');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE CONTIENE LAS RAZONES EN QUE ESTA INICIADO EN ALGUNA SITUACION EN ESPECIAL, FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -117,7 +117,7 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_situacion_especial_id')->references('id')->on('fi_situacion_especials');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE CONTIENE LAS RAZONES EN QUE LE DAN CONTINUIDAD EN ALGUNA SITUACION EN ESPECIAL, FICHA DE INGRESO'");
     }
 
     /**

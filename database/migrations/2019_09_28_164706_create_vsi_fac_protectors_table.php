@@ -29,7 +29,7 @@ class CreateVsiFacProtectorsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS FACTORES PROTECTORES DE UN NNAJ, PERTENECE A LA SECCIÓN 17 DE LA FICHA SICOSOCIAL.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE FACTORES PROTECTORES DE UNA PERSONA ENTREVISTADA, PREGUNTA 17.1 POTENCIALIDAD SECCIÓN 17 FACTORES DE LA FICHA SICOSOCIAL'");
     }
 
     /**
