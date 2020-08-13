@@ -37,7 +37,7 @@ class CreateInAccionGestionsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE LOS NNAJ, ACTIVIDADES, TIEMPO, SOPORTES DOCUMENTALES QUE SERVIRA DE EVIDENCIA SOBRE LAS ACTUALCIONES REALIZADAS EN LOS NNAJ'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -55,7 +55,7 @@ class CreateInAccionGestionsTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->unique(['in_accion_gestion_id', 'sis_fsoporte_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS SOPORTES DOCUMENTALES DE LA TABLA in_accion_gestions'");
     }
 
     /**

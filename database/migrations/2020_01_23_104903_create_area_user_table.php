@@ -30,7 +30,7 @@ class CreateAreaUserTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE AREAS Y USUARIOS DEL SISTEMA'");
     }
 
     /**

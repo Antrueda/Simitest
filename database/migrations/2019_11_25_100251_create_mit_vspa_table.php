@@ -86,7 +86,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES SOBRE EL CONSUMO DE ESTUPERFACCIONES, MITIGACION'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -216,7 +216,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA SEGUIMIENTO DEL SONCUMO DE DROGAS, MITIGACION'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -249,7 +249,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE RELACIONA LOS DETALLES DEL CONSUMO DE ESTUPERFACIENTES CON LOS SEGUIMIENTOS, MITIGACION'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -267,7 +267,6 @@ class CreateMitVspaTable extends Migration
             $table->bigInteger('prm_cinco_once_id')->unsigned()->nullable();
             $table->bigInteger('prm_cinco_doce_id')->unsigned()->nullable();
             $table->timestamps();
-
             $table->foreign('prm_cinco_uno_id')->references('id')->on('parametros');
             $table->foreign('prm_cinco_dos_id')->references('id')->on('parametros');
             $table->foreign('prm_cinco_tres_id')->references('id')->on('parametros');
@@ -283,7 +282,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE RELACIONA LOS DETALLES DEL CONSUMO DE ESTUPERFACIENTES CON LOS SEGUIMIENTOS, MITIGACION'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -305,7 +304,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'P'");        
+        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE RELACIONA LOS DETALLES DEL CONSUMO DE ESTUPERFACIENTES CON LOS SEGUIMIENTOS, MITIGACION'");
     }
 
     /**

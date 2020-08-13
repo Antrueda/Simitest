@@ -22,13 +22,12 @@ class CreateInLigrusTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned();
             $table->timestamps();
-
             $table->foreign('in_base_fuente_id')->references('id')->on('in_base_fuentes');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE UNA PERSONA BENEFICIARIA DEL IDIRPON CON EL ESTADO ACTIVO O INACTIVO'");
     }
 
     /**

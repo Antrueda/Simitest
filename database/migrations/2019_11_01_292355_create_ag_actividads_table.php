@@ -56,7 +56,7 @@ class CreateAgActividadsTable extends Migration
             $table->foreign('i_prm_dirig_id')->references('id')->on('parametros');
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'P'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE RELACIONA LOS DETALLES DE LAS ACTIVIDADES REALIZADAS CON DEPENDENCIA, TEMA, LUGAR, TALER Y OBJETIVO  PERTECECIENTES A LAS ACTIVIDADES GRUPALES'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');

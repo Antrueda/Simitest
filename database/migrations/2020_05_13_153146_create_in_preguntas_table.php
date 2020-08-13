@@ -27,7 +27,7 @@ class CreateInPreguntasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA REDAQCCION DE LAS PREGUNTAS EXISTENTES EN LOS FORMATOS DE IDENTIFICACION Y CARACTERIZACION DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON'");
     }
 
     /**

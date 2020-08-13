@@ -31,7 +31,7 @@ class CreateInDocPreguntasTable extends Migration
             $table->unique(['in_ligru_id', 'sis_tcampo_id']);
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS PREGUNTAS DE CADA CAMPO EXISTENTE EN LOS FORMATOS DE IDENTIFICACION Y CARACTERIZACION DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON'");
     }
 
     /**

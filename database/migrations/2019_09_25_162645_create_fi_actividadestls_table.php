@@ -72,7 +72,7 @@ class CreateFiActividadestlsTable extends Migration
             $table->foreign('fi_actividadestl_id')->references('id')->on('fi_actividadestls');
             $table->foreign('i_prm_sacramentos_hechos_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS SACRAMENTOS REALIZADOS POR LA PERSONA ENTREVISTADA, PREGUNTA 8.8 SECCION 8 DE LA FICHA DE INGRESO'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS SACRAMENTOS REALIZADOS POR LA PERSONA ENTREVISTADA, PREGUNTA 8.8 SECCION 8 DE LA FICHA DE INGRESO'");
     }
 
     /**
