@@ -161,7 +161,7 @@ class VsiController extends Controller
      */
     public function create(FiDatosBasico $padrexxx)
     {
-
+        $this->opciones['parametr'] = [$padrexxx->sis_nnaj_id];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -179,7 +179,7 @@ class VsiController extends Controller
     public function store(VsiCrearRequest $request,$padrexxx)
     {
         $dataxxxx=$request->all();
-        $dataxxxx['sis_nnaj_id']=FiDatosBasico::find($padrexxx)->sis_nnaj_id;
+        $dataxxxx['sis_nnaj_id']=$padrexxx;
         return $this->grabar([
             'dataxxxx' => $dataxxxx,
             'modeloxx' => '',
