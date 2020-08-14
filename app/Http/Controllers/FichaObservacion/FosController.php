@@ -5,7 +5,7 @@ namespace App\Http\Controllers\FichaObservacion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Models\sistema\SisNnaj;
+use App\Models\Sistema\SisNnaj;
 
 class FosController extends Controller
 {

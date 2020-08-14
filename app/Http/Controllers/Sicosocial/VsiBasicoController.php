@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiBasicoEditarRequest;
 use App\Http\Requests\Vsi\VsiEditarRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use Carbon\Carbon;

@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Administracion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SisDepenCrearRequest;
 use App\Http\Requests\SisDepenEditarRequest;
-use App\Models\sistema\SisBarrio;
-use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisDepen;
+use App\Models\Sistema\SisBarrio;
+use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEsta;
-use App\Models\sistema\SisLocalidad;
-use App\Models\sistema\SisMunicipio;
-use App\Models\sistema\SisUpz;
+use App\Models\Sistema\SisLocalidad;
+use App\Models\Sistema\SisMunicipio;
+use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 
 class DependenciaController extends Controller

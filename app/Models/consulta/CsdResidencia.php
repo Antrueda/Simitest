@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
-use App\Models\sistema\SisUpz;
-use App\Models\sistema\SisBarrio;
-use App\Models\sistema\SisLocalidad;
-use App\Models\sistema\SisUpzbarri;
+use App\Models\Sistema\SisUpz;
+use App\Models\Sistema\SisBarrio;
+use App\Models\Sistema\SisLocalidad;
+use App\Models\Sistema\SisUpzbarri;
 
 class CsdResidencia extends Model{
 

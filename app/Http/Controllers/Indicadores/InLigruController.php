@@ -7,7 +7,7 @@ use App\Http\Requests\Indicadores\InLigruCrearRequest;
 use App\Http\Requests\Indicadores\InLigruEditarRequest;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InLigru;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Pestanias;
 
 class InLigruController extends Controller

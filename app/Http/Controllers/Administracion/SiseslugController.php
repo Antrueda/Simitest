@@ -6,7 +6,7 @@ use App\Helpers\Traductor\Traductor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Sistema\SisEslugCrearRequest;
 use App\Http\Requests\Sistema\SisEslugEditarRequest;
-use App\Models\sistema\SisEslug;
+use App\Models\Sistema\SisEslug;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

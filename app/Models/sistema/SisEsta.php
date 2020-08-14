@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\sistema;
+namespace App\Models\Sistema;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -21,13 +21,13 @@ class SisEsta extends Model
     public static function combo($dataxxxx)
     {
         if($dataxxxx['cabecera']){
-            if($dataxxxx['esajaxxx']){  
+            if($dataxxxx['esajaxxx']){
                 $comboxxx[] = ['valuexxx'=>'','optionxx'=>'Seleccione'];
             }else{
                 $comboxxx = [''=>'Seleccione'];
             }
-            
-        }   
+
+        }
         $entidadx=SisEsta::get();
         foreach ($entidadx as $entisalu) {
             if($dataxxxx['esajaxxx']){

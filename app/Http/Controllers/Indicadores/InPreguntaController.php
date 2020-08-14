@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Indicadores\InPreguntaCrearRequest;
 use App\Http\Requests\Indicadores\InPreguntaEditarRequest;
 use App\Models\Indicadores\InPregunta;
-use App\Models\sistema\SisTabla;
+use App\Models\Sistema\SisTabla;
 
 class InPreguntaController extends Controller
 {

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Parametro;
-use App\Models\sistema\SisBarrio;
+use App\Models\Sistema\SisBarrio;
 use App\Models\User;
 
 class FiResidencia extends Model

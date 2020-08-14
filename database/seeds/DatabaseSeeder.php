@@ -90,7 +90,7 @@ class DatabaseSeeder extends Seeder
         // -- Modulo SICO SOCIAL, Javier
         $this->call(VsisSeeder::class); // ok  //1
         $this->call(VsiBienvenidaSeeder::class);        // ok // 2
-       // $this->call(VsiBienvenidaMotivoSeeder::class);  // ok // 3
+        // $this->call(VsiBienvenidaMotivoSeeder::class);  // ok // 3
         $this->call(VsiAntecedenteSeeder::class);  // ok //6
         $this->call(VsiDatosVinculaSeeder::class);  //13 ok
         $this->call(VsiDinFamiliarSeeder::class);  //14 ok
@@ -129,7 +129,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiGenIngresoSeeder::class);
         $this->call(VsiGeningDiaSeeder::class);  //38
         $this->call(VsiGeningLaborSeeder::class);  //39
-       // $this->call(VsiGeningQuienSeeder::class);  //40
+        // $this->call(VsiGeningQuienSeeder::class);  //40
         $this->call(VsiSitespRiesgoSeeder::class);  //62
         $this->call(VsiSitespVictimaSeeder::class);  //63
 
@@ -140,7 +140,7 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(VsiAbuSexualSeeder::class);  //4  falta
- $this->call(VsiConceptoSeeder::class);  //8 falta
+        $this->call(VsiConceptoSeeder::class);  //8 falta
         $this->call(VsiConcepRedSeeder::class);  //7 falta
         $this->call(VsiConsentimientoSeeder::class);  //9 falta
         $this->call(VsiConsumoSeeder::class);  //10 falta
@@ -178,5 +178,6 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(VsiSaludSeeder::class);
+        $this->call(SisMenusSeeder::class);
     }
 }

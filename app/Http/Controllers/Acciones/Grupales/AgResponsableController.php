@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\AgResponsableCrearRequest;
 use App\Http\Requests\Acciones\Grupales\AgResponsableEditarRequest;
 use App\Models\Acciones\Grupales\AgResponsable;
-use App\Models\sistema\SisObse;
+use App\Models\Sistema\SisObse;
 use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;

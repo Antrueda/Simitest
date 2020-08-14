@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
-use App\Models\sistema\SisMunicipio;
-use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisPai;
+use App\Models\Sistema\SisMunicipio;
+use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisPai;
 
 class CsdDatosBasico extends Model{
     protected $fillable = [

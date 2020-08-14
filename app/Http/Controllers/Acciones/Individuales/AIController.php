@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Acciones\Individuales;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\sistema\SisNnaj;
+use App\Models\Sistema\SisNnaj;
 
 class AIController extends Controller{
 

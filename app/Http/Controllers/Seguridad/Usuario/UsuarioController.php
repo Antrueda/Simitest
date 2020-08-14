@@ -6,11 +6,11 @@ use App\Helpers\Indicadores\IndicadorHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Seguridad\UsuarioIdipronCrearRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronEditarRequest;
-use App\Models\sistema\SisCargo;
-use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisDepen;
+use App\Models\Sistema\SisCargo;
+use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEsta;
-use App\Models\sistema\SisMunicipio;
+use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -38,6 +38,7 @@ class UsuarioController extends Controller
             'fechedit' => '',
             'usercrea' => '',
             'useredit' => '',
+
             'usuariox' =>[] // usuario para que se esta revisando la informacion
         ];
 
@@ -125,7 +126,7 @@ class UsuarioController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
-        $this->opciones['conperfi'] = ''; // indica si la vista va a tener perfil
+
         $this->opciones['sis_esta_id'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['sis_cargo_id'] = SisCargo::combo();
         $this->opciones['prm_documento_id'] = Tema::combo(3, true, false);
@@ -138,6 +139,7 @@ class UsuarioController extends Controller
         $this->opciones['sis_municipio_id'] = ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['conperfi'] = ''; // indica si la vista va a tener perfil
             $this->opciones['usuariox'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $dataxxxx['modeloxx']->dtiestan = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- {$dataxxxx['modeloxx']->itiestan} days"));

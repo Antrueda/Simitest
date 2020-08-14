@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisTcampo;
+use App\Models\Sistema\SisTcampo;
 use Illuminate\Database\Seeder;
 
 class SisTcamposSeeder extends Seeder

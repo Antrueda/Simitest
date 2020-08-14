@@ -9,8 +9,8 @@ use App\Http\Requests\Indicadores\InBaseFuenteEditarRequest;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InIndicador;
-use App\Models\sistema\SisDocumentoFuente;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisDocumentoFuente;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Pestanias;
 
 class InBaseFuenteController extends Controller

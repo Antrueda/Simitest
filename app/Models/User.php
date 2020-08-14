@@ -4,10 +4,10 @@ namespace App\Models;
 
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Indicadores\Area;
-use App\Models\sistema\SisCargo;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisDepeUsua;
-use App\Models\sistema\SisMunicipio;
+use App\Models\Sistema\SisCargo;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDepeUsua;
+use App\Models\Sistema\SisMunicipio;
 use App\post;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

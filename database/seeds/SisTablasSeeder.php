@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisTabla;
+use App\Models\Sistema\SisTabla;
 use Illuminate\Database\Seeder;
 
 class SisTablasSeeder extends Seeder

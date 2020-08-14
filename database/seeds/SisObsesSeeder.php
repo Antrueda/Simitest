@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisObse;
+use App\Models\Sistema\SisObse;
 use Illuminate\Database\Seeder;
 
 class SisObsesSeeder extends Seeder

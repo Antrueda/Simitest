@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisCargo;
+use App\Models\Sistema\SisCargo;
 use Illuminate\Database\Seeder;
 
 class SisCargosSeeder extends Seeder

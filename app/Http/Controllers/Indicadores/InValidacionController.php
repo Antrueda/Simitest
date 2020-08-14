@@ -9,8 +9,8 @@ use App\Models\Indicadores\Area;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InValidacion;
-use App\Models\sistema\SisDocumentoFuente;
-use App\Models\sistema\SisTabla;
+use App\Models\Sistema\SisDocumentoFuente;
+use App\Models\Sistema\SisTabla;
 use App\Models\Tema;
 use Illuminate\Http\Request;
 

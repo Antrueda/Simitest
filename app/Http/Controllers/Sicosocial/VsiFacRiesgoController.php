@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Sicosocial;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiFacRiesgoCrearRequest;
 use App\Http\Requests\Vsi\VsiFacRiesgoEditarRequest;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Models\sicosocial\VsiFacRiesgo;
 use App\Traits\Vsi\VsiTrait;
 use Illuminate\Http\Request;

@@ -11,8 +11,8 @@ use App\Models\Salud\Mitigacion\VspaTabla;
 use App\Models\Salud\Mitigacion\VspaTablaDos;
 use App\Models\Salud\Mitigacion\VspaTablaTres;
 use App\Models\Salud\Mitigacion\VspaTablaCuatro;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisNnaj;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 

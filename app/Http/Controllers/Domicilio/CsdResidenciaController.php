@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
 use App\Models\sicosocial\Vsi;
-use App\Models\sistema\SisBarrio;
+use App\Models\Sistema\SisBarrio;
 use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
-use App\Models\sistema\SisLocalidad;
-use App\Models\sistema\SisUpz;
+use App\Models\Sistema\SisLocalidad;
+use App\Models\Sistema\SisUpz;
 
 class CsdResidenciaController extends Controller
 {

@@ -3,8 +3,8 @@
 namespace App\Helpers\Dependencias;
 
 use App\Helpers\DatatableHelper;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisServicio;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisServicio;
 use App\Models\User;
 
 class DependenciaApi

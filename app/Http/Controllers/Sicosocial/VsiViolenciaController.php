@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiViolenciaCrearRequest;
 use App\Http\Requests\Vsi\VsiViolenciaEditarRequest;
 use App\Models\sicosocial\VsiViolencia;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
@@ -71,7 +71,6 @@ class VsiViolenciaController extends Controller
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**

@@ -7,7 +7,7 @@ use App\Http\Requests\FichaIngreso\FiSaludCrearRequest;
 use App\Http\Requests\FichaIngreso\FiSaludUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiSalud;
-use App\Models\sistema\SisEntidadSalud;
+use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Tema;
 
 class FiSaludController extends Controller

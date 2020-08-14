@@ -5,7 +5,7 @@ namespace App\Http\Controllers\FichaIngreso;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiBienvenidaCrearRequest;
 use App\Http\Requests\FichaIngreso\FiBienvenidaUpdateRequest;
-use App\Models\sistema\SisDepen;
+use App\Models\Sistema\SisDepen;
 use App\Models\fichaIngreso\FiBienvenida;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Tema;

@@ -15,18 +15,18 @@
 <h3>Lista de permisos</h3>
 <div class="row">
 
-  
+
     @foreach($apermiso as $permission)
     <div class="col-md-3">
-  
+
       <label>
         {{ Form::checkbox('permissions[]',$permission->id,null) }}
-        {{ $permission->name }}
+        {{ $permission->descripcion }}
       </label>
-    
+
     </div>
     @endforeach
-  
+
 
 </div>
 @include('layouts.components.botones.index')

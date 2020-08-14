@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Indicadores\AreaCrearRequest;
 use App\Http\Requests\Indicadores\AreaEditarRequest;
 use App\Models\Indicadores\Area;
-use App\Models\sistema\SisEsta;
-use App\Models\sistema\SisTcampo;
+use App\Models\Sistema\SisEsta;
+use App\Models\Sistema\SisTcampo;
 use App\Traits\Pestanias;
 
 class AreaController extends Controller

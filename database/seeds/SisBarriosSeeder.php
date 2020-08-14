@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisBarrio;
+use App\Models\Sistema\SisBarrio;
 use Illuminate\Database\Seeder;
 
 class SisBarriosSeeder extends Seeder

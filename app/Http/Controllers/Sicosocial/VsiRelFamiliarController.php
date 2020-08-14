@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiRelFamiliarCrearRequest;
 use App\Http\Requests\Vsi\VsiRelFamiliarEditarRequest;
 use App\Models\sicosocial\VsiRelFamiliar;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;

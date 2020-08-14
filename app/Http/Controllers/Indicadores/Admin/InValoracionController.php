@@ -7,7 +7,7 @@ use App\Http\Requests\Indicadores\InValoracionCrearRequest;
 use App\Http\Requests\Indicadores\InValoracionEditarRequest;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Indicadores\InValoracion;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\Pestanias;
 use App\Traits\Valoraciones\ValoracionTrait;

@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\sistema\SisEntidad;
-use App\Models\sistema\SisServicio;
+use App\Models\Sistema\SisEntidad;
+use App\Models\Sistema\SisServicio;
 use Illuminate\Database\Seeder;
 
 class SisEntidadsSeeder extends Seeder

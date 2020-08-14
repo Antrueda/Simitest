@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
-use App\Models\sistema\SisMunicipio;
-use App\Models\sistema\SisDepartamento;
+use App\Models\Sistema\SisMunicipio;
+use App\Models\Sistema\SisDepartamento;
 
 class CsdViolencia extends Model{
 

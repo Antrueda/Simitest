@@ -2,7 +2,7 @@
 
 namespace App\Models\Indicadores;
 
-use App\Models\sistema\SisCampoTabla;
+use App\Models\Sistema\SisCampoTabla;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

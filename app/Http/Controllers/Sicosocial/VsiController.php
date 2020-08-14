@@ -6,14 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiCrearRequest;
 use App\Http\Requests\Vsi\VsiEditarRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 
 
 use App\Traits\Vsi\VsiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\sicosocial\Vsi;
-use App\Models\sistema\SisDepen;
+use App\Models\Sistema\SisDepen;
 
 class VsiController extends Controller
 {

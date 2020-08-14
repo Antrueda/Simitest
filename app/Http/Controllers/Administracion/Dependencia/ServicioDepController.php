@@ -5,10 +5,10 @@ namespace app\Http\Controllers\Administracion\Dependencia;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SisDepeServCrearRequest;
 use App\Http\Requests\SisDepeServEditarRequest;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisDepeServ;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDepeServ;
 use App\Models\Sistema\SisEsta;
-use App\Models\sistema\SisServicio;
+use App\Models\Sistema\SisServicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

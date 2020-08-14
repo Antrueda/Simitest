@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\sistema;
+namespace App\Models\Sistema;
 
 use App\Models\Indicadores\Area;
 use App\Models\User;

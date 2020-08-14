@@ -3,6 +3,16 @@
 $(document).ready(function() {
 
   table =  $('#{{ $tableName }}').DataTable({
+    columnDefs: [ {
+            orderable: false,
+            className: 'select-checkbox',
+            targets:   0,
+
+        } ],
+        select: {
+            style:    'multi',
+            selector: 'td:first-child'
+        },
       "serverSide": true,
       "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],
     	"ajax": {

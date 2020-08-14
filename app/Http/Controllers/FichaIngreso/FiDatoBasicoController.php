@@ -6,12 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\sistema\SisBarrio;
-use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisLocalidad;
-use App\Models\sistema\SisMunicipio;
-use App\Models\sistema\SisPai;
-use App\Models\sistema\SisUpz;
+use App\Models\Sistema\SisBarrio;
+use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisLocalidad;
+use App\Models\Sistema\SisMunicipio;
+use App\Models\Sistema\SisPai;
+use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use Carbon\Carbon;
 

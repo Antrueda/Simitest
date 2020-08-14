@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartamento;
 use Illuminate\Database\Seeder;
 
 class SisDepartamentoSeeder extends Seeder

@@ -4,8 +4,8 @@ namespace App\Models\Acciones\Individuales;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDepen;
+use App\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisDepen;
 use App\Models\Parametro;
 
 class AiRetornoSalida extends Model{

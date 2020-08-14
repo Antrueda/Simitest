@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Indicadores;
 use App\Helpers\Indicadores\IndicadorHelper;
 use App\Http\Controllers\Controller;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\sistema\SisTabla;
+use App\Models\Sistema\SisTabla;
 use Illuminate\Http\Request;
 
 class InIndividualController extends Controller

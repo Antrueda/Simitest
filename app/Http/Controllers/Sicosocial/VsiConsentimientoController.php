@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiConsentimientoCrearRequest;
 use App\Http\Requests\Vsi\VsiConsentimientoEditarRequest;
 
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;

@@ -3,7 +3,7 @@
 namespace App\Helpers\Usuarios;
 
 use App\Helpers\DatatableHelper;
-use App\Models\sistema\SisDepeUsua;
+use App\Models\Sistema\SisDepeUsua;
 use App\Models\User;
 use App\Models\Usuario\RolUsuario;
 use App\Models\Usuario\SisAreaUsua;

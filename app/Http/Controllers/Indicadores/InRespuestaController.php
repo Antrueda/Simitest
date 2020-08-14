@@ -7,7 +7,7 @@ use App\Http\Requests\Indicadores\InRespuestaCrearRequest;
 use App\Http\Requests\Indicadores\InRespuestaEditarRequest;
 use App\Models\Indicadores\InDocPregunta;
 use App\Models\Indicadores\InRespu;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\Pestanias;
 

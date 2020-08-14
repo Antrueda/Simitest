@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiConsumoCrearRequest;
 use App\Http\Requests\Vsi\VsiConsumoEditarRequest;
 use App\Models\sicosocial\VsiConsumo;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;

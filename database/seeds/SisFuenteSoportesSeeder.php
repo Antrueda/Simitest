@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 
 
-use App\Models\sistema\SisFsoporte;
+use App\Models\Sistema\SisFsoporte;
 
 class SisFuenteSoportesSeeder extends Seeder{
     /**

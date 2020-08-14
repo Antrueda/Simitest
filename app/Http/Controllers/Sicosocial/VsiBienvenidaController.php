@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiBienvenidaCrearRequest;
 use App\Http\Requests\Vsi\VsiBienvenidaEditarRequest;
 use App\Models\sicosocial\VsiBienvenida;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;

@@ -7,7 +7,7 @@ use App\Http\Requests\Intervencion\IsDatosBasicoCrearRequest;
 use App\Http\Requests\Intervencion\IsDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\intervencion\IsDatosBasico;
-use App\Models\sistema\SisDepen;
+use App\Models\Sistema\SisDepen;
 use App\Models\User;
 use App\Models\Tema;
 use Illuminate\Http\Request;

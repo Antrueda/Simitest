@@ -8,7 +8,7 @@ use App\Http\Requests\FichaIngreso\FiRedApoyoAntecedenteCrearRequest;
 use App\Http\Requests\FichaIngreso\FiRedApoyoAntecedenteUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
-use App\Models\sistema\SisEntidad;
+use App\Models\Sistema\SisEntidad;
 use App\Models\Tema;
 
 class FiRedApoyoAntecedenteController extends Controller

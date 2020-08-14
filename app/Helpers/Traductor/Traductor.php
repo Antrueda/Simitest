@@ -2,7 +2,7 @@
 //app/Helpers/Envato/User.php
 namespace App\Helpers\Traductor;
 
-use App\Models\sistema\SisTitulo;
+use App\Models\Sistema\SisTitulo;
 use Illuminate\Support\Facades\DB;
  
 class Traductor {

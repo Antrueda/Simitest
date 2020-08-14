@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisProceso;
+use App\Models\Sistema\SisProceso;
 use Illuminate\Database\Seeder;
 
 class SisProcesosSeeder extends Seeder

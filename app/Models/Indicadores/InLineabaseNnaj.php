@@ -2,7 +2,7 @@
 
 namespace App\Models\Indicadores;
 
-use App\Models\sistema\SisNnaj;
+use App\Models\Sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

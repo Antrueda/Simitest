@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisInstitucionEdu;
+use App\Models\Sistema\SisInstitucionEdu;
 use Illuminate\Database\Seeder;
 
 class SisInstitucionEdusSeeder extends Seeder

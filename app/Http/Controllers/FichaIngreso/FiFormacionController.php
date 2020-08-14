@@ -7,7 +7,7 @@ use App\Http\Requests\FichaIngreso\FiFormacionCrearRequest;
 use App\Http\Requests\FichaIngreso\FiFormacionUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiFormacion;
-use App\Models\sistema\SisInstitucionEdu;
+use App\Models\Sistema\SisInstitucionEdu;
 use App\Models\Tema;
 
 class FiFormacionController extends Controller

@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Administracion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Models\sistema\SisMapaProc;
-use App\Models\sistema\SisEntidad;
+use App\Models\Sistema\SisMapaProc;
+use App\Models\Sistema\SisEntidad;
 use Illuminate\Support\Facades\Validator;
 
 class MapaProcesoController extends Controller{

@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\AgConvenioCrearRequest;
 use App\Http\Requests\Acciones\Grupales\AgConvenioEditarRequest;
 use App\Models\Acciones\Grupales\AgConvenio;
-use App\Models\sistema\SisEntidad;
+use App\Models\Sistema\SisEntidad;
 use App\Models\Tema;
 use Illuminate\Http\Request;
 

@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SisCargoCrearRequest;
 use App\Http\Requests\SisCargoEditarRequest;
-use App\Models\sistema\SisCargo;
-use App\Models\sistema\SisTabla;
+use App\Models\Sistema\SisCargo;
+use App\Models\Sistema\SisTabla;
 
 class SisCargoController extends Controller
 {

@@ -8,9 +8,9 @@ use App\Http\Requests\Indicadores\InDocIndicadorEditarRequest;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InDocIndi;
 use App\Models\Indicadores\InLigru;
-use App\Models\sistema\SisCampoTabla;
-use App\Models\sistema\SisDocumentoFuente;
-use App\Models\sistema\SisTabla;
+use App\Models\Sistema\SisCampoTabla;
+use App\Models\Sistema\SisDocumentoFuente;
+use App\Models\Sistema\SisTabla;
 use Illuminate\Http\Request;
 
 class InDocIndicadorController extends Controller

@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\Acciones\Individuales\AiSalidaMayores;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisNnaj;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 

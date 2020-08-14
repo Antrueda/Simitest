@@ -55,7 +55,6 @@ trait ManageTimeTrait
         $itieusua = $dataxxxx['usuariox']->itiestan + $dataxxxx['usuariox']->itiegabe;
         $itiecarg = $dataxxxx['usuariox']->sis_cargo->itiestan + $dataxxxx['usuariox']->sis_cargo->itiegabe;
         $dataxxxx=($itieusua > $itiecarg) ? $this->getPersonal($dataxxxx) : $this->getCargo($dataxxxx);
-
         return $dataxxxx;
     }
 

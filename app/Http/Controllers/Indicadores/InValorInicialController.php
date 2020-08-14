@@ -8,7 +8,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Parametro;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use App\Traits\Pestanias;
 use Illuminate\Http\Request;

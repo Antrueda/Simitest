@@ -40,6 +40,7 @@
 <script src="{{ asset('adminlte/plugins/toastr/toastr.min.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('js/dataTables.select.min.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/mask/jquery.mask.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js') }}"></script>
 <script src="{{ asset('adminlte/plugins/select2/js/i18n/es.js') }}"></script>

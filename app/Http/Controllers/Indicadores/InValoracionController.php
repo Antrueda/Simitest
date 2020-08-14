@@ -9,8 +9,8 @@ use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Indicadores\InValoracion;
 use App\Models\Parametro;
-use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisTabla;
+use App\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisTabla;
 use App\Models\Tema;
 use Illuminate\Http\Request;
 

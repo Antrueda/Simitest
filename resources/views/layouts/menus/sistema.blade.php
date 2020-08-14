@@ -112,9 +112,9 @@
              </a>
          </li>
          @endcan
-         @can('rol-leer')
+         @can('rolesxxx-leer')
          <li class="nav-item">
-             <a href="{{ route('rol')}}" class="nav-link">
+             <a href="{{ route('rolesxxx')}}" class="nav-link">
                  <i class="fas fa-user-lock nav-icon"></i>
                  <p>Roles</p>
              </a>

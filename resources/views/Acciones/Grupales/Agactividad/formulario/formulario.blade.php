@@ -3,15 +3,15 @@
         {{ Form::label('d_registro',Tr::getTitulo(1,1), ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('d_registro', null, ['class' => 'form-control form-control-sm ','style'=>'height:38px'],'readonly') }}
     </div>
-    <div class="form-group col-md-4" style="height: ">
+    <div class="form-group col-md-4" >
         {{ Form::label('area_id', Tr::getTitulo(2,1), ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('area_id', $todoxxxx["areaxxxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
-    <div class="form-group col-md-4" style="height: ">
+    <div class="form-group col-md-4" >
         {{ Form::label('sis_deporigen_id', Tr::getTitulo(3,1), ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('sis_deporigen_id', $todoxxxx["dependen"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
-    <div class="form-group col-md-4" style="height: ">
+    <div class="form-group col-md-4" >
         {{ Form::label('ag_tema_id', Tr::getTitulo(4,1), ['class' => 'control-label col-form-label-sm']) }}
         <a href="#" propiedad="ag_tema_id" class="mouseover" title=""><i class="far fa-question-circle"></i></a>
         {{ Form::select('ag_tema_id', $todoxxxx["agtemaxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
@@ -21,29 +21,29 @@
         <a href="#" propiedad="ag_taller_id" class="mouseover" title=""><i class="far fa-question-circle"></i></a>
         {{ Form::select('ag_taller_id', $todoxxxx["tallerxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
-    <div class="form-group col-md-4" style="height: ">
+    <div class="form-group col-md-4" >
         {{ Form::label('ag_sttema_id', Tr::getTitulo(6,1), ['class' => 'control-label col-form-label-sm']) }}
         <a href="#" propiedad="ag_sttema_id" class="mouseover" title=""><i class="far fa-question-circle"></i></a>
         {{ Form::select('ag_sttema_id', $todoxxxx["subtemax"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
 
-    <div class="form-group col-md-4" style="height: ">
+    <div class="form-group col-md-4" >
         {{ Form::label('sis_depdestino_id', Tr::getTitulo(8,1), ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('sis_depdestino_id', $todoxxxx["upidepen"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
-    <div class="form-group col-md-4" style="height: ">
+    <div class="form-group col-md-4" >
         {{ Form::label('i_prm_lugar_id', Tr::getTitulo(9,1), ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_lugar_id', $todoxxxx["lugarxxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
-    <div class="form-group col-md-4" style="height: ">
+    <div class="form-group col-md-4" >
         {{ Form::label('s_prm_espac', Tr::getTitulo(10,1), ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('s_prm_espac', null, ['class' => 'form-control form-control-sm','style'=>'height:38px','readonly']) }}
     </div>
-    <div class="form-group col-md-4" style="height: ">
+    <div class="form-group col-md-4" >
         {{ Form::label('i_prm_dirig_id', Tr::getTitulo(11,1), ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_dirig_id', $todoxxxx["dirigido"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
-    <div class="form-group col-md-4" style="height: ">
+    <div class="form-group col-md-4" >
         {{ Form::label('sis_entidad_id', Tr::getTitulo(12,1), ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('sis_entidad_id', $todoxxxx["entidadx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>

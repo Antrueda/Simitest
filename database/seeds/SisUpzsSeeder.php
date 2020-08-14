@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisUpz;
+use App\Models\Sistema\SisUpz;
 use Illuminate\Database\Seeder;
 
 class SisUpzsSeeder extends Seeder

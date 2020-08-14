@@ -10,8 +10,8 @@ use App\Models\consulta\Csd;
 use App\Models\consulta\CsdViolencia;
 use App\Models\sicosocial\Vsi;
 use Illuminate\Support\Facades\Validator;
-use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisMunicipio;
+use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisMunicipio;
 
 class CsdViolenciaController extends Controller{
 

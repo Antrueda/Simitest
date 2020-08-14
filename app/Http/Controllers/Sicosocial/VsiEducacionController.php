@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Sicosocial;
 
 use App\Http\Controllers\Controller;
 use App\Models\sicosocial\VsiEducacion;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;

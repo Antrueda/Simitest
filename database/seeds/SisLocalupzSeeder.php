@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisLocalupz;
+use App\Models\Sistema\SisLocalupz;
 use Illuminate\Database\Seeder;
 
 class SisLocalupzSeeder extends Seeder

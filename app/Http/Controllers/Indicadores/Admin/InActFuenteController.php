@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Indicadores\InActsoporteCrearRequest;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Combos\CombosTrait;
 use App\Traits\Pestanias;
 

@@ -8,7 +8,7 @@ use App\Http\Requests\Indicadores\InDocPreguntaEditarRequest;
 use App\Models\Indicadores\InDocPregunta;
 use App\Models\Indicadores\InLigru;
 use App\Models\Indicadores\InPregunta;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Pestanias;
 
 class InDocPreguntaController extends Controller

@@ -8,7 +8,7 @@ use App\Http\Requests\Indicadores\InfuenteEditarRequest;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InIndicador;
 use App\Models\Indicadores\InLineaBase;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Pestanias;
 
 class InFuenteController extends Controller

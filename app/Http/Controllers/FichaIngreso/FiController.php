@@ -5,7 +5,7 @@ namespace App\Http\Controllers\FichaIngreso;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Parametro;
-use App\Models\sistema\SisNnaj;
+use App\Models\Sistema\SisNnaj;
 
 use Illuminate\Support\Facades\Http;
 

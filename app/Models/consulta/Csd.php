@@ -4,7 +4,7 @@ namespace App\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\sistema\SisNnaj;
+use App\Models\Sistema\SisNnaj;
 use App\Models\Parametro;
 
 class Csd extends Model{

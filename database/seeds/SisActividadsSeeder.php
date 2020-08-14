@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisActividad;
+use App\Models\Sistema\SisActividad;
 use Illuminate\Database\Seeder;
 
 class SisActividadsSeeder extends Seeder{

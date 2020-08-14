@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisMunicipio;
+use App\Models\Sistema\SisMunicipio;
 use Illuminate\Database\Seeder;
 
 class SisMunicipioSeeder extends Seeder

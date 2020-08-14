@@ -7,9 +7,9 @@ use App\Http\Requests\FichaIngreso\FiComposicionFamiCrearRequest;
 use App\Http\Requests\FichaIngreso\FiComposicionFamiUpdateRequest;
 use App\Models\fichaIngreso\FiComposicionFami;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisMunicipio;
-use App\Models\sistema\SisPai;
+use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisMunicipio;
+use App\Models\Sistema\SisPai;
 use App\Models\Tema;
 use Illuminate\Support\Carbon;
 

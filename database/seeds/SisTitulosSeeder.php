@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisTitulo;
+use App\Models\Sistema\SisTitulo;
 use Illuminate\Database\Seeder;
 
 class SisTitulosSeeder extends Seeder

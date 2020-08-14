@@ -1,27 +1,19 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Sistema;
 
 use Illuminate\Foundation\Http\FormRequest;
-
-class RolUpdateRequests extends FormRequest
+class RolEditarRequest extends FormRequest
 {
-     private $_mensaje;
+
+    private $_mensaje;
     private $_reglasx;
 
     public function __construct()
     {
-
         $this->_mensaje = [
-            'name.required' => 'Ingrese el nombre del rol',
-            'name.unique' => 'el rol ya se encuentra en uso',
-        ];
-        $this->_reglasx = [
-            // 'name' =>
-            // [
-            //     'required', //y todos las validaciones a que haya lugar separadas por coma
-                
-            // ],
+            'name.required' => 'Ingrese el nombre del Rol',
+            'name.unique' => 'El Rol ya se encuentra en uso',
         ];
     }
     /**
@@ -55,10 +47,5 @@ class RolUpdateRequests extends FormRequest
     public function validar()
     {
 
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        if (!isset($dataxxxx['permissions'])) {
-            $this->_mensaje['permissions.required'] = 'Seleccione al menos un permios';
-            $this->_reglasx['permissions'] = 'required';
-        }
     }
 }

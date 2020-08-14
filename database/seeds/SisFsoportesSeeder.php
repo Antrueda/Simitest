@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisFsoporte;
+use App\Models\Sistema\SisFsoporte;
 use Illuminate\Database\Seeder;
 
 class SisFsoportesSeeder extends Seeder

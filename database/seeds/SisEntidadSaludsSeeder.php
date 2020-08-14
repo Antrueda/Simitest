@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisEntidadSalud;
+use App\Models\Sistema\SisEntidadSalud;
 use Illuminate\Database\Seeder;
 
 class SisEntidadSaludsSeeder extends Seeder

@@ -13,8 +13,8 @@ use App\Models\fichaobservacion\Area;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
-use App\Models\sistema\AreaUser;
-use App\Models\sistema\SisDepen;
+use App\Models\Sistema\AreaUser;
+use App\Models\Sistema\SisDepen;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 

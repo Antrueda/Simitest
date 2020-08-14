@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisLocalidad;
+use App\Models\Sistema\SisLocalidad;
 use Illuminate\Database\Seeder;
 
 class SisLocalidadsSeeder extends Seeder

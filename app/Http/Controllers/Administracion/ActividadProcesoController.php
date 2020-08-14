@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Administracion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Models\sistema\SisActividadProceso;
-use App\Models\sistema\SisActividad;
-use App\Models\sistema\SisProceso;
+use App\Models\Sistema\SisActividadProceso;
+use App\Models\Sistema\SisActividad;
+use App\Models\Sistema\SisProceso;
 use Illuminate\Support\Facades\Validator;
 
 class ActividadProcesoController extends Controller{

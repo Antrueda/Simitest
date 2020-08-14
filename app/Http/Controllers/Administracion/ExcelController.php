@@ -34,7 +34,7 @@ use App\Imports\Vsi\VsiFacRiesgoImport;
 use App\Imports\Vsi\VsiGenIngresoImport;
 use App\Imports\Vsi\VsiMetaImport;
 use App\Imports\Vsi\VsiPotencialidadImport;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 
 use App\Models\sicosocial\VsiAbuSexual;
 

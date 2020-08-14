@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\Tema;
-use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisDiagnosticos;
+use App\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDiagnosticos;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\User;
 

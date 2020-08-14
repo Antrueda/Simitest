@@ -10,9 +10,9 @@ use App\Models\consulta\Csd;
 use App\Models\consulta\CsdDatosBasico;
 use App\Models\sicosocial\Vsi;
 use Illuminate\Support\Facades\Validator;
-use App\Models\sistema\SisPai;
-use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisMunicipio;
+use App\Models\Sistema\SisPai;
+use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisMunicipio;
 
 class CsdBasicoController extends Controller{
 

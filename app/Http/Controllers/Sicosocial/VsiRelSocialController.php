@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiRelSocialesCrearRequest;
 use App\Http\Requests\Vsi\VsiRelSocialesEditarRequest;
 use App\Models\sicosocial\VsiRelSociale;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;

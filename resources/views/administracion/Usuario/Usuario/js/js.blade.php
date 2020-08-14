@@ -26,15 +26,7 @@
             });
         }
         @if(old('sis_departamento_id') !== null)
-        f_ajax({
-            {
-                old('sis_departamento_id')
-            }
-        }, {
-            {
-                old('sis_municipio_id')
-            }
-        });
+        f_ajax("{{old('sis_departamento_id')}}", "{{old('sis_municipio_id')}}");
         @endif
 
         $('#sis_departamento_id').change(function() {

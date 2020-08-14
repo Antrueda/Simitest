@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Models\sistema\SisMapaProc;
+use App\Models\Sistema\SisMapaProc;
 
 class SisMapaProcsSeeder extends Seeder{
     /**

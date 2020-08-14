@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-use App\Models\sistema\SisNnaj;
+use App\Models\Sistema\SisNnaj;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 

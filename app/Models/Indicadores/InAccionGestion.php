@@ -2,7 +2,7 @@
 
 namespace App\Models\Indicadores;
 
-use App\Models\sistema\SisActividad;
+use App\Models\Sistema\SisActividad;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

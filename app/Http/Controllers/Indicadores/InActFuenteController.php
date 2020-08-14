@@ -7,7 +7,7 @@ use App\Http\Requests\Indicadores\InActsoporteCrearRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
-use App\Models\sistema\SisFsoporte;
+use App\Models\Sistema\SisFsoporte;
 
 class InActFuenteController extends Controller
 {

@@ -8,9 +8,9 @@ use App\Http\Requests\FichaIngreso\FiResidenciaUpdateRequest;
 use App\Models\fichaIngreso\FiCondicionAmbiente;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiResidencia;
-use App\Models\sistema\SisBarrio;
-use App\Models\sistema\SisLocalidad;
-use App\Models\sistema\SisUpz;
+use App\Models\Sistema\SisBarrio;
+use App\Models\Sistema\SisLocalidad;
+use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 
 class FiResidenciaController extends Controller

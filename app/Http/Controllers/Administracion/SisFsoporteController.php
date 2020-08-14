@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Administracion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SisFsoporteCrearRequest;
 use App\Http\Requests\SisFsoporteEditarRequest;
-use App\Models\sistema\SisActividad;
-use App\Models\sistema\SisDocumentoFuente;
-use App\Models\sistema\SisFsoporte;
+use App\Models\Sistema\SisActividad;
+use App\Models\Sistema\SisDocumentoFuente;
+use App\Models\Sistema\SisFsoporte;
 use Illuminate\Http\Request;
 
 class SisFsoporteController extends Controller

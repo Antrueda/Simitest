@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Seguridad\Usuario;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SisDepeUsuaCrearRequest;
 use App\Http\Requests\SisDepeUsuaEditarRequest;
-use App\Models\sistema\SisDepeUsua;
+use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use App\Models\User;

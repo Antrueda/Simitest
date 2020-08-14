@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Administracion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Models\sistema\SisDocumentoFuente;
+use App\Models\Sistema\SisDocumentoFuente;
 use Illuminate\Support\Facades\Validator;
 
 class DocumentoFuenteController extends Controller{

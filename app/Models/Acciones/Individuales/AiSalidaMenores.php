@@ -5,8 +5,8 @@ namespace App\Models\Acciones\Individuales;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
-use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDepen;
+use App\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisDepen;
 
 class AiSalidaMenores extends Model{
     protected $fillable = [

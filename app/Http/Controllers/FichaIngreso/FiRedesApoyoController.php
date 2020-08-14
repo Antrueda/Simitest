@@ -7,7 +7,7 @@ use App\Http\Requests\FichaIngreso\FiRedesApoyoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiRedesApoyoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiRedesApoyo;
-use App\Models\sistema\SisEntidad;
+use App\Models\Sistema\SisEntidad;
 use App\Models\Tema;
 
 class FiRedesApoyoController extends Controller

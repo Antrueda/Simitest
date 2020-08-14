@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\sistema\SisNnaj;
+use App\Models\Sistema\SisNnaj;
 use App\Models\consulta\Csd;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Carbon;

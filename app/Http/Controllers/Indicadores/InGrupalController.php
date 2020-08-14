@@ -9,9 +9,9 @@ use App\Models\Indicadores\Area;
 use App\Models\Indicadores\InLineaBase;
 use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InValidacion;
-use App\Models\sistema\SisActividad;
-use App\Models\sistema\SisDocumentoFuente;
-use App\Models\sistema\SisTabla;
+use App\Models\Sistema\SisActividad;
+use App\Models\Sistema\SisDocumentoFuente;
+use App\Models\Sistema\SisTabla;
 use Illuminate\Http\Request;
 
 class InGrupalController extends Controller

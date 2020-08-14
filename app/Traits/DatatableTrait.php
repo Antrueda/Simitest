@@ -2,12 +2,15 @@
 
 namespace App\Traits;
 
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 trait DatatableTrait
 {
+    use  ManageTimeTrait;
 
-    public  function getDtAcciones($queryxxx, $requestx)
+    public  function getDtPermisoRol($queryxxx, $requestx)
     {
         return datatables()
             ->of($queryxxx)
@@ -17,9 +20,51 @@ trait DatatableTrait
                     /**
                      * validaciones para los permisos
                      */
-                    $requestx->puedever=auth()->user()->can($requestx->routexxx[0].'-leer');
-                    $requestx->pueditar=auth()->user()->can($requestx->routexxx[0].'-editar');
-                    $requestx->puedinac=auth()->user()->can($requestx->routexxx[0].'-borrar');
+                  $role = Role::select('permission_id')
+                  ->join('role_has_permissions','roles.id','=','role_has_permissions.role_id')
+                  ->where('role_id',$requestx->padrexxx)
+                  ->where('permission_id',$queryxxx->id)->first()
+                  ;
+                   $requestx->tieneper =isset($role->permission_id);
+                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
+                    return  view($requestx->botonesx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+            )
+            ->addColumn(
+                's_estado',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->estadoxx, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->rawColumns(['botonexx', 's_estado'])
+            ->toJson();
+    }
+
+    public  function getDtAcciones($queryxxx, $requestx)
+    {
+        return datatables()
+            ->of($queryxxx)
+            ->addColumn(
+                'botonexx',
+                function ($queryxxx) use ($requestx) {
+                    $puedexxx = $this->getAcciones(['usuariox' => Auth::user()]);
+                    /**
+                     * validaciones para los permisos
+                     */
+                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                    if ($requestx->pueditar) {
+                    }
+                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
 
                     return  view($requestx->botonesx, [
                         'queryxxx' => $queryxxx,
@@ -50,9 +95,9 @@ trait DatatableTrait
                     /**
                      * validaciones para los permisos
                      */
-                    $requestx->puedever=auth()->user()->can($requestx->routexxx[0].'-leer');
-                    $requestx->pueditar=auth()->user()->can($requestx->routexxx[0].'-editar');
-                    $requestx->puedinac=auth()->user()->can($requestx->routexxx[0].'-borrar');
+                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
 
                     return  view($requestx->botonesx, [
                         'queryxxx' => $queryxxx,
@@ -84,9 +129,9 @@ trait DatatableTrait
                     /**
                      * validaciones para los permisos
                      */
-                    $requestx->puedever=auth()->user()->can($requestx->routexxx[0].'-leer');
-                    $requestx->pueditar=auth()->user()->can($requestx->routexxx[0].'-editar');
-                    $requestx->puedinac=auth()->user()->can($requestx->routexxx[0].'-borrar');
+                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
 
                     return  view($requestx->botonesx, [
                         'queryxxx' => $queryxxx,
@@ -175,9 +220,9 @@ trait DatatableTrait
                     /**
                      * validaciones para los permisos
                      */
-                    $requestx->puedever=auth()->user()->can($requestx->routexxx[0].'-leer');
-                    $requestx->pueditar=auth()->user()->can($requestx->routexxx[0].'-editar');
-                    $requestx->puedinac=auth()->user()->can($requestx->routexxx[0].'-borrar');
+                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
 
                     return  view($requestx->botonesx, [
                         'queryxxx' => $queryxxx,
@@ -198,5 +243,4 @@ trait DatatableTrait
             ->rawColumns(['botonexx', 's_estado'])
             ->toJson();
     }
-
 }

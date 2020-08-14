@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use Illuminate\Database\Seeder;
 
 class SisEstasSeeder extends Seeder

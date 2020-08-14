@@ -8,8 +8,8 @@ use App\Http\Requests\Indicadores\InAccionGestionEditarRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InLineabaseNnaj;
-use App\Models\sistema\SisActividad;
-use App\Models\sistema\SisDocumentoFuente;
+use App\Models\Sistema\SisActividad;
+use App\Models\Sistema\SisDocumentoFuente;
 use App\Models\Tema;
 use Illuminate\Http\Request;
 

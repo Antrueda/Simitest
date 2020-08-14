@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisDepen;
+use App\Models\Sistema\SisDepen;
 use Illuminate\Database\Seeder;
 
 

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisUpzbarri;
+use App\Models\Sistema\SisUpzbarri;
 use Illuminate\Database\Seeder;
 
 class SisUpzbarrisSeeder extends Seeder

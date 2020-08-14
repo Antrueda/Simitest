@@ -37,7 +37,8 @@ Route::get('agr/temas', function (Request $request) {
         ->eloquent(AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre'])
             ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
             ->where('ag_temas.sis_esta_id', 1))
-        ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi')
+
+        ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi',2)
         ->rawColumns(['btns'])
         ->toJson();
 });
@@ -277,9 +278,9 @@ Route::get('ag/espacios', function (Request $request) {
         'readonly' => true, 'campoxxx' => 's_prm_espac', 'comboxxx' => 'i_prm_lugar_id'
     ];
 
-    
+
        $respusta['dataxxxx'] = SisDepen::getLugares(['cabecera'=>true,'esajaxxx'=>true,
-        'padrexxx'=>$request->padrexxx]); 
+        'padrexxx'=>$request->padrexxx]);
 
         $cantidad=count($respusta['dataxxxx']);
         if($cantidad==1){
@@ -287,7 +288,7 @@ Route::get('ag/espacios', function (Request $request) {
         }
 
     if ($request->padrexxx == 1) {
-        
+
         $respusta['readonly'] = false;
     }
     return response()->json($respusta);

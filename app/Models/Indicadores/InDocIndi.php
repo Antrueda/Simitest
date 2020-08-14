@@ -2,7 +2,7 @@
 
 namespace App\Models\Indicadores;
 
-use App\Models\sistema\SisDocumentoFuente;
+use App\Models\Sistema\SisDocumentoFuente;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

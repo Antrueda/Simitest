@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 use App\Models\Acciones\Individuales\AiReporteEvasion;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisNnaj;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
-use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisMunicipio;
+use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisMunicipio;
 use Illuminate\Support\Carbon;
 
 class AIEvasionController extends Controller{

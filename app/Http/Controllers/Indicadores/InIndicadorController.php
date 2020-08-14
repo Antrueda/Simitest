@@ -7,7 +7,7 @@ use App\Http\Requests\Indicadores\InIndicadorCrearRequest;
 use App\Http\Requests\Indicadores\InIndicadorUpdateRequest;
 use App\Models\Indicadores\Area;
 use App\Models\Indicadores\InIndicador;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use App\Traits\Pestanias;
 
 class InIndicadorController extends Controller

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sistema\SisPai;
+use App\Models\Sistema\SisPai;
 use Illuminate\Database\Seeder;
 
 class SisPaisSeeder extends Seeder

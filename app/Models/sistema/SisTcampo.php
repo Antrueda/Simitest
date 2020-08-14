@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\sistema;
+namespace App\Models\Sistema;
 
 use App\Models\Indicadores\InCamrespu;
 use App\Models\Indicadores\InDocPregunta;

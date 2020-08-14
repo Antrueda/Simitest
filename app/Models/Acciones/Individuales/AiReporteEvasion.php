@@ -4,10 +4,10 @@ namespace App\Models\Acciones\Individuales;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Parametro;
-use App\Models\sistema\SisNnaj;
-use App\Models\sistema\SisDepen;
-use App\Models\sistema\SisDepartamento;
-use App\Models\sistema\SisMunicipio;
+use App\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisMunicipio;
 
 class AiReporteEvasion extends Model{
     
