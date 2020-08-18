@@ -15,7 +15,7 @@ class CreateSisPestaniasTable extends Migration
     {
         Schema::create('sis_pestanias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pestania');
+            $table->string('s_pestania');
             $table->bigInteger('sis_menu_id')->unsigned();
             $table->foreign('sis_menu_id')->references('id')->on('sis_menus');
             $table->timestamps();

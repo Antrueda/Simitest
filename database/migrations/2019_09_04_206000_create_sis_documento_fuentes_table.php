@@ -1,6 +1,5 @@
 <?php
 
-use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -19,11 +18,12 @@ class CreateSisDocumentoFuentesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre')->unique();
-            $table = CamposMagicos::magicos($table);
+            $table->Integer('user_crea_id');
+            $table->integer('user_edita_id');
+            $table->integer('sis_esta_id')->default(1);
+            $table->timestamps();
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LOS DOCUMENTOS DEL SISTEMA'");
-
-
     }
 
     /**

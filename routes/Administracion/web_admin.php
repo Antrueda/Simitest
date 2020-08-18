@@ -19,4 +19,4 @@ include_once('web_sis_esta.php');
 include_once('web_tema.php');
 include_once('web_tooltips.php');
 include_once('web_alerta.php');
-//include_once('web_jorge.php');
+include_once('web_estusuario.php');

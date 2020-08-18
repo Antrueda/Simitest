@@ -7,11 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class SisMenu extends Model
 {
     protected $fillable = [
-        'munu',
-        'documento',
-        'pestania',
-        'icono',
-        'esmenu',
+        's_menu',
+        'sis_documento_fuente_id',
+        's_icono',
         'sis_menu_id'
     ];
 }

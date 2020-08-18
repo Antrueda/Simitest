@@ -8,6 +8,10 @@ Route::group(['prefix' => 'usuario'], function () use ($controll, $routexxx) {
         'uses' => $controll . 'Controller@index',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
     ])->name($routexxx);
+    Route::get('listaxxx', [
+	    'uses' => $controll.'Controller@getUsuario',
+	    'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+	])->name($routexxx.'.listaxxx');
     Route::get('nuevo', [
         'uses' => $controll . 'Controller@create',
         'middleware' => ['permission:' . $routexxx . '-crear']
@@ -29,10 +33,15 @@ Route::group(['prefix' => 'usuario'], function () use ($controll, $routexxx) {
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.ver');
 
-    Route::get('borrar', [
-        'uses' => $controll . 'Controller@destroy',
-        'middleware' => ['permission:' . $routexxx . '-borrar']
-    ])->name($routexxx . '.borrar');
+    Route::get('borrar/{objetoxx}', [
+	    'uses' => $controll.'Controller@inactivate',
+	    'middleware' => ['permission:'.$routexxx.'-borrar']
+    ])->name($routexxx.'.borrar');
+
+    Route::put('borrar/{objetoxx}', [
+		'uses' => $controll . 'Controller@destroy',
+		'middleware' => ['permission:' . $routexxx . '-borrar']
+	])->name($routexxx . '.borrar');
 
 
 

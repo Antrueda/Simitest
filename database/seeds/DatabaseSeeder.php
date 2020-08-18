@@ -12,13 +12,18 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(SisEstasSeeder::class);
-        $this->call(RolesYPermisosSeeder::class);
+
         $this->call(SisParametrosSeeder::class);
         $this->call(SisPaisSeeder::class);
         $this->call(SisDepartamentoSeeder::class);
         $this->call(SisMunicipioSeeder::class);
         $this->call(SisCargosSeeder::class);
         $this->call(SisLocalidadsSeeder::class);
+        $this->call(SisDocumentosFuentesSeeder::class);
+
+        $this->call(SisMenusSeeder::class);
+        $this->call(SisPestaniasSeeder::class);
+        $this->call(RolesYPermisosSeeder::class);
         $this->call(UsuariosSeeder::class);
         $this->call(TemasTableSeeder::class);
         $this->call(SisAreasSeeder::class);
@@ -31,7 +36,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisEntidadsSeeder::class);
         $this->call(SisEntidadSaludsSeeder::class);
         $this->call(SisInstitucionEdusSeeder::class);
-        $this->call(SisDocumentosFuentesSeeder::class);
+
         $this->call(InIndicadorSeeder::class);
         $this->call(SisActividadsSeeder::class);
         $this->call(SisMapaProcsSeeder::class);
@@ -178,6 +183,7 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(VsiSaludSeeder::class);
-        $this->call(SisMenusSeeder::class);
+
+
     }
 }

@@ -3,24 +3,24 @@
         Seleccione una opacion
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        @if($requestx->pueditar)
+        @if(auth()->user()->can( $requestx->routexxx[0].'-editar'))
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx.'.editar', $queryxxx->id) }}">Editar</a>
+            <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editar', $queryxxx->id) }}">Editar</a>
         </div>
         @endif
-        @if($requestx->puedever)
+        @if(auth()->user()->can( $requestx->routexxx[0].'-leer'))
         <div class="dropdown-item">
-        <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx.'.ver', $queryxxx->id) }}">Ver</a>
+        <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[0].'.ver', $queryxxx->id) }}">Ver</a>
         </div>
         @endif
-        @if($requestx->puedinac)
+        @if(auth()->user()->can( $requestx->routexxx[0].'-borrar'))
         <div class="dropdown-item">
-        <button class="btn btn-sm btn-danger dttservicios" id="{{$queryxxx->id}}">Inactivar</button>
+        <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', $queryxxx->id) }}">Inactivar</a>
         </div>
         @endif
-        @if($requestx->puedcamb)
+        @if(auth()->user()->can( $requestx->routexxx[1].'-editar'))
         <div class="dropdown-item">
-        <a class="btn btn-sm btn-warning" href="{{ route($requestx->routexxy.'.cambiar', $queryxxx->id) }}">Cambiar Contraseña</a>
+        <a class="btn btn-sm btn-warning" href="{{ route($requestx->routexxx[1].'.cambiar', $queryxxx->id) }}">Cambiar Contraseña</a>
         </div>
         @endif
     </div>

@@ -88,11 +88,11 @@
              </a>
          </li>
          @endcan
-         @can('sisesta-leer')
+         @can('estausua-leer')
          <li class="nav-item">
-             <a href="{{ route('sisesta') }}" class="nav-link">
+             <a href="{{ route('estausua') }}" class="nav-link">
                  <i class="fas fa-door-open nav-icon"></i>
-                 <p>Estados</p>
+                 <p>Estado Usuarios</p>
              </a>
          </li>
          @endcan
