@@ -50,6 +50,7 @@ trait VsiTrait
             'sis_depens.nombre',
             'vsis.sis_nnaj_id',
             'vsis.sis_esta_id',
+            'vsis.created_at',
             'sis_estas.s_estado'
         ])
             ->join('sis_depens', 'vsis.sis_depen_id', '=', 'sis_depens.id')
@@ -88,6 +89,7 @@ trait VsiTrait
             'vsi_dinfam_padres.mes',
             'vsi_dinfam_padres.ano',
             'vsi_dinfam_padres.hijo',
+            'vsi_dinfam_padres.created_at',
             'separado.nombre as separado',
             'vsi_dinfam_padres.sis_esta_id',
             'sis_estas.s_estado'
@@ -106,6 +108,7 @@ trait VsiTrait
             'vsi_dinfam_madres.dia',
             'vsi_dinfam_madres.mes',
             'vsi_dinfam_madres.ano',
+            'vsi_dinfam_madres.created_at',
             'vsi_dinfam_madres.hijo',
             'separado.nombre as separado',
             'vsi_dinfam_madres.sis_esta_id',
@@ -127,6 +130,7 @@ trait VsiTrait
             'vsi_redsoc_pasados.ano_prestacion',
             'vsi_redsoc_pasados.dia',
             'vsi_redsoc_pasados.mes',
+            'vsi_redsoc_pasados.created_at',
             'vsi_redsoc_pasados.ano',
             'vsi_redsoc_pasados.servicio',
             'vsi_redsoc_pasados.sis_esta_id',
@@ -148,6 +152,7 @@ trait VsiTrait
             'vsi_redsoc_actuals.servicio',
             'vsi_redsoc_actuals.telefono',
             'vsi_redsoc_actuals.direccion',
+            'vsi_redsoc_actuals.created_at',
             'vsi_redsoc_actuals.sis_esta_id',
             'sis_estas.s_estado'
         ])
@@ -162,6 +167,7 @@ trait VsiTrait
             'vsi_fac_protectors.id',
             'vsi_fac_protectors.vsi_id',
             'vsi_fac_protectors.protector',
+            'vsi_fac_protectors.created_at',
             'vsi_fac_protectors.sis_esta_id',
             'sis_estas.s_estado'
         ])
@@ -175,6 +181,7 @@ trait VsiTrait
             'vsi_fac_riesgos.id',
             'vsi_fac_riesgos.vsi_id',
             'vsi_fac_riesgos.riesgo',
+            'vsi_fac_riesgos.created_at',
             'vsi_fac_riesgos.sis_esta_id',
             'sis_estas.s_estado'
         ])
@@ -189,6 +196,7 @@ trait VsiTrait
             'vsi_potencialidads.id',
             'vsi_potencialidads.vsi_id',
             'vsi_potencialidads.potencialidad',
+            'vsi_potencialidads.created_at',
             'vsi_potencialidads.sis_esta_id',
             'sis_estas.s_estado'
         ])
@@ -202,6 +210,7 @@ trait VsiTrait
             'vsi_metas.id',
             'vsi_metas.vsi_id',
             'vsi_metas.meta',
+            'vsi_metas.created_at',
             'vsi_metas.sis_esta_id',
             'sis_estas.s_estado'
         ])

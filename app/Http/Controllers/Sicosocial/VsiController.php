@@ -14,10 +14,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\sicosocial\Vsi;
 use App\Models\Sistema\SisDepen;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 
 class VsiController extends Controller
 {
     use VsiTrait;
+    use ManageTimeTrait;
     private $opciones;
 
     public function __construct()
@@ -73,6 +75,12 @@ class VsiController extends Controller
      */
     public function index(FiDatosBasico $padrexxx)
     {
+        // ddd($this->getPuedeCargar(['estoyenx'=>1,
+        // 'usuariox'=>auth()->user(),
+        // 'fechregi'=>'2020-07-10',
+        // 'fechahoy'=>'2020-09-03']));
+
+
         $this->opciones['usuariox'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['tituhead'] = $padrexxx->nombre;

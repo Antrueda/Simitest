@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,9 @@ class CreateSisDiaFestivosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->date('diafesti')->uniqid();
+            $table = CamposMagicos::magicos($table);
+
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DÍAS FESTIVOS DEL AÑO'");
     }
