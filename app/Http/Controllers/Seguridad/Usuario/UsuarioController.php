@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Seguridad\Usuario;
 
 use App\Helpers\Indicadores\IndicadorHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Seguridad\UsuarioIdipronBorrarRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronCrearRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronEditarRequest;
 use App\Models\Sistema\SisCargo;
@@ -274,7 +275,7 @@ class UsuarioController extends Controller
     }
 
 
-    public function destroy(Request $request, User $objetoxx)
+    public function destroy(UsuarioIdipronBorrarRequest $request, User $objetoxx)
     {
         $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
