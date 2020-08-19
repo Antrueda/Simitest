@@ -18,7 +18,7 @@ class CreateHSisDiaFestivosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->date('diafesti');
+            $table->date('diafestivo');
             $table->string('rutaxxxx', 50);
             $table->string('ipxxxxxx', 50);
             $table->string('metodoxx', 50);

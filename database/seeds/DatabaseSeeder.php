@@ -183,7 +183,7 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(VsiSaludSeeder::class);
-
+        $this->call(SisDiaFestivosSeeder::class);
 
     }
 }

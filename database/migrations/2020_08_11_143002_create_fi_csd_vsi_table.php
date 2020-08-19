@@ -34,7 +34,7 @@ class CreateFiCsdVsiTable extends Migration
 
             $table->bigInteger('prm_identidad_genero_id')->unsigned();
             $table->bigInteger('prm_orientacion_sexual_id')->unsigned();
-
+            $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

@@ -18,7 +18,7 @@ class CreateSisDiaFestivosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->date('diafesti')->uniqid();
+            $table->date('diafestivo')->uniqid();
             $table = CamposMagicos::magicos($table);
 
         });

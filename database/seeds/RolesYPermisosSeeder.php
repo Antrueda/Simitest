@@ -39,6 +39,8 @@ class RolesYPermisosSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
         // crear permisos permiso
         $this->getPermisos(['permisox' => 'permiso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Permisos','pestania'=>1]);
+
+        $this->getPermisos(['permisox' => 'diafesti', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Días festivos','pestania'=>1]);
         // crear permisos para rol
         $this->getPermisos(['permisox' => 'rolesxxx', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administracion de reles','pestania'=>1]);
         // crear permisos rol

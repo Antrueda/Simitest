@@ -211,6 +211,15 @@
          </li>
          @endcan
 
+         @can('diafesti-leer')
+         <li class="nav-item">
+             <a href="{{ route('diafesti') }}" class="nav-link">
+                 <i class="fas fa-chess-pawn nav-icon"></i>
+                 <p>Días Festivos</p>
+             </a>
+         </li>
+         @endcan
+
 
      </ul>
  </li>

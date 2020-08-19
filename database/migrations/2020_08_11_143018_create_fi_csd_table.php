@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateFiCsdTable extends Migration
 {
-    private $tablaxxx = 'fi_csd_vsi';
+    private $tablaxxx = 'fi_csd';
     /**
      * Run the migrations.
      *
@@ -33,6 +33,7 @@ class CreateFiCsdTable extends Migration
             $table->bigInteger('prm_situacion_militar_id')->unsigned();
             $table->bigInteger('prm_clase_libreta_id')->unsigned();
             $table->string('s_nombre_focalizacion');
+            $table->string('s_documento');
             $table->string('s_lugar_focalizacion');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
@@ -45,7 +46,7 @@ class CreateFiCsdTable extends Migration
             $table->bigInteger('sis_paiexp_id')->unsigned();
             $table->bigInteger('sis_departamentoexp_id')->unsigned();
             $table->bigInteger('i_prm_linea_base_id')->unsigned();
-
+            $table->bigInteger('i_prm_ayuda_id')->unsigned();
 
 
             $table->foreign('user_crea_id')->references('id')->on('users');
