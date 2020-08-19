@@ -792,6 +792,7 @@ class TemasTableSeeder extends Seeder
         $tema = Tema::create(['id' => 66, 'nombre' => 'CONVENCION B, PARENTESCO O PERSONA']);
         $tema->parametros()->sync([
             235 => $camposmagicos,
+            600 => $camposmagicos,
             770 => $camposmagicos,
             771 => $camposmagicos,
             776 => $camposmagicos,
@@ -1832,6 +1833,7 @@ class TemasTableSeeder extends Seeder
             887 => $camposmagicos,
             888 => $camposmagicos,
             1033 => $camposmagicos,
+            1633 => $camposmagicos,
             2316=> $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 167, 'nombre' => 'ÁREA FAMILIAR']);
@@ -1876,15 +1878,15 @@ class TemasTableSeeder extends Seeder
         $tema = Tema::create(['id' => 170, 'nombre' => 'CÓMO SE SIENTE LA MAYOR PARTE DEL TIEMPO? VI']);
         $tema->parametros()->sync([
             28 => $camposmagicos,
-            282 => $camposmagicos,
+            //282 => $camposmagicos,
             875 => $camposmagicos,
             909 => $camposmagicos,
             910 => $camposmagicos,
             911 => $camposmagicos,
             912 => $camposmagicos,
-            916 => $camposmagicos,
+           // 916 => $camposmagicos,
             952 => $camposmagicos,
-            970 => $camposmagicos,
+           // 970 => $camposmagicos,
             1739 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
@@ -2124,6 +2126,7 @@ class TemasTableSeeder extends Seeder
         $tema = Tema::create(['id' => 197, 'nombre' => 'HA OCURRIDO EN SU VIDA ALGÚN ACONTECIMIENTO ESTRESANTE O TRAUMÁTICO']);
         $tema->parametros()->sync([
             339 => $camposmagicos,
+            338 => $camposmagicos,
             581 => $camposmagicos,
             663 => $camposmagicos,
             682 => $camposmagicos,
@@ -2233,6 +2236,7 @@ class TemasTableSeeder extends Seeder
             1001 => $camposmagicos,
             1002 => $camposmagicos,
             1003 => $camposmagicos,
+            1854 => $camposmagicos,
             2316=> $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 209, 'nombre' => 'TIPO DE DIFICULTAD']);

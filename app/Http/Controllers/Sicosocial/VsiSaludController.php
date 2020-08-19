@@ -54,7 +54,7 @@ class VsiSaludController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
-        $this->opciones['motivosx'] = Tema::combo(205, true, false);
+        $this->opciones['motivosx'] = Tema::combo(87, true, false);
         $this->opciones['causasxx'] = Tema::combo(207, false, false);
         $this->opciones['rendimie'] = Tema::combo(206, true, false);
         $this->opciones['materias'] = Tema::combo(208, false, false);

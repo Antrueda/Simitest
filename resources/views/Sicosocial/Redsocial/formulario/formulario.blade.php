@@ -112,7 +112,7 @@ if (isset($todoxxxx['rowscols'])) {
 </div>
 <div class="row">
     <div class="col-md-12">
-        <h6><b>5.2. RELACIONES DE PAREJA</b></h6>
+        <h6><b>7.1.10 REDES ACTUALES</b></h6>
     </div>
 </div>
 @foreach ($todoxxxx['tablasxx'] as $key=> $tablasxx)
