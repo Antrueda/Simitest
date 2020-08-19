@@ -16,7 +16,8 @@ class SisMenusSeeder extends Seeder
             'id' => 1,
             's_menu' => 'NUEVO',
             's_icono' => '',
-            'sis_menu_id' => 1
+            'sis_menu_id' => 1,
+            'sis_documento_fuente_id' => 1
         ]);
         SisMenu::create([
             'id' => 2,

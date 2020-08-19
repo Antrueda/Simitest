@@ -37,10 +37,16 @@ trait RolesTrait
             'permissions.id',
             'permissions.name',
             'permissions.descripcion',
+            'sis_pestanias.s_pestania',
+            'sis_menus.s_menu',
+            'sis_documento_fuentes.nombre',
         ])
-        ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+            ->join('sis_pestanias', 'permissions.sis_pestania_id', '=', 'sis_pestanias.id')
+            // ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+            ->join('sis_menus', 'sis_pestanias.sis_menu_id', '=', 'sis_menus.id')
+            ->join('sis_documento_fuentes', 'sis_menus.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
 
-            ->whereNotIn('role_has_permissions.permission_id',$notinxxx);
+            ->whereNotIn('permissions.id', $notinxxx);
         return $this->getDtPermisoRol($dataxxxx, $request);
     }
     public function getPermisosRol($request)
@@ -49,11 +55,16 @@ trait RolesTrait
             'permissions.id',
             'permissions.name',
             'permissions.descripcion',
-
-
+            'sis_pestanias.s_pestania',
+            'sis_menus.s_menu',
+            'sis_documento_fuentes.nombre',
         ])
+
             ->join('role_has_permissions', 'roles.id', '=', 'role_has_permissions.role_id')
             ->join('permissions', 'role_has_permissions.permission_id', '=', 'permissions.id')
+            ->join('sis_pestanias', 'permissions.sis_pestania_id', '=', 'sis_pestanias.id')
+            ->join('sis_menus', 'sis_pestanias.sis_menu_id', '=', 'sis_menus.id')
+            ->join('sis_documento_fuentes', 'sis_menus.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
             ->where('roles.id', $request->padrexxx);
         return $this->getDtPermisoRol($dataxxxx, $request);
     }
