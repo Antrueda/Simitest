@@ -2,11 +2,12 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFiCsd extends Migration
+class CreateFiCsdTable extends Migration
 {
-    private $tablaxxx = '_fi_csd_vsi';
+    private $tablaxxx = 'fi_csd';
     /**
      * Run the migrations.
      *
@@ -32,19 +33,20 @@ class CreateFiCsd extends Migration
             $table->bigInteger('prm_situacion_militar_id')->unsigned();
             $table->bigInteger('prm_clase_libreta_id')->unsigned();
             $table->string('s_nombre_focalizacion');
+            $table->string('s_documento');
             $table->string('s_lugar_focalizacion');
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            
+
             $table->bigInteger('sis_pai_id')->unsigned();
             $table->bigInteger('sis_departamento_id')->unsigned();
             $table->bigInteger('sis_paiexp_id')->unsigned();
             $table->bigInteger('sis_departamentoexp_id')->unsigned();
             $table->bigInteger('i_prm_linea_base_id')->unsigned();
-
+            $table->bigInteger('i_prm_ayuda_id')->unsigned();
 
 
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -54,7 +56,7 @@ class CreateFiCsd extends Migration
             $table->foreign('prm_etnia_id')->references('id')->on('parametros');
 
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
-           
+
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
 
             $table->foreign('prm_estado_civil_id')->references('id')->on('parametros');
@@ -70,7 +72,7 @@ class CreateFiCsd extends Migration
             $table->foreign('sis_departamentoexp_id')->references('id')->on('sis_departamentos');
             $table->unique(['sis_esta_id','s_documento']);
         });
-        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DE LAS PERSONAS QUE HACEN PARTE DE LA COMPOSICIÓN FAMILIAR DEL NNAJ, YA SEA QUE VENGAN DE LA FICHA DE INGRESO, VALORACIÓN SICOSOCIAL O CONSULTA SOCIAL EN DOMICILIO.'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DE LAS PERSONAS QUE HACEN PARTE DE LA COMPOSICIÓN FAMILIAR DEL NNAJ, YA SEA QUE VENGAN DE LA FICHA DE INGRESO, VALORACIÓN SICOSOCIAL O CONSULTA SOCIAL EN DOMICILIO.'");
     }
 
     /**

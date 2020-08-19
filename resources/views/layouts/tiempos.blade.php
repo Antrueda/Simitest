@@ -15,10 +15,10 @@
     {{ Form::text('itiegabe', null, ['class' =>'form-control col-form-label-sm','id'=>'itiegabe' ,'placeholder' => 'Tiempo Gabela', 'maxlength' => '120', 'autofocus']) }}
 </div>
 <div class="form-group col-md-6">
-    {{ Form::label('dtigafin', 'Fecha Tiempo Gabela Fin de Semana', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('dtigafin', null, ['class' =>'form-control col-form-label-sm' ,'id'=>'dtigafin','placeholder' => 'Fecha Tiempo Gabela Fin de Semana', 'maxlength' => '120', 'autofocus']) }}
+    {{ Form::label('dtigafin', 'Fecha Tiempo Gabela Fin de Mes', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('dtigafin', null, ['class' =>'form-control col-form-label-sm' ,'id'=>'dtigafin','placeholder' => 'Fecha Tiempo Gabela Fin de Mes', 'maxlength' => '120', 'autofocus']) }}
 </div>
 <div class="form-group col-md-6">
-    {{ Form::label('itigafin', 'Tiempo Gabela Fin de Semana', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('itigafin', null, ['class' =>'form-control col-form-label-sm','id'=>'itigafin' ,'placeholder' => 'Tiempo Gabela Fin de Semana', 'maxlength' => '120', 'autofocus']) }}
+    {{ Form::label('itigafin', 'Tiempo Gabela Fin de Mes', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('itigafin', null, ['class' =>'form-control col-form-label-sm','id'=>'itigafin' ,'placeholder' => 'Tiempo Gabela Fin de Mes', 'maxlength' => '120', 'autofocus']) }}
 </div>

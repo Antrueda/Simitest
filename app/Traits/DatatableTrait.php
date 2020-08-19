@@ -20,12 +20,11 @@ trait DatatableTrait
                     /**
                      * validaciones para los permisos
                      */
-                  $role = Role::select('permission_id')
-                  ->join('role_has_permissions','roles.id','=','role_has_permissions.role_id')
-                  ->where('role_id',$requestx->padrexxx)
-                  ->where('permission_id',$queryxxx->id)->first()
-                  ;
-                   $requestx->tieneper =isset($role->permission_id);
+                    $role = Role::select('permission_id')
+                        ->join('role_has_permissions', 'roles.id', '=', 'role_has_permissions.role_id')
+                        ->where('role_id', $requestx->padrexxx)
+                        ->where('permission_id', $queryxxx->id)->first();
+                    $requestx->tieneper = isset($role->permission_id);
                     $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
                     $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
                     $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
@@ -56,16 +55,24 @@ trait DatatableTrait
             ->addColumn(
                 'botonexx',
                 function ($queryxxx) use ($requestx) {
-                    $puedexxx = $this->getAcciones(['usuariox' => Auth::user()]);
+
+                    $puedexxx = $this->getPuedeCargar([
+                        'estoyenx' => 1,
+                        'usuariox' => auth()->user(),
+                        'fechregi' => explode(' ',$queryxxx->created_at)[0]
+                    ]);
                     /**
                      * validaciones para los permisos
                      */
                     $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
                     $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
-                    if ($requestx->pueditar) {
+                    if ($requestx->pueditar == false || $puedexxx['tienperm'] == false) {
+                        $requestx->pueditar = false;
                     }
                     $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
-
+                    if ($requestx->puedinac == false || $puedexxx['tienperm'] == false) {
+                        $requestx->puedinac = false;
+                    }
                     return  view($requestx->botonesx, [
                         'queryxxx' => $queryxxx,
                         'requestx' => $requestx,

@@ -21,7 +21,7 @@ trait ManageTimeTrait
      *
      * @return void
      */
-    public function getPersonal(array $dataxxxx)
+    public function getPersonal($dataxxxx)
     {
         return $this->getGabelaFinMes($dataxxxx);
     }
@@ -31,7 +31,7 @@ trait ManageTimeTrait
      *
      * @return void
      */
-    public function getCargo(array $dataxxxx)
+    public function getCargo($dataxxxx)
     {
         return  $this->getGabelaFinMes($dataxxxx);
     }
@@ -54,7 +54,15 @@ trait ManageTimeTrait
     {
         $itieusua = $dataxxxx['usuariox']->itiestan + $dataxxxx['usuariox']->itiegabe;
         $itiecarg = $dataxxxx['usuariox']->sis_cargo->itiestan + $dataxxxx['usuariox']->sis_cargo->itiegabe;
-        $dataxxxx=($itieusua > $itiecarg) ? $this->getPersonal($dataxxxx) : $this->getCargo($dataxxxx);
+        if ($itieusua > $itiecarg) {
+            $dataxxxx['tiempoxx']=$itieusua;
+            $dataxxxx = $this->getPersonal($dataxxxx);
+        } else {
+            $dataxxxx['tiempoxx']=$itiecarg;
+            $dataxxxx = $this->getCargo($dataxxxx);
+        }
+
+
         return $dataxxxx;
     }
 
