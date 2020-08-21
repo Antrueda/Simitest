@@ -12,7 +12,7 @@ class InDocIndi extends Model
 {
   protected $fillable = [
     'in_indicador_id',
-    'sis_documento_fuente_id',
+    'sis_docfuen_id',
     'user_crea_id',
     'user_edita_id',
     'sis_esta_id'
@@ -35,7 +35,7 @@ class InDocIndi extends Model
   {
     return $this->belongsTo(InIndicador::class);
   }
-  public function sis_documento_fuente()
+  public function sis_docfuen()
   {
     return $this->belongsTo(SisDocumentoFuente::class);
   }
@@ -62,9 +62,9 @@ class InDocIndi extends Model
       $comboxxx = ['' => 'Seleccione'];
     }
 
-    foreach (InDocIndi::select(['in_doc_indis.id', 'sis_documento_fuentes.nombre'])
+    foreach (InDocIndi::select(['in_doc_indis.id', 'sis_docfuens.nombre'])
       ->where('in_indicador_id', $padrexxx)
-      ->join('sis_documento_fuentes', 'in_doc_indis.sis_documento_fuente_id', '=', 'sis_documento_fuentes.id')
+      ->join('sis_docfuens', 'in_doc_indis.sis_docfuen_id', '=', 'sis_docfuens.id')
       ->get() as $registro) {
       if ($ajaxxxxx) {
         $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];

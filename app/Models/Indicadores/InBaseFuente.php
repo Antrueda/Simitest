@@ -11,7 +11,7 @@ class InBaseFuente extends Model
 {
     protected $fillable = [
         'in_fuente_id',
-        'sis_documento_fuente_id',
+        'sis_docfuen_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id'
@@ -23,9 +23,9 @@ class InBaseFuente extends Model
     {
         return $this->hasMany(InLigru::class);
     }
-    public function sis_documento_fuente()
+    public function sis_docfuen()
     {
-        return $this->belongsTo(SisDocumentoFuente::class);
+        return $this->belongsTo(SisDocfuen::class);
     }
     public static function comboPreguntas($padrexxx, $cabecera, $ajaxxxxx)
     {
@@ -54,7 +54,7 @@ class InBaseFuente extends Model
         foreach ($basefuent as $pregunta) {
             $notinxxx[] = $pregunta->in_pregunta_id;
         }
-        
+
         foreach (InPregunta::where('s_pregunta', 'like', '%' . $dataxxxx['buscarxx'] . '%')->whereNotIn('id', $notinxxx)->get() as $registro) {
             $comboxxx[] = ['id' => $registro->id, 'label' => $registro->s_pregunta, 'value' => $registro->s_pregunta];
         }

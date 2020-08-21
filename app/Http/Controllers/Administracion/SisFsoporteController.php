@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SisFsoporteCrearRequest;
 use App\Http\Requests\SisFsoporteEditarRequest;
 use App\Models\Sistema\SisActividad;
+use App\Models\Sistema\SisDocfuen;
 use App\Models\Sistema\SisDocumentoFuente;
 use App\Models\Sistema\SisFsoporte;
 use Illuminate\Http\Request;
@@ -61,14 +62,14 @@ class SisFsoporteController extends Controller
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
         $this->opciones['sis_actividad_id'] = [''=>'Seleccione'];
-        $this->opciones['docufuen'] = SisDocumentoFuente::combo(true, false);
+        $this->opciones['docufuen'] = SisDocfuen::combo(true, false);
 
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
 
         if ($nombobje != '') {
-            $objetoxx->sis_documento_fuente_id=$objetoxx->sis_actividad->sisDocumentoFuente->id;
-            $this->opciones['sis_actividad_id'] = SisActividad::combo($objetoxx->sis_documento_fuente_id,true, false);
+            $objetoxx->sis_docfuen_id=$objetoxx->sis_actividad->sisDocumentoFuente->id;
+            $this->opciones['sis_actividad_id'] = SisActividad::combo($objetoxx->sis_docfuen_id,true, false);
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }

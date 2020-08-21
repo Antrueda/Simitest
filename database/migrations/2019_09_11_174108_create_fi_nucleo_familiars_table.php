@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -7,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class CreateFiNucleoFamiliarsTable extends Migration
 {
-    private $tablaxxx = 'fi_nucleo_familiars';
+    private $tablaxxx = 'nnaj_nfamilis';
     /**
      * Run the migrations.
      *
@@ -17,16 +18,20 @@ class CreateFiNucleoFamiliarsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('i_en_uso');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            $table->boolean('en_uso');
+            $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO QUE DESCRIBE EL NÚCLEO FAMILIAR DE LAS PERSONAS REGISTRADAS EN EL SISTEMA'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS CONSECUTIVOS DE O LOS NUCLEOS FAMILIARES A LOS QUE PERTENECE EL NNAJ'");
+        Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->Integer('id_old');
+            $table->boolean('en_uso');
+            $table->string('rutaxxxx', 50);
+            $table->string('ipxxxxxx', 50);
+            $table->string('metodoxx', 50);
+            $table = CamposMagicos::h_magicos($table);
+        });
+        DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**
@@ -36,6 +41,7 @@ class CreateFiNucleoFamiliarsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('h_'.$this->tablaxxx);
         Schema::dropIfExists($this->tablaxxx);
     }
 }

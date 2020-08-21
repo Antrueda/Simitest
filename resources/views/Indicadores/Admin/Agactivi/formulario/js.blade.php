@@ -1,19 +1,19 @@
 <script>
    $(function(){
-        
-       
+
+
         var f_porcentaje=function(valuexxx,thisxxxx){
             if(valuexxx!=''){
                 $.ajax({
                     url : "{{ route('ag.acciongestion.porcentaje',$todoxxxx['parametr']) }}",
-                    data : { 
+                    data : {
                         i_porcentaje:valuexxx,
                     },
                     type : 'GET',
                     dataType : 'json',
-                    success : function(json) {                         
-                         $(thisxxxx).prop('title',json.msnxxxxx); 
-                         $(thisxxxx).popover(json.mostrarx); 
+                    success : function(json) {
+                         $(thisxxxx).prop('title',json.msnxxxxx);
+                         $(thisxxxx).popover(json.mostrarx);
                          $(thisxxxx).val(json.faltante)
                     },
                     error : function(xhr, status) {
@@ -29,7 +29,7 @@
         var f_campos=function(valuexxx,psalecte,optionxx,campoxxx){
             $.ajax({
                 url : "{{ route('ajaxx.acciongestion') }}",
-                data : { 
+                data : {
                     padrexxx:valuexxx,
                     optionxx:optionxx,
                 },
@@ -49,18 +49,18 @@
                 },
             });
         }
-        @if(old('sis_documento_fuente_id')!=null)
+        @if(old('sis_docfuen_id')!=null)
         $('#sis_actividad_id').empty();
-            f_campos({{ old('sis_documento_fuente_id') }},{{ old('sis_actividad_id') }},1,'sis_actividad_id');
+            f_campos({{ old('sis_docfuen_id') }},{{ old('sis_actividad_id') }},1,'sis_actividad_id');
         @endif
-    
-        $('#sis_documento_fuente_id').change(function(){
+
+        $('#sis_docfuen_id').change(function(){
             $('#sis_actividad_id').empty();
             f_campos($(this).val(),'',1,'sis_actividad_id');
         });
-        
+
         $('#i_porcentaje').keyup(function(event){
           f_porcentaje($(this).val(),this);
         });
     });
-</script>   
+</script>

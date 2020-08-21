@@ -5,8 +5,10 @@ namespace App\Models\fichaIngreso;
 use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\Parametro;
 use App\Models\sicosocial\FiNucleoFamiliar;
+use App\Models\sicosocial\NnajNfamili;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDocfuen;
 use App\Models\Sistema\SisMunicipio;
 use Carbon\Carbon;
 
@@ -26,54 +28,38 @@ class FiDatosBasico extends Model
         's_segundo_nombre',
         's_primer_apellido',
         's_segundo_apellido',
-        'prm_sexo_id',
         's_apodo',
-        'd_nacimiento',
-        'i_prm_ayuda_id',
-
-        'sis_departamento_id',
-        'sis_municipio_id',
-        'prm_gsanguino_id',
-        'prm_factor_rh_id',
         'sis_nnaj_id',
-        'fi_nucleo_familiar_id',
-        'prm_poblacion_id',
-        's_documento',
+        'nnaj_nfamili_id',
+        'prm_tipoblaci_id',
+        'prm_vestimenta_id',
+        'sis_docfuen_id',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
-        'prm_estado_civil_id',
-        'prm_situacion_militar_id',
-        'prm_clase_libreta_id',
-        'prm_identidad_genero_id',
-        'prm_orientacion_sexual_id',
-        'prm_etnia_id',
-        'prm_poblacion_etnia_id',
-        'prm_vestimenta_id',
-        's_nombre_focalizacion',
-        's_lugar_focalizacion',
-        'sis_upzbarri_id',
-        'prm_documento_id',
-        'prm_doc_fisico_id',
 
-        'sis_departamentoexp_id',
-        'sis_municipioexp_id',
-        's_nombre_identitario',
-        'sis_pai_id',
-        'sis_departamento_id',
-        'sis_paiexp_id',
-        'sis_departamentoexp_id',
-        'i_prm_linea_base_id'
     ];
 
+    public function prmVestimenta()
+    {
+        return $this->belongsTo(Parametro::class,'prm_vestimenta_id');
+    }
+    public function nnaj_nfamili()
+    {
+        return $this->belongsTo(NnajNfamili::class);
+    }
+
+    public function sis_nnaj()
+    {
+        return $this->belongsTo(SisNnaj::class);
+    }
     public function tipoDocumento()
     {
         return $this->belongsTo(Parametro::class, 'prm_documento_id');
     }
-
-    public function sexo()
+    public function prmTipoPobla()
     {
-        return $this->belongsTo(Parametro::class, 'prm_sexo_id');
+        return $this->belongsTo(Parametro::class, 'prm_tipoblaci_id');
     }
 
     public function gsanguino()
@@ -86,16 +72,7 @@ class FiDatosBasico extends Model
         return $this->belongsTo(Parametro::class, 'prm_factor_rh_id');
     }
 
-    public function poblacion()
-    {
-        return $this->belongsTo(Parametro::class, 'prm_poblacion_id');
-    }
 
-
-    public function sis_upzbarri()
-    {
-        return $this->belongsTo(SisUpzbarri::class);
-    }
 
     public static function usregisro($usuariox)
     {
@@ -115,31 +92,8 @@ class FiDatosBasico extends Model
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
-    public function sis_pai()
-    {
-        return $this->belongsTo(SisPai::class);
-    }
-    public function sis_departamento()
-    {
-        return $this->belongsTo(SisDepartamento::class);
-    }
-    public function sis_municipio()
-    {
-        return $this->belongsTo(SisMunicipio::class);
-    }
 
-    public function sis_paiexp()
-    {
-        return $this->belongsTo(SisPai::class, 'sis_paiexp_id');
-    }
-    public function sis_departamentoexp()
-    {
-        return $this->belongsTo(SisDepartamento::class, 'sis_departamentoexp_id');
-    }
-    public function sis_municipioexp()
-    {
-        return $this->belongsTo(SisMunicipio::class, 'sis_municipioexp_id');
-    }
+
 
     public function getNombreCompletoAttribute()
     {
@@ -156,10 +110,7 @@ class FiDatosBasico extends Model
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');
     }
 
-    public static function usarioNnaj($idxxxxxx)
-    {
-        return FiDatosBasico::where('sis_nnaj_id', $idxxxxxx)->where('sis_esta_id', 1)->first();
-    }
+
     public static function getTransactionVsi($dataxxxx, $objetoxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
@@ -222,7 +173,7 @@ class FiDatosBasico extends Model
             } else {
                 /** Es un registro nuevo */
                 $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id])->id;
-                $dataxxxx['fi_nucleo_familiar_id'] = FiNucleoFamiliar::nucleo($dataxxxx['sis_nnaj_id']);
+                $dataxxxx['fi_nucleo_familiar_id'] = NnajNfamili::nucleo($dataxxxx['sis_nnaj_id']);
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['i_prm_linea_base_id'] = 227;
                 $objetoxx = FiDatosBasico::create($dataxxxx);
@@ -246,4 +197,9 @@ class FiDatosBasico extends Model
 
         return $objetoxx;
     }
+    public function sis_docfuen()
+    {
+        return $this->belongsTo(SisDocfuen::class);
+    }
+
 }

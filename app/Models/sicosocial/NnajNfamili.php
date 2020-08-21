@@ -7,9 +7,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-class FiNucleoFamiliar extends Model
+class NnajNfamili extends Model
 {
-    protected $fillable = ['i_en_uso', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['en_uso', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
     public function creador()
     {
@@ -26,7 +26,7 @@ class FiNucleoFamiliar extends Model
         $inucleox = 0;
         $nucleoxx = FiDatosBasico::where('sis_nnaj_id', $usuariox)->first();
         if ($nucleoxx == null) {
-            $inucleox =FiNucleoFamiliar::create(
+            $inucleox =NnajNfamili::create(
                 ['i_en_uso' => '1',
                 'user_crea_id'=>Auth::user()->id,
                 'user_edita_id'=>Auth::user()->id,'

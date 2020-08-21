@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
 
-class SisDocumentoFuente extends Model
+class SisDocfuen extends Model
 {
   protected $fillable = ['nombre', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
@@ -42,7 +42,7 @@ class SisDocumentoFuente extends Model
       $comboxxx = ['' => 'Seleccione'];
     }
 
-    foreach (SisDocumentoFuente::where('id', $padrexxx)->first()->in_preguntas as $registro) {
+    foreach (SisDocfuen::where('id', $padrexxx)->first()->in_preguntas as $registro) {
       if ($ajaxxxxx) {
         $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_pregunta];
       } else {
@@ -63,8 +63,8 @@ class SisDocumentoFuente extends Model
       }
     }
     $linebase=InLineabaseNnaj::where('id',$dataxxxx[1])->first();
-    $document = SisDocumentoFuente::select(['sis_documento_fuentes.id', 'sis_documento_fuentes.nombre'])
-      ->join('in_base_fuentes', 'sis_documento_fuentes.id', '=', 'in_base_fuentes.sis_documento_fuente_id')
+    $document = SisDocfuen::select(['sis_docfuens.id', 'sis_docfuens.nombre'])
+      ->join('in_base_fuentes', 'sis_docfuens.id', '=', 'in_base_fuentes.sis_docfuen_id')
       ->join('in_lineabase_nnajs', 'in_base_fuentes.in_fuente_id', '=', 'in_lineabase_nnajs.in_fuente_id')
       ->where('in_lineabase_nnajs.sis_nnaj_id',$dataxxxx[0])
       ->where('in_lineabase_nnajs.in_fuente_id',$linebase->in_fuente_id)
@@ -88,7 +88,7 @@ class SisDocumentoFuente extends Model
       $comboxxx = ['' => 'Seleccione'];
     }
 
-    foreach (SisDocumentoFuente::get() as $registro) {
+    foreach (SisDocfuen::get() as $registro) {
       if ($ajaxxxxx) {
         $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
       } else {
@@ -103,7 +103,7 @@ class SisDocumentoFuente extends Model
   }
   public static function setPregunta($dataxxxx)
   {
-    $objetoxx = SisDocumentoFuente::where('id', $dataxxxx['document'])->first();
+    $objetoxx = SisDocfuen::where('id', $dataxxxx['document'])->first();
     $pregunta[] = $dataxxxx['pregunta'];
     //if (count($objetoxx->in_preguntas) > 0) {
     foreach ($objetoxx->in_preguntas as $inpregun) {
@@ -116,12 +116,12 @@ class SisDocumentoFuente extends Model
 
   public function preguntas()
   {
-    return $this->belongsToMany(InPregunta::class, 'in_doc_preguntum', 'sis_documento_fuente_id', 'in_pregunta_id');
+    return $this->belongsToMany(InPregunta::class, 'in_doc_preguntum', 'sis_docfuen_id', 'in_pregunta_id');
   }
 
   public static function getBasaDocumentos($dataxxxx)
   {
-    $whereinx = InBaseFuente::select(['sis_documento_fuente_id'])
+    $whereinx = InBaseFuente::select(['sis_docfuen_id'])
       ->where('in_fuente_id', $dataxxxx['padrexxx'])
       ->get();
 
@@ -133,7 +133,7 @@ class SisDocumentoFuente extends Model
         $comboxxx = ['' => 'Seleccione'];
       }
     }
-    $activida = SisDocumentoFuente::whereNotIn('id', $whereinx)->get();
+    $activida = SisDocfuen::whereNotIn('id', $whereinx)->get();
     foreach ($activida as $registro) {
       if ($dataxxxx['ajaxxxxx']) {
         $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
@@ -142,15 +142,15 @@ class SisDocumentoFuente extends Model
       }
     }
     if ($dataxxxx['seleccio'] > 0) {
-      $activida = SisDocumentoFuente::where('id', $dataxxxx['seleccio'])->first(); 
+      $activida = SisDocfuen::where('id', $dataxxxx['seleccio'])->first();
       if ($dataxxxx['ajaxxxxx']) {
         $comboxxx[]=['valuexxx' => $activida->id, 'optionxx' => $activida->nombre];
 
-      } else { 
+      } else {
         $comboxxx[$activida->id] = $activida->nombre;
       }
     }
-    
+
     return $comboxxx;
   }
 }

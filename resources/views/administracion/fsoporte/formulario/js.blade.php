@@ -25,10 +25,10 @@
                 },
             });
         }
-        @if(old('sis_documento_fuente_id')!=null)
-            f_campos({{ old('sis_documento_fuente_id') }}, {{ old('sis_actividad_id') }}, 1, 'sis_actividad_id');
+        @if(old('sis_docfuen_id')!=null)
+            f_campos({{ old('sis_docfuen_id') }}, {{ old('sis_actividad_id') }}, 1, 'sis_actividad_id');
         @endif
-        $('#sis_documento_fuente_id').change(function() {
+        $('#sis_docfuen_id').change(function() {
             f_campos($(this).val(), '', 1, 'sis_actividad_id');
         });
 
