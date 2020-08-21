@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,10 +20,11 @@ class CreateHSisDepenSisEslugTable extends Migration
             $table->bigIncrements('id');
             $table->integer('sis_eslug_id');
             $table->integer('sis_depen_id');
-            $table->Integer('user_crea_id');
+/*             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
             $table->integer('sis_esta_id')->default(1);
-            $table->timestamps();
+            $table->timestamps(); */
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

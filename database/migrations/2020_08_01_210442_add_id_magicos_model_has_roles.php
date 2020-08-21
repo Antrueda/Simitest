@@ -15,9 +15,9 @@ class AddIdMagicosModelHasRoles extends Migration
     public function up()
     {
         Schema::table('model_has_roles', function ($table) {
-            $table=CamposMagicos::magicos($table);
-         });
-         DB::statement('ALTER Table model_has_roles add id INTEGER NOT NULL UNIQUE AUTO_INCREMENT FIRST;');
+            $table = CamposMagicos::magicos($table);
+        });
+        DB::statement('ALTER Table model_has_roles add id INTEGER NOT NULL UNIQUE AUTO_INCREMENT FIRST;');     //servira para darle orden entre otros atributos al campo
     }
 
     /**

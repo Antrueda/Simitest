@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,30 +20,22 @@ class CreateHSisEntidadsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre')->unique();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+            $table->string('nombre');
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('s_servicio')->unique();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+            $table->string('s_servicio');
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('sis_entidad_id')->unsigned();
             $table->bigInteger('sis_servicio_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->unique(['sis_entidad_id', 'sis_servicio_id']);
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
     }

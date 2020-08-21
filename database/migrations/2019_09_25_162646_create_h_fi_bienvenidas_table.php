@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,10 +24,11 @@ class CreateHFiBienvenidasTable extends Migration
             $table->text('s_porque_quiere_entrar');
             $table->text('s_que_gustaria_hacer');
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+/*             $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+            $table->timestamps(); */
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

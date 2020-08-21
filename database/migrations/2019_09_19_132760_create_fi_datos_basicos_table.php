@@ -48,14 +48,14 @@ class CreateFiDatosBasicosTable extends Migration
             $table->bigInteger('prm_vestimenta_id')->unsigned();
             $table->string('s_nombre_focalizacion');
             $table->string('s_lugar_focalizacion');
-           // $table->bigInteger('sis_barrio_id')->unsigned();
+            // $table->bigInteger('sis_barrio_id')->unsigned();
             $table->bigInteger('sis_upzbarri_id')->unsigned()->nullable();
-            $table->bigInteger('user_crea_id')->unsigned(); 
+            $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            
+
             $table->bigInteger('sis_pai_id')->unsigned();
             $table->bigInteger('sis_departamento_id')->unsigned();
             $table->bigInteger('sis_paiexp_id')->unsigned();
@@ -94,7 +94,7 @@ class CreateFiDatosBasicosTable extends Migration
             $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
             $table->foreign('sis_paiexp_id')->references('id')->on('sis_pais');
             $table->foreign('sis_departamentoexp_id')->references('id')->on('sis_departamentos');
-            $table->unique(['sis_esta_id','s_documento']);
+            $table->unique(['sis_esta_id', 's_documento']);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DE LAS PERSONAS QUE HACEN PARTE DE LA COMPOSICIÓN FAMILIAR DEL NNAJ, YA SEA QUE VENGAN DE LA FICHA DE INGRESO, VALORACIÓN SICOSOCIAL O CONSULTA SOCIAL EN DOMICILIO.'");
     }

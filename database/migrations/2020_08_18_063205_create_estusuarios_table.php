@@ -25,11 +25,11 @@ class CreateEstusuariosTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ESTADOS PARA LOS USUARIOS'");
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->integer('id_old');
+/*             $table->integer('id_old');
             $table->string('estado', 150);
             $table->string('rutaxxxx', 50);
             $table->string('ipxxxxxx', 50);
-            $table->string('metodoxx', 50);
+            $table->string('metodoxx', 50); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");

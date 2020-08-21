@@ -12,6 +12,13 @@ class CamposMagicos
         }
         return [$tablaxxx,$campoxxx];
     }
+
+    /**
+     *  
+     * Crea la relacion entre tablas recibiendo el nombre de las tablas y del campo
+     *
+     * @return void
+     */
     public static function getForeign($table, $campoxxx, $tablaxxx = false)
     {
         $c=CamposMagicos::armarCampo($tablaxxx,$campoxxx);
@@ -33,11 +40,21 @@ class CamposMagicos
         return $table;
     }
 
+    /**
+     *  
+     * Definición de los campos por defecto estaran en las tablas H y tendrán  la trazabilidad de los registros
+     *
+     * @return void
+     */
     public static function h_magicos($table)
     {
+        $table->bigInteger('id_old');    // campo nuevo
         $table->integer('user_crea_id');
         $table->integer('user_edita_id');
         $table->integer('sis_esta_id');
+        $table->string('metodoxx');     // campo nuevo
+        $table->string('rutaxxxx');     // campo nuevo
+        $table->string('ipxxxxxx');     // campo nuevo
         $table->timestamps();
         $table->softDeletes();
         return $table;

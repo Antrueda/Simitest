@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -45,10 +46,11 @@ class CreateHFiResidenciasTable extends Migration
             $table->string('s_telefono_tres')->nullable(); //->comment('FI 3.14 TELEFONO 3');
             $table->string('s_email_facebook')->nullable(); //->comment('FI 3.15 EMAIL O FACEBOOK');
             $table->bigInteger('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
-            $table->bigInteger('user_crea_id')->unsigned();  //->comment('USUARIO QUE CREA EL REGISTRO');
+            /* $table->bigInteger('user_crea_id')->unsigned();  //->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned(); //->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+            $table->timestamps(); */
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
@@ -56,10 +58,11 @@ class CreateHFiResidenciasTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_residencia_id')->unsigned()->comment('REGISTRO RESIDENCIA AL QUE SE LE ASIGNA LA CONDICION DEL AMBIENTE');
             $table->bigInteger('i_prm_condicion_amb_id')->unsigned()->comment('FI 3.16 CONDICIONES DEL AMBIENTE');
-            $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
+/*             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+            $table->timestamps(); */
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
     }

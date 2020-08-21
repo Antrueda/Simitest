@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,12 +23,13 @@ class CreateHInAccionGestionsTable extends Migration
             $table->bigInteger('i_prm_ttiempo_id')->unsigned();
             $table->bigInteger('in_lineabase_nnaj_id')->unsigned();
             $table->bigInteger('sis_documento_fuente_id')->unsigned(); //cambiar por in_linea_fuente en un futuro
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+            /* $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_edita_id')->unsigned(); */
             $table->integer('i_tiempo');
             $table->decimal('i_porcentaje', 5, 2);
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+            /* $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->timestamps(); */
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
@@ -35,10 +37,11 @@ class CreateHInAccionGestionsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('in_accion_gestion_id')->unsigned();
             $table->bigInteger('sis_fsoporte_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
+            /* $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+            $table->timestamps(); */
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
     }

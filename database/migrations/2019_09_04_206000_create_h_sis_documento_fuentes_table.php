@@ -10,6 +10,7 @@ class CreateHSisDocumentoFuentesTable extends Migration
 {
     private $tablaxxx = 'h_sis_documento_fuentes';
     /**
+     *  
      * Run the migrations.
      *
      * @return void

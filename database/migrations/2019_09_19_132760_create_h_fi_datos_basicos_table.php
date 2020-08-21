@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -49,17 +50,20 @@ class CreateHFiDatosBasicosTable extends Migration
             $table->string('s_nombre_focalizacion');
             $table->string('s_lugar_focalizacion');
             $table->bigInteger('sis_barrio_id')->unsigned();
+/*             
             $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
 
-            $table->timestamps();
+            $table->timestamps(); */
             
             $table->bigInteger('sis_pai_id')->unsigned();
             $table->bigInteger('sis_departamento_id')->unsigned();
             $table->bigInteger('sis_paiexp_id')->unsigned();
             $table->bigInteger('sis_departamentoexp_id')->unsigned();
             $table->bigInteger('i_prm_linea_base_id')->unsigned();
+
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

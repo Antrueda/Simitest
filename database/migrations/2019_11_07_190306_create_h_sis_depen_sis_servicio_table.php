@@ -18,7 +18,8 @@ class CreateHSisDepenSisServicioTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-//            $table->unique(['sis_depen_id', 'sis_servicio_id']);
+            $table->bigInteger('sis_depen_id')->unsigned();
+            $table->bigInteger('sis_servicio_id')->unsigned();
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

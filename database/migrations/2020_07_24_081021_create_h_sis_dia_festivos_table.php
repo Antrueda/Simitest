@@ -19,9 +19,9 @@ class CreateHSisDiaFestivosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
             $table->date('diafestivo');
-            $table->string('rutaxxxx', 50);
+/*             $table->string('rutaxxxx', 50);
             $table->string('ipxxxxxx', 50);
-            $table->string('metodoxx', 50);
+            $table->string('metodoxx', 50); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

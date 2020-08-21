@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +20,8 @@ class CreateHsisActividadSisDocumentoFuenteTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('sis_actividad_id')->unsigned();
             $table->bigInteger('sis_documento_fuente_id')->unsigned();
-            $table->timestamps();
+            //$table->timestamps();
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
