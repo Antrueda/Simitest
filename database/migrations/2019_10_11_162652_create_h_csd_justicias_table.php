@@ -11,7 +11,7 @@ class CreateHCsdJusticiasTable extends Migration
     private $tablaxxx = 'h_csds';
     private $tablaxxx2 = 'h_csd_sis_nnaj';
     private $tablaxxx3 = 'h_csd_justicias';
-    private $tablaxxx4 = 'h_csd_nnaj_especial';    
+    private $tablaxxx4 = 'h_csd_nnaj_especial';
     /**
      * Run the migrations.
      *
@@ -23,12 +23,8 @@ class CreateHCsdJusticiasTable extends Migration
             $table->bigIncrements('id');
             $table->string('proposito', 200);
             $table->date('fecha');
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
-            //$table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            //$table->timestamps();
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -36,10 +32,7 @@ class CreateHCsdJusticiasTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            //$table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
-            //$table->bigInteger('user_edita_id')->unsigned();
-            $table->unique(['csd_id', 'sis_nnaj_id']);
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
@@ -51,11 +44,7 @@ class CreateHCsdJusticiasTable extends Migration
             $table->bigInteger('prm_vin_causa_id')->unsigned()->nullable();
             $table->bigInteger('prm_riesgo_id')->unsigned();
             $table->bigInteger('prm_rie_causa_id')->unsigned()->nullable();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1); */
             $table->bigInteger('prm_tipofuen_id')->unsigned();
-            //$table->timestamps();
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
@@ -63,10 +52,7 @@ class CreateHCsdJusticiasTable extends Migration
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_id')->unsigned();
-            //$table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
-            //$table->bigInteger('user_edita_id')->unsigned();
-            $table->unique(['parametro_id', 'csd_id']);
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");

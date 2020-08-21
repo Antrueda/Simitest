@@ -25,10 +25,6 @@ class CreateHFiRedesApoyosTable extends Migration
             $table->bigInteger('i_prm_tiempo_id')->unsigned();
             $table->bigInteger('i_prm_anio_prestacion_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
-/*             $table->bigInteger('user_crea_id')->unsigned();  //->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned(); //->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -36,11 +32,6 @@ class CreateHFiRedesApoyosTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
-/*             $table->bigInteger('user_crea_id')->unsigned();  //->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned(); //->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1); 
-            $table->timestamps();
-            */
             $table->bigInteger('i_prm_tipo_red_id')->unsigned();
             $table->string('s_nombre_persona');
             $table->string('s_servicio');

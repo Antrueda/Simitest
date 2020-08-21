@@ -38,10 +38,6 @@ class CreateHVsiRelFamiliarsTable extends Migration
             $table->Integer('ano')->unsigned()->nullable();
             $table->bigInteger('prm_responde_id')->unsigned()->nullable();
             $table->text('descripcion1', 4000)->nullable();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -49,8 +45,6 @@ class CreateHVsiRelFamiliarsTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relfamiliar_id')->unsigned();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
             $table = CamposMagicos::h_magicos($table);
         });
@@ -59,8 +53,6 @@ class CreateHVsiRelFamiliarsTable extends Migration
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relfamiliar_id')->unsigned();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
             $table = CamposMagicos::h_magicos($table);
         });
@@ -69,8 +61,6 @@ class CreateHVsiRelFamiliarsTable extends Migration
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relfamiliar_id')->unsigned();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
             $table->unique(['parametro_id', 'vsi_relfamiliar_id']);
             $table = CamposMagicos::h_magicos($table);
         });

@@ -40,14 +40,7 @@ class CreateHVsiAbuSexualsTable extends Migration
             $table->bigInteger('prm_terapia_id')->unsigned()->nullable();
             $table->bigInteger('prm_estado_id')->unsigned()->nullable();
             $table->string('informacion', 4000)->nullable();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1); */
             $table = CamposMagicos::h_magicos($table);
-            // $table->string('metodoxx');     // campo nuevo
-            // $table->string('rutaxxxx');     // campo nuevo
-            // $table->string('ipxxxxxx');     // campo nuevo            
-            //$table->timestamps();
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

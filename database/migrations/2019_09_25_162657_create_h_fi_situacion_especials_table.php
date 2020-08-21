@@ -24,13 +24,9 @@ class CreateHFiSituacionEspecialsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
             $table->bigInteger('i_prm_tipo_id')->nullable()->unsigned();
             $table->bigInteger('i_tiempo')->nullable();
             $table->bigInteger('i_prm_ttiempo_id')->nullable()->unsigned();
-            /* $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -39,10 +35,6 @@ class CreateHFiSituacionEspecialsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_situacion_especial_id')->unsigned();
             $table->bigInteger('i_prm_situacion_vulnera_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
@@ -51,10 +43,6 @@ class CreateHFiSituacionEspecialsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_situacion_especial_id')->unsigned();
             $table->bigInteger('i_prm_victima_escnna_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
@@ -63,10 +51,6 @@ class CreateHFiSituacionEspecialsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_situacion_especial_id')->unsigned();
             $table->bigInteger('i_prm_riesgo_escnna_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
@@ -75,10 +59,6 @@ class CreateHFiSituacionEspecialsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_situacion_especial_id')->unsigned();
             $table->bigInteger('i_prm_iniciado_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
@@ -87,10 +67,6 @@ class CreateHFiSituacionEspecialsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_situacion_especial_id')->unsigned();
             $table->bigInteger('i_prm_continua_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");

@@ -41,10 +41,6 @@ class CreateHVsiGenIngresosTable extends Migration
             $table->Integer('cuanto_aporta')->unsigned()->nullable();
             $table->string('expectativa', 4000)->nullable();
             $table->string('descripcion', 4000)->nullable();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -52,8 +48,6 @@ class CreateHVsiGenIngresosTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_geningreso_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
             $table = CamposMagicos::h_magicos($table);
         });
@@ -62,8 +56,6 @@ class CreateHVsiGenIngresosTable extends Migration
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_geningreso_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
             $table = CamposMagicos::h_magicos($table);
         });
@@ -72,8 +64,6 @@ class CreateHVsiGenIngresosTable extends Migration
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_geningreso_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
             $table = CamposMagicos::h_magicos($table);
         });

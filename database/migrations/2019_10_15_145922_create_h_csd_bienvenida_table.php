@@ -21,10 +21,6 @@ class CreateHCsdBienvenidaTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('prm_persona_id')->unsigned();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
@@ -33,9 +29,6 @@ class CreateHCsdBienvenidaTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_bienvenidas_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
-            $table->unique(['parametro_id', 'csd_bienvenidas_id']);
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
