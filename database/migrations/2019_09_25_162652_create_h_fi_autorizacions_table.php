@@ -25,10 +25,6 @@ class CreateHFiAutorizacionsTable extends Migration
             $table->date('d_autorizacion');
             $table->bigInteger('i_prm_tipo_diligencia_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -37,10 +33,6 @@ class CreateHFiAutorizacionsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_autorizacion_id')->unsigned();
             $table->bigIntegeR('i_prm_modalidad_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

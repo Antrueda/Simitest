@@ -15,15 +15,15 @@ class InDocIndicadorEditarRequest extends FormRequest
 
        $this->_mensaje = [
             'in_indicador_id.required' => 'Seleccione un indicador',
-            'sis_documento_fuente_id.required' => 'Seleccione un documento fuente',
-            
+            'sis_docfuen_id.required' => 'Seleccione un documento fuente',
+
         ];
         $this->_reglasx = [
             'in_indicador_id' =>
             [
                 'required', //y todos las validaciones a que haya lugar separadas por coma
             ],
-            'sis_documento_fuente_id' =>
+            'sis_docfuen_id' =>
             [
                 'required', //y todos las validaciones a que haya lugar separadas por coma
             ],
@@ -59,10 +59,10 @@ class InDocIndicadorEditarRequest extends FormRequest
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
         $docuindi = InDocIndi::where('in_indicador_id', $dataxxxx['in_indicador_id'])
-            ->where('sis_documento_fuente_id', $dataxxxx['sis_documento_fuente_id'])
+            ->where('sis_docfuen_id', $dataxxxx['sis_docfuen_id'])
             ->whereNotIn('id', [$this->segments()[2]])
             ->first();
-        if (isset($docuindi->id)) { 
+        if (isset($docuindi->id)) {
             $this->_mensaje['asociacion.required'] = 'la asociacion del indicador y el docuemnto fuente ya existe';
             $this->_reglasx['asociacion'] = 'required';
         }

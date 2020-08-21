@@ -33,7 +33,7 @@ class CreateFiComposicionFamisTable extends Migration
             $table->bigInteger('i_prm_vinculado_idipron_id')->unsigned();
             $table->bigInteger('i_prm_convive_nnaj_id')->unsigned();
             $table->bigInteger('prm_documento_id')->unsigned();
-            $table->bigInteger('fi_nucleo_familiar_id')->unsigned();
+            $table->bigInteger('nnaj_nfamili_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
@@ -49,7 +49,7 @@ class CreateFiComposicionFamisTable extends Migration
             $table->foreign('prm_documento_id')->references('id')->on('parametros');
             $table->foreign('i_prm_vinculado_idipron_id')->references('id')->on('parametros');
             $table->foreign('i_prm_convive_nnaj_id')->references('id')->on('parametros');
-            $table->foreign('fi_nucleo_familiar_id')->references('id')->on('fi_nucleo_familiars');
+            $table->foreign('nnaj_nfamili_id')->references('id')->on('nnaj_nfamilis');
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BÁSICOS DEL NUCLEO FAMILIAR DE LA PERSONA ENTREVISTADA, SECCION 5 DE LA FICHA DE INGRESO'");
     }

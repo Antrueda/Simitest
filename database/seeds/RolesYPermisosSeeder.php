@@ -275,7 +275,7 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'firedapoyo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo FI','pestania'=>1]);
 
         //Crear   datos básicos para FI
-        $this->getPermisos(['permisox' => 'fidatobasico', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Datos Básicos FI','pestania'=>1]);
+        $this->getPermisos(['permisox' => 'fidatbas', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Datos Básicos FI','pestania'=>1]);
 
         //Crear   datos básicos para FI
         $this->getPermisos(['permisox' => 'fiautorizacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Autorización FI','pestania'=>1]);
@@ -536,7 +536,7 @@ class RolesYPermisosSeeder extends Seeder
             'vsiredac-leer', 'vsiredac-crear', 'vsiredac-editar', 'vsiredac-borrar',
             'vsiredpa-leer', 'vsiredpa-crear', 'vsiredpa-editar', 'vsiredpa-borrar',
 
-            'fidatobasico-leer', 'fidatobasico-crear', 'fidatobasico-editar', 'fidatobasico-borrar',
+            'fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar',
             'fiautorizacion-leer', 'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar',
             'vsiareas-leer', 'vsiareas-crear', 'vsiareas-editar',
             'vsisocia-leer', 'vsisocia-crear', 'vsisocia-editar',
@@ -655,7 +655,7 @@ class RolesYPermisosSeeder extends Seeder
             // ficha de ingreso
             'fivestuario-leer', 'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar',
             'firesidencia-leer', 'firesidencia-crear', 'firesidencia-editar', 'firesidencia-borrar',
-            'fidatobasico-leer', 'fidatobasico-crear', 'fidatobasico-editar', 'fidatobasico-borrar',
+            'fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar',
             'fiautorizacion-leer', 'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar',
             'fichaIngreso-leer', 'fichaIngreso-crear', 'fichaIngreso-editar', 'fichaIngreso-borrar',
             'fiactividades-leer', 'fiactividades-crear', 'fiactividades-editar', 'fiactividades-borrar',
@@ -711,7 +711,7 @@ class RolesYPermisosSeeder extends Seeder
                 'fisalud-leer', 'fisalud-crear', 'fisalud-editar', 'fisalud-borrar', 'fisituacion-leer', 'fisituacion-crear',
                 'fisituacion-editar', 'fisituacion-borrar', 'fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar',
                 'fiviolencia-borrar', 'firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar',
-                'fidatobasico-leer', 'fidatobasico-crear', 'fidatobasico-editar', 'fidatobasico-borrar', 'fiautorizacion-leer',
+                'fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar', 'fiautorizacion-leer',
                 'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar', 'fiantecedentes-leer', 'fiantecedentes-crear',
                 'fiantecedentes-editar', 'fiantecedentes-borrar', 'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
                 'firedactual-borrar', 'territorio-modulo'

@@ -21,10 +21,6 @@ class CreateHFiConsumoSpasTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_consume_spa_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            /* $table->bigInteger('user_crea_id')->unsigned(); 
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -35,10 +31,6 @@ class CreateHFiConsumoSpasTable extends Migration
             $table->bigInteger('i_prm_sustancia_id')->nullable()->unsigned();
             $table->bigIntegeR('i_edad_uso')->nullable()->unsigned();
             $table->bigInteger('i_prm_consume_id')->nullable()->unsigned();
-            /* $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned();//->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

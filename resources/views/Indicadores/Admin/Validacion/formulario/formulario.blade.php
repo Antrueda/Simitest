@@ -17,8 +17,8 @@
     {{ Form::select('in_pregunta_id', $todoxxxx["pregindi"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('sis_documento_fuente_id', 'Documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_documento_fuente_id', $todoxxxx["docufuen"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::label('sis_docfuen_id', 'Documento', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('sis_docfuen_id', $todoxxxx["docufuen"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('sis_tabla_id', 'Tabla', ['class' => 'control-label col-form-label-sm']) }}
@@ -36,12 +36,12 @@
       @foreach ($todoxxxx["respuest"] as $respuest)
           <option value="{{ $respuest['valuexxx'] }}">{{ $respuest['optionxx'] }}</option>
       @endforeach
-   
+
     </select>
   </div>
 
 <div class="form-group col-md-4">
-  
+
   <div class="form-group row">
     <div class="form-group col-md-6" style="text-align: right">
   <button type="button" class="btn btn-sm btn-primary pasartodos" style="width: 80px" >Todos  <i class="fas fa-fast-forward"></i></button>
@@ -54,9 +54,9 @@
     </div>
     <div class="form-group col-md-6" style="text-align: left">
     <button type="button" class="btn btn-sm btn-primary quitar" style="width: 80px" > Quitar  <i class="fas fa-step-backward"></i></button>
-      
+
     </div>
-    
+
   </div>
 </div>
 
@@ -66,10 +66,10 @@
   @isset($todoxxxx["selected"])
     @foreach ($todoxxxx["selected"] as $selected)
       <option selected value="{{ $selected['valuexxx'] }}">{{ $selected['optionxx'] }}</option>
-    @endforeach  
+    @endforeach
   @endisset
- 
-  
+
+
 </select>
 </div>
 </div>

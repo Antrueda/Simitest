@@ -21,9 +21,9 @@ class CreateSisMenusTable extends Migration
             $table->bigInteger('sis_menu_id')->unsigned()->nullable();
             $table->string('s_menu');
             $table->string('s_icono');
-            $table->bigInteger('sis_documento_fuente_id')->unsigned()->nullable();
+            $table->bigInteger('sis_docfuen_id')->unsigned()->nullable();
             $table->foreign('sis_menu_id')->references('id')->on('sis_menus');
-            $table->foreign('sis_documento_fuente_id')->references('id')->on('sis_documento_fuentes');
+            $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');
             $table->timestamps();
             $table->unique(['sis_menu_id','s_menu']);
         });
@@ -33,7 +33,7 @@ class CreateSisMenusTable extends Migration
             $table->bigIncrements('id');
             $table->string('s_menu');
             $table->string('s_icono');
-            $table->bigInteger('sis_documento_fuente_id')->nullable();
+            $table->bigInteger('sis_docfuen_id')->nullable();
             $table->bigInteger('sis_menu_id')->nullable();
             $table = CamposMagicos::h_magicos($table);
         });

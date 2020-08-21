@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sicosocial\FiNucleoFamiliar;
+use App\Models\sicosocial\NnajNFamili;
 use Illuminate\Database\Seeder;
 
 class FiNucleoFamiliarsTableSeeder extends Seeder
@@ -12,6 +12,6 @@ class FiNucleoFamiliarsTableSeeder extends Seeder
      */
     public function run()
     {
-        FiNucleoFamiliar::create(['i_en_uso' => '1','user_crea_id'=>1,'user_edita_id'=>1,'sis_esta_id'=>1]);
+        NnajNfamili::create(['en_uso' => '1','user_crea_id'=>1,'user_edita_id'=>1,'sis_esta_id'=>1]);
     }
 }

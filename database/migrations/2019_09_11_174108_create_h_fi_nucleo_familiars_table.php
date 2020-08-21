@@ -18,7 +18,7 @@ class CreateHFiNucleoFamiliarsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('i_en_uso');
+            $table->boolean('en_uso');
             $table = CamposMagicos::h_magicos($table);
         });
        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

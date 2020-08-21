@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class CreateSisDocumentoFuentesTable extends Migration
 {
-    private $tablaxxx = 'sis_documento_fuentes';
+    private $tablaxxx = 'sis_docfuens';
     /**
      * Run the migrations.
      *

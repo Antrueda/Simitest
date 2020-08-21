@@ -33,10 +33,6 @@ class CreateHFiFormacionsTable extends Migration
             $table->bigInteger('i_prm_ultimo_grado_aprobado_id')->unsigned(); //->comment('FI 4.10 ÚLTIMO GRADO, MODULO, SEMESTRE APROBADO');
             $table->bigInteger('i_prm_certificado_ultimo_nivel_id')->unsigned(); //->comment('FI 4.11 CERTIFICADO ÚLTIMO NIVEL DE ESTUDIO');
             $table->bigInteger('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA FORMACION');
-            /* $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned(); //->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -45,10 +41,6 @@ class CreateHFiFormacionsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_formacion_id')->unsigned()->comment('REGISTRO FORMACIÓN AL QUE SE LE ASIGNA EL MOTIVO DE VINCULACIÓN');
             $table->bigIntegeR('i_prm_motivo_vinc_id')->unsigned()->comment('FI 4.12 MOTIVOS DESEA VINCULARSE AL IDIPRON');
-            /* $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

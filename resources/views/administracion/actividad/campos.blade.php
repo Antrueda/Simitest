@@ -13,18 +13,18 @@
       	</div>
     @endif
 </div>
-<div class="form-group row{{ $errors->first('sis_documento_fuente_id') ? ' is-invalid' : '' }}">
-	{{ Form::label('sis_documento_fuente_id', 'Documento fuente:', ['class' => 'col-sm-2 col-form-label']) }}
+<div class="form-group row{{ $errors->first('sis_docfuen_id') ? ' is-invalid' : '' }}">
+	{{ Form::label('sis_docfuen_id', 'Documento fuente:', ['class' => 'col-sm-2 col-form-label']) }}
 	<div class="col-sm-10">
 		@if($accion == 'Ver')
-			{{ Form::text('sis_documento_fuente_id', $dato->sisDocumentoFuente->nombre, ['class' => 'form-control-plaintext']) }}
+			{{ Form::text('sis_docfuen_id', $dato->sisDocumentoFuente->nombre, ['class' => 'form-control-plaintext']) }}
 		@else
-			{{ Form::select('sis_documento_fuente_id', $docsFuente, null, ['class' => 'form-control']) }}
+			{{ Form::select('sis_docfuen_id', $docsFuente, null, ['class' => 'form-control']) }}
 		@endif
 	</div>
-	@if($errors->has('sis_documento_fuente_id'))
+	@if($errors->has('sis_docfuen_id'))
 		<div class="invalid-feedback d-block">
-        	{{ $errors->first('sis_documento_fuente_id') }}
+        	{{ $errors->first('sis_docfuen_id') }}
       	</div>
     @endif
 </div>

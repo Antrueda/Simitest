@@ -1,19 +1,19 @@
 <script>
    $(function(){
-        
-       
+
+
         var f_porcentaje=function(valuexxx,thisxxxx){
             if(valuexxx!=''){
                 $.ajax({
                     url : "{{ route('ag.acciongestion.porcentaje',$todoxxxx['parametr']) }}",
-                    data : { 
+                    data : {
                         i_porcentaje:valuexxx,
                     },
                     type : 'GET',
                     dataType : 'json',
-                    success : function(json) {                         
-                         $(thisxxxx).prop('title',json.msnxxxxx); 
-                         $(thisxxxx).popover(json.mostrarx); 
+                    success : function(json) {
+                         $(thisxxxx).prop('title',json.msnxxxxx);
+                         $(thisxxxx).popover(json.mostrarx);
                          $(thisxxxx).val(json.faltante)
                     },
                     error : function(xhr, status) {
@@ -30,7 +30,7 @@
             if(valuexxx!=''){
                 $.ajax({
                     url : "{{ route('ajaxx.acciongestion') }}",
-                    data : { 
+                    data : {
                         padrexxx:valuexxx,
                         optionxx:optionxx,
                     },
@@ -50,11 +50,11 @@
                     },
                 });
             }
-            
+
         }
 
-    
-        $('#sis_documento_fuente_id').change(function(){
+
+        $('#sis_docfuen_id').change(function(){
             $('#sis_actividad_id, #sis_fsoporte_id').empty();
             if($(this).val()!=''){
                 $('#sis_fsoporte_id').append('<option value="">Seleccione</option>');
@@ -71,9 +71,9 @@
                 $('#sis_fsoporte_id').append('<option value="">Seleccione</option>');
             }
         });
-        
+
         $('#i_porcentaje').keyup(function(event){
           f_porcentaje($(this).val(),this);
         });
     });
-</script>   
+</script>

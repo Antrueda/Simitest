@@ -13,10 +13,10 @@ class InBaseFuenteEditarRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'sis_documento_fuente_id.required' => 'Seleccione un documento fuente',
+            'sis_docfuen_id.required' => 'Seleccione un documento fuente',
         ];
         $this->_reglasx = [
-            'sis_documento_fuente_id' =>
+            'sis_docfuen_id' =>
             [
                 'required', //y todos las validaciones a que haya lugar separadas por coma
             ],
@@ -44,7 +44,7 @@ class InBaseFuenteEditarRequest extends FormRequest
      */
     public function rules()
     {
-        
+
         $this->validar();
         return $this->_reglasx;
     }
@@ -53,7 +53,7 @@ class InBaseFuenteEditarRequest extends FormRequest
     {
         $registro=InBaseFuente::
         where('in_fuente_id',$this->segments()[2])
-        ->where('sis_documento_fuente_id',$this->sis_documento_fuente_id)
+        ->where('sis_docfuen_id',$this->sis_docfuen_id)
         ->first();
         if(isset($registro->id)){
             $this->_mensaje['existexx.required'] = 'Seleccione un documento fuente';

@@ -20,8 +20,8 @@ class CreateSisTablasTable extends Migration
             $table->string('s_tabla')->nullable();
             $table->string('s_descripcion')->nullable();
             $table->timestamps();
-            $table->bigInteger('sis_documento_fuente_id')->unsigned();
-            $table->foreign('sis_documento_fuente_id')->references('id')->on('sis_documento_fuentes');
+            $table->bigInteger('sis_docfuen_id')->unsigned();
+            $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LAS TABLAS RELACIONADAS CON LOS FORMATOS PUBLICADOS EN EL SISTEMA'");
     }
