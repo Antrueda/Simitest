@@ -21,11 +21,6 @@ class CreateHAgResponsablesTable extends Migration
             $table->integer('i_prm_responsable_id');
             $table->integer('ag_actividad_id');
             $table->integer('sis_obse_id');
-            $table->integer('user_id');
-/*             $table->integer('user_crea_id'); 
-            $table->integer('user_edita_id');
-            $table->integer('sis_esta_id');
-            $table->timestamps();  */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

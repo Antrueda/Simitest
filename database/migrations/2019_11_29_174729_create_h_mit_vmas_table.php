@@ -163,10 +163,6 @@ class CreateHMitVmasTable extends Migration
             $table->text('alerta', 4000)->nullable();
             $table->text('observaciones', 4000);
             $table->bigInteger('user_doc1_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -174,9 +170,6 @@ class CreateHMitVmasTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('mit_vma_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
-            $table->unique(['parametro_id', 'mit_vma_id']);
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

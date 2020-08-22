@@ -20,8 +20,7 @@ class CreateHSisTablasTable extends Migration
             $table->bigIncrements('id');
             $table->string('s_tabla')->nullable();
             $table->string('s_descripcion')->nullable();
-            //$table->timestamps();
-            $table->bigInteger('sis_documento_fuente_id')->unsigned();
+            $table->bigInteger('sis_docfuen_id')->unsigned();
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

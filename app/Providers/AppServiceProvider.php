@@ -178,7 +178,7 @@ use App\Models\Sistema\SisDepeServ;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisDiaFestivo;
 use App\Models\Sistema\SisDiagnosticos;
-use App\Models\Sistema\SisDocumentoFuente;
+// use App\Models\Sistema\SisDocumentoFuente;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Sistema\SisEslug;
@@ -681,7 +681,7 @@ class AppServiceProvider extends ServiceProvider
     SisDepeUsua::observe(SisDepeUsuaObserver::class);
     SisDiaFestivo::observe(SisDiaFestivoObserver::class);
     SisDiagnosticos::observe(SisDiagnosticosObserver::class);
-    SisDocumentoFuente::observe(SisDocumentoFuenteObserver::class);
+//    SisDocumentoFuente::observe(SisDocumentoFuenteObserver::class);
     SisEntidad::observe(SisEntidadObserver::class);
     SisEntidadSalud::observe(SisEntidadSaludObserver::class);
     SisEslug::observe(SisEslugObserver::class);

@@ -19,11 +19,8 @@ class CreateHAgRelacionsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('ag_actividad_id')->unsigned();
-            $table->bigInteger('fi_dato_basico_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned(); 
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
+            $table->bigInteger('ag_recurso_id')->unsigned();
+            $table->integer('i_cantidad');
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

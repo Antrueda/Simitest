@@ -55,10 +55,6 @@ class CreateHAiSalidaMenoresTable extends Migration
             $table->string('doc_recoge', 120);
             $table->bigInteger('responsable')->unsigned();
             $table->bigInteger('user_doc1_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -66,9 +62,6 @@ class CreateHAiSalidaMenoresTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('ai_salida_menores_id')->unsigned();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
-            $table->unique(['parametro_id', 'ai_salida_menores_id']);
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
@@ -77,9 +70,6 @@ class CreateHAiSalidaMenoresTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('prm_id')->unsigned();
             $table->bigInteger('ai_salida_menores_id')->unsigned();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
-            $table->unique(['id', 'prm_id', 'ai_salida_menores_id']);
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");

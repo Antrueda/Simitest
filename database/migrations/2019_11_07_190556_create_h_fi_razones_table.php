@@ -26,10 +26,6 @@ class CreateHFiRazonesTable extends Migration
             $table->bigInteger('sis_depenr_id')->unsigned();
             $table->bigInteger('i_prm_estado_ingreso_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -38,11 +34,7 @@ class CreateHFiRazonesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_razone_id')->unsigned();
             $table->bigInteger('i_prm_documento_id')->unsigned();
-            /* $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned(); */
             $table->text('s_ruta');
-            /* $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

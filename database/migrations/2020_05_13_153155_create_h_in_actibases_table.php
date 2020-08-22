@@ -21,10 +21,6 @@ class CreateHInActibasesTable extends Migration
             $table->bigInteger('i_tiempo');
             $table->bigInteger('i_porcentaje');
             $table->bigInteger('i_prm_tiempo_id')->unsigned();
-/*             $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps(); */
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
