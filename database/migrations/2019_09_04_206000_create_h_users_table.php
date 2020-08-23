@@ -27,7 +27,6 @@ class CreateHUsersTable extends Migration
             $table->string('s_telefono');
             $table->string('s_matriculap');
             $table->string('s_documento');
-
             $table->date('d_vinculacion');
             $table->Integer('itiestan')->default(0)->comment('TIEMPO STANDAR PARA EL CARGUE DE INFORMACION');
             $table->Integer('itiegabe')->default(0)->comment('TIEMPO GABELA PARA EL CARGUE DE INFORMACION');
@@ -35,15 +34,11 @@ class CreateHUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->timestamps();
-            
             $table->bigInteger('sis_municipio_id')->unsigned();
-            
             $table->bigInteger('sis_cargo_id')->unsigned();
             $table->date('d_finvinculacion');
             $table->bigInteger('prm_tvinculacion_id')->unsigned();
             $table->bigInteger('prm_documento_id')->unsigned();
-            
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
