@@ -13,7 +13,7 @@ class NnajSexo extends Model
 {
     protected $fillable = [
         'fi_datos_basico_id',
-         's_nombre_identitario',
+        's_nombre_identitario',
         'prm_sexo_id',
         'prm_identidad_genero_id',
         'prm_orientacion_sexual_id',
