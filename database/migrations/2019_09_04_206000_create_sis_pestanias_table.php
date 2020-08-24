@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSisPestaniasTable extends Migration
 {
+    private $tablaxxx = 'sis_pestanias';
     /**
      * Run the migrations.
      *
@@ -13,7 +14,7 @@ class CreateSisPestaniasTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_pestanias', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_pestania');
             $table->bigInteger('sis_menu_id')->unsigned();
@@ -29,6 +30,6 @@ class CreateSisPestaniasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_pestanias');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }
