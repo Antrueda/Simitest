@@ -7,6 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateSisPaissTable extends Migration
 {
+    private $tablaxxx = 'sis_pais';
     /**
      * Run the migrations.
      *
@@ -14,7 +15,7 @@ class CreateSisPaissTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_pais', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_iso');
             $table->string('s_pais');
@@ -33,6 +34,6 @@ class CreateSisPaissTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_pais');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

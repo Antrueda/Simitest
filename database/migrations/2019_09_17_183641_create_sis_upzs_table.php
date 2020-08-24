@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateSisUpzsTable extends Migration
 {
+    private $tablaxxx = 'sis_upzs';
     /**
      * Run the migrations.
      *
@@ -13,7 +14,7 @@ class CreateSisUpzsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_upzs', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_upz')->unique();
             $table->string('s_codigo', 3);
@@ -34,6 +35,6 @@ class CreateSisUpzsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_upzs');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

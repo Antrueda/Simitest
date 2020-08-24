@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateSisLocalidadsTable extends Migration
 {
+    private $tablaxxx = 'sis_localidads';
     /**
      * Run the migrations.
      *
@@ -13,8 +14,7 @@ class CreateSisLocalidadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_localidads', function (Blueprint $table) {
-             
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_localidad')->unique();
             $table->Integer('user_crea_id'); 
@@ -22,8 +22,6 @@ class CreateSisLocalidadsTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned();
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            // $table->foreign('user_crea_id')->references('id')->on('users');
-            // $table->foreign('user_edita_id')->references('id')->on('users');
         });
     }
 
@@ -34,6 +32,6 @@ class CreateSisLocalidadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_localidads');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

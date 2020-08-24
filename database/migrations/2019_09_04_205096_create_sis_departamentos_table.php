@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateSisDepartamentosTable extends Migration
 {
+    private $tablaxxx = 'sis_departamentos';
     /**
      * Run the migrations.
      *
@@ -13,8 +14,7 @@ class CreateSisDepartamentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_departamentos', function (Blueprint $table) {
-             
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_pais_id')->unsigned()->nullable();
             $table->string('s_departamento');
@@ -34,6 +34,6 @@ class CreateSisDepartamentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_departamentos');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSisLocalupzsTable extends Migration
 {
+    private $tablaxxx = 'sis_localupzs';
     /**
      * Run the migrations.
      *
@@ -13,7 +14,7 @@ class CreateSisLocalupzsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_localupzs', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_localidad_id')->unsigned();
             $table->bigInteger('sis_upz_id')->unsigned();
@@ -37,6 +38,6 @@ class CreateSisLocalupzsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_localupzs');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

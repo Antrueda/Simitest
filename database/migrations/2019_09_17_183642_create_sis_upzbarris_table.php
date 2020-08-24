@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSisUpzbarrisTable extends Migration
 {
+    private $tablaxxx = 'sis_upzbarris';
     /**
      * Run the migrations.
      *
@@ -13,7 +14,7 @@ class CreateSisUpzbarrisTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_upzbarris', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_localupz_id')->unsigned();
             $table->bigInteger('sis_barrio_id')->unsigned();
@@ -37,6 +38,6 @@ class CreateSisUpzbarrisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sis_upzbarris');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }
