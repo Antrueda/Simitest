@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class CreateHFiRazonesTable extends Migration
 {
-    private $tablaxxx = 'h__fi_razones';
+    private $tablaxxx = 'h_fi_razones';
     private $tablaxxx2 = 'h_fi_documentos_anexas';
     /**
      * Run the migrations.

@@ -6,9 +6,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateHAiReporteEvasionTable extends Migration
+class CreateHAiReporteEvasionsTable extends Migration
 {
-    private $tablaxxx = 'h_ai_reporte_evasion';
+    private $tablaxxx = 'h_ai_reporte_evasions';
     /**
      * Run the migrations.
      *
