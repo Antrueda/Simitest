@@ -16,7 +16,8 @@ class SisEstaObserver
         $log['s_estado'] = $modeloxx->s_estado;
         $log['i_estado'] = $modeloxx->i_estado;
         // campos por defecto, no borrar.
-        $log['sis_esta_id'] = $modeloxx->sis_esta_id;
+        
+        // $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
         $log['metodoxx'] = request()->method();
         $log['user_edita_id'] = $modeloxx->user_edita_id;
