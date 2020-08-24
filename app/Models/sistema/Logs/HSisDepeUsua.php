@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models\sistema\Logs;
+
+use Illuminate\Database\Eloquent\Model;
+
+class HSisDepeUsua extends Model
+{
+    protected $fillable = [
+        'user_id',
+        'sis_depen_id',
+        'i_prm_responsable_id',
+        'user_crea_id',
+        'user_edita_id',
+        'sis_esta_id',
+
+        'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
+    ];
+}

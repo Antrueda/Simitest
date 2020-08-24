@@ -1,23 +1,30 @@
 <?php
-Route::group(['prefix' => 'fi'], function () {
+$routexxx='fidatbas';
+$controll='FichaIngreso\Fi';
+Route::group(['prefix' => 'fi'], function () use($routexxx,$controll){
 	Route::get('', [
-		'uses' => 'FichaIngreso\FiController@index',
-		'middleware' => ['permission:fidatobasico-leer|fidatobasico-crear|fidatobasico-editar|fidatobasico-borrar']
-	])->name('fi');
+		'uses' => $controll.'Controller@index',
+		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+    ])->name($routexxx);
+    Route::get('listaxxx', [
+		'uses' => $controll.'Controller@getListado',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+    ])->name($routexxx.'.listaxxx');
+
 	Route::get('nuevo', [
 	    'uses' => 'FichaIngreso\FiDatoBasicoController@create',
-	    'middleware' => ['permission:fidatobasico-crear']
-	])->name('fi.datobasico.nuevo');
+	    'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
 	Route::get('{id}', [
 	    'uses' => 'FichaIngreso\FiDatoBasicoController@show',
-	    'middleware' => ['permission:fidatobasico-leer|fidatobasico-crear|fidatobasico-editar|fidatobasico-borrar']
-	])->name('fi.datobasico.ver');
+	    'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+	])->name($routexxx.'.ver');
 	Route::post('crear', [
 	    'uses' => 'FichaIngreso\FiDatoBasicoController@store',
-	    'middleware' => ['permission:fidatobasico-crear']
-	])->name('fi.datobasico.crear');
+	    'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.crear');
 
-	
+
 	include_once('web_fi_actividadestl.php');
 	include_once('web_fi_autorizacion.php');
 	include_once('web_fi_bienvenida.php');

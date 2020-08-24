@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,13 +18,14 @@ class CreateHAgConveniosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('ag_taller_id')->unsigned()->nullable();
-            $table->string('s_subtema');
-            $table->text('s_descripcion');
-            $table->bigInteger('user_crea_id')->unsigned(); 
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+            $table->string('s_convenio');
+            $table->bigInteger('i_prm_tconvenio_id')->unsigned();
+            $table->bigInteger('i_prm_entidad_id')->unsigned();
+            $table->string('s_descripcion');
+            $table->bigInteger('i_nconvenio');
+            $table->dateTime('d_subscrip');
+            $table->dateTime('d_terminac');
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

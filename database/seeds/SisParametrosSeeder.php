@@ -2341,5 +2341,6 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2320, 'nombre' => 'SUCESOS RELACIONADOS CON MUERTE']);
         Parametro::create(['id' => 2321, 'nombre' => 'NADA']);
         Parametro::create(['id' => 2322, 'nombre' => 'TIO/A POLITICO']);
+        Parametro::create(['id' => 2323, 'nombre' => 'CAMINANDO RELAJADO']);
     }
 }

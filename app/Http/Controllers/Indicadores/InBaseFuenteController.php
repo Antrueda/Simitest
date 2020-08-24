@@ -9,6 +9,7 @@ use App\Http\Requests\Indicadores\InBaseFuenteEditarRequest;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InFuente;
 use App\Models\Indicadores\InIndicador;
+use App\Models\Sistema\SisDocfuen;
 use App\Models\Sistema\SisDocumentoFuente;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Pestanias;
@@ -30,7 +31,7 @@ class InBaseFuenteController extends Controller
             'slotxxxy' => 'diagnost', // indica cual es la pestaña padre que debe estar activa
             'slotxxxx' => 'basedocu', // indica cual es la pestaña hija que debe estar activa
             'carpetax' => 'Basefuente', // carpeta a la que accede el controlador
-            'indecrea' => false,    // false indica que no debe estar dentro una pestaña, 
+            'indecrea' => false,    // false indica que no debe estar dentro una pestaña,
             //true indica que debe estar dentro de una pestaña
             'esindexx' => false,  // true indica que debe mostrar el index y false el formulario
             'pestania' => [
@@ -90,7 +91,7 @@ class InBaseFuenteController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'in_fuentes.id'],
-                    ['data' => 'nombre', 'name' => 'sis_documento_fuentes.nombre'],
+                    ['data' => 'nombre', 'name' => 'sis_docfuens.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'permisox' => $this->opciones['permisox'],
@@ -109,9 +110,9 @@ class InBaseFuenteController extends Controller
         // indica si se esta actualizando o viendo
         if ($dataxxxx['objetoxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['objetoxx'];
-            $seleccio = $dataxxxx['objetoxx']->sis_documento_fuente_id;
+            $seleccio = $dataxxxx['objetoxx']->sis_docfuen_id;
         }
-        $this->opciones['document'] = SisDocumentoFuente::getBasaDocumentos(
+        $this->opciones['document'] = SisDocfuen::getBasaDocumentos(
             [
                 'padrexxx' => $this->opciones['parametr'], 'cabecera' => true, 'ajaxxxxx' => false,
                 'seleccio' => $seleccio
@@ -192,7 +193,7 @@ class InBaseFuenteController extends Controller
 
     private function grabar($dataxxxx, $objectx, $infoxxxx)
     {
-       
+
         $registro = InBaseFuente::transaccion($dataxxxx, $objectx);
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])

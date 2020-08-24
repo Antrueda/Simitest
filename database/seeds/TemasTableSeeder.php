@@ -1327,6 +1327,7 @@ class TemasTableSeeder extends Seeder
             650 => $camposmagicos,
             651 => $camposmagicos,
             2316=> $camposmagicos,
+            2323=> $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 120, 'nombre' => 'CAUSAS VINCULACION DELINCUENCIA']);
         $tema->parametros()->sync([

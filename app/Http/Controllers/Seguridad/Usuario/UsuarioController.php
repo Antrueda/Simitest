@@ -83,8 +83,8 @@ class UsuarioController extends Controller
         $this->opciones['rowscols'] = 'rowspancolspan';
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR ESTADO',
-                'titulist' => 'LISTA DE ESTADOS',
+                'titunuev' => 'CREAR USUARIO',
+                'titulist' => 'LISTA DE USUARIOS',
                 'dataxxxx' => [],
                 'vercrear' => true,
                 'urlxxxxx' => route('usuario.listaxxx', $this->opciones['parametr']),

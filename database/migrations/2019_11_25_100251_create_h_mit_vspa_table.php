@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -57,10 +58,7 @@ class CreateHMitVspaTable extends Migration
             $table->text('obs_generales', 4000);
             $table->text('obs_generales_dos', 4000);
             $table->bigInteger('user_doc1_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
@@ -139,8 +137,7 @@ class CreateHMitVspaTable extends Migration
             $table->bigInteger('prm_anio_dmi_id')->unsigned()->nullable();
             $table->Integer('ultima_dmi')->nullable();
             $table->bigInteger('prm_imp_dmi_id')->unsigned()->nullable();
-            $table->timestamps();
-            $table->unique(['id', 'mit_vspa_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
@@ -159,8 +156,7 @@ class CreateHMitVspaTable extends Migration
             $table->bigInteger('prm_cuatro_diez_id')->unsigned()->nullable();
             $table->bigInteger('prm_cuatro_once_id')->unsigned()->nullable();
             $table->bigInteger('prm_cuatro_doce_id')->unsigned()->nullable();
-            $table->timestamps();
-            $table->unique(['id', 'mit_vspa_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
@@ -179,8 +175,7 @@ class CreateHMitVspaTable extends Migration
             $table->bigInteger('prm_cinco_diez_id')->unsigned()->nullable();
             $table->bigInteger('prm_cinco_once_id')->unsigned()->nullable();
             $table->bigInteger('prm_cinco_doce_id')->unsigned()->nullable();
-            $table->timestamps();
-            $table->unique(['id', 'mit_vspa_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
@@ -193,8 +188,7 @@ class CreateHMitVspaTable extends Migration
             $table->bigInteger('prm_seis_cuatro_id')->unsigned()->nullable();
             $table->bigInteger('prm_seis_cinco_id')->unsigned()->nullable();
             $table->bigInteger('prm_seis_seis_id')->unsigned()->nullable();
-            $table->timestamps();
-            $table->unique(['id', 'mit_vspa_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
     }

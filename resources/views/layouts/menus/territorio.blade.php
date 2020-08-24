@@ -10,9 +10,9 @@
         <li class="nav-item">
             @include('layouts.menus.sicosocial')
         </li>
-        @can('fichaIngreso-leer')
+        @can('fidatbas-leer')
             <li class="nav-item">
-            <a href="{{ route('fi')}}" class="nav-link">
+            <a href="{{ route('fidatbas')}}" class="nav-link">
                 <i class="nav-icon fas fa-user-plus"></i>
                 <p>Ficha de Ingreso</p>
             </a>

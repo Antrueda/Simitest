@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisActividad extends Model
 {
-    protected $fillable = ['nombre', 'sis_documento_fuente_id', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['nombre', 'sis_docfuen_id', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
     public function sisDocumentoFuente()
     {
-        return $this->belongsTo(SisDocumentoFuente::class,'sis_documento_fuente_id');
+        return $this->belongsTo(SisDocfuen::class,'sis_docfuen_id');
     }
     public function creador()
     {
@@ -40,7 +40,7 @@ class SisActividad extends Model
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $activida = SisActividad::where('sis_documento_fuente_id', $padrexxx)->get();
+        $activida = SisActividad::where('sis_docfuen_id', $padrexxx)->get();
         foreach ($activida as $registro) {
             if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];

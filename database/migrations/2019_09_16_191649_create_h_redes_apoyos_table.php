@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,6 @@ class CreateHRedesApoyosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-
             $table->bigInteger('entidadAtiende_id')->unsigned();
             $table->bigInteger('ServPrestados_id')->unsigned();
             $table->integer('tiempoBeneficio');
@@ -32,12 +32,7 @@ class CreateHRedesApoyosTable extends Migration
             $table->bigInteger('anioPrestServicio_id')->unsigned();
             $table->string('telApoyo');
             $table->string('dirApoyo');
-
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned();
-
-            $table->timestamps();
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

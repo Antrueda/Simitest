@@ -1,0 +1,76 @@
+<?php
+
+namespace App\Observers;
+
+use App\Models\sicosocial\Pivotes\Logs\HVsiVioTipo;
+use App\Models\sicosocial\Pivotes\VsiVioTipo;
+
+class VsiVioTipoObserver
+{
+    private function getLog($modeloxx)
+    {
+        // campos por defecto, no borrar.
+        $log = [];
+        $log['id_old'] = $modeloxx->id;
+        // campos nuevos traidos desde $fillable -> modelo 
+        $log['parametro_id'] = $modeloxx->parametro_id;
+        $log['vsi_violencia_id'] = $modeloxx->vsi_violencia_id;
+        // campos por defecto, no borrar.
+        $log['sis_esta_id'] = $modeloxx->sis_esta_id;
+        $log['user_crea_id'] = $modeloxx->user_crea_id;
+        $log['metodoxx'] = request()->method();
+        $log['user_edita_id'] = $modeloxx->user_edita_id;
+        $log['rutaxxxx'] = request()->fullUrl();
+        $log['ipxxxxxx'] = request()->ip();
+        return $log;
+    }
+
+    public function created(VsiVioTipo $modeloxx)
+    {
+        HVsiVioTipo::create($this->getLog($modeloxx));
+    }
+
+    /**
+     * Handle the VsiVioTipo "updated" event.
+     *
+     * @param  \App\Models\sicosocial\Pivotes\VsiVioTipo  $modeloxx
+     * @return void
+     */
+    public function updated(VsiVioTipo $modeloxx)
+    {
+        HVsiVioTipo::create($this->getLog($modeloxx));
+    }
+
+    /**
+     * Handle the VsiVioTipo "deleted" event.
+     *
+     * @param  \App\Models\sicosocial\Pivotes\VsiVioTipo  $modeloxx
+     * @return void
+     */
+    public function deleted(VsiVioTipo $modeloxx)
+    {
+        HVsiVioTipo::create($this->getLog($modeloxx));
+    }
+
+    /**
+     * Handle the VsiVioTipo "restored" event.
+     *
+     * @param  \App\Models\sicosocial\Pivotes\VsiVioTipo  $modeloxx
+     * @return void
+     */
+    public function restored(VsiVioTipo $modeloxx)
+    {
+        HVsiVioTipo::create($this->getLog($modeloxx));
+    }
+
+    /**
+     * Handle the VsiVioTipo "force deleted" event.
+     *
+     * @param  \App\Models\sicosocial\Pivotes\VsiVioTipo  $modeloxx
+     * @return void
+     */
+    public function forceDeleted(VsiVioTipo $modeloxx)
+    {
+        HVsiVioTipo::create($this->getLog($modeloxx));
+    }
+}

@@ -32,7 +32,7 @@ class InAccionGestionController extends Controller
             'slotxxxy' => 'diagnost', // indica cual es la pestaña padre que debe estar activa
             'slotxxxx' => 'activida', // indica cual es la pestaña hija que debe estar activa
             'carpetax' => 'Agactivi', // carpeta a la que accede el controlador
-            'indecrea' => false,    // false indica que no debe estar dentro una pestaña, 
+            'indecrea' => false,    // false indica que no debe estar dentro una pestaña,
             //true indica que debe estar dentro de una pestaña
             'esindexx' => false  // true indica que debe mostrar el index y false el formulario
         ];
@@ -127,7 +127,7 @@ class InAccionGestionController extends Controller
          * indica si se esta actualizando o viendo
          */
         if ($dataxxxx['objetoxx'] != '') {
-            $this->opciones['activida'] = SisActividad::combo($dataxxxx['objetoxx']->sis_documento_fuente_id, true, false);
+            $this->opciones['activida'] = SisActividad::combo($dataxxxx['objetoxx']->sis_docfuen_id, true, false);
             $this->opciones['modeloxx'] = $dataxxxx['objetoxx'];
         }
         /**
@@ -200,8 +200,8 @@ class InAccionGestionController extends Controller
 
     public function getPorcenta(Request $request)
     {
-        if ($request->ajax()) { 
-          
+        if ($request->ajax()) {
+
             $porcenta = InAccionGestion::where('in_lineabase_nnaj_id',$request->padrexxx)->sum('i_porcentaje');
             /** saber que porcentaje hace falta para el 100% */
             $totalxxx = 100 - $porcenta;

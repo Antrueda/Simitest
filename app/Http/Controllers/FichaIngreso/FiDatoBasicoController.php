@@ -22,25 +22,33 @@ class FiDatoBasicoController extends Controller
 
   public function __construct()
   {
+    $this->opciones['vocalesx']=['Á', 'É', 'Í', 'Ó', 'Ú'];
+    $this->opciones['permisox']='fidatobasico';
     $this->bitacora = new FiDatosBasico();
-    $this->middleware(['permission:fidatobasico-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fidatobasico-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fidatobasico-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fidatobasico-borrar'], ['only' => ['show, destroy']]);
+    $this->middleware(['permission:'
+    . $this->opciones['permisox'] . '-leer|'
+    . $this->opciones['permisox'] . '-crear|'
+    . $this->opciones['permisox'] . '-editar|'
+    . $this->opciones['permisox'] . '-borrar']);
     $this->opciones = [
-      'tituloxx' => 'Datos Básicos',
-      'rutaxxxx' => 'FichaIngreso',
-      'routxxxx' => 'fi.datobasico',
-      'routinde' => 'fi',
-      'routnuev' => 'fi.datobasico',
-      'accionxx' => '',
-      'volverax' => 'lista de NNAJ',
-      'readonly' => '',
-      'slotxxxx' => 'infoBasica',
-      'carpetax' => 'datosbasico',
-      'modeloxx' => '',
-      'nuevoxxx' => 'o Registro',
-      'nuevoxxx' => 'o Registro',
+      'rutacarp ' => 'FichaIngreso.',
+      'tituloxx' => "INFORMACI{$this->opciones['vocalesx'][3]}N",
+      'carpetax' => 'Vsi',
+
+
+
+    //   'rutaxxxx' => 'FichaIngreso',
+    //   'routxxxx' => 'fi.datobasico',
+    //   'routinde' => 'fi',
+    //   'routnuev' => 'fi.datobasico',
+    //   'accionxx' => '',
+    //   'volverax' => 'lista de NNAJ',
+    //   'readonly' => '',
+    //   'slotxxxx' => 'infoBasica',
+    //   'carpetax' => 'datosbasico',
+    //   'modeloxx' => '',
+    //   'nuevoxxx' => 'o Registro',
+    //   'nuevoxxx' => 'o Registro',
 
     ];
 
@@ -130,7 +138,7 @@ class FiDatoBasicoController extends Controller
       $this->opciones['deparexp'] = SisDepartamento::combo($objetoxx->sis_paiexp_id, false);
 
 
-     
+
       $fechaxxx = explode('-', $objetoxx->d_nacimiento);
       $this->opciones['aniosxxx'] = Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
 

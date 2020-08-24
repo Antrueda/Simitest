@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -31,10 +32,7 @@ class CreateHAiRetornoSalidasTable extends Migration
             $table->bigInteger('prm_parentezco_id')->unsigned()->nullable();
             $table->bigInteger('responsable')->unsigned();
             $table->bigInteger('user_doc1_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
@@ -42,9 +40,7 @@ class CreateHAiRetornoSalidasTable extends Migration
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('retorno_id')->unsigned();
             $table->bigInteger('valor_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->unique(['parametro_id', 'retorno_id']);
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
     }

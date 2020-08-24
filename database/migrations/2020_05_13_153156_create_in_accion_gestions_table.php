@@ -21,7 +21,7 @@ class CreateInAccionGestionsTable extends Migration
             $table->bigInteger('sis_actividad_id')->unsigned();
             $table->bigInteger('i_prm_ttiempo_id')->unsigned();
             $table->bigInteger('in_lineabase_nnaj_id')->unsigned();
-            $table->bigInteger('sis_documento_fuente_id')->unsigned(); //cambiar por in_linea_fuente en un futuro
+            $table->bigInteger('sis_docfuen_id')->unsigned(); //cambiar por in_linea_fuente en un futuro
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->integer('i_tiempo');
@@ -33,7 +33,7 @@ class CreateInAccionGestionsTable extends Migration
             $table->foreign('in_lineabase_nnaj_id')->references('id')->on('in_lineabase_nnajs');
             $table->foreign('sis_actividad_id')->references('id')->on('sis_actividads');
             $table->foreign('i_prm_ttiempo_id')->references('id')->on('parametros');
-            $table->foreign('sis_documento_fuente_id')->references('id')->on('sis_documento_fuentes');
+            $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });

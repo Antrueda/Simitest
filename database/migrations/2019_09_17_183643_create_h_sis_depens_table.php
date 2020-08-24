@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -25,7 +26,6 @@ class CreateHSisDepensTable extends Migration
             $table->string('s_direccion');
             $table->bigInteger('sis_departamento_id')->unsigned();
             $table->bigInteger('sis_municipio_id')->unsigned();
-            // $table->bigInteger('sis_localidad_id')->unsigned();
             $table->bigInteger('sis_upzbarri_id')->unsigned();
             $table->string('s_telefono');
             $table->string('s_correo');
@@ -33,11 +33,7 @@ class CreateHSisDepensTable extends Migration
             $table->Integer('itiegabe')->default(0)->comment('TIEMPO GABELA PARA EL CARGUE DE INFORMACION');
             $table->Integer('itigafin')->default(0)->comment('TIEMPO GABELA FIN DE MES PARA EL CARGE DE INFORMACION');
             $table->string('s_observacion',3000);
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned();
-
-            $table->timestamps();
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

@@ -33,7 +33,7 @@ class InValidacionController extends Controller
             'readonly' => '', // esta opcion es para cundo está por la parte de ver
             'carpetax' => 'Validacion',
             'modeloxx' => '',
-            
+
             'permisox' => 'invalidacion',
             'routxxxx' => 'va.validacion',
             'routinde' => 'va',
@@ -90,7 +90,6 @@ class InValidacionController extends Controller
         if ($nombobje != '') {
             $objetoxx->area_id = $objetoxx->in_fuente->in_indicador->area_id;
             $objetoxx->in_indicador_id = $objetoxx->in_fuente->in_indicador_id;
-            //$objetoxx->sis_documento_fuente_id = $objetoxx->sis_actividad->sis_documento_fuente_id; 
             $this->opciones['indicado'] = Area::combo($objetoxx->area_id, true, false);
             $this->opciones['linebase'] = InFuente::combo($objetoxx->in_indicador_id, true, false);
             //$this->opciones['activida'] = SisActividad::combo($objetoxx->sis_actividad_id, true, false);

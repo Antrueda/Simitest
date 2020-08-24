@@ -8,7 +8,7 @@ class SisMenu extends Model
 {
     protected $fillable = [
         's_menu',
-        'sis_documento_fuente_id',
+        'sis_docfuen_id',
         's_icono',
         'sis_menu_id'
     ];

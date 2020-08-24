@@ -10,7 +10,7 @@ class SisTabla extends Model
     {
         return $this->hasMany(SisTcampo::class);
     }
-    
+
     public static function combo($padrexxx, $cabecera, $ajaxxxxx)
     {
         $comboxxx = [];
@@ -37,9 +37,9 @@ class SisTabla extends Model
         if ($cabecera) {
             $comboxxx = ['' => 'Seleccione'];
         }
-       
-            $tablaxxx = SisTabla::where('sis_documento_fuente_id', $padrexxx)->get();
-      
+
+            $tablaxxx = SisTabla::where('sis_docfuen_id', $padrexxx)->get();
+
         foreach ($tablaxxx as $registro) {
             if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->s_descripcion];

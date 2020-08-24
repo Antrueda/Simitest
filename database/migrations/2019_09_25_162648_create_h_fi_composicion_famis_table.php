@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -25,7 +26,7 @@ class CreateHFiComposicionFamisTable extends Migration
             $table->string('s_nombre_identitario')->nullable();
             $table->string('s_telefono')->nullable();
             $table->string('s_documento')->unique();
-            $table->date('d_nacimiento'); 
+            $table->date('d_nacimiento');
             $table->bigInteger('i_prm_ocupacion_id')->unsigned();
             $table->bigInteger('sis_pai_id')->unsigned();
             $table->bigInteger('sis_departamento_id')->unsigned();
@@ -33,11 +34,8 @@ class CreateHFiComposicionFamisTable extends Migration
             $table->bigInteger('i_prm_vinculado_idipron_id')->unsigned();
             $table->bigInteger('i_prm_convive_nnaj_id')->unsigned();
             $table->bigInteger('prm_documento_id')->unsigned();
-            $table->bigInteger('fi_nucleo_familiar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned(); 
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->timestamps();
+            $table->bigInteger('nnaj_nfamili_id')->unsigned();
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
