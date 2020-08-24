@@ -10,7 +10,11 @@
       {{ $todoxxxx['datobasi']->s_primer_apellido }}
       {{ $todoxxxx['datobasi']->s_segundo_apellido }}
       </h3>
+      <h3 class="profile-username text-center">
+        {{ $todoxxxx['datobasi']->s_nombre_identitario }}
+      </h3>
     <p class="text-muted text-center">{{ $todoxxxx['datobasi']->poblacion->nombre }}</p>
+    <p class="text-muted text-center">{{ $todoxxxx['datobasi']->tipoDocumento->nombre }} : {{ $todoxxxx['datobasi']->s_documento }}</p>
     <ul class="list-group list-group-unbordered mb-3">
       <li class="list-group-item">
         <b>Teléfono</b>

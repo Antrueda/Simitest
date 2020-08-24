@@ -45,7 +45,8 @@ class IsDatoBasicoController extends Controller {
     $this->opciones['tipatenc'] = Tema::combo(213, true, false);
 
     $this->opciones['areajust'] = Tema::combo(212, true, false);
-    $this->opciones['arjustpr'] = Tema::combo(212, false, false);
+    $this->opciones['arjustpr'] = Tema::combo(212, false, false);// Tema::findOrFail(97)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+    $this->opciones['arjustpr1'] = Tema::findOrFail(212)->parametros()->orderBy('nombre')->pluck('nombre', 'id'); 
     $this->opciones['subemoci'] = Tema::combo(162, true, false);
     $this->opciones['subfamil'] = Tema::combo(167, true, false);
     $this->opciones['subsexua'] = Tema::combo(163, true, false);
@@ -124,7 +125,7 @@ class IsDatoBasicoController extends Controller {
     $this->opciones['poblindi'] = ['' => 'Seleccione'];
     $this->opciones['neciayud'] = ['' => 'Seleccione'];
     $this->opciones['subareas']['subareax'] = ['' => 'Seleccione'];
-
+    $this->opciones['problemat'] = Tema::findOrFail(102)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     // indica si se esta actualizando o viendo
     $this->opciones['aniosxxx'] = '';
     if ($nombobje != '') {

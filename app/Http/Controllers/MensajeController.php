@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Alertas\AlertasCrearRequest;
 use App\Http\Requests\Alertas\AlertasEditarRequest;
-use App\Models\Post;
+use App\Models\mensajes;
 use App\Models\Sistema\SisEsta;
 use App\Notifications\PostNotification;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use App\Traits\Alertas\AlertasTrait;
 use Illuminate\Support\Facades\Auth;
 
-class JorgeController extends Controller
+class MensajeController extends Controller
 {
     use AlertasTrait;
     private $opciones;
@@ -21,12 +21,12 @@ class JorgeController extends Controller
     public function __construct()
     {
         $this->opciones = [
-            'permisox' => 'alertas', ///////////////////////////////
+            'permisox' => 'mensajes', ///////////////////////////////
             'parametr' => [],
-            'rutacarp' => 'Alertas.', ///////////////////////////////
-            'tituloxx' => 'ALERTA',//////////////////////////////////
-            'carpetax' => 'Alerta',//////////////////////////////////////
-            'slotxxxx' => 'jorgexxx',//////////////////////////
+            'rutacarp' => 'Mensajes.', ///////////////////////////////
+            'tituloxx' => 'Mensajes',//////////////////////////////////
+            'carpetax' => 'Mensaje',//////////////////////////////////////
+            'slotxxxx' => 'Mensajes',//////////////////////////
             'tablaxxx' => 'datatable',
             'indecrea' => false, // false muestra las pestañas
             'esindexx' => false,
@@ -38,12 +38,12 @@ class JorgeController extends Controller
             
             'usuariox' => [],
 
-            'confirmx' => 'Desea inactivar la alerta: ',
-            'reconfir' => 'Realmente desea inactivar la alerta: ',
-            'msnxxxxx' => 'No se puedo inactivar la alerta',
-            'rutaxxxx' => 'alertas', //////////////////////////
-            'routnuev' => 'alertas',/////////////////////////
-            'routxxxx' => 'alertas',/////////////////////
+            'confirmx' => 'Desea inactivar el mensaje: ',
+            'reconfir' => 'Realmente desea inactivar el mensaje: ',
+            'msnxxxxx' => 'No se puedo inactivar el mensaje',
+            'rutaxxxx' => 'mensajes', //////////////////////////
+            'routnuev' => 'mensajes',/////////////////////////
+            'routxxxx' => 'mensajes',/////////////////////
         ];
 
         $this->middleware(['permission:'
@@ -57,7 +57,7 @@ class JorgeController extends Controller
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A ALERTAS', 'clasexxx' => 'btn btn-sm btn-primary' ///////////////////////////
+                'formhref' => 2, 'tituloxx' => 'VOLVER A MENSAJES', 'clasexxx' => 'btn btn-sm btn-primary' ///////////////////////////
             ],
         ];
     }
@@ -76,15 +76,15 @@ class JorgeController extends Controller
         $this->opciones['esindexx'] = true;
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'ALERTA', ////////
-                'titulist' => 'LISTA DE ALEssssRTAS',////////
+                'titunuev' => 'MENSAJES', ////////
+                'titulist' => 'LISTA DE MENSAJES',////////
                 'dataxxxx' => [
 
                 ],
 
                 'accitabl' => true,
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'].'.alertas',$this->opciones['parametr']), //////
+                'urlxxxxx' => route($this->opciones['routxxxx'].'.mensaje',$this->opciones['parametr']), //////
                 'cabecera' => [
                     ['td' => 'ID'],
                     ['td' => 'TITULO'], /////
@@ -180,7 +180,7 @@ class JorgeController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['user_id']=Auth::user()->id;
-        $post = post::create($dataxxxx);
+        $post = mensajes::create($dataxxxx);
         //auth()->user()->notify(new PostNotification($post));
 
         
@@ -199,7 +199,7 @@ class JorgeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $objetoxx)
+    public function show(Mensajes $objetoxx)
     {
         $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];
@@ -212,7 +212,7 @@ class JorgeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $objetoxx)
+    public function edit(Mensajes $objetoxx)
     {
 
        
@@ -229,7 +229,7 @@ class JorgeController extends Controller
     private function grabar($dataxxxx)
     {
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [Post::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [mensajes::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id])
             ->with('info', $dataxxxx['menssage']);
     }
 
@@ -240,7 +240,7 @@ class JorgeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AlertasEditarRequest $request, Post $objetoxx)
+    public function update(AlertasEditarRequest $request, Mensajes $objetoxx)
     {
         return $this->grabar([
             'dataxxxx' => $request->all(),

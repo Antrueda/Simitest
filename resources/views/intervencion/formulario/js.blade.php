@@ -1,11 +1,16 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
 
-  $(function () {
+$(document).ready(function() {
     $('#i_primer_responsable').select2({
+      language: "es"
+    }); 
+    $('#i_prm_area_proxima_id').select2({
       language: "es"
     });
   });
+
+  
 
   function soloLetras(e) {
     key = e.keyCode || e.which;

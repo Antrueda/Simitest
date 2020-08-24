@@ -183,19 +183,13 @@
           {{ Form::date('d_fecha_proxima', null, ['class' => 'form-control form-control-sm', $todoxxxx["readonly"]]) }}
         </div>
         <div class="form-group col-md-4">
-          {{ Form::label('i_prm_area_proxima_id', 'Área de ajuste a trabajar en la próxima sesión', ['class' => 'control-label']) }}
-          <select id="i_prm_area_proxima_id" name="i_prm_area_proxima_id[]" 
-           class="form-control form-control-sm" multiple="multiple">
-            @foreach ($todoxxxx["arjustpr"] as $valuexxx => $optionxx)
-             <?php $situavux='' ?>
-            @foreach ($todoxxxx["areajusx"]['areajusx'] as $situacx)
-                @if($situacx->i_prm_area_proxima_id==$valuexxx)
-                <?php $situavux='selected' ?>
-                @endif
-            @endforeach
-                <option value="{{ $valuexxx }} " {{ $situavux }}>{{ $optionxx }}</option>
-            @endforeach
-          </select>
+          {{ Form::label('i_prm_area_proxima_id', 'Área de ajuste a trabajar en la próxima sesión', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('i_prm_area_proxima_id[]', $todoxxxx['arjustpr'], null, ['class' => $errors->first('i_prm_area_proxima_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'multiple','id' => 'i_prm_area_proxima_id','autofocus']) }}
+          @if($errors->has('i_prm_area_proxima_id'))
+            <div class="invalid-feedback d-block">
+              {{ $errors->first('i_prm_area_proxima_id') }}
+            </div>
+            @endif
         </div>
       </div>
       
