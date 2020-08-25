@@ -19,13 +19,16 @@ class CreateTriggerAgTemas extends Migration
             CREATE TRIGGER trigger_ag_temas_nuevo AFTER INSERT ON `ag_temas` FOR EACH ROW
             BEGIN
                 INSERT INTO h_ag_temas (
-                    `id`
+                    `id_old`
                     ,`s_tema`
                     ,`area_id`
                     ,`user_crea_id`
                     ,`user_edita_id`
                     ,`sis_esta_id`
                     ,`s_descripcion`
+                    ,`metodoxx`
+                    ,`rutaxxxx`
+                    ,`ipxxxxxx`
                     ,`created_at`
                     ,`updated_at`
             )
@@ -37,7 +40,10 @@ class CreateTriggerAgTemas extends Migration
                     ,NEW.user_edita_id
                     ,NEW.sis_esta_id
                     ,NEW.s_descripcion
-                    ,NOW()
+                    ,`Create`
+                    ,`la ruta es por base de datos`
+                    ,`la ruta es por base de datos`
+                    ,NEW.created_at		
                     ,NEW.updated_at
                 );
             END
@@ -46,13 +52,16 @@ class CreateTriggerAgTemas extends Migration
             CREATE TRIGGER trigger_ag_temas_edita AFTER UPDATE ON `ag_temas` FOR EACH ROW
             BEGIN
             INSERT INTO h_ag_temas (
-                    `id`
+                    `id_old`
                     ,`s_tema`
                     ,`area_id`
                     ,`user_crea_id`
                     ,`user_edita_id`
                     ,`sis_esta_id`
                     ,`s_descripcion`
+                    ,`metodoxx`
+                    ,`rutaxxxx`
+                    ,`ipxxxxxx`
                     ,`created_at`
                     ,`updated_at`
             )
@@ -64,7 +73,10 @@ class CreateTriggerAgTemas extends Migration
                     ,NEW.user_edita_id
                     ,NEW.sis_esta_id
                     ,NEW.s_descripcion
-                    ,NOW()
+                    ,`Edit`
+                    ,`la ruta es por base de datos`
+                    ,`la ruta es por base de datos`
+                    ,NEW.created_at		
                     ,NEW.updated_at
                 );
             END

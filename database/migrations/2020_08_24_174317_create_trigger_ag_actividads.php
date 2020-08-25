@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateTriggerAgActividads extends Migration
 {
@@ -17,7 +18,7 @@ class CreateTriggerAgActividads extends Migration
         CREATE TRIGGER trigger_ag_actividads_nuevo AFTER INSERT ON `ag_actividads` FOR EACH ROW
         BEGIN
             INSERT INTO h_ag_actividads (
-                `id`
+                `id_old`
                 ,`d_registro`
                 ,`area_id`
                 ,`sis_deporigen_id`
@@ -42,10 +43,13 @@ class CreateTriggerAgActividads extends Migration
                 ,`user_crea_id`
                 ,`user_edita_id`
                 ,`sis_esta_id`
+                ,`metodoxx`
+                ,`rutaxxxx`
+                ,`ipxxxxxx`
                 ,`created_at`
                 ,`updated_at`
-        )
-        VALUES (
+            )
+            VALUES (
                 NEW.id
                 ,NEW.d_registro
                 ,NEW.area_id
@@ -71,8 +75,11 @@ class CreateTriggerAgActividads extends Migration
                 ,NEW.user_crea_id
                 ,NEW.user_edita_id
                 ,NEW.sis_esta_id
-                ,NOW()
-                ,NEW.updated_at
+                ,`Create`
+                ,`la ruta es por base de datos`
+                ,`la ruta es por base de datos`
+                ,NEW.created_at		
+			    ,NEW.updated_at		
             );
         END
     ');
@@ -80,7 +87,7 @@ class CreateTriggerAgActividads extends Migration
         CREATE TRIGGER trigger_ag_actividads_edita AFTER UPDATE ON `ag_actividads` FOR EACH ROW
         BEGIN
         INSERT INTO h_ag_actividads (
-                `id`
+                `id_old`
                 ,`d_registro`
                 ,`area_id`
                 ,`sis_deporigen_id`
@@ -105,6 +112,9 @@ class CreateTriggerAgActividads extends Migration
                 ,`user_crea_id`
                 ,`user_edita_id`
                 ,`sis_esta_id`
+                ,`metodoxx`
+                ,`rutaxxxx`
+                ,`ipxxxxxx`
                 ,`created_at`
                 ,`updated_at`
         )
@@ -134,8 +144,11 @@ class CreateTriggerAgActividads extends Migration
                 ,NEW.user_crea_id
                 ,NEW.user_edita_id
                 ,NEW.sis_esta_id
-                ,NOW()
-                ,NEW.updated_at
+                ,`Edit`
+                ,`la ruta es por base de datos`
+                ,`la ruta es por base de datos`
+                ,NEW.created_at		
+			    ,NEW.updated_at		
             );
         END
     ');
