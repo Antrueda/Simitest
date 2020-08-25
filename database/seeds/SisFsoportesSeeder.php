@@ -15,6 +15,7 @@ class SisFsoportesSeeder extends Seeder
         $dataxxxx = ['nombre' => '', 'sis_actividad_id' => 7, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2019-12-03 00:18:26', 'updated_at' => '2019-12-03 00:18:26',];
 
         $dataxxxx['nombre'] = 'Talleres Educativos M-MEX-T- 007  Comunicación Asertiva';                              //1
+        
         SisFsoporte::create($dataxxxx);
 
         $dataxxxx['nombre'] = 'Talleres Educativos M-MEX-FT-007 Habilidades Sociales';                                //2
