@@ -19,14 +19,6 @@ class CreateInPreguntasTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_pregunta')->unique();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
-
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA REDAQCCION DE LAS PREGUNTAS EXISTENTES EN LOS FORMATOS DE IDENTIFICACION Y CARACTERIZACION DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON'");

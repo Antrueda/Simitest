@@ -14,7 +14,6 @@ class InPregunta extends Model
   protected $fillable = [
     's_pregunta',
     'sis_esta_id',
-//    'in_doc_indicador_id',
     'sis_tabla_id',
     'sis_tcampo_id',
     'user_crea_id',
