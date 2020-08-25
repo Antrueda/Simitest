@@ -22,7 +22,7 @@ class CreateHFosStsesTable extends Migration
             $table->text('codigo', 6)->nullable();
             $table->string('nombre', 120);
             $table->string('descripcion', 4000)->nullable();
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
