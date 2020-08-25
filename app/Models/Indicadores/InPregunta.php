@@ -3,8 +3,6 @@
 namespace app\Models\Indicadores;
 
 use app\Models\Parametro;
-use app\Models\Sistema\SisDocumentoFuente;
-use app\Models\Sistema\SisTabla;
 use app\Models\Sistema\SisTcampo;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +14,7 @@ class InPregunta extends Model
   protected $fillable = [
     's_pregunta',
     'sis_esta_id',
-    'in_doc_indicador_id',
+//    'in_doc_indicador_id',
     'sis_tabla_id',
     'sis_tcampo_id',
     'user_crea_id',
