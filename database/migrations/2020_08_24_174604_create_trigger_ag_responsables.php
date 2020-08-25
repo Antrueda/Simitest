@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTriggerAgTemas extends Migration
+class CreateTriggerAgResponsables extends Migration
 {
     /**
      * Run the migrations.
@@ -14,56 +14,60 @@ class CreateTriggerAgTemas extends Migration
      */
     public function up()
     {
-        // Schema::create('trigger_ag_temas', function (Blueprint $table) {
+        // Schema::create('trigger_ag_responsables', function (Blueprint $table) {
         //     DB::unprepared('
-        //     CREATE TRIGGER trigger_ag_temas_nuevo AFTER INSERT ON `ag_temas` FOR EACH ROW
+        //     CREATE TRIGGER trigger_ag_responsables_nuevo AFTER INSERT ON `ag_responsables` FOR EACH ROW
         //     BEGIN
-        //         INSERT INTO h_ag_temas (
+        //         INSERT INTO h_ag_responsables (
         //             `id`
-        //             ,`s_tema`
-        //             ,`area_id`
+        //             ,`i_prm_responsable_id`
+        //             ,`ag_actividad_id`
+        //             ,`sis_obse_id`
+        //             ,`user_id`
         //             ,`user_crea_id`
         //             ,`user_edita_id`
         //             ,`sis_esta_id`
-        //             ,`s_descripcion`
         //             ,`created_at`
         //             ,`updated_at`
         //     )
         //     VALUES (
         //             NEW.id
-        //             ,NEW.s_tema
-        //             ,NEW.area_id
+        //             ,NEW.i_prm_responsable_id
+        //             ,NEW.ag_actividad_id
+        //             ,NEW.sis_obse_id
+        //             ,NEW.user_id
         //             ,NEW.user_crea_id
         //             ,NEW.user_edita_id
         //             ,NEW.sis_esta_id
-        //             ,NEW.s_descripcion
         //             ,NOW()
         //             ,NEW.updated_at
         //         );
         //     END
         // ');
-        // DB::unprepared('
-        //     CREATE TRIGGER trigger_ag_temas_edita AFTER UPDATE ON `ag_temas` FOR EACH ROW
+        //     DB::unprepared('
+        //     CREATE TRIGGER trigger_ag_responsables_edita AFTER UPDATE ON `ag_responsables` FOR EACH ROW
         //     BEGIN
-        //     INSERT INTO h_ag_temas (
+        //     INSERT INTO h_ag_responsables (
         //             `id`
-        //             ,`s_tema`
-        //             ,`area_id`
+        //             ,`i_prm_responsable_id`
+        //             ,`ag_actividad_id`
+        //             ,`sis_obse_id`
+        //             ,`user_id`
         //             ,`user_crea_id`
         //             ,`user_edita_id`
         //             ,`sis_esta_id`
-        //             ,`s_descripcion`
         //             ,`created_at`
         //             ,`updated_at`
         //     )
         //     VALUES (
         //             NEW.id
-        //             ,NEW.s_tema
-        //             ,NEW.area_id
+        //             ,NEW.i_prm_responsable_id
+        //             ,NEW.ag_actividad_id
+        //             ,NEW.sis_obse_id
+        //             ,NEW.user_id
         //             ,NEW.user_crea_id
         //             ,NEW.user_edita_id
         //             ,NEW.sis_esta_id
-        //             ,NEW.s_descripcion
         //             ,NOW()
         //             ,NEW.updated_at
         //         );
@@ -79,7 +83,7 @@ class CreateTriggerAgTemas extends Migration
      */
     public function down()
     {
-        DB::unprepared('DROP TRIGGER `trigger_ag_temas_nuevo`');
-        DB::unprepared('DROP TRIGGER `trigger_ag_temas_edita`');
+        DB::unprepared('DROP TRIGGER `trigger_ag_responsables_nuevo`');
+        DB::unprepared('DROP TRIGGER `trigger_ag_responsables_edita`');
     }
 }
