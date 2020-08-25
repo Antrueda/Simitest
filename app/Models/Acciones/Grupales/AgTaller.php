@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\DB;
 class AgTaller extends Model
 {
   protected $fillable = [
-    's_descripcion',
     's_taller',
+    's_descripcion',
     'ag_tema_id',
     'user_crea_id',
     'user_edita_id',
