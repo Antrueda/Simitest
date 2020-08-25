@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -19,17 +20,10 @@ class CreateInDocPreguntasTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('in_ligru_id')->unsigned();
             $table->bigInteger('sis_tcampo_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('sis_tcampo_id')->references('id')->on('sis_tcampos');
             $table->foreign('in_ligru_id')->references('id')->on('in_ligrus');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
-
             $table->unique(['in_ligru_id', 'sis_tcampo_id']);
-            $table->timestamps();
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS PREGUNTAS DE CADA CAMPO EXISTENTE EN LOS FORMATOS DE IDENTIFICACION Y CARACTERIZACION DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON'");
     }
