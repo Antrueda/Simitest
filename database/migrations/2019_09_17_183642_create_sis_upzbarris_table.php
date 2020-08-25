@@ -1,12 +1,12 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class CreateSisUpzbarrisTable extends Migration
 {
-    private $tablaxxx = 'sis_upzbarris';
     /**
      * Run the migrations.
      *
@@ -14,7 +14,7 @@ class CreateSisUpzbarrisTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->tablaxxx, function (Blueprint $table) {
+        Schema::create('sis_upzbarris', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_localupz_id')->unsigned();
             $table->bigInteger('sis_barrio_id')->unsigned();
@@ -29,6 +29,15 @@ class CreateSisUpzbarrisTable extends Migration
             $table->unique(['sis_barrio_id','sis_localupz_id']);
             $table->timestamps();
         });
+        Schema::create('h_sis_upzbarris', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('sis_localupz_id')->unsigned();
+            $table->bigInteger('sis_barrio_id')->unsigned();
+            $table->foreign('sis_localupz_id')->references('id')->on('sis_localupzs');
+            $table->foreign('sis_barrio_id')->references('id')->on('sis_barrios');
+            $table->unique(['sis_barrio_id','sis_localupz_id']);
+            $table = CamposMagicos::h_magicos($table);
+        });
     }
 
     /**
@@ -38,6 +47,7 @@ class CreateSisUpzbarrisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->tablaxxx);
+        Schema::dropIfExists('h_sis_upzbarris');
+        Schema::dropIfExists('sis_upzbarris');
     }
 }

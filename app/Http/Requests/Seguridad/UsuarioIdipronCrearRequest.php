@@ -31,7 +31,7 @@ class UsuarioIdipronCrearRequest extends FormRequest
         //$this->_mensaje['s_segundo_apellido.required'] = 'Ingrese el segundo apellido';
         $this->_mensaje['s_telefono.required'] = 'Ingrese un número de telefono';
         $this->_mensaje['prm_tvinculacion_id.required'] = 'Seleccione el tipo de vinculacion';
-        $this->_mensaje['s_matriculap.required'] = 'Ingrese la matricula profesional';
+        //$this->_mensaje['s_matriculap.required'] = 'Ingrese la matricula profesional';
         $this->_mensaje['sis_cargo_id.required'] = 'Seleccione el cargo';
 
         $this->_mensaje['d_vinculacion.required'] = 'Seleccione una fecha de vinculación';
@@ -50,7 +50,7 @@ class UsuarioIdipronCrearRequest extends FormRequest
         //$this->_reglasx['s_segundo_apellido']  = ['required'];
         $this->_reglasx['s_telefono'] = ['required'];
         $this->_reglasx['prm_tvinculacion_id'] = ['required'];
-        $this->_reglasx['s_matriculap'] = ['required'];
+        //$this->_reglasx['s_matriculap'] = ['required'];
         $this->_reglasx['sis_cargo_id'] = ['required'];
         $this->_reglasx['d_vinculacion'] = ['required'];
     }

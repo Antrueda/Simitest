@@ -4,17 +4,11 @@ namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\Parametro;
-use App\Models\sicosocial\FiNucleoFamiliar;
 use App\Models\sicosocial\NnajNfamili;
-use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisDocfuen;
-use App\Models\Sistema\SisMunicipio;
 use Carbon\Carbon;
 
 use App\Models\Sistema\SisNnaj;
-use App\Models\Sistema\SisPai;
-use App\Models\Sistema\SisUpzbarri;
 use App\Models\User;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
@@ -48,7 +42,10 @@ class FiDatosBasico extends Model
     {
         return $this->belongsTo(NnajNfamili::class);
     }
-
+    public function nnaj_docu()
+    {
+        return $this->belongsTo(NnajDocu::class);
+    }
     public function sis_nnaj()
     {
         return $this->belongsTo(SisNnaj::class);

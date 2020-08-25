@@ -13,14 +13,14 @@ class SisEntidadsSeeder extends Seeder
      */
     public function run()
     {
-        $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1];
-        SisServicio::create(['s_servicio' => 'NO APLICA']);
-        SisServicio::create(['s_servicio' => 'COMIDA']);
-        SisServicio::create(['s_servicio' => 'DORMIDA']);
-        SisServicio::create(['s_servicio' => 'VIVIENDA']);
-        SisServicio::create(['s_servicio' => 'SALUD']);
+        $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'user_edita_id' => 1];
+        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'NO APLICA']);
+        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'COMIDA']);
+        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'DORMIDA']);
+        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'VIVIENDA']);
+        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'SALUD']);
 
-        $entidadx = SisEntidad::create(['nombre' => 'NO APLICA']);
+        $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'NO APLICA']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
             2 => $camposmagicos,
@@ -28,7 +28,7 @@ class SisEntidadsSeeder extends Seeder
             4 => $camposmagicos,
             5 => $camposmagicos,
         ]);
-        $entidadx = SisEntidad::create(['nombre' => 'IDIPRON']);
+        $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'IDIPRON']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
             2 => $camposmagicos,
@@ -36,7 +36,7 @@ class SisEntidadsSeeder extends Seeder
             4 => $camposmagicos,
             5 => $camposmagicos,
         ]);
-        $entidadx = SisEntidad::create(['nombre' => 'ICBF']);
+        $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'ICBF']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
             2 => $camposmagicos,
@@ -44,7 +44,7 @@ class SisEntidadsSeeder extends Seeder
             4 => $camposmagicos,
             5 => $camposmagicos,
         ]);
-        $entidadx = SisEntidad::create(['nombre' => 'POLICIA']);
+        $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'POLICIA']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
             2 => $camposmagicos,

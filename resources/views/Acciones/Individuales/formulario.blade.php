@@ -6,7 +6,7 @@
                 {{ $nnaj->nombre_completo }}
             </div>
             <div class="col-md">
-                TIPO DE DOCUMENTO: {{ $nnaj->tipoDocumento->nombre }}
+                TIPO DE DOCUMENTO: {{ $nnaj->fi_datos_basico->nnaj_docu->nombre }}
             </div>
             <div class="col-md">
                 DOCUMENTO: {{ $nnaj->s_documento }}
@@ -73,7 +73,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Emprender</a>
         </li>
-       
+
         </ul>
     </div>
 </div>

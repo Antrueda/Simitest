@@ -34,7 +34,12 @@ class SisNnaj extends Model{
     }
 
     public function getNnajDatosAttribute(){
-        return $this->FiDatosBasico->first()->s_primer_nombre . ' ' . $this->FiDatosBasico->first()->s_segundo_nombre . ' ' . $this->FiDatosBasico->first()->s_primer_apellido . ' ' . $this->FiDatosBasico->first()->s_segundo_apellido . ' - ' . $this->FiDatosBasico->first()->s_documento;
+        return
+        $this->FiDatosBasico->first()->s_primer_nombre . ' ' .
+        $this->FiDatosBasico->first()->s_segundo_nombre . ' ' .
+        $this->FiDatosBasico->first()->s_primer_apellido . ' ' .
+        $this->FiDatosBasico->first()->s_segundo_apellido . ' - ' .
+        $this->FiDatosBasico->first()->s_documento;
     }
 
     public function Vsi(){

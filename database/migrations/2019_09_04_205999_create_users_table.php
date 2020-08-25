@@ -35,9 +35,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('user_crea_id')->nullable()->unsigned();
             $table->bigInteger('sis_municipio_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+            $table->bigInteger('user_edita_id')->nullable()->unsigned();
             $table->bigInteger('sis_cargo_id')->unsigned();
             $table->date('d_finvinculacion');
             $table->bigInteger('prm_tvinculacion_id')->unsigned();

@@ -1,13 +1,12 @@
 <?php
 
-
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateSisPaissTable extends Migration
 {
-    private $tablaxxx = 'sis_pais';
     /**
      * Run the migrations.
      *
@@ -15,7 +14,7 @@ class CreateSisPaissTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->tablaxxx, function (Blueprint $table) {
+        Schema::create('sis_pais', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_iso');
             $table->string('s_pais');
@@ -24,6 +23,13 @@ class CreateSisPaissTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned();
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
+        });
+
+        Schema::create('h_sis_pais', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('s_iso');
+            $table->string('s_pais');
+            $table = CamposMagicos::h_magicos($table);
         });
     }
 
@@ -34,6 +40,7 @@ class CreateSisPaissTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->tablaxxx);
+        Schema::dropIfExists('h_sis_pais');
+        Schema::dropIfExists('sis_pais');
     }
 }

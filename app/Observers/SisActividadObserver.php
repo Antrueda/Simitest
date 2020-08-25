@@ -12,9 +12,9 @@ class SisActividadObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['nombre'] = $modeloxx->nombre;
-        $log['sis_documento_fuente_id'] = $modeloxx->sis_documento_fuente_id;
+        $log['sis_docfuen_id'] = $modeloxx->sis_docfuen_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

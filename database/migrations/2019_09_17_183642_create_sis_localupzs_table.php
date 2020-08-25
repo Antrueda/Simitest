@@ -1,12 +1,12 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 class CreateSisLocalupzsTable extends Migration
 {
-    private $tablaxxx = 'sis_localupzs';
     /**
      * Run the migrations.
      *
@@ -14,7 +14,7 @@ class CreateSisLocalupzsTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->tablaxxx, function (Blueprint $table) {
+        Schema::create('sis_localupzs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_localidad_id')->unsigned();
             $table->bigInteger('sis_upz_id')->unsigned();
@@ -29,6 +29,16 @@ class CreateSisLocalupzsTable extends Migration
             $table->unique(['sis_localidad_id','sis_upz_id']);
             $table->timestamps();
         });
+        Schema::create('h_sis_localupzs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('sis_localidad_id')->unsigned();
+            $table->bigInteger('sis_upz_id')->unsigned();
+            $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
+            $table->foreign('sis_upz_id')->references('id')->on('sis_upzs');
+
+            $table->unique(['sis_localidad_id','sis_upz_id']);
+            $table = CamposMagicos::h_magicos($table);
+        });
     }
 
     /**
@@ -38,6 +48,7 @@ class CreateSisLocalupzsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->tablaxxx);
+        Schema::dropIfExists('h_sis_localupzs');
+        Schema::dropIfExists('sis_localupzs');
     }
 }

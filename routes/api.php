@@ -30,15 +30,13 @@ Route::get('vsi/nnajs', function (Request $request) {
     return redirect('/');
   return datatables()
                   ->eloquent(
-                      FiDatosBasico::select('s_primer_nombre',
-                      's_documento', 's_segundo_nombre',
-                      's_primer_apellido',
-                      's_segundo_apellido', 's_apodo',
-                      's_nombre_identitario',
-                      'id',
-                      'sis_nnaj_id',
-                      'sis_esta_id')
-                          ->where('sis_esta_id', 1)
+                    FiDatosBasico::select('nnaj_docus.s_documento','fi_datos_basicos.s_primer_nombre',
+                    'fi_datos_basicos.s_segundo_nombre',
+                    'fi_datos_basicos.s_primer_apellido', 'fi_datos_basicos.s_segundo_apellido',
+                    'fi_datos_basicos.s_apodo', 'nnaj_sexos.s_nombre_identitario', 'fi_datos_basicos.id',
+                    'fi_datos_basicos.sis_nnaj_id', 'fi_datos_basicos.sis_esta_id')
+                    ->join('nnaj_sexos','fi_datos_basicos.id','=','nnaj_sexos.fi_datos_basico_id')
+                    ->join('nnaj_docus','fi_datos_basicos.id','=','nnaj_docus.fi_datos_basico_id')
                           )
                   ->addColumn('botones', 'Sicosocial/botones')
                   ->rawColumns(['botones'])
@@ -49,8 +47,13 @@ Route::get('csd/nnajs', function (Request $request) {
   if (!$request->ajax())
     return redirect('/');
   return datatables()
-                  ->eloquent(FiDatosBasico::select('s_documento','s_primer_nombre', 's_segundo_nombre', 's_primer_apellido', 's_segundo_apellido', 's_apodo', 's_nombre_identitario', 'id', 'sis_nnaj_id', 'sis_esta_id')
-                          ->where('sis_esta_id', 1))
+                  ->eloquent(FiDatosBasico::select('nnaj_docus.s_documento','fi_datos_basicos.s_primer_nombre',
+                  'fi_datos_basicos.s_segundo_nombre',
+                  'fi_datos_basicos.s_primer_apellido', 'fi_datos_basicos.s_segundo_apellido',
+                  'fi_datos_basicos.s_apodo', 'nnaj_sexos.s_nombre_identitario', 'fi_datos_basicos.id',
+                  'fi_datos_basicos.sis_nnaj_id', 'fi_datos_basicos.sis_esta_id')
+                  ->join('nnaj_sexos','fi_datos_basicos.id','=','nnaj_sexos.fi_datos_basico_id')
+                  ->join('nnaj_docus','fi_datos_basicos.id','=','nnaj_docus.fi_datos_basico_id'))
                   ->addColumn('botones', 'Domicilio/botones')
                   ->rawColumns(['botones'])
                   ->toJson();
@@ -60,8 +63,14 @@ Route::get('ai/nnajs', function (Request $request) {
   if (!$request->ajax())
     return redirect('/');
   return datatables()
-                  ->eloquent(FiDatosBasico::select('s_primer_nombre', 's_segundo_nombre', 's_primer_apellido', 's_segundo_apellido', 's_apodo', 's_nombre_identitario', 'id', 'sis_nnaj_id', 'sis_esta_id')
-                          ->where('sis_esta_id', 1))
+                  ->eloquent(FiDatosBasico::select('nnaj_docus.s_documento','fi_datos_basicos.s_primer_nombre',
+                  'fi_datos_basicos.s_segundo_nombre',
+                  'fi_datos_basicos.s_primer_apellido', 'fi_datos_basicos.s_segundo_apellido',
+                  'fi_datos_basicos.s_apodo', 'nnaj_sexos.s_nombre_identitario', 'fi_datos_basicos.id',
+                  'fi_datos_basicos.sis_nnaj_id', 'fi_datos_basicos.sis_esta_id')
+                  ->join('nnaj_sexos','fi_datos_basicos.id','=','nnaj_sexos.fi_datos_basico_id')
+                  ->join('nnaj_docus','fi_datos_basicos.id','=','nnaj_docus.fi_datos_basico_id')
+                )
                   ->addColumn('botones', 'Acciones/Individuales/botones')
                   ->rawColumns(['botones'])
                   ->toJson();
@@ -71,8 +80,13 @@ Route::get('mitigacion/nnajs', function (Request $request) {
   if (!$request->ajax())
     return redirect('/');
   return datatables()
-                  ->eloquent(FiDatosBasico::select('s_primer_nombre', 's_segundo_nombre', 's_primer_apellido', 's_segundo_apellido', 's_apodo', 's_nombre_identitario', 'id', 'sis_nnaj_id', 'sis_esta_id')
-                          ->where('sis_esta_id', 1))
+                  ->eloquent(FiDatosBasico::select('nnaj_docus.s_documento','fi_datos_basicos.s_primer_nombre',
+                  'fi_datos_basicos.s_segundo_nombre',
+                  'fi_datos_basicos.s_primer_apellido', 'fi_datos_basicos.s_segundo_apellido',
+                  'fi_datos_basicos.s_apodo', 'nnaj_sexos.s_nombre_identitario', 'fi_datos_basicos.id',
+                  'fi_datos_basicos.sis_nnaj_id', 'fi_datos_basicos.sis_esta_id')
+                  ->join('nnaj_sexos','fi_datos_basicos.id','=','nnaj_sexos.fi_datos_basico_id')
+                  ->join('nnaj_docus','fi_datos_basicos.id','=','nnaj_docus.fi_datos_basico_id'))
                   ->addColumn('botones', 'Salud/Mitigacion/Botones')
                   ->rawColumns(['botones'])
                   ->toJson();
@@ -140,8 +154,13 @@ Route::get('is/nnajs', function (Request $request) {
   if (!$request->ajax())
     return redirect('/');
   return datatables()
-                  ->eloquent(FiDatosBasico::select('s_primer_nombre', 's_segundo_nombre', 's_primer_apellido', 's_segundo_apellido', 's_apodo', 's_nombre_identitario', 'id', 'sis_nnaj_id', 'sis_esta_id')
-                          ->where('sis_esta_id', 1))
+                  ->eloquent(FiDatosBasico::select('nnaj_docus.s_documento','fi_datos_basicos.s_primer_nombre',
+                  'fi_datos_basicos.s_segundo_nombre',
+                  'fi_datos_basicos.s_primer_apellido', 'fi_datos_basicos.s_segundo_apellido',
+                  'fi_datos_basicos.s_apodo', 'nnaj_sexos.s_nombre_identitario', 'fi_datos_basicos.id',
+                  'fi_datos_basicos.sis_nnaj_id', 'fi_datos_basicos.sis_esta_id')
+                  ->join('nnaj_sexos','fi_datos_basicos.id','=','nnaj_sexos.fi_datos_basico_id')
+                  ->join('nnaj_docus','fi_datos_basicos.id','=','nnaj_docus.fi_datos_basico_id'))
                   ->addColumn('btns', 'intervencion/botones')
                   ->rawColumns(['btns'])
                   ->toJson();
@@ -150,8 +169,13 @@ Route::get('fos/nnajs', function (Request $request) {
   if (!$request->ajax())
     return redirect('/');
   return datatables()
-                  ->eloquent(FiDatosBasico::select('s_primer_nombre', 's_segundo_nombre', 's_primer_apellido', 's_segundo_apellido', 's_apodo', 's_nombre_identitario', 'id', 'sis_nnaj_id', 'sis_esta_id')
-                          ->where('sis_esta_id', 1))
+                  ->eloquent(FiDatosBasico::select('nnaj_docus.s_documento','fi_datos_basicos.s_primer_nombre',
+                  'fi_datos_basicos.s_segundo_nombre',
+                  'fi_datos_basicos.s_primer_apellido', 'fi_datos_basicos.s_segundo_apellido',
+                  'fi_datos_basicos.s_apodo', 'nnaj_sexos.s_nombre_identitario', 'fi_datos_basicos.id',
+                  'fi_datos_basicos.sis_nnaj_id', 'fi_datos_basicos.sis_esta_id')
+                  ->join('nnaj_sexos','fi_datos_basicos.id','=','nnaj_sexos.fi_datos_basico_id')
+                  ->join('nnaj_docus','fi_datos_basicos.id','=','nnaj_docus.fi_datos_basico_id'))
                   ->addColumn('btns', 'FichaObservacion/botones')
                   ->rawColumns(['btns'])
                   ->toJson();

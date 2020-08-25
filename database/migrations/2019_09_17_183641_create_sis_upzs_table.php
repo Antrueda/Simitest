@@ -1,12 +1,12 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateSisUpzsTable extends Migration
 {
-    private $tablaxxx = 'sis_upzs';
     /**
      * Run the migrations.
      *
@@ -14,7 +14,7 @@ class CreateSisUpzsTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->tablaxxx, function (Blueprint $table) {
+        Schema::create('sis_upzs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_upz')->unique();
             $table->string('s_codigo', 3);
@@ -26,6 +26,12 @@ class CreateSisUpzsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
+        Schema::create('h_sis_upzs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('s_upz')->unique();
+            $table->string('s_codigo', 3);
+            $table = CamposMagicos::h_magicos($table);
+        });
     }
 
     /**
@@ -35,6 +41,7 @@ class CreateSisUpzsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->tablaxxx);
+        Schema::dropIfExists('h_sis_upzs');
+        Schema::dropIfExists('sis_upzs');
     }
 }

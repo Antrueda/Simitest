@@ -10,7 +10,7 @@ use App\Models\User;
 class CsdAlimentacion extends Model{
 
   protected $fillable = [
-    'csd_id', 'user_crea_id', 'user_edita_id', 'cant_personas', 'prm_horario_id',
+    'csd_id', 'user_crea_id', 'user_edita_id', 'cant_personas', 'prm_horario_id','sis_esta_id',
     'prm_apoyo_id', 'prm_entidad_id','prm_tipofuen_id'
   ];
 

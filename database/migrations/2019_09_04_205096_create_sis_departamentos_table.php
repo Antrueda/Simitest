@@ -1,12 +1,12 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateSisDepartamentosTable extends Migration
 {
-    private $tablaxxx = 'sis_departamentos';
     /**
      * Run the migrations.
      *
@@ -14,16 +14,22 @@ class CreateSisDepartamentosTable extends Migration
      */
     public function up()
     {
-        Schema::create($this->tablaxxx, function (Blueprint $table) {
+        Schema::create('sis_departamentos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_pais_id')->unsigned()->nullable();
             $table->string('s_departamento');
-            $table->Integer('user_crea_id'); 
+            $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
             $table->bigInteger('sis_esta_id')->unsigned();
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('sis_pais_id')->references('id')->on('sis_pais');
+        });
+        Schema::create('h_sis_departamentos', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('sis_pais_id')->unsigned()->nullable();
+            $table->string('s_departamento');
+            $table = CamposMagicos::h_magicos($table);
         });
     }
 
@@ -34,6 +40,7 @@ class CreateSisDepartamentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->tablaxxx);
+        Schema::dropIfExists('h_sis_departamentos');
+        Schema::dropIfExists('sis_departamentos');
     }
 }

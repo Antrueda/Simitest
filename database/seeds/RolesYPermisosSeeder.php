@@ -423,16 +423,16 @@ class RolesYPermisosSeeder extends Seeder
          * premisos para los modulos
          */
         /** Módulo territorio */
-        $this->getPermisos(['permisox' => 'territorio', 'permisos' => ['modulo'], 'compleme' => 'Territorio','pestania'=>1]);
+        $this->getPermisos(['permisox' => 'territorio', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Territorio','pestania'=>1]);
 
         /** Módulo Acciones */
-        $this->getPermisos(['permisox' => 'acciones', 'permisos' => ['modulo'], 'compleme' => 'Acciones','pestania'=>1]);
+        $this->getPermisos(['permisox' => 'acciones', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Acciones','pestania'=>1]);
 
         /** Modulo Administración */
-        $this->getPermisos(['permisox' => 'administracion', 'permisos' => ['modulo'], 'compleme' => 'Administración','pestania'=>1]);
+        $this->getPermisos(['permisox' => 'administracion', 'permisos' => ['modulo'], 'compleme' => 'Modulo de Administración','pestania'=>1]);
 
         /** Módulo Indicadores */
-        $this->getPermisos(['permisox' => 'indicadores', 'permisos' => ['modulo'], 'compleme' => 'Indicadores sultados','pestania'=>1]);
+        $this->getPermisos(['permisox' => 'indicadores', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Indicadores resultados','pestania'=>1]);
 
         // crear ficha de epss
         $this->getPermisos(['permisox' => 'eps', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Eps','pestania'=>1]);
