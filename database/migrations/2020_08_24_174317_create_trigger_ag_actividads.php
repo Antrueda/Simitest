@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+
+use Illuminate\Support\Facades\DB;
 
 class CreateTriggerAgActividads extends Migration
 {
@@ -149,6 +149,6 @@ class CreateTriggerAgActividads extends Migration
     public function down()
     {
         DB::unprepared('DROP TRIGGER `trigger_ag_actividads_nuevo`');
-        DB::unprepared('DROP TRIGGER `trigger_ag_actividads_edita`');        
+        DB::unprepared('DROP TRIGGER `trigger_ag_actividads_edita`');
     }
 }
