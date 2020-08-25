@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,9 +20,9 @@ class CreateSisTablasTable extends Migration
             $table->bigIncrements('id');
             $table->string('s_tabla')->nullable();
             $table->string('s_descripcion')->nullable();
-            $table->timestamps();
             $table->bigInteger('sis_docfuen_id')->unsigned();
             $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LAS TABLAS RELACIONADAS CON LOS FORMATOS PUBLICADOS EN EL SISTEMA'");
     }
