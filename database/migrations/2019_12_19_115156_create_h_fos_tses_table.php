@@ -18,11 +18,10 @@ class CreateHFosTsesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fos_tse_id')->unsigned();
-            $table->text('codigo', 6)->nullable();
+            $table->bigInteger('area_id')->unsigned();
             $table->string('nombre', 120);
-            $table->string('descripcion', 4000)->nullable();
-            $table = CamposMagicos::magicos($table);
+            $table->text('descripcion', 4000)->nullable();
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
