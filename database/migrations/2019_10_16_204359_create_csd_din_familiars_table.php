@@ -48,13 +48,8 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->bigInteger('prm_problema_id')->unsigned();
             $table->bigInteger('prm_destaca_id')->unsigned();
             $table->bigInteger('prm_positivo_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_familiar_id')->references('id')->on('parametros');
             $table->foreign('prm_hogar_id')->references('id')->on('parametros');
@@ -70,8 +65,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->foreign('prm_problema_id')->references('id')->on('parametros');
             $table->foreign('prm_destaca_id')->references('id')->on('parametros');
             $table->foreign('prm_positivo_id')->references('id')->on('parametros');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA DINAMICA FAMILIAR DE LA PERSONA ENTREVISTADA, SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
@@ -79,13 +73,12 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS ANTECEDENTES DE PROBLEMAS SOCIALES ASOCIADOS CON LA FAMILIA ACTUAL, PREGUNTA 6.1 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
@@ -93,13 +86,12 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS PRINCIPALES PROBLEMATICAS ASOCIADAS CON LA FAMILIA ACTUAL DE LA PERSONA ENTREVISTADA, PREGUNTA 6.13 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
@@ -107,13 +99,12 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS ACTUACIONES DE LOS MIEMBROS DE LA FAMILIA FRENTE A LAS NORMAS DE LA PERSONA ENTREVISTADA, PREGUNTA 6.20 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
@@ -121,13 +112,12 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE PERSONAS QUE ESTABLECEN LAS NORMAS EN EL HOGAR DE LA PERSONA ENTREVISTADA, PREGUNTA 6.17 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
@@ -140,7 +130,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
-            $table = CamposMagicos::h_magicos($table);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS ACTUACIONES CUANDO NO SE CUMPLEN LAS REGLAS EN LA FAMILIA DE LA PERSONA ENTREVISTADA, PREGUNTA 6.23 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
     }
