@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\Usuario;
+namespace app\Models\Usuario;
 
-use App\Models\Indicadores\Area;
-use App\Models\User;
+use app\Models\Indicadores\Area;
+use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

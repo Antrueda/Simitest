@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\fichaIngreso;
+namespace app\Models\fichaIngreso;
 
-use App\Models\User;
+use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class FiDiasGeneraIngreso extends Model

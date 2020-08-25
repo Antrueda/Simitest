@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Models\consulta;
+namespace app\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Parametro;
-use App\Models\User;
-use App\Models\Sistema\SisMunicipio;
-use App\Models\Sistema\SisDepartamento;
+use app\Models\Parametro;
+use app\Models\User;
+use app\Models\Sistema\SisMunicipio;
+use app\Models\Sistema\SisDepartamento;
 
 class CsdViolencia extends Model{
 

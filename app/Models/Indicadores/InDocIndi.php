@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\Indicadores;
+namespace app\Models\Indicadores;
 
-use App\Models\Sistema\SisDocumentoFuente;
-use App\Models\User;
+use app\Models\Sistema\SisDocumentoFuente;
+use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

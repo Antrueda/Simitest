@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\sicosocial;
+namespace app\Models\sicosocial;
 
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\User;
+use app\Models\fichaIngreso\FiDatosBasico;
+use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 

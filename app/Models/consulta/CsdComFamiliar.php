@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\consulta;
+namespace app\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Parametro;
+use app\Models\Parametro;
 
 class CsdComFamiliar extends Model{
 

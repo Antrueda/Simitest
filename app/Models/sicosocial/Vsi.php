@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Models\sicosocial;
+namespace app\Models\sicosocial;
 
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\User;
-use App\Models\Parametro;
-use App\Models\Sistema\SisNnaj;
-use App\Models\Sistema\SisDepen;
+use app\Models\User;
+use app\Models\Parametro;
+use app\Models\Sistema\SisNnaj;
+use app\Models\Sistema\SisDepen;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

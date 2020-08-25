@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Indicadores\Logs;
+namespace app\Models\Indicadores\Logs;
 use Illuminate\Database\Eloquent\Model;
 
 class HInLineabaseNnaj extends Model

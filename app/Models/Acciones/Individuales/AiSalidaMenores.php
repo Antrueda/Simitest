@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\Acciones\Individuales;
+namespace app\Models\Acciones\Individuales;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Parametro;
-use App\Models\Sistema\SisNnaj;
-use App\Models\Sistema\SisDepen;
+use app\Models\Parametro;
+use app\Models\Sistema\SisNnaj;
+use app\Models\Sistema\SisDepen;
 
 class AiSalidaMenores extends Model{
     protected $fillable = [

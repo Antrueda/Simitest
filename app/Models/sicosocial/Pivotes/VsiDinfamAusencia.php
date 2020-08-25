@@ -2,7 +2,7 @@
 
 namespace App;
 
-namespace App\Models\sicosocial\Pivotes;
+namespace app\Models\sicosocial\Pivotes;
 use Illuminate\Database\Eloquent\Model;
 
 class VsiDinfamAusencia extends Model

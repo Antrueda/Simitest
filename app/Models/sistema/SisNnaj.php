@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\User;
-use App\Models\Parametro;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiBienvenida;
-use App\Models\fichaIngreso\FiResidencia;
-use App\Models\sicosocial\Vsi;
-use App\Models\consulta\Csd;
-use App\Models\Acciones\Individuales\AiSalidaMayores;
-use App\Models\Acciones\Individuales\AiReporteEvasion;
-use App\Models\Acciones\Individuales\AiSalidaMenores;
-use App\Models\Acciones\Individuales\AiRetornoSalida;
-use App\Models\Salud\Mitigacion\Vma\MitVma;
-use App\Models\Salud\Mitigacion\Vspa;
+use app\Models\User;
+use app\Models\Parametro;
+use app\Models\fichaIngreso\FiDatosBasico;
+use app\Models\fichaIngreso\FiBienvenida;
+use app\Models\fichaIngreso\FiResidencia;
+use app\Models\sicosocial\Vsi;
+use app\Models\consulta\Csd;
+use app\Models\Acciones\Individuales\AiSalidaMayores;
+use app\Models\Acciones\Individuales\AiReporteEvasion;
+use app\Models\Acciones\Individuales\AiSalidaMenores;
+use app\Models\Acciones\Individuales\AiRetornoSalida;
+use app\Models\Salud\Mitigacion\Vma\MitVma;
+use app\Models\Salud\Mitigacion\Vspa;
 
 class SisNnaj extends Model{
     protected $fillable = ['sis_esta_id', 'user_crea_id', 'user_edita_id'];

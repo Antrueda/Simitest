@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\fichaIngreso;
+namespace app\Models\fichaIngreso;
 
-use App\Models\Sistema\SisDocfuen;
-use App\Models\Sistema\SisUpzbarri;
-use App\Models\User;
+use app\Models\Sistema\SisDocfuen;
+use app\Models\Sistema\SisUpzbarri;
+use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

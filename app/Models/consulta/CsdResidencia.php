@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\consulta;
+namespace app\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Parametro;
-use App\Models\User;
-use App\Models\Sistema\SisUpz;
-use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisLocalidad;
-use App\Models\Sistema\SisUpzbarri;
+use app\Models\Parametro;
+use app\Models\User;
+use app\Models\Sistema\SisUpz;
+use app\Models\Sistema\SisBarrio;
+use app\Models\Sistema\SisLocalidad;
+use app\Models\Sistema\SisUpzbarri;
 
 class CsdResidencia extends Model{
 

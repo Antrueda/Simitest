@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\Acciones\Grupales;
+namespace app\Models\Acciones\Grupales;
 
-use App\Models\User;
+use app\Models\User;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class AgTallerAgTema extends Pivot

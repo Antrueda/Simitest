@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Salud\Mitigacion\Logs;
+namespace app\Models\Salud\Mitigacion\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 

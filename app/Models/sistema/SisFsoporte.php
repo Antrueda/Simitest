@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
-use App\Models\Indicadores\InAccionGestion;
+use app\Models\Indicadores\InAccionGestion;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\User;
+use app\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

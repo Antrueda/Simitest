@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
-use App\Models\User;
+use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;

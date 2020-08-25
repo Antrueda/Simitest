@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
-use App\Models\Indicadores\InBaseFuente;
-use App\Models\Indicadores\InLineaBase;
-use App\Models\Indicadores\InLineabaseNnaj;
-use App\Models\Indicadores\InPregunta;
+use app\Models\Indicadores\InBaseFuente;
+use app\Models\Indicadores\InLineaBase;
+use app\Models\Indicadores\InLineabaseNnaj;
+use app\Models\Indicadores\InPregunta;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\User;
+use app\Models\User;
 
 class SisDocfuen extends Model
 {

@@ -58,7 +58,7 @@ use App\Models\consulta\pivotes\CsdAlimentCompra;
 use App\Models\consulta\pivotes\CsdAlimentFrec;
 use App\Models\consulta\pivotes\CsdAlimentInge;
 use App\Models\consulta\pivotes\CsdAlimentPrepara;
-use App\Models\consulta\pivotes\CsdBienvenidaMotivos;
+use App\Models\consulta\pivotes\CsdBienvenidaMotivo;
 use App\Models\consulta\pivotes\CsdDinfamAntecedente;
 use App\Models\consulta\pivotes\CsdDinfamEstablecen;
 use App\Models\consulta\pivotes\CsdDinfamIncumple;

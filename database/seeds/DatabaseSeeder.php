@@ -95,7 +95,7 @@ class DatabaseSeeder extends Seeder
         // -- Modulo SICO SOCIAL, Javier
         $this->call(VsisSeeder::class); // ok  //1
         $this->call(VsiBienvenidaSeeder::class);        // ok // 2
-        // $this->call(VsiBienvenidaMotivoSeeder::class);  // ok // 3
+        $this->call(VsiBienvenidaMotivoSeeder::class);  // ok // 3
         $this->call(VsiAntecedenteSeeder::class);  // ok //6
         $this->call(VsiDatosVinculaSeeder::class);  //13 ok
         $this->call(VsiDinFamiliarSeeder::class);  //14 ok

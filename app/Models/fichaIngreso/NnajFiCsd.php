@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\fichaIngreso;
+namespace app\Models\fichaIngreso;
 
-use App\Models\Parametro;
-use App\Models\Sistema\SisDocfuen;
-use App\Models\User;
+use app\Models\Parametro;
+use app\Models\Sistema\SisDocfuen;
+use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class NnajFiCsd extends Model

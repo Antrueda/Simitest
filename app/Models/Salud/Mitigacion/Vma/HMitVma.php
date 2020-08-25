@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Salud\Mitigacion\Vma;
+namespace app\Models\Salud\Mitigacion\Vma;
 
 use Illuminate\Database\Eloquent\Model;
 

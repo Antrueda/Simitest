@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\consulta;
+namespace app\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Parametro;
-use App\Models\User;
+use app\Models\Parametro;
+use app\Models\User;
 
 class CsdBienvenida extends Model{
   
@@ -24,7 +24,7 @@ class CsdBienvenida extends Model{
   }
 
   public function motivos(){
-    return $this->belongsToMany(Parametro::class,'csd_bienvenidas_motivos', 'csd_bienvenidas_id', 'parametro_id');
+    return $this->belongsToMany(Parametro::class,'csd_bienvenidas_motivos', 'csd_bienvenida_id', 'parametro_id');
   }
 
   public function creador(){

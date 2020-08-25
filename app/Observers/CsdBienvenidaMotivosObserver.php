@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\consulta\pivotes\CsdBienvenidaMotivos;
-use App\Models\consulta\pivotes\Logs\HCsdBienvenidaMotivos;
+use App\Models\consulta\pivotes\CsdBienvenidaMotivo;
+use App\Models\consulta\pivotes\Logs\HCsdBienvenidaMotivo;
 
 class CsdBienvenidaMotivosObserver
 {
@@ -12,9 +12,9 @@ class CsdBienvenidaMotivosObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['parametro_id'] = $modeloxx->parametro_id;
-        $log['csd_bienvenidas_id'] = $modeloxx->csd_bienvenidas_id;
+        $log['csd_bienvenida_id'] = $modeloxx->csd_bienvenida_id;
         $log['prm_tipofuen_id'] = $modeloxx->prm_tipofuen_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
@@ -26,52 +26,52 @@ class CsdBienvenidaMotivosObserver
         return $log;
     }
 
-    public function created(CsdBienvenidaMotivos $modeloxx)
+    public function created(CsdBienvenidaMotivo $modeloxx)
     {
-        HCsdBienvenidaMotivos::create($this->getLog($modeloxx));
+        HCsdBienvenidaMotivo::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdBienvenidaMotivos "updated" event.
+     * Handle the CsdBienvenidaMotivo "updated" event.
      *
-     * @param  \App\Models\consulta\pivotes\CsdBienvenidaMotivos  $modeloxx
+     * @param  \App\Models\consulta\pivotes\CsdBienvenidaMotivo  $modeloxx
      * @return void
      */
-    public function updated(CsdBienvenidaMotivos $modeloxx)
+    public function updated(CsdBienvenidaMotivo $modeloxx)
     {
-        HCsdBienvenidaMotivos::create($this->getLog($modeloxx));
+        HCsdBienvenidaMotivo::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdBienvenidaMotivos "deleted" event.
+     * Handle the CsdBienvenidaMotivo "deleted" event.
      *
-     * @param  \App\Models\consulta\pivotes\CsdBienvenidaMotivos  $modeloxx
+     * @param  \App\Models\consulta\pivotes\CsdBienvenidaMotivo  $modeloxx
      * @return void
      */
-    public function deleted(CsdBienvenidaMotivos $modeloxx)
+    public function deleted(CsdBienvenidaMotivo $modeloxx)
     {
-        HCsdBienvenidaMotivos::create($this->getLog($modeloxx));
+        HCsdBienvenidaMotivo::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdBienvenidaMotivos "restored" event.
+     * Handle the CsdBienvenidaMotivo "restored" event.
      *
-     * @param  \App\Models\consulta\pivotes\CsdBienvenidaMotivos  $modeloxx
+     * @param  \App\Models\consulta\pivotes\CsdBienvenidaMotivo  $modeloxx
      * @return void
      */
-    public function restored(CsdBienvenidaMotivos $modeloxx)
+    public function restored(CsdBienvenidaMotivo $modeloxx)
     {
-        HCsdBienvenidaMotivos::create($this->getLog($modeloxx));
+        HCsdBienvenidaMotivo::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdBienvenidaMotivos "force deleted" event.
+     * Handle the CsdBienvenidaMotivo "force deleted" event.
      *
-     * @param  \App\Models\consulta\pivotes\CsdBienvenidaMotivos  $modeloxx
+     * @param  \App\Models\consulta\pivotes\CsdBienvenidaMotivo  $modeloxx
      * @return void
      */
-    public function forceDeleted(CsdBienvenidaMotivos $modeloxx)
+    public function forceDeleted(CsdBienvenidaMotivo $modeloxx)
     {
-        HCsdBienvenidaMotivos::create($this->getLog($modeloxx));
+        HCsdBienvenidaMotivo::create($this->getLog($modeloxx));
     }
 }

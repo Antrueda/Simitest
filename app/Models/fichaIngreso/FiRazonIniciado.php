@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\fichaIngreso;
+namespace app\Models\fichaIngreso;
 
-use App\Models\User;
+use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

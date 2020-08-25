@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
-use App\Models\Indicadores\InCamrespu;
-use App\Models\Indicadores\InDocPregunta;
-use App\Models\Indicadores\InPregunta;
-use App\Models\Tema;
-use App\Models\User;
+use app\Models\Indicadores\InCamrespu;
+use app\Models\Indicadores\InDocPregunta;
+use app\Models\Indicadores\InPregunta;
+use app\Models\Tema;
+use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class SisTcampo extends Model

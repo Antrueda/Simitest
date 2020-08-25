@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\consulta;
+namespace app\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Parametro;
-use App\Models\User;
+use app\Models\Parametro;
+use app\Models\User;
 
 class CsdJusticia extends Model
 {

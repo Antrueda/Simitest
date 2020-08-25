@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
-use App\Models\Indicadores\Area;
-use App\Models\User;
+use app\Models\Indicadores\Area;
+use app\Models\User;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Support\Facades\Auth;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace app\Models;
 
-use App\Models\Sistema\SisEntidad;
+use app\Models\Sistema\SisEntidad;
 use Illuminate\Database\Eloquent\Model;
 
 class Tema extends Model {

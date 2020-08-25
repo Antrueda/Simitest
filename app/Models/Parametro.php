@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace app\Models;
 
-use App\Models\Indicadores\InDocPregunta;
-use App\Models\Indicadores\InPregunta;
+use app\Models\Indicadores\InDocPregunta;
+use app\Models\Indicadores\InPregunta;
 use Illuminate\Database\Eloquent\Model;
 
 class Parametro extends Model

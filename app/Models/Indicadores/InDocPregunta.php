@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\Indicadores;
+namespace app\Models\Indicadores;
 
-use App\Models\Parametro;
-use App\Models\Sistema\SisTcampo;
+use app\Models\Parametro;
+use app\Models\Sistema\SisTcampo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

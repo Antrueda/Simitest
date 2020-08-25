@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\consulta\pivotes;
+namespace app\Models\consulta\pivotes;
 
 use Illuminate\Database\Eloquent\Model;
 

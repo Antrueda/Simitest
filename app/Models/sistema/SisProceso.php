@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
-use App\Models\User;
-use App\Models\Parametro;
+use app\Models\User;
+use app\Models\Parametro;
 use Illuminate\Database\Eloquent\Model;
 
 class SisProceso extends Model{

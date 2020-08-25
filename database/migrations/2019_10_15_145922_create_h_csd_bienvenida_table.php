@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class CreateHCsdBienvenidaTable extends Migration
 {
     private $tablaxxx = 'h_csd_bienvenidas';
-    private $tablaxxx2 = 'h_csd_bienvenidas_motivos';
+    private $tablaxxx2 = 'h_csd_bienvenida_motivos';
     /**
      * Run the migrations.
      *
@@ -28,7 +28,7 @@ class CreateHCsdBienvenidaTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_bienvenidas_id')->unsigned();
+            $table->bigInteger('csd_bienvenida_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });

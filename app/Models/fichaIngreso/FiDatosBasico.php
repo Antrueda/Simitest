@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\fichaIngreso;
+namespace app\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
-use App\Models\Parametro;
-use App\Models\sicosocial\NnajNfamili;
-use App\Models\Sistema\SisDocfuen;
+use app\Models\Parametro;
+use app\Models\sicosocial\NnajNfamili;
+use app\Models\Sistema\SisDocfuen;
 use Carbon\Carbon;
 
-use App\Models\Sistema\SisNnaj;
-use App\Models\User;
+use app\Models\Sistema\SisNnaj;
+use app\Models\User;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

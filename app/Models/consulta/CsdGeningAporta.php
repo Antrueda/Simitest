@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\consulta;
+namespace app\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Parametro;
-use App\Models\User;
+use app\Models\Parametro;
+use app\Models\User;
 
 class CsdGeningAporta extends Model{
 	protected $fillable = ['csd_id', 'prm_aporta_id', 'mensual', 'aporte', 'jornada_entre', 'prm_entre_id', 'jornada_a', 'prm_a_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id','prm_tipofuen_id'];

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\sicosocial;
+namespace app\Models\sicosocial;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Parametro;
-use App\Models\User;
+use app\Models\Parametro;
+use app\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

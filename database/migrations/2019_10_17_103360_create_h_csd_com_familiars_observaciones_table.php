@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class CreateHCsdComFamiliarsObservacionesTable extends Migration
 {
-    private $tablaxxx = 'h_csd_com_familiars_observaciones';
+    private $tablaxxx = 'h_csd_com_familiar_observaciones';
     /**
      * Run the migrations.
      *

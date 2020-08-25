@@ -2,7 +2,7 @@
 
 namespace App\Imports\Csd;
 
-use App\Models\consulta\pivotes\CsdBienvenidaMotivos;
+use App\Models\consulta\pivotes\CsdBienvenidaMotivo;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class CsdBienvenidaMotivosImport implements ToModel
@@ -17,7 +17,7 @@ class CsdBienvenidaMotivosImport implements ToModel
         return new CsdBienvenidaMotivos([
             'parametro_id'=>$row[1],
             'prm_tipofuen_id'=>2316,
-            'csd_bienvenidas_id'=>$row[0],
+            'csd_bienvenida_id'=>$row[0],
             'user_crea_id'=>1,
             'user_edita_id'=>1,
         ]);

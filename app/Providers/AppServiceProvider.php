@@ -38,7 +38,7 @@ use App\Models\consulta\pivotes\CsdAlimentCompra;
 use App\Models\consulta\pivotes\CsdAlimentFrec;
 use App\Models\consulta\pivotes\CsdAlimentInge;
 use App\Models\consulta\pivotes\CsdAlimentPrepara;
-use App\Models\consulta\pivotes\CsdBienvenidaMotivos;
+use App\Models\consulta\pivotes\CsdBienvenidaMotivo;
 use App\Models\consulta\pivotes\CsdDinfamAntecedente;
 use App\Models\consulta\pivotes\CsdDinfamEstablecen;
 use App\Models\consulta\pivotes\CsdDinfamIncumple;
@@ -596,7 +596,7 @@ class AppServiceProvider extends ServiceProvider
     CsdAlimentFrec::observe(CsdAlimentFrecObserver::class);
     CsdAlimentInge::observe(CsdAlimentIngeObserver::class);
     CsdAlimentPrepara::observe(CsdAlimentPreparaObserver::class);
-    CsdBienvenidaMotivos::observe(CsdBienvenidaMotivosObserver::class);
+    CsdBienvenidaMotivo::observe(CsdBienvenidaMotivosObserver::class);
     CsdDinfamAntecedente::observe(CsdDinfamAntecedenteObserver::class);
     CsdDinfamEstablecen::observe(CsdDinfamEstablecenObserver::class);
     CsdDinfamIncumple::observe(CsdDinfamIncumpleObserver::class);
@@ -655,15 +655,15 @@ class AppServiceProvider extends ServiceProvider
     FiVictimaEscnna::observe(FiVictimaEscnnaObserver::class);
     FiViolencia::observe(FiViolenciaObserver::class);
 
-    // USUARIO    
+    // USUARIO
     RolUsuario::observe(RolUsuarioObserver::class);
     SisAreaUsua::observe(SisAreaUsuaObserver::class);
-    
-    // CARPETA RAIZ 
+
+    // CARPETA RAIZ
     Parametro::observe(ParametroObserver::class);
     Permissionext::observe(PermissionextObserver::class);
     post::observe(postObserver::class);
-    
+
     Roleext::observe(RoleextObserver::class);
     Tema::observe(TemaObserver::class);
     User::observe(UserObserver::class);

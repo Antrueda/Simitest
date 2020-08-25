@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\intervencion;
+namespace app\Models\intervencion;
 
-use App\Models\Parametro;
-use App\Models\Sistema\SisUsuarioActividad;
-use App\Models\Sistema\SisNnaj;
-use App\Models\User;
+use app\Models\Parametro;
+use app\Models\Sistema\SisUsuarioActividad;
+use app\Models\Sistema\SisNnaj;
+use app\Models\User;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

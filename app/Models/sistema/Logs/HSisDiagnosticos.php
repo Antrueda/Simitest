@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\sistema\Logs;
+namespace app\Models\sistema\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,7 @@ class HSisDiagnosticos extends Model
         'simbolo',
         'descripcion',
         'sexo',
-                
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

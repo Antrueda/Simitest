@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\consulta\Logs;
+namespace app\Models\consulta\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HCsdRedSocPasado extends Model
+class HCsdRedsocPasado extends Model
 {
     protected $fillable = [
         'csd_id',
@@ -18,7 +18,7 @@ class HCsdRedSocPasado extends Model
         'user_edita_id',
         'sis_esta_id',
         'prm_tipofuen_id',
-        
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

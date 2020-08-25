@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\fichaIngreso;
+namespace app\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
-use App\Models\Sistema\SisDepartamento;
-use App\Models\Sistema\SisMunicipio;
-use App\Models\Sistema\SisPai;
-use App\Models\User;
+use app\Models\Sistema\SisDepartamento;
+use app\Models\Sistema\SisMunicipio;
+use app\Models\Sistema\SisPai;
+use app\Models\User;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\Sistema;
+namespace app\Models\Sistema;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\User;
+use app\Models\User;
 
 class SisEntidad extends Model
 {

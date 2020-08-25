@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\fichaobservacion;
+namespace app\Models\fichaobservacion;
 
-use App\Models\Indicadores\Area;
+use app\Models\Indicadores\Area;
 use Illuminate\Database\Eloquent\Model;
 
 class FosTse extends Model
