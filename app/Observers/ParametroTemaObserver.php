@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HParametroTema;
-use App\Models\sistema\ParametroTema;
+use App\Models\Sistema\Logs\HParametroTema;
+use App\Models\Sistema\ParametroTema;
 
 class ParametroTemaObserver
 {
@@ -33,7 +33,7 @@ class ParametroTemaObserver
     /**
      * Handle the ParametroTema "updated" event.
      *
-     * @param  \App\Models\sistema\ParametroTema  $modeloxx
+     * @param  \App\Models\Sistema\ParametroTema  $modeloxx
      * @return void
      */
     public function updated(ParametroTema $modeloxx)
@@ -44,7 +44,7 @@ class ParametroTemaObserver
     /**
      * Handle the ParametroTema "deleted" event.
      *
-     * @param  \App\Models\sistema\ParametroTema  $modeloxx
+     * @param  \App\Models\Sistema\ParametroTema  $modeloxx
      * @return void
      */
     public function deleted(ParametroTema $modeloxx)
@@ -55,7 +55,7 @@ class ParametroTemaObserver
     /**
      * Handle the ParametroTema "restored" event.
      *
-     * @param  \App\Models\sistema\ParametroTema  $modeloxx
+     * @param  \App\Models\Sistema\ParametroTema  $modeloxx
      * @return void
      */
     public function restored(ParametroTema $modeloxx)
@@ -66,7 +66,7 @@ class ParametroTemaObserver
     /**
      * Handle the ParametroTema "force deleted" event.
      *
-     * @param  \App\Models\sistema\ParametroTema  $modeloxx
+     * @param  \App\Models\Sistema\ParametroTema  $modeloxx
      * @return void
      */
     public function forceDeleted(ParametroTema $modeloxx)

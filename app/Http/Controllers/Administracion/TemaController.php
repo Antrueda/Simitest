@@ -11,10 +11,14 @@ use Illuminate\Support\Facades\Validator;
 
 class TemaController extends Controller{
     public function __construct(){
-        $this->middleware(['permission:tema-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:tema-crear'], ['only' => ['index, show, create, store', 'updateParametro']]);
-        $this->middleware(['permission:tema-editar'], ['only' => ['index, show, edit, update', 'updateParametro']]);
-        $this->middleware(['permission:tema-borrar'], ['only' => ['index, show, destroy, destroyParametro']]);
+
+        $this->opciones['permisox']='tema';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
     }
 
     public function index(Request $request){

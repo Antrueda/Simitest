@@ -4,28 +4,14 @@
     </div>
     <div class="card-header p-2">
         <ul class="nav nav-tabs">
-            @if($todoxxxx['pestpadr']==1)
-            @canany(['vsinnajs-leer', 'vsinnajs-crear', 'vsinnajs-editar', 'vsinnajs-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsinnajs') ?' active' : '' }}
-        text-sm" href="{{ route('vsinnajs') }}">NNAJS</a></li>
-            @endcanany
-            @endif
 
             @if($todoxxxx['pestpadr']==2)
-            @canany(['vsinnajs-leer', 'vsinnajs-crear', 'vsinnajs-editar', 'vsinnajs-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsinnajs') ?' active' : '' }}
-        text-sm" href="{{ route('vsinnajs') }}">NNAJ</a></li>
-            @endcanany
             @canany(['vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsixxxxx') ?' active' : '' }}
         text-sm" href="{{ route('vsixxxxx',$todoxxxx['parametr']) }}">VSIS</a></li>
             @endcanany
             @endif
             @if($todoxxxx['pestpadr']==3)
-            @canany(['vsinnajs-leer', 'vsinnajs-crear', 'vsinnajs-editar', 'vsinnajs-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsinnajs') ?' active' : '' }}
-        text-sm" href="{{ route('vsinnajs') }}">NNAJ</a></li>
-            @endcanany
             @canany(['vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsixxxxx') ?' active' : '' }}
         text-sm" href="{{ route('vsixxxxx',$todoxxxx['parametr']) }}">VSIS</a></li>

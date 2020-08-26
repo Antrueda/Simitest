@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\fichaobservacion;
+namespace App\Models\fichaobservacion;
 
 use Illuminate\Database\Eloquent\Model;
 

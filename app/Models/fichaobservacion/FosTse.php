@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\fichaobservacion;
+namespace App\Models\fichaobservacion;
 
 use app\Models\Indicadores\Area;
 use Illuminate\Database\Eloquent\Model;

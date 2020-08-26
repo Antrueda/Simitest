@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\sicosocial\Pivotes;
+namespace App\Models\sicosocial\Pivotes;
 use Illuminate\Database\Eloquent\Model;
 
 class VsiNnajSocial extends Model

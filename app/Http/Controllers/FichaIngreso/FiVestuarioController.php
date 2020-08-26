@@ -16,10 +16,7 @@ class FiVestuarioController extends Controller
 
   public function __construct()
   {
-    $this->middleware(['permission:fivestuario-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fivestuario-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fivestuario-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fivestuario-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Vestuario',
       'rutaxxxx' => 'FichaIngreso',
@@ -34,6 +31,14 @@ class FiVestuarioController extends Controller
       'routnuev' => 'fi.datobasico',
       'nuevoxxx' => 'o Registro'
     ];
+
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
     $this->opciones['sexoetar'] = Tema::combo(139,true,false);
 
     $this->opciones['tallzapa'] = Tema::combo(138,true,false);

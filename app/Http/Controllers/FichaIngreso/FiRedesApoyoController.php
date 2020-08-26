@@ -15,10 +15,7 @@ class FiRedesApoyoController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:firedapoyo-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:firedapoyo-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:firedapoyo-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:firedapoyo-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Redes de Apoyo',
       'rutaxxxx' => 'FichaIngreso',
@@ -33,6 +30,15 @@ class FiRedesApoyoController extends Controller
       'modeloxx' => '',
       'nuevoxxx' => 'o Registro'
     ];
+
+
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
     $this->opciones['sexoxxxx'] = Tema::combo(84, true, false);
     $this->opciones['endidadx'] = SisEntidad::combo(true, false);
   }

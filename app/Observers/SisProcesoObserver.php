@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisProceso;
-use App\Models\sistema\SisProceso;
+use App\Models\Sistema\Logs\HSisProceso;
+use App\Models\Sistema\SisProceso;
 
 class SisProcesoObserver
 {
@@ -35,7 +35,7 @@ class SisProcesoObserver
     /**
      * Handle the SisProceso "updated" event.
      *
-     * @param  \App\Models\sistema\SisProceso  $modeloxx
+     * @param  \App\Models\Sistema\SisProceso  $modeloxx
      * @return void
      */
     public function updated(SisProceso $modeloxx)
@@ -46,7 +46,7 @@ class SisProcesoObserver
     /**
      * Handle the SisProceso "deleted" event.
      *
-     * @param  \App\Models\sistema\SisProceso  $modeloxx
+     * @param  \App\Models\Sistema\SisProceso  $modeloxx
      * @return void
      */
     public function deleted(SisProceso $modeloxx)
@@ -57,7 +57,7 @@ class SisProcesoObserver
     /**
      * Handle the SisProceso "restored" event.
      *
-     * @param  \App\Models\sistema\SisProceso  $modeloxx
+     * @param  \App\Models\Sistema\SisProceso  $modeloxx
      * @return void
      */
     public function restored(SisProceso $modeloxx)
@@ -68,7 +68,7 @@ class SisProcesoObserver
     /**
      * Handle the SisProceso "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisProceso  $modeloxx
+     * @param  \App\Models\Sistema\SisProceso  $modeloxx
      * @return void
      */
     public function forceDeleted(SisProceso $modeloxx)

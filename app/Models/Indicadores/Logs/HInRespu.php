@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\Indicadores\Logs;
+namespace App\Models\Indicadores\Logs;
 use Illuminate\Database\Eloquent\Model;
 
 class HInRespu extends Model

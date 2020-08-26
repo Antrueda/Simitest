@@ -1,11 +1,11 @@
 <?php
 
-namespace app\Models\Acciones\Individuales;
+namespace App\Models\Acciones\Individuales;
 
 use Illuminate\Database\Eloquent\Model;
 
-use app\Models\Sistema\SisNnaj;
-use app\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisDepen;
 use app\Models\Parametro;
 
 class AiRetornoSalida extends Model{

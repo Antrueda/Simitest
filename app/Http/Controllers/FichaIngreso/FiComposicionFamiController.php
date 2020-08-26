@@ -18,10 +18,7 @@ class FiComposicionFamiController extends Controller {
   private $opciones;
 
   public function __construct() {
-    $this->middleware(['permission:ficomposicion-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:ficomposicion-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:ficomposicion-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:ficomposicion-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
         'tituloxx' => 'Composición familiar',
         'rutaxxxx' => 'FichaIngreso',
@@ -38,6 +35,13 @@ class FiComposicionFamiController extends Controller {
         'urlxxxxx' => 'api/fi/ficomposicionfamiliar',
         'nuevoxxx' => 'o Registro',
     ];
+
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
     $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
     $this->opciones['parentes'] = Tema::combo(66, true, false);
     $this->opciones['tipotele'] = Tema::combo(44, true, false);

@@ -27,10 +27,13 @@ class InDocIndicadorController extends Controller
             'tituloxx' => 'Preguntas del Documento Fuente',
         ];
 
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
         $this->opciones['readonly'] = '';
         $this->opciones['rutaxxxx'] = 'di.docindicador';
         //$this->opciones['routnuev'] = 'inligru';
@@ -41,8 +44,8 @@ class InDocIndicadorController extends Controller
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
                 'formhref' => 2, 'tituloxx' => 'Volver a Grupos', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
-        ];       
-        
+        ];
+
     }
     /**
      * Display a listing of the resource.
@@ -92,7 +95,7 @@ class InDocIndicadorController extends Controller
         ];
 
         $this->opciones['urlxxxxx'] = 'api/indicadores/docpreguntas';
-        
+
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'TABLA'],
@@ -115,7 +118,7 @@ class InDocIndicadorController extends Controller
     {
 
         $this->opciones['urlxxxxx'] = 'api/indicadores/docpreguntas';
-        
+
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'TABLA'],

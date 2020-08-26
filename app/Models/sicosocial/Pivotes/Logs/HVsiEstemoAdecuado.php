@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\sicosocial\Pivotes\Logs;
+namespace App\Models\sicosocial\Pivotes\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 

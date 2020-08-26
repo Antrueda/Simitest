@@ -21,11 +21,11 @@ class AgTallerController extends Controller
             'tituloxx' => 'Taller',
         ];
 
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
-
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['readonly'] = '';
         $this->opciones['rutaxxxx'] = 'agrtaller';
         $this->opciones['routnuev'] = 'agrtaller';
@@ -91,8 +91,8 @@ class AgTallerController extends Controller
     }
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
-      
-   
+
+
 
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
@@ -125,7 +125,7 @@ class AgTallerController extends Controller
 
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'] . '.editar', 
+                'mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'] . '.editar',
                 $this->opciones['parametr']],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
@@ -163,12 +163,12 @@ class AgTallerController extends Controller
     public function show($agtemaid,AgTaller $objetoxx)
     {
         $this->opciones['parametr'] = [$agtemaid,$objetoxx->id];
-        $this->opciones['botoform'][] = 
+        $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'.temas', []],
                 'formhref' => 2, 'tituloxx' => 'Volver a Temas', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $this->opciones['botoform'][] = 
+        $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], [$agtemaid]],
                 'formhref' => 2, 'tituloxx' => 'Volver a Talleres', 'clasexxx' => 'btn btn-sm btn-primary'
@@ -190,7 +190,7 @@ class AgTallerController extends Controller
     public function edit($agtemaid,AgTaller $objetoxx)
     {
         $this->opciones['parametr']=[$agtemaid,$objetoxx->id];
-        $this->opciones['botoform'][] = 
+        $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'.temas', []],
                 'formhref' => 2, 'tituloxx' => 'Volver a Temas', 'clasexxx' => 'btn btn-sm btn-primary'

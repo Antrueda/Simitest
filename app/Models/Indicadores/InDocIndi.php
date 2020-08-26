@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Models\Indicadores;
+namespace App\Models\Indicadores;
 
-use app\Models\Sistema\SisDocumentoFuente;
+use App\Models\Sistema\SisDocumentoFuente;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

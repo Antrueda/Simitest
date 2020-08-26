@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisActividad;
-use App\Models\sistema\SisActividad;
+use App\Models\Sistema\Logs\HSisActividad;
+use App\Models\Sistema\SisActividad;
 
 class SisActividadObserver
 {
@@ -33,7 +33,7 @@ class SisActividadObserver
     /**
      * Handle the SisActividad "updated" event.
      *
-     * @param  \App\Models\sistema\SisActividad  $modeloxx
+     * @param  \App\Models\Sistema\SisActividad  $modeloxx
      * @return void
      */
     public function updated(SisActividad $modeloxx)
@@ -44,7 +44,7 @@ class SisActividadObserver
     /**
      * Handle the SisActividad "deleted" event.
      *
-     * @param  \App\Models\sistema\SisActividad  $modeloxx
+     * @param  \App\Models\Sistema\SisActividad  $modeloxx
      * @return void
      */
     public function deleted(SisActividad $modeloxx)
@@ -55,7 +55,7 @@ class SisActividadObserver
     /**
      * Handle the SisActividad "restored" event.
      *
-     * @param  \App\Models\sistema\SisActividad  $modeloxx
+     * @param  \App\Models\Sistema\SisActividad  $modeloxx
      * @return void
      */
     public function restored(SisActividad $modeloxx)
@@ -66,7 +66,7 @@ class SisActividadObserver
     /**
      * Handle the SisActividad "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisActividad  $modeloxx
+     * @param  \App\Models\Sistema\SisActividad  $modeloxx
      * @return void
      */
     public function forceDeleted(SisActividad $modeloxx)

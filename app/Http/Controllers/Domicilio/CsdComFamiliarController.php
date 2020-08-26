@@ -16,8 +16,13 @@ use App\Models\Tema;
 class CsdComFamiliarController extends Controller{
 
   public function __construct(){
-    $this->middleware(['permission:csdcomfamiliar-crear'], ['only' => ['show, store']]);
-    $this->middleware(['permission:csdcomfamiliar-editar'], ['only' => ['show, update']]);
+
+    $this->opciones['permisox']='csdcomfamiliar';
+    $this->middleware(['permission:'
+
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar'
+        ]);
   }
 
   public function show($id){

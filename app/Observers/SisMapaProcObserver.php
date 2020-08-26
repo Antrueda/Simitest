@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisMapaProc;
-use App\Models\sistema\SisMapaProc;
+use App\Models\Sistema\Logs\HSisMapaProc;
+use App\Models\Sistema\SisMapaProc;
 
 class SisMapaProcObserver
 {
@@ -35,7 +35,7 @@ class SisMapaProcObserver
     /**
      * Handle the SisMapaProc "updated" event.
      *
-     * @param  \App\Models\sistema\SisMapaProc  $modeloxx
+     * @param  \App\Models\Sistema\SisMapaProc  $modeloxx
      * @return void
      */
     public function updated(SisMapaProc $modeloxx)
@@ -46,7 +46,7 @@ class SisMapaProcObserver
     /**
      * Handle the SisMapaProc "deleted" event.
      *
-     * @param  \App\Models\sistema\SisMapaProc  $modeloxx
+     * @param  \App\Models\Sistema\SisMapaProc  $modeloxx
      * @return void
      */
     public function deleted(SisMapaProc $modeloxx)
@@ -57,7 +57,7 @@ class SisMapaProcObserver
     /**
      * Handle the SisMapaProc "restored" event.
      *
-     * @param  \App\Models\sistema\SisMapaProc  $modeloxx
+     * @param  \App\Models\Sistema\SisMapaProc  $modeloxx
      * @return void
      */
     public function restored(SisMapaProc $modeloxx)
@@ -68,7 +68,7 @@ class SisMapaProcObserver
     /**
      * Handle the SisMapaProc "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisMapaProc  $modeloxx
+     * @param  \App\Models\Sistema\SisMapaProc  $modeloxx
      * @return void
      */
     public function forceDeleted(SisMapaProc $modeloxx)

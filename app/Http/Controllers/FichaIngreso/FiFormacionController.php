@@ -15,10 +15,7 @@ class FiFormacionController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:fiformacion-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fiformacion-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fiformacion-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fiformacion-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Formacion',
       'rutaxxxx' => 'FichaIngreso',
@@ -33,7 +30,13 @@ class FiFormacionController extends Controller
       'routnuev' => 'fi.datobasico',
       'nuevoxxx' => 'o Registro'
     ];
-    
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
     $this->opciones['actuestu'] = Tema::combo(23, true, false);
     $this->opciones['condicio'] = Tema::combo(23, true, false);
     $this->opciones['motvincu'] = Tema::combo(63, false, false);

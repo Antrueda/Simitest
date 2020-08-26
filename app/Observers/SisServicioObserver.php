@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisServicio;
+use App\Models\Sistema\Logs\HSisServicio;
 use App\Models\Sistema\SisServicio;
 
 class SisServicioObserver

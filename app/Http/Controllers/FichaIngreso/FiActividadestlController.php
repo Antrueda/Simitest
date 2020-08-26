@@ -15,10 +15,7 @@ class FiActividadestlController extends Controller
 
   public function __construct()
   {
-    $this->middleware(['permission:fiactividades-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fiactividades-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fiactividades-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fiactividades-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Actividades de Tiempo Libre',
       'rutaxxxx' => 'FichaIngreso',
@@ -34,6 +31,12 @@ class FiActividadestlController extends Controller
       'modeloxx' => '',
       'nuevoxxx' => 'o Registro'
     ];
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
     $this->opciones['condicio'] = Tema::combo(23, true, false);
     $this->opciones['activlib'] = Tema::combo(77, false, false);
     $this->opciones['reliprac'] = ['' => 'Seleccione'];

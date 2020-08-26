@@ -13,10 +13,7 @@ class FosController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['permission:fosdatobasico-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:fosdatobasico-crear'], ['only' => ['index, show']]);
-        $this->middleware(['permission:fosdatobasico-editar'], ['only' => ['index, show']]);
-        $this->middleware(['permission:fosdatobasico-borrar'], ['only' => ['index, show']]);
+
         $this->opciones = [
             'tituloxx' => 'Ficha de Observación y Seguimiento',
             'rutaxxxx' => 'datosbasico',
@@ -28,6 +25,12 @@ class FosController extends Controller
             'urlxxxxx' => 'api/fos/nnajs',
             'readonly' => ''
         ];
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
     }
 
     public function index(Request $request)

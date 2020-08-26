@@ -1,8 +1,9 @@
 <?php
 
-namespace app\Models\fichaIngreso;
+namespace App\Models\fichaIngreso;
 
-use app\Models\Sistema\SisDocfuen;
+use App\Models\Sistema\SisDocfuen;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +27,10 @@ class NnajNacimi extends Model
     {
         return $this->belongsTo(User::class, 'user_crea_id');
     }
-
+    public function getEdadAttribute()
+    {
+        return Carbon::parse($this->d_nacimiento)->age;
+    }
     public function editor()
     {
         return $this->belongsTo(User::class, 'user_edita_id');

@@ -14,10 +14,7 @@ class FiGeneracionIngresoController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:fiingresos-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fiingresos-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fiingresos-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fiingresos-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Generación de Ingresos',
       'rutaxxxx' => 'FichaIngreso',
@@ -33,6 +30,14 @@ class FiGeneracionIngresoController extends Controller
       'modeloxx' => '',
       'nuevoxxx' => 'o Registro'
     ];
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
+
     $this->opciones['acgening'] = Tema::combo(114,true,false);
     $this->opciones['trabinfo'] = Tema::combo(115,true,false);
     $this->opciones['otractiv'] = Tema::combo(116,true,false);
@@ -62,7 +67,7 @@ class FiGeneracionIngresoController extends Controller
       if($objetoxx->i_prm_jornada_genera_ingreso_id!=467){
         $this->opciones['readhora'] ='readonly';
       }
-      
+
     }
 
     // Se arma el titulo de acuerdo al array opciones
@@ -146,7 +151,7 @@ class FiGeneracionIngresoController extends Controller
 
     return $this->grabar($request->all(), FiGeneracionIngreso::where('id',$id)->first(), 'Generación de ingresos actualizado con exito');
   }
-  
+
 
   /**
    * Remove the specified resource from storage.

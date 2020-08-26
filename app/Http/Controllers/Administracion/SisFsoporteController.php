@@ -16,10 +16,7 @@ class SisFsoporteController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:fsoporte-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:fsoporte-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:fsoporte-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:fsoporte-borrar'], ['only' => ['index, show, destroy']]);
+
         $this->opciones = [
             'tituloxx' => 'Fuente Soporte',
             'rutaxxxx' => 'fsoporte',
@@ -37,6 +34,13 @@ class SisFsoporteController extends Controller
             'routnuev' => 'fsoporte',
             'nuevoxxx' => 'Nuevo Registro',
         ];
+
+        $this->opciones['permisox']='evasion';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['cabecera'] = [
             ['td' => 'FUENTE SOPORTE'],
             ['td' => 'ACTIVIDAD'],

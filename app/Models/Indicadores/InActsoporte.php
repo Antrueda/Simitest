@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Models\Indicadores;
+namespace App\Models\Indicadores;
 
-use app\Models\Sistema\SisActividad;
-use app\Models\Sistema\SisFsoporte;
+use App\Models\Sistema\SisActividad;
+use App\Models\Sistema\SisFsoporte;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

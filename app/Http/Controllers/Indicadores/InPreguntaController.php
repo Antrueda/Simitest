@@ -14,10 +14,8 @@ class InPreguntaController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:inpreguntas-leer'], ['only' => ['index, show']]);
-    $this->middleware(['permission:inpreguntas-crear'], ['only' => ['index, show, create, store', 'updateParametro']]);
-    $this->middleware(['permission:inpreguntas-editar'], ['only' => ['index, show, edit, update', 'updateParametro']]);
-    $this->middleware(['permission:inpreguntas-borrar'], ['only' => ['index, show, destroy, destroyParametro']]);
+
+
     $this->opciones = [
       'tituloxx' => 'Pregunta Indicador',
       'rutaxxxx' => 'pr.preguntas',
@@ -35,6 +33,12 @@ class InPreguntaController extends Controller
       'routnuev' => 'pr.preguntas',
       'nuevoxxx' => 'Nuevo Registro'
     ];
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
     $this->opciones['cabecera'] = [
       ['td' => 'ID'],
       ['td' => 'PREGUNTA'],
@@ -61,7 +65,7 @@ class InPreguntaController extends Controller
     $this->opciones['estadoxx'] = 'ACTIVO';
     $this->opciones['accionxx'] = $accionxx;
     // indica si se esta actualizando o viendo
-   
+
     $this->opciones['stablaxx'] = SisTabla::combo('', true, false);
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
@@ -78,7 +82,7 @@ class InPreguntaController extends Controller
    * @return \Illuminate\Http\Response
    */
   public function create()
-  { 
+  {
     return $this->view(true, '', 'Crear', $this->opciones['rutacarp'].'crear');
   }
 

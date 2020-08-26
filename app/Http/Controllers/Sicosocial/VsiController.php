@@ -134,6 +134,7 @@ class VsiController extends Controller
     }
     private function view($dataxxxx)
     {
+
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         $this->opciones['dependen'] = SisDepen::combo(true,false);

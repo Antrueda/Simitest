@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisEslug;
-use App\Models\sistema\SisEslug;
+use App\Models\Sistema\Logs\HSisEslug;
+use App\Models\Sistema\SisEslug;
 
 class SisEslugObserver
 {
@@ -32,7 +32,7 @@ class SisEslugObserver
     /**
      * Handle the SisEslug "updated" event.
      *
-     * @param  \App\Models\sistema\SisEslug  $modeloxx
+     * @param  \App\Models\Sistema\SisEslug  $modeloxx
      * @return void
      */
     public function updated(SisEslug $modeloxx)
@@ -43,7 +43,7 @@ class SisEslugObserver
     /**
      * Handle the SisEslug "deleted" event.
      *
-     * @param  \App\Models\sistema\SisEslug  $modeloxx
+     * @param  \App\Models\Sistema\SisEslug  $modeloxx
      * @return void
      */
     public function deleted(SisEslug $modeloxx)
@@ -54,7 +54,7 @@ class SisEslugObserver
     /**
      * Handle the SisEslug "restored" event.
      *
-     * @param  \App\Models\sistema\SisEslug  $modeloxx
+     * @param  \App\Models\Sistema\SisEslug  $modeloxx
      * @return void
      */
     public function restored(SisEslug $modeloxx)
@@ -65,7 +65,7 @@ class SisEslugObserver
     /**
      * Handle the SisEslug "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisEslug  $modeloxx
+     * @param  \App\Models\Sistema\SisEslug  $modeloxx
      * @return void
      */
     public function forceDeleted(SisEslug $modeloxx)

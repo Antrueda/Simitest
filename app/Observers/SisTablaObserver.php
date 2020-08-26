@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisTabla;
-use App\Models\sistema\SisTabla;
+use App\Models\Sistema\Logs\HSisTabla;
+use App\Models\Sistema\SisTabla;
 
 class SisTablaObserver
 {
@@ -34,7 +34,7 @@ class SisTablaObserver
     /**
      * Handle the SisTabla "updated" event.
      *
-     * @param  \App\Models\sistema\SisTabla  $modeloxx
+     * @param  \App\Models\Sistema\SisTabla  $modeloxx
      * @return void
      */
     public function updated(SisTabla $modeloxx)
@@ -45,7 +45,7 @@ class SisTablaObserver
     /**
      * Handle the SisTabla "deleted" event.
      *
-     * @param  \App\Models\sistema\SisTabla  $modeloxx
+     * @param  \App\Models\Sistema\SisTabla  $modeloxx
      * @return void
      */
     public function deleted(SisTabla $modeloxx)
@@ -56,7 +56,7 @@ class SisTablaObserver
     /**
      * Handle the SisTabla "restored" event.
      *
-     * @param  \App\Models\sistema\SisTabla  $modeloxx
+     * @param  \App\Models\Sistema\SisTabla  $modeloxx
      * @return void
      */
     public function restored(SisTabla $modeloxx)
@@ -67,7 +67,7 @@ class SisTablaObserver
     /**
      * Handle the SisTabla "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisTabla  $modeloxx
+     * @param  \App\Models\Sistema\SisTabla  $modeloxx
      * @return void
      */
     public function forceDeleted(SisTabla $modeloxx)

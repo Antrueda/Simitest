@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisFsoporte;
-use App\Models\sistema\SisFsoporte;
+use App\Models\Sistema\Logs\HSisFsoporte;
+use App\Models\Sistema\SisFsoporte;
 
 class SisFsoporteObserver
 {
@@ -33,7 +33,7 @@ class SisFsoporteObserver
     /**
      * Handle the SisFsoporte "updated" event.
      *
-     * @param  \App\Models\sistema\SisFsoporte  $modeloxx
+     * @param  \App\Models\Sistema\SisFsoporte  $modeloxx
      * @return void
      */
     public function updated(SisFsoporte $modeloxx)
@@ -44,7 +44,7 @@ class SisFsoporteObserver
     /**
      * Handle the SisFsoporte "deleted" event.
      *
-     * @param  \App\Models\sistema\SisFsoporte  $modeloxx
+     * @param  \App\Models\Sistema\SisFsoporte  $modeloxx
      * @return void
      */
     public function deleted(SisFsoporte $modeloxx)
@@ -55,7 +55,7 @@ class SisFsoporteObserver
     /**
      * Handle the SisFsoporte "restored" event.
      *
-     * @param  \App\Models\sistema\SisFsoporte  $modeloxx
+     * @param  \App\Models\Sistema\SisFsoporte  $modeloxx
      * @return void
      */
     public function restored(SisFsoporte $modeloxx)
@@ -66,7 +66,7 @@ class SisFsoporteObserver
     /**
      * Handle the SisFsoporte "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisFsoporte  $modeloxx
+     * @param  \App\Models\Sistema\SisFsoporte  $modeloxx
      * @return void
      */
     public function forceDeleted(SisFsoporte $modeloxx)

@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Models\fichaIngreso;
+namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use app\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDepen;
 
 class FiBienvenida extends Model{
   protected $fillable = [

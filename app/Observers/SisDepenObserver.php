@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisDepen;
-use App\Models\sistema\SisDepen;
+use App\Models\Sistema\Logs\HSisDepen;
+use App\Models\Sistema\SisDepen;
 
 class SisDepenObserver
 {
@@ -46,7 +46,7 @@ class SisDepenObserver
     /**
      * Handle the SisDepen "updated" event.
      *
-     * @param  \App\Models\sistema\SisDepen  $modeloxx
+     * @param  \App\Models\Sistema\SisDepen  $modeloxx
      * @return void
      */
     public function updated(SisDepen $modeloxx)
@@ -57,7 +57,7 @@ class SisDepenObserver
     /**
      * Handle the SisDepen "deleted" event.
      *
-     * @param  \App\Models\sistema\SisDepen  $modeloxx
+     * @param  \App\Models\Sistema\SisDepen  $modeloxx
      * @return void
      */
     public function deleted(SisDepen $modeloxx)
@@ -68,7 +68,7 @@ class SisDepenObserver
     /**
      * Handle the SisDepen "restored" event.
      *
-     * @param  \App\Models\sistema\SisDepen  $modeloxx
+     * @param  \App\Models\Sistema\SisDepen  $modeloxx
      * @return void
      */
     public function restored(SisDepen $modeloxx)
@@ -79,7 +79,7 @@ class SisDepenObserver
     /**
      * Handle the SisDepen "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisDepen  $modeloxx
+     * @param  \App\Models\Sistema\SisDepen  $modeloxx
      * @return void
      */
     public function forceDeleted(SisDepen $modeloxx)

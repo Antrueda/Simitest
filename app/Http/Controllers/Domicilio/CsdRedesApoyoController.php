@@ -15,8 +15,12 @@ use App\Models\sicosocial\Vsi;
 class CsdRedesApoyoController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:csdredesapoyo-crear'], ['only' => ['show, store, storePasado, storeActual']]);
-        $this->middleware(['permission:csdredesapoyo-editar'], ['only' => ['show, update, destroyPasado, destroyActual']]);
+
+        $this->opciones['permisox']='csdredesapoyo';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            ]);
     }
 
     public function show($id){

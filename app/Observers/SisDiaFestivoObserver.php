@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisDiaFestivo;
-use App\Models\sistema\SisDiaFestivo;
+use App\Models\Sistema\Logs\HSisDiaFestivo;
+use App\Models\Sistema\SisDiaFestivo;
 
 class SisDiaFestivoObserver
 {
@@ -32,7 +32,7 @@ class SisDiaFestivoObserver
     /**
      * Handle the SisDiaFestivo "updated" event.
      *
-     * @param  \App\Models\sistema\SisDiaFestivo  $modeloxx
+     * @param  \App\Models\Sistema\SisDiaFestivo  $modeloxx
      * @return void
      */
     public function updated(SisDiaFestivo $modeloxx)
@@ -43,7 +43,7 @@ class SisDiaFestivoObserver
     /**
      * Handle the SisDiaFestivo "deleted" event.
      *
-     * @param  \App\Models\sistema\SisDiaFestivo  $modeloxx
+     * @param  \App\Models\Sistema\SisDiaFestivo  $modeloxx
      * @return void
      */
     public function deleted(SisDiaFestivo $modeloxx)
@@ -54,7 +54,7 @@ class SisDiaFestivoObserver
     /**
      * Handle the SisDiaFestivo "restored" event.
      *
-     * @param  \App\Models\sistema\SisDiaFestivo  $modeloxx
+     * @param  \App\Models\Sistema\SisDiaFestivo  $modeloxx
      * @return void
      */
     public function restored(SisDiaFestivo $modeloxx)
@@ -65,7 +65,7 @@ class SisDiaFestivoObserver
     /**
      * Handle the SisDiaFestivo "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisDiaFestivo  $modeloxx
+     * @param  \App\Models\Sistema\SisDiaFestivo  $modeloxx
      * @return void
      */
     public function forceDeleted(SisDiaFestivo $modeloxx)

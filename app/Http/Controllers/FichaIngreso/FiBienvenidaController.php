@@ -17,10 +17,7 @@ class FiBienvenidaController extends Controller
 
   public function __construct()
   {
-    $this->middleware(['permission:fibienvenida-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fibienvenida-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fibienvenida-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fibienvenida-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Bienvenida',
       'rutaxxxx' => 'FichaIngreso',
@@ -35,6 +32,13 @@ class FiBienvenidaController extends Controller
       'routnuev' => 'fi.datobasico',
       'nuevoxxx' => 'o Registro'
     ];
+
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
     $this->opciones['condicio'] = Tema::combo(23,true,false);
     $this->opciones['dependen'] = SisDepen::combo(true,false);
     $this->opciones['servicio'] = Tema::combo(65,true,false);
@@ -78,7 +82,7 @@ class FiBienvenidaController extends Controller
     return $this->view(true, '', 'Crear');
   }
 
-  
+
   private function grabar($dataxxxx, $objectx, $infoxxxx)
   {
     return redirect()

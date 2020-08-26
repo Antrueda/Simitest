@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisEsta;
-use App\Models\sistema\SisEsta;
+use App\Models\Sistema\Logs\HSisEsta;
+use App\Models\Sistema\SisEsta;
 
 class SisEstaObserver
 {
@@ -32,7 +32,7 @@ class SisEstaObserver
     /**
      * Handle the SisEsta "updated" event.
      *
-     * @param  \App\Models\sistema\SisEsta  $modeloxx
+     * @param  \App\Models\Sistema\SisEsta  $modeloxx
      * @return void
      */
     public function updated(SisEsta $modeloxx)

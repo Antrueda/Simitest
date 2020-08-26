@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Models\fichaobservacion;
+namespace App\Models\fichaobservacion;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use app\Models\User;
-use app\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisNnaj;
 
 class FosDatosBasico extends Model{
     protected $fillable = [

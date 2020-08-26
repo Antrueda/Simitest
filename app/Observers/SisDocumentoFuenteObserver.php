@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisDocumentoFuente;
-use App\Models\sistema\SisDocumentoFuente;
+use App\Models\Sistema\Logs\HSisDocumentoFuente;
+use App\Models\Sistema\SisDocumentoFuente;
 
 class SisDocumentoFuenteObserver
 {
@@ -33,7 +33,7 @@ class SisDocumentoFuenteObserver
     /**
      * Handle the SisDocumentoFuente "updated" event.
      *
-     * @param  \App\Models\sistema\SisDocumentoFuente  $modeloxx
+     * @param  \App\Models\Sistema\SisDocumentoFuente  $modeloxx
      * @return void
      */
     public function updated(SisDocumentoFuente $modeloxx)
@@ -44,7 +44,7 @@ class SisDocumentoFuenteObserver
     /**
      * Handle the SisDocumentoFuente "deleted" event.
      *
-     * @param  \App\Models\sistema\SisDocumentoFuente  $modeloxx
+     * @param  \App\Models\Sistema\SisDocumentoFuente  $modeloxx
      * @return void
      */
     public function deleted(SisDocumentoFuente $modeloxx)
@@ -55,7 +55,7 @@ class SisDocumentoFuenteObserver
     /**
      * Handle the SisDocumentoFuente "restored" event.
      *
-     * @param  \App\Models\sistema\SisDocumentoFuente  $modeloxx
+     * @param  \App\Models\Sistema\SisDocumentoFuente  $modeloxx
      * @return void
      */
     public function restored(SisDocumentoFuente $modeloxx)
@@ -66,7 +66,7 @@ class SisDocumentoFuenteObserver
     /**
      * Handle the SisDocumentoFuente "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisDocumentoFuente  $modeloxx
+     * @param  \App\Models\Sistema\SisDocumentoFuente  $modeloxx
      * @return void
      */
     public function forceDeleted(SisDocumentoFuente $modeloxx)

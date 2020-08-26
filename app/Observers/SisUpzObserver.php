@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisUpz;
-use App\Models\sistema\SisUpz;
+use App\Models\Sistema\Logs\HSisUpz;
+use App\Models\Sistema\SisUpz;
 
 class SisUpzObserver
 {
@@ -33,7 +33,7 @@ class SisUpzObserver
     /**
      * Handle the SisUpz "updated" event.
      *
-     * @param  \App\Models\sistema\SisUpz  $modeloxx
+     * @param  \App\Models\Sistema\SisUpz  $modeloxx
      * @return void
      */
     public function updated(SisUpz $modeloxx)
@@ -44,7 +44,7 @@ class SisUpzObserver
     /**
      * Handle the SisUpz "deleted" event.
      *
-     * @param  \App\Models\sistema\SisUpz  $modeloxx
+     * @param  \App\Models\Sistema\SisUpz  $modeloxx
      * @return void
      */
     public function deleted(SisUpz $modeloxx)
@@ -55,7 +55,7 @@ class SisUpzObserver
     /**
      * Handle the SisUpz "restored" event.
      *
-     * @param  \App\Models\sistema\SisUpz  $modeloxx
+     * @param  \App\Models\Sistema\SisUpz  $modeloxx
      * @return void
      */
     public function restored(SisUpz $modeloxx)
@@ -66,7 +66,7 @@ class SisUpzObserver
     /**
      * Handle the SisUpz "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisUpz  $modeloxx
+     * @param  \App\Models\Sistema\SisUpz  $modeloxx
      * @return void
      */
     public function forceDeleted(SisUpz $modeloxx)

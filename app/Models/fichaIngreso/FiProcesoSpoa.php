@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\fichaIngreso;
+namespace App\Models\fichaIngreso;
 
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;

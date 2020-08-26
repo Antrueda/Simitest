@@ -23,18 +23,19 @@ class SiseslugController extends Controller
             'tituloxx' => Traductor::getTitulo(29,1),
         ];
 
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
 
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['readonly'] = '';
         $this->opciones['rutaxxxx'] = 'siseslug';
         $this->opciones['routnuev'] = 'siseslug';
         $this->opciones['routxxxx'] = 'siseslug';
 
         $this->opciones['botoform'] = [
-            ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []], 
+            ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
             'formhref' => 2, 'tituloxx' => 'VOLVER A '.Traductor::getTitulo(29,1), 'clasexxx' => 'btn btn-sm btn-primary'],
         ];
     }

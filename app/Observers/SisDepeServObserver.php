@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisDepeServ;
-use App\Models\sistema\SisDepeServ;
+use App\Models\Sistema\Logs\HSisDepeServ;
+use App\Models\Sistema\SisDepeServ;
 
 class SisDepeServObserver
 {
@@ -34,7 +34,7 @@ class SisDepeServObserver
     /**
      * Handle the SisDepeServ "updated" event.
      *
-     * @param  \App\Models\sistema\SisDepeServ  $modeloxx
+     * @param  \App\Models\Sistema\SisDepeServ  $modeloxx
      * @return void
      */
     public function updated(SisDepeServ $modeloxx)
@@ -45,7 +45,7 @@ class SisDepeServObserver
     /**
      * Handle the SisDepeServ "deleted" event.
      *
-     * @param  \App\Models\sistema\SisDepeServ  $modeloxx
+     * @param  \App\Models\Sistema\SisDepeServ  $modeloxx
      * @return void
      */
     public function deleted(SisDepeServ $modeloxx)
@@ -56,7 +56,7 @@ class SisDepeServObserver
     /**
      * Handle the SisDepeServ "restored" event.
      *
-     * @param  \App\Models\sistema\SisDepeServ  $modeloxx
+     * @param  \App\Models\Sistema\SisDepeServ  $modeloxx
      * @return void
      */
     public function restored(SisDepeServ $modeloxx)
@@ -67,7 +67,7 @@ class SisDepeServObserver
     /**
      * Handle the SisDepeServ "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisDepeServ  $modeloxx
+     * @param  \App\Models\Sistema\SisDepeServ  $modeloxx
      * @return void
      */
     public function forceDeleted(SisDepeServ $modeloxx)

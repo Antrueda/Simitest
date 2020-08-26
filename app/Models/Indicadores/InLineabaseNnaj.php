@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Models\Indicadores;
+namespace App\Models\Indicadores;
 
-use app\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisNnaj;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

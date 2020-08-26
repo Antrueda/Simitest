@@ -19,10 +19,8 @@ class InAccionGestionController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:inacciongestion-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:inacciongestion-crear'], ['only' => ['index, show, create, store', 'updateParametro']]);
-        $this->middleware(['permission:inacciongestion-editar'], ['only' => ['index, show, edit, update', 'updateParametro']]);
-        $this->middleware(['permission:inacciongestion-borrar'], ['only' => ['index, show, destroy, destroyParametro']]);
+
+
         $this->opciones = [
             'tituloxx' => 'Acción Gestion',
             'rutaxxxx' => 'ag.acciongestion',
@@ -33,13 +31,18 @@ class InAccionGestionController extends Controller
             'modeloxx' => '',
             'permisox' => 'inacciongestion',
             'routxxxx' => 'ag.acciongestion',
-
             'routinde' => 'ag.acciongestion.actividad',
             'parametr' => [],
             'routnuev' => 'ag.acciongestion',
             'nuevoxxx' => 'Nuevo Registro',
             'rutacarp' => 'Indicadores.Admin.Acciongestion.Actividad.'
         ];
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['dataxxxx'] = [];
     }
     /**

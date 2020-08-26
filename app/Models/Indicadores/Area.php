@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\Indicadores;
+namespace App\Models\Indicadores;
 
 use app\Models\Acciones\Grupales\AgTema;
 use app\Models\User;

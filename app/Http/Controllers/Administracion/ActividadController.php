@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Validator;
 class ActividadController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:actividad-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:actividad-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:actividad-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:actividad-borrar'], ['only' => ['index, show, destroy']]);
+
+        $this->opciones['permisox']='actividad';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
     }
 
     public function index(Request $request){

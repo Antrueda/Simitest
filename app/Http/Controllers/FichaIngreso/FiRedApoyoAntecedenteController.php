@@ -17,10 +17,7 @@ class FiRedApoyoAntecedenteController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:firedapoyo-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:firedapoyo-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:firedapoyo-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:firedapoyo-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Redes de Apoyo',
       'rutaxxxx' => 'FichaIngreso',
@@ -37,15 +34,23 @@ class FiRedApoyoAntecedenteController extends Controller
       'tablname' => 'tbantecedentes',
       'urlxxxxx' => 'api/fi/firedapoyoantecedente'
     ];
-    $this->opciones['cabecera'] = [ 
+
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
+    $this->opciones['cabecera'] = [
       ['td' => 'Id'],
       ['td' => 'ENTIDAD'],
       ['td' => 'SERVICIOS O BENEFICIOS RECIBIDOS'],
       ['td' => 'TIEMPO'],
       ['td' =>'TIPO TIEMPO'],
       ['td' => 'AÑO'],
-      ['td' => 'ESTADO'], 
-      
+      ['td' => 'ESTADO'],
+
     ];
     $this->opciones['columnsx'] = [
       ['data' => 'btns','name' => 'btns'],

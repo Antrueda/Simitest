@@ -19,10 +19,7 @@ class FiResidenciaController extends Controller
 
   public function __construct()
   {
-    $this->middleware(['permission:firesidencia-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:firesidencia-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:firesidencia-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:firesidencia-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Residencia',
       'rutaxxxx' => 'FichaIngreso',
@@ -37,8 +34,17 @@ class FiResidenciaController extends Controller
       'routnuev' => 'fi.datobasico',
       'nuevoxxx' => 'o Registro'
     ];
+
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
+
     $this->opciones['condicio'] = Tema::combo(23,true,false);
-    
+
     $this->opciones['residees'] = Tema::combo(35,true,false);
     $this->opciones['tipodire'] = Tema::combo(36,true,false);
     $this->opciones['zonadire'] = Tema::combo(37,true,false);
@@ -58,7 +64,7 @@ class FiResidenciaController extends Controller
     $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
     $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
     $this->opciones['readchcx'] = '';
-    
+
     if($this->opciones['datobasi']->prm_poblacion_id== 650){
       $this->opciones['readchcx'] = 'readonly';
       $this->opciones['residees'] =[1=>'NO APLICA'];
@@ -73,7 +79,7 @@ class FiResidenciaController extends Controller
     $this->opciones['estadoxx'] = 'ACTIVO';
     $this->opciones['accionxx'] = $accionxx;
     // indica si se esta actualizando o viendo
-    
+
     $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente(0);
     if ($nombobje != '') {
 
@@ -88,7 +94,7 @@ class FiResidenciaController extends Controller
       $this->opciones['upzxxxxx'] = SisUpz::combo($objetoxx->sis_localidad_id, false);
       $this->opciones['barrioxx'] = SisBarrio::combo($objetoxx->sis_barrio->sis_upz_id, false);
       $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente($objetoxx->id);
-      
+
     }
 
 
@@ -155,7 +161,7 @@ class FiResidenciaController extends Controller
    * @return \Illuminate\Http\Response
    */
   public function edit($nnajregi,  FiResidencia $objetoxx)
-  { 
+  {
     $this->opciones['residenc'] = FiResidencia::residencia($nnajregi);
     $this->opciones['nnajregi'] = $nnajregi;
     $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($this->opciones['nnajregi']);

@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisDiagnosticos;
-use App\Models\sistema\SisDiagnosticos;
+use App\Models\Sistema\Logs\HSisDiagnosticos;
+use App\Models\Sistema\SisDiagnosticos;
 
 class SisDiagnosticosObserver
 {
@@ -35,7 +35,7 @@ class SisDiagnosticosObserver
     /**
      * Handle the SisDiagnosticos "updated" event.
      *
-     * @param  \App\Models\sistema\SisDiagnosticos  $modeloxx
+     * @param  \App\Models\Sistema\SisDiagnosticos  $modeloxx
      * @return void
      */
     public function updated(SisDiagnosticos $modeloxx)
@@ -46,7 +46,7 @@ class SisDiagnosticosObserver
     /**
      * Handle the SisDiagnosticos "deleted" event.
      *
-     * @param  \App\Models\sistema\SisDiagnosticos  $modeloxx
+     * @param  \App\Models\Sistema\SisDiagnosticos  $modeloxx
      * @return void
      */
     public function deleted(SisDiagnosticos $modeloxx)
@@ -57,7 +57,7 @@ class SisDiagnosticosObserver
     /**
      * Handle the SisDiagnosticos "restored" event.
      *
-     * @param  \App\Models\sistema\SisDiagnosticos  $modeloxx
+     * @param  \App\Models\Sistema\SisDiagnosticos  $modeloxx
      * @return void
      */
     public function restored(SisDiagnosticos $modeloxx)
@@ -68,7 +68,7 @@ class SisDiagnosticosObserver
     /**
      * Handle the SisDiagnosticos "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisDiagnosticos  $modeloxx
+     * @param  \App\Models\Sistema\SisDiagnosticos  $modeloxx
      * @return void
      */
     public function forceDeleted(SisDiagnosticos $modeloxx)

@@ -24,18 +24,18 @@ class DepelugaController extends Controller
             'tituloxx' => Traductor::getTitulo(34,1),
         ];
 
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
-
+        $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['readonly'] = '';
         $this->opciones['rutaxxxx'] = 'depeluga';
         $this->opciones['routnuev'] = 'depeluga';
         $this->opciones['routxxxx'] = 'depeluga';
 
         $this->opciones['botoform'] = [
-            ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []], 
+            ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
             'formhref' => 2, 'tituloxx' => Traductor::getTitulo(30,1).' '.Traductor::getTitulo(32,1), 'clasexxx' => 'btn btn-sm btn-primary'],
         ];
     }
@@ -70,7 +70,7 @@ class DepelugaController extends Controller
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }
 
-    
+
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
         $this->opciones['lugaresx'] = SisEslug::get();
@@ -95,10 +95,10 @@ class DepelugaController extends Controller
 
         if(isset(SisDepen::where('id',$depeluga)->first()->id)){
             return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', 
+            ->route($this->opciones['routxxxx'] . '.editar',
             [$depeluga,$depeluga]);
         }
-        
+
 
 
         $this->opciones['parametr'] = [$depeluga];
@@ -157,7 +157,7 @@ private function getSeleccionados($objetoxx){
     public function edit($depeluga,SisDepen $objetoxx)
     {
         $objetoxx->lugaresx= $this->getSeleccionados($objetoxx);
-        
+
         $this->opciones['parametr'] = [$depeluga,$objetoxx->id];
         $this->opciones['botoform'][] =
             [
@@ -172,20 +172,20 @@ private function getSeleccionados($objetoxx){
             $syncxxxx=[];
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if ($objetoxx == '') {
-                $objetoxx=SisDepen::where('id',$dataxxxx['depeluga'])->first();               
-            } 
+                $objetoxx=SisDepen::where('id',$dataxxxx['depeluga'])->first();
+            }
 
             foreach($dataxxxx['lugaresx'] as $lugaresx){
                 $syncxxxx[]=[
-                    'sis_eslug_id'=>(int)$lugaresx,'sis_esta_id'=>1, 
-                    'user_crea_id' => Auth::user()->id, 
+                    'sis_eslug_id'=>(int)$lugaresx,'sis_esta_id'=>1,
+                    'user_crea_id' => Auth::user()->id,
                     'user_edita_id' => Auth::user()->id];
-                
+
             }
             $objetoxx->sis_eslugs()->detach();
             $objetoxx->sis_eslugs()->attach($syncxxxx);
             ///ddd($syncxxxx);
-            
+
             //ddd($syncxxxx);
 
             return $objetoxx;
@@ -195,7 +195,7 @@ private function getSeleccionados($objetoxx){
     private function grabar($dataxxxx, $objectx, $infoxxxx)
     {
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', 
+            ->route($this->opciones['routxxxx'] . '.editar',
             [$dataxxxx['depeluga'],$this->transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);
     }

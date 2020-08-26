@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisMunicipio;
-use App\Models\sistema\SisMunicipio;
+use App\Models\Sistema\Logs\HSisMunicipio;
+use App\Models\Sistema\SisMunicipio;
 
 class SisMunicipioObserver
 {
@@ -33,7 +33,7 @@ class SisMunicipioObserver
     /**
      * Handle the SisMunicipio "updated" event.
      *
-     * @param  \App\Models\sistema\SisMunicipio  $modeloxx
+     * @param  \App\Models\Sistema\SisMunicipio  $modeloxx
      * @return void
      */
     public function updated(SisMunicipio $modeloxx)
@@ -44,7 +44,7 @@ class SisMunicipioObserver
     /**
      * Handle the SisMunicipio "deleted" event.
      *
-     * @param  \App\Models\sistema\SisMunicipio  $modeloxx
+     * @param  \App\Models\Sistema\SisMunicipio  $modeloxx
      * @return void
      */
     public function deleted(SisMunicipio $modeloxx)
@@ -55,7 +55,7 @@ class SisMunicipioObserver
     /**
      * Handle the SisMunicipio "restored" event.
      *
-     * @param  \App\Models\sistema\SisMunicipio  $modeloxx
+     * @param  \App\Models\Sistema\SisMunicipio  $modeloxx
      * @return void
      */
     public function restored(SisMunicipio $modeloxx)
@@ -66,7 +66,7 @@ class SisMunicipioObserver
     /**
      * Handle the SisMunicipio "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisMunicipio  $modeloxx
+     * @param  \App\Models\Sistema\SisMunicipio  $modeloxx
      * @return void
      */
     public function forceDeleted(SisMunicipio $modeloxx)

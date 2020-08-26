@@ -13,10 +13,15 @@ use Illuminate\Support\Facades\Validator;
 class ActividadProcesoController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:actividadProceso-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:actividadProceso-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:actividadProceso-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:actividadProceso-borrar'], ['only' => ['index, show, destroy']]);
+
+        $this->opciones['permisox']='actividadProceso';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
+
     }
 
     public function index(Request $request){
@@ -48,7 +53,7 @@ class ActividadProcesoController extends Controller{
     public function edit($id){
         $dato = SisActividadProceso::findOrFail($id);
         return view('administracion.actividadproceso.index', [
-            'accion' => 'Editar', 
+            'accion' => 'Editar',
             'SisActividad' => $this->SisActividad(),
             'SisProceso' => $this->SisProceso()
         ], compact('dato'));

@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisEntidad;
-use App\Models\sistema\SisEntidad;
+use App\Models\Sistema\Logs\HSisEntidad;
+use App\Models\Sistema\SisEntidad;
 
 class SisEntidadObserver
 {
@@ -32,7 +32,7 @@ class SisEntidadObserver
     /**
      * Handle the SisEntidad "updated" event.
      *
-     * @param  \App\Models\sistema\SisEntidad  $modeloxx
+     * @param  \App\Models\Sistema\SisEntidad  $modeloxx
      * @return void
      */
     public function updated(SisEntidad $modeloxx)
@@ -43,7 +43,7 @@ class SisEntidadObserver
     /**
      * Handle the SisEntidad "deleted" event.
      *
-     * @param  \App\Models\sistema\SisEntidad  $modeloxx
+     * @param  \App\Models\Sistema\SisEntidad  $modeloxx
      * @return void
      */
     public function deleted(SisEntidad $modeloxx)
@@ -54,7 +54,7 @@ class SisEntidadObserver
     /**
      * Handle the SisEntidad "restored" event.
      *
-     * @param  \App\Models\sistema\SisEntidad  $modeloxx
+     * @param  \App\Models\Sistema\SisEntidad  $modeloxx
      * @return void
      */
     public function restored(SisEntidad $modeloxx)
@@ -65,7 +65,7 @@ class SisEntidadObserver
     /**
      * Handle the SisEntidad "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisEntidad  $modeloxx
+     * @param  \App\Models\Sistema\SisEntidad  $modeloxx
      * @return void
      */
     public function forceDeleted(SisEntidad $modeloxx)

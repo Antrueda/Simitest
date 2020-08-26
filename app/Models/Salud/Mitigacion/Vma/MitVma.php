@@ -1,11 +1,11 @@
 <?php
 
-namespace app\Models\Salud\Mitigacion\Vma;
+namespace App\Models\Salud\Mitigacion\Vma;
 
 use app\Models\Parametro;
-use app\Models\Sistema\SisDepen;
-use app\Models\Sistema\SisDiagnosticos;
-use app\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDiagnosticos;
+use App\Models\Sistema\SisNnaj;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 

@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisDepartamento;
-use App\Models\sistema\SisDepartamento;
+use App\Models\Sistema\Logs\HSisDepartamento;
+use App\Models\Sistema\SisDepartamento;
 
 class SisDepartamentoObserver
 {
@@ -33,7 +33,7 @@ class SisDepartamentoObserver
     /**
      * Handle the SisDepartamento "updated" event.
      *
-     * @param  \App\Models\sistema\SisDepartamento  $modeloxx
+     * @param  \App\Models\Sistema\SisDepartamento  $modeloxx
      * @return void
      */
     public function updated(SisDepartamento $modeloxx)
@@ -44,7 +44,7 @@ class SisDepartamentoObserver
     /**
      * Handle the SisDepartamento "deleted" event.
      *
-     * @param  \App\Models\sistema\SisDepartamento  $modeloxx
+     * @param  \App\Models\Sistema\SisDepartamento  $modeloxx
      * @return void
      */
     public function deleted(SisDepartamento $modeloxx)
@@ -55,7 +55,7 @@ class SisDepartamentoObserver
     /**
      * Handle the SisDepartamento "restored" event.
      *
-     * @param  \App\Models\sistema\SisDepartamento  $modeloxx
+     * @param  \App\Models\Sistema\SisDepartamento  $modeloxx
      * @return void
      */
     public function restored(SisDepartamento $modeloxx)
@@ -66,7 +66,7 @@ class SisDepartamentoObserver
     /**
      * Handle the SisDepartamento "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisDepartamento  $modeloxx
+     * @param  \App\Models\Sistema\SisDepartamento  $modeloxx
      * @return void
      */
     public function forceDeleted(SisDepartamento $modeloxx)

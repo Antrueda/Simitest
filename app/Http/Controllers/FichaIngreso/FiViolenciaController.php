@@ -17,10 +17,7 @@ class FiViolenciaController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:fiviolencia-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fiviolencia-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fiviolencia-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fiviolencia-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Violencia',
       'rutaxxxx' => 'FichaIngreso',
@@ -35,13 +32,21 @@ class FiViolenciaController extends Controller
       'routnuev' => 'fi.datobasico',
       'nuevoxxx' => 'o Registro'
     ];
+
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
+
     $this->opciones['condicio'] = Tema::combo(23,true,false);
     $this->opciones['condespe'] = Tema::combo(57,true,false);
     $this->opciones['sexoxxxx'] = Tema::combo(11,true,false);
     $this->opciones['condiesp'] = Tema::combo(23,true,false);
-
     $this->opciones['conditab'] = Tema::comboDesc(23,false,false);
- 
+
   }
 
   private function view($objetoxx, $nombobje, $accionxx)

@@ -25,11 +25,11 @@ class AgSubtemaController extends Controller
             'tituloxx' => 'SubTema',
         ];
 
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
-
+        $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['readonly'] = '';
         $this->opciones['rutaxxxx'] = 'agsubt';
         $this->opciones['routnuev'] = 'agsubt';
@@ -182,7 +182,7 @@ class AgSubtemaController extends Controller
     public function edit($agtaller,AgSubtema $objetoxx)
     {
         $this->opciones['parametr']=[$agtaller,$objetoxx->id];
-        $this->opciones['botoform'][] = 
+        $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'.talleres', [$agtaller]],
                 'formhref' => 2, 'tituloxx' => 'Volver a Talleres', 'clasexxx' => 'btn btn-sm btn-primary'

@@ -33,23 +33,19 @@
       @endcanany
       <!-- FIN TERRITORIO -->
       <!-- ACCIONES -->
-      @canany(['aiindex-leer','agtema-leer','agtaller-leer','agsubtema-leer','agdependencia-leer',
-                'agcontexto-leer','agrecurso-leer','agconvenio-leer','agactividad-leer'])
+      @canany(['acciones-modulo'])
         @include('layouts.menus.acciones')
       @endcanany
-      @canany(['parametro-leer','dependencia-leer', 'actividadproceso-leer',
-        'usuario-leer','rol-leer','permiso-leer','actividad-leer','documentoFuente-leer','proceso-leer',
-        'mapaProceso-leer','entidad-leer','tema-leer','parametro-leer','siscargo-leer',
 
-        'inpreguntas-leer','inlineabase-leer','area-leer','inbasefuente-leer',
-        'inbasedocumen-leer','indocindicador-leer','inrespuesta-leer','invalidacion-leer','inacciongestion-leer'])
+
+      @canany(['administracion-modulo'])
         @include('layouts.menus.administracion')
 
       @endcanany
       <!-- FIN ADMINISTRACION -->
 
       <!-- INDICADORES -->
-      @canany(['ingrupal-leer','inindividual-leer'])
+      @canany(['indicadores-modulo'])
         @include('layouts.menus.indicadores')
       @endcanany
 

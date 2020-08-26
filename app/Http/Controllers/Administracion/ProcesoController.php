@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Validator;
 class ProcesoController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:proceso-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:proceso-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:proceso-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:proceso-borrar'], ['only' => ['index, show, destroy']]);
+
+        $this->opciones['permisox']='proceso';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
     }
 
     public function index(Request $request){
@@ -48,7 +52,7 @@ class ProcesoController extends Controller{
     public function edit($id){
         $dato = SisProceso::findOrFail($id);
         return view('administracion.proceso.index', [
-            'accion' => 'Editar', 
+            'accion' => 'Editar',
             'SisEntidad' => $this->SisMapaProc(),
             'SisProceso' => $this->SisProceso(),
             'PrmProceso' => Tema::findOrFail(16)->parametros()->orderBy('nombre')->pluck('nombre', 'id')]

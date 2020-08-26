@@ -15,10 +15,7 @@ class FiSustanciaConsumidaController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:fisustanciaconsume-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fisustanciaconsume-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fisustanciaconsume-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fisustanciaconsume-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Sustancia Consumida',
       'rutaxxxx' => 'FichaIngreso',
@@ -35,6 +32,15 @@ class FiSustanciaConsumidaController extends Controller
       'permisox' => 'fisustanciaconsume',
       'urlxxxxx' => 'api/fi/fisustanciaconsumida',
     ];
+
+
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
     $this->opciones['sustanci'] = Tema::combo(53,true,false);
     $this->opciones['condicio'] = Tema::combo(23,true, false);
 
@@ -46,7 +52,7 @@ class FiSustanciaConsumidaController extends Controller
       ['td' => 'HA CONSUMIDO ÚLTIMO MES'],
       ['td' => 'ACTIVO'],
     ];
-    $this->opciones['columnsx'] = [ 
+    $this->opciones['columnsx'] = [
       ['data' => 'btns','name'=>'btns'],
       ['data' => 'sustancia','name'=>'parametros.nombre as sustancia'],
       ['data' => 'i_edad_uso','name'=>'fi_sustancia_consumidas.i_edad_uso'],
@@ -65,7 +71,7 @@ class FiSustanciaConsumidaController extends Controller
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
       $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-   
+
     }
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
@@ -80,7 +86,7 @@ class FiSustanciaConsumidaController extends Controller
   public function create($datobasi)
   {
     $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    
+
     $this->opciones['nnajregi'] = $datobasi;
     return $this->view('', '', 'Crear');
   }

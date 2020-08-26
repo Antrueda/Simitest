@@ -19,20 +19,22 @@ class FosTipoSeguimientoController extends Controller
             'permisox' => 'fostipo',
             'parametr' => [],
             'rutacarp' => 'FichaObservacion.Admin.TipoSeguimiento.',
-            'tituloxx' => 'Tipo Seguimiento',            
+            'tituloxx' => 'Tipo Seguimiento',
         ];
-       
-        $this->middleware(['permission:'.$this->opciones['permisox'].'-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:'.$this->opciones['permisox'].'-crear'], ['only' => ['index', 'show', 'create', 'store', 'view','grabar']]);
-        $this->middleware(['permission:'.$this->opciones['permisox'].'-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view','grabar']]);
-        $this->middleware(['permission:'.$this->opciones['permisox'].'-borrar'], ['only' => ['index', 'show', 'destroy']]);
-        
+
+
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['readonly'] = '';
         $this->opciones['rutaxxxx'] = 'fostipo';
         $this->opciones['routnuev'] = 'fostipo';
         $this->opciones['routxxxx'] = 'fostipo';
 
-        $this->opciones['botoform'] = [            
+        $this->opciones['botoform'] = [
             ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 2, 'tituloxx' => 'Volver a Tipo Seguimiento','clasexxx'=>'btn btn-sm btn-primary'],
         ];
     }
@@ -49,14 +51,14 @@ class FosTipoSeguimientoController extends Controller
         $this->opciones['titulist'] = 'Lista de Tipos de Seguimiento';
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'botonesx', 'dataxxxx' => 'FichaObservacion/Admin/TipoSeguimiento/botones/botonesapi'],
-           
+
         ];
 
         $this->opciones['urlxxxxx'] = 'api/fos/tiposeg';
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'NOMBRE'],
-            ['td' => 'ÁREA'],          
+            ['td' => 'ÁREA'],
             ['td' => 'ESTADO'],
         ];
         $this->opciones['columnsx'] = [
@@ -91,9 +93,9 @@ class FosTipoSeguimientoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { 
+    {
         $this->opciones['botoform'][] =
-            ['mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'].'.editar', []], 
+            ['mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'].'.editar', []],
             'formhref' => 1, 'tituloxx' => '','clasexxx'=>'btn btn-sm btn-primary'];
         return $this->view(true, '', 'Crear',$this->opciones['rutacarp'] . 'crear');
     }
@@ -119,8 +121,8 @@ class FosTipoSeguimientoController extends Controller
     public function show(FosTse $objetoxx)
     {
 
-        $this->opciones['botoform'][] = 
-            ['mostrars' => true, 'accionxx' => $objetoxx->sis_esta_id == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1, 
+        $this->opciones['botoform'][] =
+            ['mostrars' => true, 'accionxx' => $objetoxx->sis_esta_id == 1 ? 'INACTIVAR' : 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 1,
             'tituloxx' => '','clasexxx'=>$objetoxx->sis_esta_id == 1 ? 'btn btn-sm btn-danger' : 'btn btn-sm btn-success'];
         $this->opciones['readonly'] = 'readonly';
         return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp'] . 'ver');
@@ -135,7 +137,7 @@ class FosTipoSeguimientoController extends Controller
     public function edit(FosTse $objetoxx)
     {
         $this->opciones['botoform'][] =
-            ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => [$this->opciones['routxxxx'].'.editar', []], 
+            ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => [$this->opciones['routxxxx'].'.editar', []],
             'formhref' => 1, 'tituloxx' => '','clasexxx'=>'btn btn-sm btn-primary'];
         return $this->view($objetoxx,  'modeloxx', 'Editar', $this->opciones['rutacarp'] . 'editar');
     }
@@ -181,12 +183,12 @@ class FosTipoSeguimientoController extends Controller
      */
     public function destroy(FosTse $objetoxx)
     {
-        
+
         $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
         $objetoxx->save();
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
 
         return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro '.$activado. ' con éxito');
     }
-    
+
 }

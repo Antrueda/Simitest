@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\sicosocial\Logs;
+namespace App\Models\sicosocial\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 

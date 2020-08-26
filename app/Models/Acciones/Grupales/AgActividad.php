@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\Acciones\Grupales;
+namespace App\Models\Acciones\Grupales;
 
 use app\Models\Indicadores\Area;
 use app\Models\Parametro;

@@ -15,10 +15,7 @@ class FiSaludController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:fisalud-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fisalud-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fisalud-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fisalud-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Salud',
       'rutaxxxx' => 'FichaIngreso',
@@ -35,6 +32,14 @@ class FiSaludController extends Controller
       'permisox' => 'fisaludenfermedad',
       'urlxxxxx' => 'api/fi/fisaludenfermedad',
     ];
+
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
     $this->opciones['estafili'] = Tema::combo(21,true,false);
     $this->opciones['condicio'] = Tema::combo(23,true,false);
     $this->opciones['tipodisc'] = Tema::combo(24,true,false);

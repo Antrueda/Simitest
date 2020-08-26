@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisTcampo;
-use App\Models\sistema\SisTcampo;
+use App\Models\Sistema\Logs\HSisTcampo;
+use App\Models\Sistema\SisTcampo;
 
 class SisTcampoObserver
 {
@@ -36,7 +36,7 @@ class SisTcampoObserver
     /**
      * Handle the SisTcampo "updated" event.
      *
-     * @param  \App\Models\sistema\SisTcampo  $modeloxx
+     * @param  \App\Models\Sistema\SisTcampo  $modeloxx
      * @return void
      */
     public function updated(SisTcampo $modeloxx)
@@ -47,7 +47,7 @@ class SisTcampoObserver
     /**
      * Handle the SisTcampo "deleted" event.
      *
-     * @param  \App\Models\sistema\SisTcampo  $modeloxx
+     * @param  \App\Models\Sistema\SisTcampo  $modeloxx
      * @return void
      */
     public function deleted(SisTcampo $modeloxx)
@@ -58,7 +58,7 @@ class SisTcampoObserver
     /**
      * Handle the SisTcampo "restored" event.
      *
-     * @param  \App\Models\sistema\SisTcampo  $modeloxx
+     * @param  \App\Models\Sistema\SisTcampo  $modeloxx
      * @return void
      */
     public function restored(SisTcampo $modeloxx)
@@ -69,7 +69,7 @@ class SisTcampoObserver
     /**
      * Handle the SisTcampo "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisTcampo  $modeloxx
+     * @param  \App\Models\Sistema\SisTcampo  $modeloxx
      * @return void
      */
     public function forceDeleted(SisTcampo $modeloxx)

@@ -20,10 +20,7 @@ class InValoracionController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:invaloracion-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:invaloracion-crear'], ['only' => ['index, show, create, store', 'updateParametro']]);
-        $this->middleware(['permission:invaloracion-editar'], ['only' => ['index, show, edit, update', 'updateParametro']]);
-        $this->middleware(['permission:invaloracion-borrar'], ['only' => ['index, show, destroy, destroyParametro']]);
+
         $this->opciones = [
             'tituloxx' => 'Valoraciones',
             'rutaxxxx' => 'inva.valoracion',
@@ -42,6 +39,13 @@ class InValoracionController extends Controller
             'routnuev' => 'inva.valoracion',
             'nuevoxxx' => 'Nuevo Registro'
         ];
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'PRIMER NOMBRE'],
@@ -145,7 +149,7 @@ class InValoracionController extends Controller
 
         $categori = $padrexxx->i_prm_categoria_id;
 
-        
+
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
@@ -262,19 +266,19 @@ class InValoracionController extends Controller
         $valoraci = InValoracion::where('in_lineabase_nnaj_id', $valo)->where('i_prm_categoria_id', $dataxxxx['i_prm_categoria_id'])->first();
         $fechaxxx=explode(' ',$objetoxx->updated_at)[0];
         $hoyxxxxx=date('Y-m-d',time());
-       
+
         if($fechaxxx== $hoyxxxxx){
             return redirect()
             ->route('inva.valoracion.editar', [$objetoxx->in_lineabase_nnaj_id, $objetoxx->id])
             ->with('info', 'El NNAJ solo puede tenere para la línea base acutal una valoracón por día');
         }
-        
+
         if (!isset($valoraci->id)) {
             $dataxxxx['in_lineabase_nnaj_id'] = $valo;
             return $this->grabar($dataxxxx, '', 'Valoración creada con éxito');
         }
-        
-        
+
+
         return $this->grabar($dataxxxx, $objetoxx, 'Valoración actualizada con éxito');
     }
 
@@ -333,11 +337,11 @@ class InValoracionController extends Controller
         $encatego = array_search($dataxxxx['cateactu'], $acategor);
         $respuest = [];
         switch ($dataxxxx['avancexx']) {
-            case 512: //avanza  
+            case 512: //avanza
                 $parametr = Parametro::where('id', $avancexx[3] + 1)->first();
                 $respuest = ['nivelxxx' => [['valuexxx' => $parametr->id, 'optionxx' => $parametr->nombre]], 'categori' => $this->combo($avancexx[3] + 1, $ajaxxxxx)];
                 break;
-            case 514: // avance parcial                    
+            case 514: // avance parcial
                 $avancexx = $this->nivel($acategor[$encatego + 1], $ajaxxxxx);
                 $parametr = Parametro::where('id', $avancexx[3])->first();
                 $pcategor = Parametro::where('id', $acategor[$encatego + 1])->first();

@@ -15,10 +15,7 @@ class EpsController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:eps-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:eps-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:eps-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:eps-borrar'], ['only' => ['index, show, destroy']]);
+
         $this->opciones = [
             'tituloxx' => 'Entidad salud',
             'rutaxxxx' => 'eps',
@@ -36,6 +33,12 @@ class EpsController extends Controller
             'routnuev' => 'eps',
             'nuevoxxx' => 'Nuevo Registro',
         ];
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['cabecera'] = [
             ['td' => 'ENTIDAD'],
             ['td' => 'TIPO DE ENTIDAD'],
@@ -60,16 +63,16 @@ class EpsController extends Controller
 
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
-        $this->opciones['i_prm_teps_id'] = []; 
+        $this->opciones['i_prm_teps_id'] = [];
         foreach(Tema::combo(21 ,true, false) as $key=>$temaxxxx){
             if($key!=168)
             {
                      $this->opciones['i_prm_teps_id'][$key] = $temaxxxx;
             }
-       
+
         }
-        
-    
+
+
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
 

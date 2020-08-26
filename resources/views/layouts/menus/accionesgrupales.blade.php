@@ -7,7 +7,7 @@
     </p>
     </a>
     <ul class="nav nav-treeview">
-       
+
         @can('agactividad-leer')
             <li class="nav-item">
                 <a href="{{ route('ag.acti') }}" class="nav-link">
@@ -16,14 +16,6 @@
                 </a>
             </li>
             @endcan
-            @can('fidatbas-leer')
-            <li class="nav-item">
-            <a href="{{ route('fidatbas')}}" class="nav-link">
-                <i class="nav-icon fas fa-user-plus"></i>
-                <p>Ficha de Ingreso</p>
-            </a>
-            </li>
-        @endcan
             @can('fosfichaobservacion-leer')
             <li class="nav-item">
               <a href="{{ route('fos')}}" class="nav-link">
@@ -33,6 +25,6 @@
             </li>
             @endcan
 
-     
+
     </ul>
 </li>

@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisBarrio;
-use App\Models\sistema\SisBarrio;
+use App\Models\Sistema\Logs\HSisBarrio;
+use App\Models\Sistema\SisBarrio;
 
 class SisBarrioObserver
 {
@@ -32,7 +32,7 @@ class SisBarrioObserver
     /**
      * Handle the SisBarrio "updated" event.
      *
-     * @param  \App\Models\sistema\SisBarrio  $modeloxx
+     * @param  \App\Models\Sistema\SisBarrio  $modeloxx
      * @return void
      */
     public function updated(SisBarrio $modeloxx)
@@ -43,7 +43,7 @@ class SisBarrioObserver
     /**
      * Handle the SisBarrio "deleted" event.
      *
-     * @param  \App\Models\sistema\SisBarrio  $modeloxx
+     * @param  \App\Models\Sistema\SisBarrio  $modeloxx
      * @return void
      */
     public function deleted(SisBarrio $modeloxx)
@@ -54,7 +54,7 @@ class SisBarrioObserver
     /**
      * Handle the SisBarrio "restored" event.
      *
-     * @param  \App\Models\sistema\SisBarrio  $modeloxx
+     * @param  \App\Models\Sistema\SisBarrio  $modeloxx
      * @return void
      */
     public function restored(SisBarrio $modeloxx)
@@ -65,7 +65,7 @@ class SisBarrioObserver
     /**
      * Handle the SisBarrio "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisBarrio  $modeloxx
+     * @param  \App\Models\Sistema\SisBarrio  $modeloxx
      * @return void
      */
     public function forceDeleted(SisBarrio $modeloxx)

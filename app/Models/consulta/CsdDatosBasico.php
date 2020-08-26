@@ -1,14 +1,14 @@
 <?php
 
-namespace app\Models\consulta;
+namespace App\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
 use app\Models\Parametro;
 use app\Models\User;
-use app\Models\Sistema\SisMunicipio;
-use app\Models\Sistema\SisDepartamento;
-use app\Models\Sistema\SisPai;
+use App\Models\Sistema\SisMunicipio;
+use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisPai;
 
 class CsdDatosBasico extends Model{
     protected $fillable = [

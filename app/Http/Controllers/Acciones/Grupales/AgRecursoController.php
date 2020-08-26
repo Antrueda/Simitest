@@ -14,10 +14,6 @@ class AgRecursoController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:agrecurso-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:agrecurso-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:agrecurso-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:agrecurso-borrar'], ['only' => ['index, show, destroy']]);
         $this->opciones = [
             'tituloxx' => 'Recurso',
             'rutaxxxx' => 'ag.recu.recurso',
@@ -35,6 +31,11 @@ class AgRecursoController extends Controller
             'routnuev' => 'ag.recu.recurso',
             'nuevoxxx' => 'Nuevo Registro'
         ];
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'NOMBRE'],

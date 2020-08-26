@@ -31,10 +31,13 @@ class InIndicadorController extends Controller
             'esindexx' => false,
             'pestania' => []
         ];
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
         $this->opciones['rutaxxxx'] = 'in.indicador';
         $this->opciones['routnuev'] = 'in.indicador';
         $this->opciones['routxxxx'] = 'in.indicador';
@@ -92,7 +95,7 @@ class InIndicadorController extends Controller
     }
     private function view($dataxxxx)
     {
-       
+
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
@@ -155,7 +158,7 @@ class InIndicadorController extends Controller
         $this->opciones['parametr'] = [$padrexxx->id, $objetoxx->id];
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'EDITAR', 
+                'mostrars' => true, 'accionxx' => 'EDITAR',
                 'formhref' => 1, 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         $this->opciones['botoform'][] =

@@ -19,10 +19,7 @@ class FiAutorizacionController extends Controller
 
   public function __construct()
   {
-    $this->middleware(['permission:fiautorizacion-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fiautorizacion-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fiautorizacion-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fiautorizacion-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Autorizacion',
       'rutaxxxx' => 'FichaIngreso',
@@ -38,13 +35,20 @@ class FiAutorizacionController extends Controller
       'nuevoxxx' => 'o Registro'
     ];
 
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
     $this->opciones['docrepre'] = Tema::combo(64, true, false);
     $this->opciones['modalupi'] = Tema::combo(65, false, false);
     $this->opciones['docmened'] = Tema::combo(150, true, false);
     $this->opciones['condicio'] = Tema::combo(23, false, false);
     $this->opciones['tipodili'] = Tema::combo(302, true, false);
   }
-  
+
   private function view($objetoxx, $nombobje, $accionxx)
   {
     $this->opciones['parentes'] = Tema::combo(66, true, false);
@@ -55,7 +59,7 @@ class FiAutorizacionController extends Controller
         ->route('fi.composicion', [$this->opciones['datobasi']->sis_nnaj_id])
         ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
     }
-    
+
     $this->opciones['edadxxxx'] = $edad;
 
     //Esconder campos según la edad
@@ -180,7 +184,7 @@ class FiAutorizacionController extends Controller
   }
   public function autoriza(Request $request,$nnajregi)
   {
-    if ($request->ajax()) { 
+    if ($request->ajax()) {
       $dataxxxx = $request->all();
       $respuest=['sdocumen'=>' ','expedici'=>' '];
       if($dataxxxx['padrexxx']!=''){

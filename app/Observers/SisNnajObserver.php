@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisNnaj;
-use App\Models\sistema\SisNnaj;
+use App\Models\Sistema\Logs\HSisNnaj;
+use App\Models\Sistema\SisNnaj;
 
 class SisNnajObserver
 {
@@ -32,7 +32,7 @@ class SisNnajObserver
     /**
      * Handle the SisNnaj "updated" event.
      *
-     * @param  \App\Models\sistema\SisNnaj  $modeloxx
+     * @param  \App\Models\Sistema\SisNnaj  $modeloxx
      * @return void
      */
     public function updated(SisNnaj $modeloxx)
@@ -43,7 +43,7 @@ class SisNnajObserver
     /**
      * Handle the SisNnaj "deleted" event.
      *
-     * @param  \App\Models\sistema\SisNnaj  $modeloxx
+     * @param  \App\Models\Sistema\SisNnaj  $modeloxx
      * @return void
      */
     public function deleted(SisNnaj $modeloxx)
@@ -54,7 +54,7 @@ class SisNnajObserver
     /**
      * Handle the SisNnaj "restored" event.
      *
-     * @param  \App\Models\sistema\SisNnaj  $modeloxx
+     * @param  \App\Models\Sistema\SisNnaj  $modeloxx
      * @return void
      */
     public function restored(SisNnaj $modeloxx)
@@ -65,7 +65,7 @@ class SisNnajObserver
     /**
      * Handle the SisNnaj "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisNnaj  $modeloxx
+     * @param  \App\Models\Sistema\SisNnaj  $modeloxx
      * @return void
      */
     public function forceDeleted(SisNnaj $modeloxx)

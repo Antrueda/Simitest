@@ -7,9 +7,9 @@
         </p>
     </a>
     <ul class="nav nav-treeview">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             @include('layouts.menus.sicosocial')
-        </li>
+        </li> -->
         @can('fidatbas-leer')
             <li class="nav-item">
             <a href="{{ route('fidatbas')}}" class="nav-link">

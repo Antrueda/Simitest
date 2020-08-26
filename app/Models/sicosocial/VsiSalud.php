@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\sicosocial;
+namespace App\Models\sicosocial;
 
 use Illuminate\Database\Eloquent\Model;
 

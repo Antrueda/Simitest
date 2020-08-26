@@ -13,10 +13,7 @@ class InIndividualController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:ininindividual-leer'], ['only' => ['index, show']]);
-    $this->middleware(['permission:ininindividual-crear'], ['only' => ['index, show, create, store', 'updateParametro']]);
-    $this->middleware(['permission:ininindividual-editar'], ['only' => ['index, show, edit, update', 'updateParametro']]);
-    $this->middleware(['permission:ininindividual-borrar'], ['only' => ['index, show, destroy, destroyParametro']]);
+
     $this->opciones = [
       'tituloxx' => 'Indicadores para el NNAJ',
       'dashboar' => 'Indicadores.Dashboard.Individual',
@@ -29,6 +26,13 @@ class InIndividualController extends Controller
       'slotxxxx' => 'graficos',
       'tablname' => 'inindividual',
     ];
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
     $this->opciones['cabecera'] = [
       ['td' => 'Id'],
       ['td' => 'PRIMER NOMBRE'],
@@ -52,7 +56,7 @@ class InIndividualController extends Controller
    */
   public function index(Request $request)
   {
-    
+
     $dataxxxx = [
       'sis_tabla_id' => 1,
       'user_crea_id' => 1,

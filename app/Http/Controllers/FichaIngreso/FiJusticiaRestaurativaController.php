@@ -18,10 +18,7 @@ class FiJusticiaRestaurativaController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:fijusticia-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fijusticia-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fijusticia-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fijusticia-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Justicia Restaurativa',
       'rutaxxxx' => 'FichaIngreso',
@@ -39,6 +36,12 @@ class FiJusticiaRestaurativaController extends Controller
       'urlxxxxx' => 'api/fi/fijrfamiliar',
     ];
 
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
     $this->opciones['condicio'] = Tema::combo(23, true, false);
     $this->opciones['condnoap'] = Tema::combo(25, true, false);
     $this->opciones['actupard'] = Tema::combo(25, true, false);
@@ -182,7 +185,7 @@ class FiJusticiaRestaurativaController extends Controller
         $this->opciones['readteld'] = 'readonly';
         $this->opciones['readluga'] = 'readonly';
       }
-      
+
       if ($objetoxx->i_prm_ha_estado_srpa_id != 227) {
         $this->opciones['actusrpa'] = [1 => 'NO APLICA'];
         $this->opciones['titisrpa'] = [1 => 'NO APLICA'];
@@ -190,8 +193,8 @@ class FiJusticiaRestaurativaController extends Controller
         $this->opciones['readsrpa'] = 'readonly';
         $this->opciones['sancsrpa'] = [1 => 'NO APLICA'];
       }
-      
-      
+
+
       if($objetoxx->i_prm_actualmente_pard_id!=227){
         $this->opciones['titisrpa'] = [1 => 'NO APLICA'];
         $this->opciones['motisrpa'] = [1 => 'NO APLICA'];
@@ -208,7 +211,7 @@ class FiJusticiaRestaurativaController extends Controller
       }
 
       if ($objetoxx->i_prm_actualmente_spoa_id != 227) {
-        
+
         $this->opciones['titispoa'] = [1 => 'NO APLICA'];
         $this->opciones['motispoa'] = [1 => 'NO APLICA'];
         $this->opciones['readspoa'] = 'readonly';

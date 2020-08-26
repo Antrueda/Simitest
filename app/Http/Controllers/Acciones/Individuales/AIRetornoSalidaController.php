@@ -16,10 +16,15 @@ use Illuminate\Support\Carbon;
 class AIRetornoSalidaController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:airetornosalida-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:airetornosalida-crear'], ['only' => ['index, show']]);
-        $this->middleware(['permission:airetornosalida-editar'], ['only' => ['index, show']]);
-        $this->middleware(['permission:airetornosalida-borrar'], ['only' => ['index, show']]);
+
+        $this->opciones['permisox']='airetornosalida';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
+
     }
 
     public function index($id){

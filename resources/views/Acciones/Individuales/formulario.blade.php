@@ -6,7 +6,7 @@
                 {{ $nnaj->nombre_completo }}
             </div>
             <div class="col-md">
-                TIPO DE DOCUMENTO: {{ $nnaj->fi_datos_basico->nnaj_docu->nombre }}
+                TIPO DE DOCUMENTO: {{ $nnaj->nnaj_docu->tipoDocumento->nombre }}
             </div>
             <div class="col-md">
                 DOCUMENTO: {{ $nnaj->s_documento }}
@@ -14,13 +14,13 @@
         </div>
         <div class="row">
             <div class="col-md">
-                FECHA DE NACIMIENTO: {{ $nnaj->d_nacimiento }}
+                FECHA DE NACIMIENTO: {{ $nnaj->nnaj_nacimi->d_nacimiento }}
             </div>
             <div class="col-md">
-                EDAD: {{ $nnaj->edad }} años
+                EDAD: {{ $nnaj->nnaj_nacimi->Edad }} años
             </div>
             <div class="col-md">
-                SEXO NACIMIENTO: {{ $nnaj->sexo->nombre }}
+                SEXO NACIMIENTO: {{ $nnaj->nnaj_sexo->prmSexo->nombre }}
             </div>
         </div>
         <div class="row">
@@ -31,12 +31,12 @@
                 TELÉFONO: {{ count($dato->FiResidencia)>0 ? $dato->FiResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first()->telefonos : '' }}
             </div>
             <div class="col-md">
-                NOMBRE IDENTITARIO: {{ $nnaj->s_nombre_identitario }}
+                NOMBRE IDENTITARIO: {{ $nnaj->nnaj_sexo->s_nombre_identitario }}
             </div>
         </div>
         <div class="row">
             <div class="col-md">
-                TIPO POBLACIÓN: {{ $nnaj->poblacion->nombre }}
+                TIPO POBLACIÓN: {{ $nnaj->prmTipoPobla->nombre }}
             </div>
         </div>
     </div>

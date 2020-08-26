@@ -14,10 +14,7 @@ class AgTemaController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:agtema-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:agtema-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:agtema-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:agtema-borrar'], ['only' => ['index, show, destroy']]);
+
         $this->opciones = [
             'tituloxx' => 'Tema',
             'rutacarp' => 'Acciones.Grupales.Agtema.',
@@ -30,11 +27,16 @@ class AgTemaController extends Controller
             'permisox' => 'agtema',
             'routxxxx' => 'ag.tema.tema',
             'routinde' => 'ag.tema',
-            'parametr' => [], 
+            'parametr' => [],
             'urlxxxxx' => 'api/agr/temas',
             'routnuev' => 'ag.tema.tema',
             'nuevoxxx' => 'Nuevo Registro'
         ];
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'ÁREA'],

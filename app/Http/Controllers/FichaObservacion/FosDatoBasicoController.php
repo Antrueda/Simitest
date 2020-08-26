@@ -25,10 +25,7 @@ class FosDatoBasicoController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['permission:fosfichaobservacion-leer'], ['only' => ['show']]);
-        $this->middleware(['permission:fosfichaobservacion-crear'], ['only' => ['show, create, store']]);
-        $this->middleware(['permission:fosfichaobservacion-editar'], ['only' => ['show, edit, update']]);
-        $this->middleware(['permission:fosfichaobservacion-borrar'], ['only' => ['show, destroy']]);
+
         $this->opciones = [
             'tituloxx' => 'Ficha de Observación y Seguimiento',
             'rutaxxxx' => 'fos.fichaobservacion',
@@ -46,9 +43,16 @@ class FosDatoBasicoController extends Controller
             'urlxxxxx' => 'api/fos/nnajs',
         ];
 
+        $this->opciones['permisox'] = 'fosfichaobservacion';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
         $this->opciones['dispform'] = "none";
         $this->opciones['disptabx'] = "block";
-        $this->opciones['permisox'] = 'fosfichaobservacion';
+
         $this->opciones['areacont'] = ['' => 'Seleccione'];
 
 

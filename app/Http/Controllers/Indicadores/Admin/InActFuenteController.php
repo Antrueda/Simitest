@@ -28,14 +28,18 @@ class InActFuenteController extends Controller
             'slotxxxy' => 'diagnost', // indica cual es la pestaña padre que debe estar activa
             'slotxxxx' => 'actifuen', // indica cual es la pestaña hija que debe estar activa
             'carpetax' => 'Fuentesx', // carpeta a la que accede el controlador
-            'indecrea' => false,    // false indica que no debe estar dentro una pestaña, 
+            'indecrea' => false,    // false indica que no debe estar dentro una pestaña,
             //true indica que debe estar dentro de una pestaña
             'esindexx' => false  // true indica que debe mostrar el index y false el formulario
         ];
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
+
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
         $this->opciones['rutaxxxx'] = 'actifuen';
         $this->opciones['routnuev'] = 'actifuen';
         $this->opciones['routxxxx'] = 'actifuen';
@@ -50,7 +54,7 @@ class InActFuenteController extends Controller
     public function index($padrexxx)
     {
         $padrexxx = InAccionGestion::find($padrexxx);
-        $sis_nnaj = $padrexxx->in_lineabase_nnaj->sis_nnaj->FiDatosBasico[0]; 
+        $sis_nnaj = $padrexxx->in_lineabase_nnaj->sis_nnaj->FiDatosBasico[0];
         $this->opciones['cardheap'] = 'NNAJ: ' . $sis_nnaj->s_primer_nombre . ' ' .
             $sis_nnaj->s_segundo_nombre . ' ' .
             $sis_nnaj->s_primer_apellido . ' ' .
@@ -105,7 +109,7 @@ class InActFuenteController extends Controller
         $this->opciones['cardheap'] = 'NNAJ: ' . $sis_nnaj->s_primer_nombre . ' ' .
             $sis_nnaj->s_segundo_nombre . ' ' .
             $sis_nnaj->s_primer_apellido . ' ' .
-            $sis_nnaj->s_segundo_apellido;      
+            $sis_nnaj->s_segundo_apellido;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $seleccio=0;
@@ -192,5 +196,5 @@ class InActFuenteController extends Controller
         return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
     }
 
-   
+
 }

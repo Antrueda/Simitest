@@ -16,10 +16,14 @@ use App\Models\User;
 class AISalidaMenoresController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:aisalidamenores-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:aisalidamenores-crear'], ['only' => ['index, show']]);
-        $this->middleware(['permission:aisalidamenores-editar'], ['only' => ['index, show']]);
-        $this->middleware(['permission:aisalidamenores-borrar'], ['only' => ['index, show']]);
+
+        $this->opciones['permisox']='aisalidamenores';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
     }
 
     public function index($id){

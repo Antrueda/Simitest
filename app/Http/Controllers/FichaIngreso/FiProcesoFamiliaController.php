@@ -16,10 +16,7 @@ class FiProcesoFamiliaController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:fiprocesojudicial-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fiprocesojudicial-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fiprocesojudicial-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fiprocesojudicial-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Justicia Restaurativa',
       'rutaxxxx' => 'FichaIngreso',
@@ -34,6 +31,15 @@ class FiProcesoFamiliaController extends Controller
       'modeloxx' => '',
       'nuevoxxx' => 'o Datos Básico'
     ];
+
+
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
     $this->opciones['condicio'] = Tema::combo(23,true, false);
     $this->opciones['condnoap'] = Tema::combo(25,true,false);
     $this->opciones['titiempo'] = Tema::combo(152,true,false);
@@ -50,7 +56,7 @@ class FiProcesoFamiliaController extends Controller
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
       $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-   
+
     }
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
@@ -65,7 +71,7 @@ class FiProcesoFamiliaController extends Controller
   public function create($datobasi)
   {
     $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    
+
     $this->opciones['nnajregi'] = $datobasi;
     return $this->view('', '', 'Crear');
   }

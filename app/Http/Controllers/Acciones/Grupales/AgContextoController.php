@@ -13,14 +13,16 @@ class AgContextoController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:agcontexto-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:agcontexto-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:agcontexto-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:agcontexto-borrar'], ['only' => ['index, show, destroy']]);
+        $this->opciones['permisox']='agcontexto';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones = [
             'tituloxx' => 'Contexto',
             'rutaxxxx' => 'ag.cont.contexto',
-            
+
             'accionxx' => '',
             'rutacarp'=>'Acciones.Grupales.Agcontexto.',
             'volverax' => 'Volver a Contextos',
@@ -39,7 +41,7 @@ class AgContextoController extends Controller
             ['td' => 'ID'],
             ['td' => 'CONTEXTO'],
             ['td' => 'DESCRIPCION'],
-          
+
             ['td' => 'ESTADO'],
         ];
         $this->opciones['columnsx'] = [
@@ -64,8 +66,8 @@ class AgContextoController extends Controller
 
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
-      
-   
+
+
 
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;

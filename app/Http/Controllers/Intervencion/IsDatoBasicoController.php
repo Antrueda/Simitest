@@ -19,10 +19,7 @@ class IsDatoBasicoController extends Controller {
 
   public function __construct() {
     $this->bitacora = new IsDatosBasico();
-    $this->middleware(['permission:isintervencion-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:isintervencion-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:isintervencion-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:isintervencion-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
         'tituloxx' => 'Intervención',
         'rutaxxxx' => 'is.intervencion',
@@ -39,6 +36,13 @@ class IsDatoBasicoController extends Controller {
         'urlxxxxx' => 'api/is/nnajs',
     ];
 
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
     $this->opciones['dispform'] = "none";
     $this->opciones['disptabx'] = "block";
     $this->opciones['permisox'] = 'isintervencion';
@@ -46,7 +50,7 @@ class IsDatoBasicoController extends Controller {
 
     $this->opciones['areajust'] = Tema::combo(212, true, false);
     $this->opciones['arjustpr'] = Tema::combo(212, false, false);// Tema::findOrFail(97)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-    $this->opciones['arjustpr1'] = Tema::findOrFail(212)->parametros()->orderBy('nombre')->pluck('nombre', 'id'); 
+    $this->opciones['arjustpr1'] = Tema::findOrFail(212)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
     $this->opciones['subemoci'] = Tema::combo(162, true, false);
     $this->opciones['subfamil'] = Tema::combo(167, true, false);
     $this->opciones['subsexua'] = Tema::combo(163, true, false);

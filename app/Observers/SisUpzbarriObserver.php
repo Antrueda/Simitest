@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisUpzbarri;
-use App\Models\sistema\SisUpzbarri;
+use App\Models\Sistema\Logs\HSisUpzbarri;
+use App\Models\Sistema\SisUpzbarri;
 
 class SisUpzbarriObserver
 {
@@ -33,7 +33,7 @@ class SisUpzbarriObserver
     /**
      * Handle the SisUpzbarri "updated" event.
      *
-     * @param  \App\Models\sistema\SisUpzbarri  $modeloxx
+     * @param  \App\Models\Sistema\SisUpzbarri  $modeloxx
      * @return void
      */
     public function updated(SisUpzbarri $modeloxx)
@@ -44,7 +44,7 @@ class SisUpzbarriObserver
     /**
      * Handle the SisUpzbarri "deleted" event.
      *
-     * @param  \App\Models\sistema\SisUpzbarri  $modeloxx
+     * @param  \App\Models\Sistema\SisUpzbarri  $modeloxx
      * @return void
      */
     public function deleted(SisUpzbarri $modeloxx)
@@ -55,7 +55,7 @@ class SisUpzbarriObserver
     /**
      * Handle the SisUpzbarri "restored" event.
      *
-     * @param  \App\Models\sistema\SisUpzbarri  $modeloxx
+     * @param  \App\Models\Sistema\SisUpzbarri  $modeloxx
      * @return void
      */
     public function restored(SisUpzbarri $modeloxx)
@@ -66,7 +66,7 @@ class SisUpzbarriObserver
     /**
      * Handle the SisUpzbarri "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisUpzbarri  $modeloxx
+     * @param  \App\Models\Sistema\SisUpzbarri  $modeloxx
      * @return void
      */
     public function forceDeleted(SisUpzbarri $modeloxx)

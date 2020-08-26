@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Models\consulta;
+namespace App\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
-use app\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisNnaj;
 use app\Models\Parametro;
 
 class Csd extends Model{

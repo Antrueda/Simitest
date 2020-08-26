@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisInstitucionEdu;
-use App\Models\sistema\SisInstitucionEdu;
+use App\Models\Sistema\Logs\HSisInstitucionEdu;
+use App\Models\Sistema\SisInstitucionEdu;
 
 class SisInstitucionEduObserver
 {
@@ -40,7 +40,7 @@ class SisInstitucionEduObserver
     /**
      * Handle the SisInstitucionEdu "updated" event.
      *
-     * @param  \App\Models\sistema\SisInstitucionEdu  $modeloxx
+     * @param  \App\Models\Sistema\SisInstitucionEdu  $modeloxx
      * @return void
      */
     public function updated(SisInstitucionEdu $modeloxx)
@@ -51,7 +51,7 @@ class SisInstitucionEduObserver
     /**
      * Handle the SisInstitucionEdu "deleted" event.
      *
-     * @param  \App\Models\sistema\SisInstitucionEdu  $modeloxx
+     * @param  \App\Models\Sistema\SisInstitucionEdu  $modeloxx
      * @return void
      */
     public function deleted(SisInstitucionEdu $modeloxx)
@@ -62,7 +62,7 @@ class SisInstitucionEduObserver
     /**
      * Handle the SisInstitucionEdu "restored" event.
      *
-     * @param  \App\Models\sistema\SisInstitucionEdu  $modeloxx
+     * @param  \App\Models\Sistema\SisInstitucionEdu  $modeloxx
      * @return void
      */
     public function restored(SisInstitucionEdu $modeloxx)
@@ -73,7 +73,7 @@ class SisInstitucionEduObserver
     /**
      * Handle the SisInstitucionEdu "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisInstitucionEdu  $modeloxx
+     * @param  \App\Models\Sistema\SisInstitucionEdu  $modeloxx
      * @return void
      */
     public function forceDeleted(SisInstitucionEdu $modeloxx)

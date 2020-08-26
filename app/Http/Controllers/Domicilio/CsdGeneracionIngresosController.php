@@ -16,8 +16,12 @@ use Illuminate\Support\Facades\Validator;
 class CsdGeneracionIngresosController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:csdgeningresos-crear'], ['only' => ['show, store, storeaportante']]);
-        $this->middleware(['permission:csdgeningresos-editar'], ['only' => ['show, update, destroyaportante']]);
+
+        $this->opciones['permisox']='csdgeningresos';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar'
+            ]);
     }
 
     public function show($id){

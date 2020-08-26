@@ -12,10 +12,14 @@ use Illuminate\Support\Facades\Validator;
 class MapaProcesoController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:mapaProceso-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:mapaProceso-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:mapaProceso-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:mapaProceso-borrar'], ['only' => ['index, show, destroy']]);
+
+        $this->opciones['permisox']='mapaProceso';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
     }
 
     public function index(Request $request){

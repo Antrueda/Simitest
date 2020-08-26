@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisEntidadSalud;
+use App\Models\Sistema\Logs\HSisEntidadSalud;
 use App\Models\Sistema\SisEntidadSalud;
 
 class SisEntidadSaludObserver

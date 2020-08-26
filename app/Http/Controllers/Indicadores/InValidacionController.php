@@ -20,10 +20,7 @@ class InValidacionController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:invalidacion-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:invalidacion-crear'], ['only' => ['index, show, create, store', 'updateParametro']]);
-        $this->middleware(['permission:invalidacion-editar'], ['only' => ['index, show, edit, update', 'updateParametro']]);
-        $this->middleware(['permission:invalidacion-borrar'], ['only' => ['index, show, destroy, destroyParametro']]);
+
         $this->opciones = [
             'tituloxx' => 'Validaciones',
             'rutaxxxx' => 'va.validacion',
@@ -42,6 +39,13 @@ class InValidacionController extends Controller
             'routnuev' => 'va.validacion',
             'nuevoxxx' => 'Nuevo Registro'
         ];
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'LÍNEA BASE'],

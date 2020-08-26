@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Models;
+namespace App\Models;
 
-use app\Models\Sistema\SisPestania;
+use App\Models\Sistema\SisPestania;
 use Spatie\Permission\Models\Permission;
 
 class Permissionext extends Permission

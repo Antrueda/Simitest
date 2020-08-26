@@ -16,10 +16,7 @@ class FiRazoneController extends Controller {
   private $opciones;
 
   public function __construct() {
-    $this->middleware(['permission:firazones-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:firazones-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:firazones-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:firazones-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
         'tituloxx' => 'Razones',
         'rutaxxxx' => 'FichaIngreso',
@@ -34,6 +31,12 @@ class FiRazoneController extends Controller {
         'modeloxx' => '',
         'nuevoxxx' => 'o Registro'
     ];
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
     $this->opciones['docanexa'] = Tema::combo(155, false, false);
     $this->opciones['estaingr'] = Tema::combo(303, true, false);
   }

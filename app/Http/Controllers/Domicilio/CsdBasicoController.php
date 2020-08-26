@@ -17,8 +17,13 @@ use App\Models\Sistema\SisMunicipio;
 class CsdBasicoController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:csddatobasico-crear'], ['only' => ['show, store']]);
-        $this->middleware(['permission:csddatobasico-editar'], ['only' => ['show, update']]);
+
+        $this->opciones['permisox']='csddatobasico';
+        $this->middleware(['permission:'
+
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar'
+          ]);
     }
 
     public function show($id){
@@ -63,7 +68,7 @@ class CsdBasicoController extends Controller{
             $tPoblacion[$k] = $d;
         }
         $paises = SisPai::orderBy('s_pais')->pluck('s_pais', 'id');
-    
+
         $depajs = SisDepartamento::orderBy('s_departamento')->get();
         if(!$valor){
             $departamentos = $departamentos1 = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');

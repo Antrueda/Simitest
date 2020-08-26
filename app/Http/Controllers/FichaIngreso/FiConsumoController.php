@@ -16,10 +16,7 @@ class FiConsumoController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:ficonsumo-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:ficonsumo-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:ficonsumo-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:ficonsumo-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Consumo SPA',
       'rutaxxxx' => 'FichaIngreso',
@@ -36,7 +33,13 @@ class FiConsumoController extends Controller
       'permisox' => 'fisustanciaconsume',
       'urlxxxxx' => 'api/fi/fisustanciaconsumida',
     ];
-    $this->opciones['condicio'] = Tema::combo(23,true,false); 
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+    $this->opciones['condicio'] = Tema::combo(23,true,false);
     $this->opciones['tablname'] ='sustanci';
 
     $this->opciones['cabecera'] = [
@@ -45,7 +48,7 @@ class FiConsumoController extends Controller
       ['td' => 'HA CONSUMIDO ÚLTIMO MES'],
       ['td' => 'ACTIVO'],
     ];
-    $this->opciones['columnsx'] = [ 
+    $this->opciones['columnsx'] = [
       ['data' => 'btns','name'=>'btns'],
       ['data' => 'sustancia','name'=>'parametros.nombre as sustancia'],
       ['data' => 'i_edad_uso','name'=>'fi_sustancia_consumidas.i_edad_uso'],

@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\AreaUser;
-use App\Models\sistema\Logs\HAreaUser;
+use App\Models\Sistema\AreaUser;
+use App\Models\Sistema\Logs\HAreaUser;
 
 class AreaUserObserver
 {
@@ -33,7 +33,7 @@ class AreaUserObserver
     /**
      * Handle the AreaUser "updated" event.
      *
-     * @param  \App\Models\sistema\AreaUser  $modeloxx
+     * @param  \App\Models\Sistema\AreaUser  $modeloxx
      * @return void
      */
     public function updated(AreaUser $modeloxx)
@@ -44,7 +44,7 @@ class AreaUserObserver
     /**
      * Handle the AreaUser "deleted" event.
      *
-     * @param  \App\Models\sistema\AreaUser  $modeloxx
+     * @param  \App\Models\Sistema\AreaUser  $modeloxx
      * @return void
      */
     public function deleted(AreaUser $modeloxx)
@@ -55,7 +55,7 @@ class AreaUserObserver
     /**
      * Handle the AreaUser "restored" event.
      *
-     * @param  \App\Models\sistema\AreaUser  $modeloxx
+     * @param  \App\Models\Sistema\AreaUser  $modeloxx
      * @return void
      */
     public function restored(AreaUser $modeloxx)
@@ -66,7 +66,7 @@ class AreaUserObserver
     /**
      * Handle the AreaUser "force deleted" event.
      *
-     * @param  \App\Models\sistema\AreaUser  $modeloxx
+     * @param  \App\Models\Sistema\AreaUser  $modeloxx
      * @return void
      */
     public function forceDeleted(AreaUser $modeloxx)

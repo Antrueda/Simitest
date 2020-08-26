@@ -14,8 +14,11 @@ use App\Models\Tema;
 class CsdBienvenidaController extends Controller{
 
   public function __construct(){
-    $this->middleware(['permission:csdbienvenida-crear'], ['only' => ['show, store']]);
-    $this->middleware(['permission:csdbienvenida-editar'], ['only' => ['show, update']]);
+
+    $this->opciones['permisox']='csdbienvenida';
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar']);
   }
 
   public function show($id){

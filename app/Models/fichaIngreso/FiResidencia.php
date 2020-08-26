@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Models\fichaIngreso;
+namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use app\Models\Parametro;
-use app\Models\Sistema\SisBarrio;
+use App\Models\Sistema\SisBarrio;
 use app\Models\User;
 
 class FiResidencia extends Model

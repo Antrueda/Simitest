@@ -1,9 +1,10 @@
 <?php
 
-namespace app\Models\fichaIngreso;
+namespace App\Models\fichaIngreso;
 
-use app\Models\Sistema\SisDocfuen;
-use app\Models\Sistema\SisEsta;
+use app\Models\Parametro;
+use App\Models\Sistema\SisDocfuen;
+use App\Models\Sistema\SisEsta;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

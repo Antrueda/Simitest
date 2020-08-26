@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Models\Salud\Mitigacion;
+namespace App\Models\Salud\Mitigacion;
 
 use app\Models\Parametro;
-use app\Models\Sistema\SisDepen;
-use app\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisNnaj;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 

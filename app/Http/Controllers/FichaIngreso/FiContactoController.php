@@ -14,10 +14,7 @@ class FiContactoController extends Controller
  private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:ficontacto-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:ficontacto-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:ficontacto-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:ficontacto-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Contacto',
       'rutaxxxx' => 'FichaIngreso',
@@ -32,11 +29,18 @@ class FiContactoController extends Controller
       'modeloxx' => '',
       'nuevoxxx' => 'o Registro'
     ];
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
     $this->opciones['tipocont'] = Tema::combo(146,true,false);
     $this->opciones['contopci'] = Tema::combo(147,true,false);
     $this->opciones['contprot'] = Tema::combo(149,true,false);
     $this->opciones['condnoap'] = Tema::combo(25,true,false);
-    
+
   }
 
   private function view($objetoxx, $nombobje, $accionxx)
@@ -72,7 +76,7 @@ class FiContactoController extends Controller
     $this->opciones['nnajregi'] = $datobasi;
     return $this->view(true, '', 'Crear');
   }
-  
+
   private function grabar($dataxxxx, $objetoxx, $infoxxxx)
   {
       return redirect()

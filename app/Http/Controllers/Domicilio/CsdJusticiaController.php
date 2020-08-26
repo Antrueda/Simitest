@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Validator;
 class CsdJusticiaController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:csdjusticia-crear'], ['only' => ['show, store']]);
-        $this->middleware(['permission:csdjusticia-editar'], ['only' => ['show, update']]);
+
+        $this->opciones['permisox']='csdjusticia';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar'
+            ]);
     }
 
     public function show($id){

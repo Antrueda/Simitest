@@ -16,10 +16,7 @@ class FiEnfermedadesFamiliaController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:fisaludenfermedad-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fisaludenfermedad-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fisaludenfermedad-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fisaludenfermedad-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Redes de Apoyo',
       'rutaxxxx' => 'FichaIngreso',
@@ -34,6 +31,13 @@ class FiEnfermedadesFamiliaController extends Controller
       'modeloxx' => '',
       'nuevoxxx' => 'o Datos Básico'
     ];
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
     $this->opciones['condicio'] = Tema::combo(23, true, false);
   }
 
@@ -48,7 +52,7 @@ class FiEnfermedadesFamiliaController extends Controller
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
       $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-   
+
     }
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
@@ -63,7 +67,7 @@ class FiEnfermedadesFamiliaController extends Controller
   public function create($datobasi)
   {
     $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    
+
     $this->opciones['nnajregi'] = $datobasi;
     return $this->view('', '', 'Crear');
   }

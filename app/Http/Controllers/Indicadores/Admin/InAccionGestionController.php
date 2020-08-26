@@ -36,10 +36,16 @@ class InAccionGestionController extends Controller
             //true indica que debe estar dentro de una pestaña
             'esindexx' => false  // true indica que debe mostrar el index y false el formulario
         ];
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
+
+
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
+
         $this->opciones['rutaxxxx'] = 'accigest';
         $this->opciones['routnuev'] = 'accigest';
         $this->opciones['routxxxx'] = 'accigest';

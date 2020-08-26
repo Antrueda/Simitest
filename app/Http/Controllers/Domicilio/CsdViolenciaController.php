@@ -16,8 +16,13 @@ use App\Models\Sistema\SisMunicipio;
 class CsdViolenciaController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:csdviolencia-crear'], ['only' => ['show, store']]);
-        $this->middleware(['permission:csdviolencia-editar'], ['only' => ['show, update']]);
+
+        $this->opciones['permisox']='csdviolencia';
+        $this->middleware(['permission:'
+
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar'
+          ]);
     }
 
     public function show($id){

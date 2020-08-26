@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisTitulo;
-use App\Models\sistema\SisTitulo;
+use App\Models\Sistema\Logs\HSisTitulo;
+use App\Models\Sistema\SisTitulo;
 
 class SisTituloObserver
 {
@@ -34,7 +34,7 @@ class SisTituloObserver
     /**
      * Handle the SisTitulo "updated" event.
      *
-     * @param  \App\Models\sistema\SisTitulo  $modeloxx
+     * @param  \App\Models\Sistema\SisTitulo  $modeloxx
      * @return void
      */
     public function updated(SisTitulo $modeloxx)
@@ -45,7 +45,7 @@ class SisTituloObserver
     /**
      * Handle the SisTitulo "deleted" event.
      *
-     * @param  \App\Models\sistema\SisTitulo  $modeloxx
+     * @param  \App\Models\Sistema\SisTitulo  $modeloxx
      * @return void
      */
     public function deleted(SisTitulo $modeloxx)
@@ -56,7 +56,7 @@ class SisTituloObserver
     /**
      * Handle the SisTitulo "restored" event.
      *
-     * @param  \App\Models\sistema\SisTitulo  $modeloxx
+     * @param  \App\Models\Sistema\SisTitulo  $modeloxx
      * @return void
      */
     public function restored(SisTitulo $modeloxx)
@@ -67,7 +67,7 @@ class SisTituloObserver
     /**
      * Handle the SisTitulo "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisTitulo  $modeloxx
+     * @param  \App\Models\Sistema\SisTitulo  $modeloxx
      * @return void
      */
     public function forceDeleted(SisTitulo $modeloxx)

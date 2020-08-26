@@ -14,10 +14,7 @@ class FiRazonArchivoController extends Controller {
   private $opciones;
 
   public function __construct() {
-    $this->middleware(['permission:firazones-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:firazones-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:firazones-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:firazones-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
         'tituloxx' => 'Razones',
         'rutaxxxx' => 'FichaIngreso',
@@ -34,6 +31,12 @@ class FiRazonArchivoController extends Controller {
         'nuevoxxx' => 'o Registro',
         'archivox' => ''
     ];
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
   }
 
   private function view($objetoxx, $nombobje, $accionxx) {

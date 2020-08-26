@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisObse;
-use App\Models\sistema\SisObse;
+use App\Models\Sistema\Logs\HSisObse;
+use App\Models\Sistema\SisObse;
 
 class SisObseObserver
 {
@@ -32,7 +32,7 @@ class SisObseObserver
     /**
      * Handle the SisObse "updated" event.
      *
-     * @param  \App\Models\sistema\SisObse  $modeloxx
+     * @param  \App\Models\Sistema\SisObse  $modeloxx
      * @return void
      */
     public function updated(SisObse $modeloxx)
@@ -43,7 +43,7 @@ class SisObseObserver
     /**
      * Handle the SisObse "deleted" event.
      *
-     * @param  \App\Models\sistema\SisObse  $modeloxx
+     * @param  \App\Models\Sistema\SisObse  $modeloxx
      * @return void
      */
     public function deleted(SisObse $modeloxx)
@@ -54,7 +54,7 @@ class SisObseObserver
     /**
      * Handle the SisObse "restored" event.
      *
-     * @param  \App\Models\sistema\SisObse  $modeloxx
+     * @param  \App\Models\Sistema\SisObse  $modeloxx
      * @return void
      */
     public function restored(SisObse $modeloxx)
@@ -65,7 +65,7 @@ class SisObseObserver
     /**
      * Handle the SisObse "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisObse  $modeloxx
+     * @param  \App\Models\Sistema\SisObse  $modeloxx
      * @return void
      */
     public function forceDeleted(SisObse $modeloxx)

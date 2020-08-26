@@ -10,17 +10,21 @@ class InNnajController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:inacciongestion-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:inacciongestion-crear'], ['only' => ['index, show, create, store', 'updateParametro']]);
-        $this->middleware(['permission:inacciongestion-editar'], ['only' => ['index, show, edit, update', 'updateParametro']]);
-        $this->middleware(['permission:inacciongestion-borrar'], ['only' => ['index, show, destroy, destroyParametro']]);
+
         $this->opciones = [
-         
+
             'permisox' => 'inacciongestion',
             'parametr' => [],
             // 'urlxxxxx' => 'api/indicadores/acciongestion',
             'urlxxxxx' => 'api/indicadores/acciongestion',
         ];
+
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['dataxxxx'] = [];
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
@@ -49,11 +53,11 @@ class InNnajController extends Controller
      */
     public function index(Request $request)
     {
-        $this->opciones['padrexxx'] = [           
+        $this->opciones['padrexxx'] = [
             'Listado de NNAJ con Indicadores'
         ];
         return view('Indicadores.Admin.Acciongestion.index', ['todoxxxx' => $this->opciones]);
     }
-    
-    
+
+
 }

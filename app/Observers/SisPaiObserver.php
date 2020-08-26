@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisPai;
-use App\Models\sistema\SisPai;
+use App\Models\Sistema\Logs\HSisPai;
+use App\Models\Sistema\SisPai;
 
 class SisPaiObserver
 {
@@ -33,7 +33,7 @@ class SisPaiObserver
     /**
      * Handle the SisPai "updated" event.
      *
-     * @param  \App\Models\sistema\SisPai  $modeloxx
+     * @param  \App\Models\Sistema\SisPai  $modeloxx
      * @return void
      */
     public function updated(SisPai $modeloxx)
@@ -44,7 +44,7 @@ class SisPaiObserver
     /**
      * Handle the SisPai "deleted" event.
      *
-     * @param  \App\Models\sistema\SisPai  $modeloxx
+     * @param  \App\Models\Sistema\SisPai  $modeloxx
      * @return void
      */
     public function deleted(SisPai $modeloxx)
@@ -55,7 +55,7 @@ class SisPaiObserver
     /**
      * Handle the SisPai "restored" event.
      *
-     * @param  \App\Models\sistema\SisPai  $modeloxx
+     * @param  \App\Models\Sistema\SisPai  $modeloxx
      * @return void
      */
     public function restored(SisPai $modeloxx)
@@ -66,7 +66,7 @@ class SisPaiObserver
     /**
      * Handle the SisPai "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisPai  $modeloxx
+     * @param  \App\Models\Sistema\SisPai  $modeloxx
      * @return void
      */
     public function forceDeleted(SisPai $modeloxx)

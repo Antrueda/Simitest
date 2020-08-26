@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\consulta;
+namespace App\Models\consulta;
 
 use app\Models\Parametro;
 use app\Models\User;

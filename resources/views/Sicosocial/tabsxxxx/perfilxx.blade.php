@@ -12,23 +12,23 @@
     <ul class="list-group list-group-unbordered mb-4">
       <li class="list-group-item">
         <b>TIPO DOCUMENTO</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->tipoDocumento->nombre }}</a>
+        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_docu->tipoDocumento->nombre }}</a>
       </li>
       <li class="list-group-item">
         <b>DOCUMENTO</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->s_ducumento }}</a>
+        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_docu->s_documento }}</a>
       </li>
       <li class="list-group-item">
         <b>FECHA DE NACIMIENTO</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->d_nacimiento }}</a>
+        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_nacimi->d_nacimiento }}</a>
       </li>
       <li class="list-group-item">
         <b>EDAD</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->Edad }} años</a>
+        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_nacimi->Edad }} años</a>
       </li>
       <li class="list-group-item">
         <b>SEXO DE NACIMIENTO</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->sexo->nombre }}</a>
+        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_sexo->prmSexo->nombre }}</a>
       </li>
       <li class="list-group-item">
         <b>DIRECCION</b>
@@ -40,11 +40,11 @@
       </li>
       <li class="list-group-item">
         <b>NOMBRE IDENTITARIO</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->s_nombre_identitario }}</a>
+        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_sexo->s_nombre_identitario }}</a>
       </li>
       <li class="list-group-item">
         <b>TIPO DE POBLACION</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->poblacion->nombre }}</a>
+        <a class="float-right">{{ $todoxxxx['usuariox']->prmTipoPobla->nombre }}</a>
       </li>
     </ul>
   </div>

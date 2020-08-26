@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\Sistema;
+namespace App\Models\Sistema;
 
 use app\Models\Indicadores\InBaseFuente;
 use app\Models\Indicadores\InLineaBase;

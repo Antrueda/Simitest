@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisLocalupz;
-use App\Models\sistema\SisLocalupz;
+use App\Models\Sistema\Logs\HSisLocalupz;
+use App\Models\Sistema\SisLocalupz;
 
 class SisLocalupzObserver
 {
@@ -33,7 +33,7 @@ class SisLocalupzObserver
     /**
      * Handle the SisLocalupz "updated" event.
      *
-     * @param  \App\Models\sistema\SisLocalupz  $modeloxx
+     * @param  \App\Models\Sistema\SisLocalupz  $modeloxx
      * @return void
      */
     public function updated(SisLocalupz $modeloxx)
@@ -44,7 +44,7 @@ class SisLocalupzObserver
     /**
      * Handle the SisLocalupz "deleted" event.
      *
-     * @param  \App\Models\sistema\SisLocalupz  $modeloxx
+     * @param  \App\Models\Sistema\SisLocalupz  $modeloxx
      * @return void
      */
     public function deleted(SisLocalupz $modeloxx)
@@ -55,7 +55,7 @@ class SisLocalupzObserver
     /**
      * Handle the SisLocalupz "restored" event.
      *
-     * @param  \App\Models\sistema\SisLocalupz  $modeloxx
+     * @param  \App\Models\Sistema\SisLocalupz  $modeloxx
      * @return void
      */
     public function restored(SisLocalupz $modeloxx)
@@ -66,7 +66,7 @@ class SisLocalupzObserver
     /**
      * Handle the SisLocalupz "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisLocalupz  $modeloxx
+     * @param  \App\Models\Sistema\SisLocalupz  $modeloxx
      * @return void
      */
     public function forceDeleted(SisLocalupz $modeloxx)

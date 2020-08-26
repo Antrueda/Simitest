@@ -22,10 +22,13 @@ class AgActividadController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:agactividad-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:agactividad-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:agactividad-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:agactividad-borrar'], ['only' => ['index, show, destroy']]);
+        $this->opciones['permisox']='agactividad';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
         $this->opciones = [
             'tituloxx' => 'TALLERES Y ACCIONES FORMATIVAS',
             'rutaxxxx' => 'ag.acti.actividad',
@@ -251,7 +254,7 @@ class AgActividadController extends Controller
         //     switch($request->tablaxxx){
         //         case 1:
 
-        //         break; 
+        //         break;
         //     }
         //     return response()->json(FosTse::combo($dataxxxx['padrexxx'], false, true));
         // }

@@ -15,10 +15,7 @@ class FiSituacionEspecialController extends Controller
   private $opciones;
   public function __construct()
   {
-    $this->middleware(['permission:fisituacion-leer'], ['only' => ['show']]);
-    $this->middleware(['permission:fisituacion-crear'], ['only' => ['show, create, store']]);
-    $this->middleware(['permission:fisituacion-editar'], ['only' => ['show, edit, update']]);
-    $this->middleware(['permission:fisituacion-borrar'], ['only' => ['show, destroy']]);
+
     $this->opciones = [
       'tituloxx' => 'Situacion',
       'rutaxxxx' => 'FichaIngreso',
@@ -33,6 +30,13 @@ class FiSituacionEspecialController extends Controller
       'modeloxx' => '',
       'nuevoxxx' => 'o Registro'
     ];
+
+
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
     $this->opciones['viescnna'] = [];
 
     $this->opciones['situavul'] = Tema::combo(89, false, false);
@@ -51,10 +55,10 @@ class FiSituacionEspecialController extends Controller
     if ($nombobje != '') {
       $this->opciones[$nombobje] = $objetoxx;
       $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-    
+
       $this->opciones['viescnna'] =$this->data(['padrexxx'=>$objetoxx->i_prm_tipo_id], false, false)['escnnaxx'];
     }
-  
+
 
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
@@ -149,17 +153,17 @@ class FiSituacionEspecialController extends Controller
     ];
   }
   public function getEscnna(Request $request)
-  { 
+  {
     if ($request->ajax()) {
       $dataxxxx = $this->data($request->all(), false, true);
       $comboxxx = [];
       foreach ($dataxxxx['escnnaxx'] as $escnnaxx) {
         $selected = '';
         if ($request->all()['selected'] != '') {
-          
+
           foreach ($request->all()['selected'] as $pselecte) {
-           
-            if ($escnnaxx['valuexxx'] == $pselecte) {   
+
+            if ($escnnaxx['valuexxx'] == $pselecte) {
               $selected = 'selected';
             }
           }

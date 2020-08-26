@@ -31,10 +31,12 @@ class AreaController extends Controller
             'pestania' => []
         ];
 
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer|'
-         . $this->opciones['permisox'] . '-crear|'
-         . $this->opciones['permisox'] . '-editar|'
-          .$this->opciones['permisox'] . '-borrar']);
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar'
+            ]);
 
         $this->opciones['readonly'] = '';
         $this->opciones['rutaxxxx'] = 'area';
@@ -57,7 +59,7 @@ class AreaController extends Controller
      */
     public function index()
     {
-        $this->opciones['pestania'] =$this->getAreas(['tablaxxx'=>$this->opciones['slotxxxx'],'routxxxx'=>$this->opciones['routxxxx']]);
+        $this->opciones['pestania'] = $this->getAreas(['tablaxxx' => $this->opciones['slotxxxx'], 'routxxxx' => $this->opciones['routxxxx']]);
         $padrexxx = '';
         $this->opciones['accionxx'] = 'index';
         $this->opciones['padrexxx'] = $padrexxx;
@@ -71,8 +73,8 @@ class AreaController extends Controller
                     ['campoxxx' => 'medicame', 'dataxxxx' => $padrexxx],
                     ['campoxxx' => 'puededit', 'dataxxxx' => auth()->user()->can('area-editar') ? true : false],
                     ['campoxxx' => 'puedasig', 'dataxxxx' => auth()->user()->can('indicador-crear') ? true : false],
-                    
-                
+
+
                 ],
                 'vercrear' => true,
                 'accitabl' => true,
@@ -95,11 +97,11 @@ class AreaController extends Controller
             ],
 
         ];
-       return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
-        $this->opciones['pestania'] =$this->getAreas(['tablaxxx'=>$this->opciones['slotxxxx'],'routxxxx'=>$this->opciones['routxxxx']]);
+        $this->opciones['pestania'] = $this->getAreas(['tablaxxx' => $this->opciones['slotxxxx'], 'routxxxx' => $this->opciones['routxxxx']]);
 
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $accionxx;
@@ -175,9 +177,9 @@ class AreaController extends Controller
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 
-            $this->opciones['botoform'][] =
+        $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [ 'in.indicador', [$objetoxx->id]],
+                'mostrars' => true, 'accionxx' => '', 'routingx' => ['in.indicador', [$objetoxx->id]],
                 'formhref' => 2, 'tituloxx' => 'ASIGNAR INDICADOR', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 

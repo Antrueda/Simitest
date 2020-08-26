@@ -13,10 +13,14 @@ use Illuminate\Support\Carbon;
 class CsdController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:csddatobasico-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:csddatobasico-crear'], ['only' => ['index, show']]);
-        $this->middleware(['permission:csddatobasico-editar'], ['only' => ['index, show']]);
-        $this->middleware(['permission:csddatobasico-borrar'], ['only' => ['index, show']]);
+
+        $this->opciones['permisox']='csddatobasico';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
     }
 
     public function index(Request $request){

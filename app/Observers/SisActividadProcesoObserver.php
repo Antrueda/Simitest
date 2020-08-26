@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisActividadProceso;
-use App\Models\sistema\SisActividadProceso;
+use App\Models\Sistema\Logs\HSisActividadProceso;
+use App\Models\Sistema\SisActividadProceso;
 
 class SisActividadProcesoObserver
 {
@@ -34,7 +34,7 @@ class SisActividadProcesoObserver
     /**
      * Handle the SisActividadProceso "updated" event.
      *
-     * @param  \App\Models\sistema\SisActividadProceso  $modeloxx
+     * @param  \App\Models\Sistema\SisActividadProceso  $modeloxx
      * @return void
      */
     public function updated(SisActividadProceso $modeloxx)

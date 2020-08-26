@@ -1,14 +1,15 @@
 <?php
 
-namespace app\Models\fichaIngreso;
+namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
-use app\Models\Parametro;
-use app\Models\sicosocial\NnajNfamili;
-use app\Models\Sistema\SisDocfuen;
+use App\Models\fichaIngreso\NnajNacimi;
+use App\Models\Parametro;
+use App\Models\sicosocial\NnajNfamili;
+use App\Models\Sistema\SisDocfuen;
 use Carbon\Carbon;
 
-use app\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisNnaj;
 use app\Models\User;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
@@ -44,7 +45,17 @@ class FiDatosBasico extends Model
     }
     public function nnaj_docu()
     {
-        return $this->belongsTo(NnajDocu::class);
+        return $this->hasOne(NnajDocu::class);
+    }
+
+    public function nnaj_sexo()
+    {
+        return $this->hasOne(NnajSexo::class);
+    }
+
+    public function nnaj_nacimi()
+    {
+        return $this->hasOne(NnajNacimi::class);
     }
     public function sis_nnaj()
     {

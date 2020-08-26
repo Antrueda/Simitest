@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisCargo;
-use App\Models\sistema\SisCargo;
+use App\Models\Sistema\Logs\HSisCargo;
+use App\Models\Sistema\SisCargo;
 
 class SisCargoObserver
 {
@@ -35,7 +35,7 @@ class SisCargoObserver
     /**
      * Handle the SisCargo "updated" event.
      *
-     * @param  \App\Models\sistema\SisCargo  $modeloxx
+     * @param  \App\Models\Sistema\SisCargo  $modeloxx
      * @return void
      */
     public function updated(SisCargo $modeloxx)
@@ -46,7 +46,7 @@ class SisCargoObserver
     /**
      * Handle the SisCargo "deleted" event.
      *
-     * @param  \App\Models\sistema\SisCargo  $modeloxx
+     * @param  \App\Models\Sistema\SisCargo  $modeloxx
      * @return void
      */
     public function deleted(SisCargo $modeloxx)
@@ -57,7 +57,7 @@ class SisCargoObserver
     /**
      * Handle the SisCargo "restored" event.
      *
-     * @param  \App\Models\sistema\SisCargo  $modeloxx
+     * @param  \App\Models\Sistema\SisCargo  $modeloxx
      * @return void
      */
     public function restored(SisCargo $modeloxx)
@@ -68,7 +68,7 @@ class SisCargoObserver
     /**
      * Handle the SisCargo "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisCargo  $modeloxx
+     * @param  \App\Models\Sistema\SisCargo  $modeloxx
      * @return void
      */
     public function forceDeleted(SisCargo $modeloxx)

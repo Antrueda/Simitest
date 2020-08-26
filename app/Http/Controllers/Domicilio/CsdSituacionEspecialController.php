@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Validator;
 class CsdSituacionEspecialController extends Controller{
 
     public function __construct(){
-        $this->middleware(['permission:csdsituacionespecial-crear'], ['only' => ['show, store']]);
-        $this->middleware(['permission:csdsituacionespecial-editar'], ['only' => ['show, update']]);
+
+        $this->opciones['permisox']='csdsituacionespecial';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar'
+          ]);
     }
 
     public function show($id){

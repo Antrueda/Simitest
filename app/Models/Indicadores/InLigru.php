@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Models\Indicadores;
+namespace App\Models\Indicadores;
 
-use app\Models\Sistema\SisEsta;
+use App\Models\Sistema\SisEsta;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

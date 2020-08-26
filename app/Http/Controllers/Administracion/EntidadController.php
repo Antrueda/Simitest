@@ -11,10 +11,15 @@ use Illuminate\Support\Facades\Validator;
 class EntidadController extends Controller{
 
   public function __construct(){
-        $this->middleware(['permission:entidad-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:entidad-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:entidad-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:entidad-borrar'], ['only' => ['index, show, destroy']]);
+
+    $this->opciones['permisox']='entidad';
+    $this->middleware(['permission:'
+        . $this->opciones['permisox'] . '-leer|'
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar|'
+        . $this->opciones['permisox'] . '-borrar']);
+
+
     }
 
     public function index(Request $request){

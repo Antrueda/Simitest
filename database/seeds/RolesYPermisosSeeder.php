@@ -431,7 +431,7 @@ class RolesYPermisosSeeder extends Seeder
         /** Modulo Administración */
         $this->getPermisos(['permisox' => 'administracion', 'permisos' => ['modulo'], 'compleme' => 'Modulo de Administración','pestania'=>1]);
 
-        /** Módulo Indicadores */
+        /** Módulo Indicadores*/
         $this->getPermisos(['permisox' => 'indicadores', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Indicadores resultados','pestania'=>1]);
 
         // crear ficha de epss

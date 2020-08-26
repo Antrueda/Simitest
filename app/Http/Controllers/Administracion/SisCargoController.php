@@ -14,10 +14,7 @@ class SisCargoController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:siscargo-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:siscargo-crear'], ['only' => ['index, show, create, store', 'updateParametro']]);
-        $this->middleware(['permission:siscargo-editar'], ['only' => ['index, show, edit, update', 'updateParametro']]);
-        $this->middleware(['permission:siscargo-borrar'], ['only' => ['index, show, destroy, destroyParametro']]);
+
         $this->opciones = [
             'tituloxx' => 'Cargos',
             'rutaxxxx' => 'sis.cargo',
@@ -39,6 +36,13 @@ class SisCargoController extends Controller
             'usercrea' => '',
             'useredit' => '',
         ];
+
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'CARGO'],

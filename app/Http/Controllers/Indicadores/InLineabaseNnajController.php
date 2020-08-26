@@ -11,15 +11,18 @@ class InLineabaseNnajController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:inacciongestion-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:inacciongestion-crear'], ['only' => ['index, show, create, store', 'updateParametro']]);
-        $this->middleware(['permission:inacciongestion-editar'], ['only' => ['index, show, edit, update', 'updateParametro']]);
-        $this->middleware(['permission:inacciongestion-borrar'], ['only' => ['index, show, destroy, destroyParametro']]);
-        $this->opciones = [      
+
+        $this->opciones = [
             'permisox' => 'inacciongestion',
             'parametr' => [],
         ];
-        
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
     }
     /**
      * Display a listing of the resource.
@@ -35,7 +38,7 @@ class InLineabaseNnajController extends Controller
                 $nombresx->s_segundo_nombre . ' ' .
                 $nombresx->s_primer_apellido . ' ' .
                 $nombresx->s_segundo_apellido,
-           
+
             'Listado de Lineas base'
         ];
         $this->opciones['dataxxxx'] = [['campoxxx' => 'nnajxxxx', 'dataxxxx' => $nnajxxxx]];
@@ -53,5 +56,5 @@ class InLineabaseNnajController extends Controller
         ];
         return view('Indicadores.Admin.Acciongestion.bases', ['todoxxxx' => $this->opciones]);
     }
-    
+
 }

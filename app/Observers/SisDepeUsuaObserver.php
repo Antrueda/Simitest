@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisDepeUsua;
-use App\Models\sistema\SisDepeUsua;
+use App\Models\Sistema\Logs\HSisDepeUsua;
+use App\Models\Sistema\SisDepeUsua;
 
 class SisDepeUsuaObserver
 {
@@ -34,7 +34,7 @@ class SisDepeUsuaObserver
     /**
      * Handle the SisDepeUsua "updated" event.
      *
-     * @param  \App\Models\sistema\SisDepeUsua  $modeloxx
+     * @param  \App\Models\Sistema\SisDepeUsua  $modeloxx
      * @return void
      */
     public function updated(SisDepeUsua $modeloxx)
@@ -45,7 +45,7 @@ class SisDepeUsuaObserver
     /**
      * Handle the SisDepeUsua "deleted" event.
      *
-     * @param  \App\Models\sistema\SisDepeUsua  $modeloxx
+     * @param  \App\Models\Sistema\SisDepeUsua  $modeloxx
      * @return void
      */
     public function deleted(SisDepeUsua $modeloxx)
@@ -56,7 +56,7 @@ class SisDepeUsuaObserver
     /**
      * Handle the SisDepeUsua "restored" event.
      *
-     * @param  \App\Models\sistema\SisDepeUsua  $modeloxx
+     * @param  \App\Models\Sistema\SisDepeUsua  $modeloxx
      * @return void
      */
     public function restored(SisDepeUsua $modeloxx)
@@ -67,7 +67,7 @@ class SisDepeUsuaObserver
     /**
      * Handle the SisDepeUsua "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisDepeUsua  $modeloxx
+     * @param  \App\Models\Sistema\SisDepeUsua  $modeloxx
      * @return void
      */
     public function forceDeleted(SisDepeUsua $modeloxx)

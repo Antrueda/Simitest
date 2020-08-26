@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\consulta\pivotes\Logs;
+namespace App\Models\consulta\pivotes\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 

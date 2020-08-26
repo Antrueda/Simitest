@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sistema\Logs\HSisLocalidad;
-use App\Models\sistema\SisLocalidad;
+use App\Models\Sistema\Logs\HSisLocalidad;
+use App\Models\Sistema\SisLocalidad;
 
 class SisLocalidadObserver
 {
@@ -32,7 +32,7 @@ class SisLocalidadObserver
     /**
      * Handle the SisLocalidad "updated" event.
      *
-     * @param  \App\Models\sistema\SisLocalidad  $modeloxx
+     * @param  \App\Models\Sistema\SisLocalidad  $modeloxx
      * @return void
      */
     public function updated(SisLocalidad $modeloxx)
@@ -43,7 +43,7 @@ class SisLocalidadObserver
     /**
      * Handle the SisLocalidad "deleted" event.
      *
-     * @param  \App\Models\sistema\SisLocalidad  $modeloxx
+     * @param  \App\Models\Sistema\SisLocalidad  $modeloxx
      * @return void
      */
     public function deleted(SisLocalidad $modeloxx)
@@ -54,7 +54,7 @@ class SisLocalidadObserver
     /**
      * Handle the SisLocalidad "restored" event.
      *
-     * @param  \App\Models\sistema\SisLocalidad  $modeloxx
+     * @param  \App\Models\Sistema\SisLocalidad  $modeloxx
      * @return void
      */
     public function restored(SisLocalidad $modeloxx)
@@ -65,7 +65,7 @@ class SisLocalidadObserver
     /**
      * Handle the SisLocalidad "force deleted" event.
      *
-     * @param  \App\Models\sistema\SisLocalidad  $modeloxx
+     * @param  \App\Models\Sistema\SisLocalidad  $modeloxx
      * @return void
      */
     public function forceDeleted(SisLocalidad $modeloxx)

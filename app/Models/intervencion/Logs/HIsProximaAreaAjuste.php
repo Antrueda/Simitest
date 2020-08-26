@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\intervencion\Logs;
+namespace App\Models\intervencion\Logs;
 use Illuminate\Database\Eloquent\Model;
 
 class HIsProximaAreaAjuste extends Model

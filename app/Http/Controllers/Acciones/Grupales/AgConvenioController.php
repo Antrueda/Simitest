@@ -14,10 +14,12 @@ class AgConvenioController extends Controller
     private $opciones;
     public function __construct()
     {
-        $this->middleware(['permission:agconvenio-leer'], ['only' => ['index, show']]);
-        $this->middleware(['permission:agconvenio-crear'], ['only' => ['index, show, create, store']]);
-        $this->middleware(['permission:agconvenio-editar'], ['only' => ['index, show, edit, update']]);
-        $this->middleware(['permission:agconvenio-borrar'], ['only' => ['index, show, destroy']]);
+        $this->opciones['permisox']='agconvenio';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones = [
             'tituloxx' => 'Convenio',
             'rutaxxxx' => 'ag.conv.convenio',

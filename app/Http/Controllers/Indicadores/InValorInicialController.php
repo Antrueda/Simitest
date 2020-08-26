@@ -33,7 +33,8 @@ class InValorInicialController extends Controller
             'esindexx' => false,
             'pestania' => []
         ];
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer|'
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
@@ -48,11 +49,10 @@ class InValorInicialController extends Controller
                 'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJS', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
             [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'.nnajbases', []],
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nnajbases', []],
                 'formhref' => 2, 'tituloxx' => 'VOLVER LÍNEAS BASE', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
-        
     }
 
 
@@ -110,13 +110,13 @@ class InValorInicialController extends Controller
     public function bases($padrexxx)
     {
 
-        $sis_nnaj=FiDatosBasico::where('sis_nnaj_id',$padrexxx)->first();
-        $this->opciones['cardheap'] = 'NNAJ: ' .$sis_nnaj->s_primer_nombre.' '.
-        $sis_nnaj->s_segundo_nombre.' '.
-        $sis_nnaj->s_primer_apellido.' '.
-        $sis_nnaj->s_segundo_apellido;
-        $this->opciones['slotxxxx']='linebase';
-        $this->opciones['pestania'] = $this->getAreas(['tablaxxx' =>$this->opciones['slotxxxx'], 'routxxxx' => $this->opciones['routxxxx']]);
+        $sis_nnaj = FiDatosBasico::where('sis_nnaj_id', $padrexxx)->first();
+        $this->opciones['cardheap'] = 'NNAJ: ' . $sis_nnaj->s_primer_nombre . ' ' .
+            $sis_nnaj->s_segundo_nombre . ' ' .
+            $sis_nnaj->s_primer_apellido . ' ' .
+            $sis_nnaj->s_segundo_apellido;
+        $this->opciones['slotxxxx'] = 'linebase';
+        $this->opciones['pestania'] = $this->getAreas(['tablaxxx' => $this->opciones['slotxxxx'], 'routxxxx' => $this->opciones['routxxxx']]);
         $this->opciones['accionxx'] = 'index';
         $this->opciones['tablasxx'] = [
             [
@@ -127,9 +127,9 @@ class InValorInicialController extends Controller
                     ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components.botones.estadosx'],
                     ['campoxxx' => 'puededit', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-editar') ? true : false],
                     ['campoxxx' => 'padrexxx', 'dataxxxx' => $padrexxx],
-                    ['campoxxx' => 'puedasig', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-crear') ? 
-                    (isset(InAccionGestion::where('in_lineabase_nnaj_id',$padrexxx)->first()->id)?true:false): 
-                    false],
+                    ['campoxxx' => 'puedasig', 'dataxxxx' => auth()->user()->can($this->opciones['permisox'] . '-crear') ?
+                        (isset(InAccionGestion::where('in_lineabase_nnaj_id', $padrexxx)->first()->id) ? true : false) :
+                        false],
                 ],
                 'vercrear' => false,
                 'accitabl' => true,
@@ -156,11 +156,11 @@ class InValorInicialController extends Controller
     }
     private function view($dataxxxx)
     {
-        $sis_nnaj=$dataxxxx['objetoxx']->sis_nnaj->FiDatosBasico[0];
-        $this->opciones['cardheap'] = 'NNAJ: ' .$sis_nnaj->s_primer_nombre.' '.
-        $sis_nnaj->s_segundo_nombre.' '.
-        $sis_nnaj->s_primer_apellido.' '.
-        $sis_nnaj->s_segundo_apellido;
+        $sis_nnaj = $dataxxxx['objetoxx']->sis_nnaj->FiDatosBasico[0];
+        $this->opciones['cardheap'] = 'NNAJ: ' . $sis_nnaj->s_primer_nombre . ' ' .
+            $sis_nnaj->s_segundo_nombre . ' ' .
+            $sis_nnaj->s_primer_apellido . ' ' .
+            $sis_nnaj->s_segundo_apellido;
         $this->opciones['categori'] = Tema::combo(295, true, false);
         $this->opciones['parametr'] = [$dataxxxx['objetoxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
@@ -175,7 +175,7 @@ class InValorInicialController extends Controller
          * se crea la funcionalidad de las pestañas para la asignacion de la valoración inicial del nnaj
          * cuando se esta en el  editar o ver
          */
-        $this->opciones['slotxxxx']='valoinic';
+        $this->opciones['slotxxxx'] = 'valoinic';
         $this->opciones['pestania'] = $this->getAreas([
             'tablaxxx' => $this->opciones['slotxxxx'],
             'padrexxx' => $dataxxxx['objetoxx'],
@@ -183,7 +183,7 @@ class InValorInicialController extends Controller
         ]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-   
+
 
     /**
      * Show the form for editing the specified resource.
@@ -200,7 +200,7 @@ class InValorInicialController extends Controller
             ];
 
 
-        return $this->view(['objetoxx'=>$objetoxx,'accionxx'=>'Editar']);
+        return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Editar']);
     }
 
     private function grabar($dataxxxx, $objectx, $infoxxxx)
@@ -213,7 +213,7 @@ class InValorInicialController extends Controller
 
     public function show(InLineabaseNnaj $objetoxx)
     {
-        return $this->view(['objetoxx'=>$objetoxx,'accionxx'=>'Ver']);
+        return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Ver']);
     }
     /**
      * Update the specified resource in storage.
@@ -228,7 +228,7 @@ class InValorInicialController extends Controller
         return $this->grabar($dataxxxx, $objetoxx, 'VALORACION INICIAL ASIGNADA CON EXITO!!');
     }
 
-  
+
 
     private function getNivel($dataxxxx)
     {

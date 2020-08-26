@@ -25,18 +25,20 @@ class FosSubTipoSeguimientoController extends Controller
             'tituloxx' => 'Sub Tipo Seguimiento',
         ];
 
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-leer'], ['only' => ['index', 'show']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-crear'], ['only' => ['index', 'show', 'create', 'store', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-editar'], ['only' => ['index', 'show', 'edit', 'update', 'view', 'grabar']]);
-        $this->middleware(['permission:' . $this->opciones['permisox'] . '-borrar'], ['only' => ['index', 'show', 'destroy']]);
 
+
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['readonly'] = '';
         $this->opciones['rutaxxxx'] = 'fossubtipo';
         $this->opciones['routnuev'] = 'fossubtipo';
         $this->opciones['routxxxx'] = 'fossubtipo';
 
         $this->opciones['botoform'] = [
-            ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []], 
+            ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
             'formhref' => 2, 'tituloxx' => 'Volver a Sub Tipo Seguimiento', 'clasexxx' => 'btn btn-sm btn-primary'],
         ];
     }
@@ -60,7 +62,7 @@ class FosSubTipoSeguimientoController extends Controller
             ['td' => 'ID'],
             ['td' => 'NOMBRE'],
             ['td' => 'TIPO SEGUIMIENTO'],
-            ['td' => 'ÁREA'],            
+            ['td' => 'ÁREA'],
             ['td' => 'ESTADO'],
         ];
         $this->opciones['columnsx'] = [
@@ -82,7 +84,7 @@ class FosSubTipoSeguimientoController extends Controller
         // indica si se esta actualizando o viendo
         $this->opciones['nivelxxx'] = '';
         $this->opciones['tiposegu'] = [];
-        if ($nombobje != '') { 
+        if ($nombobje != '') {
             $objetoxx->area_id=$objetoxx->fos_tse->area_id;
             $this->opciones['tiposegu'] =FosTse::combo($objetoxx->area_id, true, false);
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
@@ -207,7 +209,7 @@ class FosSubTipoSeguimientoController extends Controller
     {
         if ($request->ajax()) {
             $dataxxxx = $request->all();
-         
+
             return response()->json(FosTse::combo($dataxxxx['padrexxx'], false, true));
         }
     }

@@ -14,8 +14,13 @@ use App\Models\Tema;
 class CsdAlimentacionController extends Controller{
 
   public function __construct(){
-    $this->middleware(['permission:csdalimentacion-crear'], ['only' => ['show, store']]);
-    $this->middleware(['permission:csdalimentacion-editar'], ['only' => ['show, update']]);
+
+    $this->opciones['permisox']='csdalimentacion';
+    $this->middleware(['permission:'
+
+        . $this->opciones['permisox'] . '-crear|'
+        . $this->opciones['permisox'] . '-editar'
+       ]);
   }
 
   public function show($id){
