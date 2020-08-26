@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,6 +20,7 @@ class CreateSisActividadSisDocumentoFuenteTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('sis_actividad_id')->unsigned();
             $table->bigInteger('sis_docfuen_id')->unsigned();
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LAS ACTIVIDADES Y LOS FORMATOS REGISTRADOS EN EL SISTEMA'");
     }
