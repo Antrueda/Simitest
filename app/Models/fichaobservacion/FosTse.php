@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FosTse extends Model
 {
     protected $fillable = [
-        'area_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id'
+        'area_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id',
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
@@ -17,6 +17,9 @@ class FosTse extends Model
     {
         return $this->belongsTo(Area::class);
     }
+
+
+
 
     /**
      * Store a newly created resource in storage.

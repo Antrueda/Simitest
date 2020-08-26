@@ -19,7 +19,7 @@ class CreateHsisActividadSisDocumentoFuenteTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_actividad_id')->unsigned();
-            $table->bigInteger('sis_documento_fuente_id')->unsigned();
+            $table->bigInteger('sis_docfuen_id')->unsigned();
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

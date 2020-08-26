@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class VsiEstemoAdecuado extends Model
 {
     public $timestamps = false;
-    
+
     protected $table = 'vsi_estemo_adecuado';
 
     protected $fillable = [
@@ -15,6 +15,7 @@ class VsiEstemoAdecuado extends Model
         'vsi_estemocional_id',
         'user_crea_id',
         'user_edita_id',
+        'sis_esta_id',
     ];
 
     protected $attributes = [

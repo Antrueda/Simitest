@@ -14,15 +14,28 @@ class CamposMagicos
     }
 
     /**
-     *  
-     * Crea la relacion entre tablas recibiendo el nombre de las tablas y del campo
      *
-     * @return void
+     * Crea la relacion entre tablas recibiendo el nombre de las tablas y del campo sin nulo
+     *
+     * @return $table
      */
     public static function getForeign($table, $campoxxx, $tablaxxx = false)
     {
         $c=CamposMagicos::armarCampo($tablaxxx,$campoxxx);
         $table->bigInteger($c[1])->unsigned();
+        $table->foreign($c[1])->references('id')->on($c[0]);
+        return $table;
+    }
+    /**
+     *
+     * Crea la relacion entre tablas recibiendo el nombre de las tablas y del campo con nulo
+     *
+     * @return $table
+     */
+    public static function getForeignN($table, $campoxxx, $tablaxxx = false)
+    {
+        $c=CamposMagicos::armarCampo($tablaxxx,$campoxxx);
+        $table->bigInteger($c[1])->unsigned()->nulleable();
         $table->foreign($c[1])->references('id')->on($c[0]);
         return $table;
     }
@@ -41,7 +54,7 @@ class CamposMagicos
     }
 
     /**
-     *  
+     *
      * Definición de los campos por defecto estaran en las tablas H y tendrán  la trazabilidad de los registros
      *
      * @return void

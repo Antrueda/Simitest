@@ -20,7 +20,7 @@ class CreateHSisDepenSisEslugTable extends Migration
             $table->bigIncrements('id');
             $table->integer('sis_eslug_id');
             $table->integer('sis_depen_id');
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

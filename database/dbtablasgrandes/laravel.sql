@@ -7047,7 +7047,7 @@ DROP TABLE IF EXISTS `sis_actividads`;
 CREATE TABLE IF NOT EXISTS `sis_actividads` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `sis_documento_fuente_id` bigint(20) UNSIGNED NOT NULL,
+  `sis_docfuen_id` bigint(20) UNSIGNED NOT NULL,
   `user_crea_id` bigint(20) UNSIGNED NOT NULL,
   `user_edita_id` bigint(20) UNSIGNED NOT NULL,
   `activo` tinyint(1) NOT NULL DEFAULT '1',
@@ -7057,14 +7057,14 @@ CREATE TABLE IF NOT EXISTS `sis_actividads` (
   UNIQUE KEY `sis_actividads_nombre_unique` (`nombre`),
   KEY `sis_actividads_user_crea_id_foreign` (`user_crea_id`),
   KEY `sis_actividads_user_edita_id_foreign` (`user_edita_id`),
-  KEY `sis_actividads_sis_documento_fuente_id_foreign` (`sis_documento_fuente_id`)
+  KEY `sis_actividads_sis_docfuen_id_foreign` (`sis_docfuen_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `sis_actividads`
 --
 
-INSERT INTO `sis_actividads` (`id`, `nombre`, `sis_documento_fuente_id`, `user_crea_id`, `user_edita_id`, `activo`, `created_at`, `updated_at`) VALUES
+INSERT INTO `sis_actividads` (`id`, `nombre`, `sis_docfuen_id`, `user_crea_id`, `user_edita_id`, `activo`, `created_at`, `updated_at`) VALUES
 (1, 'CREAR USUARIOS EN EL SISTEMA', 1, 1, 1, 1, '2019-10-18 17:06:41', '2019-10-18 17:06:41'),
 (2, 'DATOS BASICOS', 2, 1, 1, 1, '2019-10-18 17:06:41', '2019-10-18 17:06:41'),
 (3, 'VSI - DATOS BASICOS', 3, 1, 1, 1, '2019-10-18 17:06:41', '2019-10-18 17:06:41');
@@ -19576,7 +19576,7 @@ ALTER TABLE `role_has_permissions`
 -- Filtros para la tabla `sis_actividads`
 --
 ALTER TABLE `sis_actividads`
-  ADD CONSTRAINT `sis_actividads_sis_documento_fuente_id_foreign` FOREIGN KEY (`sis_documento_fuente_id`) REFERENCES `sis_documento_fuentes` (`id`),
+  ADD CONSTRAINT `sis_actividads_sis_docfuen_id_foreign` FOREIGN KEY (`sis_docfuen_id`) REFERENCES `sis_documento_fuentes` (`id`),
   ADD CONSTRAINT `sis_actividads_user_crea_id_foreign` FOREIGN KEY (`user_crea_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `sis_actividads_user_edita_id_foreign` FOREIGN KEY (`user_edita_id`) REFERENCES `users` (`id`);
 

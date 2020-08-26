@@ -15,7 +15,7 @@ class SisTablaObserver
         // campos nuevos traidos desde $fillable -> modelo 
         $log['s_tabla'] = $modeloxx->s_tabla;
         $log['s_descripcion'] = $modeloxx->s_descripcion;
-        $log['sis_documento_fuente_id'] = $modeloxx->sis_documento_fuente_id;
+        $log['sis_docfuen_id'] = $modeloxx->sis_docfuen_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

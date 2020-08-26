@@ -13,6 +13,7 @@ class VsiRelSolFacilita extends Model
         'vsi_relsocial_id',
         'user_crea_id',
         'user_edita_id',
+        'sis_esta_id',
     ];
 
     protected $attributes = [

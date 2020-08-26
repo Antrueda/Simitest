@@ -8,7 +8,7 @@ class VsiActemoFisiologica extends Model
 {
     //parametro_vsi_actemocional
     public $timestamps = false;
-    
+
     protected $table = 'vsi_actemo_fisiologica';
 
     protected $fillable = [
@@ -16,6 +16,7 @@ class VsiActemoFisiologica extends Model
         'vsi_actemocional_id',
         'user_crea_id',
         'user_edita_id',
+        'sis_esta_id',
     ];
 
     protected $attributes = [

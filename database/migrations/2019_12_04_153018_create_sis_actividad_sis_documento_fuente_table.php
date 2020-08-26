@@ -18,7 +18,7 @@ class CreateSisActividadSisDocumentoFuenteTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_actividad_id')->unsigned();
-            $table->bigInteger('sis_documento_fuente_id')->unsigned();
+            $table->bigInteger('sis_docfuen_id')->unsigned();
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LAS ACTIVIDADES Y LOS FORMATOS REGISTRADOS EN EL SISTEMA'");
     }

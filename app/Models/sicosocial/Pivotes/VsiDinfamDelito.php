@@ -13,6 +13,7 @@ class VsiDinfamDelito extends Model
         'vsi_dinfamiliar_id',
         'user_crea_id',
         'user_edita_id',
+        'sis_esta_id',
     ];
 
     protected $attributes = [

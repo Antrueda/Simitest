@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class VsiGeningDia extends Model
 {
     public $timestamps = false;
-    
+
     protected $table = 'vsi_gening_dias';
 
     protected $fillable = [
@@ -15,6 +15,7 @@ class VsiGeningDia extends Model
         'vsi_geningreso_id',
         'user_crea_id',
         'user_edita_id',
+        'sis_esta_id',
     ];
 
     protected $attributes = [

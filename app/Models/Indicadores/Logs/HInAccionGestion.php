@@ -9,7 +9,7 @@ class HInAccionGestion extends Model
         'sis_actividad_id',
         'i_prm_ttiempo_id',
         'in_lineabase_nnaj_id',
-        'sis_documento_fuente_id',
+        'sis_docfuen_id',
         'user_crea_id',
         'user_edita_id',
         'i_tiempo',

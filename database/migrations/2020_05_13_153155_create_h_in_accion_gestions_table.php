@@ -22,7 +22,7 @@ class CreateHInAccionGestionsTable extends Migration
             $table->bigInteger('sis_actividad_id')->unsigned();
             $table->bigInteger('i_prm_ttiempo_id')->unsigned();
             $table->bigInteger('in_lineabase_nnaj_id')->unsigned();
-            $table->bigInteger('sis_documento_fuente_id')->unsigned(); //cambiar por in_linea_fuente en un futuro
+            $table->bigInteger('sis_docfuen_id')->unsigned(); //cambiar por in_linea_fuente en un futuro
             $table->integer('i_tiempo');
             $table->decimal('i_porcentaje', 5, 2);
             $table = CamposMagicos::h_magicos($table);
