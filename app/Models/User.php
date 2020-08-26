@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Models;
+namespace App\Models;
 
-use app\Models\Acciones\Grupales\AgResponsable;
-use app\Models\Indicadores\Area;
-use app\Models\Sistema\SisCargo;
-use app\Models\Sistema\SisDepen;
-use app\Models\Sistema\SisDepeUsua;
-use app\Models\Sistema\SisMunicipio;
+use App\Models\Acciones\Grupales\AgResponsable;
+use App\Models\Indicadores\Area;
+use App\Models\Sistema\SisCargo;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDepeUsua;
+use App\Models\Sistema\SisMunicipio;
 use App\post;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

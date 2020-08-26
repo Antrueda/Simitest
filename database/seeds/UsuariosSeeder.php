@@ -38,7 +38,7 @@ class UsuariosSeeder extends Seeder
     ]);
 
 
-    //  $super->assignRole('super-administrador');
+     $super->assignRole('super-administrador');
     $super = User::create([
       'name' => 'FERNANDO SANABRIA',
       's_primer_nombre' => 'FERNANDO',
@@ -63,7 +63,7 @@ class UsuariosSeeder extends Seeder
       'sis_municipio_id' => 1,
     ]);
 
-    // $super->assignRole('super-administrador');
+    $super->assignRole('super-administrador');
 
     $super = User::create([
       'name' => 'YENNY ADREA CORZO CÁCERES',
@@ -88,7 +88,7 @@ class UsuariosSeeder extends Seeder
       'prm_documento_id' => 1,
       'sis_municipio_id' => 1,
     ]);
-    // $super->assignRole('PSICÓLOGO(A)');
+    $super->assignRole('PSICÓLOGO(A)');
 
     $super = User::create([
       'name' => 'SOL MARINA RODRIGUEZ MARIN',
@@ -113,7 +113,7 @@ class UsuariosSeeder extends Seeder
       'prm_documento_id' => 1,
       'sis_municipio_id' => 233,
     ]);
-    // $super->assignRole('aux_administrativo_territorio');
+    $super->assignRole('aux_administrativo_territorio');
     $super = User::create([
       'name' => 'LUZ FARYDE AYA CORRALES',
       's_primer_nombre' => 'LUZ',
@@ -137,6 +137,6 @@ class UsuariosSeeder extends Seeder
       'prm_documento_id' => 1,
       'sis_municipio_id' => 233,
     ]);
-    // $super->assignRole('aux_administrativo_territorio');
+    $super->assignRole('aux_administrativo_territorio');
   }
 }
