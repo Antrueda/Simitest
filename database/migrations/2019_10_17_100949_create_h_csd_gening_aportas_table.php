@@ -33,6 +33,7 @@ class CreateHCsdGeningAportasTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_geningreso_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);

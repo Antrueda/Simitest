@@ -14,7 +14,7 @@ class InDocIndiObserver
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo 
         $log['in_indicador_id'] = $modeloxx->in_indicador_id;
-        $log['sis_documento_fuente_id'] = $modeloxx->sis_documento_fuente_id;
+        $log['sis_docfuen_id'] = $modeloxx->sis_docfuen_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiDinfamDelito extends Model
 {
-    public $timestamps = false;
+
     protected $table = 'vsi_dinfam_delito';
 
     protected $fillable = [
@@ -13,6 +13,7 @@ class VsiDinfamDelito extends Model
         'vsi_dinfamiliar_id',
         'user_crea_id',
         'user_edita_id',
+        'sis_esta_id',
     ];
 
     protected $attributes = [

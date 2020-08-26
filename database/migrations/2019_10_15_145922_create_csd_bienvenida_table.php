@@ -30,6 +30,7 @@ class CreateCsdBienvenidaTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA CONSULTA SOCIAL EN DOMICILIO DE UNA PERSONA ENTREVISTADA, DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_bienvenida_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');

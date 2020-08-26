@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiEduDiftipoB extends Model
 {
-    public $timestamps = false;
-    
+
+
     protected $table = 'vsi_edu_diftipo_b';
 
     protected $fillable = [
@@ -15,6 +15,7 @@ class VsiEduDiftipoB extends Model
         'vsi_educacion_id',
         'user_crea_id',
         'user_edita_id',
+        'sis_esta_id',
     ];
 
     protected $attributes = [

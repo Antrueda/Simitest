@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -40,11 +41,6 @@ class CreateVsiGenIngresosTable extends Migration
             $table->Integer('cuanto_aporta')->unsigned()->nullable();
             $table->string('expectativa', 4000)->nullable();
             $table->string('descripcion', 4000)->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
 
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_actividad_id')->references('id')->on('parametros');
@@ -57,41 +53,41 @@ class CreateVsiGenIngresosTable extends Migration
             $table->foreign('prm_frecuencia_id')->references('id')->on('parametros');
             $table->foreign('prm_laboral_id')->references('id')->on('parametros');
             $table->foreign('prm_aporta_id')->references('id')->on('parametros');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA GENERACION DE LOS INGRESOS DE LA PERSONA ENTREVISTADA, SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_geningreso_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_geningreso_id')->references('id')->on('vsi_gen_ingresos');
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DIAS EN QUE SON GENERADOS LOS INGRESOS DE LA PERSONA ENTREVISTADA, PREGUNTA 9.7 SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_geningreso_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_geningreso_id')->references('id')->on('vsi_gen_ingresos');
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA QUIEN GENERA LOS INGRESOS DE LA PERSONA ENTREVISTADA, PREGUNTA 9.13 SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_geningreso_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_geningreso_id')->references('id')->on('vsi_gen_ingresos');
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LA LABOR DESEMPEÑADA EN LA GENERACION DE LOS INGRESOS DE LA PERSONA ENTREVISTADA, PREGUNTA 9.14 SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
     }

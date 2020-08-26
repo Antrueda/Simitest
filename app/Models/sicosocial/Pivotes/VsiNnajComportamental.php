@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiNnajComportamental extends Model
 {
-    public $timestamps = false;
-    
+
+
     protected $table = 'vsi_nnaj_comportamental';
 
     protected $fillable = [
@@ -15,6 +15,7 @@ class VsiNnajComportamental extends Model
         'vsi_id',
         'user_crea_id',
         'user_edita_id',
+        'sis_esta_id',
     ];
 
     protected $attributes = [

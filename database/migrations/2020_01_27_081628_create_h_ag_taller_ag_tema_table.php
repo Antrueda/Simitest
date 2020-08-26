@@ -20,7 +20,7 @@ class CreateHAgTallerAgTemaTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('ag_taller_id')->unsigned();
             $table->bigInteger('ag_tema_id')->unsigned();
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

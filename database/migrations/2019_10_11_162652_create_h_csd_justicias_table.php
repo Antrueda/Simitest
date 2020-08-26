@@ -30,6 +30,7 @@ class CreateHCsdJusticiasTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
@@ -50,6 +51,7 @@ class CreateHCsdJusticiasTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();

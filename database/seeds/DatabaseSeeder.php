@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SisCargosSeeder::class);
         $this->call(SisLocalidadsSeeder::class);
         $this->call(SisDocumentosFuentesSeeder::class);
-
         $this->call(SisMenusSeeder::class);
         $this->call(SisPestaniasSeeder::class);
         $this->call(RolesYPermisosSeeder::class);
@@ -36,7 +35,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SisEntidadsSeeder::class);
         $this->call(SisEntidadSaludsSeeder::class);
         $this->call(SisInstitucionEdusSeeder::class);
-
         $this->call(InIndicadorSeeder::class);
         $this->call(SisActividadsSeeder::class);
         $this->call(SisMapaProcsSeeder::class);
@@ -88,7 +86,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SisTitulosSeeder::class);
         $this->call(AgRecursosSeeder::class);
         $this->call(SisObsesSeeder::class);
-
         $this->call(CsdResidenciaSeeder::class);
         $this->call(CsdResideambienteSeeder::class);
 
@@ -105,45 +102,32 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiEducacionSeeder::class);  //24  ok
         $this->call(VsiRedSocialSeeder::class);  //52 ok
         $this->call(VsiRedsocAcesoSeeder::class);  //50 ok
-
         $this->call(VsiRedSocMotivoSeeder::class);  //53 ok
         $this->call(VsiRelFamiliarSeeder::class);  //57 ok
         $this->call(VsiRelfamAccionesSeeder::class);  //55 estan mal los id de vsi_relfamiliar_id
-        //56 estan mal los id de vsi_relfamiliar_id, vsi_relfamiliar tiene solo 331 se le estan
-        //asignando valores superiores que no cumplen con la integridad referencial
         $this->call(VsiEstEmocionalSeeder::class);
         $this->call(VsiRelfamDificultadSeeder::class);
         $this->call(VsiActEmocionalSeeder::class);
         $this->call(VsiActemoFisiologicaSeeder::class);
         $this->call(VsiRelfamMotivoSeeder::class);  //58 ok
         $this->call(VsiRelSocialesSeeder::class);  //59  ok
-        $this->call(VsiRelSolDificultaSeeder::class);  //60 ok
+        $this->call(VsiRelSolDificultaSeeder::class);  //aca
         $this->call(VsiRelSolFacilitaSeeder::class);  //61 ok
         $this->call(VsiViolenciaSeeder::class);  //66 ok
         $this->call(VsiVioContextoSeeder::class);  //65 ok
-
         $this->call(VsiVioTipoSeeder::class);  //67 ok
         $this->call(VsiEmocionVinculaSeeder::class);  //30 ok
         $this->call(VsiSitEspecialSeeder::class);
         $this->call(VsiSituacionVinculaSeeder::class);  //64
-
-
         $this->call(VsiEduCausaSeeder::class);  //25
-        $this->call(VsiEduDificultadSeeder::class);  //26
+        $this->call(VsiEduDificultadSeeder::class);  //aca
         $this->call(VsiEduFortalezaSeeder::class);  //29
         $this->call(VsiGenIngresoSeeder::class);
         $this->call(VsiGeningDiaSeeder::class);  //38
         $this->call(VsiGeningLaborSeeder::class);  //39
-        // $this->call(VsiGeningQuienSeeder::class);  //40
+        $this->call(VsiGeningQuienSeeder::class);  //40
         $this->call(VsiSitespRiesgoSeeder::class);  //62
         $this->call(VsiSitespVictimaSeeder::class);  //63
-
-
-
-
-
-
-
         $this->call(VsiAbuSexualSeeder::class);  //4  falta
         $this->call(VsiConceptoSeeder::class);  //8 falta
         $this->call(VsiConcepRedSeeder::class);  //7 falta
@@ -157,19 +141,15 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiDinfamLibertadSeeder::class);  //20 falta
         $this->call(VsiDinfamPadreSeeder::class);  //22 falta
         $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
-
-
         $this->call(VsiEduDiftipoASeeder::class);  //27 falta
         $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
-
         $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta
         $this->call(VsiEstemoDificultaSeeder::class);  //32 falta
-        //$this->call(VsiEstemoEstresanteSeeder::class);  //33 falta
+        $this->call(VsiEstemoEstresanteSeeder::class);  //33 falta
         $this->call(VsiEstemoLesivaSeeder::class);  //34 falta
         $this->call(VsiEstemoMotivoSeeder::class);  //35 falta
         $this->call(VsiFacProtectorSeeder::class);  //36 falta
         $this->call(VsiFacRiesgoSeeder::class);  //37 falta
-
         $this->call(VsiMetaSeeder::class);  //41 falta
         $this->call(VsiNnajAcademicaSeeder::class);  //42 falta
         $this->call(VsiNnajComportamentalSeeder::class);  //43 falta
@@ -180,8 +160,6 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiPotencialidadSeeder::class);  //49 falta
         $this->call(VsiRedsocActualSeeder::class);  //51 falta
         $this->call(VsiRedsocPasadoSeeder::class);  //54 falta
-
-
         $this->call(VsiSaludSeeder::class);
         $this->call(SisDiaFestivosSeeder::class);
 

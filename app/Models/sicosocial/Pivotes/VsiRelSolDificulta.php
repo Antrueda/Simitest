@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiRelSolDificulta extends Model
 {
-    public $timestamps = false;
+
     protected $table = 'vsi_relsol_dificulta';
 
     protected $fillable = [
@@ -13,6 +13,7 @@ class VsiRelSolDificulta extends Model
         'vsi_relsocial_id',
         'user_crea_id',
         'user_edita_id',
+        'sis_esta_id',
     ];
 
     protected $attributes = [

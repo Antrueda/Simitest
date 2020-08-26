@@ -16,7 +16,7 @@ class InAccionGestionObserver
         $log['sis_actividad_id'] = $modeloxx->sis_actividad_id;
         $log['i_prm_ttiempo_id'] = $modeloxx->i_prm_ttiempo_id;
         $log['in_lineabase_nnaj_id'] = $modeloxx->in_lineabase_nnaj_id;
-        $log['sis_documento_fuente_id'] = $modeloxx->sis_documento_fuente_id;
+        $log['sis_docfuen_id'] = $modeloxx->sis_docfuen_id;
         $log['i_tiempo'] = $modeloxx->i_tiempo;
         $log['i_porcentaje'] = $modeloxx->i_porcentaje;
         // campos por defecto, no borrar.

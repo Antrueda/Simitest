@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -47,12 +48,6 @@ class CreateVsiViolenciasTable extends Migration
             $table->bigInteger('prm_lab_eco_id')->unsigned()->nullable();
             $table->bigInteger('prm_dis_gen_id')->unsigned()->nullable();
             $table->bigInteger('prm_dis_ori_id')->unsigned()->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
-
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_tip_vio_id')->references('id')->on('parametros');
             $table->foreign('prm_fam_fis_id')->references('id')->on('parametros');
@@ -81,30 +76,31 @@ class CreateVsiViolenciasTable extends Migration
             $table->foreign('prm_lab_eco_id')->references('id')->on('parametros');
             $table->foreign('prm_dis_gen_id')->references('id')->on('parametros');
             $table->foreign('prm_dis_ori_id')->references('id')->on('parametros');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE DETALLES DE LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA, SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
-        
+
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_violencia_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');
             $table->unique(['parametro_id', 'vsi_violencia_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DEL CONTEXTO DE DISCRIMINACION DE LA PERSONA ENTREVISTADA, PREGUNTA 4.4 SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_violencia_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');
             $table->unique(['parametro_id', 'vsi_violencia_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DEL TIPO DE VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA, PREGUNTA 4.5 SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
     }

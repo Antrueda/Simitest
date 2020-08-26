@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class CreateHVsiBienvenidasTable extends Migration
 {
     private $tablaxxx = 'h_vsi_bienvenidas';
-    private $tablaxxx2 = 'h_vsi_bienvenida_motivo';    
+    private $tablaxxx2 = 'h_vsi_bienvenida_motivo';
     /**
      * Run the migrations.
      *
@@ -19,15 +19,16 @@ class CreateHVsiBienvenidasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('vsi_id')->unsigned();
+            $table->integer('vsi_id');
             $table->string('descripcion', 4000);
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_bienvenida_id')->unsigned();
+            $table->bigIncrements('id');
+            $table->integer('parametro_id');
+            $table->integer('vsi_bienvenida_id');
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

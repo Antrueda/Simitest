@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisTabla extends Model
 {
+    protected $fillable = ['sis_docfuen_id' , 's_tabla' ,     's_descripcion','sis_esta_id','user_crea_id','user_edita_id',];
     public function sis_tcampos()
     {
         return $this->hasMany(SisTcampo::class);
