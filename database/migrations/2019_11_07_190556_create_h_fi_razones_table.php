@@ -26,7 +26,7 @@ class CreateHFiRazonesTable extends Migration
             $table->bigInteger('sis_depenr_id')->unsigned();
             $table->bigInteger('i_prm_estado_ingreso_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
@@ -35,7 +35,7 @@ class CreateHFiRazonesTable extends Migration
             $table->bigInteger('fi_razone_id')->unsigned();
             $table->bigInteger('i_prm_documento_id')->unsigned();
             $table->text('s_ruta');
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
     }

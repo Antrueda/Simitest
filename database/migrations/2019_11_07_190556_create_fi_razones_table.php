@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -25,19 +26,13 @@ class CreateFiRazonesTable extends Migration
             $table->bigInteger('sis_depenr_id')->unsigned();
             $table->bigInteger('i_prm_estado_ingreso_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
             $table->foreign('userd_id')->references('id')->on('users');
             $table->foreign('userr_id')->references('id')->on('users');
             $table->foreign('sis_depend_id')->references('id')->on('sis_depens');
             $table->foreign('sis_depenr_id')->references('id')->on('sis_depens');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('i_prm_estado_ingreso_id')->references('id')->on('parametros');
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA LAS RAZONES DE INGRESO AL IDIPRON, SECCION 15 BIENVENIDA DE LA FICHA DE INGRESO'");
 
@@ -45,16 +40,10 @@ class CreateFiRazonesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_razone_id')->unsigned();
             $table->bigInteger('i_prm_documento_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
             $table->text('s_ruta');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_razone_id')->references('id')->on('fi_razones');
             $table->foreign('i_prm_documento_id')->references('id')->on('parametros');
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE REGISTRA LOS DOCUMENTOS ANEXOS ASOCIADOS A LAS RAZONES PARA INGRESAR AL IDIPRON, SECCION 15 BIENVENIDA DE LA FICHA DE INGRESO'");
     }
