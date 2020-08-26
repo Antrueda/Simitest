@@ -22,7 +22,7 @@ class CreateHSisDiagnosticosTable extends Migration
             $table->char('simbolo')->nullable();
             $table->text('descripcion', 4000);
             $table->char('sexo');
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
