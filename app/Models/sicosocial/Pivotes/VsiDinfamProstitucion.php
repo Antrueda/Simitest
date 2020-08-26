@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiDinfamProstitucion extends Model
 {
-    public $timestamps = false;
+
     protected $table = 'vsi_dinfam_prostitucion';
 
     protected $fillable = [

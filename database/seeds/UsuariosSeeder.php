@@ -38,7 +38,7 @@ class UsuariosSeeder extends Seeder
     ]);
 
 
-    // $super->assignRole('super-administrador');
+    //  $super->assignRole('super-administrador');
     $super = User::create([
       'name' => 'FERNANDO SANABRIA',
       's_primer_nombre' => 'FERNANDO',

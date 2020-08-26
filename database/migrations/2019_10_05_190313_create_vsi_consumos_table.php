@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -32,11 +33,6 @@ class CreateVsiConsumosTable extends Migration
             $table->bigInteger('prm_expectativa_id')->unsigned()->nullable();
             $table->bigInteger('prm_familia_id')->unsigned();
             $table->string('descripcion', 4000)->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
 
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_consumo_id')->references('id')->on('parametros');
@@ -47,16 +43,15 @@ class CreateVsiConsumosTable extends Migration
             $table->foreign('prm_motivo_id')->references('id')->on('parametros');
             $table->foreign('prm_expectativa_id')->references('id')->on('parametros');
             $table->foreign('prm_familia_id')->references('id')->on('parametros');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DEL CONSUMO DE SUSTANCIAS PSICOACTIVAS DE LA PERSONA ENTREVISTADA, SECCIÓN 16 CONSUMO DE SUSTANCIAS PSICOACTIVAS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_consumo_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+            $table = CamposMagicos::magicos($table);
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_consumo_id')->references('id')->on('vsi_consumos');
             $table->unique(['parametro_id', 'vsi_consumo_id']);
@@ -64,10 +59,10 @@ class CreateVsiConsumosTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE LAS PERSONAS PERTENECIENTES EN EL NUCLEO FAMILIAR QUE CONSUMEN SUSTANCIAS PSICOACTIVAS DE LA PERSONA ENTREVISTADA, SECCIÓN 16 CONSUMO DE SUSTANCIAS PSICOACTIVAS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_consumo_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+            $table = CamposMagicos::magicos($table);
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_consumo_id')->references('id')->on('vsi_consumos');
             $table->unique(['parametro_id', 'vsi_consumo_id']);

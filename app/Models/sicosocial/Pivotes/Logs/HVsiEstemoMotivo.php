@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HVsiEstemoMotivo extends Model
 {
-    protected $table = 'h_vsi_edu_estemo_motivo';
+    protected $table = 'h_vsi_estemo_motivo';
     protected $fillable = [
         'parametro_id',
         'vsi_estemocional_id',

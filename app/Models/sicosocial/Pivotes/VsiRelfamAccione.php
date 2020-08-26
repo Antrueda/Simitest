@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class VsiRelfamAccione extends Model
 {
     public $timestamps = false;
-    protected $table = 'vsi_relfam_acciones';
 
     protected $fillable = [
         'parametro_id',

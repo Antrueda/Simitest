@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiActemoFisiologica extends Model
 {
-    //parametro_vsi_actemocional
-    public $timestamps = false;
+
 
     protected $table = 'vsi_actemo_fisiologica';
 

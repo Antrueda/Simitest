@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiRelfamMotivo extends Model
 {
-    public $timestamps = false;
+
     protected $table = 'vsi_relfam_motivo';
 
     protected $fillable = [

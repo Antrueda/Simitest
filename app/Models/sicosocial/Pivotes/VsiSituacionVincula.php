@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiSituacionVincula extends Model
 {
-    public $timestamps = false;
+
     protected $table = 'vsi_situacion_vincula';
 
     protected $fillable = [

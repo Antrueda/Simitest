@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiRedsocAceso extends Model
 {
-    public $timestamps = false;
+
     protected $table = 'vsi_redsoc_acceso';
 
     protected $fillable = [

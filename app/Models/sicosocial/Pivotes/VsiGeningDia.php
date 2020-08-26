@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiGeningDia extends Model
 {
-    public $timestamps = false;
-
-    protected $table = 'vsi_gening_dias';
 
     protected $fillable = [
         'parametro_id',

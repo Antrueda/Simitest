@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiVioContexto extends Model
 {
-    public $timestamps = false;
+
     protected $table = 'vsi_vio_contexto';
 
     protected $fillable = [

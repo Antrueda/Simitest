@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class HVsiGeningDia extends Model
 {
-    protected $table = 'h_vsi_gening_dia';
     protected $fillable = [
         'parametro_id',
         'vsi_geningreso_id',

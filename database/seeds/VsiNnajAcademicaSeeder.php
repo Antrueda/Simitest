@@ -12,11 +12,11 @@ class VsiNnajAcademicaSeeder extends Seeder
      */
     public function run()
     {
-        VsiNnajAcademica::create(['parametro_id' => 879, 'vsi_id' => 139, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiNnajAcademica::create(['parametro_id' => 879, 'vsi_id' => 160, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiNnajAcademica::create(['parametro_id' => 881, 'vsi_id' => 46, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiNnajAcademica::create(['parametro_id' => 881, 'vsi_id' => 177, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiNnajAcademica::create(['parametro_id' => 882, 'vsi_id' => 46, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
-        VsiNnajAcademica::create(['parametro_id' => 882, 'vsi_id' => 289, 'user_crea_id' => 1, 'user_edita_id' => 1,]);
+        VsiNnajAcademica::create(['parametro_id' => 879, 'vsi_id' => 139, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
+        VsiNnajAcademica::create(['parametro_id' => 879, 'vsi_id' => 160, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
+        VsiNnajAcademica::create(['parametro_id' => 881, 'vsi_id' => 46, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
+        VsiNnajAcademica::create(['parametro_id' => 881, 'vsi_id' => 177, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
+        VsiNnajAcademica::create(['parametro_id' => 882, 'vsi_id' => 46, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
+        VsiNnajAcademica::create(['parametro_id' => 882, 'vsi_id' => 289, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiEduFortaleza extends Model
 {
-    public $timestamps = false;
+
 
     protected $table = 'vsi_edu_fortaleza';
 

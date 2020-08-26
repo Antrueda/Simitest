@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HVsiConsumoExpectativa extends Model
 {
-    protected $table = 'h_vsi_consumo_espectativa';
+    protected $table = 'h_vsi_consumo_expectativa';
     protected $fillable = [
         'parametro_id',
         'vsi_consumo_id',

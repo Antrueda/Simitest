@@ -62,15 +62,14 @@ class CreateCsdAlimentacionTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_alimentacion_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+
             $table->bigInteger('prm_tipofuen_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->unique(['parametro_id', 'csd_alimentacion_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE COMIDAS CONSUMIDAS EN EL DIA, PREGUNTA 9.4 SECCION 9 ALIMENTACION DE LA FAMILIA DE CONSULTA SOCIAL EN DOMICILIO'");
 
@@ -78,11 +77,8 @@ class CreateCsdAlimentacionTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_alimentacion_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+            $table = CamposMagicos::magicos($table);
             $table->bigInteger('prm_tipofuen_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
             $table->foreign('parametro_id')->references('id')->on('parametros');

@@ -111,7 +111,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiActemoFisiologicaSeeder::class);
         $this->call(VsiRelfamMotivoSeeder::class);  //58 ok
         $this->call(VsiRelSocialesSeeder::class);  //59  ok
-        $this->call(VsiRelSolDificultaSeeder::class);  //60 ok
+        $this->call(VsiRelSolDificultaSeeder::class);  //aca
         $this->call(VsiRelSolFacilitaSeeder::class);  //61 ok
         $this->call(VsiViolenciaSeeder::class);  //66 ok
         $this->call(VsiVioContextoSeeder::class);  //65 ok
@@ -120,7 +120,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiSitEspecialSeeder::class);
         $this->call(VsiSituacionVinculaSeeder::class);  //64
         $this->call(VsiEduCausaSeeder::class);  //25
-        $this->call(VsiEduDificultadSeeder::class);  //26
+        $this->call(VsiEduDificultadSeeder::class);  //aca
         $this->call(VsiEduFortalezaSeeder::class);  //29
         $this->call(VsiGenIngresoSeeder::class);
         $this->call(VsiGeningDiaSeeder::class);  //38

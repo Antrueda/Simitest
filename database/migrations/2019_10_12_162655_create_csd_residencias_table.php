@@ -47,13 +47,9 @@ class CreateCsdResidenciasTable extends Migration
             $table->bigInteger('prm_ventilacion_id')->unsigned();
             $table->bigInteger('prm_iluminacion_id')->unsigned();
             $table->bigInteger('prm_orden_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
+
 
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_tipo_id')->references('id')->on('parametros');
@@ -75,8 +71,7 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('prm_ventilacion_id')->references('id')->on('parametros');
             $table->foreign('prm_iluminacion_id')->references('id')->on('parametros');
             $table->foreign('prm_orden_id')->references('id')->on('parametros');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA UBICACION Y CONTACTO DE LA PERSONA ENTREVISTADA, SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
 

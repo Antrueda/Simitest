@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiNnajSocial extends Model
 {
-    public $timestamps = false;
+
 
     protected $table = 'vsi_nnaj_social';
 

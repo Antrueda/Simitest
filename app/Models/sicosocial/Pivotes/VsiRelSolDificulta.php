@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiRelSolDificulta extends Model
 {
-    public $timestamps = false;
+
     protected $table = 'vsi_relsol_dificulta';
 
     protected $fillable = [

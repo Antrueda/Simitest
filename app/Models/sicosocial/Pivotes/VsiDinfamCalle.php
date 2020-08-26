@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiDinfamCalle extends Model
 {
-    public $timestamps = false;
+
 
     protected $table = 'vsi_dinfam_calle';
 

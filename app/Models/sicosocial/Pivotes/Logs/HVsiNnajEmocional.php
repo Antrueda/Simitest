@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HVsiNnajEmocional extends Model
 {
-    protected $table = 'h_vsi_emocional';
+    protected $table = 'h_vsi_nnaj_emocional';
     protected $fillable = [
         'parametro_id',
         'vsi_id',

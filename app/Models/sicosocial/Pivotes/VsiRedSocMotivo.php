@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiRedSocMotivo extends Model
 {
-    public $timestamps = false;
+
     protected $table = 'vsi_redsoc_motivo';
 
     protected $fillable = [

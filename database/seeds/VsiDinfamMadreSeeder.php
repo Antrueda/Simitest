@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\sicosocial\Pivotes\VsiDinfamMadre;
+use App\Models\sicosocial\VsiDinfamMadre;
 
 class VsiDinfamMadreSeeder extends Seeder
 {

@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class HVsiRelfamAccione extends Model
 {
-    protected $table = 'h_vsi_relfam_accione';
     protected $fillable = [
         'parametro_id',
         'vsi_relfamiliar_id',

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class VsiNnajEmocional extends Model
 {
-    public $timestamps = false;
+
 
     protected $table = 'vsi_nnaj_emocional';
 
