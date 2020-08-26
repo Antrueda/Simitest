@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -57,11 +58,6 @@ class CreateMitVspaTable extends Migration
             $table->text('obs_generales', 4000);
             $table->text('obs_generales_dos', 4000);
             $table->bigInteger('user_doc1_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('prm_upi_id')->references('id')->on('parametros');
             $table->foreign('prm_valoracion_id')->references('id')->on('parametros');
@@ -83,8 +79,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('prm_comparte_id')->references('id')->on('parametros');
             $table->foreign('prm_prueba_id')->references('id')->on('parametros');
             $table->foreign('user_doc1_id')->references('id')->on('users');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES SOBRE EL CONSUMO DE ESTUPERFACCIONES, MITIGACION'");
 
@@ -163,7 +158,6 @@ class CreateMitVspaTable extends Migration
             $table->bigInteger('prm_anio_dmi_id')->unsigned()->nullable();
             $table->Integer('ultima_dmi')->nullable();
             $table->bigInteger('prm_imp_dmi_id')->unsigned()->nullable();
-            $table->timestamps();
 
             $table->foreign('prm_droga_ini_id')->references('id')->on('parametros');
             $table->foreign('prm_droga_dos_id')->references('id')->on('parametros');
@@ -215,6 +209,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('prm_imp_dmi_id')->references('id')->on('parametros');
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA SEGUIMIENTO DEL SONCUMO DE DROGAS, MITIGACION'");
 
@@ -233,7 +228,6 @@ class CreateMitVspaTable extends Migration
             $table->bigInteger('prm_cuatro_diez_id')->unsigned()->nullable();
             $table->bigInteger('prm_cuatro_once_id')->unsigned()->nullable();
             $table->bigInteger('prm_cuatro_doce_id')->unsigned()->nullable();
-            $table->timestamps();
             $table->foreign('prm_cuatro_uno_id')->references('id')->on('parametros');
             $table->foreign('prm_cuatro_dos_id')->references('id')->on('parametros');
             $table->foreign('prm_cuatro_tres_id')->references('id')->on('parametros');
@@ -248,6 +242,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('prm_cuatro_doce_id')->references('id')->on('parametros');
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE RELACIONA LOS DETALLES DEL CONSUMO DE ESTUPERFACIENTES CON LOS SEGUIMIENTOS, MITIGACION'");
 
@@ -266,7 +261,6 @@ class CreateMitVspaTable extends Migration
             $table->bigInteger('prm_cinco_diez_id')->unsigned()->nullable();
             $table->bigInteger('prm_cinco_once_id')->unsigned()->nullable();
             $table->bigInteger('prm_cinco_doce_id')->unsigned()->nullable();
-            $table->timestamps();
             $table->foreign('prm_cinco_uno_id')->references('id')->on('parametros');
             $table->foreign('prm_cinco_dos_id')->references('id')->on('parametros');
             $table->foreign('prm_cinco_tres_id')->references('id')->on('parametros');
@@ -281,6 +275,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('prm_cinco_doce_id')->references('id')->on('parametros');
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE RELACIONA LOS DETALLES DEL CONSUMO DE ESTUPERFACIENTES CON LOS SEGUIMIENTOS, MITIGACION'");
 
@@ -293,8 +288,6 @@ class CreateMitVspaTable extends Migration
             $table->bigInteger('prm_seis_cuatro_id')->unsigned()->nullable();
             $table->bigInteger('prm_seis_cinco_id')->unsigned()->nullable();
             $table->bigInteger('prm_seis_seis_id')->unsigned()->nullable();
-            $table->timestamps();
-
             $table->foreign('prm_seis_uno_id')->references('id')->on('parametros');
             $table->foreign('prm_seis_dos_id')->references('id')->on('parametros');
             $table->foreign('prm_seis_tres_id')->references('id')->on('parametros');
@@ -303,6 +296,7 @@ class CreateMitVspaTable extends Migration
             $table->foreign('prm_seis_seis_id')->references('id')->on('parametros');
             $table->foreign('mit_vspa_id')->references('id')->on('mit_vspa');
             $table->unique(['id', 'mit_vspa_id']);
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE RELACIONA LOS DETALLES DEL CONSUMO DE ESTUPERFACIENTES CON LOS SEGUIMIENTOS, MITIGACION'");
     }
