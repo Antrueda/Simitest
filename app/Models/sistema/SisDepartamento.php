@@ -24,17 +24,16 @@ class SisDepartamento extends Model
         $comboxxx = [];
         if ($esajaxxx == false) {
             $comboxxx = ['' => 'Seleccione'];
-             
+
         } else {
             $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Selecione'];
         }
 
-
         foreach (SisDepartamento::where(function ($dataxxxx) use ($idpadrex) {
-            if ($idpadrex != '') {
-                $dataxxxx->orWhere('sis_pais_id', $idpadrex);
-                $dataxxxx->orWhere('sis_pais_id', 1);
-            }
+
+                $dataxxxx->where('sis_pais_id', $idpadrex);
+
+
         })
             ->get() as $registro) {
             if ($esajaxxx) {

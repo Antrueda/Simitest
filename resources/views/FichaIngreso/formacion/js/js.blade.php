@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
     $(function(){
+        $('.select2').select2({
+            language: "es"
+        });
         var f_estudia = function(valuexxx){
             $("#i_prm_jornada_estudio_id, #i_prm_naturaleza_entidad_id, #sis_institucion_edu_id").empty();
             $("#i_prm_jornada_estudio_id, #i_prm_naturaleza_entidad_id, #sis_institucion_edu_id").append('<option value="">Seleccione</>')
@@ -20,13 +23,13 @@
                     if(json[0].jornadax[0].valuexxx==1){
                         $("#i_prm_jornada_estudio_id, #i_prm_naturaleza_entidad_id, #sis_institucion_edu_id").empty();
                     }
-                    $.each(json[0].jornadax,function(i,data){                            
+                    $.each(json[0].jornadax,function(i,data){
                         $('#i_prm_jornada_estudio_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    }); 
-                    $.each(json[0].naturale,function(i,data){                            
+                    });
+                    $.each(json[0].naturale,function(i,data){
                         $('#i_prm_naturaleza_entidad_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
-                    $.each(json[0].instituc,function(i,data){                            
+                    $.each(json[0].instituc,function(i,data){
                         $('#sis_institucion_edu_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
                     },
@@ -40,7 +43,7 @@
             f_estudia({{ old('i_prm_estudia_id') }});
         @endif
 
-        $("#i_prm_estudia_id").change(function(){   
+        $("#i_prm_estudia_id").change(function(){
             f_estudia($(this).val());
         });
 

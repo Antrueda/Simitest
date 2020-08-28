@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\FichaIngreso;
 
+use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiResidenciaUpdateRequest extends FormRequest
@@ -61,8 +62,8 @@ class FiResidenciaUpdateRequest extends FormRequest
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        switch($dataxxxx['i_prm_zona_direccion_id']){
+        $datobasi=FiDatosBasico::find($this->segments()[1]);
+        switch($this->i_prm_zona_direccion_id){
             case 287:
             $this->_mensaje['i_prm_tipo_via_id.required'] = 'Seleccione tipo de via de la residencia';
             $this->_mensaje['s_nombre_via.required'] = 'Seleccione numero/nombre vía principal';
@@ -79,15 +80,11 @@ class FiResidenciaUpdateRequest extends FormRequest
             $this->_reglasx['s_complemento']='Required';
             break;
         }
-        if($dataxxxx['tipo_poblacion'] != 650){
+        if($datobasi->prm_tipoblaci_id != 650){
             $this->_mensaje['s_telefono_uno.required'] = 'Digite el campo Teléfono 1';
             $this->_reglasx['s_telefono_uno']='Required';
-            $this->_mensaje['sis_localidad_id.required'] = 'Seleccione la localidad';
-            $this->_reglasx['sis_localidad_id']='Required';
-            $this->_mensaje['sis_upz_id.required'] = 'Seleccione la UPZ';
-            $this->_reglasx['sis_upz_id']='Required';
-            $this->_mensaje['sis_barrio_id.required'] = 'Seleccione el barrio';
-            $this->_reglasx['sis_barrio_id']='Required';
+            $this->_mensaje['sis_upzbarri_id.required'] = 'Seleccione el barrio';
+            $this->_reglasx['sis_upzbarri_id']='Required';
         }
     }
 }

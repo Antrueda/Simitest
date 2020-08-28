@@ -15,180 +15,177 @@ use App\Models\Tema;
 
 class FiResidenciaController extends Controller
 {
-  private $opciones;
+    private $opciones;
 
-  public function __construct()
-  {
+    public function __construct()
+    {
 
-    $this->opciones = [
-      'tituloxx' => 'Residencia',
-      'rutaxxxx' => 'FichaIngreso',
-      'accionxx' => '',
-      'volverax' => 'lista de NNAJ',
-      'readonly' => '',
-      'slotxxxx' => 'residencia',
-      'carpetax' => 'residencia',
-      'modeloxx' => '',
-      'routxxxx' => 'fi.datobasico',
-      'routinde' => 'fi',
-      'routnuev' => 'fi.datobasico',
-      'nuevoxxx' => 'o Registro'
-    ];
-
-
-    $this->middleware(['permission:'
-        . $this->opciones['permisox'] . '-leer|'
-        . $this->opciones['permisox'] . '-crear|'
-        . $this->opciones['permisox'] . '-editar|'
-        . $this->opciones['permisox'] . '-borrar']);
+        $this->opciones['permisox'] = 'firesidencia';
+        $this->opciones['routxxxx'] = 'fi.residencia';
+        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['carpetax'] = 'Residencia';
+        $this->opciones['slotxxxx'] = 'residencia';
+        $this->opciones['tituloxx'] = 'RESIDENCIA';
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['tituhead'] = 'FICHA DE INGRESO';
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
 
 
-    $this->opciones['condicio'] = Tema::combo(23,true,false);
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
 
-    $this->opciones['residees'] = Tema::combo(35,true,false);
-    $this->opciones['tipodire'] = Tema::combo(36,true,false);
-    $this->opciones['zonadire'] = Tema::combo(37,true,false);
-    $this->opciones['cuadrant'] = Tema::combo(38,true,false);
-    $this->opciones['alfabeto'] = Tema::combo(39,true,false);
-    $this->opciones['estratox'] = Tema::combo(41,true,false);
-    $this->opciones['condambi'] = Tema::combo(42,false,false);
-    $this->opciones['tpviapal'] = Tema::combo(62,true,false);
-    $this->opciones['esparcha'] = Tema::combo(291,true,false);
+        $this->opciones['residees'] = Tema::combo(35, true, false);
+        $this->opciones['tipodire'] = Tema::combo(36, true, false);
+        $this->opciones['zonadire'] = Tema::combo(37, true, false);
+        $this->opciones['cuadrant'] = Tema::combo(38, true, false);
+        $this->opciones['alfabeto'] = Tema::combo(39, true, false);
+        $this->opciones['estratox'] = Tema::combo(41, true, false);
+        $this->opciones['condambi'] = Tema::combo(42, false, false);
+        $this->opciones['tpviapal'] = Tema::combo(62, true, false);
+        $this->opciones['esparcha'] = Tema::combo(291, true, false);
 
-    $this->opciones['dircondi'] = Tema::combo(23,true,false);
+        $this->opciones['dircondi'] = Tema::combo(23, true, false);
 
-    $this->opciones['localida'] = SisLocalidad::combo();
-  }
-  private function view($objetoxx, $nombobje, $accionxx)
-  {
-    $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
-    $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
-    $this->opciones['readchcx'] = '';
+        $this->opciones['localida'] = SisLocalidad::combo();
 
-    if($this->opciones['datobasi']->prm_poblacion_id== 650){
-      $this->opciones['readchcx'] = 'readonly';
-      $this->opciones['residees'] =[1=>'NO APLICA'];
-      $this->opciones['localida'] =[22=>'NO APLICA'];
-      $this->opciones['upzxxxxx'] =[134=>'NO APLICA'];
-      $this->opciones['barrioxx'] =[1=>'NO APLICA'];
-      $this->opciones['tiporesi'] = Tema::combo(145,true,false);
-    }else{
-      $this->opciones['tiporesi'] = Tema::combo(34,true,false);
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => ['fidatbas', []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJS', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
+    }
+    private function view($dataxxxx)
+    {
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
+        $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
+        $this->opciones['readchcx'] = '';
+        if ($this->opciones['usuariox']->prm_poblacion_id == 650) {
+            $this->opciones['readchcx'] = 'readonly';
+            $this->opciones['residees'] = [1 => 'NO APLICA'];
+            $this->opciones['localida'] = [22 => 'NO APLICA'];
+            $this->opciones['upzxxxxx'] = [134 => 'NO APLICA'];
+            $this->opciones['barrioxx'] = [1 => 'NO APLICA'];
+            $this->opciones['tiporesi'] = Tema::combo(145, true, false);
+        } else {
+            $this->opciones['tiporesi'] = Tema::combo(34, true, false);
+        }
+
+        $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        // indica si se esta actualizando o viendo
+
+        $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente(0);
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            if ($dataxxxx['modeloxx']->i_prm_zona_direccion_id == 289) {
+                $this->opciones['dircondi'] = [1 => 'NO APLICA'];
+                $this->opciones['cuadrant'] = [1 => 'NO APLICA'];
+                $this->opciones['alfabeto'] = [1 => 'NO APLICA'];
+                $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
+            }
+
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+            if ($dataxxxx['padrexxx']->prm_tipoblaci_id != 650) {
+                $dataxxxx['modeloxx']->sis_localidad_id=$dataxxxx['modeloxx']->sis_barrio->sis_localupz->sis_localidad_id;
+                $this->opciones['upzxxxxx'] = SisUpz::combo($dataxxxx['modeloxx']->sis_localidad_id, false);
+                $dataxxxx['modeloxx']->sis_upz_id=$dataxxxx['modeloxx']->sis_barrio->sis_localupz_id;
+                $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
+                $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente($dataxxxx['modeloxx']->id);
+            }
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+        }
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    $this->opciones['estadoxx'] = 'ACTIVO';
-    $this->opciones['accionxx'] = $accionxx;
-    // indica si se esta actualizando o viendo
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FiDatosBasico $padrexxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $vestuari = FiResidencia::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('fi.residencia.editar', [$padrexxx->id, $vestuari->id]);
+        }
+        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
+    }
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx)
+    {
+        $modeloxx = FiResidencia::transaccion($dataxxxx,  $objetoxx);
+        return redirect()
+            ->route('fi.residencia.editar', [$modeloxx->sis_nnaj->fi_datos_basico->id,  $modeloxx->id])
+            ->with('info', $infoxxxx);
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
-    $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente(0);
-    if ($nombobje != '') {
 
-      if ($objetoxx->i_prm_zona_direccion_id == 289) {
-        $this->opciones['dircondi'] = [1 => 'NO APLICA'];
-        $this->opciones['cuadrant'] = [1 => 'NO APLICA'];
-        $this->opciones['alfabeto'] = [1 => 'NO APLICA'];
-        $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
-      }
-      $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-      $this->opciones['upzxxxxx'] = SisUpz::combo($objetoxx->sis_localidad_id, false);
-      $this->opciones['barrioxx'] = SisBarrio::combo($objetoxx->sis_barrio->sis_upz_id, false);
-      $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente($objetoxx->id);
-
+    public function store(FiDatosBasico $padrexxx, FiResidenciaCrearRequest $request)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        return $this->grabar($dataxxxx, '', 'Residencia creada con exito');
     }
 
-
-
-    // Se arma el titulo de acuerdo al array opciones
-    $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
-
-    return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create($datobasi)
-  {
-    $this->opciones['residenc'] = FiResidencia::residencia($datobasi);
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    $vestuari = FiResidencia::where('sis_nnaj_id', $this->opciones['datobasi']->sis_nnaj_id)->first();
-    if ($vestuari != null) {
-      return redirect()
-        ->route('fi.residencia.editar', [$datobasi, $vestuari->id]);
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiResidencia  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(FiDatosBasico $padrexxx, FiResidencia $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Ver', 'padrexxx' => $padrexxx]);
     }
-    $this->opciones['nnajregi'] = $datobasi;
-    return $this->view('', '', 'Crear');
-  }
-  private function grabar($dataxxxx, $objetoxx, $infoxxxx)
-  {
-    // dd($objetoxx);
-    return redirect()
-      ->route('fi.residencia.editar', [$dataxxxx['sis_nnaj_id'], FiResidencia::transaccion($dataxxxx,  $objetoxx)->id])
-      ->with('info', $infoxxxx);
-  }
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiResidencia  $objetoxx
+     * * @param    $nnajregi
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(FiDatosBasico $padrexxx,  FiResidencia $modeloxx)
+    {
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);
+    }
 
-  public function store(FiResidenciaCrearRequest $request)
-  {
-    return $this->grabar($request->all(), '', 'Residencia creada con exito');
-  }
-
-  /**
-   * Display the specified resource.
-   *
-   * @param  \App\Models\FiResidencia  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function show(FiResidencia $objetoxx)
-  {
-    //
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Models\FiResidencia  $objetoxx
-   * * @param    $nnajregi
-   * @return \Illuminate\Http\Response
-   */
-  public function edit($nnajregi,  FiResidencia $objetoxx)
-  {
-    $this->opciones['residenc'] = FiResidencia::residencia($nnajregi);
-    $this->opciones['nnajregi'] = $nnajregi;
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($this->opciones['nnajregi']);
-
-    return $this->view($objetoxx,  'modeloxx', 'Editar');
-  }
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Models\FiResidencia  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function update(FiResidenciaUpdateRequest $request, $db, $id)
-  {
-    return $this->grabar($request->all(), FiResidencia::where('id',$id)->first(), 'Residencia actualizada con exito');
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  \App\Models\FiResidencia  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function destroy(FiResidencia $objetoxx)
-  {
-    //
-  }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiResidencia  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(FiResidenciaUpdateRequest $request, $db, $id)
+    {
+        return $this->grabar($request->all(), FiResidencia::where('id', $id)->first(), 'Residencia actualizada con exito');
+    }
 }

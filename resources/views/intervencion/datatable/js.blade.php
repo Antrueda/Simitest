@@ -1,5 +1,8 @@
 <script>
   $(document).ready(function() {
+    $('.select2').select2({
+          language: "es"
+          });
   var dataurlx = '';
           @if (isset($todoxxxx['nnajregi']))
           dataurlx = {
@@ -27,12 +30,7 @@
   });
   @if (isset($todoxxxx['nnajregi']))
           $(function(){
-          $('#i_primer_responsable').select2({
-          language: "es"
-          });
-          $('#i_segundo_responsable').select2({
-          language: "es"
-          });
+
           var f_combo = function(dataxxxx){
           $('#i_prm_subarea_ajuste_id').empty();
           $('#i_prm_subarea_ajuste_id').append('<option selected value="">Seleccione</option>');

@@ -1,19 +1,19 @@
 <div class="form-row">
   <div class="form-group col-md-6">
-    {{ Form::label('prm_poblacion_id', 'Tipo de Población', ['class' => 'control-label']) }}
-    {{ Form::select('prm_poblacion_id', $todoxxxx['tipoblac'], null, ['class' => $errors->first('prm_poblacion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_poblacion_id'))
+    {{ Form::label('prm_tipoblaci_id', 'Tipo de Población', ['class' => 'control-label']) }}
+    {{ Form::select('prm_tipoblaci_id', $todoxxxx['tipoblac'], null, ['class' => $errors->first('prm_tipoblaci_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_tipoblaci_id'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('prm_poblacion_id') }}
+      {{ $errors->first('prm_tipoblaci_id') }}
     </div>
     @endif
   </div>
 </div>
 <div class="form-row">
-  <div class="form-group col-md-3"> 
+  <div class="form-group col-md-3">
     {{ Form::label('s_primer_apellido', '1.1 1er. Apellido', ['class' => 'control-label']) }}
     {{ Form::text('s_primer_apellido', null, ['class' => $errors->first('s_primer_apellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
-                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) 
+                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"])
     }}
     @if($errors->has('s_primer_apellido'))
       <div class="invalid-feedback d-block">
@@ -24,7 +24,7 @@
   <div class="form-group col-md-3">
     {{ Form::label('s_segundo_apellido', '2do. Apellido', ['class' => 'control-label']) }}
     {{ Form::text('s_segundo_apellido', null, ['class' => $errors->first('s_segundo_apellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
-                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) 
+                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"])
     }}
     @if($errors->has('s_segundo_apellido'))
       <div class="invalid-feedback d-block">
@@ -35,7 +35,7 @@
   <div class="form-group col-md-3">
     {{ Form::label('s_primer_nombre', '1er. Nombre', ['class' => 'control-label']) }}
     {{ Form::text('s_primer_nombre', null, ['class' => $errors->first('s_primer_nombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
-                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) 
+                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"])
     }}
     @if($errors->has('s_primer_nombre'))
       <div class="invalid-feedback d-block">
@@ -46,7 +46,7 @@
   <div class="form-group col-md-3">
     {{ Form::label('s_segundo_nombre', '2do. Nombre', ['class' => 'control-label']) }}
     {{ Form::text('s_segundo_nombre', null, ['class' => $errors->first('s_segundo_nombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
-                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) 
+                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"])
     }}
     @if($errors->has('s_segundo_nombre'))
       <div class="invalid-feedback d-block">
@@ -59,7 +59,7 @@
   <div class="form-group col-md-6">
     {{ Form::label('s_nombre_identitario', '1.2 Nombre Identitario', ['class' => 'control-label']) }}
     {{ Form::text('s_nombre_identitario', null, ['class' => $errors->first('s_nombre_identitario') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
-                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) 
+                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"])
     }}
     @if($errors->has('s_nombre_identitario'))
       <div class="invalid-feedback d-block">
@@ -70,7 +70,7 @@
   <div class="form-group col-md-6">
     {{ Form::label('s_apodo', '1.3 Apodo', ['class' => 'control-label']) }}
     {{ Form::text('s_apodo', null, ['class' => $errors->first('s_apodo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
-                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) 
+                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"])
     }}
     @if($errors->has('s_apodo'))
       <div class="invalid-feedback d-block">
@@ -173,11 +173,11 @@
 
 <div class="form-row align-items-end">
   <div class="form-group col-md-4">
-    {{ Form::label('prm_documento_id', '1.11 Documento de Identificación', ['class' => 'control-label']) }}
-    {{ Form::select('prm_documento_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_documento_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_documento_id'))
+    {{ Form::label('prm_tipodocu_id', '1.11 Documento de Identificación', ['class' => 'control-label']) }}
+    {{ Form::select('prm_tipodocu_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_tipodocu_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_tipodocu_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_documento_id') }}
+        {{ $errors->first('prm_tipodocu_id') }}
       </div>
     @endif
   </div>
@@ -191,11 +191,11 @@
     @endif
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('i_prm_ayuda_id', '1.12b (Si necesita, no seleccione de las siguientes opciones)', ['class' => 'control-label']) }}
-    {{ Form::select('i_prm_ayuda_id', $todoxxxx['neciayud'], null, ['class' => $errors->first('i_prm_ayuda_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('i_prm_ayuda_id'))
+    {{ Form::label('prm_ayuda_id', '1.12b (Si necesita, no seleccione de las siguientes opciones)', ['class' => 'control-label']) }}
+    {{ Form::select('prm_ayuda_id', $todoxxxx['neciayud'], null, ['class' => $errors->first('prm_ayuda_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_ayuda_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('i_prm_ayuda_id') }}
+        {{ $errors->first('prm_ayuda_id') }}
       </div>
     @endif
   </div>
@@ -304,24 +304,24 @@
   <div class="form-group col-md-6">
     {{ Form::label('s_lugar_focalizacion', '1.19 Lugar de Focalización', ['class' => 'control-label']) }}
     {{ Form::text('s_lugar_focalizacion', null, ['class' => $errors->first('s_lugar_focalizacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
-                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();",]) 
+                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();",])
     }}
     @if($errors->has('s_lugar_focalizacion'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('s_lugar_focalizacion') }}
       </div>
-    @endif  
+    @endif
   </div>
   <div class="form-group col-md-6">
     {{ Form::label('s_nombre_focalizacion', '1.19(a) Nombre Focalización', ['class' => 'control-label']) }}
     {{ Form::text('s_nombre_focalizacion', null, ['class' => $errors->first('s_nombre_focalizacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
-                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) 
+                  "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"])
     }}
     @if($errors->has('s_nombre_focalizacion'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('s_nombre_focalizacion') }}
       </div>
-    @endif  
+    @endif
   </div>
 </div>
 <div class="form-row align-items-end">
@@ -353,7 +353,7 @@
     @endif
   </div>
 </div>
- 
+
 @section("scripts")
  <script>
   function soloLetras(e) {

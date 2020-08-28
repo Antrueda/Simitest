@@ -13,7 +13,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'prm_poblacion_id.required' => 'Seleccione el tipo de población',
+            'prm_tipoblaci_id.required' => 'Seleccione el tipo de población',
             // 's_segundo_nombre.required' => 'Ingrese el primer nombre',
             's_primer_nombre.required' => 'Ingrese el primer nombre',
             's_primer_apellido.required' => 'Ingrese primer apellido',
@@ -36,13 +36,13 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'prm_vestimenta_id.required' => 'Indique el estado de la vestimenta',
             's_nombre_focalizacion.required' => 'Indique el nombre de la focalización',
             's_lugar_focalizacion.required' => 'Indique el lugar de focalización',
-            'sis_barrio_id.required' => 'Seleccione un barrio',
+            'sis_upzbarri_id.required' => 'Seleccione un barrio',
             's_documento.required' => 'Ingrese un documento de identificación',
             's_documento.unique' => 'El docuemento ya existe',
-            // 
+            //
         ];
         $this->_reglasx = [
-            'prm_poblacion_id' => ['required'],
+            'prm_tipoblaci_id' => ['required'],
             'prm_doc_fisico_id' => ['required'],
             //'s_segundo_nombre' => ['required'],
             's_primer_nombre' => ['required'],
@@ -65,9 +65,9 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'prm_vestimenta_id' => ['required'],
             's_nombre_focalizacion' => ['required'],
             's_lugar_focalizacion' => ['required'],
-            'sis_barrio_id' => ['required'],
+            'sis_upzbarri_id' => ['required'],
 
-            // 
+            //
         ];
     }
     /**
@@ -94,7 +94,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
     {
         $this->validar();
 
-$this->_reglasx['s_documento'] = 'required';
+
         return $this->_reglasx;
     }
 
@@ -106,11 +106,8 @@ $this->_reglasx['s_documento'] = 'required';
             $this->_mensaje['prm_poblacion_etnia_id.required'] = 'Seleccione porqué no tiene Sisben';
             $this->_reglasx['prm_poblacion_etnia_id'] = 'required';
         }
-        $unicoxx1 = FiDatosBasico::whereNotIn('sis_nnaj_id', [$dataxxxx['sis_nnaj_id']])->where('sis_esta_id', 1)->first();
-        $unicoxx0 = FiDatosBasico::whereNotIn('sis_nnaj_id', [$dataxxxx['sis_nnaj_id']])->where('sis_esta_id', 0)->first();
-        if (isset($unicoxx1->id) and isset($unicoxx0->id)){
-            $this->_reglasx['s_documento'] = [ 'unique:fi_datos_basicos'];
-        }
+
+        $this->_reglasx['s_documento'] = ['required', 'unique:nnaj_docus,s_documento,' . $this->segments()[2]];
         if ($dataxxxx['prm_doc_fisico_id'] == 228){
             $this->_mensaje['i_prm_ayuda_id.required'] ='Seleccione porqué no tiene documento';
             $this->_reglasx['i_prm_ayuda_id']='required';

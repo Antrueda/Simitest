@@ -6,7 +6,7 @@
         // Máscara documento
         $('#s_documento').mask('000000000000');
 
-         var f_ajax=function(dataxxxx,pselecte){ 
+         var f_ajax=function(dataxxxx,pselecte){
             $.ajax({
                 url : dataxxxx.url,
                 data : dataxxxx.data,
@@ -15,56 +15,56 @@
                 success : function(json) {
                     if(json[0].valuexxx==1){
                         $("#"+dataxxxx.campoxxx).empty();
-                    } 
-                    if (dataxxxx.data.fechaxxx) {  
-                        var edadxxxx=eval(json[0].edadxxxx) 
+                    }
+                    if (dataxxxx.data.fechaxxx) {
+                        var edadxxxx=eval(json[0].edadxxxx)
                         $("#prm_estado_civil_id,#prm_identidad_genero_id,#prm_orientacion_sexual_id,#prm_sexo_id").empty();
                         $("#prm_estado_civil_id,#prm_identidad_genero_id,#prm_orientacion_sexual_id,#prm_sexo_id").append('<option value="" >Seleccione</option>');
-                        if(edadxxxx<=14){ 
+                        if(edadxxxx<=14){
                             $("#prm_estado_civil_id,#prm_identidad_genero_id,#prm_orientacion_sexual_id").empty();
                         }
-                           
-                        $.each(json[0].orientac,function(i,d){ 
+
+                        $.each(json[0].orientac,function(i,d){
                             var selected='';
                             if(dataxxxx.orientac==d.valuexxx){
                                 selected='selected';
                             }
                             $("#prm_orientacion_sexual_id").append('<option '+selected+' value="'+d.valuexxx+'">'+d.optionxx+'</option>');
                         });
-                        $.each(json[0].generoxx,function(i,d){ 
+                        $.each(json[0].generoxx,function(i,d){
                             var selected='';
-                            if(dataxxxx.generoxx==d.valuexxx){ 
+                            if(dataxxxx.generoxx==d.valuexxx){
                                 selected='selected';
                             }
                             $("#prm_identidad_genero_id").append('<option '+selected+' value="'+d.valuexxx+'">'+d.optionxx+'</option>');
                         });
-                        $.each(json[0].estacivi,function(i,d){ 
+                        $.each(json[0].estacivi,function(i,d){
                             var selected='';
-                            if(dataxxxx.estadoxx==d.valuexxx){ 
+                            if(dataxxxx.estadoxx==d.valuexxx){
                                 selected='selected';
                             }
                             $("#prm_estado_civil_id").append('<option '+selected+' value="'+d.valuexxx+'">'+d.optionxx+'</option>');
                         });
-                        $.each(json[0].sexoxxxx,function(i,d){ 
+                        $.each(json[0].sexoxxxx,function(i,d){
                             var selected='';
                             if(dataxxxx.sexoxxxx==d.valuexxx){
                                 selected='selected';
                             }
                             $("#prm_sexo_id").append('<option '+selected+' value="'+d.valuexxx+'">'+d.optionxx+'</option>');
                         });
-                     
+
                         //f_situacion_militar(edadxxxx);
                        $('#aniosxxx').text(edadxxxx)
-                    }else{ 
+                    }else{
                         $.each(json,function(i,data){
                             var selected='';
                             if(eval(data.valuexxx)==eval(pselecte)){
                                 selected='selected'
                             }
                             $('#'+dataxxxx.campoxxx).append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        }); 
+                        });
                     }
-                    
+
                 },
                 error : function(xhr, status) {
                     alert('Disculpe, existió un problema');
@@ -72,7 +72,7 @@
             });
         }
         var datadepa=function(campoxxx,valuexxx,selected){
-            var localida=false; 
+            var localida=false;
             var routexxx="{{ route('ajaxx.departamento') }}"
             var municipi='sis_municipioexp_id';
             var departam='sis_departamentoexp_id';
@@ -83,9 +83,9 @@
                 departam='sis_upz_id';
                 municipi='sis_upzbarri_id';
                 routexxx="{{ route('ajaxx.upz') }}";
-                localida=true; 
+                localida=true;
             }
-            
+
             $("#"+departam+",#"+municipi).empty();
             $("#"+departam+",#"+municipi).append('<option value="">Seleccione</option>')
             dataxxxx={
@@ -138,8 +138,8 @@
             }
         }
         var f_documento_fisico=function(valuexxx,selected){
-            $("#i_prm_ayuda_id").empty();
-            $("#i_prm_ayuda_id").append('<option value="">Seleccione</>')
+            $("#prm_ayuda_id").empty();
+            $("#prm_ayuda_id").append('<option value="">Seleccione</>')
             dataxxxx={
                     url:"{{ route('ajaxx.ayuda') }}",
                     data:{
@@ -148,7 +148,7 @@
                     },
                     type:'POST',
                     datatype:'json',
-                    campoxxx:'i_prm_ayuda_id'
+                    campoxxx:'prm_ayuda_id'
                 }
                 if(valuexxx!='' ){
                     f_ajax(dataxxxx,selected);
@@ -159,7 +159,7 @@
         var f_cuenta_documento=function(valuexxx,pselecte){
             $("#prm_doc_fisico_id").empty();
             $("#prm_doc_fisico_id").append('<option value="">Seleccione</>')
-            
+
                 if(valuexxx!='' ){
                     $.ajax({
                     url : "{{ route('ajaxx.cuentadocumento') }}",
@@ -173,33 +173,33 @@
                         if(json[0].unosolox==1){
                             $("#prm_doc_fisico_id").empty();
                         }
-                        $.each(json[0].cuendocu,function(i,data){  
+                        $.each(json[0].cuendocu,function(i,data){
                             var selected='';
                             if(pselecte==data.valuexxx) {
                                 selected='selected';
-                            }                        
+                            }
                             $('#prm_doc_fisico_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        });    
+                        });
                     },
                     error : function(xhr, status) {
                         alert('Disculpe, existió un problema');
                     },
                 });
-            
+
                 }
         }
-        var f_situacion_militar=function(valuexxx){ 
+        var f_situacion_militar=function(valuexxx){
             $("#prm_situacion_militar_id,#prm_clase_libreta_id").empty();
-            $("#prm_situacion_militar_id,#prm_clase_libreta_id").append('<option value="">Seleccione</option>'); 
-            
-            if(valuexxx!=''){   
+            $("#prm_situacion_militar_id,#prm_clase_libreta_id").append('<option value="">Seleccione</option>');
+
+            if(valuexxx!=''){
                 var fechaxxx='';
                 if($('#d_nacimiento').val()==''){
                     $("#prm_sexo_id").empty();
                     $("#prm_sexo_id").append('<option value="">Seleccione</>')
                     alert('Por favor seleccione una fecha')
                     return false;
-                }            
+                }
                 $.ajax({
                     url : "{{ route('ajaxx.situacionmilitar') }}",
                     data : {
@@ -213,55 +213,55 @@
                         if(json[0].condicio[0].valuexxx==1){
                             $("#prm_situacion_militar_id,#prm_clase_libreta_id").empty();
                         }
-                        $.each(json[0].condicio,function(i,data){                            
+                        $.each(json[0].condicio,function(i,data){
                             $('#prm_situacion_militar_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        }); 
-                        $.each(json[0].tiplibre,function(i,data){                            
+                        });
+                        $.each(json[0].tiplibre,function(i,data){
                             $('#prm_clase_libreta_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
-                        
+
                     },
                     error : function(xhr, status) {
                         alert('Disculpe, existió un problema');
                     },
                 });
-            
+
 
             }
         }
         @if(old('sis_pai_id')!==null)
             datadepa('sis_pai_id',{{ old('sis_pai_id') }},{{ old('sis_departamento_id') }});
-           
+
             @if(old('sis_departamento_id')!==null)
                 datamuni('sis_departamento_id',{{ old('sis_departamento_id') }},{{ old('sis_municipio_id') }});
             @endif
         @endif
         @if(old('sis_paiexp_id')!==null)
             datadepa('sis_paiexp_id',{{ old('sis_paiexp_id') }},{{ old('sis_departamentoexp_id') }});
-           
+
             @if(old('sis_departamentoexp_id')!==null)
                 datamuni('sis_departamentoexp_id',{{ old('sis_departamentoexp_id') }},{{ old('sis_municipioexp_id') }});
             @endif
         @endif
         @if(old('sis_localidad_id')!==null)
             datadepa('sis_localidad_id',{{ old('sis_localidad_id') }},{{ old('sis_upz_id') }});
-           
+
             @if(old('sis_upz_id')!==null)
                 datamuni('sis_upz_id',{{ old('sis_upz_id') }},{{ old('sis_upzbarri_id') }});
             @endif
         @endif
          @if(old('prm_doc_fisico_id')!==null)
-          f_documento_fisico({{ old('prm_doc_fisico_id') }},{{ old('i_prm_ayuda_id') }});
+          f_documento_fisico({{ old('prm_doc_fisico_id') }},{{ old('prm_ayuda_id') }});
             @endif
         @if(old('prm_etnia_id')!==null)
         datamuni('prm_etnia_id',{{ old('prm_etnia_id') }},{{ old('prm_poblacion_etnia_id') }});
-        @endif    
-       
+        @endif
+
         @if(isset($todoxxxx['mindatex']))
         var fechactu=new Date();
         var fechaInicio = new Date(fechactu.getFullYear()-28,fechactu.getMonth(),fechactu.getDate()).getTime();
         var fechaFin    = new Date().getTime();
-        var diff = parseInt((fechaFin - fechaInicio)/(1000*60*60*24));  
+        var diff = parseInt((fechaFin - fechaInicio)/(1000*60*60*24));
 
 
         var f_nacimiento=function(valuexxx, orientac, generoxx, estadoxx, sexoxxxx){
@@ -278,15 +278,15 @@
                     estadoxx:estadoxx,
                     sexoxxxx:sexoxxxx
                 }
-                
-                f_ajax(dataxxxx,'');
-        }  
 
- 
-        @if(old('d_nacimiento')!==null)    
-       
+                f_ajax(dataxxxx,'');
+        }
+
+
+        @if(old('d_nacimiento')!==null)
+
         f_nacimiento('{{ old("d_nacimiento") }}','{{ old("prm_orientacion_sexual_id") }}','{{ old("prm_identidad_genero_id") }}','{{ old("prm_estado_civil_id") }}','{{ old("prm_sexo_id") }}');
-        @endif 
+        @endif
         $("#d_nacimiento").datepicker({
             dateFormat: "yy-mm-dd",
             changeMonth: true,
@@ -294,30 +294,30 @@
             minDate:"<?= isset($todoxxxx['mindatex'])?$todoxxxx['mindatex']:'+0y +0m +0d'?>",
             maxDate:"<?= isset($todoxxxx['maxdatex'])?$todoxxxx['maxdatex']:'+0y +0m +0d'?>",
             yearRange: "-28:-5",
-            
+
             onSelect: function(dateText) {
                 f_nacimiento($(this).val(),'','','','');
             }
         });
       @endif
-       
-        $("#prm_doc_fisico_id").change(function(){ 
+
+        $("#prm_doc_fisico_id").change(function(){
             f_documento_fisico($(this).val(),'');
         });
-       
-        $(".sispaisx").change(function(){ 
+
+        $(".sispaisx").change(function(){
             datadepa($(this).prop('id'),$(this).val(),'');
         });
-        $(".departam").change(function(){ 
+        $(".departam").change(function(){
             datamuni($(this).prop('id'),$(this).val(),'')
         });
-        
-        
 
-        
-        $("#prm_documento_id").change(function(){ 
+
+
+
+        $("#prm_tipodocu_id").change(function(){
             var valuexxx=$(this).val()
-             if($(this).val()!=''){ 
+             if($(this).val()!=''){
                  $.ajax({
                     url:"{{ route('ajaxx.consecutivoceduala') }}",
                     data:{
@@ -326,10 +326,10 @@
                     },
                     type:'POST',
                     dataType : 'json',
-                    success : function(json)  { 
+                    success : function(json)  {
                         if(valuexxx!=145){
-                            $("#i_prm_ayuda_id").empty();
-                            $("#i_prm_ayuda_id").append('<option value="">Seleccione</>')
+                            $("#prm_ayuda_id").empty();
+                            $("#prm_ayuda_id").append('<option value="">Seleccione</>')
                             $("#s_documento").val('');
                             $("#s_documento").prop('readonly',false)
                             $("#prm_doc_fisico_id option[value='']").attr("selected",true);
@@ -339,7 +339,7 @@
                             $("#s_documento").prop('readonly',true)
                             f_documento_fisico(228,'');
                             f_cuenta_documento(valuexxx,'');
-                        }  
+                        }
                         $("#sis_paiexp_id,#sis_departamentoexp_id,#sis_municipioexp_id").empty();
                         if(valuexxx!=145){
                             $("#sis_paiexp_id,#sis_departamentoexp_id,#sis_municipioexp_id").append('<option value="">Seleccione</option>')
@@ -359,23 +359,23 @@
                     }
                 });
              }else{
-                $("#i_prm_ayuda_id").empty();
-                $("#i_prm_ayuda_id").append('<option value="">Seleccione</>')
+                $("#prm_ayuda_id").empty();
+                $("#prm_ayuda_id").append('<option value="">Seleccione</>')
                 $("#s_documento").val('');
                 $("#s_documento").prop('readonly',false)
                 $("#prm_doc_fisico_id option[value='']").attr("selected",true);
                 f_cuenta_documento('0','');
              }
         });
-        var sita_sexo=function(valuexxx){ 
+        var sita_sexo=function(valuexxx){
             f_situacion_militar(valuexxx);
         }
 
         @if(old('prm_sexo_id')!==null)
          f_situacion_militar({{ old('prm_sexo_id') }});
-        @endif  
+        @endif
 
-        $("#prm_sexo_id").change(function(){ 
+        $("#prm_sexo_id").change(function(){
            sita_sexo($(this).val());
         });
 
@@ -395,12 +395,12 @@
                         if(json[0].claslibr[0].valuexxx==1){
                             $("#prm_clase_libreta_id").empty();
                         }
-                        $.each(json[0].claslibr,function(i,data){ 
-                            var selected=''; 
+                        $.each(json[0].claslibr,function(i,data){
+                            var selected='';
                             if(pselecte==data.valuexxx)
-                                selected='selected';                         
+                                selected='selected';
                             $('#prm_clase_libreta_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        }); 
+                        });
                     },
                     error : function(xhr, status) {
                         alert('Disculpe, existió un problema');
@@ -415,4 +415,4 @@
             clase_libreta($(this).val(),'');
         });
     });
-</script>   
+</script>

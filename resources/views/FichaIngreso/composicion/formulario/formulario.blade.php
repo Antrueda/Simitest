@@ -1,7 +1,5 @@
-<a href="{{route('fi.composicion',$todoxxxx["nnajregi"])}}" class="btn btn-sm btn-primary" role="button">Volver a Composición Familiar</a>
-
 <div class="form-row align-items-end">
-  <div class="form-group col-md-4"> 
+  <div class="form-group col-md-4">
     {{ Form::label('s_primer_apellido', '1.1 1er. Apellido', ['class' => 'control-label']) }}
     {{ Form::text('s_primer_apellido', null, ['class' => 'form-control form-control-sm',
      "onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);"]) }}
@@ -91,6 +89,6 @@
     {{ Form::label('i_prm_vinculado_idipron_id', '¿Estuvo vinculado(a) al IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('i_prm_vinculado_idipron_id', $todoxxxx["convivex"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
-  
-  
+
+
 </div>

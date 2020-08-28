@@ -48,6 +48,13 @@ class FiDatosBasico extends Model
         return $this->hasOne(NnajDocu::class);
     }
 
+    public function nnaj_sit_mil()
+    {
+        return $this->hasOne(NnajSitMil::class);
+    }
+
+
+
     public function nnaj_sexo()
     {
         return $this->hasOne(NnajSexo::class);
@@ -56,6 +63,15 @@ class FiDatosBasico extends Model
     public function nnaj_nacimi()
     {
         return $this->hasOne(NnajNacimi::class);
+    }
+    public function nnaj_fi_csd()
+    {
+        return $this->hasOne(NnajFiCsd::class);
+    }
+
+    public function nnaj_focali()
+    {
+        return $this->hasOne(NnajFocali::class);
     }
     public function sis_nnaj()
     {
@@ -155,42 +171,38 @@ class FiDatosBasico extends Model
             $dataxxxx['s_nombre_focalizacion'] = strtoupper($dataxxxx['s_nombre_focalizacion']);
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if ($objetoxx != '') {
-                /** Se va a modificar el registro */
-                /** Cuántos días han transcurrido desde la creación de datos básicos FI */
-                $diasxxxx = IndicadorHelper::setDiasTranscurridos($dataxxxx['sis_nnaj_id']);
-                /** Saber si se creo el registro después de la línea base */
-                $datobasi = FiDatosBasico::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])->where('i_prm_linea_base_id', 228)->first();
-                /** Para crearse el nuevo registro deben haber transcurido más de 45 días no haber registro */
-                if ($diasxxxx > 45 && !isset($datobasi->id)) {
-                    /** La línea base se pasa a inactivo para asegurar que no vuelva a ser modificada,
-                     * solo será consultada */
-                    $objetoxx->update(['sis_esta_id' => 0]);
-                    /** El nuevo registro no es línea base */
-                    $dataxxxx['i_prm_linea_base_id'] = 228;
-                    /** Insertar nuevo registro */
-                    $dataxxxx['sis_nnaj_id'] = $objetoxx->sis_nnaj_id;
-                    $dataxxxx['fi_nucleo_familiar_id'] = $objetoxx->fi_nucleo_familiar_id;
-                    $dataxxxx['user_crea_id'] = Auth::user()->id;
-                    $objetoxx = FiDatosBasico::create($dataxxxx);
-                    //DB::table($tablaxxx)->insert($dataxxxx);
-                } else {
+                $dataxxxx['nnaj_nfamili_id']=$objetoxx->nnaj_nfamili_id;
                     /** Actualizar registro */
-                    $dataxxxx['fi_nucleo_familiar_id'] = $objetoxx->fi_nucleo_familiar_id;
+
                     $objetoxx->update($dataxxxx);
-                }
+                    $dataxxxx['fi_datos_basico_id']=$objetoxx->id;
+
+                    $objetoxx->nnaj_sexo->update($dataxxxx);
+                    $objetoxx->nnaj_nacimi->update($dataxxxx);
+                    $objetoxx->nnaj_docu->update($dataxxxx);
+                    $objetoxx->nnaj_sit_mil->update($dataxxxx);
+                    $objetoxx->nnaj_focali->update($dataxxxx);
+                    $objetoxx->nnaj_fi_csd->update($dataxxxx);
+
             } else {
                 /** Es un registro nuevo */
-                $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id])->id;
-                $dataxxxx['fi_nucleo_familiar_id'] = NnajNfamili::nucleo($dataxxxx['sis_nnaj_id']);
+                $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id'=>1,'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id])->id;
+                $dataxxxx['nnaj_nfamili_id'] = NnajNfamili::nucleo($dataxxxx['sis_nnaj_id']);
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $dataxxxx['i_prm_linea_base_id'] = 227;
                 $objetoxx = FiDatosBasico::create($dataxxxx);
+                $dataxxxx['fi_datos_basico_id']=$objetoxx->id;
+                NnajSexo::create($dataxxxx);
+                    NnajNacimi::create($dataxxxx);
+                    NnajDocu::create($dataxxxx);
+                    NnajSitMil::create($dataxxxx);
+                    NnajFocali::create($dataxxxx);
+                NnajFiCsd::create($dataxxxx);
             }
             $dataxxxx['i_prm_ocupacion_id'] = 1262;
             $dataxxxx['i_prm_parentesco_id'] = 805;
             $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
             $dataxxxx['i_prm_convive_nnaj_id'] = 227;
-            $compofam = FiComposicionFami::where('fi_nucleo_familiar_id', $dataxxxx['fi_nucleo_familiar_id'])->first();
+            $compofam = FiComposicionFami::where('nnaj_nfamili_id', $dataxxxx['nnaj_nfamili_id'])->first();
             if ($compofam == null) {
                 $compofam = '';
             }

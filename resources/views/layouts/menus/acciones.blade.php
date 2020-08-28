@@ -7,7 +7,7 @@
         </p>
     </a>
     <ul class="nav nav-treeview">
-        @canany(['aiindex-leer']) 
+        @canany(['accindiv-modulo'])
             <li class="nav-item">
                 <a href="{{ route('ai') }}" class="nav-link">
                     <i class="fas fa-child nav-icon"></i>
@@ -15,9 +15,7 @@
                 </a>
             </li>
         @endcanany
-        @canany(['agtema-leer','agtaller-leer',
-                'agsubtema-leer','agdependencia-leer',
-                'agcontexto-leer','agrecurso-leer','agconvenio-leer','agactividad-leer']) 
+        @canany(['accigrup-modulo'])
             <li class="nav-item">
                 @include('layouts.menus.accionesgrupales')
             </li>

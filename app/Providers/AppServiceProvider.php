@@ -93,7 +93,7 @@ use App\Models\intervencion\IsProximaAreaAjuste;
 use App\Models\Parametro;
 use App\Models\Permissionext;
 use App\Models\post;
-use App\Models\Roleext;
+
 use App\Models\sicosocial\Pivotes\VsiActemoFisiologica;
 use App\Models\sicosocial\Pivotes\VsiBienvenidaMotivo;
 use App\Models\sicosocial\Pivotes\VsiConcepRed;
@@ -201,7 +201,6 @@ use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\Tema;
 use App\Models\User;
-use App\Models\Usuario\RolUsuario;
 use App\Models\Usuario\SisAreaUsua;
 use App\Models\Salud\Mitigacion\Vspa;
 use App\Models\Salud\Mitigacion\VspaTabla;
@@ -656,7 +655,6 @@ class AppServiceProvider extends ServiceProvider
     FiViolencia::observe(FiViolenciaObserver::class);
 
     // USUARIO
-    RolUsuario::observe(RolUsuarioObserver::class);
     SisAreaUsua::observe(SisAreaUsuaObserver::class);
 
     // CARPETA RAIZ
@@ -664,7 +662,6 @@ class AppServiceProvider extends ServiceProvider
     Permissionext::observe(PermissionextObserver::class);
     post::observe(postObserver::class);
 
-    Roleext::observe(RoleextObserver::class);
     Tema::observe(TemaObserver::class);
     User::observe(UserObserver::class);
 

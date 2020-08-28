@@ -12,182 +12,191 @@ use App\Models\Tema;
 
 class FiVestuarioController extends Controller
 {
-  private $opciones;
+    private $opciones;
 
-  public function __construct()
-  {
+    public function __construct()
+    {
 
-    $this->opciones = [
-      'tituloxx' => 'Vestuario',
-      'rutaxxxx' => 'FichaIngreso',
-      'accionxx' => '',
-      'volverax' => 'lista de NNAJ',
-      'readonly' => '',
-      'slotxxxx' => 'vestuario',
-      'carpetax' => 'vestuario',
-      'modeloxx' => '',
-      'routxxxx' => 'fi.datobasico',
-      'routinde' => 'fi',
-      'routnuev' => 'fi.datobasico',
-      'nuevoxxx' => 'o Registro'
-    ];
+        $this->opciones = [
+            'tituloxx' => 'Vestuario',
+            'permisox' => 'fivestuario',
+            'rutaxxxx' => 'FichaIngreso',
+            'accionxx' => '',
+            'volverax' => 'lista de NNAJ',
+            'readonly' => '',
+            'slotxxxx' => 'vestuario',
+            'carpetax' => 'Vestuario',
+            'modeloxx' => '',
+            'routxxxx' => 'fi.vestuario',
 
+            'routnuev' => 'fi.vestuario',
+            'nuevoxxx' => 'o Registro'
+        ];
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['tituhead'] = 'FICHA DE INGRESO';
+        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
 
-    $this->middleware(['permission:'
-        . $this->opciones['permisox'] . '-leer|'
-        . $this->opciones['permisox'] . '-crear|'
-        . $this->opciones['permisox'] . '-editar|'
-        . $this->opciones['permisox'] . '-borrar']);
+        $this->opciones['sexoetar'] = Tema::combo(139, true, false);
 
-    $this->opciones['sexoetar'] = Tema::combo(139,true,false);
+        $this->opciones['tallzapa'] = Tema::combo(138, true, false);
 
-    $this->opciones['tallzapa'] = Tema::combo(138,true,false);
-  }
-
-  private function view($objetoxx, $nombobje, $accionxx)
-  {
-
-    $this->opciones['estadoxx'] = 'ACTIVO';
-    $this->opciones['accionxx'] = $accionxx;
-    // indica si se esta actualizando o viendo
-
-    if ($nombobje != '') {
-      $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => ['fidatbas', []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJS', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
     }
 
+    private function view($dataxxxx)
+    {
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['nnajregi'] = $dataxxxx['padrexxx']->id;
+        $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        $this->opciones['tallasxx'] = $this->casos('');
+        $this->opciones['vestuari'] = FiVestuarioNnaj::vestuario($dataxxxx['padrexxx']->id);
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        // indica si se esta actualizando o viendo
 
-
-    // Se arma el titulo de acuerdo al array opciones
-    $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
-
-    return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create($datobasi)
-  {
-    $this->opciones['vestuari'] = FiVestuarioNnaj::vestuario($datobasi);
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    $vestuari = FiVestuarioNnaj::where('sis_nnaj_id', $this->opciones['datobasi']->sis_nnaj_id)->first();
-    if ($vestuari != null) {
-      return redirect()
-        ->route('fi.vestuario.editar', [$datobasi, $vestuari->id]);
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['parametr'][1]=$dataxxxx['modeloxx']->id;
+            $this->opciones['tallasxx'] = $this->casos($dataxxxx['modeloxx']->prm_sexo_etario_id);
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+        }
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-    $this->opciones['nnajregi'] = $datobasi;
-    $this->opciones['tallasxx'] = $this->casos('');
-    return $this->view(true, '', 'Crear');
-  }
 
-  private function grabar($dataxxxx, $objetoxx, $infoxxxx)
-  {
-    return redirect()
-      ->route('fi.vestuario.editar', [$dataxxxx['sis_nnaj_id'], FiVestuarioNnaj::transaccion($dataxxxx,  $objetoxx)->id])
-      ->with('info', $infoxxxx);
-  }
-
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
-
-
-  public function store(FiVestuarioCrearRequest $request)
-  {
-    return $this->grabar($request->all(), '', 'Vestuario creado con exito');
-  }
-
-  /**
-   * Display the specified resource.
-   *
-   * @param  \App\Models\Vestuario  $ve
-   * @return \Illuminate\Http\ve
-   */
-  public function show(FiVestuarioNnaj $ve)
-  {
-    //
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Models\Vestuario  $ve
-   * @return \Illuminate\Http\Response
-   */
-  public function edit($nnajregi,  FiVestuarioNnaj $ve)
-  {
-    $this->opciones['vestuari'] = FiVestuarioNnaj::vestuario($nnajregi);
-    $this->opciones['nnajregi'] = $nnajregi;
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($this->opciones['nnajregi']);
-    $this->opciones['tallasxx'] = $this->casos($ve->prm_sexo_etario_id);
-    return $this->view($ve,  'modeloxx', 'Editar');
-  }
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Models\Vestuario  $vestuario
-   * @return \Illuminate\Http\Response
-   */
-  public function update(FiVestuarioUpdateRequest $request, $db, $id)
-  {
-    return $this->grabar($request->all(), FiVestuarioNnaj::where('id',$id)->first(), 'Vestuario actualizado con exito');
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  \App\Models\Vestuario  $vestuario
-   * @return \Illuminate\Http\Response
-   */
-  public function destroy(FiVestuarioNnaj $ve)
-  {
-    //
-  }
-  private function casos($sexoxxxx)
-  {
-    $respuest = ['tallpant' => '', 'tallcami' => ''];
-    switch ($sexoxxxx) {
-      case 496: //HOMBRE NIÑO
-        $respuest = [
-          'tallpant' => Tema::combo(132,true,false),
-          'tallcami' => Tema::combo(132,true,false),
-        ];
-        break;
-      case 505: //HOMBRE ADULTO
-        $respuest = [
-          'tallpant' => Tema::combo(134,true,false),
-          'tallcami' => Tema::combo(136,true,false),
-        ];
-        break;
-      case 707: //MUJER NIÑA
-        $respuest = [
-          'tallpant' => Tema::combo(132,true,false),
-          'tallcami' => Tema::combo(132,true,false),
-        ];
-        break;
-      case 705: //MUJER ADULTA
-        $respuest = [
-          'tallpant' => Tema::combo(135,true,false),
-          'tallcami' => Tema::combo(137,true,false),
-        ];
-        break;
-      default:
-        $respuest = ['tallpant' => ['' => 'Seleccione'], 'tallcami' => ['' => 'Seleccione']];
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FiDatosBasico $padrexxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $vestuari = FiVestuarioNnaj::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('fi.vestuario.editar', [$padrexxx->id, $vestuari->id]);
+        }
+        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
     }
-    return $respuest;
-  }
-  public function tallasajax(\Illuminate\Http\Request $request)
-  {
-    if ($request->ajax()) {
-      return response()->json($this->casos($request->all()['sexoxxxx']));
+
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx)
+    {
+        $vestuari = FiVestuarioNnaj::transaccion($dataxxxx,  $objetoxx);
+        return redirect()
+            ->route('fi.vestuario.editar', [$vestuari->sis_nnaj->fi_datos_basico->id, $vestuari->id])
+            ->with('info', $infoxxxx);
     }
-  }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+
+    public function store(FiDatosBasico $padrexxx, FiVestuarioCrearRequest $request)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        return $this->grabar($dataxxxx, '', 'Vestuario creado con exito');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Vestuario  $ve
+     * @return \Illuminate\Http\ve
+     */
+    public function show(FiDatosBasico $padrexxx,FiVestuarioNnaj $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Ver', 'padrexxx' => $padrexxx]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Vestuario  $ve
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(FiDatosBasico $padrexxx,  FiVestuarioNnaj $modeloxx)
+    {
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Vestuario  $vestuario
+     * @return \Illuminate\Http\Response
+     */
+    public function update(FiVestuarioUpdateRequest $request, $db, $id)
+    {
+        return $this->grabar($request->all(), FiVestuarioNnaj::where('id', $id)->first(), 'Vestuario actualizado con exito');
+    }
+
+    private function casos($sexoxxxx)
+    {
+        $respuest = ['tallpant' => '', 'tallcami' => ''];
+        switch ($sexoxxxx) {
+            case 496: //HOMBRE NIÑO
+                $respuest = [
+                    'tallpant' => Tema::combo(132, true, false),
+                    'tallcami' => Tema::combo(132, true, false),
+                ];
+                break;
+            case 505: //HOMBRE ADULTO
+                $respuest = [
+                    'tallpant' => Tema::combo(134, true, false),
+                    'tallcami' => Tema::combo(136, true, false),
+                ];
+                break;
+            case 707: //MUJER NIÑA
+                $respuest = [
+                    'tallpant' => Tema::combo(132, true, false),
+                    'tallcami' => Tema::combo(132, true, false),
+                ];
+                break;
+            case 705: //MUJER ADULTA
+                $respuest = [
+                    'tallpant' => Tema::combo(135, true, false),
+                    'tallcami' => Tema::combo(137, true, false),
+                ];
+                break;
+            default:
+                $respuest = ['tallpant' => ['' => 'Seleccione'], 'tallcami' => ['' => 'Seleccione']];
+        }
+        return $respuest;
+    }
+    public function tallasajax(\Illuminate\Http\Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json($this->casos($request->all()['sexoxxxx']));
+        }
+    }
 }

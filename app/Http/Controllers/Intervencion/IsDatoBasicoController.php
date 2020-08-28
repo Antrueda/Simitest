@@ -35,7 +35,7 @@ class IsDatoBasicoController extends Controller {
         'nuevoxxx' => 'o Registro',
         'urlxxxxx' => 'api/is/nnajs',
     ];
-
+    $this->opciones['permisox'] = 'isintervencion';
 
     $this->middleware(['permission:'
         . $this->opciones['permisox'] . '-leer|'
@@ -45,7 +45,7 @@ class IsDatoBasicoController extends Controller {
 
     $this->opciones['dispform'] = "none";
     $this->opciones['disptabx'] = "block";
-    $this->opciones['permisox'] = 'isintervencion';
+
     $this->opciones['tipatenc'] = Tema::combo(213, true, false);
 
     $this->opciones['areajust'] = Tema::combo(212, true, false);

@@ -23,11 +23,11 @@ class HFiComposicionFami extends Model
         'i_prm_vinculado_idipron_id',
         'i_prm_convive_nnaj_id',
         'prm_documento_id',
-        'fi_nucleo_familiar_id',
+        'nnaj_nfamili_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
-        
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

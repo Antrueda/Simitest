@@ -26,9 +26,7 @@ class HFiResidencia extends Model
         'i_prm_espacio_parcha_id',
         's_nombre_espacio_parcha',
         's_complemento',
-        'sis_localidad_id',
-        'sis_upz_id',
-        'sis_barrio_id',
+        'sis_upzbarri_id',
         's_telefono_uno',
         's_telefono_dos',
         's_telefono_tres',
@@ -37,7 +35,7 @@ class HFiResidencia extends Model
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
-        
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

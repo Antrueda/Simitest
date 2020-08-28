@@ -98,5 +98,6 @@ class IsDatosBasicoCrearRequest extends FormRequest
             $this->_mensaje['fechamayor.required'] ='La fecha de dilegenciamiento no puede ser mayor a hoy';
             $this->_reglasx['fechamayor']='required';
         }
+
     }
 }

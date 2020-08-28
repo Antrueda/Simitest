@@ -12,159 +12,156 @@ use App\Models\Tema;
 
 class FiFormacionController extends Controller
 {
-  private $opciones;
-  public function __construct()
-  {
+    private $opciones;
+    public function __construct()
+    {
 
-    $this->opciones = [
-      'tituloxx' => 'Formacion',
-      'rutaxxxx' => 'FichaIngreso',
-      'accionxx' => '',
-      'volverax' => 'lista de NNAJ',
-      'readonly' => '',
-      'slotxxxx' => 'formacion',
-      'carpetax' => 'formacion',
-      'modeloxx' => '',
-      'routxxxx' => 'fi.datobasico',
-      'routinde' => 'fi',
-      'routnuev' => 'fi.datobasico',
-      'nuevoxxx' => 'o Registro'
-    ];
+        $this->opciones['permisox'] = 'fiformacion';
+        $this->opciones['routxxxx'] = 'fi.formacion';
+        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['carpetax'] = 'Formacion';
+        $this->opciones['slotxxxx'] = 'formacion';
+        $this->opciones['tituloxx'] = 'ESCUELA';
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['tituhead'] = 'FICHA DE INGRESO';
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
 
-    $this->middleware(['permission:'
-        . $this->opciones['permisox'] . '-leer|'
-        . $this->opciones['permisox'] . '-crear|'
-        . $this->opciones['permisox'] . '-editar|'
-        . $this->opciones['permisox'] . '-borrar']);
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
 
-    $this->opciones['actuestu'] = Tema::combo(23, true, false);
-    $this->opciones['condicio'] = Tema::combo(23, true, false);
-    $this->opciones['motvincu'] = Tema::combo(63, false, false);
-    $this->opciones['natuenti'] = Tema::combo(130, true, false);
-    $this->opciones['jornestu'] = Tema::combo(151, true, false);
-    $this->opciones['ulnivest'] = Tema::combo(153, true, false);
-    $this->opciones['ulgradap'] = Tema::combo(154, true, false);
-    $this->opciones['insti_id'] = SisInstitucionEdu::combo(true, false);
-  }
-  private function view($objetoxx, $nombobje, $accionxx)
-  {
-    $this->opciones['estadoxx'] = 'ACTIVO';
-    $this->opciones['accionxx'] = $accionxx;
-    // indica si se esta actualizando o viendo
-    $this->opciones['readdiax'] = '';
-    $this->opciones['readmesx'] = '';
-    $this->opciones['readanox'] = '';
+        $this->opciones['actuestu'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['motvincu'] = Tema::combo(63, false, false);
+        $this->opciones['natuenti'] = Tema::combo(130, true, false);
+        $this->opciones['jornestu'] = Tema::combo(151, true, false);
+        $this->opciones['ulnivest'] = Tema::combo(153, true, false);
+        $this->opciones['ulgradap'] = Tema::combo(154, true, false);
+        $this->opciones['insti_id'] = SisInstitucionEdu::combo(true, false);
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => ['fidatbas', []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJS', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
+    }
+    private function view($dataxxxx)
+    {
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
 
-    // Si es CHC
-    if($this->opciones['datobasi']->prm_poblacion_id == 650){
-      $this->opciones['natuenti'] = [1 => 'NO APLICA'];
-      $this->opciones['jornestu'] = [1 => 'NO APLICA'];
-      $this->opciones['insti_id'] = [1 => 'NO APLICA'];
-      $this->opciones['actuestu']=[228=>'NO'];
+        $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        // indica si se esta actualizando o viendo
+        $this->opciones['readdiax'] = '';
+        $this->opciones['readmesx'] = '';
+        $this->opciones['readanox'] = '';
+        // Si es CHC
+        if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) {
+            $this->opciones['natuenti'] = [1 => 'NO APLICA'];
+            $this->opciones['jornestu'] = [1 => 'NO APLICA'];
+            $this->opciones['insti_id'] = [1 => 'NO APLICA'];
+            $this->opciones['actuestu'] = [228 => 'NO'];
+        }
+
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['parametr'][]=$dataxxxx['modeloxx']->id;
+            if ($dataxxxx['modeloxx']->i_prm_estudia_id == 228) {
+                $this->opciones['natuenti'] = [1 => 'NO APLICA'];
+                $this->opciones['jornestu'] = [1 => 'NO APLICA'];
+            } elseif ($dataxxxx['modeloxx']->i_prm_estudia_id == 227) {
+                $this->opciones['readdiax'] = 'readonly';
+                $this->opciones['readmesx'] = 'readonly';
+                $this->opciones['readanox'] = 'readonly';
+            }
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+        }
+        $this->opciones['vinculac'] = FiFormacion::getMotivoVinculacion($dataxxxx['modeloxx']);
+        return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    if ($nombobje != '') {
-      if ($objetoxx->i_prm_estudia_id == 228) {
-        $this->opciones['natuenti'] = [1 => 'NO APLICA'];
-        $this->opciones['jornestu'] = [1 => 'NO APLICA'];
-      } elseif($objetoxx->i_prm_estudia_id == 227) {
-        $this->opciones['readdiax'] = 'readonly';
-        $this->opciones['readmesx'] = 'readonly';
-        $this->opciones['readanox'] = 'readonly';
-      }
-      $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FiDatosBasico $padrexxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $vestuari = FiFormacion::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('fi.formacion.editar', [$padrexxx->id, $vestuari->id]);
+        }
+        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
     }
-    $this->opciones['vinculac'] = FiFormacion::getMotivoVinculacion($objetoxx);
-
-
-    // Se arma el titulo de acuerdo al array opciones
-    $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
-
-    return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create($datobasi)
-  {
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    $vestuari = FiFormacion::where('sis_nnaj_id', $this->opciones['datobasi']->sis_nnaj_id)->first();
-    if ($vestuari != null) {
-      return redirect()
-        ->route('fi.formacion.editar', [$datobasi, $vestuari->id]);
+    private function grabar($dataxxxx, $objectx, $infoxxxx)
+    {
+        $modeloxx = FiFormacion::transaccion($dataxxxx, $objectx);
+        return redirect()
+            ->route('fi.formacion.editar', [$modeloxx->sis_nnaj->fi_datos_basico->id, $modeloxx->id])
+            ->with('info', $infoxxxx);
     }
-    $this->opciones['nnajregi'] = $datobasi;
-    return $this->view('', '', 'Crear');
-  }
-  private function grabar($dataxxxx, $objectx, $infoxxxx)
-  {
-
-    return redirect()
-      ->route('fi.formacion.editar', [$dataxxxx['sis_nnaj_id'], FiFormacion::transaccion($dataxxxx, $objectx)->id])
-      ->with('info', $infoxxxx);
-  }
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
 
-  public function store(FiFormacionCrearRequest $request)
-  {
-    return $this->grabar($request->all(), '', 'Formación creada con exito');
-  }
+    public function store(FiDatosBasico $padrexxx, FiFormacionCrearRequest $request)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        return $this->grabar($dataxxxx, '', 'Formación creada con exito');
+    }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  \App\Models\FiFormacion  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function show(FiFormacion $objetoxx)
-  {
-    //
-  }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiFormacion  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(FiDatosBasico $padrexxx, FiFormacion $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Ver', 'padrexxx' => $padrexxx]);
+    }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Models\FiFormacion  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function edit($nnajregi,  FiFormacion $objetoxx)
-  {
-    $this->opciones['nnajregi'] = $nnajregi;
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($this->opciones['nnajregi']);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiFormacion  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(FiDatosBasico $padrexxx,  FiFormacion $modeloxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);
+    }
 
-    return $this->view($objetoxx,  'modeloxx', 'Editar');
-  }
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Models\FiFormacion  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function update(FiFormacionUpdateRequest $request, $db, $id)
-  {
-    return $this->grabar($request->all(), FiFormacion::where('id', $id)->first(), 'Formación actualizada con exito');
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  \App\Models\FiFormacion  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function destroy(FiFormacion $objetoxx)
-  {
-    //
-  }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiFormacion  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(FiFormacionUpdateRequest $request, $padrexxx, FiFormacion $modeloxx)
+    {
+        return $this->grabar($request->all(), $modeloxx, 'Formación actualizada con exito');
+    }
 }

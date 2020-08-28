@@ -31,7 +31,7 @@ class FiComposicionFami extends Model
     'i_prm_ocupacion_id',
     'i_prm_vinculado_idipron_id',
     'i_prm_convive_nnaj_id',
-    'fi_nucleo_familiar_id',
+    'nnaj_nfamili_id',
     'user_crea_id',
     'user_edita_id',
     'prm_documento_id',
@@ -73,8 +73,8 @@ class FiComposicionFami extends Model
       if ($objetoxx != '') {
         $objetoxx->update($dataxxxx);
       } else {
-        $nnajxxxx = FiDatosBasico::where('fi_nucleo_familiar_id', $dataxxxx['fi_nucleo_familiar_id'])->first();
-        $dataxxxx['fi_nucleo_familiar_id'] = $nnajxxxx->fi_nucleo_familiar_id;
+        $nnajxxxx = FiDatosBasico::where('nnaj_nfamili_id', $dataxxxx['nnaj_nfamili_id'])->first();
+        $dataxxxx['nnaj_nfamili_id'] = $nnajxxxx->nnaj_nfamili_id;
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiComposicionFami::create($dataxxxx);
       }
@@ -93,7 +93,7 @@ class FiComposicionFami extends Model
     if ($cabecera) {
       $comboxxx = ['' => 'Seleccione'];
     }
-    foreach (FiComposicionFami::where('fi_nucleo_familiar_id', $padrexxx->fi_nucleo_familiar_id)->get() as $registro) {
+    foreach (FiComposicionFami::where('nnaj_nfamili_id', $padrexxx->nnaj_nfamili_id)->get() as $registro) {
       if ($ajaxxxxx) {
         $comboxxx[] = [
           'valuexxx' => $registro->id,
@@ -119,7 +119,7 @@ class FiComposicionFami extends Model
       $comboxxx = ['' => 'Seleccione'];
     }
     $compofam=FiComposicionFami::where(function($consulta) use($padrexxx,$edadxxxx){
-      $consulta->where('fi_nucleo_familiar_id', $padrexxx->fi_nucleo_familiar_id);
+      $consulta->where('nnaj_nfamili_id', $padrexxx->nnaj_nfamili_id);
       if($edadxxxx>=18){
         $consulta->where('i_prm_parentesco_id', 805);
       }

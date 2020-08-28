@@ -31,11 +31,9 @@ class SisBarrio extends Model
         if (!$esajaxxx)
             $comboxxx = ['' => 'Seleccione'];
         $barrioxx = SisUpzbarri::where(function ($dataxxxx) use ($idpadrex) {
-            if ($idpadrex != '') {
-                $dataxxxx->where('sis_localupz_id', $idpadrex);
-            }
+            $dataxxxx->where('sis_localupz_id', $idpadrex);
         })
-        // ->orderBY('s_barrio', 'asc')
+            // ->orderBY('s_barrio', 'asc')
             ->get();
 
 

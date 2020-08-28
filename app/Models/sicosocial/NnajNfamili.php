@@ -27,10 +27,10 @@ class NnajNfamili extends Model
         $nucleoxx = FiDatosBasico::where('sis_nnaj_id', $usuariox)->first();
         if ($nucleoxx == null) {
             $inucleox =NnajNfamili::create(
-                ['i_en_uso' => '1',
+                ['en_uso' => '1',
                 'user_crea_id'=>Auth::user()->id,
-                'user_edita_id'=>Auth::user()->id,'
-                activo'=>1])->id;
+                'user_edita_id'=>Auth::user()->id,
+                'sis_esta_id'=>1])->id;
          } else {
             $inucleox = $nucleoxx->fi_nucleo_familiar_id;
         }

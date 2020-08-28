@@ -47,7 +47,7 @@ class IsDatosBasico extends Model
         'i_primer_responsable',
         'i_segundo_responsable',
         'sis_nnaj_id',
-        'user_crea_id', 
+        'user_crea_id',
         'user_edita_id',
         'sis_esta_id'
     ];
@@ -68,7 +68,7 @@ class IsDatosBasico extends Model
 
     public function is_proxima_area_ajustes()
     {
-    return $this->hasMany(IsProximaAreaAjuste::class);
+        return $this->belongsToMany(Parametro::class, 'is_proxima_area_ajustes', 'is_datos_basico_id', 'i_prm_area_proxima_id');
     }
 
     public function editor()
@@ -93,34 +93,36 @@ class IsDatosBasico extends Model
 
     public static function getAreajuste($objetoxx)
     {
-      $vestuari = ['areajusx' => [], 'formular' => false];
-  
-      if ($objetoxx == '') {
-        $vestuari['formular'] = true;
-      } else {
-        $vestuari['areajusx'] = $objetoxx->is_proxima_area_ajustes;
-      }
-      return $vestuari;
+        $vestuari = ['areajusx' => [], 'formular' => false];
+
+        if ($objetoxx == '') {
+            $vestuari['formular'] = true;
+        } else {
+            $vestuari['areajusx'] = $objetoxx->is_proxima_area_ajustes;
+        }
+        return $vestuari;
     }
 
-    private static function grabarProximaArea($proxiarea,$dataxxxx){
-        $datosxxx=[
-          'is_datos_basico_id'=>$proxiarea->id, 
-          'user_crea_id'=>Auth::user()->id, 
-          'user_edita_id'=>Auth::user()->id,
-          'sis_esta_id'=>1,
+    private static function grabarProximaArea($proxiarea, $dataxxxx)
+    {
+        $datosxxx = [
+            'is_datos_basico_id' => $proxiarea->id,
+            'user_crea_id' => Auth::user()->id,
+            'user_edita_id' => Auth::user()->id,
+            'sis_esta_id' => 1,
         ];
         IsProximaAreaAjuste::where('is_datos_basico_id', $proxiarea->id)->delete();
-        foreach($dataxxxx['i_prm_area_proxima_id'] as $proximare){
-          $datosxxx['i_prm_area_proxima_id']=$proximare;
-          IsProximaAreaAjuste::create($datosxxx);
+        foreach ($dataxxxx['is_proxima_area_ajustes'] as $proximare) {
+            $datosxxx['i_prm_area_proxima_id'] = $proximare;
+            IsProximaAreaAjuste::create($datosxxx);
         }
-      }
-    
+    }
+
     public static function transaccion($dataxxxx,  $objetoxx)
     {
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
             $dataxxxx['user_edita_id'] = Auth::user()->id;
+            $dataxxxx['sis_esta_id'] = 1;
             if ($objetoxx != '') {
                 $objetoxx->update($dataxxxx);
             } else {
@@ -128,9 +130,9 @@ class IsDatosBasico extends Model
                 $objetoxx = IsDatosBasico::create($dataxxxx);
             }
 
-            if(isset($dataxxxx['i_prm_area_proxima_id'])){
-                IsDatosBasico::grabarProximaArea($objetoxx,$dataxxxx);
-              }
+            if (isset($dataxxxx['is_proxima_area_ajustes'])) {
+                IsDatosBasico::grabarProximaArea($objetoxx, $dataxxxx);
+            }
             return $objetoxx;
         }, 5);
         return $usuariox;

@@ -43,7 +43,7 @@ class CreateFiDatosBasicosTable extends Migration
             $table->Integer('sis_nnaj_id');
             $table->Integer('prm_tipoblaci_id');
             $table->Integer('prm_vestimenta_id');
-            $table->Integer('nnaj_nfamili');
+            $table->Integer('nnaj_nfamili_id');
             $table->Integer('sis_docfuen_id');
             $table = CamposMagicos::h_magicos($table);
         });

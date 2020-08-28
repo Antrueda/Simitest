@@ -5,7 +5,6 @@ namespace App\Models\Sistema;
 use Illuminate\Database\Eloquent\Model;
 
 use app\Models\User;
-use app\Models\Parametro;
 use app\Models\fichaIngreso\FiDatosBasico;
 use app\Models\fichaIngreso\FiBienvenida;
 use app\Models\fichaIngreso\FiResidencia;

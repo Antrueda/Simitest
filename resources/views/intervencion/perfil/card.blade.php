@@ -8,7 +8,7 @@
 </div>
 
 <div class="card" >
-  
+
   <div class="card-body">
       <div class="form-row align-items-end">
           {{ Form::hidden('sis_nnaj_id', $todoxxxx['nnajregi']) }}
@@ -40,7 +40,7 @@
           {{ Form::text('s_tema', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Tema', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
         </div>
       </div>
-      
+
       <div class="form-row align-items-end">
         <div class="form-group col-md-12">
           {{ Form::label('s_objetivo_sesion', 'Objetivo de la sesión', ['class' => 'control-label']) }}
@@ -63,7 +63,7 @@
           <p id="contadortareas">0/4000</p>
         </div>
       </div>
-      
+
       <div class="panel panel-default">
         <div class="panel-heading">
             {{ Form::label('tit_areajuste', 'Nivel de avance del NNAJ', ['class' => 'control-label']) }}
@@ -136,8 +136,8 @@
           </div>
         </div>
       </div>
-      
-      
+
+
       <div class="panel panel-default">
               {{ Form::label('i_prm_area_emocional_id', 'Novedad de la sesión', ['class' => 'control-label']) }}
           <div class="panel-body">
@@ -169,7 +169,7 @@
                 </div>
           </div>
         </div>
-      
+
       <div class="form-row align-items-end">
         <div class="form-group col-md-12">
           {{ Form::label('s_observaciones', 'Observaciones', ['class' => 'control-label']) }}
@@ -178,41 +178,43 @@
         </div>
       </div>
       <div class="form-row align-items-end">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-6">
           {{ Form::label('d_fecha_proxima', 'Fecha Próxima Sesión', ['class' => 'control-label']) }}
           {{ Form::date('d_fecha_proxima', null, ['class' => 'form-control form-control-sm', $todoxxxx["readonly"]]) }}
         </div>
-        <div class="form-group col-md-4">
-          {{ Form::label('i_prm_area_proxima_id', 'Área de ajuste a trabajar en la próxima sesión', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('i_prm_area_proxima_id[]', $todoxxxx['arjustpr'], null, ['class' => $errors->first('i_prm_area_proxima_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'multiple','id' => 'i_prm_area_proxima_id','autofocus']) }}
-          @if($errors->has('i_prm_area_proxima_id'))
+        <div class="form-group col-md-6">
+          {{ Form::label('is_proxima_area_ajustes', 'Área de ajuste a trabajar en la próxima sesión', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('is_proxima_area_ajustes[]', $todoxxxx['arjustpr'], null, ['class' => $errors->first('is_proxima_area_ajustes') ?
+                'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm', 'multiple',
+                'id' => 'is_proxima_area_ajustes',
+                'data-placeholder' => 'Seleccione las Área de ajuste a trabajar en la próxima sesión','autofocus']) }}
+            @if($errors->has('is_proxima_area_ajustes'))
             <div class="invalid-feedback d-block">
-              {{ $errors->first('i_prm_area_proxima_id') }}
+              {{ $errors->first('is_proxima_area_ajustes') }}
             </div>
             @endif
         </div>
-      </div>
-      
-      <div class="form-row align-items-end">
-        <div class="form-group col-md-8">
-          {{ Form::label('i_primer_responsable', 'Responsable de la actividad', ['class' => 'control-label']) }}
-          {{ Form::select('i_primer_responsable', $todoxxxx['usuarios'], null, ['class' => $errors->first('i_primer_responsable') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el primer responsable']) }}
-          @if($errors->has('i_primer_responsable'))
+
+        <div class="form-group col-md-6">
+          {{ Form::label('i_primer_responsable', 'Responsable de la actividad', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('i_primer_responsable', $todoxxxx['usuarios'], null, ['class' => $errors->first('i_primer_responsable') ?
+                'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm',
+                'data-placeholder' => 'Seleccione el Responsable de la actividad','id' => 'i_primer_responsable','autofocus']) }}
+            @if($errors->has('i_primer_responsable'))
             <div class="invalid-feedback d-block">
               {{ $errors->first('i_primer_responsable') }}
             </div>
-          @endif
+            @endif
         </div>
-      </div>
-      <div class="form-row align-items-end">
-        <div class="form-group col-md-8">
-          {{ Form::label('i_segundo_responsable', 'Segundo responsable', ['class' => 'control-label']) }}
-          {{ Form::select('i_segundo_responsable', $todoxxxx['usuarios'], null, ['class' => $errors->first('i_segundo_responsable') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el segundo responsable']) }}
-          @if($errors->has('i_segundo_responsable'))
+
+        <div class="form-group col-md-6">
+          {{ Form::label('i_segundo_responsable', 'Segundo responsable', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('i_segundo_responsable', $todoxxxx['usuarios'], null, ['class' => $errors->first('i_segundo_responsable') ? 'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione el segundo responsable','id' => 'i_segundo_responsable','autofocus']) }}
+            @if($errors->has('i_segundo_responsable'))
             <div class="invalid-feedback d-block">
               {{ $errors->first('i_segundo_responsable') }}
             </div>
-          @endif
+            @endif
         </div>
       </div>
   </div>

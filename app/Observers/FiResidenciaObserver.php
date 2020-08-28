@@ -12,7 +12,7 @@ class FiResidenciaObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['i_prm_tiene_dormir_id'] = $modeloxx->i_prm_tiene_dormir_id;
         $log['i_prm_tipo_duerme_id'] = $modeloxx->i_prm_tipo_duerme_id;
         $log['i_prm_tipo_tenencia_id'] = $modeloxx->i_prm_tipo_tenencia_id;
@@ -32,9 +32,7 @@ class FiResidenciaObserver
         $log['i_prm_espacio_parcha_id'] = $modeloxx->i_prm_espacio_parcha_id;
         $log['s_nombre_espacio_parcha'] = $modeloxx->s_nombre_espacio_parcha;
         $log['s_complemento'] = $modeloxx->s_complemento;
-        $log['sis_localidad_id'] = $modeloxx->sis_localidad_id;
-        $log['sis_upz_id'] = $modeloxx->sis_upz_id;
-        $log['sis_barrio_id'] = $modeloxx->sis_barrio_id;
+        $log['sis_upzbarri_id'] = $modeloxx->sis_upzbarri_id;
         $log['s_telefono_uno'] = $modeloxx->s_telefono_uno;
         $log['s_telefono_dos'] = $modeloxx->s_telefono_dos;
         $log['s_telefono_tres'] = $modeloxx->s_telefono_tres;

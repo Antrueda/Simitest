@@ -12,17 +12,38 @@ Route::group(['prefix' => 'fi'], function () use($routexxx,$controll){
     ])->name($routexxx.'.listaxxx');
 
 	Route::get('nuevo', [
-	    'uses' => 'FichaIngreso\FiDatoBasicoController@create',
+	    'uses' => $controll.'Controller@create',
 	    'middleware' => ['permission:'.$routexxx.'-crear']
-	])->name($routexxx.'.nuevo');
-	Route::get('{id}', [
-	    'uses' => 'FichaIngreso\FiDatoBasicoController@show',
-	    'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+    ])->name($routexxx.'.nuevo');
+    Route::post('crear', [
+	    'uses' => $controll.'Controller@store',
+	    'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.crear');
+
+    Route::get('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@edit',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::put('editar/{objetoxx}', [
+	    'uses' => $controll.'Controller@update',
+	    'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+
+
+	Route::get('ver/{objetoxx}', [
+	    'uses' => $controll.'Controller@show',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
 	])->name($routexxx.'.ver');
-	Route::post('crear', [
-	    'uses' => 'FichaIngreso\FiDatoBasicoController@store',
-	    'middleware' => ['permission:'.$routexxx.'-crear']
-	])->name($routexxx.'.crear');
+
+    Route::get('borrar/{objetoxx}', [
+        'uses' => $controll . 'Controller@inactivate',
+        'middleware' => ['permission:' . $routexxx . '-borrar']
+    ])->name($routexxx . '.borrar');
+
+    Route::put('borrar/{objetoxx}', [
+        'uses' => $controll . 'Controller@destroy',
+        'middleware' => ['permission:' . $routexxx . '-borrar']
+    ])->name($routexxx . '.borrar');
 
 
 	include_once('web_fi_actividadestl.php');

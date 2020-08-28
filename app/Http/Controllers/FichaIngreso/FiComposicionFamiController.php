@@ -11,170 +11,232 @@ use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
 use App\Models\Tema;
+use App\Traits\Fi\FiTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
-class FiComposicionFamiController extends Controller {
+class FiComposicionFamiController extends Controller
+{
 
-  private $opciones;
+    private $opciones;
+    use FiTrait;
+    public function __construct()
+    {
+        $this->opciones['permisox'] = 'ficomposicion';
+        $this->opciones['routxxxx'] = 'ficomposicion';
+        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['carpetax'] = 'Composicion';
+        $this->opciones['slotxxxx'] = 'ficomposicion';
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['tituloxx'] = "COMPOSICI{$this->opciones['vocalesx'][3]}N FAMILIAR";
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['tituhead'] = 'FICHA DE INGRESO';
 
-  public function __construct() {
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+        $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
+        $this->opciones['parentes'] = Tema::combo(66, true, false);
+        $this->opciones['tipotele'] = Tema::combo(44, true, false);
+        $this->opciones['vinculad'] = Tema::combo(287, true, false);
+        $this->opciones['convivex'] = Tema::combo(23, true, false);
+        $this->opciones['ocupacio'] = Tema::combo(156, true, false);
+        $this->opciones['tipodocu'] = Tema::combo(3, true, false);
+        $this->opciones['nacicomp'] = '';
 
-    $this->opciones = [
-        'tituloxx' => 'Composición familiar',
-        'rutaxxxx' => 'FichaIngreso',
-        'accionxx' => '',
-        'permisox' => 'ficomposicion',
-        'volverax' => 'lista de NNAJ',
-        'readonly' => '',
-        'slotxxxx' => 'composicion',
-        'carpetax' => 'composicion',
-        'routxxxx' => 'fi.datobasico',
-        'routinde' => 'fi',
-        'routnuev' => 'fi.datobasico',
-        'modeloxx' => '',
-        'urlxxxxx' => 'api/fi/ficomposicionfamiliar',
-        'nuevoxxx' => 'o Registro',
-    ];
-
-
-    $this->middleware(['permission:'
-        . $this->opciones['permisox'] . '-leer|'
-        . $this->opciones['permisox'] . '-crear|'
-        . $this->opciones['permisox'] . '-editar|'
-        . $this->opciones['permisox'] . '-borrar']);
-    $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
-    $this->opciones['parentes'] = Tema::combo(66, true, false);
-    $this->opciones['tipotele'] = Tema::combo(44, true, false);
-    $this->opciones['vinculad'] = Tema::combo(287, true, false);
-    $this->opciones['convivex'] = Tema::combo(23, true, false);
-    $this->opciones['ocupacio'] = Tema::combo(156, true, false);
-    $this->opciones['tipodocu'] = Tema::combo(3, true, false);
-    $this->opciones['nacicomp'] = '';
-    $this->opciones['cabecera'] = [
-        ['td' => 'Id'],
-        ['td' => 'PRIMER NOMBRE'],
-        ['td' => 'SEGUNDO NOMBRE'],
-        ['td' => 'PRIMER APELLIDO'],
-        ['td' => 'SEGUNDO APELLIDO'],
-        ['td' => 'DOCUMENTO'],
-        ['td' => 'ESTADO'],
-    ];
-    $this->opciones['columnsx'] = [
-        ['data' => 'btns', 'name' => 'btns'],
-        ['data' => 'id', 'name' => 'fi_composicion_famis.id'],
-        ['data' => 's_primer_nombre', 'name' => 'fi_composicion_famis.s_primer_nombre'],
-        ['data' => 's_segundo_nombre', 'name' => 'fi_composicion_famis.s_segundo_nombre'],
-        ['data' => 's_primer_apellido', 'name' => 'fi_composicion_famis.s_primer_apellido'],
-        ['data' => 's_segundo_apellido', 'name' => 'fi_composicion_famis.s_segundo_apellido'],
-        ['data' => 's_documento', 'name' => 'fi_composicion_famis.s_documento'],
-        ['data' => 'sis_esta_id', 'name' => 'fi_composicion_famis.sis_esta_id'],
-    ];
-  }
-
-  public function index($datobasi) {
-    $this->opciones['esindexx'] = '';
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    $this->opciones['nnajregi'] = $datobasi;
-    $this->opciones['parametr'] = [$this->opciones['nnajregi']];
-    return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
-  }
-
-  private function view($objetoxx, $nombobje, $accionxx) {
-    $this->opciones['pais_idx'] = SisPai::combo(true, false);
-
-    $this->opciones['estadoxx'] = 'ACTIVO';
-    $this->opciones['accionxx'] = $accionxx;
-    $this->opciones['aniosxxx'] = '';
-    $this->opciones['departam'] = ['' => 'Seleccione'];
-    $this->opciones['municipi'] = ['' => 'Seleccione'];
-    // indica si se esta actualizando o viendo
-    if ($nombobje != '') {
-      $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-      $fechaxxx = explode('-', $objetoxx->d_nacimiento);
-      $this->opciones['aniosxxx'] = Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
-      $this->opciones['municipi'] = SisMunicipio::combo($objetoxx->sis_departamento_id, false);
-      $this->opciones['departam'] = SisDepartamento::combo($objetoxx->sis_pai_id, false);
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => "VOLVER A COMPOSICI{$this->opciones['vocalesx'][3]}N FAMILIAR", 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
     }
 
-    $this->opciones['parametr'] = [$this->opciones['nnajregi']];
+    public function index(FiDatosBasico $padrexxx)
+    {
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->opciones['pestpara'][0] = [$padrexxx->id];
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'CREAR COMPONENTE FAMILIAR',
+                'titulist' => 'LISTA DE COMPONENTES FAMILIARES',
+                'dataxxxx' => [],
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', $this->opciones['parametr']),
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ],
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'fi_composicion_famis.id'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_composicion_famis.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_composicion_famis.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_composicion_famis.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_composicion_famis.s_segundo_apellido'],
+                    ['data' => 's_documento', 'name' => 'fi_composicion_famis.s_documento'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => $this->opciones['parametr'],
+            ],
 
-    // Se arma el titulo de acuerdo al array opciones
-    $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
+        ];
+        $this->opciones['accionxx'] = 'index';
+        $this->opciones['usuariox'] = $padrexxx;
+        $this->opciones['parametr'] = [$padrexxx->id];
+        return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    public function getListado(Request $request, FiDatosBasico $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->nnaj_nfamili_id;
+            $request->datobasi = $padrexxx->id;
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getCompoFami($request);
+        }
+    }
+    private function view($dataxxxx)
+    {
+        $this->opciones['botoform'][0]['routingx'][1]=$dataxxxx['padrexxx']->id;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['pais_idx'] = SisPai::combo(true, false);
+        $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        $this->opciones['aniosxxx'] = '';
+        $this->opciones['departam'] = ['' => 'Seleccione'];
+        $this->opciones['municipi'] = ['' => 'Seleccione'];
+        // indica si se esta actualizando o viendo
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['parametr'][1]=$dataxxxx['modeloxx']->id;
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+            $fechaxxx = explode('-', $dataxxxx['modeloxx']->d_nacimiento);
+            $this->opciones['aniosxxx'] = Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
+            $dataxxxx['modeloxx']->sis_pai_id=$dataxxxx['modeloxx']->sis_municipio->sis_departamento->sis_pais_id;
 
-    return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
-  }
+            $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
+            $dataxxxx['modeloxx']->sis_departamento_id=$dataxxxx['modeloxx']->sis_municipio->sis_departamento_id;
+            $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamento_id, false);
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create($datobasi) {
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    $this->opciones['nnajregi'] = $datobasi;
-    return $this->view(true, '', 'Crear');
-  }
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', $this->opciones['parametr']],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+        }
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
 
-  private function grabar($dataxxxx, $objectx, $infoxxxx, $datobasi) {
-    $dataxxxx['fi_nucleo_familiar_id'] = FiDatosBasico::usarioNnaj($datobasi)->fi_nucleo_familiar_id;
-    return redirect()
-                    ->route('fi.composicion.editar', [$dataxxxx['sis_nnaj_id'], FiComposicionFami::transaccion($dataxxxx, $objectx)->id])
-                    ->with('info', $infoxxxx);
-  }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FiDatosBasico $padrexxx)
+    {
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
-  public function store(FiComposicionFamiCrearRequest $request, $datobasi) {
-    return $this->grabar($request->all(), '', 'Composicion familiar creada con exito', $datobasi);
-  }
+        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
+    }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  \App\Models\FiComposicionFami  $residencia
-   * @return \Illuminate\Http\Response
-   */
-  public function show(FiComposicionFami $reisidencia) {
-    //
-  }
+    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
+    {
+        $dataxxxx['nnaj_nfamili_id'] = $padrexxx->nnaj_nfamili_id;
+        return redirect()
+            ->route('ficomposicion.editar', [$padrexxx->id, FiComposicionFami::transaccion($dataxxxx, $objectx)->id])
+            ->with('info', $infoxxxx);
+    }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Models\FiComposicionFami  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function edit($nnajregi, FiComposicionFami $objetoxx) {
-    $this->opciones['nnajregi'] = $nnajregi;
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($this->opciones['nnajregi']);
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(FiComposicionFamiCrearRequest $request, FiDatosBasico $padrexxx)
+    {
+        return $this->grabar($request->all(), '', 'Composicion familiar creada con exito', $padrexxx);
+    }
 
-    return $this->view($objetoxx, 'modeloxx', 'Editar');
-  }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiComposicionFami  $residencia
+     * @return \Illuminate\Http\Response
+     */
+    public function show(FiDatosBasico $padrexxx, FiComposicionFami $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Ver', 'padrexxx' => $padrexxx]);
+    }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Models\FiComposicionFami  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function update(FiComposicionFamiUpdateRequest $request, $datobasi, $id) {
-    return $this->grabar($request->all(), FiComposicionFami::where('id', $id)->first(), 'Composicion familiar actualizada con exito', $datobasi);
-  }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiComposicionFami  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(FiDatosBasico $padrexxx,FiComposicionFami $modeloxx)
+    {
+        $this->opciones['botoform'][] =
+        [
+            'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+        ];
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);
+    }
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  \App\Models\FiComposicionFami  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function destroy(FiComposicionFami $objetoxx) {
-    //
-  }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiComposicionFami  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(FiComposicionFamiUpdateRequest $request, FiDatosBasico $padrexxx, $modeloxx)
+    {
+        return $this->grabar($request->all(), FiComposicionFami::where('id', $modeloxx)->first(), 'Composicion familiar actualizada con exito', $padrexxx);
+    }
 
+    public function inactivate(FiDatosBasico $padrexxx,FiComposicionFami $modeloxx)
+    {
+        $this->opciones['parametr'] = [$padrexxx->id];
+        if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'INACTIVAR', 'routingx' => [$this->opciones['routxxxx'] . '.borrar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Destroy','padrexxx'=>$padrexxx]);
+    }
+
+
+    public function destroy(FiDatosBasico $padrexxx,FiComposicionFami $modeloxx)
+    {
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route($this->opciones['routxxxx'], [$padrexxx->id])
+            ->with('info', 'Componenete familiar inactivado correctamente');
+    }
 }

@@ -1,5 +1,5 @@
 <div class="form-row align-items-end">
-  {{ Form::hidden('tipo_poblacion', $todoxxxx['datobasi']->prm_poblacion_id) }}
+  {{ Form::hidden('tipo_poblacion', $todoxxxx['usuariox']->prm_tipoblaci_id) }}
   <div class="form-group col-md-4">
     {{ Form::label('i_prm_tiene_dormir_id', '3.1 ¿Tiene lugar de residencia en dónde dormir?', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('i_prm_tiene_dormir_id', $todoxxxx["condicio"], null, ['class' => $errors->first('i_prm_tiene_dormir_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
@@ -207,11 +207,11 @@
 </div>
 <div class="form-row align-items-end">
   <div class="form-group col-md-4">
-    {{ Form::label('sis_barrio_id', '3.11 Barrio', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_barrio_id', $todoxxxx["barrioxx"], null, ['class' => $errors->first('sis_barrio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('sis_barrio_id'))
+    {{ Form::label('sis_upzbarri_id', '3.11 Barrio', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('sis_upzbarri_id', $todoxxxx["barrioxx"], null, ['class' => $errors->first('sis_upzbarri_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('sis_upzbarri_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('sis_barrio_id') }}
+        {{ $errors->first('sis_upzbarri_id') }}
       </div>
     @endif
   </div>
@@ -253,20 +253,16 @@
       </div>
     @endif
   </div>
-</div>
-<div class="form-row align-items-end">
-  <div class="form-group col-md">
-    {{ Form::label('i_prm_condicion_amb_id', '3.16 Condiciones del ambiente y riesgo cerca de la vivienda / lugar de focalización (Para CHC)', ['class' => 'control-label col-form-label-sm']) }}
-    <select id="i_prm_condicion_amb_id" name="i_prm_condicion_amb_id[]" class="form-control select2 form-control-sm" multiple="multiple">
-      @foreach ($todoxxxx["condambi"] as $valuexxx => $optionxx)
-        <?php $situavux='' ?>
-        @foreach ($todoxxxx["condsele"]['condsele'] as $situacx)
-          @if($situacx->i_prm_condicion_amb_id==$valuexxx)
-            <?php $situavux='selected' ?>
-          @endif
-        @endforeach
-        <option value="{{ $valuexxx }} " {{ $situavux }}>{{ $optionxx }}</option>
-      @endforeach
-    </select>
+  <div class="form-group col-md-12">
+    {{ Form::label('i_prm_condicion_amb_id', '3.16 Condiciones del ambiente y riesgo cerca de la vivienda / lugar de focalización (Para CHC)', ['class' => 'control-label']) }}
+    {{ Form::select('i_prm_condicion_amb_id[]', $todoxxxx['condambi'], null, ['class' => $errors->first('i_prm_condicion_amb_id') ?
+    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple',
+    'data-placeholder' => 'Digite el responsable']) }}
+    @if($errors->has('i_prm_condicion_amb_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('i_prm_condicion_amb_id') }}
+    </div>
+    @endif
   </div>
+
 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Sistema\SisNnaj;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -21,12 +22,17 @@ class FiVestuarioNnaj extends Model
     return $this->belongsTo(User::class, 'user_crea_id');
   }
 
+  public function sis_nnaj()
+  {
+    return $this->belongsTo(SisNnaj::class);
+  }
+
   public function editor()
   {
     return $this->belongsTo(User::class, 'user_edita_id');
   }
   public static function transaccion($dataxxxx,  $objetoxx)
-  {  
+  {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
       $dataxxxx['user_edita_id'] = Auth::user()->id;
       if ($objetoxx != '') {

@@ -3,6 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Models\Sistema\SisDocfuen;
+use App\Models\Sistema\SisMunicipio;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

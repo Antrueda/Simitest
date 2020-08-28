@@ -12,7 +12,7 @@ class FiComposicionFamiObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['i_prm_parentesco_id'] = $modeloxx->i_prm_parentesco_id;
         $log['s_primer_nombre'] = $modeloxx->s_primer_nombre;
         $log['s_segundo_nombre'] = $modeloxx->s_segundo_nombre;
@@ -29,7 +29,7 @@ class FiComposicionFamiObserver
         $log['i_prm_vinculado_idipron_id'] = $modeloxx->i_prm_vinculado_idipron_id;
         $log['i_prm_convive_nnaj_id'] = $modeloxx->i_prm_convive_nnaj_id;
         $log['prm_documento_id'] = $modeloxx->prm_documento_id;
-        $log['fi_nucleo_familiar_id'] = $modeloxx->fi_nucleo_familiar_id;
+        $log['nnaj_nfamili_id'] = $modeloxx->nnaj_nfamili_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
