@@ -62,6 +62,14 @@ class FiResidenciaController extends Controller
     }
     private function view($dataxxxx)
     {
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -123,7 +131,7 @@ class FiResidenciaController extends Controller
             return redirect()
                 ->route('fi.residencia.editar', [$padrexxx->id, $vestuari->id]);
         }
-        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx'=>['crear','formulario'], 'padrexxx' => $padrexxx]);
     }
     private function grabar($dataxxxx, $objetoxx, $infoxxxx)
     {
@@ -155,7 +163,7 @@ class FiResidenciaController extends Controller
      */
     public function show(FiDatosBasico $padrexxx, FiResidencia $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Ver', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['ver','formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -174,7 +182,7 @@ class FiResidenciaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**

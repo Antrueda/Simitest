@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models\Indicadores\Logs;
+
 use Illuminate\Database\Eloquent\Model;
 
 class HArea extends Model
@@ -12,7 +13,7 @@ class HArea extends Model
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
-                
+        'estusuario_id',
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

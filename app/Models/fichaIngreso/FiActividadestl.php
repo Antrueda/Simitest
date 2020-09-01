@@ -3,6 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
+use App\Models\Parametro;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -28,13 +29,13 @@ class FiActividadestl extends Model{
   {
     return $this->belongsTo(User::class, 'user_crea_id');
   }
-  public function fi_actividad_tiempo_libres()
+  public function i_prm_actividad_tl_id()
   {
-    return $this->hasMany(FiActividadTiempoLibre::class);
+    return $this->belongsToMany(Parametro::class,'fi_actividad_tiempo_libres','fi_actividadestl_id','i_prm_actividad_tl_id');
   }
-  public function fi_sacramentos()
+  public function i_prm_sacramentos_hechos_id()
   {
-    return $this->hasMany(FiSacramento::class);
+    return $this->belongsToMany(Parametro::class,'fi_sacramentos','fi_actividadestl_id','i_prm_sacramentos_hechos_id');
   }
   public function editor()
   {

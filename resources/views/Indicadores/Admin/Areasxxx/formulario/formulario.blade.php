@@ -1,5 +1,5 @@
 <div class="form-group row">
-  <div class="form-group col-md-6">
+  <div class="form-group col-md-12">
     {{ Form::label('nombre', 'Nombre:', ['class' => 'control-label col-form-label-sm']) }}
       @if($todoxxxx['accionxx'] == 'Ver')
           {{ Form::text('nombre', $todoxxxx['modeloxx']->nombre, ['class' => 'form-control-plaintext','style'=>'height: 28px']) }}
@@ -12,4 +12,6 @@
           </div>
       @endif
   </div>
+  @include('Indicadores.Admin.Areasxxx.formulario.motivoestado')
+  @include('layouts.registro')
 </div>

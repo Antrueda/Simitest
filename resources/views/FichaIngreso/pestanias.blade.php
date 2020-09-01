@@ -1,4 +1,4 @@
 
-@component('layouts.components.pestanias.pestaniasgeneral',['todoxxxx'=>$todoxxxx])
+@component($todoxxxx["rutacarp"].'Acomponentes.Acrud.pestanias',['todoxxxx'=>$todoxxxx])
 @endcomponent
 

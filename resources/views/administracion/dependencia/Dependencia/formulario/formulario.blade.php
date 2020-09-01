@@ -12,10 +12,6 @@
         {{ Form::select('i_prm_tdependen_id', $todoxxxx["i_prm_tdependen_id"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('sis_depen_id', 'Dependencia padre', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_depen_id', $todoxxxx["sis_depen_id"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
-    </div>
-    <div class="form-group col-md-4">
         {{ Form::label('i_prm_sexo_id', 'Sexo', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_sexo_id', $todoxxxx["i_prm_sexo_id"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
@@ -51,19 +47,7 @@
         {{ Form::label('s_correo', 'Correo electrónico', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('s_correo', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('sis_esta_id', 'Estado:', ['class' => 'control-label col-form-label-sm']) }}
-        @if($todoxxxx['accionxx'] == 'Ver')
-        {{ Form::select('sis_esta_id', $todoxxxx['estadoxx'], $todoxxxx['modeloxx']->sis_esta_id, ['class' => 'form-control-plaintext','id'=>'sis_esta_id']) }}
-        @else
-        {{ Form::select('sis_esta_id', $todoxxxx['estadoxx'], null, ['class' => $errors->first('sis_esta_id') ? 'form-control is-invalid' : 'form-control','id'=>'sis_esta_id']) }}
-        @endif
-        @if($errors->has('sis_esta_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('sis_esta_id') }}
-        </div>
-        @endif
-    </div>
+    @include('administracion.dependencia.Dependencia.formulario.motivoestado')
     @include('layouts.tiempos')
     @include('layouts.registro')
 </div>

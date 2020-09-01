@@ -65,10 +65,7 @@
         {{Form::date('d_finvinculacion', \Carbon\Carbon::now(),
     ['class'=>'form-control form-control-sm',$todoxxxx['readonly']])}}
     </div>
-    <div class="form-group col-md-12">
-        {{ Form::label('sis_esta_id','Estado') }}
-        {{ Form::select('sis_esta_id',$todoxxxx['sis_esta_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
-    </div>
+    @include('administracion.Usuario.Usuario.formulario.motivoestado')
     @include('layouts.tiempos')
     @include('layouts.registro')
 </div>

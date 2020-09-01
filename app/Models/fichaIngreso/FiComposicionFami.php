@@ -25,8 +25,6 @@ class FiComposicionFami extends Model
     's_documento',
     'd_nacimiento',
     'i_prm_parentesco_id',
-    'sis_pai_id',
-    'sis_departamento_id',
     'sis_municipio_id',
     'i_prm_ocupacion_id',
     'i_prm_vinculado_idipron_id',

@@ -15,9 +15,13 @@ class SisCargoEditarRequest extends FormRequest
        $this->_mensaje = [
             's_cargo.required' => 'Ingrese una pregunta',
             's_cargo.unique' => 'La pregunta ya existe',
-            
+            'sis_esta_id.required' => 'Seleccione un estado',
+            'estusuario_id.required' => 'Seleccione una jutificación',
         ];
-        
+        $this->_reglasx=[
+            'sis_esta_id'=>['required'],
+            'estusuario_id'=>['required'],
+        ]  ;
     }
     /**
      * Determine if the user is authorized to make this request.
@@ -42,10 +46,10 @@ class SisCargoEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        
+
         $this->_reglasx['s_cargo'] =
             [
-                'required', 
+                'required',
                 'unique:sis_cargos,s_cargo,' . $this->segments()[2]
             ];
         return $this->_reglasx;
@@ -54,6 +58,6 @@ class SisCargoEditarRequest extends FormRequest
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        
+
     }
 }

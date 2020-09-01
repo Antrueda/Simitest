@@ -8,150 +8,224 @@ use App\Http\Requests\FichaIngreso\FiRedApoyoActualUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\Tema;
+use App\Traits\Fi\FiTrait;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FiRedApoyoActualController extends Controller
 {
-  private $opciones;
-  public function __construct()
-  {
+    use FiTrait;
+    private $opciones;
+    public function __construct()
+    {
 
-    $this->opciones = [
-      'tituloxx' => 'Redes de Apoyo',
-      'rutaxxxx' => 'FichaIngreso',
-      'accionxx' => '',
-      'volverax' => 'lista de NNAJ',
-      'readonly' => '',
-      'slotxxxx' => 'redapoyo',
-      'carpetax' => 'redactual',
-      'routxxxx' => 'fi.datobasico',
-      'routinde' => 'fi',
-      'routnuev' => 'fi.datobasico',
-      'modeloxx' => '',
-      'nuevoxxx' => 'o Datos Básico'
-    ];
+        $this->opciones['permisox'] = 'firedactual';
+        $this->opciones['routxxxx'] = 'firedactual';
+        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['carpetax'] = 'Redapoyo';
+        $this->opciones['slotxxxx'] = 'firedapoyo';
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['tituloxx'] = "REDES DE APOYO ACTUALES";
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['tituhead'] = 'FICHA DE INGRESO';
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
 
 
-    $this->middleware(['permission:'
-        . $this->opciones['permisox'] . '-leer|'
-        . $this->opciones['permisox'] . '-crear|'
-        . $this->opciones['permisox'] . '-editar|'
-        . $this->opciones['permisox'] . '-borrar']);
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+        $this->opciones['tipotiem'] = Tema::combo(4, true, false);
+        $this->opciones['tiporedx'] = Tema::combo(88, true, false);
+        $this->opciones['anioserv'] = Tema::combo(84, true, false);
 
-    $this->opciones['cabecera'] = [
-      ['td' => 'Id'],
-      ['td' => 'TIPO DE RED'],
-      ['td' => 'NOMBRE PERSONA/INSTITUCIÓN'],
-      ['td' => 'SERVICIOS O BENEFICIOS'],
-      ['td' => 'TELÉFONOS'],
-      ['td' => 'DIRECCIÓN'],
-      ['td' => 'ESTADO'],
-    ];
-    $this->opciones['columnsx'] = [
-      ['data' => 'btns', 'name'        => 'btns'],
-      ['data' => 'id', 'name'          => 'fi_red_apoyo_actuals.id'],
-      ['data' => 'redxxxxx', 'name'      => 'red.nombre'],
-      ['data' => 's_nombre_persona', 'name'      => 's_nombre_persona'],
-      ['data' => 's_servicio', 'name'  => 's_servicio'],
-      ['data' => 's_telefono', 'name'  => 's_telefono'],
-      ['data' => 's_direccion', 'name'  => 's_direccion'],
-      ['data' => 'sis_esta_id', 'name'      => 'fi_red_apoyo_actuals.sis_esta_id'],
-    ];
-    $this->opciones['tablname'] = 'tbactuales';
-    $this->opciones['urlxxxxx'] = 'api/fi/firedapoyoactual';
-    $this->opciones['tipotiem'] = Tema::combo(4, true, false);
-    $this->opciones['tiporedx'] = Tema::combo(88, true, false);
-    $this->opciones['anioserv'] = Tema::combo(84, true, false);
-  }
-
-  private function view($objetoxx, $nombobje, $accionxx)
-  {
-    $this->opciones['servicio'] = ['' => 'seleccione'];
-    $this->opciones['estadoxx'] = 'ACTIVO';
-    $this->opciones['accionxx'] = $accionxx;
-    // indica si se esta actualizando o viendo
-    if ($nombobje != '') {
-      $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+        $this->opciones['botoform'][] = [
+            'mostrars' => true, 'accionxx' => '', 'routingx' => ['firedapoyo', []],
+            'formhref' => 2, 'tituloxx' => "VOLVER A REDES DE APOYO", 'clasexxx' => 'btn btn-sm btn-primary'
+        ];
     }
-    // Se arma el titulo de acuerdo al array opciones
-    $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
-    return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
-  }
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create($datobasi)
-  {
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    $this->opciones['nnajregi'] = $datobasi;
-    return $this->view(true, '', 'Crear');
-  }
-  private function grabar($dataxxxx, $objectx, $infoxxxx)
-  {
-    return redirect()
-      ->route('fi.redactual.editar', [$dataxxxx['sis_nnaj_id'], FiRedApoyoActual::transaccion($dataxxxx, $objectx)->id])
-      ->with('info', $infoxxxx);
-  }
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
+    public function getActuales(Request $request, FiDatosBasico $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->datobasi = $padrexxx->id;
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.antecedentes';
+            $request->estadoxx = $this->opciones['rutacarp'].'Acomponentes.Botones.estadosx';
+            return $this->getActualesTrait($request);
+        }
+    }
 
 
-  public function store(FiRedApoyoActualCrearRequest $request)
-  {
-    return $this->grabar($request->all(), '', 'Red actual creada con exito');
-  }
+    private function view($dataxxxx)
+    {
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ];
+        $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['tituloxx'] = "REDES DE APOYO ACTUALES";
+        $this->opciones['servicio'] = ['' => 'seleccione'];
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  \App\Models\FiRedApoyoActual  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function show(FiRedApoyoActual $objetoxx)
-  {
-    //
-  }
+        // indica si se esta actualizando o viendo
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['botoform'][0]['routingx'][1] =
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Models\FiRedApoyoActual  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function edit($nnajregi,  FiRedApoyoActual $objetoxx)
-  {
-    $this->opciones['nnajregi'] = $nnajregi;
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($this->opciones['nnajregi']);
-    return $this->view($objetoxx,  'modeloxx', 'Editar');
-  }
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', $this->opciones['parametr']],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+        }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Models\FiRedApoyoActual  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function update(FiRedApoyoActualUpdateRequest $request,  $db, $id)
-  {
-    return $this->grabar($request->all(), FiRedApoyoActual::where('id', $id)->first(), 'Red actual actualizada con exito');
-  }
+        $this->opciones['tablasxx'] = [
+            [
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.redes',
+                'titunuev' => 'CREAR RED DE APOYO',
+                'titulist' => 'LISTA DE REDES DE APOYO ACTUALES',
+                'dataxxxx' => [],
+                'vercrear' => false,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.redactua', [$dataxxxx['padrexxx']->id]),
+                'cabecera' => [
+                    [
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  \App\Models\FiRedApoyoActual  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function destroy(FiRedApoyoActual $objetoxx)
-  {
-    //
-  }
+                        ['td' => 'ID', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1,],
+                        ['td' => 'TIPO DE RED', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'NOMBRE PERSONA/INSTITUCIÓN', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SERVICIOS O BENEFICIOS', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TELÉFONOS', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DIRECCIÓN', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ],
+                ],
+                'columnsx' => [
+
+                    ['data' => 'id', 'name'          => 'fi_red_apoyo_actuals.id'],
+                    ['data' => 'redxxxxx', 'name'      => 'red.nombre'],
+                    ['data' => 's_nombre_persona', 'name'      => 's_nombre_persona'],
+                    ['data' => 's_servicio', 'name'  => 's_servicio'],
+                    ['data' => 's_telefono', 'name'  => 's_telefono'],
+                    ['data' => 's_direccion', 'name'  => 's_direccion'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatableredesactuales',
+                'permisox' => 'firedactual',
+                'routxxxx' => 'firedactual',
+                'parametr' => [$dataxxxx['padrexxx']->id],
+            ],
+        ];
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FiDatosBasico $padrexxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx'=>'','accionxx'=>['crear','formactual'],'padrexxx'=>$padrexxx]);
+    }
+    private function grabar($dataxxxx, $objectx, $infoxxxx,$padrexxx)
+    {
+        return redirect()
+            ->route($this->opciones['routxxxx'].'.editar', [$padrexxx->id, FiRedApoyoActual::transaccion($dataxxxx, $objectx)->id])
+            ->with('info', $infoxxxx);
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+
+    public function store(FiRedApoyoActualCrearRequest $request,FiDatosBasico $padrexxx)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        return $this->grabar($dataxxxx, '', 'Red Apoyo creado con exito', $padrexxx);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiRedApoyoActual  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(FiDatosBasico $padrexxx,FiRedApoyoActual $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['ver','formactual'], 'padrexxx' => $padrexxx]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiRedApoyoActual  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(FiDatosBasico $padrexxx,  FiRedApoyoActual $modeloxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['editar','formactual'] , 'padrexxx' => $padrexxx]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiRedApoyoActual  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(FiRedApoyoActualUpdateRequest $request,  FiDatosBasico $padrexxx,  FiRedApoyoActual $modeloxx)
+    {
+        return $this->grabar($request->all(), $modeloxx, 'Red actual actualizada con exito',$padrexxx);
+    }
+
+    public function inactivate(FiDatosBasico $padrexxx,FiRedApoyoActual $modeloxx)
+    {
+        $this->opciones['parametr'] = [$padrexxx->id];
+        if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'INACTIVAR', 'routingx' => [$this->opciones['routxxxx'] . '.borrar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$padrexxx]);
+    }
+    public function destroy(FiDatosBasico $padrexxx,FiRedApoyoActual $modeloxx)
+    {
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route('firedapoyo', [$padrexxx->id])
+            ->with('info', 'Red actual inactivada correctamente');
+    }
 }

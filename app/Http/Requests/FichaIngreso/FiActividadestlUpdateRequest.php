@@ -39,9 +39,9 @@ class FiActividadestlUpdateRequest extends FormRequest
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        $nnajxxxx = FiDatosBasico::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])->first();
+        $nnajxxxx = FiDatosBasico::find($this->segments()[1]);
 
-        if ($nnajxxxx->prm_poblacion_id != 650) {
+        if ($nnajxxxx->prm_tipoblaci_id != 650) {
 
             $this->_mensaje = [
                 'i_horas_permanencia_calle.required' => 'Seleccione horas permanencia en calle',

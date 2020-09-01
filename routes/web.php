@@ -11,7 +11,18 @@
 |
 */
 
+use App\Models\User;
+
 Route::get('/', function () {
+   User::
+     where('sis_esta_id',1)->
+    whereDate('d_finvinculacion','<',date('Y-m-d',time()))
+     ->update(
+        [
+            'sis_esta_id' => 2,
+            'estusuario_id' => 2,
+        ]
+    );
   return view('welcome');
 })->name('/');
 

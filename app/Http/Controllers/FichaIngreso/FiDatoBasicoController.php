@@ -36,20 +36,6 @@ class FiDatoBasicoController extends Controller
       'carpetax' => 'Vsi',
 
 
-
-    //   'rutaxxxx' => 'FichaIngreso',
-    //   'routxxxx' => 'fi.datobasico',
-    //   'routinde' => 'fi',
-    //   'routnuev' => 'fi.datobasico',
-    //   'accionxx' => '',
-    //   'volverax' => 'lista de NNAJ',
-    //   'readonly' => '',
-    //   'slotxxxx' => 'infoBasica',
-    //   'carpetax' => 'datosbasico',
-    //   'modeloxx' => '',
-    //   'nuevoxxx' => 'o Registro',
-    //   'nuevoxxx' => 'o Registro',
-
     ];
 
 

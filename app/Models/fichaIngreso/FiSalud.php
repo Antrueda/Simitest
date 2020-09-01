@@ -3,6 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
+use App\Models\Parametro;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -65,9 +66,6 @@ class FiSalud extends Model{
     return $vestuari;
   }
 
-  public function fi_eventos_medicos(){
-    return $this->hasMany(FiEventosMedico::class);
-  }
   private static function grabarEventoMedico($evenmedic,$dataxxxx){
     $datosxxx=[
       'fi_salud_id'=>$evenmedic->id,
@@ -105,5 +103,9 @@ class FiSalud extends Model{
       return $objetoxx;
     }, 5);
     return $usuariox;
+  }
+  public function i_prm_evento_medico_id()
+  {
+      return $this->belongsToMany(Parametro::class,'fi_eventos_medicos','fi_salud_id','i_prm_evento_medico_id');
   }
 }

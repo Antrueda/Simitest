@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sicosocial\Pivotes\Logs\HVsiRedSocMotivo;
-use App\Models\sicosocial\Pivotes\VsiRedSocMotivo;
+use App\Models\sicosocial\Pivotes\Logs\HVsiRedsocMotivo;
+use App\Models\sicosocial\Pivotes\VsiRedsocMotivo;
 
 class VsiRedSocMotivoObserver
 {
@@ -12,7 +12,7 @@ class VsiRedSocMotivoObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['parametro_id'] = $modeloxx->parametro_id;
         $log['vsi_redsocial_id'] = $modeloxx->vsi_redsocial_id;
         // campos por defecto, no borrar.
@@ -25,52 +25,52 @@ class VsiRedSocMotivoObserver
         return $log;
     }
 
-    public function created(VsiRedSocMotivo $modeloxx)
+    public function created(VsiRedsocMotivo $modeloxx)
     {
-        HVsiRedSocMotivo::create($this->getLog($modeloxx));
+        HVsiRedsocMotivo::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRedSocMotivo "updated" event.
+     * Handle the VsiRedsocMotivo "updated" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\HVsiRedSocMotivo  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\HVsiRedsocMotivo  $modeloxx
      * @return void
      */
-    public function updated(VsiRedSocMotivo $modeloxx)
+    public function updated(VsiRedsocMotivo $modeloxx)
     {
-        HVsiRedSocMotivo::create($this->getLog($modeloxx));
+        HVsiRedsocMotivo::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRedSocMotivo "deleted" event.
+     * Handle the VsiRedsocMotivo "deleted" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\HVsiRedSocMotivo  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\HVsiRedsocMotivo  $modeloxx
      * @return void
      */
-    public function deleted(VsiRedSocMotivo $modeloxx)
+    public function deleted(VsiRedsocMotivo $modeloxx)
     {
-        HVsiRedSocMotivo::create($this->getLog($modeloxx));
+        HVsiRedsocMotivo::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRedSocMotivo "restored" event.
+     * Handle the VsiRedsocMotivo "restored" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\HVsiRedSocMotivo  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\HVsiRedsocMotivo  $modeloxx
      * @return void
      */
-    public function restored(VsiRedSocMotivo $modeloxx)
+    public function restored(VsiRedsocMotivo $modeloxx)
     {
-        HVsiRedSocMotivo::create($this->getLog($modeloxx));
+        HVsiRedsocMotivo::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRedSocMotivo "force deleted" event.
+     * Handle the VsiRedsocMotivo "force deleted" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\HVsiRedSocMotivo  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\HVsiRedsocMotivo  $modeloxx
      * @return void
      */
-    public function forceDeleted(VsiRedSocMotivo $modeloxx)
+    public function forceDeleted(VsiRedsocMotivo $modeloxx)
     {
-        HVsiRedSocMotivo::create($this->getLog($modeloxx));
+        HVsiRedsocMotivo::create($this->getLog($modeloxx));
     }
 }

@@ -45,8 +45,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sicosocial</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item{{ ($accion == 'vsi') ?' active' : '' }}" href="{{ route('vsixxxxx.ver', $dato->id) }}">Valoración Sicosocial</a>
-                    <a class="dropdown-item{{ ($accion == 'csd') ?' active' : '' }}" href="{{ route('csd.ver', $dato->id) }}">Consulta Social en Domicilio</a>
+                    <a class="dropdown-item{{ ($accion == 'vsi') ?' active' : '' }}" href="{{ route('vsixxxxx', $dato->id) }}">Valoración Sicosocial</a>
+                    <a class="dropdown-item{{ ($accion == 'csd') ?' active' : '' }}" href="{{ route('csd', $dato->id) }}">Consulta Social en Domicilio</a>
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('is.ver', $dato->id) }}">Intervencion Sicosocial</a>
                     <a class="dropdown-item{{ ($accion == 'SalidaMayores') ?' active' : '' }}" href="{{ route('ai.salidamayores', $dato->id) }}">Salida de Jóvenes Mayores de Edad</a>
                     <a class="dropdown-item{{ ($accion == 'Evasion') ?' active' : '' }}" href="{{ route('ai.evasion', $dato->id) }}">Reporte de Evasión</a>
@@ -73,7 +73,9 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Emprender</a>
         </li>
-
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Transversales</a>
+        </li>
         </ul>
     </div>
 </div>

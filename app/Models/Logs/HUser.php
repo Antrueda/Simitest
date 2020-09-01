@@ -31,7 +31,7 @@ class HUser extends Model
         'prm_tvinculacion_id',
         'prm_documento_id',
         'sis_esta_id',
-                       
+        'estusuario_id',
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

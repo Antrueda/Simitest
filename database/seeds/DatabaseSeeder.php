@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisMenusSeeder::class);
         $this->call(SisPestaniasSeeder::class);
         $this->call(RolesYPermisosSeeder::class);
+        $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosSeeder::class);
         $this->call(TemasTableSeeder::class);
         $this->call(SisAreasSeeder::class);

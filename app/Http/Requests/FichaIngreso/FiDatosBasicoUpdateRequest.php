@@ -109,8 +109,8 @@ class FiDatosBasicoUpdateRequest extends FormRequest
 
         $this->_reglasx['s_documento'] = ['required', 'unique:nnaj_docus,s_documento,' . $this->segments()[2]];
         if ($dataxxxx['prm_doc_fisico_id'] == 228){
-            $this->_mensaje['i_prm_ayuda_id.required'] ='Seleccione porqué no tiene documento';
-            $this->_reglasx['i_prm_ayuda_id']='required';
+            $this->_mensaje['prm_ayuda_id.required'] ='Seleccione porqué no tiene documento';
+            $this->_reglasx['prm_ayuda_id']='required';
         }
     }
 }

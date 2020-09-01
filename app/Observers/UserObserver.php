@@ -12,7 +12,7 @@ class UserObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['name'] = $modeloxx->name;
         $log['s_primer_nombre'] = $modeloxx->s_primer_nombre;
         $log['s_segundo_nombre'] = $modeloxx->s_segundo_nombre;
@@ -34,6 +34,7 @@ class UserObserver
         $log['d_finvinculacion'] = $modeloxx->d_finvinculacion;
         $log['prm_tvinculacion_id'] = $modeloxx->prm_tvinculacion_id;
         $log['prm_documento_id'] = $modeloxx->prm_documento_id;
+        $log['estusuario_id'] = $modeloxx->estusuario_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

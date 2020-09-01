@@ -10,7 +10,7 @@ class HSisDepen extends Model
         'nombre',
         'i_prm_cvital_id',
         'i_prm_tdependen_id',
-        'sis_depen_id',
+
         'i_prm_sexo_id',
         's_direccion',
         'sis_departamento_id',
@@ -21,11 +21,10 @@ class HSisDepen extends Model
         'itiestan',
         'itiegabe',
         'itigafin',
-        's_observacion',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
-
+        'estusuario_id',
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

@@ -46,7 +46,7 @@ class User extends Authenticatable
         's_documento',
         'prm_documento_id',
         'sis_municipio_id',
-        's_observacion',
+        'estusuario_id',
         'itiestan',
         'itiegabe',
         'itigafin'

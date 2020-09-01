@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class SisCargo extends Model
 {
 
-    protected $fillable = ['s_cargo','itiestan','itiegabe','itigafin', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['s_cargo','itiestan','itiegabe','itigafin', 'sis_esta_id', 'user_crea_id', 'user_edita_id','estusuario_id'];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
     public static function combo()
     {

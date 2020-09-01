@@ -1,52 +1,25 @@
 <div class="form-row align-items-end">
-  <div class="col-md-12">
-    {{ Form::button('Antecedente', ['class' => 'btn btn-primary btn-sm', 'data-target' => '#addAntecedente', 'data-toggle' => "modal"]) }}
-    @component('bootstrap::table')
-      @slot('class')
-        table-sm table-hover my-2
-      @endslot
-      <thead>
-        <th>Entidad</th>
-        <th>Servicios o beneficios recibidos</th>
-        <th>¿Durante cuánto tiempo?</th>
-        <th>Año de prestación del servicio</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Content</td>
-          <td>Content</td>
-          <td>Content</td>
-          <td>Content</td>
-        </tr>
-      </tbody>
-    @endcomponent
-    {{-- Modal para antecedentes red de apoyo --}}
-    @include('FichaIngreso.redapoyo.includes.antecedentes')
+  <div class="form-group col-md-6">
+    {{ Form::label('sis_entidad_id', 'Entidad', ['class' => 'control-label']) }}
+    {{ Form::select('sis_entidad_id', $todoxxxx["endidadx"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
-  <div class="col-md-12 my-2">
-    {{ Form::button('Actual', ['class' => 'btn btn-primary btn-sm', 'data-target' => '#addActual', 'data-toggle' => "modal"]) }}
-    @component('bootstrap::table')
-      @slot('class')
-        table-sm table-hover my-2
-      @endslot
-      <thead>
-        <th>Tipo de Red</th>
-        <th>Nombre Persona / Institución</th>
-        <th>Servicios o Beneficios</th>
-        <th>Teléfono</th>
-        <th>Dirección</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Content</td>
-          <td>Content</td>
-          <td>Content</td>
-          <td>Content</td>
-          <td>Content</td>
-        </tr>
-      </tbody>
-    @endcomponent
-    {{-- Modal para red de apoyo actual --}}
-    @include('FichaIngreso.redapoyo.includes.actual')
+  <div class="form-group col-md-6">
+    {{ Form::label('s_servicio', 'Servicios o beneficios recibidos', ['class' => 'control-label']) }}
+    {{ Form::text('s_servicio', null, ['class' => 'form-control form-control-sm']) }}
   </div>
 </div>
+<div class="form-row align-items-end">
+  <div class="form-group col-md-6">
+    {{ Form::label('i_prm_tiempo_id', '¿Durante cuánto tiempo?', ['class' => 'control-label']) }}
+    <div class="input-group">
+      {{ Form::number('i_tiempo', null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('i_prm_tiempo_id', $todoxxxx["tipotiem"], null, ['class' => 'form-control form-control-sm']) }}
+    </div>
+  </div>
+  <div class="form-group col-md-6">
+    {{ Form::label('i_prm_anio_prestacion_id', 'Año de prestación del servicio', ['class' => 'control-label']) }}
+    {{ Form::select('i_prm_anio_prestacion_id', $todoxxxx["anioserv"], null, ['class' => 'form-control form-control-sm']) }}
+  </div>
+</div>
+
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')

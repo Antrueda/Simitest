@@ -14,12 +14,12 @@ class SisDepen extends Model
         'nombre',
         'i_prm_cvital_id',
         'i_prm_tdependen_id',
-        'sis_depen_id',
+
         'i_prm_sexo_id',
         's_direccion',
         'sis_departamento_id',
         'sis_municipio_id',
-        // 'sis_localidad_id',
+        'estusuario_id',
         // 'sis_barrio_id',
         'sis_upzbarri_id',
         's_telefono',
@@ -30,9 +30,9 @@ class SisDepen extends Model
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
-        's_observacion'
+
     ];
-    protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1,'itiegabe'=>0];
+    protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'itiegabe' => 0];
     public function creador()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
@@ -45,9 +45,9 @@ class SisDepen extends Model
 
     public static function transaccion($dataxxxx, $objetoxx)
     {
-        $dataxxxx['itiestan']=$dataxxxx['itiestan']==''?0:$dataxxxx['itiestan'];
-        $dataxxxx['itiegabe']=$dataxxxx['itiegabe']==''?0:$dataxxxx['itiegabe'];
-        $dataxxxx['itigafin']=$dataxxxx['itigafin']==''?0:$dataxxxx['itigafin'];
+        $dataxxxx['itiestan'] = $dataxxxx['itiestan'] == '' ? 0 : $dataxxxx['itiestan'];
+        $dataxxxx['itiegabe'] = $dataxxxx['itiegabe'] == '' ? 0 : $dataxxxx['itiegabe'];
+        $dataxxxx['itigafin'] = $dataxxxx['itigafin'] == '' ? 0 : $dataxxxx['itigafin'];
 
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
             $dataxxxx['user_edita_id'] = Auth::user()->id;

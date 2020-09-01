@@ -2,10 +2,10 @@
 
 namespace App\Observers;
 
-use App\Models\consulta\csdBienvenida;
-use App\Models\consulta\Logs\HcsdBienvenida;
+use App\Models\consulta\CsdBienvenida;
+use App\Models\consulta\Logs\HCsdBienvenida;
 
-class csdBienvenidaObserver
+class CsdBienvenidaObserver
 {
     private function getLog($modeloxx)
     {
@@ -26,7 +26,7 @@ class csdBienvenidaObserver
         return $log;
     }
 
-    public function created(csdBienvenida $modeloxx)
+    public function created(CsdBienvenida $modeloxx)
     {
         HcsdBienvenida::create($this->getLog($modeloxx));
     }
@@ -34,44 +34,44 @@ class csdBienvenidaObserver
     /**
      * Handle the csdBienvenida "updated" event.
      *
-     * @param  \App\Models\consulta\csdBienvenida  $modeloxx
+     * @param  \App\Models\consulta\CsdBienvenida  $modeloxx
      * @return void
      */
-    public function updated(csdBienvenida $modeloxx)
+    public function updated(CsdBienvenida $modeloxx)
     {
-        HcsdBienvenida::create($this->getLog($modeloxx));
+        HCsdBienvenida::create($this->getLog($modeloxx));
     }
 
     /**
      * Handle the csdBienvenida "deleted" event.
      *
-     * @param  \App\Models\consulta\csdBienvenida  $modeloxx
+     * @param  \App\Models\consulta\CsdBienvenida  $modeloxx
      * @return void
      */
-    public function deleted(csdBienvenida $modeloxx)
+    public function deleted(CsdBienvenida $modeloxx)
+    {
+        HCsdBienvenida::create($this->getLog($modeloxx));
+    }
+
+    /**
+     * Handle the CsdBienvenida "restored" event.
+     *
+     * @param  \App\Models\consulta\CsdBienvenida  $modeloxx
+     * @return void
+     */
+    public function restored(CsdBienvenida $modeloxx)
     {
         HcsdBienvenida::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the csdBienvenida "restored" event.
+     * Handle the CsdBienvenida "force deleted" event.
      *
-     * @param  \App\Models\consulta\csdBienvenida  $modeloxx
+     * @param  \App\Models\consulta\CsdBienvenida  $modeloxx
      * @return void
      */
-    public function restored(csdBienvenida $modeloxx)
+    public function forceDeleted(CsdBienvenida $modeloxx)
     {
-        HcsdBienvenida::create($this->getLog($modeloxx));
-    }
-
-    /**
-     * Handle the csdBienvenida "force deleted" event.
-     *
-     * @param  \App\Models\consulta\csdBienvenida  $modeloxx
-     * @return void
-     */
-    public function forceDeleted(csdBienvenida $modeloxx)
-    {
-        HcsdBienvenida::create($this->getLog($modeloxx));
+        HCsdBienvenida::create($this->getLog($modeloxx));
     }
 }

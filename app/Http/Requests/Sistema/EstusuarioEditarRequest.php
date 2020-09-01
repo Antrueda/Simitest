@@ -14,7 +14,9 @@ class EstusuarioEditarRequest extends FormRequest
         $this->_mensaje = [
             'estado.required' => 'Ingrese el nombre del estado',
             'estado.unique' => 'El estado ya se encuentra en uso',
+            'prm_formular_id.required' => 'Seleccione un formulario',
         ];
+        $this->_reglasx=['prm_formular_id'=>'required'];
     }
     /**
      * Determine if the user is authorized to make this request.

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\sicosocial\NnajNFamili;
+use App\Models\sicosocial\NnajNfamili;
 use Illuminate\Database\Seeder;
 
 class FiNucleoFamiliarsTableSeeder extends Seeder

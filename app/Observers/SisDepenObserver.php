@@ -12,11 +12,10 @@ class SisDepenObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['nombre'] = $modeloxx->nombre;
         $log['i_prm_cvital_id'] = $modeloxx->i_prm_cvital_id;
         $log['i_prm_tdependen_id'] = $modeloxx->i_prm_tdependen_id;
-        $log['sis_depen_id'] = $modeloxx->sis_depen_id;
         $log['i_prm_sexo_id'] = $modeloxx->i_prm_sexo_id;
         $log['s_direccion'] = $modeloxx->s_direccion;
         $log['sis_departamento_id'] = $modeloxx->sis_departamento_id;
@@ -27,7 +26,7 @@ class SisDepenObserver
         $log['itiestan'] = $modeloxx->itiestan;
         $log['itiegabe'] = $modeloxx->itiegabe;
         $log['itigafin'] = $modeloxx->itigafin;
-        $log['s_observacion'] = $modeloxx->s_observacion;
+        $log['estusuario_id'] = $modeloxx->estusuario_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

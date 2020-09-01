@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\consulta\CsdRedSocActual;
-use App\Models\consulta\Logs\HCsdRedSocActual;
+use App\Models\consulta\CsdRedsocActual;
+use App\Models\consulta\Logs\HCsdRedsocActual;
 
 class CsdRedSocActualObserver
 {
@@ -12,7 +12,7 @@ class CsdRedSocActualObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['csd_id'] = $modeloxx->csd_id;
         $log['prm_tipo_id'] = $modeloxx->prm_tipo_id;
         $log['nombre'] = $modeloxx->nombre;
@@ -30,52 +30,52 @@ class CsdRedSocActualObserver
         return $log;
     }
 
-    public function created(CsdRedSocActual $modeloxx)
+    public function created(CsdRedsocActual $modeloxx)
     {
-        HCsdRedSocActual::create($this->getLog($modeloxx));
+        HCsdRedsocActual::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdRedSocActual "updated" event.
+     * Handle the CsdRedsocActual "updated" event.
      *
-     * @param  \App\Models\consulta\CsdRedSocActual  $modeloxx
+     * @param  \App\Models\consulta\CsdRedsocActual  $modeloxx
      * @return void
      */
-    public function updated(CsdRedSocActual $modeloxx)
+    public function updated(CsdRedsocActual $modeloxx)
     {
-        HCsdRedSocActual::create($this->getLog($modeloxx));
+        HCsdRedsocActual::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdRedSocActual "deleted" event.
+     * Handle the CsdRedsocActual "deleted" event.
      *
-     * @param  \App\Models\consulta\CsdRedSocActual  $modeloxx
+     * @param  \App\Models\consulta\CsdRedsocActual  $modeloxx
      * @return void
      */
-    public function deleted(CsdRedSocActual $modeloxx)
+    public function deleted(CsdRedsocActual $modeloxx)
     {
-        HCsdRedSocActual::create($this->getLog($modeloxx));
+        HCsdRedsocActual::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdRedSocActual "restored" event.
+     * Handle the CsdRedsocActual "restored" event.
      *
-     * @param  \App\Models\consulta\CsdRedSocActual  $modeloxx
+     * @param  \App\Models\consulta\CsdRedsocActual  $modeloxx
      * @return void
      */
-    public function restored(CsdRedSocActual $modeloxx)
+    public function restored(CsdRedsocActual $modeloxx)
     {
-        HCsdRedSocActual::create($this->getLog($modeloxx));
+        HCsdRedsocActual::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdRedSocActual "force deleted" event.
+     * Handle the CsdRedsocActual "force deleted" event.
      *
-     * @param  \App\Models\consulta\CsdRedSocActual  $modeloxx
+     * @param  \App\Models\consulta\CsdRedsocActual  $modeloxx
      * @return void
      */
-    public function forceDeleted(CsdRedSocActual $modeloxx)
+    public function forceDeleted(CsdRedsocActual $modeloxx)
     {
-        HCsdRedSocActual::create($this->getLog($modeloxx));
+        HCsdRedsocActual::create($this->getLog($modeloxx));
     }
 }

@@ -20,13 +20,13 @@ class CreateHFiActividadestlsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('i_horas_permanencia_calle')->unsigned();
-            $table->bigInteger('i_dias_permanencia_calle')->unsigned();
-            $table->bigInteger('i_prm_pertenece_parche_id')->unsigned();
-            $table->string('s_nombre_parche');
-            $table->bigInteger('i_prm_acceso_recreacion_id')->unsigned();
-            $table->bigInteger('i_prm_practica_religiosa_id')->unsigned();
-            $table->bigInteger('i_prm_religion_practica_id')->unsigned();
+            $table->bigInteger('i_horas_permanencia_calle')->unsigned()->nullable();
+            $table->bigInteger('i_dias_permanencia_calle')->unsigned()->nullable();
+            $table->bigInteger('i_prm_pertenece_parche_id')->unsigned()->nullable();
+            $table->string('s_nombre_parche')->nullable();
+            $table->bigInteger('i_prm_acceso_recreacion_id')->unsigned()->nullable();
+            $table->bigInteger('i_prm_practica_religiosa_id')->unsigned()->nullable();
+            $table->bigInteger('i_prm_religion_practica_id')->unsigned()->nullable();
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });

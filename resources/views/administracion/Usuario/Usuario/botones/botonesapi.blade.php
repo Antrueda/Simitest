@@ -23,5 +23,10 @@
         <a class="btn btn-sm btn-warning" href="{{ route($requestx->routexxx[1].'.cambiar', $queryxxx->id) }}">Cambiar Contraseña</a>
         </div>
         @endif
+        @if(auth()->user()->can( $requestx->routexxx[0].'-editar'))
+        <div class="dropdown-item">
+            <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.restartx', $queryxxx->id) }}">Restablecer Contraseña</a>
+        </div>
+        @endif
     </div>
 </div>

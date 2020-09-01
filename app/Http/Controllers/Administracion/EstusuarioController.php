@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Sistema\EstusuarioCrearRequest;
 use App\Http\Requests\Sistema\EstusuarioEditarRequest;
 use App\Models\Sistema\SisEsta;
+use App\Models\Tema;
 use App\Models\Usuario\Estusuario;
 use App\Traits\Administracion\EstadosTrait;
 use Illuminate\Http\Request;
@@ -72,8 +73,8 @@ class EstusuarioController extends Controller
         $this->opciones['rowscols'] = 'rowspancolspan';
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR ESTADO',
-                'titulist' => 'LISTA DE ESTADOS',
+                'titunuev' => 'CREAR MOTIVO ESTADO',
+                'titulist' => 'LISTA DE MOTIVOS ESTADO',
                 'dataxxxx' => [],
                 'vercrear' => true,
                 'urlxxxxx' => route('estausua.estadosx', $this->opciones['parametr']),
@@ -81,7 +82,7 @@ class EstusuarioController extends Controller
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO USUARIO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'MOTIVO (ESTADO)', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ],
 
@@ -118,6 +119,7 @@ class EstusuarioController extends Controller
     {
         $this->opciones['tituloxx'] = 'ESTADO USUARIO';
         $this->opciones['tituhead'] = '';
+        $this->opciones['formular'] = Tema::combo(340, true, false);
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo

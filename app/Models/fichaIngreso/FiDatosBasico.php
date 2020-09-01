@@ -206,7 +206,7 @@ class FiDatosBasico extends Model
             if ($compofam == null) {
                 $compofam = '';
             }
-
+            $dataxxxx['prm_documento_id']=$dataxxxx['prm_tipodocu_id'];
             FiComposicionFami::transaccion($dataxxxx, $compofam);
 
             $dataxxxx['sis_tabla_id'] = 9;

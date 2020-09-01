@@ -3,6 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
+use App\Models\Parametro;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -52,8 +53,8 @@ class FiGeneracionIngreso extends Model{
     }
     return $vestuari;
   }
-  public function fi_dias_genera_ingresos(){
-    return $this->hasMany(FiDiasGeneraIngreso::class);
+  public function i_prm_dia_genera_id(){
+    return $this->belongsToMany(Parametro::class,'fi_dias_genera_ingresos','fi_generacion_ingreso_id','i_prm_dia_genera_id');
   }
   private static function grabarDiaGenera($digenera,$dataxxxx){
     $datosxxx=[

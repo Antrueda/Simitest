@@ -108,8 +108,8 @@ class FiDatosBasicoCrearRequest extends FormRequest
         }
 
         if ($dataxxxx['prm_doc_fisico_id'] == 228){
-            $this->_mensaje['i_prm_ayuda_id.required'] ='Seleccione porqué no tiene documento';
-            $this->_reglasx['i_prm_ayuda_id']='required';
+            $this->_mensaje['prm_ayuda_id.required'] ='Seleccione porqué no tiene documento';
+            $this->_reglasx['prm_ayuda_id']='required';
         }
 
     }

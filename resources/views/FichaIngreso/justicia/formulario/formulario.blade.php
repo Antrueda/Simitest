@@ -24,7 +24,7 @@
     <div class="form-group col-md-4">
       {{ Form::label('i_prm_motivo_pard_id', '10.1A Motivo del PARD', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('i_prm_motivo_pard_id', $todoxxxx["motipard"], null, ['class' => 'form-control form-control-sm']) }}
-    </div>  
+    </div>
     <div class="form-group col-md-4">
       {{ Form::label('s_nombre_defensor', '10.1B Nombre del defensor de familia', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::text('s_nombre_defensor', null, ['class' => 'form-control form-control-sm', $todoxxxx['readnomd']]) }}
@@ -127,34 +127,5 @@
       {{ Form::select('i_prm_causa_riesgo_part_id', $todoxxxx["riesviol"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
   </div>
-@if(isset($todoxxxx['puedexxx']))
-{{-- Procesos de miembros de la familia --}}
-<div class="form-group col-md-12">
-    <div class="card card-outline card-secondary" >
-    <div class="card-header">
-        <h3 class="card-title">
-            {{ Form::label('qMetAntVol', '10.6 ¿Qué personas de su familia han estado o se encuentran en procesos legales, o han estado en la cárcel o fiscalía?', ['class' => 'control-label col-form-label-sm']) }}
-            @can('fiprocesojudicial-crear')
-                <a class="btn btn-sm btn-primary ml-2" title="Nuevo" href="{{ route('fi.procesojudicial.nuevo',$todoxxxx['nnajregi']) }}">
-                    Nuevo
-                </a>
-            @endcan
-        </h3>
-    </div>
-    <div class="card-body">
-        
-        @component('FichaIngreso.justicia.datatable.index', ['todoxxxx'=>$todoxxxx])
-        @slot('tableName')
-           {{ $todoxxxx['tablname']}}
-        @endslot
-        @slot('class')
-        @endslot
-     @endcomponent 
-    </div>
-  </div>
-</div>
-@section('codigo')
+  @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 
-@include('FichaIngreso.justicia.datatable.js')
-@endsection
-@endif

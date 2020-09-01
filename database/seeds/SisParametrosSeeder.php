@@ -2342,5 +2342,13 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2321, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'NADA']);
         Parametro::create(['id' => 2322, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'TIO/A POLITICO']);
         Parametro::create(['id' => 2323, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'CAMINANDO RELAJADO']);
+        Parametro::create(['id' => 2324, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'FEMENINO/MASCULINO']);
+
+        Parametro::create(['id' => 2325, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'USUARIOS']);
+        Parametro::create(['id' => 2326, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'CARGOS']);
+        Parametro::create(['id' => 2327, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'DEPENDENCIAS']);
+        Parametro::create(['id' => 2328, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'AREAS']);
+
+   ;
     }
 }

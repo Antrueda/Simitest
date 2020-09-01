@@ -91,6 +91,7 @@ class RolpermisoController extends Controller
                 [
                     ['td' => 'Acciones', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'PERMISO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'MENU', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'PESTAÑA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
@@ -100,8 +101,9 @@ class RolpermisoController extends Controller
             'columnsx' => [
                 ['data' => 'botonexx', 'name' => 'botonexx'],
                 ['data' => 'id', 'name' => 'permissions.id'],
+                ['data' => 'name', 'name' => 'permissions.name'],
                 ['data' => 's_menu', 'name' => 'sis_menus.s_menu'],
-                ['data' => 'nombre', 'name' => 'sis_documento_fuentes.nombre'],
+                ['data' => 'nombre', 'name' => 'sis_docfuens.nombre'],
                 ['data' => 's_pestania', 'name' => 'sis_pestanias.s_pestania'],
                 ['data' => 'descripcion', 'name' => 'permissions.descripcion'],
             ],
@@ -121,6 +123,7 @@ class RolpermisoController extends Controller
                 [
                     ['td' => 'Acciones', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'PERMISO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     // ['td' => 'MENU', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     // ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     // ['td' => 'PESTAÑA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
@@ -130,6 +133,7 @@ class RolpermisoController extends Controller
             'columnsx' => [
                 ['data' => 'botonexx', 'name' => 'botonexx'],
                 ['data' => 'id', 'name' => 'permissions.id'],
+                ['data' => 'name', 'name' => 'permissions.name'],
                 // ['data' => 's_menu', 'name' => 'sis_menus.s_menu'],
                 // ['data' => 'nombre', 'name' => 'sis_documento_fuentes.nombre'],
                 // ['data' => 's_pestania', 'name' => 'sis_pestanias.s_pestania'],

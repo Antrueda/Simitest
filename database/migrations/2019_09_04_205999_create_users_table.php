@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('s_segundo_apellido')->nullable();
             $table->string('email')->unique();
             $table->string('s_telefono');
-            $table->string('s_matriculap');
+            $table->string('s_matriculap')->nullable();
             $table->string('s_documento');
 
             $table->date('d_vinculacion');
@@ -42,14 +42,15 @@ class CreateUsersTable extends Migration
             $table->date('d_finvinculacion');
             $table->bigInteger('prm_tvinculacion_id')->unsigned();
             $table->bigInteger('prm_documento_id')->unsigned();
-            $table->integer('sis_esta_id');
-            //$table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->bigInteger('sis_esta_id')->unsigned();
+            $table->bigInteger('estusuario_id')->unsigned()->nullable();
+            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('prm_tvinculacion_id')->references('id')->on('parametros');
             $table->foreign('prm_documento_id')->references('id')->on('parametros');
             $table->foreign('sis_cargo_id')->references('id')->on('sis_cargos');
-
+            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
             $table->unique(['prm_documento_id', 's_documento']);
         });

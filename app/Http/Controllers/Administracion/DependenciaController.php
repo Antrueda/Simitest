@@ -13,6 +13,8 @@ use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
+use App\Models\Usuario\Estusuario;
+use Illuminate\Http\Request;
 
 class DependenciaController extends Controller
 {
@@ -119,17 +121,17 @@ class DependenciaController extends Controller
         $this->opciones['padrexxx'] = '';
         $this->opciones['i_prm_cvital_id'] = Tema::combo(311, true, false);
         $this->opciones['i_prm_tdependen_id'] = Tema::combo(192, true, false);
-        $this->opciones['sis_depen_id'] = SisDepen::combo(true, false);
-        $this->opciones['i_prm_sexo_id'] = Tema::combo(11, true, false);
+        $this->opciones['i_prm_sexo_id'] = Tema::combo(339, true, false);
         $this->opciones['responsa'] = Tema::comboDesc(23, false, false);
         $this->opciones['sis_departamento_id'] = SisDepartamento::combo(2, false);
         $this->opciones['sis_municipio_id'] = ['' => 'Seleccione'];
         $this->opciones['sis_localidad_id'] = SisLocalidad::combo(true, false);
         $this->opciones['sis_upz_id'] = ['' => 'Seleccione'];
         $this->opciones['sis_barrio_id'] = ['' => 'Seleccione'];
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
+        $estadoid = 0;
         if ($nombobje != '') {
             $this->opciones['padrexxx'] = $objetoxx->id;
             $this->opciones['pestpadr']=false;
@@ -141,17 +143,24 @@ class DependenciaController extends Controller
 
             $barrioxx = $objetoxx->sis_upzbarri;
             $objetoxx->sis_localidad_id = $barrioxx->sis_localupz->sis_localidad_id;
-            $objetoxx->sis_upz_id = $barrioxx->sis_localupz->sis_upz_id;
-            $this->opciones['sis_upz_id'] = SisUpz::combo($barrioxx->sis_localupz->sis_localidad_id, false);
-            $this->opciones['sis_barrio_id'] = SisBarrio::combo($objetoxx->sis_upzbarri_id, false);
+            $objetoxx->sis_upz_id = $barrioxx->sis_localupz->id;
+
+            $this->opciones['sis_upz_id'] = SisUpz::combo($objetoxx->sis_localidad_id, false);
+            $this->opciones['sis_barrio_id'] = SisBarrio::combo($objetoxx->sis_upz_id, false);
             $this->opciones[$nombobje] = $objetoxx;
 
             $this->opciones['fechcrea'] = $objetoxx->created_at;
             $this->opciones['fechedit'] = $objetoxx->updated_at;
             $this->opciones['usercrea'] = $objetoxx->creador->name;
             $this->opciones['useredit'] = $objetoxx->editor->name;
+            $estadoid= $objetoxx->sis_esta_id;
         }
-
+        $this->opciones['motivoxx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2328
+        ]);
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
         return view($vistaxxx, ['todoxxxx' => $this->opciones]);
@@ -251,5 +260,18 @@ class DependenciaController extends Controller
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
 
         return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
+    }
+
+    public function getMotivos(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2328])
+            );
+        }
     }
 }

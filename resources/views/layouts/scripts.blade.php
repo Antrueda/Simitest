@@ -65,6 +65,30 @@
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
+
+    var f_motivos = function(dataxxxx) {
+        $('#estusuario_id').empty();
+            $.ajax({
+                url:dataxxxx.routexxx,
+                type: 'GET',
+                data:dataxxxx.dataxxxx,
+                dataType: 'json',
+                success: function(json) {
+                    $.each(json, function(i, data) {
+                        var selected = '';
+                        if (data.valuexxx == dataxxxx.selected) {
+                            selected = 'selected';
+                        }
+                        $('#estusuario_id').append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                    });
+
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existiÃ³ un problema');
+                }
+            });
+        }
+
     var f_inactivar = function(dataxxxx) {
         $.ajax({
             url: dataxxxx.urlxxxxx,

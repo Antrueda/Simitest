@@ -1,33 +1,35 @@
 <?php
-Route::group(['prefix' => '{nnaj}/fiingreso'], function () {
-	
+$routexxx='fiingresos';
+$controll='FichaIngreso\FiGeneracionIngreso';
+Route::group(['prefix' => '{padrexxx}/fiingreso'], function () use($routexxx,$controll){
+
 	Route::get('', [
-		'uses' => 'FichaIngreso\FiGeneracionIngresoController@create',
-		'middleware' => ['permission:fiingresos-crear']
-	])->name('fi.ingresos.nuevo');
-	
+		'uses' => $controll.'Controller@create',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
+
 	Route::post('crear', [
-		'uses' => 'FichaIngreso\FiGeneracionIngresoController@store',
-		'middleware' => ['permission:fiingresos-crear']
-	])->name('fi.ingresos.crear');
-	
-	Route::get('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiGeneracionIngresoController@edit',
-		'middleware' => ['permission:fiingresos-editar']
-	])->name('fi.ingresos.editar');
-	
-	Route::put('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiGeneracionIngresoController@update',
-		'middleware' => ['permission:fiingresos-editar']
-	])->name('fi.ingresos.editar');
-	
-	Route::get('ver/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiGeneracionIngresoController@show',
-		'middleware' => ['permission:fiingresos-leer']
-	])->name('fi.ingresos.ver');
-	
-	Route::delete('borrar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiGeneracionIngresoController@destroy',
-		'middleware' => ['permission:fiingresos-borrar']
-	])->name('fi.ingreso.borrar');
+		'uses' => $controll.'Controller@store',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.crear');
+
+	Route::get('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@edit',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+
+	Route::put('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@update',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+
+	Route::get('ver/{modeloxx}', [
+		'uses' => $controll.'Controller@show',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
+
+	Route::delete('borrar/{modeloxx}', [
+		'uses' => $controll.'Controller@destroy',
+		'middleware' => ['permission:'.$routexxx.'-borrar']
+	])->name('fiingreso.borrar');
 });

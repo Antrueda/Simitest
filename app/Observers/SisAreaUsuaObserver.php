@@ -12,7 +12,7 @@ class SisAreaUsuaObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['area_id'] = $modeloxx->area_id;
         $log['user_id'] = $modeloxx->user_id;
         // campos por defecto, no borrar.

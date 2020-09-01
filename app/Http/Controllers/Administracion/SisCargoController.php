@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SisCargoCrearRequest;
 use App\Http\Requests\SisCargoEditarRequest;
 use App\Models\Sistema\SisCargo;
+use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisTabla;
+use App\Models\Usuario\Estusuario;
 
 class SisCargoController extends Controller
 {
@@ -72,23 +74,29 @@ class SisCargoController extends Controller
 
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
-
-        $this->opciones['estadoxx'] = 'ACTIVO';
+        $estadoid = 0;
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
-
+        $this->opciones['sis_esta_id'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['stablaxx'] = SisTabla::combo('', true, false);
         if ($nombobje != '') {
             $objetoxx->dtiestan = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiestan days"));
             $objetoxx->dtiegabe = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiegabe days"));
             $objetoxx->dtigafin = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itigafin days"));
             $this->opciones[$nombobje] = $objetoxx;
-            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+
             $this->opciones['fechcrea'] = $objetoxx->created_at;
             $this->opciones['fechedit'] = $objetoxx->updated_at;
             $this->opciones['usercrea'] = $objetoxx->creador->name;
             $this->opciones['useredit'] = $objetoxx->editor->name;
+            $estadoid= $objetoxx->sis_esta_id;
         }
+        $this->opciones['motivoxx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2326
+        ]);
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
         return view($vistaxxx, ['todoxxxx' => $this->opciones]);
@@ -165,5 +173,18 @@ class SisCargoController extends Controller
         $objetoxx->save();
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route('sis.cargo')->with('info', 'Registro ' . $activado . ' con éxito');
+    }
+
+    public function getMotivos(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2326])
+            );
+        }
     }
 }

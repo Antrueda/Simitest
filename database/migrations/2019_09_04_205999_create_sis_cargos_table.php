@@ -25,6 +25,8 @@ class CreateSisCargosTable extends Migration
             $table->integer('user_edita_id');
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
+            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table->timestamps();
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DE LOS CARGOS DE LOS USUARIOS DEL SISTEMA'");

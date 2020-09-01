@@ -4,6 +4,7 @@ namespace App\Http\Requests\Indicadores;
 
 
 use Illuminate\Foundation\Http\FormRequest;
+
 class AreaEditarRequest extends FormRequest
 {
 
@@ -15,6 +16,12 @@ class AreaEditarRequest extends FormRequest
         $this->_mensaje = [
             'nombre.required' => 'Ingrese el nombre del área',
             'nombre.unique' => 'El área ya se encuentra en uso',
+            'sis_esta_id.required' => 'Seleccione un estado',
+            'estusuario_id.required' => 'Seleccione una justificación',
+        ];
+        $this->_reglasx = [
+            'sis_esta_id' => ['required'],
+            'estusuario_id' => ['required'],
         ];
     }
     /**
@@ -40,8 +47,10 @@ class AreaEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        $this->_reglasx['nombre']= ['required',
-            'unique:areas,nombre,' . $this->segments()[2]];
+        $this->_reglasx['nombre'] = [
+            'required',
+            'unique:areas,nombre,' . $this->segments()[2]
+        ];
         return $this->_reglasx;
     }
 

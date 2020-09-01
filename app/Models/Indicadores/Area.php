@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class Area extends Model
 {
   protected $fillable = [
-    'nombre', 'contexto', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
+    'nombre', 'contexto', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id','estusuario_id'
   ];
 
   protected $attributes = [

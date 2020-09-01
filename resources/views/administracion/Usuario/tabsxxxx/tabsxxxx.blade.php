@@ -18,7 +18,7 @@
             <li class="nav-item" readonly><a class="nav-link{{ ($todoxxxx['slotxxxx']=='areausua') ?' active' : '' }}
         text-sm" href="{{ route('areausua', $todoxxxx['parametr']) }}">&Aacute;REAS</a></li>
             @endcanany
-            @canany(['usudepen-leer', 'usudepen-crear', 'usudepen-editar', 'usudepen-borrar'])
+            @canany(['usuadepen-leer', 'usudepen-crear', 'usudepen-editar', 'usudepen-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='usudepen') ?' active' : '' }}
         text-sm" href="{{ route('usudepen', $todoxxxx['parametr']) }}">DEPENDENCIAS</a></li>
             @endcanany

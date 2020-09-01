@@ -16,12 +16,22 @@ class AreaCrearRequest extends FormRequest
         $this->_mensaje = [
             'nombre.required' => 'Ingrese el nombre del área',
             'nombre.unique' => 'El área ya se encuentra en uso',
+            'sis_esta_id.required' => 'Seleccione un estado',
+            'estusuario_id.required' => 'Seleccione una justificación',
         ];
         $this->_reglasx = [
             'nombre' =>
             [
                 'required', //y todos las validaciones a que haya lugar separadas por coma
                 'unique:areas,nombre,'
+            ],
+            'sis_esta_id' =>
+            [
+                'required', //y todos las validaciones a que haya lugar separadas por coma
+            ],
+            'estusuario_id' =>
+            [
+                'required', //y todos las validaciones a que haya lugar separadas por coma
             ],
         ];
     }

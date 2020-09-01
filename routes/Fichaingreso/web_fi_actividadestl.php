@@ -1,34 +1,29 @@
 <?php
-Route::group(['prefix' => '{nnaj}/fiactividades'], function () {
-
-	
+$routexxx='fiactividades';
+$controll='FichaIngreso\FiActividadestl';
+Route::group(['prefix' => '{padrexxx}/fiactividades'], function () use($routexxx,$controll){
 	Route::get('', [
-		'uses' => 'FichaIngreso\FiActividadestlController@create',
-		'middleware' => ['permission:fiactividades-crear']
-	])->name('fi.actividades.nuevo');
-	
+		'uses' => $controll.'Controller@create',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
+
 	Route::post('crear', [
-		'uses' => 'FichaIngreso\FiActividadestlController@store',
-		'middleware' => ['permission:fiactividades-crear']
-	])->name('fi.actividades.crear');
-	
-	Route::get('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiActividadestlController@edit',
-		'middleware' => ['permission:fiactividades-editar']
-	])->name('fi.actividades.editar');
-	
-	Route::put('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiActividadestlController@update',
-		'middleware' => ['permission:fiactividades-editar']
-	])->name('fi.actividades.editar');
-	
-	Route::get('ver/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiActividadestlController@show',
-		'middleware' => ['permission:fiactividades-leer']
-	])->name('fi.actividades.ver');
-	
-	Route::delete('borrar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiActividadestlController@destroy',
-		'middleware' => ['permission:fiactividades-borrar']
-	])->name('fi.actividades.borrar');
+		'uses' => $controll.'Controller@store',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.crear');
+
+	Route::get('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@edit',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+
+	Route::put('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@update',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+
+	Route::get('ver/{modeloxx}', [
+		'uses' => $controll.'Controller@show',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
 });

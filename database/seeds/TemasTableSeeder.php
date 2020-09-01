@@ -3512,5 +3512,18 @@ class TemasTableSeeder extends Seeder
             1771 => $camposmagicos,
             2316=> $camposmagicos,
         ]);
+        $tema = Tema::create(['id' => 339, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'SEXO DEPENDENCIAS',]);
+        $tema->parametros()->sync([
+            23 => $camposmagicos,
+            24 => $camposmagicos,
+            2324 => $camposmagicos,
+        ]);
+        $tema = Tema::create(['id' => 340, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'FORMULARIO MOTIVO DE ESTADO PARA EL REGISTRO',]);
+        $tema->parametros()->sync([
+            2325 => $camposmagicos,
+            2326 => $camposmagicos,
+            2327 => $camposmagicos,
+            2328 => $camposmagicos,
+        ]);
     }
 }

@@ -14,6 +14,9 @@
         @canany(['indiadmi-modulo'])
             @include('layouts.menus.admindicadores')
         @endcanany
+        @canany(['motaller-modulo'])
+            @include('layouts.menus.talleres')
+        @endcanany
          @canany(['sistemax-modulo'])
             @include('layouts.menus.sistema')
         @endcanany

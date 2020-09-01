@@ -12,6 +12,7 @@ class Estusuario extends Model
     protected $fillable = [
         'estado',
         'user_crea_id',
+        'prm_formular_id',
         'user_edita_id',
         'sis_esta_id'
     ];
@@ -52,7 +53,9 @@ class Estusuario extends Model
             }
 
         }
-        $entidadx=Estusuario::where('sis_esta_id',$dataxxxx['estadoid'])->get();
+        $entidadx=Estusuario::where('sis_esta_id',$dataxxxx['estadoid'])
+        ->where('prm_formular_id',$dataxxxx['formular'])
+        ->get();
         foreach ($entidadx as $entisalu) {
             if($dataxxxx['esajaxxx']){
                 $comboxxx[] = ['valuexxx'=>$entisalu->id, 'optionxx'=>$entisalu->estado];

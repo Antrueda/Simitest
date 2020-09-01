@@ -12,11 +12,12 @@ class SisCargoObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['s_cargo'] = $modeloxx->s_cargo;
         $log['itiestan'] = $modeloxx->itiestan;
         $log['itiegabe'] = $modeloxx->itiegabe;
         $log['itigafin'] = $modeloxx->itigafin;
+        $log['estusuario_id'] = $modeloxx->estusuario_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

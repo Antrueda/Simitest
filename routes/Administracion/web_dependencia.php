@@ -30,6 +30,13 @@ Route::group(['prefix' => 'dependencia'], function () {
         'middleware' => ['permission:dependencia-borrar']
     ])->name('dependencia.borrar');
 
+    $controll = 'Administracion\Dependencia';
+    $routexxx = 'dependencia';
+    Route::get('motivos', [
+	    'uses' => $controll.'Controller@getMotivos',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+    ])->name($routexxx.'.motivosx');
+
     $controll = 'Administracion\Dependencia\ServicioDep';
     $routexxx = 'servdepe';
     Route::group(['prefix' => '{padrexxx}/sevicio'], function () use ($controll, $routexxx) {

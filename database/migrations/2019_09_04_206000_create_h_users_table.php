@@ -18,7 +18,6 @@ class CreateHUsersTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-
             $table->string('name');
             $table->string('s_primer_nombre');
             $table->string('s_segundo_nombre')->nullable();
@@ -29,7 +28,7 @@ class CreateHUsersTable extends Migration
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('s_telefono');
-            $table->string('s_matriculap');
+            $table->string('s_matriculap')->nullable();
             $table->date('d_vinculacion');
             $table->Integer('itiestan')->nullable()->comment('TIEMPO STANDAR PARA EL CARGUE DE INFORMACION');
             $table->Integer('itiegabe')->nullable()->comment('TIEMPO GABELA PARA EL CARGUE DE INFORMACION');
@@ -38,6 +37,7 @@ class CreateHUsersTable extends Migration
             $table->date('d_finvinculacion');
             $table->integer('prm_tvinculacion_id');
             $table->integer('sis_municipio_id');
+            $table->integer('estusuario_id')->unsigned()->nullable();
             $table->integer('prm_documento_id');
             $table->rememberToken();
             $table = CamposMagicos::h_magicos($table);

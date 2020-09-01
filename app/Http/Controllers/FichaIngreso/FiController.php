@@ -43,6 +43,15 @@ class FiController extends Controller
         $this->opciones['rutacarp'] = 'FichaIngreso.';
         $this->opciones['parametr'] = [];
         $this->opciones['carpetax'] = 'Dabasico';
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
+
+
+
         $this->bitacora = new FiDatosBasico();
         $this->opciones['tipodocu'] = Tema::combo(3, true, false);
         $this->opciones['grupsang'] = Tema::combo(17, true, false);
@@ -82,6 +91,7 @@ class FiController extends Controller
             [
                 'titunuev' => 'NUEVO NNAJ',
                 'titulist' => 'LISTA DE NNAJS',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
                 'cabecera' => [
@@ -112,7 +122,9 @@ class FiController extends Controller
                 'parametr' => [],
             ]
         ];
-        $this->opciones['accionxx'] = 'index';
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ];
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -143,20 +155,28 @@ class FiController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    private function view($objetoxx, $nombobje, $accionxx)
+    private function view($dataxxxx)
     {
+
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {
             $fechaxxx[1] = (int) $fechaxxx[1] + 1;
         }
+
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
+
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
         $this->opciones['generoxx'] = Tema::combo(12, true, false);
         $this->opciones['orientac'] = Tema::combo(13, true, false);
         $this->opciones['estacivi'] = Tema::combo(19, true, false);
 
         $this->opciones['estadoxx'] = 'ACTIVO';
-        $this->opciones['accionxx'] = $accionxx;
+
         $this->opciones['departam'] = ['' => 'Seleccione'];
         $this->opciones['municipi'] = ['' => 'Seleccione'];
         $this->opciones['deparexp'] = ['' => 'Seleccione'];
@@ -178,57 +198,61 @@ class FiController extends Controller
         $depaexpe = $localida;
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
-        if ($nombobje != '') {
-            $this->opciones['pestpara']=[$objetoxx->id];
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+            $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+            $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+
+            $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['perfilxx'] = 'conperfi';
-            $this->opciones['usuariox'] =  $objetoxx;
+            $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
-            $objetoxx->prm_etnia_id = $objetoxx->nnaj_fi_csd->prm_etnia_id;
-            $objetoxx->prm_poblacion_etnia_id = $objetoxx->nnaj_fi_csd->prm_poblacion_etnia_id;
-            $objetoxx->prm_gsanguino_id = $objetoxx->nnaj_fi_csd->prm_gsanguino_id;
-            $objetoxx->prm_factor_rh_id = $objetoxx->nnaj_fi_csd->prm_factor_rh_id;
-            $objetoxx->prm_estado_civil_id = $objetoxx->nnaj_fi_csd->prm_estado_civil_id;
+            $dataxxxx['modeloxx']->prm_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_etnia_id;
+            $dataxxxx['modeloxx']->prm_poblacion_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_poblacion_etnia_id;
+            $dataxxxx['modeloxx']->prm_gsanguino_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_gsanguino_id;
+            $dataxxxx['modeloxx']->prm_factor_rh_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_factor_rh_id;
+            $dataxxxx['modeloxx']->prm_estado_civil_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_estado_civil_id;
 
             /** orientacion sexual */
-            $objetoxx->s_nombre_identitario = $objetoxx->nnaj_sexo->s_nombre_identitario;
-            $objetoxx->prm_sexo_id = $objetoxx->nnaj_sexo->prm_sexo_id;
-            $objetoxx->prm_identidad_genero_id = $objetoxx->nnaj_sexo->prm_identidad_genero_id;
-            $objetoxx->prm_orientacion_sexual_id = $objetoxx->nnaj_sexo->prm_orientacion_sexual_id;
+            $dataxxxx['modeloxx']->s_nombre_identitario = $dataxxxx['modeloxx']->nnaj_sexo->s_nombre_identitario;
+            $dataxxxx['modeloxx']->prm_sexo_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_sexo_id;
+            $dataxxxx['modeloxx']->prm_identidad_genero_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_identidad_genero_id;
+            $dataxxxx['modeloxx']->prm_orientacion_sexual_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_orientacion_sexual_id;
 
             // /** Nacimiento */
 
-            $objetoxx->d_nacimiento = $objetoxx->nnaj_nacimi->d_nacimiento;
-            $this->opciones['aniosxxx'] = $objetoxx->nnaj_nacimi->Edad;
-            $objetoxx->sis_pai_id = $paisxxxx = $objetoxx->nnaj_nacimi->sis_municipio->sis_departamento->sis_pais_id;
-            $objetoxx->sis_departamento_id = $departam = $objetoxx->nnaj_nacimi->sis_municipio->sis_departamento_id;
-            $objetoxx->sis_municipio_id = $objetoxx->nnaj_nacimi->sis_municipio_id;
+            $dataxxxx['modeloxx']->d_nacimiento = $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento;
+            $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->nnaj_nacimi->Edad;
+            $dataxxxx['modeloxx']->sis_pai_id = $paisxxxx = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departamento->sis_pais_id;
+            $dataxxxx['modeloxx']->sis_departamento_id = $departam = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departamento_id;
+            $dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio_id;
 
             /** documento de identidad */
-            $objetoxx->s_documento = $objetoxx->nnaj_docu->s_documento;
-            $objetoxx->prm_ayuda_id = $objetoxx->nnaj_docu->prm_ayuda_id;
-            $objetoxx->prm_tipodocu_id = $objetoxx->nnaj_docu->prm_tipodocu_id;
-            $objetoxx->prm_doc_fisico_id = $objetoxx->nnaj_docu->prm_doc_fisico_id;
+            $dataxxxx['modeloxx']->s_documento = $dataxxxx['modeloxx']->nnaj_docu->s_documento;
+            $dataxxxx['modeloxx']->prm_ayuda_id = $dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
+            $dataxxxx['modeloxx']->prm_tipodocu_id = $dataxxxx['modeloxx']->nnaj_docu->prm_tipodocu_id;
+            $dataxxxx['modeloxx']->prm_doc_fisico_id = $dataxxxx['modeloxx']->nnaj_docu->prm_doc_fisico_id;
 
-            $objetoxx->sis_paiexp_id = $paisexpe = $objetoxx->nnaj_docu->sis_municipio->sis_departamento->sis_pais_id;
-            $objetoxx->sis_departamentoexp_id = $depaexpe = $objetoxx->nnaj_docu->sis_municipio->sis_departamento_id;
-            $objetoxx->sis_municipioexp_id = $objetoxx->nnaj_docu->sis_municipio_id;
+            $dataxxxx['modeloxx']->sis_paiexp_id = $paisexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departamento->sis_pais_id;
+            $dataxxxx['modeloxx']->sis_departamentoexp_id = $depaexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departamento_id;
+            $dataxxxx['modeloxx']->sis_municipioexp_id = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio_id;
 
             /** situacion militar */
-            $objetoxx->prm_situacion_militar_id= $objetoxx->nnaj_sit_mil->prm_situacion_militar_id;
-            $objetoxx->prm_clase_libreta_id= $objetoxx->nnaj_sit_mil->prm_clase_libreta_id;
+            $dataxxxx['modeloxx']->prm_situacion_militar_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_situacion_militar_id;
+            $dataxxxx['modeloxx']->prm_clase_libreta_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_clase_libreta_id;
 
             /**focalizacion */
-            $objetoxx->s_nombre_focalizacion= $objetoxx->nnaj_focali->s_nombre_focalizacion;
-            $objetoxx->s_lugar_focalizacion= $objetoxx->nnaj_focali->s_lugar_focalizacion;
-            $objetoxx->sis_upzbarri_id= $objetoxx->nnaj_focali->sis_upzbarri_id;
+            $dataxxxx['modeloxx']->s_nombre_focalizacion = $dataxxxx['modeloxx']->nnaj_focali->s_nombre_focalizacion;
+            $dataxxxx['modeloxx']->s_lugar_focalizacion = $dataxxxx['modeloxx']->nnaj_focali->s_lugar_focalizacion;
+            $dataxxxx['modeloxx']->sis_upzbarri_id = $dataxxxx['modeloxx']->nnaj_focali->sis_upzbarri_id;
 
-            $localida =   $objetoxx->nnaj_focali->sis_upzbarri->sis_localupz;
+            $localida =   $dataxxxx['modeloxx']->nnaj_focali->sis_upzbarri->sis_localupz;
 
-            $upzxxxxx=$objetoxx->sis_upz_id=$localida->id;
+            $upzxxxxx = $dataxxxx['modeloxx']->sis_upz_id = $localida->id;
 
-            $localida =$objetoxx->sis_localidad_id =$localida->sis_localidad_id;
-            $this->opciones[$nombobje] = $objetoxx;
-            $this->opciones['parametr'] = [$objetoxx->id];
+            $localida = $dataxxxx['modeloxx']->sis_localidad_id = $localida->sis_localidad_id;
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -246,19 +270,19 @@ class FiController extends Controller
                 $this->opciones['orientac'] =  [1 => 'NO APLICA'];
             }
 
-            if ($this->opciones['aniosxxx'] < 18 || $objetoxx->prm_sexo_id == 21) {
+            if ($this->opciones['aniosxxx'] < 18 || $dataxxxx['modeloxx']->prm_sexo_id == 21) {
                 $this->opciones['tiplibre'] = [1 => 'NO APLICA'];
                 $this->opciones['situmili'] = [1 => 'NO APLICA'];
             }
 
-            if ($objetoxx->prm_documento_id == 145) {
+            if ($dataxxxx['modeloxx']->prm_documento_id == 145) {
                 $this->opciones['readfisi'] = 'readonly';
                 $this->opciones['neciayud'] = Tema::combo(286, true, false);
             } else {
                 $this->opciones['neciayud'] = [1 => 'NO APLICA'];
             }
 
-            if ($objetoxx->prm_situacion_militar_id == 228) {
+            if ($dataxxxx['modeloxx']->prm_situacion_militar_id == 228) {
                 $this->opciones['tiplibre'] = [1 => 'NO APLICA'];
             }
             // $this->opciones['poblindi'] = Tema::combo(61, true, false);
@@ -284,7 +308,8 @@ class FiController extends Controller
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(true, '', 'Crear');
+
+            return $this->view(['modeloxx'=>'','accionxx'=>['crear','formulario']]);
     }
     public function store(FiDatosBasicoCrearRequest $request)
     {
@@ -299,7 +324,7 @@ class FiController extends Controller
      */
     public function show(FiDatosBasico $objetoxx)
     {
-        return $this->view($objetoxx,  'modeloxx', 'Ver');
+        return $this->view(['modeloxx'=>$objetoxx,'accionxx'=>['ver','formulario'],'padrexxx'=>$objetoxx]);
     }
 
     /**
@@ -317,8 +342,7 @@ class FiController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-
-        return $this->view($objetoxx,  'modeloxx', 'Editar');
+        return $this->view(['modeloxx'=>$objetoxx,'accionxx'=>['editar','formulario'],'padrexxx'=>$objetoxx]);
     }
 
     /**

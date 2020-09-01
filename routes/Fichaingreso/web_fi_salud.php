@@ -1,34 +1,34 @@
 <?php
-Route::group(['prefix' => '{nnaj}/fisalud'], function () {
-	
-	
-	Route::get('', [
-		'uses' => 'FichaIngreso\FiSaludController@create',
+$controll='FichaIngreso\FiSalud';
+$routexxx='fisalud';
+Route::group(['prefix' => '{padrexxx}/fisalud'], function () use($controll,$routexxx){
+    Route::get('', [
+		'uses' => $controll.'Controller@create',
 		'middleware' => ['permission:fisalud-crear']
-	])->name('fi.salud.nuevo');
-	
+	])->name($routexxx.'.nuevo');
+
 	Route::post('crear', [
-		'uses' => 'FichaIngreso\FiSaludController@store',
+		'uses' => $controll.'Controller@store',
 		'middleware' => ['permission:fisalud-crear']
-	])->name('fi.salud.crear');
-	
-	Route::get('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiSaludController@edit',
+	])->name($routexxx.'.crear');
+
+	Route::get('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@edit',
 		'middleware' => ['permission:fisalud-editar']
-	])->name('fi.salud.editar');
-	
-	Route::put('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiSaludController@update',
+	])->name($routexxx.'.editar');
+
+	Route::put('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@update',
 		'middleware' => ['permission:fisalud-editar']
 	])->name('fiobjetoxxsalud.editar');
-	
-	Route::get('ver/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiSaludController@show',
+
+	Route::get('ver/{modeloxx}', [
+		'uses' => $controll.'Controller@show',
 		'middleware' => ['permission:fisalud-leer']
-	])->name('fi.salud.ver');
-	
-	Route::delete('borrar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiSaludController@destroy',
+	])->name($routexxx.'.ver');
+
+	Route::delete('borrar/{modeloxx}', [
+		'uses' => $controll.'Controller@destroy',
 		'middleware' => ['permission:fisalud-borrar']
-	])->name('fi.salud.borrar');
+	])->name($routexxx.'.borrar');
 });

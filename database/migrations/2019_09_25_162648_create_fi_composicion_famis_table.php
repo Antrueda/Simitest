@@ -27,8 +27,6 @@ class CreateFiComposicionFamisTable extends Migration
             $table->string('s_documento')->unique();
             $table->date('d_nacimiento');
             $table->bigInteger('i_prm_ocupacion_id')->unsigned();
-            $table->bigInteger('sis_pai_id')->unsigned();
-            $table->bigInteger('sis_departamento_id')->unsigned();
             $table->bigInteger('sis_municipio_id')->unsigned();
             $table->bigInteger('i_prm_vinculado_idipron_id')->unsigned();
             $table->bigInteger('i_prm_convive_nnaj_id')->unsigned();
@@ -40,8 +38,6 @@ class CreateFiComposicionFamisTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('sis_pai_id')->references('id')->on('sis_pais');
-            $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('i_prm_parentesco_id')->references('id')->on('parametros');

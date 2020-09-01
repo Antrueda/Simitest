@@ -43,7 +43,7 @@ class UsuarioController extends Controller
             'usercrea' => '',
             'useredit' => '',
 
-            'usuariox' =>[] // usuario para que se esta revisando la informacion
+            'usuariox' => [] // usuario para que se esta revisando la informacion
         ];
 
         $this->middleware(['permission:'
@@ -134,8 +134,8 @@ class UsuarioController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
-
-        $this->opciones['sis_esta_id'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $estadoid = 0;
+        $this->opciones['sis_esta_id'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['sis_cargo_id'] = SisCargo::combo();
         $this->opciones['prm_documento_id'] = Tema::combo(3, true, false);
         $this->opciones['prm_tvinculacion_id'] = Tema::combo(310, true, false);
@@ -156,7 +156,7 @@ class UsuarioController extends Controller
             $this->opciones['sis_municipio_id'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_municipio->sis_departamento_id, false);
             $dataxxxx['modeloxx']->sis_departamento_id = $dataxxxx['modeloxx']->sis_municipio->sis_departamento_id;
 
-            $this->opciones['pestpadr']=false;
+            $this->opciones['pestpadr'] = false;
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -169,7 +169,14 @@ class UsuarioController extends Controller
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
+            $estadoid= $dataxxxx['modeloxx']->sis_esta_id;
         }
+        $this->opciones['motivoxx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2325
+        ]);
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -263,7 +270,7 @@ class UsuarioController extends Controller
     public function inactivate(User $objetoxx)
     {
         $this->opciones['parametr'] = [$objetoxx->id];
-        $this->opciones['observac'] = Estusuario::combo(['cabecera' => false, 'esajaxxx' => false,'estadoid'=>2]);
+        $this->opciones['observac'] = Estusuario::combo(['cabecera' => true, 'esajaxxx' => false, 'estadoid' => 2, 'formular' => 2325]);
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
                 [
@@ -277,7 +284,7 @@ class UsuarioController extends Controller
 
     public function destroy(UsuarioIdipronBorrarRequest $request, User $objetoxx)
     {
-        $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id,'estusuario_id'=>$request->estusuario_id]);
         return redirect()
             ->route($this->opciones['slotxxxx'], [])
             ->with('info', 'Estado inactivado correctamente');
@@ -298,5 +305,26 @@ class UsuarioController extends Controller
                 ['tiemcarg' => IndicadorHelper::getDiasEntreFecha($request->all()['fechaxxx'], date('Y-m-d', time()))]
             );
         }
+    }
+
+    public function getMotivos(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2325])
+            );
+        }
+    }
+
+    public function getRestart(User $objetoxx)
+    {
+        $objetoxx->update(['user_edita_id' => Auth::user()->id,'password'=>$objetoxx->s_documento]);
+        return redirect()
+            ->route($this->opciones['slotxxxx'], [])
+            ->with('info', 'Contraseña restablecida correctamente');
     }
 }

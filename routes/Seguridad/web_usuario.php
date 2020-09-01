@@ -45,6 +45,10 @@ Route::group(['prefix' => 'usuario'], function () use ($controll, $routexxx) {
 
 
 
+    Route::get('motivos', [
+	    'uses' => $controll.'Controller@getMotivos',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+    ])->name($routexxx.'.motivosx');
 
     Route::post('municipio', [
         'uses' => $controll . 'Controller@municipioajax',
@@ -68,7 +72,10 @@ Route::group(['prefix' => 'usuario'], function () use ($controll, $routexxx) {
         'middleware' => ['permission:usuario-editar']
     ])->name($routexxx . '.password');
 
-
+    Route::get('restart/{usuario}', [
+        'uses' => $controll . 'Controller@getRestart',
+        'middleware' => ['permission:usuario-editar']
+    ])->name($routexxx . '.restartx');
 
 
     $controll = 'Seguridad\Usuario\AreaUser';

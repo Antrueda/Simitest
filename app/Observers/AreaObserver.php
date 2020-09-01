@@ -12,10 +12,11 @@ class AreaObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['nombre'] = $modeloxx->nombre;
         $log['contexto'] = $modeloxx->contexto;
         $log['descripcion'] = $modeloxx->descripcion;
+        $log['estusuario_id'] = $modeloxx->estusuario_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

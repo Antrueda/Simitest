@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sicosocial\Pivotes\Logs\HVsiRelSolDificulta;
-use App\Models\sicosocial\Pivotes\VsiRelSolDificulta;
+use App\Models\sicosocial\Pivotes\Logs\HVsiRelsolDificulta;
+use App\Models\sicosocial\Pivotes\VsiRelsolDificulta;
 
 class VsiRelSolDificultaObserver
 {
@@ -12,7 +12,7 @@ class VsiRelSolDificultaObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['parametro_id'] = $modeloxx->parametro_id;
         $log['vsi_relsocial_id'] = $modeloxx->vsi_relsocial_id;
         // campos por defecto, no borrar.
@@ -25,52 +25,52 @@ class VsiRelSolDificultaObserver
         return $log;
     }
 
-    public function created(VsiRelSolDificulta $modeloxx)
+    public function created(VsiRelsolDificulta $modeloxx)
     {
-        HVsiRelSolDificulta::create($this->getLog($modeloxx));
+        HVsiRelsolDificulta::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRelSolDificulta "updated" event.
+     * Handle the VsiRelsolDificulta "updated" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\VsiRelSolDificulta  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\VsiRelsolDificulta  $modeloxx
      * @return void
      */
-    public function updated(VsiRelSolDificulta $modeloxx)
+    public function updated(VsiRelsolDificulta $modeloxx)
     {
-        HVsiRelSolDificulta::create($this->getLog($modeloxx));
+        HVsiRelsolDificulta::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRelSolDificulta "deleted" event.
+     * Handle the VsiRelsolDificulta "deleted" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\VsiRelSolDificulta  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\VsiRelsolDificulta  $modeloxx
      * @return void
      */
-    public function deleted(VsiRelSolDificulta $modeloxx)
+    public function deleted(VsiRelsolDificulta $modeloxx)
     {
-        HVsiRelSolDificulta::create($this->getLog($modeloxx));
+        HVsiRelsolDificulta::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRelSolDificulta "restored" event.
+     * Handle the VsiRelsolDificulta "restored" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\VsiRelSolDificulta  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\VsiRelsolDificulta  $modeloxx
      * @return void
      */
-    public function restored(VsiRelSolDificulta $modeloxx)
+    public function restored(VsiRelsolDificulta $modeloxx)
     {
-        HVsiRelSolDificulta::create($this->getLog($modeloxx));
+        HVsiRelsolDificulta::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRelSolDificulta "force deleted" event.
+     * Handle the VsiRelsolDificulta "force deleted" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\VsiRelSolDificulta  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\VsiRelsolDificulta  $modeloxx
      * @return void
      */
-    public function forceDeleted(VsiRelSolDificulta $modeloxx)
+    public function forceDeleted(VsiRelsolDificulta $modeloxx)
     {
-        HVsiRelSolDificulta::create($this->getLog($modeloxx));
+        HVsiRelsolDificulta::create($this->getLog($modeloxx));
     }
 }

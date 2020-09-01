@@ -13,6 +13,8 @@ class SisCargoCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             's_cargo.required' => 'Seleccione una pregunta',
+            'sis_esta_id.required' => 'Seleccione un estado',
+            'estusuario_id.required' => 'Seleccione una jutificación',
         ];
         $this->_reglasx = [
             's_cargo' =>
@@ -20,7 +22,17 @@ class SisCargoCrearRequest extends FormRequest
                 'required', //y todos las validaciones a que haya lugar separadas por coma
                  'unique:sis_cargos,s_cargo,'
             ],
-            
+            'sis_esta_id' =>
+            [
+                'required', //y todos las validaciones a que haya lugar separadas por coma
+
+            ],
+            'estusuario_id' =>
+            [
+                'required', //y todos las validaciones a que haya lugar separadas por coma
+
+            ],
+
         ];
     }
     /**
@@ -52,6 +64,6 @@ class SisCargoCrearRequest extends FormRequest
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        
+
     }
 }

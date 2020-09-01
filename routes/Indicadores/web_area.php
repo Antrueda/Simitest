@@ -30,9 +30,13 @@ Route::group(['prefix' => 'area'], function () use ($controll, $routexxx) {
 		'uses' => $controll . 'Controller@destroy',
 		'middleware' => ['permission:' . $routexxx . '-borrar']
 	])->name($routexxx . '.borrar');
-	
-	
-	
+
+	Route::get('motivosarea', [
+	    'uses' => $controll.'Controller@getMotivos',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+    ])->name($routexxx.'.motiarea');
+
+
 });
 require_once('web_indicador.php');
 require_once('web_in_fuente.php');

@@ -4,12 +4,32 @@
       language: "es"
     });
 
-        
+        $('#sis_esta_id').change(function() {
+            f_motivos({
+                dataxxxx: {
+                    estadoid: $(this).val(),
+                },
+                selected: '',
+                routexxx: "{{ route('area.motiarea')}}"
+            })
+        });
+
+        @if(old('sis_esta_id') !== null)
+        f_motivos({
+            dataxxxx: {
+                estadoid: $('#sis_esta_id').val(),
+            },
+            selected: "{{old('estusuario_id')}}",
+            routexxx: "{{ route('area.motiarea')}}"
+        })
+        @endif
+
+
     var f_campos=function(dataxxxx){
       $("#fos_tse_id").empty();
             $.ajax({
                 url : "{{ route('fossubtipo.tiposeg') }}",
-                data : { 
+                data : {
                     padrexxx:dataxxxx.valuexxx,
                 },
                 type : 'GET',
@@ -22,13 +42,13 @@
                     }
                     $("#fos_tse_id").append('<option '+selected+' value="'+d.valuexxx+'">'+d.optionxx+'</option>');
                   });
-                    
+
                 },
                 error : function(xhr, status) {
                     alert('Disculpe, existió un problema');
                 },
             });
-            
+
         }
 
         @if(old('area_id')!=null)
@@ -38,4 +58,4 @@
             f_campos({valuexxx:$(this).val(),selected:''});
         });
     });
-</script>   
+</script>

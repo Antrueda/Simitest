@@ -8,8 +8,10 @@ class RolesYPermisosSeeder extends Seeder
 {
     public function getPermisos($dataxxxx)
     {
+        $listaxxx='Permiso que permite ver el contenido para: ';
+
         $descripc = [
-            'leer' => 'Permiso que permite ver y listar el contenido para: ',
+            'leer' => $listaxxx,
             'crear' => 'Permiso que permite crear registro para: ',
             'editar' => 'Permiso que permite editar registro para: ',
             'borrar' => 'Permiso que permite inactivar registro para: ',
@@ -74,10 +76,8 @@ class RolesYPermisosSeeder extends Seeder
         // crear temas
         $this->getPermisos(['permisox' => 'tema', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'tema', 'pestania' => 1]);
 
-        // crear ficha de ingreso
-        $this->getPermisos(['permisox' => 'fichaIngreso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Ficha de Ingreso', 'pestania' => 1]);
 
-        // crear ficha de dependencias
+        // crear dependencias
         $this->getPermisos(['permisox' => 'dependencia', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'dependencias', 'pestania' => 1]);
 
         /**
@@ -87,9 +87,7 @@ class RolesYPermisosSeeder extends Seeder
         /**
          * usuarios de la dependencia
          */
-
-        $this->getPermisos(['permisox' => 'usuadepe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Usuario-Dependencias', 'pestania' => 1]);
-        // $this->getPermisos(['permisox' => 'usudepen', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'','pestania'=>1]);
+        $this->getPermisos(['permisox' => 'usudepen', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Usuario-Dependencias', 'pestania' => 1]);
         /**
          * areas del usuario
          */
@@ -100,23 +98,23 @@ class RolesYPermisosSeeder extends Seeder
          */
         $this->getPermisos(['permisox' => 'roleusua', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Usuario-Roles', 'pestania' => 1]);
 
-        // crear ficha de documentoFuente
+        // crear documentoFuente
         $this->getPermisos(['permisox' => 'documentoFuente', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Documentos Fuentes', 'pestania' => 1]);
 
-        // crear ficha de entidades
+        // crear entidades
 
         $this->getPermisos(['permisox' => 'entidad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Entidades', 'pestania' => 1]);
 
-        // crear ficha de fiactividades
+        // crear  actividades
         $this->getPermisos(['permisox' => 'actividad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Actividades', 'pestania' => 1]);
 
-        // crear ficha de Mapa de procesos
+        // crear Mapa de procesos
         $this->getPermisos(['permisox' => 'mapaProceso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Mapa-Proceso', 'pestania' => 1]);
 
-        // crear ficha de procesos
+        // crear procesos
         $this->getPermisos(['permisox' => 'proceso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Procesos', 'pestania' => 1]);
 
-        // crear ficha de Actividad procesos
+        // crear Actividad procesos
         $this->getPermisos(['permisox' => 'actividadProceso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Actividad-Proceso', 'pestania' => 1]);
 
         //Crear areas para administración de indicadores
@@ -227,60 +225,7 @@ class RolesYPermisosSeeder extends Seeder
         //Crear areas para VSI consentimiento
         $this->getPermisos(['permisox' => 'vsiconse', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Consentimiento Informado VSI', 'pestania' => 1]);
 
-
-        //Crear permisos para fivestuario
-        $this->getPermisos(['permisox' => 'fivestuario', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Vestuario FI', 'pestania' => 1]);
-
-        //Crear permisos para firesidencia
-        $this->getPermisos(['permisox' => 'firesidencia', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Residencia FI', 'pestania' => 1]);
-
-        //Crear permisos para fiactividades de tiempo libre en FI
-        $this->getPermisos(['permisox' => 'fiactividades', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Actividades de Tiempo Libre FI', 'pestania' => 1]);
-
-        //Crear permisos para bienvenida de tiempo libre en FI
-        $this->getPermisos(['permisox' => 'fibienvenida', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Bienvenida FI', 'pestania' => 1]);
-
-        //Crear permisos para compsicion familiar de tiempo libre en FI
-        $this->getPermisos(['permisox' => 'ficomposicion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Composición Familiar FI', 'pestania' => 1]);
-
-        //Crear permisos para consumo en FI
-        $this->getPermisos(['permisox' => 'ficonsumo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Consumo FI', 'pestania' => 1]);
-
-        //Crear permisos para asignar las sustancias consumidas
-        $this->getPermisos(['permisox' => 'fisustanciaconsume', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Sustancias Consumidas FI', 'pestania' => 1]);
-
-        //Crear permisos para contacto en FI
-        $this->getPermisos(['permisox' => 'ficontacto', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Contacto FI', 'pestania' => 1]);
-
-        //Crear permisos para formacion en FI
-        $this->getPermisos(['permisox' => 'fiformacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Formación FI', 'pestania' => 1]);
-
-        //Crear permisos para ingresos en FI
-        $this->getPermisos(['permisox' => 'fiingresos', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'FI', 'pestania' => 1]);
-
-        //Crear permisos para justicia restaurativa en FI
-        $this->getPermisos(['permisox' => 'fijusticia', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Justicia Restaurativa FI', 'pestania' => 1]);
-
-        //Crear permisos para razones para entrar al IDIPRON en FI
-        $this->getPermisos(['permisox' => 'firazones', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Razones para Entrar al IDIPRON', 'pestania' => 1]);
-
-        //Crear permisos para salud en FI
-        $this->getPermisos(['permisox' => 'fisalud', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Salud FI', 'pestania' => 1]);
-
-        //Crear permisos para situacion especial y ESCNNA en FI
-        $this->getPermisos(['permisox' => 'fisituacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Situción Especial y ESCNNA FI', 'pestania' => 1]);
-
-        //Crear permisos para violencia en FI
-        $this->getPermisos(['permisox' => 'fiviolencia', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Violencia FI', 'pestania' => 1]);
-
-        //Crear permisos para redes de apoyo en FI
-        $this->getPermisos(['permisox' => 'firedapoyo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo FI', 'pestania' => 1]);
-
-        //Crear   datos básicos para FI
-        $this->getPermisos(['permisox' => 'fidatbas', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Datos Básicos FI', 'pestania' => 1]);
-
-        //Crear   datos básicos para FI
-        $this->getPermisos(['permisox' => 'fiautorizacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Autorización FI', 'pestania' => 1]);
+        require_once('RolesYPermisosFi.php');
 
 
 
@@ -319,18 +264,6 @@ class RolesYPermisosSeeder extends Seeder
 
         //Crear areas para CSD Redes de Apoyo
         $this->getPermisos(['permisox' => 'csdredesapoyo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo CSD', 'pestania' => 1]);
-
-        //Crear permisos para redes apoyo antecedentes
-        $this->getPermisos(['permisox' => 'fiantecedentes', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo Antecedentes CSD', 'pestania' => 1]);
-
-        //Crear permisos para redes apoyo actuales
-        $this->getPermisos(['permisox' => 'firedactual', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo Actual CSD', 'pestania' => 1]);
-
-        //Crear permisos para asignar los camponentes familiares que tengan enfermedades
-        $this->getPermisos(['permisox' => 'fisaludenfermedad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Componentes Familiares que tengan enfermedades FI', 'pestania' => 1]);
-
-        //Crear permisos para asignar los camponentes familiares con procesos judiciales
-        $this->getPermisos(['permisox' => 'fiprocesojudicial', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'componentes con procesos judiciales FI', 'pestania' => 1]);
 
         //Crear datos básicos para Intervención Sicosocial
         $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
@@ -378,8 +311,7 @@ class RolesYPermisosSeeder extends Seeder
 
         // $this->getPermisos(['permisox' => 'indiagnostico', 'permisos' => ['leer', 'crear', 'editar', 'borrar'],'compleme'=>'','pestania'=>1]);
 
-        // permisos para agregar componenete familiar a justicia restaurativa
-        $this->getPermisos(['permisox' => 'fijrfamiliar', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'componente familiar que tiene problemas de justicia restaurativa FI', 'pestania' => 1]);
+
         /**
          * permisos para acciones grupales
          */
@@ -450,6 +382,9 @@ class RolesYPermisosSeeder extends Seeder
         /** Módulo Indicadores*/
         $this->getPermisos(['permisox' => 'fosadmin', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Administración FOS', 'pestania' => 1]);
 
+        /** Módulo Indicadores*/
+        $this->getPermisos(['permisox' => 'motaller', 'permisos' => ['modulo'], 'compleme' => 'Módulo de Administración Talleres', 'pestania' => 1]);
+
 
 
         // crear ficha de epss
@@ -500,8 +435,8 @@ class RolesYPermisosSeeder extends Seeder
             'siscargo-leer', 'siscargo-crear', 'siscargo-editar', 'siscargo-borrar',
             'persona-leer', 'persona-crear', 'persona-editar', 'persona-borrar',
             'parametro-leer', 'parametro-crear', 'parametro-editar', 'parametro-borrar',
-            'tema-leer', 'tema-crear', 'tema-editar', 'tema-borrar', 'fichaIngreso-leer',
-            'fichaIngreso-crear', 'fichaIngreso-editar', 'fichaIngreso-borrar',
+            'tema-leer', 'tema-crear', 'tema-editar', 'tema-borrar',
+
             'dependencia-leer', 'dependencia-crear', 'dependencia-editar', 'dependencia-borrar',
             'eps-leer', 'eps-crear', 'eps-editar', 'eps-borrar',
             'fsoporte-leer', 'fsoporte-crear', 'fsoporte-editar', 'fsoporte-borrar',
@@ -574,7 +509,7 @@ class RolesYPermisosSeeder extends Seeder
             'csdgeningresos-leer', 'csdgeningresos-crear', 'csdgeningresos-editar', 'csdgeningresos-borrar',
             'csdredesapoyo-leer', 'csdredesapoyo-crear', 'csdredesapoyo-editar', 'csdredesapoyo-borrar',
             // ficha de ingreso
-            'fiantecedentes-leer', 'fiantecedentes-crear', 'fiantecedentes-editar', 'fiantecedentes-borrar',
+            // 'fiantecedentes-leer', 'fiantecedentes-crear', 'fiantecedentes-editar', 'fiantecedentes-borrar',
             'firedactual-leer', 'firedactual-crear', 'firedactual-editar', 'firedactual-borrar',
             'fisaludenfermedad-leer', 'fisaludenfermedad-crear', 'fisaludenfermedad-editar', 'fisaludenfermedad-borrar',
             'fiprocesojudicial-leer', 'fiprocesojudicial-crear', 'fiprocesojudicial-editar', 'fiprocesojudicial-borrar',
@@ -675,7 +610,7 @@ class RolesYPermisosSeeder extends Seeder
                 'firesidencia-leer', 'firesidencia-crear', 'firesidencia-editar', 'firesidencia-borrar',
                 'fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar',
                 'fiautorizacion-leer', 'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar',
-                'fichaIngreso-leer', 'fichaIngreso-crear', 'fichaIngreso-editar', 'fichaIngreso-borrar',
+
                 'fiactividades-leer', 'fiactividades-crear', 'fiactividades-editar', 'fiactividades-borrar',
                 'fibienvenida-leer', 'fibienvenida-crear', 'fibienvenida-editar', 'fibienvenida-borrar',
                 'ficomposicion-leer', 'ficomposicion-crear', 'ficomposicion-editar', 'ficomposicion-borrar',
@@ -689,7 +624,7 @@ class RolesYPermisosSeeder extends Seeder
                 'fisalud-leer', 'fisalud-crear', 'fisalud-editar', 'fisalud-borrar',
                 'fisituacion-leer', 'fisituacion-crear', 'fisituacion-editar', 'fisituacion-borrar',
                 'fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar', 'fiviolencia-borrar',
-                'fiantecedentes-leer', 'fiantecedentes-crear', 'fiantecedentes-editar', 'fiantecedentes-borrar',
+
                 'firedactual-leer', 'firedactual-crear', 'firedactual-editar', 'firedactual-borrar',
                 'fisaludenfermedad-leer', 'fisaludenfermedad-crear', 'fisaludenfermedad-editar', 'fisaludenfermedad-borrar',
                 'fiprocesojudicial-leer', 'fiprocesojudicial-crear', 'fiprocesojudicial-editar', 'fiprocesojudicial-borrar',
@@ -716,7 +651,7 @@ class RolesYPermisosSeeder extends Seeder
         Role::create(['name' => 'PRUEBA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['name' => 'aux_administrativo_territorio', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
             ->givePermissionTo([
-                'fichaIngreso-leer', 'fichaIngreso-crear', 'fichaIngreso-editar', 'fichaIngreso-borrar', 'fivestuario-leer',
+
                 'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar', 'firesidencia-leer', 'firesidencia-crear',
                 'firesidencia-editar', 'firesidencia-borrar', 'fiactividades-leer', 'fiactividades-crear', 'fiactividades-editar',
                 'fiactividades-borrar', 'fibienvenida-leer', 'fibienvenida-crear', 'fibienvenida-editar', 'fibienvenida-borrar',
@@ -730,8 +665,8 @@ class RolesYPermisosSeeder extends Seeder
                 'fisituacion-editar', 'fisituacion-borrar', 'fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar',
                 'fiviolencia-borrar', 'firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar',
                 'fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar', 'fiautorizacion-leer',
-                'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar', 'fiantecedentes-leer', 'fiantecedentes-crear',
-                'fiantecedentes-editar', 'fiantecedentes-borrar', 'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
+                'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar',
+               'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
                 'firedactual-borrar', 'territorio-modulo'
             ]);
     }

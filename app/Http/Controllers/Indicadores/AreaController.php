@@ -8,7 +8,9 @@ use App\Http\Requests\Indicadores\AreaEditarRequest;
 use App\Models\Indicadores\Area;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisTcampo;
+use App\Models\Usuario\Estusuario;
 use App\Traits\Pestanias;
+use Illuminate\Http\Request;
 
 class AreaController extends Controller
 {
@@ -28,7 +30,11 @@ class AreaController extends Controller
             'carpetax' => 'Areasxxx',
             'indecrea' => false,
             'esindexx' => false,
-            'pestania' => []
+            'pestania' => [],
+            'fechcrea' => '',
+            'fechedit' => '',
+            'usercrea' => '',
+            'useredit' => '',
         ];
 
         $this->middleware(['permission:'
@@ -101,15 +107,27 @@ class AreaController extends Controller
     }
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
+        $estadoid = 0;
         $this->opciones['pestania'] = $this->getAreas(['tablaxxx' => $this->opciones['slotxxxx'], 'routxxxx' => $this->opciones['routxxxx']]);
 
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
         if ($nombobje != '') {
             $this->opciones[$nombobje] = $objetoxx;
-        }
 
+            $this->opciones['fechcrea'] = $objetoxx->created_at;
+            $this->opciones['fechedit'] = $objetoxx->updated_at;
+            $this->opciones['usercrea'] = $objetoxx->creador->name;
+            $this->opciones['useredit'] = $objetoxx->editor->name;
+            $estadoid= $objetoxx->sis_esta_id;
+        }
+        $this->opciones['motivoxx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2327
+        ]);
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
         return view($vistaxxx, ['todoxxxx' => $this->opciones]);
@@ -222,5 +240,18 @@ class AreaController extends Controller
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
 
         return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
+    }
+
+    public function getMotivos(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2327])
+            );
+        }
     }
 }

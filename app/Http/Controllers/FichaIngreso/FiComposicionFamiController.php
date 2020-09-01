@@ -58,6 +58,14 @@ class FiComposicionFamiController extends Controller
 
     public function index(FiDatosBasico $padrexxx)
     {
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
+        /** informacion que se va a mostrar en la vista */
+        // $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ];
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['pestpara'][0] = [$padrexxx->id];
         $this->opciones['tablasxx'] = [
@@ -65,6 +73,7 @@ class FiComposicionFamiController extends Controller
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
                 'titulist' => 'LISTA DE COMPONENTES FAMILIARES',
                 'dataxxxx' => [],
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', $this->opciones['parametr']),
                 'cabecera' => [
@@ -115,13 +124,20 @@ class FiComposicionFamiController extends Controller
     }
     private function view($dataxxxx)
     {
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
         $this->opciones['botoform'][0]['routingx'][1]=$dataxxxx['padrexxx']->id;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['pais_idx'] = SisPai::combo(true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
-        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $this->opciones['aniosxxx'] = '';
         $this->opciones['departam'] = ['' => 'Seleccione'];
         $this->opciones['municipi'] = ['' => 'Seleccione'];
@@ -156,8 +172,12 @@ class FiComposicionFamiController extends Controller
      */
     public function create(FiDatosBasico $padrexxx)
     {
-
-        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
+        $this->opciones['botoform'][] =
+        [
+            'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+        ];
+        return $this->view(['modeloxx' => '', 'accionxx'=>['crear','formulario'], 'padrexxx' => $padrexxx]);
     }
 
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
@@ -187,7 +207,7 @@ class FiComposicionFamiController extends Controller
      */
     public function show(FiDatosBasico $padrexxx, FiComposicionFami $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Ver', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['ver','formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -203,7 +223,7 @@ class FiComposicionFamiController extends Controller
             'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
             'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
         ];
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -230,8 +250,6 @@ class FiComposicionFamiController extends Controller
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Destroy','padrexxx'=>$padrexxx]);
     }
-
-
     public function destroy(FiDatosBasico $padrexxx,FiComposicionFami $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);

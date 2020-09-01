@@ -11,156 +11,152 @@ use App\Models\Tema;
 
 class FiGeneracionIngresoController extends Controller
 {
-  private $opciones;
-  public function __construct()
-  {
+    private $opciones;
+    public function __construct()
+    {
 
-    $this->opciones = [
-      'tituloxx' => 'Generación de Ingresos',
-      'rutaxxxx' => 'FichaIngreso',
-      'accionxx' => '',
-      'volverax' => 'lista de NNAJ',
-      'readonly' => '',
-      'readhora' => '',
-      'routxxxx' => 'fi.datobasico',
-      'routinde' => 'fi',
-      'routnuev' => 'fi.datobasico',
-      'slotxxxx' => 'ingresos',
-      'carpetax' => 'ingresos',
-      'modeloxx' => '',
-      'nuevoxxx' => 'o Registro'
-    ];
-
-    $this->middleware(['permission:'
-        . $this->opciones['permisox'] . '-leer|'
-        . $this->opciones['permisox'] . '-crear|'
-        . $this->opciones['permisox'] . '-editar|'
-        . $this->opciones['permisox'] . '-borrar']);
+        $this->opciones['permisox'] = 'fiingresos';
+        $this->opciones['routxxxx'] = 'fiingresos';
+        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['carpetax'] = 'Ingresos';
+        $this->opciones['slotxxxx'] = 'fiingresos';
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['tituloxx'] = "GENERACI{$this->opciones['vocalesx'][3]}N DE INGRESOS";
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['tituhead'] = 'FICHA DE INGRESO';
+        $this->opciones['readhora'] = '';
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
 
 
-    $this->opciones['acgening'] = Tema::combo(114,true,false);
-    $this->opciones['trabinfo'] = Tema::combo(115,true,false);
-    $this->opciones['otractiv'] = Tema::combo(116,true,false);
-    $this->opciones['tiporela'] = Tema::combo(117,true,false);
-    $this->opciones['raznogen'] = Tema::combo(122,true,false);
-    $this->opciones['jorgener'] = Tema::combo(123,true,false);
-    $this->opciones['diaseman'] = Tema::combo(124,false,false);
-    $this->opciones['frecugen'] = Tema::combo(125,true,false);
-  }
-
-  private function view($objetoxx, $nombobje, $accionxx)
-  {
-
-    $this->opciones['estadoxx'] = 'ACTIVO';
-    $this->opciones['accionxx'] = $accionxx;
-    // indica si se esta actualizando o viendo
-
-    if($this->opciones['datobasi']->prm_poblacion_id == 650){
-      $this->opciones['acgening'] = Tema::combo(296,true,false);
-    }else{
-      $this->opciones['acgening'] = Tema::combo(114,true,false);
+        $this->opciones['acgening'] = Tema::combo(114, true, false);
+        $this->opciones['trabinfo'] = Tema::combo(115, true, false);
+        $this->opciones['otractiv'] = Tema::combo(116, true, false);
+        $this->opciones['tiporela'] = Tema::combo(117, true, false);
+        $this->opciones['raznogen'] = Tema::combo(122, true, false);
+        $this->opciones['jorgener'] = Tema::combo(123, true, false);
+        $this->opciones['diaseman'] = Tema::combo(124, false, false);
+        $this->opciones['frecugen'] = Tema::combo(125, true, false);
     }
 
-    if ($nombobje != '') {
-      $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-      if($objetoxx->i_prm_jornada_genera_ingreso_id!=467){
-        $this->opciones['readhora'] ='readonly';
-      }
+    private function view($dataxxxx)
+    {
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
+        $this->opciones['geneingr'] = FiGeneracionIngreso::generacion($dataxxxx['padrexxx']->sis_nnaj_id);
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        $this->opciones['estadoxx'] = 'ACTIVO';
+        // indica si se esta actualizando o viendo
 
+        if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) {
+            $this->opciones['acgening'] = Tema::combo(296, true, false);
+        } else {
+            $this->opciones['padrexxx'] = Tema::combo(114, true, false);
+        }
+
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+            if ($dataxxxx['modeloxx']->i_prm_jornada_genera_ingreso_id != 467) {
+                $this->opciones['readhora'] = 'readonly';
+            }
+        }
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    // Se arma el titulo de acuerdo al array opciones
-    $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
-
-    return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create($datobasi)
-  {
-    $this->opciones['geneingr'] = FiGeneracionIngreso::generacion($datobasi);
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    $vestuari = FiGeneracionIngreso::where('sis_nnaj_id', $this->opciones['datobasi']->sis_nnaj_id)->first();
-    if ($vestuari != null) {
-      return redirect()
-        ->route('fi.ingresos.editar', [$datobasi, $vestuari->id]);
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FiDatosBasico $padrexxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $vestuari = FiGeneracionIngreso::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
+        }
+        return $this->view(['modeloxx' => '', 'accionxx'=>['crear','formulario'], 'padrexxx' => $padrexxx]);
     }
-    $this->opciones['nnajregi'] = $datobasi;
-    return $this->view(true, '', 'Crear');
-  }
 
-  private function grabar($dataxxxx, $objetoxx, $infoxxxx)
-  {
-    return redirect()
-      ->route('fi.ingresos.editar', [$dataxxxx['sis_nnaj_id'], FiGeneracionIngreso::transaccion($dataxxxx,  $objetoxx)->id])
-      ->with('info', $infoxxxx);
-  }
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
+    {
+        return redirect()
+            ->route('fiingresos.editar', [$padrexxx->id, FiGeneracionIngreso::transaccion($dataxxxx,  $objetoxx)->id])
+            ->with('info', $infoxxxx);
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
 
-  public function store(FiGeneracionIngresoCrearRequest $request)
-  {
-    return $this->grabar($request->all(), '', 'Generación de ingresos creado con exito');
-  }
+    public function store(FiGeneracionIngresoCrearRequest $request, FiDatosBasico $padrexxx)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        return $this->grabar($dataxxxx, '', 'Generación de ingresos creado con exito', $padrexxx);
+    }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  \App\Models\FiGeneracionIngreso  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function show(FiGeneracionIngreso $objetoxx)
-  {
-    //
-  }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiGeneracionIngreso  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(FiDatosBasico $padrexxx, FiGeneracionIngreso $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['ver','formulario'], 'padrexxx' => $padrexxx]);
+    }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Models\FiGeneracionIngreso  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function edit($nnajregi,  FiGeneracionIngreso $objetoxx)
-  {
-    $this->opciones['geneingr'] = FiGeneracionIngreso::generacion($nnajregi);
-    $this->opciones['nnajregi'] = $nnajregi;
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($this->opciones['nnajregi']);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiGeneracionIngreso  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(FiDatosBasico $padrexxx,  FiGeneracionIngreso $modeloxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
 
-    return $this->view($objetoxx,  'modeloxx', 'Editar');
-  }
+            return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
+    }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Models\FiGeneracionIngreso  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function update(FiGeneracionIngresoUpdateRequest $request, $db, $id)
-  {
-
-    return $this->grabar($request->all(), FiGeneracionIngreso::where('id',$id)->first(), 'Generación de ingresos actualizado con exito');
-  }
-
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  \App\Models\FiGeneracionIngreso  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function destroy(FiGeneracionIngreso $objetoxx)
-  {
-    //
-  }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiGeneracionIngreso  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(FiGeneracionIngresoUpdateRequest $request, FiDatosBasico $padrexxx,  FiGeneracionIngreso $modeloxx)
+    {
+        return $this->grabar($request->all(), $modeloxx, 'Generación de ingresos actualizado con exito', $padrexxx);
+    }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\consulta\CsdRedSocPasado;
-use App\Models\consulta\Logs\HCsdRedSocPasado;
+use App\Models\consulta\CsdRedsocPasado;
+use App\Models\consulta\Logs\HCsdRedsocPasado;
 
 class CsdRedSocPasadoObserver
 {
@@ -12,7 +12,7 @@ class CsdRedSocPasadoObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['csd_id'] = $modeloxx->csd_id;
         $log['nombre'] = $modeloxx->nombre;
         $log['servicios'] = $modeloxx->servicios;
@@ -31,52 +31,52 @@ class CsdRedSocPasadoObserver
         return $log;
     }
 
-    public function created(CsdRedSocPasado $modeloxx)
+    public function created(CsdRedsocPasado $modeloxx)
     {
-        HCsdRedSocPasado::create($this->getLog($modeloxx));
+        HCsdRedsocPasado::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdRedSocPasado "updated" event.
+     * Handle the CsdRedsocPasado "updated" event.
      *
-     * @param  \App\Models\consulta\CsdRedSocPasado  $modeloxx
+     * @param  \App\Models\consulta\CsdRedsocPasado  $modeloxx
      * @return void
      */
-    public function updated(CsdRedSocPasado $modeloxx)
+    public function updated(CsdRedsocPasado $modeloxx)
     {
-        HCsdRedSocPasado::create($this->getLog($modeloxx));
+        HCsdRedsocPasado::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdRedSocPasado "deleted" event.
+     * Handle the CsdRedsocPasado "deleted" event.
      *
-     * @param  \App\Models\consulta\CsdRedSocPasado  $modeloxx
+     * @param  \App\Models\consulta\CsdRedsocPasado  $modeloxx
      * @return void
      */
-    public function deleted(CsdRedSocPasado $modeloxx)
+    public function deleted(CsdRedsocPasado $modeloxx)
     {
-        HCsdRedSocPasado::create($this->getLog($modeloxx));
+        HCsdRedsocPasado::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdRedSocPasado "restored" event.
+     * Handle the CsdRedsocPasado "restored" event.
      *
-     * @param  \App\Models\consulta\CsdRedSocPasado  $modeloxx
+     * @param  \App\Models\consulta\CsdRedsocPasado  $modeloxx
      * @return void
      */
-    public function restored(CsdRedSocPasado $modeloxx)
+    public function restored(CsdRedsocPasado $modeloxx)
     {
-        HCsdRedSocPasado::create($this->getLog($modeloxx));
+        HCsdRedsocPasado::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdRedSocPasado "force deleted" event.
+     * Handle the CsdRedsocPasado "force deleted" event.
      *
-     * @param  \App\Models\consulta\CsdRedSocPasado  $modeloxx
+     * @param  \App\Models\consulta\CsdRedsocPasado  $modeloxx
      * @return void
      */
-    public function forceDeleted(CsdRedSocPasado $modeloxx)
+    public function forceDeleted(CsdRedsocPasado $modeloxx)
     {
-        HCsdRedSocPasado::create($this->getLog($modeloxx));
+        HCsdRedsocPasado::create($this->getLog($modeloxx));
     }
 }

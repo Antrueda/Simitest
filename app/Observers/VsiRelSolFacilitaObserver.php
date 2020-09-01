@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\sicosocial\Pivotes\Logs\HVsiRelSolFacilita;
-use App\Models\sicosocial\Pivotes\VsiRelSolFacilita;
+use App\Models\sicosocial\Pivotes\Logs\HVsiRelsolFacilita;
+use App\Models\sicosocial\Pivotes\VsiRelsolFacilita;
 
 class VsiRelSolFacilitaObserver
 {
@@ -12,7 +12,7 @@ class VsiRelSolFacilitaObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['parametro_id'] = $modeloxx->parametro_id;
         $log['vsi_relsocial_id'] = $modeloxx->vsi_relsocial_id;
         // campos por defecto, no borrar.
@@ -25,52 +25,52 @@ class VsiRelSolFacilitaObserver
         return $log;
     }
 
-    public function created(VsiRelSolFacilita $modeloxx)
+    public function created(VsiRelsolFacilita $modeloxx)
     {
-        HVsiRelSolFacilita::create($this->getLog($modeloxx));
+        HVsiRelsolFacilita::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRelSolFacilita "updated" event.
+     * Handle the VsiRelsolFacilita "updated" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\VsiRelSolFacilita  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\VsiRelsolFacilita  $modeloxx
      * @return void
      */
-    public function updated(VsiRelSolFacilita $modeloxx)
+    public function updated(VsiRelsolFacilita $modeloxx)
     {
-        HVsiRelSolFacilita::create($this->getLog($modeloxx));
+        HVsiRelsolFacilita::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRelSolFacilita "deleted" event.
+     * Handle the VsiRelsolFacilita "deleted" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\VsiRelSolFacilita  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\VsiRelsolFacilita  $modeloxx
      * @return void
      */
-    public function deleted(VsiRelSolFacilita $modeloxx)
+    public function deleted(VsiRelsolFacilita $modeloxx)
     {
-        HVsiRelSolFacilita::create($this->getLog($modeloxx));
+        HVsiRelsolFacilita::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRelSolFacilita "restored" event.
+     * Handle the VsiRelsolFacilita "restored" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\VsiRelSolFacilita  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\VsiRelsolFacilita  $modeloxx
      * @return void
      */
-    public function restored(VsiRelSolFacilita $modeloxx)
+    public function restored(VsiRelsolFacilita $modeloxx)
     {
-        HVsiRelSolFacilita::create($this->getLog($modeloxx));
+        HVsiRelsolFacilita::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the VsiRelSolFacilita "force deleted" event.
+     * Handle the VsiRelsolFacilita "force deleted" event.
      *
-     * @param  \App\Models\sicosocial\Pivotes\VsiRelSolFacilita  $modeloxx
+     * @param  \App\Models\sicosocial\Pivotes\VsiRelsolFacilita  $modeloxx
      * @return void
      */
-    public function forceDeleted(VsiRelSolFacilita $modeloxx)
+    public function forceDeleted(VsiRelsolFacilita $modeloxx)
     {
-        HVsiRelSolFacilita::create($this->getLog($modeloxx));
+        HVsiRelsolFacilita::create($this->getLog($modeloxx));
     }
 }

@@ -2,8 +2,7 @@
 
 namespace App\Models\sicosocial;
 
-use app\Models\fichaIngreso\FiDatosBasico;
-use app\Models\User;
+use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
