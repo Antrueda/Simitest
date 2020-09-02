@@ -23,41 +23,17 @@ $(document).ready(function(){
 });
 function doc(valor){
     if(valor == 228){
-        document.getElementById("dia").hidden=false;
-        document.getElementById("mes").hidden=false;
-        document.getElementById("ano").hidden=false;
-        document.getElementById("prm_motivo_id").hidden=false;
-        document.getElementById("prm_rendimiento_id").hidden=true;
-        document.getElementById("fortalezas_div").hidden=true;
-        document.getElementById("fortalezas").value=[];
-        document.getElementById("dificultades_div").hidden=true;
-        document.getElementById("dificultades").value=[];
-        document.getElementById("prm_dificultad_id").hidden=true;
-        doc1(document.getElementById('prm_dificultad_id').value = 228);
+        document.getElementById("prm_condicion_id").hidden=true;
     } else {
-        document.getElementById("dia").hidden=true;
-        document.getElementById("dia").value='';
-        document.getElementById("mes").hidden=true;
-        document.getElementById("mes").value='';
-        document.getElementById("ano").hidden=true;
-        document.getElementById("ano").value='';
-        document.getElementById("prm_motivo_id").hidden=true;
-        document.getElementById("prm_rendimiento_id").hidden=false;
-        document.getElementById("fortalezas_div").hidden=false;
-        document.getElementById("dificultades_div").hidden=false;
-        document.getElementById("prm_dificultad_id").hidden=false;
-        doc2(document.getElementById("prm_motivo_id").value = 1021);
+        document.getElementById("prm_condicion_id").hidden=false;
     }
 }
 function doc1(valor){
     if(valor == 228){
-        document.getElementById("dificultadesa_div").hidden=true;
-        document.getElementById("dificultadesa").value=[];
-        document.getElementById("dificultadesb_div").hidden=true;
-        document.getElementById("dificultadesb").value=[];
+        document.getElementById("medicamento").hidden=true;
     } else {
-        document.getElementById("dificultadesa_div").hidden=false;
-        document.getElementById("dificultadesb_div").hidden=false;
+        document.getElementById("medicamento").hidden=false; 
+
     }
 }
 function doc2(valor) {
@@ -69,8 +45,8 @@ function doc2(valor) {
     }
 }
 function carga() {
-    doc(document.getElementById('prm_estudia_id').value);
-    doc1(document.getElementById('prm_dificultad_id').value);
+    doc(document.getElementById('prm_atencion_id').value);
+    doc1(document.getElementById('prm_medicamento_id').value);
     doc2(document.getElementById('prm_motivo_id').value);
 
 }

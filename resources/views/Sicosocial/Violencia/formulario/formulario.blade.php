@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-3">
         {{ Form::label('prm_tip_vio_id', '4.1 ¿Presenta algún tipo de violencia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tip_vio_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_tip_vio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc(this.value)']) }}
+        {{ Form::select('prm_tip_vio_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_tip_vio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...', 'onchange' => 'doc(this.value)']) }}
     </div>
 </div>
 <div class="row">

@@ -9,7 +9,7 @@ if (isset($todoxxxx['rowscols'])) {
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_presenta_id', '7.1.1 ¿Presenta alguna red de apoyo?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_presenta_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_presenta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)', 'autofocus']) }}
+        {{ Form::select('prm_presenta_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_presenta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...', 'onchange' => 'doc2(this.value)', 'autofocus']) }}
         @if($errors->has('prm_presenta_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_presenta_id') }}
@@ -18,7 +18,7 @@ if (isset($todoxxxx['rowscols'])) {
     </div>
     <div class="col-md">
         {{ Form::label('prm_protector_id', '7.1.2 ¿La red de apoyo con la que cuenta actualmente es un factor protector?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_protector_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_protector_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_protector_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_protector_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...']) }}
         @if($errors->has('prm_protector_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_protector_id') }}
@@ -29,7 +29,7 @@ if (isset($todoxxxx['rowscols'])) {
         {{ Form::label('prm_dificultad_id', '7.1.3 ¿Presenta dificultades para acceder a alguna red de apoyo?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="row">
             <div class="col-md">
-                {{ Form::select('prm_dificultad_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_dificultad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc(this.value)']) }}
+                {{ Form::select('prm_dificultad_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_dificultad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...', 'onchange' => 'doc(this.value)']) }}
                 @if($errors->has('prm_dificultad_id'))
                     <div class="invalid-feedback d-block">
                         {{ $errors->first('prm_dificultad_id') }}
@@ -38,7 +38,7 @@ if (isset($todoxxxx['rowscols'])) {
             </div>
             <div class="col-md">
                 {{ Form::label('prm_quien_id', '¿Quién?', ['class' => 'control-label col-form-label-sm d-none']) }}
-                {{ Form::select('prm_quien_id', $todoxxxx['personax'], null, ['class' => $errors->first('prm_quien_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+                {{ Form::select('prm_quien_id', $todoxxxx['personax'], null, ['class' => $errors->first('prm_quien_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...']) }}
                 @if($errors->has('prm_quien_id'))
                     <div class="invalid-feedback d-block">
                         {{ $errors->first('prm_quien_id') }}
@@ -62,7 +62,7 @@ if (isset($todoxxxx['rowscols'])) {
     </div>
     <div class="col-md">
         {{ Form::label('prm_ruptura_genero_id', '7.1.5 ¿Existe la ruptura de redes de apoyo por exteorización de su identidad de género?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_ruptura_genero_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_ruptura_genero_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_ruptura_genero_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_ruptura_genero_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...']) }}
         @if($errors->has('prm_ruptura_genero_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_ruptura_genero_id') }}
@@ -71,7 +71,7 @@ if (isset($todoxxxx['rowscols'])) {
     </div>
     <div class="col-md">
         {{ Form::label('prm_ruptura_sexual_id', '7.1.6 ¿Existe la ruptura de redes de apoyo por exteorización de su orientación sexual?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_ruptura_sexual_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_ruptura_sexual_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_ruptura_sexual_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_ruptura_sexual_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...']) }}
         @if($errors->has('prm_ruptura_sexual_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_ruptura_sexual_id') }}
@@ -82,7 +82,7 @@ if (isset($todoxxxx['rowscols'])) {
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_acceso_id', '7.1.7 ¿Ha existido restricción para el acceso a espacios, servicios o redes de apoyo?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_acceso_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_acceso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+        {{ Form::select('prm_acceso_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_acceso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)','data-placeholder' => 'Seleccione...']) }}
         @if($errors->has('prm_acceso_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_acceso_id') }}
@@ -102,7 +102,7 @@ if (isset($todoxxxx['rowscols'])) {
     </div>
     <div class="col-md">
         {{ Form::label('prm_servicio_id', '7.1.9 ¿Recibió servicios de alguna red de apoyo?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_servicio_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_servicio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_servicio_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_servicio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...']) }}
         @if($errors->has('prm_servicio_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_servicio_id') }}

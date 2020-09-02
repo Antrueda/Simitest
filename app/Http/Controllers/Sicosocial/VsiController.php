@@ -90,7 +90,7 @@ class VsiController extends Controller
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'VSI',
-                'titulist' => 'LISTA DE VSIS',
+                'titulist' => 'LISTA DE VALORACION SICOSOCIAL ',
                 'dataxxxx' => [
 
                 ],

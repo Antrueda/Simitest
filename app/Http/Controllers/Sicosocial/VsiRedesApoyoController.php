@@ -50,11 +50,11 @@ class VsiRedesApoyoController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
-        $this->opciones['personax'] = Tema::combo(70, false, false);
-        $this->opciones['accesoxx'] = Tema::combo(71, false, false);
-        $this->opciones['motivosx'] = Tema::combo(72, false, false);
-        $this->opciones['venefici'] = Tema::combo(59, false, false);
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
+        $this->opciones['personax'] = Tema::combo(70, true, false);
+        $this->opciones['accesoxx'] = Tema::combo(71, true, false);
+        $this->opciones['motivosx'] = Tema::combo(72, true, false);
+        $this->opciones['venefici'] = Tema::combo(59, true, false);
 
         $this->opciones['tiempoxx'] = Tema::combo(4, false, false);
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
