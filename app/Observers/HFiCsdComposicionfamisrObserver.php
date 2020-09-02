@@ -22,9 +22,7 @@ class HFiCsdComposicionfamisrObserver
         $log['s_documento'] = $modeloxx->s_documento;
         $log['d_nacimiento'] = $modeloxx->d_nacimiento;
         $log['i_prm_ocupacion_id'] = $modeloxx->i_prm_ocupacion_id;
-        $log['sis_pai_id'] = $modeloxx->sis_pai_id;
-        $log['sis_departamento_id'] = $modeloxx->sis_departamento_id;
-        $log['sis_municipio_id'] = $modeloxx->sis_municipio_id;
+        
         $log['i_prm_vinculado_idipron_id'] = $modeloxx->i_prm_vinculado_idipron_id;
         $log['i_prm_convive_nnaj_id'] = $modeloxx->i_prm_convive_nnaj_id;
         $log['prm_documento_id'] = $modeloxx->prm_documento_id;

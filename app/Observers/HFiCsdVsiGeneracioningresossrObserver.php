@@ -49,7 +49,7 @@ class HFiCsdVsiGeneracioningresossrObserver
      */
     public function updated(HFiCsdVsiGeneracioningresoss $modeloxx)
     {
-        //
+        HFiCsdVsiGeneracioningresoss::create($this->getLog($modeloxx));
     }
 
     /**
@@ -60,7 +60,7 @@ class HFiCsdVsiGeneracioningresossrObserver
      */
     public function deleted(HFiCsdVsiGeneracioningresoss $modeloxx)
     {
-        //
+        HFiCsdVsiGeneracioningresoss::create($this->getLog($modeloxx));
     }
 
     /**
@@ -71,7 +71,7 @@ class HFiCsdVsiGeneracioningresossrObserver
      */
     public function restored(HFiCsdVsiGeneracioningresoss $modeloxx)
     {
-        //
+        HFiCsdVsiGeneracioningresoss::create($this->getLog($modeloxx));
     }
 
     /**
@@ -82,6 +82,6 @@ class HFiCsdVsiGeneracioningresossrObserver
      */
     public function forceDeleted(HFiCsdVsiGeneracioningresoss $modeloxx)
     {
-        //
+        HFiCsdVsiGeneracioningresoss::create($this->getLog($modeloxx));
     }
 }

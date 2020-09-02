@@ -22,9 +22,7 @@ class FiCsdComposicionfamis extends Model
         's_documento',
         'd_nacimiento',
         'i_prm_parentesco_id',
-        'sis_pai_id',
-        'sis_departamento_id',
-        'sis_municipio_id',
+       
         'i_prm_ocupacion_id',
         'i_prm_vinculado_idipron_id',
         'i_prm_convive_nnaj_id',
@@ -141,14 +139,6 @@ class FiCsdComposicionfamis extends Model
         }
         return [$redirect,$comboxxx];
       }
-      public function sis_pai(){
-        return $this->belongsTo(SisPai::class);
-      }
-      public function sis_departamento(){
-        return $this->belongsTo(SisDepartamento::class);
-      }
-      public function sis_municipio(){
-        return $this->belongsTo(SisMunicipio::class);
-      }
+      
     }
     

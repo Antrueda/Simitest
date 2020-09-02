@@ -27,9 +27,6 @@ class CreateHFiCsdComposicionfamisTable extends Migration
             $table->string('s_documento');
             $table->date('d_nacimiento');
             $table->bigInteger('i_prm_ocupacion_id')->unsigned();
-            $table->bigInteger('sis_pai_id')->unsigned();
-            $table->bigInteger('sis_departamento_id')->unsigned();
-            $table->bigInteger('sis_municipio_id')->unsigned();
             $table->bigInteger('i_prm_vinculado_idipron_id')->unsigned();
             $table->bigInteger('i_prm_convive_nnaj_id')->unsigned();
             $table->bigInteger('prm_documento_id')->unsigned();
