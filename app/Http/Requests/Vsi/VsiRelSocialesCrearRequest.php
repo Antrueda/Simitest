@@ -4,7 +4,7 @@ namespace app\Http\Requests\Vsi;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VsiBienvenidaCrearRequest extends FormRequest
+class VsiRelSocialesCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
