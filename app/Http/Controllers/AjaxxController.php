@@ -196,7 +196,10 @@ class AjaxxController extends Controller
                 'discapac' => $dataxxxx['padrexxx'] == 228 ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : Tema::combo(24, false, true),
                 'certific' => $dataxxxx['padrexxx'] == 228 ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : Tema::combo(23, false, true),
                 'independ' => $dataxxxx['padrexxx'] == 228 ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : Tema::combo(23, false, true),
-            ]];
+                'discausa' => $dataxxxx['padrexxx'] == 228 ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : Tema::combo(341, false, true),
+                'victataq' => $dataxxxx['padrexxx'] == 228 ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : Tema::combo(342, false, true),
+
+                ]];
             return response()->json($respuest);
         }
     }

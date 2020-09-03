@@ -50,6 +50,13 @@ class FiSaludController extends Controller
         $this->opciones['metoanti'] = Tema::combo(52, true, false);
         $this->opciones['evmedico'] = Tema::combo(43, false, false);
         $this->opciones['probsalu'] = Tema::combo(87, true, false);
+        /** caminando relajado
+         * 6.4.b) ¿La discapacidad fue producida en la comisión de algún acto ilegal?
+        */
+        $this->opciones['discausa'] = Tema::combo(341, true, false);
+        /** 6.4 c) ¿Ha sido víctima de  ataques con */
+        $this->opciones['victataq'] = Tema::combo(342, true, false);
+
         $this->opciones['entid_id'] = ['' => 'Seleccione'];
 
         $this->opciones['botoform'] = [
@@ -58,7 +65,6 @@ class FiSaludController extends Controller
                 'formhref' => 2, 'tituloxx' => "VOLVER A COMPOSICI{$this->opciones['vocalesx'][3]}N FAMILIAR", 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
-
     }
 
     private function view($dataxxxx)
@@ -67,9 +73,10 @@ class FiSaludController extends Controller
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         /** informacion que se va a mostrar en la vista */
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $archivox=($dataxxxx['padrexxx']->prm_tipoblaci_id == 2323) ? 'caminando' : 'js';
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.'.$archivox]
         ];
         $this->opciones['saludxxx'] = FiSalud::salud($dataxxxx['padrexxx']->sis_nnaj_id);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
@@ -199,7 +206,7 @@ class FiSaludController extends Controller
             return redirect()
                 ->route('fisalud.editar', [$padrexxx->id, $vestuari->id]);
         }
-        return $this->view(['modeloxx' => '', 'accionxx'=>['crear','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $padrexxx->prm_tipoblaci_id == 2323 ? 'caminando' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
     {
@@ -230,7 +237,7 @@ class FiSaludController extends Controller
      */
     public function show(FiDatosBasico $padrexxx, FiSalud $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['ver','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $padrexxx->prm_tipoblaci_id == 2323 ? 'caminando' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -247,7 +254,7 @@ class FiSaludController extends Controller
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         $this->opciones['tablread'] = '';
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $padrexxx->prm_tipoblaci_id == 2323 ? 'caminando' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**

@@ -16,9 +16,11 @@
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fidatbas') ?' active' : '' }}
         text-sm" href="{{ route('fidatbas.editar',$todoxxxx['pestpara'][0]) }}">1. INFORMACI{{$todoxxxx['vocalesx'][3]}}N B{{$todoxxxx['vocalesx'][0]}}SICA</a></li>
             @endcanany
+            @if($todoxxxx['usuariox']->prm_tipoblaci_id != 2323)
             @canany(['fivestuario-leer', 'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vestuario') ?' active' : '' }} text-sm" href="{{ route('fi.vestuario.nuevo', $todoxxxx['pestpara'][0]) }}">2. Vestuario</a></li>
             @endcanany
+            @endif
             @canany(['firesidencia-leer', 'firesidencia-crear', 'firesidencia-editar', 'firesidencia-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='residencia') ?' active' : '' }} text-sm" href="{{ route('fi.residencia.nuevo', $todoxxxx['pestpara'][0]) }}">3. Residencia</a></li>
             @endcanany

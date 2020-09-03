@@ -3525,5 +3525,22 @@ class TemasTableSeeder extends Seeder
             2327 => $camposmagicos,
             2328 => $camposmagicos,
         ]);
+
+        $tema = Tema::create(['id' => 341, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL',]);
+        $tema->parametros()->sync([
+            2329 => $camposmagicos,
+            2330 => $camposmagicos,
+            2331 => $camposmagicos,
+            2332 => $camposmagicos,
+            2333 => $camposmagicos,
+        ]);
+
+        $tema = Tema::create(['id' => 342, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'HA SIDO VICTIMA DE ATAQUES CON',]);
+        $tema->parametros()->sync([
+            853 => $camposmagicos,
+            2334 => $camposmagicos,
+            2335 => $camposmagicos,
+            2336 => $camposmagicos,
+        ]);
     }
 }

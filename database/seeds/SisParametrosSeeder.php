@@ -2349,6 +2349,15 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2327, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'DEPENDENCIAS']);
         Parametro::create(['id' => 2328, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'AREAS']);
 
-   ;
+        Parametro::create(['id' => 2329, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'LA COMUNIDAD']);
+        Parametro::create(['id' => 2330, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'LA COMISION DE UN DELITO']);
+        Parametro::create(['id' => 2331, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'LESIONES POR RIÑAS']);
+        Parametro::create(['id' => 2332, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'ATAQUE SICARIAL']);
+        Parametro::create(['id' => 2333, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'ENFRENTAMIENTO CON LAS AUTORIDADES']);
+
+        Parametro::create(['id' => 2334, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'ARMA BLANCA']);
+        Parametro::create(['id' => 2335, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'ARMA DE FUEGO']);
+        Parametro::create(['id' => 2336, 'sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,'nombre' => 'ARMAS DEL ESTADO']);
+
     }
 }
