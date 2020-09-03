@@ -38,6 +38,7 @@ class CreateFiCsdComposicionfamisTable extends Migration
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA COMPOSICION FAMILIAR DEL NNAJ PARA FI CSD'");
+
     }
 
 
