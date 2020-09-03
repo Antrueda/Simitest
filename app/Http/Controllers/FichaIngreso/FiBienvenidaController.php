@@ -13,141 +13,137 @@ use App\Models\Tema;
 class FiBienvenidaController extends Controller
 {
 
-  private $opciones;
+    private $opciones;
 
-  public function __construct()
-  {
+    public function __construct()
+    {
 
-    $this->opciones = [
-      'tituloxx' => 'Bienvenida',
-      'rutaxxxx' => 'FichaIngreso',
-      'accionxx' => '',
-      'volverax' => 'lista de NNAJ',
-      'readonly' => '',
-      'slotxxxx' => 'bienvenida',
-      'carpetax' => 'bienvenida',
-      'modeloxx' => '',
-      'routxxxx' => 'fi.datobasico',
-      'routinde' => 'fi',
-      'routnuev' => 'fi.datobasico',
-      'nuevoxxx' => 'o Registro'
-    ];
+        $this->opciones['permisox'] = 'fibienvenida';
+        $this->opciones['routxxxx'] = 'fibienvenida';
+        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['carpetax'] = 'Bienvenida';
+        $this->opciones['slotxxxx'] = 'fibienvenida';
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['tituloxx'] = "CONTACTO CON IDPRON Y TRATAMIENTO DE DATOS";
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['tituhead'] = 'FICHA DE INGRESO';
 
 
-    $this->middleware(['permission:'
-        . $this->opciones['permisox'] . '-leer|'
-        . $this->opciones['permisox'] . '-crear|'
-        . $this->opciones['permisox'] . '-editar|'
-        . $this->opciones['permisox'] . '-borrar']);
-    $this->opciones['condicio'] = Tema::combo(23,true,false);
-    $this->opciones['dependen'] = SisDepen::combo(true,false);
-    $this->opciones['servicio'] = Tema::combo(65,true,false);
-  }
+        $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
+            . $this->opciones['permisox'] . '-crear|'
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['dependen'] = SisDepen::combo(true, false);
+        $this->opciones['servicio'] = Tema::combo(65, true, false);
+    }
 
-  private function view($objetoxx, $nombobje, $accionxx)
-  {
+    private function view($dataxxxx)
+    {
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
 
-    $this->opciones['estadoxx'] = 'ACTIVO';
-    $this->opciones['accionxx'] = $accionxx;
-    // indica si se esta actualizando o viendo
+        $this->opciones['estadoxx'] = 'ACTIVO';
 
-    if ($nombobje != '') {
-      $this->opciones[$nombobje] = $objetoxx;
-      $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+        // indica si se esta actualizando o viendo
+
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+        }
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FiDatosBasico $padrexxx)
+    {
+        $vestuari = FiBienvenida::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('fibienvenida.editar', [$padrexxx, $vestuari->id]);
+        }
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
 
-
-    // Se arma el titulo de acuerdo al array opciones
-    $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
-
-    return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create($datobasi)
-  {
-    $this->opciones['bienveni'] = FiBienvenida::bienvenida($datobasi);
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($datobasi);
-    $vestuari = FiBienvenida::where('sis_nnaj_id', $this->opciones['datobasi']->sis_nnaj_id)->first();
-    if ($vestuari != null) {
-      return redirect()
-        ->route('fi.bienvenida.editar', [$datobasi, $vestuari->id]);
+    private function grabar($dataxxxx, $objectx, $infoxxxx,$padrexxx)
+    {
+        return redirect()
+            ->route('fibienvenida.editar', [$padrexxx->id, FiBienvenida::transaccion($dataxxxx, $objectx)->id])
+            ->with('info', $infoxxxx);
     }
-    $this->opciones['nnajregi'] = $datobasi;
-    return $this->view(true, '', 'Crear');
-  }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
 
-  private function grabar($dataxxxx, $objectx, $infoxxxx)
-  {
-    return redirect()
-      ->route('fi.bienvenida.editar', [$dataxxxx['sis_nnaj_id'],FiBienvenida::transaccion($dataxxxx, $objectx)->id])
-      ->with('info', $infoxxxx);
-  }
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
+    public function store(FiBienvenidaCrearRequest $request,FiDatosBasico $padrexxx)
+    {
+        $dataxxxx=$request->all();
+        $dataxxxx['sis_nnaj_id']=$padrexxx->sis_nnaj_id;
+        return $this->grabar($dataxxxx, '', 'Bienvenida creada con exito',$padrexxx);
+    }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiBienvenida  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(FiDatosBasico $padrexxx,FiBienvenida $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
+    }
 
-  public function store(FiBienvenidaCrearRequest $request)
-  {
-    return $this->grabar($request->all(), '', 'Bienvenida creada con exito');
-  }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiBienvenida  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(FiDatosBasico $padrexxx,  FiBienvenida $modeloxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  \App\Models\FiBienvenida  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function show(FiBienvenida $objetoxx)
-  {
-    //
-  }
+    }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Models\FiBienvenida  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function edit($nnajregi,  FiBienvenida $objetoxx)
-  {
-    $this->opciones['bienveni'] = FiBienvenida::bienvenida($nnajregi);
-    $this->opciones['nnajregi'] = $nnajregi;
-    $this->opciones['datobasi'] = FiDatosBasico::usarioNnaj($this->opciones['nnajregi']);
-
-    return $this->view($objetoxx,  'modeloxx', 'Editar');
-  }
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Models\FiBienvenida  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function update(FiBienvenidaUpdateRequest $request, $db, $id)
-  {
-    return $this->grabar($request->all(), FiBienvenida::where('id',$id)->first(), 'Bienvenida actualizada con exito');
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  \App\Models\FiBienvenida  $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function destroy(FiBienvenida $objetoxx)
-  {
-    //
-  }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiBienvenida  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(FiBienvenidaUpdateRequest $request, FiDatosBasico $padrexxx,  FiBienvenida $modeloxx)
+    {
+        return $this->grabar($request->all(),$modeloxx, 'Bienvenida actualizada con exito',$padrexxx);
+    }
 }

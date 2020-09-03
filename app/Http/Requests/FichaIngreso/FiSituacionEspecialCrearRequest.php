@@ -48,9 +48,8 @@ class FiSituacionEspecialCrearRequest extends FormRequest {
   }
 
   public function validar() {
-    $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-    $basicosx = FiDatosBasico::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])->first();
-    if ($basicosx->prm_poblacion_id == 650) {
+    $basicosx = FiDatosBasico::find($this->segments()[1]);
+    if ($basicosx->prm_tipoblaci_id == 650) {
       $this->_mensaje['i_tiempo.required'] = 'Indique el tiempo de permanencia';
       $this->_reglasx['i_tiempo'] = 'required';
       $this->_mensaje['i_prm_ttiempo_id.required'] = 'Indique el tiempo de permanencia';

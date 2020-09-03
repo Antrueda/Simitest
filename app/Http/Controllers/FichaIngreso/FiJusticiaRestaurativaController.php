@@ -27,7 +27,7 @@ class FiJusticiaRestaurativaController extends Controller
         $this->opciones['carpetax'] = 'Justicia';
         $this->opciones['slotxxxx'] = 'fijusticia';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "REDES DE APOYO ACTUALES";
+        $this->opciones['tituloxx'] = "JUSTICIA RESTAURATIVA";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';

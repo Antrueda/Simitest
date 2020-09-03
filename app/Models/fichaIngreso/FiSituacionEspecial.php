@@ -3,6 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
+use App\Models\Parametro;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -29,8 +30,8 @@ class FiSituacionEspecial extends Model {
     return $this->hasMany(FiVictimaEscnna::class);
   }
 
-  public function fi_situacion_vulneracions() {
-    return $this->hasMany(FiSituacionVulneracion::class);
+  public function i_prm_situacion_vulnera_id() {
+    return $this->belongsToMany(Parametro::class,'fi_situacion_vulneracions','fi_situacion_especial_id','i_prm_situacion_vulnera_id');
   }
 
   public function fi_riesgo_escnnas() {

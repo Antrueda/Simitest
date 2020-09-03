@@ -79,7 +79,8 @@ class FiRedApoyoActualController extends Controller
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['tituloxx'] = "REDES DE APOYO ACTUALES";
         $this->opciones['servicio'] = ['' => 'seleccione'];
-
+        $this->opciones['botoform'][0]['routingx'][1] =
+        $this->opciones['parametr'][1] = $dataxxxx['padrexxx']->id;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['botoform'][0]['routingx'][1] =

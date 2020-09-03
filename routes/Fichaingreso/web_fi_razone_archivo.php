@@ -1,34 +1,35 @@
 <?php
-Route::group(['prefix' => '{nnaj}/{razon}/fiarchivos'], function () {
-	
-	Route::get('nuevo', [
-		'uses' => 'FichaIngreso\FiRazonArchivoController@create',
-		'middleware' => ['permission:firazones-crear']
-	])->name('fi.archivos.nuevo');
-	
-	Route::post('crear', [
-		'uses' => 'FichaIngreso\FiRazonArchivoController@store',
-		'middleware' => ['permission:firazones-crear']
-	])->name('fi.archivos.crear');
-	
-	Route::get('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiRazonArchivoController@edit',
-		'middleware' => ['permission:firazones-editar']
-	])->name('fi.archivos.editar');
-	
-	Route::put('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiRazonArchivoController@update',
-		'middleware' => ['permission:firazones-editar']
-	])->name('fi.archivos.editar');
-	
-	Route::get('ver/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiRazonArchivoController@show',
-		'middleware' => ['permission:firazones-leer']
-	])->name('fi.archivos.ver');
-	
-	Route::delete('borrar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiRazonArchivoController@destroy',
-		'middleware' => ['permission:firazones-borrar']
-	])->name('fi.archivos.borrar');
-  
+$routexxx = 'fiarchiv';
+$controll = 'FichaIngreso\FiRazonArchivo';
+Route::group(['prefix' => '{padrexxx}/fiarchivos'], function () use ($routexxx, $controll) {
+    Route::get('', [
+        'uses' => $controll . 'Controller@create',
+        'middleware' => ['permission:' . $routexxx . '-crear']
+    ])->name($routexxx . '.nuevo');
+    Route::post('crear', [
+        'uses' => $controll . 'Controller@store',
+        'middleware' => ['permission:' . $routexxx . '-crear']
+    ])->name($routexxx . '.crear');
+});
+Route::group(['prefix' => 'razon/fiarchivo'], function () use ($routexxx, $controll) {
+    Route::get('editar/{modeloxx}', [
+        'uses' => $controll . 'Controller@edit',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editar');
+    Route::put('editar/{modeloxx}', [
+        'uses' => $controll . 'Controller@update',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editar');
+    Route::get('ver/{modeloxx}', [
+        'uses' => $controll . 'Controller@show',
+        'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.ver');
+    Route::get('borrar/{modeloxx}', [
+        'uses' => $controll . 'Controller@inactivate',
+        'middleware' => ['permission:' . $routexxx . '-borrar']
+    ])->name($routexxx . '.borrar');
+    Route::put('borrar/{modeloxx}', [
+        'uses' => $controll . 'Controller@destroy',
+        'middleware' => ['permission:' . $routexxx . '-borrar']
+    ])->name($routexxx . '.borrar');
 });

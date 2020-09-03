@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -7,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateFiCsdComposicionfamisTable extends Migration
 {
-    private $tablaxxx = 'fi_csd_composicionfamis';
+    private $tablaxxx = 'fi_csd_comfams';
     /**
      * Run the migrations.
      *
@@ -28,25 +29,19 @@ class CreateFiCsdComposicionfamisTable extends Migration
             $table->bigInteger('i_prm_vinculado_idipron_id')->unsigned();
             $table->bigInteger('i_prm_convive_nnaj_id')->unsigned();
             $table->bigInteger('prm_documento_id')->unsigned();
-            $table->bigInteger('nnaj_nfamili_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            $table->bigInteger('nnaj_nfamili_id')->unsigned()->comment('NUCLEO FAMILIAR DEL NNAJ');
             $table->foreign('i_prm_parentesco_id')->references('id')->on('parametros');
             $table->foreign('prm_documento_id')->references('id')->on('parametros');
             $table->foreign('i_prm_vinculado_idipron_id')->references('id')->on('parametros');
             $table->foreign('i_prm_convive_nnaj_id')->references('id')->on('parametros');
             $table->foreign('nnaj_nfamili_id')->references('id')->on('nnaj_nfamilis');
+            $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BÁSICOS DEL NUCLEO FAMILIAR DE LA PERSONA ENTREVISTADA, SECCION 5 DE LA FICHA DE INGRESO'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA COMPOSICION FAMILIAR DEL NNAJ PARA FI CSD'");
     }
 
-        
-    
+
+
 
     /**
      * Reverse the migrations.

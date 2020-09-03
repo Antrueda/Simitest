@@ -1,38 +1,33 @@
 <?php
-Route::group(['prefix' => '{nnaj}/fisituacion'], function () {
-	
-	Route::get('', [
-		'uses' => 'FichaIngreso\FiSituacionEspecialController@create',
-		'middleware' => ['permission:fisituacion-crear']
-	])->name('fi.situacion.nuevo');
-	
+
+$routexxx='fisituacion';
+$controll='FichaIngreso\FiSituacionEspecial';
+Route::group(['prefix' => '{padrexxx}/fisituacion'], function () use($routexxx,$controll){
+
+	Route::get('nuevo', [
+		'uses' => $controll.'Controller@create',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
 	Route::post('crear', [
-		'uses' => 'FichaIngreso\FiSituacionEspecialController@store',
-		'middleware' => ['permission:fisituacion-crear']
-	])->name('fi.situacion.crear');
-	
-	Route::get('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiSituacionEspecialController@edit',
-		'middleware' => ['permission:fisituacion-editar']
-	])->name('fi.situacion.editar');
-	
-	Route::put('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiSituacionEspecialController@update',
-		'middleware' => ['permission:fisituacion-editar']
-	])->name('fi.situacion.editar');
-	
-	Route::get('ver/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiSituacionEspecialController@show',
-		'middleware' => ['permission:fisituacion-leer']
-	])->name('fi.situacion.ver');
-	
+		'uses' => $controll.'Controller@store',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.crear');
+
+	Route::get('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@edit',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+
+	Route::put('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@update',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::get('ver/{modeloxx}', [
+		'uses' => $controll.'Controller@show',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
+
     Route::get('getEscnna', [
-		'uses' => 'FichaIngreso\FiSituacionEspecialController@getEscnna',
-	])->name('fi.situacion.getEscnna');  
-
-
-	Route::delete('borrar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiSituacionEspecialController@destroy',
-		'middleware' => ['permission:fisituacion-borrar']
-	])->name('fi.situacion.borrar');
+		'uses' => $controll.'Controller@getEscnna',
+	])->name($routexxx.'.getEscnna');
 });

@@ -32,7 +32,7 @@ class CsdViolenciaController extends Controller{
         $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $condicion  = Tema::findOrFail(57)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
         $depajs = SisDepartamento::orderBy('s_departamento')->get();
-        $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
+        $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
         if(!$valor){
             $municipios = $municipios1 = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 6)->pluck('s_municipio', 'id');
         } else {

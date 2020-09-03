@@ -1,39 +1,37 @@
 <?php
-Route::group(['prefix' => '{nnaj}/firazones'], function () {
-	
+$routexxx='firazones';
+$controll='FichaIngreso\FiRazone';
+Route::group(['prefix' => '{padrexxx}/firazones'], function () use($routexxx,$controll){
+    Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@getListado',
+        'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.listaxxx');
 	Route::get('', [
-		'uses' => 'FichaIngreso\FiRazoneController@create',
-		'middleware' => ['permission:firazones-crear']
-	])->name('fi.razones.nuevo');
-	
-	Route::post('crear', [
-		'uses' => 'FichaIngreso\FiRazoneController@store',
-		'middleware' => ['permission:firazones-crear']
-	])->name('fi.razones.crear');
-	
-	Route::get('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiRazoneController@edit',
-		'middleware' => ['permission:firazones-editar']
-	])->name('fi.razones.editar');
-	
-	Route::put('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiRazoneController@update',
-		'middleware' => ['permission:firazones-editar']
-	])->name('fi.razones.editar');
-	
-	Route::get('ver/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiRazoneController@show',
-		'middleware' => ['permission:firazones-leer']
-	])->name('fi.razones.ver');
-	
-	Route::delete('borrar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiRazoneController@destroy',
-		'middleware' => ['permission:firazones-borrar']
-	])->name('fi.razones.borrar');
-  
+        'uses' => $controll . 'Controller@create',
+        'middleware' => ['permission:' . $routexxx . '-crear']
+    ])->name($routexxx . '.nuevo');
+    Route::post('crear', [
+        'uses' => $controll . 'Controller@store',
+        'middleware' => ['permission:' . $routexxx . '-crear']
+    ])->name($routexxx . '.crear');
+
+    Route::get('editar/{modeloxx}', [
+        'uses' => $controll . 'Controller@edit',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editar');
+
+    Route::put('editar/{modeloxx}', [
+        'uses' => $controll . 'Controller@update',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editar');
+    Route::get('ver/{modeloxx}', [
+        'uses' => $controll . 'Controller@show',
+        'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.ver');
+
   Route::get('cargos', [
-		'uses' => 'FichaIngreso\FiRazoneController@cargos',
-		'middleware' => ['permission:firazones-leer|fidatobasico-crear|fidatobasico-editar|fidatobasico-borrar']
-	])->name('fi.razones.cargos');
-  
+		'uses' => $controll . 'Controller@cargos',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.cargos');
+
 });

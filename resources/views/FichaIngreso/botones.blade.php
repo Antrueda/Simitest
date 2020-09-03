@@ -1,1 +1,0 @@
-<a class="btn btn-sm btn-primary" href="{{ route('fi.datosbasicos.editar', $sis_nnaj_id) }}">Seleccionar</a>

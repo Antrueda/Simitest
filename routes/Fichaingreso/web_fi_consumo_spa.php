@@ -1,34 +1,31 @@
 <?php
-Route::group(['prefix' => '{nnaj}/ficonsumo'], function () {
-	
-	
-	Route::get('', [
-		'uses' => 'FichaIngreso\FiConsumoController@create',
-		'middleware' => ['permission:ficonsumo-crear']
-	])->name('fi.consumo.nuevo');
-	
+$routexxx='ficonsumo';
+$controll='FichaIngreso\FiConsumo';
+Route::group(['prefix' => '{padrexxx}/ficonsumo'], function () use($routexxx,$controll){
+    Route::get('listaxxx', [
+		'uses' => $controll.'Controller@getListado',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.listaxxx');
+	Route::get('nuevo', [
+		'uses' => $controll.'Controller@create',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
 	Route::post('crear', [
-		'uses' => 'FichaIngreso\FiConsumoController@store',
-		'middleware' => ['permission:ficonsumo-crear']
-	])->name('fi.consumo.crear');
-	
-	Route::get('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiConsumoController@edit',
-		'middleware' => ['permission:ficonsumo-editar']
-	])->name('fi.consumo.editar');
-	
-	Route::put('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiConsumoController@update',
-		'middleware' => ['permission:ficonsumo-editar']
-	])->name('fi.consumo.editar');
-	
-	Route::get('ver/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiConsumoController@show',
-		'middleware' => ['permission:ficonsumo-leer']
-	])->name('fi.consumo.ver');
-	
-	Route::delete('borrar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiConsumoController@destroy',
-		'middleware' => ['permission:ficonsumo-borrar']
-	])->name('fi.consumo.borrar');
+		'uses' => $controll.'Controller@store',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.crear');
+
+	Route::get('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@edit',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+
+	Route::put('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@update',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::get('ver/{modeloxx}', [
+		'uses' => $controll.'Controller@show',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
 });

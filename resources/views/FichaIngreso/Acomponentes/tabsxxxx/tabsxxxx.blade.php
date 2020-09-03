@@ -46,25 +46,25 @@
             @endcanany
             @endif
             @canany(['ficonsumo-leer', 'ficonsumo-crear', 'ficonsumo-editar', 'ficonsumo-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='consumo') ?' active' : '' }} text-sm" href="{{ route('fi.consumo.nuevo', $todoxxxx['pestpara'][0]) }}">11. Consumo SPA</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='ficonsumo') ?' active' : '' }} text-sm" href="{{ route('ficonsumo.nuevo', $todoxxxx['pestpara'][0]) }}">11. Consumo SPA</a></li>
             @endcanany
             @canany(['fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar', 'fiviolencia-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='violencia') ?' active' : '' }} text-sm" href="{{ route('fi.violencia.nuevo', $todoxxxx['pestpara'][0]) }}">12. Violencias y Condición Especial</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiviolencia') ?' active' : '' }} text-sm" href="{{ route('fiviolencia.nuevo', $todoxxxx['pestpara'][0]) }}">12. Violencias y Condición Especial</a></li>
             @endcanany
             @canany(['fisituacion-leer', 'fisituacion-crear', 'fisituacion-editar', 'fisituacion-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='situacion') ?' active' : '' }} text-sm" href="{{ route('fi.situacion.nuevo', $todoxxxx['pestpara'][0]) }}">13. Tipo de Población</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fisituacion') ?' active' : '' }} text-sm" href="{{ route('fisituacion.nuevo', $todoxxxx['pestpara'][0]) }}">13. Tipo de Población</a></li>
             @endcanany
             @canany(['ficontacto-leer', 'ficontacto-crear', 'ficontacto-editar', 'ficontacto-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='contacto') ?' active' : '' }} text-sm" href="{{ route('fi.contacto.nuevo', $todoxxxx['pestpara'][0]) }}">14. Contacto con IDIPRON y Tratamiento de Datos</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='ficontacto') ?' active' : '' }} text-sm" href="{{ route('ficontacto.nuevo', $todoxxxx['pestpara'][0]) }}">14. Contacto con IDIPRON y Tratamiento de Datos</a></li>
             @endcanany
             @canany(['fibienvenida-leer', 'fibienvenida-crear', 'fibienvenida-editar', 'fibienvenida-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='bienvenida') ?' active' : '' }} text-sm" href="{{ route('fi.bienvenida.nuevo', $todoxxxx['pestpara'][0]) }}">15. Bienvenida</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fibienvenida') ?' active' : '' }} text-sm" href="{{ route('fibienvenida.nuevo', $todoxxxx['pestpara'][0]) }}">15. Bienvenida</a></li>
             @endcanany
             @canany(['fiautorizacion-leer', 'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='autorizacion') ?' active' : '' }} text-sm" href="{{ route('fi.autorizacion.nuevo', $todoxxxx['pestpara'][0]) }}">16. Autorización</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiautorizacion') ?' active' : '' }} text-sm" href="{{ route('fiautorizacion.nuevo', $todoxxxx['pestpara'][0]) }}">16. Autorización</a></li>
             @endcanany
             @canany(['firazones-leer', 'firazones-crear', 'firazones-editar', 'firazones-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='razones') ?' active' : '' }} text-sm" href="{{ route('fi.razones.nuevo', $todoxxxx['pestpara'][0]) }}">17. Razones para Entrar al IDIPRON</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='firazones') ?' active' : '' }} text-sm" href="{{ route('firazones.nuevo', $todoxxxx['pestpara'][0]) }}">17. Razones para Entrar al IDIPRON</a></li>
             @endcanany
 
             @endif

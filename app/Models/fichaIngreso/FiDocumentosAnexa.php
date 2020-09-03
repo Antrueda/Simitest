@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Helpers\Archivos\Archivos;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -57,16 +58,23 @@ class FiDocumentosAnexa extends Model {
             }, 5);
   }
 
-  public static function transaccion($dataxxxx, $objetoxx) {
-    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-              $dataxxxx['user_edita_id'] = Auth::user()->id;
-              if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
+  public static function transaccion($dataxxxx) {
+    $usuariox = DB::transaction(function () use ($dataxxxx) {
+        $rutaxxxx = Archivos::getRuta(['requestx'=>$dataxxxx['requestx'],
+            'nombarch'=>'s_doc_adjunto',
+            'rutaxxxx'=>'fi/razones','nomguard'=>'razones']);
+            if($rutaxxxx!=false){
+               $dataxxxx['requestx']->request->add(['s_ruta'=> $rutaxxxx]);
+
+            }
+            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+              if ($dataxxxx['modeloxx'] != '') {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
               } else {
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FiDocumentosAnexa::create($dataxxxx);
+                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['modeloxx'] = FiDocumentosAnexa::create($dataxxxx['requestx']->all());
               }
-              return $objetoxx;
+              return $dataxxxx['modeloxx'];
             }, 5);
     return $usuariox;
   }

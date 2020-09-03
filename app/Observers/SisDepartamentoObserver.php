@@ -12,8 +12,8 @@ class SisDepartamentoObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
-        $log['sis_pais_id'] = $modeloxx->sis_pais_id;
+        // campos nuevos traidos desde $fillable -> modelo
+        $log['sis_pai_id'] = $modeloxx->sis_pai_id;
         $log['s_departamento'] = $modeloxx->s_departamento;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;

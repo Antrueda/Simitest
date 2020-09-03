@@ -2,9 +2,9 @@
 <script>
 
     $(function(){
-        var f_ajax=function(dataxxxx){ 
+        var f_ajax=function(dataxxxx){
             $.ajax({
-                    url : "{{ route('fi.autorizacion.autoriza',[$todoxxxx['nnajregi']]) }}",
+                    url : "{{ route('fiautorizacion.autoriza',[$todoxxxx['usuariox']->id]) }}",
                     data : {
                         'padrexxx':dataxxxx.valuexxx
                     },

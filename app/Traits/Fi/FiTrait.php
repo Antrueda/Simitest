@@ -3,8 +3,10 @@
 namespace App\Traits\Fi;
 
 use App\Models\fichaIngreso\FiComposicionFami;
+use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiJusticiaRestaurativa;
+use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\fichaIngreso\FiSalud;
@@ -151,6 +153,42 @@ trait FiTrait
             ->join('fi_composicion_famis', 'fi_proceso_familias.fi_composicion_fami_id', '=', 'fi_composicion_famis.id')
             ->join('fi_datos_basicos', 'fi_composicion_famis.nnaj_nfamili_id', '=', 'fi_datos_basicos.nnaj_nfamili_id')
             ->where('fi_datos_basicos.sis_nnaj_id', $request->padrexxx);
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
+    public function getConsumoTrait($request)
+    {
+        $dataxxxx =  FiConsumoSpa::select(
+            'fi_sustancia_consumidas.id',
+            'fi_sustancia_consumidas.sis_esta_id',
+            'sustancia.nombre as sustancia',
+            'fi_sustancia_consumidas.i_edad_uso',
+            'consume.nombre as consume',
+            'fi_sustancia_consumidas.created_at',
+            'sis_estas.s_estado'
+        )
+            ->join('fi_sustancia_consumidas', 'fi_consumo_spas.id', '=', 'fi_sustancia_consumidas.fi_consumo_spa_id')
+            ->join('sis_estas', 'fi_sustancia_consumidas.sis_esta_id', '=', 'sis_estas.id')
+            ->join('parametros as sustancia', 'fi_sustancia_consumidas.i_prm_sustancia_id', '=', 'sustancia.id')
+            ->join('parametros as consume', 'fi_sustancia_consumidas.i_prm_consume_id', '=', 'consume.id')
+            ->where('fi_consumo_spas.sis_nnaj_id', $request->padrexxx);
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+    public function getArchivosTrait($request)
+    {
+        $dataxxxx =  FiRazone::select([
+            'fi_documentos_anexas.id',
+            'fi_razones.sis_nnaj_id',
+            'fi_documentos_anexas.fi_razone_id',
+            'fi_documentos_anexas.sis_esta_id',
+            'parametros.nombre',
+            'fi_documentos_anexas.created_at',
+            'sis_estas.s_estado'
+        ])
+            ->join('fi_documentos_anexas', 'fi_razones.id', '=', 'fi_documentos_anexas.fi_razone_id')
+            ->join('sis_estas', 'fi_documentos_anexas.sis_esta_id', '=', 'sis_estas.id')
+            ->join('parametros', 'fi_documentos_anexas.i_prm_documento_id', '=', 'parametros.id')
+            ->where('fi_razones.id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 }

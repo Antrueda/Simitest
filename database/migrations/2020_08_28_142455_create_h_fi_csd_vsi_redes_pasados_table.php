@@ -16,9 +16,8 @@ class CreateHFiCsdVsiRedesPasadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('h_fi_csd_vsi_redes_pasados', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('csd_id')->unsigned();
             $table->string('nombre');
             $table->string('servicios', 120);
             $table->integer('cantidad')->nullable();
@@ -29,9 +28,10 @@ class CreateHFiCsdVsiRedesPasadosTable extends Migration
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+
     }
-        
-    
+
+
 
     /**
      * Reverse the migrations.
@@ -40,6 +40,6 @@ class CreateHFiCsdVsiRedesPasadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_fi_csd_vsi_redes_pasados');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

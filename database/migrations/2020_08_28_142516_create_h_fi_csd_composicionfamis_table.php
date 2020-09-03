@@ -3,6 +3,7 @@
 use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateHFiCsdComposicionfamisTable extends Migration
@@ -15,7 +16,7 @@ class CreateHFiCsdComposicionfamisTable extends Migration
      */
     public function up()
     {
-        Schema::create('h_fi_csd_composicionfamis', function (Blueprint $table) {
+        Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_parentesco_id')->unsigned();
             $table->string('s_primer_nombre');
@@ -33,6 +34,8 @@ class CreateHFiCsdComposicionfamisTable extends Migration
             $table->bigInteger('nnaj_nfamili_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+
     }
 
     /**
@@ -42,6 +45,6 @@ class CreateHFiCsdComposicionfamisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_fi_csd_composicionfamis');
+        Schema::dropIfExists($this->tablaxxx);
     }
 }

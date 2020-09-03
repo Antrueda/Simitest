@@ -71,7 +71,7 @@ class CsdBasicoController extends Controller{
 
         $depajs = SisDepartamento::orderBy('s_departamento')->get();
         if(!$valor){
-            $departamentos = $departamentos1 = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
+            $departamentos = $departamentos1 = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
             $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 6)->pluck('s_municipio', 'id');
             $municipios1 = ['' => 'Seleccione...'];
             foreach ($municipios as $k => $d) {
@@ -79,22 +79,22 @@ class CsdBasicoController extends Controller{
             }
         } else {
             if($valor->pais_id == 2){
-                $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
+                $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
                 $municipios = SisMunicipio::combo($valor->departamento_id,false) ;
                // $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', $valor->departamento_id)->pluck('s_municipio', 'id');
                 //ddd($municipios);
             } else {
-                $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', '!=', 2)->pluck('s_departamento', 'id');
+                $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', '!=', 2)->pluck('s_departamento', 'id');
                 $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 1)->pluck('s_municipio', 'id');
             }
             if($valor->pais_docum_id == 2){
-                $departamentos1 = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
+                $departamentos1 = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
                 $municipios1 = ['' => 'Seleccione...'];
                 foreach (SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', $valor->departamento_docum_id)->pluck('s_municipio', 'id') as $k => $d) {
                     $municipios1[$k] = $d;
                 }
             } else {
-                $departamentos1 = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', '!=', 2)->pluck('s_departamento', 'id');
+                $departamentos1 = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', '!=', 2)->pluck('s_departamento', 'id');
                 $municipios1 = ['' => 'Seleccione...'];
                 foreach (SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 1)->pluck('s_municipio', 'id') as $k => $d) {
                     $municipios1[$k] = $d;

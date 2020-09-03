@@ -16,18 +16,18 @@ class CreateSisDepartamentosTable extends Migration
     {
         Schema::create('sis_departamentos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('sis_pais_id')->unsigned()->nullable();
+            $table->bigInteger('sis_pai_id')->unsigned()->nullable();
             $table->string('s_departamento');
             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
             $table->bigInteger('sis_esta_id')->unsigned();
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->foreign('sis_pais_id')->references('id')->on('sis_pais');
+            $table->foreign('sis_pai_id')->references('id')->on('sis_pais');
         });
         Schema::create('h_sis_departamentos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('sis_pais_id')->unsigned()->nullable();
+            $table->bigInteger('sis_pai_id')->unsigned()->nullable();
             $table->string('s_departamento');
             $table = CamposMagicos::h_magicos($table);
         });

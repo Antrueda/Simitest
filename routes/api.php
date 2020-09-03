@@ -146,7 +146,8 @@ Route::get('is/nnajs', function (Request $request) {
     if (!$request->ajax())
         return redirect('/');
     return datatables()
-        ->eloquent(FiDatosBasico::select(
+        ->eloquent(
+            FiDatosBasico::select(
             'nnaj_docus.s_documento',
             'fi_datos_basicos.s_primer_nombre',
             'fi_datos_basicos.s_segundo_nombre',
@@ -159,7 +160,9 @@ Route::get('is/nnajs', function (Request $request) {
             'fi_datos_basicos.sis_esta_id'
         )
             ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
-            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id'))
+            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+
+            )
         ->addColumn('btns', 'intervencion/botones')
         ->rawColumns(['btns'])
         ->toJson();
@@ -198,27 +201,6 @@ Route::get('permisos/permiso', function (Request $request) {
 
 
 
-Route::get('fi/fisustanciaconsumida', function (Request $request) {
-    if (!$request->ajax())
-        return redirect('/');
-    return datatables()
-        ->eloquent(FiConsumoSpa::select(
-            'fi_sustancia_consumidas.id',
-            'fi_consumo_spas.sis_nnaj_id',
-            'fi_sustancia_consumidas.sis_esta_id',
-            'sustancia.nombre as sustancia',
-            'fi_sustancia_consumidas.i_edad_uso',
-            'consume.nombre as consume'
-        )
-            ->join('fi_sustancia_consumidas', 'fi_consumo_spas.id', '=', 'fi_sustancia_consumidas.fi_consumo_spa_id')
-            ->join('parametros as sustancia', 'fi_sustancia_consumidas.i_prm_sustancia_id', '=', 'sustancia.id')
-            ->join('parametros as consume', 'fi_sustancia_consumidas.i_prm_consume_id', '=', 'consume.id')
-            ->where('fi_consumo_spas.sis_esta_id', 1)->where('fi_consumo_spas.sis_nnaj_id', $request->sis_nnaj_id))
-        ->addColumn('btns', 'FichaIngreso/consumo/datatable/botones')
-        ->rawColumns(['btns'])
-        ->toJson();
-});
-
 Route::get('fos/fichaobservacion', function (Request $request) {
     if (!$request->ajax())
         return redirect('/');
@@ -254,24 +236,7 @@ Route::get('fi/actividad', function (Request $request) {
         ->rawColumns(['btns'])
         ->toJson();
 });
-Route::get('fi/razonarichivo', function (Request $request) {
-    if (!$request->ajax())
-        return redirect('/');
 
-    $document = \App\Models\fichaIngreso\FiRazone::select([
-        'fi_documentos_anexas.id', 'fi_razones.sis_nnaj_id', 'fi_documentos_anexas.fi_razone_id',
-        'fi_documentos_anexas.sis_esta_id', 'parametros.nombre'
-    ])
-        ->join('fi_documentos_anexas', 'fi_razones.id', '=', 'fi_documentos_anexas.fi_razone_id')
-        ->join('parametros', 'fi_documentos_anexas.i_prm_documento_id', '=', 'parametros.id')
-        ->where('fi_documentos_anexas.sis_esta_id', 1)
-        ->where('fi_razones.sis_nnaj_id', $request->all()['nnajxxxx']);
-    return datatables()
-        ->eloquent($document)
-        ->addColumn('btns', $request->all()['botonesx'])
-        ->rawColumns(['btns'])
-        ->toJson();
-});
 
 include_once('Apis/Indicadores/api_in.php');
 include_once('Apis/Acciones/api_acciones.php');

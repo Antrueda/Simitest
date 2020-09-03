@@ -3,6 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
+use App\Models\Sistema\SisNnaj;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,9 @@ class FiRazone extends Model {
 
   public function editor() {
     return $this->belongsTo(User::class, 'user_edita_id');
+  }
+  public function sis_nnaj() {
+    return $this->belongsTo(SisNnaj::class);
   }
 
   public static function razones($usuariox) {

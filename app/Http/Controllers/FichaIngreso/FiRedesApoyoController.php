@@ -154,18 +154,18 @@ class FiRedesApoyoController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'];
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
         $this->opciones['estadoxx'] = 'ACTIVO';
-
+        $this->opciones['botoform'][0]['routingx'][1] =
+        $this->opciones['parametr'][1] = $dataxxxx['padrexxx']->id;
         $this->opciones['tituloxx'] = "ANTECEDENTES INSTITUCIONALES";
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['botoform'][0]['routingx'][1] =
-                $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
@@ -231,7 +231,7 @@ class FiRedesApoyoController extends Controller
             return redirect()
                 ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
         }
-        return $this->view(['modeloxx' => '', 'accionxx' => 'crear', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear','formulario'], 'padrexxx' => $padrexxx]);
     }
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
     {
@@ -262,7 +262,7 @@ class FiRedesApoyoController extends Controller
      */
     public function show(FiDatosBasico $padrexxx, FiRedApoyoAntecedente $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'ver', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver','formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -279,7 +279,7 @@ class FiRedesApoyoController extends Controller
                 'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'editar', 'padrexxx' => $padrexxx]);
+            return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar','formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -304,7 +304,7 @@ class FiRedesApoyoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'destroy','padrexxx'=>$padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy','destroy'], 'padrexxx' => $padrexxx]);
     }
     public function destroy(FiDatosBasico $padrexxx,FiRedApoyoAntecedente $modeloxx)
     {

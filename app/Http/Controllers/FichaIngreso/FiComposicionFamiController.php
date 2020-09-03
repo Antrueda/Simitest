@@ -147,7 +147,7 @@ class FiComposicionFamiController extends Controller
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $fechaxxx = explode('-', $dataxxxx['modeloxx']->d_nacimiento);
             $this->opciones['aniosxxx'] = Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
-            $dataxxxx['modeloxx']->sis_pai_id=$dataxxxx['modeloxx']->sis_municipio->sis_departamento->sis_pais_id;
+            $dataxxxx['modeloxx']->sis_pai_id=$dataxxxx['modeloxx']->sis_municipio->sis_departamento->sis_pai_id;
 
             $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
             $dataxxxx['modeloxx']->sis_departamento_id=$dataxxxx['modeloxx']->sis_municipio->sis_departamento_id;

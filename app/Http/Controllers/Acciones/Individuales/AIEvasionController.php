@@ -56,7 +56,7 @@ class AIEvasionController extends Controller{
         $usuarios   = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
         $depajs = SisDepartamento::orderBy('s_departamento')->get();
         $upisjs = SisDepen::orderBy('nombre')->get();
-        $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
+        $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
         $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 6)->pluck('s_municipio', 'id');
         $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
         return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'evasiones', 'upis', 'ampm', 'contextura', 'rostro', 'piel', 'cabello', 'sino', 'tCabello', 'cCabello', 'ojos', 'nariz', 'tamanio', 'prendas', 'familiares', 'atencion', 'usuarios', 'depajs', 'upisjs', 'departamentos', 'municipios', 'hoy'));    }
@@ -111,7 +111,7 @@ class AIEvasionController extends Controller{
         $usuarios   = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
         $valor = AiReporteEvasion::findOrFail($id0);
         $depajs = SisDepartamento::orderBy('s_departamento')->get();
-        $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pais_id', 2)->pluck('s_departamento', 'id');
+        $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
         $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', $valor->departamento_id)->pluck('s_municipio', 'id');
         $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
         return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'evasiones', 'upis', 'ampm', 'contextura', 'rostro', 'piel', 'cabello', 'sino', 'tCabello', 'cCabello', 'ojos', 'nariz', 'tamanio', 'prendas', 'familiares', 'atencion', 'usuarios', 'valor', 'depajs', 'departamentos', 'municipios', 'hoy'));

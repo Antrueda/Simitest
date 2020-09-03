@@ -1,33 +1,27 @@
 <?php
-Route::group(['prefix' => '{nnaj}/ficontacto'], function () {
-
-	Route::get('', [
-		'uses' => 'FichaIngreso\FiContactoController@create',
-		'middleware' => ['permission:ficontacto-crear']
-	])->name('fi.contacto.nuevo');
-
+$routexxx='ficontacto';
+$controll='FichaIngreso\FiContacto';
+Route::group(['prefix' => '{padrexxx}/ficontacto'], function () use($routexxx,$controll){
+    Route::get('nuevo', [
+		'uses' => $controll.'Controller@create',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
 	Route::post('crear', [
-		'uses' => 'FichaIngreso\FiContactoController@store',
-		'middleware' => ['permission:ficontacto-crear']
-	])->name('fi.contacto.crear');
+		'uses' => $controll.'Controller@store',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.crear');
 
-	Route::get('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiContactoController@edit',
-		'middleware' => ['permission:ficontacto-editar']
-	])->name('fi.contacto.editar');
+	Route::get('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@edit',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
 
-	Route::put('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiContactoController@update',
-		'middleware' => ['permission:ficontacto-editar']
-	])->name('fi.contacto.editar');
-
-	Route::get('ver/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiContactoController@show',
-		'middleware' => ['permission:ficontacto-leer']
-	])->name('fi.contacto.ver');
-
-	Route::delete('borrar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiContactoController@destroy',
-		'middleware' => ['permission:ficontacto-borrar']
-	])->name('fi.contacto.borrar');
+	Route::put('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@update',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::get('ver/{modeloxx}', [
+		'uses' => $controll.'Controller@show',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
 });

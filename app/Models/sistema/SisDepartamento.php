@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisDepartamento extends Model
 {
-    protected $fillable = ['s_departamento', 'sis_pais_id', 's_iso', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['s_departamento', 'sis_pai_id', 's_iso', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
     public function sis_pai()
@@ -31,7 +31,7 @@ class SisDepartamento extends Model
 
         foreach (SisDepartamento::where(function ($dataxxxx) use ($idpadrex) {
 
-                $dataxxxx->where('sis_pais_id', $idpadrex);
+                $dataxxxx->where('sis_pai_id', $idpadrex);
 
 
         })

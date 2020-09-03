@@ -1,20 +1,40 @@
 <?php
-Route::group(['prefix' => '{nnaj}/fisustanciaconsume'], function () {
-	Route::get('', [
-		'uses' => 'FichaIngreso\FiSustanciaConsumidaController@create',
-		'middleware' => ['permission:fisustanciaconsume-crear']
-	])->name('fi.sustanciaconsume.nuevo');
+$routexxx='fisustanciaconsume';
+$controll='FichaIngreso\FiSustanciaConsumida';
+Route::group(['prefix' => '{padrexxx}/fisustanciaconsume'], function () use($routexxx,$controll){
+
+    Route::get('nuevo', [
+		'uses' => $controll.'Controller@create',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
+
 	Route::post('crear', [
-		'uses' => 'FichaIngreso\FiSustanciaConsumidaController@store',
-		'middleware' => ['permission:fisustanciaconsume-crear']
-	])->name('fi.sustanciaconsume.crear');
-	Route::get('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiSustanciaConsumidaController@edit',
-		'middleware' => ['permission:fisustanciaconsume-editar']
-	])->name('fi.sustanciaconsume.editar');
-	
-	Route::put('editar/{objetoxx}', [
-		'uses' => 'FichaIngreso\FiSustanciaConsumidaController@update',
-		'middleware' => ['permission:fisustanciaconsume-editar']
-	])->name('fi.sustanciaconsume.editar');
+		'uses' => $controll.'Controller@store',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.crear');
+
+	Route::get('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@edit',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+
+	Route::put('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@update',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+
+	Route::get('ver/{modeloxx}', [
+		'uses' => $controll.'Controller@show',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
+
+	Route::get('borrar/{modeloxx}', [
+	    'uses' => $controll.'Controller@inactivate',
+	    'middleware' => ['permission:'.$routexxx.'-borrar']
+    ])->name($routexxx.'.borrar');
+
+    Route::put('borrar/{modeloxx}', [
+		'uses' => $controll . 'Controller@destroy',
+		'middleware' => ['permission:' . $routexxx . '-borrar']
+	])->name($routexxx . '.borrar');
 });

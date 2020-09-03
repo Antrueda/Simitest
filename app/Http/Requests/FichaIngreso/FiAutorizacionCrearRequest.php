@@ -56,8 +56,8 @@ class FiAutorizacionCrearRequest extends FormRequest
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        $nnajxxxx = FiDatosBasico::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])->first();
-        $edad = Carbon::parse($nnajxxxx->d_nacimiento)->age;
+        $nnajxxxx = FiDatosBasico::find($this->segments()[1]);
+        $edad = $nnajxxxx->nnaj_nacimi->Edad;
 
         if ($edad < 18) { //Mayor de edad
             $this->_mensaje['i_prm_parentesco_id.required'] = 'Seleccione el parentesco que tiene con el NNAJ';

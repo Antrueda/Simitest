@@ -929,7 +929,7 @@ class AjaxxController extends Controller
         }
     }
 
-    
+
     function sisservicio(Request $request)
     {
         if ($request->ajax()) {
@@ -1033,7 +1033,7 @@ class AjaxxController extends Controller
                 $dataxxxx[] = ['valuexxx' => 1, 'optionxx' => 'NO APLICA', 'selected' => 'selected'];
                 $dataxxxx = [$dataxxxx, 'i_prm_depto_certifica_id', $dataxxxx, 'i_prm_municipio_certifica_id'];
             } else {
-                $dataxxxx = SisDepartamento::select(['id as valuexxx', 's_departamento as optionxx'])->where('sis_pais_id', 2)->get();
+                $dataxxxx = SisDepartamento::select(['id as valuexxx', 's_departamento as optionxx'])->where('sis_pai_id', 2)->get();
                 $dataxxxx = $this->getCombos($dataxxxx, true, $request->all()['pselecte']);
                 $dataxxxx = [$dataxxxx, 'i_prm_depto_certifica_id', [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => '']], 'i_prm_municipio_certifica_id'];
             }
@@ -1056,7 +1056,7 @@ class AjaxxController extends Controller
             return response()->json($respuest);
         }
     }
-    
+
 
 
 }
