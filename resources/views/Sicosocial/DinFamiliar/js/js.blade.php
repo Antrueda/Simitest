@@ -93,7 +93,16 @@ $(document).ready(function() {
                 "url": "{{ url('/adminlte/plugins/datatables/Spanish.lang') }}"
             }
         });
+        $("#s_doc_adjunto_ar").change(function() {
+            var fichero_seleccionado = $(this).val();
+            var nombre_fichero_seleccionado = fichero_seleccionado.replace(/.*[\/\\]/, ''); //Eliminamos el path hasta el fichero seleccionado
+            $("#s_doc_adjunto_ar_label").text(nombre_fichero_seleccionado);
+        });
+
 });
+
+
+
 function doc(valor) {
     if(valor == 235) {
         document.getElementById("ausencia_div").hidden=true;

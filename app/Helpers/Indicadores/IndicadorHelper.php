@@ -179,7 +179,7 @@ class IndicadorHelper
     }
     public static function setDiasTranscurridos($nnajidxx)
     {
-        $datobasi = FiDatosBasico::where('sis_nnaj_id', $nnajidxx)->where('i_prm_linea_base_id', 227)->first();
+        $datobasi = FiDatosBasico::where('sis_nnaj_id', $nnajidxx)->first();
         return IndicadorHelper::getDiasEntreFecha(explode(' ', $datobasi->created_at)[0], date('Y-m-d', time()));;
     }
     private function documento($iddocume, $indicador, $key)

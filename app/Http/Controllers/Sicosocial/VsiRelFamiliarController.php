@@ -53,7 +53,7 @@ class VsiRelFamiliarController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+       
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['sinonaxx'] = Tema::combo(25, true, false);
         $this->opciones['familiar'] = Tema::combo(66, true, false);
@@ -63,8 +63,9 @@ class VsiRelFamiliarController extends Controller
         $this->opciones['dificult'] = Tema::combo(176, true, false);
         $this->opciones['responde'] = Tema::combo(177, true, false);
         $this->opciones['entidadx'] = Tema::combo(178, true, false);
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
@@ -86,7 +87,7 @@ class VsiRelFamiliarController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->vsi_id];
+        //$this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -101,9 +102,11 @@ class VsiRelFamiliarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(VsiRelFamiliarCrearRequest $requestx, $padrexxx)
+    public function store(VsiRelFamiliarCrearRequest $requestx,  $padrexxx)
     {
-        $requestx->vsi_id=$padrexxx;
+        
+        $requestx->request->add(['vsi_id'=> $padrexxx]); 
+        //ddd($padrexxx);
         return $this->grabar([
             'requestx' => $requestx,
             'modeloxx' => '',
@@ -118,11 +121,11 @@ class VsiRelFamiliarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VsiRelFamiliar $objetoxx)
+    public function edit(Vsi $objetoxx)
     {
 
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+       // $this->opciones['padrexxx'] = $objetoxx->id;
+        ///$this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -130,13 +133,13 @@ class VsiRelFamiliarController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+        return $this->view(['modeloxx' => $objetoxx->VsiRelFamiliar, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [VsiRelFamiliar::transaccion($dataxxxx)->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [VsiRelFamiliar::transaccion($dataxxxx)->vsi_id])
             ->with('info', $dataxxxx['menssage']);
     }
 
@@ -147,11 +150,11 @@ class VsiRelFamiliarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiRelFamiliarEditarRequest $requestx, VsiRelFamiliar $objetoxx)
+    public function update(VsiRelFamiliarEditarRequest $requestx, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $requestx,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiRelFamiliar,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

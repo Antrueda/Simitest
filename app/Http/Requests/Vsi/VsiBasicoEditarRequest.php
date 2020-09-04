@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vsi;
 
+use App\Models\sicosocial\Vsi;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -28,7 +29,7 @@ class VsiBasicoEditarRequest extends FormRequest
             's_apodo' => 'nullable|string|max:120',
             'prm_documento_id' => 'required|exists:parametros,id',
             'prm_doc_fisico_id' => 'required|exists:parametros,id',
-            'i_prm_ayuda_id' => 'required_if:prm_doc_fisico_id,228',
+            'prm_ayuda_id' => 'required_if:prm_doc_fisico_id,228',
             's_documento' => 'required|string|max:120',
             'd_nacimiento' => 'required|date|after:'.$edad,
             'prm_sexo_id' => 'required|exists:parametros,id',
@@ -64,6 +65,7 @@ class VsiBasicoEditarRequest extends FormRequest
 
     public function validar()
     {
-
+        $datosbas=Vsi::find($this->segments()[3]);;
+        $this->_reglasx['s_documento'] = ['required', 'unique:nnaj_docus,s_documento,' . $datosbas->nnaj->fi_datos_basico->nnaj_docu->id];       
     }
 }

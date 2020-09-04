@@ -9,6 +9,7 @@ use App\Models\sicosocial\VsiRelSociale;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
+use App\Models\sicosocial\VsiRelSociales;
 use App\Models\Tema;
 
 class VsiRelSocialController extends Controller
@@ -53,12 +54,13 @@ class VsiRelSocialController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['contexto'] = Tema::combo(160, false, false);
         $this->opciones['contextx'] = Tema::combo(168, false, false);
         $this->opciones['dificult'] = Tema::combo(169, TRUE, false);
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
@@ -88,7 +90,7 @@ class VsiRelSocialController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
+        
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -120,11 +122,11 @@ class VsiRelSocialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VsiRelSociale $objetoxx)
+    public function edit(Vsi $objetoxx)
     {
 
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+       // $this->opciones['padrexxx'] = $objetoxx->id;
+       // $this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -132,16 +134,16 @@ class VsiRelSocialController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+        return $this->view(['modeloxx' => $objetoxx->VsiRelSociale, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
-        $registro = VsiRelSociale::transaccion($dataxxxx);
+        //$registro = VsiRelSociale::transaccion($dataxxxx);
 
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
-            ->with('info', $dataxxxx['menssage']);
+        ->route($this->opciones['routxxxx'] . '.editar', [VsiRelSociale::transaccion($dataxxxx)->vsi_id])
+        ->with('info', $dataxxxx['menssage']);
     }
 
     /**
@@ -155,7 +157,7 @@ class VsiRelSocialController extends Controller
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiRelSociale,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

@@ -86,9 +86,9 @@ class VsiDinfamPadreController extends Controller
 
 
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $this->opciones['usuariox']->name;
         $this->opciones['botoform'][0]['routingx'][1] = [$this->opciones['vsixxxxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
@@ -100,6 +100,7 @@ class VsiDinfamPadreController extends Controller
             $this->opciones['hijoxxxx'] = $dataxxxx['modeloxx']->hijo;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
+           // ddd($dataxxxx['padrexxx']);
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -158,6 +159,7 @@ class VsiDinfamPadreController extends Controller
      */
     public function edit(VsiDinfamPadre $objetoxx)
     {
+        //ddd($objetoxx->vsi->id);
         $this->opciones['parametr'] = [$objetoxx->vsi->id];
         $this->opciones['padrexxx'] = $objetoxx->id;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -167,6 +169,7 @@ class VsiDinfamPadreController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
+        
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
     }
     public function show(VsiDinfamPadre $objetoxx)

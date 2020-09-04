@@ -25,11 +25,11 @@ class CreateVsiRelSocialesTable extends Migration
             $table->bigInteger('prm_dificultad_id')->nullable()->unsigned();
             $table->string('completa', 4000)->nullable();
 
-            $table->bigInteger('i_prm_linea_base_id')->unsigned();
+       
 
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_dificultad_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_linea_base_id')->references('id')->on('parametros');
+    
             $table = CamposMagicos::magicos($table);
 
         });

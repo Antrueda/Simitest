@@ -147,13 +147,18 @@ class FiDatosBasico extends Model
             $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
             $dataxxxx['s_apodo'] = strtoupper($dataxxxx['s_apodo']);
             $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if($dataxxxx['i_prm_ayuda_id']==null){
-                $dataxxxx['i_prm_ayuda_id']=235;
+            if($dataxxxx['prm_ayuda_id']==null){
+                $dataxxxx['prm_ayuda_id']=235;
             }
+            $objetoxx->nnaj_sexo->update($dataxxxx);
+            $objetoxx->nnaj_docu->update($dataxxxx);    
             $objetoxx->update($dataxxxx);
+            
+
+         
             return $objetoxx;
         }, 5);
-
+        //ddd($objetoxx);
         return $objetoxx;
     }
     public function grabar($dataxxxx, $objetoxx)
@@ -178,8 +183,9 @@ class FiDatosBasico extends Model
                     $dataxxxx['fi_datos_basico_id']=$objetoxx->id;
 
                     $objetoxx->nnaj_sexo->update($dataxxxx);
-                    $objetoxx->nnaj_nacimi->update($dataxxxx);
                     $objetoxx->nnaj_docu->update($dataxxxx);
+                    $objetoxx->nnaj_nacimi->update($dataxxxx);
+                    
                     $objetoxx->nnaj_sit_mil->update($dataxxxx);
                     $objetoxx->nnaj_focali->update($dataxxxx);
                     $objetoxx->nnaj_fi_csd->update($dataxxxx);

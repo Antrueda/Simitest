@@ -52,7 +52,7 @@ class VsiEstEmocionalController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
         $this->opciones['sentimie'] = Tema::combo(170, true, false);
         $this->opciones['contexto'] = Tema::combo(160, true, false);
@@ -63,8 +63,9 @@ class VsiEstEmocionalController extends Controller
         $this->opciones['riesgosx'] = Tema::combo(198, false, false);
         $this->opciones['conducta'] = Tema::combo(200, false, false);
 
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
@@ -94,7 +95,7 @@ class VsiEstEmocionalController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
+        //$this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -126,11 +127,11 @@ class VsiEstEmocionalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VsiEstEmocional $objetoxx)
+    public function edit(Vsi $objetoxx)
     {
 
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+        //$this->opciones['padrexxx'] = $objetoxx->id;
+        //$this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -138,15 +139,15 @@ class VsiEstEmocionalController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+        return $this->view(['modeloxx' => $objetoxx->VsiEstEmocional, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
-        $registro = VsiEstEmocional::transaccion($dataxxxx);
+        //$registro = VsiEstEmocional::transaccion($dataxxxx);
 
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [VsiEstEmocional::transaccion($dataxxxx)->vsi_id])
             ->with('info', $dataxxxx['menssage']);
     }
 
@@ -157,11 +158,11 @@ class VsiEstEmocionalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiEstEmocionalEditarRequest $request, VsiEstEmocional $objetoxx)
+    public function update(VsiEstEmocionalEditarRequest $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiEstEmocional,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

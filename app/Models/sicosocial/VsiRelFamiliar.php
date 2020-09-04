@@ -102,7 +102,7 @@ class VsiRelFamiliar extends Model
     {
         return $this->belongsTo(User::class, 'user_crea_id');
     }
-
+    
     public function editor()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
@@ -111,7 +111,7 @@ class VsiRelFamiliar extends Model
     public static function transaccion($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
-
+//ddd($dataxxxx['requestx']->all()); 
             if ($dataxxxx['requestx']->prm_familia_id == 228) {
                 $dataxxxx['requestx']->prm_denuncia_id = null;
                 $dataxxxx['requestx']->descripcion = null;
@@ -132,8 +132,10 @@ class VsiRelFamiliar extends Model
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
+                //ddd( $dataxxxx['requestx']->all() );
                 $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
-                $dataxxxx['modeloxx'] = VsiBienvenida::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = VsiRelFamiliar::create($dataxxxx['requestx']->all());
+                
             }
              $dataxxxx['modeloxx']->motivos()->detach();
             foreach ($dataxxxx['requestx']->motivos as $d) {

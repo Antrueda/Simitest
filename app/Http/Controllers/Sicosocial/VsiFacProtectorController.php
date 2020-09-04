@@ -77,9 +77,10 @@ class VsiFacProtectorController extends Controller
         $this->opciones['hijoxxxx'] = 0;
 
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        
+        
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['botoform'][0]['routingx'][1] = [$this->opciones['vsixxxxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];

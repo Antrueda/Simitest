@@ -56,12 +56,13 @@ class VsiImpresionController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+      
 
         $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
         $this->opciones['areasxxx'] = Tema::combo(211, false, false);
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         if ($dataxxxx['modeloxx'] != '') {
@@ -90,7 +91,7 @@ class VsiImpresionController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -122,11 +123,9 @@ class VsiImpresionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VsiConcepto $objetoxx)
+    public function edit(Vsi $objetoxx)
     {
 
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -134,7 +133,7 @@ class VsiImpresionController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+        return $this->view(['modeloxx' => $objetoxx->VsiConcepto, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
@@ -143,7 +142,7 @@ class VsiImpresionController extends Controller
         $registro = VsiConcepto::transaccion($dataxxxx);
 
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$registro->vsi_id])
             ->with('info', $dataxxxx['menssage']);
     }
 
@@ -154,11 +153,11 @@ class VsiImpresionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiImpresionEditarRequest $request, VsiConcepto $objetoxx)
+    public function update(VsiImpresionEditarRequest $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiConcepto,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

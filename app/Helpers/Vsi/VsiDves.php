@@ -6,7 +6,7 @@ use App\Models\sicosocial\VsiDatosVincula;
 /**
  * permite cargar el contenido para las preguntas 1.14 y 1.15 de valoracion sicosocial
  */
-class VsiDvHelper
+class VsiDves
 {
     /**
      * 1.14 ¿Qué situaciones, condiciones o actividades parecen producir o empeorar estas dificultades?

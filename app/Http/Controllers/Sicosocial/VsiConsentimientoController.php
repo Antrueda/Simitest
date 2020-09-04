@@ -54,11 +54,12 @@ class VsiConsentimientoController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        ;
 
         $this->opciones['usuarios'] = User::combo(true, false);
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         if ($dataxxxx['modeloxx'] != '') {
@@ -87,7 +88,7 @@ class VsiConsentimientoController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
+      
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -119,11 +120,9 @@ class VsiConsentimientoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VsiConsentimiento $objetoxx)
+    public function edit(Vsi $objetoxx)
     {
 
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -131,7 +130,7 @@ class VsiConsentimientoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+        return $this->view(['modeloxx' => $objetoxx->VsiConsentimiento, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
@@ -140,7 +139,7 @@ class VsiConsentimientoController extends Controller
         $registro = VsiConsentimiento::transaccion($dataxxxx);
 
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$registro->vsi_id])
             ->with('info', $dataxxxx['menssage']);
     }
 
@@ -151,11 +150,11 @@ class VsiConsentimientoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiConsentimientoEditarRequest $request, VsiConsentimiento $objetoxx)
+    public function update(VsiConsentimientoEditarRequest $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiConsentimiento,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

@@ -24,7 +24,7 @@ class CreateHVsiRelSocialesTable extends Migration
             $table->string('descripcion', 4000);
             $table->bigInteger('prm_dificultad_id')->nullable()->unsigned();
             $table->string('completa', 4000)->nullable();
-            $table->bigInteger('i_prm_linea_base_id')->unsigned();
+
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

@@ -17,7 +17,7 @@ class VsiRelSocialeObserver
         $log['descripcion'] = $modeloxx->descripcion;
         $log['prm_dificultad_id'] = $modeloxx->prm_dificultad_id;
         $log['completa'] = $modeloxx->completa;
-        $log['i_prm_linea_base_id'] = $modeloxx->i_prm_linea_base_id;
+
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

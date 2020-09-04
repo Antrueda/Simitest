@@ -55,20 +55,23 @@ class VsiDinFamiliarController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+    
         $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
         $this->opciones['familiax'] = Tema::combo(98, true, false);
         $this->opciones['hogarxxx'] = Tema::combo(99, true, false);
         $this->opciones['familiay'] = Tema::combo(66, false, false);
         $this->opciones['ausencia'] = Tema::combo(292, false, false);
-
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $this->opciones['archivox']='';
+        $vercrear = false;
+        
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            $vercrear =true;
             foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
                 $this->opciones['archivox'] = $value;
             }
@@ -89,8 +92,8 @@ class VsiDinFamiliarController extends Controller
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '5.2.1 Relaciones de la progenitora (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
                 'accitabl' => true,
-                'vercrear' => true,
-                'urlxxxxx' => route('vsidfpad', $this->opciones['parametr']),
+                'vercrear' => $vercrear,
+                'urlxxxxx' => route('vsidfpad', $this->opciones['parametr'] ),
                 'cabecera' => [
                     [
                         ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -122,7 +125,7 @@ class VsiDinFamiliarController extends Controller
                 'tablaxxx' => 'datatablepadre',
                 'permisox' => 'vsidfpad',
                 'routxxxx' => 'vsidfpad',
-                'parametr' => $this->opciones['parametr'],
+                'parametr' => $this->opciones['parametr'] ,
             ],
             [
                 'titunuev' => 'CREAR RELACION',
@@ -130,8 +133,8 @@ class VsiDinFamiliarController extends Controller
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '5.2.2 Relaciones del progenitor (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
                 'accitabl' => true,
-                'vercrear' => true,
-                'urlxxxxx' => route('vsidfmad', $this->opciones['parametr']),
+                'vercrear' => $vercrear,
+                'urlxxxxx' => route('vsidfmad', $this->opciones['parametr'] ),
                 'cabecera' => [
                     [
                         ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -163,12 +166,12 @@ class VsiDinFamiliarController extends Controller
                 'tablaxxx' => 'datatablew',
                 'permisox' => 'vsidfmad',
                 'routxxxx' => 'vsidfmad',
-                'parametr' => $this->opciones['parametr'],
+                'parametr' => $this->opciones['parametr'] ,
             ]
 
         ];
 
-
+      
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**
@@ -178,12 +181,11 @@ class VsiDinFamiliarController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
+            ]; 
         return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
     }
 
@@ -195,7 +197,9 @@ class VsiDinFamiliarController extends Controller
      */
     public function store(VsiDinFamiliarCrearRequest $requestx, $padrexxx)
     {
-        $requestx->vsi_id = $padrexxx;
+        
+        
+        $requestx->request->add(['vsi_id'=> $padrexxx]); 
         return $this->grabar([
             'requestx' => $requestx,
             'modeloxx' => '',
@@ -210,11 +214,14 @@ class VsiDinFamiliarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VsiDinFamiliar $objetoxx)
-    {
 
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+     // public function edit(VsiDinFamiliar $objetoxx)
+
+    public function edit(Vsi $objetoxx)
+    {
+      
+      //  $this->opciones['padrexxx'] = $objetoxx->id;
+       
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -222,13 +229,13 @@ class VsiDinFamiliarController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+        return $this->view(['modeloxx' => $objetoxx->VsiDinFamiliar, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [VsiDinFamiliar::transaccion($dataxxxx)->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [VsiDinFamiliar::transaccion($dataxxxx)->vsi_id])
             ->with('info', $dataxxxx['menssage']);
     }
 
@@ -239,13 +246,12 @@ class VsiDinFamiliarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiDinFamiliarEditarRequest $requestx, VsiDinFamiliar $objetoxx)
+    public function update(VsiDinFamiliarEditarRequest $requestx,Vsi $objetoxx )
     {
-
-
-        return $this->grabar([
+        
+            return $this->grabar([
             'requestx' => $requestx,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiDinFamiliar,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

@@ -499,7 +499,7 @@ class AppServiceProvider extends ServiceProvider
     VsiRedsocActual::observe(VsiRedsocActualObserver::class);
     VsiRedSocial::observe(VsiRedSocialObserver::class);
     VsiRedsocPasado::observe(VsiRedsocPasadoObserver::class);
-    VsiRelFamiliar::observe(VsiRelFamiliarObserver::class);
+    
     VsiRelSociale::observe(VsiRelSocialeObserver::class);
     VsiSalud::observe(VsiSaludObserver::class);
     VsiSitEspecial::observe(VsiSitEspecialObserver::class);
@@ -544,6 +544,7 @@ class AppServiceProvider extends ServiceProvider
     VsiRelfamAccione::observe(VsiRelfamAccioneObserver::class);
     VsiRelfamDificultad::observe(VsiRelfamDificultadObserver::class);
     VsiRelfamMotivo::observe(VsiRelfamMotivoObserver::class);
+    //VsiRelFamiliar::observe(VsiRelFamiliarObserver::class);
     VsiRelsolDificulta::observe(VsiRelSolDificultaObserver::class);
     VsiRelsolFacilita::observe(VsiRelSolFacilitaObserver::class);
     VsiSitespRiesgo::observe(VsiSitespRiesgoObserver::class);

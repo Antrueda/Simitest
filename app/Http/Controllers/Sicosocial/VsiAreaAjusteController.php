@@ -51,20 +51,24 @@ class VsiAreaAjusteController extends Controller
 
     private function view($dataxxxx)
     {
+
+        $this->opciones['areajust']='nuevo'; 
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        
         $this->opciones['emociona'] = Tema::combo(162, false, false);
         $this->opciones['sexuales'] = Tema::combo(163, false, false);
         $this->opciones['comporta'] = Tema::combo(164, false, false);
         $this->opciones['academic'] = Tema::combo(165, false, false);
         $this->opciones['sociales'] = Tema::combo(166, false, false);
         $this->opciones['familiar'] = Tema::combo(167, false, false);
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['areajust']='editar'; 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
@@ -105,12 +109,12 @@ class VsiAreaAjusteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(VsiAreaAjusteCrearRequest $request, $padrexxx)
+    public function store(VsiAreaAjusteCrearRequest $request, Vsi $padrexxx)
     {
        $request->request->add(['vsi_id' => $padrexxx]);
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => '',
+            'modeloxx' => $padrexxx,
             'menssage' => 'Registro creado con éxito'
         ]);
     }
@@ -140,37 +144,36 @@ class VsiAreaAjusteController extends Controller
     private function grabar($dataxxxx)
     {
 
-        $dataxxxx['modeloxx']->emocionales()->detach();
         if($dataxxxx['requestx']->emocionales){
             foreach ($dataxxxx['requestx']->emocionales as $d) {
                 $dataxxxx['modeloxx']->emocionales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
-        $dataxxxx['modeloxx']->sexuales()->detach();
+       
         if($dataxxxx['requestx']->sexuales){
             foreach ($dataxxxx['requestx']->sexuales as $d) {
                 $dataxxxx['modeloxx']->sexuales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
-        $dataxxxx['modeloxx']->comportamentales()->detach();
+      
         if($dataxxxx['requestx']->comportamentales){
             foreach ($dataxxxx['requestx']->comportamentales as $d) {
                 $dataxxxx['modeloxx']->comportamentales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
-        $dataxxxx['modeloxx']->academicas()->detach();
+      
         if($dataxxxx['requestx']->academicas){
             foreach ($dataxxxx['requestx']->academicas as $d) {
                 $dataxxxx['modeloxx']->academicas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
-        $dataxxxx['modeloxx']->sociales()->detach();
+        
         if($dataxxxx['requestx']->sociales){
             foreach ($dataxxxx['requestx']->sociales as $d) {
                 $dataxxxx['modeloxx']->sociales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
-        $dataxxxx['modeloxx']->familiares()->detach();
+      
         if($dataxxxx['requestx']->familiares){
             foreach ($dataxxxx['requestx']->familiares as $d) {
                 $dataxxxx['modeloxx']->familiares()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
@@ -191,6 +194,13 @@ class VsiAreaAjusteController extends Controller
      */
     public function update(VsiAreaAjusteEditarRequest $request, Vsi $objetoxx)
     {
+        
+        $objetoxx->emocionales()->detach();
+        $objetoxx->sexuales()->detach();
+        $objetoxx->comportamentales()->detach();
+        $objetoxx->academicas()->detach();
+        $objetoxx->sociales()->detach();
+        $objetoxx->familiares()->detach();
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => $objetoxx,

@@ -77,9 +77,10 @@ class VsiFacRiesgoController extends Controller
         $this->opciones['hijoxxxx'] = 0;
 
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        
+       
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['botoform'][0]['routingx'][1] = [$this->opciones['vsixxxxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
@@ -113,6 +114,7 @@ class VsiFacRiesgoController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
+        
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['botoform'][] =
             [
@@ -185,11 +187,11 @@ class VsiFacRiesgoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiFacRiesgoEditarRequest $request, VsiFacRiesgo $objetoxx)
+    public function update(VsiFacRiesgoEditarRequest $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiFacRiesgo,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

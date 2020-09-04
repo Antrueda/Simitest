@@ -53,10 +53,12 @@ class VsiBienvenidaController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+      //  ddd($dataxxxx['padrexxx']);
+        //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['motivosx'] = Tema::combo(63, false, false);
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
@@ -76,7 +78,7 @@ class VsiBienvenidaController extends Controller
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-
+        //ddd($dataxxxx['modeloxx']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**
@@ -119,11 +121,11 @@ class VsiBienvenidaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VsiBienvenida $objetoxx)
+    public function edit(Vsi $objetoxx)
     {
 
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+        //$this->opciones['padrexxx'] = $objetoxx->id;
+        //$this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -131,18 +133,20 @@ class VsiBienvenidaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+        //ddd($objetoxx->VsiBienvenida);
+        return $this->view(['modeloxx' => $objetoxx->VsiBienvenida, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
+        //ddd($dataxxxx);
         $registro = VsiBienvenida::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx']);
         $registro->motivos()->detach();
         foreach ($dataxxxx['dataxxxx']['motivos'] as $d) {
             $registro->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$registro->vsi_id])
             ->with('info', $dataxxxx['menssage']);
     }
 
@@ -153,11 +157,11 @@ class VsiBienvenidaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiBienvenidaEditarRequest $request, VsiBienvenida $objetoxx)
+    public function update(VsiBienvenidaEditarRequest $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'dataxxxx' => $request->all(),
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiBienvenida,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

@@ -51,7 +51,7 @@ class SisTcamposSeeder extends Seeder
                 SisTcampo::create(['id' => 34, 's_campo' => 'prm_etnia_id', 's_numero' => '4. ', 'in_pregunta_id' => 7, 'tema_id' => 211, 'sis_tabla_id' => 9, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
                 SisTcampo::create(['id' => 35, 's_campo' => 'prm_poblacion_etnia_id', 's_numero' => '12. ', 'in_pregunta_id' => 63, 'tema_id' => 265, 'sis_tabla_id' => 9, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
                 SisTcampo::create(['id' => 36, 's_campo' => 'prm_vestimenta_id', 's_numero' => '10. ', 'in_pregunta_id' => 9, 'tema_id' => 320, 'sis_tabla_id' => 9, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-                SisTcampo::create(['id' => 37, 's_campo' => 'i_prm_linea_base_id', 's_numero' => '7. ', 'in_pregunta_id' => 9, 'tema_id' => 33, 'sis_tabla_id' => 9, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+                
                 SisTcampo::create(['id' => 38, 's_campo' => 'i_prm_dia_genera_id', 's_numero' => '22. ', 'in_pregunta_id' => 16, 'tema_id' => 71, 'sis_tabla_id' => 10, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
                 SisTcampo::create(['id' => 39, 's_campo' => 'i_prm_documento_id', 's_numero' => '3. ', 'in_pregunta_id' => 58, 'tema_id' => 262, 'sis_tabla_id' => 11, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
                 SisTcampo::create(['id' => 40, 's_campo' => 'i_prm_recibe_medicina_id', 's_numero' => '4. ', 'in_pregunta_id' => 74, 'tema_id' => 144, 'sis_tabla_id' => 12, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
@@ -287,7 +287,7 @@ class SisTcamposSeeder extends Seeder
                 SisTcampo::create(['id' => 270, 's_campo' => 'prm_dificultad_id', 's_numero' => '11. ', 'in_pregunta_id' => 37, 'tema_id' => 76, 'sis_tabla_id' => 96, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
                 SisTcampo::create(['id' => 271, 's_campo' => 'prm_responde_id', 's_numero' => '14. ', 'in_pregunta_id' => 1, 'tema_id' => 224, 'sis_tabla_id' => 96, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
                 SisTcampo::create(['id' => 272, 's_campo' => 'prm_dificultad_id', 's_numero' => '19. ', 'in_pregunta_id' => 67, 'tema_id' => 132, 'sis_tabla_id' => 97, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-                SisTcampo::create(['id' => 273, 's_campo' => 'i_prm_linea_base_id', 's_numero' => '5. ', 'in_pregunta_id' => 58, 'tema_id' => 130, 'sis_tabla_id' => 97, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+                
                 SisTcampo::create(['id' => 274, 's_campo' => 'parametro_id', 's_numero' => '20. ', 'in_pregunta_id' => 28, 'tema_id' => 122, 'sis_tabla_id' => 98, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
                 SisTcampo::create(['id' => 275, 's_campo' => 'parametro_id', 's_numero' => '23. ', 'in_pregunta_id' => 35, 'tema_id' => 275, 'sis_tabla_id' => 99, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
                 SisTcampo::create(['id' => 276, 's_campo' => 'parametro_id', 's_numero' => '3. ', 'in_pregunta_id' => 33, 'tema_id' => 327, 'sis_tabla_id' => 100, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);

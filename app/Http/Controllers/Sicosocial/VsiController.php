@@ -248,7 +248,7 @@ class VsiController extends Controller
     {
         return $this->grabar([
             'dataxxxx' => $request->all(),
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->nnaj->datos_basico,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

@@ -52,15 +52,17 @@ class VsiConsumoController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        
         $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
         $this->opciones['contexto'] = Tema::combo(171, false, false);
         $this->opciones['motivosx'] = Tema::combo(180, false, false);
         $this->opciones['expectat'] = Tema::combo(181, false, false);
         $this->opciones['familiar'] = Tema::combo(66, false, false);
 
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
+      
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
@@ -90,7 +92,7 @@ class VsiConsumoController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
+        
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -122,11 +124,11 @@ class VsiConsumoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VsiConsumo $objetoxx)
+    public function edit(Vsi $objetoxx)
     {
 
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+        //$this->opciones['padrexxx'] = $objetoxx->id;
+        //$this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -134,16 +136,16 @@ class VsiConsumoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+        return $this->view(['modeloxx' => $objetoxx->VsiConsumo, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
-        $registro = VsiConsumo::transaccion($dataxxxx);
+       
 
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
-            ->with('info', $dataxxxx['menssage']);
+        ->route($this->opciones['routxxxx'] . '.editar', [VsiConsumo::transaccion($dataxxxx)->vsi_id])
+        ->with('info', $dataxxxx['menssage']);
     }
 
     /**
@@ -153,11 +155,11 @@ class VsiConsumoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiConsumoEditarRequest $request, VsiConsumo $objetoxx)
+    public function update(VsiConsumoEditarRequest $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiConsumo,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

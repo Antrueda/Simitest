@@ -32,6 +32,15 @@
                     {{ Form::select('tipos[]', $todoxxxx['violenci'], null, ['class' => $errors->first('tipos') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'tipos', 'multiple']) }}
                 </div>
             </div>
+            <div class="col-md-4">
+                {{ Form::label('sis_esta_id', 'Estado', ['class' => 'control-label col-form-label-sm']) }}
+                    {{ Form::select('sis_esta_id', $todoxxxx['estadoxx'], null, ['class' => $errors->first('sis_esta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus']) }}
+                    @if($errors->has('sis_esta_id'))
+                        <div class="invalid-feedback d-block">
+                            {{ $errors->first('sis_esta_id') }}
+                        </div>
+                    @endif
+                </div>
         </div>
     </div>
 </div>

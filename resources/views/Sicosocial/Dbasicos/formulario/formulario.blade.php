@@ -72,11 +72,11 @@
             {{ $errors->first('prm_doc_fisico_id') }}
         </div>
         @endif
-        {{ Form::label('i_prm_ayuda_id', 'Motivo:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_ayuda_id', $todoxxxx['sindocum'], null, ['class' => $errors->first('i_prm_ayuda_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('i_prm_ayuda_id'))
+        {{ Form::label('prm_ayuda_id', 'Motivo:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_ayuda_id', $todoxxxx['sindocum'], null, ['class' => $errors->first('prm_ayuda_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('prm_ayuda_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('i_prm_ayuda_id') }}
+            {{ $errors->first('prm_ayuda_id') }}
         </div>
         @endif
     </div>

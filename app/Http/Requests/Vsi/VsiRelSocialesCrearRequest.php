@@ -17,7 +17,7 @@ class VsiRelSocialesCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'descripcion' => 'required|string|max:4000',
-            'motivos' => 'required|array'
+            //'motivos' => 'required|array'
         ];
     }
     /**

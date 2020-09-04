@@ -38,10 +38,10 @@
 
     function doc(valor) {
         if (valor == 228) {
-            document.getElementById("i_prm_ayuda_id").hidden = false;
+            document.getElementById("prm_ayuda_id").hidden = false;
         } else {
-            document.getElementById("i_prm_ayuda_id").hidden = true;
-            document.getElementById("i_prm_ayuda_id").value = '';
+            document.getElementById("prm_ayuda_id").hidden = true;
+            document.getElementById("prm_ayuda_id").value = '';
         }
     }
 

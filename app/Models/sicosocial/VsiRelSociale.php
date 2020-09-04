@@ -13,7 +13,7 @@ class VsiRelSociale extends Model{
 
     protected $fillable = [
         'vsi_id', 'descripcion', 'prm_dificultad_id', 'completa', 'user_crea_id', 'user_edita_id',
-        'sis_esta_id','i_prm_linea_base_id'
+        'sis_esta_id'
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];

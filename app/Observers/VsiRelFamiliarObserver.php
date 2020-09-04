@@ -31,6 +31,7 @@ class VsiRelFamiliarObserver
         $log['prm_responde_id'] = $modeloxx->prm_responde_id;
         $log['descripcion1'] = $modeloxx->descripcion1;
         // campos por defecto, no borrar.
+        
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
         $log['metodoxx'] = request()->method();
@@ -42,6 +43,7 @@ class VsiRelFamiliarObserver
 
     public function created(VsiRelFamiliar $modeloxx)
     {
+        //ddd($modeloxx);
         HVsiRelFamiliar::create($this->getLog($modeloxx));
     }
 

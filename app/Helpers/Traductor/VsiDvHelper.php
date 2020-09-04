@@ -1,11 +1,11 @@
 <?php
+//app/Helpers/Envato/User.php
+namespace App\Helpers\Traductor;
 
-namespace App\Helpers\Vsi;
 use App\Models\sicosocial\VsiDatosVincula;
-
-/**
- * permite cargar el contenido para las preguntas 1.14 y 1.15 de valoracion sicosocial
- */
+use App\Models\Sistema\SisTitulo;
+use Illuminate\Support\Facades\DB;
+ 
 class VsiDvHelper
 {
     /**
@@ -16,7 +16,8 @@ class VsiDvHelper
     public static function getSituaciones($dataxxxx)
     {
 
-        return VsiDatosVincula::where('vsi_id',$dataxxxx['vsiidxxx'])->first()->situaciones;
+        //return VsiDatosVincula::where('vsi_id',$dataxxxx['vsiidxxx'])->first()->situaciones;
+        return [];
     }
 
 
@@ -27,7 +28,8 @@ class VsiDvHelper
      */
     public static function getEmociones($dataxxxx)
     {
-        return VsiDatosVincula::where('vsi_id',$dataxxxx['vsiidxxx'])->first()->emociones;
+      //  return VsiDatosVincula::where('vsi_id',$dataxxxx['vsiidxxx'])->first()->emociones;
+      return [];
     }
 
     

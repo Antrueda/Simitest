@@ -22,7 +22,7 @@ class VsiRelSocialesImport implements ToModel
             'completa' => $row[3],
             'user_crea_id' => 1,
             'user_edita_id' => 1,
-            'i_prm_linea_base_id' => 1,
+ 
             'sis_esta_id' => 1,
             'created_at' => 1,
             'updated_at' => 1,

@@ -191,7 +191,7 @@ class IndicadorApi
         ])
             ->join('sis_nnajs', 'in_lineabase_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-            ->where('i_prm_linea_base_id', 227)
+
             // ->groupBy('sis_nnajs.id')
             // ->groupBy('fi_datos_basicos.s_primer_nombre')
             // ->groupBy('fi_datos_basicos.s_segundo_nombre')

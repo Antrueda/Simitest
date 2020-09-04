@@ -206,7 +206,7 @@ return [
         /**
          * helpers personalizados
          */
-        App\Providers\VsiDvProvider::class,
+       // App\Providers\VsiDvProvider::class,
     ],
 
     /*
@@ -268,7 +268,8 @@ return [
          * helpers personalizads
          */
 
-        'VsiDv' => App\Helpers\Vsi\VsiDvHelper::class,
+        
+        
 
     ],
 

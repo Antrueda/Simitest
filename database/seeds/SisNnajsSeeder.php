@@ -459,7 +459,7 @@ class SisNnajsSeeder extends Seeder
                 'fi_datos_basico_id' => $i + 1,
                 'prm_ayuda_id' => 1,
                 'prm_tipodocu_id' => $faker->randomElement(['16', '17', '18', '19']),
-                'prm_doc_fisico_id' => 1,
+                'prm_doc_fisico_id' => $faker->randomElement(['228', '227']),
                 'sis_municipio_id' => 2,
                 'sis_esta_id' => 1,
                 'user_crea_id' => 1,

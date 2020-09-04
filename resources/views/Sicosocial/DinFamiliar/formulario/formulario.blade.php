@@ -9,7 +9,7 @@ if (isset($todoxxxx['rowscols'])) {
 <div class="form-row align-items-end form-group col-md-12" style="margin-bottom: 40px">
     {{ Form::label('s_doc_adjunto_ar', '5.1 GENOGRAMA', ['class' => 'control-label col-form-label-sm']) }}
     @component('layouts.components.archivos.upload')
-    @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto_ar','descripc'=>'Seleccione un archivo',
+    @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto_ar','descripc'=>'Seleccione un archivo','idlabelx'=>'s_doc_adjunto_ar_label',
     'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf','clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
     @endcomponent
 
@@ -160,6 +160,15 @@ if (isset($todoxxxx['rowscols'])) {
     @if($errors->has('descripcion'))
     <div class="invalid-feedback d-block">
         {{ $errors->first('descripcion') }}
+    </div>
+    @endif
+</div>
+<div class="col-md-12">
+    {{ Form::label('sis_esta_id', 'Estado', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('sis_esta_id', $todoxxxx['estadoxx'], null, ['class' => $errors->first('sis_esta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus']) }}
+    @if($errors->has('sis_esta_id'))
+    <div class="invalid-feedback d-block">
+        {{ $errors->first('sis_esta_id') }}
     </div>
     @endif
 </div>

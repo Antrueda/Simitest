@@ -19,8 +19,8 @@ class VsiBienvenidaCrearRequest extends FormRequest
             'descripcion' => 'required|string|max:4000',
             'prm_dificultad_id' => 'nullable|exists:parametros,id',
             'completa' => 'nullable|string|max:4000',
-            'facilitas' => 'required|array',
-            'dificultades' => 'required|array',
+            'motivos' => 'required|array',
+            
         ];
     }
     /**

@@ -54,7 +54,7 @@ class VsiGenIngresosController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+       
         $this->opciones['activida'] = Tema::combo(114, false, false);
         $this->opciones['informal'] = Tema::combo(115, TRUE, false);
         $this->opciones['otrosxxx'] = Tema::combo(116, TRUE, false);
@@ -67,8 +67,9 @@ class VsiGenIngresosController extends Controller
         $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
         $this->opciones['parentes'] = Tema::combo(66, false, false);
 
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
@@ -98,7 +99,7 @@ class VsiGenIngresosController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
+      
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -130,11 +131,10 @@ class VsiGenIngresosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VsiGenIngreso $objetoxx)
+    public function edit(Vsi $objetoxx)
     {
 
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -142,20 +142,20 @@ class VsiGenIngresosController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+        return $this->view(['modeloxx' => $objetoxx->VsiGenIngreso, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
         $this->validator($dataxxxx['requestx']->all())->validate();
         $dato = Vsi::findOrFail($dataxxxx['requestx']->vsi_id);
-        if($dato->nnaj->FiDatosBasico->first()->edad >= 18){
+        if($dato->nnaj->fi_datos_basico->nnaj_nacimi->edad >= 18){
             $this->validatorMayor($dataxxxx['requestx']->all())->validate();
         }
         $registro = VsiGenIngreso::transaccion($dataxxxx);
 
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$registro->vsi_id])
             ->with('info', $dataxxxx['menssage']);
     }
 
@@ -166,11 +166,11 @@ class VsiGenIngresosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, VsiGenIngreso $objetoxx)
+    public function update(Request $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiGenIngreso,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

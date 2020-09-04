@@ -13,11 +13,11 @@ class VsiRedSocialCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             'prm_presenta_id.required' => 'Seleccione un motivo',
-            'prm_protector_id.required' => 'Seleccione un motivo',
+            4
         ];
         $this->_reglasx = [
             'prm_presenta_id' => 'required|exists:parametros,id',
-            'prm_protector_id' => 'required_if:prm_presenta_id,227|exists:parametros,id',
+  
             'prm_dificultad_id' => 'required|exists:parametros,id',
             'prm_quien_id' => 'required_if:prm_dificultad_id,227',
             'prm_ruptura_genero_id' => 'required|exists:parametros,id',
@@ -56,5 +56,9 @@ class VsiRedSocialCrearRequest extends FormRequest
 
     public function validar()
     {
+        if($this->prm_presenta_id==227){
+            $this->_mensaje['prm_protector_id.required']='Seleccione un motivo';
+            $this->_reglasx['prm_protector_id']='required_if:prm_presenta_id,227|exists:parametros,id'; 
+        }
     }
 }

@@ -52,7 +52,7 @@ class VsiSaludController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        $dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['motivosx'] = Tema::combo(87, true, false);
         $this->opciones['causasxx'] = Tema::combo(207, false, false);
@@ -61,8 +61,9 @@ class VsiSaludController extends Controller
         $this->opciones['dificulx'] = Tema::combo(209, false, false);
         $this->opciones['dificuly'] = Tema::combo(210, false, false);
 
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
+        $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
@@ -92,7 +93,7 @@ class VsiSaludController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
+        //$this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -124,11 +125,13 @@ class VsiSaludController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VsiSalud $objetoxx)
+    public function edit(Vsi $objetoxx)
     {
 
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+        //$this->opciones['padrexxx'] = $objetoxx->id;
+        //$this->opciones['parametr'] = [$objetoxx->vsi_id];
+
+           // ddd( $objetoxx);
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -136,18 +139,18 @@ class VsiSaludController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+        //ddd($objetoxx->VsiSalud);
+        return $this->view(['modeloxx' => $objetoxx->VsiSalud, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
-        $registro = VsiSalud::transaccion($dataxxxx);
+        //$registro = VsiSalud::transaccion($dataxxxx);
 
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->id])
-            ->with('info', $dataxxxx['menssage']);
-    }
-
+        ->route($this->opciones['routxxxx'] . '.editar', [VsiSalud::transaccion($dataxxxx)->vsi_id])
+        ->with('info', $dataxxxx['menssage']);
+ }
     /**
      * Update the specified resource in storage.
      *
@@ -155,11 +158,11 @@ class VsiSaludController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiSaludEditarRequest $request, VsiSalud $objetoxx)
+    public function update(VsiSaludEditarRequest $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiSalud,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

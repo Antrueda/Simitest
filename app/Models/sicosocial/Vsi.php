@@ -30,35 +30,35 @@ class Vsi extends Model{
     }
 
     public function VsiBienvenida(){
-        return $this->hasMany(VsiBienvenida::class, 'vsi_id');
+        return $this->hasOne(VsiBienvenida::class, 'vsi_id');
     }
 
     public function VsiViolencia(){
-        return $this->hasMany(VsiViolencia::class, 'vsi_id');
+        return $this->hasOne(VsiViolencia::class, 'vsi_id');
     }
 
     public function VsiEducacion(){
-        return $this->hasMany(VsiEducacion::class, 'vsi_id');
+        return $this->hasOne(VsiEducacion::class, 'vsi_id');
     }
 
     public function VsiSalud(){
-        return $this->hasMany(VsiSalud::class, 'vsi_id');
+        return $this->hasOne(VsiSalud::class, 'vsi_id');
     }
 
     public function VsiRelFamiliar(){
-        return $this->hasMany(VsiRelFamiliar::class, 'vsi_id');
+        return $this->hasOne(VsiRelFamiliar::class, 'vsi_id');
     }
 
     public function VsiRelSociale(){
-        return $this->hasMany(VsiRelSociale::class, 'vsi_id');
+        return $this->hasOne(VsiRelSociale::class, 'vsi_id');
     }
 
     public function VsiAntecedente(){
-        return $this->hasMany(VsiAntecedente::class, 'vsi_id');
+        return $this->hasOne(VsiAntecedente::class, 'vsi_id');
     }
 
     public function VsiActEmocional(){
-        return $this->hasMany(VsiActEmocional::class, 'vsi_id');
+        return $this->hasOne(VsiActEmocional::class, 'vsi_id');
     }
 
     public function VsiFacProtector(){
@@ -78,23 +78,23 @@ class Vsi extends Model{
     }
 
     public function VsiSitEspecial(){
-        return $this->hasMany(VsiSitEspecial::class, 'vsi_id');
+        return $this->hasOne(VsiSitEspecial::class, 'vsi_id');
     }
 
     public function VsiGenIngreso(){
-        return $this->hasMany(VsiGenIngreso::class, 'vsi_id');
+        return $this->hasOne(VsiGenIngreso::class, 'vsi_id');
     }
 
     public function VsiAbuSexual(){
-        return $this->hasMany(VsiAbuSexual::class, 'vsi_id');
+        return $this->hasOne(VsiAbuSexual::class, 'vsi_id');
     }
 
     public function VsiConsumo(){
-        return $this->hasMany(VsiConsumo::class, 'vsi_id');
+        return $this->hasOne(VsiConsumo::class, 'vsi_id');
     }
 
     public function VsiRedSocial(){
-        return $this->hasMany(VsiRedSocial::class, 'vsi_id');
+        return $this->hasOne(VsiRedSocial::class, 'vsi_id');
     }
 
     public function VsiRedsocActual(){
@@ -106,11 +106,12 @@ class Vsi extends Model{
     }
 
     public function VsiConcepto(){
-        return $this->hasMany(VsiConcepto::class, 'vsi_id');
+        return $this->hasOne(VsiConcepto::class, 'vsi_id');
     }
+    
 
     public function VsiConsentimiento(){
-        return $this->hasMany(VsiConsentimiento::class, 'vsi_id');
+        return $this->hasOne(VsiConsentimiento::class, 'vsi_id');
     }
 
     public function VsiDinfamMadre(){
@@ -122,11 +123,11 @@ class Vsi extends Model{
     }
 
     public function VsiDinFamiliar(){
-        return $this->hasMany(VsiDinFamiliar::class, 'vsi_id');
+        return $this->hasOne(VsiDinFamiliar::class, 'vsi_id');
     }
 
     public function VsiEstEmocional(){
-        return $this->hasMany(VsiEstEmocional::class, 'vsi_id');
+        return $this->hasOne(VsiEstEmocional::class, 'vsi_id');
     }
 
     public function creador(){
