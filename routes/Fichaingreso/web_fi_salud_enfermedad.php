@@ -1,7 +1,7 @@
 <?php
-$controll='FichaIngreso\FiEnfermedadesFamilia';
-$routexxx='fisaludenfermedad';
-Route::group(['prefix' => '{padrexxx}/fisaludenfermedad'], function () use($controll,$routexxx){
+$controll='FichaIngreso\FiSaludEnfami';
+$routexxx='fisalenf';
+Route::group(['prefix' => '{padrexxx}/fienfermedad'], function () use($controll,$routexxx){
     Route::get('listaxxx', [
 		'uses' => $controll.'Controller@getListado',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']

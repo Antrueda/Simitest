@@ -56,6 +56,7 @@ use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiContacto;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiDiasGeneraIngreso;
+use App\Models\fichaIngreso\FiDiscausa;
 use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\fichaIngreso\FiEnfermedadesFamilia;
 use App\Models\fichaIngreso\FiEventosMedico;
@@ -83,6 +84,7 @@ use App\Models\fichaIngreso\FiSituacionEspecial;
 use App\Models\fichaIngreso\FiSituacionVulneracion;
 use App\Models\fichaIngreso\FiSustanciaConsumida;
 use App\Models\fichaIngreso\FiVestuarioNnaj;
+use App\Models\fichaIngreso\FiVictataq;
 use App\Models\fichaIngreso\FiVictimaEscnna;
 use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaobservacion\FosDatosBasico;
@@ -281,6 +283,7 @@ use App\Observers\FiConsumoSpaObserver;
 use App\Observers\FiContactoObserver;
 use App\Observers\FiDatosBasicoObserver;
 use App\Observers\FiDiasGeneraIngresoObserver;
+use App\Observers\FiDiscausaObserver;
 use App\Observers\FiDocumentosAnexaObserver;
 use App\Observers\FiEnfermedadesFamiliaObserver;
 use App\Observers\FiEventosMedicoObserver;
@@ -308,6 +311,7 @@ use App\Observers\FiSituacionEspecialObserver;
 use App\Observers\FiSituacionVulneracionObserver;
 use App\Observers\FiSustanciaConsumidaObserver;
 use App\Observers\FiVestuarioNnajObserver;
+use App\Observers\FiVictataqObserver;
 use App\Observers\FiVictimaEscnnaObserver;
 use App\Observers\FiViolenciaObserver;
 use App\Observers\FosDatosBasicoObserver;
@@ -474,7 +478,7 @@ class AppServiceProvider extends ServiceProvider
   public function boot()
   {
     Schema::defaultStringLength(190);
-    Blade::component('layouts.components.archivos.upload', 'upload');
+
 
     // SICOSOCIAL
     Vsi::observe(VsiObserver::class);
@@ -499,7 +503,7 @@ class AppServiceProvider extends ServiceProvider
     VsiRedsocActual::observe(VsiRedsocActualObserver::class);
     VsiRedSocial::observe(VsiRedSocialObserver::class);
     VsiRedsocPasado::observe(VsiRedsocPasadoObserver::class);
-    
+    VsiRelFamiliar::observe(VsiRelFamiliarObserver::class);
     VsiRelSociale::observe(VsiRelSocialeObserver::class);
     VsiSalud::observe(VsiSaludObserver::class);
     VsiSitEspecial::observe(VsiSitEspecialObserver::class);
@@ -544,7 +548,6 @@ class AppServiceProvider extends ServiceProvider
     VsiRelfamAccione::observe(VsiRelfamAccioneObserver::class);
     VsiRelfamDificultad::observe(VsiRelfamDificultadObserver::class);
     VsiRelfamMotivo::observe(VsiRelfamMotivoObserver::class);
-    //VsiRelFamiliar::observe(VsiRelFamiliarObserver::class);
     VsiRelsolDificulta::observe(VsiRelSolDificultaObserver::class);
     VsiRelsolFacilita::observe(VsiRelSolFacilitaObserver::class);
     VsiSitespRiesgo::observe(VsiSitespRiesgoObserver::class);
@@ -654,7 +657,8 @@ class AppServiceProvider extends ServiceProvider
     FiVestuarioNnaj::observe(FiVestuarioNnajObserver::class);
     FiVictimaEscnna::observe(FiVictimaEscnnaObserver::class);
     FiViolencia::observe(FiViolenciaObserver::class);
-
+    FiDiscausa::observe(FiDiscausaObserver::class);
+    FiVictataq::observe(FiVictataqObserver::class);
     // USUARIO
     SisAreaUsua::observe(SisAreaUsuaObserver::class);
 

@@ -27,7 +27,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_discausa_id', '6.4.b) ¿La discapacidad fue producida en la comisión de algún acto ilegal?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_discausa_id', $todoxxxx["discausa"], null, ['class' => 'form-control form-control-sm select2','id'=>'prm_discausa_id']) }}
+        {{ Form::select('prm_discausa_id[]', $todoxxxx["discausa"], null, ['class' => 'form-control form-control-sm select2','id'=>'prm_discausa_id','multiple']) }}
         @if($errors->has('prm_discausa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_discausa_id') }}
@@ -36,7 +36,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_victataq_id', '6.4 c) ¿Ha sido víctima de  ataques con:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_victataq_id', $todoxxxx["victataq"], null, ['class' => 'form-control form-control-sm select2','id'=>'prm_victataq_id']) }}
+        {{ Form::select('prm_victataq_id[]', $todoxxxx["victataq"], null, ['class' => 'form-control form-control-sm select2','id'=>'prm_victataq_id','multiple']) }}
         @if($errors->has('prm_victataq_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_victataq_id') }}
@@ -112,8 +112,8 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_conoce_metodos_id', '6.13 ¿Tiene conocimiento sobre métodos anticonceptivos?', ['class' => 'control-label']) }}
-        {{ Form::select('i_prm_conoce_metodos_id[]', $todoxxxx['condnoap'], null, ['class' => $errors->first('i_prm_conoce_metodos_id') ?
-    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple',
+        {{ Form::select('i_prm_conoce_metodos_id', $todoxxxx['condnoap'], null, ['class' => $errors->first('i_prm_conoce_metodos_id') ?
+    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm',
     'data-placeholder' => 'Seleccione los eventos médicos importantes']) }}
         @if($errors->has('i_prm_conoce_metodos_id'))
         <div class="invalid-feedback d-block">

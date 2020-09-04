@@ -64,7 +64,7 @@ $this->getPermisos(['permisox' => 'fiautorizacion', 'permisos' => ['leer', 'crea
 $this->getPermisos(['permisox' => 'firedactual', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo Actual FI', 'pestania' => 1]);
 
 //Crear permisos para asignar los camponentes familiares que tengan enfermedades FI
-$this->getPermisos(['permisox' => 'fisaludenfermedad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Componentes Familiares que tengan enfermedades FI', 'pestania' => 1]);
+$this->getPermisos(['permisox' => 'fisalenf', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Componentes Familiares que tengan enfermedades FI', 'pestania' => 1]);
 
 //Crear permisos para asignar los camponentes familiares con procesos judiciales FI
 $this->getPermisos(['permisox' => 'fiprocesojudicial', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'componentes con procesos judiciales FI', 'pestania' => 1]);

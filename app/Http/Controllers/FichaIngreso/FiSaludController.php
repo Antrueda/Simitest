@@ -53,9 +53,9 @@ class FiSaludController extends Controller
         /** caminando relajado
          * 6.4.b) ¿La discapacidad fue producida en la comisión de algún acto ilegal?
         */
-        $this->opciones['discausa'] = Tema::combo(341, true, false);
+        $this->opciones['discausa'] = Tema::combo(341, false, false);
         /** 6.4 c) ¿Ha sido víctima de  ataques con */
-        $this->opciones['victataq'] = Tema::combo(342, true, false);
+        $this->opciones['victataq'] = Tema::combo(342, false, false);
 
         $this->opciones['entid_id'] = ['' => 'Seleccione'];
 
@@ -90,12 +90,15 @@ class FiSaludController extends Controller
         $this->opciones['readhijo'] = '';
         $this->opciones['cualmedi'] = '';
         if ($dataxxxx['modeloxx'] != '') {
+
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->i_prm_tentidad_id, true, false);
             $this->opciones['puedexxx'] = '';
             if ($dataxxxx['modeloxx']->i_prm_tiene_discapacidad_id == 228) {
                 $this->opciones['noapdisc'] = [1 => 'NO APLICA'];
                 $this->opciones['tipodisc'] = [1 => 'NO APLICA'];
+                $this->opciones['victataq'] = [1 => 'NO APLICA'];
+                $this->opciones['discausa'] = [1 => 'NO APLICA'];
             }
             if ($dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 228 || $dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 235) {
                 $this->opciones['noapdisc'] = [1 => 'NO APLICA'];
@@ -135,7 +138,7 @@ class FiSaludController extends Controller
                 'titulist' => 'LISTA DE DIAGNOSTICADOS',
                 'dataxxxx' => [],
                 'vercrear' => true,
-                'urlxxxxx' => route('fisaludenfermedad.listaxxx', $this->opciones['parametr'][0]),
+                'urlxxxxx' => route('fisalenf.listaxxx', $this->opciones['parametr'][0]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -173,8 +176,8 @@ class FiSaludController extends Controller
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
-                'permisox' => 'fisaludenfermedad',
-                'routxxxx' => 'fisaludenfermedad',
+                'permisox' => 'fisalenf',
+                'routxxxx' => 'fisalenf',
                 'parametr' => $this->opciones['parametr'][0],
             ],
 
@@ -224,6 +227,7 @@ class FiSaludController extends Controller
 
     public function store(FiSaludCrearRequest $request, FiDatosBasico $padrexxx)
     {
+
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
         return $this->grabar($dataxxxx, '', 'Salud creada con exito', $padrexxx);
@@ -264,19 +268,8 @@ class FiSaludController extends Controller
      * @param  \App\Models\FiSalud  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiSaludUpdateRequest $request, $padrexxx, $modeloxx)
+    public function update(FiSaludUpdateRequest $request, FiDatosBasico $padrexxx,FiSalud $modeloxx)
     {
-        return $this->grabar($request->all(), FiSalud::where('id', $modeloxx)->first(), 'Salud actualizada con exito', $padrexxx);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FiSalud  $objetoxx
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(FiSalud $objetoxx)
-    {
-        //
+        return $this->grabar($request->all(), $modeloxx, 'Salud actualizada con exito', $padrexxx);
     }
 }

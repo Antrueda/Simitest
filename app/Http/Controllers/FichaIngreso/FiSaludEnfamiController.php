@@ -14,17 +14,17 @@ use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class FiEnfermedadesFamiliaController extends Controller
+class FiSaludEnfamiController extends Controller
 {
     private $opciones;
     use FiTrait;
     public function __construct()
     {
 
-        $this->opciones['permisox'] = 'fisaludenfermedad';
-        $this->opciones['routxxxx'] = 'fisaludenfermedad';
+        $this->opciones['permisox'] = 'fisalenf';
+        $this->opciones['routxxxx'] = 'fisalenf';
         $this->opciones['rutacarp'] = 'FichaIngreso.';
-        $this->opciones['carpetax'] = 'Enfermedad';
+        $this->opciones['carpetax'] = 'Salud';
         $this->opciones['slotxxxx'] = 'fisalud';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "SALUD";
@@ -63,6 +63,16 @@ class FiEnfermedadesFamiliaController extends Controller
     private function view($dataxxxx)
     {
 
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $archivox=($dataxxxx['padrexxx']->prm_tipoblaci_id == 2323) ? 'caminando' : 'js';
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.'.$archivox]
+        ];
+
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -77,6 +87,58 @@ class FiEnfermedadesFamiliaController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
+
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'CREAR DIGNOSTICADO',
+                'titulist' => 'LISTA DE DIAGNOSTICADOS',
+                'dataxxxx' => [],
+                'vercrear' => true,
+                'urlxxxxx' => route('fisalenf.listaxxx', $this->opciones['parametr'][0]),
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'FAMILIAR', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 4],
+
+                        ['td' => 'TIPO ENFERMEDAD', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'RECIBE MEDICAMENTO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'MEDICAMENTO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'RECIBIÓ TRATAMIENTO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                    ],
+                    [
+
+
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+
+                    ],
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'fi_enfermedades_familias.id'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_composicion_famis.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_composicion_famis.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_composicion_famis.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_composicion_famis.s_segundo_apellido'],
+
+                    ['data' => 's_tipo_enfermedad', 'name' => 'fi_enfermedades_familias.s_tipo_enfermedad'],
+                    ['data' => 'medicina', 'name' => 'parametros.nombre as medicina'],
+                    ['data' => 's_medicamento', 'name' => 'fi_enfermedades_familias.s_medicamento'],
+                    ['data' => 'tratamiento', 'name' => 'parametros.nombre as tratamiento'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatable',
+                'permisox' => 'fisalenf',
+                'routxxxx' => 'fisalenf',
+                'parametr' => $this->opciones['parametr'][0],
+            ],
+
+        ];
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -92,12 +154,12 @@ class FiEnfermedadesFamiliaController extends Controller
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear','enfermedad'], 'padrexxx' => $padrexxx]);
     }
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
     {
         return redirect()
-            ->route('fisaludenfermedad.editar', [$padrexxx->id, FiEnfermedadesFamilia::transaccion($dataxxxx, $objectx)->id])
+            ->route('fisalenf.editar', [$padrexxx->id, FiEnfermedadesFamilia::transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);
     }
     /**
@@ -130,7 +192,7 @@ class FiEnfermedadesFamiliaController extends Controller
                 'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar','enfermedad'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -147,7 +209,7 @@ class FiEnfermedadesFamiliaController extends Controller
 
     public function show(FiDatosBasico $padrexxx, FiEnfermedadesFamilia $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Ver', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver','enfermedad'], 'padrexxx' => $padrexxx]);
     }
 
     public function inactivate(FiDatosBasico $padrexxx,FiEnfermedadesFamilia $modeloxx)
@@ -160,7 +222,7 @@ class FiEnfermedadesFamiliaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Destroy','padrexxx'=>$padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$padrexxx]);
     }
 
 

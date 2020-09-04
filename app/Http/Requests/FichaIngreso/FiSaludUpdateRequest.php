@@ -2,13 +2,14 @@
 
 namespace App\Http\Requests\FichaIngreso;
 
+use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiSaludUpdateRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
-    
+
     public function __construct()
     {
         $this->_mensaje = [
@@ -61,12 +62,12 @@ class FiSaludUpdateRequest extends FormRequest
     {
         return true;
     }
-    
+
     public function messages()
     {
         return $this->_mensaje;
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -75,14 +76,20 @@ class FiSaludUpdateRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-       
+
         return $this->_reglasx;
     }
-    
+
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-
+        $datosbas = FiDatosBasico::find($this->segments()[1]);
+        if ($datosbas->prm_tipoblaci_id == 2323) {
+            $this->_mensaje['prm_victataq_id.required'] = 'Seleccione al menos una forma de ataque';
+            $this->_mensaje['prm_discausa_id.required'] = 'Seleccione al menos una causa de discapacidad';
+            $this->_reglasx['prm_victataq_id'] = ['required'];
+            $this->_reglasx['prm_discausa_id'] = ['required'];
+        }
         switch($dataxxxx['i_prm_esta_gestando_id']){
             case 227:
             $this->_mensaje['i_numero_semanas.required'] ='Escriba el número de semanas';

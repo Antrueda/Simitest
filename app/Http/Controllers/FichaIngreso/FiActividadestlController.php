@@ -45,7 +45,7 @@ class FiActividadestlController extends Controller
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         /** informacion que se va a mostrar en la vista */
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
@@ -59,7 +59,7 @@ class FiActividadestlController extends Controller
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['parametr'][1]=$dataxxxx['modeloxx']->id;
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             if ($dataxxxx['modeloxx']->i_prm_pertenece_parche_id == 228) {
                 $this->opciones['readnomb'] = 'readonly';
             }
@@ -78,7 +78,32 @@ class FiActividadestlController extends Controller
         $this->opciones['sacramex'] = FiActividadestl::getSacramento($dataxxxx['modeloxx']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
+    private function getArchivo($dataxxxx)
+    {
+        $archivox = [
+            650 => [
+                0 => ['crear', 'cihacaxx'],
+                1 => ['editar', 'cihacaxx'],
+                2 => ['ver', 'cihacaxx'],
+                3 => ['destroy', 'destroy'],
+            ],
+            651 => [
+                0 => ['crear', 'rihacaxx'],
+                1 => ['editar', 'rihacaxx'],
+                2 => ['ver', 'rihacaxx'],
+                3 => ['destroy', 'destroy'],
+            ],
+            2323 => [
+                0 => ['crear', 'relajado'],
+                1 => ['editar', 'relajado'],
+                2 => ['ver', 'relajado'],
+                3 => ['destroy', 'destroy'],
+            ],
+        ];
 
+       return $archivox[$dataxxxx['padrexxx']->prm_tipoblaci_id][$dataxxxx['archivox']];
+
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -96,7 +121,10 @@ class FiActividadestlController extends Controller
             return redirect()
                 ->route('fiactividades.editar', [$padrexxx->id, $vestuari->id]);
         }
-        return $this->view(['modeloxx' => '', 'accionxx'=>['crear','formulario'], 'padrexxx' => $padrexxx]);
+
+        return $this->view(['modeloxx' => '',
+        'accionxx' => $this->getArchivo(['padrexxx'=> $padrexxx,'archivox'=>0]),
+        'padrexxx' => $padrexxx]);
     }
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
     {
@@ -127,7 +155,11 @@ class FiActividadestlController extends Controller
      */
     public function show(FiDatosBasico $padrexxx, FiActividadestl $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['ver','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view([
+            'modeloxx' => $modeloxx,
+            'accionxx' => $this->getArchivo(['padrexxx'=> $padrexxx,'archivox'=>2]), '
+            padrexxx' => $padrexxx]
+        );
     }
 
     /**
@@ -143,7 +175,11 @@ class FiActividadestlController extends Controller
                 'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-            return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view([
+            'modeloxx' => $modeloxx,
+            'accionxx' => $this->getArchivo(['padrexxx'=> $padrexxx,'archivox'=>1]),
+            'padrexxx' => $padrexxx
+            ]);
     }
 
 

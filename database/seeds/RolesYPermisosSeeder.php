@@ -511,7 +511,7 @@ class RolesYPermisosSeeder extends Seeder
             // ficha de ingreso
             // 'fiantecedentes-leer', 'fiantecedentes-crear', 'fiantecedentes-editar', 'fiantecedentes-borrar',
             'firedactual-leer', 'firedactual-crear', 'firedactual-editar', 'firedactual-borrar',
-            'fisaludenfermedad-leer', 'fisaludenfermedad-crear', 'fisaludenfermedad-editar', 'fisaludenfermedad-borrar',
+            'fisalenf-leer', 'fisalenf-crear', 'fisalenf-editar', 'fisalenf-borrar',
             'fiprocesojudicial-leer', 'fiprocesojudicial-crear', 'fiprocesojudicial-editar', 'fiprocesojudicial-borrar',
             'fiprocesojudicial-leer', 'fiprocesojudicial-crear', 'fiprocesojudicial-editar', 'fiprocesojudicial-borrar',
             'fisustanciaconsume-leer', 'fisustanciaconsume-crear', 'fisustanciaconsume-editar', 'fisustanciaconsume-borrar',
@@ -626,7 +626,7 @@ class RolesYPermisosSeeder extends Seeder
                 'fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar', 'fiviolencia-borrar',
 
                 'firedactual-leer', 'firedactual-crear', 'firedactual-editar', 'firedactual-borrar',
-                'fisaludenfermedad-leer', 'fisaludenfermedad-crear', 'fisaludenfermedad-editar', 'fisaludenfermedad-borrar',
+                'fisalenf-leer', 'fisalenf-crear', 'fisalenf-editar', 'fisalenf-borrar',
                 'fiprocesojudicial-leer', 'fiprocesojudicial-crear', 'fiprocesojudicial-editar', 'fiprocesojudicial-borrar',
                 'fiprocesojudicial-leer', 'fiprocesojudicial-crear', 'fiprocesojudicial-editar', 'fiprocesojudicial-borrar',
                 'fisustanciaconsume-leer', 'fisustanciaconsume-crear', 'fisustanciaconsume-editar', 'fisustanciaconsume-borrar',

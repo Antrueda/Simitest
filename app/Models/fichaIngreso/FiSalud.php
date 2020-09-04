@@ -6,6 +6,7 @@ use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\Parametro;
 use app\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -80,26 +81,55 @@ class FiSalud extends Model{
     }
   }
 
+  private static function getVictataq($evenmedic,$dataxxxx){
+    $datosxxx=[
+      'fi_salud_id'=>$evenmedic->id,
+      'user_crea_id'=>Auth::user()->id,
+      'user_edita_id'=>Auth::user()->id,
+      'sis_esta_id'=>1,
+    ];
+    FiVictataq::where('fi_salud_id', $evenmedic->id)->delete();
+    foreach($dataxxxx['prm_victataq_id'] as $evmedico){
+      $datosxxx['prm_victataq_id']=$evmedico;
+      FiVictataq::create($datosxxx);
+    }
+  }
+
+  private static function getDiscausa($evenmedic,$dataxxxx){
+    $datosxxx=[
+      'fi_salud_id'=>$evenmedic->id,
+      'user_crea_id'=>Auth::user()->id,
+      'user_edita_id'=>Auth::user()->id,
+      'sis_esta_id'=>1,
+    ];
+    FiDiscausa::where('fi_salud_id', $evenmedic->id)->delete();
+    foreach($dataxxxx['prm_discausa_id'] as $evmedico){
+      $datosxxx['prm_discausa_id']=$evmedico;
+      FiDiscausa::create($datosxxx);
+    }
+  }
+
   public static function transaccion($dataxxxx,  $objetoxx)
   {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
       $dataxxxx['user_edita_id'] = Auth::user()->id;
+
       if ($objetoxx != '') {
         $objetoxx->update($dataxxxx);
       } else {
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiSalud::create($dataxxxx);
       }
+
       if(isset($dataxxxx['i_prm_evento_medico_id'])){
         FiSalud::grabarEventoMedico($objetoxx,$dataxxxx);
       }
-
-      $dataxxxx['sis_tabla_id']=33;
-      IndicadorHelper::asignaLineaBase($dataxxxx);
-
-      $dataxxxx['sis_tabla_id']=13;
-      IndicadorHelper::asignaLineaBase($dataxxxx);
-
+      if(isset($dataxxxx['prm_discausa_id'])){
+        FiSalud::getDiscausa($objetoxx,$dataxxxx);
+      }
+      if(isset($dataxxxx['prm_victataq_id'])){
+        FiSalud::getVictataq($objetoxx,$dataxxxx);
+      }
       return $objetoxx;
     }, 5);
     return $usuariox;
@@ -107,5 +137,14 @@ class FiSalud extends Model{
   public function i_prm_evento_medico_id()
   {
       return $this->belongsToMany(Parametro::class,'fi_eventos_medicos','fi_salud_id','i_prm_evento_medico_id');
+  }
+  public function prm_discausa_id()
+  {
+      return $this->BelongsToMany(Parametro::class,'fi_discausas','fi_salud_id','prm_discausa_id');
+  }
+
+  public function prm_victataq_id()
+  {
+      return $this->BelongsToMany(Parametro::class,'fi_victataqs','fi_salud_id','prm_victataq_id');
   }
 }
