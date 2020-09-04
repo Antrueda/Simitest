@@ -8,13 +8,13 @@
             @if($todoxxxx['pestpadr']==2)
             @canany(['vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsixxxxx') ?' active' : '' }}
-        text-sm" href="{{ route('vsixxxxx',$todoxxxx['parametr']) }}">Valoracion Sicosocial</a></li>
+            text-sm" href="{{ route('vsixxxxx',$todoxxxx['usuariox']) }}">Valoracion Sicosocial</a></li>
             @endcanany
             @endif
             @if($todoxxxx['pestpadr']==3)
             @canany(['vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsixxxxx') ?' active' : '' }}
-        text-sm" href="{{ route('vsixxxxx',$todoxxxx['parametr']) }}">Valoracion Sicosocial</a></li>
+        text-sm" href="{{ route('vsixxxxx',$todoxxxx['usuariox']) }}">Valoracion Sicosocial</a></li>
             @endcanany
             @canany(['vsidabas-editar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsidabas') ?' active' : '' }}
@@ -139,9 +139,9 @@
             <?php
             $pestania='19. Áreas de ajuste sicosocial';
             $permisox='vsiareas';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDatosVincula;
+            $checkxxx=$todoxxxx['vsixxxxx']->Areajuste;
             ?>
-            @include('Sicosocial.tabsxxxx.pestaniascheck')
+            @include('Sicosocial.tabsxxxx.pestaniascheckarea')
 
             <?php
             $pestania='20. Impresicón diagnóstica y análisis social';

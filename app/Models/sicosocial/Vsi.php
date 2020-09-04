@@ -162,6 +162,23 @@ class Vsi extends Model{
         return $this->belongsToMany(Parametro::class,'vsi_nnaj_familiar', 'vsi_id', 'parametro_id');
     }
 
+
+
+    public function getAreajusteAttribute(){
+        $emociona=$this->emocionales()->count();
+        $sexuales=$this->sexuales()->count();
+        $comporta=$this->comportamentales()->count();
+        $academic=$this->academicas()->count();
+        $sociales=$this->sociales()->count();
+        $familiar=$this->familiares()->count();
+        $areaajust=false;
+        
+        if ($emociona |$sexuales||$comporta||$academic||$sociales||$familiar) {
+            $areaajust=true;
+             }
+        return $areaajust;
+   
+}
     public static function indicador($sis_nnaj_id, $sis_tabla_id)
     {
         // $dataxxxx['sis_tabla_id'] = $sis_tabla_id;

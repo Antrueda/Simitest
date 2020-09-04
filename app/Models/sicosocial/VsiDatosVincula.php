@@ -54,9 +54,7 @@ class VsiDatosVincula extends Model{
             $objetoxx = VsiDatosVincula::create($dataxxxx);
         }
       
-        $datosbas= $objetoxx->vsi->nnaj->fi_datos_basico;
-        $datosbas->nnaj_sexo->update($dataxxxx);
-        $datosbas->nnaj_docu->update($dataxxxx);
+
         
         return $objetoxx;
         }, 5);
