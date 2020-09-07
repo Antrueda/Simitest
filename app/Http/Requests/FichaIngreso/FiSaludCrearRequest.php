@@ -55,8 +55,8 @@ class FiSaludCrearRequest extends FormRequest
             'i_comidas_diarias' => ['Required'],
             'i_prm_razon_no_cinco_comidas_id' => ['Required'],
 
-            'prm_victataq_id' => ['Required'],
-            'prm_discausa_id' => ['Required'],
+            //'prm_victataq_id' => ['Required'],
+            //'prm_discausa_id' => ['Required'],
         ];
     }
     /**

@@ -22,7 +22,7 @@ class FiSituacionEspecialController extends Controller
         $this->opciones['carpetax'] = 'Situacion';
         $this->opciones['slotxxxx'] = 'fisituacion';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "CONSUMO SPA";
+        $this->opciones['tituloxx'] = "TIPO DE POBLACIÓN";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';

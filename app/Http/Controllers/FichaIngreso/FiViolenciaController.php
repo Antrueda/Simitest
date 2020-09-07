@@ -24,7 +24,7 @@ class FiViolenciaController extends Controller
         $this->opciones['carpetax'] = 'Violencia';
         $this->opciones['slotxxxx'] = 'fiviolencia';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "CONSUMO SPA";
+        $this->opciones['tituloxx'] = "VIOLENCIAS Y CONDICIÓN ESPECIAL";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';
