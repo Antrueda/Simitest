@@ -9,6 +9,7 @@ use App\Http\Requests\Sistema\RolEditarRequest;
 use App\Models\Roleext;
 use App\Models\Sistema\SisEsta;
 use App\Models\sicosocial\VsiDinfamMadre;
+use App\Models\Usuario\Estusuario;
 use Illuminate\Http\Request;
 use App\Traits\Administracion\RolesTrait;
 use Illuminate\Support\Facades\Auth;
@@ -109,6 +110,7 @@ class RolController extends Controller
     }
     private function view($dataxxxx)
     {
+        $estadoid = 0;
         $this->opciones['diaxxxxx'] = 0;
         $this->opciones['mesxxxxx'] = 0;
         $this->opciones['anoxxxxx'] = 0;
@@ -132,8 +134,14 @@ class RolController extends Controller
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
+            $estadoid= $dataxxxx['modeloxx']->sis_esta_id;
         }
-
+        $this->opciones['motivoxx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2351
+        ]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**

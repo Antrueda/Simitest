@@ -8,6 +8,14 @@
      </a>
 
      <ul class="nav nav-treeview">
+         @can('areaxxxx-leer')
+         <li class="nav-item">
+             <a href="{{ route('areaxxxx') }}" class="nav-link">
+                 <i class="fas fa-door-open nav-icon"></i>
+                 <p>&Aacute;reas</p>
+             </a>
+         </li>
+         @endcan
          @can('dependencia-leer')
          <li class="nav-item">
              <a href="{{ route('dependencia') }}" class="nav-link">
@@ -109,7 +117,7 @@
          <li class="nav-item">
              <a href="{{ route('parametro') }}" class="nav-link">
                  <i class="fas fa-chess-pawn nav-icon"></i>
-                 <p>Parámetro</p>
+                 <p>Par&aacute;metro</p>
              </a>
          </li>
          @endcanany
@@ -143,7 +151,7 @@
          <li class="nav-item">
              <a href="{{ route('diafesti') }}" class="nav-link">
                  <i class="fas fa-chess-pawn nav-icon"></i>
-                 <p>Días Festivos</p>
+                 <p>D&iacute;as Festivos</p>
              </a>
          </li>
          @endcan

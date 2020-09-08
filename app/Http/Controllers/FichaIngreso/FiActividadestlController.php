@@ -33,10 +33,11 @@ class FiActividadestlController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['activlib'] = Tema::combo(77, false, false);
+
         $this->opciones['reliprac'] = ['' => 'Seleccione'];
         $this->opciones['reliprac'] = Tema::combo(78, true, false);
         $this->opciones['sacramen'] = Tema::combo(79, false, false);
+        $this->opciones['acciones'] = Tema::combo(344, false, false);
     }
 
     private function view($dataxxxx)
@@ -49,6 +50,8 @@ class FiActividadestlController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
+        $this->opciones['activlib'] = Tema::combo(($dataxxxx['padrexxx']->prm_tipoblaci_id==2323)?343:77, false, false);
+
 
         $this->opciones['activida'] = FiActividadestl::actividad($dataxxxx['padrexxx']->sis_nnaj_id);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];

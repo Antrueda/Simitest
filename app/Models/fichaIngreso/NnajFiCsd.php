@@ -2,9 +2,9 @@
 
 namespace App\Models\fichaIngreso;
 
-use app\Models\Parametro;
+use App\Models\Parametro;
 use App\Models\Sistema\SisDocfuen;
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class NnajFiCsd extends Model

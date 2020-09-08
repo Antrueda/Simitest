@@ -2,7 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class FiDiasGeneraIngreso extends Model

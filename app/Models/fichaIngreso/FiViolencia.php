@@ -3,7 +3,8 @@
 namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
-use app\Models\User;
+use App\Models\Sistema\SisNnaj;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -11,22 +12,7 @@ use Illuminate\Support\Facades\DB;
 class FiViolencia extends Model{
   protected $fillable = [
     'i_prm_presenta_violencia_id',
-    'i_prm_familiar_fisica_id',
-    'i_prm_amistad_fisica_id',
-    'i_prm_pareja_fisica_id',
-    'i_prm_comunidad_fisica_id',
-    'i_prm_familiar_psico_id',
-    'i_prm_amistad_psico_id',
-    'i_prm_pareja_psico_id',
-    'i_prm_comunidad_psico_id',
-    'i_prm_familiar_sexual_id',
-    'i_prm_amistad_sexual_id',
-    'i_prm_pareja_sexual_id',
-    'i_prm_comunidad_sexual_id',
-    'i_prm_familiar_econo_id',
-    'i_prm_amistad_econo_id',
-    'i_prm_pareja_econo_id',
-    'i_prm_comunidad_econo_id',
+    'prm_ejerviol_id',
     'i_prm_violencia_genero_id',
     'i_prm_condicion_presenta_id',
     'i_prm_depto_condicion_id',
@@ -49,6 +35,15 @@ class FiViolencia extends Model{
   public function editor()
   {
     return $this->belongsTo(User::class, 'user_edita_id');
+  }
+  public function fi_contviol()
+  {
+    return $this->hasMany(FiContviol::class);
+  }
+  
+  public function sis_nnaj()
+  {
+    return $this->belongsTo(SisNnaj::class);
   }
   public static function violencia($usuariox)
   {

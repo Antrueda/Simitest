@@ -2,8 +2,8 @@
 
 namespace App\Models\Sistema;
 
-use app\Models\Indicadores\Area;
-use app\Models\User;
+use App\Models\Indicadores\Area;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Support\Facades\Auth;
 

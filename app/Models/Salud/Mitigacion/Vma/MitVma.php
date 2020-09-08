@@ -2,11 +2,11 @@
 
 namespace App\Models\Salud\Mitigacion\Vma;
 
-use app\Models\Parametro;
+use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDiagnosticos;
 use App\Models\Sistema\SisNnaj;
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class MitVma extends Model{

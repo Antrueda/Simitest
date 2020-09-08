@@ -6,7 +6,7 @@ use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
-use app\Models\User;
+use App\Models\User;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;

@@ -62,6 +62,7 @@ class FosDatoBasicoController extends Controller
     }
     public function index(Request $request)
     {
+
         $this->opciones['cabecera'] = [
             ['td' => 'Id'],
             ['td' => 'PRIMER NOMBRE'],

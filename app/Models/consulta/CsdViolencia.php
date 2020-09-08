@@ -4,8 +4,8 @@ namespace App\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
-use app\Models\Parametro;
-use app\Models\User;
+use App\Models\Parametro;
+use App\Models\User;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisDepartamento;
 

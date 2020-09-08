@@ -2,13 +2,13 @@
 
 namespace App\Models\Sistema;
 
-use app\Models\Indicadores\InBaseFuente;
-use app\Models\Indicadores\InLineaBase;
-use app\Models\Indicadores\InLineabaseNnaj;
-use app\Models\Indicadores\InPregunta;
+use App\Models\Indicadores\InBaseFuente;
+use App\Models\Indicadores\InLineaBase;
+use App\Models\Indicadores\InLineabaseNnaj;
+use App\Models\Indicadores\InPregunta;
 use Illuminate\Database\Eloquent\Model;
 
-use app\Models\User;
+use App\Models\User;
 
 class SisDocfuen extends Model
 {

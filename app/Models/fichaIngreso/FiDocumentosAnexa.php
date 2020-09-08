@@ -3,11 +3,11 @@
 namespace App\Models\fichaIngreso;
 
 use App\Helpers\Archivos\Archivos;
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use app\Models\Tema;
+use App\Models\Tema;
 class FiDocumentosAnexa extends Model {
 
   protected $fillable = [

@@ -2,9 +2,9 @@
 
 namespace App\Models\Indicadores;
 
-use app\Models\Acciones\Grupales\AgTema;
-use app\Models\User;
-use app\Models\Usuario\SisAreaUsua;
+use App\Models\Acciones\Grupales\AgTema;
+use App\Models\User;
+use App\Models\Usuario\SisAreaUsua;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

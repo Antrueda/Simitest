@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-use app\Models\User;
+use App\Models\User;
 use App\Models\Sistema\SisNnaj;
 
 class FosDatosBasico extends Model{

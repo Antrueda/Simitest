@@ -2,8 +2,8 @@
 
 namespace App\Models\Usuario;
 
-use app\Models\Indicadores\Area;
-use app\Models\User;
+use App\Models\Indicadores\Area;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -44,7 +44,7 @@ class RolUsuario extends Model
     public static function transaccion($dataxxxx, $objetoxx)
     {
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['model_type']='app\Models\User';
+            $dataxxxx['model_type']='App\Models\User';
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if ($objetoxx != '') {
                 $objetoxx->update($dataxxxx);

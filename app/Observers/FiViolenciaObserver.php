@@ -14,22 +14,7 @@ class FiViolenciaObserver
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo 
         $log['i_prm_presenta_violencia_id'] = $modeloxx->i_prm_presenta_violencia_id;
-        $log['i_prm_familiar_fisica_id'] = $modeloxx->i_prm_familiar_fisica_id;
-        $log['i_prm_amistad_fisica_id'] = $modeloxx->i_prm_amistad_fisica_id;
-        $log['i_prm_pareja_fisica_id'] = $modeloxx->i_prm_pareja_fisica_id;
-        $log['i_prm_comunidad_fisica_id'] = $modeloxx->i_prm_comunidad_fisica_id;
-        $log['i_prm_familiar_psico_id'] = $modeloxx->i_prm_familiar_psico_id;
-        $log['i_prm_amistad_psico_id'] = $modeloxx->i_prm_amistad_psico_id;
-        $log['i_prm_pareja_psico_id'] = $modeloxx->i_prm_pareja_psico_id;
-        $log['i_prm_comunidad_psico_id'] = $modeloxx->i_prm_comunidad_psico_id;
-        $log['i_prm_familiar_sexual_id'] = $modeloxx->i_prm_familiar_sexual_id;
-        $log['i_prm_amistad_sexual_id'] = $modeloxx->i_prm_amistad_sexual_id;
-        $log['i_prm_pareja_sexual_id'] = $modeloxx->i_prm_pareja_sexual_id;
-        $log['i_prm_comunidad_sexual_id'] = $modeloxx->i_prm_comunidad_sexual_id;
-        $log['i_prm_familiar_econo_id'] = $modeloxx->i_prm_familiar_econo_id;
-        $log['i_prm_amistad_econo_id'] = $modeloxx->i_prm_amistad_econo_id;
-        $log['i_prm_pareja_econo_id'] = $modeloxx->i_prm_pareja_econo_id;
-        $log['i_prm_comunidad_econo_id'] = $modeloxx->i_prm_comunidad_econo_id;
+        $log['prm_ejerviol_id'] = $modeloxx->i_prm_presenta_violencia_id;
         $log['i_prm_violencia_genero_id'] = $modeloxx->i_prm_violencia_genero_id;
         $log['i_prm_condicion_presenta_id'] = $modeloxx->i_prm_condicion_presenta_id;
         $log['i_prm_depto_condicion_id'] = $modeloxx->i_prm_depto_condicion_id;

@@ -2,11 +2,11 @@
 
 namespace App\Models\Sistema;
 
-use app\Models\Indicadores\InCamrespu;
-use app\Models\Indicadores\InDocPregunta;
-use app\Models\Indicadores\InPregunta;
-use app\Models\Tema;
-use app\Models\User;
+use App\Models\Indicadores\InCamrespu;
+use App\Models\Indicadores\InDocPregunta;
+use App\Models\Indicadores\InPregunta;
+use App\Models\Tema;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class SisTcampo extends Model

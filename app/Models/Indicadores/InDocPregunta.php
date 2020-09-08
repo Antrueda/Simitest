@@ -2,7 +2,7 @@
 
 namespace App\Models\Indicadores;
 
-use app\Models\Parametro;
+use App\Models\Parametro;
 use App\Models\Sistema\SisTcampo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

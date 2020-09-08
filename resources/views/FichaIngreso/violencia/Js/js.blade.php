@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
     $(function(){
+        $('.select2').select2({
+            language: "es"
+        });
         var f_combo=function(dataxxxx,campoxxx){
             $("#"+campoxxx).empty();
             $.each(dataxxxx,function(i,data){                            
@@ -48,84 +51,7 @@
             }
         });
 
-        var f_ocultambito = function(valuexxx){
-            $("#i_prm_familiar_fisica_id, #i_prm_familiar_psico_id, #i_prm_familiar_sexual_id, #i_prm_familiar_econo_id, #i_prm_amistad_fisica_id, #i_prm_amistad_psico_id, #i_prm_amistad_sexual_id, #i_prm_amistad_econo_id, #i_prm_pareja_fisica_id, #i_prm_pareja_psico_id, #i_prm_pareja_sexual_id, #i_prm_pareja_econo_id, #i_prm_comunidad_fisica_id, #i_prm_comunidad_psico_id, #i_prm_comunidad_sexual_id, #i_prm_comunidad_econo_id").empty();
-            $("#i_prm_familiar_fisica_id, #i_prm_familiar_psico_id, #i_prm_familiar_sexual_id, #i_prm_familiar_econo_id, #i_prm_amistad_fisica_id, #i_prm_amistad_psico_id, #i_prm_amistad_sexual_id, #i_prm_amistad_econo_id, #i_prm_pareja_fisica_id, #i_prm_pareja_psico_id, #i_prm_pareja_sexual_id, #i_prm_pareja_econo_id, #i_prm_comunidad_fisica_id, #i_prm_comunidad_psico_id, #i_prm_comunidad_sexual_id, #i_prm_comunidad_econo_id").append('<option value="">Seleccione</>')
-            if(valuexxx != ''){
-                $.ajax({
-                url : "{{ route('ajaxx.ocultambitos') }}",
-                data : {
-                        _token: $("input[name='_token']").val(),
-                        'padrexxx':valuexxx
-                    },
-                type : 'POST',
-                dataType : 'json',
-                success : function(json) {
-                    if(json[0].famfisic[0].valuexxx==1){  
-                        $("#i_prm_familiar_fisica_id, #i_prm_familiar_psico_id, #i_prm_familiar_sexual_id, #i_prm_familiar_econo_id, #i_prm_amistad_fisica_id, #i_prm_amistad_psico_id, #i_prm_amistad_sexual_id, #i_prm_amistad_econo_id, #i_prm_pareja_fisica_id, #i_prm_pareja_psico_id, #i_prm_pareja_sexual_id, #i_prm_pareja_econo_id, #i_prm_comunidad_fisica_id, #i_prm_comunidad_psico_id, #i_prm_comunidad_sexual_id, #i_prm_comunidad_econo_id").empty();
-                    }
-                    $.each(json[0].famfisic,function(i,data){                            
-                        $('#i_prm_familiar_fisica_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    }); 
-                    $.each(json[0].fampsico,function(i,data){                            
-                        $('#i_prm_familiar_psico_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].famsexua,function(i,data){                            
-                        $('#i_prm_familiar_sexual_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].famecono,function(i,data){                            
-                        $('#i_prm_familiar_econo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].amifisic,function(i,data){                            
-                        $('#i_prm_amistad_fisica_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].amipsico,function(i,data){                            
-                        $('#i_prm_amistad_psico_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].amisexua,function(i,data){                            
-                        $('#i_prm_amistad_sexual_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].amiecono,function(i,data){                            
-                        $('#i_prm_amistad_econo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].parfisic,function(i,data){                            
-                        $('#i_prm_pareja_fisica_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].parpsico,function(i,data){                            
-                        $('#i_prm_pareja_psico_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].parsexua,function(i,data){                            
-                        $('#i_prm_pareja_sexual_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].parecono,function(i,data){                            
-                        $('#i_prm_pareja_econo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].comfisic,function(i,data){                            
-                        $('#i_prm_comunidad_fisica_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].compsico,function(i,data){                            
-                        $('#i_prm_comunidad_psico_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].comsexua,function(i,data){                            
-                        $('#i_prm_comunidad_sexual_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].comecono,function(i,data){                            
-                        $('#i_prm_comunidad_econo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    },
-                    error : function(xhr, status) {
-                        alert('Disculpe, existió un problema');
-                    },
-                });
-            }
-        }
-        @if(old('i_prm_presenta_violencia_id')!=null)
-            f_ocultambito({{ old('i_prm_presenta_violencia_id') }});
-        @endif
-
-        $("#i_prm_presenta_violencia_id").change(function(){   
-            f_ocultambito($(this).val());
-        });
+        
         var f_municipos=function(valuexxx,campoxxx,selected){
         
             $.ajax({

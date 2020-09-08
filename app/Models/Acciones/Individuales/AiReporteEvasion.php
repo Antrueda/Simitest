@@ -3,7 +3,7 @@
 namespace App\Models\Acciones\Individuales;
 
 use Illuminate\Database\Eloquent\Model;
-use app\Models\Parametro;
+use App\Models\Parametro;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDepartamento;

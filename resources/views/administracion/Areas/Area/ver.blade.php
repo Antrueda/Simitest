@@ -1,0 +1,98 @@
+@extends('layouts.index')
+@section('content')
+  @component('layouts.components.perfilNNAJ.index',['modeloxx'=>$modeloxx])
+    @slot('infoBasica')
+    {!! Form::model($modeloxx) !!}
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.datosbasico.formulario.formulario')
+      @include('layouts.components.botones.index')
+    {!! Form::close() !!}
+    @endslot
+    @slot('vestuario')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.vestuario.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('residencia')
+      @include('layouts.components.botones.index')
+      @include('fichaingreso.residencia.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('escuela')
+      @include('layouts.components.botones.index')
+      @include('fichaingreso.escuela.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('compFamiliar')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.familia.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('salud')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.salud.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('genIngresos')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.geningreso.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('acTiempoLibre')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.actividad.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('redApoyo')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.redesapoyo.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('JustRestaurativa')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.justiciarestaurativa.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('conSPA')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.consumoSPA.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('vioConEspecial')
+      @include('layouts.components.botones.index')
+      @include('fichaingreso.violencia.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('tPoblacion')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.tipoPoblacion.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('contacto')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.contactoTratamientoDatos.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('bienvenida')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.bienvenida.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('autorizacion')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.autorizacion.form')
+      @include('layouts.components.botones.index')
+    @endslot
+    @slot('razones')
+      @include('layouts.components.botones.index')  
+      @include('fichaingreso.razonesIngreso.form')
+      @include('layouts.components.botones.index')
+    @endslot
+  @endcomponent
+@endsection
+
+
+
+
+
+

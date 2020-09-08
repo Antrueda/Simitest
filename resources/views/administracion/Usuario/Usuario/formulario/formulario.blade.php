@@ -57,13 +57,13 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('d_vinculacion','Fecha de Vinculación') }}
-        {{Form::date('d_vinculacion', \Carbon\Carbon::now(),['class'=>'form-control form-control-sm',$todoxxxx['readonly']])}}
+        {{Form::date('d_vinculacion', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']])}}
     </div>
 
     <div class="form-group col-md-4">
         {{ Form::label('d_finvinculacion','Fecha lí­mite de vinculación') }}
-        {{Form::date('d_finvinculacion', \Carbon\Carbon::now(),
-    ['class'=>'form-control form-control-sm',$todoxxxx['readonly']])}}
+        {{Form::date('d_finvinculacion', null,
+    ['class'=>'form-control form-control-sm'])}}
     </div>
     @include('administracion.Usuario.Usuario.formulario.motivoestado')
     @include('layouts.tiempos')

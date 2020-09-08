@@ -4,7 +4,7 @@ namespace App\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
-use app\Models\Parametro;
+use App\Models\Parametro;
 
 class CsdComFamiliar extends Model{
 

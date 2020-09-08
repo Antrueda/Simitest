@@ -17,6 +17,7 @@
         </div>
         @endif
     </div>
+    @include('administracion.dependencia.Dependencia.formulario.motivoestado')
     @include('layouts.registro')
 </div>
 

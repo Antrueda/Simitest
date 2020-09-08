@@ -7,7 +7,6 @@ use App\Http\Requests\Indicadores\AreaCrearRequest;
 use App\Http\Requests\Indicadores\AreaEditarRequest;
 use App\Models\Indicadores\Area;
 use App\Models\Sistema\SisEsta;
-use App\Models\Sistema\SisTcampo;
 use App\Models\Usuario\Estusuario;
 use App\Traits\Pestanias;
 use Illuminate\Http\Request;

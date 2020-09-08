@@ -26,3 +26,4 @@ Route::group(['prefix' => '{padrexxx}/fiviolencia'], function () use ($routexxx,
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.ver');
 });
+require_once('web_fi_vcontviol.php');

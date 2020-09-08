@@ -5,8 +5,8 @@ namespace App\Models\sicosocial;
 use App\Helpers\Archivos\Archivos;
 use Illuminate\Database\Eloquent\Model;
 
-use app\Models\Parametro;
-use app\Models\User;
+use App\Models\Parametro;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

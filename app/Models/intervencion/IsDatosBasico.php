@@ -2,10 +2,10 @@
 
 namespace App\Models\intervencion;
 
-use app\Models\Parametro;
+use App\Models\Parametro;
 use App\Models\Sistema\SisUsuarioActividad;
 use App\Models\Sistema\SisNnaj;
-use app\Models\User;
+use App\Models\User;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

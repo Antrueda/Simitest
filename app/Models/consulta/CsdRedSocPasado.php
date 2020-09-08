@@ -2,8 +2,8 @@
 
 namespace App\Models\consulta;
 
-use app\Models\Parametro;
-use app\Models\User;
+use App\Models\Parametro;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class CsdRedsocPasado extends Model

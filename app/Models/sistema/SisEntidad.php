@@ -4,7 +4,7 @@ namespace App\Models\Sistema;
 
 use Illuminate\Database\Eloquent\Model;
 
-use app\Models\User;
+use App\Models\User;
 
 class SisEntidad extends Model
 {

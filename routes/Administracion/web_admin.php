@@ -15,7 +15,7 @@ include_once('web_proceso.php');
 include_once('web_sis_cargo.php');
 include_once('web_sis_eslug.php');
 include_once('web_sis_esta.php');
-//include_once('web_sis_titulo.php');
+include_once('web_areas.php');
 include_once('web_tema.php');
 include_once('web_tooltips.php');
 include_once('web_alerta.php');

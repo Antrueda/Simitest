@@ -2,11 +2,11 @@
 
 namespace App\Models\fichaIngreso;
 
-use app\Models\Parametro;
+use App\Models\Parametro;
 use App\Models\Sistema\SisDocfuen;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisMunicipio;
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

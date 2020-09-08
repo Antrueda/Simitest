@@ -2,8 +2,8 @@
 
 namespace App\Models\Sistema;
 
-use app\Models\User;
-use app\Models\Parametro;
+use App\Models\User;
+use App\Models\Parametro;
 use Illuminate\Database\Eloquent\Model;
 
 class SisProceso extends Model{

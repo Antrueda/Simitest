@@ -10,23 +10,23 @@
       {{ $todoxxxx['datobasi']->s_primer_apellido }}
       {{ $todoxxxx['datobasi']->s_segundo_apellido }}
     </h3>
-    <p class="text-muted text-center">{{ $todoxxxx['datobasi']->poblacion->nombre }}</p>
+    <p class="text-muted text-center">{{ $todoxxxx['datobasi']->prmTipoPobla->nombre }}</p>
     <ul class="list-group list-group-unbordered mb-3">
       <li class="list-group-item">
-        <b>Teléfono</b>
-        <a class="float-right">TELEFONO NNAJ</a>
+        <b>Sexo</b>
+        <a class="float-right">{{ $todoxxxx['datobasi']->nnaj_sexo->prmSexo->nombre }}</a>
       </li>
       <li class="list-group-item">
-        <b>E-mail</b>
-        <a class="float-right">CORREO NNAJ</a>
+        <b>Identidad de género</b>
+        <a class="float-right">{{ $todoxxxx['datobasi']->nnaj_sexo->prmIdeGenero->nombre }}</a>
       </li>
       <li class="list-group-item">
-        <b>Vinculación</b>
-        <a class="float-right">VINCULACIÓN NNAJ</a>
+        <b>Tipo de documento</b>
+        <a class="float-right">{{ $todoxxxx['datobasi']->nnaj_docu->tipoDocumento->nombre }}</a>
       </li>
       <li class="list-group-item">
-        <b>Tarjeta Profesional</b>
-        <a class="float-right">OTRO DATO</a>
+        <b>Documento</b>
+        <a class="float-right">{{ $todoxxxx['datobasi']->nnaj_docu->s_documento }}</a>
       </li>
     </ul>
   </div>

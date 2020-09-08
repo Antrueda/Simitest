@@ -10,7 +10,7 @@ use App\Models\Sistema\SisDocfuen;
 use Carbon\Carbon;
 
 use App\Models\Sistema\SisNnaj;
-use app\Models\User;
+use App\Models\User;
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -151,11 +151,11 @@ class FiDatosBasico extends Model
                 $dataxxxx['prm_ayuda_id']=235;
             }
             $objetoxx->nnaj_sexo->update($dataxxxx);
-            $objetoxx->nnaj_docu->update($dataxxxx);    
+            $objetoxx->nnaj_docu->update($dataxxxx);
             $objetoxx->update($dataxxxx);
-            
 
-         
+
+
             return $objetoxx;
         }, 5);
         //ddd($objetoxx);
@@ -185,7 +185,7 @@ class FiDatosBasico extends Model
                     $objetoxx->nnaj_sexo->update($dataxxxx);
                     $objetoxx->nnaj_docu->update($dataxxxx);
                     $objetoxx->nnaj_nacimi->update($dataxxxx);
-                    
+
                     $objetoxx->nnaj_sit_mil->update($dataxxxx);
                     $objetoxx->nnaj_focali->update($dataxxxx);
                     $objetoxx->nnaj_fi_csd->update($dataxxxx);

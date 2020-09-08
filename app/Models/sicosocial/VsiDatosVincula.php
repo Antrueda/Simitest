@@ -4,9 +4,9 @@ namespace App\Models\sicosocial;
 
 use Illuminate\Database\Eloquent\Model;
 
-use app\Models\Parametro;
-use app\Models\User;
-use app\Models\sicosocial\Vsi;
+use App\Models\Parametro;
+use App\Models\User;
+use App\Models\sicosocial\Vsi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

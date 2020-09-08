@@ -8,7 +8,7 @@ class RolesYPermisosSeeder extends Seeder
 {
     public function getPermisos($dataxxxx)
     {
-        $listaxxx='Permiso que permite ver el contenido para: ';
+        $listaxxx = 'Permiso que permite ver el contenido para: ';
 
         $descripc = [
             'leer' => $listaxxx,
@@ -50,8 +50,7 @@ class RolesYPermisosSeeder extends Seeder
         // crear permisos rol
         $this->getPermisos(['permisox' => 'permirol', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'permisos de un rol', 'pestania' => 1]);
 
-        // crear permisos usuario
-        $this->getPermisos(['permisox' => 'usuario', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'usuario', 'pestania' => 1]);
+
         /**
          * Creación de Permisos para el crud de estados de los usuarios
          */
@@ -79,11 +78,20 @@ class RolesYPermisosSeeder extends Seeder
 
         // crear dependencias
         $this->getPermisos(['permisox' => 'dependencia', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'dependencias', 'pestania' => 1]);
+        /**
+         * Personal de  la dependencia
+         */
+        $this->getPermisos(['permisox' => 'usuadepe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Personal-Dependencia', 'pestania' => 1]);
 
         /**
          * servicios que ofrece la dependencia
          */
         $this->getPermisos(['permisox' => 'servdepe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Servicio-Dependencia', 'pestania' => 1]);
+
+
+
+        // crear permisos usuario
+        $this->getPermisos(['permisox' => 'usuario', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'usuario', 'pestania' => 1]);
         /**
          * usuarios de la dependencia
          */
@@ -119,6 +127,8 @@ class RolesYPermisosSeeder extends Seeder
 
         //Crear areas para administración de indicadores
         $this->getPermisos(['permisox' => 'area', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Areas', 'pestania' => 1]);
+        //Administracion de las áreas
+        $this->getPermisos(['permisox' => 'areaxxxx', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Administracion de las áreas', 'pestania' => 1]);
 
         //Crear preguntas para administración de indicadores
         $this->getPermisos(['permisox' => 'inpreguntas', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Preguntas de indicadores', 'pestania' => 1]);
@@ -666,7 +676,7 @@ class RolesYPermisosSeeder extends Seeder
                 'fiviolencia-borrar', 'firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar',
                 'fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar', 'fiautorizacion-leer',
                 'fiautorizacion-crear', 'fiautorizacion-editar', 'fiautorizacion-borrar',
-               'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
+                'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
                 'firedactual-borrar', 'territorio-modulo'
             ]);
     }

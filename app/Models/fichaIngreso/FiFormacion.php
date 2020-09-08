@@ -5,7 +5,7 @@ namespace App\Models\fichaIngreso;
 use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\Parametro;
 use App\Models\Sistema\SisNnaj;
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

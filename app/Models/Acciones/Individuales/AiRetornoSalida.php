@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisDepen;
-use app\Models\Parametro;
+use App\Models\Parametro;
 
 class AiRetornoSalida extends Model{
     protected $fillable = [

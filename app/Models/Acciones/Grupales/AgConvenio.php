@@ -2,7 +2,7 @@
 
 namespace App\Models\Acciones\Grupales;
 
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +21,7 @@ class AgConvenio extends Model
     'user_edita_id',
     'sis_esta_id',
   ];
- 
+
   protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
   public function creador()
   {

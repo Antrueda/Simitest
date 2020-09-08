@@ -2,9 +2,7 @@
 
 namespace App\Models\Acciones\Grupales;
 
-use app\Models\Indicadores\Area;
-use app\Models\Parametro;
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -70,7 +68,7 @@ class AgActividad extends Model
         }
         return $comboxxx;
     }
-  
+
     public static function comb($cabecera, $ajaxxxxx)
     {
         $comboxxx = [];

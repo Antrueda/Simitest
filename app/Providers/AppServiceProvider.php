@@ -46,6 +46,7 @@ use App\Models\consulta\pivotes\CsdDinfamProblema;
 use App\Models\consulta\pivotes\CsdNnajEspecial;
 use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\fichaIngreso\FiAccione;
 use App\Models\fichaIngreso\FiActividadestl;
 use App\Models\fichaIngreso\FiActividadTiempoLibre;
 use App\Models\fichaIngreso\FiAutorizacion;
@@ -54,6 +55,7 @@ use App\Models\fichaIngreso\FiComposicionFami;
 use App\Models\fichaIngreso\FiCondicionAmbiente;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiContacto;
+use App\Models\fichaIngreso\FiContviol;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiDiasGeneraIngreso;
 use App\Models\fichaIngreso\FiDiscausa;
@@ -273,6 +275,7 @@ use App\Observers\CsdResideambienteObserver;
 use App\Observers\CsdResidenciaObserver;
 use App\Observers\CsdSisNnajObserver;
 use App\Observers\CsdViolenciaObserver;
+use App\Observers\FiAccioneObserver;
 use App\Observers\FiActividadestlObserver;
 use App\Observers\FiActividadTiempoLibreObserver;
 use App\Observers\FiAutorizacionObserver;
@@ -281,6 +284,7 @@ use App\Observers\FiComposicionFamiObserver;
 use App\Observers\FiCondicionAmbienteObserver;
 use App\Observers\FiConsumoSpaObserver;
 use App\Observers\FiContactoObserver;
+use App\Observers\FiContviolObserver;
 use App\Observers\FiDatosBasicoObserver;
 use App\Observers\FiDiasGeneraIngresoObserver;
 use App\Observers\FiDiscausaObserver;
@@ -659,11 +663,13 @@ class AppServiceProvider extends ServiceProvider
     FiViolencia::observe(FiViolenciaObserver::class);
     FiDiscausa::observe(FiDiscausaObserver::class);
     FiVictataq::observe(FiVictataqObserver::class);
+    FiAccione::observe(FiAccioneObserver::class);
+    FiContviol::observe(FiContviolObserver::class);
     // USUARIO
     SisAreaUsua::observe(SisAreaUsuaObserver::class);
 
     // CARPETA RAIZ
-    Parametro::observe(ParametroObserver::class);
+    // Parametro::observe(ParametroObserver::class);
     Permissionext::observe(PermissionextObserver::class);
     post::observe(postObserver::class);
 

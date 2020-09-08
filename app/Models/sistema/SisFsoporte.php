@@ -2,10 +2,10 @@
 
 namespace App\Models\Sistema;
 
-use app\Models\Indicadores\InAccionGestion;
+use App\Models\Indicadores\InAccionGestion;
 use Illuminate\Database\Eloquent\Model;
 
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 

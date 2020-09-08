@@ -2,7 +2,7 @@
 
 namespace App\Models\Sistema;
 
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class SisLocalidad extends Model{

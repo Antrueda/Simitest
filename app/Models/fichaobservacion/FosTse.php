@@ -2,7 +2,7 @@
 
 namespace App\Models\fichaobservacion;
 
-use app\Models\Indicadores\Area;
+use App\Models\Indicadores\Area;
 use Illuminate\Database\Eloquent\Model;
 
 class FosTse extends Model

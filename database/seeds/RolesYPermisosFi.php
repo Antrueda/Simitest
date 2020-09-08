@@ -53,6 +53,9 @@ $this->getPermisos(['permisox' => 'fisituacion', 'permisos' => ['leer', 'crear',
 //Crear permisos para violencia en FI
 $this->getPermisos(['permisox' => 'fiviolencia', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Violencia FI', 'pestania' => 1]);
 
+//Crear permisos para violencia ejercida o presentada en FI
+$this->getPermisos(['permisox' => 'ficonvio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Violencia Ejercida o Presentada FI', 'pestania' => 1]);
+
 //Crear permisos para redes de apoyo en FI
 $this->getPermisos(['permisox' => 'firedapoyo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo Antecedentes Institucionales FI', 'pestania' => 1]);
 

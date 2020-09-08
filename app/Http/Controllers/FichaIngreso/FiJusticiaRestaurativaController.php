@@ -73,7 +73,7 @@ class FiJusticiaRestaurativaController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'],
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.' . $dataxxxx['accionxx'][2]]
         ];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['justicia'] = FiJusticiaRestaurativa::justicia($dataxxxx['padrexxx']->sis_nnaj_id);
@@ -114,7 +114,7 @@ class FiJusticiaRestaurativaController extends Controller
         // indica si se esta actualizando o viendo
 
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['parametr'][1]=$dataxxxx['modeloxx']->id;
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['puedexxx'] = '';
             if ($dataxxxx['modeloxx']->i_prm_vinculado_violencia_id == 228) {
                 $this->opciones['vincviol'] = [1 => 'NO APLICA'];
@@ -214,7 +214,7 @@ class FiJusticiaRestaurativaController extends Controller
                 'titunuev' => 'CREAR JUSTICIA RESTAURATIVA',
                 'titulist' => 'LISTA DE REDES DE APOYO ACTUALES',
                 'dataxxxx' => [],
-                'titupreg'=>'10.6 ¿Qué personas de su familia han estado o se encuentran en procesos legales, o han estado en la cárcel o fiscalía?',
+                'titupreg' => '10.6 ¿Qué personas de su familia han estado o se encuentran en procesos legales, o han estado en la cárcel o fiscalía?',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
@@ -260,7 +260,7 @@ class FiJusticiaRestaurativaController extends Controller
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.btnscrud';
-            $request->estadoxx = $this->opciones['rutacarp'].'Acomponentes.Botones.estadosx';
+            $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
             return $this->getJusticiaTrait($request);
         }
     }
@@ -282,7 +282,8 @@ class FiJusticiaRestaurativaController extends Controller
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
+        $poblacio = $padrexxx->prm_tipoblaci_id;
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
 
     private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
@@ -302,6 +303,10 @@ class FiJusticiaRestaurativaController extends Controller
     public function store(FiJusticiaRestaurativaCrearRequest $request, FiDatosBasico $padrexxx)
     {
         $dataxxxx = $request->all();
+        if($padrexxx->prm_tipoblaci_id==2323){
+            $dataxxxx['i_prm_ha_estado_pard_id']=$padrexxx->prm_tipoblaci_id;
+            $dataxxxx['i_prm_actualmente_pard_id']=$padrexxx->prm_tipoblaci_id;
+        }
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
         return $this->grabar($dataxxxx, '', 'Justicia restaurativa creada con exito', $padrexxx);
     }
@@ -314,7 +319,9 @@ class FiJusticiaRestaurativaController extends Controller
      */
     public function show(FiJusticiaRestaurativa $modeloxx, FiDatosBasico $padrexxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
+        $poblacio = $padrexxx->prm_tipoblaci_id;
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
+    
     }
 
     /**
@@ -323,14 +330,15 @@ class FiJusticiaRestaurativaController extends Controller
      * @param  \App\Models\FiJusticiaRestaurativa  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit( FiDatosBasico $padrexxx,FiJusticiaRestaurativa $modeloxx)
+    public function edit(FiDatosBasico $padrexxx, FiJusticiaRestaurativa $modeloxx)
     {
         $this->opciones['botoform'][] =
-        [
-            'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-        ];
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
+            [
+                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+            $poblacio = $padrexxx->prm_tipoblaci_id;
+            return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
 
     /**

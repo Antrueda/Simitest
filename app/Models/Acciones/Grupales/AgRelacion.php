@@ -2,9 +2,9 @@
 
 namespace App\Models\Acciones\Grupales;
 
-use app\Models\Indicadores\InIndicador;
-use app\Models\Indicadores\InPregunta;
-use app\Models\User;
+use App\Models\Indicadores\InIndicador;
+use App\Models\Indicadores\InPregunta;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
