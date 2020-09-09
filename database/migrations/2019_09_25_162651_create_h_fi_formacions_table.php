@@ -25,7 +25,8 @@ class CreateHFiFormacionsTable extends Migration
             $table->bigInteger('i_prm_estudia_id')->unsigned();
             $table->bigInteger('i_prm_jornada_estudio_id')->unsigned(); //->comment('FI 4.5 JORNADA DE ESTUDIO');
             $table->bigInteger('i_prm_naturaleza_entidad_id')->unsigned(); //->comment('FI 4.6 NATURALEZA DE LA ENTIDAD');
-            $table->bigInteger('sis_institucion_edu_id')->unsigned(); //->comment('FI 4.7 NOMBRE DE LA INSTITUCIÓN'); // OTRA TABLA
+            $table->string('s_institucion_edu')->nullable(); //->comment('FI 4.7 NOMBRE DE LA INSTITUCIÓN'');
+            //$table->bigInteger('sis_institucion_edu_id')->unsigned(); //->comment('FI 4.7 NOMBRE DE LA INSTITUCIÓN'); // OTRA TABLA
             $table->bigInteger('i_dias_sin_estudio')->nullable()->unsigned(); //->comment('FI 4.8.1 DIAS SIN ESTUDIO');
             $table->bigInteger('i_meses_sin_estudio')->nullable()->unsigned(); //->comment('FI 4.8.2 MESES SIN ESTUDIO');
             $table->bigInteger('i_anos_sin_estudio')->nullable()->unsigned(); //->comment('FI 4.8.3 AÑOS SIN ESTUDIO');

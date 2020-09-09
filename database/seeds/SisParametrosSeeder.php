@@ -2364,6 +2364,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2334, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARMA BLANCA']);
         Parametro::create(['id' => 2335, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARMA DE FUEGO']);
         Parametro::create(['id' => 2336, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARMAS DEL ESTADO']);
+    
         $this->getR(['nombrexx' => 'PRESENTA ACTIVIDAD EN CONFLICTO CON LA LEY']); //2337
 
         $this->getR(['nombrexx' => 'GRUPO']); //2338
@@ -2381,5 +2382,7 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'LESIÓN CON ARMA DE FUEGO']); //2349
         $this->getR(['nombrexx' => 'LESIÓN CON ARMA BLANCA']); //2350
         $this->getR(['nombrexx' => 'ROL']); //2351
+        Parametro::create(['id' => 2352, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FINES DE SEMANA']);
+        Parametro::create(['id' => 2353, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JORNADA COMPLETA']);
     }
 }

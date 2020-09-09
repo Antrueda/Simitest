@@ -1661,12 +1661,12 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 151, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'JORNADA ESTUDIO']);
         $tema->parametros()->sync([
-            746 => $camposmagicos,
+            2213=> $camposmagicos,
             823 => $camposmagicos,
             824 => $camposmagicos,
             825 => $camposmagicos,
-            826 => $camposmagicos,
-            827 => $camposmagicos,
+            2352 => $camposmagicos,
+            2353 => $camposmagicos,
             828 => $camposmagicos,
             2316 => $camposmagicos,
         ]);

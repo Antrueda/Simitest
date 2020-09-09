@@ -23,10 +23,11 @@
     {{ Form::label('i_prm_naturaleza_entidad_id', '4.6 ¿Naturaleza de la entidad en la que estudia?', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('i_prm_naturaleza_entidad_id', $todoxxxx["natuenti"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
+
   <div class="form-group col-md-4">
-    {{ Form::label('sis_institucion_edu_id', '4.7 Nombre de la institución', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_institucion_edu_id', $todoxxxx["insti_id"], null, ['class' => 'form-control form-control-sm']) }}
-  </div>
+    {{ Form::label('s_institucion_edu', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('s_institucion_edu', null, ['class' => 'form-control form-control-sm', $todoxxxx['insti_id'], "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
+</div>
   <div class="form-group col-md-4">
     {{ Form::label('tiemposinestudio', '4.8 ¿Cuánto tiempo lleva sin estudiar?', ['class' => 'control-label col-form-label-sm']) }}
     <div class="row">

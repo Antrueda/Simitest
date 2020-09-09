@@ -62,7 +62,7 @@ class FiGeneracionIngresoController extends Controller
         // indica si se esta actualizando o viendo
 
         if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) {
-            $this->opciones['acgening'] = Tema::combo(296, true, false);
+            $this->opciones['acgening'] = Tema::combo(114, true, false);
         } else {
             $this->opciones['padrexxx'] = Tema::combo(114, true, false);
         }

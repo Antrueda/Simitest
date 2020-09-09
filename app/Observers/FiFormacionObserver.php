@@ -19,7 +19,7 @@ class FiFormacionObserver
         $log['i_prm_estudia_id'] = $modeloxx->i_prm_estudia_id;
         $log['i_prm_jornada_estudio_id'] = $modeloxx->i_prm_jornada_estudio_id;
         $log['i_prm_naturaleza_entidad_id'] = $modeloxx->i_prm_naturaleza_entidad_id;
-        $log['sis_institucion_edu_id'] = $modeloxx->sis_institucion_edu_id;
+        $log['s_institucion_edu'] = $modeloxx->s_institucion_edu;
         $log['i_dias_sin_estudio'] = $modeloxx->i_dias_sin_estudio;
         $log['i_meses_sin_estudio'] = $modeloxx->i_meses_sin_estudio;
         $log['i_anos_sin_estudio'] = $modeloxx->i_anos_sin_estudio;

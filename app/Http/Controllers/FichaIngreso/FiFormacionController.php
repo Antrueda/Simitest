@@ -40,7 +40,7 @@ class FiFormacionController extends Controller
         $this->opciones['jornestu'] = Tema::combo(151, true, false);
         $this->opciones['ulnivest'] = Tema::combo(153, true, false);
         $this->opciones['ulgradap'] = Tema::combo(154, true, false);
-        $this->opciones['insti_id'] = SisInstitucionEdu::combo(true, false);
+        //$this->opciones['insti_id'] = SisInstitucionEdu::combo(true, false);
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => ['fidatbas', []],
@@ -68,6 +68,7 @@ class FiFormacionController extends Controller
         $this->opciones['readdiax'] = '';
         $this->opciones['readmesx'] = '';
         $this->opciones['readanox'] = '';
+        $this->opciones['insti_id'] = '';
         // Si es CHC
         if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) {
             $this->opciones['natuenti'] = [1 => 'NO APLICA'];
