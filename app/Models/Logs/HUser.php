@@ -32,6 +32,8 @@ class HUser extends Model
         'prm_documento_id',
         'sis_esta_id',
         'estusuario_id',
-        'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
+        'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx',
+        'password_change_at',
+        'password_reset_at',
     ];
 }

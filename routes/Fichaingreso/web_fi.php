@@ -45,7 +45,9 @@ Route::group(['prefix' => 'fi'], function () use($routexxx,$controll){
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
 
-
+    Route::post('municipio', [
+        'uses' => $controll . 'Controller@municipioajax',
+    ])->name($routexxx . '.municipio');
 	include_once('web_fi_actividadestl.php');
 	include_once('web_fi_autorizacion.php');
 	include_once('web_fi_bienvenida.php');

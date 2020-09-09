@@ -49,7 +49,9 @@ class User extends Authenticatable
         'estusuario_id',
         'itiestan',
         'itiegabe',
-        'itigafin'
+        'itigafin',
+        'password_change_at',
+        'password_reset_at',
     ];
 
     /**
@@ -103,8 +105,8 @@ class User extends Authenticatable
     {
         $usuariox = DB::transaction(function () use ($dataxxxx,  $objetoxx) {
             $dataxxxx['user_edita_id'] = Auth::user()->id;
-
-
+            $dataxxxx['password_change_at'] = date("Y-m-d",strtotime(date('Y-m-d')."+ 1 month"));
+            $dataxxxx['password_reset_at'] = null;
             $objetoxx->update($dataxxxx);
             return $objetoxx;
         }, 5);
@@ -115,9 +117,9 @@ class User extends Authenticatable
     public static function transaccion($dataxxxx, $objetoxx)
     {
         $usuariox = DB::transaction(function () use ($dataxxxx,  $objetoxx) {
-            $dataxxxx['itiestan']=$dataxxxx['itiestan']==''?0:$dataxxxx['itiestan'];
-            $dataxxxx['itiegabe']=$dataxxxx['itiegabe']==''?0:$dataxxxx['itiegabe'];
-            $dataxxxx['itigafin']=$dataxxxx['itigafin']==''?0:$dataxxxx['itigafin'];
+            $dataxxxx['itiestan'] = $dataxxxx['itiestan'] == '' ? 0 : $dataxxxx['itiestan'];
+            $dataxxxx['itiegabe'] = $dataxxxx['itiegabe'] == '' ? 0 : $dataxxxx['itiegabe'];
+            $dataxxxx['itigafin'] = $dataxxxx['itigafin'] == '' ? 0 : $dataxxxx['itigafin'];
             $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
             $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
             $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
@@ -132,6 +134,8 @@ class User extends Authenticatable
             if ($objetoxx != '') {
                 $objetoxx->update($dataxxxx);
             } else {
+                $dataxxxx['password_change_at'] = date('Y-m-d', time());
+                $dataxxxx['password_reset_at'] = date('Y-m-d', time());
                 $dataxxxx['password'] = $dataxxxx['s_documento'];
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = User::create($dataxxxx);

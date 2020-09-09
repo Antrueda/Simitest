@@ -110,7 +110,7 @@
 
         }
         var datamuni=function(campoxxx,valuexxx,selected){
-            var routexxx="{{ route('usuario.municipio') }}"
+            var routexxx="{{ route('fidatbas.municipio') }}"
             var municipi='sis_municipioexp_id';
             if(campoxxx=='sis_departamento_id'){
                 municipi='sis_municipio_id';

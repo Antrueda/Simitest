@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Login\LoginRequest;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
+    protected $maxAttempts = 3; // De manera predeterminada sería 5
+    protected $decayMinutes = 60; // De manera predeterminada sería 1
     use AuthenticatesUsers;
 
     /**
@@ -39,9 +41,35 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function credentials(Request $request)
+    protected function credentials(LoginRequest $request)
     {
         return array_merge($request->only($this->username(), 'password'), ['sis_esta_id' => 1]);
     }
-    
+    public function username()
+    {
+        return 's_documento';
+    }
+    public function login(LoginRequest $request)
+    {
+        // If the class is using the ThrottlesLogins trait, we can automatically throttle
+        // the login attempts for this application. We'll key this by the username and
+        // the IP address of the client making these requests into this application.
+        // if (method_exists($this, 'hasTooManyLoginAttempts') &&
+        //     $this->hasTooManyLoginAttempts($request)) {
+        //     $this->fireLockoutEvent($request);
+
+        //     return $this->sendLockoutResponse($request);
+        // }
+
+        if ($this->attemptLogin($request)) {
+            return $this->sendLoginResponse($request);
+        }
+ddd($request);
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+        $this->incrementLoginAttempts($request);
+
+        return $this->sendFailedLoginResponse($request);
+    }
 }

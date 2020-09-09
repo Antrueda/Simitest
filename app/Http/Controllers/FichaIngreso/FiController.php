@@ -380,4 +380,11 @@ class FiController extends Controller
             ->route($this->opciones['permisox'], [])
             ->with('info', 'Sucursal inactivada correctamente');
     }
+
+    public function municipioajax(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(SisMunicipio::combo($request->all()['departam'], true));
+        }
+    }
 }

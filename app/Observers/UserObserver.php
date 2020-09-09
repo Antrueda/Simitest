@@ -35,6 +35,11 @@ class UserObserver
         $log['prm_tvinculacion_id'] = $modeloxx->prm_tvinculacion_id;
         $log['prm_documento_id'] = $modeloxx->prm_documento_id;
         $log['estusuario_id'] = $modeloxx->estusuario_id;
+
+        $log['password_change_at'] = $modeloxx->password_change_at;
+        $log['password_reset_at'] = $modeloxx->password_reset_at;
+
+     
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

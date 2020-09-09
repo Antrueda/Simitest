@@ -2,8 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Logs\HUser;
 use App\Rules\ValidaPassword;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ChangePasswordEditarRequest extends FormRequest
 {
@@ -51,6 +54,19 @@ class ChangePasswordEditarRequest extends FormRequest
 
     public function validar()
     {
-        $dataxxxx = $this->segments(); // todo lo que se envia del formulario
+        $usadaxxx = false;
+        $usuariox = Auth::user();
+        if (Hash::check($this->password, $usuariox->password)) {
+            $usadaxxx = true;
+        }
+        foreach (HUser::where('id_old', $usuariox->id)->get() as $key => $value) {
+            if (Hash::check($this->password, $value->password)) {
+                $usadaxxx = true;
+            }
+        }
+        if ($usadaxxx) {
+            $this->_mensaje['repetido.required'] = 'La contraseña ya ha sido utilizada';
+            $this->_reglasx['repetido'] = ['required'];
+        }
     }
 }

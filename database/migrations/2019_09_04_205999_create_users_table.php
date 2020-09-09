@@ -32,6 +32,8 @@ class CreateUsersTable extends Migration
             $table->Integer('itiegabe')->default(0)->comment('TIEMPO GABELA PARA EL CARGUE DE INFORMACION');
             $table->Integer('itigafin')->default(0)->comment('TIEMPO GABELA FIN DE MES PARA EL CARGE DE INFORMACION');
             $table->timestamp('email_verified_at')->nullable();
+            $table->date('password_change_at')->comment('FECHA PARA EL PROXIMO CAMBIO DE CONTRASEÑA');
+            $table->date('password_reset_at')->nullable()->comment('FECHA EN QUE SE REALIZA EL RECETEO DE LA CONTRASEÑA');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

@@ -7,7 +7,7 @@ use App\Http\Requests\ChangePasswordEditarRequest;
 use App\Models\Sistema\SisEsta;
 use App\Models\User;
 use App\Models\Usuario\RolUsuario;
-
+use Illuminate\Support\Facades\Auth;
 
 class CambioContraseController extends Controller
 {
@@ -92,9 +92,8 @@ class CambioContraseController extends Controller
 
     private function grabar($dataxxxx)
     {
-        return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [User::cambiarcontasenia($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id])
-            ->with('info', $dataxxxx['menssage']);
+        User::cambiarcontasenia($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id;
+        return redirect('login')->with(Auth::logout());
     }
 
     /**

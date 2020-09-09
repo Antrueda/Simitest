@@ -89,13 +89,15 @@ class UsuarioDepController extends Controller
                 'urlxxxxx' => 'api/sis/user',
                 'cabecera' => [
                     ['td' => 'ID'],
-                    ['td' => 'USUARIO'],
+                    ['td' => 'DOCUMENTO'],
+                    ['td' => 'NOMBRES'],
                     ['td' => 'RESPONSABLE'],
                     ['td' => 'ESTADO'],
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'sis_depen_user.id'],
+                    ['data' => 's_documento', 'name' => 'users.s_documento'],
                     ['data' => 'name', 'name' => 'users.name'],
                     ['data' => 'nombre', 'name' => 'parametros.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],

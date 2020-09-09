@@ -63,16 +63,16 @@ Route::group(['prefix' => 'usuario'], function () use ($controll, $routexxx) {
 
 
     /** Cambiar la contraseña */
-    Route::get('password/{usuario}', [
+    Route::get('password/{objetoxx}', [
         'uses' => $controll . 'Controller@editpassword',
         'middleware' => ['permission:usuario-editar']
     ])->name($routexxx . '.password');
-    Route::put('password/{usuario}', [
+    Route::put('password/{objetoxx}', [
         'uses' => $controll . 'Controller@updatepassword',
         'middleware' => ['permission:usuario-editar']
     ])->name($routexxx . '.password');
 
-    Route::get('restart/{usuario}', [
+    Route::get('restart/{objetoxx}', [
         'uses' => $controll . 'Controller@getRestart',
         'middleware' => ['permission:usuario-editar']
     ])->name($routexxx . '.restartx');

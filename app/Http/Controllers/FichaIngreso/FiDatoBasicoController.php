@@ -14,6 +14,7 @@ use App\Models\Sistema\SisPai;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class FiDatoBasicoController extends Controller
 {
@@ -213,14 +214,5 @@ class FiDatoBasicoController extends Controller
     return $this->grabar($request->all(), FiDatosBasico::usarioNnaj($db), 'Datos básicos actualizados con exito');
   }
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  \App\Models\FiDatosBasico $objetoxx
-   * @return \Illuminate\Http\Response
-   */
-  public function destroy(FiDatosBasico $db)
-  {
-    //
-  }
+  
 }

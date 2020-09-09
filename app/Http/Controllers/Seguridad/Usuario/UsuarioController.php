@@ -322,7 +322,9 @@ class UsuarioController extends Controller
 
     public function getRestart(User $objetoxx)
     {
-        $objetoxx->update(['user_edita_id' => Auth::user()->id,'password'=>$objetoxx->s_documento]);
+        $objetoxx->update(['user_edita_id' => Auth::user()->id,'password'=>$objetoxx->s_documento,  
+        'password_change_at'=>date('Y-m-d',time()),
+        'password_reset_at'=>date('Y-m-d',time()),]);
         return redirect()
             ->route($this->opciones['slotxxxx'], [])
             ->with('info', 'Contraseña restablecida correctamente');

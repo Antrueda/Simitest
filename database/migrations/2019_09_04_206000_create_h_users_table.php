@@ -27,6 +27,8 @@ class CreateHUsersTable extends Migration
             $table->string('s_documento');
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
+            $table->date('password_change_at')->comment('FECHA PARA EL PROXIMO CAMBIO DE CONTRASEÑA');
+            $table->date('password_reset_at')->nullable()->comment('FECHA EN QUE SE REALIZA EL RECETEO DE LA CONTRASEÑA');
             $table->string('s_telefono');
             $table->string('s_matriculap')->nullable();
             $table->date('d_vinculacion');

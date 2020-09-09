@@ -50,6 +50,7 @@ class DependenciaApi
         $dataxxxx = User::select([
             'sis_depen_user.id',
             'users.name',
+            'users.s_documento',
             'sis_depen_user.sis_esta_id',
             'sis_estas.s_estado',
             'parametros.nombre'
