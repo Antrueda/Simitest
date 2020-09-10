@@ -44,7 +44,7 @@ class FiJusticiaRestaurativaController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['condnoap'] = Tema::combo(25, true, false);
+        $this->opciones['condnoap'] = Tema::combo(46, true, false);
         $this->opciones['actupard'] = Tema::combo(25, true, false);
         $this->opciones['actusrpa'] = Tema::combo(25, true, false);
         $this->opciones['actuspoa'] = Tema::combo(25, true, false);

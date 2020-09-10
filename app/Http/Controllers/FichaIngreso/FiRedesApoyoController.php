@@ -56,7 +56,7 @@ class FiRedesApoyoController extends Controller
     public function index(FiDatosBasico $padrexxx)
     {
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.js.tabla']
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
 
         $this->opciones['pestpara'] = [$padrexxx->id];

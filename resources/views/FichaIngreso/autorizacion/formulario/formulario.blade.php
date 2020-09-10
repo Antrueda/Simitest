@@ -1,5 +1,5 @@
 @if ($todoxxxx['edadxxxx']>=18)
-  @include('FichaIngreso.autorizacion.formulario.mayor')
+  @include('FichaIngreso.Autorizacion.formulario.mayor')
 @else
-  @include('FichaIngreso.autorizacion.formulario.menor')  
+  @include('FichaIngreso.Autorizacion.formulario.menor')  
 @endif

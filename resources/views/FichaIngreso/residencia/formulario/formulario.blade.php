@@ -71,7 +71,7 @@
     </div>
     <div class="form-group col-md-4">
       {{ Form::label('i_prm_alfabeto_via_id', 'Alfabeto Via Principal', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_alfabeto_via_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('i_prm_alfabeto_via_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('i_prm_alfabeto_via_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('i_prm_alfabeto_via_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
       @if($errors->has('i_prm_alfabeto_via_id'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('i_prm_alfabeto_via_id') }}
@@ -91,7 +91,7 @@
   <div class="form-row align-items-end">
     <div class="form-group col-md-4">
       {{ Form::label('i_prm_bis_alfabeto_id', 'Letra Bis', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_bis_alfabeto_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('i_prm_bis_alfabeto_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('i_prm_bis_alfabeto_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('i_prm_bis_alfabeto_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
       @if($errors->has('i_prm_bis_alfabeto_id'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('i_prm_bis_alfabeto_id') }}
@@ -120,7 +120,7 @@
   <div class="form-row align-items-end">
     <div class="form-group col-md-4">
       {{ Form::label('i_prm_alfabetico_vg_id', 'Alfabético VG', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_alfabetico_vg_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('i_prm_alfabetico_vg_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('i_prm_alfabetico_vg_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('i_prm_alfabetico_vg_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
       @if($errors->has('i_prm_alfabetico_vg_id'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('i_prm_alfabetico_vg_id') }}

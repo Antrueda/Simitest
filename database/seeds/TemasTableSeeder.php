@@ -452,7 +452,7 @@ class TemasTableSeeder extends Seeder
             274 => $camposmagicos,
             275 => $camposmagicos,
             276 => $camposmagicos,
-            1489 => $camposmagicos,
+            //1489 => $camposmagicos,
             509 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
@@ -551,7 +551,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 43, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'Eventos médicos']);
         $tema->parametros()->sync([
-            1372 => $camposmagicos,
+            //1372 => $camposmagicos,
             318 => $camposmagicos,
             319 => $camposmagicos,
             320 => $camposmagicos,
@@ -771,7 +771,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 63, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'MOTIVO VINCULACION IDIPRON']);
         $tema->parametros()->sync([
-            566 => $camposmagicos,
+         //   566 => $camposmagicos,
             761 => $camposmagicos,
             762 => $camposmagicos,
             763 => $camposmagicos,
@@ -781,7 +781,7 @@ class TemasTableSeeder extends Seeder
             767 => $camposmagicos,
             768 => $camposmagicos,
             769 => $camposmagicos,
-            1758 => $camposmagicos,
+//            1758 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 64, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'REPRESENTACION LEGAL']);
@@ -3556,7 +3556,7 @@ class TemasTableSeeder extends Seeder
 
         $this->getR([
             'nombrexx' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?',
-            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 1593, 1372, 2337,]
+            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 2337,2354]
         ]); //343
 
         $this->getR([

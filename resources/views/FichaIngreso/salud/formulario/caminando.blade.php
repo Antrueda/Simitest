@@ -44,7 +44,7 @@
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('i_prm_tipo_discapacidad_id', 'Indicar tipo', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('i_prm_tipo_discapacidad_id', '6.4 d) Indicar tipo', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_tipo_discapacidad_id', $todoxxxx["tipodisc"], null, ['class' => 'form-control form-control-sm select2']) }}
 
     </div>

@@ -2384,5 +2384,6 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'ROL']); //2351
         Parametro::create(['id' => 2352, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FINES DE SEMANA']);
         Parametro::create(['id' => 2353, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JORNADA COMPLETA']);
+        Parametro::create(['id' => 2354, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRAFFITI']);
     }
 }

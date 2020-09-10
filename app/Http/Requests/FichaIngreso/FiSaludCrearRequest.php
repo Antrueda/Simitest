@@ -137,3 +137,4 @@ class FiSaludCrearRequest extends FormRequest
         }
     }
 }
+// mirar traits, crear consulta usuario dependencia, mirar ficha de ingreso por upimirar trait fi

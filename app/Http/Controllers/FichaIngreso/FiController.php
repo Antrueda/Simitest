@@ -135,7 +135,8 @@ class FiController extends Controller
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            return $this->getNnajsFi($request);
+            return $this->getNnajsFi($request); //Original
+            //return $this->getNnajsFi2user($request); //Por usuario
         }
     }
     private function grabar($dataxxxx, $objetoxx, $infoxxxx)
