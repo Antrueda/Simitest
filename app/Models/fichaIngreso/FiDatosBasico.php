@@ -2,10 +2,10 @@
 
 namespace App\Models\fichaIngreso;
 
-use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
 use App\Models\sicosocial\NnajNfamili;
+use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDocfuen;
 use Carbon\Carbon;
 
@@ -32,8 +32,11 @@ class FiDatosBasico extends Model
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
+        
 
     ];
+
+
 
     public function prmVestimenta()
     {
@@ -95,8 +98,9 @@ class FiDatosBasico extends Model
     {
         return $this->belongsTo(Parametro::class, 'prm_factor_rh_id');
     }
-
-
+    public function sis_depen_id(){
+        return $this->belongsToMany(SisDepen::class,'nnaj_upis','sis_nnaj_id', 'sis_depen_id');
+      }
 
     public static function usregisro($usuariox)
     {
@@ -217,14 +221,28 @@ class FiDatosBasico extends Model
             }
             $dataxxxx['prm_documento_id']=$dataxxxx['prm_tipodocu_id'];
             FiComposicionFami::transaccion($dataxxxx, $compofam);
-
-            $dataxxxx['sis_tabla_id'] = 9;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
+            $this->setSisDepen($dataxxxx, $objetoxx);
 
             return $objetoxx;
         }, 5);
 
         return $objetoxx;
+    }
+
+    public static function setSisDepen($dataxxxx, $objetoxx)
+    {
+        $datosxxx = [
+            'sis_nnaj_id' => $objetoxx->sis_nnaj_id,
+            'user_crea_id' => Auth::user()->id,
+            'user_edita_id' => Auth::user()->id,
+            'sis_esta_id' => 1,
+        ];
+
+        NnajUpi::where('sis_nnaj_id', $objetoxx->id)->delete();
+        foreach ($dataxxxx['sis_depen_id'] as $diagener) {
+            $datosxxx['sis_depen_id'] = $diagener;
+            NnajUpi::create($datosxxx);
+        }
     }
     public function sis_docfuen()
     {

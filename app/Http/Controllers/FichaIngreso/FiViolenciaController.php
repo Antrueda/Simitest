@@ -104,7 +104,7 @@ class FiViolenciaController extends Controller
 
                 'dataxxxx' => [],
                 'titupreg' => 'Indicar el contexto en el cual se maninifiesta la violencia',
-                'vercrear' => (isset($this->opciones['modeloxx']) && $this->opciones['modeloxx']->i_prm_presenta_violencia_id == 227) ? true : false,
+                'vercrear' => true,
                 'urlxxxxx' => route('ficonvio.listaxxx', [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 345]),
                 'cabecera' => $this->getCabeceraTabla(['temaidxx' => 345]),
                 'cuerpoxx' => $this->getCuerpoTabla(),

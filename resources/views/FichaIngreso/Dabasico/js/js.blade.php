@@ -3,6 +3,9 @@
 
 <script>
     $(function(){
+        $('.select2').select2({
+      language: "es"
+    });
         // Máscara documento
         $('#s_documento').mask('000000000000');
 

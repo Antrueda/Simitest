@@ -213,7 +213,7 @@ class User extends Authenticatable
     {
         return User::userCombo(['cabecera' => $cabecera, 'ajaxxxxx' => $ajaxxxxx, 'notinxxx' => false]);
     }
-    public static function comboDependencia($padrexxx, $cabecera, $ajaxxxxx)
+    public static function comboDependencia($cabecera, $ajaxxxxx)
     {
         $comboxxx = [];
         if ($cabecera) {
@@ -223,7 +223,7 @@ class User extends Authenticatable
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $userxxxx = User::where('id', $padrexxx)->first();
+        $userxxxx = Auth::user();
         foreach ($userxxxx->sis_depens as $registro) {
             if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
@@ -232,6 +232,28 @@ class User extends Authenticatable
             }
         }
         return [$comboxxx, $userxxxx->sis_cargo->s_cargo];
+    }
+    public static function getUpiUsuario($cabecera, $ajaxxxxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+        $userxxxx = Auth::user();
+        foreach ($userxxxx->sis_depens as $registro) {
+            if ( $registro->sis_esta_id==1) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+            } else {
+                $comboxxx[$registro->id] = $registro->nombre;
+            }
+        }
+        }
+        return $comboxxx;
     }
     public static function getAreasUser($dataxxxx)
     {

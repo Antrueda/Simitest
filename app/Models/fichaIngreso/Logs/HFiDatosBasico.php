@@ -20,6 +20,7 @@ class HFiDatosBasico extends Model
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
+        
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

@@ -7,6 +7,8 @@ use App\Models\fichaIngreso\NnajFocali;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\fichaIngreso\NnajSexo;
 use App\Models\fichaIngreso\NnajSitMil;
+use App\Models\fichaIngreso\NnajUpi;
+use App\Models\fichaIngreso\NnajUpis;
 use Illuminate\Database\Seeder;
 
 use App\Models\Sistema\SisNnaj;
@@ -508,6 +510,10 @@ class SisNnajsSeeder extends Seeder
                 'user_edita_id'=> 1,
                 'sis_docfuen_id'=> 2,
             ]);
+            NnajUpi::create([
+                'sis_nnaj_id' => $i + 1,
+                'sis_depen_id' => 2,
+              ]);
         }
     }
 }

@@ -8,6 +8,8 @@ use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
@@ -69,6 +71,7 @@ class FiController extends Controller
         $this->opciones['orientac'] = Tema::combo(13, true, false);
         $this->opciones['pais_idx'] = SisPai::combo(true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
+        
         $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
         $this->opciones['botoform'] = [
             [
@@ -162,6 +165,7 @@ class FiController extends Controller
 
     private function view($dataxxxx)
     {
+        
 
         $fechaxxx = explode('-', date('Y-m-d'));
 
@@ -292,7 +296,7 @@ class FiController extends Controller
             }
             // $this->opciones['poblindi'] = Tema::combo(61, true, false);
         }
-
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['upzxxxxx']  = SisUpz::combo($localida, false);
         $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
 

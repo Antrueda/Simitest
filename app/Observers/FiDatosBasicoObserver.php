@@ -23,6 +23,7 @@ class FiDatosBasicoObserver
         $log['prm_tipoblaci_id'] = $modeloxx->prm_tipoblaci_id;
         $log['prm_vestimenta_id'] = $modeloxx->prm_vestimenta_id;
         $log['sis_docfuen_id'] = $modeloxx->sis_docfuen_id;
+        
         $log['deleted_at'] = $modeloxx->deleted_at;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;

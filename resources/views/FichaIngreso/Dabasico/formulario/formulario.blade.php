@@ -8,6 +8,15 @@
     </div>
     @endif
   </div>
+  <div class="form-group col-md-6">
+    {{ Form::label('sis_depen_id', 'UPI', ['class' => 'control-label']) }}
+    {{ Form::select('sis_depen_id[]', $todoxxxx['dependen'], null, ['class' => $errors->first('sis_depen_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2','multiple']) }}
+    @if($errors->has('sis_depen_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('sis_depen_id') }}
+      </div>
+    @endif
+  </div>
 </div>
 <div class="form-row">
   <div class="form-group col-md-3">
@@ -352,6 +361,8 @@
       </div>
     @endif
   </div>
+
+
 </div>
 
 @section("scripts")

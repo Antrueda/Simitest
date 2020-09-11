@@ -8,6 +8,8 @@ use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
@@ -15,6 +17,7 @@ use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FiDatoBasicoController extends Controller
 {
@@ -56,6 +59,7 @@ class FiDatoBasicoController extends Controller
     $this->opciones['orientac'] = Tema::combo(13, true, false);
     $this->opciones['pais_idx'] = SisPai::combo(true, false);
     $this->opciones['localida'] = SisLocalidad::combo();
+    $this->opciones['dependen'] = SisDepeUsua::getDependenciasUsuario(true, false);
   }
 
 
@@ -75,6 +79,7 @@ class FiDatoBasicoController extends Controller
 
   private function view($objetoxx, $nombobje, $accionxx)
   {
+    ddd(Auth::user());
     $fechaxxx = explode('-', date('Y-m-d'));
 
     if ($fechaxxx[1] < 12) {
@@ -98,6 +103,7 @@ class FiDatoBasicoController extends Controller
     $this->opciones['barrioxx'] = ['' => 'Seleccione'];
     $this->opciones['poblindi'] = ['' => 'Seleccione'];
     $this->opciones['neciayud'] = ['' => 'Seleccione'];
+    
     $this->opciones['readfisi'] = '';
     // indica si se esta actualizando o viendo
     $this->opciones['aniosxxx'] = '';
@@ -123,6 +129,7 @@ class FiDatoBasicoController extends Controller
 
       $this->opciones['municexp'] = SisMunicipio::combo($objetoxx->sis_departamentoexp_id, false);
       $this->opciones['deparexp'] = SisDepartamento::combo($objetoxx->sis_paiexp_id, false);
+      
 
 
 
@@ -155,6 +162,32 @@ class FiDatoBasicoController extends Controller
       }
       // $this->opciones['poblindi'] = Tema::combo(61, true, false);
     }
+    $this->opciones['tablasxx'][] =
+    [
+        'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.dtcontviol',
+        'titunuev' => 'INDICAR VIOLENCIA',
+        'titulist' => 'LISTA DE VIOLENCIAS PRESENTADAS',
+        'contviol' => [
+            Tema::combo(
+                345,
+                true,
+                false
+            ),
+            'sis_depen_id',
+            '12.1 ¿Presenta algún tipo de violencia?'
+        ],
+
+        'dataxxxx' => [],
+        'titupreg' => 'Indicar el contexto en el cual se maninifiesta la violencia',
+        'vercrear' => true,
+        'urlxxxxx' => route('ficonvio.listaxxx', [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 345]),
+        'cabecera' => $this->getCabeceraTabla(['temaidxx' => 345]),
+        'cuerpoxx' => $this->getCuerpoTabla(),
+        'tablaxxx' => 'datatablepresentadas',
+        'permisox' => 'ficonvio',
+        'routxxxx' => 'ficonvio',
+        'parametr' => [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 345],
+    ];
     // Se arma el titulo de acuerdo al array opciones
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
 
