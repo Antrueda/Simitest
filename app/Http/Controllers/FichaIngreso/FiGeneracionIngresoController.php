@@ -71,9 +71,7 @@ class FiGeneracionIngresoController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-            if ($dataxxxx['modeloxx']->i_prm_jornada_genera_ingreso_id != 467) {
-                $this->opciones['readhora'] = 'readonly';
-            }
+        
         }
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

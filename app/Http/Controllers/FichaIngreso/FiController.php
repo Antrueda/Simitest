@@ -14,6 +14,7 @@ use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
+use App\Models\User;
 use App\Traits\Fi\FiTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -135,9 +136,12 @@ class FiController extends Controller
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            return $this->getNnajsFi($request); //Original
-            //return $this->getNnajsFi2user($request); //Por usuario
+            //return $this->getNnajsFi($request); //            Original
+            
+            return $this->getNnajsFi2depen($request); //Por UPI
+        
         }
+      
     }
     private function grabar($dataxxxx, $objetoxx, $infoxxxx)
     {

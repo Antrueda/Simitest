@@ -10,6 +10,7 @@ use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\fichaIngreso\FiSalud;
+use App\Models\User;
 use App\Traits\DatatableTrait;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,6 +39,40 @@ trait FiTrait
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
+    public function getNnajsFi2depen($request)
+    {
+        $userxxxx['user_id']=Auth::user()->id;
+        $dependen = User::select(['sis_depens.id'])
+        ->join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
+        ->join('sis_depens', 'sis_depen_user.sis_depen_id', '=', 'sis_depens.id')
+        ->where('users.id','=',$userxxxx)->get();;
+       //SELECT sis_depens.id FROM `users` JOIN sis_depen_user on sis_depen_user.user_id = 
+       //users.id JOIN sis_depens on sis_depen_user.sis_depen_id =sis_depens.id WHERE users.id = 2
+       
+        
+
+        $dataxxxx =  FiDatosBasico::select([
+            'fi_datos_basicos.id',
+            'fi_datos_basicos.s_primer_nombre',
+            'nnaj_docus.s_documento',
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
+            'fi_datos_basicos.sis_esta_id',
+            'fi_datos_basicos.created_at',
+            'sis_estas.s_estado',
+            'fi_datos_basicos.user_crea_id',
+            'fi_bienvenidas.sis_depen_id'
+            
+        ])
+            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+            ->join('users','fi_datos_basicos.user_crea_id','=','users.id')
+            ->join('fi_bienvenidas','fi_datos_basicos.sis_nnaj_id','=','fi_bienvenidas.sis_nnaj_id')
+            ->whereIn('fi_bienvenidas.sis_depen_id',$dependen);
+            //->whereIn('fi_bienvenidas.sis_depen_id',[5,9]);
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
     public function getNnajsFi2user($request)
     {
         $userxxxx['user_id']=Auth::user()->id;
@@ -60,6 +95,7 @@ trait FiTrait
             ->where('fi_datos_basicos.user_crea_id','=',$userxxxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
+    
 
     public function getCompoFami($request)
     {

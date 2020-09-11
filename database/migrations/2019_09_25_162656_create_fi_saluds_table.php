@@ -32,7 +32,7 @@ class CreateFiSaludsTable extends Migration
             $table->bigIntegeR('i_prm_esta_lactando_id')->unsigned(); //->comment('FI 6.9 SE ENCUENTRA LACTANDO');
             $table->bigIntegeR('i_numero_meses')->nullable(); //->comment('FI 6.10 NÚMERO DE MESES');
             $table->bigIntegeR('i_prm_tiene_problema_salud_id')->unsigned(); //->comment('FI 6.11 TIENE PROBLEMAS DE SALUD');
-            $table->bigIntegeR('i_prm_problema_salud_id')->unsigned(); //->comment('FI 6.11.1 CUAL PROBLEMA SALUD');
+            $table->bigIntegeR('i_prm_problema_salud_id')->nullable()->unsigned(); //->comment('FI 6.11.1 CUAL PROBLEMA SALUD');
             $table->bigIntegeR('i_prm_consume_medicamentos_id')->unsigned(); //->comment('FI 6.12 CONSUME MEDICAMENTOS DE FORMA PERMANENTE');
             $table->string('s_cual_medicamento')->nullable(); //->comment('FI 6.12.1 CUAL MEDICAMENTO');
             $table->bigIntegeR('i_prm_tiene_hijos_id')->unsigned(); //->comment('FI 6.13 TIENE HIJOS');

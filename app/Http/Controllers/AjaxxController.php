@@ -294,8 +294,8 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $respuest = [
-                'horainix' => ($dataxxxx['padrexxx'] == 467) ? false : true,
-                'horafinx' => ($dataxxxx['padrexxx'] == 467) ? false : true,
+                'horainix' => ($dataxxxx['padrexxx'] != 1) ? false : true,
+                'horafinx' => ($dataxxxx['padrexxx'] != 1) ? false : true,
             ];
             return response()->json($respuest);
         }

@@ -114,7 +114,7 @@ class FiSaludUpdateRequest extends FormRequest
         switch($dataxxxx['i_prm_tiene_problema_salud_id']){
             case 227:
             $this->_mensaje['i_prm_problema_salud_id.required'] ='Escriba el problema de salud';
-            $this->_reglasx['i_prm_problema_salud_id']='required';
+            //$this->_reglasx['i_prm_problema_salud_id']='required';
             break;
         }
 

@@ -70,13 +70,13 @@ class FiGeneracionIngresoCrearRequest extends FormRequest
             $this->_reglasx['s_trabajo_formal']='required';
             break;
         }
-
+/*
         if ($dataxxxx['i_prm_jornada_genera_ingreso_id'] == 467){
             $this->_mensaje['s_hora_inicial.required'] ='Seleccione hora inicial';
             $this->_reglasx['s_hora_inicial']='required';
             $this->_mensaje['s_hora_final.required'] ='Seleccione hora final';
             $this->_reglasx['s_hora_final']='required';
         }
-        
+        */
     }
 }
