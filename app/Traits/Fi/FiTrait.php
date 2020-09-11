@@ -41,7 +41,6 @@ trait FiTrait
     }
 public function getNotInt()
 {
-    $notinxxx=[];
     $userxxxx=Auth::user();
     $userxxxx=SisDepeUsua::select('sis_depen_id')->where(function($queryxxx) use($userxxxx){
         $queryxxx->where('user_id',$userxxxx->id);
@@ -52,7 +51,7 @@ public function getNotInt()
 }
     public function getNnajsFi2depen($request)
     {
-        
+
         $dataxxxx =  FiDatosBasico::select([
             'fi_datos_basicos.id',
             'fi_datos_basicos.s_primer_nombre',
@@ -70,7 +69,7 @@ public function getNotInt()
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->join('users','fi_datos_basicos.user_crea_id','=','users.id')
             ->join('nnaj_upis','fi_datos_basicos.sis_nnaj_id','=','nnaj_upis.sis_nnaj_id')
-            
+
             ->whereIn('nnaj_upis.sis_depen_id',$this->getNotInt());
             ;
         return $this->getDtAcciones($dataxxxx, $request);

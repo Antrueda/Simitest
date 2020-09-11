@@ -14,12 +14,10 @@ class FiDatosBasicoUpdateRequest extends FormRequest
     {
         $this->_mensaje = [
             'prm_tipoblaci_id.required' => 'Seleccione el tipo de población',
-            // 's_segundo_nombre.required' => 'Ingrese el primer nombre',
+        'sis_depen_id.required' => 'Seleccione una unidad de atención integral',
             's_primer_nombre.required' => 'Ingrese el primer nombre',
             's_primer_apellido.required' => 'Ingrese primer apellido',
-            // 's_segundo_apellido.required' => 'Ingrese el segundo apellido',
             'prm_sexo_id.required' => 'Seleccione el sexo',
-            // 's_apodo.required' => 'Ingrese el apodo',
             'prm_doc_fisico_id.required' => 'Seleccione si cuenta con el documento físico',
             'd_nacimiento.required' => 'Seleccione la fecha de nacimiento',
             'sis_municipio_id.required' => 'Seleccione un municipio',
@@ -29,7 +27,6 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'prm_estado_civil_id.required' => 'Seleccione un estado civil',
             'prm_situacion_militar_id.required' => 'Indique si tiene la situación militar definida',
             'prm_clase_libreta_id.required' => 'Indique la clase de la libreta militar',
-            //'s_nombre_identitario.required' => 'Indique el nombre identitario',
             'prm_identidad_genero_id.required' => 'Seleccione una identidad de género',
             'prm_orientacion_sexual_id.required' => 'Seleccione una orientación sexual',
             'prm_etnia_id.required' => 'Seleccione una etnia',
@@ -39,17 +36,15 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'sis_upzbarri_id.required' => 'Seleccione un barrio',
             's_documento.required' => 'Ingrese un documento de identificación',
             's_documento.unique' => 'El docuemento ya existe',
-            //
+
         ];
         $this->_reglasx = [
             'prm_tipoblaci_id' => ['required'],
             'prm_doc_fisico_id' => ['required'],
-            //'s_segundo_nombre' => ['required'],
+            'sis_depen_id' => ['Required'],
             's_primer_nombre' => ['required'],
             's_primer_apellido' => ['required'],
-            //'s_segundo_apellido' => ['required'],
             'prm_sexo_id' => ['required'],
-            //'s_apodo' => ['required'],
             'd_nacimiento' => ['required'],
             'sis_municipio_id' => ['required'],
             'sis_municipioexp_id' => ['required'],
@@ -58,7 +53,6 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'prm_estado_civil_id' => ['required'],
             'prm_situacion_militar_id' => ['required'],
             'prm_clase_libreta_id' => ['required'],
-            //'s_nombre_identitario' => ['required'],
             'prm_identidad_genero_id' => ['required'],
             'prm_orientacion_sexual_id' => ['required'],
             'prm_etnia_id' => ['required'],
@@ -66,8 +60,6 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             's_nombre_focalizacion' => ['required'],
             's_lugar_focalizacion' => ['required'],
             'sis_upzbarri_id' => ['required'],
-
-            //
         ];
     }
     /**
