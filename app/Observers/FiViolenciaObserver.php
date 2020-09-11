@@ -14,7 +14,8 @@ class FiViolenciaObserver
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo 
         $log['i_prm_presenta_violencia_id'] = $modeloxx->i_prm_presenta_violencia_id;
-        $log['prm_ejerviol_id'] = $modeloxx->i_prm_presenta_violencia_id;
+        $log['prm_ejerviol_id'] = $modeloxx->prm_ejerviol_id;
+        $log['prm_cabefami_id'] = $modeloxx->prm_cabefami_id;
         $log['i_prm_violencia_genero_id'] = $modeloxx->i_prm_violencia_genero_id;
         $log['i_prm_condicion_presenta_id'] = $modeloxx->i_prm_condicion_presenta_id;
         $log['i_prm_depto_condicion_id'] = $modeloxx->i_prm_depto_condicion_id;

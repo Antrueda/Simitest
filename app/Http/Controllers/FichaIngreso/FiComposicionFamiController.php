@@ -117,7 +117,7 @@ class FiComposicionFamiController extends Controller
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.botones.botonesapi';
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             return $this->getCompoFami($request);
         }

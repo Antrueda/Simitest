@@ -27,6 +27,7 @@ class CreateHFiSituacionEspecialsTable extends Migration
             $table->bigInteger('i_prm_tipo_id')->nullable()->unsigned();
             $table->bigInteger('i_tiempo')->nullable();
             $table->bigInteger('i_prm_ttiempo_id')->nullable()->unsigned();
+            $table->bigInteger('prm_presconf_id')->nullable()->unsigned()->comment('13.4 ES USTED JOVEN EN PRESUNTO CONFLICTO CON LA LEY?');
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

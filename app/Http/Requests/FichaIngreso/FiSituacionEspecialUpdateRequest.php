@@ -13,13 +13,9 @@ class FiSituacionEspecialUpdateRequest extends FormRequest {
   public function __construct() {
     $this->_mensaje = [
         'i_prm_situacion_vulnera_id.required' => 'Seleccione al menos una situacion de vulneracion',
-//            'i_prm_tipo_id.required' => 'Seleccione el tipo de ESCNNA',
-//            'i_prm_victima_escnna_id.required' => 'Seleccione una forma de Riesgo de ESCNNA',
     ];
     $this->_reglasx = [
         'i_prm_situacion_vulnera_id' => ['required'],
-//            'i_prm_tipo_id' => ['required'],
-//            'i_prm_victima_escnna_id' => ['required'],
     ];
   }
 
@@ -58,6 +54,11 @@ class FiSituacionEspecialUpdateRequest extends FormRequest {
       $this->_reglasx['i_prm_iniciado_id'] = 'required';
       $this->_mensaje['i_prm_continua_id.required'] = 'Seleccione las razones de continuar en la calle';
       $this->_reglasx['i_prm_continua_id'] = 'required';
+    }
+
+    if ($basicosx->prm_tipoblaci_id == 2323) {
+        $this->_mensaje['prm_presconf_id.required'] = 'Seleccione si presenta conflicto';
+        $this->_reglasx['prm_presconf_id'] = ['required'];  
     }
   }
 

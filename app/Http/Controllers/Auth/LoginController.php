@@ -21,7 +21,7 @@ class LoginController extends Controller
     |
     */
     protected $maxAttempts = 3; // De manera predeterminada sería 5
-    protected $decayMinutes = 60; // De manera predeterminada sería 1
+    protected $decayMinutes = 1; // De manera predeterminada sería 1
     use AuthenticatesUsers;
 
     /**
@@ -54,17 +54,16 @@ class LoginController extends Controller
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
-        // if (method_exists($this, 'hasTooManyLoginAttempts') &&
-        //     $this->hasTooManyLoginAttempts($request)) {
-        //     $this->fireLockoutEvent($request);
+        if (method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
 
-        //     return $this->sendLockoutResponse($request);
-        // }
+            return $this->sendLockoutResponse($request);
+        }
 
         if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
         }
-//ddd($request);
         // If the login attempt was unsuccessful we will increment the number of attempts
         // to login and redirect the user back to the login form. Of course, when this
         // user surpasses their maximum number of attempts they will get locked out.

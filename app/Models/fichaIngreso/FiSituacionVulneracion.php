@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class FiSituacionVulneracion extends Model{
-  protected $fillable = [    
-    'fi_situacion_especial_id', 
+  protected $fillable = [
+    'fi_situacion_especial_id',
     'i_prm_situacion_vulnera_id',
-    'user_crea_id', 
+
+    'user_crea_id',
     'user_edita_id',
     'sis_esta_id'
   ];
@@ -37,7 +38,7 @@ class FiSituacionVulneracion extends Model{
   }
 
   public static function transaccion($dataxxxx,  $objetoxx)
-  {  
+  {
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
       $dataxxxx['user_edita_id'] = Auth::user()->id;
       if ($objetoxx != '') {

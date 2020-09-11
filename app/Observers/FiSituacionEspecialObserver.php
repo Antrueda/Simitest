@@ -15,6 +15,7 @@ class FiSituacionEspecialObserver
         // campos nuevos traidos desde $fillable -> modelo 
         $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         $log['i_prm_tipo_id'] = $modeloxx->i_prm_tipo_id;
+       
         $log['i_tiempo'] = $modeloxx->i_tiempo;
         $log['i_prm_ttiempo_id'] = $modeloxx->i_prm_ttiempo_id;
         // campos por defecto, no borrar.

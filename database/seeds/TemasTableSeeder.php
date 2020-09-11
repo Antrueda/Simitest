@@ -452,7 +452,7 @@ class TemasTableSeeder extends Seeder
             274 => $camposmagicos,
             275 => $camposmagicos,
             276 => $camposmagicos,
-            //1489 => $camposmagicos,
+          
             509 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
@@ -551,7 +551,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 43, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'Eventos médicos']);
         $tema->parametros()->sync([
-            //1372 => $camposmagicos,
+          
             318 => $camposmagicos,
             319 => $camposmagicos,
             320 => $camposmagicos,
@@ -771,7 +771,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 63, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'MOTIVO VINCULACION IDIPRON']);
         $tema->parametros()->sync([
-         //   566 => $camposmagicos,
+         
             761 => $camposmagicos,
             762 => $camposmagicos,
             763 => $camposmagicos,
@@ -781,7 +781,7 @@ class TemasTableSeeder extends Seeder
             767 => $camposmagicos,
             768 => $camposmagicos,
             769 => $camposmagicos,
-//            1758 => $camposmagicos,
+         
             2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 64, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'REPRESENTACION LEGAL']);
@@ -1661,7 +1661,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 151, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'JORNADA ESTUDIO']);
         $tema->parametros()->sync([
-            2213=> $camposmagicos,
+            2213 => $camposmagicos,
             823 => $camposmagicos,
             824 => $camposmagicos,
             825 => $camposmagicos,
@@ -3556,7 +3556,7 @@ class TemasTableSeeder extends Seeder
 
         $this->getR([
             'nombrexx' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?',
-            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 2337,2354]
+            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 1593, 1372, 2337,]
         ]); //343
 
         $this->getR([
@@ -3591,11 +3591,22 @@ class TemasTableSeeder extends Seeder
             'nombrexx' => '12.1.B  Que tipo de presuntas lesiones ha cometido durante la actividad?',
             'parametr' => [337, 2347, 2348, 2349, 2350]
         ]); //350
+        $this->getR([
+            'nombrexx' => 'condiciones especiales  CR',
+            'parametr' => [450, 451, 452, 454, 853, 936]
+        ]); //351
+        $this->getR([
+            'nombrexx' => '¿Es cabeza de familia? cr',
+            'parametr' => [227,228,235]
+        ]); //352
+        $this->getR([
+            'nombrexx' => '¿Es usted Joven en presunto conflicto con la ley?',
+            'parametr' => [227,228,235]
+        ]); //353
 
         // $this->getR([
         //     'nombrexx' => '',
         //     'parametr' => []
-        // ]); //351
-
+        // ]); //354
     }
 }

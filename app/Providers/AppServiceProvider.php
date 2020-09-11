@@ -66,6 +66,7 @@ use App\Models\fichaIngreso\FiFormacion;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\fichaIngreso\FiJrFamiliar;
 use App\Models\fichaIngreso\FiJusticiaRestaurativa;
+use App\Models\fichaIngreso\FiLesicome;
 use App\Models\fichaIngreso\FiModalidad;
 use App\Models\fichaIngreso\FiMotivoVinculacion;
 use App\Models\fichaIngreso\FiProcesoFamilia;
@@ -88,13 +89,14 @@ use App\Models\fichaIngreso\FiSustanciaConsumida;
 use App\Models\fichaIngreso\FiVestuarioNnaj;
 use App\Models\fichaIngreso\FiVictataq;
 use App\Models\fichaIngreso\FiVictimaEscnna;
+use App\Models\fichaIngreso\FiViolbasa;
 use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\intervencion\IsDatosBasico;
 use App\Models\intervencion\IsProximaAreaAjuste;
-use App\Models\Parametro;
+
 use App\Models\Permissionext;
 use App\Models\Post;
 
@@ -295,6 +297,7 @@ use App\Observers\FiFormacionObserver;
 use App\Observers\FiGeneracionIngresoObserver;
 use App\Observers\FiJrFamiliarObserver;
 use App\Observers\FiJusticiaRestaurativaObserver;
+use App\Observers\FiLesicomeObserver;
 use App\Observers\FiModalidadObserver;
 use App\Observers\FiMotivoVinculacionObserver;
 use App\Observers\FiProcesoFamiliaObserver;
@@ -317,6 +320,7 @@ use App\Observers\FiSustanciaConsumidaObserver;
 use App\Observers\FiVestuarioNnajObserver;
 use App\Observers\FiVictataqObserver;
 use App\Observers\FiVictimaEscnnaObserver;
+use App\Observers\FiViolbasaObserver;
 use App\Observers\FiViolenciaObserver;
 use App\Observers\FosDatosBasicoObserver;
 use App\Observers\FosStseObserver;
@@ -443,19 +447,19 @@ use App\Observers\VsiVioContextoObserver;
 use App\Observers\VsiViolenciaObserver;
 use App\Observers\VsiVioTipoObserver;
 use App\Observers\SisServicioObserver;
-Use App\Observers\SisTablaObserver;
-Use App\Observers\SisTcampoObserver;
-Use App\Observers\SisTituloObserver;
-Use App\Observers\SisUpzObserver;
-Use App\Observers\SisUpzbarriObserver;
-Use App\Observers\VspaObserver;
-Use App\Observers\VspaTablaObserver;
-Use App\Observers\VspaTablaCuatroObserver;
-Use App\Observers\VspaTablaDosObserver;
-Use App\Observers\VspaTablaTresObserver;
-Use App\Observers\MitVmaObserver;
-Use App\Observers\InValoracionObserver;
-Use App\Observers\InDocIndiObserver;
+use App\Observers\SisTablaObserver;
+use App\Observers\SisTcampoObserver;
+use App\Observers\SisTituloObserver;
+use App\Observers\SisUpzObserver;
+use App\Observers\SisUpzbarriObserver;
+use App\Observers\VspaObserver;
+use App\Observers\VspaTablaObserver;
+use App\Observers\VspaTablaCuatroObserver;
+use App\Observers\VspaTablaDosObserver;
+use App\Observers\VspaTablaTresObserver;
+use App\Observers\MitVmaObserver;
+use App\Observers\InValoracionObserver;
+use App\Observers\InDocIndiObserver;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -464,277 +468,279 @@ use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
-  /**
-   * Register any application services.
-   *
-   * @return void
-   */
-  public function register()
-  {
-    //
-  }
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
 
-  /**
-   * Bootstrap any application services.
-   *
-   * @return void
-   */
-  public function boot()
-  {
-    Schema::defaultStringLength(190);
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Schema::defaultStringLength(190);
 
 
-    // SICOSOCIAL
-    Vsi::observe(VsiObserver::class);
-    VsiAbuSexual::observe(VsiAbuSexualObserver::class);
-    VsiActEmocional::observe(VsiActEmocionalObserver::class);
-    VsiAntecedente::observe(VsiAntecedenteObserver::class);
-    VsiBienvenida::observe(VsiBienvenidaObserver::class);
-    VsiConcepto::observe(VsiConceptoObserver::class);
-    VsiConsentimiento::observe(VsiConsentimientoObserver::class);
-    VsiConsumo::observe(VsiConsumoObserver::class);
-    VsiDatosVincula::observe(VsiDatosVinculaObserver::class);
-    VsiDinFamiliar::observe(VsiDinFamiliarObserver::class);
-    VsiDinfamMadre::observe(VsiDinfamMadreObserver::class);
-    VsiDinfamPadre::observe(VsiDinfamPadreObserver::class);
-    VsiEducacion::observe(VsiEducacionObserver::class);
-    VsiEstEmocional::observe(VsiEstEmocionalObserver::class);
-    VsiFacProtector::observe(VsiFacProtectorObserver::class);
-    VsiFacRiesgo::observe(VsiFacRiesgoObserver::class);
-    VsiGenIngreso::observe(VsiGenIngresoObserver::class);
-    VsiMeta::observe(VsiMetaObserver::class);
-    VsiPotencialidad::observe(VsiPotencialidadObserver::class);
-    VsiRedsocActual::observe(VsiRedsocActualObserver::class);
-    VsiRedSocial::observe(VsiRedSocialObserver::class);
-    VsiRedsocPasado::observe(VsiRedsocPasadoObserver::class);
-    VsiRelFamiliar::observe(VsiRelFamiliarObserver::class);
-    VsiRelSociale::observe(VsiRelSocialeObserver::class);
-    VsiSalud::observe(VsiSaludObserver::class);
-    VsiSitEspecial::observe(VsiSitEspecialObserver::class);
-    VsiViolencia::observe(VsiViolenciaObserver::class);
+        // SICOSOCIAL
+        Vsi::observe(VsiObserver::class);
+        VsiAbuSexual::observe(VsiAbuSexualObserver::class);
+        VsiActEmocional::observe(VsiActEmocionalObserver::class);
+        VsiAntecedente::observe(VsiAntecedenteObserver::class);
+        VsiBienvenida::observe(VsiBienvenidaObserver::class);
+        VsiConcepto::observe(VsiConceptoObserver::class);
+        VsiConsentimiento::observe(VsiConsentimientoObserver::class);
+        VsiConsumo::observe(VsiConsumoObserver::class);
+        VsiDatosVincula::observe(VsiDatosVinculaObserver::class);
+        VsiDinFamiliar::observe(VsiDinFamiliarObserver::class);
+        VsiDinfamMadre::observe(VsiDinfamMadreObserver::class);
+        VsiDinfamPadre::observe(VsiDinfamPadreObserver::class);
+        VsiEducacion::observe(VsiEducacionObserver::class);
+        VsiEstEmocional::observe(VsiEstEmocionalObserver::class);
+        VsiFacProtector::observe(VsiFacProtectorObserver::class);
+        VsiFacRiesgo::observe(VsiFacRiesgoObserver::class);
+        VsiGenIngreso::observe(VsiGenIngresoObserver::class);
+        VsiMeta::observe(VsiMetaObserver::class);
+        VsiPotencialidad::observe(VsiPotencialidadObserver::class);
+        VsiRedsocActual::observe(VsiRedsocActualObserver::class);
+        VsiRedSocial::observe(VsiRedSocialObserver::class);
+        VsiRedsocPasado::observe(VsiRedsocPasadoObserver::class);
+        VsiRelFamiliar::observe(VsiRelFamiliarObserver::class);
+        VsiRelSociale::observe(VsiRelSocialeObserver::class);
+        VsiSalud::observe(VsiSaludObserver::class);
+        VsiSitEspecial::observe(VsiSitEspecialObserver::class);
+        VsiViolencia::observe(VsiViolenciaObserver::class);
 
-    // SICOSOCIAL - PIVOTES
-    VsiActemoFisiologica::observe(VsiActemoFisiologicaObserver::class);
-    VsiBienvenidaMotivo::observe(VsiBienvenidaMotivoObserver::class);
-    VsiConcepRed::observe(VsiConcepRedObserver::class);
-    VsiConsumoExpectativa::observe(VsiConsumoExpectativaObserver::class);
-    VsiConsumoQuien::observe(VsiConsumoQuienObserver::class);
-    VsiDinfamAusencia::observe(VsiDinfamAusenciaObserver::class);
-    VsiDinfamCalle::observe(VsiDinfamCalleObserver::class);
-    VsiDinfamConsumo::observe(VsiDinfamConsumoObserver::class);
-    VsiDinfamCuidador::observe(VsiDinfamCuidadorObserver::class);
-    VsiDinfamDelito::observe(VsiDinfamDelitoObserver::class);
-    VsiDinfamLibertad::observe(VsiDinfamLibertadObserver::class);
-    VsiDinfamProstitucion::observe(VsiDinfamProstitucionObserver::class);
-    VsiDinfamSalud::observe(VsiDinfamSaludObserver::class);
-    VsiEduCausa::observe(VsiEduCausaObserver::class);
-    VsiEduDificultad::observe(VsiEduDificultadObserver::class);
-    VsiEduDiftipoA::observe(VsiEduDiftipoAObserver::class);
-    VsiEduDiftipoB::observe(VsiEduDiftipoBObserver::class);
-    VsiEduFortaleza::observe(VsiEduFortalezaObserver::class);
-    VsiEmocionVincula::observe(VsiEmocionVinculaObserver::class);
-    VsiEstemoAdecuado::observe(VsiEstemoAdecuadoObserver::class);
-    VsiEstemoDificulta::observe(VsiEstemoDificultaObserver::class);
-    VsiEstemoEstresante::observe(VsiEstemoEstresanteObserver::class);
-    VsiEstemoLesiva::observe(VsiEstemoLesivaObserver::class);
-    VsiEstemoMotivo::observe(VsiEstemoMotivoObserver::class);
-    VsiGeningDia::observe(VsiGeningDiaObserver::class);
-    VsiGeningLabor::observe(VsiGeningLaborObserver::class);
-    VsiGeningQuien::observe(VsiGeningQuienObserver::class);
-    VsiNnajAcademica::observe(VsiNnajAcademicaObserver::class);
-    VsiNnajComportamental::observe(VsiNnajComportamentalObserver::class);
-    VsiNnajEmocional::observe(VsiNnajEmocionalObserver::class);
-    VsiNnajFamiliar::observe(VsiNnajFamiliarObserver::class);
-    VsiNnajSexual::observe(VsiNnajSexualObserver::class);
-    VsiNnajSocial::observe(VsiNnajSocialObserver::class);
-    VsiRedsocAceso::observe(VsiRedsocAcesoObserver::class);
-    VsiRedsocMotivo::observe(VsiRedSocMotivoObserver::class);
-    VsiRelfamAccione::observe(VsiRelfamAccioneObserver::class);
-    VsiRelfamDificultad::observe(VsiRelfamDificultadObserver::class);
-    VsiRelfamMotivo::observe(VsiRelfamMotivoObserver::class);
-    VsiRelsolDificulta::observe(VsiRelSolDificultaObserver::class);
-    VsiRelsolFacilita::observe(VsiRelSolFacilitaObserver::class);
-    VsiSitespRiesgo::observe(VsiSitespRiesgoObserver::class);
-    VsiSitespVictima::observe(VsiSitespVictimaObserver::class);
-    VsiSituacionVincula::observe(VsiSituacionVinculaObserver::class);
-    VsiVioContexto::observe(VsiVioContextoObserver::class);
-    VsiVioTipo::observe(VsiVioTipoObserver::class);
+        // SICOSOCIAL - PIVOTES
+        VsiActemoFisiologica::observe(VsiActemoFisiologicaObserver::class);
+        VsiBienvenidaMotivo::observe(VsiBienvenidaMotivoObserver::class);
+        VsiConcepRed::observe(VsiConcepRedObserver::class);
+        VsiConsumoExpectativa::observe(VsiConsumoExpectativaObserver::class);
+        VsiConsumoQuien::observe(VsiConsumoQuienObserver::class);
+        VsiDinfamAusencia::observe(VsiDinfamAusenciaObserver::class);
+        VsiDinfamCalle::observe(VsiDinfamCalleObserver::class);
+        VsiDinfamConsumo::observe(VsiDinfamConsumoObserver::class);
+        VsiDinfamCuidador::observe(VsiDinfamCuidadorObserver::class);
+        VsiDinfamDelito::observe(VsiDinfamDelitoObserver::class);
+        VsiDinfamLibertad::observe(VsiDinfamLibertadObserver::class);
+        VsiDinfamProstitucion::observe(VsiDinfamProstitucionObserver::class);
+        VsiDinfamSalud::observe(VsiDinfamSaludObserver::class);
+        VsiEduCausa::observe(VsiEduCausaObserver::class);
+        VsiEduDificultad::observe(VsiEduDificultadObserver::class);
+        VsiEduDiftipoA::observe(VsiEduDiftipoAObserver::class);
+        VsiEduDiftipoB::observe(VsiEduDiftipoBObserver::class);
+        VsiEduFortaleza::observe(VsiEduFortalezaObserver::class);
+        VsiEmocionVincula::observe(VsiEmocionVinculaObserver::class);
+        VsiEstemoAdecuado::observe(VsiEstemoAdecuadoObserver::class);
+        VsiEstemoDificulta::observe(VsiEstemoDificultaObserver::class);
+        VsiEstemoEstresante::observe(VsiEstemoEstresanteObserver::class);
+        VsiEstemoLesiva::observe(VsiEstemoLesivaObserver::class);
+        VsiEstemoMotivo::observe(VsiEstemoMotivoObserver::class);
+        VsiGeningDia::observe(VsiGeningDiaObserver::class);
+        VsiGeningLabor::observe(VsiGeningLaborObserver::class);
+        VsiGeningQuien::observe(VsiGeningQuienObserver::class);
+        VsiNnajAcademica::observe(VsiNnajAcademicaObserver::class);
+        VsiNnajComportamental::observe(VsiNnajComportamentalObserver::class);
+        VsiNnajEmocional::observe(VsiNnajEmocionalObserver::class);
+        VsiNnajFamiliar::observe(VsiNnajFamiliarObserver::class);
+        VsiNnajSexual::observe(VsiNnajSexualObserver::class);
+        VsiNnajSocial::observe(VsiNnajSocialObserver::class);
+        VsiRedsocAceso::observe(VsiRedsocAcesoObserver::class);
+        VsiRedsocMotivo::observe(VsiRedSocMotivoObserver::class);
+        VsiRelfamAccione::observe(VsiRelfamAccioneObserver::class);
+        VsiRelfamDificultad::observe(VsiRelfamDificultadObserver::class);
+        VsiRelfamMotivo::observe(VsiRelfamMotivoObserver::class);
+        VsiRelsolDificulta::observe(VsiRelSolDificultaObserver::class);
+        VsiRelsolFacilita::observe(VsiRelSolFacilitaObserver::class);
+        VsiSitespRiesgo::observe(VsiSitespRiesgoObserver::class);
+        VsiSitespVictima::observe(VsiSitespVictimaObserver::class);
+        VsiSituacionVincula::observe(VsiSituacionVinculaObserver::class);
+        VsiVioContexto::observe(VsiVioContextoObserver::class);
+        VsiVioTipo::observe(VsiVioTipoObserver::class);
 
-    // ACCIONES GRUPALES
-    AgActividad::observe(AgActividadObserver::class);
-    AgAsistente::observe(AgAsistenteObserver::class);
-    AgContexto::observe(AgContextoObserver::class);
-    AgConvenio::observe(AgConvenioObserver::class);
-    AgRecurso::observe(AgRecursoObserver::class);
-    AgRelacion::observe(AgRelacionObserver::class);
-    AgResponsable::observe(AgResponsableObserver::class);
-    AgSubtema::observe(AgSubtemaObserver::class);
-    AgTaller::observe(AgTallerObserver::class);
-    AgTallerAgTema::observe(AgTallerAgTemaObserver::class);
-    AgTema::observe(AgTemaObserver::class);
+        // ACCIONES GRUPALES
+        AgActividad::observe(AgActividadObserver::class);
+        AgAsistente::observe(AgAsistenteObserver::class);
+        AgContexto::observe(AgContextoObserver::class);
+        AgConvenio::observe(AgConvenioObserver::class);
+        AgRecurso::observe(AgRecursoObserver::class);
+        AgRelacion::observe(AgRelacionObserver::class);
+        AgResponsable::observe(AgResponsableObserver::class);
+        AgSubtema::observe(AgSubtemaObserver::class);
+        AgTaller::observe(AgTallerObserver::class);
+        AgTallerAgTema::observe(AgTallerAgTemaObserver::class);
+        AgTema::observe(AgTemaObserver::class);
 
-    // ACCIONES INDIVIDUALES
-    AiReporteEvasion::observe(AiReporteEvasionObserver::class);
-    AiRetornoSalida::observe(AiRetornoSalidaObserver::class);
-    AiSalidaMayores::observe(AiSalidaMayoresObserver::class);
-    AiSalidaMenores::observe(AiSalidaMenoresObserver::class);
+        // ACCIONES INDIVIDUALES
+        AiReporteEvasion::observe(AiReporteEvasionObserver::class);
+        AiRetornoSalida::observe(AiRetornoSalidaObserver::class);
+        AiSalidaMayores::observe(AiSalidaMayoresObserver::class);
+        AiSalidaMenores::observe(AiSalidaMenoresObserver::class);
 
-    // CONSULTA
-    Csd::observe(CsdObserver::class);
-    CsdAlimentacion::observe(CsdAlimentacionObserver::class);
-    CsdBienvenida::observe(csdBienvenidaObserver::class);
-    CsdComFamiliar::observe(CsdComFamiliarObserver::class);
-    CsdComFamiliarObservaciones::observe(CsdComFamiliarObservacionesObserver::class);
-    CsdConclusiones::observe(CsdConclusionesObserver::class);
-    CsdDatosBasico::observe(CsdDatosBasicoObserver::class);
-    CsdDinFamiliar::observe(CsdDinFamiliarObserver::class);
-    CsdDinfamMadre::observe(CsdDinfamMadreObserver::class);
-    CsdDinfamPadre::observe(CsdDinfamPadreObserver::class);
-    CsdGeningAporta::observe(CsdGeningAportaObserver::class);
-    CsdGenIngreso::observe(CsdGenIngresoObserver::class);
-    CsdJusticia::observe(CsdJusticiaObserver::class);
-    CsdRedsocActual::observe(CsdRedSocActualObserver::class);
-    CsdRedsocPasado::observe(CsdRedSocPasadoObserver::class);
-    CsdResidencia::observe(CsdResidenciaObserver::class);
-    CsdViolencia::observe(CsdViolenciaObserver::class);
+        // CONSULTA
+        Csd::observe(CsdObserver::class);
+        CsdAlimentacion::observe(CsdAlimentacionObserver::class);
+        CsdBienvenida::observe(csdBienvenidaObserver::class);
+        CsdComFamiliar::observe(CsdComFamiliarObserver::class);
+        CsdComFamiliarObservaciones::observe(CsdComFamiliarObservacionesObserver::class);
+        CsdConclusiones::observe(CsdConclusionesObserver::class);
+        CsdDatosBasico::observe(CsdDatosBasicoObserver::class);
+        CsdDinFamiliar::observe(CsdDinFamiliarObserver::class);
+        CsdDinfamMadre::observe(CsdDinfamMadreObserver::class);
+        CsdDinfamPadre::observe(CsdDinfamPadreObserver::class);
+        CsdGeningAporta::observe(CsdGeningAportaObserver::class);
+        CsdGenIngreso::observe(CsdGenIngresoObserver::class);
+        CsdJusticia::observe(CsdJusticiaObserver::class);
+        CsdRedsocActual::observe(CsdRedSocActualObserver::class);
+        CsdRedsocPasado::observe(CsdRedSocPasadoObserver::class);
+        CsdResidencia::observe(CsdResidenciaObserver::class);
+        CsdViolencia::observe(CsdViolenciaObserver::class);
 
-    // CONSULTA - PIVOTES
-    CsdAlimentCompra::observe(CsdAlimentCompraObserver::class);
-    CsdAlimentFrec::observe(CsdAlimentFrecObserver::class);
-    CsdAlimentInge::observe(CsdAlimentIngeObserver::class);
-    CsdAlimentPrepara::observe(CsdAlimentPreparaObserver::class);
-    CsdBienvenidaMotivo::observe(CsdBienvenidaMotivosObserver::class);
-    CsdDinfamAntecedente::observe(CsdDinfamAntecedenteObserver::class);
-    CsdDinfamEstablecen::observe(CsdDinfamEstablecenObserver::class);
-    CsdDinfamIncumple::observe(CsdDinfamIncumpleObserver::class);
-    CsdDinfamProblema::observe(CsdDinfamProblemaObserver::class);
-    CsdNnajEspecial::observe(CsdNnajEspecialObserver::class);
-    CsdResideambiente::observe(CsdResideambienteObserver::class);
-    CsdSisNnaj::observe(CsdSisNnajObserver::class);
+        // CONSULTA - PIVOTES
+        CsdAlimentCompra::observe(CsdAlimentCompraObserver::class);
+        CsdAlimentFrec::observe(CsdAlimentFrecObserver::class);
+        CsdAlimentInge::observe(CsdAlimentIngeObserver::class);
+        CsdAlimentPrepara::observe(CsdAlimentPreparaObserver::class);
+        CsdBienvenidaMotivo::observe(CsdBienvenidaMotivosObserver::class);
+        CsdDinfamAntecedente::observe(CsdDinfamAntecedenteObserver::class);
+        CsdDinfamEstablecen::observe(CsdDinfamEstablecenObserver::class);
+        CsdDinfamIncumple::observe(CsdDinfamIncumpleObserver::class);
+        CsdDinfamProblema::observe(CsdDinfamProblemaObserver::class);
+        CsdNnajEspecial::observe(CsdNnajEspecialObserver::class);
+        CsdResideambiente::observe(CsdResideambienteObserver::class);
+        CsdSisNnaj::observe(CsdSisNnajObserver::class);
 
-    // INTERVENCION
-    IsDatosBasico::observe(IsDatosBasicoObserver::class);
-    IsProximaAreaAjuste::observe(IsProximaAreaAjusteObserver::class);
+        // INTERVENCION
+        IsDatosBasico::observe(IsDatosBasicoObserver::class);
+        IsProximaAreaAjuste::observe(IsProximaAreaAjusteObserver::class);
 
-    // FICHA OBSERVACION
-    FosDatosBasico::observe(FosDatosBasicoObserver::class);
-    FosStse::observe(FosStseObserver::class);
-    FosTse::observe(FosTseObserver::class);
+        // FICHA OBSERVACION
+        FosDatosBasico::observe(FosDatosBasicoObserver::class);
+        FosStse::observe(FosStseObserver::class);
+        FosTse::observe(FosTseObserver::class);
 
-    // FICHA INGRESO
-    FiActividadestl::observe(FiActividadestlObserver::class);
-    FiActividadTiempoLibre::observe(FiActividadTiempoLibreObserver::class);
-    FiAutorizacion::observe(FiAutorizacionObserver::class);
-    FiBienvenida::observe(FiBienvenidaObserver::class);
-    FiComposicionFami::observe(FiComposicionFamiObserver::class);
-    FiCondicionAmbiente::observe(FiCondicionAmbienteObserver::class);
-    FiConsumoSpa::observe(FiConsumoSpaObserver::class);
-    FiContacto::observe(FiContactoObserver::class);
-    FiDatosBasico::observe(FiDatosBasicoObserver::class);
-    FiDiasGeneraIngreso::observe(FiDiasGeneraIngresoObserver::class);
-    FiDocumentosAnexa::observe(FiDocumentosAnexaObserver::class);
-    FiEnfermedadesFamilia::observe(FiEnfermedadesFamiliaObserver::class);
-    FiEventosMedico::observe(FiEventosMedicoObserver::class);
-    FiFormacion::observe(FiFormacionObserver::class);
-    FiGeneracionIngreso::observe(FiGeneracionIngresoObserver::class);
-    FiJrFamiliar::observe(FiJrFamiliarObserver::class);
-    FiJusticiaRestaurativa::observe(FiJusticiaRestaurativaObserver::class);
-    FiModalidad::observe(FiModalidadObserver::class);
-    FiMotivoVinculacion::observe(FiMotivoVinculacionObserver::class);
-    FiProcesoFamilia::observe(FiProcesoFamiliaObserver::class);
-    FiProcesoPard::observe(FiProcesoPardObserver::class);
-    FiProcesoSpoa::observe(FiProcesoSpoaObserver::class);
-    FiProcesoSrpa::observe(FiProcesoSrpaObserver::class);
-    FiRazonContinua::observe(FiRazonContinuaObserver::class);
-    FiRazone::observe(FiRazoneObserver::class);
-    FiRazonIniciado::observe(FiRazonIniciadoObserver::class);
-    FiRedApoyoActual::observe(FiRedApoyoActualObserver::class);
-    FiRedApoyoAntecedente::observe(FiRedApoyoAntecedenteObserver::class);
+        // FICHA INGRESO
+        FiActividadestl::observe(FiActividadestlObserver::class);
+        FiActividadTiempoLibre::observe(FiActividadTiempoLibreObserver::class);
+        FiAutorizacion::observe(FiAutorizacionObserver::class);
+        FiBienvenida::observe(FiBienvenidaObserver::class);
+        FiComposicionFami::observe(FiComposicionFamiObserver::class);
+        FiCondicionAmbiente::observe(FiCondicionAmbienteObserver::class);
+        FiConsumoSpa::observe(FiConsumoSpaObserver::class);
+        FiContacto::observe(FiContactoObserver::class);
+        FiDatosBasico::observe(FiDatosBasicoObserver::class);
+        FiDiasGeneraIngreso::observe(FiDiasGeneraIngresoObserver::class);
+        FiDocumentosAnexa::observe(FiDocumentosAnexaObserver::class);
+        FiEnfermedadesFamilia::observe(FiEnfermedadesFamiliaObserver::class);
+        FiEventosMedico::observe(FiEventosMedicoObserver::class);
+        FiFormacion::observe(FiFormacionObserver::class);
+        FiGeneracionIngreso::observe(FiGeneracionIngresoObserver::class);
+        FiJrFamiliar::observe(FiJrFamiliarObserver::class);
+        FiJusticiaRestaurativa::observe(FiJusticiaRestaurativaObserver::class);
+        FiModalidad::observe(FiModalidadObserver::class);
+        FiMotivoVinculacion::observe(FiMotivoVinculacionObserver::class);
+        FiProcesoFamilia::observe(FiProcesoFamiliaObserver::class);
+        FiProcesoPard::observe(FiProcesoPardObserver::class);
+        FiProcesoSpoa::observe(FiProcesoSpoaObserver::class);
+        FiProcesoSrpa::observe(FiProcesoSrpaObserver::class);
+        FiRazonContinua::observe(FiRazonContinuaObserver::class);
+        FiRazone::observe(FiRazoneObserver::class);
+        FiRazonIniciado::observe(FiRazonIniciadoObserver::class);
+        FiRedApoyoActual::observe(FiRedApoyoActualObserver::class);
+        FiRedApoyoAntecedente::observe(FiRedApoyoAntecedenteObserver::class);
 
-    FiResidencia::observe(FiResidenciaObserver::class);
-    FiRiesgoEscnna::observe(FiRiesgoEscnnaObserver::class);
-    FiSacramento::observe(FiSacramentoObserver::class);
-    FiSalud::observe(FiSaludObserver::class);
-    FiSituacionEspecial::observe(FiSituacionEspecialObserver::class);
-    FiSituacionVulneracion::observe(FiSituacionVulneracionObserver::class);
-    FiSustanciaConsumida::observe(FiSustanciaConsumidaObserver::class);
-    FiVestuarioNnaj::observe(FiVestuarioNnajObserver::class);
-    FiVictimaEscnna::observe(FiVictimaEscnnaObserver::class);
-    FiViolencia::observe(FiViolenciaObserver::class);
-    FiDiscausa::observe(FiDiscausaObserver::class);
-    FiVictataq::observe(FiVictataqObserver::class);
-    FiAccione::observe(FiAccioneObserver::class);
-    FiContviol::observe(FiContviolObserver::class);
-    // USUARIO
-    SisAreaUsua::observe(SisAreaUsuaObserver::class);
+        FiResidencia::observe(FiResidenciaObserver::class);
+        FiRiesgoEscnna::observe(FiRiesgoEscnnaObserver::class);
+        FiSacramento::observe(FiSacramentoObserver::class);
+        FiSalud::observe(FiSaludObserver::class);
+        FiSituacionEspecial::observe(FiSituacionEspecialObserver::class);
+        FiSituacionVulneracion::observe(FiSituacionVulneracionObserver::class);
+        FiSustanciaConsumida::observe(FiSustanciaConsumidaObserver::class);
+        FiVestuarioNnaj::observe(FiVestuarioNnajObserver::class);
+        FiVictimaEscnna::observe(FiVictimaEscnnaObserver::class);
+        FiViolencia::observe(FiViolenciaObserver::class);
+        FiViolbasa::observe(FiViolbasaObserver::class);
+        FiLesicome::observe(FiLesicomeObserver::class);
+        FiDiscausa::observe(FiDiscausaObserver::class);
+        FiVictataq::observe(FiVictataqObserver::class);
+        FiAccione::observe(FiAccioneObserver::class);
+        FiContviol::observe(FiContviolObserver::class);
+        // USUARIO
+        SisAreaUsua::observe(SisAreaUsuaObserver::class);
 
-    // CARPETA RAIZ
-    // Parametro::observe(ParametroObserver::class);
-    Permissionext::observe(PermissionextObserver::class);
-    post::observe(postObserver::class);
+        // CARPETA RAIZ
+        // Parametro::observe(ParametroObserver::class);
+        Permissionext::observe(PermissionextObserver::class);
+        post::observe(postObserver::class);
 
-    Tema::observe(TemaObserver::class);
-    User::observe(UserObserver::class);
+        Tema::observe(TemaObserver::class);
+        User::observe(UserObserver::class);
 
-    // SISTEMA
-    AreaUser::observe(AreaUserObserver::class);
-    ParametroTema::observe(ParametroTemaObserver::class);
-    SisActividad::observe(SisActividadObserver::class);
-    SisActividadProceso::observe(SisActividadProcesoObserver::class);
-    SisBarrio::observe(SisBarrioObserver::class);
-    SisCargo::observe(SisCargoObserver::class);
-    SisDepartamento::observe(SisDepartamentoObserver::class);
-    SisDepen::observe(SisDepenObserver::class);
-    SisDepeServ::observe(SisDepeServObserver::class);
-    SisDepeUsua::observe(SisDepeUsuaObserver::class);
-    SisDiaFestivo::observe(SisDiaFestivoObserver::class);
-    SisDiagnosticos::observe(SisDiagnosticosObserver::class);
-//    SisDocumentoFuente::observe(SisDocumentoFuenteObserver::class);
-    SisEntidad::observe(SisEntidadObserver::class);
-    SisEntidadSalud::observe(SisEntidadSaludObserver::class);
-    SisEslug::observe(SisEslugObserver::class);
-    SisEsta::observe(SisEstaObserver::class);
-    SisFsoporte::observe(SisFsoporteObserver::class);
-    SisInstitucionEdu::observe(SisInstitucionEduObserver::class);
-    SisLocalidad::observe(SisLocalidadObserver::class);
-    SisLocalupz::observe(SisLocalupzObserver::class);
-    SisMapaProc::observe(SisMapaProcObserver::class);
-    SisMunicipio::observe(SisMunicipioObserver::class);
-    SisNnaj::observe(SisNnajObserver::class);
-    SisObse::observe(SisObseObserver::class);
-    SisPai::observe(SisPaiObserver::class);
-    SisProceso::observe(SisProcesoObserver::class);
-    SisServicio::observe(SisServicioObserver::class);
-    SisTabla::observe(SisTablaObserver::class);
-    SisTcampo::observe(SisTcampoObserver::class);
-    SisTitulo::observe(SisTituloObserver::class);
-    SisUpz::observe(SisUpzObserver::class);
-    SisUpzbarri::observe(SisUpzbarriObserver::class);
+        // SISTEMA
+        AreaUser::observe(AreaUserObserver::class);
+        ParametroTema::observe(ParametroTemaObserver::class);
+        SisActividad::observe(SisActividadObserver::class);
+        SisActividadProceso::observe(SisActividadProcesoObserver::class);
+        SisBarrio::observe(SisBarrioObserver::class);
+        SisCargo::observe(SisCargoObserver::class);
+        SisDepartamento::observe(SisDepartamentoObserver::class);
+        SisDepen::observe(SisDepenObserver::class);
+        SisDepeServ::observe(SisDepeServObserver::class);
+        SisDepeUsua::observe(SisDepeUsuaObserver::class);
+        SisDiaFestivo::observe(SisDiaFestivoObserver::class);
+        SisDiagnosticos::observe(SisDiagnosticosObserver::class);
+        //    SisDocumentoFuente::observe(SisDocumentoFuenteObserver::class);
+        SisEntidad::observe(SisEntidadObserver::class);
+        SisEntidadSalud::observe(SisEntidadSaludObserver::class);
+        SisEslug::observe(SisEslugObserver::class);
+        SisEsta::observe(SisEstaObserver::class);
+        SisFsoporte::observe(SisFsoporteObserver::class);
+        SisInstitucionEdu::observe(SisInstitucionEduObserver::class);
+        SisLocalidad::observe(SisLocalidadObserver::class);
+        SisLocalupz::observe(SisLocalupzObserver::class);
+        SisMapaProc::observe(SisMapaProcObserver::class);
+        SisMunicipio::observe(SisMunicipioObserver::class);
+        SisNnaj::observe(SisNnajObserver::class);
+        SisObse::observe(SisObseObserver::class);
+        SisPai::observe(SisPaiObserver::class);
+        SisProceso::observe(SisProcesoObserver::class);
+        SisServicio::observe(SisServicioObserver::class);
+        SisTabla::observe(SisTablaObserver::class);
+        SisTcampo::observe(SisTcampoObserver::class);
+        SisTitulo::observe(SisTituloObserver::class);
+        SisUpz::observe(SisUpzObserver::class);
+        SisUpzbarri::observe(SisUpzbarriObserver::class);
 
-    // SALUD/MITIGACION
-    Vspa::observe(VspaObserver::class);
-    VspaTabla::observe(VspaTablaObserver::class);
-    VspaTablaCuatro::observe(VspaTablaCuatroObserver::class);
-    VspaTablaDos::observe(VspaTablaDosObserver::class);
-    VspaTablaTres::observe(VspaTablaTresObserver::class);
+        // SALUD/MITIGACION
+        Vspa::observe(VspaObserver::class);
+        VspaTabla::observe(VspaTablaObserver::class);
+        VspaTablaCuatro::observe(VspaTablaCuatroObserver::class);
+        VspaTablaDos::observe(VspaTablaDosObserver::class);
+        VspaTablaTres::observe(VspaTablaTresObserver::class);
 
-    MitVma::observe(MitVmaObserver::class);
+        MitVma::observe(MitVmaObserver::class);
 
-    // INDICADORES
-    Area::observe(AreaObserver::class);
-    InAccionGestion::observe(InAccionGestionObserver::class);
-    InActsoporte::observe(InActsoporteObserver::class);
-    InBaseFuente::observe(InBaseFuenteObserver::class);
-    InDocPregunta::observe(InDocPreguntaObserver::class);
-    InFuente::observe(InFuenteObserver::class);
-    InIndicador::observe(InIndicadorObserver::class);
-    InLigru::observe(InLigruObserver::class);
-    InLineaBase::observe(InLineaBaseObserver::class);
-    InLineabaseNnaj::observe(InLineabaseNnajObserver::class);
-    InPregunta::observe(InPreguntaObserver::class);
-    InRespu::observe(InRespuObserver::class);
-    InValidacion::observe(InValidacionObserver::class);
-    InValoracion::observe(InValoracionObserver::class);
-    InDocIndi::observe(InDocIndiObserver::class);
-  }
+        // INDICADORES
+        Area::observe(AreaObserver::class);
+        InAccionGestion::observe(InAccionGestionObserver::class);
+        InActsoporte::observe(InActsoporteObserver::class);
+        InBaseFuente::observe(InBaseFuenteObserver::class);
+        InDocPregunta::observe(InDocPreguntaObserver::class);
+        InFuente::observe(InFuenteObserver::class);
+        InIndicador::observe(InIndicadorObserver::class);
+        InLigru::observe(InLigruObserver::class);
+        InLineaBase::observe(InLineaBaseObserver::class);
+        InLineabaseNnaj::observe(InLineabaseNnajObserver::class);
+        InPregunta::observe(InPreguntaObserver::class);
+        InRespu::observe(InRespuObserver::class);
+        InValidacion::observe(InValidacionObserver::class);
+        InValoracion::observe(InValoracionObserver::class);
+        InDocIndi::observe(InDocIndiObserver::class);
+    }
 }

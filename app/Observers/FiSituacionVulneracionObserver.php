@@ -15,6 +15,7 @@ class FiSituacionVulneracionObserver
         // campos nuevos traidos desde $fillable -> modelo 
         $log['fi_situacion_especial_id'] = $modeloxx->fi_situacion_especial_id;
         $log['i_prm_situacion_vulnera_id'] = $modeloxx->i_prm_situacion_vulnera_id;
+        $log['prm_presconf_id'] = $modeloxx->prm_presconf_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

@@ -26,6 +26,7 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('i_prm_tipo_id')->nullable()->unsigned();
+            $table->bigInteger('prm_presconf_id')->nullable()->unsigned()->comment('13.4 ES USTED JOVEN EN PRESUNTO CONFLICTO CON LA LEY?');
             $table->bigInteger('i_tiempo')->nullable();
             $table->bigInteger('i_prm_ttiempo_id')->nullable()->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
@@ -35,6 +36,7 @@ class CreateFiSituacionEspecialsTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('i_prm_tipo_id')->references('id')->on('parametros');
+            $table->foreign('prm_presconf_id')->references('id')->on('parametros');
             $table->foreign('i_prm_ttiempo_id')->references('id')->on('parametros');
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA SITUACION ESPECIAL DE LA PERSONA ENTREVISTADA, FICHA DE INGRESO'");

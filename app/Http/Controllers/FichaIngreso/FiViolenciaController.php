@@ -34,7 +34,7 @@ class FiViolenciaController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['condespe'] = Tema::combo(57, true, false);
+       
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['condiesp'] = Tema::combo(23, true, false);
         $this->opciones['conditab'] = Tema::comboDesc(23, false, false);
@@ -54,6 +54,12 @@ class FiViolenciaController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
 
         ];
+        $condespe=57;
+        if($dataxxxx['padrexxx']->prm_tipoblaci_id==2323){
+            $condespe=351;
+        }
+        $this->opciones['condespe'] = Tema::combo($condespe, true, false);
+        $this->opciones['cabefami'] = Tema::combo(352, true, false);
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = 'ACTIVO';

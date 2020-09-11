@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="s_documento" class="col-md-4 col-form-label text-md-right">Ducumento de Identidad</label>
+                            <label for="s_documento" class="col-md-4 col-form-label text-md-right">Documento de Identidad</label>
 
                             <div class="col-md-6">
                                 <input id="s_documento" type="text" class="form-control @error('s_documento') is-invalid @enderror" name="s_documento" value="{{ old('s_documento') }}" required autocomplete="s_documento" autofocus>

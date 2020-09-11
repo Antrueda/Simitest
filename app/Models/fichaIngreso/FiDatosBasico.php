@@ -123,7 +123,7 @@ class FiDatosBasico extends Model
     {
         return $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido;
     }
-
+    
     public function getEdadAttribute()
     {
         return Carbon::parse($this->d_nacimiento)->age;

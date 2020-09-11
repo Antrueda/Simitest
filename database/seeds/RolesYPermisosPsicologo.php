@@ -4,7 +4,7 @@ use Spatie\Permission\Models\Role;
 
 Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
             ->givePermissionTo([
-                'territorio-modulo','acciones-modulo','accindiv-modulo','accigrup-modulo',
+                'territorio-modulo','acciones-modulo','accindiv-modulo','accigrup-modulo','contrase-editar',
                 'agactividad-leer', 'agactividad-crear', 'agactividad-editar', 'agactividad-borrar',
                 'vsidabas-leer', 'vsidabas-crear', 'vsidabas-editar',
                 'vsibienv-leer', 'vsibienv-crear', 'vsibienv-editar',
@@ -86,6 +86,6 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 'aievasion-leer', 'aievasion-crear', 'aievasion-editar', 'aievasion-borrar',
                 'aisalidamenores-leer', 'aisalidamenores-crear', 'aisalidamenores-editar', 'aisalidamenores-borrar',
                 'airetornosalida-leer', 'airetornosalida-crear', 'airetornosalida-editar', 'airetornosalida-borrar',
-                
+
             ]);
 

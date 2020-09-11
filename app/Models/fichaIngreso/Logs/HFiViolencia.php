@@ -9,6 +9,7 @@ class HFiViolencia extends Model
     protected $fillable = [
         'i_prm_presenta_violencia_id',
         'prm_ejerviol_id',
+        'prm_cabefami_id',
         'i_prm_violencia_genero_id',
         'i_prm_condicion_presenta_id',
         'i_prm_depto_condicion_id',

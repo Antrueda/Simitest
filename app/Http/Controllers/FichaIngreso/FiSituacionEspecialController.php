@@ -37,6 +37,7 @@ class FiSituacionEspecialController extends Controller
 
         $this->opciones['situavul'] = Tema::combo(89, false, false);
         $this->opciones['ttiempox'] = Tema::combo(4, true, false);
+        $this->opciones['presconf'] = Tema::combo(353, true, false);
     }
 
     private function view($dataxxxx)
@@ -73,6 +74,23 @@ class FiSituacionEspecialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getRuta($dataxxxx)
+    {
+        $archivox = '';
+        switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
+            case 650:
+                $archivox='habitante';
+                break;
+            case 651:
+                $archivox='riesgo';
+                break;
+
+            case 2323:
+                $archivox='relajado';
+                break;
+        }
+        return $archivox;
+    }
     public function create(FiDatosBasico $padrexxx)
     {
         $situespe = FiSituacionEspecial::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
@@ -85,7 +103,7 @@ class FiSituacionEspecialController extends Controller
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $this->getRuta(['padrexxx' => $padrexxx])], 'padrexxx' => $padrexxx]);
     }
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
     {
@@ -116,7 +134,7 @@ class FiSituacionEspecialController extends Controller
      */
     public function show(FiDatosBasico $padrexxx, FiSituacionEspecial $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $this->getRuta(['padrexxx' => $padrexxx])], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -132,7 +150,7 @@ class FiSituacionEspecialController extends Controller
                 'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $this->getRuta(['padrexxx' => $padrexxx])], 'padrexxx' => $padrexxx]);
     }
 
     /**
