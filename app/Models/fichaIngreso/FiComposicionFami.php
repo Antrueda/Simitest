@@ -113,14 +113,14 @@ class FiComposicionFami extends Model
   {
     $redirect=true;
     $comboxxx = [];
-    if ($cabecera &&$edadxxxx<18) {
+    if ($cabecera) {
       $comboxxx = ['' => 'Seleccione'];
     }
     $compofam=FiComposicionFami::where(function($consulta) use($padrexxx,$edadxxxx){
       $consulta->where('nnaj_nfamili_id', $padrexxx->nnaj_nfamili_id);
-      if($edadxxxx>=18){
-        $consulta->where('i_prm_parentesco_id', 805);
-      }
+    //   if($edadxxxx>=18){
+    //     $consulta->where('i_prm_parentesco_id', 805);
+    //   }
       return $consulta;
 
     })->get();

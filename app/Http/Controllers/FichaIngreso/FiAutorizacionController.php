@@ -52,12 +52,11 @@ class FiAutorizacionController extends Controller
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
         $compofami = FiComposicionFami::getComboResponsable($dataxxxx['padrexxx'], true, false, $edad);
         //ddd( $edad);
-        if ($compofami[0]&& $edad<18 ) {
+        if ($compofami[0]) {
             return redirect()
                 ->route('ficomposicion', [$dataxxxx['padrexxx']->sis_nnaj_id])
                 ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
         }
-
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
