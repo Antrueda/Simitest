@@ -153,10 +153,9 @@ class VsiDinfamMadreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(VsiDinfamMadre $objetoxx)
+    public function edit(Vsi $objetoxx)
     {
-        $this->opciones['parametr'] = [$objetoxx->vsi->id];
-        $this->opciones['padrexxx'] = $objetoxx->id;
+
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -164,7 +163,7 @@ class VsiDinfamMadreController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
+        return $this->view(['modeloxx' => $objetoxx->VsiDinfamMadre, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 /**
      * Show the form for editing the specified resource.
@@ -192,11 +191,11 @@ class VsiDinfamMadreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiDinfamMadreEditarRequest $request, VsiDinfamMadre $objetoxx)
+    public function update(VsiDinfamMadreEditarRequest $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'dataxxxx' => $request->all(),
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiDinfamMadre,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

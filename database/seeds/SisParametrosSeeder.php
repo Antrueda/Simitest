@@ -484,7 +484,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 463, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NO VINCULACIÓN AL SISTEMA EDUCATIVO FORMAL']);
         Parametro::create(['id' => 464, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DESEMPLEO']);
         Parametro::create(['id' => 465, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VINCULACIÓN A ACTIVIDADES DELICTIVAS']);
-        Parametro::create(['id' => 466, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PRESUNTA VÍCTIMA ESCNAA']);
+        Parametro::create(['id' => 466, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PRESUNTA VÍCTIMA ESCNNA']);
         Parametro::create(['id' => 467, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'POR TURNOS']);
         Parametro::create(['id' => 468, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EJERCICIO DE LA PROSTITUCIÓN']);
         Parametro::create(['id' => 469, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LUNES']);
@@ -656,7 +656,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 635, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'OTRA ACTIVIDAD']);
         Parametro::create(['id' => 636, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONTRATO A DESTAJO']);
         Parametro::create(['id' => 637, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROSTITUCIÓN (MAYOR DE 18)']);
-        Parametro::create(['id' => 638, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'UTILIZACIÓN PARA EXPLOTACIÓN SEXUAL-ESCNAA (MENOR DE 18)']);
+        Parametro::create(['id' => 638, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'UTILIZACIÓN PARA EXPLOTACIÓN SEXUAL-ESCNNA (MENOR DE 18)']);
         Parametro::create(['id' => 639, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MENDICIDAD']);
         Parametro::create(['id' => 640, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'HURTAR']);
         Parametro::create(['id' => 641, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VENTA DE SPA']);
@@ -2385,5 +2385,6 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2352, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FINES DE SEMANA']);
         Parametro::create(['id' => 2353, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JORNADA COMPLETA']);
         Parametro::create(['id' => 2354, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRAFFITI']);
+        Parametro::create(['id' => 2355, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MIGRACION']);
     }
 }

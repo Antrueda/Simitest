@@ -167,9 +167,9 @@ class VsiEducacionController extends Controller
     protected function validator(array $data){
         return Validator::make($data, [
             'prm_estudia_id' => 'required|exists:parametros,id',
-            'dia' => 'required_if:prm_estudia_id,228|min:0|max:99',
-            'mes' => 'required_if:prm_estudia_id,228|min:0|max:99',
-            'ano' => 'required_if:prm_estudia_id,228|min:0|max:99',
+            'dia' => 'nullable|min:0|max:99',
+            'mes' => 'nullable|min:0|max:99',
+            'ano' => 'nullable|min:0|max:99',
             'prm_motivo_id' => 'required_if:prm_estudia_id,228',
             'prm_rendimiento_id' => 'nullable|exists:parametros,id',
             'prm_dificultad_id' => 'nullable|exists:parametros,id',

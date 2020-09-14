@@ -899,6 +899,7 @@ class TemasTableSeeder extends Seeder
             293 => $camposmagicos,
             851 => $camposmagicos,
             2316 => $camposmagicos,
+            2355 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 73, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'CONVENCIÓN A']);
         $tema->parametros()->sync([
@@ -1854,7 +1855,7 @@ class TemasTableSeeder extends Seeder
             886 => $camposmagicos,
             887 => $camposmagicos,
             888 => $camposmagicos,
-            1033 => $camposmagicos,
+            
             1633 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
@@ -1901,7 +1902,7 @@ class TemasTableSeeder extends Seeder
         $tema->parametros()->sync([
             28 => $camposmagicos,
             //282 => $camposmagicos,
-            875 => $camposmagicos,
+            //875 => $camposmagicos,
             909 => $camposmagicos,
             910 => $camposmagicos,
             911 => $camposmagicos,
@@ -1909,7 +1910,7 @@ class TemasTableSeeder extends Seeder
             // 916 => $camposmagicos,
             952 => $camposmagicos,
             // 970 => $camposmagicos,
-            1739 => $camposmagicos,
+         //   1739 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 171, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI']);
@@ -2114,7 +2115,7 @@ class TemasTableSeeder extends Seeder
             875 => $camposmagicos,
             915 => $camposmagicos,
             916 => $camposmagicos,
-            926 => $camposmagicos,
+           // 926 => $camposmagicos,
             970 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
