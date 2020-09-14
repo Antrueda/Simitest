@@ -52,8 +52,8 @@ class VsiRedesApoyoController extends Controller
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['personax'] = Tema::combo(70, true, false);
-        $this->opciones['accesoxx'] = Tema::combo(71, true, false);
-        $this->opciones['motivosx'] = Tema::combo(72, true, false);
+        $this->opciones['accesoxx'] = Tema::combo(71, false, false);
+        $this->opciones['motivosx'] = Tema::combo(72, false, false);
         $this->opciones['venefici'] = Tema::combo(59, true, false);
 
         $this->opciones['tiempoxx'] = Tema::combo(4, false, false);
@@ -176,7 +176,7 @@ class VsiRedesApoyoController extends Controller
         
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);

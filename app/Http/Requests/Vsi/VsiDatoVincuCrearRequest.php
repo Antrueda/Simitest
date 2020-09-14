@@ -23,9 +23,9 @@ class VsiDatoVincuCrearRequest extends FormRequest
         $this->_reglasx = [
             'prm_razon_id' => 'required|exists:parametros,id',
             'prm_persona_id' => 'required|exists:parametros,id',
-            'dia' => 'required|integer|min:0|max:99',
-            'mes' => 'required|integer|min:0|max:99',
-            'ano' => 'required|integer|min:0|max:99',
+            'dia' => 'integer|min:0|max:99',
+            'mes' => 'integer|min:0|max:99',
+            'ano' => 'integer|min:0|max:99',
             'situaciones' => 'required|array',
             'emociones' => 'required|array'
         ];

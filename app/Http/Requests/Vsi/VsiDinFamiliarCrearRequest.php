@@ -14,7 +14,7 @@ class VsiDinFamiliarCrearRequest extends FormRequest
         $this->_mensaje = [
             'prm_familiar_id.required' => 'Seleccione un motivo',
             'prm_hogar_id.required' => 'Seleccione un motivo',
-            's_doc_adjunto_ar.required'=>'Debe adjuntar el genegrama',
+            's_doc_adjunto_ar.required'=>'Debe adjuntar el genograma',
             's_doc_adjunto_ar.mimes'=>'El archivo debe ser imagen o pdf',
         ];
         $this->_reglasx = [
@@ -30,7 +30,7 @@ class VsiDinFamiliarCrearRequest extends FormRequest
             'libertades' => 'nullable|array',
             'consumo' => 'nullable|array',
             'salud' => 'nullable|array',
-            's_doc_adjunto_ar' => 'required|file|mimes:pdf|max:1024',
+            's_doc_adjunto_ar' => 'required|file|mimes:pdf,jpg,jpeg|max:1024',
         ];
     }
     /**

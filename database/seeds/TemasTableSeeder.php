@@ -840,7 +840,7 @@ class TemasTableSeeder extends Seeder
             810 => $camposmagicos,
             1479 => $camposmagicos,
             1480 => $camposmagicos,
-            1594 => $camposmagicos,
+            //1594 => $camposmagicos,
             2316 => $camposmagicos,
             //  2322 => $camposmagicos,
         ]);
@@ -1893,7 +1893,7 @@ class TemasTableSeeder extends Seeder
             875 => $camposmagicos,
             1008 => $camposmagicos,
             1009 => $camposmagicos,
-            1010 => $camposmagicos,
+            2155 => $camposmagicos,
             1011 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
@@ -1944,7 +1944,7 @@ class TemasTableSeeder extends Seeder
             961 => $camposmagicos,
             962 => $camposmagicos,
             988 => $camposmagicos,
-            1061 => $camposmagicos,
+            
             2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 175, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'CÓMO ES LA RELACIÓN CON SU FAMILIA? VI']);
@@ -1973,6 +1973,7 @@ class TemasTableSeeder extends Seeder
             875  => $camposmagicos,
             915  => $camposmagicos,
             970  => $camposmagicos,
+            971  => $camposmagicos,
             1310 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
@@ -2123,8 +2124,9 @@ class TemasTableSeeder extends Seeder
             917 => $camposmagicos,
             918 => $camposmagicos,
             919 => $camposmagicos,
-            920 => $camposmagicos,
-            921 => $camposmagicos,
+            1861=> $camposmagicos,
+          //  920 => $camposmagicos,
+           // 921 => $camposmagicos,
             922 => $camposmagicos,
             923 => $camposmagicos,
             924 => $camposmagicos,

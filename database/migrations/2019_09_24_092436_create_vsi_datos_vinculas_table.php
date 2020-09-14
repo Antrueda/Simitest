@@ -23,9 +23,9 @@ class CreateVsiDatosVinculasTable extends Migration
       $table->bigInteger('vsi_id')->unsigned();
       $table->bigInteger('prm_razon_id')->unsigned();
       $table->bigInteger('prm_persona_id')->unsigned();
-      $table->Integer('dia')->unsigned();
-      $table->Integer('mes')->unsigned();
-      $table->Integer('ano')->unsigned();
+      $table->Integer('dia')->unsigned()->nullable();
+      $table->Integer('mes')->unsigned()->nullable();
+      $table->Integer('ano')->unsigned()->nullable();
 
 
       $table->foreign('vsi_id')->references('id')->on('vsis');
