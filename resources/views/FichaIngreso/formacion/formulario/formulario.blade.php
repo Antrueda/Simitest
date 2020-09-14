@@ -26,7 +26,7 @@
 
   <div class="form-group col-md-4">
     {{ Form::label('s_institucion_edu', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('s_institucion_edu', null, ['class' => 'form-control form-control-sm', $todoxxxx['insti_id'], "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
+    {{ Form::text('s_institucion_edu', null, ['class' => 'form-control form-control-sm',  "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
 </div>
   <div class="form-group col-md-4">
     {{ Form::label('tiemposinestudio', '4.8 ¿Cuánto tiempo lleva sin estudiar?', ['class' => 'control-label col-form-label-sm']) }}

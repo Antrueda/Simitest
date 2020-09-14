@@ -18,7 +18,7 @@ use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\Salud\Mitigacion\Vspa;
 
 class SisNnaj extends Model{
-    protected $fillable = ['sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['sis_esta_id', 'user_crea_id', 'user_edita_id','prm_escomfam_id'];
 
     public function fi_datos_basico(){
         return $this->hasOne(FiDatosBasico::class);

@@ -71,7 +71,7 @@ class FiController extends Controller
         $this->opciones['orientac'] = Tema::combo(13, true, false);
         $this->opciones['pais_idx'] = SisPai::combo(true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
-        
+
         $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
         $this->opciones['botoform'] = [
             [
@@ -139,12 +139,10 @@ class FiController extends Controller
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            //return $this->getNnajsFi($request); //            Original
-            
             return $this->getNnajsFi2depen($request); //Por UPI
-        
+
         }
-      
+
     }
     private function grabar($dataxxxx, $objetoxx, $infoxxxx)
     {
@@ -165,7 +163,7 @@ class FiController extends Controller
 
     private function view($dataxxxx)
     {
-        
+
 
         $fechaxxx = explode('-', date('Y-m-d'));
 
@@ -296,7 +294,7 @@ class FiController extends Controller
             }
             // $this->opciones['poblindi'] = Tema::combo(61, true, false);
         }
-        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['dependen'] = User::getUpiUsuario(false, false);
         $this->opciones['upzxxxxx']  = SisUpz::combo($localida, false);
         $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
 
@@ -322,6 +320,7 @@ class FiController extends Controller
     }
     public function store(FiDatosBasicoCrearRequest $request)
     {
+
         return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
     }
 

@@ -203,7 +203,8 @@ class RolController extends Controller
      */
     public function show(Roleext $objetoxx)
     {
-        $this->opciones['parametr'] = [$objetoxx->vsi_id];
+
+        $this->opciones['parametr'] = [$objetoxx->id];
 
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Ver', ]);
     }

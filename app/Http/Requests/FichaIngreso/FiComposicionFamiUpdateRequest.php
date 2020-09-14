@@ -16,12 +16,7 @@ class FiComposicionFamiUpdateRequest extends FormRequest
             'i_prm_ocupacion_id.required' => 'Seleccione la acupación del componente familiar',
             'i_prm_vinculado_idipron_id.required' => 'Indique si estuvo vinculado',
             'i_prm_convive_nnaj_id.required' => 'Indique si convive con el nnaj',
-            's_primer_nombre.required' => 'Ingrese el primer nombre',
-            's_primer_apellido.required' => 'Ingrese primer apellido',
             'd_nacimiento.required' => 'Seleccione la fecha de nacimiento',
-            's_documento.required' => 'Ingrese un documento de identificación',
-            's_documento.unique' => 'El docuemento ya existe',
-
             's_telefono.required' => 'Ingrese un número de teléfono',
         ];
 
@@ -30,8 +25,6 @@ class FiComposicionFamiUpdateRequest extends FormRequest
             'i_prm_ocupacion_id' => ['required'],
             'i_prm_vinculado_idipron_id' => ['required'],
             'i_prm_convive_nnaj_id' => ['required'],
-            's_primer_nombre' => ['required'],
-            's_primer_apellido' => ['required'],
             'd_nacimiento' => ['required'],
             's_telefono' => ['required'],
         ];

@@ -13,14 +13,13 @@ class HFiDatosBasico extends Model
         's_segundo_apellido',
         's_apodo',
         'sis_nnaj_id',
-        'nnaj_nfamili_id',
         'prm_tipoblaci_id',
         'prm_vestimenta_id',
         'sis_docfuen_id',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
-        
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

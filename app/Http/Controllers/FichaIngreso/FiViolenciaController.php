@@ -34,7 +34,7 @@ class FiViolenciaController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-       
+
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['condiesp'] = Tema::combo(23, true, false);
         $this->opciones['conditab'] = Tema::comboDesc(23, false, false);
@@ -54,9 +54,9 @@ class FiViolenciaController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
 
         ];
-        $condespe=57;
-        if($dataxxxx['padrexxx']->prm_tipoblaci_id==2323){
-            $condespe=351;
+        $condespe = 57;
+        if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 2323) {
+            $condespe = 351;
         }
         $this->opciones['condespe'] = Tema::combo($condespe, true, false);
         $this->opciones['cabefami'] = Tema::combo(352, true, false);
@@ -104,7 +104,7 @@ class FiViolenciaController extends Controller
 
                 'dataxxxx' => [],
                 'titupreg' => 'Indicar el contexto en el cual se maninifiesta la violencia',
-                'vercrear' => true,
+                'vercrear' => (isset($this->opciones['modeloxx']) && $this->opciones['modeloxx']->i_prm_presenta_violencia_id == 227) ? true : false,
                 'urlxxxxx' => route('ficonvio.listaxxx', [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 345]),
                 'cabecera' => $this->getCabeceraTabla(['temaidxx' => 345]),
                 'cuerpoxx' => $this->getCuerpoTabla(),

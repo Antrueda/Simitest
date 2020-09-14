@@ -25,14 +25,14 @@ class FiDatosBasico extends Model
         's_segundo_apellido',
         's_apodo',
         'sis_nnaj_id',
-        'nnaj_nfamili_id',
+
         'prm_tipoblaci_id',
         'prm_vestimenta_id',
         'sis_docfuen_id',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
-        
+
 
     ];
 
@@ -40,7 +40,7 @@ class FiDatosBasico extends Model
 
     public function prmVestimenta()
     {
-        return $this->belongsTo(Parametro::class,'prm_vestimenta_id');
+        return $this->belongsTo(Parametro::class, 'prm_vestimenta_id');
     }
     public function nnaj_nfamili()
     {
@@ -98,9 +98,10 @@ class FiDatosBasico extends Model
     {
         return $this->belongsTo(Parametro::class, 'prm_factor_rh_id');
     }
-    public function sis_depen_id(){
-        return $this->belongsToMany(SisDepen::class,'nnaj_upis','sis_nnaj_id', 'sis_depen_id');
-      }
+    public function sis_depen_id()
+    {
+        return $this->belongsToMany(SisDepen::class, 'nnaj_upis', 'sis_nnaj_id', 'sis_depen_id');
+    }
 
     public static function usregisro($usuariox)
     {
@@ -127,7 +128,7 @@ class FiDatosBasico extends Model
     {
         return $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido;
     }
-    
+
     public function getEdadAttribute()
     {
         return Carbon::parse($this->d_nacimiento)->age;
@@ -151,8 +152,8 @@ class FiDatosBasico extends Model
             $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
             $dataxxxx['s_apodo'] = strtoupper($dataxxxx['s_apodo']);
             $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if($dataxxxx['prm_ayuda_id']==null){
-                $dataxxxx['prm_ayuda_id']=235;
+            if ($dataxxxx['prm_ayuda_id'] == null) {
+                $dataxxxx['prm_ayuda_id'] = 235;
             }
             $objetoxx->nnaj_sexo->update($dataxxxx);
             $objetoxx->nnaj_docu->update($dataxxxx);
@@ -180,49 +181,35 @@ class FiDatosBasico extends Model
             $dataxxxx['s_nombre_focalizacion'] = strtoupper($dataxxxx['s_nombre_focalizacion']);
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if ($objetoxx != '') {
-                $dataxxxx['nnaj_nfamili_id']=$objetoxx->nnaj_nfamili_id;
-                    /** Actualizar registro */
-
-                    $objetoxx->update($dataxxxx);
-                    $dataxxxx['fi_datos_basico_id']=$objetoxx->id;
-
-                    $objetoxx->nnaj_sexo->update($dataxxxx);
-                    $objetoxx->nnaj_docu->update($dataxxxx);
-                    $objetoxx->nnaj_nacimi->update($dataxxxx);
-
-                    $objetoxx->nnaj_sit_mil->update($dataxxxx);
-                    $objetoxx->nnaj_focali->update($dataxxxx);
-                    $objetoxx->nnaj_fi_csd->update($dataxxxx);
-
-
-
-
+                /** Actualizar registro */
+                $objetoxx->update($dataxxxx);
+                $dataxxxx['fi_datos_basico_id'] = $objetoxx->id;
+                $objetoxx->nnaj_sexo->update($dataxxxx);
+                $objetoxx->nnaj_docu->update($dataxxxx);
+                $objetoxx->nnaj_nacimi->update($dataxxxx);
+                $objetoxx->nnaj_sit_mil->update($dataxxxx);
+                $objetoxx->nnaj_focali->update($dataxxxx);
+                $objetoxx->nnaj_fi_csd->update($dataxxxx);
             } else {
                 /** Es un registro nuevo */
-                $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id'=>1,'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id])->id;
-                $dataxxxx['nnaj_nfamili_id'] = NnajNfamili::nucleo($dataxxxx['sis_nnaj_id']);
+                $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'prm_escomfam_id' => 227])->id;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = FiDatosBasico::create($dataxxxx);
-                $dataxxxx['fi_datos_basico_id']=$objetoxx->id;
+                $dataxxxx['fi_datos_basico_id'] = $objetoxx->id;
                 NnajSexo::create($dataxxxx);
-                    NnajNacimi::create($dataxxxx);
-                    NnajDocu::create($dataxxxx);
-                    NnajSitMil::create($dataxxxx);
-                    NnajFocali::create($dataxxxx);
+                NnajNacimi::create($dataxxxx);
+                NnajDocu::create($dataxxxx);
+                NnajSitMil::create($dataxxxx);
+                NnajFocali::create($dataxxxx);
                 NnajFiCsd::create($dataxxxx);
+                $dataxxxx['sis_nnajnnaj_id']=$dataxxxx['sis_nnaj_id'];
+                $dataxxxx['i_prm_ocupacion_id'] = 1262;
+                $dataxxxx['i_prm_parentesco_id'] = 805;
+                $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
+                $dataxxxx['i_prm_convive_nnaj_id'] = 227;
+                FiComposicionFami::transaccion($dataxxxx, '');
             }
-            $dataxxxx['i_prm_ocupacion_id'] = 1262;
-            $dataxxxx['i_prm_parentesco_id'] = 805;
-            $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
-            $dataxxxx['i_prm_convive_nnaj_id'] = 227;
-            $compofam = FiComposicionFami::where('nnaj_nfamili_id', $dataxxxx['nnaj_nfamili_id'])->first();
-            if ($compofam == null) {
-                $compofam = '';
-            }
-            $dataxxxx['prm_documento_id']=$dataxxxx['prm_tipodocu_id'];
-            FiComposicionFami::transaccion($dataxxxx, $compofam);
             $this->setSisDepen($dataxxxx, $objetoxx);
-
             return $objetoxx;
         }, 5);
 
@@ -248,5 +235,4 @@ class FiDatosBasico extends Model
     {
         return $this->belongsTo(SisDocfuen::class);
     }
-
 }

@@ -24,12 +24,13 @@ class CreateFiDatosBasicosTable extends Migration
             $table->string('s_primer_apellido');
             $table->string('s_segundo_apellido')->nullable();
             $table->string('s_apodo')->nullable();
-            $table = CamposMagicos::getForeign($table, 'nnaj_nfamili');
             $table = CamposMagicos::getForeign($table, 'sis_nnaj');
-            $table = CamposMagicos::getForeign($table, 'prm_tipoblaci_id', 'parametros');
-            $table = CamposMagicos::getForeign($table, 'prm_vestimenta_id', 'parametros');
+            $table->bigInteger('prm_tipoblaci_id')->unsigned()->comment('TIPO DE POBLACION LA QUE PERTENECE EL NNAJ')->nullable();
+            $table->foreign('prm_tipoblaci_id')->references('id')->on('parametros');
+            $table->bigInteger('prm_vestimenta_id')->unsigned()->comment('ESTADO DE LA VESTIMENTA DEL NNAJ')->nullable();
+            $table->foreign('prm_vestimenta_id')->references('id')->on('parametros');
             $table = CamposMagicos::getForeign($table, 'sis_docfuen');
-            
+
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DEL NNAJ, YA SEA QUE VENGAN DE LA FICHA DE INGRESO, VALORACIÓN SICOSOCIAL O CONSULTA SOCIAL EN DOMICILIO.'");
@@ -42,11 +43,11 @@ class CreateFiDatosBasicosTable extends Migration
             $table->string('s_segundo_apellido')->nullable();
             $table->string('s_apodo')->nullable();
             $table->Integer('sis_nnaj_id');
-            $table->Integer('prm_tipoblaci_id');
-            $table->Integer('prm_vestimenta_id');
-            $table->Integer('nnaj_nfamili_id');
+            $table->bigInteger('prm_tipoblaci_id')->unsigned()->comment('TIPO DE POBLACION LA QUE PERTENECE EL NNAJ')->nullable();
+            $table->bigInteger('prm_vestimenta_id')->unsigned()->comment('ESTADO DE LA VESTIMENTA DEL NNAJ')->nullable();
+            // $table->Integer('nnaj_nfamili_id');
             $table->Integer('sis_docfuen_id');
-            
+
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");

@@ -141,7 +141,7 @@ class FiRedesApoyoController extends Controller
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.botones.antecedentes';
+                $this->opciones['carpetax'] . '.Botones.antecedentes';
             $request->estadoxx = $this->opciones['rutacarp'].'Acomponentes.Botones.estadosx';
             return $this->getAntecedentesTrait($request);
         }
@@ -226,11 +226,6 @@ class FiRedesApoyoController extends Controller
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $vestuari = FiRedApoyoAntecedente::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
-        if ($vestuari != null) {
-            return redirect()
-                ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
-        }
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear','formulario'], 'padrexxx' => $padrexxx]);
     }
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)

@@ -182,7 +182,7 @@ class FiComposicionFamiController extends Controller
 
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
     {
-        $dataxxxx['nnaj_nfamili_id'] = $padrexxx->nnaj_nfamili_id;
+        $dataxxxx['sis_nnajnnaj_id'] = $padrexxx->sis_nnaj_id;
         return redirect()
             ->route('ficomposicion.editar', [$padrexxx->id, FiComposicionFami::transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);

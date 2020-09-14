@@ -317,11 +317,11 @@ class FiJusticiaRestaurativaController extends Controller
      * @param  \App\Models\FiJusticiaRestaurativa  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(FiJusticiaRestaurativa $modeloxx, FiDatosBasico $padrexxx)
+    public function show(FiDatosBasico $padrexxx,FiJusticiaRestaurativa $modeloxx)
     {
         $poblacio = $padrexxx->prm_tipoblaci_id;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
-    
+
     }
 
     /**
@@ -348,7 +348,7 @@ class FiJusticiaRestaurativaController extends Controller
      * @param  \App\Models\FiJusticiaRestaurativa  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiJusticiaRestaurativaUpdateRequest $request, FiJusticiaRestaurativa $modeloxx, FiDatosBasico $padrexxx)
+    public function update(FiJusticiaRestaurativaUpdateRequest $request,  FiDatosBasico $padrexxx,FiJusticiaRestaurativa $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con exito', $padrexxx);
     }

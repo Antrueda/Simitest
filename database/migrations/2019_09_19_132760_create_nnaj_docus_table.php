@@ -26,10 +26,9 @@ class CreateNnajDocusTable extends Migration
             $table = CamposMagicos::getForeign($table, 'sis_municipio');
             $table = CamposMagicos::getForeign($table, 'sis_docfuen');
             $table = CamposMagicos::magicos($table);
-            $table->unique(['s_documento', 'prm_tipodocu_id']);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA IDENTIFICACION DEL NNAJ.'");
-        
+
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_documento');

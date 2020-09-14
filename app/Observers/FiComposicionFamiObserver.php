@@ -14,20 +14,15 @@ class FiComposicionFamiObserver
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo
         $log['i_prm_parentesco_id'] = $modeloxx->i_prm_parentesco_id;
-        $log['s_primer_nombre'] = $modeloxx->s_primer_nombre;
-        $log['s_segundo_nombre'] = $modeloxx->s_segundo_nombre;
-        $log['s_primer_apellido'] = $modeloxx->s_primer_apellido;
-        $log['s_segundo_apellido'] = $modeloxx->s_segundo_apellido;
         $log['s_nombre_identitario'] = $modeloxx->s_nombre_identitario;
         $log['s_telefono'] = $modeloxx->s_telefono;
-        $log['s_documento'] = $modeloxx->s_documento;
         $log['d_nacimiento'] = $modeloxx->d_nacimiento;
         $log['i_prm_ocupacion_id'] = $modeloxx->i_prm_ocupacion_id;
-        $log['sis_municipio_id'] = $modeloxx->sis_municipio_id;
         $log['i_prm_vinculado_idipron_id'] = $modeloxx->i_prm_vinculado_idipron_id;
         $log['i_prm_convive_nnaj_id'] = $modeloxx->i_prm_convive_nnaj_id;
-        $log['prm_documento_id'] = $modeloxx->prm_documento_id;
-        $log['nnaj_nfamili_id'] = $modeloxx->nnaj_nfamili_id;
+        $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
+        $log['sis_nnajnnaj_id'] = $modeloxx->sis_nnajnnaj_id;
+
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -18,34 +19,22 @@ class CreateFiComposicionFamisTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_parentesco_id')->unsigned();
-            $table->string('s_primer_nombre');
-            $table->string('s_segundo_nombre')->nullable();
-            $table->string('s_primer_apellido');
-            $table->string('s_segundo_apellido')->nullable();
-            $table->string('s_nombre_identitario')->nullable();
             $table->string('s_telefono')->nullable();
-            $table->string('s_documento')->unique();
             $table->date('d_nacimiento');
             $table->bigInteger('i_prm_ocupacion_id')->unsigned();
-            $table->bigInteger('sis_municipio_id')->unsigned();
+            $table->string('s_nombre_identitario')->nullable();
             $table->bigInteger('i_prm_vinculado_idipron_id')->unsigned();
             $table->bigInteger('i_prm_convive_nnaj_id')->unsigned();
-            $table->bigInteger('prm_documento_id')->unsigned();
-            $table->bigInteger('nnaj_nfamili_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            $table->bigInteger('sis_nnaj_id')->unsigned('IDENTIFICADOR CON EL QUE SE CREO EL REGISTRO DEL COMPONENTE FAMILIAR');
+            $table->bigInteger('sis_nnajnnaj_id')->unsigned()->comment('NNAJ AL QUE PERTENCEN LOS COMPONENTES FAMILIARES');
+
             $table->foreign('i_prm_parentesco_id')->references('id')->on('parametros');
             $table->foreign('i_prm_ocupacion_id')->references('id')->on('parametros');
-            $table->foreign('prm_documento_id')->references('id')->on('parametros');
             $table->foreign('i_prm_vinculado_idipron_id')->references('id')->on('parametros');
             $table->foreign('i_prm_convive_nnaj_id')->references('id')->on('parametros');
-            $table->foreign('nnaj_nfamili_id')->references('id')->on('nnaj_nfamilis');
+            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
+            $table->foreign('sis_nnajnnaj_id')->references('id')->on('sis_nnajs');
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BÁSICOS DEL NUCLEO FAMILIAR DE LA PERSONA ENTREVISTADA, SECCION 5 DE LA FICHA DE INGRESO'");
     }

@@ -50,6 +50,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'sis_municipioexp_id' => ['required'],
             'prm_gsanguino_id' => ['required'],
             'prm_factor_rh_id' => ['required'],
+            's_documento' => ['required'],
             'prm_estado_civil_id' => ['required'],
             'prm_situacion_militar_id' => ['required'],
             'prm_clase_libreta_id' => ['required'],
@@ -104,5 +105,8 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             $this->_mensaje['prm_ayuda_id.required'] ='Seleccione porqué no tiene documento';
             $this->_reglasx['prm_ayuda_id']='required';
         }
+
+        $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
+        $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento,'. $this->segments()[2];
     }
 }
