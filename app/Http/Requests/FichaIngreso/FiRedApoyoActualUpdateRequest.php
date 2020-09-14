@@ -22,8 +22,7 @@ class FiRedApoyoActualUpdateRequest extends FormRequest
             's_servicio' => ['required'],
             'i_prm_tipo_red_id' => ['required'],
             's_nombre_persona' => ['required'],
-            's_telefono' => ['required'],
-            's_direccion' => ['required'],
+
         ];
     }
     /**

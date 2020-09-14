@@ -57,8 +57,8 @@ $(function(){
             language: "es"
         });
        var f_discapacidad = function(valuexxx){
-           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id,#prm_discausa_id,#prm_victataq_id").empty();
-           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id,#prm_discausa_id,#prm_victataq_id").append('<option value="">Seleccione</>')
+           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id,#prm_discausa_id").empty();
+           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id,#prm_discausa_id").append('<option value="">Seleccione</>')
            if(valuexxx != ''){
                $.ajax({
                    url : "{{ route('ajaxx.discapacitado') }}",
@@ -70,7 +70,7 @@ $(function(){
                    dataType : 'json',
                    success : function(json) {
                        if(json[0].discapac[0].valuexxx==1){
-                           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id,#prm_discausa_id,#prm_victataq_id").empty();
+                           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id,#prm_discausa_id").empty();
                        }
                        $.each(json[0].discapac,function(i,data){
                            $('#i_prm_tipo_discapacidad_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
@@ -85,9 +85,7 @@ $(function(){
                        $.each(json[0].discausa,function(i,data){
                                $('#prm_discausa_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                        });
-                       $.each(json[0].victataq,function(i,data){
-                               $('#prm_victataq_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                       });
+                     
                    },
                    error : function(xhr, status) {
                        alert('Disculpe, existió un problema');

@@ -97,7 +97,7 @@ class FiSaludController extends Controller
             if ($dataxxxx['modeloxx']->i_prm_tiene_discapacidad_id == 228) {
                 $this->opciones['noapdisc'] = [1 => 'NO APLICA'];
                 $this->opciones['tipodisc'] = [1 => 'NO APLICA'];
-                $this->opciones['victataq'] = [1 => 'NO APLICA'];
+                
                 $this->opciones['discausa'] = [1 => 'NO APLICA'];
             }
             if ($dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 228 || $dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 235) {

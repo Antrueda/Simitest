@@ -96,7 +96,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
 
         if ($dataxxxx['prm_etnia_id'] == 157) {
-            $this->_mensaje['prm_poblacion_etnia_id.required'] = 'Seleccione porqué no tiene Sisben';
+            $this->_mensaje['prm_poblacion_etnia_id.required'] = 'Seleccione tipo de etnia';
             $this->_reglasx['prm_poblacion_etnia_id'] = 'required';
         }
 

@@ -1386,6 +1386,7 @@ class TemasTableSeeder extends Seeder
             613 => $camposmagicos,
             614 => $camposmagicos,
             2316 => $camposmagicos,
+            1269 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 126, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'VICTIMA ESCNNA']);
         $tema->parametros()->sync([
@@ -3141,6 +3142,7 @@ class TemasTableSeeder extends Seeder
             627 => $camposmagicos,
             628 => $camposmagicos,
             2316 => $camposmagicos,
+            853 => $camposmagicos,
         ]);
 
         $tema = Tema::create(['id' => 297, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'RESPUESTA VALIDACIONES INDICADORES']);
@@ -3603,6 +3605,9 @@ class TemasTableSeeder extends Seeder
             'nombrexx' => '¿Es usted Joven en presunto conflicto con la ley?',
             'parametr' => [227,228,235]
         ]); //353
+
+     
+
 
         // $this->getR([
         //     'nombrexx' => '',

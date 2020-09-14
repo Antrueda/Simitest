@@ -78,5 +78,13 @@ class FiGeneracionIngresoCrearRequest extends FormRequest
             $this->_reglasx['s_hora_final']='required';
         }
         */
+
+        if ($dataxxxx['i_prm_actividad_genera_ingreso_id'] == 853){
+            $this->_reglasx['s_hora_inicial']='nullable';
+            $this->_reglasx['s_hora_final']='nullable';
+            $this->_reglasx['i_prm_frec_ingreso_id'] = 'nullable';
+            $this->_reglasx['i_total_ingreso_mensual'] = 'nullable';
+            
+        }
     }
 }

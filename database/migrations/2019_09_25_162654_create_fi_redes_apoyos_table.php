@@ -49,8 +49,8 @@ class CreateFiRedesApoyosTable extends Migration
             $table->bigInteger('i_prm_tipo_red_id')->unsigned();
             $table->string('s_nombre_persona');
             $table->string('s_servicio');
-            $table->string('s_telefono');
-            $table->string('s_direccion');
+            $table->string('s_telefono')->nullable();
+            $table->string('s_direccion')->nullable();
             $table->foreign('i_prm_tipo_red_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');

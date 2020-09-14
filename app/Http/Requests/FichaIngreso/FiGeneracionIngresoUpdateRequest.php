@@ -78,11 +78,12 @@ class FiGeneracionIngresoUpdateRequest extends FormRequest
             // break;
         }
 
-        if ($dataxxxx['i_prm_jornada_genera_ingreso_id'] == 467){
-            $this->_mensaje['s_hora_inicial.required'] ='Seleccione hora inicial';
-            $this->_reglasx['s_hora_inicial']='required';
-            $this->_mensaje['s_hora_final.required'] ='Seleccione hora final';
-            $this->_reglasx['s_hora_final']='required';
+        if ($dataxxxx['i_prm_actividad_genera_ingreso_id'] == 853){
+            $this->_reglasx['s_hora_inicial']='nullable';
+            $this->_reglasx['s_hora_final']='nullable';
+            $this->_reglasx['i_prm_frec_ingreso_id'] = 'nullable';
+            $this->_reglasx['i_total_ingreso_mensual'] = 'nullable';
+            
         }
         
     }

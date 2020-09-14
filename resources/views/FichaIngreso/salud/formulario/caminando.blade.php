@@ -26,6 +26,11 @@
         {{ Form::select('i_prm_tiene_discapacidad_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
+        {{ Form::label('i_prm_tipo_discapacidad_id', '6.4 a) Indicar tipo', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('i_prm_tipo_discapacidad_id', $todoxxxx["tipodisc"], null, ['class' => 'form-control form-control-sm select2']) }}
+
+    </div>
+    <div class="form-group col-md-4">
         {{ Form::label('prm_discausa_id', '6.4.b) ¿La discapacidad fue producida en la comisión de algún acto ilegal?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_discausa_id[]', $todoxxxx["discausa"], null, ['class' => 'form-control form-control-sm select2','id'=>'prm_discausa_id','multiple']) }}
         @if($errors->has('prm_discausa_id'))
@@ -43,11 +48,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_tipo_discapacidad_id', '6.4 d) Indicar tipo', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_tipo_discapacidad_id', $todoxxxx["tipodisc"], null, ['class' => 'form-control form-control-sm select2']) }}
 
-    </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_tiene_cert_discapacidad_id', '6.5 ¿Cuenta con certificado?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_tiene_cert_discapacidad_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm select2']) }}

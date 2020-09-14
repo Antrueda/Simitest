@@ -84,130 +84,130 @@ class SisEntidadSaludsSeeder extends Seeder
             's_nombre_entidad' => 'Instrumento provisional', 'i_prm_tentidad_id' => 1631,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'ALIANSALUD EPS S.A.', 'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'ALIANSALUD EPS S.A.', 'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'ALIANSALUD EPS S.A.',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'ALIANSALUD EPS S.A.',  'i_prm_tentidad_id' => 166,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'AMBUQ EPSS',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'AMBUQ EPSS',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'ANAS WAYUU EPS INDIGENA',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'ANAS WAYUU EPS INDIGENA',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'ASMET SALUD',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'ASMET SALUD',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'ASOCIACIÓN INDIGENA DEL CAUCA',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'ASOCIACIÓN INDIGENA DEL CAUCA',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'ASOCIACION MUTUAL SER ESS',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'ASOCIACION MUTUAL SER ESS',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'CAPITAL SALUD EPS',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'CAPITAL SALUD EPS',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'CAPRESOCA E.P.S.',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'CAPRESOCA E.P.S.',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'CCF CAJACOPI ATLANTICO',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'CCF CAJACOPI ATLANTICO',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'CCF DE LA GUAJIRA',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'CCF DE LA GUAJIRA',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'CCF DE NARIÑO',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'CCF DE NARIÑO',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COMFABOY',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COMFABOY',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COMFACOR',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COMFACOR',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COMFACUNDI EPS-S',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COMFACUNDI EPS-S',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COMFAMILIAR CARTAGENA',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COMFAMILIAR CARTAGENA',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COMFAMILIAR CHOCO',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COMFAMILIAR CHOCO',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COMFAMILIAR HUILA',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COMFAMILIAR HUILA',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COMFAORIENTE',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COMFAORIENTE',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COMFASUCRE',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COMFASUCRE',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COMFENALCO VALLE E.P.S.',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COMFENALCO VALLE E.P.S.',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COMPARTA',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COMPARTA',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COMPENSAR E.P.S.',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COMPENSAR E.P.S.',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'CONVIDA E.P.S.',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'CONVIDA E.P.S.',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COOMEVA E.P.S. S.A.',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COOMEVA E.P.S. S.A.',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'COOSALUD EPS',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'COOSALUD EPS',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'CRUZ BLANCA EPS S.A.',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'CRUZ BLANCA EPS S.A.',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'DUSAKAWI E.P.S.I',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'DUSAKAWI E.P.S.I',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'ECOOPSOS ESS',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'ECOOPSOS ESS',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'EMDISALUD E.S.S.',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'EMDISALUD E.S.S.',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'EMSSANAR ESS',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'EMSSANAR ESS',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'EPS FAMISANAR LTDA',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'EPS FAMISANAR LTDA',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'EPS SURAMERICANA S.A.',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'EPS SURAMERICANA S.A.',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'MALLAMAS EPSI',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'MALLAMAS EPSI',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'MEDIMÁS EPS',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'MEDIMÁS EPS',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'NUEVA EPS',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'NUEVA EPS',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'PIJAOS SALUD EPSI',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'PIJAOS SALUD EPSI',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'SALUD TOTAL S.A. EPS',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'SALUD TOTAL S.A. EPS',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'SALUDVIDA E.P.S. S.A.',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'SALUDVIDA E.P.S. S.A.',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'SANITAS S.A. E.P.S.',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'SANITAS S.A. E.P.S.',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'SAVIA SALUD EPS',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'SAVIA SALUD EPS',  'i_prm_tentidad_id' => 165,
         ]);
         SisEntidadSalud::create([
-            's_nombre_entidad' => 'SERVICIO OCCIDENTAL DE SALUD SOS EPS',  'i_prm_tentidad_id' => 167,
+            's_nombre_entidad' => 'SERVICIO OCCIDENTAL DE SALUD SOS EPS',  'i_prm_tentidad_id' => 165,
         ]);
     }
 }
