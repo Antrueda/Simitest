@@ -4,7 +4,7 @@ namespace App\Http\Requests\FichaIngreso;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FiComposicionFamiUpdateRequest extends FormRequest
+class FiCompfamiUpdateRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;

@@ -2,8 +2,8 @@
 
 <div class="form-row align-items-end">
     <div class="form-group col-md-12">
-      {{ Form::label('fi_composicion_fami_id', 'Miembro Familia', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('fi_composicion_fami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::label('fi_compfami_id', 'Miembro Familia', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('fi_compfami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
   </div>
   <div class="form-row align-items-end">
@@ -37,5 +37,5 @@
     </div>
   </div>
 
-  <a href="{{route('fi.justicia.nuevo',$todoxxxx["nnajregi"])}}" class="btn btn-sm btn-primary" 
+  <a href="{{route('fi.justicia.nuevo',$todoxxxx["nnajregi"])}}" class="btn btn-sm btn-primary"
 role="button">Volver a Justicia</a>

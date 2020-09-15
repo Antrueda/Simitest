@@ -79,14 +79,14 @@ class FiSituacionEspecialController extends Controller
         $archivox = '';
         switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
             case 650:
-                $archivox='habitante';
+                $archivox = 'habitante';
                 break;
             case 651:
-                $archivox='riesgo';
-                break;
-
-            case 2323:
-                $archivox='relajado';
+                if ($dataxxxx['padrexxx']->prm_estrateg_id == 2323) {
+                    $archivox = 'relajado';
+                } else {
+                    $archivox = 'riesgo';
+                }
                 break;
         }
         return $archivox;

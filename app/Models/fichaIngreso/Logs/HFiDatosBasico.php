@@ -14,6 +14,7 @@ class HFiDatosBasico extends Model
         's_apodo',
         'sis_nnaj_id',
         'prm_tipoblaci_id',
+        'prm_estrateg_id',
         'prm_vestimenta_id',
         'sis_docfuen_id',
         'sis_esta_id',

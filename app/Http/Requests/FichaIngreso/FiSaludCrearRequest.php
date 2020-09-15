@@ -96,7 +96,7 @@ class FiSaludCrearRequest extends FormRequest
                 break;
         }
         $datosbas = FiDatosBasico::find($this->segments()[1]);
-        if ($datosbas->prm_tipoblaci_id == 2323) {
+        if ($datosbas->prm_estrateg_id == 2323) {
             $this->_mensaje['prm_victataq_id.required'] = 'Seleccione al menos una forma de ataque';
             $this->_mensaje['prm_discausa_id.required'] = 'Seleccione al menos una causa de discapacidad';
             $this->_reglasx['prm_victataq_id'] = ['required'];

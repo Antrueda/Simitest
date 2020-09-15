@@ -4,7 +4,7 @@ namespace App\Models\fichaIngreso\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HFiComposicionFami extends Model
+class HFiCompfami extends Model
 {
     protected $fillable = [
         'i_prm_parentesco_id',

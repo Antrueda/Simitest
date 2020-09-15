@@ -31,7 +31,7 @@ class SisServicioController extends Controller
         $this->opciones['routxxxx'] = 'servicio';
         $this->opciones['slotxxxx'] = 'servicio';
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'Administracion.Servicios.';
+        $this->opciones['rutacarp'] = 'administracion.Servicios.';
         $this->opciones['parametr'] = [];
         $this->opciones['carpetax'] = 'Servicio';
         /** botones que se presentan en los formularios */

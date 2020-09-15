@@ -14,11 +14,11 @@ class HFosDatosBasico extends Model
         'fos_tse_id',
         'fos_stse_id',
         's_observacion',
-        'fi_composicion_fami_id',
+        'fi_compfami_id',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
-        
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

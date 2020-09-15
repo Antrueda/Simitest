@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiAutorizacionCrearRequest;
 use App\Http\Requests\FichaIngreso\FiAutorizacionUpdateRequest;
 use App\Models\fichaIngreso\FiAutorizacion;
-use App\Models\fichaIngreso\FiComposicionFami;
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
 use App\Models\Tema;
@@ -50,7 +50,7 @@ class FiAutorizacionController extends Controller
     {
         $this->opciones['parentes'] = Tema::combo(66, true, false);
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
-        $compofami = FiComposicionFami::getComboResponsable($dataxxxx['padrexxx'], true, false, $edad);
+        $compofami = FiCompfami::getComboResponsable($dataxxxx['padrexxx'], true, false, $edad);
         //ddd( $edad);
         if ($compofami[0]) {
             return redirect()
@@ -191,7 +191,7 @@ class FiAutorizacionController extends Controller
             $dataxxxx = $request->all();
             $respuest = ['sdocumen' => ' ', 'expedici' => ' '];
             if ($dataxxxx['padrexxx'] != '') {
-                $compofam = FiComposicionFami::where('id', $dataxxxx['padrexxx'])->first();
+                $compofam = FiCompfami::where('id', $dataxxxx['padrexxx'])->first();
                 $respuest = ['sdocumen' => $compofam->s_documento, 'expedici' => $compofam->sis_municipio->s_municipio . ' (' . $compofam->sis_municipio->sis_departamento->s_departamento . ')'];
             }
             return response()->json($respuest);

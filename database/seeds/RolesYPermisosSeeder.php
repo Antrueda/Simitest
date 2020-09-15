@@ -442,7 +442,7 @@ class RolesYPermisosSeeder extends Seeder
 
         require_once('RolesYPermisosAdmin.php');
         require_once('RolesYPermisosPsicologo.php');
-
+        require_once('RolesYPermisosCRelajado.php');
         require_once('RolesYPermisosEnfermeria.php');
         Role::create(['name' => 'PSICÓLOGO(A) CLÍNICO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
             ->givePermissionTo(['intervención sicosocial especializada']);

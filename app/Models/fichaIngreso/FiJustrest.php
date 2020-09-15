@@ -3,12 +3,13 @@
 namespace App\Models\fichaIngreso;
 
 use App\Helpers\Indicadores\IndicadorHelper;
+use App\Models\Sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class FiJusticiaRestaurativa extends Model
+class FiJustrest extends Model
 {
   protected $fillable = [
     'i_prm_vinculado_violencia_id',
@@ -31,9 +32,13 @@ class FiJusticiaRestaurativa extends Model
   {
     return $this->belongsTo(User::class, 'user_edita_id');
   }
+  public function sis_nnaj()
+  {
+    return $this->belongsTo(SisNnaj::class);
+  }
   public static function justicia($usuariox)
   {
-    $vestuari = ['justicia' => FiJusticiaRestaurativa::where('sis_nnaj_id', $usuariox)->first(), 'formular' => false];
+    $vestuari = ['justicia' => FiJustrest::where('sis_nnaj_id', $usuariox)->first(), 'formular' => false];
 
     if ($vestuari['justicia'] == null) {
       $vestuari['formular'] = true;
@@ -49,12 +54,12 @@ class FiJusticiaRestaurativa extends Model
         $objetoxx->update($dataxxxx);
       } else {
         $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $objetoxx = FiJusticiaRestaurativa::create($dataxxxx);
+        $objetoxx = FiJustrest::create($dataxxxx);
       }
 
-      FiProcesoPard::transaccion($dataxxxx,FiProcesoPard::where('fi_justicia_restaurativa_id',$objetoxx->id)->first(), $objetoxx);
-      FiProcesoSpoa::transaccion($dataxxxx,FiProcesoSpoa::where('fi_justicia_restaurativa_id',$objetoxx->id)->first(), $objetoxx);
-      FiProcesoSrpa::transaccion($dataxxxx,FiProcesoSrpa::where('fi_justicia_restaurativa_id',$objetoxx->id)->first(), $objetoxx);
+      FiProcesoPard::transaccion($dataxxxx,FiProcesoPard::where('fi_justrest_id',$objetoxx->id)->first(), $objetoxx);
+      FiProcesoSpoa::transaccion($dataxxxx,FiProcesoSpoa::where('fi_justrest_id',$objetoxx->id)->first(), $objetoxx);
+      FiProcesoSrpa::transaccion($dataxxxx,FiProcesoSrpa::where('fi_justrest_id',$objetoxx->id)->first(), $objetoxx);
 
       $dataxxxx['sis_tabla_id']=17;
       IndicadorHelper::asignaLineaBase($dataxxxx);

@@ -52,7 +52,7 @@ class CreateHFiSaludsTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('fi_salud_id')->unsigned(); //->comment('REGISTRO SALUD AL QUE SE LE ASIGNA LA ENFERMEDAD FAMILIA');
-            $table->bigIntegeR('fi_composicion_fami_id')->unsigned(); //->comment('FI 6.17 MIEMBRO FAMILIA');
+            $table->bigIntegeR('fi_compfami_id')->unsigned(); //->comment('FI 6.17 MIEMBRO FAMILIA');
             $table->string('s_tipo_enfermedad'); //->comment('FI TIPO ENFERMEDAD');
             $table->bigIntegeR('i_prm_recibe_medicina_id')->unsigned(); //->comment('FI RECIBE MEDICAMENTOS');
             $table->string('s_medicamento'); //->comment('FI CUAL MEDICAMENTO');

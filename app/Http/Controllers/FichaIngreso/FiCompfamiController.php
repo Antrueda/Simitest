@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\FichaIngreso;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaIngreso\FiComposicionFamiCrearRequest;
-use App\Http\Requests\FichaIngreso\FiComposicionFamiUpdateRequest;
-use App\Models\fichaIngreso\FiComposicionFami;
+use App\Http\Requests\FichaIngreso\FiCompfamiCrearRequest;
+use App\Http\Requests\FichaIngreso\FiCompfamiUpdateRequest;
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Sistema\SisDepartamento;
@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-class FiComposicionFamiController extends Controller
+class FiCompfamiController extends Controller
 {
 
     private $opciones;
@@ -91,7 +91,7 @@ class FiComposicionFamiController extends Controller
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'fi_composicion_famis.id'],
+                    ['data' => 'id', 'name' => 'fi_compfamis.id'],
                     ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
                     ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                     ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
@@ -244,7 +244,7 @@ class FiComposicionFamiController extends Controller
     {
         $dataxxxx['sis_nnajnnaj_id'] = $padrexxx->sis_nnaj_id;
         return redirect()
-            ->route('ficomposicion.editar', [$padrexxx->id, FiComposicionFami::transaccion($dataxxxx, $objectx)->id])
+            ->route('ficomposicion.editar', [$padrexxx->id, FiCompfami::transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);
     }
 
@@ -254,7 +254,7 @@ class FiComposicionFamiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FiComposicionFamiCrearRequest $request, FiDatosBasico $padrexxx)
+    public function store(FiCompfamiCrearRequest $request, FiDatosBasico $padrexxx)
     {
         return $this->grabar($request->all(), '', 'Composicion familiar creada con exito', $padrexxx);
     }
@@ -262,10 +262,10 @@ class FiComposicionFamiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\FiComposicionFami  $residencia
+     * @param  \App\Models\FiCompfami  $residencia
      * @return \Illuminate\Http\Response
      */
-    public function show(FiDatosBasico $padrexxx, FiComposicionFami $modeloxx)
+    public function show(FiDatosBasico $padrexxx, FiCompfami $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
@@ -273,10 +273,10 @@ class FiComposicionFamiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\FiComposicionFami  $objetoxx
+     * @param  \App\Models\FiCompfami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(FiDatosBasico $padrexxx, FiComposicionFami $modeloxx)
+    public function edit(FiDatosBasico $padrexxx, FiCompfami $modeloxx)
     {
         $this->opciones['botoform'][] =
             [
@@ -290,15 +290,15 @@ class FiComposicionFamiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FiComposicionFami  $objetoxx
+     * @param  \App\Models\FiCompfami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiComposicionFamiUpdateRequest $request, FiDatosBasico $padrexxx, $modeloxx)
+    public function update(FiCompfamiUpdateRequest $request, FiDatosBasico $padrexxx, $modeloxx)
     {
-        return $this->grabar($request->all(), FiComposicionFami::where('id', $modeloxx)->first(), 'Composicion familiar actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), FiCompfami::where('id', $modeloxx)->first(), 'Composicion familiar actualizada con exito', $padrexxx);
     }
 
-    public function inactivate(FiDatosBasico $padrexxx, FiComposicionFami $modeloxx)
+    public function inactivate(FiDatosBasico $padrexxx, FiCompfami $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -310,7 +310,7 @@ class FiComposicionFamiController extends Controller
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Destroy', 'padrexxx' => $padrexxx]);
     }
-    public function destroy(FiDatosBasico $padrexxx, FiComposicionFami $modeloxx)
+    public function destroy(FiDatosBasico $padrexxx, FiCompfami $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

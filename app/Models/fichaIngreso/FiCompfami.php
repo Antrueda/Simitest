@@ -2,7 +2,6 @@
 
 namespace App\Models\fichaIngreso;
 
-use App\Helpers\Indicadores\IndicadorHelper;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
@@ -14,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class FiComposicionFami extends Model
+class FiCompfami extends Model
 {
     protected $fillable = [
         's_nombre_identitario',
@@ -53,7 +52,7 @@ class FiComposicionFami extends Model
     }
     public static function composicion($usuariox)
     {
-        $vestuari = ['composic' => FiComposicionFami::where('', $usuariox)->first(), 'formular' => false];
+        $vestuari = ['composic' => FiCompfami::where('', $usuariox)->first(), 'formular' => false];
 
         if ($vestuari['composic'] == null) {
             $vestuari['formular'] = true;
@@ -96,21 +95,21 @@ class FiComposicionFami extends Model
             $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if ($objetoxx != '') {
-                $datosbas=FiComposicionFami::getDbcomfamiliar($dataxxxx, $objetoxx->sis_nnaj->fi_datos_basico);// actualizar datos basicos del componente familiar
-                $datosbas->nnaj_docu->update($dataxxxx);// actualizar documento del componente familiar
+                $datosbas = FiCompfami::getDbcomfamiliar($dataxxxx, $objetoxx->sis_nnaj->fi_datos_basico); // actualizar datos basicos del componente familiar
+                $datosbas->nnaj_docu->update($dataxxxx); // actualizar documento del componente familiar
                 $objetoxx->update($dataxxxx);
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $datosbas=NnajDocu::where('s_documento',$dataxxxx['s_documento'])->first();
+                $datosbas = NnajDocu::where('s_documento', $dataxxxx['s_documento'])->first();
 
-                if(!isset($datosbas->id)){
-                    $datosbas=FiComposicionFami::getDbcomfamiliar($dataxxxx, '');
+                if (!isset($datosbas->id)) {
+                    $datosbas = FiCompfami::getDbcomfamiliar($dataxxxx, '');
                     NnajDocu::create($dataxxxx);
-                }else{
-                    $datosbas= $datosbas->fi_datos_basico;
+                } else {
+                    $datosbas = $datosbas->fi_datos_basico;
                 }
-                $dataxxxx['sis_nnaj_id']=$datosbas->sis_nnaj_id;
-                $objetoxx = FiComposicionFami::create($dataxxxx);
+                $dataxxxx['sis_nnaj_id'] = $datosbas->sis_nnaj_id;
+                $objetoxx = FiCompfami::create($dataxxxx);
             }
             return $objetoxx;
         }, 5);
@@ -123,16 +122,16 @@ class FiComposicionFami extends Model
         if ($cabecera) {
             $comboxxx = ['' => 'Seleccione'];
         }
-        foreach (FiComposicionFami::where('nnaj_nfamili_id', $padrexxx->nnaj_nfamili_id)->get() as $registro) {
+        foreach (FiCompfami::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->get() as $registro) {
+            $nombrexx=$registro->sis_nnaj->fi_datos_basico->s_primer_nombre . ' ' . $registro->sis_nnaj->fi_datos_basico->s_segundo_nombre . ' ' .
+                        $registro->sis_nnaj->fi_datos_basico->s_primer_apellido . ' ' . $registro->sis_nnaj->fi_datos_basico->s_segundo_apellido;
             if ($ajaxxxxx) {
                 $comboxxx[] = [
                     'valuexxx' => $registro->id,
-                    'optionxx' => $registro->s_primer_nombre . ' ' . $registro->s_segundo_nombre . ' ' .
-                        $registro->s_primer_apellido . ' ' . $registro->s_segundo_apellido
+                    'optionxx' =>  $nombrexx
                 ];
             } else {
-                $comboxxx[$registro->id] = $registro->s_primer_nombre . ' ' . $registro->s_segundo_nombre . ' ' .
-                    $registro->s_primer_apellido . ' ' . $registro->s_segundo_apellido;
+                $comboxxx[$registro->id] =  $nombrexx;
             }
         }
         return $comboxxx;
@@ -148,8 +147,8 @@ class FiComposicionFami extends Model
         if ($cabecera) {
             $comboxxx = ['' => 'Seleccione'];
         }
-        $compofam = FiComposicionFami::where(function ($consulta) use ($padrexxx, $edadxxxx) {
-            $consulta->where('nnaj_nfamili_id', $padrexxx->nnaj_nfamili_id);
+        $compofam = FiCompfami::where(function ($consulta) use ($padrexxx, $edadxxxx) {
+            $consulta->where('sis_nnaj_id', $padrexxx->sis_nnaj_id);
             //   if($edadxxxx>=18){
             //     $consulta->where('i_prm_parentesco_id', 805);
             //   }

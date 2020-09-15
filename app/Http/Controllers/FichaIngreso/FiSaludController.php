@@ -74,7 +74,7 @@ class FiSaludController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $archivox=($dataxxxx['padrexxx']->prm_tipoblaci_id == 2323) ? 'caminando' : 'js';
+        $archivox=($dataxxxx['padrexxx']->prm_estrateg_id == 2323) ? 'caminando' : 'js';
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.'.$archivox]
         ];
@@ -97,7 +97,7 @@ class FiSaludController extends Controller
             if ($dataxxxx['modeloxx']->i_prm_tiene_discapacidad_id == 228) {
                 $this->opciones['noapdisc'] = [1 => 'NO APLICA'];
                 $this->opciones['tipodisc'] = [1 => 'NO APLICA'];
-                
+
                 $this->opciones['discausa'] = [1 => 'NO APLICA'];
             }
             if ($dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 228 || $dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 235) {
@@ -164,10 +164,10 @@ class FiSaludController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'fi_enfermedades_familias.id'],
-                    ['data' => 's_primer_nombre', 'name' => 'fi_composicion_famis.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'fi_composicion_famis.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'fi_composicion_famis.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'fi_composicion_famis.s_segundo_apellido'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_compfamis.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_compfamis.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_compfamis.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_compfamis.s_segundo_apellido'],
 
                     ['data' => 's_tipo_enfermedad', 'name' => 'fi_enfermedades_familias.s_tipo_enfermedad'],
                     ['data' => 'medicina', 'name' => 'parametros.nombre as medicina'],
@@ -209,7 +209,7 @@ class FiSaludController extends Controller
             return redirect()
                 ->route('fisalud.editar', [$padrexxx->id, $vestuari->id]);
         }
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $padrexxx->prm_tipoblaci_id == 2323 ? 'caminando' : 'formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $padrexxx->prm_estrateg_id == 2323 ? 'caminando' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
     {
@@ -241,7 +241,7 @@ class FiSaludController extends Controller
      */
     public function show(FiDatosBasico $padrexxx, FiSalud $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $padrexxx->prm_tipoblaci_id == 2323 ? 'caminando' : 'formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $padrexxx->prm_estrateg_id == 2323 ? 'caminando' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -258,7 +258,7 @@ class FiSaludController extends Controller
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         $this->opciones['tablread'] = '';
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $padrexxx->prm_tipoblaci_id == 2323 ? 'caminando' : 'formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $padrexxx->prm_estrateg_id == 2323 ? 'caminando' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**

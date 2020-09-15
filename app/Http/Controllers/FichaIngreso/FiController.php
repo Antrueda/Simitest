@@ -71,6 +71,7 @@ class FiController extends Controller
         $this->opciones['orientac'] = Tema::combo(13, true, false);
         $this->opciones['pais_idx'] = SisPai::combo(true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
+        $this->opciones['estrateg'] = [''=>'Seleccionee'];
 
         $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
         $this->opciones['botoform'] = [
@@ -142,7 +143,6 @@ class FiController extends Controller
             return $this->getNnajsFi2depen($request); //Por UPI
 
         }
-
     }
     private function grabar($dataxxxx, $objetoxx, $infoxxxx)
     {
@@ -172,7 +172,7 @@ class FiController extends Controller
         }
 
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
@@ -206,6 +206,16 @@ class FiController extends Controller
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
+
+            switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
+                case 650:
+                    $this->opciones['estrateg']=Tema::combo(355, false, false);
+                    break;
+                case 651:
+                    $this->opciones['estrateg']=Tema::combo(354, true, false);
+                    break;
+            }
+
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
             $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -269,28 +279,28 @@ class FiController extends Controller
             }
 
             if ($this->opciones['grupetni'] != 157) {
-                $this->opciones['poblindi'] =  [1 => 'NO APLICA'];
+                $this->opciones['poblindi'] =  [1269 => 'NO APLICA'];
             }
 
             if ($this->opciones['aniosxxx'] < 15) {
-                $this->opciones['generoxx'] =  [1 => 'NO APLICA'];
-                $this->opciones['orientac'] =  [1 => 'NO APLICA'];
+                $this->opciones['generoxx'] =  [1269 => 'NO APLICA'];
+                $this->opciones['orientac'] =  [1269 => 'NO APLICA'];
             }
 
             if ($this->opciones['aniosxxx'] < 18 || $dataxxxx['modeloxx']->prm_sexo_id == 21) {
-                $this->opciones['tiplibre'] = [1 => 'NO APLICA'];
-                $this->opciones['situmili'] = [1 => 'NO APLICA'];
+                $this->opciones['tiplibre'] = [1269 => 'NO APLICA'];
+                $this->opciones['situmili'] = [1269 => 'NO APLICA'];
             }
 
             if ($dataxxxx['modeloxx']->prm_documento_id == 145) {
                 $this->opciones['readfisi'] = 'readonly';
                 $this->opciones['neciayud'] = Tema::combo(286, true, false);
             } else {
-                $this->opciones['neciayud'] = [1 => 'NO APLICA'];
+                $this->opciones['neciayud'] = [1269 => 'NO APLICA'];
             }
 
             if ($dataxxxx['modeloxx']->prm_situacion_militar_id == 228) {
-                $this->opciones['tiplibre'] = [1 => 'NO APLICA'];
+                $this->opciones['tiplibre'] = [1269 => 'NO APLICA'];
             }
             // $this->opciones['poblindi'] = Tema::combo(61, true, false);
         }
@@ -316,7 +326,7 @@ class FiController extends Controller
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 
-            return $this->view(['modeloxx'=>'','accionxx'=>['crear','formulario']]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
     }
     public function store(FiDatosBasicoCrearRequest $request)
     {
@@ -332,7 +342,7 @@ class FiController extends Controller
      */
     public function show(FiDatosBasico $objetoxx)
     {
-        return $this->view(['modeloxx'=>$objetoxx,'accionxx'=>['ver','formulario'],'padrexxx'=>$objetoxx]);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
     }
 
     /**
@@ -350,7 +360,7 @@ class FiController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx'=>$objetoxx,'accionxx'=>['editar','formulario'],'padrexxx'=>$objetoxx]);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $objetoxx]);
     }
 
     /**
@@ -393,6 +403,24 @@ class FiController extends Controller
     {
         if ($request->ajax()) {
             return response()->json(SisMunicipio::combo($request->all()['departam'], true));
+        }
+    }
+
+    public function getEstrategia(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $respuest = ['selected' => 'prm_estrateg_id', 'comboxxx' => [['valuexxx'=>'','optionxx' => 'Seleccione']]];
+            switch ($request->padrexxx) {
+                case 650:
+                    $respuest['comboxxx']=Tema::combo(355, false, true);
+                    break;
+                case 651:
+                    $respuest['comboxxx']=Tema::combo(354, true, true);
+                    break;
+            }
+
+            return response()->json($respuest);
         }
     }
 }

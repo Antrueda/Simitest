@@ -19,7 +19,7 @@ class UsuarioIdipronEditarRequest extends FormRequest
         // Mensajes para las validaciones para sis_documento_usrs
         $this->_mensaje['s_documento.required'] = 'El número de documento es requerido';
         $this->_mensaje['s_documento.unique'] = 'El número de documento ya existe';
-        $this->_mensaje['prm_documento_id.required'] = 'Selecione un tipo de documento';
+        $this->_mensaje['prm_documento_id.required'] = 'Seleccione un tipo de documento';
         $this->_mensaje['sis_municipio_id.required'] = 'Seleccione el municipio de expedición del documento';
 
         // Mensajes para las validaciones para sis_usuario_botacoras

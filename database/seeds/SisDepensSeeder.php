@@ -83,5 +83,11 @@ class SisDepensSeeder extends Seeder
             12 => $camposmagicos,
             16 => $camposmagicos,
         ]);
+        $super = User::where('id', 7)->first();
+        $super->sis_depens()->sync([
+            6 => $camposmagicos,
+            12 => $camposmagicos,
+            16 => $camposmagicos,
+        ]);
     }
 }

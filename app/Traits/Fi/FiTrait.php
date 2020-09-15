@@ -2,10 +2,10 @@
 
 namespace App\Traits\Fi;
 
-use App\Models\fichaIngreso\FiComposicionFami;
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiJusticiaRestaurativa;
+use App\Models\fichaIngreso\FiJustrest;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
@@ -101,22 +101,22 @@ public function getNotInt()
 
     public function getCompoFami($request)
     {
-        $dataxxxx =  FiComposicionFami::select([
-            'fi_composicion_famis.id',
+        $dataxxxx =  FiCompfami::select([
+            'fi_compfamis.id',
             'fi_datos_basicos.s_primer_nombre',
             'nnaj_docus.s_documento',
             'fi_datos_basicos.s_segundo_nombre',
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
-            'fi_composicion_famis.sis_esta_id',
-            'fi_composicion_famis.created_at',
+            'fi_compfamis.sis_esta_id',
+            'fi_compfamis.created_at',
             'sis_estas.s_estado'
         ])
-        ->join('sis_nnajs', 'fi_composicion_famis.sis_nnajnnaj_id', '=', 'sis_nnajs.id')
+        ->join('sis_nnajs', 'fi_compfamis.sis_nnajnnaj_id', '=', 'sis_nnajs.id')
         ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
         ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-        ->join('sis_estas', 'fi_composicion_famis.sis_esta_id', '=', 'sis_estas.id')
-            ->where('fi_composicion_famis.sis_nnajnnaj_id', $request->padrexxx)
+        ->join('sis_estas', 'fi_compfamis.sis_esta_id', '=', 'sis_estas.id')
+            ->where('fi_compfamis.sis_nnajnnaj_id', $request->padrexxx)
             ;
         return $this->getDtAcciones($dataxxxx, $request);
     }
@@ -137,7 +137,7 @@ public function getNotInt()
         ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
         ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
         ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-            ->whereNotIn('sis_nnajs.id', FiComposicionFami::select('sis_nnaj_id')->where('sis_nnajnnaj_id',$request->padrexxx)->get());
+            ->whereNotIn('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id',$request->padrexxx)->get());
         return $this->getDtAcciones($dataxxxx, $request);
     }
     public function getDiagnostico($request)
@@ -147,10 +147,10 @@ public function getNotInt()
             'fi_enfermedades_familias.created_at',
             'fi_saluds.sis_nnaj_id',
             'fi_enfermedades_familias.sis_esta_id',
-            'fi_composicion_famis.s_primer_nombre',
-            'fi_composicion_famis.s_segundo_nombre',
-            'fi_composicion_famis.s_primer_apellido',
-            'fi_composicion_famis.s_segundo_apellido',
+            'fi_compfamis.s_primer_nombre',
+            'fi_compfamis.s_segundo_nombre',
+            'fi_compfamis.s_primer_apellido',
+            'fi_compfamis.s_segundo_apellido',
             'fi_enfermedades_familias.s_tipo_enfermedad',
             'medicina.nombre as medicina',
             'sis_estas.s_estado',
@@ -160,8 +160,8 @@ public function getNotInt()
             ->join('fi_enfermedades_familias', 'fi_saluds.id', '=', 'fi_enfermedades_familias.fi_salud_id')
             ->join('parametros as medicina', 'fi_enfermedades_familias.i_prm_recibe_medicina_id', '=', 'medicina.id')
             ->join('parametros as tratamiento', 'fi_enfermedades_familias.i_prm_rec_tratamiento_id', '=', 'tratamiento.id')
-            ->join('fi_composicion_famis', 'fi_enfermedades_familias.fi_composicion_fami_id', '=', 'fi_composicion_famis.id')
-            ->join('fi_datos_basicos', 'fi_composicion_famis.nnaj_nfamili_id', '=', 'fi_datos_basicos.nnaj_nfamili_id')
+            ->join('fi_compfamis', 'fi_enfermedades_familias.fi_compfami_id', '=', 'fi_compfamis.id')
+            ->join('fi_datos_basicos', 'fi_compfamis.sis_nnaj_id', '=', 'fi_datos_basicos.sis_nnaj_id')
             ->join('sis_estas', 'fi_enfermedades_familias.sis_esta_id', '=', 'sis_estas.id')
             ->where('fi_datos_basicos.sis_nnaj_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
@@ -215,30 +215,31 @@ public function getNotInt()
 
     public function getJusticiaTrait($request)
     {
-        $dataxxxx = FiJusticiaRestaurativa::select(
-            'fi_proceso_familias.id',
-            'fi_justicia_restaurativas.sis_nnaj_id',
-            'fi_proceso_familias.sis_esta_id',
-            'fi_composicion_famis.s_primer_nombre',
-            'fi_composicion_famis.s_segundo_nombre',
-            'fi_composicion_famis.s_primer_apellido',
-            'fi_composicion_famis.s_segundo_apellido',
-            'fi_proceso_familias.s_proceso',
+        $dataxxxx = FiJustrest::select(
+            'fi_jr_familiars.id',
+            'fi_justrests.sis_nnaj_id',
+            'fi_jr_familiars.sis_esta_id',
+            'fi_datos_basicos.s_primer_nombre',
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
+            'fi_jr_familiars.s_proceso',
             'vigente.nombre as vigente',
-            'fi_proceso_familias.i_numero_veces',
-            'fi_proceso_familias.s_motivo',
-            'fi_proceso_familias.i_hace_cuanto',
+            'fi_jr_familiars.i_veces',
+            'fi_jr_familiars.s_proceso',
+            'fi_jr_familiars.i_tiempo',
             'tiempo.nombre as tiempo',
-            'fi_justicia_restaurativas.created_at',
+            'fi_justrests.created_at',
             'sis_estas.s_estado'
         )
-            ->join('sis_estas', 'fi_justicia_restaurativas.sis_esta_id', '=', 'sis_estas.id')
-            ->join('fi_proceso_familias', 'fi_justicia_restaurativas.id', '=', 'fi_proceso_familias.fi_justicia_restaurativa_id')
-            ->join('parametros as vigente', 'fi_proceso_familias.i_prm_vigente_id', '=', 'vigente.id')
-            ->join('parametros as tiempo', 'fi_proceso_familias.i_prm_tipo_tiempo_id', '=', 'tiempo.id')
-            ->join('fi_composicion_famis', 'fi_proceso_familias.fi_composicion_fami_id', '=', 'fi_composicion_famis.id')
-            ->join('fi_datos_basicos', 'fi_composicion_famis.nnaj_nfamili_id', '=', 'fi_datos_basicos.nnaj_nfamili_id')
-            ->where('fi_datos_basicos.sis_nnaj_id', $request->padrexxx);
+
+            ->join('fi_jr_familiars', 'fi_justrests.id', '=', 'fi_jr_familiars.fi_justrest_id')
+            ->join('sis_estas', 'fi_jr_familiars.sis_esta_id', '=', 'sis_estas.id')
+            ->join('parametros as vigente', 'fi_jr_familiars.i_prm_vigente_id', '=', 'vigente.id')
+            ->join('parametros as tiempo', 'fi_jr_familiars.i_prm_tiempo_id', '=', 'tiempo.id')
+            ->join('fi_compfamis', 'fi_jr_familiars.fi_compfami_id', '=', 'fi_compfamis.id')
+            ->join('fi_datos_basicos', 'fi_compfamis.sis_nnaj_id', '=', 'fi_datos_basicos.sis_nnaj_id')
+            ->where('fi_justrests.sis_nnaj_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 

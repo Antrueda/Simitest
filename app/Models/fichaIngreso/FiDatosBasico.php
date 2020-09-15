@@ -25,8 +25,8 @@ class FiDatosBasico extends Model
         's_segundo_apellido',
         's_apodo',
         'sis_nnaj_id',
-
         'prm_tipoblaci_id',
+        'prm_estrateg_id',
         'prm_vestimenta_id',
         'sis_docfuen_id',
         'sis_esta_id',
@@ -210,7 +210,7 @@ class FiDatosBasico extends Model
                 $dataxxxx['i_prm_parentesco_id'] = 805;
                 $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
                 $dataxxxx['i_prm_convive_nnaj_id'] = 227;
-                FiComposicionFami::create($dataxxxx);
+                FiCompfami::create($dataxxxx);
             }
             $this->setSisDepen($dataxxxx, $objetoxx);
             return $objetoxx;

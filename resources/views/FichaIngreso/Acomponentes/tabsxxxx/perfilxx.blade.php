@@ -16,7 +16,7 @@
       </li>
       <li class="list-group-item">
         <b>DOCUMENTO</b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_docu->s_ducumento }}</a>
+        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_docu->s_documento }}</a>
       </li>
       <li class="list-group-item">
         <b>FECHA DE NACIMIENTO</b>

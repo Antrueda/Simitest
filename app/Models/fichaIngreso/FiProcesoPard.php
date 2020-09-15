@@ -18,14 +18,14 @@ class FiProcesoPard extends Model
     's_nombre_defensor',
     's_telefono_defensor',
     's_lugar_abierto_pard',
-    'fi_justicia_restaurativa_id',
+    'fi_justrest_id',
     'user_crea_id',
     'user_edita_id',
     'sis_esta_id'
   ];
-  public function fi_justicia_restaurativa()
+  public function fi_justrest()
   {
-    return $this->belongsTo(FiJusticiaRestaurativa::class);
+    return $this->belongsTo(FiJustrest::class);
   }
   protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
   public function creador()
@@ -44,7 +44,7 @@ class FiProcesoPard extends Model
       if ($objetoxx != null) {
         $objetoxx->update($dataxxxx);
       } else {
-        $dataxxxx['fi_justicia_restaurativa_id'] = $justicia->id;
+        $dataxxxx['fi_justrest_id'] = $justicia->id;
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiProcesoPard::create($dataxxxx);
       }

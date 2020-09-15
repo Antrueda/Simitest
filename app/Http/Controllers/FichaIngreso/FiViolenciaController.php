@@ -55,7 +55,7 @@ class FiViolenciaController extends Controller
 
         ];
         $condespe = 57;
-        if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 2323) {
+        if ($dataxxxx['padrexxx']->prm_estrateg_id == 2323) {
             $condespe = 351;
         }
         $this->opciones['condespe'] = Tema::combo($condespe, true, false);
@@ -113,7 +113,7 @@ class FiViolenciaController extends Controller
                 'routxxxx' => 'ficonvio',
                 'parametr' => [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 345],
             ];
-        if ($this->opciones['usuariox']->prm_tipoblaci_id == 2323) {
+        if ($this->opciones['usuariox']->prm_estrateg_id == 2323) {
             $this->opciones['tablasxx'][] =  [
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.dtcontviol',
                 'titunuev' => 'INDICAR VIOLENCIA',
@@ -159,7 +159,7 @@ class FiViolenciaController extends Controller
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $poblacio = $padrexxx->prm_tipoblaci_id;
+        $poblacio = $padrexxx->prm_estrateg_id;
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
     private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
@@ -191,7 +191,7 @@ class FiViolenciaController extends Controller
      */
     public function show(FiDatosBasico $padrexxx, FiViolencia $modeloxx)
     {
-        $poblacio = $padrexxx->prm_tipoblaci_id;
+        $poblacio = $padrexxx->prm_estrateg_id;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
 
@@ -209,7 +209,7 @@ class FiViolenciaController extends Controller
                 'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $poblacio = $padrexxx->prm_tipoblaci_id;
+        $poblacio = $padrexxx->prm_estrateg_id;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
 

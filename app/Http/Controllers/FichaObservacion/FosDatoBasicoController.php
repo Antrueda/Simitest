@@ -8,7 +8,7 @@ use App\Http\Requests\FichaObservacion\FosDatosBasicoUpdateRequest;
 use Illuminate\Http\Request;
 
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiComposicionFami;
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaobservacion\Area;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
@@ -101,7 +101,7 @@ class FosDatoBasicoController extends Controller
     {
         $this->opciones['dependen'] = User::getDependenciasUser(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
-        $this->opciones['compfami'] = FiComposicionFami::combo($this->opciones['datobasi'], true, false);
+        $this->opciones['compfami'] = FiCompfami::combo($this->opciones['datobasi'], true, false);
         $fechaxxx = explode('-', date('Y-m-d'));
         if ($fechaxxx[1] < 12) {
             $fechaxxx[1] = $fechaxxx[1] + 1;

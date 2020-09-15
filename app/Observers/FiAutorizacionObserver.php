@@ -12,9 +12,9 @@ class FiAutorizacionObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['i_prm_autorizo_id'] = $modeloxx->i_prm_autorizo_id;
-        $log['fi_composicion_fami_id'] = $modeloxx->fi_composicion_fami_id;
+        $log['fi_compfami_id'] = $modeloxx->fi_compfami_id;
         $log['i_prm_parentesco_id'] = $modeloxx->i_prm_parentesco_id;
         $log['d_autorizacion'] = $modeloxx->d_autorizacion;
         $log['i_prm_tipo_diligencia_id'] = $modeloxx->i_prm_tipo_diligencia_id;

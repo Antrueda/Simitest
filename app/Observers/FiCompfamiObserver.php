@@ -2,10 +2,10 @@
 
 namespace App\Observers;
 
-use App\Models\fichaIngreso\FiComposicionFami;
-use App\Models\fichaIngreso\Logs\HFiComposicionFami;
+use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\Logs\HFiCompfami;
 
-class FiComposicionFamiObserver
+class FiCompfamiObserver
 {
     private function getLog($modeloxx)
     {
@@ -33,52 +33,52 @@ class FiComposicionFamiObserver
         return $log;
     }
 
-    public function created(FiComposicionFami $modeloxx)
+    public function created(FiCompfami $modeloxx)
     {
-        HFiComposicionFami::create($this->getLog($modeloxx));
+        HFiCompfami::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the FiComposicionFami "updated" event.
+     * Handle the FiCompfami "updated" event.
      *
-     * @param  \App\Models\fichaIngreso\FiComposicionFami  $modeloxx
+     * @param  \App\Models\fichaIngreso\FiCompfami  $modeloxx
      * @return void
      */
-    public function updated(FiComposicionFami $modeloxx)
+    public function updated(FiCompfami $modeloxx)
     {
-        HFiComposicionFami::create($this->getLog($modeloxx));
+        HFiCompfami::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the FiComposicionFami "deleted" event.
+     * Handle the FiCompfami "deleted" event.
      *
-     * @param  \App\Models\fichaIngreso\FiComposicionFami  $modeloxx
+     * @param  \App\Models\fichaIngreso\FiCompfami  $modeloxx
      * @return void
      */
-    public function deleted(FiComposicionFami $modeloxx)
+    public function deleted(FiCompfami $modeloxx)
     {
-        HFiComposicionFami::create($this->getLog($modeloxx));
+        HFiCompfami::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the FiComposicionFami "restored" event.
+     * Handle the FiCompfami "restored" event.
      *
-     * @param  \App\Models\fichaIngreso\FiComposicionFami  $modeloxx
+     * @param  \App\Models\fichaIngreso\FiCompfami  $modeloxx
      * @return void
      */
-    public function restored(FiComposicionFami $modeloxx)
+    public function restored(FiCompfami $modeloxx)
     {
-        HFiComposicionFami::create($this->getLog($modeloxx));
+        HFiCompfami::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the FiComposicionFami "force deleted" event.
+     * Handle the FiCompfami "force deleted" event.
      *
-     * @param  \App\Models\fichaIngreso\FiComposicionFami  $modeloxx
+     * @param  \App\Models\fichaIngreso\FiCompfami  $modeloxx
      * @return void
      */
-    public function forceDeleted(FiComposicionFami $modeloxx)
+    public function forceDeleted(FiCompfami $modeloxx)
     {
-        HFiComposicionFami::create($this->getLog($modeloxx));
+        HFiCompfami::create($this->getLog($modeloxx));
     }
 }

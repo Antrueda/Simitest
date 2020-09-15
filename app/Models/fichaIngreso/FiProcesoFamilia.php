@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\DB;
 class FiProcesoFamilia extends Model
 {
     protected $fillable = [
-        'fi_justicia_restaurativa_id',
-        'fi_composicion_fami_id',
+        'fi_justrest_id',
+        'fi_compfami_id',
         's_proceso',
         'i_prm_vigente_id',
         'i_numero_veces',
@@ -41,7 +41,7 @@ class FiProcesoFamilia extends Model
             if ($objetoxx != '') {
                 $objetoxx->update($dataxxxx);
             } else {
-                $dataxxxx['fi_justicia_restaurativa_id']=FiJusticiaRestaurativa::where('sis_nnaj_id',$dataxxxx['sis_nnaj_id'])->first()->id;
+                $dataxxxx['fi_justrest_id']=FiJustrest::where('sis_nnaj_id',$dataxxxx['sis_nnaj_id'])->first()->id;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = FiProcesoFamilia::create($dataxxxx);
             }

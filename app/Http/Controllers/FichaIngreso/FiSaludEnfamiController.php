@@ -5,7 +5,7 @@ namespace App\Http\Controllers\FichaIngreso;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiEnfermedadesFamiliaCrearRequest;
 use App\Http\Requests\FichaIngreso\FiEnfermedadesFamiliaUpdateRequest;
-use App\Models\fichaIngreso\FiComposicionFami;
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiEnfermedadesFamilia;
 
@@ -77,7 +77,7 @@ class FiSaludEnfamiController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
-        $this->opciones['compfami'] = FiComposicionFami::combo($dataxxxx['padrexxx'], true, false);
+        $this->opciones['compfami'] = FiCompfami::combo($dataxxxx['padrexxx'], true, false);
         $this->opciones['servicio'] = ['' => 'seleccione'];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
@@ -120,10 +120,10 @@ class FiSaludEnfamiController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'fi_enfermedades_familias.id'],
-                    ['data' => 's_primer_nombre', 'name' => 'fi_composicion_famis.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'fi_composicion_famis.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'fi_composicion_famis.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'fi_composicion_famis.s_segundo_apellido'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_compfamis.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_compfamis.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_compfamis.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_compfamis.s_segundo_apellido'],
 
                     ['data' => 's_tipo_enfermedad', 'name' => 'fi_enfermedades_familias.s_tipo_enfermedad'],
                     ['data' => 'medicina', 'name' => 'parametros.nombre as medicina'],

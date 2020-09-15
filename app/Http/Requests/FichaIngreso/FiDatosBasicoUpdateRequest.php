@@ -14,7 +14,8 @@ class FiDatosBasicoUpdateRequest extends FormRequest
     {
         $this->_mensaje = [
             'prm_tipoblaci_id.required' => 'Seleccione el tipo de población',
-        'sis_depen_id.required' => 'Seleccione una unidad de atención integral',
+            'prm_estrateg_id.required' => 'Seleccione una estrategia',
+            'sis_depen_id.required' => 'Seleccione una unidad de atención integral',
             's_primer_nombre.required' => 'Ingrese el primer nombre',
             's_primer_apellido.required' => 'Ingrese primer apellido',
             'prm_sexo_id.required' => 'Seleccione el sexo',
@@ -40,6 +41,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
         ];
         $this->_reglasx = [
             'prm_tipoblaci_id' => ['required'],
+            'prm_estrateg_id' => ['required'],
             'prm_doc_fisico_id' => ['required'],
             'sis_depen_id' => ['Required'],
             's_primer_nombre' => ['required'],
@@ -100,12 +102,12 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             $this->_reglasx['prm_poblacion_etnia_id'] = 'required';
         }
 
-        if ($dataxxxx['prm_doc_fisico_id'] == 228){
-            $this->_mensaje['prm_ayuda_id.required'] ='Seleccione porqué no tiene documento';
-            $this->_reglasx['prm_ayuda_id']='required';
+        if ($dataxxxx['prm_doc_fisico_id'] == 228) {
+            $this->_mensaje['prm_ayuda_id.required'] = 'Seleccione porqué no tiene documento';
+            $this->_reglasx['prm_ayuda_id'] = 'required';
         }
 
         $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
-        $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento,'. FiDatosBasico::find($this->segments()[2])->nnaj_docu->id;
+        $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento,' . FiDatosBasico::find($this->segments()[2])->nnaj_docu->id;
     }
 }

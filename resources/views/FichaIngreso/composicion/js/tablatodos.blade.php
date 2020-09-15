@@ -24,16 +24,6 @@ $(document).ready(function() {
 
                     $('#'+json.departam[0]+' option[value='+json.departam[2]+']').attr('selected', 'selected');
                     $('#'+json.municipi[0]+' option[value='+json.municipi[2]+']').attr('selected', 'selected');
-                    //  $('#'+json.tipodocu[0]+' option:selected').val(json.tipodocu[1])
-                    // $('#'+json.tipodocu[0]).val(tipodocu[1])
-                    // $(json.limpiarx).empty();
-                    // $.each(json.comboxxx,function(i,data){
-                    //     var selected='';
-                    //     if(data.valuexxx==dataxxxx.selected){
-                    //         selected='selected';
-                    //     }
-                    //     $('#'+json.campoxxx).append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    // });
                 },
                 error : function(xhr, status) {
                     alert('Disculpe, existió un problemadddd');

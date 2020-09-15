@@ -30,7 +30,7 @@ class CreateHFcComposicionfamisTable extends Migration
             $table->bigInteger('i_prm_vinculado_idipron_id')->unsigned();
             $table->bigInteger('i_prm_convive_nnaj_id')->unsigned();
             $table->bigInteger('prm_documento_id')->unsigned();
-            $table->bigInteger('nnaj_nfamili_id')->unsigned();
+            $table->bigInteger('sis_nnaj_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
     }

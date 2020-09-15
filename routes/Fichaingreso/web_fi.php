@@ -48,16 +48,20 @@ Route::group(['prefix' => 'fi'], function () use($routexxx,$controll){
     Route::post('municipio', [
         'uses' => $controll . 'Controller@municipioajax',
     ])->name($routexxx . '.municipio');
+    Route::get('estrateg', [
+        'uses' => $controll . 'Controller@getEstrategia',
+    ])->name($routexxx . '.estrateg');
+
 	include_once('web_fi_actividadestl.php');
 	include_once('web_fi_autorizacion.php');
 	include_once('web_fi_bienvenida.php');
-	include_once('web_fi_composicion_fami.php');
+	include_once('web_fi_compfami.php');
 	include_once('web_fi_consumo_spa.php');
 	include_once('web_fi_contacto.php');
 	include_once('web_fi_datosbasico.php');
 	include_once('web_fi_formacion.php');
 	include_once('web_fi_generacion_ingreso.php');
-	include_once('web_fi_justicia_restaurativa.php');
+	include_once('web_fi_justrest.php');
   include_once('web_fi_razone_archivo.php');
 	include_once('web_fi_razone.php');
 	include_once('web_fi_redes_apoyo.php');

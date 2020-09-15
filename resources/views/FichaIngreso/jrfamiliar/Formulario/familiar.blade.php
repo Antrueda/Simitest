@@ -3,8 +3,8 @@
   {{ Form::hidden('sis_nnaj_id', $todoxxxx["nnajregi"]) }}
   <div class="form-row align-items-end">
     <div class="form-group col-md-12">
-      {{ Form::label('fi_composicion_fami_id', 'Nombre del familiar', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('fi_composicion_fami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::label('fi_compfami_id', 'Nombre del familiar', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('fi_compfami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
   </div>
   <div class="form-row align-items-end">
@@ -33,5 +33,5 @@
         {{ Form::select('i_prm_tiempo_id', $todoxxxx["tiempoxx"], null, ['class' => 'form-control form-control-sm']) }}
       </div>
     </div>
-  </div>  
+  </div>
 <a class="btn btn-sm btn-primary" href="{{ route('fi.justicia.editar',$todoxxxx["devolver"]) }}">Volver A Justicia Restaurativa</a>

@@ -26,7 +26,7 @@ class SisDepartamento extends Model
             $comboxxx = ['' => 'Seleccione'];
 
         } else {
-            $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Selecione'];
+            $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
         }
 
         foreach (SisDepartamento::where(function ($dataxxxx) use ($idpadrex) {

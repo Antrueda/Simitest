@@ -15,7 +15,7 @@ class FiAutorizacionCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'fi_composicion_fami_id.required' => 'Seleccione un responsable',
+            'fi_compfami_id.required' => 'Seleccione un responsable',
             'i_prm_modalidad_id.required' => 'Seleccione la modalidad',
             'd_autorizacion.required' => 'Seleccione fecha autorizacion',
             'i_prm_tipo_diligencia_id.required' => 'Seleccione el tipo de diligenciamiento',
@@ -24,7 +24,7 @@ class FiAutorizacionCrearRequest extends FormRequest
             'i_prm_tipo_diligencia_id' => ['Required'],
             'd_autorizacion' => ['Required'],
             'i_prm_modalidad_id' => ['Required'],
-            'fi_composicion_fami_id' => ['Required'],
+            'fi_compfami_id' => ['Required'],
         ];
     }
     /**

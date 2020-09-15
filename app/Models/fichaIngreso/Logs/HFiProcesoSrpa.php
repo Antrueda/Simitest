@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class HFiProcesoSrpa extends Model
 {
     protected $fillable = [
-        'fi_justicia_restaurativa_id',
+        'fi_justrest_id',
         'i_prm_ha_estado_srpa_id',
         'i_prm_actualmente_srpa_id',
         'i_prm_tipo_tiempo_srpa_id',
@@ -17,7 +17,7 @@ class HFiProcesoSrpa extends Model
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
-        
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

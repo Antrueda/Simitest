@@ -12,22 +12,22 @@ class FiProcesoFamiliaCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'fi_composicion_fami_id.required' => 'Seleccione un miembro de la familia',
+            'fi_compfami_id.required' => 'Seleccione un miembro de la familia',
             's_proceso.required' => 'Indique el proceso',
             'i_prm_vigente_id.required' => 'Seleccione si está vigente',
             'i_numero_veces.required' => 'Indique el número de veces',
-            's_motivo.required' => 'Escriba el motivo',      
-            'i_hace_cuanto.required' => 'Indique hace cuanto está abierto el proceso',      
-            'i_prm_tipo_tiempo_id.required' => 'Seleccione el tipo de tiempo',      
+            's_motivo.required' => 'Escriba el motivo',
+            'i_hace_cuanto.required' => 'Indique hace cuanto está abierto el proceso',
+            'i_prm_tipo_tiempo_id.required' => 'Seleccione el tipo de tiempo',
         ];
         $this->_reglasx = [
-            'fi_composicion_fami_id' => ['required'],
+            'fi_compfami_id' => ['required'],
             's_proceso' => ['required'],
             'i_prm_vigente_id' => ['required'],
             'i_numero_veces' => ['required'],
             's_motivo' => ['required'],
             'i_hace_cuanto' => ['required'],
-            'i_prm_tipo_tiempo_id' => ['required'],  
+            'i_prm_tipo_tiempo_id' => ['required'],
         ];
     }
     /**
@@ -59,6 +59,6 @@ class FiProcesoFamiliaCrearRequest extends FormRequest
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        
+
     }
 }

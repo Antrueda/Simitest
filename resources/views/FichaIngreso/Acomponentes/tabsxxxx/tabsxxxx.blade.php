@@ -16,7 +16,7 @@
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fidatbas') ?' active' : '' }}
         text-sm" href="{{ route('fidatbas.editar',$todoxxxx['pestpara'][0]) }}">1. INFORMACI{{$todoxxxx['vocalesx'][3]}}N B{{$todoxxxx['vocalesx'][0]}}SICA</a></li>
             @endcanany
-            @if($todoxxxx['usuariox']->prm_tipoblaci_id != 2323)
+            @if($todoxxxx['usuariox']->prm_estrateg_id != 2323)
             @canany(['fivestuario-leer', 'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vestuario') ?' active' : '' }} text-sm" href="{{ route('fi.vestuario.nuevo', $todoxxxx['pestpara'][0]) }}">2. Vestuario</a></li>
             @endcanany
@@ -42,7 +42,7 @@
             @canany(['firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='firedapoyo') ?' active' : '' }} text-sm" href="{{ route('firedapoyo', $todoxxxx['pestpara'][0]) }}">9. Redes de Apoyo</a></li>
             @endcanany
-            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651|| $todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
+            @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651)
             @canany(['fijusticia-leer', 'fijusticia-crear', 'fijusticia-editar', 'fijusticia-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fijusticia') ?' active' : '' }} text-sm" href="{{ route('fijusticia.nuevo', $todoxxxx['pestpara'][0]) }}">10. Justicia Restaurativa</a></li>
             @endcanany

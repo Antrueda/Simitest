@@ -1,5 +1,5 @@
 <?php
-Route::group(['prefix' => 'csd'], function () {
+Route::group(['prefix' => 'csde'], function () {
     Route::get('', [
         'uses' => 'Domicilio\CsdController@index',
         'middleware' => ['permission:csddatobasico-leer|csddatobasico-crear|csddatobasico-editar|csddatobasico-borrar']

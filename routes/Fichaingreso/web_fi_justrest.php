@@ -1,6 +1,6 @@
 <?php
 $routexxx = 'fijusticia';
-$controll = 'FichaIngreso\FiJusticiaRestaurativa';
+$controll = 'FichaIngreso\FiJustrest';
 Route::group(['prefix' => '{padrexxx}/fijusticia'], function () use ($routexxx, $controll) {
 
     Route::get('', [

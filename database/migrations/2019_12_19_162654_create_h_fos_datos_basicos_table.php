@@ -25,7 +25,7 @@ class CreateHFosDatosBasicosTable extends Migration
             $table->bigInteger('fos_tse_id')->unsigned();
             $table->bigInteger('fos_stse_id')->unsigned();
             $table->text('s_observacion');
-            $table->bigInteger('fi_composicion_fami_id')->unsigned()->nullable();
+            $table->bigInteger('fi_compfami_id')->unsigned()->nullable();
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

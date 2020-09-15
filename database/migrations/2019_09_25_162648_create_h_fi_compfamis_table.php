@@ -6,9 +6,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateHFiComposicionFamisTable extends Migration
+class CreateHFiCompfamisTable extends Migration
 {
-    private $tablaxxx = 'h_fi_composicion_famis';
+    private $tablaxxx = 'h_fi_compfamis';
     /**
      * Run the migrations.
      *

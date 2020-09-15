@@ -270,7 +270,7 @@ class DependenciaController extends Controller
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2328])
+                    'formular' => 2327])
             );
         }
     }

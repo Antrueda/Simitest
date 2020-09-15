@@ -5,14 +5,15 @@ namespace App\Http\Requests\FichaIngreso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Foundation\Http\FormRequest;
 
-class FiJusticiaRestaurativaUpdateRequest extends FormRequest
+class FiJustrestCrearRequest extends FormRequest
 {
+
     private $_mensaje;
     private $_reglasx;
-    
+
     public function __construct()
     {
-        
+
     }
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +24,12 @@ class FiJusticiaRestaurativaUpdateRequest extends FormRequest
     {
         return true;
     }
-    
+
     public function messages()
     {
         return $this->_mensaje;
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -37,10 +38,9 @@ class FiJusticiaRestaurativaUpdateRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-       
         return $this->_reglasx;
     }
-    
+
     public function validar()
     {
         $nnajxxxx = FiDatosBasico::find($this->segments()[1]);
@@ -60,18 +60,17 @@ class FiJusticiaRestaurativaUpdateRequest extends FormRequest
             'i_prm_vinculado_violencia_id' => ['Required'],
             'i_prm_riesgo_participar_id' => ['Required'],
         ];
-        
-        if ($nnajxxxx->prm_tipoblaci_id != 2323) {
+
+        if ($nnajxxxx->prm_estrateg_id != 2323) {
             $this->_mensaje['i_prm_ha_estado_pard_id.required'] = 'Seleccione ha estado en pard';
             $this->_mensaje['i_prm_actualmente_pard_id.required'] = 'Seleccione actualmente está en pard';
             $this->_reglasx['i_prm_ha_estado_pard_id'] = ['Required'];
             $this->_reglasx['i_prm_actualmente_pard_id'] = ['Required'];
         }
-
         if ($this->i_prm_vinculado_violencia_id == 227){
             $this->_mensaje['i_prm_causa_vincula_vio_id.required'] ='Seleccione causa vinculación a delincuencia o violencia';
             $this->_reglasx['i_prm_causa_vincula_vio_id']='required';
-   
+
             $this->_mensaje['i_prm_riesgo_participar_id.required'] ='Seleccione causa riesgo participar actos delictivos';
             $this->_reglasx['i_prm_riesgo_participar_id']='required';
         }

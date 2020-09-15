@@ -16,7 +16,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
         $this->_mensaje = [
             'sis_depen_id.required' => 'Seleccione una unidad de atención integral',
             'prm_tipoblaci_id.required' => 'Seleccione el tipo de población',
-
+            'prm_estrateg_id.required' => 'Seleccione una estrategia',
             's_primer_nombre.required' => 'Ingrese el primer nombre',
             's_primer_apellido.required' => 'Ingrese primer apellido',
             'prm_sexo_id.required' => 'Seleccione el sexo',
@@ -42,6 +42,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
         $this->_reglasx = [
             'prm_doc_fisico_id' => ['required'],
             'prm_tipoblaci_id' => ['required'],
+            'prm_estrateg_id' => ['required'],
             'sis_depen_id' => ['Required'],
             's_primer_nombre' => ['required'],
             's_primer_apellido' => ['required'],

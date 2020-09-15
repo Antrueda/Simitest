@@ -18,7 +18,7 @@ class FosDatosBasico extends Model{
         'fos_tse_id',
         'fos_stse_id',
         's_observacion',
-        'fi_composicion_fami_id',
+        'fi_compfami_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id'
@@ -32,7 +32,7 @@ class FosDatosBasico extends Model{
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-   
+
 
     public function SisNnaj(){
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');

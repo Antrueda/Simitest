@@ -18,6 +18,7 @@ use App\Models\Usuario\Estusuario;
 use App\Traits\Administracion\UsuariosTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class UsuarioController extends Controller
 {
@@ -74,6 +75,12 @@ class UsuarioController extends Controller
      */
     public function index()
     {
+
+        // $respuest = Http::get('http://localhost:8085/usuarios')->json();
+        // echo '<pre>';
+        // print_r($respuest);
+
+        // ddd($respuest);
         $this->opciones['parametr'] = [];
         $this->opciones['tituhead'] = '';
         $this->opciones['botoform'][0]['routingx'][1] = [];
@@ -322,7 +329,7 @@ class UsuarioController extends Controller
 
     public function getRestart(User $objetoxx)
     {
-        $objetoxx->update(['user_edita_id' => Auth::user()->id,'password'=>$objetoxx->s_documento,  
+        $objetoxx->update(['user_edita_id' => Auth::user()->id,'password'=>$objetoxx->s_documento,
         'password_change_at'=>date('Y-m-d',time()),
         'password_reset_at'=>date('Y-m-d',time()),]);
         return redirect()

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Sistema\SisNnaj;
 use App\Models\consulta\Csd;
+use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Carbon;
 
@@ -47,6 +48,7 @@ class CsdController extends Controller{
         $dataxxxx= $request->all();
         $dataxxxx['sis_nnaj_id']=$id;
         $dataxxxx['prm_tipofuen_id']=2315;
+        $dataxxxx['sis_esta_id']=1;
         $dato = Csd::create($dataxxxx);
         $dato->nnajs()->attach($id, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
 

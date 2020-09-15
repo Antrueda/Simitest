@@ -8,7 +8,7 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 'agactividad-leer', 'agactividad-crear', 'agactividad-editar', 'agactividad-borrar',
                 'vsidabas-leer', 'vsidabas-crear', 'vsidabas-editar',
                 'vsibienv-leer', 'vsibienv-crear', 'vsibienv-editar',
-
+                'vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar',
                 'vsiviole-leer', 'vsiviole-crear', 'vsiviole-editar',
                 'vsieduca-leer', 'vsieduca-crear', 'vsieduca-editar',
                 'vsisalud-leer', 'vsisalud-crear', 'vsisalud-editar',

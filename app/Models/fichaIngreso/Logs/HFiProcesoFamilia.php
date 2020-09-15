@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class HFiProcesoFamilia extends Model
 {
     protected $fillable = [
-        'fi_justicia_restaurativa_id',
-        'fi_composicion_fami_id',
+        'fi_justrest_id',
+        'fi_compfami_id',
         's_proceso',
         'i_prm_vigente_id',
         'i_numero_veces',
@@ -18,7 +18,7 @@ class HFiProcesoFamilia extends Model
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
-        
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

@@ -15,7 +15,7 @@ class FiAutorizacion extends Model{
     'i_prm_tipo_diligencia_id',
     'i_prm_parentesco_id',
     'sis_nnaj_id',
-    'fi_composicion_fami_id',
+    'fi_compfami_id',
     'user_crea_id',
     'user_edita_id',
     'sis_esta_id'
@@ -30,9 +30,9 @@ class FiAutorizacion extends Model{
   {
     return $this->hasMany(FiModalidad::class);
   }
-  public function fi_composicion_fami()
+  public function fi_compfami()
   {
-    return $this->hasMany(FiComposicionFami::class);
+    return $this->hasMany(FiCompfami::class);
   }
 
   public function editor()

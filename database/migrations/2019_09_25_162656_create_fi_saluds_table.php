@@ -75,7 +75,7 @@ class CreateFiSaludsTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('fi_salud_id')->unsigned(); //->comment('REGISTRO SALUD AL QUE SE LE ASIGNA LA ENFERMEDAD FAMILIA');
-            $table->bigIntegeR('fi_composicion_fami_id')->unsigned(); //->comment('FI 6.17 MIEMBRO FAMILIA');
+            $table->bigIntegeR('fi_compfami_id')->unsigned(); //->comment('FI 6.17 MIEMBRO FAMILIA');
             $table->string('s_tipo_enfermedad'); //->comment('FI TIPO ENFERMEDAD');
             $table->bigIntegeR('i_prm_recibe_medicina_id')->unsigned(); //->comment('FI RECIBE MEDICAMENTOS');
             $table->string('s_medicamento'); //->comment('FI CUAL MEDICAMENTO');
@@ -88,7 +88,7 @@ class CreateFiSaludsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_salud_id')->references('id')->on('fi_saluds');
-            $table->foreign('fi_composicion_fami_id')->references('id')->on('fi_composicion_famis');
+            $table->foreign('fi_compfami_id')->references('id')->on('fi_compfamis');
             $table->foreign('i_prm_recibe_medicina_id')->references('id')->on('parametros');
             $table->foreign('i_prm_rec_tratamiento_id')->references('id')->on('parametros');
         });

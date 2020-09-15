@@ -960,11 +960,11 @@ CREATE TABLE IF NOT EXISTS `fi_bienvenidas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `fi_composicion_famis`
+-- Estructura de tabla para la tabla `fi_compfamis`
 --
 
-DROP TABLE IF EXISTS `fi_composicion_famis`;
-CREATE TABLE IF NOT EXISTS `fi_composicion_famis` (
+DROP TABLE IF EXISTS `fi_compfamis`;
+CREATE TABLE IF NOT EXISTS `fi_compfamis` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `i_prm_parentesco_id` bigint(20) UNSIGNED NOT NULL,
   `s_primer_nombre` varchar(120) COLLATE utf8mb4_spanish_ci NOT NULL,
@@ -987,16 +987,16 @@ CREATE TABLE IF NOT EXISTS `fi_composicion_famis` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `fi_composicion_famis_s_documento_unique` (`s_documento`),
-  KEY `fi_composicion_famis_user_crea_id_foreign` (`user_crea_id`),
-  KEY `fi_composicion_famis_user_edita_id_foreign` (`user_edita_id`),
-  KEY `fi_composicion_famis_sis_nnaj_id_foreign` (`sis_nnaj_id`),
-  KEY `fi_composicion_famis_i_prm_parentesco_id_foreign` (`i_prm_parentesco_id`),
-  KEY `fi_composicion_famis_i_prm_ocupacion_id_foreign` (`i_prm_ocupacion_id`),
-  KEY `fi_composicion_famis_prm_documento_id_foreign` (`prm_documento_id`),
-  KEY `fi_composicion_famis_i_prm_vinculado_idipron_id_foreign` (`i_prm_vinculado_idipron_id`),
-  KEY `fi_composicion_famis_i_prm_convive_nnaj_id_foreign` (`i_prm_convive_nnaj_id`),
-  KEY `fi_composicion_famis_fi_nucleo_familiar_id_foreign` (`fi_nucleo_familiar_id`)
+  UNIQUE KEY `fi_compfamis_s_documento_unique` (`s_documento`),
+  KEY `fi_compfamis_user_crea_id_foreign` (`user_crea_id`),
+  KEY `fi_compfamis_user_edita_id_foreign` (`user_edita_id`),
+  KEY `fi_compfamis_sis_nnaj_id_foreign` (`sis_nnaj_id`),
+  KEY `fi_compfamis_i_prm_parentesco_id_foreign` (`i_prm_parentesco_id`),
+  KEY `fi_compfamis_i_prm_ocupacion_id_foreign` (`i_prm_ocupacion_id`),
+  KEY `fi_compfamis_prm_documento_id_foreign` (`prm_documento_id`),
+  KEY `fi_compfamis_i_prm_vinculado_idipron_id_foreign` (`i_prm_vinculado_idipron_id`),
+  KEY `fi_compfamis_i_prm_convive_nnaj_id_foreign` (`i_prm_convive_nnaj_id`),
+  KEY `fi_compfamis_fi_nucleo_familiar_id_foreign` (`fi_nucleo_familiar_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -1414,11 +1414,11 @@ CREATE TABLE IF NOT EXISTS `fi_generacion_ingresos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `fi_justicia_restaurativas`
+-- Estructura de tabla para la tabla `fi_justrests`
 --
 
-DROP TABLE IF EXISTS `fi_justicia_restaurativas`;
-CREATE TABLE IF NOT EXISTS `fi_justicia_restaurativas` (
+DROP TABLE IF EXISTS `fi_justrests`;
+CREATE TABLE IF NOT EXISTS `fi_justrests` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `i_prm_vinculado_violencia_id` bigint(20) UNSIGNED NOT NULL,
   `i_prm_causa_vincula_vio_id` bigint(20) UNSIGNED NOT NULL,
@@ -1431,13 +1431,13 @@ CREATE TABLE IF NOT EXISTS `fi_justicia_restaurativas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fi_justicia_restaurativas_user_crea_id_foreign` (`user_crea_id`),
-  KEY `fi_justicia_restaurativas_user_edita_id_foreign` (`user_edita_id`),
-  KEY `fi_justicia_restaurativas_sis_nnaj_id_foreign` (`sis_nnaj_id`),
-  KEY `fi_justicia_restaurativas_i_prm_vinculado_violencia_id_foreign` (`i_prm_vinculado_violencia_id`),
-  KEY `fi_justicia_restaurativas_i_prm_causa_vincula_vio_id_foreign` (`i_prm_causa_vincula_vio_id`),
-  KEY `fi_justicia_restaurativas_i_prm_riesgo_participar_id_foreign` (`i_prm_riesgo_participar_id`),
-  KEY `fi_justicia_restaurativas_i_prm_causa_riesgo_part_id_foreign` (`i_prm_causa_riesgo_part_id`)
+  KEY `fi_justrests_user_crea_id_foreign` (`user_crea_id`),
+  KEY `fi_justrests_user_edita_id_foreign` (`user_edita_id`),
+  KEY `fi_justrests_sis_nnaj_id_foreign` (`sis_nnaj_id`),
+  KEY `fi_justrests_i_prm_vinculado_violencia_id_foreign` (`i_prm_vinculado_violencia_id`),
+  KEY `fi_justrests_i_prm_causa_vincula_vio_id_foreign` (`i_prm_causa_vincula_vio_id`),
+  KEY `fi_justrests_i_prm_riesgo_participar_id_foreign` (`i_prm_riesgo_participar_id`),
+  KEY `fi_justrests_i_prm_causa_riesgo_part_id_foreign` (`i_prm_causa_riesgo_part_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -1499,7 +1499,7 @@ INSERT INTO `fi_nucleo_familiars` (`id`, `i_en_uso`, `user_crea_id`, `user_edita
 DROP TABLE IF EXISTS `fi_proceso_pards`;
 CREATE TABLE IF NOT EXISTS `fi_proceso_pards` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `fi_justicia_restaurativa_id` bigint(20) UNSIGNED NOT NULL COMMENT 'REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL PARD',
+  `fi_justrest_id` bigint(20) UNSIGNED NOT NULL COMMENT 'REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL PARD',
   `i_prm_ha_estado_pard_id` bigint(20) UNSIGNED NOT NULL COMMENT 'FI 10.1.1 HA ESTADO EN PARD',
   `i_prm_actualmente_pard_id` bigint(20) UNSIGNED NOT NULL COMMENT 'FI 10.1.2 ACTUALMENTE ESTÁ EN PARD',
   `i_prm_tipo_tiempo_pard_id` bigint(20) UNSIGNED NOT NULL COMMENT 'FI 10.1.3.1 TIPO TIEMPO HACE CUANTO ESTÁ EN PARD',
@@ -1516,7 +1516,7 @@ CREATE TABLE IF NOT EXISTS `fi_proceso_pards` (
   PRIMARY KEY (`id`),
   KEY `fi_proceso_pards_user_crea_id_foreign` (`user_crea_id`),
   KEY `fi_proceso_pards_user_edita_id_foreign` (`user_edita_id`),
-  KEY `fi_proceso_pards_fi_justicia_restaurativa_id_foreign` (`fi_justicia_restaurativa_id`),
+  KEY `fi_proceso_pards_fi_justrest_id_foreign` (`fi_justrest_id`),
   KEY `fi_proceso_pards_i_prm_ha_estado_pard_id_foreign` (`i_prm_ha_estado_pard_id`),
   KEY `fi_proceso_pards_i_prm_actualmente_pard_id_foreign` (`i_prm_actualmente_pard_id`),
   KEY `fi_proceso_pards_i_prm_tipo_tiempo_pard_id_foreign` (`i_prm_tipo_tiempo_pard_id`),
@@ -1532,7 +1532,7 @@ CREATE TABLE IF NOT EXISTS `fi_proceso_pards` (
 DROP TABLE IF EXISTS `fi_proceso_spoas`;
 CREATE TABLE IF NOT EXISTS `fi_proceso_spoas` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `fi_justicia_restaurativa_id` bigint(20) UNSIGNED NOT NULL COMMENT 'REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SPOA',
+  `fi_justrest_id` bigint(20) UNSIGNED NOT NULL COMMENT 'REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SPOA',
   `i_prm_ha_estado_spoa_id` bigint(20) UNSIGNED NOT NULL COMMENT 'FI 10.3.1 HA ESTADO EN SPOA',
   `i_prm_actualmente_spoa_id` bigint(20) UNSIGNED NOT NULL COMMENT 'FI 10.3.2 ACTUALMENTE ESTÁ EN SPOA',
   `i_prm_tipo_tiempo_spoa_id` bigint(20) UNSIGNED NOT NULL COMMENT 'FI 10.3.3.1 TIPO TIEMPO HACE CUANTO ESTÁ EN SPOA',
@@ -1548,7 +1548,7 @@ CREATE TABLE IF NOT EXISTS `fi_proceso_spoas` (
   PRIMARY KEY (`id`),
   KEY `fi_proceso_spoas_user_crea_id_foreign` (`user_crea_id`),
   KEY `fi_proceso_spoas_user_edita_id_foreign` (`user_edita_id`),
-  KEY `fi_proceso_spoas_fi_justicia_restaurativa_id_foreign` (`fi_justicia_restaurativa_id`),
+  KEY `fi_proceso_spoas_fi_justrest_id_foreign` (`fi_justrest_id`),
   KEY `fi_proceso_spoas_i_prm_ha_estado_spoa_id_foreign` (`i_prm_ha_estado_spoa_id`),
   KEY `fi_proceso_spoas_i_prm_actualmente_spoa_id_foreign` (`i_prm_actualmente_spoa_id`),
   KEY `fi_proceso_spoas_i_prm_tipo_tiempo_spoa_id_foreign` (`i_prm_tipo_tiempo_spoa_id`),
@@ -1566,7 +1566,7 @@ CREATE TABLE IF NOT EXISTS `fi_proceso_spoas` (
 DROP TABLE IF EXISTS `fi_proceso_srpas`;
 CREATE TABLE IF NOT EXISTS `fi_proceso_srpas` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `fi_justicia_restaurativa_id` bigint(20) UNSIGNED NOT NULL COMMENT 'REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SRPA',
+  `fi_justrest_id` bigint(20) UNSIGNED NOT NULL COMMENT 'REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SRPA',
   `i_prm_ha_estado_srpa_id` bigint(20) UNSIGNED NOT NULL COMMENT 'FI 10.2.1 HA ESTADO EN SRPA',
   `i_prm_actualmente_srpa_id` bigint(20) UNSIGNED NOT NULL COMMENT 'FI 10.2.2 ACTUALMENTE ESTÁ EN SRPA',
   `i_prm_tipo_tiempo_srpa_id` bigint(20) UNSIGNED NOT NULL COMMENT 'FI 10.2.3.1 TIPO TIEMPO HACE CUANTO ESTÁ EN SRPA',
@@ -1581,7 +1581,7 @@ CREATE TABLE IF NOT EXISTS `fi_proceso_srpas` (
   PRIMARY KEY (`id`),
   KEY `fi_proceso_srpas_user_crea_id_foreign` (`user_crea_id`),
   KEY `fi_proceso_srpas_user_edita_id_foreign` (`user_edita_id`),
-  KEY `fi_proceso_srpas_fi_justicia_restaurativa_id_foreign` (`fi_justicia_restaurativa_id`),
+  KEY `fi_proceso_srpas_fi_justrest_id_foreign` (`fi_justrest_id`),
   KEY `fi_proceso_srpas_i_prm_ha_estado_srpa_id_foreign` (`i_prm_ha_estado_srpa_id`),
   KEY `fi_proceso_srpas_i_prm_actualmente_srpa_id_foreign` (`i_prm_actualmente_srpa_id`),
   KEY `fi_proceso_srpas_i_prm_tipo_tiempo_srpa_id_foreign` (`i_prm_tipo_tiempo_srpa_id`),
@@ -2392,12 +2392,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (36, '2019_09_25_162646_create_fi_autorizacions_table', 1),
 (37, '2019_09_25_162646_create_fi_bienvenidas_table', 1),
 (38, '2019_09_25_162647_create_fi_consumo_spas_table', 1),
-(39, '2019_09_25_162648_create_fi_composicion_famis_table', 1),
+(39, '2019_09_25_162648_create_fi_compfamis_table', 1),
 (40, '2019_09_25_162649_create_fi_contactos_table', 1),
 (41, '2019_09_25_162650_create_sis_institucion_edus_table', 1),
 (42, '2019_09_25_162651_create_fi_formacions_table', 1),
 (43, '2019_09_25_162651_create_fi_generacion_ingresos_table', 1),
-(44, '2019_09_25_162652_create_fi_justicia_restaurativas_table', 1),
+(44, '2019_09_25_162652_create_fi_justrests_table', 1),
 (45, '2019_09_25_162653_create_fi_razones_table', 1),
 (46, '2019_09_25_162654_create_fi_redes_apoyos_table', 1),
 (47, '2019_09_25_162655_create_fi_residencias_table', 1),
@@ -17143,7 +17143,7 @@ INSERT INTO `users` (`id`, `name`, `s_primer_nombre`, `s_segundo_nombre`, `s_pri
 DROP TRIGGER IF EXISTS `trigger_users_edita`;
 DELIMITER $$
 CREATE TRIGGER `trigger_users_edita` AFTER UPDATE ON `users` FOR EACH ROW BEGIN
-                INSERT INTO h_users (`user_id`, `name`, `email`, `password`, `user_crea_id`, `created_at`) 
+                INSERT INTO h_users (`user_id`, `name`, `email`, `password`, `user_crea_id`, `created_at`)
                 VALUES (NEW.id, NEW.name, NEW.email, NEW.password, NEW.user_edita_id, now());
             END
 $$
@@ -17151,7 +17151,7 @@ DELIMITER ;
 DROP TRIGGER IF EXISTS `trigger_users_nuevo`;
 DELIMITER $$
 CREATE TRIGGER `trigger_users_nuevo` AFTER INSERT ON `users` FOR EACH ROW BEGIN
-                INSERT INTO h_users (`user_id`, `name`, `email`, `password`, `user_crea_id`, `created_at`) 
+                INSERT INTO h_users (`user_id`, `name`, `email`, `password`, `user_crea_id`, `created_at`)
                 VALUES (NEW.id, NEW.name, NEW.email, NEW.password, NEW.user_crea_id, now());
             END
 $$
@@ -19067,18 +19067,18 @@ ALTER TABLE `fi_bienvenidas`
   ADD CONSTRAINT `fi_bienvenidas_user_edita_id_foreign` FOREIGN KEY (`user_edita_id`) REFERENCES `users` (`id`);
 
 --
--- Filtros para la tabla `fi_composicion_famis`
+-- Filtros para la tabla `fi_compfamis`
 --
-ALTER TABLE `fi_composicion_famis`
-  ADD CONSTRAINT `fi_composicion_famis_fi_nucleo_familiar_id_foreign` FOREIGN KEY (`fi_nucleo_familiar_id`) REFERENCES `fi_nucleo_familiars` (`id`),
-  ADD CONSTRAINT `fi_composicion_famis_i_prm_convive_nnaj_id_foreign` FOREIGN KEY (`i_prm_convive_nnaj_id`) REFERENCES `parametros` (`id`),
-  ADD CONSTRAINT `fi_composicion_famis_i_prm_ocupacion_id_foreign` FOREIGN KEY (`i_prm_ocupacion_id`) REFERENCES `parametros` (`id`),
-  ADD CONSTRAINT `fi_composicion_famis_i_prm_parentesco_id_foreign` FOREIGN KEY (`i_prm_parentesco_id`) REFERENCES `parametros` (`id`),
-  ADD CONSTRAINT `fi_composicion_famis_i_prm_vinculado_idipron_id_foreign` FOREIGN KEY (`i_prm_vinculado_idipron_id`) REFERENCES `parametros` (`id`),
-  ADD CONSTRAINT `fi_composicion_famis_prm_documento_id_foreign` FOREIGN KEY (`prm_documento_id`) REFERENCES `parametros` (`id`),
-  ADD CONSTRAINT `fi_composicion_famis_sis_nnaj_id_foreign` FOREIGN KEY (`sis_nnaj_id`) REFERENCES `sis_nnajs` (`id`),
-  ADD CONSTRAINT `fi_composicion_famis_user_crea_id_foreign` FOREIGN KEY (`user_crea_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `fi_composicion_famis_user_edita_id_foreign` FOREIGN KEY (`user_edita_id`) REFERENCES `users` (`id`);
+ALTER TABLE `fi_compfamis`
+  ADD CONSTRAINT `fi_compfamis_fi_nucleo_familiar_id_foreign` FOREIGN KEY (`fi_nucleo_familiar_id`) REFERENCES `fi_nucleo_familiars` (`id`),
+  ADD CONSTRAINT `fi_compfamis_i_prm_convive_nnaj_id_foreign` FOREIGN KEY (`i_prm_convive_nnaj_id`) REFERENCES `parametros` (`id`),
+  ADD CONSTRAINT `fi_compfamis_i_prm_ocupacion_id_foreign` FOREIGN KEY (`i_prm_ocupacion_id`) REFERENCES `parametros` (`id`),
+  ADD CONSTRAINT `fi_compfamis_i_prm_parentesco_id_foreign` FOREIGN KEY (`i_prm_parentesco_id`) REFERENCES `parametros` (`id`),
+  ADD CONSTRAINT `fi_compfamis_i_prm_vinculado_idipron_id_foreign` FOREIGN KEY (`i_prm_vinculado_idipron_id`) REFERENCES `parametros` (`id`),
+  ADD CONSTRAINT `fi_compfamis_prm_documento_id_foreign` FOREIGN KEY (`prm_documento_id`) REFERENCES `parametros` (`id`),
+  ADD CONSTRAINT `fi_compfamis_sis_nnaj_id_foreign` FOREIGN KEY (`sis_nnaj_id`) REFERENCES `sis_nnajs` (`id`),
+  ADD CONSTRAINT `fi_compfamis_user_crea_id_foreign` FOREIGN KEY (`user_crea_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `fi_compfamis_user_edita_id_foreign` FOREIGN KEY (`user_edita_id`) REFERENCES `users` (`id`);
 
 --
 -- Filtros para la tabla `fi_condicion_ambientes`
@@ -19217,16 +19217,16 @@ ALTER TABLE `fi_generacion_ingresos`
   ADD CONSTRAINT `fi_generacion_ingresos_user_edita_id_foreign` FOREIGN KEY (`user_edita_id`) REFERENCES `users` (`id`);
 
 --
--- Filtros para la tabla `fi_justicia_restaurativas`
+-- Filtros para la tabla `fi_justrests`
 --
-ALTER TABLE `fi_justicia_restaurativas`
-  ADD CONSTRAINT `fi_justicia_restaurativas_i_prm_causa_riesgo_part_id_foreign` FOREIGN KEY (`i_prm_causa_riesgo_part_id`) REFERENCES `parametros` (`id`),
-  ADD CONSTRAINT `fi_justicia_restaurativas_i_prm_causa_vincula_vio_id_foreign` FOREIGN KEY (`i_prm_causa_vincula_vio_id`) REFERENCES `parametros` (`id`),
-  ADD CONSTRAINT `fi_justicia_restaurativas_i_prm_riesgo_participar_id_foreign` FOREIGN KEY (`i_prm_riesgo_participar_id`) REFERENCES `parametros` (`id`),
-  ADD CONSTRAINT `fi_justicia_restaurativas_i_prm_vinculado_violencia_id_foreign` FOREIGN KEY (`i_prm_vinculado_violencia_id`) REFERENCES `parametros` (`id`),
-  ADD CONSTRAINT `fi_justicia_restaurativas_sis_nnaj_id_foreign` FOREIGN KEY (`sis_nnaj_id`) REFERENCES `sis_nnajs` (`id`),
-  ADD CONSTRAINT `fi_justicia_restaurativas_user_crea_id_foreign` FOREIGN KEY (`user_crea_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `fi_justicia_restaurativas_user_edita_id_foreign` FOREIGN KEY (`user_edita_id`) REFERENCES `users` (`id`);
+ALTER TABLE `fi_justrests`
+  ADD CONSTRAINT `fi_justrests_i_prm_causa_riesgo_part_id_foreign` FOREIGN KEY (`i_prm_causa_riesgo_part_id`) REFERENCES `parametros` (`id`),
+  ADD CONSTRAINT `fi_justrests_i_prm_causa_vincula_vio_id_foreign` FOREIGN KEY (`i_prm_causa_vincula_vio_id`) REFERENCES `parametros` (`id`),
+  ADD CONSTRAINT `fi_justrests_i_prm_riesgo_participar_id_foreign` FOREIGN KEY (`i_prm_riesgo_participar_id`) REFERENCES `parametros` (`id`),
+  ADD CONSTRAINT `fi_justrests_i_prm_vinculado_violencia_id_foreign` FOREIGN KEY (`i_prm_vinculado_violencia_id`) REFERENCES `parametros` (`id`),
+  ADD CONSTRAINT `fi_justrests_sis_nnaj_id_foreign` FOREIGN KEY (`sis_nnaj_id`) REFERENCES `sis_nnajs` (`id`),
+  ADD CONSTRAINT `fi_justrests_user_crea_id_foreign` FOREIGN KEY (`user_crea_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `fi_justrests_user_edita_id_foreign` FOREIGN KEY (`user_edita_id`) REFERENCES `users` (`id`);
 
 --
 -- Filtros para la tabla `fi_motivo_vinculacions`
@@ -19248,7 +19248,7 @@ ALTER TABLE `fi_nucleo_familiars`
 -- Filtros para la tabla `fi_proceso_pards`
 --
 ALTER TABLE `fi_proceso_pards`
-  ADD CONSTRAINT `fi_proceso_pards_fi_justicia_restaurativa_id_foreign` FOREIGN KEY (`fi_justicia_restaurativa_id`) REFERENCES `fi_justicia_restaurativas` (`id`),
+  ADD CONSTRAINT `fi_proceso_pards_fi_justrest_id_foreign` FOREIGN KEY (`fi_justrest_id`) REFERENCES `fi_justrests` (`id`),
   ADD CONSTRAINT `fi_proceso_pards_i_prm_actualmente_pard_id_foreign` FOREIGN KEY (`i_prm_actualmente_pard_id`) REFERENCES `parametros` (`id`),
   ADD CONSTRAINT `fi_proceso_pards_i_prm_ha_estado_pard_id_foreign` FOREIGN KEY (`i_prm_ha_estado_pard_id`) REFERENCES `parametros` (`id`),
   ADD CONSTRAINT `fi_proceso_pards_i_prm_motivo_pard_id_foreign` FOREIGN KEY (`i_prm_motivo_pard_id`) REFERENCES `parametros` (`id`),
@@ -19260,7 +19260,7 @@ ALTER TABLE `fi_proceso_pards`
 -- Filtros para la tabla `fi_proceso_spoas`
 --
 ALTER TABLE `fi_proceso_spoas`
-  ADD CONSTRAINT `fi_proceso_spoas_fi_justicia_restaurativa_id_foreign` FOREIGN KEY (`fi_justicia_restaurativa_id`) REFERENCES `fi_justicia_restaurativas` (`id`),
+  ADD CONSTRAINT `fi_proceso_spoas_fi_justrest_id_foreign` FOREIGN KEY (`fi_justrest_id`) REFERENCES `fi_justrests` (`id`),
   ADD CONSTRAINT `fi_proceso_spoas_i_prm_actualmente_spoa_id_foreign` FOREIGN KEY (`i_prm_actualmente_spoa_id`) REFERENCES `parametros` (`id`),
   ADD CONSTRAINT `fi_proceso_spoas_i_prm_ha_estado_preso_id_foreign` FOREIGN KEY (`i_prm_ha_estado_preso_id`) REFERENCES `parametros` (`id`),
   ADD CONSTRAINT `fi_proceso_spoas_i_prm_ha_estado_spoa_id_foreign` FOREIGN KEY (`i_prm_ha_estado_spoa_id`) REFERENCES `parametros` (`id`),
@@ -19274,7 +19274,7 @@ ALTER TABLE `fi_proceso_spoas`
 -- Filtros para la tabla `fi_proceso_srpas`
 --
 ALTER TABLE `fi_proceso_srpas`
-  ADD CONSTRAINT `fi_proceso_srpas_fi_justicia_restaurativa_id_foreign` FOREIGN KEY (`fi_justicia_restaurativa_id`) REFERENCES `fi_justicia_restaurativas` (`id`),
+  ADD CONSTRAINT `fi_proceso_srpas_fi_justrest_id_foreign` FOREIGN KEY (`fi_justrest_id`) REFERENCES `fi_justrests` (`id`),
   ADD CONSTRAINT `fi_proceso_srpas_i_prm_actualmente_srpa_id_foreign` FOREIGN KEY (`i_prm_actualmente_srpa_id`) REFERENCES `parametros` (`id`),
   ADD CONSTRAINT `fi_proceso_srpas_i_prm_ha_estado_srpa_id_foreign` FOREIGN KEY (`i_prm_ha_estado_srpa_id`) REFERENCES `parametros` (`id`),
   ADD CONSTRAINT `fi_proceso_srpas_i_prm_motivo_srpa_id_foreign` FOREIGN KEY (`i_prm_motivo_srpa_id`) REFERENCES `parametros` (`id`),

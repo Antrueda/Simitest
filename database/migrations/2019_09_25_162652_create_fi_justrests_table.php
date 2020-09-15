@@ -5,9 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateFiJusticiaRestaurativasTable extends Migration
+class CreateFiJustrestsTable extends Migration
 {
-    private $tablaxxx = 'fi_justicia_restaurativas';
+    private $tablaxxx = 'fi_justrests';
     private $tablaxxx2 = 'fi_proceso_pards';
     private $tablaxxx3 = 'fi_proceso_srpas';
     private $tablaxxx4 = 'fi_proceso_spoas';
@@ -43,7 +43,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fi_justicia_restaurativa_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL PARD');
+            $table->bigInteger('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL PARD');
             $table->bigInteger('i_prm_ha_estado_pard_id')->unsigned()->comment('FI 10.1.1 HA ESTADO EN PARD');
             $table->bigInteger('i_prm_actualmente_pard_id')->unsigned()->comment('FI 10.1.2 ACTUALMENTE ESTÁ EN PARD');
             $table->bigInteger('i_prm_tipo_tiempo_pard_id')->nullable()->unsigned()->comment('FI 10.1.3.1 TIPO TIEMPO HACE CUANTO ESTÁ EN PARD');
@@ -59,7 +59,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
-            $table->foreign('fi_justicia_restaurativa_id')->references('id')->on('fi_justicia_restaurativas');
+            $table->foreign('fi_justrest_id')->references('id')->on('fi_justrests');
             $table->foreign('i_prm_ha_estado_pard_id')->references('id')->on('parametros');
             $table->foreign('i_prm_actualmente_pard_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_tiempo_pard_id')->references('id')->on('parametros');
@@ -69,7 +69,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fi_justicia_restaurativa_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SRPA');
+            $table->bigInteger('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SRPA');
             $table->bigInteger('i_prm_ha_estado_srpa_id')->unsigned()->comment('FI 10.2.1 HA ESTADO EN SRPA');
             $table->bigInteger('i_prm_actualmente_srpa_id')->unsigned()->comment('FI 10.2.2 ACTUALMENTE ESTÁ EN SRPA');
             $table->bigInteger('i_prm_tipo_tiempo_srpa_id')->nullable()->unsigned()->comment('FI 10.2.3.1 TIPO TIEMPO HACE CUANTO ESTÁ EN SRPA');
@@ -83,7 +83,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
-            $table->foreign('fi_justicia_restaurativa_id')->references('id')->on('fi_justicia_restaurativas');
+            $table->foreign('fi_justrest_id')->references('id')->on('fi_justrests');
             $table->foreign('i_prm_ha_estado_srpa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_actualmente_srpa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_tiempo_srpa_id')->references('id')->on('parametros');
@@ -94,7 +94,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fi_justicia_restaurativa_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SPOA');
+            $table->bigInteger('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SPOA');
             $table->bigInteger('i_prm_ha_estado_spoa_id')->unsigned()->comment('FI 10.3.1 HA ESTADO EN SPOA');
             $table->bigInteger('i_prm_actualmente_spoa_id')->unsigned()->comment('FI 10.3.2 ACTUALMENTE ESTÁ EN SPOA');
             $table->bigInteger('i_prm_tipo_tiempo_spoa_id')->nullable()->unsigned()->comment('FI 10.3.3.1 TIPO TIEMPO HACE CUANTO ESTÁ EN SPOA');
@@ -109,7 +109,7 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
-            $table->foreign('fi_justicia_restaurativa_id')->references('id')->on('fi_justicia_restaurativas');
+            $table->foreign('fi_justrest_id')->references('id')->on('fi_justrests');
             $table->foreign('i_prm_ha_estado_spoa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_actualmente_spoa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_tiempo_spoa_id')->references('id')->on('parametros');
@@ -121,8 +121,8 @@ class CreateFiJusticiaRestaurativasTable extends Migration
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fi_justicia_restaurativa_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL PROCESO DE LA FAMILIA');
-            $table->bigInteger('fi_composicion_fami_id')->unsigned()->comment('MIEMBRO DE LA FAMILIA');
+            $table->bigInteger('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL PROCESO DE LA FAMILIA');
+            $table->bigInteger('fi_compfami_id')->unsigned()->comment('MIEMBRO DE LA FAMILIA');
             $table->string('s_proceso')->comment('PROCESO');
             $table->bigInteger('i_prm_vigente_id')->unsigned()->comment('SE ENCUENTRA VIGENTE');
             $table->bigInteger('i_numero_veces')->comment('NUMERO DE VECES');
@@ -136,8 +136,8 @@ class CreateFiJusticiaRestaurativasTable extends Migration
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
-            $table->foreign('fi_justicia_restaurativa_id')->references('id')->on('fi_justicia_restaurativas');
-            $table->foreign('fi_composicion_fami_id')->references('id')->on('fi_composicion_famis');
+            $table->foreign('fi_justrest_id')->references('id')->on('fi_justrests');
+            $table->foreign('fi_compfami_id')->references('id')->on('fi_compfamis');
             $table->foreign('i_prm_vigente_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_tiempo_id')->references('id')->on('parametros');
         });

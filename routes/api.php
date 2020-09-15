@@ -125,13 +125,13 @@ Route::get('fi/nnajs', function (Request $request) {
         ->rawColumns(['btns'])
         ->toJson();
 });
-Route::get('fi/ficomposicionfamiliar', function (Request $request) {
+Route::get('fi/FiCompfamiliar', function (Request $request) {
     if (!$request->ajax())
         return redirect('/');
 
     return datatables()
         ->eloquent(
-            FiDatosBasico::join('fi_composicion_famis', 'fi_datos_basicos.fi_nucleo_familiar_id', '=', 'fi_composicion_famis.fi_nucleo_familiar_id')
+            FiDatosBasico::join('fi_compfamis', 'fi_datos_basicos.fi_nucleo_familiar_id', '=', 'fi_compfamis.fi_nucleo_familiar_id')
                 ->where('fi_datos_basicos.sis_nnaj_id', $request->sis_nnaj_id)
                 ->where('fi_datos_basicos.sis_esta_id', 1)
         )

@@ -1,6 +1,6 @@
 <?php
 $routexxx='ficomposicion';
-$controll='FichaIngreso\FiComposicionFami';
+$controll='FichaIngreso\FiCompfami';
 Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routexxx,$controll){
 	Route::get('', [
 		'uses' => $controll.'Controller@index',

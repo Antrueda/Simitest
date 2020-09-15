@@ -4,7 +4,7 @@ namespace App\Models\fichaIngreso\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HFiJusticiaRestaurativa extends Model
+class HFiJustrest extends Model
 {
     protected $fillable = [
         'i_prm_vinculado_violencia_id',
@@ -15,7 +15,7 @@ class HFiJusticiaRestaurativa extends Model
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
-        
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

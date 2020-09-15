@@ -56,9 +56,9 @@ class FiSituacionEspecialUpdateRequest extends FormRequest {
       $this->_reglasx['i_prm_continua_id'] = 'required';
     }
 
-    if ($basicosx->prm_tipoblaci_id == 2323) {
+    if ($basicosx->prm_estrateg_id == 2323) {
         $this->_mensaje['prm_presconf_id.required'] = 'Seleccione si presenta conflicto';
-        $this->_reglasx['prm_presconf_id'] = ['required'];  
+        $this->_reglasx['prm_presconf_id'] = ['required'];
     }
   }
 

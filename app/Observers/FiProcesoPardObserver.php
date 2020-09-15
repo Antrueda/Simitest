@@ -12,8 +12,8 @@ class FiProcesoPardObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
-        $log['fi_justicia_restaurativa_id'] = $modeloxx->fi_justicia_restaurativa_id;
+        // campos nuevos traidos desde $fillable -> modelo
+        $log['fi_justrest_id'] = $modeloxx->fi_justrest_id;
         $log['i_prm_ha_estado_pard_id'] = $modeloxx->i_prm_ha_estado_pard_id;
         $log['i_prm_actualmente_pard_id'] = $modeloxx->i_prm_actualmente_pard_id;
         $log['i_prm_tipo_tiempo_pard_id'] = $modeloxx->i_prm_tipo_tiempo_pard_id;

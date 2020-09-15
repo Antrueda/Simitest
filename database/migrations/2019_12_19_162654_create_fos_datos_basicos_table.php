@@ -24,7 +24,7 @@ class CreateFosDatosBasicosTable extends Migration
             $table->bigInteger('fos_tse_id')->unsigned();
             $table->bigInteger('fos_stse_id')->unsigned();
             $table->text('s_observacion');
-            $table->bigInteger('fi_composicion_fami_id')->unsigned()->nullable();
+            $table->bigInteger('fi_compfami_id')->unsigned()->nullable();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->bigInteger('user_crea_id')->unsigned();
@@ -36,7 +36,7 @@ class CreateFosDatosBasicosTable extends Migration
             $table->foreign('area_id')->references('id')->on('areas');
             $table->foreign('fos_tse_id')->references('id')->on('fos_tses');
             $table->foreign('fos_stse_id')->references('id')->on('fos_stses');
-            $table->foreign('fi_composicion_fami_id')->references('id')->on('fi_composicion_famis');
+            $table->foreign('fi_compfami_id')->references('id')->on('fi_compfamis');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });

@@ -19,7 +19,7 @@ class SisTablasSeeder extends Seeder
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_actividadestls', 's_descripcion' => 'fi_actividadestls','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //2
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_autorizacions', 's_descripcion' => 'fi_autorizacions','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //3
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_bienvenidas', 's_descripcion' => 'fi_bienvenidas','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //4
-        SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_composicion_famis', 's_descripcion' => 'fi_composicion_famis','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //5
+        SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_compfamis', 's_descripcion' => 'fi_compfamis','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //5
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_condicion_ambientes', 's_descripcion' => 'fi_condicion_ambientes','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //6
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_consumo_spas', 's_descripcion' => 'fi_consumo_spas','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //7
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_contactos', 's_descripcion' => 'fi_contactos','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //8
@@ -31,7 +31,7 @@ class SisTablasSeeder extends Seeder
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_formacions', 's_descripcion' => 'fi_formacions','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //14
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_generacion_ingresos', 's_descripcion' => 'fi_generacion_ingresos','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //15
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_jr_familiars', 's_descripcion' => 'fi_jr_familiars','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //16
-        SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_justicia_restaurativas', 's_descripcion' => 'fi_justicia_restaurativas','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //17
+        SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_justrests', 's_descripcion' => 'fi_justrests','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //17
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_modalidads', 's_descripcion' => 'fi_modalidads','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //18
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_motivo_vinculacions', 's_descripcion' => 'fi_motivo_vinculacions','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //19
         SisTabla::create(['sis_docfuen_id' => 2, 's_tabla' => 'fi_nucleo_familiars', 's_descripcion' => 'fi_nucleo_familiars','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]); //20

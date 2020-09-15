@@ -8,7 +8,7 @@ class HFiAutorizacion extends Model
 {
     protected $fillable = [
         'i_prm_autorizo_id',
-        'fi_composicion_fami_id',
+        'fi_compfami_id',
         'i_prm_parentesco_id',
         'd_autorizacion',
         'i_prm_tipo_diligencia_id',
@@ -16,7 +16,7 @@ class HFiAutorizacion extends Model
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
-        
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

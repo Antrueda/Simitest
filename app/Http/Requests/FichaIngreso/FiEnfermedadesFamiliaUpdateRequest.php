@@ -12,18 +12,18 @@ class FiEnfermedadesFamiliaUpdateRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'fi_composicion_fami_id.required' => 'Seleccione un miembro de la familia',
+            'fi_compfami_id.required' => 'Seleccione un miembro de la familia',
             'i_prm_recibe_medicina_id.required' => 'Indique si recibe algún medicina',
             'i_prm_rec_tratamiento_id.required' => 'Indique si recibe algún tratamiento',
             's_tipo_enfermedad.required' => 'Escriba el nombre de la enfermedad',
-            's_medicamento.required' => 'escriba el nombre del medicamento',      
+            's_medicamento.required' => 'escriba el nombre del medicamento',
         ];
         $this->_reglasx = [
-            'fi_composicion_fami_id' => ['required'],
+            'fi_compfami_id' => ['required'],
             'i_prm_recibe_medicina_id' => ['required'],
             'i_prm_rec_tratamiento_id' => ['required'],
             's_tipo_enfermedad' => ['required'],
-            's_medicamento' => ['required'],  
+            's_medicamento' => ['required'],
         ];
     }
     /**

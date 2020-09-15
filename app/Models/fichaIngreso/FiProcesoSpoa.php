@@ -17,7 +17,7 @@ class FiProcesoSpoa extends Model
     'i_prm_motivo_spoa_id',
     'i_prm_mod_cumple_pena_id',
     'i_prm_ha_estado_preso_id',
-    'fi_justicia_restaurativa_id',
+    'fi_justrest_id',
     'user_crea_id',
     'user_edita_id',
     'sis_esta_id'
@@ -29,7 +29,7 @@ class FiProcesoSpoa extends Model
       if ($objetoxx != null) {
         $objetoxx->update($dataxxxx);
       } else {
-        $dataxxxx['fi_justicia_restaurativa_id'] = $justicia->id;
+        $dataxxxx['fi_justrest_id'] = $justicia->id;
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiProcesoSpoa::create($dataxxxx);
       }
@@ -37,9 +37,9 @@ class FiProcesoSpoa extends Model
     }, 5);
     return $usuariox;
   }
-  public function fi_justicia_restaurativa()
+  public function fi_justrest()
   {
-    return $this->belongsTo(FiJusticiaRestaurativa::class);
+    return $this->belongsTo(FiJustrest::class);
   }
   protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
   public function creador()

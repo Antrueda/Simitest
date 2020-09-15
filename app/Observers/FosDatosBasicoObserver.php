@@ -12,7 +12,7 @@ class FosDatosBasicoObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         $log['sis_depen_id'] = $modeloxx->sis_depen_id;
         $log['d_fecha_diligencia'] = $modeloxx->d_fecha_diligencia;
@@ -20,7 +20,7 @@ class FosDatosBasicoObserver
         $log['fos_tse_id'] = $modeloxx->fos_tse_id;
         $log['fos_stse_id'] = $modeloxx->fos_stse_id;
         $log['s_observacion'] = $modeloxx->s_observacion;
-        $log['fi_composicion_fami_id'] = $modeloxx->fi_composicion_fami_id;
+        $log['fi_compfami_id'] = $modeloxx->fi_compfami_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

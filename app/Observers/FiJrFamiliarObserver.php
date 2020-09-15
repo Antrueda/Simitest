@@ -12,15 +12,15 @@ class FiJrFamiliarObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['s_proceso'] = $modeloxx->s_proceso;
         $log['i_tiempo'] = $modeloxx->i_tiempo;
         $log['i_veces'] = $modeloxx->i_veces;
-        $log['fi_composicion_fami_id'] = $modeloxx->fi_composicion_fami_id;
+        $log['fi_compfami_id'] = $modeloxx->fi_compfami_id;
         $log['i_prm_vigente_id'] = $modeloxx->i_prm_vigente_id;
         $log['i_prm_motivo_id'] = $modeloxx->i_prm_motivo_id;
         $log['i_prm_tiempo_id'] = $modeloxx->i_prm_tiempo_id;
-        $log['fi_justicia_restaurativa_id'] = $modeloxx->fi_justicia_restaurativa_id;
+        $log['fi_justrest_id'] = $modeloxx->fi_justrest_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

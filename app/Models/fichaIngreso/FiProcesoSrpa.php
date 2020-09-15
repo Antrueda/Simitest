@@ -16,7 +16,7 @@ class FiProcesoSrpa extends Model
     'i_cuanto_srpa',
     'i_prm_motivo_srpa_id',
     'i_prm_sancion_srpa_id',
-    'fi_justicia_restaurativa_id',
+    'fi_justrest_id',
     'user_crea_id',
     'user_edita_id',
     'sis_esta_id'
@@ -28,7 +28,7 @@ class FiProcesoSrpa extends Model
       if ($objetoxx != null) {
         $objetoxx->update($dataxxxx);
       } else {
-        $dataxxxx['fi_justicia_restaurativa_id'] = $justicia->id;
+        $dataxxxx['fi_justrest_id'] = $justicia->id;
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiProcesoSrpa::create($dataxxxx);
       }
@@ -36,9 +36,9 @@ class FiProcesoSrpa extends Model
     }, 5);
     return $usuariox;
   }
-  public function fi_justicia_restaurativa()
+  public function fi_justrest()
   {
-    return $this->belongsTo(FiJusticiaRestaurativa::class);
+    return $this->belongsTo(FiJustrest::class);
   }
   protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
   public function creador()

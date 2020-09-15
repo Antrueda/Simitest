@@ -12,9 +12,9 @@ class FiEnfermedadesFamiliaObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['fi_salud_id'] = $modeloxx->fi_salud_id;
-        $log['fi_composicion_fami_id'] = $modeloxx->fi_composicion_fami_id;
+        $log['fi_compfami_id'] = $modeloxx->fi_compfami_id;
         $log['s_tipo_enfermedad'] = $modeloxx->s_tipo_enfermedad;
         $log['i_prm_recibe_medicina_id'] = $modeloxx->i_prm_recibe_medicina_id;
         $log['s_medicamento'] = $modeloxx->s_medicamento;

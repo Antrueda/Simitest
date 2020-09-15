@@ -5,7 +5,7 @@ namespace App\Http\Controllers\FichaIngreso;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiProcesoFamiliaCrearRequest;
 use App\Http\Requests\FichaIngreso\FiProcesoFamiliaUpdateRequest;
-use App\Models\fichaIngreso\FiComposicionFami;
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiProcesoFamilia;
 
@@ -48,7 +48,7 @@ class FiProcesoFamiliaController extends Controller
 
   private function view($objetoxx, $nombobje, $accionxx)
   {
-    $this->opciones['compfami'] = FiComposicionFami::combo($this->opciones['datobasi'], true, false);
+    $this->opciones['compfami'] = FiCompfami::combo($this->opciones['datobasi'], true, false);
     $this->opciones['servicio'] = ['' => 'seleccione'];
     $this->opciones['estadoxx'] = 'ACTIVO';
     $this->opciones['accionxx'] = $accionxx;

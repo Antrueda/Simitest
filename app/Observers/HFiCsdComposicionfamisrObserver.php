@@ -22,11 +22,11 @@ class HFiCsdComposicionfamisrObserver
         $log['s_documento'] = $modeloxx->s_documento;
         $log['d_nacimiento'] = $modeloxx->d_nacimiento;
         $log['i_prm_ocupacion_id'] = $modeloxx->i_prm_ocupacion_id;
-        
+
         $log['i_prm_vinculado_idipron_id'] = $modeloxx->i_prm_vinculado_idipron_id;
         $log['i_prm_convive_nnaj_id'] = $modeloxx->i_prm_convive_nnaj_id;
         $log['prm_documento_id'] = $modeloxx->prm_documento_id;
-        $log['nnaj_nfamili_id'] = $modeloxx->nnaj_nfamili_id;
+        $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

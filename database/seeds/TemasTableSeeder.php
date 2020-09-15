@@ -1339,7 +1339,7 @@ class TemasTableSeeder extends Seeder
             650 => $camposmagicos,
             651 => $camposmagicos,
             2316 => $camposmagicos,
-            2323 => $camposmagicos,
+
         ]);
         $tema = Tema::create(['id' => 120, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'CAUSAS VINCULACION DELINCUENCIA']);
         $tema->parametros()->sync([
@@ -1910,7 +1910,7 @@ class TemasTableSeeder extends Seeder
             // 916 => $camposmagicos,
             952 => $camposmagicos,
             // 970 => $camposmagicos,
-         //   1739 => $camposmagicos,
+            //   1739 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 171, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI']);
@@ -2115,7 +2115,7 @@ class TemasTableSeeder extends Seeder
             875 => $camposmagicos,
             915 => $camposmagicos,
             916 => $camposmagicos,
-           // 926 => $camposmagicos,
+            // 926 => $camposmagicos,
             970 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
@@ -2125,9 +2125,9 @@ class TemasTableSeeder extends Seeder
             917 => $camposmagicos,
             918 => $camposmagicos,
             919 => $camposmagicos,
-            1861=> $camposmagicos,
-          //  920 => $camposmagicos,
-           // 921 => $camposmagicos,
+            1861 => $camposmagicos,
+            //  920 => $camposmagicos,
+            // 921 => $camposmagicos,
             922 => $camposmagicos,
             923 => $camposmagicos,
             924 => $camposmagicos,
@@ -3602,19 +3602,25 @@ class TemasTableSeeder extends Seeder
         ]); //351
         $this->getR([
             'nombrexx' => '¿Es cabeza de familia? cr',
-            'parametr' => [227,228,235]
+            'parametr' => [227, 228, 235]
         ]); //352
         $this->getR([
             'nombrexx' => '¿Es usted Joven en presunto conflicto con la ley?',
-            'parametr' => [227,228,235]
+            'parametr' => [227, 228, 235]
         ]); //353
 
-
-
+        $this->getR([
+            'nombrexx' => 'ESTRATEGIA',
+            'parametr' => [651,2323]
+        ]); //354
+        $this->getR([
+            'nombrexx' => 'SIN ESTRATEGIA',
+            'parametr' => [1269]
+        ]); //355
 
         // $this->getR([
         //     'nombrexx' => '',
         //     'parametr' => []
-        // ]); //354
+        // ]); //356
     }
 }

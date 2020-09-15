@@ -19,7 +19,7 @@ class CreateFiAutorizacionsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_autorizo_id')->unsigned();
-            $table->bigInteger('fi_composicion_fami_id')->unsigned();
+            $table->bigInteger('fi_compfami_id')->unsigned();
             $table->bigInteger('i_prm_parentesco_id')->unsigned();
             $table->date('d_autorizacion');
             $table->bigInteger('i_prm_tipo_diligencia_id')->unsigned();
@@ -35,7 +35,7 @@ class CreateFiAutorizacionsTable extends Migration
             $table->foreign('i_prm_autorizo_id')->references('id')->on('parametros');
             $table->foreign('i_prm_parentesco_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_diligencia_id')->references('id')->on('parametros');
-            $table->foreign('fi_composicion_fami_id')->references('id')->on('fi_composicion_famis');
+            $table->foreign('fi_compfami_id')->references('id')->on('fi_compfamis');
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS PERSONAS AUTORIZADAS PERTENECIENTES AL NUCLEO FAMILIAR, SECCION 16 AUTORIZACION DE LA FICHA DE INGRESO'");
 

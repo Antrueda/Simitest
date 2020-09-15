@@ -20,7 +20,7 @@ class CreateHFiAutorizacionsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_autorizo_id')->unsigned();
-            $table->bigInteger('fi_composicion_fami_id')->unsigned();
+            $table->bigInteger('fi_compfami_id')->unsigned();
             $table->bigInteger('i_prm_parentesco_id')->unsigned();
             $table->date('d_autorizacion');
             $table->bigInteger('i_prm_tipo_diligencia_id')->unsigned();
