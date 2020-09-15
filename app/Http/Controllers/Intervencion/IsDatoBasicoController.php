@@ -11,6 +11,7 @@ use App\Models\Sistema\SisDepen;
 use App\Models\User;
 use App\Models\Tema;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IsDatoBasicoController extends Controller {
 
@@ -58,11 +59,12 @@ class IsDatoBasicoController extends Controller {
     $this->opciones['subsocia'] = Tema::combo(166, true, false);
     $this->opciones['subacade'] = Tema::combo(165, true, false);
     $this->opciones['nivavanc'] = Tema::combo(52, true, false);
-    $this->opciones['dependen'] = SisDepen::combo(true, false);
+    
     $this->opciones[''] = Tema::combo(52, true, false);
   }
 
   public function index(Request $request) {
+
     $this->opciones['cabecera'] = [
         ['td' => 'Id'],
         ['td' => 'PRIMER NOMBRErr'],
@@ -100,6 +102,11 @@ class IsDatoBasicoController extends Controller {
    * @return \Illuminate\Http\Response
    */
   private function view($objetoxx, $nombobje, $accionxx) {
+  /*
+    $userxxxx=Auth::user();
+    $areaxxxx=User::getAreasUser($userxxxx);
+    ddd($areaxxxx);
+    */
     $fechaxxx = explode('-', date('Y-m-d'));
     // dd($fechaxxx);
     ;
@@ -146,6 +153,7 @@ class IsDatoBasicoController extends Controller {
     }
 
     // Se arma el titulo de acuerdo al array opciones
+    $this->opciones['dependen'] = User::getUpiUsuario(false, false);
     $this->opciones['areajusx'] = IsDatosBasico::getAreajuste($objetoxx);
     $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
 

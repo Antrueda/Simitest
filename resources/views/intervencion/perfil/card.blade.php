@@ -126,7 +126,7 @@
             </div>
           </div>
           <div class="form-row align-items-end">
-            <div class="form-group col-md-4">Académico</div>
+            <div class="form-group col-md-4">Académica</div>
             <div class="form-group col-md-4">
               {{ Form::select('i_prm_subarea_academ_id', $todoxxxx['subacade'], null, ['class' => 'form-control form-control-sm']) }}
             </div>
