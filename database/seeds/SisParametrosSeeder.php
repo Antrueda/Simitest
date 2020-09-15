@@ -1814,7 +1814,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 1787, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROBLEMAS DE SALUD']);
         Parametro::create(['id' => 1788, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMISIÓN ICBF']);
         Parametro::create(['id' => 1789, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONFLICTO ARMADO']);
-        Parametro::create(['id' => 1790, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PRESUNTA VICTIMA ESCNNA']);
+        $this->getR(['nombrexx' => 'MIGRACÓN']); //1790
         Parametro::create(['id' => 1791, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ECONÓMICO-EMOCIONAL']);
         Parametro::create(['id' => 1792, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ECONÓMICOS-ALIMENTICIO']);
         Parametro::create(['id' => 1793, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AYUDA HUMANITARIA']);
@@ -2364,7 +2364,9 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2334, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARMA BLANCA']);
         Parametro::create(['id' => 2335, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARMA DE FUEGO']);
         Parametro::create(['id' => 2336, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ARMAS DEL ESTADO']);
-    
+
+
+
         $this->getR(['nombrexx' => 'PRESENTA ACTIVIDAD EN CONFLICTO CON LA LEY']); //2337
 
         $this->getR(['nombrexx' => 'GRUPO']); //2338
@@ -2382,9 +2384,10 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'LESIÓN CON ARMA DE FUEGO']); //2349
         $this->getR(['nombrexx' => 'LESIÓN CON ARMA BLANCA']); //2350
         $this->getR(['nombrexx' => 'ROL']); //2351
-        Parametro::create(['id' => 2352, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FINES DE SEMANA']);
-        Parametro::create(['id' => 2353, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JORNADA COMPLETA']);
-        Parametro::create(['id' => 2354, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'GRAFFITI']);
-        Parametro::create(['id' => 2355, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MIGRACION']);
+        $this->getR(['nombrexx' => 'FINES DE SEMANA']); //2352
+        $this->getR(['nombrexx' => 'JORNADA COMPLETA']); //2353
+        $this->getR(['nombrexx' => 'GRAFFITI']); //2354
+
+
     }
 }

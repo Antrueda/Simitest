@@ -22,3 +22,4 @@ include_once('web_alerta.php');
 include_once('web_mensaje.php');
 include_once('web_estusuario.php');
 include_once('web_diasfestivos.php');
+include_once('web_servicios.php');

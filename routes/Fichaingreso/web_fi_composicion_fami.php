@@ -11,6 +11,10 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
 	])->name($routexxx.'.listaxxx');
 
+    Route::get('listodox', [
+		'uses' => $controll.'Controller@getListodo',
+		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+	])->name($routexxx.'.listodox');
 	Route::get('nuevo', [
 		'uses' => $controll.'Controller@create',
 		'middleware' => ['permission:'.$routexxx.'-crear']
@@ -44,5 +48,9 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
     Route::put('borrar/{modeloxx}', [
 		'uses' => $controll . 'Controller@destroy',
 		'middleware' => ['permission:' . $routexxx . '-borrar']
-	])->name($routexxx . '.borrar');
+    ])->name($routexxx . '.borrar');
+    Route::get('nnajsele', [
+		'uses' => $controll . 'Controller@getNnajsele',
+		'middleware' => ['permission:' . $routexxx . '-borrar']
+	])->name($routexxx . '.nnajsele');
 });

@@ -1,3 +1,5 @@
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+
 <div class="form-row align-items-end">
   <div class="form-group col-md-4">
     {{ Form::label('s_primer_apellido', '1.1 1er. Apellido', ['class' => 'control-label']) }}

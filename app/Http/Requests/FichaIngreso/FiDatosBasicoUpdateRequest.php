@@ -100,13 +100,12 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             $this->_reglasx['prm_poblacion_etnia_id'] = 'required';
         }
 
-        $this->_reglasx['s_documento'] = ['required', 'unique:nnaj_docus,s_documento,' . $this->segments()[2]];
         if ($dataxxxx['prm_doc_fisico_id'] == 228){
             $this->_mensaje['prm_ayuda_id.required'] ='Seleccione porqué no tiene documento';
             $this->_reglasx['prm_ayuda_id']='required';
         }
 
         $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
-        $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento,'. $this->segments()[2];
+        $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento,'. FiDatosBasico::find($this->segments()[2])->nnaj_docu->id;
     }
 }

@@ -16,6 +16,14 @@
              </a>
          </li>
          @endcan
+         @can('servicio-leer')
+         <li class="nav-item">
+             <a href="{{ route('servicio') }}" class="nav-link">
+                 <i class="fas fa-door-open nav-icon"></i>
+                 <p>Servicios</p>
+             </a>
+         </li>
+         @endcan
          @can('dependencia-leer')
          <li class="nav-item">
              <a href="{{ route('dependencia') }}" class="nav-link">

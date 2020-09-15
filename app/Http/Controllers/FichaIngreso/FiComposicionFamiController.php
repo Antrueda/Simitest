@@ -7,6 +7,7 @@ use App\Http\Requests\FichaIngreso\FiComposicionFamiCrearRequest;
 use App\Http\Requests\FichaIngreso\FiComposicionFamiUpdateRequest;
 use App\Models\fichaIngreso\FiComposicionFami;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
@@ -91,11 +92,11 @@ class FiComposicionFamiController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'fi_composicion_famis.id'],
-                    ['data' => 's_primer_nombre', 'name' => 'fi_composicion_famis.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'fi_composicion_famis.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'fi_composicion_famis.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'fi_composicion_famis.s_segundo_apellido'],
-                    ['data' => 's_documento', 'name' => 'fi_composicion_famis.s_documento'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -113,7 +114,7 @@ class FiComposicionFamiController extends Controller
     public function getListado(Request $request, FiDatosBasico $padrexxx)
     {
         if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->nnaj_nfamili_id;
+            $request->padrexxx = $padrexxx->sis_nnaj_id;
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -122,17 +123,30 @@ class FiComposicionFamiController extends Controller
             return $this->getCompoFami($request);
         }
     }
+    public function getListodo(Request $request, FiDatosBasico $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->datobasi = $padrexxx->id;
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getTodoComFami($request);
+        }
+    }
     private function view($dataxxxx)
     {
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         /** informacion que se va a mostrar en la vista */
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablatodos']
         ];
-        $this->opciones['botoform'][0]['routingx'][1]=$dataxxxx['padrexxx']->id;
+        $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->id;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -143,14 +157,21 @@ class FiComposicionFamiController extends Controller
         $this->opciones['municipi'] = ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['parametr'][1]=$dataxxxx['modeloxx']->id;
+            $datosbas = $dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico;
+            $dataxxxx['modeloxx']->s_primer_apellido = $datosbas->s_primer_apellido;
+            $dataxxxx['modeloxx']->s_segundo_apellido = $datosbas->s_segundo_apellido;
+            $dataxxxx['modeloxx']->s_primer_nombre = $datosbas->s_primer_nombre;
+            $dataxxxx['modeloxx']->s_segundo_nombre = $datosbas->s_segundo_nombre;
+            $dataxxxx['modeloxx']->s_documento = $datosbas->nnaj_docu->s_documento;
+            $dataxxxx['modeloxx']->prm_documento_id = $datosbas->nnaj_docu->tipoDocumento->id;
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $fechaxxx = explode('-', $dataxxxx['modeloxx']->d_nacimiento);
             $this->opciones['aniosxxx'] = Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
-            $dataxxxx['modeloxx']->sis_pai_id=$dataxxxx['modeloxx']->sis_municipio->sis_departamento->sis_pai_id;
+            $dataxxxx['modeloxx']->sis_pai_id = $datosbas->nnaj_docu->sis_municipio->sis_departamento->sis_pai_id;
 
             $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
-            $dataxxxx['modeloxx']->sis_departamento_id=$dataxxxx['modeloxx']->sis_municipio->sis_departamento_id;
+            $dataxxxx['modeloxx']->sis_departamento_id = $datosbas->nnaj_docu->sis_municipio->sis_departamento_id;
             $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamento_id, false);
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -162,6 +183,45 @@ class FiComposicionFamiController extends Controller
                     ];
             }
         }
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'CREAR COMPONENTE FAMILIAR',
+                'titulist' => 'LISTA DE COMPONENTES FAMILIARES PARA ASIGNAR (BUSQUE Y SELECCIONE EL COMPONENTE FAMILIAR)',
+                'dataxxxx' => [],
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'vercrear' => false,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', $this->opciones['parametr']),
+                'cabecera' => [
+                    [
+                        // ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+
+
+                    ],
+                ],
+                'columnsx' => [
+                    // ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'sis_nnajs.id'],
+                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+
+
+                ],
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => $this->opciones['parametr'],
+            ],
+
+        ];
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -173,11 +233,11 @@ class FiComposicionFamiController extends Controller
     public function create(FiDatosBasico $padrexxx)
     {
         $this->opciones['botoform'][] =
-        [
-            'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-        ];
-        return $this->view(['modeloxx' => '', 'accionxx'=>['crear','formulario'], 'padrexxx' => $padrexxx]);
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
@@ -207,7 +267,7 @@ class FiComposicionFamiController extends Controller
      */
     public function show(FiDatosBasico $padrexxx, FiComposicionFami $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['ver','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -216,14 +276,14 @@ class FiComposicionFamiController extends Controller
      * @param  \App\Models\FiComposicionFami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(FiDatosBasico $padrexxx,FiComposicionFami $modeloxx)
+    public function edit(FiDatosBasico $padrexxx, FiComposicionFami $modeloxx)
     {
         $this->opciones['botoform'][] =
-        [
-            'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-        ];
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
+            [
+                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -238,7 +298,7 @@ class FiComposicionFamiController extends Controller
         return $this->grabar($request->all(), FiComposicionFami::where('id', $modeloxx)->first(), 'Composicion familiar actualizada con exito', $padrexxx);
     }
 
-    public function inactivate(FiDatosBasico $padrexxx,FiComposicionFami $modeloxx)
+    public function inactivate(FiDatosBasico $padrexxx, FiComposicionFami $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -248,13 +308,38 @@ class FiComposicionFamiController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Destroy','padrexxx'=>$padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Destroy', 'padrexxx' => $padrexxx]);
     }
-    public function destroy(FiDatosBasico $padrexxx,FiComposicionFami $modeloxx)
+    public function destroy(FiDatosBasico $padrexxx, FiComposicionFami $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['routxxxx'], [$padrexxx->id])
             ->with('info', 'Componenete familiar inactivado correctamente');
+    }
+
+    public function getNnajsele(Request $request)
+    {
+        if ($request->ajax()) {
+
+            $dataxxxx = [
+                'tipodocu' => ['prm_documento_id', ''],
+                'paisxxxx' => ['sis_pai_id', ''],
+                'departam' => ['sis_departamento_id', [], ''],
+                'municipi' => ['sis_municipio_id', [], ''],
+            ];
+            $document = NnajDocu::where('fi_datos_basico_id', $request->padrexxx)->first();
+            if (isset($document->id)) {
+                $expedici = $document->sis_municipio;
+                $dataxxxx['tipodocu'][1] = $document->prm_tipodocu_id;
+                $dataxxxx['paisxxxx'][1] = $expedici->sis_departamento->sis_pai_id;
+                $dataxxxx['departam'][1] = SisDepartamento::combo($dataxxxx['paisxxxx'][1], true);
+                $dataxxxx['departam'][2] = $expedici->sis_departamento_id;
+                $dataxxxx['municipi'][1] = SisMunicipio::combo($dataxxxx['departam'][2], true);
+                $dataxxxx['municipi'][2] = $expedici->id;
+            }
+
+            return response()->json($dataxxxx);
+        }
     }
 }

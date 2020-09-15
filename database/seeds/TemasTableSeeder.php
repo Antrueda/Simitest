@@ -452,7 +452,7 @@ class TemasTableSeeder extends Seeder
             274 => $camposmagicos,
             275 => $camposmagicos,
             276 => $camposmagicos,
-          
+
             509 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
@@ -551,7 +551,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 43, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'Eventos médicos']);
         $tema->parametros()->sync([
-          
+
             318 => $camposmagicos,
             319 => $camposmagicos,
             320 => $camposmagicos,
@@ -771,7 +771,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 63, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'MOTIVO VINCULACION IDIPRON']);
         $tema->parametros()->sync([
-         
+
             761 => $camposmagicos,
             762 => $camposmagicos,
             763 => $camposmagicos,
@@ -781,7 +781,7 @@ class TemasTableSeeder extends Seeder
             767 => $camposmagicos,
             768 => $camposmagicos,
             769 => $camposmagicos,
-         
+
             2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 64, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'REPRESENTACION LEGAL']);
@@ -898,8 +898,8 @@ class TemasTableSeeder extends Seeder
             292 => $camposmagicos,
             293 => $camposmagicos,
             851 => $camposmagicos,
+            1790 => $camposmagicos,
             2316 => $camposmagicos,
-            2355 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 73, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'CONVENCIÓN A']);
         $tema->parametros()->sync([
@@ -1855,7 +1855,7 @@ class TemasTableSeeder extends Seeder
             886 => $camposmagicos,
             887 => $camposmagicos,
             888 => $camposmagicos,
-            
+
             1633 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
@@ -1945,7 +1945,7 @@ class TemasTableSeeder extends Seeder
             961 => $camposmagicos,
             962 => $camposmagicos,
             988 => $camposmagicos,
-            
+
             2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 175, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'CÓMO ES LA RELACIÓN CON SU FAMILIA? VI']);
@@ -3609,7 +3609,7 @@ class TemasTableSeeder extends Seeder
             'parametr' => [227,228,235]
         ]); //353
 
-     
+
 
 
         // $this->getR([

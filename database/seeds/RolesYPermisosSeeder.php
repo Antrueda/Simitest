@@ -82,6 +82,11 @@ class RolesYPermisosSeeder extends Seeder
          * Personal de  la dependencia
          */
         $this->getPermisos(['permisox' => 'usuadepe', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Personal-Dependencia', 'pestania' => 1]);
+        /**
+         * servicios
+         */
+        $this->getPermisos(['permisox' => 'servicio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Servicio', 'pestania' => 1]);
+
 
         /**
          * servicios que ofrece la dependencia

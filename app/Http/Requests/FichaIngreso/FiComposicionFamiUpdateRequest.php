@@ -52,13 +52,10 @@ class FiComposicionFamiUpdateRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        $this->_reglasx['s_documento'] = ['required', 'unique:fi_composicion_famis,s_documento,' . $this->segments()[4]];
-
         return $this->_reglasx;
     }
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
     }
 }

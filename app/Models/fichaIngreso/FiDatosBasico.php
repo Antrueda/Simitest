@@ -202,12 +202,15 @@ class FiDatosBasico extends Model
                 NnajSitMil::create($dataxxxx);
                 NnajFocali::create($dataxxxx);
                 NnajFiCsd::create($dataxxxx);
+                /**
+                 * agregar el nnaj a la composocion familiar
+                 */
                 $dataxxxx['sis_nnajnnaj_id']=$dataxxxx['sis_nnaj_id'];
                 $dataxxxx['i_prm_ocupacion_id'] = 1262;
                 $dataxxxx['i_prm_parentesco_id'] = 805;
                 $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
                 $dataxxxx['i_prm_convive_nnaj_id'] = 227;
-                FiComposicionFami::transaccion($dataxxxx, '');
+                FiComposicionFami::create($dataxxxx);
             }
             $this->setSisDepen($dataxxxx, $objetoxx);
             return $objetoxx;

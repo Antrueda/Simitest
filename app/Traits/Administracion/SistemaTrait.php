@@ -3,6 +3,7 @@
 namespace App\Traits\Administracion;
 
 use App\Models\Indicadores\Area;
+use App\Models\Sistema\SisServicio;
 use App\Traits\DatatableTrait;
 
 /**
@@ -21,6 +22,17 @@ trait SistemaTrait
             'sis_estas.s_estado'
         ])
             ->join('sis_estas', 'areas.sis_esta_id', '=', 'sis_estas.id');
+        return $this->getDtGeneral($dataxxxx, $request);
+    }
+    public function getServiciosTait($request)
+    {
+        $dataxxxx =  SisServicio::select([
+            'sis_servicios.id',
+            'sis_servicios.s_servicio',
+            'sis_esta_id',
+            'sis_estas.s_estado'
+        ])
+            ->join('sis_estas', 'sis_servicios.sis_esta_id', '=', 'sis_estas.id');
         return $this->getDtGeneral($dataxxxx, $request);
     }
 }

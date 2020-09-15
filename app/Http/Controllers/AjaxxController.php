@@ -7,6 +7,7 @@ use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InDocIndi;
 use App\Models\Indicadores\InDocPregunta;
@@ -63,7 +64,13 @@ class AjaxxController extends Controller
 
     private function getEdad($fechaxxx)
     {
-        $fechaxxx = explode('-', $fechaxxx['fechaxxx']);
+        if ($fechaxxx['opcionxx'] == 2) {
+            $nacimien=NnajNacimi::where('fi_datos_basico_id',$fechaxxx['padrexxx'])->first();
+            $fechaxxx = explode('-', $nacimien->d_nacimiento);
+        } else {
+            $fechaxxx = explode('-', $fechaxxx['fechaxxx']);
+        }
+
         return Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
     }
 
@@ -199,7 +206,7 @@ class AjaxxController extends Controller
                 'discausa' => $dataxxxx['padrexxx'] == 228 ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : Tema::combo(341, false, true),
                 'victataq' => $dataxxxx['padrexxx'] == 228 ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : Tema::combo(342, false, true),
 
-                ]];
+            ]];
             return response()->json($respuest);
         }
     }
@@ -900,9 +907,9 @@ class AjaxxController extends Controller
                 case 5: // personal
                     SisDepen::where('id', $dataxxxx['sis_depen_id'])->first()->users()->attach([$dataxxxx['user_id'] => [
                         'i_prm_responsable_id' => $dataxxxx['responsable'],
-                        'user_crea_id'=>Auth::user()->id,
-                        'user_edita_id'=>Auth::user()->id,
-                        'sis_esta_id'=>1,
+                        'user_crea_id' => Auth::user()->id,
+                        'user_edita_id' => Auth::user()->id,
+                        'sis_esta_id' => 1,
                     ]]);
                     break;
                 case 6: // servicios
@@ -1048,18 +1055,15 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $respuest = [];
-            switch($dataxxxx['tipoxxxx']){
+            switch ($dataxxxx['tipoxxxx']) {
                 case 'sis_departamento_id':
-                    $respuest = ['comboxxx'=>SisMunicipio::combo($dataxxxx['padrexxx'],true),'campoxxx'=>'sis_municipio_id','limpiarx'=>'#sis_municipio_id'];
-                break;
+                    $respuest = ['comboxxx' => SisMunicipio::combo($dataxxxx['padrexxx'], true), 'campoxxx' => 'sis_municipio_id', 'limpiarx' => '#sis_municipio_id'];
+                    break;
                 case 'sis_pai_id':
-                    $respuest = ['comboxxx'=>SisDepartamento::combo($dataxxxx['padrexxx'],true),'campoxxx'=>'sis_departamento_id','limpiarx'=>'#sis_departamento_id,#sis_municipio_id'];
-                break;
+                    $respuest = ['comboxxx' => SisDepartamento::combo($dataxxxx['padrexxx'], true), 'campoxxx' => 'sis_departamento_id', 'limpiarx' => '#sis_departamento_id,#sis_municipio_id'];
+                    break;
             }
             return response()->json($respuest);
         }
     }
-
-
-
 }

@@ -11,6 +11,7 @@ use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\Sistema\SisDepeUsua;
+use App\Models\Sistema\SisNnaj;
 use App\Models\User;
 use App\Traits\DatatableTrait;
 use Illuminate\Support\Facades\Auth;
@@ -111,13 +112,34 @@ public function getNotInt()
             'fi_composicion_famis.created_at',
             'sis_estas.s_estado'
         ])
-        ->join('fi_datos_basicos', 'fi_composicion_famis.fi_datos_basico_id', '=', 'fi_datos_basicos.id')
+        ->join('sis_nnajs', 'fi_composicion_famis.sis_nnajnnaj_id', '=', 'sis_nnajs.id')
+        ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+        ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
         ->join('sis_estas', 'fi_composicion_famis.sis_esta_id', '=', 'sis_estas.id')
-            ->where('fi_composicion_famis.sis_nnaj_id', $request->padrexxx)
+            ->where('fi_composicion_famis.sis_nnajnnaj_id', $request->padrexxx)
             ;
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
+    public function getTodoComFami($request)
+    {
+        $dataxxxx =  SisNnaj::select([
+            'sis_nnajs.id',
+            'fi_datos_basicos.s_primer_nombre',
+            'nnaj_docus.s_documento',
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
+            'sis_nnajs.sis_esta_id',
+            'sis_nnajs.created_at',
+            'sis_estas.s_estado'
+        ])
+        ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+        ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+        ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
+            ->whereNotIn('sis_nnajs.id', FiComposicionFami::select('sis_nnaj_id')->where('sis_nnajnnaj_id',$request->padrexxx)->get());
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
     public function getDiagnostico($request)
     {
         $dataxxxx =  FiSalud::select(

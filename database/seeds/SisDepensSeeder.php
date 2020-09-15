@@ -26,7 +26,6 @@ class SisDepensSeeder extends Seeder
         SisDepen::create(['id' => 9, 'nombre' => 'UPI EMPRENDER', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => '00008', 'sis_departamento_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '008', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
         SisDepen::create(['id' => 10, 'nombre' => 'UPI LA ARCADIA', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => '00009', 'sis_departamento_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '009', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
         SisDepen::create(['id' => 11, 'nombre' => 'UPI LA CALERA', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => '00010', 'sis_departamento_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '010', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
-        //SisDepen::create(['id' => 12, 'nombre' => 'UPI LA FAVORITA', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => '00011', 'sis_departamento_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '011', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
         SisDepen::create(['id' => 12, 'nombre' => 'CONSERVATORIO JAVIER DE NICOLO', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => '00011', 'sis_departamento_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '011', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
         SisDepen::create(['id' => 13, 'nombre' => 'UPI LA RIOJA', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => '00012', 'sis_departamento_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '012', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
         SisDepen::create(['id' => 14, 'nombre' => 'UPI LA VEGA', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => '00013', 'sis_departamento_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '013', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
@@ -67,6 +66,22 @@ class SisDepensSeeder extends Seeder
             2 => $camposmagicos,
             15 => $camposmagicos,
             23 => $camposmagicos,
+        ]);
+        $super = User::where('id', 3)->first();
+
+        $super->sis_depens()->sync([
+            2 => $camposmagicos,
+            6 => $camposmagicos,
+            12 => $camposmagicos,
+            16 => $camposmagicos,
+        ]);
+        $super = User::where('id', 4)->first();
+
+        $super->sis_depens()->sync([
+            2 => $camposmagicos,
+            6 => $camposmagicos,
+            12 => $camposmagicos,
+            16 => $camposmagicos,
         ]);
     }
 }

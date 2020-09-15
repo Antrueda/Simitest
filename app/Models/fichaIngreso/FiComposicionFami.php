@@ -101,9 +101,15 @@ class FiComposicionFami extends Model
                 $objetoxx->update($dataxxxx);
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $datosbas=FiComposicionFami::getDbcomfamiliar($dataxxxx, '');
+                $datosbas=NnajDocu::where('s_documento',$dataxxxx['s_documento'])->first();
+
+                if(!isset($datosbas->id)){
+                    $datosbas=FiComposicionFami::getDbcomfamiliar($dataxxxx, '');
+                    NnajDocu::create($dataxxxx);
+                }else{
+                    $datosbas= $datosbas->fi_datos_basico;
+                }
                 $dataxxxx['sis_nnaj_id']=$datosbas->sis_nnaj_id;
-                NnajDocu::create($dataxxxx);
                 $objetoxx = FiComposicionFami::create($dataxxxx);
             }
             return $objetoxx;

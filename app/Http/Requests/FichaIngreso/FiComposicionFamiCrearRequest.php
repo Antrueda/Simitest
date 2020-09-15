@@ -19,8 +19,6 @@ class FiComposicionFamiCrearRequest extends FormRequest
             'i_prm_vinculado_idipron_id.required' => 'Indique si estuvo vinculado',
             'i_prm_convive_nnaj_id.required' => 'Indique si convive con el nnaj',
             's_telefono.required'=> 'Ingrese un número de teléfono',
-            's_documento.required'=>'Ingrese el número de cédula',
-            's_documento.unique'=>'El ducumento ya se encuentra en uso',
         ];
 
         $this->_reglasx = [
@@ -29,7 +27,6 @@ class FiComposicionFamiCrearRequest extends FormRequest
             'i_prm_vinculado_idipron_id'=>['required'],
             'i_prm_convive_nnaj_id'=>['required'],
             'd_nacimiento'=>['required'],
-            's_documento'=>['required','unique:nnaj_docus,s_documento'],
             's_telefono'=>['required'],
         ];
     }
