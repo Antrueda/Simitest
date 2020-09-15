@@ -17,20 +17,28 @@
     <p class="text-muted text-center">{{ $todoxxxx['datobasi']->nnaj_docu->tipoDocumento->nombre }} : {{ $todoxxxx['datobasi']->nnaj_docu->s_documento }}</p>
     <ul class="list-group list-group-unbordered mb-3">
       <li class="list-group-item">
-        <b>Teléfono</b>
-        <a class="float-right">TELEFONO NNAJ</a>
+        <b>Tipo de Poblacion</b>
+        <a class="float-right"><p class="text-muted text-center">{{ $todoxxxx['datobasi']->prmTipoPobla->nombre }}</p></a>
       </li>
       <li class="list-group-item">
-        <b>E-mail</b>
-        <a class="float-right">CORREO NNAJ</a>
+        <b>EDAD</b>
+        <a class="float-right"><a class="float-right"><p class="text-muted text-center">{{ $todoxxxx['datobasi']->nnaj_nacimi->Edad }} Años</p></a></a>
       </li>
       <li class="list-group-item">
-        <b>Vinculación</b>
-        <a class="float-right">VINCULACIÓN NNAJ</a>
+        <b>UPI</b>
+       
       </li>
       <li class="list-group-item">
-        <b>Tarjeta Profesional</b>
-        <a class="float-right">OTRO DATO</a>
+        <b>ESTADO CIVIL</b>
+        <a class="float-right"><p class="text-muted text-center">{{ $todoxxxx['datobasi']->nnaj_fi_csd->prmEstadoCivil->nombre}}</p></a>
+        <li class="list-group-item">
+          <b>DIRECCION</b>
+          <a class="float-right">{{ count($todoxxxx['datobasi']->SisNnaj->FiResidencia)>0 ? $todoxxxx['datobasi']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first()->direccion : '' }}</a>
+        </li>
+        <li class="list-group-item">
+          <b>TELEFONO</b>
+          <a class="float-right">{{ count($todoxxxx['datobasi']->SisNnaj->FiResidencia)>0 ? $todoxxxx['datobasi']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first()->telefonos : '' }}</a>
+        </li>
       </li>
     </ul>
   </div>

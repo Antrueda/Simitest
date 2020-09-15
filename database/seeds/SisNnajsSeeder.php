@@ -450,7 +450,7 @@ class SisNnajsSeeder extends Seeder
 
                 'prm_gsanguino_id' => $faker->randomElement(['146', '147', '148', '149']),
                 'prm_factor_rh_id' => $faker->randomElement(['150', '151']),
-                'prm_estado_civil_id' => 1,
+                'prm_estado_civil_id' => $faker->randomElement(['152', '153','154','155','156']),
                 'sis_docfuen_id' => 2,
                 'sis_esta_id' => 1,
                 'user_crea_id' => 1,
@@ -493,8 +493,8 @@ class SisNnajsSeeder extends Seeder
             NnajSexo::create([
                 'fi_datos_basico_id' => $i + 1,
                 's_nombre_identitario' => $faker->firstName,
-                'prm_sexo_id' => $faker->randomElement(['23', '24']),
-                'prm_identidad_genero_id' => 1,
+                'prm_sexo_id' => $faker->randomElement(['20', '21','22']),
+                'prm_identidad_genero_id' => $faker->randomElement(['23', '24','25','26','27']),
                 'prm_orientacion_sexual_id' => 1,
                 'sis_docfuen_id' => 2,
                 'sis_esta_id' => 1,

@@ -33,6 +33,12 @@ class NnajFiCsd extends Model
     {
         return $this->belongsTo(Parametro::class, 'prm_tipoblaci_id');
     }
+
+    public function prmEstadoCivil()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_estado_civil_id');
+    }
+
     public function gsanguino()
     {
         return $this->belongsTo(Parametro::class, 'prm_gsanguino_id');
