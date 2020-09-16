@@ -34,9 +34,9 @@ class CreateHFiRedesApoyosTable extends Migration
             $table->bigInteger('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
             $table->bigInteger('i_prm_tipo_red_id')->unsigned();
             $table->string('s_nombre_persona');
-            $table->string('s_servicio')->nullable();
+            $table->string('s_servicio');
             $table->string('s_telefono')->nullable();
-            $table->string('s_direccion');
+            $table->string('s_direccion')->nullable();;
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
