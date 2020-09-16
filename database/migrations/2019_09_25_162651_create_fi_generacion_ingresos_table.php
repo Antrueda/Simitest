@@ -27,10 +27,10 @@ class CreateFiGeneracionIngresosTable extends Migration
             $table->bigInteger('i_dias_buscando_empleo')->nullable(); //->comment('FI D.1.1 DIAS BUSCANDO EMPLEO');
             $table->bigInteger('i_meses_buscando_empleo')->nullable(); //->comment('FI D.1.2 MESES BUSCANDO EMPLEO');
             $table->bigInteger('i_anos_buscando_empleo')->nullable(); //->comment('FI D.1.3 AÑOS BUSCANDO EMPLEO');
-            $table->bigInteger('i_prm_jornada_genera_ingreso_id')->unsigned(); //->comment('FI 7.2 EN QUE JORNADA GENERA INGRESO');
+            $table->bigInteger('i_prm_jornada_genera_ingreso_id')->unsigned()->nullable(); //->comment('FI 7.2 EN QUE JORNADA GENERA INGRESO');
             $table->string('s_hora_inicial')->nullable(); //->comment('FI 7.2.1 HORA INICIAL');
             $table->string('s_hora_final')->nullable(); //->comment('FI 7.2.3 HORA FINAL');
-            $table->bigInteger('i_prm_frec_ingreso_id')->unsigned(); //->comment('FI 7.4.1 FRECUENCIA RECIBE INGRESO');
+            $table->bigInteger('i_prm_frec_ingreso_id')->nullable()->unsigned(); //->comment('FI 7.4.1 FRECUENCIA RECIBE INGRESO');
             $table->bigInteger('i_total_ingreso_mensual'); //->comment('FI 7.4.2 TOTAL INGRESO MENSUAL');
             $table->bigInteger('i_prm_tipo_relacion_laboral_id')->unsigned(); //->comment('FI 7.5 TIPO RELACION LABORAL');
 
