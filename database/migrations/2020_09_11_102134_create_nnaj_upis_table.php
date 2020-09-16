@@ -19,26 +19,27 @@ class CreateNnajUpisTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            //$table = CamposMagicos::getForeign($table, 'fi_datos_basico');
             $table->bigInteger('sis_depen_id')->unsigned();
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
+            $table->bigInteger('prm_principa_id')->unsigned();
+            $table->foreign('prm_principa_id')->references('id')->on('parametros');
             $table = CamposMagicos::getForeign($table, 'sis_nnaj');
             $table = CamposMagicos::magicos($table);
 
-            
+
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA UPI DEL NNAJ.'");
-        
+
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            //$table->Integer('fi_datos_basico_id');
             $table->Integer('sis_depen_id');
             $table->Integer('sis_nnaj_id');
+            $table->bigInteger('prm_principa_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
-    
+
 
     /**
      * Reverse the migrations.

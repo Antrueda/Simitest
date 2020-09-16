@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisUpzbarrisSeeder::class);
         $this->call(SisDepensSeeder::class);
         $this->call(SisEntidadsSeeder::class);
+        $this->call(SisEnprsaSeeder::class);
         $this->call(SisEntidadSaludsSeeder::class);
         $this->call(SisInstitucionEdusSeeder::class);
         $this->call(InIndicadorSeeder::class);

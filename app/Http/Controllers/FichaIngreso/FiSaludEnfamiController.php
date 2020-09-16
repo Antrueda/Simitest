@@ -54,7 +54,7 @@ class FiSaludEnfamiController extends Controller
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.botones.botonesapi';
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             return $this->getDiagnostico($request);
         }
@@ -68,7 +68,7 @@ class FiSaludEnfamiController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $archivox=($dataxxxx['padrexxx']->prm_tipoblaci_id == 2323) ? 'caminando' : 'js';
+        $archivox=($dataxxxx['padrexxx']->prm_estrateg_id == 2323) ? 'caminando' : 'js';
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.'.$archivox]
         ];
@@ -120,10 +120,10 @@ class FiSaludEnfamiController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'fi_enfermedades_familias.id'],
-                    ['data' => 's_primer_nombre', 'name' => 'fi_compfamis.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'fi_compfamis.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'fi_compfamis.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'fi_compfamis.s_segundo_apellido'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
 
                     ['data' => 's_tipo_enfermedad', 'name' => 'fi_enfermedades_familias.s_tipo_enfermedad'],
                     ['data' => 'medicina', 'name' => 'parametros.nombre as medicina'],

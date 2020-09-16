@@ -12,8 +12,8 @@ class SisEntidadSaludObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
-        $log['s_nombre_entidad'] = $modeloxx->s_nombre_entidad;
+        // campos nuevos traidos desde $fillable -> modelo
+        $log['sis_enprsa_id'] = $modeloxx->sis_enprsa_id;
         $log['i_prm_tentidad_id'] = $modeloxx->i_prm_tentidad_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;

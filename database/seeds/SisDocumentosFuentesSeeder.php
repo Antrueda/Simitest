@@ -5,26 +5,31 @@ use Illuminate\Database\Seeder;
 use App\Models\Sistema\SisDocfuen;
 
 class SisDocumentosFuentesSeeder extends Seeder{
+    public function getR($dataxxxx)
+    {
+        SisDocfuen::create([
+            'nombre' => strtoupper($dataxxxx['nombrexx']), 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,
+        ]);
+    }
+
     /**
      * Run the database seeds.
      *
      * @return void
      */
     public function run(){
-        SisDocfuen::create(['id'=>1,'nombre' => 'USUARIOS']);
-        SisDocfuen::create(['id'=>2,'nombre' => 'FICHA DE INGRESO']);
-        SisDocfuen::create(['id'=>3,'nombre' => 'VALORACIÓN PSICOSOCIAL']);
-        SisDocfuen::create(['id'=>4,'nombre' => 'CONSULTA SOCIAL EN DOMICILIO']);
-        SisDocfuen::create(['id'=>5,'nombre' => 'INTERVENCION SICOSOCIAL']);
-        SisDocfuen::create(['id'=>6,'nombre' => 'FICHA DE OBSERVACION']);
-        SisDocfuen::create(['id'=>7,'nombre' => 'VALORACION DEL RIESGO POR CONSUMO DE SPA']);
-        SisDocfuen::create(['id'=>8,'nombre' => 'VALORACION MEDICINA ALTERNATIVA']);
-        SisDocfuen::create(['id'=>9,'nombre' => 'SALIDA DE JOVENES MAYORES DE EDAD']);
-        SisDocfuen::create(['id'=>10,'nombre' => 'REPORTE DE EVACION']);
-        SisDocfuen::create(['id'=>11,'nombre' => 'SALIDA Y PERMISOS CON ACOMPAÑAMIENTO Y/O REPRESENTANTE LEGAL']);
-        SisDocfuen::create(['id'=>12,'nombre' => 'RETORNO DE SALIDAS Y PERMISOS CON ACUDIENTE Y/O REPRESENTANTE LEGAL']);
-
-        SisDocfuen::create(['nombre' => 'DOCUEMENTOS FALTATANTES']);
-
+        $this->getR(['nombrexx'=>'USUARIOS']);
+        $this->getR(['nombrexx'=>'FICHA DE INGRESO']);
+        $this->getR(['nombrexx'=>'VALORACIÓN PSICOSOCIAL']);
+        $this->getR(['nombrexx'=>'CONSULTA SOCIAL EN DOMICILIO']);
+        $this->getR(['nombrexx'=>'INTERVENCION SICOSOCIAL']);
+        $this->getR(['nombrexx'=>'FICHA DE OBSERVACION']);
+        $this->getR(['nombrexx'=>'VALORACION DEL RIESGO POR CONSUMO DE SPA']);
+        $this->getR(['nombrexx'=>'VALORACION MEDICINA ALTERNATIVA']);
+        $this->getR(['nombrexx'=>'SALIDA DE JOVENES MAYORES DE EDAD']);
+        $this->getR(['nombrexx'=>'REPORTE DE EVACION']);
+        $this->getR(['nombrexx'=>'SALIDA Y PERMISOS CON ACOMPAÑAMIENTO Y/O REPRESENTANTE LEGAL']);
+        $this->getR(['nombrexx'=>'RETORNO DE SALIDAS Y PERMISOS CON ACUDIENTE Y/O REPRESENTANTE LEGAL']);
+        $this->getR(['nombrexx'=>'DOCUEMENTOS FALTATANTES']);
     }
 }

@@ -112,7 +112,7 @@ public function getNotInt()
             'fi_compfamis.created_at',
             'sis_estas.s_estado'
         ])
-        ->join('sis_nnajs', 'fi_compfamis.sis_nnajnnaj_id', '=', 'sis_nnajs.id')
+        ->join('sis_nnajs', 'fi_compfamis.sis_nnaj_id', '=', 'sis_nnajs.id')
         ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
         ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
         ->join('sis_estas', 'fi_compfamis.sis_esta_id', '=', 'sis_estas.id')
@@ -131,11 +131,13 @@ public function getNotInt()
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
             'sis_nnajs.sis_esta_id',
+            'nnaj_nacimis.d_nacimiento',
             'sis_nnajs.created_at',
             'sis_estas.s_estado'
         ])
         ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
         ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+        ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
         ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
             ->whereNotIn('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id',$request->padrexxx)->get());
         return $this->getDtAcciones($dataxxxx, $request);
@@ -147,10 +149,10 @@ public function getNotInt()
             'fi_enfermedades_familias.created_at',
             'fi_saluds.sis_nnaj_id',
             'fi_enfermedades_familias.sis_esta_id',
-            'fi_compfamis.s_primer_nombre',
-            'fi_compfamis.s_segundo_nombre',
-            'fi_compfamis.s_primer_apellido',
-            'fi_compfamis.s_segundo_apellido',
+            'fi_datos_basicos.s_primer_nombre',
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
             'fi_enfermedades_familias.s_tipo_enfermedad',
             'medicina.nombre as medicina',
             'sis_estas.s_estado',

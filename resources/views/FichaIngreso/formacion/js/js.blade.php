@@ -17,9 +17,13 @@
                 type : 'POST',
                 dataType : 'json',
                 success : function(json) {
+
                     $('#i_dias_sin_estudio').prop('readonly',json[0].dianoest);
                     $('#i_meses_sin_estudio').prop('readonly',json[0].mesnoest);
                     $('#i_anos_sin_estudio').prop('readonly',json[0].anonoest);
+                    $('#s_institucion_edu').prop('readonly',json[0].institut);
+
+                    $('#i_dias_sin_estudio,#i_meses_sin_estudio,#i_anos_sin_estudio,#s_institucion_edu').val('');
                     if(json[0].jornadax[0].valuexxx==1){
                         $("#i_prm_jornada_estudio_id, #i_prm_naturaleza_entidad_id, #sis_institucion_edu_id").empty();
                     }

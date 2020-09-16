@@ -2,8 +2,9 @@
 
 namespace App\Observers;
 
-use App\Models\Sistema\Logs\HSisDocumentoFuente;
-use App\Models\Sistema\SisDocumentoFuente;
+
+use App\Models\Sistema\SisDocfuen;
+use App\Models\sistema\Logs\HSisDocfuen;
 
 class SisDocumentoFuenteObserver
 {
@@ -12,7 +13,7 @@ class SisDocumentoFuenteObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['nombre'] = $modeloxx->nombre;
         $log['deleted_at'] = $modeloxx->deleted_at;
         // campos por defecto, no borrar.
@@ -25,9 +26,9 @@ class SisDocumentoFuenteObserver
         return $log;
     }
 
-    public function created(SisDocumentoFuente $modeloxx)
+    public function created(SisDocfuen $modeloxx)
     {
-        HSisDocumentoFuente::create($this->getLog($modeloxx));
+        HSisDocfuen::create($this->getLog($modeloxx));
     }
 
     /**
@@ -36,41 +37,41 @@ class SisDocumentoFuenteObserver
      * @param  \App\Models\Sistema\SisDocumentoFuente  $modeloxx
      * @return void
      */
-    public function updated(SisDocumentoFuente $modeloxx)
+    public function updated(SisDocfuen $modeloxx)
     {
-        HSisDocumentoFuente::create($this->getLog($modeloxx));
+        HSisDocfuen::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the SisDocumentoFuente "deleted" event.
+     * Handle the SisDocfuen "deleted" event.
      *
-     * @param  \App\Models\Sistema\SisDocumentoFuente  $modeloxx
+     * @param  \App\Models\Sistema\SisDocfuen  $modeloxx
      * @return void
      */
-    public function deleted(SisDocumentoFuente $modeloxx)
+    public function deleted(SisDocfuen $modeloxx)
     {
-        HSisDocumentoFuente::create($this->getLog($modeloxx));
+        HSisDocfuen::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the SisDocumentoFuente "restored" event.
+     * Handle the SisDocfuen "restored" event.
      *
-     * @param  \App\Models\Sistema\SisDocumentoFuente  $modeloxx
+     * @param  \App\Models\Sistema\SisDocfuen  $modeloxx
      * @return void
      */
-    public function restored(SisDocumentoFuente $modeloxx)
+    public function restored(SisDocfuen $modeloxx)
     {
-        HSisDocumentoFuente::create($this->getLog($modeloxx));
+        HSisDocfuen::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the SisDocumentoFuente "force deleted" event.
+     * Handle the SisDocfuen "force deleted" event.
      *
-     * @param  \App\Models\Sistema\SisDocumentoFuente  $modeloxx
+     * @param  \App\Models\Sistema\SisDocfuen  $modeloxx
      * @return void
      */
-    public function forceDeleted(SisDocumentoFuente $modeloxx)
+    public function forceDeleted(SisDocfuen $modeloxx)
     {
-        HSisDocumentoFuente::create($this->getLog($modeloxx));
+        HSisDocfuen::create($this->getLog($modeloxx));
     }
 }

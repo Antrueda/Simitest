@@ -69,6 +69,7 @@ class FiFormacionController extends Controller
         $this->opciones['readmesx'] = '';
         $this->opciones['readanox'] = '';
         $this->opciones['insti_id'] = '';
+        $this->opciones['readinst'] = '';
         // Si es CHC
         if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) {
             $this->opciones['natuenti'] = [1 => 'NO APLICA'];
@@ -82,6 +83,7 @@ class FiFormacionController extends Controller
             if ($dataxxxx['modeloxx']->i_prm_estudia_id == 228) {
                 $this->opciones['natuenti'] = [1 => 'NO APLICA'];
                 $this->opciones['jornestu'] = [1 => 'NO APLICA'];
+                $this->opciones['readinst'] = 'readonly';
             } elseif ($dataxxxx['modeloxx']->i_prm_estudia_id == 227) {
                 $this->opciones['readdiax'] = 'readonly';
                 $this->opciones['readmesx'] = 'readonly';

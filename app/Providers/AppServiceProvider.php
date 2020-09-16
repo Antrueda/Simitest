@@ -229,8 +229,8 @@ use App\Models\Indicadores\InPregunta;
 use App\Models\Indicadores\InRespu;
 use App\Models\Indicadores\InValidacion;
 use App\Models\Indicadores\InValoracion;
-
-
+use App\Models\Sistema\SisDocfuen;
+use App\Models\Sistema\SisEnprsa;
 use App\Observers\AreaObserver;
 use App\Observers\AgActividadObserver;
 use App\Observers\AgAsistenteObserver;
@@ -460,7 +460,7 @@ use App\Observers\VspaTablaTresObserver;
 use App\Observers\MitVmaObserver;
 use App\Observers\InValoracionObserver;
 use App\Observers\InDocIndiObserver;
-
+use App\Observers\SisEnprsaObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Blade;
@@ -695,8 +695,9 @@ class AppServiceProvider extends ServiceProvider
         SisDepeUsua::observe(SisDepeUsuaObserver::class);
         SisDiaFestivo::observe(SisDiaFestivoObserver::class);
         SisDiagnosticos::observe(SisDiagnosticosObserver::class);
-        //    SisDocumentoFuente::observe(SisDocumentoFuenteObserver::class);
+        SisDocfuen::observe(SisDocumentoFuenteObserver::class);
         SisEntidad::observe(SisEntidadObserver::class);
+        SisEnprsa::observe(SisEnprsaObserver::class);
         SisEntidadSalud::observe(SisEntidadSaludObserver::class);
         SisEslug::observe(SisEslugObserver::class);
         SisEsta::observe(SisEstaObserver::class);

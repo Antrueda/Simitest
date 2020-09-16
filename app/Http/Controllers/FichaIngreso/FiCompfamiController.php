@@ -196,6 +196,7 @@ class FiCompfamiController extends Controller
                         // ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA NACIMIENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
@@ -208,6 +209,7 @@ class FiCompfamiController extends Controller
                     // ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'sis_nnajs.id'],
                     ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+                    ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
                     ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
                     ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                     ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
@@ -308,7 +310,7 @@ class FiCompfamiController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => 'Destroy', 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx]);
     }
     public function destroy(FiDatosBasico $padrexxx, FiCompfami $modeloxx)
     {
@@ -328,7 +330,7 @@ class FiCompfamiController extends Controller
                 'departam' => ['sis_departamento_id', [], ''],
                 'municipi' => ['sis_municipio_id', [], ''],
             ];
-            $document = NnajDocu::where('fi_datos_basico_id', $request->padrexxx)->first();
+            $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
             if (isset($document->id)) {
                 $expedici = $document->sis_municipio;
                 $dataxxxx['tipodocu'][1] = $document->prm_tipodocu_id;

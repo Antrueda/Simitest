@@ -90,6 +90,7 @@ class FiCompfami extends Model
     public static function transaccion($dataxxxx,  $objetoxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+            $dataxxxx['prm_tipodocu_id'] = $dataxxxx['prm_documento_id'];
             $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
             $dt = new DateTime($dataxxxx['d_nacimiento']);
             $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
@@ -103,7 +104,14 @@ class FiCompfami extends Model
                 $datosbas = NnajDocu::where('s_documento', $dataxxxx['s_documento'])->first();
 
                 if (!isset($datosbas->id)) {
+                    $dataxxxx['prm_tipoblaci_id']=1269;
+                    $dataxxxx['prm_estrateg_id']=1269;
+                    $dataxxxx['sis_docfuen_id']=2;
+                    $dataxxxx['sis_esta_id']=1;
+                    $dataxxxx['prm_ayuda_id']=1269;
+                    $dataxxxx['prm_doc_fisico_id']=1269;
                     $datosbas = FiCompfami::getDbcomfamiliar($dataxxxx, '');
+                    $dataxxxx['fi_datos_basico_id']=$datosbas->id;
                     NnajDocu::create($dataxxxx);
                 } else {
                     $datosbas = $datosbas->fi_datos_basico;
@@ -122,7 +130,7 @@ class FiCompfami extends Model
         if ($cabecera) {
             $comboxxx = ['' => 'Seleccione'];
         }
-        foreach (FiCompfami::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->get() as $registro) {
+        foreach (FiCompfami::where('sis_nnajnnaj_id', $padrexxx->sis_nnaj_id)->get() as $registro) {
             $nombrexx=$registro->sis_nnaj->fi_datos_basico->s_primer_nombre . ' ' . $registro->sis_nnaj->fi_datos_basico->s_segundo_nombre . ' ' .
                         $registro->sis_nnaj->fi_datos_basico->s_primer_apellido . ' ' . $registro->sis_nnaj->fi_datos_basico->s_segundo_apellido;
             if ($ajaxxxxx) {

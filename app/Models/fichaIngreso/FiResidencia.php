@@ -34,6 +34,7 @@ class FiResidencia extends Model
         'i_prm_espacio_parcha_id',
         's_nombre_espacio_parcha',
         'sis_upzbarri_id',
+        's_complemento',
         's_telefono_uno',
         's_telefono_dos',
         's_telefono_tres',
@@ -69,16 +70,25 @@ class FiResidencia extends Model
 
     public function getDireccionAttribute()
     {
-        $dir = (!is_null($this->i_prm_tipo_via_id)) ? ' ' . $this->tipoVia->nombre : '';
-        $dir .= (!is_null($this->s_nombre_via)) ? ' ' . $this->s_nombre_via : '';
-        $dir .= (!is_null($this->i_prm_alfabeto_via_id)) ? ' ' . $this->alfabetoVia->nombre : '';
-        $dir .= (!is_null($this->i_prm_tiene_bis_id)) ? ' bis' : '';
-        $dir .= (!is_null($this->i_prm_bis_alfabeto_id)) ? ' ' . $this->bisAlfabeto->nombre : '';
-        $dir .= (!is_null($this->i_prm_cuadrante_vp_id)) ? ' ' . $this->cuadranteVp->nombre : '';
-        $dir .= (!is_null($this->i_via_generadora)) ? ' Nº ' . $this->i_via_generadora : '';
-        $dir .= (!is_null($this->i_prm_alfabetico_vg_id)) ? ' ' . $this->alfabeticoVg->nombre : '';
-        $dir .= (!is_null($this->i_placa_vg)) ? ' - ' . $this->i_placa_vg : '';
-        $dir .= (!is_null($this->i_prm_cuadrante_vg_id)) ? ' ' . $this->cuadranteVg->nombre : '';
+
+
+        if($this->i_prm_zona_direccion_id==287){
+            $dir = (!is_null($this->i_prm_tipo_via_id)) ? ' ' . $this->tipoVia->nombre : '';
+            $dir .= (!is_null($this->s_nombre_via)) ? ' ' . $this->s_nombre_via : '';
+            $dir .= (!is_null($this->i_prm_alfabeto_via_id)) ? ' ' . $this->alfabetoVia->nombre : '';
+            $dir .= (!is_null($this->i_prm_tiene_bis_id)) ? ' bis' : '';
+            $dir .= (!is_null($this->i_prm_bis_alfabeto_id)) ? ' ' . $this->bisAlfabeto->nombre : '';
+            $dir .= (!is_null($this->i_prm_cuadrante_vp_id)) ? ' ' . $this->cuadranteVp->nombre : '';
+            $dir .= (!is_null($this->i_via_generadora)) ? ' Nº ' . $this->i_via_generadora : '';
+            $dir .= (!is_null($this->i_prm_alfabetico_vg_id)) ? ' ' . $this->alfabeticoVg->nombre : '';
+            $dir .= (!is_null($this->i_placa_vg)) ? ' - ' . $this->i_placa_vg : '';
+            $dir .= (!is_null($this->i_prm_cuadrante_vg_id)) ? ' ' . $this->cuadranteVg->nombre : '';
+            $dir .= (!is_null($this->s_complemento)) ? ' ' . $this->s_complemento : '';
+        }else{
+            $dir = (!is_null($this->s_complemento)) ? ' ' . $this->s_complemento : '';
+        }
+
+
         return $dir;
     }
 

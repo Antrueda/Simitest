@@ -762,7 +762,6 @@ class TemasTableSeeder extends Seeder
             276 => $camposmagicos,
             736 => $camposmagicos,
             737 => $camposmagicos,
-            738 => $camposmagicos,
             739 => $camposmagicos,
             740 => $camposmagicos,
             741 => $camposmagicos,

@@ -6,9 +6,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateSisEntidadSaludsTable extends Migration
+class CreateSisEnprsasTable extends Migration
 {
-    private $tablaxxx = 'sis_entidad_saluds';
+    private $tablaxxx = 'sis_enprsas';
     /**
      * Run the migrations.
      *
@@ -18,13 +18,17 @@ class CreateSisEntidadSaludsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('sis_enprsa_id')->unsigned();
-            $table->foreign('sis_enprsa_id')->references('id')->on('sis_enprsas');
-            $table->bigInteger('i_prm_tentidad_id')->unsigned();
-            $table->foreign('i_prm_tentidad_id')->references('id')->on('parametros');
+            $table->string('s_enprsa')->unique();
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS EPS.'");
+
+        Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('s_enprsa');
+            $table = CamposMagicos::h_magicos($table);
+        });
+        DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
@@ -34,6 +38,7 @@ class CreateSisEntidadSaludsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('h_'.$this->tablaxxx);
         Schema::dropIfExists($this->tablaxxx);
     }
 }

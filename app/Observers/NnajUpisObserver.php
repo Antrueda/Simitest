@@ -2,10 +2,10 @@
 
 namespace App\Observers;
 
-use App\Models\fichaIngreso\NnajUpis;
-use App\Models\Logs\HNnajUpis;
+use App\Models\fichaIngreso\NnajUpi;
+use App\Models\Logs\HNnajUpi;
 
-class NnajUpisrObserver
+class NnajUpisObserver
 {
     private function getLog($modeloxx)
     {
@@ -14,6 +14,7 @@ class NnajUpisrObserver
         $log['id_old'] = $modeloxx->id;
         $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         $log['sis_depen_id'] = $modeloxx->sis_depen_id;
+        $log['prm_principa_id'] = $modeloxx->prm_principa_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
@@ -26,55 +27,55 @@ class NnajUpisrObserver
     /**
      * Handle the nnaj upis "created" event.
      *
-     * @param  \App\NnajUpis  $modeloxx
+     * @param  \App\NnajUpi  $modeloxx
      * @return void
      */
-    public function created(NnajUpis $modeloxx)
+    public function created(NnajUpi $modeloxx)
     {
-        HNnajUpis::create($this->getLog($modeloxx));
+        HNnajUpi::create($this->getLog($modeloxx));
     }
 
     /**
      * Handle the nnaj upis "updated" event.
      *
-     * @param  \App\NnajUpis  $modeloxx
+     * @param  \App\NnajUpi  $modeloxx
      * @return void
      */
-    public function updated(NnajUpis $modeloxx)
+    public function updated(NnajUpi $modeloxx)
     {
-        HNnajUpis::create($this->getLog($modeloxx));
+        HNnajUpi::create($this->getLog($modeloxx));
     }
 
     /**
      * Handle the nnaj upis "deleted" event.
      *
-     * @param  \App\NnajUpis  $modeloxx
+     * @param  \App\NnajUpi  $modeloxx
      * @return void
      */
-    public function deleted(NnajUpis $modeloxx)
+    public function deleted(NnajUpi $modeloxx)
     {
-        HNnajUpis::create($this->getLog($modeloxx));
+        HNnajUpi::create($this->getLog($modeloxx));
     }
 
     /**
      * Handle the nnaj upis "restored" event.
      *
-     * @param  \App\NnajUpis  $modeloxx
+     * @param  \App\NnajUpi  $modeloxx
      * @return void
      */
-    public function restored(NnajUpis $modeloxx)
+    public function restored(NnajUpi $modeloxx)
     {
-        HNnajUpis::create($this->getLog($modeloxx));
+        HNnajUpi::create($this->getLog($modeloxx));
     }
 
     /**
      * Handle the nnaj upis "force deleted" event.
      *
-     * @param  \App\NnajUpis  $modeloxx
+     * @param  \App\NnajUpi  $modeloxx
      * @return void
      */
-    public function forceDeleted(NnajUpis $modeloxx)
+    public function forceDeleted(NnajUpi $modeloxx)
     {
-        HNnajUpis::create($this->getLog($modeloxx));
+        HNnajUpi::create($this->getLog($modeloxx));
     }
 }

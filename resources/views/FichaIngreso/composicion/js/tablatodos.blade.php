@@ -91,6 +91,7 @@ $(document).ready(function() {
             $('#s_segundo_apellido').val(d.s_segundo_apellido);
             $('#s_segundo_nombre').val(d.s_segundo_nombre);
             $('#s_documento').val(d.s_documento);
+            $('#d_nacimiento').val(d.d_nacimiento);
             dataxxxx={
                     url:"{{ route('ajaxx.edad') }}",
                     data:{

@@ -514,6 +514,7 @@ class SisNnajsSeeder extends Seeder
             NnajUpi::create([
                 'sis_nnaj_id' => $i + 1,
                 'sis_depen_id' => 2,
+                'prm_principa_id'=>227,
               ]);
         }
     }

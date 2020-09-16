@@ -18,7 +18,7 @@ class CreateHSisEntidadSaludsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('s_nombre_entidad');
+            $table->bigInteger('sis_enprsa_id')->unsigned();
             $table->bigInteger('i_prm_tentidad_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });

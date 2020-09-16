@@ -11,25 +11,28 @@ class SisEntidadSalud extends Model
 {
     protected $fillable = [
         'id',
-        's_nombre_entidad',
+        'sis_enprsa_id',
         'i_prm_tentidad_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',];
 
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
-
+    public function sis_enprsa()
+    {
+        return $this->belongsTo(SisEnprsa::class);
+    }
     public static function combo($padrexxx,$cabecera,$esajaxxx)
     {
         if($cabecera){
-            if($esajaxxx){  
+            if($esajaxxx){
                 $comboxxx[] = ['valuexxx'=>'','optionxx'=>'Seleccione'];
             }else{
                 $comboxxx = [''=>'Seleccione'];
             }
-            
+
         }
-            
+
         $entidadx=SisEntidadSalud::where(function($query) use($padrexxx){
             if($padrexxx!=''){
                 $query->where('i_prm_tentidad_id',$padrexxx);
@@ -38,9 +41,9 @@ class SisEntidadSalud extends Model
         })->get();
         foreach ($entidadx as $entisalu) {
             if($esajaxxx){
-                $comboxxx[] = ['valuexxx'=>$entisalu->id, 'tentidad'=>$entisalu->i_prm_tentidad_id,'optionxx'=>$entisalu->s_nombre_entidad];
+                $comboxxx[] = ['valuexxx'=>$entisalu->id, 'tentidad'=>$entisalu->i_prm_tentidad_id,'optionxx'=>$entisalu->sis_enprsa->s_enprsa];
             }else{
-                $comboxxx[$entisalu->id] = $entisalu->s_nombre_entidad;
+                $comboxxx[$entisalu->id] = $entisalu->sis_enprsa->s_enprsa;
             }
 
         }

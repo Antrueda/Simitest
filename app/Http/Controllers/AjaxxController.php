@@ -65,7 +65,7 @@ class AjaxxController extends Controller
     private function getEdad($fechaxxx)
     {
         if ($fechaxxx['opcionxx'] == 2) {
-            $nacimien=NnajNacimi::where('fi_datos_basico_id',$fechaxxx['padrexxx'])->first();
+            $nacimien=FiDatosBasico::where('sis_nnaj_id',$fechaxxx['padrexxx'])->first()->nnaj_nacimi;
             $fechaxxx = explode('-', $nacimien->d_nacimiento);
         } else {
             $fechaxxx = explode('-', $fechaxxx['fechaxxx']);
@@ -129,6 +129,7 @@ class AjaxxController extends Controller
                         'dianoest' => true,
                         'mesnoest' => true,
                         'anonoest' => true,
+                        'institut' => false,
                     ]];
                     break;
                 case 228:
@@ -139,6 +140,7 @@ class AjaxxController extends Controller
                         'dianoest' => false,
                         'mesnoest' => false,
                         'anonoest' => false,
+                        'institut' => true,
                     ]];
                     break;
             }

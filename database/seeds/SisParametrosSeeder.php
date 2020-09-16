@@ -781,7 +781,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 760, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'BASUCO']);
         Parametro::create(['id' => 761, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTUDIO ACADÉMICO']);
         Parametro::create(['id' => 762, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FORMACIÓN TÉCNICA PARA EL TRABAJO']);
-        Parametro::create(['id' => 763, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLER VOCACIONAL/EMPRENDER']);
+        Parametro::create(['id' => 763, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TALLER VOCACIONAL/EMPRENDIMIENTO']);
         Parametro::create(['id' => 764, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ASESORÍA LEGAL']);
         Parametro::create(['id' => 765, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'APOYO PSICOSOCIAL']);
         Parametro::create(['id' => 766, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REALIZAR UN PROCESO DE RECUPERACIÓN FRENTE AL CONSUMO DE SPA']);

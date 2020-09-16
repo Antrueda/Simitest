@@ -103,6 +103,7 @@
                     type : 'POST',
                     dataType : 'json',
                     success : function(json) {
+                        $('#s_nombre_via,#s_nombre_via,#i_via_generadora,#i_placa_vg').val('');
                         $('#s_nombre_via').prop('readonly',json[0].nomviapr);
                         $('#i_via_generadora').prop('readonly',json[0].numerovg);
                         $('#i_placa_vg').prop('readonly',json[0].placavgx);

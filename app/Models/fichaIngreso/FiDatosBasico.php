@@ -205,7 +205,7 @@ class FiDatosBasico extends Model
                 /**
                  * agregar el nnaj a la composocion familiar
                  */
-                $dataxxxx['sis_nnajnnaj_id']=$dataxxxx['sis_nnaj_id'];
+                $dataxxxx['sis_nnajnnaj_id'] = $dataxxxx['sis_nnaj_id'];
                 $dataxxxx['i_prm_ocupacion_id'] = 1262;
                 $dataxxxx['i_prm_parentesco_id'] = 805;
                 $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
@@ -226,13 +226,17 @@ class FiDatosBasico extends Model
             'user_crea_id' => Auth::user()->id,
             'user_edita_id' => Auth::user()->id,
             'sis_esta_id' => 1,
+            'prm_principa_id' => 227,
+            'sis_depen_id' => $dataxxxx['sis_depen_id']
         ];
 
-        NnajUpi::where('sis_nnaj_id', $objetoxx->id)->delete();
-        foreach ($dataxxxx['sis_depen_id'] as $diagener) {
-            $datosxxx['sis_depen_id'] = $diagener;
-            NnajUpi::create($datosxxx);
-        }
+        NnajUpi::create($datosxxx);
+
+        // NnajUpi::where('sis_nnaj_id', $objetoxx->id)->delete();
+        // foreach ($dataxxxx['sis_depen_id'] as $diagener) {
+        //     $datosxxx['sis_depen_id'] = $diagener;
+        //     NnajUpi::create($datosxxx);
+        // }
     }
     public function sis_docfuen()
     {
