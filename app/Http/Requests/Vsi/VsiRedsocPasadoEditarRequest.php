@@ -19,9 +19,9 @@ class VsiRedsocPasadoEditarRequest extends FormRequest
         $this->_reglasx = [
             'nombre' => 'required|string|max:120',
             'servicio' => 'required|string|max:120',
-            'dia' => 'required|integer|min:0|max:99',
-            'mes' => 'required|integer|min:0|max:99',
-            'ano' => 'required|integer|min:0|max:99',
+            'dia' => 'nullable|integer|min:0|max:99',
+            'mes' => 'nullable|integer|min:0|max:99',
+            'ano' => 'nullable|integer|min:0|max:99',
             'ano_prestacion' => 'required|integer|min:2000|max:2030',
         ];
     }

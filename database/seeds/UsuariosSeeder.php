@@ -75,7 +75,7 @@ class UsuariosSeeder extends Seeder
         $this->getR($dataxxxx); // 2
 
         $dataxxxx['pnombrex'] = 'YENNY';
-        $dataxxxx['snombrex'] = 'ADREA';
+        $dataxxxx['snombrex'] = 'ANDREA';
         $dataxxxx['papellid'] = 'CORZO';
         $dataxxxx['sapellid'] = 'CÁCERES';
         $dataxxxx['document'] = '1031143437';
