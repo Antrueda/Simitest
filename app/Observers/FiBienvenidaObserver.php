@@ -15,7 +15,7 @@ class FiBienvenidaObserver
         // campos nuevos traidos desde $fillable -> modelo 
         $log['i_prm_quiere_entrar_id'] = $modeloxx->i_prm_quiere_entrar_id;
         $log['sis_depen_id'] = $modeloxx->sis_depen_id;
-        $log['i_prm_servicio_id'] = $modeloxx->i_prm_servicio_id;
+        
         $log['s_porque_quiere_entrar'] = $modeloxx->s_porque_quiere_entrar;
         $log['s_que_gustaria_hacer'] = $modeloxx->s_que_gustaria_hacer;
         $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;

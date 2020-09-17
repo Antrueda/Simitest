@@ -13,7 +13,7 @@ class FiBienvenida extends Model{
   protected $fillable = [
     'sis_depen_id',
     'i_prm_quiere_entrar_id',
-    'i_prm_servicio_id',
+    
     's_porque_quiere_entrar',
     's_que_gustaria_hacer',
     'sis_nnaj_id',

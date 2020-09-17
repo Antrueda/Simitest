@@ -1,6 +1,6 @@
 <div class="form-row align-items-end">
   <div class="form-group col-md-12">
-    {{ Form::label('qRazones', '17.1 Razones para ingresar al IDIPRON', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('qRazones', '17.1 Razones para ingresar al idipron/observaciones', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('s_porque_ingresar', null, ['rows' => 4, 'cols' => 40, 'style' => 'resize:none', 'id' => 's_porque_ingresar', 'class' => 'md-textarea form-control', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
     <p id="contadorporqueingresar">0/4000</p>
   </div>
