@@ -563,9 +563,9 @@ class AjaxxController extends Controller
                         'tiemspoa' => false,
                         'actuspoa' => Tema::combo(25, false, true),
                         'titispoa' => Tema::combo(152, false, true),
-                        'motispoa' => Tema::combo(45, false, true),
-                        'cumppena' => Tema::combo(45, false, true),
-                        'estapres' => Tema::combo(45, false, true),
+                        'motispoa' => Tema::combo(358, false, true),
+                        'cumppena' => Tema::combo(49, false, true),
+                        'estapres' => Tema::combo(25, false, true),
                     ]];
                     break;
                 default:

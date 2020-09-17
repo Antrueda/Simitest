@@ -64,7 +64,7 @@ class FiActividadestlCrearRequest extends FormRequest
                 $this->_mensaje['s_nombre_parche.required'] = 'Ingrese el nombre del parche o grupo';
                 $this->_reglasx['s_nombre_parche'] = 'required';
             }
-            if ($nnajxxxx->prm_tipoblaci_id != 2323) {
+            if ($nnajxxxx->prm_estrateg_id != 2323) {
                 $this->_mensaje['i_prm_acceso_recreacion_id.required']='Seleccione tiene acceso recreación';
                 $this->_mensaje['i_prm_practica_religiosa_id.required']='Seleccione tiene practicas religiosas';
                 $this->_mensaje['i_prm_religion_practica_id.required']='Seleccione la religión que practica';
@@ -77,11 +77,11 @@ class FiActividadestlCrearRequest extends FormRequest
                     $this->_mensaje['i_prm_sacramentos_hechos_id.required'] = 'Seleccione cual(es) sacramento(s) tiene';
                     $this->_reglasx['i_prm_sacramentos_hechos_id'] = 'required';
                 }
-                
+
             }
 
 
-            if ($nnajxxxx->prm_tipoblaci_id == 2323) {
+            if ($nnajxxxx->prm_estrateg_id == 2323) {
                 $this->_mensaje['prm_accione_id.required'] = 'Seleccione las acciones en las cuales presuntamente está en conflicto con la ley ha actuado ';
                 $this->_reglasx['prm_accione_id'] = 'required|array';
             }

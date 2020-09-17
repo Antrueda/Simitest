@@ -2,6 +2,9 @@
 <script>
 
     $(function(){
+        $('.select2').select2({
+            language: "es"
+        });
         var f_ajax=function(dataxxxx){
             $.ajax({
                     url : "{{ route('fiautorizacion.autoriza',[$todoxxxx['usuariox']->id]) }}",

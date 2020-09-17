@@ -2,19 +2,19 @@
   <div id="text" class="form-inline">
     <div class="input-group" style="display: inline-block;text-align: justify">
       <span class="input-group-addon" style="width:auto;">Yo, </span>
-      {{ Form::select('fi_compfami_id', $todoxxxx["autoriza"], null, ['class' => 'form-control-sm col-2','id'=>'fi_compfami_id']) }}
+      {{ Form::select('fi_compfami_id', $todoxxxx["autoriza"], null, ['class' => 'form-control-sm col-2 select2','id'=>'fi_compfami_id']) }}
       <span class="input-group-addon" style="width:auto;">, mayor de edad identificado(a) con la Cédula de Ciudadanía No.</span>
       <strong id="sdocumen">{{ $todoxxxx['sdocumen'] }} </strong>
       <span class="input-group-addon" style="width:auto;">de</span>
       <strong id="expedici">{{ $todoxxxx['expedici'] }} </strong>
       <span class="input-group-addon" style="width:auto;">, por medio del presente escrito AUTORIZO al Instituto Distrital para la Protección de la Niñez y la Juventud IDIPRON para que el/la joven</span>
       <strong>
-        {{ $todoxxxx['datobasi']->s_primer_nombre }}
-        {{ $todoxxxx['datobasi']->s_segundo_nombre }}
-        {{ $todoxxxx['datobasi']->s_primer_apellido }}
-        {{ $todoxxxx['datobasi']->s_segundo_apellido }}
+        {{ $todoxxxx['usuariox']->s_primer_nombre }}
+        {{ $todoxxxx['usuariox']->s_segundo_nombre }}
+        {{ $todoxxxx['usuariox']->s_primer_apellido }}
+        {{ $todoxxxx['usuariox']->s_segundo_apellido }}
       </strong> para que
-      {{ Form::select('i_prm_autorizo_id', $todoxxxx["condicio"], null, ['class' => 'form-control-sm col-2']) }}
+      {{ Form::select('i_prm_autorizo_id', $todoxxxx["condicio"], null, ['class' => 'form-control-sm col-2 select2']) }}
       <span class="input-group-addon" style="width:auto;">sea VINCULADO(A) al modelo pedagógico y participe en las diferentes actividades y salidas pedagógicas propias del Instituto o interinstitucionales.</span>
     </div>
   </div>
@@ -26,27 +26,27 @@
         <span class="input-group-addon" style="width:auto;">del NNA</span>
         <strong>
         <span class="input-group-addon" style="width:auto;" >
-          {{ $todoxxxx['datobasi']->s_primer_nombre }}
-          {{ $todoxxxx['datobasi']->s_segundo_nombre }}
-          {{ $todoxxxx['datobasi']->s_primer_apellido }}
-          {{ $todoxxxx['datobasi']->s_segundo_apellido }}
+          {{ $todoxxxx['usuariox']->s_primer_nombre }}
+          {{ $todoxxxx['usuariox']->s_segundo_nombre }}
+          {{ $todoxxxx['usuariox']->s_primer_apellido }}
+          {{ $todoxxxx['usuariox']->s_segundo_apellido }}
         </span>
         </strong>
         <span class="input-group-addon" style="width:auto;">de</span>
         <strong>
-        <span class="input-group-addon" style="width:auto;">{{ $todoxxxx['edadxxxx'] }}</span></strong>
+        <span class="input-group-addon" style="width:auto;">{{ $todoxxxx['usuariox']->nnaj_nacimi->Edad }}</span></strong>
         <span class="input-group-addon" style="width:auto;">años, identificado(a) con</span>
-        <span class="input-group-addon" style="width:auto;">{{ $todoxxxx['datobasi']->i_prm_documento_menor_id }}</span>
+
         <strong>
-          {{ $todoxxxx['datobasi']->tipoDocumento->nombre }}
+          {{ $todoxxxx['usuariox']->nnaj_docu->tipoDocumento->nombre }}
         </strong>
         <span class="input-group-addon" style="width:auto;">Nº</span>
         <strong>
-          {{ $todoxxxx['datobasi']->s_documento }}
+          {{ $todoxxxx['usuariox']->nnaj_docu->s_documento }}
         </strong>
 
         <span class="input-group-addon" style="width:auto;">. Esta decisión la tomé en concertación con mi</span>
-        <strong>{{ Form::select('i_prm_parentesco_id', $todoxxxx["parentes"], null, ['class' => 'form-control-sm col-2']) }} </strong>
+        <strong>{{ Form::select('i_prm_parentesco_id', $todoxxxx["parentes"], null, ['class' => 'form-control-sm col-2 select2']) }} </strong>
         <span class="input-group-addon" style="width:auto;">, una vez conocida la misionalidad del INSTITUTO, así como sus políticas, objetivos y ejes estratégicos, esto con el fin de ser corresponsable
             del proceso pedagógico establecido para garantizar el goce efectivo de derechos. Así mismo, me comprometo con su protección integral y a cumplir con
             la responsabilidad, otorgadas por la Ley Colombiana como representante legal y/o tutor(a), de acuerdo a lo establecido en la Constitución Nacional,
@@ -62,7 +62,7 @@
     <div class="input-group" style="display: inline-block;text-align: justify">
         <span class="input-group-addon" style="width:auto;">Igualmente, manifiesto que ACEPTO que dicho proceso sea realizado en las UNIDADES DE PROTECCIÓN INTEGRAL ubicadas dentro y fuera de la Ciudad de Bogotá, en la modalidad de:</span>
         <select id="i_prm_modalidad_id" name="i_prm_modalidad_id[]"
-        class="col-3" multiple="multiple">
+        class="col-3 select2" multiple="multiple">
           @foreach ($todoxxxx["modalupi"] as $valuexxx => $optionxx)
           <?php $situavux='' ?>
           @foreach ($todoxxxx["modaling"]['modaling'] as $situacx)
@@ -86,7 +86,7 @@
             {{ Form::date('d_autorizacion', null, ['class' => 'form-control-sm col-2',$todoxxxx["readonly"]]) }}
             <hr width=80%>
             <br><span class="input-group-addon" style="width:auto;">Tipo de diligenciamiento</span>
-            {{ Form::select('i_prm_tipo_diligencia_id', $todoxxxx["tipodili"], null, ['class' => 'form-control-sm']) }}
+            {{ Form::select('i_prm_tipo_diligencia_id', $todoxxxx["tipodili"], null, ['class' => 'form-control-sm select2']) }}
     </div>
   </div>
 </div>
