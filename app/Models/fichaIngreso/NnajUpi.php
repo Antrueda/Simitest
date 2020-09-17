@@ -37,7 +37,7 @@ class NnajUpi extends Model
     {
         return $this->belongsTo(SisNnaj::class);
     }
-    public function sis_depens()
+    public function sis_depen()
     {
         return $this->belongsTo(SisDepen::class);
     }

@@ -54,12 +54,12 @@ class FiContactoCrearRequest extends FormRequest
 
         switch($dataxxxx['i_prm_tipo_contacto_id']){
             case 813:
-            $this->_mensaje['s_contacto_condicion.required'] ='Escriba el número de semanas';
+            $this->_mensaje['s_contacto_condicion.required'] ='Escriba el contacto por condición';
             $this->_reglasx['s_contacto_condicion']='required';
             break;
 
             case 814:
-            $this->_mensaje['i_prm_contacto_opcion_id.required'] ='Escriba el número de semanas';
+            $this->_mensaje['i_prm_contacto_opcion_id.required'] ='Seleccione el contacto por opción';
             $this->_reglasx['i_prm_contacto_opcion_id']='required';
             break;
 

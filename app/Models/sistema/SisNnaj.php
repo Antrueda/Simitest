@@ -14,6 +14,7 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\Salud\Mitigacion\Vspa;
 
@@ -80,4 +81,10 @@ class SisNnaj extends Model{
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
     }
+
+    public function nnaj_upis()
+    {
+        return $this->hasMany(NnajUpi::class);
+    }
+
 }

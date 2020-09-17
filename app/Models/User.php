@@ -209,6 +209,39 @@ class User extends Authenticatable
         }
         return $comboxxx;
     }
+
+
+    
+    private static function userComboUpi($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['esajaxxx']) {
+                $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+        $upixxxxx = SisDepeUsua::select(['user_id'])
+            ->where(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('sis_depen_id', $dataxxxx);
+                $queryxxx->where('sis_esta_id', 1);
+                return $queryxxx;
+            })->get();
+
+
+        foreach ($upixxxxx as $$upisxxxx) {
+            if ($dataxxxx['esajaxxx']) {
+                $comboxxx[] = ['valuexxx' => $upisxxxx->id, 'optionxx' => $upisxxxx->getDocNombreCompletoAttribute()];
+            } else {
+                $comboxxx[$upisxxxx->id] = $upisxxxx->getDocNombreCompletoAttribute();
+            }
+        }
+
+
+
+        return $comboxxx;
+    }
     public static function combo($cabecera, $ajaxxxxx)
     {
         return User::userCombo(['cabecera' => $cabecera, 'ajaxxxxx' => $ajaxxxxx, 'notinxxx' => false]);
@@ -283,7 +316,7 @@ class User extends Authenticatable
             }
         }
         /**
-         * En el caso de que el usuario tenga inactiva el area se para que el combo quede con el area que se le asi
+         * En el caso de que el usuario tenga inactiva el area es para que el combo quede con el area que se le asi
          * asigno sin importar el estado
          */
         if (isset($dataxxxx['areasele'])) {

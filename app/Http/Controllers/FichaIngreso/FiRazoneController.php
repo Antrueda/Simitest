@@ -26,7 +26,7 @@ class FiRazoneController extends Controller
         $this->opciones['carpetax'] = 'Razones';
         $this->opciones['slotxxxx'] = 'firazones';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "CONTACTO CON IDPRON Y TRATAMIENTO DE DATOS";
+        $this->opciones['tituloxx'] = "RAZONES PARA ENTRAR AL IDIPRON";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';
@@ -70,13 +70,27 @@ class FiRazoneController extends Controller
 
 
         $this->opciones['usuarios'] = User::combo(true, false);
+
         $this->opciones['estadoxx'] = 'ACTIVO';
 
+        $dependen = [];
+        foreach ($dataxxxx['padrexxx']->sis_nnaj->nnaj_upis as $key => $value) {
+            if ($value->prm_principa_id = 227) {
+                $dependen = $value;
+            }
+        }
+
+        foreach ($dependen->sis_depen->getDepeUsua as $key => $value) {
+            if ($value->i_prm_responsable_id = 227) {
+                $dependen = $value;
+            }
+        }
 
         $this->opciones['depedile'] = [];
-        $this->opciones['deperesp'] = [];
+        $this->opciones['usuarioz'] = [$dependen->user->id=>$dependen->user->name];
+        $this->opciones['deperesp'] = User::getAreasUser(['cabecera'=>true,'esajaxxx'=>false]);
         $this->opciones['cargodil'] = '';
-        $this->opciones['cargores'] = '';
+        $this->opciones['cargores'] = $dependen->user->sis_cargo->s_cargo;
         // indica si se esta actualizando o viendo
         $vercrear = false;
         $parametr = 0;
@@ -92,6 +106,7 @@ class FiRazoneController extends Controller
             $this->opciones['cargodil'] = $dilegenc[1];
             $this->opciones['cargores'] = $responsa[1];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+            ddd($dilegenc);
         }
 
         $this->opciones['tablasxx'] = [

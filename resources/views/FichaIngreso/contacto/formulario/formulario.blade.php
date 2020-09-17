@@ -17,7 +17,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('d_fecha_remite_id', 'Fecha de remisión', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('d_fecha_remite_id', \Carbon\Carbon::now(), ['class' => 'form-control form-control-sm']) }}
+        {{ Form::date('d_fecha_remite_id',null,['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_motivo_contacto_id', 'Motivo', ['class' => 'control-label col-form-label-sm']) }}

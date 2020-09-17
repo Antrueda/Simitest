@@ -384,7 +384,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 363, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Casa por cárcel']);
         Parametro::create(['id' => 364, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Prófugo de la justicia']);
         Parametro::create(['id' => 365, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MAÑANA']);
-        Parametro::create(['id' => 366, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FAMILIA NO PROTECTORA(AUSENCIA, NEGLIGENCIA E INOBSERVANCIA DE (OS) PROGENITORES)']);
+        Parametro::create(['id' => 366, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FAMILIA NO PROTECTORA(Ausencia de personas progenitoras o cuidadoras)']);
         Parametro::create(['id' => 367, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'QUINCENAL']);
         Parametro::create(['id' => 368, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'POTENCIALIDAD']);
         Parametro::create(['id' => 369, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'META']);

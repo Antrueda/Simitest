@@ -53,6 +53,8 @@ class FiContactoController extends Controller
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
 
         $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['mindatex'] = "-28y +0m +0d";
+        $this->opciones['maxdatex'] = "+0y +0m +0d";
 
         // indica si se esta actualizando o viendo
 

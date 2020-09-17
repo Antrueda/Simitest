@@ -42,7 +42,7 @@
 
   <div class="form-group col-md-6">
     {{ Form::label('userr_id', '17.4 Persona Resposable / Encargado', ['class' => 'control-label']) }}
-    {{ Form::select('userr_id', $todoxxxx['usuarios'], null, ['class' => $errors->first('userr_id') ?
+    {{ Form::select('userr_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('userr_id') ?
     'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos',
     'data-placeholder' => 'Digite el responsable']) }}
     @if($errors->has('userr_id'))
