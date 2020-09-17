@@ -425,7 +425,6 @@ class SisNnajsSeeder extends Seeder
         $faker = Faker::create('es_ES');
         for ($i = 0; $i < count($cedulasx); $i++) {
             SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1,'prm_escomfam_id'=>227]);
-
             DB::table('fi_datos_basicos')->insert(array(
                 's_primer_nombre' => $faker->firstName,
                 's_segundo_nombre' => $faker->firstName,

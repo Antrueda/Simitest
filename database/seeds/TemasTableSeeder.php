@@ -3340,7 +3340,7 @@ class TemasTableSeeder extends Seeder
         ]); //357
 $this->getR([
             'nombrexx' => 'motivo vinculacion SPOA',
-            'parametr' => [346,347,348,349,350,360]
+            'parametr' => [346,347,348,349,350,360,352,351]
         ]); //358
 
         // $this->getR([

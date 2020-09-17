@@ -70,8 +70,16 @@ public function getNotInt()
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->join('nnaj_upis','fi_datos_basicos.sis_nnaj_id','=','nnaj_upis.sis_nnaj_id')
             ->where('sis_nnajs.prm_escomfam_id',227)
-            ->whereIn('nnaj_upis.sis_depen_id',$this->getNotInt())->groupBy('fi_datos_basicos.sis_nnaj_id')
-            ;
+            ->whereIn('nnaj_upis.sis_depen_id',$this->getNotInt())->groupBy(['fi_datos_basicos.sis_nnaj_id','fi_datos_basicos.id','fi_datos_basicos.s_primer_nombre',
+            'nnaj_docus.s_documento',
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
+            'fi_datos_basicos.sis_esta_id',
+            'fi_datos_basicos.created_at',
+            'sis_estas.s_estado',
+            'fi_datos_basicos.user_crea_id',]);
+            
         return $this->getDtAcciones($dataxxxx, $request);
     }
     public function getNnajsFi2user($request)

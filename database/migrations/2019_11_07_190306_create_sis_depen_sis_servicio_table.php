@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class CreateSisDepenSisServicioTable extends Migration
 {
-    private $tablaxxx = 'sis_depen_sis_servicio';
+    private $tablaxxx = 'sis_depeservs';
     /**
      * Run the migrations.
      *

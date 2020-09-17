@@ -19,6 +19,7 @@ class FiCompfamiUpdateRequest extends FormRequest
             'd_nacimiento.required' => 'Seleccione la fecha de nacimiento',
             'prm_reprlega_id.required' => 'Indique si es el representante legal',
             's_telefono.required' => 'Ingrese un número de teléfono',
+            's_documento.required'=> 'Ingrese el número de documento',
         ];
 
         $this->_reglasx = [
@@ -29,6 +30,7 @@ class FiCompfamiUpdateRequest extends FormRequest
             'prm_reprlega_id'=>['required'],
             'd_nacimiento' => ['required'],
             's_telefono' => ['required'],
+            's_documento'=>['required'],
         ];
     }
     /**
@@ -59,5 +61,7 @@ class FiCompfamiUpdateRequest extends FormRequest
 
     public function validar()
     {
+        $this->_mensaje['s_documento']='';
+        $this->_reglasx['s_documento'][1]='unique:nnaj_docus,s_documento';
     }
 }

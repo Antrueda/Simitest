@@ -35,14 +35,14 @@ class DependenciaApi
     public static function getServiciosDependencia($request)
     {
         $dataxxxx = SisServicio::select([
-            'sis_depen_sis_servicio.id',
+            'sis_depeservs.id',
             'sis_servicios.s_servicio',
-            'sis_depen_sis_servicio.sis_esta_id',
+            'sis_depeservs.sis_esta_id',
             'sis_estas.s_estado'
         ])
-            ->join('sis_depen_sis_servicio', 'sis_servicios.id', '=', 'sis_depen_sis_servicio.sis_servicio_id')
-            ->join('sis_estas', 'sis_depen_sis_servicio.sis_esta_id', '=', 'sis_estas.id')
-            ->where('sis_depen_sis_servicio.sis_depen_id', $request->padrexxx);
+            ->join('sis_depeservs', 'sis_servicios.id', '=', 'sis_depeservs.sis_servicio_id')
+            ->join('sis_estas', 'sis_depeservs.sis_esta_id', '=', 'sis_estas.id')
+            ->where('sis_depeservs.sis_depen_id', $request->padrexxx);
         return DatatableHelper::getDtGeneral($dataxxxx, $request);
     }
     public static function getDependenciaUser($request)

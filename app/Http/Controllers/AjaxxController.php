@@ -398,7 +398,7 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $respuest = [
-                'prosalud' => $dataxxxx['padrexxx'] == 228 ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : Tema::combo(87, false, true),
+                'prosalud' => $dataxxxx['padrexxx'] == 228 ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : Tema::combo(301, false, true),
             ];
             return response()->json($respuest);
         }
