@@ -65,13 +65,12 @@ public function getNotInt()
             'sis_estas.s_estado',
             'fi_datos_basicos.user_crea_id',
             ])
-
+            ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
-            ->join('users','fi_datos_basicos.user_crea_id','=','users.id')
             ->join('nnaj_upis','fi_datos_basicos.sis_nnaj_id','=','nnaj_upis.sis_nnaj_id')
-
-            ->whereIn('nnaj_upis.sis_depen_id',$this->getNotInt());
+            ->where('sis_nnajs.prm_escomfam_id',227)
+            ->whereIn('nnaj_upis.sis_depen_id',$this->getNotInt())->groupBy('fi_datos_basicos.sis_nnaj_id')
             ;
         return $this->getDtAcciones($dataxxxx, $request);
     }
@@ -165,7 +164,7 @@ public function getNotInt()
             ->join('fi_compfamis', 'fi_enfermedades_familias.fi_compfami_id', '=', 'fi_compfamis.id')
             ->join('fi_datos_basicos', 'fi_compfamis.sis_nnaj_id', '=', 'fi_datos_basicos.sis_nnaj_id')
             ->join('sis_estas', 'fi_enfermedades_familias.sis_esta_id', '=', 'sis_estas.id')
-            ->where('fi_datos_basicos.sis_nnaj_id', $request->padrexxx);
+            ->where('fi_saluds.sis_nnaj_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
     public function getAntecedentesTrait($request)

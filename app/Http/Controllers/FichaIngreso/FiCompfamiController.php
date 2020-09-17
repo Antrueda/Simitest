@@ -174,7 +174,9 @@ class FiCompfamiController extends Controller
             $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
             $dataxxxx['modeloxx']->sis_departamento_id = $datosbas->nnaj_docu->sis_municipio->sis_departamento_id;
             $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamento_id, false);
-
+            if ($dataxxxx['modeloxx']->sis_pai_id != 2) {
+                $this->opciones['municipi'] = $this->opciones['departam'] = [1 => 'NO APLICA'];
+            }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
@@ -343,6 +345,31 @@ class FiCompfamiController extends Controller
             }
 
             return response()->json($dataxxxx);
+        }
+    }
+
+    public function getDepaMuni(Request $request)
+    {
+        if ($request->ajax()) {
+            $dataxxxx = $request->all();
+            $respuest = [];
+            switch ($dataxxxx['tipoxxxx']) {
+                case 'sis_departamento_id':
+                    $comboxxx = SisMunicipio::combo($dataxxxx['padrexxx'], true);
+                    if ($dataxxxx['padrexxx'] == 1) {
+                        $comboxxx = [['valuexxx' => 1, 'optionxx' => 'NO APLICA']];
+                    }
+                    $respuest = ['comboxxx' => $comboxxx, 'campoxxx' => 'sis_municipio_id', 'limpiarx' => '#sis_municipio_id'];
+                    break;
+                case 'sis_pai_id':
+                    $comboxxx = [['valuexxx' => 1, 'optionxx' => 'NO APLICA']];
+                    if ($dataxxxx['padrexxx'] == 2) {
+                        $comboxxx = SisDepartamento::combo($dataxxxx['padrexxx'], true);
+                    }
+                    $respuest = ['comboxxx' => $comboxxx, 'campoxxx' => 'sis_departamento_id', 'limpiarx' => '#sis_departamento_id,#sis_municipio_id'];
+                    break;
+            }
+            return response()->json($respuest);
         }
     }
 }

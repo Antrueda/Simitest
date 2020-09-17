@@ -18,14 +18,14 @@ class FiEnfermedadesFamiliaCrearRequest extends FormRequest
             'i_prm_recibe_medicina_id.required' => 'Indique si recibe algún medicina',
             'i_prm_rec_tratamiento_id.required' => 'Indique si recibe algún tratamiento',
             's_tipo_enfermedad.required' => 'Escriba el nombre de la enfermedad',
-            's_medicamento.required' => 'escriba el nombre del medicamento',
+
         ];
         $this->_reglasx = [
             'fi_compfami_id' => ['required'],
             'i_prm_recibe_medicina_id' => ['required'],
             'i_prm_rec_tratamiento_id' => ['required'],
             's_tipo_enfermedad' => ['required'],
-            's_medicamento' => ['required'],
+
         ];
     }
     /**
@@ -56,7 +56,10 @@ class FiEnfermedadesFamiliaCrearRequest extends FormRequest
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        if($this->i_prm_recibe_medicina_id==227){
+            $this->_mensaje['s_medicamento.required'] = 'escriba el nombre del medicamento';
+            $this->_reglasx['s_medicamento'] = ['required'];
+        }
 
     }
 }

@@ -89,27 +89,31 @@ class FiSaludCrearRequest extends FormRequest
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
 
-        switch ($dataxxxx['i_prm_esta_gestando_id']) {
-            case 227:
-                $this->_mensaje['i_numero_semanas.required'] = 'Escriba el número de semanas';
-                $this->_reglasx['i_numero_semanas'] = 'required';
-                break;
-        }
         $datosbas = FiDatosBasico::find($this->segments()[1]);
+
         if ($datosbas->prm_estrateg_id == 2323) {
-            $this->_mensaje['prm_victataq_id.required'] = 'Seleccione al menos una forma de ataque';
-            $this->_mensaje['prm_discausa_id.required'] = 'Seleccione al menos una causa de discapacidad';
-            $this->_reglasx['prm_victataq_id'] = ['required'];
-            $this->_reglasx['prm_discausa_id'] = ['required'];
-        }
+                $this->_mensaje['prm_victataq_id.required'] = 'Seleccione al menos una forma de ataque';
+                $this->_mensaje['prm_discausa_id.required'] = 'Seleccione al menos una causa de discapacidad';
+                $this->_reglasx['prm_victataq_id'] = ['required'];
+                $this->_reglasx['prm_discausa_id'] = ['required'];
+            }
+        if ($datosbas->nnaj_sexo->prm_sexo_id != 20) {
+            switch ($dataxxxx['i_prm_esta_gestando_id']) {
+                case 227:
+                    $this->_mensaje['i_numero_semanas.required'] = 'Escriba el número de semanas';
+                    $this->_reglasx['i_numero_semanas'] = 'required';
+                    break;
+            }
 
-        switch ($dataxxxx['i_prm_esta_lactando_id']) {
-            case 227:
-                $this->_mensaje['i_numero_meses.required'] = 'Escriba el número de meses';
-                $this->_reglasx['i_numero_meses'] = 'required';
-                break;
-        }
 
+
+            switch ($dataxxxx['i_prm_esta_lactando_id']) {
+                case 227:
+                    $this->_mensaje['i_numero_meses.required'] = 'Escriba el número de meses';
+                    $this->_reglasx['i_numero_meses'] = 'required';
+                    break;
+            }
+        }
         switch ($dataxxxx['i_prm_tiene_hijos_id']) {
             case 227:
                 $this->_mensaje['i_numero_hijos.required'] = 'Escriba el número de hijos';
@@ -120,7 +124,7 @@ class FiSaludCrearRequest extends FormRequest
         switch ($dataxxxx['i_prm_tiene_problema_salud_id']) {
             case 227:
                 $this->_mensaje['i_prm_problema_salud_id.required'] = 'Escriba el problema de salud';
-             //   $this->_reglasx['i_prm_problema_salud_id'] = 'required';
+                //   $this->_reglasx['i_prm_problema_salud_id'] = 'required';
                 break;
         }
 

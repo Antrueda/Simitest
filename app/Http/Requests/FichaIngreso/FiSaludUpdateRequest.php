@@ -84,51 +84,52 @@ class FiSaludUpdateRequest extends FormRequest
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
         $datosbas = FiDatosBasico::find($this->segments()[1]);
-        if ($datosbas->prm_estrateg_id == 2323) {
-            $this->_mensaje['prm_victataq_id.required'] = 'Seleccione al menos una forma de ataque';
-            $this->_mensaje['prm_discausa_id.required'] = 'Seleccione al menos una causa de discapacidad';
-            $this->_reglasx['prm_victataq_id'] = ['required'];
-            $this->_reglasx['prm_discausa_id'] = ['required'];
+         if ($datosbas->prm_estrateg_id == 2323) {
+                $this->_mensaje['prm_victataq_id.required'] = 'Seleccione al menos una forma de ataque';
+                $this->_mensaje['prm_discausa_id.required'] = 'Seleccione al menos una causa de discapacidad';
+                $this->_reglasx['prm_victataq_id'] = ['required'];
+                $this->_reglasx['prm_discausa_id'] = ['required'];
+            }
+        if ($datosbas->nnaj_sexo->prm_sexo_id != 20) {
+
+            switch ($dataxxxx['i_prm_esta_gestando_id']) {
+                case 227:
+                    $this->_mensaje['i_numero_semanas.required'] = 'Escriba el número de semanas';
+                    $this->_reglasx['i_numero_semanas'] = 'required';
+                    break;
+            }
+
+            switch ($dataxxxx['i_prm_esta_lactando_id']) {
+                case 227:
+                    $this->_mensaje['i_numero_meses.required'] = 'Escriba el número de meses';
+                    $this->_reglasx['i_numero_meses'] = 'required';
+                    break;
+            }
         }
-        switch($dataxxxx['i_prm_esta_gestando_id']){
+        switch ($dataxxxx['i_prm_tiene_hijos_id']) {
             case 227:
-            $this->_mensaje['i_numero_semanas.required'] ='Escriba el número de semanas';
-            $this->_reglasx['i_numero_semanas']='required';
-            break;
+                $this->_mensaje['i_numero_hijos.required'] = 'Escriba el número de hijos';
+                $this->_reglasx['i_numero_hijos'] = 'required';
+                break;
         }
 
-        switch($dataxxxx['i_prm_esta_lactando_id']){
+        switch ($dataxxxx['i_prm_tiene_problema_salud_id']) {
             case 227:
-            $this->_mensaje['i_numero_meses.required'] ='Escriba el número de meses';
-            $this->_reglasx['i_numero_meses']='required';
-            break;
+                $this->_mensaje['i_prm_problema_salud_id.required'] = 'Escriba el problema de salud';
+                //$this->_reglasx['i_prm_problema_salud_id']='required';
+                break;
         }
 
-        switch($dataxxxx['i_prm_tiene_hijos_id']){
+        switch ($dataxxxx['i_prm_consume_medicamentos_id']) {
             case 227:
-            $this->_mensaje['i_numero_hijos.required'] ='Escriba el número de hijos';
-            $this->_reglasx['i_numero_hijos']='required';
-            break;
+                $this->_mensaje['s_cual_medicamento.required'] = 'Escriba el nombre del medicamento';
+                $this->_reglasx['s_cual_medicamento'] = 'required';
+                break;
         }
 
-        switch($dataxxxx['i_prm_tiene_problema_salud_id']){
-            case 227:
-            $this->_mensaje['i_prm_problema_salud_id.required'] ='Escriba el problema de salud';
-            //$this->_reglasx['i_prm_problema_salud_id']='required';
-            break;
+        if ($dataxxxx['d_puntaje_sisben'] == '') {
+            $this->_mensaje['i_prm_tiene_sisben_id.required'] = 'Seleccione porqué no tiene Sisben';
+            $this->_reglasx['i_prm_tiene_sisben_id'] = 'required';
         }
-
-        switch($dataxxxx['i_prm_consume_medicamentos_id']){
-            case 227:
-            $this->_mensaje['s_cual_medicamento.required'] ='Escriba el nombre del medicamento';
-            $this->_reglasx['s_cual_medicamento']='required';
-            break;
-        }
-
-        if ($dataxxxx['d_puntaje_sisben'] == ''){
-            $this->_mensaje['i_prm_tiene_sisben_id.required'] ='Seleccione porqué no tiene Sisben';
-            $this->_reglasx['i_prm_tiene_sisben_id']='required';
-        }
-
     }
-    }
+}

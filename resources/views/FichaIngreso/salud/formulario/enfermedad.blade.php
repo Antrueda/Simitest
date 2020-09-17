@@ -19,7 +19,7 @@
     </div>
     <div class="form-group col-md-8">
       {{ Form::label('s_medicamento', 'Cuál(es)', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('s_medicamento', null, ['class' => 'form-control form-control-sm',
+      {{ Form::text('s_medicamento', null, ['class' => 'form-control form-control-sm',$todoxxxx['disabled'],
      "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) }}
     </div>
     <div class="form-group col-md-2">

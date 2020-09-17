@@ -57,24 +57,11 @@
         {{ Form::label('i_prm_disc_perm_independencia_id', '6.6 ¿Su nivel de discapacidad le permite independencia en la ejecución de sus actividades cotidianas?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_disc_perm_independencia_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_esta_gestando_id', '6.7 ¿Se encuentra en estado de gestación?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_esta_gestando_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm select2']) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('i_numero_semanas', 'Número de semanas', ['class' => 'control-label col-form-label-sm']) }}
-        {{-- {{ Form::text('i_numero_semanas', null, ['class' => 'form-control form-control-sm', $todoxxxx['readgest'], "onkeypress" => "return soloNumeros(event);"]) }} --}}
-        {{ Form::number('i_numero_semanas', null, ['class' => $errors->first('i_numero_semanas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $todoxxxx['readgest'], 'placeholder' => 'Edad', 'min' => '1', 'max' => '42']) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_esta_lactando_id', '6.8 ¿Se encuentra lactando?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_esta_lactando_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm select2']) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('i_numero_meses', 'Número de meses', ['class' => 'control-label col-form-label-sm']) }}
-        {{-- {{ Form::text('i_numero_meses', null, ['class' => 'form-control form-control-sm', $todoxxxx['readlact'], "onkeypress" => "return soloNumeros(event);"]) }} --}}
-        {{ Form::number('i_numero_meses', null, ['class' => $errors->first('i_numero_meses') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $todoxxxx['readlact'], 'placeholder' => 'Edad', 'min' => '1', 'max' => '60']) }}
-    </div>
+
+    @if($todoxxxx['usuariox']->nnaj_sexo->prm_sexo_id!=20)
+    @include('FichaIngreso.Salud.Formulario.mujer')
+    @endif
+
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_tiene_problema_salud_id', '6.9 ¿Presenta algún problema de salud?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_tiene_problema_salud_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
@@ -138,7 +125,7 @@
     @if(isset($todoxxxx['puedexxx']))
     {{-- Enfermedades de miembros de la familia --}}
     <div class="form-group col-md-12">
-        <div class="card card-outline card-secondary" style="{{ $todoxxxx['tablread'] }}">
+        <div class="card card-outline card-secondary">
             <div class="card-header">
                 <h3 class="card-title">
                     {{ Form::label('qMetAntVol', '6.17 ¿Qué persona de su familia ha sido diagnosticada con alguna enfermedad?', ['class' => 'control-label col-form-label-sm']) }}

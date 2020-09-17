@@ -4,7 +4,7 @@ namespace App\Observers;
 
 
 use App\Models\Sistema\SisDocfuen;
-use App\Models\sistema\Logs\HSisDocfuen;
+use App\Models\Sistema\Logs\HSisDocfuen;
 
 class SisDocumentoFuenteObserver
 {

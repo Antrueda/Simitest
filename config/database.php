@@ -51,7 +51,7 @@ return [
             'collation' => 'utf8mb4_spanish_ci',
             'prefix' => '',
             'prefix_indexes' => true,
-            'strict' => true,
+            'strict' => false,
             // 'engine' => null,
             'engine' => 'InnoDB',
             'options' => extension_loaded('pdo_mysql') ? array_filter([

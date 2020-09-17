@@ -250,8 +250,8 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 229, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SENSORIAL (AUDITIVA)']);
         Parametro::create(['id' => 230, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SENSORIAL (VISUAL)']);
         Parametro::create(['id' => 231, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FÍSICA/MOTORA (INCLUYE TALLA BAJA)']);
-        Parametro::create(['id' => 232, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INTELECTUAL/COGNITIVA']);
-        Parametro::create(['id' => 233, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MENTAL/SICOSOCIAL']);
+        Parametro::create(['id' => 232, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COGNITIVA']);
+        Parametro::create(['id' => 233, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MENTAL']);
         Parametro::create(['id' => 234, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SALÓN COMUNAL']);
         Parametro::create(['id' => 235, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'N/A']);
         Parametro::create(['id' => 236, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NO SABE']);
@@ -848,7 +848,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 827, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FS']);
         Parametro::create(['id' => 828, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VIRTUAL']);
         Parametro::create(['id' => 829, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NO FUE A LA ESCUELA']);
-        Parametro::create(['id' => 830, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INICIAL PREESCOLAR']);
+        Parametro::create(['id' => 830, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INICIAL/PREESCOLAR']);
         Parametro::create(['id' => 831, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PRIMARIA']);
         Parametro::create(['id' => 832, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'BÁSICA SECUNDARIA']);
         Parametro::create(['id' => 833, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'BACHILLERATO ']);
@@ -2367,7 +2367,7 @@ class SisParametrosSeeder extends Seeder
 
 
 
-        $this->getR(['nombrexx' => 'PRESENTU ACTIVIDAD EN CONFLICTO CON LA LEY']); //2337
+        $this->getR(['nombrexx' => 'PRESENTA ACTIVIDAD EN CONFLICTO CON LA LEY']); //2337
 
         $this->getR(['nombrexx' => 'GRUPO']); //2338
         $this->getR(['nombrexx' => 'PANDILLA']); //2339
@@ -2387,18 +2387,111 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'FINES DE SEMANA']); //2352
         $this->getR(['nombrexx' => 'JORNADA COMPLETA']); //2353
         $this->getR(['nombrexx' => 'GRAFFITI']); //2354
-        $this->getR(['nombrexx' => '1995']); //2355
-        $this->getR(['nombrexx' => '1998']); //2356
-        $this->getR(['nombrexx' => '1999']); //2357
-        $this->getR(['nombrexx' => '2000']); //2358
-        $this->getR(['nombrexx' => '2001']); //2359
-        $this->getR(['nombrexx' => '2002']); //2360
-        $this->getR(['nombrexx' => '2003']); //2361
-        
-      
 
 
 
+        $this->getR(['nombrexx' => 'Bora']);//2355
+        $this->getR(['nombrexx' => 'Kawiyari']);//2356
+        $this->getR(['nombrexx' => 'Yuri']);//2357
+        $this->getR(['nombrexx' => 'Carapana']);//2358
+        $this->getR(['nombrexx' => 'Karijona']);//2359
+        $this->getR(['nombrexx' => 'Chimila']);//2360
+        $this->getR(['nombrexx' => 'Chiricoa']);//2361
+        $this->getR(['nombrexx' => 'Cocama']);//2362
+        $this->getR(['nombrexx' => 'Coconuco']);//2363
+        $this->getR(['nombrexx' => 'Coreguaje']);//2364
+        $this->getR(['nombrexx' => 'Coyaima Natagaima']);//2365
+        $this->getR(['nombrexx' => 'Awa Kuaiker']);//2366
+        $this->getR(['nombrexx' => 'Kubeo']);//2367
+        $this->getR(['nombrexx' => 'Kuiba']);//2368
+        $this->getR(['nombrexx' => 'Tule']);//2369
+        $this->getR(['nombrexx' => 'Kurripako']);//2370
 
+        $this->getR(['nombrexx' => 'Desano']);//2371
+        $this->getR(['nombrexx' => 'Dujos']);//2372
+        $this->getR(['nombrexx' => 'Embera']);//2373
+        $this->getR(['nombrexx' => 'Embera Katio']);//2374
+        $this->getR(['nombrexx' => 'Embera Chami']);//2375
+        $this->getR(['nombrexx' => 'Eperara Siapidara']);//2376
+        $this->getR(['nombrexx' => 'Guambiano']);//2377
+        $this->getR(['nombrexx' => 'Guanaca']);//2378
+        $this->getR(['nombrexx' => 'Wanano']);//2379
+        $this->getR(['nombrexx' => 'Guayabero']);//2380
+        $this->getR(['nombrexx' => 'Cañamomo']);//2381
+        $this->getR(['nombrexx' => 'Inga']);//2382
+        $this->getR(['nombrexx' => 'KamÃ«ntsa']);//2383
+        $this->getR(['nombrexx' => 'Kofan']);//2384
+        $this->getR(['nombrexx' => 'Kogui']);//2385
+        $this->getR(['nombrexx' => 'Letuama']);//2386
+        $this->getR(['nombrexx' => 'Makaguaje']);//2387
+        $this->getR(['nombrexx' => 'Hitnu']);//2388
+        $this->getR(['nombrexx' => 'Makuna']);//2389
+        $this->getR(['nombrexx' => 'Nukak']);//2390
+        $this->getR(['nombrexx' => 'Masiguare']);//2391
+        $this->getR(['nombrexx' => 'Matapi']);//2392
+        $this->getR(['nombrexx' => 'Miraña']);//2393
+        $this->getR(['nombrexx' => 'Muisca']);//2394
+        $this->getR(['nombrexx' => 'Nonuya']);//2395
+        $this->getR(['nombrexx' => 'Ocaina']);//2396
+        $this->getR(['nombrexx' => 'Nasa']);//2397
+        $this->getR(['nombrexx' => 'Tzase']);//2398
+        $this->getR(['nombrexx' => 'Piaroa']);//2399
+        $this->getR(['nombrexx' => 'Piratapuyo']);//2400
+        $this->getR(['nombrexx' => 'Pisamira']);//2401
+        $this->getR(['nombrexx' => 'Puinave']);//2402
+        $this->getR(['nombrexx' => 'Pasto']);//2403
+        $this->getR(['nombrexx' => 'Killacinga']);//2404
+        $this->getR(['nombrexx' => 'Saliba']);//2405
+        $this->getR(['nombrexx' => 'Sikuani']);//2406
+        $this->getR(['nombrexx' => 'Siona']);//2407
+        $this->getR(['nombrexx' => 'Siriano']);//2408
+        $this->getR(['nombrexx' => 'Taiwano']);//2409
+        $this->getR(['nombrexx' => 'Tanimuka']);//2410
+        $this->getR(['nombrexx' => 'Tariano']);//2411
+        $this->getR(['nombrexx' => 'Tatuyo']);//2412
+        $this->getR(['nombrexx' => 'Totoro']);//2413
+        $this->getR(['nombrexx' => 'Tikuna']);//2414
+        $this->getR(['nombrexx' => 'Tsiripu']);//2415
+        $this->getR(['nombrexx' => 'Tucano']);//2416
+        $this->getR(['nombrexx' => 'UWa']);//2417
+        $this->getR(['nombrexx' => 'Tuyuka']);//2418
+        $this->getR(['nombrexx' => 'Waunan']);//2419
+        $this->getR(['nombrexx' => 'Wayuu']);//2420
+        $this->getR(['nombrexx' => 'Uitoto']);//2421
+        $this->getR(['nombrexx' => 'Yagua']);//2422
+        $this->getR(['nombrexx' => 'Yanacona']);//2423
+        $this->getR(['nombrexx' => 'Yauna']);//2424
+        $this->getR(['nombrexx' => 'Yukuna']);//2425
+        $this->getR(['nombrexx' => 'Yuko']);//2426
+        $this->getR(['nombrexx' => 'Yuruti']);//2427
+        $this->getR(['nombrexx' => 'Senu']);//2428
+        $this->getR(['nombrexx' => 'Guane']);//2429
+        $this->getR(['nombrexx' => 'Mokana']);//2430
+        $this->getR(['nombrexx' => 'Otavaleño']);//2431
+        $this->getR(['nombrexx' => 'Kichwa']);//2432
+        $this->getR(['nombrexx' => 'Kankuamo']);//2433
+        $this->getR(['nombrexx' => 'Tairona']);//2434
+        $this->getR(['nombrexx' => 'Chitarero']);//2435
+        $this->getR(['nombrexx' => 'Quimbaya']);//2436
+        $this->getR(['nombrexx' => 'Calima']);//2437
+        $this->getR(['nombrexx' => 'Panches']);//2438
+        $this->getR(['nombrexx' => 'Indígenas Ecuador']);//2439
+        $this->getR(['nombrexx' => 'Indígenas Perú']);//2440
+        $this->getR(['nombrexx' => 'Indígenas Venezuela']);//2441
+        $this->getR(['nombrexx' => 'Indígenas Mexico']);//2442
+        $this->getR(['nombrexx' => 'Indígenas Brasil']);//2443
+        $this->getR(['nombrexx' => 'Indígenas Panamá']);//2444
+        $this->getR(['nombrexx' => 'Indígenas Bolivia']);//2445
+        $this->getR(['nombrexx' => 'Indígena Sin Información']);//2446
+        $this->getR(['nombrexx' => 'Waupijiwi']);//2447
+        $this->getR(['nombrexx' => 'Yamalero']);//2448
+
+        $this->getR(['nombrexx' => '1995']); //2449
+        $this->getR(['nombrexx' => '1998']); //2450
+        $this->getR(['nombrexx' => '1999']); //2451
+        $this->getR(['nombrexx' => '2000']); //2452
+        $this->getR(['nombrexx' => '2001']); //2453
+        $this->getR(['nombrexx' => '2002']); //2454
+        $this->getR(['nombrexx' => '2003']); //2455
     }
 }

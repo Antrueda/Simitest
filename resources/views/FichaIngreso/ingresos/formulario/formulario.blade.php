@@ -55,7 +55,7 @@
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_dia_genera_id', '7.3 ¿En qué días?', ['class' => 'control-label']) }}
         {{ Form::select('i_prm_dia_genera_id[]', $todoxxxx['diaseman'], null, ['class' => $errors->first('i_prm_dia_genera_id') ?
-    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple',
+    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple', 'id'=>'i_prm_dia_genera_id',
     'data-placeholder' => 'Seleccione los motivos de vinculación']) }}
         @if($errors->has('i_prm_dia_genera_id'))
         <div class="invalid-feedback d-block">

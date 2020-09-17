@@ -8,7 +8,7 @@ class FiGeneracionIngresoUpdateRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
-    
+
     public function __construct()
     {
         $this->_mensaje = [
@@ -41,12 +41,12 @@ class FiGeneracionIngresoUpdateRequest extends FormRequest
     {
         return true;
     }
-    
+
     public function messages()
     {
         return $this->_mensaje;
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -55,10 +55,10 @@ class FiGeneracionIngresoUpdateRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-       
+
         return $this->_reglasx;
     }
-    
+
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
@@ -68,23 +68,15 @@ class FiGeneracionIngresoUpdateRequest extends FormRequest
             $this->_mensaje['s_trabajo_formal.required'] ='Seleccione mencione trabajo formal';
             $this->_reglasx['s_trabajo_formal']='required';
             break;
-            // case 853:
-            // $this->_mensaje['i_dias_buscando_empleo.required'] ='Seleccione mencione días buscando empleo';
-            // $this->_reglasx['i_dias_buscando_empleo']='required';
-            // $this->_mensaje['i_meses_buscando_empleo.required'] ='Seleccione mencione meses buscando empleo';
-            // $this->_reglasx['i_meses_buscando_empleo']='required';
-            // $this->_mensaje['i_anos_buscando_empleo.required'] ='Seleccione mencione años buscando empleo';
-            // $this->_reglasx['i_anos_buscando_empleo']='required';
-            // break;
-        }
-
-        if ($dataxxxx['i_prm_actividad_genera_ingreso_id'] == 853){
+            case 853:
+            $this->_reglasx['i_prm_jornada_genera_ingreso_id']='nullable';
             $this->_reglasx['s_hora_inicial']='nullable';
             $this->_reglasx['s_hora_final']='nullable';
             $this->_reglasx['i_prm_frec_ingreso_id'] = 'nullable';
             $this->_reglasx['i_total_ingreso_mensual'] = 'nullable';
-            
+            break;
         }
-        
+
+
     }
     }

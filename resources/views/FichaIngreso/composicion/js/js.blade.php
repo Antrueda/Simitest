@@ -41,7 +41,7 @@
         @endif
         var f_combo=function(dataxxxx){
             $.ajax({
-                url : "{{ route('ajaxx.getDepartamentosMunicipios') }}",
+                url : "{{ route($todoxxxx['routxxxx'].'.depamuni',$todoxxxx['parametr']) }}",
                 data :dataxxxx.dataxxxx,
                 type : 'GET',
                 dataType : 'json',
@@ -70,7 +70,14 @@
         //MASCARA DOCUMENTOS
 
         $(".listarxx").change(function(){
-            f_combo({dataxxxx:{tipoxxxx:$(this).prop('id'),padrexxx:$(this).val()},selected:''});
+            var sispaisid=$(this).prop('id');
+            if(sispaisid=='sis_pai_id' && $(this).val()!=2){
+                f_combo({dataxxxx:{tipoxxxx:'sis_pai_id',padrexxx:1},selected:''});
+                f_combo({dataxxxx:{tipoxxxx:'sis_departamento_id',padrexxx:1},selected:''});
+            }else{
+                f_combo({dataxxxx:{tipoxxxx:sispaisid,padrexxx:$(this).val()},selected:''});
+            }
+
         });
 
 

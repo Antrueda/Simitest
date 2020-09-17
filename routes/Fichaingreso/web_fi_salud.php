@@ -30,5 +30,10 @@ Route::group(['prefix' => '{padrexxx}/fisalud'], function () use($controll,$rout
 	Route::delete('borrar/{modeloxx}', [
 		'uses' => $controll.'Controller@destroy',
 		'middleware' => ['permission:fisalud-borrar']
-	])->name($routexxx.'.borrar');
+    ])->name($routexxx.'.borrar');
+
+    Route::get('victimax', [
+		'uses' => $controll.'Controller@getCaminando',
+		'middleware' => ['permission:fisalud-leer']
+	])->name($routexxx.'.victimax');
 });

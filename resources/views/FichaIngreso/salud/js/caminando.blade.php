@@ -2,6 +2,8 @@
 <script>
      var table ='';
 $(document).ready(function() {
+
+
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
         "serverSide": true,
@@ -26,6 +28,35 @@ $(document).ready(function() {
         }
     });
   @endforeach
+
+var f_combo=function(dataxxxx){
+
+    $.ajax({
+               url : "{{ route('fisalud.victimax',$todoxxxx['parametr']) }}",
+               data : dataxxxx,
+               type : 'GET',
+               dataType : 'json',
+               success : function(json) {
+                $('#'+json.selectxx).empty();
+                   $.each(json.comboxxx,function(i,data){
+
+                       $('#'+json.selectxx).append('<option '+data.selected+'  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+
+                    });
+               },
+               error : function(xhr, status) {
+                   alert('Disculpe, existió un problema');
+               },
+           });
+}
+    $("#prm_victataq_id").change(function(){
+        f_combo({padrexxx:$(this).val()==''?0:$(this).val(),opcionxx:1});
+    })
+    $("#prm_discausa_id").change(function(){
+        f_combo({padrexxx:$(this).val()==''?0:$(this).val(),opcionxx:2});
+    })
+
+
 } );
  function soloLetras(e) {
     key = e.keyCode || e.which;
@@ -85,7 +116,7 @@ $(function(){
                        $.each(json[0].discausa,function(i,data){
                                $('#prm_discausa_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                        });
-                     
+
                    },
                    error : function(xhr, status) {
                        alert('Disculpe, existió un problema');
@@ -135,7 +166,6 @@ $(function(){
 
        $("#i_prm_regimen_salud_id").change(function(){
            $("#sis_entidad_salud_id").empty();
-           $("#sis_entidad_salud_id").append('<option value="">Seleccione</>')
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.regimensalud') }}",

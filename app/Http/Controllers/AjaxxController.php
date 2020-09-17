@@ -228,7 +228,7 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $respuest = [[
-                'entidadx' => $dataxxxx['padrexxx'] == 168 ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : SisEntidadSalud::combo($dataxxxx['padrexxx'], false, true),
+                'entidadx' => $dataxxxx['padrexxx'] == 168 ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : SisEntidadSalud::combo($dataxxxx['padrexxx'], true, true),
             ]];
 
 
@@ -293,7 +293,7 @@ class AjaxxController extends Controller
                     ]];
                     break;
             }
-
+            $respuest['enquedia']=Tema::combo(124, false, true);
             return response()->json($respuest);
         }
     }
@@ -648,30 +648,31 @@ class AjaxxController extends Controller
                     break;
                 case 288:
                     $respuest = [[
-                        'tipoviax' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
+                        'tipoviax' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
                         'nomviapr' => true,
-                        'alfviapr' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
-                        'tienebis' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
-                        'letrabis' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
-                        'cuadravp' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
+                        'alfviapr' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
+                        'tienebis' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
+                        'letrabis' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
+                        'cuadravp' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
                         'numerovg' => true,
-                        'alfabevg' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
+                        'alfabevg' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
                         'placavgx' => true,
-                        'cuadravg' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
+                        'cuadravg' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
                     ]];
                     break;
                 case 289:
                     $respuest = [[
-                        'tipoviax' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
+                        'tipoviax' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
                         'nomviapr' => true,
-                        'alfviapr' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
-                        'tienebis' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
-                        'letrabis' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
-                        'cuadravp' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
+                        'alfviapr' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
+                        'tienebis' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
+                        'letrabis' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
+                        'cuadravp' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
                         'numerovg' => true,
-                        'alfabevg' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
+                        'alfabevg' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
                         'placavgx' => true,
-                        'cuadravg' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
+                        'cuadravg' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
+
                     ]];
                     break;
             }

@@ -5,6 +5,9 @@
             language: "es"
         });
         var f_generar_ingresos = function(dataxxxx){
+           $('#i_total_ingreso_mensual,#i_prm_frec_ingreso_id,#i_prm_jornada_genera_ingreso_id,#s_hora_inicial,#s_hora_final').val('')
+
+
             $("#i_prm_trabajo_informal_id, #i_prm_otra_actividad_id, #i_prm_razon_no_genera_ingreso_id, #i_prm_tipo_relacion_laboral_id").empty();
             $("#i_prm_trabajo_informal_id, #i_prm_otra_actividad_id, #i_prm_razon_no_genera_ingreso_id, #i_prm_tipo_relacion_laboral_id").append('<option value="">Seleccione</>')
             if(dataxxxx.valuexxx!=''){
@@ -17,6 +20,8 @@
                 type : 'POST',
                 dataType : 'json',
                 success : function(json) {
+
+
                     if(dataxxxx.limpiaxx==true){
                         $('#s_trabajo_formal,#i_dias_buscando_empleo,#i_meses_buscando_empleo,#i_anos_buscando_empleo').val(json[0].valuexxx)
                     }
@@ -42,6 +47,9 @@
                         }
                         $('#i_prm_trabajo_informal_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
+
+
+
                     $.each(json[0].otractiv,function(i,data){
                         var selected = '';
                         if(dataxxxx.travalue==data.valuexxx) {
@@ -63,6 +71,13 @@
                         }
                         $('#i_prm_tipo_relacion_laboral_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
+                    $("#i_prm_dia_genera_id").empty();
+                    $.each(json.enquedia,function(i,data){
+                        $('#i_prm_dia_genera_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                    });
+
+
+
                 },
                 error : function(xhr, status) {
                     alert('Disculpe, existió un problema');

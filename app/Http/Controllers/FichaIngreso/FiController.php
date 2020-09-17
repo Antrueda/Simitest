@@ -136,6 +136,7 @@ class FiController extends Controller
     public function getListado(Request $request)
     {
         if ($request->ajax()) {
+
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -277,10 +278,11 @@ class FiController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
-
-            if ($this->opciones['grupetni'] != 157) {
+            $this->opciones['poblindi']=Tema::combo(61, true, false);
+            if ($this->opciones['modeloxx']->nnaj_fi_csd->prm_etnia_id != 157) {
                 $this->opciones['poblindi'] =  [1269 => 'NO APLICA'];
             }
+
 
             if ($this->opciones['aniosxxx'] < 15) {
                 $this->opciones['generoxx'] =  [1269 => 'NO APLICA'];
