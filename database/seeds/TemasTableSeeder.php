@@ -987,7 +987,7 @@ class TemasTableSeeder extends Seeder
         $tema = Tema::create(['id' => 88, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPO DE RED']);
         $tema->parametros()->sync([
             282 => $camposmagicos,
-            521 => $camposmagicos,
+            1805 => $camposmagicos,
             547 => $camposmagicos,
             548 => $camposmagicos,
         ]);
@@ -1562,6 +1562,7 @@ class TemasTableSeeder extends Seeder
         $tema->parametros()->sync([
             400 => $camposmagicos,
             401 => $camposmagicos,
+            1509=> $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 153, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'NIVEL ESTUDIO']);
         $tema->parametros()->sync([

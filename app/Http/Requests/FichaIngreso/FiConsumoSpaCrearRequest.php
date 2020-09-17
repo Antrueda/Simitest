@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\FichaIngreso;
 
+use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiConsumoSpaCrearRequest extends FormRequest
@@ -16,7 +17,8 @@ class FiConsumoSpaCrearRequest extends FormRequest
             'i_prm_consume_spa_id.required' => 'Seleccione consume spa',
         ];
         $this->_reglasx = [
-            'i_prm_consume_spa_id' => ['Required'],
+            'i_prm_consume_spa_id' => ['Required',],
+
         ];
     }
     /**
@@ -47,7 +49,9 @@ class FiConsumoSpaCrearRequest extends FormRequest
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        
+       
+        
         
     }
 }

@@ -52,7 +52,7 @@ class FiSaludController extends Controller
         $this->opciones['probsalu'] = Tema::combo(301, true, false);
         /** caminando relajado
          * 6.4.b) ¿La discapacidad fue producida en la comisión de algún acto ilegal?
-         */
+        */
         $this->opciones['discausa'] = Tema::combo(341, false, false);
         /** 6.4 c) ¿Ha sido víctima de  ataques con */
         $this->opciones['victataq'] = Tema::combo(342, false, false);
@@ -74,9 +74,9 @@ class FiSaludController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $archivox = ($dataxxxx['padrexxx']->prm_estrateg_id == 2323) ? 'caminando' : 'js';
+        $archivox=($dataxxxx['padrexxx']->prm_estrateg_id == 2323) ? 'caminando' : 'js';
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.' . $archivox]
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.'.$archivox]
         ];
         $this->opciones['saludxxx'] = FiSalud::salud($dataxxxx['padrexxx']->sis_nnaj_id);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
@@ -89,6 +89,7 @@ class FiSaludController extends Controller
         $this->opciones['readlact'] = '';
         $this->opciones['readhijo'] = '';
         $this->opciones['cualmedi'] = '';
+        
         if ($dataxxxx['modeloxx'] != '') {
 
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
@@ -119,6 +120,7 @@ class FiSaludController extends Controller
             if ($dataxxxx['modeloxx']->i_prm_esta_lactando_id == 228 || $dataxxxx['modeloxx']->i_prm_esta_lactando_id == 235) {
                 $this->opciones['readlact'] = 'readonly';
             }
+            
             if ($dataxxxx['modeloxx']->i_prm_tiene_hijos_id == 228) {
                 $this->opciones['readhijo'] = 'readonly';
             }
@@ -128,11 +130,12 @@ class FiSaludController extends Controller
             if ($dataxxxx['modeloxx']->i_prm_consume_medicamentos_id == 228) {
                 $this->opciones['cualmedi'] = 'readonly';
             }
-            if ($dataxxxx['modeloxx']->d_puntaje_sisben != '') {
+            if ($dataxxxx['modeloxx']->d_puntaje_sisben != '') {//
                 $this->opciones['apsisben'] = [1 => 'NO APLICA'];
             }
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
         $this->opciones['tablasxx'] = [
@@ -271,46 +274,8 @@ class FiSaludController extends Controller
      * @param  \App\Models\FiSalud  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiSaludUpdateRequest $request, FiDatosBasico $padrexxx, FiSalud $modeloxx)
+    public function update(FiSaludUpdateRequest $request, FiDatosBasico $padrexxx,FiSalud $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Salud actualizada con exito', $padrexxx);
-    }
-    public function getCombo($dataxxxx)
-    {
-        $respuest = ['selectxx' => $dataxxxx['selectxx'], 'comboxxx' => [['valuexxx' => $dataxxxx['valuexxx'], 'optionxx' => $dataxxxx['optionxx'], 'selected' => 'selected']], 'nigunaxx' => true];
-        if ($dataxxxx['padrexxx'] == 0) {
-            $dataxxxx['padrexxx'] = [];
-        }
-        foreach ($dataxxxx['padrexxx']  as $key => $value) {
-            if ($value == $dataxxxx['valuexxx']) {
-                $respuest['nigunaxx'] = false;
-            }
-        }
-        if ($respuest['nigunaxx']) {
-            $respuest['comboxxx'] = Tema::combo($dataxxxx['temaxxxx'], false, true);
-            foreach ($respuest['comboxxx'] as $key => $value) {
-                $respuest['comboxxx'][$key]['selected'] = in_array($value['valuexxx'], $dataxxxx['padrexxx']) ? 'selected' : '';
-            }
-        }
-        return $respuest;
-    }
-
-    public function getCaminando(Request $request)
-    {
-
-        if ($request->ajax()) {
-            $respuest = [];
-            switch ($request->opcionxx) {
-                case 1:
-                    $dataxxxx = ['selectxx' => 'prm_victataq_id', 'valuexxx' => 853, 'optionxx' => 'NINGUNA', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 342];
-                    $respuest = $this->getCombo($dataxxxx);
-                    break;
-                case 2:
-                    $dataxxxx = ['selectxx' => 'prm_discausa_id', 'valuexxx' => 27, 'optionxx' => 'NS/NR', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 341];
-                    $respuest = $this->getCombo($dataxxxx);
-                    break;
-            }
-            return response()->json($respuest);
-        }
     }
 }
