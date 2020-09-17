@@ -1,5 +1,8 @@
 <script>
    $(function(){
+    $('.select2').select2({
+            language: "es"
+        });
         var f_selected=function(seledata,selecomb){
             var selected='';
             if(seledata==selecomb){
@@ -407,8 +410,8 @@
 
        //VINCULADO VIOLENCIA
        var f_vincviolencia = function(valuexxx){
-           $("#i_prm_causa_vincula_vio_id").empty();
-           $("#i_prm_causa_vincula_vio_id").append('<option value="">Seleccione</>')
+           $("#prm_situacion_id").empty();
+           $("#prm_situacion_id").append('<option value="">Seleccione</>')
            if(valuexxx != ''){
                $.ajax({
                    url : "{{ route('ajaxx.vinviolencia') }}",
@@ -420,10 +423,10 @@
                    dataType : 'json',
                    success : function(json) {
                        if(json[0].vinviole[0].valuexxx==1){
-                           $("#i_prm_causa_vincula_vio_id").empty();
+                           $("#prm_situacion_id").empty();
                        }
                        $.each(json[0].vinviole,function(i,data){                            
-                           $('#i_prm_causa_vincula_vio_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                           $('#prm_situacion_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                        });
                    },
                    error : function(xhr, status) {
@@ -443,8 +446,8 @@
 
        //RIESGO VIOLENCIA
        var f_riesviolencia = function(valuexxx){
-           $("#i_prm_causa_riesgo_part_id").empty();
-           $("#i_prm_causa_riesgo_part_id").append('<option value="">Seleccione</>')
+           $("#prm_riesgo_id").empty();
+           $("#prm_riesgo_id").append('<option value="">Seleccione</>')
            if(valuexxx != ''){
                $.ajax({
                    url : "{{ route('ajaxx.rieviolencia') }}",
@@ -456,10 +459,10 @@
                    dataType : 'json',
                    success : function(json) {
                        if(json[0].rieviole[0].valuexxx==1){
-                           $("#i_prm_causa_riesgo_part_id").empty();
+                           $("#prm_riesgo_id").empty();
                        }
                        $.each(json[0].rieviole,function(i,data){                            
-                           $('#i_prm_causa_riesgo_part_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                           $('#prm_riesgo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                        });
                    },
                    error : function(xhr, status) {

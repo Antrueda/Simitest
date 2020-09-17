@@ -14,9 +14,9 @@ class FiJustrestObserver
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo
         $log['i_prm_vinculado_violencia_id'] = $modeloxx->i_prm_vinculado_violencia_id;
-        $log['i_prm_causa_vincula_vio_id'] = $modeloxx->i_prm_causa_vincula_vio_id;
+        
         $log['i_prm_riesgo_participar_id'] = $modeloxx->i_prm_riesgo_participar_id;
-        $log['i_prm_causa_riesgo_part_id'] = $modeloxx->i_prm_causa_riesgo_part_id;
+        
         $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;

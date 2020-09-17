@@ -20,6 +20,7 @@ class FiCompfami extends Model
         's_telefono',
         'd_nacimiento',
         'i_prm_parentesco_id',
+        'prm_reprlega_id',
         'i_prm_ocupacion_id',
         'i_prm_vinculado_idipron_id',
         'i_prm_convive_nnaj_id',

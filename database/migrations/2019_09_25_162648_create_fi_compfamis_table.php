@@ -22,6 +22,7 @@ class CreateFiCompfamisTable extends Migration
             $table->string('s_telefono')->nullable();
             $table->date('d_nacimiento');
             $table->bigInteger('i_prm_ocupacion_id')->unsigned();
+            $table->bigInteger('prm_reprlega_id')->unsigned()->default(228);
             $table->string('s_nombre_identitario')->nullable();
             $table->bigInteger('i_prm_vinculado_idipron_id')->unsigned();
             $table->bigInteger('i_prm_convive_nnaj_id')->unsigned();
@@ -29,6 +30,7 @@ class CreateFiCompfamisTable extends Migration
             $table->bigInteger('sis_nnajnnaj_id')->unsigned()->comment('NNAJ AL QUE PERTENCEN LOS COMPONENTES FAMILIARES');
 
             $table->foreign('i_prm_parentesco_id')->references('id')->on('parametros');
+            $table->foreign('prm_reprlega_id')->references('id')->on('parametros');
             $table->foreign('i_prm_ocupacion_id')->references('id')->on('parametros');
             $table->foreign('i_prm_vinculado_idipron_id')->references('id')->on('parametros');
             $table->foreign('i_prm_convive_nnaj_id')->references('id')->on('parametros');

@@ -56,8 +56,8 @@ class FiJustrestController extends Controller
         $this->opciones['causviol'] = Tema::combo(120, true, false);
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['tablname'] = 'jrfamili';
-        $this->opciones['vincviol'] = Tema::combo(120, true, false);
-        $this->opciones['riesviol'] = Tema::combo(120, true, false);
+        $this->opciones['vincviol'] = Tema::combo(120, false, false);
+        $this->opciones['riesviol'] = Tema::combo(120, false, false);
         $this->opciones['titipard'] = Tema::combo(152, true, false);
         $this->opciones['titisrpa'] = Tema::combo(152, true, false);
         $this->opciones['titispoa'] = Tema::combo(152, true, false);

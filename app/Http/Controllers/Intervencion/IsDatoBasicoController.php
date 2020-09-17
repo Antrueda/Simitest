@@ -47,6 +47,7 @@ class IsDatoBasicoController extends Controller {
     $this->opciones['dispform'] = "none";
     $this->opciones['disptabx'] = "block";
 
+    
     $this->opciones['tipatenc'] = Tema::combo(213, true, false);
 
     $this->opciones['areajust'] = Tema::combo(212, true, false);

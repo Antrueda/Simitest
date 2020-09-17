@@ -836,7 +836,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 815, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'POR PROTECCIÓN']);
         Parametro::create(['id' => 816, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CUENTRA PROPIA']);
         Parametro::create(['id' => 817, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VOZ A VOZ']);
-        Parametro::create(['id' => 818, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PUBLICIDAD EN UPIS']);
+        Parametro::create(['id' => 818, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PUBLICIDAD EN UPI']);
         Parametro::create(['id' => 819, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROMOCION EXTERNA']);
         Parametro::create(['id' => 820, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CORRECCIÓN']);
         Parametro::create(['id' => 821, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROTECCIÓN']);
@@ -1603,7 +1603,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 1582, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TEATRO O CINE']);
         Parametro::create(['id' => 1583, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RAPER/HIP HOP']);
         Parametro::create(['id' => 1584, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PRÁCTICA DE BRAKE DANCE']);
-        Parametro::create(['id' => 1585, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SKATEBOARD']);
+        Parametro::create(['id' => 1585, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SKATEBOARD(TABLA)']);
         Parametro::create(['id' => 1586, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSUMO SPA']);
         Parametro::create(['id' => 1587, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JUGAR BILLAR']);
         Parametro::create(['id' => 1588, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'JUEGOS DE AZAR']);
@@ -2192,7 +2192,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 2165, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONVENIO IDIGER']);
         Parametro::create(['id' => 2166, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONVENIO SAN CRISTOBAL']);
         Parametro::create(['id' => 2167, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESTAMPADO']);
-        Parametro::create(['id' => 2168, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EXPLOTACIÓN SEXUAL COMERCIAL ESCNNA']);
+        Parametro::create(['id' => 2168, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EXPLOTACIÓN SEXUAL COMERCIAL ESCNNA(MENOR DE 18)']);
         Parametro::create(['id' => 2169, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LIGA DEPORTIVA']);
         Parametro::create(['id' => 2170, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LO DEJAN CONDUCIR UN BICITAXI']);
         Parametro::create(['id' => 2171, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LOGISTICA CON EMPRESA AIC']);
@@ -2367,7 +2367,7 @@ class SisParametrosSeeder extends Seeder
 
 
 
-        $this->getR(['nombrexx' => 'PRESENTA ACTIVIDAD EN CONFLICTO CON LA LEY']); //2337
+        $this->getR(['nombrexx' => 'PRESENTU ACTIVIDAD EN CONFLICTO CON LA LEY']); //2337
 
         $this->getR(['nombrexx' => 'GRUPO']); //2338
         $this->getR(['nombrexx' => 'PANDILLA']); //2339
@@ -2387,6 +2387,17 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'FINES DE SEMANA']); //2352
         $this->getR(['nombrexx' => 'JORNADA COMPLETA']); //2353
         $this->getR(['nombrexx' => 'GRAFFITI']); //2354
+        $this->getR(['nombrexx' => '1995']); //2355
+        $this->getR(['nombrexx' => '1998']); //2356
+        $this->getR(['nombrexx' => '1999']); //2357
+        $this->getR(['nombrexx' => '2000']); //2358
+        $this->getR(['nombrexx' => '2001']); //2359
+        $this->getR(['nombrexx' => '2002']); //2360
+        $this->getR(['nombrexx' => '2003']); //2361
+        
+      
+
+
 
 
     }

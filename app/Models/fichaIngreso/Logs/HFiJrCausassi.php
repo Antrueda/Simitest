@@ -4,18 +4,20 @@ namespace App\Models\fichaIngreso\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HFiJustrest extends Model
+class HFiJrCausassi extends Model
 {
+    protected $table = 'h_fi_jr_causassis';
+
     protected $fillable = [
-        'i_prm_vinculado_violencia_id',
-        
-        'i_prm_riesgo_participar_id',
-        
-        'sis_nnaj_id',
+        'parametro_id',
+        'fi_justrest_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
+        'prm_tipofuen_id',
 
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
+
+    
 }

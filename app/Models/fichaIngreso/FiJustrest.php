@@ -2,7 +2,8 @@
 
 namespace App\Models\fichaIngreso;
 
-use App\Helpers\Indicadores\IndicadorHelper;
+
+use App\Models\Parametro;
 use App\Models\Sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -13,9 +14,7 @@ class FiJustrest extends Model
 {
   protected $fillable = [
     'i_prm_vinculado_violencia_id',
-    'i_prm_causa_vincula_vio_id',
     'i_prm_riesgo_participar_id',
-    'i_prm_causa_riesgo_part_id',
     'sis_nnaj_id',
     'user_crea_id',
     'user_edita_id',
@@ -35,6 +34,42 @@ class FiJustrest extends Model
   public function sis_nnaj()
   {
     return $this->belongsTo(SisNnaj::class);
+  }
+
+  public function prm_situacion_id(){
+    return $this->belongsToMany(Parametro::class,'fi_jr_causassis', 'fi_justrest_id', 'prm_situacion_id');
+  }
+
+  public function prm_riesgo_id(){
+    return $this->belongsToMany(Parametro::class,'fi_jr_causasmos', 'fi_justrest_id', 'prm_riesgo_id');
+  }
+  
+  public static function getCausassi($dataxxxx,$objetoxx){
+    $datosxxx = [
+      'fi_justrest_id' => $objetoxx->id,
+      'user_crea_id' => Auth::user()->id,
+      'user_edita_id' => Auth::user()->id,
+      'sis_esta_id' => 1,
+  ];
+    FiJrCausassi::where('fi_justrest_id', $objetoxx->id)->delete();
+        foreach ($dataxxxx['prm_situacion_id'] as $diagener) {
+            $datosxxx['prm_situacion_id'] = $diagener;
+            FiJrCausassi::create($datosxxx);
+        }
+  }
+
+  public static function getCausasmo($dataxxxx,$objetoxx){
+    $datosxxx = [
+      'fi_justrest_id' => $objetoxx->id,
+      'user_crea_id' => Auth::user()->id,
+      'user_edita_id' => Auth::user()->id,
+      'sis_esta_id' => 1,
+  ];
+    FiJrCausasmo::where('fi_justrest_id', $objetoxx->id)->delete();
+        foreach ($dataxxxx['prm_riesgo_id'] as $diagener) {
+            $datosxxx['prm_riesgo_id'] = $diagener;
+            FiJrCausasmo::create($datosxxx);
+        }
   }
   public static function justicia($usuariox)
   {
@@ -56,22 +91,15 @@ class FiJustrest extends Model
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiJustrest::create($dataxxxx);
       }
-
+if(isset($dataxxxx['i_prm_riesgo_participar_id'])){
+  FiJustrest::getCausasmo($dataxxxx,$objetoxx);
+}
+if(isset($dataxxxx['i_prm_vinculado_violencia_id'])){
+  FiJustrest::getCausassi($dataxxxx,$objetoxx);
+}
       FiProcesoPard::transaccion($dataxxxx,FiProcesoPard::where('fi_justrest_id',$objetoxx->id)->first(), $objetoxx);
       FiProcesoSpoa::transaccion($dataxxxx,FiProcesoSpoa::where('fi_justrest_id',$objetoxx->id)->first(), $objetoxx);
       FiProcesoSrpa::transaccion($dataxxxx,FiProcesoSrpa::where('fi_justrest_id',$objetoxx->id)->first(), $objetoxx);
-
-      $dataxxxx['sis_tabla_id']=17;
-      IndicadorHelper::asignaLineaBase($dataxxxx);
-
-      $dataxxxx['sis_tabla_id']=22;
-      IndicadorHelper::asignaLineaBase($dataxxxx);
-
-      $dataxxxx['sis_tabla_id']=23;
-      IndicadorHelper::asignaLineaBase($dataxxxx);
-
-      $dataxxxx['sis_tabla_id']=24;
-      IndicadorHelper::asignaLineaBase($dataxxxx);
 
       return $objetoxx;
     }, 5);

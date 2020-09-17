@@ -71,7 +71,7 @@ class FiController extends Controller
         $this->opciones['orientac'] = Tema::combo(13, true, false);
         $this->opciones['pais_idx'] = SisPai::combo(true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
-        $this->opciones['estrateg'] = [''=>'Seleccionee'];
+        $this->opciones['estrateg'] = [''=>'Seleccione'];
 
         $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
         $this->opciones['botoform'] = [

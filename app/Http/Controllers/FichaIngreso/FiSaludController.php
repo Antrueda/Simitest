@@ -49,7 +49,7 @@ class FiSaludController extends Controller
         $this->opciones['puntsisb'] = Tema::combo(50, true, false);
         $this->opciones['metoanti'] = Tema::combo(52, true, false);
         $this->opciones['evmedico'] = Tema::combo(43, false, false);
-        $this->opciones['probsalu'] = Tema::combo(87, true, false);
+        $this->opciones['probsalu'] = Tema::combo(301, true, false);
         /** caminando relajado
          * 6.4.b) ¿La discapacidad fue producida en la comisión de algún acto ilegal?
         */
@@ -89,6 +89,7 @@ class FiSaludController extends Controller
         $this->opciones['readlact'] = '';
         $this->opciones['readhijo'] = '';
         $this->opciones['cualmedi'] = '';
+        
         if ($dataxxxx['modeloxx'] != '') {
 
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
@@ -110,12 +111,16 @@ class FiSaludController extends Controller
             if ($dataxxxx['modeloxx']->i_comidas_diarias > 4) {
                 $this->opciones['motcomdi'] = [1 => 'NO APLICA'];
             }
+            if ($dataxxxx['modeloxx']->nnaj_sexo->prm_sexo_id==20) {
+                $this->opciones['condnoap']= 'NO APLICA';
+            }
             if ($dataxxxx['modeloxx']->i_prm_esta_gestando_id == 228 || $dataxxxx['modeloxx']->i_prm_esta_gestando_id == 235) {
                 $this->opciones['readgest'] = 'readonly';
             }
             if ($dataxxxx['modeloxx']->i_prm_esta_lactando_id == 228 || $dataxxxx['modeloxx']->i_prm_esta_lactando_id == 235) {
                 $this->opciones['readlact'] = 'readonly';
             }
+            
             if ($dataxxxx['modeloxx']->i_prm_tiene_hijos_id == 228) {
                 $this->opciones['readhijo'] = 'readonly';
             }
@@ -125,11 +130,12 @@ class FiSaludController extends Controller
             if ($dataxxxx['modeloxx']->i_prm_consume_medicamentos_id == 228) {
                 $this->opciones['cualmedi'] = 'readonly';
             }
-            if ($dataxxxx['modeloxx']->d_puntaje_sisben != '') {
+            if ($dataxxxx['modeloxx']->d_puntaje_sisben != '') {//
                 $this->opciones['apsisben'] = [1 => 'NO APLICA'];
             }
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
         $this->opciones['tablasxx'] = [

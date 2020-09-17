@@ -22,9 +22,9 @@ class CreateFiJustrestsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_vinculado_violencia_id')->unsigned(); //->comment('FI 10.4.1 ESTA VINCULADO A DELINCUENCIA O VIOLENCIA');
-            $table->bigInteger('i_prm_causa_vincula_vio_id')->unsigned(); //->comment('FI 10.4.2 CAUSA VINCULACIÓN A DELINCUENCIA O VIOLENCIA');
+          
             $table->bigInteger('i_prm_riesgo_participar_id')->unsigned(); //->comment('FI 10.5.1 ESTA EN RIESGO DE PARTICIPAR ACTOS DELICTIVOS');
-            $table->bigInteger('i_prm_causa_riesgo_part_id')->unsigned(); //->comment('FI 10.5.2 CAUSA RIESGO PARTICIPAR ACTOS DELICTIVOS');
+          
             $table->bigInteger('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA JUSTICIA RESTAURATIVA');
             $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned(); //->comment('USUARIO QUE EDITA EL REGISTRO');
@@ -35,9 +35,9 @@ class CreateFiJustrestsTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('i_prm_vinculado_violencia_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_causa_vincula_vio_id')->references('id')->on('parametros');
+        
             $table->foreign('i_prm_riesgo_participar_id')->references('id')->on('parametros');
-            $table->foreign('i_prm_causa_riesgo_part_id')->references('id')->on('parametros');
+        
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS MOTIVOS PARA ESTAR VINCULADO A LA DELINCUENCIA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
 

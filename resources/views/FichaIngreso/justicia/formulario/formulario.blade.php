@@ -115,16 +115,16 @@
       {{ Form::select('i_prm_vinculado_violencia_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-6">
-      {{ Form::label('i_prm_causa_vincula_vio_id', 'Seleccionar las causas que originaron tal situación', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_causa_vincula_vio_id', $todoxxxx["vincviol"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::label('prm_situacion_id', 'Seleccionar las causas que originaron tal situación', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_situacion_id[]', $todoxxxx["vincviol"], null, ['class' =>$errors->first('prm_situacion_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'multiple']) }}
     </div>
     <div class="form-group col-md-6">
       {{ Form::label('i_prm_riesgo_participar_id', '10.5 ¿Se cuentra en riesgo de participar en actos delictivos?', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-6">
-      {{ Form::label('i_prm_causa_riesgo_part_id', 'Seleccionar las causas que pueden llegar a materializar el riesgo', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_causa_riesgo_part_id', $todoxxxx["riesviol"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::label('prm_riesgo_id', 'Seleccionar las causas que pueden llegar a materializar el riesgo', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_riesgo_id[]', $todoxxxx["riesviol"], null, ['class' =>$errors->first('prm_riesgo_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple']) }}
     </div>
   </div>
   @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')

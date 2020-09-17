@@ -19,7 +19,7 @@
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('sis_depen_id', 'UPI', ['class' => 'control-label']) }}
-    {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => $errors->first('sis_depen_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2','id'=>'sis_depen_id']) }}
+    {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => $errors->first('sis_depen_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2','id'=>'sis_depen_id','placeholder'=>'Selecione']) }}
     @if($errors->has('sis_depen_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('sis_depen_id') }}

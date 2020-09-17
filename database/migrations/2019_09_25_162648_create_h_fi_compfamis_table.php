@@ -22,6 +22,7 @@ class CreateHFiCompfamisTable extends Migration
             $table->string('s_nombre_identitario')->nullable();
             $table->string('s_telefono')->nullable();
             $table->date('d_nacimiento');
+            $table->bigInteger('prm_reprlega_id')->unsigned();
             $table->bigInteger('i_prm_ocupacion_id')->unsigned();
             $table->bigInteger('i_prm_vinculado_idipron_id')->unsigned();
             $table->bigInteger('i_prm_convive_nnaj_id')->unsigned();

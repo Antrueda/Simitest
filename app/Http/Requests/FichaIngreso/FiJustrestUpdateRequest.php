@@ -69,11 +69,11 @@ class FiJustrestUpdateRequest extends FormRequest
         }
 
         if ($this->i_prm_vinculado_violencia_id == 227){
-            $this->_mensaje['i_prm_causa_vincula_vio_id.required'] ='Seleccione causa vinculación a delincuencia o violencia';
-            $this->_reglasx['i_prm_causa_vincula_vio_id']='required';
+            $this->_mensaje['prm_situacion_id.required'] ='Seleccione causa vinculación a delincuencia o violencia';
+            $this->_reglasx['prm_situacion_id']='required';
 
-            $this->_mensaje['i_prm_riesgo_participar_id.required'] ='Seleccione causa riesgo participar actos delictivos';
-            $this->_reglasx['i_prm_riesgo_participar_id']='required';
+            $this->_mensaje['prm_riesgo_id.required'] ='Seleccione causa riesgo participar actos delictivos';
+            $this->_reglasx['prm_riesgo_id']='required';
         }
     }
 }

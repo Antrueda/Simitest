@@ -949,7 +949,8 @@ class TemasTableSeeder extends Seeder
             1590 => $camposmagicos,
             1591 => $camposmagicos,
             1592 => $camposmagicos,
-            1593 => $camposmagicos,
+            2337=> $camposmagicos,
+            2354=> $camposmagicos,
             1372 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
@@ -1004,6 +1005,28 @@ class TemasTableSeeder extends Seeder
             545 => $camposmagicos,
             549 => $camposmagicos,
             550 => $camposmagicos,
+            2283 => $camposmagicos,
+            2279 => $camposmagicos,
+            2314 => $camposmagicos,
+            2299 => $camposmagicos,
+            2311 => $camposmagicos,
+            2355 => $camposmagicos,
+            2356 => $camposmagicos,
+            2357 => $camposmagicos,
+            2358 => $camposmagicos,
+            2359 => $camposmagicos,
+            2360 => $camposmagicos,
+            2361 => $camposmagicos,
+            2218=> $camposmagicos,
+            2219=> $camposmagicos,
+            2220=> $camposmagicos,
+            2221=> $camposmagicos,
+            2222=> $camposmagicos,
+            2223=> $camposmagicos,
+            2224=> $camposmagicos,
+            2225=> $camposmagicos,
+            2226=> $camposmagicos,
+            2227=> $camposmagicos,
             2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 85, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TEMA PARAMETRO CORREGIR']);
@@ -1048,9 +1071,11 @@ class TemasTableSeeder extends Seeder
         $tema->parametros()->sync([
             256 => $camposmagicos,
             333 => $camposmagicos,
+            340 => $camposmagicos,
+            334 => $camposmagicos,
             366 => $camposmagicos,
-            376 => $camposmagicos,
-            377 => $camposmagicos,
+            
+            
             381 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
@@ -1305,15 +1330,14 @@ class TemasTableSeeder extends Seeder
             633 => $camposmagicos,
             634 => $camposmagicos,
             635 => $camposmagicos,
-            636 => $camposmagicos,
-            811 => $camposmagicos,
+            2217 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 116, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'OTRAS ACTIVIDADES']);
         $tema->parametros()->sync([
-            346 => $camposmagicos,
+            640 => $camposmagicos,
             637 => $camposmagicos,
-            638 => $camposmagicos,
+            2168 => $camposmagicos,
             639 => $camposmagicos,
             640 => $camposmagicos,
             641 => $camposmagicos,
@@ -1326,7 +1350,7 @@ class TemasTableSeeder extends Seeder
             644 => $camposmagicos,
             645 => $camposmagicos,
             646 => $camposmagicos,
-            647 => $camposmagicos,
+            1561 => $camposmagicos,
             2316 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 118, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'MOTIVO RETIRO']);
@@ -3560,7 +3584,7 @@ class TemasTableSeeder extends Seeder
 
         $this->getR([
             'nombrexx' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?',
-            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 1593, 1372, 2337,]
+            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 2337,2354]
         ]); //343
 
         $this->getR([
@@ -3617,6 +3641,32 @@ class TemasTableSeeder extends Seeder
             'parametr' => [1269]
         ]); //355
 
+
+        $tema = Tema::create(['id' => 356, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO']);
+        $tema->parametros()->sync([
+            1060 => $camposmagicos,
+            1061 => $camposmagicos,
+            //1062 => $camposmagicos,
+            //1063 => $camposmagicos,
+            1064 => $camposmagicos,
+            1065 => $camposmagicos,
+            1066 => $camposmagicos,
+            1067 => $camposmagicos,
+            2316 => $camposmagicos,
+        ]);
+
+        $tema = Tema::create(['id' => 357, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL']);
+        $tema->parametros()->sync([
+          //  1060 => $camposmagicos,
+          //  1061 => $camposmagicos,
+            1062 => $camposmagicos,
+            1063 => $camposmagicos,
+            1064 => $camposmagicos,
+            1065 => $camposmagicos,
+           // 1066 => $camposmagicos,
+            1067 => $camposmagicos,
+            2316 => $camposmagicos,
+        ]);
         // $this->getR([
         //     'nombrexx' => '',
         //     'parametr' => []

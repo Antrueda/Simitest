@@ -18,6 +18,7 @@ class FiCompfamiCrearRequest extends FormRequest
             'i_prm_ocupacion_id.required' => 'Seleccione la acupación del componente familiar',
             'i_prm_vinculado_idipron_id.required' => 'Indique si estuvo vinculado',
             'i_prm_convive_nnaj_id.required' => 'Indique si convive con el nnaj',
+            'prm_reprlega_id.required' => 'Indique si es el representante legal',
             's_telefono.required'=> 'Ingrese un número de teléfono',
         ];
 
@@ -26,6 +27,7 @@ class FiCompfamiCrearRequest extends FormRequest
             'i_prm_ocupacion_id'=>['required'],
             'i_prm_vinculado_idipron_id'=>['required'],
             'i_prm_convive_nnaj_id'=>['required'],
+            'prm_reprlega_id'=>['required'],
             'd_nacimiento'=>['required'],
             's_telefono'=>['required'],
         ];

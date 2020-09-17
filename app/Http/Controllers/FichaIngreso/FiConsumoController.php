@@ -69,7 +69,7 @@ class FiConsumoController extends Controller
             $this->opciones['puedexxx'] = '';
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-            if ($dataxxxx['modeloxx']->i_prm_consume_spa_id) {
+            if ($dataxxxx['modeloxx']->i_prm_consume_spa_id==227) {
                 $vercrear = true;
             }
         }
