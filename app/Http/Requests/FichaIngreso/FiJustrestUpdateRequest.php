@@ -67,11 +67,11 @@ class FiJustrestUpdateRequest extends FormRequest
             $this->_reglasx['i_prm_ha_estado_pard_id'] = ['Required'];
             $this->_reglasx['i_prm_actualmente_pard_id'] = ['Required'];
         }
-
         if ($this->i_prm_vinculado_violencia_id == 227){
             $this->_mensaje['prm_situacion_id.required'] ='Seleccione causa vinculación a delincuencia o violencia';
             $this->_reglasx['prm_situacion_id']='required';
-
+         }
+         if ($this->i_prm_riesgo_participar_id == 227){
             $this->_mensaje['prm_riesgo_id.required'] ='Seleccione causa riesgo participar actos delictivos';
             $this->_reglasx['prm_riesgo_id']='required';
         }

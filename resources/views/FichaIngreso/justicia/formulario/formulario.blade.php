@@ -120,7 +120,7 @@
     </div>
     <div class="form-group col-md-6">
       {{ Form::label('i_prm_riesgo_participar_id', '10.5 ¿Se cuentra en riesgo de participar en actos delictivos?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm','id'=>'i_prm_riesgo_participar_id']) }}
     </div>
     <div class="form-group col-md-6">
       {{ Form::label('prm_riesgo_id', 'Seleccionar las causas que pueden llegar a materializar el riesgo', ['class' => 'control-label col-form-label-sm']) }}

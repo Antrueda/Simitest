@@ -43,7 +43,7 @@ class FiJustrest extends Model
   public function prm_riesgo_id(){
     return $this->belongsToMany(Parametro::class,'fi_jr_causasmos', 'fi_justrest_id', 'prm_riesgo_id');
   }
-  
+
   public static function getCausassi($dataxxxx,$objetoxx){
     $datosxxx = [
       'fi_justrest_id' => $objetoxx->id,
@@ -91,10 +91,10 @@ class FiJustrest extends Model
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiJustrest::create($dataxxxx);
       }
-if(isset($dataxxxx['i_prm_riesgo_participar_id'])){
+if(isset($dataxxxx['prm_riesgo_id'])){
   FiJustrest::getCausasmo($dataxxxx,$objetoxx);
 }
-if(isset($dataxxxx['i_prm_vinculado_violencia_id'])){
+if(isset($dataxxxx['prm_situacion_id'])){
   FiJustrest::getCausassi($dataxxxx,$objetoxx);
 }
       FiProcesoPard::transaccion($dataxxxx,FiProcesoPard::where('fi_justrest_id',$objetoxx->id)->first(), $objetoxx);

@@ -159,6 +159,8 @@ class FiRedesApoyoController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
+
+
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['botoform'][0]['routingx'][1] =
         $this->opciones['parametr'][1] = $dataxxxx['padrexxx']->id;

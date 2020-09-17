@@ -16,16 +16,16 @@ use Illuminate\Http\Request;
 
 /**
  * Controlador para administrar las violencias de las siguientes preguntas:
- * 
+ *
  * 12.1 ¿Presenta algún tipo de violencia? y
  * 12.1 A Ha ejercido algún tipo de presunta violencia durante la actividad en conflicto con la ley?
- * 
+ *
  * siempre y cuando la respuesta sea SI
  */
 class FiVcontviolController extends Controller
 {
     use FiTrait;
- 
+
     private $opciones;
     public function __construct()
     {
@@ -47,7 +47,12 @@ class FiVcontviolController extends Controller
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['violenci'] = Tema::combo(347, true, false);
         $this->opciones['contexto'] = Tema::combo(348, true, false);
-        
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => ['fiviolencia.editar', []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A VIOLENCIA Y CONDICION ESPECIAL', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
     }
     public function getListado(Request $request, $padrexxx, $temaxxxx)
     {
@@ -74,6 +79,7 @@ class FiVcontviolController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
+        $this->opciones['botoform'][0]['routingx'][1]=[$this->opciones['usuariox']->id,$dataxxxx['padrexxx']->id];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
@@ -141,7 +147,7 @@ class FiVcontviolController extends Controller
         return $this->view([
             'modeloxx' => $modeloxx,
             'accionxx' => ['ver', 'violcont'],
-            'padrexxx' => $modeloxx->fi_violencia->sis_nnaj->fi_datos_basico,
+            'padrexxx' => $modeloxx->fi_violencia,
             'temaxxxx' => $modeloxx->tema_id
         ]);
     }
@@ -163,7 +169,7 @@ class FiVcontviolController extends Controller
         return $this->view([
             'modeloxx' => $modeloxx,
             'accionxx' => ['editar', 'violcont'],
-            'padrexxx' => $modeloxx->fi_violencia->sis_nnaj->fi_datos_basico,
+            'padrexxx' => $modeloxx->fi_violencia,
             'temaxxxx' => $modeloxx->tema_id
         ]);
     }
@@ -175,8 +181,8 @@ class FiVcontviolController extends Controller
      * @param  \App\Models\FiViolencia  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiVcontviolUpdateRequest $request, FiDatosBasico $padrexxx, FiViolencia $modeloxx)
+    public function update(FiVcontviolUpdateRequest $request, FiDatosBasico $padrexxx, FiContviol $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Violencia y condición especial actualizada con exito', $padrexxx);
+        return $this->grabar(['requestx'=>$request,'modeloxx'=> $modeloxx,'infoxxxx'=>'Violencia y condición especial actualizada con exito'] );
     }
 }

@@ -143,8 +143,9 @@
     </div>
     <div class="form-group col-md-6">
         {{ Form::label('prm_situacion_id', 'Seleccionar las causas que originaron tal situación', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_situacion_id[]', $todoxxxx["vincviol"], null, ['class' =>$errors->first('prm_situacion_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'multiple']) }}
-      
+        {{ Form::select('prm_situacion_id[]', $todoxxxx["vincviol"], null, ['class' =>$errors->first('prm_situacion_id') ?
+            'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'multiple','id'=>'prm_situacion_id']) }}
+
         @if($errors->has('prm_situacion_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_situacion_id') }}
@@ -162,7 +163,10 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_riesgo_id', 'Seleccionar las causas que pueden llegar a materializar el riesgo', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_riesgo_id[]', $todoxxxx["riesviol"], null, ['class' =>$errors->first('prm_riesgo_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple']) }}
+        {{ Form::select('prm_riesgo_id[]', $todoxxxx["riesviol"], null, ['class' =>$errors->first('prm_riesgo_id') ?
+            'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple',
+            'id'=>'prm_riesgo_id'
+            ]) }}
         @if($errors->has('prm_riesgo_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_riesgo_id') }}
@@ -170,5 +174,5 @@
         @endif
     </div>
 
-    
+
 </div>

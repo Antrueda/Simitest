@@ -113,7 +113,7 @@ class FiAutorizacionController extends Controller
         $vestuari = FiAutorizacion::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
         if ($vestuari != null) {
             return redirect()
-                ->route('fi.autorizacion.editar', [$padrexxx->id, $vestuari->id]);
+                ->route('fiautorizacion.editar', [$padrexxx->id, $vestuari->id]);
         }
         $this->opciones['botoform'][] =
             [
@@ -185,14 +185,15 @@ class FiAutorizacionController extends Controller
     }
 
 
-    public function autoriza(Request $request, $nnajregi)
+    public function autoriza(Request $request, $padrexxx)
     {
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $respuest = ['sdocumen' => ' ', 'expedici' => ' '];
             if ($dataxxxx['padrexxx'] != '') {
                 $compofam = FiCompfami::where('id', $dataxxxx['padrexxx'])->first();
-                $respuest = ['sdocumen' => $compofam->s_documento, 'expedici' => $compofam->sis_municipio->s_municipio . ' (' . $compofam->sis_municipio->sis_departamento->s_departamento . ')'];
+                $document=$compofam->sis_nnaj->datos_basico->nnaj_docu;
+                $respuest = ['sdocumen' => $document->s_documento, 'expedici' => $document->sis_municipio->s_municipio . ' (' . $document->sis_municipio->sis_departamento->s_departamento . ')'];
             }
             return response()->json($respuest);
         }
