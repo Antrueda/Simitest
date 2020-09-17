@@ -21,7 +21,6 @@ class FiCompfamiCrearRequest extends FormRequest
             'prm_reprlega_id.required' => 'Indique si es el representante legal',
             's_telefono.required'=> 'Ingrese un número de teléfono',
             's_documento.required'=> 'Ingrese el número de documento',
-            's_documento.unique'=> 'El documento ya está siendo utilizado',
         ];
 
         $this->_reglasx = [
@@ -32,7 +31,7 @@ class FiCompfamiCrearRequest extends FormRequest
             'prm_reprlega_id'=>['required'],
             'd_nacimiento'=>['required'],
             's_telefono'=>['required'],
-            's_documento'=>['required','unique:nnaj_docus,s_documento'],
+            's_documento'=>['required'],
         ];
     }
     /**

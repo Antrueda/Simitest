@@ -89,7 +89,7 @@ class FiSaludController extends Controller
         $this->opciones['readlact'] = '';
         $this->opciones['readhijo'] = '';
         $this->opciones['cualmedi'] = '';
-        
+
         if ($dataxxxx['modeloxx'] != '') {
 
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
@@ -120,7 +120,7 @@ class FiSaludController extends Controller
             if ($dataxxxx['modeloxx']->i_prm_esta_lactando_id == 228 || $dataxxxx['modeloxx']->i_prm_esta_lactando_id == 235) {
                 $this->opciones['readlact'] = 'readonly';
             }
-            
+
             if ($dataxxxx['modeloxx']->i_prm_tiene_hijos_id == 228) {
                 $this->opciones['readhijo'] = 'readonly';
             }
@@ -277,5 +277,44 @@ class FiSaludController extends Controller
     public function update(FiSaludUpdateRequest $request, FiDatosBasico $padrexxx,FiSalud $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Salud actualizada con exito', $padrexxx);
+    }
+
+    public function getCombo($dataxxxx)
+    {
+        $respuest = ['selectxx' => $dataxxxx['selectxx'], 'comboxxx' => [['valuexxx' => $dataxxxx['valuexxx'], 'optionxx' => $dataxxxx['optionxx'], 'selected' => 'selected']], 'nigunaxx' => true];
+        if ($dataxxxx['padrexxx'] == 0) {
+            $dataxxxx['padrexxx'] = [];
+        }
+        foreach ($dataxxxx['padrexxx']  as $key => $value) {
+            if ($value == $dataxxxx['valuexxx']) {
+                $respuest['nigunaxx'] = false;
+            }
+        }
+        if ($respuest['nigunaxx']) {
+            $respuest['comboxxx'] = Tema::combo($dataxxxx['temaxxxx'], false, true);
+            foreach ($respuest['comboxxx'] as $key => $value) {
+                $respuest['comboxxx'][$key]['selected'] = in_array($value['valuexxx'], $dataxxxx['padrexxx']) ? 'selected' : '';
+            }
+        }
+        return $respuest;
+    }
+
+    public function getCaminando(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $respuest = [];
+            switch ($request->opcionxx) {
+                case 1:
+                    $dataxxxx = ['selectxx' => 'prm_victataq_id', 'valuexxx' => 853, 'optionxx' => 'NINGUNA', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 342];
+                    $respuest = $this->getCombo($dataxxxx);
+                    break;
+                case 2:
+                    $dataxxxx = ['selectxx' => 'prm_discausa_id', 'valuexxx' => 27, 'optionxx' => 'NS/NR', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 341];
+                    $respuest = $this->getCombo($dataxxxx);
+                    break;
+            }
+            return response()->json($respuest);
+        }
     }
 }

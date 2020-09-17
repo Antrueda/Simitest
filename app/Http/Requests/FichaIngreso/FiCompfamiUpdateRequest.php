@@ -61,7 +61,5 @@ class FiCompfamiUpdateRequest extends FormRequest
 
     public function validar()
     {
-        $this->_mensaje['s_documento']='';
-        $this->_reglasx['s_documento'][1]='unique:nnaj_docus,s_documento';
     }
 }
