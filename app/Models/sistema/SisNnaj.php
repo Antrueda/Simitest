@@ -87,4 +87,9 @@ class SisNnaj extends Model{
         return $this->hasMany(NnajUpi::class);
     }
 
+    public function nnaj_depes()
+    {
+        return $this->hasMany(NnajUpi::class);
+    }
+
 }

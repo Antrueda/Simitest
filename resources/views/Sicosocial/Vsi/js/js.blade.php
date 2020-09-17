@@ -123,4 +123,33 @@
 
     });
 
+
+    $("#fecha").datepicker({
+            dateFormat: "yy-mm-dd",
+            changeMonth: true,
+            changeYear: true,
+            minDate: '-28y +0m +0d',
+            maxDate: '+0y +0m +0d',
+            yearRange: "-28:+0",
+            onSelect: function(dateText) {
+                $.ajax({
+                    url: "{{ route('usuario.tiempocarga') }}",
+                    data: {
+                        fechaxxx: dateText
+                    },
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(json) {
+                        $("#itigafin").val(json.tiemcarg);
+                    },
+                    error: function(xhr, status) {
+                        alert('Disculpe, existió un problema');
+                    },
+                });
+            }
+        });
+
+
+    });
+
 </script>

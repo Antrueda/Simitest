@@ -92,7 +92,7 @@ class ServicioDepController extends Controller
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'sis_depen_sis_servicio.id'],
+                    ['data' => 'id', 'name' => 'sis_depeservs.id'],
                     ['data' => 's_servicio', 'name' => 'sis_servicios.s_servicio'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],

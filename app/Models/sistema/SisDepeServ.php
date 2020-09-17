@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class SisDepeServ extends Model
 {
     use SoftDeletes;
-    protected $table = 'sis_depen_sis_servicio';
+    protected $table = 'sis_depeservs';
     protected $fillable = [
         'sis_depen_id',
         'sis_servicio_id',

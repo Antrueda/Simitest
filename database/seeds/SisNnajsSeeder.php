@@ -442,7 +442,8 @@ class SisNnajsSeeder extends Seeder
                 'user_edita_id' => '1',
                 'created_at' => date('Y-m-d H:m:s'),
                 'updated_at' => date('Y-m-d H:m:s'),
-                'sis_docfuen_id'=>2
+                'sis_docfuen_id'=>2,
+                'prm_servicio_id'=>2
             ));
             NnajFiCsd::create([
                 'fi_datos_basico_id' => $i + 1,

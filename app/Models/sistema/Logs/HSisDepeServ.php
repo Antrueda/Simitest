@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HSisDepeServ extends Model
 {
-    protected $table = 'h_sis_depen_sis_servicio';
+    protected $table = 'h_sis_depeservs';
     protected $fillable = [
         'sis_depen_id',
         'sis_servicio_id',
