@@ -43,10 +43,7 @@ class FiDatosBasico extends Model
     {
         return $this->belongsTo(Parametro::class, 'prm_vestimenta_id');
     }
-    public function nnaj_nfamili()
-    {
-        return $this->belongsTo(NnajNfamili::class);
-    }
+    
     public function nnaj_docu()
     {
         return $this->hasOne(NnajDocu::class);
