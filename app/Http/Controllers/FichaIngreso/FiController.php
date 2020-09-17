@@ -222,6 +222,7 @@ class FiController extends Controller
             $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
 
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
+            $this->opciones['servicio'] = Tema::combo(65, true, false);
             $this->opciones['perfilxx'] = 'conperfi';
             $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
@@ -236,7 +237,7 @@ class FiController extends Controller
             $dataxxxx['modeloxx']->prm_sexo_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_sexo_id;
             $dataxxxx['modeloxx']->prm_identidad_genero_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_identidad_genero_id;
             $dataxxxx['modeloxx']->prm_orientacion_sexual_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_orientacion_sexual_id;
-
+            
             // /** Nacimiento */
 
             $dataxxxx['modeloxx']->d_nacimiento = $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento;
