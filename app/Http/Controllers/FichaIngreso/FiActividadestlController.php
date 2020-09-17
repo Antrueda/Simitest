@@ -50,7 +50,7 @@ class FiActividadestlController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
-        $this->opciones['activlib'] = Tema::combo(($dataxxxx['padrexxx']->prm_tipoblaci_id==2323)?343:77, false, false);
+        $this->opciones['activlib'] = Tema::combo(($dataxxxx['padrexxx']->prm_estrateg_id == 2323) ? 343 : 77, false, false);
 
 
         $this->opciones['activida'] = FiActividadestl::actividad($dataxxxx['padrexxx']->sis_nnaj_id);
@@ -103,9 +103,14 @@ class FiActividadestlController extends Controller
                 3 => ['destroy', 'destroy'],
             ],
         ];
+        $tipoblac = $dataxxxx['padrexxx']->prm_tipoblaci_id;
+        if ($tipoblac == 651 && $dataxxxx['padrexxx']->prm_estrateg_id == 2323) {
+            $tipoblac = 2323;
+        } elseif ($tipoblac == 651 && $dataxxxx['padrexxx']->prm_estrateg_id == 651) {
+            $tipoblac = 651;
+        }
 
-       return $archivox[$dataxxxx['padrexxx']->prm_tipoblaci_id][$dataxxxx['archivox']];
-
+        return $archivox[$tipoblac][$dataxxxx['archivox']];
     }
     /**
      * Show the form for creating a new resource.
@@ -125,9 +130,11 @@ class FiActividadestlController extends Controller
                 ->route('fiactividades.editar', [$padrexxx->id, $vestuari->id]);
         }
 
-        return $this->view(['modeloxx' => '',
-        'accionxx' => $this->getArchivo(['padrexxx'=> $padrexxx,'archivox'=>0]),
-        'padrexxx' => $padrexxx]);
+        return $this->view([
+            'modeloxx' => '',
+            'accionxx' => $this->getArchivo(['padrexxx' => $padrexxx, 'archivox' => 0]),
+            'padrexxx' => $padrexxx
+        ]);
     }
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
     {
@@ -160,9 +167,9 @@ class FiActividadestlController extends Controller
     {
         return $this->view([
             'modeloxx' => $modeloxx,
-            'accionxx' => $this->getArchivo(['padrexxx'=> $padrexxx,'archivox'=>2]), '
-            padrexxx' => $padrexxx]
-        );
+            'accionxx' => $this->getArchivo(['padrexxx' => $padrexxx, 'archivox' => 2]), '
+            padrexxx' => $padrexxx
+        ]);
     }
 
     /**
@@ -180,9 +187,9 @@ class FiActividadestlController extends Controller
             ];
         return $this->view([
             'modeloxx' => $modeloxx,
-            'accionxx' => $this->getArchivo(['padrexxx'=> $padrexxx,'archivox'=>1]),
+            'accionxx' => $this->getArchivo(['padrexxx' => $padrexxx, 'archivox' => 1]),
             'padrexxx' => $padrexxx
-            ]);
+        ]);
     }
 
 

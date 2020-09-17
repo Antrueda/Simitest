@@ -33,6 +33,8 @@ class TemaController extends Controller{
 
     public function store(Request $request){
         $this->validator($request->all())->validate();
+        $dataxxxx=$request->all();
+        $dataxxxx['user_crea_id']=$dataxxxx['user_edita_id']=$dataxxxx['sis_esta_id']=1;
         $dato = Tema::create($request->all());
         return redirect()->route('tema.editar', $dato->id)->with('info', 'Registro creado con éxito');
     }

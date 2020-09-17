@@ -566,7 +566,7 @@ class TemasTableSeeder extends Seeder
             358 => $camposmagicos,
             359 => $camposmagicos,
         ]);
-        $tema = Tema::create(['id' => 48, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'motivo vinculacion SPOA']);
+        $tema = Tema::create(['id' => 48, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'Motivo de la vinculación al SRPA']);
         $tema->parametros()->sync([
             346 => $camposmagicos,
             347 => $camposmagicos,
@@ -3279,7 +3279,7 @@ class TemasTableSeeder extends Seeder
 
         $this->getR([
             'nombrexx' => '¿POR LAS ACCIONES EN LAS CUALES PRESUNTAMENTE ESTA EN CONFLICTO CON LA LEY HA ACTUADO EN?',
-            'parametr' => [2338, 2336, 2340, 2341, 2342, 2343]
+            'parametr' => [2338,2339, 2340, 2341, 2342, 2343]
         ]); //344
         $this->getR([
             'nombrexx' => '12.1 ¿Presenta algún tipo de violencia?',
@@ -3338,9 +3338,14 @@ class TemasTableSeeder extends Seeder
             'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL',
             'parametr' => [1062,1063,1064,1065,1067]
         ]); //357
+$this->getR([
+            'nombrexx' => 'motivo vinculacion SPOA',
+            'parametr' => [346,347,348,349,350,360]
+        ]); //358
+
         // $this->getR([
         //     'nombrexx' => '',
         //     'parametr' => []
-        // ]); //358
+        // ]); //359
     }
 }

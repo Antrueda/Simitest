@@ -7,18 +7,9 @@
             var selected='';
             if(seledata==selecomb){
                 selected='selected';
-            } 
+            }
             return selected;
         }
-       //OCULTA PARD
-        // var dataxxxx={
-        //     valuexxx:'',
-        //     camposxx:'#i_prm_actualmente_pard_id,#i_prm_tipo_tiempo_pard_id, #i_prm_motivo_pard_id',
-        //     optionxx:1,
-        //     actupard:'',
-        //     tipopard:'',            
-        //     motipard:'',
-        // };
        var f_ocultapard = function(dataxxxx){
            $(dataxxxx.camposxx).empty();
            $(dataxxxx.camposxx).append('<option value="">Seleccione</>')
@@ -32,7 +23,7 @@
                    type : 'POST',
                    dataType : 'json',
                    success : function(json) {
-                       $('#i_cuanto_pard, #s_nombre_defensor, #s_telefono_defensor, #s_lugar_abierto_pard').val(json[0].valuexxx)    
+                       $('#i_cuanto_pard, #s_nombre_defensor, #s_telefono_defensor, #s_lugar_abierto_pard').val(json[0].valuexxx)
 
                        $('#i_cuanto_pard').prop('readonly',json[0].tiempard)
                        $('#s_nombre_defensor').prop('readonly',json[0].nomdefen)
@@ -42,17 +33,17 @@
                         if(json[0].titipard[0].valuexxx==1){
                             $(dataxxxx.camposxx).empty();
                         }
-                        
-                        if(dataxxxx.optionxx==1){
-                            $.each(json[0].actupard,function(i,data){                            
-                                $('#i_prm_actualmente_pard_id').append('<option '+f_selected(data.valuexxx,dataxxxx.actupard)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                            });  
-                        }                        
 
-                        $.each(json[0].titipard,function(i,data){                            
+                        if(dataxxxx.optionxx==1){
+                            $.each(json[0].actupard,function(i,data){
+                                $('#i_prm_actualmente_pard_id').append('<option '+f_selected(data.valuexxx,dataxxxx.actupard)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                            });
+                        }
+
+                        $.each(json[0].titipard,function(i,data){
                             $('#i_prm_tipo_tiempo_pard_id').append('<option '+f_selected(data.valuexxx,dataxxxx.tipopard)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        }); 
-                        $.each(json[0].motipard,function(i,data){                            
+                        });
+                        $.each(json[0].motipard,function(i,data){
                             $('#i_prm_motivo_pard_id').append('<option '+f_selected(data.valuexxx,dataxxxx.motipard)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
                    },
@@ -65,7 +56,7 @@
 
         @if(old('i_prm_ha_estado_pard_id')!=null && old('i_prm_ha_estado_pard_id')==228 )
             var actupard='';
-            var tipopard='';          
+            var tipopard='';
             var motipard='';
             @if(old('i_prm_actualmente_pard_id')!=null)
                 actupard={{ old('i_prm_actualmente_pard_id') }};
@@ -75,20 +66,20 @@
             @endif
             @if(old('i_prm_motivo_pard_id')!=null)
                 motipard={{ old('i_prm_motivo_pard_id') }};
-            @endif   
-           
+            @endif
+
             var dataxxxx={
                 valuexxx:{{ old('i_prm_ha_estado_pard_id') }},
                 camposxx:'#i_prm_actualmente_pard_id,#i_prm_tipo_tiempo_pard_id, #i_prm_motivo_pard_id',
                 optionxx:1,
                 actupard:actupard,
-                tipopard:tipopard,            
+                tipopard:tipopard,
                 motipard:motipard,
             };
            f_ocultapard(dataxxxx);
-           
+
        @endif
-       
+
 
        $("#i_prm_ha_estado_pard_id").change(function(){
            var dataxxxx={
@@ -96,7 +87,7 @@
                 camposxx:'#i_prm_actualmente_pard_id,#i_prm_tipo_tiempo_pard_id, #i_prm_motivo_pard_id',
                 optionxx:1,
                 actupard:'',
-                tipopard:'',            
+                tipopard:'',
                 motipard:'',
             };
            f_ocultapard(dataxxxx);
@@ -108,15 +99,15 @@
                 camposxx:'#i_prm_tipo_tiempo_pard_id, #i_prm_motivo_pard_id',
                 optionxx:2,
                 actupard:'',
-                tipopard:'',            
+                tipopard:'',
                 motipard:'',
             };
            f_ocultapard(dataxxxx);
        });
-        @if(old('i_prm_ha_estado_pard_id')!=null && old('i_prm_ha_estado_pard_id')!=228) 
+        @if(old('i_prm_ha_estado_pard_id')!=null && old('i_prm_ha_estado_pard_id')!=228)
             var actupard='';
-            var tipopard='';          
-            var motipard=''; 
+            var tipopard='';
+            var motipard='';
             @if(old('i_prm_actualmente_pard_id')!=null)
                 actupard={{ old('i_prm_actualmente_pard_id') }};
             @endif
@@ -125,13 +116,13 @@
             @endif
             @if(old('i_prm_motivo_pard_id')!=null)
                 motipard={{ old('i_prm_motivo_pard_id') }};
-            @endif  
+            @endif
             var dataxxxx={
                 valuexxx:{{ old('i_prm_actualmente_pard_id') }},
                 camposxx:'#i_prm_tipo_tiempo_pard_id, #i_prm_motivo_pard_id',
                 optionxx:2,
                 actupard:'',
-                tipopard:tipopard,            
+                tipopard:tipopard,
                 motipard:motipard,
             };
             f_ocultapard(dataxxxx);
@@ -143,7 +134,7 @@
     //         optionxx:1,
     //         actusrpa:'',
                 // tiposrpa:'',
-                // motipard:'', 
+                // motipard:'',
                 // sancsrpa:''
     //     };
        var f_ocultasrpa = function(dataxxxx){
@@ -159,24 +150,24 @@
                     type : 'POST',
                     dataType : 'json',
                     success : function(json) {
-                        $('#i_cuanto_srpa').val(json[0].valuexxx)    
+                        $('#i_cuanto_srpa').val(json[0].valuexxx)
 
                         $('#i_cuanto_srpa').prop('readonly',json[0].tiemsrpa)
                         if(json[0].titisrpa[0].valuexxx==1){
                             $(dataxxxx.camposxx).empty();
                         }
                         if(dataxxxx.optionxx==1){
-                            $.each(json[0].actusrpa,function(i,data){                  
+                            $.each(json[0].actusrpa,function(i,data){
                                 $('#i_prm_actualmente_srpa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.actusrpa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                             });
-                        } 
-                        $.each(json[0].titisrpa,function(i,data){                            
+                        }
+                        $.each(json[0].titisrpa,function(i,data){
                             $('#i_prm_tipo_tiempo_srpa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.tiposrpa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        }); 
-                        $.each(json[0].motisrpa,function(i,data){                            
+                        });
+                        $.each(json[0].motisrpa,function(i,data){
                             $('#i_prm_motivo_srpa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.motipard)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
-                        $.each(json[0].sancsrpa,function(i,data){                            
+                        $.each(json[0].sancsrpa,function(i,data){
                             $('#i_prm_sancion_srpa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.sancsrpa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
                     },
@@ -213,10 +204,10 @@
             optionxx:1,
             actusrpa:actusrpa,
             tiposrpa:tiposrpa,
-            motipard:motipard, 
+            motipard:motipard,
             sancsrpa:sancsrpa
         };
-           f_ocultasrpa(dataxxxx);  
+           f_ocultasrpa(dataxxxx);
         @endif
 
         @if(old('i_prm_actualmente_srpa_id')!=null && old('i_prm_ha_estado_srpa_id')!=228)
@@ -226,7 +217,7 @@
                 optionxx:2,
                 actusrpa:'',
                 tiposrpa:tiposrpa,
-                motipard:motipard, 
+                motipard:motipard,
                 sancsrpa:sancsrpa
             };
             f_ocultasrpa(dataxxxx);
@@ -240,7 +231,7 @@
                 optionxx:1,
                 actusrpa:'',
                 tiposrpa:'',
-                motipard:'', 
+                motipard:'',
                 sancsrpa:''
             };
             f_ocultasrpa(dataxxxx);
@@ -252,7 +243,7 @@
                 optionxx:2,
                 actusrpa:'',
                 tiposrpa:'',
-                motipard:'', 
+                motipard:'',
                 sancsrpa:''
             };
             f_ocultasrpa(dataxxxx);
@@ -264,8 +255,8 @@
     //         optionxx:1,
     //         actuspoa:'',
     //         tipospoa:'',
-    //         motispoa:'', 
-    //         cumpenax:'', 
+    //         motispoa:'',
+    //         cumpenax:'',
     //         estapres:''
     //     };
         var f_ocultaspoa = function(dataxxxx){
@@ -282,7 +273,7 @@
                     dataType : 'json',
                     success : function(json) {
 
-                        $('#i_cuanto_spoa').val(json[0].valuexxx)    
+                        $('#i_cuanto_spoa').val(json[0].valuexxx)
                         $('#i_cuanto_spoa').prop('readonly',json[0].tiemspoa)
 
                         if(json[0].titispoa[0].valuexxx==1){
@@ -290,21 +281,21 @@
                         }
 
                         if(dataxxxx.optionxx==1){
-                            $.each(json[0].actuspoa,function(i,data){                  
+                            $.each(json[0].actuspoa,function(i,data){
                                 $('#i_prm_actualmente_spoa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.actuspoa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                             });
                         }
 
-                        $.each(json[0].titispoa,function(i,data){                            
+                        $.each(json[0].titispoa,function(i,data){
                             $('#i_prm_tipo_tiempo_spoa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.actuspoa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        }); 
-                        $.each(json[0].motispoa,function(i,data){                            
+                        });
+                        $.each(json[0].motispoa,function(i,data){
                             $('#i_prm_motivo_spoa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.motispoa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
-                        $.each(json[0].cumppena,function(i,data){                            
+                        $.each(json[0].cumppena,function(i,data){
                             $('#i_prm_mod_cumple_pena_id').append('<option '+f_selected(data.valuexxx,dataxxxx.cumpenax)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
-                        $.each(json[0].estapres,function(i,data){                            
+                        $.each(json[0].estapres,function(i,data){
                             $('#i_prm_ha_estado_preso_id').append('<option '+f_selected(data.valuexxx,dataxxxx.estapres)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
                     },
@@ -318,8 +309,8 @@
        @if(old('i_prm_ha_estado_spoa_id')!=null && old('i_prm_ha_estado_spoa_id')==228)
             var actuspoa='';
             var tipospoa='';
-            var motispoa=''; 
-            var cumpenax=''; 
+            var motispoa='';
+            var cumpenax='';
             var estapres='';
             @if(old('i_prm_actualmente_spoa_id')!=null)
                 actuspoa={{ old('i_prm_actualmente_spoa_id') }}
@@ -342,34 +333,34 @@
                 optionxx:1,
                 actuspoa:actuspoa,
                 tipospoa:tipospoa,
-                motispoa:motispoa, 
-                cumpenax:cumpenax, 
+                motispoa:motispoa,
+                cumpenax:cumpenax,
                 estapres:estapres
             };
            f_ocultaspoa(dataxxxx);
        @endif
 
-        $("#i_prm_ha_estado_spoa_id").change(function(){  
+        $("#i_prm_ha_estado_spoa_id").change(function(){
             var dataxxxx={
                 valuexxx:$(this).val(),
                 camposxx:'#i_prm_actualmente_spoa_id,#i_prm_tipo_tiempo_spoa_id, #i_prm_motivo_spoa_id, #i_prm_mod_cumple_pena_id, #i_prm_ha_estado_preso_id',
                 optionxx:1,
                 actuspoa:'',
                 tipospoa:'',
-                motispoa:'', 
-                cumpenax:'', 
+                motispoa:'',
+                cumpenax:'',
                 estapres:''
-            }; 
+            };
             f_ocultaspoa(dataxxxx);
         });
 
         @if(old('i_prm_actualmente_spoa_id')!=null && old('i_prm_ha_estado_spoa_id')!=228)
             var actuspoa='';
             var tipospoa='';
-            var motispoa=''; 
-            var cumpenax=''; 
+            var motispoa='';
+            var cumpenax='';
             var estapres='';
-            
+
             if(old('i_prm_tipo_tiempo_spoa_id')!=null){
                 tipospoa={{ old('i_prm_tipo_tiempo_spoa_id') }}
             }
@@ -388,23 +379,23 @@
                 optionxx:2,
                 actuspoa:actuspoa,
                 tipospoa:tipospoa,
-                motispoa:motispoa, 
-                cumpenax:cumpenax, 
+                motispoa:motispoa,
+                cumpenax:cumpenax,
                 estapres:estapres
             };
             f_ocultaspoa(dataxxxx);
         @endif
-        $("#i_prm_actualmente_spoa_id").change(function(){  
+        $("#i_prm_actualmente_spoa_id").change(function(){
             var dataxxxx={
                 valuexxx:$(this).val(),
                 camposxx:'#i_prm_tipo_tiempo_spoa_id, #i_prm_motivo_spoa_id, #i_prm_mod_cumple_pena_id, #i_prm_ha_estado_preso_id',
                 optionxx:2,
                 actuspoa:'',
                 tipospoa:'',
-                motispoa:'', 
-                cumpenax:'', 
+                motispoa:'',
+                cumpenax:'',
                 estapres:''
-            }; 
+            };
             f_ocultaspoa(dataxxxx);
         });
 
@@ -425,7 +416,7 @@
                        if(json[0].vinviole[0].valuexxx==1){
                            $("#prm_situacion_id").empty();
                        }
-                       $.each(json[0].vinviole,function(i,data){                            
+                       $.each(json[0].vinviole,function(i,data){
                            $('#prm_situacion_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                        });
                    },
@@ -440,7 +431,7 @@
            f_vincviolencia({{ old('i_prm_vinculado_violencia_id') }});
        @endif
 
-       $("#i_prm_vinculado_violencia_id").change(function(){   
+       $("#i_prm_vinculado_violencia_id").change(function(){
            f_vincviolencia($(this).val());
        });
 
@@ -461,7 +452,7 @@
                        if(json[0].rieviole[0].valuexxx==1){
                            $("#prm_riesgo_id").empty();
                        }
-                       $.each(json[0].rieviole,function(i,data){                            
+                       $.each(json[0].rieviole,function(i,data){
                            $('#prm_riesgo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                        });
                    },
@@ -476,10 +467,10 @@
            f_riesviolencia({{ old('i_prm_riesgo_participar_id') }});
        @endif
 
-       $("#i_prm_riesgo_participar_id").change(function(){   
+       $("#i_prm_riesgo_participar_id").change(function(){
            f_riesviolencia($(this).val());
        });
 
    });
 
-</script>  
+</script>

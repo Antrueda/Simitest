@@ -157,7 +157,7 @@ class FiCompfami extends Model
             $comboxxx = ['' => 'Seleccione'];
         }
         $compofam = FiCompfami::where(function ($consulta) use ($padrexxx, $edadxxxx) {
-            $consulta->where('sis_nnaj_id', $padrexxx->sis_nnaj_id);
+            $consulta->where('sis_nnajnnaj_id', $padrexxx->sis_nnaj_id);
             //   if($edadxxxx>=18){
             //     $consulta->where('i_prm_parentesco_id', 805);
             //   }
@@ -166,15 +166,16 @@ class FiCompfami extends Model
         foreach ($compofam as $registro) {
             $edad = Carbon::parse($registro->d_nacimiento)->age;
             if ($edad >= 18) {
+                $nombrexx=$registro->sis_nnaj->fi_datos_basico;
+                $nombrexx=$nombrexx->s_primer_nombre . ' ' . $nombrexx->s_segundo_nombre . ' ' .
+                            $nombrexx->s_primer_apellido . ' ' . $nombrexx->s_segundo_apellido;
                 if ($ajaxxxxx) {
                     $comboxxx[] = [
                         'valuexxx' => $registro->id,
-                        'optionxx' => $registro->s_primer_nombre . ' ' . $registro->s_segundo_nombre . ' ' .
-                            $registro->s_primer_apellido . ' ' . $registro->s_segundo_apellido
+                        'optionxx' =>$nombrexx
                     ];
                 } else {
-                    $comboxxx[$registro->id] = $registro->s_primer_nombre . ' ' . $registro->s_segundo_nombre . ' ' .
-                        $registro->s_primer_apellido . ' ' . $registro->s_segundo_apellido;
+                    $comboxxx[$registro->id] = $nombrexx;
                 }
                 $redirect = false;
             }
