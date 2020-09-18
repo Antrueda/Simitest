@@ -20,8 +20,6 @@ class FiSaludUpdateRequest extends FormRequest
             'i_prm_tipo_discapacidad_id.required' => 'Seleccione tipo discapacidad',
             'i_prm_tiene_cert_discapacidad_id.required' => 'Seleccione tiene certificado discapacidad',
             'i_prm_disc_perm_independencia_id.required' => 'Seleccione discapacidad permite independencia',
-            'i_prm_esta_gestando_id.required' => 'Seleccione se encuentra en estado gestación',
-            'i_prm_esta_lactando_id.required' => 'Seleccione se encuentra lactando',
             'i_prm_tiene_problema_salud_id.required' => 'Seleccione tiene problemas de salud',
             'i_prm_consume_medicamentos_id.required' => 'Seleccione consume medicamentos de forma permanente',
             'i_prm_tiene_hijos_id.required' => 'Seleccione tiene hijos',
@@ -40,8 +38,6 @@ class FiSaludUpdateRequest extends FormRequest
             'i_prm_tipo_discapacidad_id' => ['Required'],
             'i_prm_tiene_cert_discapacidad_id' => ['Required'],
             'i_prm_disc_perm_independencia_id' => ['Required'],
-            'i_prm_esta_gestando_id' => ['Required'],
-            'i_prm_esta_lactando_id' => ['Required'],
             'i_prm_tiene_problema_salud_id' => ['Required'],
             'i_prm_consume_medicamentos_id' => ['Required'],
             'i_prm_tiene_hijos_id' => ['Required'],
@@ -91,7 +87,10 @@ class FiSaludUpdateRequest extends FormRequest
                 $this->_reglasx['prm_discausa_id'] = ['required'];
             }
         if ($datosbas->nnaj_sexo->prm_sexo_id != 20) {
-
+            $this->_mensaje['i_prm_esta_gestando_id.required'] = 'Seleccione se encuentra en estado gestación';
+            $this->_reglasx['i_prm_esta_gestando_id'] = 'required';
+            $this->_mensaje['i_prm_esta_lactando_id.required'] = 'Seleccione se encuentra lactando';
+            $this->_reglasx['i_prm_esta_lactando_id'] = 'required';
             switch ($dataxxxx['i_prm_esta_gestando_id']) {
                 case 227:
                     $this->_mensaje['i_numero_semanas.required'] = 'Escriba el número de semanas';

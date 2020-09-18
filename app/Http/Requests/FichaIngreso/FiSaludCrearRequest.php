@@ -22,8 +22,6 @@ class FiSaludCrearRequest extends FormRequest
             'i_prm_tipo_discapacidad_id.required' => 'Seleccione tipo discapacidad',
             'i_prm_tiene_cert_discapacidad_id.required' => 'Seleccione tiene certificado discapacidad',
             'i_prm_disc_perm_independencia_id.required' => 'Seleccione discapacidad permite independencia',
-            'i_prm_esta_gestando_id.required' => 'Seleccione se encuentra en estado gestación',
-            'i_prm_esta_lactando_id.required' => 'Seleccione se encuentra lactando',
             'i_prm_tiene_problema_salud_id.required' => 'Seleccione tiene problemas de salud',
             'i_prm_consume_medicamentos_id.required' => 'Seleccione consume medicamentos de forma permanente',
             'i_prm_tiene_hijos_id.required' => 'Seleccione tiene hijos',
@@ -43,8 +41,6 @@ class FiSaludCrearRequest extends FormRequest
             'i_prm_tipo_discapacidad_id' => ['Required'],
             'i_prm_tiene_cert_discapacidad_id' => ['Required'],
             'i_prm_disc_perm_independencia_id' => ['Required'],
-            'i_prm_esta_gestando_id' => ['Required'],
-            'i_prm_esta_lactando_id' => ['Required'],
             'i_prm_tiene_problema_salud_id' => ['Required'],
             'i_prm_consume_medicamentos_id' => ['Required'],
             'i_prm_tiene_hijos_id' => ['Required'],
@@ -55,8 +51,7 @@ class FiSaludCrearRequest extends FormRequest
             'i_comidas_diarias' => ['Required'],
             'i_prm_razon_no_cinco_comidas_id' => ['Required'],
 
-            //'prm_victataq_id' => ['Required'],
-            //'prm_discausa_id' => ['Required'],
+
         ];
     }
     /**

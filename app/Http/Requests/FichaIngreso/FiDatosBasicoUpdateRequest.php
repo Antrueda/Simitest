@@ -37,7 +37,8 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'sis_upzbarri_id.required' => 'Seleccione un barrio',
             's_documento.required' => 'Ingrese un documento de identificación',
             's_documento.unique' => 'El docuemento ya existe',
-
+            'sis_servicio_id.required' =>'Seleccione un servicio',
+            'sis_depen_id.required' =>'Seleccione una UPI'
         ];
         $this->_reglasx = [
             'prm_tipoblaci_id' => ['required'],
@@ -63,6 +64,8 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             's_nombre_focalizacion' => ['required'],
             's_lugar_focalizacion' => ['required'],
             'sis_upzbarri_id' => ['required'],
+            'sis_servicio_id' => ['required'],
+            'sis_depen_id'=> ['required']
         ];
     }
     /**

@@ -37,6 +37,8 @@ class FiDatosBasicoCrearRequest extends FormRequest
             's_lugar_focalizacion.required' => 'Indique el lugar de focalización',
             'sis_upzbarri_id.required' => 'Seleccione un barrio',
             's_documento.required' => 'Ingrese un documento de identificación',
+            'sis_servicio_id.required' =>'Seleccione un servicio',
+            'sis_depen_id.required' =>'Seleccione una UPI'
             //
         ];
         $this->_reglasx = [
@@ -62,7 +64,9 @@ class FiDatosBasicoCrearRequest extends FormRequest
             'prm_vestimenta_id' => ['required'],
             's_nombre_focalizacion' => ['required'],
             's_lugar_focalizacion' => ['required'],
-            'sis_upzbarri_id' => ['required']
+            'sis_upzbarri_id' => ['required'],
+            'sis_servicio_id' => ['required'],
+            'sis_depen_id'=> ['required']
         ];
     }
     /**

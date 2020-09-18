@@ -28,9 +28,9 @@ class CreateHFiSaludsTable extends Migration
             $table->bigInteger('i_prm_tipo_discapacidad_id')->unsigned()->comment('FI 6.4.2 TIPO DISCAPACIDAD');
             $table->bigIntegeR('i_prm_tiene_cert_discapacidad_id')->unsigned()->comment('FI 6.5 TIENE CERTIFICADO DISCAPACIDAD');
             $table->bigIntegeR('i_prm_disc_perm_independencia_id')->unsigned()->comment('FI 6.6 DISCAPACIDAD PERMITE INDEPENDENCIA');
-            $table->bigIntegeR('i_prm_esta_gestando_id')->unsigned()->comment('FI 6.7 SE ENCUENTRA EN ESTADO GESTACIÓN');
+            $table->bigIntegeR('i_prm_esta_gestando_id')->nullable()->unsigned()->comment('FI 6.7 SE ENCUENTRA EN ESTADO GESTACIÓN');
             $table->bigIntegeR('i_numero_semanas')->nullable()->comment('FI 6.8 NÚMERO DE SEMANAS');
-            $table->bigIntegeR('i_prm_esta_lactando_id')->unsigned()->comment('FI 6.9 SE ENCUENTRA LACTANDO');
+            $table->bigIntegeR('i_prm_esta_lactando_id')->nullable()->unsigned()->comment('FI 6.9 SE ENCUENTRA LACTANDO');
             $table->bigIntegeR('i_numero_meses')->nullable()->comment('FI 6.10 NÚMERO DE MESES');
             $table->bigIntegeR('i_prm_tiene_problema_salud_id')->unsigned()->comment('FI 6.11 TIENE PROBLEMAS DE SALUD');
             $table->bigIntegeR('i_prm_problema_salud_id')->nullable()->unsigned()->comment('FI 6.11.1 CUAL PROBLEMA SALUD');
