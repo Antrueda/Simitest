@@ -59,30 +59,32 @@ class NnajDocu extends Model
         return $objetoxx;
     }
 
- /**registrar informacion del nnaj para datos basicos y documento de identidad cuando se crea la composcion familiar */
- public static function setDBComposicionFamiliar($dataxxxx,  $datobasi)
- {
-     $objetoxx = DB::transaction(function () use ($dataxxxx, $datobasi) {
-         $nnajnnaj = NnajDocu::where('s_documento', $dataxxxx['s_documento'])->first();
-         if (isset($nnajnnaj->id)) {
-             $datosbas = FiDatosBasico::getDbcomfamiliar($dataxxxx, $datobasi->sis_nnaj->fi_datos_basico); // actualizar datos basicos del componente familiar
-             $nnajnnaj->update($dataxxxx);
-         } else {
-             $dataxxxx['user_crea_id'] = Auth::user()->id;
-             $dataxxxx['prm_tipoblaci_id'] = 1269;
-             $dataxxxx['prm_estrateg_id'] = 1269;
-             $dataxxxx['sis_docfuen_id'] = 2;
-             $dataxxxx['sis_esta_id'] = 1;
-             $dataxxxx['prm_ayuda_id'] = 1269;
-             $dataxxxx['prm_doc_fisico_id'] = 1269;
-             $datosbas = FiDatosBasico::getDbcomfamiliar($dataxxxx, '');
-             $dataxxxx['fi_datos_basico_id'] = $datosbas->id;
-             $objetoxx = NnajDocu::create($dataxxxx);
-         }
-         return $objetoxx;
-     }, 5);
-     return $objetoxx;
- }
+    /**registrar informacion del nnaj para datos basicos y documento de identidad cuando se crea la composcion familiar */
+    public static function setDBComposicionFamiliar($dataxxxx, $padrexxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx, $padrexxx) {
+            $objetoxx = NnajDocu::where('s_documento', $dataxxxx['s_documento'])->first();
+            if (isset($objetoxx->id) || $padrexxx != '') {
+                $padrexxx=($padrexxx)!=''?$padrexxx->sis_nnaj->fi_datos_basico:$objetoxx->fi_datos_basico;
+                $objetoxx=(isset($objetoxx->id))==true?$objetoxx:$padrexxx->sis_nnaj->fi_datos_basico->nnaj_docu;
+                FiDatosBasico::getDbcomfamiliar($dataxxxx, $padrexxx); // actualizar datos basicos del componente familiar
+                $objetoxx->update($dataxxxx);
+            } else {
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['prm_tipoblaci_id'] = 1269;
+                $dataxxxx['prm_estrateg_id'] = 1269;
+                $dataxxxx['sis_docfuen_id'] = 2;
+                $dataxxxx['sis_esta_id'] = 1;
+                $dataxxxx['prm_ayuda_id'] = 1269;
+                $dataxxxx['prm_doc_fisico_id'] = 1269;
+                $datosbas = FiDatosBasico::getDbcomfamiliar($dataxxxx, '');
+                $dataxxxx['fi_datos_basico_id'] = $datosbas->id;
+                $objetoxx = NnajDocu::create($dataxxxx);
+            }
+            return $objetoxx;
+        }, 5);
+        return $objetoxx;
+    }
 
 
     public function tipoDocumento()
@@ -106,6 +108,4 @@ class NnajDocu extends Model
     {
         return $this->belongsTo(SisDocfuen::class);
     }
-
-
 }
