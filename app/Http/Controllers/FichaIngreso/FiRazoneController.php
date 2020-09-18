@@ -106,7 +106,7 @@ class FiRazoneController extends Controller
             $this->opciones['cargodil'] = $dilegenc[1];
             $this->opciones['cargores'] = $responsa[1];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-            ddd($dilegenc);
+
         }
 
         $this->opciones['tablasxx'] = [
@@ -168,7 +168,6 @@ class FiRazoneController extends Controller
         $dataxxxx = ['requestx' => $dataxxxx, 'nombarch' => 'archivo'];
         $archivos = new \App\Helpers\Archivos\Archivos();
         $archivox = $archivos->getRuta($dataxxxx);
-        //ddd($dataxxxx);
         return redirect()
             ->route('firazones.editar', [
                 $padrexxx->id,

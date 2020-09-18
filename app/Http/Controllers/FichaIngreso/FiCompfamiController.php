@@ -298,9 +298,9 @@ class FiCompfamiController extends Controller
      * @param  \App\Models\FiCompfami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiCompfamiUpdateRequest $request, FiDatosBasico $padrexxx, $modeloxx)
+    public function update(FiCompfamiUpdateRequest $request, FiDatosBasico $padrexxx, FiCompfami $modeloxx)
     {
-        return $this->grabar($request->all(), FiCompfami::where('id', $modeloxx)->first(), 'Composicion familiar actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Composicion familiar actualizada con exito', $padrexxx);
     }
 
     public function inactivate(FiDatosBasico $padrexxx, FiCompfami $modeloxx)

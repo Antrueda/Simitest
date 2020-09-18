@@ -43,7 +43,7 @@ class FiDatosBasico extends Model
     {
         return $this->belongsTo(Parametro::class, 'prm_vestimenta_id');
     }
-    
+
     public function nnaj_docu()
     {
         return $this->hasOne(NnajDocu::class);
@@ -86,7 +86,7 @@ class FiDatosBasico extends Model
     {
         return $this->belongsTo(Parametro::class, 'prm_tipoblaci_id');
     }
-    
+
 
 
     public function gsanguino()
@@ -166,6 +166,32 @@ class FiDatosBasico extends Model
         //ddd($objetoxx);
         return $objetoxx;
     }
+    /**
+     * grabar datos basicos del componente familiar
+     *
+     */
+    public static function getDbcomfamiliar($dataxxxx, $objetoxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+            $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
+            $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
+            $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
+            $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['s_segundo_apellido']);
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if ($objetoxx != '') {
+                /** Actualizar registro */
+                $objetoxx->update($dataxxxx);
+            } else {
+                /** Es un registro nuevo */
+                $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'prm_escomfam_id' => 228])->id;
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $objetoxx = FiDatosBasico::create($dataxxxx);
+            }
+            return $objetoxx;
+        }, 5);
+
+        return $objetoxx;
+    }
     public function grabar($dataxxxx, $objetoxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
@@ -190,7 +216,7 @@ class FiDatosBasico extends Model
                 $objetoxx->nnaj_sit_mil->update($dataxxxx);
                 $objetoxx->nnaj_focali->update($dataxxxx);
                 $objetoxx->nnaj_fi_csd->update($dataxxxx);
-                
+
             } else {
                 /** Es un registro nuevo */
                 $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'prm_escomfam_id' => 227])->id;
@@ -203,7 +229,7 @@ class FiDatosBasico extends Model
                 NnajSitMil::create($dataxxxx);
                 NnajFocali::create($dataxxxx);
                 NnajFiCsd::create($dataxxxx);
-                
+
                 /**
                  * agregar el nnaj a la composocion familiar
                  */
@@ -215,18 +241,18 @@ class FiDatosBasico extends Model
                 FiCompfami::create($dataxxxx);
             }
            NnajUpi::setUpiDatosBasicos($dataxxxx, $objetoxx);
-           
+
             return $objetoxx;
         }, 5);
 
         return $objetoxx;
     }
 
-   
+
 
 
     public static function setSisServ($dataxxxx, $objetoxx){
-    
+
         $datosxxx = [
             'nnaj_upi_id' => $dataxxxx['sis_depen_id'],
             'user_crea_id' => Auth::user()->id,
