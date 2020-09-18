@@ -105,7 +105,7 @@ class User extends Authenticatable
     {
         $usuariox = DB::transaction(function () use ($dataxxxx,  $objetoxx) {
             $dataxxxx['user_edita_id'] = Auth::user()->id;
-            $dataxxxx['password_change_at'] = date("Y-m-d",strtotime(date('Y-m-d')."+ 1 month"));
+            $dataxxxx['password_change_at'] = date("Y-m-d", strtotime(date('Y-m-d') . "+ 1 month"));
             $dataxxxx['password_reset_at'] = null;
             $objetoxx->update($dataxxxx);
             return $objetoxx;
@@ -211,7 +211,7 @@ class User extends Authenticatable
     }
 
 
-    
+
     private static function userComboUpi($dataxxxx)
     {
         $comboxxx = [];
@@ -276,15 +276,19 @@ class User extends Authenticatable
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $userxxxx = Auth::user();
-        foreach ($userxxxx->sis_depens as $registro) {
-            if ( $registro->sis_esta_id==1) {
+
+        $upixxxxx = SisDepen::select(['sis_depens.id', 'sis_depens.nombre'])->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+            ->where('user_id', Auth::user()->id)
+            ->where('sis_depen_user.sis_esta_id', 1)
+            ->get();
+        foreach ($upixxxxx as $registro) {
+
+
             if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
             } else {
                 $comboxxx[$registro->id] = $registro->nombre;
             }
-        }
         }
         return $comboxxx;
     }

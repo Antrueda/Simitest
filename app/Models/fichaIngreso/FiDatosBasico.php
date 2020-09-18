@@ -6,6 +6,7 @@ use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
 use App\Models\sicosocial\NnajNfamili;
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDepeServ;
 use App\Models\Sistema\SisDocfuen;
 use Carbon\Carbon;
 
@@ -27,7 +28,6 @@ class FiDatosBasico extends Model
         'sis_nnaj_id',
         'prm_tipoblaci_id',
         'prm_estrateg_id',
-        'prm_servicio_id',
         'prm_vestimenta_id',
         'sis_docfuen_id',
         'sis_esta_id',
@@ -87,10 +87,7 @@ class FiDatosBasico extends Model
         return $this->belongsTo(Parametro::class, 'prm_tipoblaci_id');
     }
     
-    public function prmServicio()
-    {
-        return $this->belongsTo(Parametro::class, 'prm_servicio_id');
-    }
+
 
     public function gsanguino()
     {
@@ -193,6 +190,7 @@ class FiDatosBasico extends Model
                 $objetoxx->nnaj_sit_mil->update($dataxxxx);
                 $objetoxx->nnaj_focali->update($dataxxxx);
                 $objetoxx->nnaj_fi_csd->update($dataxxxx);
+                
             } else {
                 /** Es un registro nuevo */
                 $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'prm_escomfam_id' => 227])->id;
@@ -205,6 +203,7 @@ class FiDatosBasico extends Model
                 NnajSitMil::create($dataxxxx);
                 NnajFocali::create($dataxxxx);
                 NnajFiCsd::create($dataxxxx);
+                
                 /**
                  * agregar el nnaj a la composocion familiar
                  */
@@ -215,31 +214,29 @@ class FiDatosBasico extends Model
                 $dataxxxx['i_prm_convive_nnaj_id'] = 227;
                 FiCompfami::create($dataxxxx);
             }
-            $this->setSisDepen($dataxxxx, $objetoxx);
+           NnajUpi::setUpiDatosBasicos($dataxxxx, $objetoxx);
+           
             return $objetoxx;
         }, 5);
 
         return $objetoxx;
     }
 
-    public static function setSisDepen($dataxxxx, $objetoxx)
-    {
+   
+
+
+    public static function setSisServ($dataxxxx, $objetoxx){
+    
         $datosxxx = [
-            'sis_nnaj_id' => $objetoxx->sis_nnaj_id,
+            'nnaj_upi_id' => $dataxxxx['sis_depen_id'],
             'user_crea_id' => Auth::user()->id,
             'user_edita_id' => Auth::user()->id,
             'sis_esta_id' => 1,
             'prm_principa_id' => 227,
-            'sis_depen_id' => $dataxxxx['sis_depen_id']
+            'sis_depser_id' => $dataxxxx['sis_depser_id']
         ];
 
-        NnajUpi::create($datosxxx);
-
-        // NnajUpi::where('sis_nnaj_id', $objetoxx->id)->delete();
-        // foreach ($dataxxxx['sis_depen_id'] as $diagener) {
-        //     $datosxxx['sis_depen_id'] = $diagener;
-        //     NnajUpi::create($datosxxx);
-        // }
+        NnajDese::create($datosxxx);
     }
     public function sis_docfuen()
     {

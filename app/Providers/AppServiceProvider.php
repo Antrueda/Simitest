@@ -98,6 +98,7 @@ use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\intervencion\IsDatosBasico;
 use App\Models\intervencion\IsProximaAreaAjuste;
+use App\Models\fichaIngreso\NnajDese;
 
 use App\Models\Permissionext;
 use App\Models\Post;
@@ -326,6 +327,7 @@ use App\Observers\FiVictataqObserver;
 use App\Observers\FiVictimaEscnnaObserver;
 use App\Observers\FiViolbasaObserver;
 use App\Observers\FiViolenciaObserver;
+use App\Observers\NnajDeseObserver;
 use App\Observers\FosDatosBasicoObserver;
 use App\Observers\FosStseObserver;
 use App\Observers\FosTseObserver;
@@ -677,6 +679,7 @@ class AppServiceProvider extends ServiceProvider
         FiVictataq::observe(FiVictataqObserver::class);
         FiAccione::observe(FiAccioneObserver::class);
         FiContviol::observe(FiContviolObserver::class);
+        NnajDese::observe(NnajDeseObserver::class);
         // USUARIO
         SisAreaUsua::observe(SisAreaUsuaObserver::class);
 

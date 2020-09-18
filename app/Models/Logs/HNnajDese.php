@@ -4,11 +4,12 @@ namespace App\Models\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HNnajDeses extends Model
+class HNnajDese extends Model
 {
     protected $fillable = [
-        'sis_depser_id',
+        'sis_servicio_id',
         'nnaj_upi_id',
+        'prm_principa_id',
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',

@@ -3,19 +3,19 @@
 namespace App\Models\fichaIngreso;
 
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDepeServ;
 use App\Models\Sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class NnajUpi extends Model
+class NnajDese extends Model
 {
-
     protected $fillable = [
-        'sis_nnaj_id',
-        'sis_depen_id',
-        'user_crea_id',
+        'sis_servicio_id',
+        'nnaj_upi_id',
         'prm_principa_id',
+        'user_crea_id',
         'user_edita_id',
         'sis_esta_id'
 
@@ -30,23 +30,19 @@ class NnajUpi extends Model
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-    public function nnaj_deses()
-    {
-        return $this->hasMany(NnajDese::class);
-    }
     public function sis_esta()
     {
         return $this->belongsTo(SisEsta::class);
     }
-    public function sis_nnaj_id()
+    public function sis_depser()
     {
-        return $this->belongsTo(SisNnaj::class);
+        return $this->belongsTo(SisDepeServ::class);
     }
-    public function sis_depen()
+    public function nnaj_upi()
     {
-        return $this->belongsTo(SisDepen::class);
+        return $this->belongsTo(NnajUpi::class);
     }
-    public static function getDependenciasNnaj($dataxxxx)
+    public static function getServiciosNnaj($dataxxxx)
     {
         $comboxxx = [];
         if ($dataxxxx['cabecera']) {
@@ -57,38 +53,36 @@ class NnajUpi extends Model
             }
         }
 
-        $notinxxx = SisDepen::whereNotIn('id', NnajUpi::whereNotIn('sis_depen_id', [$dataxxxx['selectxx']])
-            ->where('fi_datos_basico_id', $dataxxxx['padrexxx'])
-            ->get(['sis_depen_id']))
+        $notinxxx = SisDepeServ::where('sis_depen_id', $dataxxxx['padrexxx'])
             ->get();
 
         foreach ($notinxxx as $registro) {
             if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->sis_servicio->s_servicio];
             } else {
-                $comboxxx[$registro->id] = $registro->nombre;
+                $comboxxx[$registro->id] = $registro->sis_servicio->s_servicio;
             }
         }
         return $comboxxx;
     }
-    /** asingar upi al nnaj cuando se está creando datos basicos */
-    public static function setUpiDatosBasicos($dataxxxx,  $datobasi) // $objetoxx=datos basicos
-    {
 
-        $objetoxx = DB::transaction(function () use ($dataxxxx, $datobasi) {
-            $objetoxx = NnajUpi::where('prm_principa_id', 227)
-                ->where('sis_nnaj_id', $datobasi->sis_nnaj_id)
+    /** asingar servicio al nnaj cuando se está creando datos basicos */
+    public static function setServicioDatosBasicos($dataxxxx,  $nnajupix) // $nnajupix=asocicin de la upi con el nnaj
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx, $nnajupix) {
+            $objetoxx = NnajDese::where('prm_principa_id', 227)
+                ->where('nnaj_upi_id', $nnajupix->id)
                 ->first();
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if (isset($objetoxx->id)) {
                 $objetoxx->update($dataxxxx);
             } else {
+                $dataxxxx['nnaj_upi_id'] =  $nnajupix->id;
                 $dataxxxx['sis_esta_id'] = 1;
                 $dataxxxx['prm_principa_id'] = 227;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = NnajUpi::create($dataxxxx);
+                $objetoxx = NnajDese::create($dataxxxx);
             }
-            NnajDese::setServicioDatosBasicos($dataxxxx,  $objetoxx);
             return $objetoxx;
         }, 5);
         return $objetoxx;

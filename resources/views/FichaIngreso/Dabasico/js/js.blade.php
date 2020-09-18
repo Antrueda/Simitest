@@ -459,5 +459,38 @@
         $("#prm_situacion_militar_id").change(function() {
             clase_libreta($(this).val(), '');
         });
+
+        
+        var f_servicio = function(valuexxx, pselecte) {
+            $("#sis_servicio_id").empty();
+                $.ajax({
+                    url: "{{ route('fidatbas.nnajupse') }}",
+                    data: {
+                        'padrexxx': valuexxx
+                    },
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(json) {
+                       $.each(json, function(i, data) {
+                            var selected = '';
+                            if (pselecte == data.valuexxx)
+                                selected = 'selected';
+                            $('#sis_servicio_id').append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
+                    },
+                    error: function(xhr, status) {
+                        alert('Disculpe, existió un problema');
+                    },
+                });
+            
+        }
+
+        @if(old('sis_depen_id') !== null)
+        f_servicio("{{old('sis_depen_id')}}","{{old('sis_servicio_id')}}");
+        @endif
+        $("#sis_depen_id").change(function() {
+            f_servicio($(this).val(),'');
+        });
+
     });
 </script>

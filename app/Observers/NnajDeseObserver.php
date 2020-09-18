@@ -2,11 +2,12 @@
 
 namespace App\Observers;
 
+use App\Models\fichaIngreso\NnajDese;
 
-use App\Models\fichaIngreso\NnajDeses;
-use App\Models\Logs\HNnajDeses;
+use App\Models\Logs\HNnajDese;
 
-class NnajDesesObserver
+
+class NnajDeseObserver
 {
 
     private function getLog($modeloxx)
@@ -14,8 +15,9 @@ class NnajDesesObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        $log['sis_depser_id'] = $modeloxx->sis_depser_id;
+        $log['sis_servicio_id'] = $modeloxx->sis_servicio_id;
         $log['nnaj_upi_id'] = $modeloxx->nnaj_upi_id;
+        $log['prm_principa_id'] = $modeloxx->prm_principa_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
@@ -31,9 +33,9 @@ class NnajDesesObserver
      * @param  \App\NnajDeses  $nnajDeses
      * @return void
      */
-    public function created(NnajDeses $modeloxx)
+    public function created(NnajDese $modeloxx)
     {
-        HNnajDeses::create($this->getLog($modeloxx));
+        HNnajDese::create($this->getLog($modeloxx));
     }
 
     /**
@@ -42,9 +44,9 @@ class NnajDesesObserver
      * @param  \App\NnajDeses  $modeloxx
      * @return void
      */
-    public function updated(NnajDeses $modeloxx)
+    public function updated(NnajDese $modeloxx)
     {
-        HNnajDeses::create($this->getLog($modeloxx));
+        HNnajDese::create($this->getLog($modeloxx));
     }
 
     /**
@@ -53,9 +55,9 @@ class NnajDesesObserver
      * @param  \App\NnajDeses  $modeloxx
      * @return void
      */
-    public function deleted(NnajDeses $modeloxx)
+    public function deleted(NnajDese $modeloxx)
     {
-        HNnajDeses::create($this->getLog($modeloxx));
+        HNnajDese::create($this->getLog($modeloxx));
     }
 
     /**
@@ -64,9 +66,9 @@ class NnajDesesObserver
      * @param  \App\NnajDeses  $modeloxx
      * @return void
      */
-    public function restored(NnajDeses $modeloxx)
+    public function restored(NnajDese $modeloxx)
     {
-        HNnajDeses::create($this->getLog($modeloxx));
+        HNnajDese::create($this->getLog($modeloxx));
     }
 
     /**
@@ -75,8 +77,8 @@ class NnajDesesObserver
      * @param  \App\NnajDeses  $modeloxx
      * @return void
      */
-    public function forceDeleted(NnajDeses $modeloxx)
+    public function forceDeleted(NnajDese $modeloxx)
     {
-        HNnajDeses::create($this->getLog($modeloxx));
+        HNnajDese::create($this->getLog($modeloxx));
     }
 }

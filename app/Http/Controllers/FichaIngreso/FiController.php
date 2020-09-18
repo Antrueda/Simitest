@@ -21,6 +21,7 @@ use App\Traits\Fi\FiTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\fichaIngreso\NnajDese;
 
 class FiController extends Controller
 {
@@ -71,7 +72,7 @@ class FiController extends Controller
         $this->opciones['orientac'] = Tema::combo(13, true, false);
         $this->opciones['pais_idx'] = SisPai::combo(true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
-        $this->opciones['estrateg'] = [''=>'Seleccione'];
+        $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
         $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
         $this->opciones['botoform'] = [
@@ -204,17 +205,31 @@ class FiController extends Controller
         $paisexpe = $localida;
         $departam = $localida;
         $depaexpe = $localida;
-        $this->opciones['servicio'] = Tema::combo(65, true, false);
+        $this->opciones['servicio'] = ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
+            $dependen = [];
+            foreach ($dataxxxx['modeloxx']->sis_nnaj->nnaj_upis as $key => $value) {
+                if ($value->prm_principa_id = 227) {
+                    $dependen = $value;
+                }
+            }
+            $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' => $dependen->sis_depen_id]);
+            foreach ($dependen->nnaj_deses as $key => $value) {
+                if ($value->prm_principa_id = 227) {
+                    $dependen = $value;
+                }
+            }
+            $dataxxxx['modeloxx']->sis_servicio_id = $dependen->sis_servicio_id;
 
+           
             switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
                 case 650:
-                    $this->opciones['estrateg']=Tema::combo(355, false, false);
+                    $this->opciones['estrateg'] = Tema::combo(355, false, false);
                     break;
                 case 651:
-                    $this->opciones['estrateg']=Tema::combo(354, true, false);
+                    $this->opciones['estrateg'] = Tema::combo(354, true, false);
                     break;
             }
 
@@ -280,7 +295,7 @@ class FiController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
-            $this->opciones['poblindi']=Tema::combo(61, true, false);
+            $this->opciones['poblindi'] = Tema::combo(61, true, false);
             if ($this->opciones['modeloxx']->nnaj_fi_csd->prm_etnia_id != 157) {
                 $this->opciones['poblindi'] =  [1269 => 'NO APLICA'];
             }
@@ -414,17 +429,25 @@ class FiController extends Controller
     {
         if ($request->ajax()) {
 
-            $respuest = ['selected' => 'prm_estrateg_id', 'comboxxx' => [['valuexxx'=>'','optionxx' => 'Seleccione']]];
+            $respuest = ['selected' => 'prm_estrateg_id', 'comboxxx' => [['valuexxx' => '', 'optionxx' => 'Seleccione']]];
             switch ($request->padrexxx) {
                 case 650:
-                    $respuest['comboxxx']=Tema::combo(355, false, true);
+                    $respuest['comboxxx'] = Tema::combo(355, false, true);
                     break;
                 case 651:
-                    $respuest['comboxxx']=Tema::combo(354, true, true);
+                    $respuest['comboxxx'] = Tema::combo(354, true, true);
                     break;
             }
 
             return response()->json($respuest);
+        }
+    }
+
+    public function getServicio(Request $request)
+    {
+        if ($request->ajax()) {
+
+            return response()->json(NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => true, 'padrexxx' => $request->padrexxx]));
         }
     }
 }

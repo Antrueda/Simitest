@@ -27,11 +27,11 @@
     @endif
   </div>
   <div class="form-group col-md-3">
-    {{ Form::label('prm_servicio_id', 'Servicio', ['class' => 'control-label']) }}
-    {{ Form::select('prm_servicio_id', $todoxxxx['servicio'], null, ['class' => $errors->first('prm_servicio_id') ? 'form-control form-control-sm is-invalid ' : 'form-control form-control-sm ','id'=>'prm_servicio_id','placeholder'=>'Selecione']) }}
-    @if($errors->has('prm_servicio_id'))
+    {{ Form::label('sis_servicio_id', 'Servicio', ['class' => 'control-label']) }}
+    {{ Form::select('sis_servicio_id', $todoxxxx['servicio'], null, ['class' => $errors->first('sis_servicio_id') ? 'form-control form-control-sm is-invalid ' : 'form-control form-control-sm ','id'=>'sis_servicio_id','placeholder'=>'Selecione']) }}
+    @if($errors->has('sis_servicio_id')) 
       <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_servicio_id') }}
+        {{ $errors->first('sis_servicio_id') }}
       </div>
     @endif
   </div>

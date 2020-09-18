@@ -50,7 +50,12 @@ Route::group(['prefix' => 'fi'], function () use($routexxx,$controll){
     ])->name($routexxx . '.municipio');
     Route::get('estrateg', [
         'uses' => $controll . 'Controller@getEstrategia',
-    ])->name($routexxx . '.estrateg');
+	])->name($routexxx . '.estrateg');
+	
+
+	Route::get('nnajupse', [
+        'uses' => $controll . 'Controller@getServicio',
+    ])->name($routexxx . '.nnajupse');
 
 	include_once('web_fi_actividadestl.php');
 	include_once('web_fi_autorizacion.php');
