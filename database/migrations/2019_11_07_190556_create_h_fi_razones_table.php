@@ -33,6 +33,7 @@ class CreateHFiRazonesTable extends Migration
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('fi_razone_id')->unsigned();
+            
             $table->bigInteger('i_prm_documento_id')->unsigned();
             $table->text('s_ruta');
             $table = CamposMagicos::h_magicos($table);

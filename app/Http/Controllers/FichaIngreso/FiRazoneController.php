@@ -119,7 +119,7 @@ class FiRazoneController extends Controller
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$parametr]),
                 'cabecera' => [
                     [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ACCIONES', 'widthxxx' => 250, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1,],
                         ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
@@ -127,7 +127,7 @@ class FiRazoneController extends Controller
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'fi_red_apoyo_actuals.id'],
+                    ['data' => 'id', 'name' => 'fi_documentos_anexas.id'],
                     ['data' => 'nombre', 'name' => 'parametros.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],

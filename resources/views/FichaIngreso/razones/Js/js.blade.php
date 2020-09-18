@@ -56,10 +56,10 @@
         }); $('#s_documento').mask('000000000000'); $('#s_documento_responsable').mask('000000000000');
 
 
-        $("#s_doc_adjunto").change(function() {
+        $("#s_doc_adjunto_ar").change(function() {
             var fichero_seleccionado = $(this).val();
             var nombre_fichero_seleccionado = fichero_seleccionado.replace(/.*[\/\\]/, ''); //Eliminamos el path hasta el fichero seleccionado
-            $("#docontacto").text(nombre_fichero_seleccionado);
+            $("#s_doc_adjunto_ar").text(nombre_fichero_seleccionado);
         });
 
     });

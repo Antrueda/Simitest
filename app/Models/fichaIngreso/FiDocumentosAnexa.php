@@ -13,6 +13,7 @@ class FiDocumentosAnexa extends Model {
   protected $fillable = [
       'fi_razone_id',
       'i_prm_documento_id',
+      
       'user_crea_id',
       'user_edita_id',
       's_ruta',
@@ -61,9 +62,11 @@ class FiDocumentosAnexa extends Model {
   public static function transaccion($dataxxxx) {
     $usuariox = DB::transaction(function () use ($dataxxxx) {
         $rutaxxxx = Archivos::getRuta(['requestx'=>$dataxxxx['requestx'],
-            'nombarch'=>'s_doc_adjunto',
+            'nombarch'=>'s_doc_adjunto_ar',
             'rutaxxxx'=>'fi/razones','nomguard'=>'razones']);
+            //ddd($rutaxxxx);
             if($rutaxxxx!=false){
+               
                $dataxxxx['requestx']->request->add(['s_ruta'=> $rutaxxxx]);
 
             }

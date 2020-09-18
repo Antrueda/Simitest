@@ -40,6 +40,7 @@ class CreateFiRazonesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('fi_razone_id')->unsigned();
             $table->bigInteger('i_prm_documento_id')->unsigned();
+            
             $table->text('s_ruta');
             $table->foreign('fi_razone_id')->references('id')->on('fi_razones');
             $table->foreign('i_prm_documento_id')->references('id')->on('parametros');

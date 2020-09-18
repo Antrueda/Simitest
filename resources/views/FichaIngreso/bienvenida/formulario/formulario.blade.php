@@ -15,9 +15,6 @@
     {{ Form::textarea('s_que_gustaria_hacer', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'class' => 'md-textarea form-control', 'id' => 's_que_gustaria_hacer', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
     <p id="contadorgustariahacer">0/4000</p>
   </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('sis_depen_id', 'UPI', ['class' => 'control-label']) }}
-    {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm']) }}
-  </div>
+ 
  
 </div>

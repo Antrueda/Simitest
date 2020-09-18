@@ -8,7 +8,7 @@ class HFiBienvenida extends Model
 {
     protected $fillable = [
         'i_prm_quiere_entrar_id',
-        'sis_depen_id',
+        
         
         's_porque_quiere_entrar',
         's_que_gustaria_hacer',

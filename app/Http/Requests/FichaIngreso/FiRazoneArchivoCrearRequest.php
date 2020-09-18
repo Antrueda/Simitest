@@ -12,12 +12,12 @@ class FiRazoneArchivoCrearRequest extends FormRequest {
   public function __construct() {
     $this->_mensaje = [
         'i_prm_documento_id.required' => 'Seleccione seleccione el docuemnto que va anexar',
-        's_doc_adjunto.required'=>'Seleccione un documento',
-        's_doc_adjunto.mimes'=>'El archivo debe tener extensiones: jpeg,bmp,png o pdf'
+        's_doc_adjunto_ar.required'=>'Seleccione un documento',
+        's_doc_adjunto_ar.mimes'=>'El archivo debe tener extensiones: jpeg,bmp,png o pdf'
     ];
     $this->_reglasx = [
         'i_prm_documento_id' => ['Required'],
-        's_doc_adjunto' => 'required|file|mimes:pdf|max:1024',
+        's_doc_adjunto_ar' => 'required|file|mimes:pdf,jpg,bmp,png|max:2024',
     ];
   }
 

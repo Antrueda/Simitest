@@ -25,11 +25,20 @@
     </div>
 </div>
 <div class="form-row align-items-end" style="margin-bottom: 40px">
+    {{ Form::label('s_doc_adjunto_ar', 'Adjunte documento', ['class' => 'control-label col-form-label-sm']) }}
     @component('layouts.components.archivos.upload')
-    @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto',
-    'descripc'=>'Seleccione un archivo','idlabelx'=>'docontacto',
+    @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto_ar',
+    'descripc'=>'Seleccione un archivo','idlabelx'=>'s_doc_adjunto_ar',
     'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf','clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
     @endcomponent
+    @if($todoxxxx['archivox']!='')
+    <div class="row">
+        <div class="col-md-12">
+        <button type="button" class="btn btn-outline-primary" ><a href="{{Storage::url($todoxxxx['modeloxx']->s_ruta)}}" target="_blank" >Descargar Archivo</a></button>
+        </div>
+    </div>
+    @endif
 </div>
+
 
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')

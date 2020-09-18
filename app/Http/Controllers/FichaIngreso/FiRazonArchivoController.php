@@ -58,6 +58,7 @@ class FiRazonArchivoController extends Controller
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['usuarios'] = User::combo(true, false);
+        $this->opciones['archivox']='';
 
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
@@ -65,6 +66,9 @@ class FiRazonArchivoController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $dataxxxy['selected'] = $dataxxxx['modeloxx']->i_prm_documento_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            foreach (explode('/', $dataxxxx['modeloxx']->s_ruta) as $value) {
+                $this->opciones['archivox'] = $value;
+            }
         }
 
         $this->opciones['tablasxx'] = [
@@ -77,16 +81,18 @@ class FiRazonArchivoController extends Controller
                 'urlxxxxx' => route('firazones.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
-
+                        ['td' => 'ACCIONES', 'widthxxx' => 250, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1,],
                         ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ],
                 ],
                 'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'fi_documentos_anexas.id'],
                     ['data' => 'nombre', 'name' => 'parametros.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                    
                 ],
                 'tablaxxx' => 'datatablearchivos',
                 'permisox' => $this->opciones['permisox'],
@@ -117,7 +123,7 @@ class FiRazonArchivoController extends Controller
 
     private function grabar($dataxxxx)
     {
-
+        
         return redirect()
             ->route($this->opciones['permisox'] . '.editar', [
                 FiDocumentosAnexa::transaccion($dataxxxx)->id
