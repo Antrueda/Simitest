@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\sicosocial\Vsi;
 use App\Models\Sistema\SisDepen;
+use App\Models\User;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 
 class VsiController extends Controller
@@ -62,7 +63,7 @@ class VsiController extends Controller
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A VSI', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A VALORACION SICOSOCIAL', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
     }
@@ -137,7 +138,7 @@ class VsiController extends Controller
 
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
-        $this->opciones['dependen'] = SisDepen::combo(true,false);
+        $this->opciones['dependen'] = User::getUpiUsuario(false, false);
         $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
         $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);

@@ -25,8 +25,15 @@
         <a class="float-right"><a class="float-right"><p class="text-muted text-center">{{ $todoxxxx['datobasi']->nnaj_nacimi->Edad }} Años</p></a></a>
       </li>
       <li class="list-group-item">
+        <b>SEXO</b>
+        <a class="float-right"><a class="float-right"><p class="text-muted text-center">{{ $todoxxxx['datobasi']->nnaj_sexo->prmSexo->nombre }}</p></a></a>
+      </li>
+      <li class="list-group-item">
         <b>UPI</b>
-       
+        @foreach ($todoxxxx['datobasi']->sis_depen_id as $upixxxxx)
+        <a class="float-right"><a class="float-right"><p class="text-muted text-center">{{ $upixxxxx->nombre }}</p></a></a>     
+        @endforeach
+        
       </li>
       <li class="list-group-item">
         <b>ESTADO CIVIL</b>
@@ -39,6 +46,7 @@
           <b>TELEFONO</b>
           <a class="float-right">{{ count($todoxxxx['datobasi']->SisNnaj->FiResidencia)>0 ? $todoxxxx['datobasi']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first()->telefonos : '' }}</a>
         </li>
+
       </li>
     </ul>
   </div>

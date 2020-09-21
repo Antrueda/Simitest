@@ -99,9 +99,9 @@
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
-            minDate: '-28y +0m +0d',
+            minDate: '-1y +0m +0d',
             maxDate: '+0y +0m +0d',
-            yearRange: "-28:+0",
+            yearRange: "-1:+0",
             onSelect: function(dateText) {
                 $.ajax({
                     url: "{{ route('usuario.tiempocarga') }}",

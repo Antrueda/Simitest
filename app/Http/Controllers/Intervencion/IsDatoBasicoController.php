@@ -124,6 +124,7 @@ class IsDatoBasicoController extends Controller {
     $this->opciones['usuarios'] = User::combo(true, false);
 
     // dd($this->opciones['usuarios']);
+    //ddd(User::getAreasUser(['cabecera'=>true,'esajaxxx'=>false]));
 
     $this->opciones['estadoxx'] = 'ACTIVO';
     $this->opciones['accionxx'] = $accionxx;

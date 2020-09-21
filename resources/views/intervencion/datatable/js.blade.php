@@ -28,6 +28,29 @@
           }
   });
   });
+
+
+  $("#d_fecha_diligencia").datepicker({
+            dateFormat: "yy-mm-dd",
+            changeMonth: true,
+            changeYear: true,
+            minDate: '-50d',
+            maxDate:'+0y +0m +0d',
+            yearRange: "-70:+0",
+            onSelect: function(dateText) {
+            }
+        });
+
+
+
+        $("#d_fecha_proxima").datepicker({
+            dateFormat: "yy-mm-dd",
+            changeMonth: true,
+            changeYear: true,
+            minDate: '+0d',
+            onSelect: function(dateText) {        
+            }
+        });
   @if (isset($todoxxxx['nnajregi']))
           $(function(){
 

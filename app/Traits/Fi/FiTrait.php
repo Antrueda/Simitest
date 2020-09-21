@@ -276,6 +276,7 @@ public function getNotInt()
             'fi_documentos_anexas.id',
             'fi_razones.sis_nnaj_id',
             'fi_documentos_anexas.fi_razone_id',
+            'fi_documentos_anexas.s_ruta',
             'fi_documentos_anexas.sis_esta_id',
             'parametros.nombre',
             'fi_documentos_anexas.created_at',
