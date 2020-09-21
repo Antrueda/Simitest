@@ -85,7 +85,7 @@ class VsiDinfamMadreController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['tituhead'] = $this->opciones['usuariox'] ->name;
+        $this->opciones['tituhead'] = $this->opciones['usuariox']->name;
         $this->opciones['botoform'][0]['routingx'][1] = [$this->opciones['vsixxxxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
@@ -97,10 +97,11 @@ class VsiDinfamMadreController extends Controller
             $this->opciones['hijoxxxx'] = $dataxxxx['modeloxx']->hijo;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
+           // ddd($dataxxxx['padrexxx']);
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
-                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->vsi_id]],
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
@@ -153,9 +154,11 @@ class VsiDinfamMadreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vsi $objetoxx)
+    public function edit(VsiDinfamMadre $objetoxx)
     {
-
+        //ddd($objetoxx->vsi->id);
+        $this->opciones['parametr'] = [$objetoxx->vsi->id];
+        $this->opciones['padrexxx'] = $objetoxx->id;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -163,7 +166,8 @@ class VsiDinfamMadreController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx->VsiDinfamMadre, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
+        
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
     }
 /**
      * Show the form for editing the specified resource.
@@ -191,11 +195,11 @@ class VsiDinfamMadreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiDinfamMadreEditarRequest $request, Vsi $objetoxx)
+    public function update(VsiDinfamMadreEditarRequest $request, VsiDinfamMadre $objetoxx)
     {
         return $this->grabar([
             'dataxxxx' => $request->all(),
-            'modeloxx' => $objetoxx->VsiDinfamMadre,
+            'modeloxx' => $objetoxx,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

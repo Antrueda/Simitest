@@ -27,10 +27,10 @@ function doc(valor){
         document.getElementById("mes").hidden=false;
         document.getElementById("ano").hidden=false;
         document.getElementById("prm_motivo_id").hidden=false;
-        document.getElementById("prm_rendimiento_id").hidden=true;
-        document.getElementById("fortalezas_div").hidden=true;
+        document.getElementById("prm_rendimiento_id").hidden=false;
+        document.getElementById("fortalezas_div").hidden=false;
         document.getElementById("fortalezas").value=[];
-        document.getElementById("dificultades_div").hidden=true;
+        document.getElementById("dificultades_div").hidden=false;
         document.getElementById("dificultades").value=[];
         document.getElementById("prm_dificultad_id").hidden=true;
         doc1(document.getElementById('prm_dificultad_id').value = 228);

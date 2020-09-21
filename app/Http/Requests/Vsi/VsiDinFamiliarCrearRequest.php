@@ -30,7 +30,7 @@ class VsiDinFamiliarCrearRequest extends FormRequest
             'libertades' => 'nullable|array',
             'consumo' => 'nullable|array',
             'salud' => 'nullable|array',
-            's_doc_adjunto_ar' => 'required|file|mimes:pdf,jpg,jpeg|max:1024',
+            's_doc_adjunto_ar' => 'nullable|file|mimes:pdf,jpg,jpeg|max:1024',
         ];
     }
     /**

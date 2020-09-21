@@ -81,7 +81,7 @@ class VsiDinFamiliar extends Model{
             $rutaxxxx = Archivos::getRuta(['requestx'=>$dataxxxx['requestx'],
             'nombarch'=>'s_doc_adjunto_ar',
             'rutaxxxx'=>'vsi/dinfamiliar','nomguard'=>'genograma']);
-            ddd( $dataxxxx['requestx']->s_doc_adjunto_ar);
+            
             if($rutaxxxx!=false){
                $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
 

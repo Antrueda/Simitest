@@ -6,8 +6,8 @@ $(document).ready(function() {
 })
 function doc(valor){
     if(valor == 228){
-        document.getElementById("fisiologicas").hidden=true;
-        document.getElementById("fisiologicas").value=[];
+        document.getElementById("fisiologicas_div").hidden=true;
+        document.getElementById("fisiologicas_div").value=[];
         document.getElementById("descripcion").hidden=true;
         document.getElementById("descripcion").value=[];
         document.getElementById("conductual").hidden=true;
