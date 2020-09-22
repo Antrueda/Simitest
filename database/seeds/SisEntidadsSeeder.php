@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisServicio;
 use Illuminate\Database\Seeder;
@@ -240,7 +241,19 @@ class SisEntidadsSeeder extends Seeder
 
 
 
+        $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ];
+        foreach ( SisDepen::get() as $key => $value) {
+            $value->sis_servicios()->sync(
+                [
+                    2 => $camposmagicos,
+                    3 => $camposmagicos,
+                    4 => $camposmagicos,
+                    5 => $camposmagicos,
+                    6 => $camposmagicos,
+                ]
 
+            );
+        }
 
 
 

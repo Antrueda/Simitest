@@ -94,7 +94,7 @@ class SisDepen extends Model
     public function sis_servicios()
     {
 
-        return $this->belongsToMany(SisServicio::class);
+        return $this->belongsToMany(SisServicio::class,'sis_depeservs','sis_depen_id','sis_servicio_id')->withTimestamps();
     }
 
     public function users()
