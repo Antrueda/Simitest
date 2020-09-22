@@ -76,6 +76,12 @@ class FiGeneracionIngresoUpdateRequest extends FormRequest
             $this->_reglasx['i_total_ingreso_mensual'] = 'nullable';
             break;
         }
+        if ($this->i_dias_buscando_empleo == '' && $this->i_meses_buscando_empleo == '' && $this->i_anos_buscando_empleo == '') {
+            if ($this->i_prm_razon_no_genera_ingreso_id == 711) {
+                $this->_mensaje['i_prm_dias_buscando_empleo_id.required'] = 'Indique cuanto tiempo lleva buscando empleo';
+                $this->_reglasx['i_prm_dias_buscando_empleo_id'] = ['Required'];
+                }
+             }
 
 
     }
