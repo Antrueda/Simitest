@@ -17,6 +17,8 @@ class RolesYPermisosSeeder extends Seeder
             'borrar' => 'Permiso que permite inactivar registro para: ',
             'factorxx' => 'Permioso que permite ver los: ',
             'metaxxxx' => 'Permioso que permite ver las: ',
+            'psicologo' => 'Permioso que permite ver contenido de psicologo: ',
+            'social' => 'Permioso que permite ver contenido de trabajador social: ',
             'modulo' => 'Permioso que permite ver el menu de: ',
             'admin' => 'Permiso para administrar: ',
             'area-admin' => 'Permiso para administrar: ',
@@ -281,7 +283,7 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'csdredesapoyo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo CSD', 'pestania' => 1]);
 
         //Crear datos básicos para Intervención Sicosocial
-        $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','psicologo','social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
 
 
 
@@ -442,6 +444,7 @@ class RolesYPermisosSeeder extends Seeder
 
         require_once('RolesYPermisosAdmin.php');
         require_once('RolesYPermisosPsicologo.php');
+        require_once('RolesYPermisosSocial.php');
         require_once('RolesYPermisosCRelajado.php');
         require_once('RolesYPermisosEnfermeria.php');
         Role::create(['name' => 'PSICÓLOGO(A) CLÍNICO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])

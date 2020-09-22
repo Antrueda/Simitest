@@ -46,9 +46,7 @@ class IsDatoBasicoController extends Controller {
 
     $this->opciones['dispform'] = "none";
     $this->opciones['disptabx'] = "block";
-
     
-    $this->opciones['tipatenc'] = Tema::combo(213, true, false);
 
     $this->opciones['areajust'] = Tema::combo(212, true, false);
     $this->opciones['arjustpr'] = Tema::combo(212, false, false);// Tema::findOrFail(97)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
@@ -122,9 +120,13 @@ class IsDatoBasicoController extends Controller {
     }
     $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
     $this->opciones['usuarios'] = User::combo(true, false);
+    ddd(auth()->user()->role('PSICÓLOGO(A) CLÍNICO')->get());
 
-    // dd($this->opciones['usuarios']);
-    //ddd(User::getAreasUser(['cabecera'=>true,'esajaxxx'=>false]));
+    if (auth()->user()->can('-psiscologo')) {
+      $this->opciones['tipatenc'] = Tema::combo(213, true, false);
+     }  else{ 
+    $this->opciones['tipatenc'] = Tema::combo(359, true, false);
+   }
 
     $this->opciones['estadoxx'] = 'ACTIVO';
     $this->opciones['accionxx'] = $accionxx;

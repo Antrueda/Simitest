@@ -2496,5 +2496,13 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'MISAK']); //2456
         $this->getR(['nombrexx' => 'FAMILIA Y (YO)NNAJ']); //2457
         $this->getR(['nombrexx' => 'MIGRACION']); //2458
+        $this->getR(['nombrexx' => 'TUSI']);//2459
+        $this->getR(['nombrexx' => 'CAMBIAR INHALANTES POR (DISOLVENTES COMBUSTBLES O PEGANTES INHALANTES)']);//2460
+        $this->getR(['nombrexx' => 'MARIHUANA CRIPI O CRIPA']);//2461
+        $this->getR(['nombrexx' => 'POPPER']);//2462
+        $this->getR(['nombrexx' => 'LCD (DIETALIMIDA DEL ÁCIDO LISÉRGICO)']);//2463
+        $this->getR(['nombrexx' => 'CLONAZEPAM']);//2464
+        $this->getR(['nombrexx' => 'DIC , LADYS O LEYDIS (CLORURO DE METILENO O DICHLOROMETANO)']);//2465
+
     }
 }

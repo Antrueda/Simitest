@@ -94,7 +94,7 @@ Role::create(['name' => 'administrador', 'user_crea_id' => 1, 'user_edita_id' =>
     'fiprocesojudicial-leer', 'fiprocesojudicial-crear', 'fiprocesojudicial-editar', 'fiprocesojudicial-borrar',
     'fisustanciaconsume-leer', 'fisustanciaconsume-crear', 'fisustanciaconsume-editar', 'fisustanciaconsume-borrar',
     // Intervencion Sicosocial
-    'isintervencion-leer', 'isintervencion-crear', 'isintervencion-editar', 'isintervencion-borrar',
+    'isintervencion-leer', 'isintervencion-crear', 'isintervencion-editar', 'isintervencion-borrar','isintervencion-psicologo','isintervencion-social',
     // ficha de observacion y seguimiento
     'fosfichaobservacion-leer', 'fosfichaobservacion-crear', 'fosfichaobservacion-editar', 'fosfichaobservacion-borrar',
     // indicadores

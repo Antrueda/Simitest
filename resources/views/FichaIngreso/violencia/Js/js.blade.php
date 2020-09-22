@@ -15,7 +15,7 @@
         }
       
         $("#i_prm_condicion_presenta_id").change(function() {
-            $("#i_prm_depto_condicion_id,  #i_prm_tiene_certificado_id, #i_prm_depto_certifica_id").empty();
+            $("#i_prm_depto_condicion_id,  #i_prm_tiene_certificado_id, #i_prm_depto_certifica_id,#i_prm_municipio_condicion_id").empty();
             if ($(this).val() != '') {
                 $.ajax({
                     url: "{{ route('ajaxx.condespecial') }}",

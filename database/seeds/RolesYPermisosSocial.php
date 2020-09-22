@@ -2,7 +2,7 @@
 
 use Spatie\Permission\Models\Role;
 
-Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
+Role::create(['name' => 'TRABAJADOR(A) SOCIAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
             ->givePermissionTo([
                 'territorio-modulo','acciones-modulo','accindiv-modulo','accigrup-modulo','contrase-editar',
                 'agactividad-leer', 'agactividad-crear', 'agactividad-editar', 'agactividad-borrar',
@@ -78,7 +78,7 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 // permisos para agregar componenete familiar a justicia restaurativa
                 'fijrfamiliar-leer', 'fijrfamiliar-crear', 'fijrfamiliar-editar', 'fijrfamiliar-borrar',
                 // Intervencion Sicosocial
-                'isintervencion-leer', 'isintervencion-crear', 'isintervencion-editar', 'isintervencion-borrar','isintervencion-psicologo',
+                'isintervencion-leer', 'isintervencion-crear', 'isintervencion-editar', 'isintervencion-borrar','isintervencion-social',
                 // ficha de observacion y seguimiento
                 'fosfichaobservacion-leer', 'fosfichaobservacion-crear', 'fosfichaobservacion-editar', 'fosfichaobservacion-borrar',
                 // Asignación de permisos Acciones Individuales

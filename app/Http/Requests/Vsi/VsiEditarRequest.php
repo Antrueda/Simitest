@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vsi;
 
+use App\Rules\FechaMenor;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiEditarRequest extends FormRequest
@@ -18,7 +19,7 @@ class VsiEditarRequest extends FormRequest
         ];
         $this->_reglasx = [
             'sis_depen_id' => ['required'],
-            'fecha' => ['required'],
+            'fecha' => ['required','date_format:Y-m-d',new FechaMenor()],
         ];
     }
     /**

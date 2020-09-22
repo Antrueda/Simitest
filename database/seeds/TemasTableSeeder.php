@@ -620,6 +620,19 @@ class TemasTableSeeder extends Seeder
             405 => $camposmagicos,
             406 => $camposmagicos,
             760 => $camposmagicos,
+            1606 => $camposmagicos,
+            1603 => $camposmagicos,
+            1613 => $camposmagicos,
+            1617 => $camposmagicos,
+            1618 => $camposmagicos,
+            1621 => $camposmagicos,
+            2460 => $camposmagicos,
+            2461 => $camposmagicos,
+            2462 => $camposmagicos,
+            2463 => $camposmagicos,
+            2464 => $camposmagicos,
+            2465 => $camposmagicos,
+
         ]);
         $tema = Tema::create(['id' => 54, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'Frecuencia Uso Sustancia']);
         $tema->parametros()->sync([
@@ -2139,12 +2152,10 @@ class TemasTableSeeder extends Seeder
             1058 => $camposmagicos,
             1059 => $camposmagicos,
         ]);
-        $tema = Tema::create(['id' => 213, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPO ATENCIÓN INTERVENCIÓN']);
+        $tema = Tema::create(['id' => 213, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO']);
         $tema->parametros()->sync([
             1060 => $camposmagicos,
             1061 => $camposmagicos,
-            1062 => $camposmagicos,
-            1063 => $camposmagicos,
             1064 => $camposmagicos,
             1065 => $camposmagicos,
             1066 => $camposmagicos,
@@ -3340,17 +3351,13 @@ class TemasTableSeeder extends Seeder
             'parametr' => [1269]
         ]); //355
         $this->getR([
-            'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO',
-            'parametr' => [1060,1061,1064,1065,1066,1067]
-        ]); //356
-        $this->getR([
             'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL',
             'parametr' => [1062,1063,1064,1065,1067]
-        ]); //357
-$this->getR([
+        ]); //356
+        $this->getR([
             'nombrexx' => 'motivo vinculacion SPOA',
             'parametr' => [346,347,348,349,350,360,352,351]
-        ]); //358
+        ]); //357
 
         // $this->getR([
         //     'nombrexx' => '',

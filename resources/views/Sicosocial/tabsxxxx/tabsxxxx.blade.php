@@ -144,10 +144,11 @@
             @include('Sicosocial.tabsxxxx.pestaniascheckarea')
 
             <?php
+            if($todoxxxx['usuariox']->nnaj_nacimi->Edad<18){
             $pestania='20. Impresicón diagnóstica y análisis social';
             $permisox='vsisocia';
             $checkxxx=$todoxxxx['vsixxxxx']->VsiConcepto;
-            ?>
+            }?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
