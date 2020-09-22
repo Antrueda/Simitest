@@ -9,9 +9,11 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiFormacion;
 use App\Models\Sistema\SisInstitucionEdu;
 use App\Models\Tema;
+use App\Traits\Fi\FiTrait;
 
 class FiFormacionController extends Controller
 {
+    use FiTrait;
     private $opciones;
     public function __construct()
     {

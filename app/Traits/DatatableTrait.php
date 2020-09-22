@@ -3,7 +3,6 @@
 namespace App\Traits;
 
 use App\Traits\GestionTiempos\ManageTimeTrait;
-use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 
 trait DatatableTrait

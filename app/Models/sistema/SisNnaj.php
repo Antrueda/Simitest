@@ -14,6 +14,7 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\Salud\Mitigacion\Vspa;
@@ -91,5 +92,8 @@ class SisNnaj extends Model{
     {
         return $this->hasMany(NnajUpi::class);
     }
-
+    public function fi_compfamis()
+    {
+        return $this->hasMany(FiCompfami::class);
+    }
 }

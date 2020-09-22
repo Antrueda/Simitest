@@ -24,6 +24,9 @@ Route::group(['prefix' => '{padrexxx}/fiformacion'], function () {
 		'uses' => 'FichaIngreso\FiFormacionController@show',
 		'middleware' => ['permission:fiformacion-leer']
 	])->name('fi.formacion.ver');
-
+    Route::get('ultinive', [
+		'uses' => 'FichaIngreso\FiFormacionController@getUltimoNivel',
+		'middleware' => ['permission:fiformacion-leer']
+	])->name('fi.formacion.ultinive');
 
 });

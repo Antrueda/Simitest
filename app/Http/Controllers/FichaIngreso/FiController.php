@@ -191,7 +191,7 @@ class FiController extends Controller
         $this->opciones['deparexp'] = ['' => 'Seleccione'];
         $this->opciones['municexp'] = ['' => 'Seleccione'];
         $this->opciones['mindatex'] = "-28y +0m +0d";
-        $this->opciones['maxdatex'] = "-6y +0m +0d";
+        $this->opciones['maxdatex'] = "-0y +0m +0d";
 
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $this->opciones['barrioxx'] = ['' => 'Seleccione'];
@@ -215,6 +215,7 @@ class FiController extends Controller
                     $dependen = $value;
                 }
             }
+            $dataxxxx['modeloxx']->diligenc = $dataxxxx['modeloxx']->fi_diligenc->diligenc;
             $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' => $dependen->sis_depen_id]);
             foreach ($dependen->nnaj_deses as $key => $value) {
                 if ($value->prm_principa_id = 227) {
@@ -223,7 +224,7 @@ class FiController extends Controller
             }
             $dataxxxx['modeloxx']->sis_servicio_id = $dependen->sis_servicio_id;
 
-           
+
             switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
                 case 650:
                     $this->opciones['estrateg'] = Tema::combo(355, false, false);
@@ -265,6 +266,7 @@ class FiController extends Controller
             /** documento de identidad */
             $dataxxxx['modeloxx']->s_documento = $dataxxxx['modeloxx']->nnaj_docu->s_documento;
             $dataxxxx['modeloxx']->prm_ayuda_id = $dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
+
             $dataxxxx['modeloxx']->prm_tipodocu_id = $dataxxxx['modeloxx']->nnaj_docu->prm_tipodocu_id;
             $dataxxxx['modeloxx']->prm_doc_fisico_id = $dataxxxx['modeloxx']->nnaj_docu->prm_doc_fisico_id;
 
@@ -310,11 +312,14 @@ class FiController extends Controller
                 $this->opciones['tiplibre'] = [1269 => 'NO APLICA'];
                 $this->opciones['situmili'] = [1269 => 'NO APLICA'];
             }
-
-            if ($dataxxxx['modeloxx']->prm_documento_id == 145) {
+            if ($dataxxxx['modeloxx']->prm_tipodocu_id == 145) {
                 $this->opciones['readfisi'] = 'readonly';
+            }
+            if ($dataxxxx['modeloxx']->prm_doc_fisico_id == 228) {
+
                 $this->opciones['neciayud'] = Tema::combo(286, true, false);
             } else {
+
                 $this->opciones['neciayud'] = [1269 => 'NO APLICA'];
             }
 
@@ -323,6 +328,7 @@ class FiController extends Controller
             }
             // $this->opciones['poblindi'] = Tema::combo(61, true, false);
         }
+        // ddd( $this->opciones['neciayud']);
         $this->opciones['dependen'] = User::getUpiUsuario(false, false);
         $this->opciones['upzxxxxx']  = SisUpz::combo($localida, false);
         $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);

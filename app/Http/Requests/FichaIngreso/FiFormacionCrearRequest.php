@@ -20,9 +20,7 @@ class FiFormacionCrearRequest extends FormRequest
             'i_prm_estudia_id.required' => 'Seleccione actualmente estudia',
             'i_prm_jornada_estudio_id.required' => 'Seleccione jornada de estudio',
             'i_prm_naturaleza_entidad_id.required' => 'Seleccione naturaleza de la entidad',
-
             'i_prm_ultimo_nivel_estudio_id.required' => 'Seleccione último nivel de estudio alcanzado',
-            'i_prm_ultimo_grado_aprobado_id.required' => 'Seleccione último grado, modulo, semestre aprobado',
             'i_prm_certificado_ultimo_nivel_id.required' => 'Seleccione certificado último nivel de estudio',
         ];
         $this->_reglasx = [
@@ -33,7 +31,7 @@ class FiFormacionCrearRequest extends FormRequest
             'i_prm_jornada_estudio_id' => ['Required'],
             'i_prm_naturaleza_entidad_id' => ['Required'],
             'i_prm_ultimo_nivel_estudio_id' => ['Required'],
-            'i_prm_ultimo_grado_aprobado_id' => ['Required'],
+
             'i_prm_certificado_ultimo_nivel_id' => ['Required'],
         ];
     }
@@ -75,5 +73,10 @@ class FiFormacionCrearRequest extends FormRequest
                 $this->_reglasx['sinestud'] = ['Required'];
             }
         }
+        if ($this->i_prm_ultimo_nivel_estudio_id != 829) {
+            $this->_mensaje['i_prm_ultimo_grado_aprobado_id.required'] = 'Seleccione último grado, modulo, semestre aprobado';
+            $this->_reglasx['i_prm_ultimo_grado_aprobado_id'] = ['Required'];
+        }
+
     }
 }

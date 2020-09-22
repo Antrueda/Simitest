@@ -55,6 +55,26 @@
         $('#i_dias_sin_estudio').mask('00');
         $('#i_meses_sin_estudio').mask('00');
         $('#i_anos_sin_estudio').mask('00');
+
+
+        $('#i_prm_ultimo_nivel_estudio_id').change(function(){
+            $.ajax({
+                url : "{{ route($todoxxxx['routxxxx'].'.ultinive',$todoxxxx['parametr']) }}",
+                data : {
+                        'padrexxx':$(this).val()
+                    },
+                type : 'GET',
+                dataType : 'json',
+                success : function(json) {
+                    $.each(json,function(i,data){
+                        $(data.campoxxx).val(data.valuexxx)
+                    });
+                    },
+                    error : function(xhr, status) {
+                        alert('Disculpe, existió un problema');
+                    },
+                });
+        });
     });
 
 function soloNumeros(e){

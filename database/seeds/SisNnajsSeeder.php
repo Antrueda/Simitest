@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Models\fichaIngreso\FiDiligenc;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajFiCsd;
 use App\Models\fichaIngreso\NnajFocali;
@@ -8,7 +8,6 @@ use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\fichaIngreso\NnajSexo;
 use App\Models\fichaIngreso\NnajSitMil;
 use App\Models\fichaIngreso\NnajUpi;
-use App\Models\fichaIngreso\NnajUpis;
 use Illuminate\Database\Seeder;
 
 use App\Models\Sistema\SisNnaj;
@@ -442,7 +441,7 @@ class SisNnajsSeeder extends Seeder
                 'created_at' => date('Y-m-d H:m:s'),
                 'updated_at' => date('Y-m-d H:m:s'),
                 'sis_docfuen_id'=>2,
-                
+
             ));
             NnajFiCsd::create([
                 'fi_datos_basico_id' => $i + 1,
@@ -516,6 +515,14 @@ class SisNnajsSeeder extends Seeder
                 'sis_depen_id' => 2,
                 'prm_principa_id'=>227,
               ]);
+
+              FiDiligenc::create([
+                'diligenc' => date('Y-m-d'),
+                'fi_datos_basico_id' => $i + 1,
+                'sis_esta_id'=> 1,
+                'user_crea_id'=> 1,
+                'user_edita_id'=> 1,
+            ]);
         }
     }
 }

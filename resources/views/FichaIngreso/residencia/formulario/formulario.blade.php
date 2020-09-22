@@ -256,7 +256,7 @@
   <div class="form-group col-md-12">
     {{ Form::label('i_prm_condicion_amb_id', '3.16 Condiciones del ambiente y riesgo cerca de la vivienda / lugar de focalización (Para CHC)', ['class' => 'control-label']) }}
     {{ Form::select('i_prm_condicion_amb_id[]', $todoxxxx['condambi'], null, ['class' => $errors->first('i_prm_condicion_amb_id') ?
-    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple',
+    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple','id'=>'i_prm_condicion_amb_id',
     'data-placeholder' => 'Digite el responsable']) }}
     @if($errors->has('i_prm_condicion_amb_id'))
     <div class="invalid-feedback d-block">

@@ -91,7 +91,7 @@ class FiSaludController extends Controller
         $this->opciones['cualmedi'] = '';
 
         if ($dataxxxx['modeloxx'] != '') {
-        
+
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->i_prm_tentidad_id, true, false);
             $this->opciones['puedexxx'] = '';
@@ -278,42 +278,7 @@ class FiSaludController extends Controller
         return $this->grabar($request->all(), $modeloxx, 'Salud actualizada con exito', $padrexxx);
     }
 
-    public function getCombo($dataxxxx)
-    {
-        $respuest = ['selectxx' => $dataxxxx['selectxx'], 'comboxxx' => [['valuexxx' => $dataxxxx['valuexxx'], 'optionxx' => $dataxxxx['optionxx'], 'selected' => 'selected']], 'nigunaxx' => true];
-        if ($dataxxxx['padrexxx'] == 0) {
-            $dataxxxx['padrexxx'] = [];
-        }
-        foreach ($dataxxxx['padrexxx']  as $key => $value) {
-            if ($value == $dataxxxx['valuexxx']) {
-                $respuest['nigunaxx'] = false;
-            }
-        }
-        if ($respuest['nigunaxx']) {
-            $respuest['comboxxx'] = Tema::combo($dataxxxx['temaxxxx'], false, true);
-            foreach ($respuest['comboxxx'] as $key => $value) {
-                $respuest['comboxxx'][$key]['selected'] = in_array($value['valuexxx'], $dataxxxx['padrexxx']) ? 'selected' : '';
-            }
-        }
-        return $respuest;
-    }
 
-    public function getCaminando(Request $request)
-    {
 
-        if ($request->ajax()) {
-            $respuest = [];
-            switch ($request->opcionxx) {
-                case 1:
-                    $dataxxxx = ['selectxx' => 'prm_victataq_id', 'valuexxx' => 853, 'optionxx' => 'NINGUNA', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 342];
-                    $respuest = $this->getCombo($dataxxxx);
-                    break;
-                case 2:
-                    $dataxxxx = ['selectxx' => 'prm_discausa_id', 'valuexxx' => 27, 'optionxx' => 'NS/NR', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 341];
-                    $respuest = $this->getCombo($dataxxxx);
-                    break;
-            }
-            return response()->json($respuest);
-        }
-    }
+
 }

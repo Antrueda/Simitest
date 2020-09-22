@@ -19,7 +19,6 @@ class FiFormacionUpdateRequest extends FormRequest
             'i_prm_jornada_estudio_id.required' => 'Seleccione jornada de estudio',
             'i_prm_naturaleza_entidad_id.required' => 'Seleccione naturaleza de la entidad',
             'i_prm_ultimo_nivel_estudio_id.required' => 'Seleccione último nivel de estudio alcanzado',
-            'i_prm_ultimo_grado_aprobado_id.required' => 'Seleccione último grado, modulo, semestre aprobado',
             'i_prm_certificado_ultimo_nivel_id.required' => 'Seleccione certificado último nivel de estudio',
             'i_prm_motivo_vinc_id.required' => 'Seleccione motivos de vinculación al IDIPRON',
 
@@ -33,7 +32,6 @@ class FiFormacionUpdateRequest extends FormRequest
             'i_prm_naturaleza_entidad_id' => ['Required'],
 
             'i_prm_ultimo_nivel_estudio_id' => ['Required'],
-            'i_prm_ultimo_grado_aprobado_id' => ['Required'],
             'i_prm_certificado_ultimo_nivel_id' => ['Required'],
             'i_prm_motivo_vinc_id' => ['Required'],
         ];
@@ -77,6 +75,10 @@ class FiFormacionUpdateRequest extends FormRequest
                 $this->_mensaje['sinestud.required'] = 'Indique cuanto tiempo lleva sin estudiar';
                 $this->_reglasx['sinestud'] = ['Required'];
             }
+        }
+        if ($this->i_prm_ultimo_nivel_estudio_id != 829) {
+            $this->_mensaje['i_prm_ultimo_grado_aprobado_id.required'] = 'Seleccione último grado, modulo, semestre aprobado';
+            $this->_reglasx['i_prm_ultimo_grado_aprobado_id'] = ['Required'];
         }
     }
 }

@@ -2493,7 +2493,8 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => '2001']); //2453
         $this->getR(['nombrexx' => '2002']); //2454
         $this->getR(['nombrexx' => '2003']); //2455
-        $this->getR(['nombrexx' => 'FAMILIA Y (YO)NNAJ']); //2456
-        $this->getR(['nombrexx' => 'MIGRACION']); //2457
+        $this->getR(['nombrexx' => 'MISAK']); //2456
+        $this->getR(['nombrexx' => 'FAMILIA Y (YO)NNAJ']); //2457
+        $this->getR(['nombrexx' => 'MIGRACION']); //2458
     }
 }

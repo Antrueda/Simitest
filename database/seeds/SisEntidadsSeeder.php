@@ -15,11 +15,11 @@ class SisEntidadsSeeder extends Seeder
     {
         $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'user_edita_id' => 1];
         SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'NO APLICA']);
-        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'COMIDA']);
-        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'DORMIDA']);
-        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'VIVIENDA']);
-        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'SALUD']);
-
+        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'INTERNADO']);
+        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'EXTERNADO']);
+        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'ESTÍMULO DE CORRESPONSABILIDAD']);
+        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'DISTRITO JOVEN EXTERNADO']);
+        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'TERRITORIO']);
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'NO APLICA']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
@@ -155,7 +155,7 @@ class SisEntidadsSeeder extends Seeder
             3 => $camposmagicos,
             4 => $camposmagicos,
             5 => $camposmagicos,
-        ]); 
+        ]);
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'COMISARIA DE FAMILIA']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
@@ -163,7 +163,7 @@ class SisEntidadsSeeder extends Seeder
             3 => $camposmagicos,
             4 => $camposmagicos,
             5 => $camposmagicos,
-        ]);    
+        ]);
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'ATENCIÒN TRANSITORIA AL MIGRANTE']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
@@ -171,7 +171,7 @@ class SisEntidadsSeeder extends Seeder
             3 => $camposmagicos,
             4 => $camposmagicos,
             5 => $camposmagicos,
-        ]);    
+        ]);
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'ICBF INTERNADO']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
@@ -179,7 +179,7 @@ class SisEntidadsSeeder extends Seeder
             3 => $camposmagicos,
             4 => $camposmagicos,
             5 => $camposmagicos,
-        ]);    
+        ]);
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'ICBF EXTERNADO']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
@@ -187,7 +187,7 @@ class SisEntidadsSeeder extends Seeder
             3 => $camposmagicos,
             4 => $camposmagicos,
             5 => $camposmagicos,
-        ]);    
+        ]);
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'ICBF CENTRO DE EME']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
@@ -195,7 +195,7 @@ class SisEntidadsSeeder extends Seeder
             3 => $camposmagicos,
             4 => $camposmagicos,
             5 => $camposmagicos,
-        ]);    
+        ]);
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'ICBF CENTRO DE EMERGENCIA ']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
@@ -203,7 +203,7 @@ class SisEntidadsSeeder extends Seeder
             3 => $camposmagicos,
             4 => $camposmagicos,
             5 => $camposmagicos,
-        ]);    
+        ]);
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'JARDIN INFANTIL ICBF ']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
@@ -211,7 +211,7 @@ class SisEntidadsSeeder extends Seeder
             3 => $camposmagicos,
             4 => $camposmagicos,
             5 => $camposmagicos,
-        ]);    
+        ]);
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'ONG']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
@@ -219,8 +219,8 @@ class SisEntidadsSeeder extends Seeder
             3 => $camposmagicos,
             4 => $camposmagicos,
             5 => $camposmagicos,
-        ]);    
-        
+        ]);
+
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'UNICEF']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
@@ -228,7 +228,7 @@ class SisEntidadsSeeder extends Seeder
             3 => $camposmagicos,
             4 => $camposmagicos,
             5 => $camposmagicos,
-        ]);    
+        ]);
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'DEFENSORIA DEL PUEBLO']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
@@ -236,9 +236,9 @@ class SisEntidadsSeeder extends Seeder
             3 => $camposmagicos,
             4 => $camposmagicos,
             5 => $camposmagicos,
-        ]);    
-        
-        
+        ]);
+
+
 
 
 

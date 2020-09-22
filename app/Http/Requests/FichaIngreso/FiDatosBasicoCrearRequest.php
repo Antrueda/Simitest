@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\FichaIngreso;
 
+use App\Rules\FechaMenor;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiDatosBasicoCrearRequest extends FormRequest
@@ -38,8 +39,8 @@ class FiDatosBasicoCrearRequest extends FormRequest
             'sis_upzbarri_id.required' => 'Seleccione un barrio',
             's_documento.required' => 'Ingrese un documento de identificación',
             'sis_servicio_id.required' =>'Seleccione un servicio',
-            'sis_depen_id.required' =>'Seleccione una UPI'
-            //
+            'sis_depen_id.required' =>'Seleccione una UPI',
+            'diligenc.required' =>'Seleccione una fecha de diligenciamiento',
         ];
         $this->_reglasx = [
             'prm_doc_fisico_id' => ['required'],
@@ -66,7 +67,8 @@ class FiDatosBasicoCrearRequest extends FormRequest
             's_lugar_focalizacion' => ['required'],
             'sis_upzbarri_id' => ['required'],
             'sis_servicio_id' => ['required'],
-            'sis_depen_id'=> ['required']
+            'sis_depen_id'=> ['required'],
+            'diligenc' => ['required','date_format:Y-m-d',new FechaMenor()],
         ];
     }
     /**

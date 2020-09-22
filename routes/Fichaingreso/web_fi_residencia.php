@@ -24,5 +24,10 @@ Route::group(['prefix' => '{padrexxx}/firesidencia'], function () {
 	Route::get('ver/{modeloxx}', [
 		'uses' => 'FichaIngreso\FiResidenciaController@show',
 		'middleware' => ['permission:firesidencia-leer']
-	])->name('fi.residencia.ver');
+    ])->name('fi.residencia.ver');
+
+    Route::get('comboval', [
+		'uses' => 'FichaIngreso\FiResidenciaController@getCaminando',// este metodo se encentra en FiTrait
+		'middleware' => ['permission:firesidencia-leer']
+	])->name('fi.residencia.comboval');
 });

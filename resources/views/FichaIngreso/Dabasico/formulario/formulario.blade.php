@@ -1,5 +1,14 @@
 <div class="form-row">
-  <div class="form-group col-md-3">
+<div class="form-group col-md-4">
+    {{ Form::label('diligenc', 'Fecha de Diligenciamiento (YYYY-MM-DD)', ['class' => 'control-label']) }}
+    {{ Form::text('diligenc', null, ['class' => $errors->first('diligenc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('diligenc'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('diligenc') }}
+    </div>
+    @endif
+  </div>
+  <div class="form-group col-md-4">
     {{ Form::label('prm_tipoblaci_id', 'Tipo de Población', ['class' => 'control-label']) }}
     {{ Form::select('prm_tipoblaci_id', $todoxxxx['tipoblac'], null, ['class' => $errors->first('prm_tipoblaci_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_tipoblaci_id'))
@@ -8,7 +17,7 @@
     </div>
     @endif
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-4">
     {{ Form::label('prm_estrateg_id', 'Estrategia', ['class' => 'control-label']) }}
     {{ Form::select('prm_estrateg_id', $todoxxxx['estrateg'], null, ['class' => $errors->first('prm_estrateg_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_estrateg_id'))
@@ -17,7 +26,7 @@
     </div>
     @endif
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-4">
     {{ Form::label('sis_depen_id', 'UPI', ['class' => 'control-label']) }}
     {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => $errors->first('sis_depen_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2','id'=>'sis_depen_id','placeholder'=>'Selecione']) }}
     @if($errors->has('sis_depen_id'))
@@ -26,10 +35,10 @@
       </div>
     @endif
   </div>
-  <div class="form-group col-md-3">
+  <div class="form-group col-md-4">
     {{ Form::label('sis_servicio_id', 'Servicio', ['class' => 'control-label']) }}
     {{ Form::select('sis_servicio_id', $todoxxxx['servicio'], null, ['class' => $errors->first('sis_servicio_id') ? 'form-control form-control-sm is-invalid ' : 'form-control form-control-sm ','id'=>'sis_servicio_id','placeholder'=>'Selecione']) }}
-    @if($errors->has('sis_servicio_id')) 
+    @if($errors->has('sis_servicio_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('sis_servicio_id') }}
       </div>

@@ -460,7 +460,7 @@
             clase_libreta($(this).val(), '');
         });
 
-        
+
         var f_servicio = function(valuexxx, pselecte) {
             $("#sis_servicio_id").empty();
                 $.ajax({
@@ -482,7 +482,7 @@
                         alert('Disculpe, existió un problema');
                     },
                 });
-            
+
         }
 
         @if(old('sis_depen_id') !== null)
@@ -490,6 +490,17 @@
         @endif
         $("#sis_depen_id").change(function() {
             f_servicio($(this).val(),'');
+        });
+        $('#diligenc').mask('0000-00-00');
+        $("#diligenc").datepicker({
+            dateFormat: "yy-mm-dd",
+            changeMonth: true,
+            changeYear: true,
+            minDate: "<?= isset($todoxxxx['mindatex']) ? $todoxxxx['mindatex'] : '+0y +0m +0d' ?>",
+            maxDate: "<?= isset($todoxxxx['maxdatex']) ? $todoxxxx['maxdatex'] : '+0y +0m +0d' ?>",
+            yearRange: "-28:-0",
+
+
         });
 
     });

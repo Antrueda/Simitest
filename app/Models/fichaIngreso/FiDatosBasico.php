@@ -74,6 +74,10 @@ class FiDatosBasico extends Model
     {
         return $this->hasOne(NnajFocali::class);
     }
+    public function fi_diligenc()
+    {
+        return $this->hasOne(FiDiligenc::class);
+    }
     public function sis_nnaj()
     {
         return $this->belongsTo(SisNnaj::class);
@@ -152,6 +156,7 @@ class FiDatosBasico extends Model
             $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
             $dataxxxx['s_apodo'] = strtoupper($dataxxxx['s_apodo']);
             $dataxxxx['user_edita_id'] = Auth::user()->id;
+
             if ($dataxxxx['prm_ayuda_id'] == null) {
                 $dataxxxx['prm_ayuda_id'] = 235;
             }
@@ -194,6 +199,7 @@ class FiDatosBasico extends Model
     }
     public function grabar($dataxxxx, $objetoxx)
     {
+
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
             $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
             $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
@@ -212,6 +218,7 @@ class FiDatosBasico extends Model
                 $dataxxxx['fi_datos_basico_id'] = $objetoxx->id;
                 $objetoxx->nnaj_sexo->update($dataxxxx);
                 $objetoxx->nnaj_docu->update($dataxxxx);
+
                 $objetoxx->nnaj_nacimi->update($dataxxxx);
                 $objetoxx->nnaj_sit_mil->update($dataxxxx);
                 $objetoxx->nnaj_focali->update($dataxxxx);
@@ -241,7 +248,7 @@ class FiDatosBasico extends Model
                 FiCompfami::create($dataxxxx);
             }
            NnajUpi::setUpiDatosBasicos($dataxxxx, $objetoxx);
-
+           FiDiligenc::transaccion($dataxxxx, $objetoxx);
             return $objetoxx;
         }, 5);
 

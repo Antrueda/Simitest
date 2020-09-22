@@ -3,6 +3,9 @@
 namespace App\Http\Requests\FichaIngreso;
 
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Rules\FechaCorrecta;
+use App\Rules\FechaMenor;
+use DateTime;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FiDatosBasicoUpdateRequest extends FormRequest
@@ -37,8 +40,11 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'sis_upzbarri_id.required' => 'Seleccione un barrio',
             's_documento.required' => 'Ingrese un documento de identificación',
             's_documento.unique' => 'El docuemento ya existe',
-            'sis_servicio_id.required' =>'Seleccione un servicio',
-            'sis_depen_id.required' =>'Seleccione una UPI'
+            'sis_servicio_id.required' => 'Seleccione un servicio',
+            'sis_depen_id.required' => 'Seleccione una UPI',
+            'diligenc.required' => 'Seleccione una fecha de diligenciamiento',
+            'diligenc.date_format' => 'El formato de la fecha es inválido, debe ser: (YYYY-MM-DD)',
+
         ];
         $this->_reglasx = [
             'prm_tipoblaci_id' => ['required'],
@@ -65,7 +71,8 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             's_lugar_focalizacion' => ['required'],
             'sis_upzbarri_id' => ['required'],
             'sis_servicio_id' => ['required'],
-            'sis_depen_id'=> ['required']
+            'sis_depen_id' => ['required'],
+            'diligenc' => ['required','date_format:Y-m-d',new FechaMenor()],
         ];
     }
     /**
@@ -95,7 +102,11 @@ class FiDatosBasicoUpdateRequest extends FormRequest
 
         return $this->_reglasx;
     }
-
+    function validateDate($date, $format = 'Y-m-d')
+    {
+        $d = DateTime::createFromFormat($format, $date);
+        return $d && $d->format($format) == $date;
+    }
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
@@ -109,7 +120,6 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             $this->_mensaje['prm_ayuda_id.required'] = 'Seleccione porqué no tiene documento';
             $this->_reglasx['prm_ayuda_id'] = 'required';
         }
-
         $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
         $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento,' . FiDatosBasico::find($this->segments()[2])->nnaj_docu->id;
     }

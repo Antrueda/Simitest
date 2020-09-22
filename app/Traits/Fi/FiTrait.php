@@ -12,8 +12,10 @@ use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisNnaj;
+use App\Models\Tema;
 use App\Models\User;
 use App\Traits\DatatableTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -22,7 +24,74 @@ use Illuminate\Support\Facades\Auth;
 trait FiTrait
 {
     use DatatableTrait;
+    public function getCombo($dataxxxx)
+    {
+        $respuest = ['selectxx' => $dataxxxx['selectxx'], 'comboxxx' => [['valuexxx' => $dataxxxx['valuexxx'], 'optionxx' => $dataxxxx['optionxx'], 'selected' => 'selected']], 'nigunaxx' => true];
+        if ($dataxxxx['padrexxx'] == 0) {
+            $dataxxxx['padrexxx'] = [];
+        }
+        foreach ($dataxxxx['padrexxx']  as $key => $value) {
+            if ($value == $dataxxxx['valuexxx']) {
+                $respuest['nigunaxx'] = false;
+            }
+        }
+        if ($respuest['nigunaxx']) {
+            $respuest['comboxxx'] = Tema::combo($dataxxxx['temaxxxx'], false, true);
+            foreach ($respuest['comboxxx'] as $key => $value) {
+                $respuest['comboxxx'][$key]['selected'] = in_array($value['valuexxx'], $dataxxxx['padrexxx']) ? 'selected' : '';
+            }
+        }
+        return $respuest;
+    }
+    public function getUltimoNivel(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            switch ($request->padrexxx) {
+                case 829:
+                    $respuest = [
+                        ['campoxxx' => '#i_prm_ultimo_grado_aprobado_id', 'valuexxx' => 1269],
+                        ['campoxxx' => '#i_prm_certificado_ultimo_nivel_id', 'valuexxx' => 228],
+                    ];
+                    break;
+                case 830:
+                    $respuest = [
+                        ['campoxxx' => '#i_prm_ultimo_grado_aprobado_id', 'valuexxx' => 2260],
+                    ];
+                    break;
 
+                default:
+                    $respuest = [
+                        ['campoxxx' => '#i_prm_ultimo_grado_aprobado_id', 'valuexxx' => ''],
+                        ['campoxxx' => '#i_prm_certificado_ultimo_nivel_id', 'valuexxx' => ''],
+                    ];
+                    break;
+            }
+            return $respuest;
+        }
+    }
+    public function getCaminando(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $respuest = [];
+            switch ($request->opcionxx) {
+                case 1:
+                    $dataxxxx = ['selectxx' => 'prm_victataq_id', 'valuexxx' => 853, 'optionxx' => 'NINGUNA', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 342];
+                    $respuest = $this->getCombo($dataxxxx);
+                    break;
+                case 2:
+                    $dataxxxx = ['selectxx' => 'prm_discausa_id', 'valuexxx' => 27, 'optionxx' => 'NS/NR', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 341];
+                    $respuest = $this->getCombo($dataxxxx);
+                    break;
+                case 3:
+                    $dataxxxx = ['selectxx' => 'i_prm_condicion_amb_id', 'valuexxx' => 168, 'optionxx' => 'NINGUNO', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 42];
+                    $respuest = $this->getCombo($dataxxxx);
+                    break;
+            }
+            return response()->json($respuest);
+        }
+    }
     public function getNnajsFi($request)
     {
         $dataxxxx =  FiDatosBasico::select([
@@ -40,16 +109,16 @@ trait FiTrait
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id');
         return $this->getDtAcciones($dataxxxx, $request);
     }
-public function getNotInt()
-{
-    $userxxxx=Auth::user();
-    $userxxxx=SisDepeUsua::select('sis_depen_id')->where(function($queryxxx) use($userxxxx){
-        $queryxxx->where('user_id',$userxxxx->id);
-        $queryxxx->where('sis_esta_id',1);
-    })->get();
+    public function getNotInt()
+    {
+        $userxxxx = Auth::user();
+        $userxxxx = SisDepeUsua::select('sis_depen_id')->where(function ($queryxxx) use ($userxxxx) {
+            $queryxxx->where('user_id', $userxxxx->id);
+            $queryxxx->where('sis_esta_id', 1);
+        })->get();
 
-    return $userxxxx;
-}
+        return $userxxxx;
+    }
     public function getNnajsFi2depen($request)
     {
 
@@ -64,27 +133,29 @@ public function getNotInt()
             'fi_datos_basicos.created_at',
             'sis_estas.s_estado',
             'fi_datos_basicos.user_crea_id',
-            ])
+        ])
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
-            ->join('nnaj_upis','fi_datos_basicos.sis_nnaj_id','=','nnaj_upis.sis_nnaj_id')
-            ->where('sis_nnajs.prm_escomfam_id',227)
-            ->whereIn('nnaj_upis.sis_depen_id',$this->getNotInt())->groupBy(['fi_datos_basicos.sis_nnaj_id','fi_datos_basicos.id','fi_datos_basicos.s_primer_nombre',
-            'nnaj_docus.s_documento',
-            'fi_datos_basicos.s_segundo_nombre',
-            'fi_datos_basicos.s_primer_apellido',
-            'fi_datos_basicos.s_segundo_apellido',
-            'fi_datos_basicos.sis_esta_id',
-            'fi_datos_basicos.created_at',
-            'sis_estas.s_estado',
-            'fi_datos_basicos.user_crea_id',]);
-            
+            ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
+            ->where('sis_nnajs.prm_escomfam_id', 227)
+            ->whereIn('nnaj_upis.sis_depen_id', $this->getNotInt())->groupBy([
+                'fi_datos_basicos.sis_nnaj_id', 'fi_datos_basicos.id', 'fi_datos_basicos.s_primer_nombre',
+                'nnaj_docus.s_documento',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'fi_datos_basicos.sis_esta_id',
+                'fi_datos_basicos.created_at',
+                'sis_estas.s_estado',
+                'fi_datos_basicos.user_crea_id',
+            ]);
+
         return $this->getDtAcciones($dataxxxx, $request);
     }
     public function getNnajsFi2user($request)
     {
-        $userxxxx['user_id']=Auth::user()->id;
+        $userxxxx['user_id'] = Auth::user()->id;
         $dataxxxx =  FiDatosBasico::select([
             'fi_datos_basicos.id',
             'fi_datos_basicos.s_primer_nombre',
@@ -100,8 +171,8 @@ public function getNotInt()
         ])
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
-            ->join('users','fi_datos_basicos.user_crea_id','=','users.id')
-            ->where('fi_datos_basicos.user_crea_id','=',$userxxxx);
+            ->join('users', 'fi_datos_basicos.user_crea_id', '=', 'users.id')
+            ->where('fi_datos_basicos.user_crea_id', '=', $userxxxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -119,12 +190,11 @@ public function getNotInt()
             'fi_compfamis.created_at',
             'sis_estas.s_estado'
         ])
-        ->join('sis_nnajs', 'fi_compfamis.sis_nnaj_id', '=', 'sis_nnajs.id')
-        ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-        ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-        ->join('sis_estas', 'fi_compfamis.sis_esta_id', '=', 'sis_estas.id')
-            ->where('fi_compfamis.sis_nnajnnaj_id', $request->padrexxx)
-            ;
+            ->join('sis_nnajs', 'fi_compfamis.sis_nnaj_id', '=', 'sis_nnajs.id')
+            ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('sis_estas', 'fi_compfamis.sis_esta_id', '=', 'sis_estas.id')
+            ->where('fi_compfamis.sis_nnajnnaj_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -142,11 +212,11 @@ public function getNotInt()
             'sis_nnajs.created_at',
             'sis_estas.s_estado'
         ])
-        ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-        ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-        ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
-        ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-            ->whereNotIn('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id',$request->padrexxx)->get());
+            ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
+            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+            ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
+            ->whereNotIn('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $request->padrexxx)->get());
         return $this->getDtAcciones($dataxxxx, $request);
     }
     public function getDiagnostico($request)

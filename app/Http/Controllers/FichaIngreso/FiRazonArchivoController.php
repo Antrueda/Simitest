@@ -4,7 +4,6 @@ namespace App\Http\Controllers\FichaIngreso;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiRazoneArchivoCrearRequest;
-use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\Tema;
 use App\Models\User;
@@ -36,16 +35,16 @@ class FiRazonArchivoController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-            $this->opciones['botoform'][] = [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => ['firazones.nuevo', []],
-                'formhref' => 2, 'tituloxx' => "VOLVER A RAZONES", 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
+        $this->opciones['botoform'][] = [
+            'mostrars' => true, 'accionxx' => '', 'routingx' => ['firazones.nuevo', []],
+            'formhref' => 2, 'tituloxx' => "VOLVER A RAZONES", 'clasexxx' => 'btn btn-sm btn-primary'
+        ];
     }
 
     private function view($dataxxxx)
     {
         $padrexxx = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
-        $this->opciones['botoform'][0]['routingx'][1]=$padrexxx->id;
+        $this->opciones['botoform'][0]['routingx'][1] = $padrexxx->id;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $padrexxx;
         $this->opciones['pestpara'] = [$padrexxx->id];
@@ -58,8 +57,7 @@ class FiRazonArchivoController extends Controller
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['usuarios'] = User::combo(true, false);
-        $this->opciones['archivox']='';
-
+        $this->opciones['archivox'] = '';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
         $dataxxxy = ['razonesx' => $dataxxxx['padrexxx'], 'selected' => '', 'temaxxxx' => 155, 'cabecera' => false, 'ajaxxxxx' => false];
@@ -92,7 +90,6 @@ class FiRazonArchivoController extends Controller
                     ['data' => 'id', 'name' => 'fi_documentos_anexas.id'],
                     ['data' => 'nombre', 'name' => 'parametros.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                    
                 ],
                 'tablaxxx' => 'datatablearchivos',
                 'permisox' => $this->opciones['permisox'],
@@ -123,7 +120,7 @@ class FiRazonArchivoController extends Controller
 
     private function grabar($dataxxxx)
     {
-        
+
         return redirect()
             ->route($this->opciones['permisox'] . '.editar', [
                 FiDocumentosAnexa::transaccion($dataxxxx)->id
@@ -156,7 +153,6 @@ class FiRazonArchivoController extends Controller
     public function show(FiDocumentosAnexa $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'archivo'], 'padrexxx' => $modeloxx->fi_razone]);
-
     }
 
     /**
@@ -173,7 +169,6 @@ class FiRazonArchivoController extends Controller
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'archivo'], 'padrexxx' => $modeloxx->fi_razone]);
-
     }
 
     /**

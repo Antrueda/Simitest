@@ -3,6 +3,30 @@
         $('.select2').select2({
             language: "es"
         });
+
+        var f_combo=function(dataxxxx){
+
+$.ajax({
+           url : "{{ route('fisalud.victimax',$todoxxxx['parametr']) }}",
+           data : dataxxxx,
+           type : 'GET',
+           dataType : 'json',
+           success : function(json) {
+            $('#'+json.selectxx).empty();
+               $.each(json.comboxxx,function(i,data){
+
+                   $('#'+json.selectxx).append('<option '+data.selected+'  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+
+                });
+           },
+           error : function(xhr, status) {
+               alert('Disculpe, existió un problema');
+           },
+       });
+}
+$("#i_prm_condicion_amb_id").change(function(){
+    f_combo({padrexxx:$(this).val()==''?0:$(this).val(),opcionxx:3});
+})
     });
     $(function() {
         var f_ajax = function(dataxxxx, pselecte) {
@@ -110,9 +134,9 @@
             $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").empty();
             $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").append('<option value="">Seleccione</>')
             if (valuexxx != '') {
-                if (valuexxx == 287) {
+                // if (valuexxx == 287) {
                     $('#s_complemento').val('');
-                }
+                // }
                 $.ajax({
                     url: "{{ route('ajaxx.escondesitipodir') }}",
                     data: {
