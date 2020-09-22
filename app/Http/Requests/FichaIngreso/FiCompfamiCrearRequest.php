@@ -63,12 +63,17 @@ class FiCompfamiCrearRequest extends FormRequest
 
     public function validar()
     {
-        if (isset(NnajDocu::where('s_documento', $this->s_documento)
-        ->first()->fi_datos_basico->sis_nnaj->fi_compfamis
-        ->where('sis_nnajnnaj_id', $this->segments()[1])
-        ->first()->id)) {
-            $this->_reglasx['existexx'] = ['required'];
-            $this->_mensaje['existexx.required']="El documento: {$this->s_documento}, ya hace parte de la composición familiar del NNAJ";
+        $document = NnajDocu::where('s_documento', $this->s_documento)
+            ->first();
+        if (isset($document->id)) {
+
+            if (isset($document->fi_datos_basico->sis_nnaj->fi_compfamis
+                ->where('sis_nnajnnaj_id', $this->segments()[1])
+                ->first()->id)
+            ) {
+                $this->_reglasx['existexx'] = ['required'];
+                $this->_mensaje['existexx.required'] = "El documento: {$this->s_documento}, ya hace parte de la composición familiar del NNAJ";
+            }
         }
     }
 }

@@ -80,5 +80,6 @@
   </div>
 
 </div>
-
+@if(isset($todoxxxx["modeloxx"]))
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+@endif

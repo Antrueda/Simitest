@@ -54,48 +54,9 @@ function soloNumeros(e){
 
 $(function(){
     $('.select2').select2({
-            language: "es"
-        });
-       var f_discapacidad = function(valuexxx){
-           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").empty();
-           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").append('<option value="">Seleccione</>')
-           if(valuexxx != ''){
-               $.ajax({
-                   url : "{{ route('ajaxx.discapacitado') }}",
-                   data : {
-                           _token: $("input[name='_token']").val(),
-                           'padrexxx':valuexxx
-                       },
-                   type : 'POST',
-                   dataType : 'json',
-                   success : function(json) {
-                       if(json[0].discapac[0].valuexxx==1){
-                           $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").empty();
-                       }
-                       $.each(json[0].discapac,function(i,data){
-                           $('#i_prm_tipo_discapacidad_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                       });
-                       $.each(json[0].certific,function(i,data){
-                               $('#i_prm_tiene_cert_discapacidad_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                       });
-                       $.each(json[0].independ,function(i,data){
-                               $('#i_prm_disc_perm_independencia_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                       });
-                   },
-                   error : function(xhr, status) {
-                       alert('Disculpe, existió un problema');
-                   },
-               });
-           }
-       }
+        language: "es"
+    });
 
-       @if(old('i_prm_tiene_discapacidad_id')!=null)
-           f_discapacidad({{ old('i_prm_tiene_discapacidad_id') }});
-       @endif
-
-       $("#i_prm_tiene_discapacidad_id").change(function(){
-           f_discapacidad($(this).val());
-       });
 
        $("#i_prm_usa_metodos_id").change(function(){
            $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id").empty();
@@ -127,35 +88,6 @@ $(function(){
            }
        });
 
-
-       $("#i_prm_regimen_salud_id").change(function(){
-           $("#sis_entidad_salud_id").empty();
-           $("#sis_entidad_salud_id").append('<option value="">Seleccione</>')
-           if($(this).val()!=''){
-               $.ajax({
-               url : "{{ route('ajaxx.regimensalud') }}",
-               data : {
-                       _token: $("input[name='_token']").val(),
-                       'padrexxx':$(this).val()
-                   },
-               type : 'POST',
-               dataType : 'json',
-               success : function(json) {
-                   if(json[0].entidadx[0].valuexxx==1){
-                       $("#sis_entidad_salud_id").empty();
-                   }
-                   $.each(json[0].entidadx,function(i,data){
-
-                       $('#sis_entidad_salud_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-
-                    });
-               },
-               error : function(xhr, status) {
-                   alert('Disculpe, existió un problema');
-               },
-           });
-           }
-       });
 
        $("#i_comidas_diarias").keyup(function(){
            $("#i_prm_razon_no_cinco_comidas_id").empty();

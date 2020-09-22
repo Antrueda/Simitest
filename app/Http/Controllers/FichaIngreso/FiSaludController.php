@@ -76,7 +76,8 @@ class FiSaludController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $archivox=($dataxxxx['padrexxx']->prm_estrateg_id == 2323) ? 'caminando' : 'js';
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.'.$archivox]
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.'.$archivox],
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.general'],
         ];
         $this->opciones['saludxxx'] = FiSalud::salud($dataxxxx['padrexxx']->sis_nnaj_id);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];

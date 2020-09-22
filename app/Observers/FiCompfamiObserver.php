@@ -22,7 +22,7 @@ class FiCompfamiObserver
         $log['i_prm_convive_nnaj_id'] = $modeloxx->i_prm_convive_nnaj_id;
         $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         $log['sis_nnajnnaj_id'] = $modeloxx->sis_nnajnnaj_id;
-
+        $log['prm_reprlega_id'] = $modeloxx->prm_reprlega_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
