@@ -16,7 +16,7 @@
         {{ Form::label('sis_esta_id', 'Estado', ['class' => 'control-label']) }}
         {{ Form::select('sis_esta_id', $todoxxxx['estadoxx'], null, ['class' => $errors->first('sis_esta_id') ?
     'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos',
-    'data-placeholder' => 'Seleccione un estasdo']) }}
+    'data-placeholder' => 'Seleccione un estado']) }}
         @if($errors->has('sis_esta_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_esta_id') }}
@@ -26,7 +26,7 @@
 </div>
 <div class="form-row align-items-end" style="margin-bottom: 40px">
     @component('layouts.components.archivos.upload')
-    @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto',
+    @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto_ar',
     'descripc'=>'Seleccione un archivo','idlabelx'=>'docontacto',
     'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf',
     'clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
