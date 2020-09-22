@@ -46,7 +46,7 @@
                 <a class="nav-link dropdown-toggle{{ ($accion == 'Vspa' || $accion == 'Vma') ?' active' : '' }}" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sicosocial</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item{{ ($accion == 'vsi') ?' active' : '' }}" href="{{ route('vsixxxxx', $nnaj->sis_nnaj_id) }}">Valoración Sicosocial</a>
-                    <a class="dropdown-item{{ ($accion == 'csd') ?' active' : '' }}" href="{{ route('csd', $nnaj->sis_nnaj_id) }}">Consulta Social en Domicilio</a>
+                    <a class="dropdown-item{{ ($accion == 'csd') ?' active' : '' }}" href="{{ route('csd.nnaj', $nnaj->sis_nnaj_id) }}">Consulta Social en Domicilio</a>
                     <a class="dropdown-item{{ ($accion == 'is') ?' active' : '' }}" href="{{ route('is.ver', $nnaj->sis_nnaj_id) }}">Intervencion Sicosocial</a>
                     <a class="dropdown-item{{ ($accion == 'fi') ?' active' : '' }}" href="{{ route('fidatbas.ver', $nnaj->sis_nnaj_id) }}">Ficha de Ingreso</a>
                     <a class="dropdown-item{{ ($accion == 'SalidaMayores') ?' active' : '' }}" href="{{ route('ai.salidamayores', $nnaj->sis_nnaj_id) }}">Salida de Jóvenes Mayores de Edad</a>
