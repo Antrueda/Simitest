@@ -56,6 +56,8 @@ class CsdGeneracionIngresosController extends Controller{
 
     public function store(Request $request, $id){
         $this->validator($request->all())->validate();
+        $request["prm_tipofuen_id"] = 2315;
+        $request['sis_esta_id']=1;
         if ($request->prm_actividad_id == 626) {
             $request["prm_informal_id"] = null;
             $request["prm_otra_id"] = null;
@@ -117,9 +119,11 @@ class CsdGeneracionIngresosController extends Controller{
 
     public function storeaportante(Request $request, $id){
         $this->validatorAporta($request->all())->validate();
+        $request["prm_tipofuen_id"] = 2315;
+        $request['sis_esta_id']=1;
         $dato = CsdGeningAporta::create($request->all());
         foreach ($request->dias as $d) {
-            $dato->dias()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+            $dato->dias()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
         Vsi::indicador($id, 132);
         return redirect()->route('CSD.geningresos', $request->csd_id)->with('info', 'Registro creado con éxito');
@@ -141,7 +145,7 @@ class CsdGeneracionIngresosController extends Controller{
             'prm_informal_id' => 'required_if:prm_actividad_id,627',
             'prm_otra_id' => 'required_if:prm_actividad_id,628',
             'prm_laboral_id' => 'required_if:prm_actividad_id,626',
-            'prm_frecuencia_id' => 'required_without:prm_actividad_id,853',
+            'prm_frecuencia_id' => 'exclude_if:prm_actividad_id,853',
             'intensidad' => 'required_unless:prm_actividad_id,853',
             'prm_dificultad_id' => 'required|exists:parametros,id',
             'razon' => 'required|string|max:4000',

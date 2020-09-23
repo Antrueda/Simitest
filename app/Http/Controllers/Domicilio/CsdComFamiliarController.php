@@ -109,6 +109,7 @@ class CsdComFamiliarController extends Controller{
 
   public function store(Request $request, $id){
     $this->validator($request->all())->validate();
+    $request['sis_esta_id']=1;
     if ($request->prm_discapacidad_id == 228){
       $request["prm_cual_id"] = null;
     }
@@ -126,6 +127,7 @@ class CsdComFamiliarController extends Controller{
 
   public function storeObservaciones(Request $request, $id){
     $this->validatorObservaciones($request->all())->validate();
+    $request["prm_tipofuen_id"]=2315;
     $dato = CsdComFamiliarObservaciones::create($request->all());
     Vsi::indicador($id, 120);
 

@@ -24,7 +24,7 @@ class CsdBienvenida extends Model{
   }
 
   public function motivos(){
-    return $this->belongsToMany(Parametro::class,'csd_bienvenidas_motivos', 'csd_bienvenida_id', 'parametro_id');
+    return $this->belongsToMany(Parametro::class,'csd_bienvenida_motivos', 'csd_bienvenida_id', 'parametro_id');
   }
 
   public function creador(){

@@ -44,6 +44,7 @@ class CsdConclusionesController extends Controller
 
         $this->validator($request->all())->validate();
         $request["prm_tipofuen_id"] = 2315;
+        $request['sis_esta_id']=1;
         $dato = CsdConclusiones::create($request->all());
         Vsi::indicador($id, 121);
 

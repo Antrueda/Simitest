@@ -82,7 +82,7 @@
           <td>{{ $d->vinculacionActual->nombre }}</td>
           <td>{{ $d->vinculacionPasado->nombre }}</td>
           <td>{{ $d->regimen->nombre }}</td>
-          @if (!empty($d->sexual->nombre))
+          @if (!empty($d->eps->nombre))
             <td>{{ $d->eps->nombre }}</td>
           @else
             <td></td>

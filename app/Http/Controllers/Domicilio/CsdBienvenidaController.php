@@ -36,6 +36,7 @@ class CsdBienvenidaController extends Controller{
   public function store(Request $request, $id){
 
     $this->validator($request->all())->validate();
+    $request['sis_esta_id']=1;
     $request["prm_tipofuen_id"]=2315;
     $dato = CsdBienvenida::create($request->all());
 

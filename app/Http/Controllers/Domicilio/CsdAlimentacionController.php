@@ -40,7 +40,7 @@ class CsdAlimentacionController extends Controller{
   public function store(Request $request, $id){
 
     $this->validator($request->all())->validate();
-
+    $request['sis_esta_id']=1;
     if ($request->prm_apoyo_id == 228) {
       $request["prm_entidad_id"] = null;
     }

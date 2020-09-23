@@ -43,6 +43,7 @@ class CsdRedesApoyoController extends Controller{
 
     public function storePasado(Request $request, $id){
         $this->validatorPasado($request->all())->validate();
+        $request['sis_esta_id']=1;
         $request['prm_tipofuen_id']=2315;
         $dato = CsdRedsocPasado::create($request->all());
         Vsi::indicador($id, 137);
@@ -52,6 +53,7 @@ class CsdRedesApoyoController extends Controller{
     public function storeActual(Request $request, $id){
         $this->validatorActual($request->all())->validate();
         $request['prm_tipofuen_id']=2315;
+        $request['sis_esta_id']=1;
         $dato = CsdRedsocActual::create($request->all());
         Vsi::indicador($id, 136);
         return redirect()->route('CSD.redesapoyo', $request->csd_id)->with('info', 'Registro creado con éxito');

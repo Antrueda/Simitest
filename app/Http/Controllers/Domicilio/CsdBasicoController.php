@@ -113,6 +113,7 @@ class CsdBasicoController extends Controller{
     public function store(Request $request, $id){
         $this->validator($request->all())->validate();
         $request["prm_tipofuen_id"]=2315;
+        $request['sis_esta_id'] = 1;
         if ($request->prm_doc_fisico_id == 227) {
             $request["prm_sin_fisico_id"] = null;
         }

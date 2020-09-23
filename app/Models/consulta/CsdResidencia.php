@@ -105,7 +105,7 @@ class CsdResidencia extends Model{
 
 
     public function sis_upzbarri(){
-        return $this->belongsTo(SisUpzbarri::class);
+        return $this->belongsTo(SisUpzbarri::class, 'sis_upzbarri_id');
     }
 
     public function piso(){

@@ -18,7 +18,7 @@ class CsdDinFamiliarController extends Controller{
 
     public function __construct(){
 
-        $this->opciones['permisox']='evasion';
+        $this->opciones['permisox']='csddinfamiliar';
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar'
@@ -105,6 +105,7 @@ class CsdDinFamiliarController extends Controller{
         $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
         $paso = 0;
         foreach ($nnajs as $d) {
+    //            ddd($nnajs);
             if($d->FiDatosBasico->first()->edad < 18){
                 $paso++;
             }
@@ -112,7 +113,8 @@ class CsdDinFamiliarController extends Controller{
         if ($paso > 0) {
             $this->validatorMenor($request->all())->validate();
         }
-        $request["prm_tipofuen_id"]=2315;
+        $request["prm_tipofuen_id"] = 2315;
+        $request['sis_esta_id']=1;
         $dato = CsdDinFamiliar::create($request->all());
 
         if($request->antecedentes) {
@@ -154,6 +156,8 @@ class CsdDinFamiliarController extends Controller{
 
     public function storeMadre(Request $request, $id){
         $this->validatorMadre($request->all())->validate();
+        $request["prm_tipofuen_id"] = 2315;
+        $request['sis_esta_id']=1;
         if ($request->prm_convive_id==227) {
             if($request->dia + $request->mes + $request->ano == 0){
                 return back()->withErrors([
@@ -170,6 +174,8 @@ class CsdDinFamiliarController extends Controller{
 
     public function storePadre(Request $request, $id){
         $this->validatorPadre($request->all())->validate();
+        $request["prm_tipofuen_id"] = 2315;
+        $request['sis_esta_id']=1;
         if ($request->prm_convive_id==227) {
             if($request->dia + $request->mes + $request->ano == 0){
                 return back()->withErrors([
@@ -291,7 +297,7 @@ class CsdDinFamiliarController extends Controller{
             'prm_hogar_id' => 'required_without:prm_familiar_id',
             'descripcion_0' => 'required|string|max:4000',
             'prm_bogota_id' => 'required|exists:parametros,id',
-            'prm_traslado_id' => 'required_if:prm_norma_id,228',
+            'prm_traslado_id' => 'required_if:prm_bogota_id,228',
             'jefe1' => 'nullable|string|max:120',
             'prm_jefe1_id' => 'nullable|exists:parametros,id',
             'jefe2' => 'nullable|string|max:120',
@@ -328,9 +334,9 @@ class CsdDinFamiliarController extends Controller{
         return Validator::make($data, [
             'csd_id' => 'required|exists:csds,id',
             'prm_convive_id' => 'required|exists:parametros,id',
-            'dia' => 'required|integer|min:0|max:30',
-            'mes' => 'required|integer|min:0|max:11',
-            'ano' => 'required|integer|min:0|max:99',
+            'dia' => 'exclude_if:prm_convive_id,228|min:0|max:30',
+            'mes' => 'exclude_if:prm_convive_id,228|min:0|max:11',
+            'ano' => 'exclude_if:prm_convive_id,228|min:0|max:99',
             'hijo' => 'required|integer|min:0|max:99',
             'prm_separa_id' => 'nullable|exists:parametros,id',
         ]);
@@ -340,9 +346,9 @@ class CsdDinFamiliarController extends Controller{
         return Validator::make($data, [
             'csd_id' => 'required|exists:csds,id',
             'prm_convive_id' => 'required|exists:parametros,id',
-            'dia' => 'required|integer|min:0|max:30',
-            'mes' => 'required|integer|min:0|max:11',
-            'ano' => 'required|integer|min:0|max:99',
+            'dia' => 'exclude_if:prm_convive_id,228|min:0|max:30',
+            'mes' => 'exclude_if:prm_convive_id,228|min:0|max:11',
+            'ano' => 'exclude_if:prm_convive_id,228|min:0|max:99',
             'hijo' => 'required|integer|min:0|max:99',
             'prm_separa_id'  => 'nullable|exists:parametros,id',
         ]);

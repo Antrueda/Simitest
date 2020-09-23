@@ -33,6 +33,7 @@ class CsdJusticiaController extends Controller{
 
     public function store(Request $request, $id){
         $this->validator($request->all())->validate();
+        $request['sis_esta_id']=1;
         if ($request->prm_vinculado_id == 228) {
             $request["prm_vin_causa_id"] = null;
         }

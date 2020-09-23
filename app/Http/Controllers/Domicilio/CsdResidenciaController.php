@@ -30,7 +30,7 @@ class CsdResidenciaController extends Controller
         $dato = Csd::findOrFail($id);
         $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
         $valor = $dato->CsdResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $sino = Tema::combo(23, true, false);
+        $sino = Tema::combo(23, false, false);
 
         $actual = Tema::combo(36, true, false);
 
@@ -39,17 +39,20 @@ class CsdResidenciaController extends Controller
         $muros = Tema::combo(91, true, false);
         $pisos = Tema::combo(90, true, false);
         $estado = Tema::combo(93, true, false);
-        $condiciones = Tema::combo(42, true, false);
+        $condiciones = Tema::combo(42, false, false);
         $residencia = Tema::combo(35, true, false);
-        $estrato = Tema::combo(41, true, false);
+        $estrato = Tema::combo(41, false, false);
         $alfabeto = Tema::combo(39, true, false);
         $cuadrante = Tema::combo(38, true, false);
-        $tViaPrincipal = Tema::combo(62, true, false);
+        $tViaPrincipal = Tema::combo(62, false, false);
         // $localidadjs = SisLocalidad::orderBy('s_localidad')->get();
         $localidades = SisLocalidad::combo();
         $upzs = ['' => 'Seleccione'];
         $barrios = ['' => 'Seleccione'];
         if (isset($valor->id)) {
+            
+
+            
             $barrioxx=$valor->sis_upzbarri->sis_localupz;
             $valor->sis_localidad_id=$barrioxx->sis_localidad_id;
             $valor->sis_upz_id=$barrioxx->id;
@@ -70,6 +73,7 @@ class CsdResidenciaController extends Controller
     {
         $this->validator($request->all())->validate();
         $request["prm_tipofuen_id"] = 2315;
+        $request['sis_esta_id']=1;
         if ($request->prm_dir_zona_id == 288 || $request->prm_dir_zona_id == 289) {
             $request["prm_dir_via_id"] = null;
             $request["dir_nombre"] = null;

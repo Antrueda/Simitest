@@ -44,6 +44,7 @@ class CsdViolenciaController extends Controller{
 
     public function store(Request $request, $id){
         $this->validator($request->all())->validate();
+        $request['sis_esta_id']=1;
         if ($request->prm_condicion_id != 450 && $request->prm_condicion_id != 451 && $request->prm_condicion_id != 452 && $request->prm_condicion_id != 936 && $request->prm_condicion_id != 454) {
             $request["departamento_cond_id"] = null;
             $request["municipio_cond_id"] = null;

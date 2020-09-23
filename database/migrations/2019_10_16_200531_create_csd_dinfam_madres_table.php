@@ -19,9 +19,9 @@ class CreateCsdDinfamMadresTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('prm_convive_id')->unsigned();
-            $table->integer('dia')->unsigned();
-            $table->integer('mes')->unsigned();
-            $table->integer('ano')->unsigned();
+            $table->integer('dia')->unsigned()->nullable();
+            $table->integer('mes')->unsigned()->nullable();
+            $table->integer('ano')->unsigned()->nullable();
             $table->integer('hijo')->unsigned();
             $table->bigInteger('prm_separa_id')->unsigned()->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
