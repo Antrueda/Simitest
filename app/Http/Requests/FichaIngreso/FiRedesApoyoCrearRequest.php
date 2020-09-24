@@ -14,8 +14,18 @@ class FiRedesApoyoCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            ];
+            'sis_entidad_id.required' => 'Seleccione una entidad',
+            's_servicio.required' => 'Ingrese un servicio',
+            'i_tiempo.required' => 'Indique el tiempo que doró el servicio',
+            'i_prm_tiempo_id.required' => 'Seleccione la unidad del tiempo',
+            'i_prm_anio_prestacion_id.required' => 'Seleccione el año de prestación',
+        ];
         $this->_reglasx = [
+            'sis_entidad_id' => ['required'],
+            's_servicio' => ['required'],
+            'i_tiempo' => ['required'],
+            'i_prm_tiempo_id' => ['required'],
+            'i_prm_anio_prestacion_id' => ['required'],
         ];
     }
     /**
@@ -47,6 +57,6 @@ class FiRedesApoyoCrearRequest extends FormRequest
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        
+
     }
 }

@@ -34,8 +34,9 @@
   }
   $(function(){
     $('.select2').select2({
-      language: "es"
-    });
+            language: "es",
+            theme: 'bootstrap4'
+        });
     $("#nombre").keyup(function () {
       $(this).val($(this).val().toUpperCase())
     });

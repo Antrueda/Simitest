@@ -3,9 +3,10 @@
 
 $(function() {
   $('.select2').select2({
-      language: "es"
-    });
-  
+            language: "es",
+            theme: 'bootstrap4'
+        });
+
   } );
 
-</script>   
+</script>

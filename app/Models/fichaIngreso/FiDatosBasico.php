@@ -245,8 +245,13 @@ class FiDatosBasico extends Model
                 $dataxxxx['i_prm_parentesco_id'] = 805;
                 $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
                 $dataxxxx['i_prm_convive_nnaj_id'] = 227;
+                $dataxxxx['prm_reprlega_id']=227;
+                if($objetoxx->nnaj_nacimi->Edad<18){
+                    $dataxxxx['prm_reprlega_id']=228;
+                }
                 FiCompfami::create($dataxxxx);
             }
+
            NnajUpi::setUpiDatosBasicos($dataxxxx, $objetoxx);
            FiDiligenc::transaccion($dataxxxx, $objetoxx);
             return $objetoxx;

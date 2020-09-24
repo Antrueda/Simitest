@@ -54,11 +54,12 @@ class NnajDese extends Model
         }
 
         $notinxxx = SisDepeServ::where('sis_depen_id', $dataxxxx['padrexxx'])
+        ->where('sis_esta_id',1)
             ->get();
 
         foreach ($notinxxx as $registro) {
             if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->sis_servicio->s_servicio];
+                $comboxxx[] = ['valuexxx' => $registro->sis_servicio->id, 'optionxx' => $registro->sis_servicio->s_servicio];
             } else {
                 $comboxxx[$registro->id] = $registro->sis_servicio->s_servicio;
             }

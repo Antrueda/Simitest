@@ -22,6 +22,7 @@ class FiCompfamiCrearRequest extends FormRequest
             'prm_reprlega_id.required' => 'Indique si es el representante legal',
             's_telefono.required' => 'Ingrese un número de teléfono',
             's_documento.required' => 'Ingrese el número de documento',
+            'sis_municipio_id.required' => 'Seleccione un municipio',
         ];
 
         $this->_reglasx = [
@@ -33,6 +34,7 @@ class FiCompfamiCrearRequest extends FormRequest
             'd_nacimiento' => ['required'],
             's_telefono' => ['required'],
             's_documento' => ['required'],
+            'sis_municipio_id' => ['required'],
         ];
     }
     /**

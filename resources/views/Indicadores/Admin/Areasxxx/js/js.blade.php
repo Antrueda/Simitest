@@ -1,8 +1,9 @@
 <script>
    $(function(){
     $('.select2').select2({
-      language: "es"
-    });
+            language: "es",
+            theme: 'bootstrap4'
+        });
 
         $('#sis_esta_id').change(function() {
             f_motivos({
