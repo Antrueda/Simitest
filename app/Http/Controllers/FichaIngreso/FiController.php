@@ -456,4 +456,16 @@ class FiController extends Controller
             return response()->json(NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => true, 'padrexxx' => $request->padrexxx]));
         }
     }
+
+    public function getFechaNacimiento(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = ['fechaxxx'=>'', 'edadxxxx'=>''];
+            if (is_numeric($request->padrexxx)&& $request->padrexxx>=6) {
+                $fechaxxx = explode('-', date('Y-m-d'));
+                $respuest = ['fechaxxx'=>($fechaxxx[0] - $request->padrexxx) . '-' . $fechaxxx[1] . '-' . $fechaxxx[2], 'edadxxxx'=>$request->padrexxx];
+            }
+            return response()->json($respuest);
+        }
+    }
 }

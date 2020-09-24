@@ -40,6 +40,12 @@ Route::group(['prefix' => 'fi'], function () use($routexxx,$controll){
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
 
+    Route::get('cafecnac', [
+        'uses' => $controll . 'Controller@getFechaNacimiento',
+        'middleware' => ['permission:' . $routexxx . '-borrar']
+    ])->name($routexxx . '.cafecnac');
+
+
     Route::put('borrar/{objetoxx}', [
         'uses' => $controll . 'Controller@destroy',
         'middleware' => ['permission:' . $routexxx . '-borrar']
@@ -51,7 +57,7 @@ Route::group(['prefix' => 'fi'], function () use($routexxx,$controll){
     Route::get('estrateg', [
         'uses' => $controll . 'Controller@getEstrategia',
 	])->name($routexxx . '.estrateg');
-	
+
 
 	Route::get('nnajupse', [
         'uses' => $controll . 'Controller@getServicio',

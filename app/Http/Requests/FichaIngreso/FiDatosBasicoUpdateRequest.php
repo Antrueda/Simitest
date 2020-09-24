@@ -23,7 +23,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             's_primer_apellido.required' => 'Ingrese primer apellido',
             'prm_sexo_id.required' => 'Seleccione el sexo',
             'prm_doc_fisico_id.required' => 'Seleccione si cuenta con el documento físico',
-            'd_nacimiento.required' => 'Seleccione la fecha de nacimiento',
+            'd_nacimiento.required' => 'Seleccione la fecha de nacimiento o dige la edad',
             'sis_municipio_id.required' => 'Seleccione un municipio',
             'sis_municipioexp_id.required' => 'Seleccione un municipio de expdición',
             'prm_gsanguino_id.required' => 'Seleccione el grupo sanguíneo',

@@ -182,7 +182,23 @@
             }
         }
 
-
+    $('#edadxxxx').on('change keyup','#aniosxxx',function(){
+        $.ajax({
+            url: "{{ route('fidatbas.cafecnac') }}",
+            data: {
+                'padrexxx': $(this).val()
+            },
+            type: 'GET',
+            dataType: 'json',
+            success: function(json) {
+               $('#d_nacimiento').val(json.fechaxxx)
+               $('#aniosxxx').val(json.edadxxxx)
+            },
+            error: function(xhr, status) {
+                alert('Disculpe, existió un problema');
+            },
+        });
+    });
         var f_cuenta_documento = function(valuexxx, pselecte) {
             $("#prm_doc_fisico_id").empty();
             $("#prm_doc_fisico_id").append('<option value="">Seleccione</>')
