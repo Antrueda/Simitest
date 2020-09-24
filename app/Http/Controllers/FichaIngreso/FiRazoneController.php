@@ -81,7 +81,7 @@ class FiRazoneController extends Controller
         }
 
         foreach ($dependen->sis_depen->getDepeUsua as $key => $value) {
-            if ($value->i_prm_responsable_id = 227) {
+            if ($value->i_prm_responsable_id == 227) {
                 $dependen = $value;
             }
         }

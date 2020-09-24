@@ -130,7 +130,8 @@ class IsDatoBasicoController extends Controller
 
         if (auth()->user()->can('isintervencion-psiscologo')) {
             $this->opciones['tipatenc'] = Tema::combo(213, true, false);
-        } else {
+        } 
+        if (auth()->user()->can('isintervencion-social')) {
             $this->opciones['tipatenc'] = Tema::combo(356, true, false);
         }
 
