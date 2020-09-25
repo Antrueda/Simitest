@@ -4,10 +4,14 @@
     </div>
     <div class="card-header p-2">
         <ul class="nav nav-tabs">
+            @canany(['fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fidatbas') ?' active' : '' }}
+        text-sm" href="{{ route('ai.ver',$todoxxxx['usuariox']->sis_nnaj_id) }}">INDIVIDUALES</a></li>
+            @endcanany
             @if($todoxxxx['pestpadr']==1 || $todoxxxx['pestpadr']==2)
             @canany(['fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fidatbas') ?' active' : '' }}
-        text-sm" href="{{ route('fidatbas') }}">NNAJS</a></li>
+        text-sm" href="{{ route('fidatbas') }}">CSDS</a></li>
             @endcanany
             @endif
 
@@ -75,7 +79,7 @@
     <div class="card-body">
         <div class="tab-content">
             <div class="tab-pane active" id="{{ $todoxxxx['slotxxxx'] }}">
-                {{ $crudxxxx }}  <!-- nombre que se le data en pestanias de la carpeta Acrud -->
+                {{ $crudxxxx }} <!-- nombre que se le data en pestanias de la carpeta Acrud -->
             </div>
         </div>
     </div>

@@ -9,12 +9,15 @@ class CsdCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
-    
+
     public function __construct()
     {
-        
+
         $this->_mensaje = [
             'proposito.required' => 'Escriba el proposito',
+            'fecha.required'=>'Seleccione una fecha',
+            'fecha.date'=>'La fecha ingresada debe tener fomato de fecha',
+            'fecha.before_or_equal'=>'No se permite el ingreso de fechas superiores a hoy',
         ];
         $this->_reglasx = [
             'proposito' => 'required|string|max:200',
@@ -28,7 +31,7 @@ class CsdCrearRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     public function messages()
@@ -44,4 +47,9 @@ class CsdCrearRequest extends FormRequest
     {
         $this->validar();
         return $this->_reglasx;    }
+
+        public function validar()
+        {
+
+        }
 }
