@@ -18,7 +18,7 @@ class CsdBasicoController extends Controller{
 
     public function __construct(){
 
-        $this->opciones['permisox']='csddatobasico';
+        $this->opciones['permisox']='csdxxxxx';
         $this->middleware(['permission:'
 
             . $this->opciones['permisox'] . '-crear|'

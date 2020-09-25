@@ -74,7 +74,7 @@
                         @foreach($csds as $d)
                             <tr>
                                 <td>
-                                    @canany(['permission:csddatobasico-leer','csddatobasico-crear','csddatobasico-editar'])
+                                    @canany(['permission:csdxxxxx-leer','csdxxxxx-crear','csdxxxxx-editar'])
                                         <a class="btn btn-sm btn-primary" title="Editar" href="{{ route('csd.editar', [$dato->id, $d->id]) }}">
                                             Editar
                                         </a>

@@ -128,6 +128,7 @@ class CsdComFamiliarController extends Controller{
   public function storeObservaciones(Request $request, $id){
     $this->validatorObservaciones($request->all())->validate();
     $request["prm_tipofuen_id"]=2315;
+    $request['sis_esta_id']=1;
     $dato = CsdComFamiliarObservaciones::create($request->all());
     Vsi::indicador($id, 120);
 

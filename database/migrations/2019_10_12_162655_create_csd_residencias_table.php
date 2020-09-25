@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\DB;
 class CreateCsdResidenciasTable extends Migration
 {
     private $tablaxxx = 'csd_residencias';
-    private $tablaxxx2 = 'csd_reside_ambiente';
+    private $tablaxxx2 ='csd_reside_ambiente';
+    private $tablaxxx3 = 'csd_resservis';
+    //private $tablaxxx4 = 'csd_reshogars';
     /**
      * Run the migrations.
      *
@@ -49,6 +51,7 @@ class CreateCsdResidenciasTable extends Migration
             $table->bigInteger('prm_orden_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
+  
 
 
             $table->foreign('csd_id')->references('id')->on('csds');
@@ -80,14 +83,30 @@ class CreateCsdResidenciasTable extends Migration
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_residencia_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
-            $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
+            $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table->unique(['parametro_id', 'csd_residencia_id']);
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
+     
+     
+        Schema::create($this->tablaxxx3, function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('prm_servicio_id')->unsigned();
+            $table->bigInteger('prm_legalxxx_id')->unsigned();
+            $table->bigInteger('csd_residencia_id')->unsigned();
+            $table->foreign('prm_servicio_id')->references('id')->on('parametros');
+            $table->foreign('prm_legalxxx_id')->references('id')->on('parametros');
+            $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
+            $table->unique(['prm_servicio_id', 'csd_residencia_id']);
+            $table = CamposMagicos::magicos($table);
+        });
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
     }
+    
+    
 
     /**
      * Reverse the migrations.
@@ -96,7 +115,9 @@ class CreateCsdResidenciasTable extends Migration
      */
     public function down()
     {
+        
         Schema::dropIfExists($this->tablaxxx2);
+        Schema::dropIfExists($this->tablaxxx3);
         Schema::dropIfExists($this->tablaxxx);
     }
 }

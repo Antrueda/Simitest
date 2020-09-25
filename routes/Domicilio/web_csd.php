@@ -1,45 +1,57 @@
 <?php
-Route::group(['prefix' => 'csde'], function () {
+$routexxx='csdxxxxx';
+$controll='Domicilio\Csd';
+Route::group(['prefix' => '{padrexxx}/csds'], function () use($routexxx,$controll) {
     Route::get('', [
-        'uses' => 'Domicilio\CsdController@index',
-        'middleware' => ['permission:csddatobasico-leer|csddatobasico-crear|csddatobasico-editar|csddatobasico-borrar']
-    ])->name('csd');
-    Route::get('{id}', [
-        'uses' => 'Domicilio\CsdController@show',
-        'middleware' => ['permission:csddatobasico-leer|csddatobasico-crear|csddatobasico-editar|csddatobasico-borrar']
-    ])->name('csd.ver');
-    Route::get('nnaj/{id}', [
-        'uses' => 'Domicilio\CsdController@nnaj',
-        'middleware' => ['permission:csddatobasico-leer|csddatobasico-crear|csddatobasico-editar|csddatobasico-borrar']
-    ])->name('csd.nnaj');
-    Route::get('nuevo/{id}', [
-        'uses' => 'Domicilio\CsdController@create',
-        'middleware' => ['permission:csddatobasico-crear']
-    ])->name('csd.nuevo');
-    Route::post('nuevo/{id}', [
-        'uses' => 'Domicilio\CsdController@store',
-        'middleware' => ['permission:csddatobasico-crear']
-    ]);
-    Route::get('editar/{id}/{id0}', [
-        'uses' => 'Domicilio\CsdController@edit',
-        'middleware' => ['permission:csddatobasico-editar']
-    ])->name('csd.editar');
-    Route::put('editar/{id}/{id0}', [
-        'uses' => 'Domicilio\CsdController@update',
-        'middleware' => ['permission:csddatobasico-editar']
-    ]);
-    Route::get('agregar/{id}', [
-        'uses' => 'Domicilio\CsdController@agregar',
-        'middleware' => ['permission:csddatobasico-leer|csddatobasico-crear|csddatobasico-editar|csddatobasico-borrar']
-    ])->name('csd.agregar');
-    Route::post('agregar/{id}', [
-        'uses' => 'Domicilio\CsdController@agrega',
-        'middleware' => ['permission:csddatobasico-leer|csddatobasico-crear|csddatobasico-editar|csddatobasico-borrar']
-    ]);
-    Route::get('eliminar/{id}/{id0}', [
-        'uses' => 'Domicilio\CsdController@destroy',
-        'middleware' => ['permission:csddatobasico-borrar']
-    ])->name('csd.eliminar');
+        'uses' => $controll.'Controller@index',
+        'middleware' => ['permission:csdxxxxx-leer|csdxxxxx-crear|csdxxxxx-editar|csdxxxxx-borrar']
+    ])->name($routexxx);
+    Route::get('listaxxx', [
+		'uses' => $controll.'Controller@getListado',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+    ])->name($routexxx.'.listaxxx');
+    Route::get('nuevo', [
+        'uses' => $controll.'Controller@create',
+        'middleware' => ['permission:csdxxxxx-crear']
+    ])->name($routexxx.'.nuevo');
+    Route::post('crear', [
+        'uses' => $controll.'Controller@store',
+        'middleware' => ['permission:csdxxxxx-crear']
+        ])->name($routexxx.'.crear');
+});
+Route::group(['prefix' => 'csd'], function () use($routexxx,$controll) {
+    
+    Route::get('ver', [
+        'uses' => $controll.'Controller@show',
+        'middleware' => ['permission:csdxxxxx-leer|csdxxxxx-crear|csdxxxxx-editar|csdxxxxx-borrar']
+    ])->name($routexxx.'.ver');
+  /*  Route::get('nnaj/{padrexxx}', [
+        'uses' => $controll.'Controller@nnaj',
+        'middleware' => ['permission:csdxxxxx-leer|csdxxxxx-crear|csdxxxxx-editar|csdxxxxx-borrar']
+    ])->name($routexxx.'.nnaj');
+    */
+  
+
+    Route::get('editar/{padrexxx}', [
+        'uses' => $controll.'Controller@edit',
+        'middleware' => ['permission:csdxxxxx-editar']
+    ])->name($routexxx.'.editar');
+    Route::put('editar/{padrexxx}', [
+        'uses' => $controll.'Controller@update',
+        'middleware' => ['permission:csdxxxxx-editar']
+        ])->name($routexxx.'.editar');
+    Route::get('agregar/{padrexxx}', [
+        'uses' => $controll.'Controller@agregar',
+        'middleware' => ['permission:csdxxxxx-leer|csdxxxxx-crear|csdxxxxx-editar|csdxxxxx-borrar']
+    ])->name($routexxx.'.agregar');
+    Route::post('agregar/{padrexxx}', [
+        'uses' => $controll.'Controller@agrega',
+        'middleware' => ['permission:csdxxxxx-leer|csdxxxxx-crear|csdxxxxx-editar|csdxxxxx-borrar']
+        ])->name($routexxx.'.agregar');
+    Route::get('eliminar/{padrexxx}', [
+        'uses' => $controll.'Controller@destroy',
+        'middleware' => ['permission:csdxxxxx-borrar']
+    ])->name($routexxx.'.eliminar');
     include_once('web_CSD_basico.php');
     include_once('web_CSD_violencia.php');
     include_once('web_CSD_situacionesespecial.php');
@@ -53,3 +65,4 @@ Route::group(['prefix' => 'csde'], function () {
     include_once('web_CSD_redesapoyo.php');
     include_once('web_CSD_conclusiones.php');
 });
+

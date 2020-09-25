@@ -21,7 +21,7 @@
     </div>
 </div>
 <div class="row my-3">
-    @canany(['csddatobasico-crear', 'csddatobasico-editar'])
+    @canany(['csdxxxxx-crear', 'csdxxxxx-editar'])
         {{ Form::submit('Guardar', ['class' => 'btn btn-primary']) }}
     @endcanany
     <a class="btn btn-primary ml-2" href="{{ route('csd.nnaj', $dato->id) }}">Regresar</a>

@@ -247,7 +247,7 @@ class RolesYPermisosSeeder extends Seeder
 
 
         //Crear areas para CSD datos básicos
-        $this->getPermisos(['permisox' => 'csddatobasico', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Datos Básicos CSD', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'csdxxxxx', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Datos Básicos CSD', 'pestania' => 1]);
 
         //Crear areas para CSD violencia
         $this->getPermisos(['permisox' => 'csdviolencia', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Violencia CSD', 'pestania' => 1]);

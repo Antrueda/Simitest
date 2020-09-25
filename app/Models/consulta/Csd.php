@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Sistema\SisNnaj;
 use App\Models\Parametro;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Csd extends Model{
 
@@ -84,5 +86,19 @@ class Csd extends Model{
 
     public function especiales(){
         return $this->belongsToMany(Parametro::class,'csd_nnaj_especial', 'csd_id', 'parametro_id');
+    }
+    public static function transaccion($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            if ($dataxxxx['modeloxx'] != '') {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['modeloxx'] = Csd::create($dataxxxx['requestx']->all());
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return $objetoxx;
     }
 }

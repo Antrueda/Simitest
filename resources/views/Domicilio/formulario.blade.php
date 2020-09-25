@@ -78,7 +78,7 @@
             </table>
         </div>
         <ul class="nav nav-tabs">
-            @canany(['csddatobasico-leer', 'csddatobasico-crear', 'csddatobasico-editar', 'csddatobasico-borrar'])
+            @canany(['csdxxxxx-leer', 'csdxxxxx-crear', 'csdxxxxx-editar', 'csdxxxxx-borrar'])
                 <li class="nav-item text-sm">
                     <a class="nav-link{{ ($accion=='Basico') ?' active' : '' }}" href="{{ route('CSD.basico', $dato->id) }}">1. Datos básicos</a>
                 </li>
