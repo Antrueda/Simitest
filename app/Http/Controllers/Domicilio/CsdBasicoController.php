@@ -137,6 +137,7 @@ class CsdBasicoController extends Controller
             $dataxxxx['modeloxx']->prm_libreta_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_clase_libreta_id;
 
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
             $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
@@ -148,6 +149,11 @@ class CsdBasicoController extends Controller
 
 
 
+=======
+
+
+
+>>>>>>> Stashed changes
         }
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
         $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
