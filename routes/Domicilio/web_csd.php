@@ -20,7 +20,7 @@ Route::group(['prefix' => '{padrexxx}/csds'], function () use ($routexxx, $contr
     ])->name($routexxx . '.crear');
 });
 Route::group(['prefix' => 'csd'], function () use ($routexxx, $controll) {
-    Route::get('ver', [
+    Route::get('ver/{modeloxx}', [
         'uses' => $controll . 'Controller@show',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
     ])->name($routexxx . '.ver');
@@ -32,14 +32,14 @@ Route::group(['prefix' => 'csd'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
-    Route::get('agregar/{modeloxx}', [
-        'uses' => $controll . 'Controller@agregar',
-        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
-    ])->name($routexxx . '.agregar');
-    Route::post('agregar/{modeloxx}', [
-        'uses' => $controll . 'Controller@agrega',
-        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
-    ])->name($routexxx . '.agregar');
+    // Route::get('agregar/{modeloxx}', [
+    //     'uses' => $controll . 'Controller@agregar',
+    //     'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+    // ])->name($routexxx . '.agregar');
+    // Route::post('agregar/{modeloxx}', [
+    //     'uses' => $controll . 'Controller@agrega',
+    //     'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+    // ])->name($routexxx . '.agregar');
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrar']

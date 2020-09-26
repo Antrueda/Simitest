@@ -3,182 +3,151 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
-use App\Models\Tema;
 use App\Models\consulta\Csd;
-use App\Models\consulta\CsdDatosBasico;
-use App\Models\sicosocial\Vsi;
-use Illuminate\Support\Facades\Validator;
-use App\Models\Sistema\SisPai;
-use App\Models\Sistema\SisDepartamento;
-use App\Models\Sistema\SisMunicipio;
+
 
 class CsdBasicoController extends Controller{
 
-    public function __construct(){
+    private $opciones;
 
-        $this->opciones['permisox']='csdxxxxxs';
+    public function __construct()
+    {
+        $this->opciones['permisox'] = 'csdatbas';
         $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar'
-          ]);
+            ]);
+
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
+        $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
+        $this->opciones['routxxxx'] = 'csdatbas';
+        $this->opciones['slotxxxx'] = 'csdatbas';
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['rutacarp'] = 'Csd.';
+        $this->opciones['parametr'] = [];
+        $this->opciones['carpetax'] = 'Csd';
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
+
+        $this->opciones['estrateg'] = ['' => 'Seleccione'];
+
+        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A CSDS', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
     }
+    private function grabar($dataxxxx)
+    {
+        $usuariox = Csd::transaccion($dataxxxx);
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$usuariox->id])
+            ->with('info',$dataxxxx['infoxxxx']);
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
-    public function show($id){
-        $dato = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
-        $valor = $dato->CsdDatosBasico->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $documentos = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $documentos[$k] = $d;
-        }
-        $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $sindocumento = Tema::findOrFail(286)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $sexo = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(11)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sexo[$k] = $d;
-        }
-        $genero = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(12)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $genero[$k] = $d;
-        }
-        $sexual = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(13)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $sexual[$k] = $d;
-        }
-        $grupo = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(17)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $grupo[$k] = $d;
-        }
-        $rh = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(18)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $rh[$k] = $d;
-        }
-        $claseLibreta = Tema::findOrFail(33)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $estadoCivil = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(19)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $estadoCivil[$k] = $d;
-        }
-        $grupoEtnico = Tema::findOrFail(20)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $grupoIndigena = Tema::findOrFail(61)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $tPoblacion = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(119)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $tPoblacion[$k] = $d;
-        }
-        $paises = SisPai::orderBy('s_pais')->pluck('s_pais', 'id');
+    private function view($dataxxxx)
+    {
+        $this->opciones['botoform'][0]['routingx'][1]=$dataxxxx['padrexxx']->id;
+        $this->opciones['hoyxxxxx']= Carbon::today()->isoFormat('YYYY-MM-DD');
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['slotxxxx'] = 'csdxxxxy';
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
 
-        $depajs = SisDepartamento::orderBy('s_departamento')->get();
-        if(!$valor){
-            $departamentos = $departamentos1 = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
-            $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 6)->pluck('s_municipio', 'id');
-            $municipios1 = ['' => 'Seleccione...'];
-            foreach ($municipios as $k => $d) {
-                $municipios1[$k] = $d;
-            }
-        } else {
-            if($valor->pais_id == 2){
-                $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
-                $municipios = SisMunicipio::combo($valor->departamento_id,false) ;
-               // $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', $valor->departamento_id)->pluck('s_municipio', 'id');
-                //ddd($municipios);
-            } else {
-                $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', '!=', 2)->pluck('s_departamento', 'id');
-                $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 1)->pluck('s_municipio', 'id');
-            }
-            if($valor->pais_docum_id == 2){
-                $departamentos1 = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
-                $municipios1 = ['' => 'Seleccione...'];
-                foreach (SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', $valor->departamento_docum_id)->pluck('s_municipio', 'id') as $k => $d) {
-                    $municipios1[$k] = $d;
-                }
-            } else {
-                $departamentos1 = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', '!=', 2)->pluck('s_departamento', 'id');
-                $municipios1 = ['' => 'Seleccione...'];
-                foreach (SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 1)->pluck('s_municipio', 'id') as $k => $d) {
-                    $municipios1[$k] = $d;
-                }
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['modeloxx']=$dataxxxx['modeloxx'];
+            $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+            $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', $dataxxxx['padrexxx']->sis_nnaj_id],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
             }
         }
 
-        return view('Domicilio.index', ['accion' => 'Basico'], compact('dato', 'nnajs', 'valor', 'documentos', 'sino',
-                                                                       'sindocumento', 'sexo', 'genero', 'sexual', 'grupo',
-                                                                       'rh', 'claseLibreta', 'estadoCivil', 'grupoEtnico',
-                                                                       'grupoIndigena', 'tPoblacion',
-                                                                       'paises','departamentos', 'departamentos1',
-                                                                       'depajs', 'municipios', 'municipios1'));
+        // Se arma el titulo de acuerdo al array opciones
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function store(Request $request, $id){
-        $this->validator($request->all())->validate();
-        $request["prm_tipofuen_id"]=2315;
-        $request['sis_esta_id'] = 1;
-        if ($request->prm_doc_fisico_id == 227) {
-            $request["prm_sin_fisico_id"] = null;
-        }
-
-        if ($request->prm_sexo_id != 20) {
-            $request["prm_militar_id"] = null;
-            $request["prm_libreta_id"] = null;
-        }
-        if ($request->prm_militar_id == 228) {
-            $request["prm_libreta_id"] = null;
-        }
-        $dato =CsdDatosBasico::create($request->all());
-        Vsi::indicador($id, 122);
-        return redirect()->route('CSD.basico', $request->csd_id)->with('info', 'Registro creado con éxito');
+    public function create(SisNnaj $padrexxx)
+    {
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'csd'],'padrexxx'=>$padrexxx->fi_datos_basico]);
+    }
+    public function store(CsdCrearRequest $request, SisNnaj $padrexxx )
+    {
+        $request->request->add(['prm_tipofuen_id'=>2315]);
+        $request->request->add(['sis_esta_id'=>1]);
+        $request->request->add(['sis_nnaj_id'=>$padrexxx->id]);
+        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Consulta creada con exito','modeloxx'=>'']);
     }
 
-    public function update(Request $request, $id, $id1){
-
-        $this->validator($request->all())->validate();
-        if ($request->prm_doc_fisico_id == 227) {
-            $request["prm_sin_fisico_id"] = null;
-        }
-        if ($request->prm_sexo_id != 20) {
-            $request["prm_militar_id"] = null;
-            $request["prm_libreta_id"] = null;
-        }
-        if ($request->prm_militar_id == 228) {
-            $request["prm_libreta_id"] = null;
-        }
-        $dato = CsdDatosBasico::findOrFail($id1);
-        $dato->fill($request->all())->save();
-        Vsi::indicador($id, 122);
-        return redirect()->route('CSD.basico', $id)->with('info', 'Registro actualizado con éxito');
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiDatosBasico $modeloxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Csd $modeloxx)
+    {
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
     }
 
-    protected function validator(array $data){
-        return Validator::make($data, [
-            'csd_id' => 'required|exists:csds,id',
-            'primer_apellido' => 'required|string|max:120',
-            'segundo_apellido' => 'nullable|string|max:120',
-            'primer_nombre' => 'required|string|max:120',
-            'segundo_nombre' => 'nullable|string|max:120',
-            'identitario' => 'nullable|string|max:120',
-            'apodo' => 'nullable|string|max:120',
-            'prm_documento_id' => 'required|exists:parametros,id',
-            'prm_doc_fisico_id' => 'required|exists:parametros,id',
-            'prm_sin_fisico_id' => 'required_if:prm_doc_fisico_id,228',
-            'documento' => 'required|string|max:120',
-            'nacimiento' => 'required|date',
-            'prm_sexo_id' => 'required|exists:parametros,id',
-            'prm_genero_id' => 'required|exists:parametros,id',
-            'prm_sexual_id' => 'required|exists:parametros,id',
-            'pais_id' => 'required|exists:sis_pais,id',
-            'departamento_id' => 'required|exists:sis_departamentos,id',
-            'municipio_id' => 'required|exists:sis_municipios,id',
-            'pais_docum_id' => 'required|exists:sis_pais,id',
-            'departamento_docum_id' => 'required|exists:sis_departamentos,id',
-            'municipio_docum_id' => 'nullable|exists:sis_municipios,id',
-            'prm_gruposang_id' => 'required|exists:parametros,id',
-            'prm_factorsang_id' => 'required|exists:parametros,id',
-            'prm_militar_id' => 'required_if:prm_sexo_id,20',
-            'prm_libreta_id' => 'required_if:prm_militar_id,227',
-            'prm_civil_id' => 'required|exists:parametros,id',
-            'prm_poblacion_id' => 'nullable|exists:parametros,id',
-            'prm_etnia_id' => 'required|exists:parametros,id',
-            'prm_cual_id' => 'required_if:prm_etnia_id,157'
-        ]);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiDatosBasico $modeloxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Csd $modeloxx)
+    {
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiDatosBasico $padrexxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(CsdCrearRequest $request,  Csd $modeloxx)
+    {
+        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Datos básicos actualizados con exito','modeloxx'=>$modeloxx]);
     }
 }
