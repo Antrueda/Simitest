@@ -46,6 +46,8 @@ class CsdResidencia extends Model{
     'prm_orden_id',
     'user_crea_id',
     'user_edita_id',
+    'numerocamas',
+    'prm_hacinam_id',
     'sis_esta_id'];
 
     protected $attributes = ['user_crea_id'=>1,'user_edita_id'=>1];
@@ -120,6 +122,10 @@ class CsdResidencia extends Model{
         return $this->belongsTo(Parametro::class, 'prm_higiene_id');
     }
 
+    public function hacinamiento(){
+        return $this->belongsTo(Parametro::class, 'prm_hacinam_id');
+    }
+
     public function ventilacion(){
         return $this->belongsTo(Parametro::class, 'prm_ventilacion_id');
     }
@@ -135,6 +141,16 @@ class CsdResidencia extends Model{
     public function ambientes(){
         return $this->belongsToMany(Parametro::class,'csd_reside_ambiente', 'csd_residencia_id', 'parametro_id');
     }
+
+    public function compartes(){
+        return $this->belongsToMany(Parametro::class,'csd_rescamass', 'csd_residencia_id', 'prm_comparte_id');
+    }
+
+    public function nnaj_sit_mil()
+    {
+        return $this->hasOne(NnajSitMil::class);
+    }
+
 
     public function creador(){
         return $this->belongsTo(User::class, 'user_crea_id');

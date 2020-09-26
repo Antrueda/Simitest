@@ -24,6 +24,8 @@ class FiDatosBasico extends Model
         's_segundo_nombre',
         's_primer_apellido',
         's_segundo_apellido',
+        'prm_respocsd_id',
+        'prm_respovsi_id',
         's_apodo',
         'sis_nnaj_id',
         'prm_tipoblaci_id',
@@ -42,6 +44,15 @@ class FiDatosBasico extends Model
     public function prmVestimenta()
     {
         return $this->belongsTo(Parametro::class, 'prm_vestimenta_id');
+    }
+
+    public function prm_respocsd()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_respocsd_id');
+    }
+    public function prm_respovsi()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_respovsi_id');
     }
 
     public function nnaj_docu()

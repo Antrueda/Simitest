@@ -261,15 +261,14 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Indicadores'=>App\Helpers\Indicadores\IndicadorHelper::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        'Tr'=>App\Helpers\Traductor\Traductor::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
         /**
          * helpers personalizads
          */
 
-        
-        
+        'Tr'=>App\Helpers\Traductor\Traductor::class,
+        'PCsd'=>App\Helpers\Csd\PCsd::class,
 
     ],
 

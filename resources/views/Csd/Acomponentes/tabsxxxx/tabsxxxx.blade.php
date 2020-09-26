@@ -21,7 +21,12 @@
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdxxxxy') ?' active' : '' }}
         text-sm" href="{{ $todoxxxx['rutaxxxx'] }}">CSD</a></li>
             @endcanany
+            @canany(['csdatbas-leer', 'csdatbas-crear', 'csdatbas-editar'])
 
+            <?php $respuest= Tr::getDbasico(['permisox' => 'csdatbas', 'sisnnajx' => $todoxxxx['csdxxxxx']]);?>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdatbas') ?' active' : '' }}
+        text-sm" href="{{ $respuest['rutaxxxx'] }}">Datos B&aacute;sicos</a></li>
+            @endcanany
             @endif
         </ul>
     </div>

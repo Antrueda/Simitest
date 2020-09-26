@@ -21,7 +21,10 @@ class FiDatosBasicoObserver
         $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         $log['prm_tipoblaci_id'] = $modeloxx->prm_tipoblaci_id;
         $log['prm_estrateg_id'] = $modeloxx->prm_estrateg_id;
-
+        $log['prm_respocsd_id'] = $modeloxx->prm_respocsd_id;
+        $log['prm_respovsi_id'] = $modeloxx->prm_responde_id;
+        
+        
         $log['prm_vestimenta_id'] = $modeloxx->prm_vestimenta_id;
         $log['sis_docfuen_id'] = $modeloxx->sis_docfuen_id;
 

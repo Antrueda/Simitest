@@ -31,6 +31,7 @@ class CsdResidenciaController extends Controller
         $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
         $valor = $dato->CsdResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first();
         $sino = Tema::combo(23, false, false);
+        $familiares = Tema::combo(66, false, false);
 
         $actual = Tema::combo(36, true, false);
 
@@ -64,7 +65,7 @@ class CsdResidenciaController extends Controller
         return view('Domicilio.index', ['accion' => 'Residencia'],
         compact('dato', 'nnajs', 'valor', 'sino', 'residencia', 'tipo', 'actual',
         'zona', 'tViaPrincipal', 'alfabeto', 'cuadrante', 'estrato', 'condiciones',
-        'pisos', 'muros', 'estado',
+        'pisos', 'muros', 'estado','familiares',
         // 'localidadjs',
         'localidades', 'upzs', 'barrios'));
     }

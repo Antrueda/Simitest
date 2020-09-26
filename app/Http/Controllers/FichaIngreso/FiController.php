@@ -355,6 +355,8 @@ class FiController extends Controller
     }
     public function store(FiDatosBasicoCrearRequest $request)
     {
+        $request->request->add([ 'prm_respocsd_id'=> 228]);
+        $request->request->add([ 'prm_respovsi_id'=> 228]);
 
         return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
     }

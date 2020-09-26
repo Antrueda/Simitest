@@ -4,7 +4,7 @@
     ];
 
     $(document).ready(function() {
-        $('#ambientes').select2({
+        $('#ambientes,#camascomp').select2({
             language: "es"
         });
         var f_localupz = function(dataxxxx) {

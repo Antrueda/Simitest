@@ -1,89 +1,218 @@
 <?php
 
-namespace App\Http\Controllers\Domicilio;
+namespace App\Http\Controllers\FichaIngreso;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
-use App\Models\Tema;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdViolencia;
-use App\Models\sicosocial\Vsi;
-use Illuminate\Support\Facades\Validator;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
+use App\Models\Tema;
+use App\Traits\Fi\VcontviolTrait;
 
-class CsdViolenciaController extends Controller{
-
-    public function __construct(){
-
-        $this->opciones['permisox']='csdviolencia';
+class CsdViolenciaController extends Controller
+{
+    use VcontviolTrait;
+    private $opciones;
+    public function __construct()
+    {
+        $this->opciones['permisox'] = 'csdviolencia';
+        $this->opciones['routxxxx'] = 'csdviolencia';
+        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['carpetax'] = 'Violencia';
+        $this->opciones['slotxxxx'] = 'csdviolencia';
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['tituloxx'] = "VIOLENCIA";
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['tituhead'] = 'FICHA DE INGRESO';
         $this->middleware(['permission:'
-
+            . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
-            . $this->opciones['permisox'] . '-editar'
-          ]);
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condixxx'] = Tema::combo(57, true, false);
+
     }
 
-    public function show($id){
-        $dato  = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
-        $valor = $dato->CsdViolencia->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $condicion  = Tema::findOrFail(57)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $depajs = SisDepartamento::orderBy('s_departamento')->get();
-        $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
-        if(!$valor){
-            $municipios = $municipios1 = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 6)->pluck('s_municipio', 'id');
-        } else {
-            $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', $valor->departamento_cond_id)->pluck('s_municipio', 'id');
-            $municipios1 = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', $valor->departamento_cert_id)->pluck('s_municipio', 'id');
+    private function view($dataxxxx)
+    {
+
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+
+        ];
+                if ($dataxxxx['padrexxx']->prm_estrateg_id == 2323) {
+            $condespe = 351;
         }
-        return view('Domicilio.index', ['accion' => 'Violencia'], compact('dato', 'nnajs', 'valor', 'sino', 'condicion', 'depajs', 'departamentos', 'municipios', 'municipios1'));
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['departam'] = ['' => 'Seleccione'];
+        $this->opciones['municipi'] = ['' => 'Seleccione'];
+        $this->opciones['deparexp'] = ['' => 'Seleccione'];
+        $this->opciones['municexp'] = ['' => 'Seleccione'];
+        // indica si se esta actualizando o viendo
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->i_prm_depto_condicion_id, false);
+            $this->opciones['departam'] = SisDepartamento::combo(2, false);
+
+            $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->i_prm_depto_certifica_id, false);
+            $this->opciones['deparexp'] = SisDepartamento::combo(2, false);
+
+            if ($dataxxxx['modeloxx']->i_prm_condicion_presenta_id == 853 || $dataxxxx['modeloxx']->i_prm_condicion_presenta_id == 455) {
+                $this->opciones['condiesp'] = [1 => 'NO APLICA'];
+            }
+            if ($dataxxxx['modeloxx']->i_prm_presenta_violencia_id != 227) {
+                $this->opciones['conditab'] = [1 => 'NO APLICA'];
+            }
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+        }
+        $this->setModelo((isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx'] : false);
+        $this->opciones['tablasxx'][] =
+            [
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.dtcontviol',
+                'titunuev' => 'INDICAR VIOLENCIA',
+                'titulist' => 'LISTA DE VIOLENCIAS PRESENTADAS',
+                'contviol' => [
+                    Tema::combo(
+                        345,
+                        true,
+                        false
+                    ),
+                    'i_prm_presenta_violencia_id',
+                    '12.1 ¿Presenta algún tipo de violencia?'
+                ],
+
+                'dataxxxx' => [],
+                'titupreg' => 'Indicar el contexto en el cual se maninifiesta la violencia',
+                'vercrear' => (isset($this->opciones['modeloxx']) && $this->opciones['modeloxx']->i_prm_presenta_violencia_id == 227) ? true : false,
+                'urlxxxxx' => route('ficonvio.listaxxx', [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 345]),
+                'cabecera' => $this->getCabeceraTabla(['temaidxx' => 345]),
+                'cuerpoxx' => $this->getCuerpoTabla(),
+                'tablaxxx' => 'datatablepresentadas',
+                'permisox' => 'ficonvio',
+                'routxxxx' => 'ficonvio',
+                'parametr' => [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 345],
+            ];
+        if ($this->opciones['usuariox']->prm_estrateg_id == 2323) {
+            $this->opciones['tablasxx'][] =  [
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.dtcontviol',
+                'titunuev' => 'INDICAR VIOLENCIA',
+                'titulist' => 'LISTA DE VIOLENCIAS EJERCIDAS',
+                'contviol' => [
+                    Tema::combo(
+                        346,
+                        true,
+                        false
+                    ),
+                    'prm_ejerviol_id',
+                    '12.1 A Ha ejercido  algún tipo de presunta violencia durante la actividad en conflicto con la ley?'
+                ],
+                'dataxxxx' => [],
+                'titupreg' => 'Indicar el contexto en el cual se maninifiesta la violencia',
+                'vercrear' => (isset($this->opciones['modeloxx']) && $this->opciones['modeloxx']->prm_ejerviol_id == 227) ? true : false,
+                'urlxxxxx' => route('ficonvio.listaxxx', [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 346]),
+                'cabecera' => $this->getCabeceraTabla(['temaidxx' => 346]),
+                'cuerpoxx' => $this->getCuerpoTabla(),
+                'tablaxxx' => 'datatablejercidas',
+                'permisox' => 'ficonvio',
+                'routxxxx' => 'ficonvio',
+                'parametr' => [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 346],
+            ];
+        }
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function store(Request $request, $id){
-        $this->validator($request->all())->validate();
-        $request['sis_esta_id']=1;
-        if ($request->prm_condicion_id != 450 && $request->prm_condicion_id != 451 && $request->prm_condicion_id != 452 && $request->prm_condicion_id != 936 && $request->prm_condicion_id != 454) {
-            $request["departamento_cond_id"] = null;
-            $request["municipio_cond_id"] = null;
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FiDatosBasico $padrexxx)
+    {
+        $vestuari = CsdViolencia::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('csdviolencia.editar', [$padrexxx->id, $vestuari->id]);
         }
-        if ($request->prm_certificado_id == 228) {
-            $request["departamento_cert_id"] = null;
-            $request["municipio_cert_id"] = null;
-        }
-        $request['prm_tipofuen_id']=2315;
-        $dato=CsdViolencia::create($request->all());
-        Vsi::indicador($id, 141);
-        return redirect()->route('CSD.violencia', $request->csd_id)->with('info', 'Registro creado con éxito');
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $poblacio = $padrexxx->prm_estrateg_id;
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
+    }
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
+    {
+        return redirect()
+            ->route('csdviolencia.editar', [$padrexxx->id, CsdViolencia::transaccion($dataxxxx, $objetoxx)->id])
+            ->with('info', $infoxxxx);
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+
+    public function store(csdviolenciaCrearRequest $request, Csd $padrexxx)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        return $this->grabar($dataxxxx, '', 'Violencia y condición especial creada con exito', $padrexxx);
     }
 
-    public function update(Request $request, $id, $id1){
-        $this->validator($request->all())->validate();
-        if ($request->prm_condicion_id != 450 && $request->prm_condicion_id != 451 && $request->prm_condicion_id != 452 && $request->prm_condicion_id != 936 && $request->prm_condicion_id != 454) {
-            $request["departamento_cond_id"] = null;
-            $request["municipio_cond_id"] = null;
-        }
-        if ($request->prm_certificado_id == 228) {
-            $request["departamento_cert_id"] = null;
-            $request["municipio_cert_id"] = null;
-        }
-        $dato = CsdViolencia::findOrFail($id1);
-        $dato->fill($request->all())->save();
-        Vsi::indicador($id, 141);
-        return redirect()->route('CSD.violencia', $id)->with('info', 'Registro actualizado con éxito');
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\csdviolencia  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Csd $padrexxx, CsdViolencia $modeloxx)
+    {
+        $poblacio = $padrexxx->prm_estrateg_id;
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
 
-    protected function validator(array $data){
-        return Validator::make($data, [
-            'csd_id' => 'required|exists:csds,id',
-            'prm_condicion_id' => 'required|exists:parametros,id',
-            'departamento_cond_id' => 'required_if:prm_condicion_id,450|required_if:prm_condicion_id,451|required_if:prm_condicion_id,452|required_if:prm_condicion_id,936|required_if:prm_condicion_id,454',
-            'municipio_cond_id' => 'required_if:prm_condicion_id,450|required_if:prm_condicion_id,451|required_if:prm_condicion_id,452|required_if:prm_condicion_id,936|required_if:prm_condicion_id,454',
-            'prm_certificado_id' => 'required|exists:parametros,id',
-            'departamento_cert_id' => 'required_if:prm_certificado_id,227',
-            'municipio_cert_id' => 'required_if:prm_certificado_id,227',
-        ]);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\csdviolencia  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Csd $padrexxx, CsdViolencia $modeloxx)
+    {
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $poblacio = $padrexxx->prm_estrateg_id;
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\csdviolencia  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(csdviolenciaUpdateRequest $request, Csd $padrexxx, CsdViolencia $modeloxx)
+    {
+        return $this->grabar($request->all(), $modeloxx, 'Violencia y condición especial actualizada con exito', $padrexxx);
     }
 }

@@ -32,14 +32,7 @@ Route::group(['prefix' => 'csd'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
-    // Route::get('agregar/{modeloxx}', [
-    //     'uses' => $controll . 'Controller@agregar',
-    //     'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
-    // ])->name($routexxx . '.agregar');
-    // Route::post('agregar/{modeloxx}', [
-    //     'uses' => $controll . 'Controller@agrega',
-    //     'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
-    // ])->name($routexxx . '.agregar');
+    
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrar']
@@ -49,7 +42,7 @@ Route::group(['prefix' => 'csd'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'Controller@destroy',
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
-    // include_once('web_CSD_basico.php');
+     include_once('web_CSD_basico.php');
     // include_once('web_CSD_violencia.php');
     // include_once('web_CSD_situacionesespecial.php');
     // include_once('web_CSD_justicia.php');
