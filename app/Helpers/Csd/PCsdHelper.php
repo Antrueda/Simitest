@@ -3,24 +3,23 @@
 namespace App\Helpers\Csd;
 
 
-/**
- * Este trait permite armar las consultas para vsi que arman las datatable
- */
-class  PCsd
+class PCsdHelper
 {
-
-    public static function getDbasico($dataxxxx)
+    /**
+     * ruta para la pestaña de datos basicos
+     *
+     * @param [type] $request
+     * @return void
+     */
+    public static function getRDb($dataxxxx)
     {
         $respuest = ['responde' => false, 'rutaxxxx' => ''];
         $sisnnajx = '';
-        foreach ($dataxxxx['sisnnajx']->fi_compfamis as $key => $value) { //
-            if ($value->sis_nnaj->fi_datos_basico->prm_respocsd_id == 227) {
-                $respuest['responde'] = true;
-                $sisnnajx = $value->sis_nnaj->fi_datos_basico->id;
-            }
+
+        if (isset($dataxxxx['sisnnajx']->comfacsd->id)) {
+            $respuest['responde'] = true;
+            $sisnnajx = $dataxxxx['sisnnajx']->comfacsd->fi_comfami->sis_nnaj->fi_datos_basico->id;
         }
-
-
 
         if (!$respuest['responde']) {
             $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.nuevo', $dataxxxx['sisnnajx']->id);
@@ -29,9 +28,6 @@ class  PCsd
         } else {
             $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.ver', [$dataxxxx['sisnnajx']->id, $sisnnajx]);
         }
-        ddd($respuest);
         return  $respuest;
-
-       
     }
 }

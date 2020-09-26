@@ -207,6 +207,7 @@ return [
          * helpers personalizados
          */
        // App\Providers\VsiDvProvider::class,
+        App\Providers\PCsdServiceProvider::class,
     ],
 
     /*
@@ -261,6 +262,7 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Indicadores'=>App\Helpers\Indicadores\IndicadorHelper::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
         /**
@@ -268,8 +270,7 @@ return [
          */
 
         'Tr'=>App\Helpers\Traductor\Traductor::class,
-        'PCsd'=>App\Helpers\Csd\PCsd::class,
-
+        'PCsd'=>App\Helpers\Csd\PCsdHelper::class,
     ],
 
 ];

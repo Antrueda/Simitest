@@ -141,6 +141,7 @@ class CsdController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['pestpadr'] = 3;
             $this->opciones['csdxxxxx']=$dataxxxx['modeloxx'];
             $this->opciones['modeloxx']=$dataxxxx['modeloxx'];
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
@@ -160,6 +161,7 @@ class CsdController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
+        $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route('csdxxxxx.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
