@@ -15,8 +15,10 @@ use App\Models\Sistema\SisPai;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
+use Carbon\Carbon;
 
-class CsdBasicoController extends Controller{
+class CsdBasicoController extends Controller
+{
 
     private $opciones;
 
@@ -26,8 +28,7 @@ class CsdBasicoController extends Controller{
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
-            . $this->opciones['permisox'] . '-editar'
-            ]);
+            . $this->opciones['permisox'] . '-editar']);
 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
@@ -37,7 +38,7 @@ class CsdBasicoController extends Controller{
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['rutacarp'] = 'Csd.';
         $this->opciones['parametr'] = [];
-        $this->opciones['carpetax'] = 'Csd';
+        $this->opciones['carpetax'] = 'Basico';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
@@ -48,19 +49,13 @@ class CsdBasicoController extends Controller{
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
         $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
-        $this->opciones['botoform'] = [
-            [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A CSDS', 'clasexxx' => 'btn btn-sm btn-primary'
-            ],
-        ];
     }
     private function grabar($dataxxxx)
     {
         $usuariox = CsdDatosBasico::transaccion($dataxxxx);
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$usuariox->id])
-            ->with('info',$dataxxxx['infoxxxx']);
+            ->with('info', $dataxxxx['infoxxxx']);
     }
     /**
      * Store a newly created resource in storage.
@@ -71,21 +66,25 @@ class CsdBasicoController extends Controller{
 
     private function view($dataxxxx)
     {
+        $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['document'] = Tema::combo(3, true, false);
         $this->opciones['neciayud'] = Tema::combo(23, false, false);
+        $this->opciones['docufisi'] = Tema::combo(23, false, false);
+        $this->opciones['situdefi'] = Tema::combo(23, false, false);
+        $this->opciones['sindocum'] = Tema::combo(286, true, false);
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['generoxx'] = Tema::combo(12, true, false);
         $this->opciones['orientax'] = Tema::combo(13, true, false);
         $this->opciones['gruposax'] = Tema::combo(17, true, false);
         $this->opciones['rhxxxxxx'] = Tema::combo(18, true, false);
         $this->opciones['libretax'] = Tema::combo(33, true, false);
-        $this->opciones['estadocx'] = Tema::combo(19, true, false);
-        $this->opciones['grupoetx'] = Tema::combo(20, true, false);
-        $this->opciones['grupoinx'] = Tema::combo(61, true, false);
-        $this->opciones['tipopobx'] = Tema::combo(119, true, false);
+        $this->opciones['estacivi'] = Tema::combo(19, true, false);
+        $this->opciones['grupetni'] = Tema::combo(20, true, false);
+        $this->opciones['grupindi'] = Tema::combo(61, true, false);
+        $this->opciones['tipoblac'] = Tema::combo(119, true, false);
         $this->opciones['paisxxxx'] = SisPai::combo(true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
@@ -98,8 +97,8 @@ class CsdBasicoController extends Controller{
         $depaexpe = $localida;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        if ($dataxxxx['modeloxx'] != '') {           
-            $this->opciones['modeloxx']=$dataxxxx['modeloxx'];
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
             $dataxxxx['modeloxx']->prm_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_etnia_id;
@@ -137,36 +136,36 @@ class CsdBasicoController extends Controller{
             $dataxxxx['modeloxx']->prm_militar_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_situacion_militar_id;
             $dataxxxx['modeloxx']->prm_libreta_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_clase_libreta_id;
 
-         
 
-        
-            $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
-            $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
-            $this->opciones['municexp'] = SisMunicipio::combo($depaexpe, false);
-            $this->opciones['deparexp'] = SisDepartamento::combo($paisexpe, false);
+
+
+
         }
-
+        $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
+        $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
+        $this->opciones['municexp'] = SisMunicipio::combo($depaexpe, false);
+        $this->opciones['deparexp'] = SisDepartamento::combo($paisexpe, false);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     public function create(Csd $padrexxx)
     {
-        $this->opciones['csdxxxxx']=$padrexxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'csd'],'padrexxx'=>$padrexxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx->sis_nnaj->fi_datos_basico]);
     }
-    public function store(CsdCrearRequest $request, SisNnaj $padrexxx )
+    public function store(CsdCrearRequest $request, SisNnaj $padrexxx)
     {
-        $request->request->add(['prm_tipofuen_id'=>2315]);
-        $request->request->add(['sis_esta_id'=>1]);
-        $request->request->add(['sis_nnaj_id'=>$padrexxx->id]);
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Consulta creada con exito','modeloxx'=>'']);
+        $request->request->add(['prm_tipofuen_id' => 2315]);
+        $request->request->add(['sis_esta_id' => 1]);
+        $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con exito', 'modeloxx' => '']);
     }
 
     /**
@@ -177,9 +176,9 @@ class CsdBasicoController extends Controller{
      */
     public function show(Csd $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        $this->opciones['csdxxxxx'] = $modeloxx;
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', $modeloxx->id);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
     }
 
     /**
@@ -190,8 +189,8 @@ class CsdBasicoController extends Controller{
      */
     public function edit(Csd $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
+        $this->opciones['csdxxxxx'] = $modeloxx;
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.editar', $modeloxx->id);
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -199,7 +198,7 @@ class CsdBasicoController extends Controller{
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
     }
 
     /**
@@ -211,6 +210,6 @@ class CsdBasicoController extends Controller{
      */
     public function update(CsdCrearRequest $request,  Csd $modeloxx)
     {
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Datos básicos actualizados con exito','modeloxx'=>$modeloxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con exito', 'modeloxx' => $modeloxx]);
     }
 }

@@ -5,35 +5,10 @@
     $(function() {
         $('.select2').select2({
             language: "es",
-            theme: 'bootstrap4',
+            // theme: 'bootstrap4',
         });
         // Máscara documento
         $('#s_documento').mask('000000000000');
-        var f_estrategia = function(dataxxxx) {
-            $.ajax({
-                url: "{{ route($todoxxxx['routxxxx'].'.estrateg') }}",
-                data: dataxxxx.dataxxxx,
-                type: 'GET',
-                dataType: 'json',
-                success: function(json) {
-                    $("#" + json.selected).empty();
-                    $.each(json.comboxxx, function(i, d) {
-                        var selected = '';
-
-                        if (dataxxxx.selected == d.valuexxx) {
-                            selected = 'selected';
-                        }
-                        $("#" + json.selected).append('<option ' + selected + ' value="' + d.valuexxx + '">' + d.optionxx + '</option>');
-                    });
-
-
-
-                },
-                error: function(xhr, status) {
-                    alert('Disculpe, existió un problema al seleccionar la estrtategia');
-                },
-            });
-        }
         var f_ajax = function(dataxxxx, pselecte) {
             $.ajax({
                 url: dataxxxx.url,
@@ -115,7 +90,6 @@
             }
 
             $("#" + departam + ",#" + municipi).empty();
-            $("#" + departam + ",#" + municipi).append('<option value="">Seleccione</option>')
             dataxxxx = {
                 url: routexxx,
                 data: {
@@ -150,7 +124,6 @@
                 routexxx = "{{ route('ajaxx.poblacionetnia') }}"
             }
             $("#" + municipi).empty();
-            $("#" + municipi).append('<option value="">Seleccione</>')
             dataxxxx = {
                 url: routexxx,
                 data: {
@@ -352,29 +325,11 @@
             f_documento_fisico($(this).val(), '');
         });
 
-        $(".sispaisx").change(function() {
+        $("#sis_pai_id,#sis_paiexp_id").change(function() {
             datadepa($(this).prop('id'), $(this).val(), '');
         });
-        $(".departam").change(function() {
+        $("#sis_departamento_id,#sis_departamentoexp_id,#prm_etnia_id").change(function() {
             datamuni($(this).prop('id'), $(this).val(), '')
-        });
-        var poblacio = "{{old('prm_tipoblaci_id')}}";
-        if (poblacio != '') {
-            var estrateg = "{{old('prm_estrateg_id')}}";
-            f_estrategia({
-                dataxxxx: {
-                    padrexxx: poblacio
-                },
-                selected: estrateg
-            })
-        }
-        $("#prm_tipoblaci_id").change(function() {
-            f_estrategia({
-                dataxxxx: {
-                    padrexxx: $(this).val()
-                },
-                selected: ''
-            })
         });
 
         $("#prm_tipodocu_id").change(function() {
