@@ -18,14 +18,14 @@ class CsdViolenciaController extends Controller
     {
         $this->opciones['permisox'] = 'csdviolencia';
         $this->opciones['routxxxx'] = 'csdviolencia';
-        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['rutacarp'] = 'Csd.';
         $this->opciones['carpetax'] = 'Violencia';
         $this->opciones['slotxxxx'] = 'csdviolencia';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "VIOLENCIA";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
-        $this->opciones['tituhead'] = 'FICHA DE INGRESO';
+        $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'

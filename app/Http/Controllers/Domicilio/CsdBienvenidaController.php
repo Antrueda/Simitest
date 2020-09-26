@@ -21,14 +21,14 @@ class CsdBienvenidaController extends Controller
 
         $this->opciones['permisox'] = 'csdbienvenida';
         $this->opciones['routxxxx'] = 'csdbienvenida';
-        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['rutacarp'] = 'Csd.';
         $this->opciones['carpetax'] = 'Bienvenida';
         $this->opciones['slotxxxx'] = 'csdbienvenida';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "MOTIVOS DE VINCULACIÓN Y BIENVENIDA";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
-        $this->opciones['tituhead'] = 'FICHA DE INGRESO';
+        $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
 
 
         $this->middleware(['permission:'

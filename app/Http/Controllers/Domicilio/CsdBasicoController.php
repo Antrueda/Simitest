@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdCrearRequest;
 use App\Models\consulta\Csd;
+use App\Models\consulta\CsdDatosBasico;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisLocalidad;
@@ -56,7 +57,7 @@ class CsdBasicoController extends Controller{
     }
     private function grabar($dataxxxx)
     {
-        $usuariox = Csd::transaccion($dataxxxx);
+        $usuariox = CsdDatosBasico::transaccion($dataxxxx);
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$usuariox->id])
             ->with('info',$dataxxxx['infoxxxx']);
@@ -91,7 +92,6 @@ class CsdBasicoController extends Controller{
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
         $localida = 0;
-        $upzxxxxx = $localida;
         $paisxxxx = $localida;
         $paisexpe = $localida;
         $departam = $localida;
@@ -103,66 +103,45 @@ class CsdBasicoController extends Controller{
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
             $dataxxxx['modeloxx']->prm_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_etnia_id;
-            $dataxxxx['modeloxx']->prm_poblacion_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_poblacion_etnia_id;
-            $dataxxxx['modeloxx']->prm_gsanguino_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_gsanguino_id;
-            $dataxxxx['modeloxx']->prm_factor_rh_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_factor_rh_id;
-            $dataxxxx['modeloxx']->prm_estado_civil_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_estado_civil_id;
+            $dataxxxx['modeloxx']->prm_cual_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_poblacion_etnia_id;
+            $dataxxxx['modeloxx']->prm_gruposang_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_gsanguino_id;
+            $dataxxxx['modeloxx']->prm_factorsang_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_factor_rh_id;
+            $dataxxxx['modeloxx']->prm_civil_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_estado_civil_id;
 
             /** orientacion sexual */
             $dataxxxx['modeloxx']->s_nombre_identitario = $dataxxxx['modeloxx']->nnaj_sexo->s_nombre_identitario;
             $dataxxxx['modeloxx']->prm_sexo_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_sexo_id;
-            $dataxxxx['modeloxx']->prm_identidad_genero_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_identidad_genero_id;
-            $dataxxxx['modeloxx']->prm_orientacion_sexual_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_orientacion_sexual_id;
+            $dataxxxx['modeloxx']->prm_genero_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_identidad_genero_id;
+            $dataxxxx['modeloxx']->prm_sexual_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_orientacion_sexual_id;
 
             // /** Nacimiento */
 
-            $dataxxxx['modeloxx']->d_nacimiento = $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento;
+            $dataxxxx['modeloxx']->nacimiento = $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->nnaj_nacimi->Edad;
-            $dataxxxx['modeloxx']->sis_pai_id = $paisxxxx = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departamento->sis_pai_id;
-            $dataxxxx['modeloxx']->sis_departamento_id = $departam = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departamento_id;
-            $dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio_id;
+            $dataxxxx['modeloxx']->pais_id = $paisxxxx = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departamento->sis_pai_id;
+            $dataxxxx['modeloxx']->departamento_id = $departam = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departamento_id;
+            $dataxxxx['modeloxx']->municipio_id = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio_id;
 
             /** documento de identidad */
-            $dataxxxx['modeloxx']->s_documento = $dataxxxx['modeloxx']->nnaj_docu->s_documento;
+            $dataxxxx['modeloxx']->documento = $dataxxxx['modeloxx']->nnaj_docu->s_documento;
             $dataxxxx['modeloxx']->prm_ayuda_id = $dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
 
-            $dataxxxx['modeloxx']->prm_tipodocu_id = $dataxxxx['modeloxx']->nnaj_docu->prm_tipodocu_id;
+            $dataxxxx['modeloxx']->prm_documento_id = $dataxxxx['modeloxx']->nnaj_docu->prm_tipodocu_id;
             $dataxxxx['modeloxx']->prm_doc_fisico_id = $dataxxxx['modeloxx']->nnaj_docu->prm_doc_fisico_id;
 
-            $dataxxxx['modeloxx']->sis_paiexp_id = $paisexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departamento->sis_pai_id;
-            $dataxxxx['modeloxx']->sis_departamentoexp_id = $depaexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departamento_id;
-            $dataxxxx['modeloxx']->sis_municipioexp_id = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio_id;
+            $dataxxxx['modeloxx']->pais_docum_id = $paisexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departamento->sis_pai_id;
+            $dataxxxx['modeloxx']->departamento_docum_id = $depaexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departamento_id;
+            $dataxxxx['modeloxx']->municipio_docum_id = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio_id;
 
             /** situacion militar */
-            $dataxxxx['modeloxx']->prm_situacion_militar_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_situacion_militar_id;
-            $dataxxxx['modeloxx']->prm_clase_libreta_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_clase_libreta_id;
+            $dataxxxx['modeloxx']->prm_militar_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_situacion_militar_id;
+            $dataxxxx['modeloxx']->prm_libreta_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_clase_libreta_id;
 
-            /**focalizacion */
-            $dataxxxx['modeloxx']->s_nombre_focalizacion = $dataxxxx['modeloxx']->nnaj_focali->s_nombre_focalizacion;
-            $dataxxxx['modeloxx']->s_lugar_focalizacion = $dataxxxx['modeloxx']->nnaj_focali->s_lugar_focalizacion;
-            $dataxxxx['modeloxx']->sis_upzbarri_id = $dataxxxx['modeloxx']->nnaj_focali->sis_upzbarri_id;
+         
 
-            $localida =   $dataxxxx['modeloxx']->nnaj_focali->sis_upzbarri->sis_localupz;
-
-            $upzxxxxx = $dataxxxx['modeloxx']->sis_upz_id = $localida->id;
-
-            $localida = $dataxxxx['modeloxx']->sis_localidad_id = $localida->sis_localidad_id;
-
-            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
-                $this->opciones['botoform'][] =
-                    [
-                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', $dataxxxx['padrexxx']->sis_nnaj_id],
-                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
-                    ];
-            }
-            $this->opciones['dependen'] = User::getUpiUsuario(false, false);
-            $this->opciones['upzxxxxx']  = SisUpz::combo($localida, false);
-            $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
-    
+        
             $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
             $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
-    
-    
             $this->opciones['municexp'] = SisMunicipio::combo($depaexpe, false);
             $this->opciones['deparexp'] = SisDepartamento::combo($paisexpe, false);
         }

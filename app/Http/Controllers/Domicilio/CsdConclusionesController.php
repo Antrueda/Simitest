@@ -1,75 +1,261 @@
 <?php
 
-namespace App\Http\Controllers\Domicilio;
+namespace App\Http\Controllers\FichaIngreso;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
-use App\Models\consulta\Csd;
-use App\Models\consulta\CsdConclusiones;
-use App\Models\sicosocial\Vsi;
+use App\Http\Requests\FichaIngreso\FiRazoneCrearRequest;
+use App\Http\Requests\FichaIngreso\FiRazoneUpdateRequest;
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\FiRazone;
 use App\Models\Tema;
 use App\Models\User;
+use App\Traits\Fi\FiTrait;
+use Illuminate\Http\Request;
 
-class CsdConclusionesController extends Controller
+class BkCsdConclusionesController extends Controller
 {
+    use FiTrait;
+    private $opciones;
 
     public function __construct()
     {
 
         $this->opciones['permisox'] = 'csdconclusiones';
+        $this->opciones['routxxxx'] = 'csdconclusiones';
+        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['carpetax'] = 'Razones';
+        $this->opciones['slotxxxx'] = 'csdconclusiones';
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['tituloxx'] = "RAZONES PARA ENTRAR AL IDIPRON";
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
+        $this->opciones['readonly'] = '';
+
         $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
-            . $this->opciones['permisox'] . '-editar']);
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+        $this->opciones['docanexa'] = Tema::combo(155, false, false);
+        $this->opciones['estaingr'] = Tema::combo(303, true, false);
     }
-
-    public function show($id)
+    public function getListado(Request $request, FiDatosBasico $padrexxx)
     {
-
-        $dato  = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
-        $valor = $dato->CsdConclusiones->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $familiares = Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $usuarios = ['' => 'Seleccione...'];
-        foreach (User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
-            $usuarios[$k] = $d;
+        if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->datobasi = $padrexxx->id;
+            $request->routexxx = ['fiarchiv'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
+            return $this->getArchivosTrait($request);
         }
-        return view('Domicilio.index', ['accion' => 'Conclusiones'], compact('dato', 'nnajs', 'valor', 'sino', 'usuarios', 'familiares'));
     }
 
-    public function store(Request $request, $id)
+    private function view($dataxxxx)
     {
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'],
+        ];
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
 
-        $this->validator($request->all())->validate();
-        $request["prm_tipofuen_id"] = 2315;
-        $request['sis_esta_id']=1;
-        $dato = CsdConclusiones::create($request->all());
-        Vsi::indicador($id, 121);
 
-        return redirect()->route('CSD.conclusiones', $request->csd_id)->with('info', 'Registro creado con éxito');
+
+        $this->opciones['usuarios'] = User::combo(true, false);
+
+        $this->opciones['estadoxx'] = 'ACTIVO';
+
+        $dependen = [];
+        foreach ($dataxxxx['padrexxx']->sis_nnaj->nnaj_upis as $key => $value) {
+            if ($value->prm_principa_id = 227) {
+                $dependen = $value;
+            }
+        }
+
+        foreach ($dependen->sis_depen->getDepeUsua as $key => $value) {
+            if ($value->i_prm_responsable_id == 227) {
+                $dependen = $value;
+            }
+        }
+
+        $this->opciones['depedile'] = [];
+        $this->opciones['usuarioz'] = [$dependen->user->id=>$dependen->user->name];
+        $this->opciones['deperesp'] = User::getAreasUser(['cabecera'=>true,'esajaxxx'=>false]);
+        $this->opciones['cargodil'] = '';
+        $this->opciones['cargores'] = $dependen->user->sis_cargo->s_cargo;
+        // indica si se esta actualizando o viendo
+        $vercrear = false;
+        $parametr = 0;
+        if ($dataxxxx['modeloxx'] != '') {
+            $vercrear = true;
+            $parametr = $dataxxxx['modeloxx']->id;
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $dilegenc = User::comboDependencia($dataxxxx['modeloxx']->userd_id, false, false);
+            $responsa = User::comboDependencia($dataxxxx['modeloxx']->userr_id, false, false);
+            $this->opciones['depedile'] = $dilegenc[0];
+            $this->opciones['deperesp'] = $responsa[0];
+            $this->opciones['cargodil'] = $dilegenc[1];
+            $this->opciones['cargores'] = $responsa[1];
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+
+        }
+
+        $this->opciones['tablasxx'] = [
+            [
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'titunuev' => 'CREAR DOCUMENTO',
+                'titulist' => 'LISTA DE DOCUMENTOS',
+                'dataxxxx' => [],
+                'vercrear' => $vercrear,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$parametr]),
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 250, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1,],
+                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ],
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'fi_documentos_anexas.id'],
+                    ['data' => 'nombre', 'name' => 'parametros.nombre'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatablearchivos',
+                'permisox' => 'fiarchiv',
+                'routxxxx' => 'fiarchiv',
+                'parametr' => [$parametr],
+            ],
+        ];
+
+        $this->opciones['docuanex'] = FiRazone::getDocumento($dataxxxx['modeloxx']);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function update(Request $request, $id, $id1)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FiDatosBasico $padrexxx)
     {
-        $this->validator($request->all())->validate();
-        $dato = CsdConclusiones::findOrFail($id1);
-        $dato->fill($request->all())->save();
-        Vsi::indicador($id, 121);
-        return redirect()->route('CSD.conclusiones', $id)->with('info', 'Registro actualizado con éxito');
+
+        $vestuari = FiRazone::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('csdconclusiones.editar', [$padrexxx->id, $vestuari->id]);
+        }
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    protected function validator(array $data)
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
     {
-        return Validator::make($data, [
-            'csd_id'       => 'required|exists:csds,id',
-            'conclusiones'      => 'required|string|max:4000',
-            'persona_nombre'    => 'required|string|max:120',
-            'persona_doc'       => 'required|string|max:10',
-            'persona_parent_id' => 'required|exists:parametros,id',
-            'user_doc1_id'    => 'required|exists:users,id',
-            'user_doc2_id'    => 'nullable|exists:users,id',
-        ]);
+        $dataxxxx = ['requestx' => $dataxxxx, 'nombarch' => 'archivo'];
+        $archivos = new \App\Helpers\Archivos\Archivos();
+        $archivox = $archivos->getRuta($dataxxxx);
+        return redirect()
+            ->route('csdconclusiones.editar', [
+                $padrexxx->id,
+                FiRazone::transaccion($dataxxxx['requestx']->all(), $objetoxx)->id
+            ])
+            ->with('info', $infoxxxx);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(FiRazoneCrearRequest $request, FiDatosBasico $padrexxx)
+    {
+        $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
+        return $this->grabar($request, '', 'Razones para ingreso creados creada con exito', $padrexxx);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiRazone  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(FiDatosBasico $padrexxx, FiRazone $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiRazone  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(FiDatosBasico $padrexxx, FiRazone $modeloxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiRazone  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(FiRazoneUpdateRequest $request, FiDatosBasico $padrexxx, FiRazone $modeloxx)
+    {
+        return $this->grabar($request, $modeloxx, 'Razones para ingreso actualizados con exito', $padrexxx);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\FiRazone  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+
+
+    public function cargos(Request $request, $padrexxx)
+    {
+        if ($request->ajax()) {
+            $dataxxxx = $request->all();
+            $respuest = ['comboxxx' => [], 'campoxxx' => '', 'cargoxxx' => '', 'campcarg' => ''];
+            switch ($dataxxxx['campoxxx']) {
+                case 'userd_id':
+                    $respuest['campcarg'] = '#s_cargo_diligencia';
+                    $respuest['campoxxx'] = '#sis_depend_id';
+                    break;
+                case 'userr_id':
+                    $respuest['campcarg'] = '#s_cargo_responsable';
+                    $respuest['campoxxx'] = '#sis_depenr_id';
+                    break;
+            }
+            if ($dataxxxx['valuexxx'] != '') {
+                $usuariox = User::comboDependencia($dataxxxx['valuexxx'], true, true);
+                $respuest['comboxxx'] = $usuariox[0];
+                $respuest['cargoxxx'] = $usuariox[1];
+            }
+            return response()->json($respuest);
+        }
     }
 }
