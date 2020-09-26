@@ -138,7 +138,7 @@ class CsdViolenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(FiDatosBasico $padrexxx)
+    public function create(Csd $padrexxx)
     {
         $vestuari = CsdViolencia::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
         if ($vestuari != null) {
@@ -182,7 +182,7 @@ class CsdViolenciaController extends Controller
      */
     public function show(Csd $padrexxx, CsdViolencia $modeloxx)
     {
-        $poblacio = $padrexxx->prm_estrateg_id;
+        
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
 
@@ -200,7 +200,7 @@ class CsdViolenciaController extends Controller
                 'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $poblacio = $padrexxx->prm_estrateg_id;
+        
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }
 

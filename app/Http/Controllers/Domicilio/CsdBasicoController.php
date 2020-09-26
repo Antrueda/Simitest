@@ -85,7 +85,6 @@ class CsdBasicoController extends Controller{
         $this->opciones['paisxxxx'] = SisPai::combo(true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
-        $this->opciones['slotxxxx'] = 'csdxxxxy';
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
