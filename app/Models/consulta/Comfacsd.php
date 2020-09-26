@@ -3,9 +3,10 @@
 namespace App\Models\consulta;
 
 use App\Models\fichaIngreso\FiCompfami;
+use App\Models\Sistema\SisEsta;
 use Illuminate\Database\Eloquent\Model;
 
-class Comfacsds extends Model
+class Comfacsd extends Model
 {
     protected $fillable = [
         'fi_compfami_id', 'csd_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
@@ -25,6 +26,9 @@ class Comfacsds extends Model
     
       public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
+      }
+      public function sis_esta(){
+        return $this->belongsTo(SisEsta::class);
       }
     
 }
