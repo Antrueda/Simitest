@@ -2,6 +2,9 @@
 
 namespace App\Models\consulta;
 
+use App\Helpers\Indicadores\IndicadorHelper;
+use App\Http\Requests\Csd\CsdResidenciaEditarRequest;
+use App\Models\consulta\pivotes\CsdResideambiente;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
@@ -10,6 +13,8 @@ use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpzbarri;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CsdResidencia extends Model{
 
@@ -159,4 +164,43 @@ class CsdResidencia extends Model{
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
     }
+
+    private static function grabarOpciones($objetoxx, $dataxxxx)
+    {
+        CsdResideambiente::where('csd_residencia_id', $objetoxx->id)->delete();
+        $datosxxx = [
+            'user_crea_id' => Auth::user()->id,
+            'user_edita_id' => Auth::user()->id,
+            'sis_esta_id' => 1,
+            'csd_residencia_id' => $objetoxx->id
+        ];
+        foreach ($dataxxxx['parametro_id'] as $registro) {
+            $datosxxx['parametro_id'] = $registro;
+            CsdResideambiente::create($datosxxx);
+        }
+    }
+    public static function transaccion($dataxxxx,  $objetoxx)
+    {
+        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if ($objetoxx != '') {
+                $objetoxx->update($dataxxxx);
+            } else {
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $objetoxx = CsdResidencia::create($dataxxxx);
+            }
+            CsdResidencia::grabarOpciones($objetoxx, $dataxxxx);
+
+            $dataxxxx['sis_tabla_id'] = 30;
+            IndicadorHelper::asignaLineaBase($dataxxxx);
+
+            $dataxxxx['sis_tabla_id'] = 6;
+            IndicadorHelper::asignaLineaBase($dataxxxx);
+
+            return $objetoxx;
+        }, 5);
+        return $usuariox;
+    }
+
+    
 }

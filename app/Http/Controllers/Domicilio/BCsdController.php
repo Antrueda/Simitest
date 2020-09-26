@@ -17,7 +17,7 @@ use App\Models\fichaIngreso\NnajDese;
 use App\Traits\Csd\CsdTrait;
 use App\Traits\Csd\PCsdTrait;
 
-class CsdController extends Controller
+class BkCsdController extends Controller
 {
     use CsdTrait;
     use PCsdTrait;

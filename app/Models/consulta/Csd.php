@@ -125,4 +125,19 @@ class Csd extends Model
         }, 5);
         return $objetoxx;
     }
+
+    public static function transaespecial($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            $dataxxxx['padrexxxx']->especiales()->detach();
+            if($dataxxxx['requestx']->especiales){
+                foreach ( $dataxxxx['requestx']->especiales as $d) {
+                    $dataxxxx['requestx']->especiales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+                }
+            }
+            return $dataxxxx['padrexxxx'];
+        }, 5);
+        return $objetoxx;
+    }
 }

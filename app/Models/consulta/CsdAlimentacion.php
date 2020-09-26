@@ -55,4 +55,18 @@ class CsdAlimentacion extends Model{
   public function editor(){
     return $this->belongsTo(User::class, 'user_edita_id');
   }
+
+public function getAlimentosAttribute(){
+    $preparax=$this->prepara()->count();
+    $frecuenc=$this->frecuencia()->count();
+    $ingerida=$this->ingeridas()->count();
+    $compraxx=$this->compra()->count();
+    $Alimentos=false;
+    
+    if ($preparax |$frecuenc||$ingerida||$compraxx) {
+        $Alimentos=true;
+         }
+    return $Alimentos;
+
+}
 }

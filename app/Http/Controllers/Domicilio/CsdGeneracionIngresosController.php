@@ -1,168 +1,160 @@
 <?php
 
-namespace App\Http\Controllers\Domicilio;
+namespace App\Http\Controllers\FichaIngreso;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
-use App\Models\consulta\Csd;
-use App\Models\consulta\CsdGenIngreso;
-use App\Models\consulta\CsdGeningAporta;
-use App\Models\sicosocial\Vsi;
+use App\Http\Requests\FichaIngreso\FiGeneracionIngresoCrearRequest;
+use App\Http\Requests\FichaIngreso\FiGeneracionIngresoUpdateRequest;
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\Tema;
-use Illuminate\Support\Facades\Validator;
 
+class CsdGeneracionIngresosController extends Controller
+{
+    private $opciones;
+    public function __construct()
+    {
 
-class CsdGeneracionIngresosController extends Controller{
-
-    public function __construct(){
-
-        $this->opciones['permisox']='csdgeningresos';
+        $this->opciones['permisox'] = 'fiingresos';
+        $this->opciones['routxxxx'] = 'fiingresos';
+        $this->opciones['rutacarp'] = 'FichaIngreso.';
+        $this->opciones['carpetax'] = 'Ingresos';
+        $this->opciones['slotxxxx'] = 'fiingresos';
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['tituloxx'] = "GENERACI{$this->opciones['vocalesx'][3]}N DE INGRESOS";
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['tituhead'] = 'FICHA DE INGRESO';
+        $this->opciones['readhora'] = '';
         $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
-            . $this->opciones['permisox'] . '-editar'
-            ]);
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+
+
+        $this->opciones['acgening'] = Tema::combo(114, true, false);
+        $this->opciones['trabinfo'] = Tema::combo(115, true, false);
+        $this->opciones['otractiv'] = Tema::combo(116, true, false);
+        $this->opciones['tiporela'] = Tema::combo(117, true, false);
+        $this->opciones['raznogen'] = Tema::combo(122, true, false);
+        $this->opciones['jorgener'] = Tema::combo(123, true, false);
+        $this->opciones['diaseman'] = Tema::combo(124, false, false);
+        $this->opciones['frecugen'] = Tema::combo(125, true, false);
     }
 
-    public function show($id){
-        $dato = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
-        $valor = $dato->CsdGenIngreso->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $valorAporta = $dato->CsdGeningAporta->where('sis_esta_id', 1)->sortByDesc('id');
-        $actividad = Tema::findOrFail(114)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $dias = Tema::findOrFail(124)->parametros()->orderBy('id')->pluck('nombre', 'id');
-        $otros = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(116)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $otros[$k] = $d;
+    private function view($dataxxxx)
+    {
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
+        $this->opciones['geneingr'] = FiGeneracionIngreso::generacion($dataxxxx['padrexxx']->sis_nnaj_id);
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        $this->opciones['estadoxx'] = 'ACTIVO';
+        // indica si se esta actualizando o viendo
+
+        if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) {
+            $this->opciones['acgening'] = Tema::combo(296, true, false);
+        } else {
+            $this->opciones['padrexxx'] = Tema::combo(114, true, false);
         }
-        $laboral = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(117)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $laboral[$k] = $d;
+
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+        
         }
-        $informal = Tema::findOrFail(115)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $familiares = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $familiares[$k] = $d;
-        }
-        $tiempo = Tema::findOrFail(4)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $frecuencia = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(110)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $frecuencia[$k] = $d;
-        }
-        return view('Domicilio.index', ['accion' => 'GenIngresos'], compact('dato', 'nnajs', 'valor', 'valorAporta', 'actividad', 'sino', 'familiares', 'ampm', 'dias', 'informal', 'otros', 'laboral', 'tiempo', 'frecuencia'));
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function store(Request $request, $id){
-        $this->validator($request->all())->validate();
-        $request["prm_tipofuen_id"] = 2315;
-        $request['sis_esta_id']=1;
-        if ($request->prm_actividad_id == 626) {
-            $request["prm_informal_id"] = null;
-            $request["prm_otra_id"] = null;
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FiDatosBasico $padrexxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $vestuari = FiGeneracionIngreso::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
         }
-        if ($request->prm_actividad_id == 627) {
-            $request["trabaja"] = null;
-            $request["prm_otra_id"] = null;
-            $request["prm_laboral_id"] = null;
-        }
-        if ($request->prm_actividad_id == 628) {
-            $request["trabaja"] = null;
-            $request["prm_informal_id"] = null;
-            $request["prm_laboral_id"] = null;
-        }
-        if ($request->prm_actividad_id == 853) {
-            $request["trabaja"] = null;
-            $request["prm_informal_id"] = null;
-            $request["prm_otra_id"] = null;
-            $request["prm_laboral_id"] = null;
-            $request["prm_frecuencia_id"] = null;
-            $request["intensidad"] = null;
-        }
-        $request['prm_tipofuen']=2315;
-        $dato=CsdGenIngreso::create($request->all());
-        Vsi::indicador($id, 131);
-        return redirect()->route('CSD.geningresos', $request->csd_id)->with('info', 'Registro creado con éxito');
+        return $this->view(['modeloxx' => '', 'accionxx'=>['crear','formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    public function update(Request $request, $id, $id1){
-        $this->validator($request->all())->validate();
-        if ($request->prm_actividad_id == 626) {
-            $request["prm_informal_id"] = null;
-            $request["prm_otra_id"] = null;
-        }
-        if ($request->prm_actividad_id == 627) {
-            $request["trabaja"] = null;
-            $request["prm_otra_id"] = null;
-            $request["prm_laboral_id"] = null;
-        }
-        if ($request->prm_actividad_id == 628) {
-            $request["trabaja"] = null;
-            $request["prm_informal_id"] = null;
-            $request["prm_laboral_id"] = null;
-        }
-        if ($request->prm_actividad_id == 853) {
-            $request["trabaja"] = null;
-            $request["prm_informal_id"] = null;
-            $request["prm_otra_id"] = null;
-            $request["prm_laboral_id"] = null;
-            $request["prm_frecuencia_id"] = null;
-            $request["intensidad"] = null;
-        }
-        $dato = CsdGenIngreso::findOrFail($id1);
-        $dato->fill($request->all())->save();
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
+    {
+        return redirect()
+            ->route('fiingresos.editar', [$padrexxx->id, FiGeneracionIngreso::transaccion($dataxxxx,  $objetoxx)->id])
+            ->with('info', $infoxxxx);
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
-        Vsi::indicador($id, 130);
-        return redirect()->route('CSD.geningresos', $id)->with('info', 'Registro actualizado con éxito');
+
+    public function store(FiGeneracionIngresoCrearRequest $request, FiDatosBasico $padrexxx)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        return $this->grabar($dataxxxx, '', 'Generación de ingresos creado con exito', $padrexxx);
     }
 
-    public function storeaportante(Request $request, $id){
-        $this->validatorAporta($request->all())->validate();
-        $request["prm_tipofuen_id"] = 2315;
-        $request['sis_esta_id']=1;
-        $dato = CsdGeningAporta::create($request->all());
-        foreach ($request->dias as $d) {
-            $dato->dias()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-        }
-        Vsi::indicador($id, 132);
-        return redirect()->route('CSD.geningresos', $request->csd_id)->with('info', 'Registro creado con éxito');
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiGeneracionIngreso  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(FiDatosBasico $padrexxx, FiGeneracionIngreso $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['ver','formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    public function destroyaportante($id, $id1){
-        $dato = CsdGeningAporta::findOrFail($id1);
-        $dato->sis_esta_id = 2;
-        $dato->save();
-        return redirect()->route('CSD.geningresos', $id)->with('info', 'Registro eliminado con éxito');
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiGeneracionIngreso  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(FiDatosBasico $padrexxx,  FiGeneracionIngreso $modeloxx)
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+            return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    protected function validator(array $data){
-        return Validator::make($data, [
-            'csd_id' => 'required|exists:csds,id',
-            'observacion' => 'required|string|max:4000',
-            'prm_actividad_id' => 'required|exists:parametros,id',
-            'trabaja' => 'required_if:prm_actividad_id,626',
-            'prm_informal_id' => 'required_if:prm_actividad_id,627',
-            'prm_otra_id' => 'required_if:prm_actividad_id,628',
-            'prm_laboral_id' => 'required_if:prm_actividad_id,626',
-            'prm_frecuencia_id' => 'exclude_if:prm_actividad_id,853',
-            'intensidad' => 'required_unless:prm_actividad_id,853',
-            'prm_dificultad_id' => 'required|exists:parametros,id',
-            'razon' => 'required|string|max:4000',
-        ]);
-    }
-
-    protected function validatorAporta(array $data){
-        return Validator::make($data, [
-            'csd_id' => 'required|exists:csds,id',
-            'prm_aporta_id' => 'required|exists:parametros,id',
-            'mensual' => 'required|integer|min:0|max:99999999',
-            'aporte' => 'required|integer|min:0|max:99999999',
-            'jornada_entre' => 'required|integer|min:1|max:12',
-            'prm_entre_id' => 'required|exists:parametros,id',
-            'jornada_a' => 'required|integer|min:1|max:12',
-            'prm_a_id' => 'required|exists:parametros,id',
-            'dias' => 'required|array',
-        ]);
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiGeneracionIngreso  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(FiGeneracionIngresoUpdateRequest $request, FiDatosBasico $padrexxx,  FiGeneracionIngreso $modeloxx)
+    {
+        return $this->grabar($request->all(), $modeloxx, 'Generación de ingresos actualizado con exito', $padrexxx);
     }
 }

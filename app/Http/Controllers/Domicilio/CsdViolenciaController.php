@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\FichaIngreso;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Csd\CsdViolenciaCrearRequest;
+use App\Http\Requests\Csd\CsdViolenciaEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdViolencia;
 use App\Models\Sistema\SisDepartamento;
@@ -67,69 +69,12 @@ class CsdViolenciaController extends Controller
 
             $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->i_prm_depto_certifica_id, false);
             $this->opciones['deparexp'] = SisDepartamento::combo(2, false);
-
-            if ($dataxxxx['modeloxx']->i_prm_condicion_presenta_id == 853 || $dataxxxx['modeloxx']->i_prm_condicion_presenta_id == 455) {
-                $this->opciones['condiesp'] = [1 => 'NO APLICA'];
-            }
-            if ($dataxxxx['modeloxx']->i_prm_presenta_violencia_id != 227) {
-                $this->opciones['conditab'] = [1 => 'NO APLICA'];
-            }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
         $this->setModelo((isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx'] : false);
-        $this->opciones['tablasxx'][] =
-            [
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.dtcontviol',
-                'titunuev' => 'INDICAR VIOLENCIA',
-                'titulist' => 'LISTA DE VIOLENCIAS PRESENTADAS',
-                'contviol' => [
-                    Tema::combo(
-                        345,
-                        true,
-                        false
-                    ),
-                    'i_prm_presenta_violencia_id',
-                    '12.1 ¿Presenta algún tipo de violencia?'
-                ],
-
-                'dataxxxx' => [],
-                'titupreg' => 'Indicar el contexto en el cual se maninifiesta la violencia',
-                'vercrear' => (isset($this->opciones['modeloxx']) && $this->opciones['modeloxx']->i_prm_presenta_violencia_id == 227) ? true : false,
-                'urlxxxxx' => route('ficonvio.listaxxx', [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 345]),
-                'cabecera' => $this->getCabeceraTabla(['temaidxx' => 345]),
-                'cuerpoxx' => $this->getCuerpoTabla(),
-                'tablaxxx' => 'datatablepresentadas',
-                'permisox' => 'ficonvio',
-                'routxxxx' => 'ficonvio',
-                'parametr' => [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 345],
-            ];
-        if ($this->opciones['usuariox']->prm_estrateg_id == 2323) {
-            $this->opciones['tablasxx'][] =  [
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.dtcontviol',
-                'titunuev' => 'INDICAR VIOLENCIA',
-                'titulist' => 'LISTA DE VIOLENCIAS EJERCIDAS',
-                'contviol' => [
-                    Tema::combo(
-                        346,
-                        true,
-                        false
-                    ),
-                    'prm_ejerviol_id',
-                    '12.1 A Ha ejercido  algún tipo de presunta violencia durante la actividad en conflicto con la ley?'
-                ],
-                'dataxxxx' => [],
-                'titupreg' => 'Indicar el contexto en el cual se maninifiesta la violencia',
-                'vercrear' => (isset($this->opciones['modeloxx']) && $this->opciones['modeloxx']->prm_ejerviol_id == 227) ? true : false,
-                'urlxxxxx' => route('ficonvio.listaxxx', [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 346]),
-                'cabecera' => $this->getCabeceraTabla(['temaidxx' => 346]),
-                'cuerpoxx' => $this->getCuerpoTabla(),
-                'tablaxxx' => 'datatablejercidas',
-                'permisox' => 'ficonvio',
-                'routxxxx' => 'ficonvio',
-                'parametr' => [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0, 346],
-            ];
-        }
+       
+        
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -140,24 +85,21 @@ class CsdViolenciaController extends Controller
      */
     public function create(Csd $padrexxx)
     {
-        $vestuari = CsdViolencia::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
-        if ($vestuari != null) {
-            return redirect()
-                ->route('csdviolencia.editar', [$padrexxx->id, $vestuari->id]);
-        }
+        $this->opciones['csdxxxxx']=$padrexxx;
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $poblacio = $padrexxx->prm_estrateg_id;
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear','formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
+    private function grabar($dataxxxx)
     {
+        $usuariox = CsdViolencia::transaccion($dataxxxx);
         return redirect()
-            ->route('csdviolencia.editar', [$padrexxx->id, CsdViolencia::transaccion($dataxxxx, $objetoxx)->id])
-            ->with('info', $infoxxxx);
+            ->route($this->opciones['routxxxx'] . '.editar', [$usuariox->id])
+            ->with('info',$dataxxxx['infoxxxx']);
     }
     /**
      * Store a newly created resource in storage.
@@ -167,9 +109,11 @@ class CsdViolenciaController extends Controller
      */
 
 
-    public function store(csdviolenciaCrearRequest $request, Csd $padrexxx)
+    public function store(CsdViolenciaCrearRequest $request, Csd $padrexxx)
     {
         $dataxxxx = $request->all();
+        $request->request->add(['prm_tipofuen_id'=>2315]);
+        $request->request->add(['sis_esta_id'=>1]);
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
         return $this->grabar($dataxxxx, '', 'Violencia y condición especial creada con exito', $padrexxx);
     }
@@ -183,7 +127,7 @@ class CsdViolenciaController extends Controller
     public function show(Csd $padrexxx, CsdViolencia $modeloxx)
     {
         
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -194,14 +138,16 @@ class CsdViolenciaController extends Controller
      */
     public function edit(Csd $padrexxx, CsdViolencia $modeloxx)
     {
-
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-        
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
+        $this->opciones['csdxxxxx']=$modeloxx;
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -211,7 +157,7 @@ class CsdViolenciaController extends Controller
      * @param  \App\Models\csdviolencia  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(csdviolenciaUpdateRequest $request, Csd $padrexxx, CsdViolencia $modeloxx)
+    public function update(CsdViolenciaEditarRequest $request, Csd $padrexxx, CsdViolencia $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Violencia y condición especial actualizada con exito', $padrexxx);
     }

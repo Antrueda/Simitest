@@ -14,7 +14,7 @@ use App\Models\Sistema\SisPai;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
 
-class CsdBasicoController extends Controller{
+class BkCsdBasicoController extends Controller{
 
     public function __construct(){
 

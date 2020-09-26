@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FichaIngreso;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdBienvenidaCrearRequest;
+use App\Http\Requests\Csd\CsdBienvenidaEditarRequest;
 use App\Http\Requests\FichaIngreso\FiBienvenidaCrearRequest;
 use App\Http\Requests\FichaIngreso\FiBienvenidaUpdateRequest;
 use App\Models\consulta\Csd;
@@ -73,11 +74,8 @@ class CsdBienvenidaController extends Controller
      */
     public function create(CsdDatosBasico $padrexxx)
     {
-        $vestuari = CsdBienvenida::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
-        if ($vestuari != null) {
-            return redirect()
-                ->route('csdbienvenida.editar', [$padrexxx, $vestuari->id]);
-        }
+        $this->opciones['csdxxxxx']=$padrexxx;
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -118,6 +116,8 @@ class CsdBienvenidaController extends Controller
      */
     public function show(Csd $padrexxx,CsdBienvenida $modeloxx)
     {
+        $this->opciones['csdxxxxx']=$modeloxx;
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
@@ -129,11 +129,16 @@ class CsdBienvenidaController extends Controller
      */
     public function edit(Csd $padrexxx,  CsdBienvenida $modeloxx)
     {
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
+        
+        $this->opciones['csdxxxxx']=$modeloxx;
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
 
     }
@@ -145,7 +150,7 @@ class CsdBienvenidaController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiBienvenidaUpdateRequest $request, Csd $padrexxx,  CsdBienvenida $modeloxx)
+    public function update(CsdBienvenidaEditarRequest $request, Csd $padrexxx,  CsdBienvenida $modeloxx)
     {
         return $this->grabar($request->all(),$modeloxx, 'Bienvenida actualizada con exito',$padrexxx);
     }

@@ -13,7 +13,7 @@ use App\Models\consulta\CsdComFamiliarObservaciones;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 
-class CsdComFamiliarController extends Controller{
+class BkCsdComFamiliarController extends Controller{
 
   public function __construct(){
 

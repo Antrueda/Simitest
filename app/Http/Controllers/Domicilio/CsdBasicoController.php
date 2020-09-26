@@ -137,9 +137,7 @@ class CsdBasicoController extends Controller{
             $dataxxxx['modeloxx']->prm_militar_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_situacion_militar_id;
             $dataxxxx['modeloxx']->prm_libreta_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_clase_libreta_id;
 
-         
 
-        
             $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
             $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
             $this->opciones['municexp'] = SisMunicipio::combo($depaexpe, false);
