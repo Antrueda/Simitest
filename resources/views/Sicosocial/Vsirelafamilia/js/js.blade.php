@@ -19,12 +19,12 @@ function doc(valor) {
         document.getElementById("acciones_div").hidden=true;
         document.getElementById("acciones").value=[];
         document.getElementById("prm_denuncia_id").hidden=true;
-        document.getElementById("descripcion").hidden=true;
+        
     } else {
         document.getElementById("famDificultades_div").hidden=false;
         document.getElementById("acciones_div").hidden=false;
         document.getElementById("prm_denuncia_id").hidden=false;
-        document.getElementById("descripcion").hidden=false;
+        
     }
 }
 function doc1(valor){

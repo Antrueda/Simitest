@@ -192,6 +192,8 @@ class Vsi extends Model{
     {
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
         $dataxxxx['user_edita_id'] = Auth::user()->id;
+
+        
         if ($objetoxx != '') {
             $objetoxx->update($dataxxxx);
         } else {

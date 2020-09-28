@@ -42,6 +42,7 @@ class IsDatosBasicoObserver
         $log['i_prm_area_academica_id'] = $modeloxx->i_prm_area_academica_id;
         $log['i_prm_area_social_id'] = $modeloxx->i_prm_area_social_id;
         $log['i_prm_area_familiar_id'] = $modeloxx->i_prm_area_familiar_id;
+        $log['i_prm_area_proxima_id'] = $modeloxx->i_prm_area_proxima_id;
         $log['s_observaciones'] = $modeloxx->s_observaciones;
         $log['d_fecha_proxima'] = $modeloxx->d_fecha_proxima;
         $log['i_primer_responsable'] = $modeloxx->i_primer_responsable;

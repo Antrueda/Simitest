@@ -74,7 +74,7 @@ class VsiRedesApoyoController extends Controller
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-
+        
         $this->opciones['rowscols'] = 'rowspancolspan';
         $this->opciones['tablasxx'] = [
             [
@@ -83,7 +83,7 @@ class VsiRedesApoyoController extends Controller
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '',
                 'accitabl' => true,
-                'vercrear' => true,
+                'vercrear' => isset($dataxxxx['modeloxx']->id)? true :false,
                 'urlxxxxx' => route('vsiredac', $this->opciones['parametr']),
                 'cabecera' => [
                     [
@@ -124,7 +124,7 @@ class VsiRedesApoyoController extends Controller
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '7.2. Antecedentes Institucionales',
                 'accitabl' => true,
-                'vercrear' => true,
+                'vercrear' => isset($dataxxxx['modeloxx']->id)? true : false,
                 'urlxxxxx' => route('vsiredpa', $this->opciones['parametr']),
                 'cabecera' => [
                     [

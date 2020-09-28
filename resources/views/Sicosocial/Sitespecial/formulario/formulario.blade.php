@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6">
-    {{ Form::label('victimas', '15.1 Víctima ESCCNA', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('victimas', '15.1 Víctima ESCNNA', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('victimas[]', $todoxxxx['victimax'], null, ['class' => $errors->first('victimas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...','id' => 'victimas', 'multiple', 'onchange' => 'doc(this.value)', 'autofocus']) }}
     @if($errors->has('victimas'))
       <div class="invalid-feedback d-block">
@@ -9,7 +9,7 @@
     @endif
   </div>
   <div class="col-md-6">
-    {{ Form::label('riesgos', '15.2 En riesgo de ESCCNA', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('riesgos', '15.2 En riesgo de ESCNNA', ['class' => 'control-label col-form-label-sm']) }}
     <div id="riesgos_div">
       {{ Form::select('riesgos[]', $todoxxxx['riesgosx'], null, ['class' => $errors->first('riesgos') ?
         'form-control form-control-sm is-invalid' : 'form-control form-control-sm',

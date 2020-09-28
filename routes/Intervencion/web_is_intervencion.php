@@ -36,6 +36,10 @@ Route::group(['prefix' => '{nnaj}/isintervencion'], function () {
 	    'uses' => 'Intervencion\IsDatoBasicoController@subareasajax',
 	])->name('is.intervencion.subarea');
 
+	Route::post('area', [
+	    'uses' => 'Intervencion\IsDatoBasicoController@areasajax',
+	])->name('is.intervencion.area');
+
 	Route::get('lista', [
 		'uses' => 'Intervencion\IsDatoBasicoController@lista',
 		'middleware' => ['permission:isintervencion-leer']

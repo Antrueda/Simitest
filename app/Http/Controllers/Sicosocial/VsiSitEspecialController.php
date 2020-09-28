@@ -53,7 +53,7 @@ class VsiSitEspecialController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         
-        $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['victimax'] = Tema::combo(126, false, false);
         $this->opciones['riesgosx'] = Tema::combo(58, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
@@ -91,7 +91,7 @@ class VsiSitEspecialController extends Controller
     
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);

@@ -125,8 +125,8 @@ class VsiRelSocialController extends Controller
     public function edit(Vsi $objetoxx)
     {
 
-       // $this->opciones['padrexxx'] = $objetoxx->id;
-       // $this->opciones['parametr'] = [$objetoxx->vsi_id];
+        $this->opciones['padrexxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -157,7 +157,7 @@ class VsiRelSocialController extends Controller
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx->VsiRelSociale,
+            'modeloxx' => $objetoxx,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

@@ -86,6 +86,38 @@
           f_combo({valuexxx:$(this).val(), selected:''})
           });
           });
+
+          $(function(){
+
+                var f_combo2 = function(dataxxxx){
+                $('#i_prm_area_ajuste_id,#i_prm_subarea_ajuste_id').empty();
+                
+                $.ajax({
+                url: "{{ route('is.intervencion.area',$todoxxxx['nnajregi'])}}",
+                        type: 'POST',
+                        data: {_token: $("input[name='_token']").val(),
+                                'areajust':dataxxxx.valuexxx,
+                        },
+                        dataType: 'json',
+                        success: function (json) {
+                        $('#i_prm_area_ajuste_id').val('');
+                        $.each(json, function(id, data){
+                                $('#i_prm_area_ajuste_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                                });
+                        },
+                        error: function (xhr, status) {
+                        alert('Disculpe, existe un problema');
+                        }
+                });
+                }
+                @if (old('i_prm_tipo_atencion_id'))
+                        f_combo2({valuexxx:{{ old('i_prm_tipo_atencion_id') }}, selected:'{{ old("i_prm_tipo_atencion_id") }}'})
+                @endif
+                
+                $('#i_prm_tipo_atencion_id').change(function(){
+                        f_combo2({valuexxx:$(this).val(), selected:''})
+                });
+        });
   function soloLetras(e) {
   key = e.keyCode || e.which;
   tecla = String.fromCharCode(key).toString();

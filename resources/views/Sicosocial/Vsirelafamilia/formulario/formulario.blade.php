@@ -108,6 +108,15 @@
 			</div>
 		@endif
 	</div>
+	<div class="col-md-3">
+		{{ Form::label('prm_denunante_id', '¿Ante cual autoridad competente?', ['class' => 'control-label col-form-label-sm']) }}
+		{{ Form::select('prm_denunante_id', $todoxxxx['entidadx'], null, ['class' => $errors->first('prm_denunante_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+		@if($errors->has('prm_denunante_id'))
+			<div class="invalid-feedback d-block">
+					{{ $errors->first('prm_denunante_id') }}
+			</div>
+		@endif
+	</div>
 </div>
 <div class="row">
 	<div class="col-md-12">

@@ -49,6 +49,7 @@ class IsDatosBasico extends Model
         'sis_nnaj_id',
         'user_crea_id',
         'user_edita_id',
+        'i_prm_area_proxima_id',
         'sis_esta_id'
     ];
 
@@ -66,9 +67,9 @@ class IsDatosBasico extends Model
         return $this->belongsTo(User::class, 'user_crea_id');
     }
 
-    public function is_proxima_area_ajustes()
+    public function i_prm_area_proxima()
     {
-        return $this->belongsToMany(Parametro::class, 'is_proxima_area_ajustes', 'is_datos_basico_id', 'i_prm_area_proxima_id');
+        return $this->belongsToMany(Parametro::class, 'i_prm_area_proxima_id');
     }
 
     public function editor()
@@ -98,7 +99,7 @@ class IsDatosBasico extends Model
         if ($objetoxx == '') {
             $vestuari['formular'] = true;
         } else {
-            $vestuari['areajusx'] = $objetoxx->is_proxima_area_ajustes;
+            $vestuari['areajusx'] = $objetoxx->i_prm_area_proxima_id;
         }
         return $vestuari;
     }
@@ -112,7 +113,7 @@ class IsDatosBasico extends Model
             'sis_esta_id' => 1,
         ];
         IsProximaAreaAjuste::where('is_datos_basico_id', $proxiarea->id)->delete();
-        foreach ($dataxxxx['is_proxima_area_ajustes'] as $proximare) {
+        foreach ($dataxxxx['i_prm_area_proxima_id'] as $proximare) {
             $datosxxx['i_prm_area_proxima_id'] = $proximare;
             IsProximaAreaAjuste::create($datosxxx);
         }
@@ -130,9 +131,7 @@ class IsDatosBasico extends Model
                 $objetoxx = IsDatosBasico::create($dataxxxx);
             }
 
-            if (isset($dataxxxx['is_proxima_area_ajustes'])) {
-                IsDatosBasico::grabarProximaArea($objetoxx, $dataxxxx);
-            }
+   
             return $objetoxx;
         }, 5);
         return $usuariox;

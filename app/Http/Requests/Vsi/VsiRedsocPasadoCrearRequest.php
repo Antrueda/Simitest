@@ -21,7 +21,7 @@ class VsiRedsocPasadoCrearRequest extends FormRequest
             'dia' => 'nullable|integer|min:0|max:99',
             'mes' => 'nullable|integer|min:0|max:99',
             'ano' => 'nullable|integer|min:0|max:99',
-            'ano_prestacion' => 'required|integer|min:2000|max:2030',
+            'ano_prestacion' => 'required|integer|min:1980|max:2020',
         ];
     }
     /**

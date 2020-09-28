@@ -56,8 +56,8 @@ class VsiViolenciaController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
-        $this->opciones['contexto'] = Tema::combo(142, true, false);
-        $this->opciones['violenci'] = Tema::combo(7, true, false);
+        $this->opciones['contexto'] = Tema::combo(142, false, false);
+        $this->opciones['violenci'] = Tema::combo(7, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
@@ -86,7 +86,7 @@ class VsiViolenciaController extends Controller
         //$this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
@@ -117,8 +117,7 @@ class VsiViolenciaController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-
-
+        
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -144,11 +143,11 @@ class VsiViolenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiViolenciaEditarRequest $requestx, Vsi $objetoxx)
+    public function update(VsiViolenciaEditarRequest $requestx, VsiViolencia $objetoxx)
     {
         return $this->grabar([
             'requestx' => $requestx,
-            'modeloxx' => $objetoxx->VsiViolencia,
+            'modeloxx' => $objetoxx,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

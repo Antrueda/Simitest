@@ -289,6 +289,14 @@ class IsDatoBasicoController extends Controller
         }
     }
 
+    public function areasajax(\Illuminate\Http\Request $request)
+    {
+        
+        if ($request->ajax()) {
+            return response()->json(Tema::combo(212, true, true));
+        }
+    }
+
     public function intlista(Request $request, $nnajxxxx)
     {
         if ($request->ajax()) {

@@ -50,7 +50,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('ano_prestacion', '7.2.4 Año de prestación de servicios', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('ano_prestacion', null, ['class' => $errors->first('ano_prestacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '2000', 'max' => '2030', 'placeholder' => 'Año de prestación']) }}
+        {{ Form::number('ano_prestacion', null, ['class' => $errors->first('ano_prestacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1980', 'max' => '2030', 'placeholder' => 'Año de prestación']) }}
         @if($errors->has('ano_prestacion'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('ano_prestacion') }}

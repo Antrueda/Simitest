@@ -61,6 +61,18 @@ class VsiDinFamiliarEditarRequest extends FormRequest
 
     public function validar()
     {
+        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        $nnajxxxx = FiDatosBasico::find($this->segments()[1]);
+        $edad = $nnajxxxx->nnaj_nacimi->Edad;
+
+        if ($edad < 18) { //Mayor de edad
+            $this->_mensaje['cuidador.required'] = 'Seleccione Quién(es) asume(n) el cuidado';
+            $this->_reglasx['cuidador'] = 'Required';
+            $this->_mensaje['lugar.required'] = 'Describa el lugar donde los cuidan';
+            $this->_reglasx['lugar'] = 'Required';
+            $this->_mensaje['ausencia.required'] = 'Seleccione el motivo por el cual hay ausencia de/los representantes';
+            $this->_reglasx['ausencia'] = 'Required';
+        }
 
     }
 }

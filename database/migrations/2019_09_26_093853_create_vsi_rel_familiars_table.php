@@ -30,6 +30,7 @@ class CreateVsiRelFamiliarsTable extends Migration
             $table->string('porque', 4000)->nullable();
             $table->bigInteger('prm_familia_id')->unsigned();
             $table->bigInteger('prm_denuncia_id')->unsigned()->nullable();
+            $table->bigInteger('prm_denunante_id')->unsigned()->nullable();
             $table->string('descripcion', 4000)->nullable();
             $table->bigInteger('prm_pareja_id')->unsigned();
             $table->bigInteger('prm_dificultad_id')->unsigned()->nullable();
@@ -45,6 +46,7 @@ class CreateVsiRelFamiliarsTable extends Migration
             $table->foreign('prm_gusto_id')->references('id')->on('parametros');
             $table->foreign('prm_familia_id')->references('id')->on('parametros');
             $table->foreign('prm_denuncia_id')->references('id')->on('parametros');
+            $table->foreign('prm_denunante_id')->references('id')->on('parametros');
             $table->foreign('prm_pareja_id')->references('id')->on('parametros');
             $table->foreign('prm_dificultad_id')->references('id')->on('parametros');
             $table->foreign('prm_responde_id')->references('id')->on('parametros');

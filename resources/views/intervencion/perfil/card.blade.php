@@ -183,14 +183,14 @@
           {{ Form::date('d_fecha_proxima',  null, ['class' => 'form-control form-control-sm', $todoxxxx["readonly"]]) }}
         </div>
         <div class="form-group col-md-6">
-          {{ Form::label('is_proxima_area_ajustes', 'Área de ajuste a trabajar en la próxima sesión', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('is_proxima_area_ajustes[]', $todoxxxx['arjustpr'], null, ['class' => $errors->first('is_proxima_area_ajustes') ?
-                'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm', 'multiple',
-                'id' => 'is_proxima_area_ajustes',
+          {{ Form::label('i_prm_area_proxima_id', 'Área de ajuste a trabajar en la próxima sesión', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('i_prm_area_proxima_id', $todoxxxx['arjustpr'], null, ['class' => $errors->first('i_prm_area_proxima_id') ?
+                'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm',
+                'id' => 'i_prm_area_proxima_id',
                 'data-placeholder' => 'Seleccione las Área de ajuste a trabajar en la próxima sesión','autofocus']) }}
-            @if($errors->has('is_proxima_area_ajustes'))
+            @if($errors->has('i_prm_area_proxima_id'))
             <div class="invalid-feedback d-block">
-              {{ $errors->first('is_proxima_area_ajustes') }}
+              {{ $errors->first('i_prm_area_proxima_id') }}
             </div>
             @endif
         </div>

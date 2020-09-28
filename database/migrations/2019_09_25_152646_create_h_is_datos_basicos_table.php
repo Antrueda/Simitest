@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class CreateHIsDatosBasicosTable extends Migration
 {
     private $tablaxxx = 'h_is_datos_basicos';
-    private $tablaxxx2 = 'h_is_proxima_area_ajustes';
+    
     /**
      * Run the migrations.
      *
@@ -48,6 +48,7 @@ class CreateHIsDatosBasicosTable extends Migration
             $table->bigInteger('i_prm_area_academica_id')->nullable()->unsigned();
             $table->bigInteger('i_prm_area_social_id')->nullable()->unsigned();
             $table->bigInteger('i_prm_area_familiar_id')->nullable()->unsigned();
+            $table->bigInteger('i_prm_area_proxima_id')->unsigned();
             $table->text('s_observaciones')->nullable();
             $table->date('d_fecha_proxima')->nullable();
             $table->bigInteger('i_primer_responsable')->unsigned();
@@ -56,13 +57,7 @@ class CreateHIsDatosBasicosTable extends Migration
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
-        Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('is_datos_basico_id')->unsigned(); //->comment('REGISTRO INTERVENCIÓN AL QUE SE LE ASIGNA LA PRÓXIMA ÁREA DE AJUSTE');
-            $table->bigIntegeR('i_prm_area_proxima_id')->unsigned(); //->comment('ÁREA DE AJUSTE A TRABAJAR EN PRÓXIMA SESIÓN');
-            $table = CamposMagicos::h_magicos($table);
-        });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+       
     }
 
     /**
@@ -72,7 +67,7 @@ class CreateHIsDatosBasicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->tablaxxx2);
+        
         Schema::dropIfExists($this->tablaxxx);
     }
 }

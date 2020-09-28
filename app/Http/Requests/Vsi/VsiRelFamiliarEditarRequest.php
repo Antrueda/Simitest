@@ -49,9 +49,9 @@ class VsiRelFamiliarEditarRequest extends FormRequest
             'descripcion' => 'required_if:prm_familia_id,227',
             'prm_pareja_id' => 'required|exists:parametros,id',
             'prm_dificultad_id' => 'required_if:prm_pareja_id,227',
-            'dia' => 'required_if:prm_dificultad_id,227|min:0|max:99',
-            'mes' => 'required_if:prm_dificultad_id,227|min:0|max:99',
-            'ano' => 'required_if:prm_dificultad_id,227|min:0|max:99',
+            'dia' => 'nullable:prm_dificultad_id,227|min:0|max:99',
+            'mes' => 'nullable:prm_dificultad_id,227|min:0|max:99',
+            'ano' => 'nullable:prm_dificultad_id,227|min:0|max:99',
             'prm_responde_id' => 'required_if:prm_dificultad_id,227',
             'descripcion1' => 'required_if:prm_dificultad_id,227'
         ];

@@ -20,9 +20,9 @@ class CreateVsiRedsocPasadosTable extends Migration
             $table->bigInteger('vsi_id')->unsigned();
             $table->string('nombre');
             $table->string('servicio');
-            $table->integer('dia');
-            $table->integer('mes');
-            $table->integer('ano');
+            $table->integer('dia')->nullable();
+            $table->integer('mes')->nullable();
+            $table->integer('ano')->nullable();
             $table->integer('ano_prestacion');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();

@@ -9,6 +9,7 @@
 	    @endif
 	</div>
 </div>
+@if($todoxxxx['usuariox']->nnaj_nacimi->Edad<18){
 <div class="row">
 	<div class="col-md">
 		{{ Form::label('prm_ingreso_id', 'Considera pertinente el Ingreso del NNA a IDIPRON:', ['class' => 'control-label col-form-label-sm']) }}
@@ -53,6 +54,7 @@
 	    @endif
 	</div>
 </div>
+@endif
 
 <div class="row">
    <div class="col-md-12">

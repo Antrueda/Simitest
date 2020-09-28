@@ -32,26 +32,11 @@ function doc1(valor){
         document.getElementById("dia_morir").hidden=false;
         document.getElementById("mes_morir").hidden=false;
         document.getElementById("ano_morir").hidden=false;
-        document.getElementById("prm_pensamiento_id").hidden=false;
-        document.getElementById("prm_amenaza_id").hidden=false;
-        document.getElementById("prm_intento_id").hidden=false;
-        document.getElementById("prm_riesgo_id").hidden=false;
-        document.getElementById("descripcion_motivo").hidden=false;
-        document.getElementById("motivos_div").hidden=false;
-    } else {
+       } else {
         document.getElementById("dia_morir").hidden=true;
         document.getElementById("mes_morir").hidden=true;
         document.getElementById("ano_morir").hidden=true;
-        document.getElementById("prm_pensamiento_id").hidden=true;
-        doc3(document.getElementById('prm_pensamiento_id').value = null);
-        document.getElementById("prm_amenaza_id").hidden=true;
-        doc4(document.getElementById('prm_amenaza_id').value = null)
-        document.getElementById("prm_intento_id").hidden=true;
-        doc5(document.getElementById('prm_intento_id').value = null)
-        document.getElementById("prm_riesgo_id").hidden=true;
-
-        document.getElementById("descripcion_motivo").hidden=true;
-        document.getElementById("motivos_div").hidden=true;
+     
     }
 }
 function doc2(valor){

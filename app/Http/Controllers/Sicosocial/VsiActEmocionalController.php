@@ -53,7 +53,7 @@ class VsiActEmocionalController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['motivosx'] = Tema::combo(201, false, false);
 
 
@@ -66,13 +66,7 @@ class VsiActEmocionalController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
-                $this->opciones['botoform'][] =
-                    [
-                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
-                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
-                    ];
-            }
+            
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;

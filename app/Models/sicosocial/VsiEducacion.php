@@ -92,7 +92,7 @@ class VsiEducacion extends Model{
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiEducacion::create($dataxxxx['requestx']->all());
             }
-            $dataxxxx['modeloxx']->fortalezas()->detach();
+        $dataxxxx['modeloxx']->fortalezas()->detach();
         if($dataxxxx['requestx']->fortalezas){
             foreach ($dataxxxx['requestx']->fortalezas as $d) {
                 $dataxxxx['modeloxx']->fortalezas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class CreateIsDatosBasicosTable extends Migration
 {
     private $tablaxxx = 'is_datos_basicos';
-    private $tablaxxx2 = 'is_proxima_area_ajustes';    
+    
     /**
      * Run the migrations.
      *
@@ -48,6 +48,7 @@ class CreateIsDatosBasicosTable extends Migration
             $table->bigInteger('i_prm_area_academica_id')->nullable()->unsigned();
             $table->bigInteger('i_prm_area_social_id')->nullable()->unsigned();
             $table->bigInteger('i_prm_area_familiar_id')->nullable()->unsigned();
+            $table->bigInteger('i_prm_area_proxima_id')->unsigned();
             $table->text('s_observaciones')->nullable();
             $table->date('d_fecha_proxima')->nullable();
             $table->bigInteger('i_primer_responsable')->unsigned();
@@ -82,28 +83,12 @@ class CreateIsDatosBasicosTable extends Migration
             $table->foreign('i_prm_area_academica_id')->references('id')->on('parametros');
             $table->foreign('i_prm_area_social_id')->references('id')->on('parametros');
             $table->foreign('i_prm_area_familiar_id')->references('id')->on('parametros');
+            $table->foreign('i_prm_area_proxima_id')->references('id')->on('parametros');
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE UNA SESIÓN DE INTERVENCION, INTERVENCION SICOSOCIAL'");
 
 
-        Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('is_datos_basico_id')->unsigned(); //->comment('REGISTRO INTERVENCIÓN AL QUE SE LE ASIGNA LA PRÓXIMA ÁREA DE AJUSTE');
-
-            $table->bigIntegeR('i_prm_area_proxima_id')->unsigned(); //->comment('ÁREA DE AJUSTE A TRABAJAR EN PRÓXIMA SESIÓN');
-
-            $table->bigInteger('user_crea_id')->unsigned(); //->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned(); //->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas'); //->comment('ESTADO DEL REGISTRO');
-            $table->timestamps();
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
-            $table->foreign('is_datos_basico_id')->references('id')->on('is_datos_basicos');
-            $table->foreign('i_prm_area_proxima_id')->references('id')->on('parametros');
-        });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE LOS DATOS DE CONTROL DE UNA SESIÓN DE INTERVENCIÓN, INTERVENCIÓN SICOSOCIAL'");
     }
 
     /**
@@ -113,7 +98,7 @@ class CreateIsDatosBasicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists($this->tablaxxx2);
+        
         Schema::dropIfExists($this->tablaxxx);
     }
 }

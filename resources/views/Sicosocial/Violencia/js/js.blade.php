@@ -35,12 +35,9 @@ function doc(valor){
         document.getElementById("prm_lab_psi_id").hidden=true;
         document.getElementById("prm_lab_sex_id").hidden=true;
         document.getElementById("prm_lab_eco_id").hidden=true;
-        document.getElementById("prm_dis_gen_id").hidden=true;
-        document.getElementById("prm_dis_ori_id").hidden=true;
-        document.getElementById("contextos_div").hidden=true;
-        document.getElementById("tipos_div").hidden=true;
-        doc1(document.getElementById("prm_dis_gen_id").value);
-        doc2(document.getElementById("prm_dis_ori_id").value);
+        
+        
+
     } else {
         document.getElementById("prm_fam_fis_id").hidden=false;
         document.getElementById("prm_fam_psi_id").hidden=false;
@@ -66,12 +63,9 @@ function doc(valor){
         document.getElementById("prm_lab_psi_id").hidden=false;
         document.getElementById("prm_lab_sex_id").hidden=false;
         document.getElementById("prm_lab_eco_id").hidden=false;
-        document.getElementById("prm_dis_gen_id").hidden=false;
-        document.getElementById("prm_dis_ori_id").hidden=false;
-        document.getElementById("contextos_div").hidden=false;
-        document.getElementById("tipos_div").hidden=false;
-        doc1(document.getElementById("prm_dis_gen_id").value);
-        doc2(document.getElementById("prm_dis_ori_id").value);
+        
+        
+
     }
 }
 /*

@@ -15,6 +15,7 @@ function doc(valor){
         document.getElementById("cognitiva").hidden=true;
         document.getElementById("cognitiva").value=[];
     } else {
+        document.getElementById("fisiologicas_div").hidden=false;
         document.getElementById("fisiologicas").hidden=false;
         document.getElementById("descripcion").hidden=false;
         document.getElementById("conductual").hidden=false;

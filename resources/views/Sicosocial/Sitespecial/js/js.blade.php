@@ -21,7 +21,7 @@
   }
 
   function doc1(valor) {
-    if (valor == 853) {
+    if (valor != 853) {
       document.getElementById("prm_victima_id").hidden=true;
       document.getElementById("prm_victima_id").value = [];
     } else {

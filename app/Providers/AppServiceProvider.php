@@ -179,7 +179,7 @@ use App\Observers\InPreguntaObserver;
 use App\Observers\InRespuObserver;
 use App\Observers\InValidacionObserver;
 
-use App\Observers\IsProximaAreaAjusteObserver;
+
 use App\Observers\ParametroObserver;
 use App\Observers\ParametroTemaObserver;
 use App\Observers\PermissionextObserver;
@@ -310,7 +310,7 @@ class AppServiceProvider extends ServiceProvider
 
         // INTERVENCION
         IsDatosBasico::observe(IsDatosBasicoObserver::class);
-        IsProximaAreaAjuste::observe(IsProximaAreaAjusteObserver::class);
+
 
         // FICHA OBSERVACION
         FosDatosBasico::observe(FosDatosBasicoObserver::class);

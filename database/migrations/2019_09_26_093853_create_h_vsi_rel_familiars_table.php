@@ -30,6 +30,7 @@ class CreateHVsiRelFamiliarsTable extends Migration
             $table->text('porque', 4000)->nullable();
             $table->bigInteger('prm_familia_id')->unsigned();
             $table->bigInteger('prm_denuncia_id')->unsigned()->nullable();
+            $table->bigInteger('prm_denunante_id')->unsigned()->nullable();
             $table->text('descripcion', 4000)->nullable();
             $table->bigInteger('prm_pareja_id')->unsigned();
             $table->bigInteger('prm_dificultad_id')->unsigned()->nullable();

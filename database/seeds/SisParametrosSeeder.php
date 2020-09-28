@@ -302,7 +302,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 281, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN USUFRUCTO']);
         Parametro::create(['id' => 282, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FAMILIAR']);
         Parametro::create(['id' => 283, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INVASIÓN']);
-        Parametro::create(['id' => 284, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SUSTENTO PROVIENE DE FAMILIAR']);
+        Parametro::create(['id' => 284, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SUSTENTO PROVIENE DE FAMILIARES']);
         Parametro::create(['id' => 285, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NUEVA']);
         Parametro::create(['id' => 286, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ANTIGUA']);
         Parametro::create(['id' => 287, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'URBANA']);
@@ -905,7 +905,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 884, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AUSENCIA DE REDES SOCIALES DE APOYO']);
         Parametro::create(['id' => 885, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIFICULTADES EN EL CONTEXTO SOCIAL']);
         Parametro::create(['id' => 886, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INFLUENCIA NEGATIVA DE PARES']);
-        Parametro::create(['id' => 887, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSUMO DE SPA POR INFLUENCIA DEL CONTEXO CULTURAL']);
+        Parametro::create(['id' => 887, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSUMO DE SPA POR INFLUENCIA DEL CONTEXTO CULTURAL']);
         Parametro::create(['id' => 888, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSUMO DE SPA POR CONTEXTO BARRIAL']);
         Parametro::create(['id' => 889, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PAUTAS DE CRIANZA']);
         Parametro::create(['id' => 890, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DIFICULTADES EN LAS RELACIONES FAMILIARES']);
@@ -2503,6 +2503,7 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'LCD (DIETALIMIDA DEL ÁCIDO LISÉRGICO)']);//2463
         $this->getR(['nombrexx' => 'CLONAZEPAM']);//2464
         $this->getR(['nombrexx' => 'DIC , LADYS O LEYDIS (CLORURO DE METILENO O DICHLOROMETANO)']);//2465
-
+        $this->getR(['nombrexx' => 'CONFLICTO ARMADO INTERNO)']);//2466
+        $this->getR(['nombrexx' => 'CON MIEDO)']);//2467
     }
 }

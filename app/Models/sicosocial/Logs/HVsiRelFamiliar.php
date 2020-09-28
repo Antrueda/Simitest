@@ -16,6 +16,7 @@ class HVsiRelFamiliar extends Model
         'porque',
         'prm_familia_id',
         'prm_denuncia_id',
+        'prm_denunante_id',
         'descripcion',
         'prm_pareja_id',
         'prm_dificultad_id',

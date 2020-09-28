@@ -21,6 +21,7 @@ class VsiRelFamiliar extends Model
         'porque',
         'prm_familia_id',
         'prm_denuncia_id',
+        'prm_denunante_id',
         'descripcion',
         'prm_pareja_id',
         'prm_dificultad_id',
@@ -69,6 +70,10 @@ class VsiRelFamiliar extends Model
     public function denuncia()
     {
         return $this->belongsTo(Parametro::class, 'prm_denuncia_id');
+    }
+    public function prm_denunante()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_denunante_id');
     }
 
     public function pareja()

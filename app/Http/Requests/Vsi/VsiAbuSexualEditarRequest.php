@@ -16,9 +16,9 @@ class VsiAbuSexualEditarRequest extends FormRequest
         ];
         $this->_reglasx = [
             'prm_evento_id' => 'required|exists:parametros,id',
-            'dia' => 'required_if:prm_evento_id,227|min:0|max:99',
-            'mes' => 'required_if:prm_evento_id,227|min:0|max:99',
-            'ano' => 'required_if:prm_evento_id,227|min:0|max:99',
+            'dia' => 'nullable:prm_evento_id,227|min:0|max:99',
+            'mes' => 'nullable:prm_evento_id,227|min:0|max:99',
+            'ano' => 'nullable:prm_evento_id,227|min:0|max:99',
             'prm_persona_id' => 'required_if:prm_evento_id,227|exists:parametros,id',
             'prm_terapia_id' => 'required_if:prm_evento_id,227',
             'prm_estado_id' => 'required_if:prm_terapia_id,227',

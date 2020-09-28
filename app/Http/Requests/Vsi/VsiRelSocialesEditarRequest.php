@@ -22,6 +22,7 @@ class VsiRelSocialesEditarRequest extends FormRequest
             'completa' => 'nullable|string|max:4000',
             'facilitas' => 'required|array',
             'dificultades' => 'required|array',
+            'completa' => 'required|string|max:4000',
         ];
     }
     /**

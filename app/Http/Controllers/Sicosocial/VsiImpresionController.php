@@ -58,7 +58,7 @@ class VsiImpresionController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
       
 
-        $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['areasxxx'] = Tema::combo(211, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
@@ -94,7 +94,7 @@ class VsiImpresionController extends Controller
 
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);

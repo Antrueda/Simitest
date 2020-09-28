@@ -12,7 +12,16 @@
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('dia', '14.2 ¿Hace cuánto tiempo fué el primer evento?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_momento_id', '14.2 Momento en el que se presentó el evento', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_momento_id', $todoxxxx['eventoxx'], null, ['class' => $errors->first('prm_momento_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+        @if($errors->has('prm_momento_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_momento_id') }}
+            </div>
+        @endif
+    </div>
+    <div class="col-md">
+        {{ Form::label('dia', '14.3 ¿Hace cuánto tiempo fué el primer evento?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="row">
             <div class="col-md-4">
                 {{ Form::number('dia', null, ['class' => $errors->first('dia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99']) }}
@@ -42,15 +51,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md">
-        {{ Form::label('prm_momento_id', '14.3 Momento en el que se presentó el evento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_momento_id', $todoxxxx['eventoxx'], null, ['class' => $errors->first('prm_momento_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
-        @if($errors->has('prm_momento_id'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('prm_momento_id') }}
-            </div>
-        @endif
-    </div>
+   
 </div>
 <div class="row">
     <div class="col-md">

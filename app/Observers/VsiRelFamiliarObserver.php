@@ -22,6 +22,8 @@ class VsiRelFamiliarObserver
         $log['porque'] = $modeloxx->porque;
         $log['prm_familia_id'] = $modeloxx->prm_familia_id;
         $log['prm_denuncia_id'] = $modeloxx->prm_denuncia_id;
+        $log['prm_denunante_id'] = $modeloxx->prm_denunante_id;
+        
         $log['descripcion'] = $modeloxx->descripcion;
         $log['prm_pareja_id'] = $modeloxx->prm_pareja_id;
         $log['prm_dificultad_id'] = $modeloxx->prm_dificultad_id;

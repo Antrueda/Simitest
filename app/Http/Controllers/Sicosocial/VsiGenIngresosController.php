@@ -55,14 +55,14 @@ class VsiGenIngresosController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
        
-        $this->opciones['activida'] = Tema::combo(114, false, false);
+        $this->opciones['activida'] = Tema::combo(114, TRUE, false);
         $this->opciones['informal'] = Tema::combo(115, TRUE, false);
         $this->opciones['otrosxxx'] = Tema::combo(116, TRUE, false);
         $this->opciones['ningunax'] = Tema::combo(122, false, false);
         $this->opciones['tiempoxx'] = Tema::combo(4, false, false);
         $this->opciones['ampmxxxx'] = Tema::combo(5, false, false);
         $this->opciones['semanaxx'] = Tema::combo(129, false, false);
-        $this->opciones['frecuenc'] = Tema::combo(6, true, false);
+        $this->opciones['frecuenc'] = Tema::combo(110, true, false);
         $this->opciones['laboralx'] = Tema::combo(117, true, false);
         $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
         $this->opciones['parentes'] = Tema::combo(66, false, false);
@@ -76,14 +76,7 @@ class VsiGenIngresosController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
-                $this->opciones['botoform'][] =
-                    [
-                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', [$dataxxxx['padrexxx']->id]],
-                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
-                    ];
-            }
-
+           
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
@@ -102,7 +95,7 @@ class VsiGenIngresosController extends Controller
       
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
@@ -177,7 +170,7 @@ class VsiGenIngresosController extends Controller
 
     protected function validator(array $data){
         return Validator::make($data, [
-            'vsi_id' => 'required|exists:vsis,id',
+            
             'prm_actividad_id' => 'required|exists:parametros,id',
             'trabaja' => 'required_if:prm_actividad_id,626|max:120',
             'prm_informal_id' => 'required_if:prm_actividad_id,627',

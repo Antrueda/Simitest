@@ -10,7 +10,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('trabaja', '9.2 ¿Mencione en qué trabaja?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('trabaja', null, ['class' => $errors->first('trabaja') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'maxlenght' => '120']) }}
+        {{ Form::text('trabaja', null, ['class' => $errors->first('trabaja') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',  "onkeyup" => "javascript:this.value=this.value.toUpperCase();",'maxlenght' => '120']) }}
         @if($errors->has('trabaja'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('trabaja') }}
@@ -169,7 +169,7 @@
         <div class="row">
             <div class="col-md-6">
                 {{ Form::label('porque', '¿Porqué?:', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::text('porque', null, ['class' => $errors->first('porque') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Porqué', 'maxlength' => '120']) }}
+                {{ Form::text('porque', null, ['class' => $errors->first('porque') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Porqué', 'maxlength' => '120', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
                 @if($errors->has('porque'))
                     <div class="invalid-feedback d-block">
                         {{ $errors->first('porque') }}

@@ -259,11 +259,13 @@ class VsiViolencia extends Model
                 $dataxxxx['modeloxx'] = VsiViolencia::create($dataxxxx['requestx']->all());
             }
             if ($dataxxxx['requestx']->contextos) {
+                $dataxxxx['modeloxx']->contextos()->detach();
                 foreach ($dataxxxx['requestx']->contextos as $d) {
                     $dataxxxx['modeloxx']->contextos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
             if ($dataxxxx['requestx']->tipos) {
+                $dataxxxx['modeloxx']->tipos()->detach();
                 foreach ($dataxxxx['requestx']->tipos as $d) {
                     $dataxxxx['modeloxx']->tipos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }

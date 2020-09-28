@@ -156,6 +156,7 @@ class VsiRedsocActualController extends Controller
      */
     public function edit(VsiRedsocActual $objetoxx)
     {
+        
         $this->opciones['parametr'] = [$objetoxx->vsi->id];
         $this->opciones['padrexxx'] = $objetoxx->id;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {

@@ -219,6 +219,7 @@ class VsiController extends Controller
     public function edit(Vsi $objetoxx)
     {
 
+        $this->opciones['vsixxxxx'] = $objetoxx;
         $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -247,9 +248,10 @@ class VsiController extends Controller
      */
     public function update(VsiEditarRequest $request, Vsi $objetoxx)
     {
+        
         return $this->grabar([
             'dataxxxx' => $request->all(),
-            'modeloxx' => $objetoxx->nnaj->datos_basico,
+            'modeloxx' => $objetoxx,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

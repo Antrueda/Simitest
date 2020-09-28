@@ -41,6 +41,7 @@ class HIsDatosBasico extends Model
         'i_segundo_responsable',
         'user_crea_id',
         'user_edita_id',
+        'i_prm_area_proxima_id',
         'sis_esta_id',
         
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
