@@ -199,6 +199,61 @@ class FiDatosBasico extends Model
 
         return $objetoxx;
     }
+   public static function getMayusculas($dataxxxx)
+   {
+    $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
+    $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
+    $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
+    $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['s_segundo_apellido']);
+    $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
+    $dataxxxx['s_apodo'] = strtoupper($dataxxxx['s_apodo']);
+    return $dataxxxx;
+   }
+    public static function getTransactionCsd($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $objetoxx=$dataxxxx['modeloxx'];
+            $dataxxxx=$dataxxxx['requestx']->all();
+            $dataxxxx=FiDatosBasico::getMayusculas($dataxxxx);
+            $dt = new DateTime($dataxxxx['d_nacimiento']);
+            $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            $objetver=NnajDocu::where('s_documento',$dataxxxx['s_documento'] )->first();
+            if ($objetoxx == ''&& isset($objetver->id)) {
+                $objetoxx=$objetver->fi_datos_basico;
+            }
+            if ($objetoxx != '') {
+                /** Actualizar registro */
+                $objetoxx->update($dataxxxx);
+            } else {
+                /** Es un registro nuevo */
+                $dataxxxx['prm_estrateg_id']=1269;
+                $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'prm_escomfam_id' => 227])->id;
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $objetoxx = FiDatosBasico::create($dataxxxx);
+                /**
+                 * agregar el nnaj a la composocion familiar
+                 */
+                $dataxxxx['sis_nnajnnaj_id'] = $dataxxxx['sis_nnaj_id'];
+                $dataxxxx['i_prm_ocupacion_id'] = 1269;
+                $dataxxxx['i_prm_parentesco_id'] = 282;
+                $dataxxxx['i_prm_vinculado_idipron_id'] = 228;
+                $dataxxxx['i_prm_convive_nnaj_id'] = 228;
+                $dataxxxx['prm_reprlega_id']=228;
+                FiCompfami::create($dataxxxx);
+            }
+            $dataxxxx['fi_datos_basico_id'] = $objetoxx->id;
+            $dataxxxx['objetoxx']=$objetoxx;
+            NnajSexo::getTransaccion($dataxxxx);
+            NnajNacimi::getTransaccion($dataxxxx);
+            NnajDocu::getTransaccion($dataxxxx);
+            NnajSitMil::getTransaccion($dataxxxx);
+            NnajFiCsd::getTransaccion($dataxxxx);
+            return $objetoxx;
+        }, 5);
+
+        return $objetoxx;
+    }
     public function grabar($dataxxxx, $objetoxx)
     {
 
@@ -243,7 +298,7 @@ class FiDatosBasico extends Model
                  * agregar el nnaj a la composocion familiar
                  */
                 $dataxxxx['sis_nnajnnaj_id'] = $dataxxxx['sis_nnaj_id'];
-                $dataxxxx['i_prm_ocupacion_id'] = 1262;
+                $dataxxxx['i_prm_ocupacion_id'] = 1269;
                 $dataxxxx['i_prm_parentesco_id'] = 805;
                 $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
                 $dataxxxx['i_prm_convive_nnaj_id'] = 227;

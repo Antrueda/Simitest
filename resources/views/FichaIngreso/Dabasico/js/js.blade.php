@@ -82,7 +82,7 @@
                         });
 
                         //f_situacion_militar(edadxxxx);
-                        $('#aniosxxx').text(edadxxxx)
+                        $('#aniosxxx').val(edadxxxx)
                     } else {
                         $.each(json, function(i, data) {
                             var selected = '';

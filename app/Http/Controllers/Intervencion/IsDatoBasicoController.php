@@ -121,20 +121,20 @@ class IsDatoBasicoController extends Controller
         $tienper = auth()->user()->hasAnyPermission(['intervención sicosocial especializada']);
 
 
-        if (!$tienper) {
+        if ($tienper) {
             unset($this->opciones['tipatenc']['1066']);
         }
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
         $this->opciones['usuarios'] = User::combo(true, false);
-
-
-        if (auth()->user()->can('isintervencion-psiscologo')) {
-            $this->opciones['tipatenc'] = Tema::combo(213, true, false);
-        } 
-        if (auth()->user()->can('isintervencion-social')) {
-            $this->opciones['tipatenc'] = Tema::combo(356, true, false);
+        $this->opciones['tipatenc'] = [];
+        $tipatenc = 0;
+        if (auth()->user()->can('isintervencion-psicologo')) {
+            $tipatenc = 213;
         }
-
+        if (auth()->user()->can('isintervencion-social')) {
+            $tipatenc = 356;
+        }
+        $this->opciones['tipatenc'] = Tema::combo($tipatenc, true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         $this->opciones['departam'] = ['' => 'Seleccione'];
@@ -164,7 +164,7 @@ class IsDatoBasicoController extends Controller
         }
 
         // Se arma el titulo de acuerdo al array opciones
-        $this->opciones['dependen'] = User::getUpiUsuario(false, false);
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['areajusx'] = IsDatosBasico::getAreajuste($objetoxx);
         $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
 
@@ -273,6 +273,11 @@ class IsDatoBasicoController extends Controller
                     'subareax' => Tema::combo(165, $cabecera, $ajaxxxxx),
                 ];
                 break;
+                case 1269: //Académica
+                    $respuest = [
+                        'subareax' => [['valuexxx'=>1269,'optionxx'=>'NO APLICA']],
+                    ];
+                    break;
         }
         return $respuest;
     }

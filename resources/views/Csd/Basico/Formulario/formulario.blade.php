@@ -1,56 +1,56 @@
 <div class="row">
     <div class="form-group col-md-4">
-        {{ Form::label('primer_apellido', '1.1 1er. Apellido:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('primer_apellido', null, ['class' => $errors->first('primer_apellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Primer apellido', 'maxlength' => '120', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        @if($errors->has('primer_apellido'))
+        {{ Form::label('s_primer_apellido', '1.1 1er. Apellido:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('s_primer_apellido', null, ['class' => $errors->first('s_primer_apellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Primer apellido', 'maxlength' => '120', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        @if($errors->has('s_primer_apellido'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('primer_apellido') }}
+                {{ $errors->first('s_primer_apellido') }}
             </div>
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('segundo_apellido', '2do. Apellido:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('segundo_apellido', null, ['class' => $errors->first('segundo_apellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Segundo apellido', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        @if($errors->has('segundo_apellido'))
+        {{ Form::label('s_segundo_apellido', '2do. Apellido:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('s_segundo_apellido', null, ['class' => $errors->first('s_segundo_apellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Segundo apellido', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        @if($errors->has('s_segundo_apellido'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('segundo_apellido') }}
+                {{ $errors->first('s_segundo_apellido') }}
             </div>
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('primer_nombre', '1er. Nombre:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('primer_nombre', null, ['class' => $errors->first('primer_nombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Primer nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        @if($errors->has('primer_nombre'))
+        {{ Form::label('s_primer_nombre', '1er. Nombre:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('s_primer_nombre', null, ['class' => $errors->first('s_primer_nombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Primer nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        @if($errors->has('s_primer_nombre'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('primer_nombre') }}
+                {{ $errors->first('s_primer_nombre') }}
             </div>
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('segundo_nombre', '2do. Nombre:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('segundo_nombre', null, ['class' => $errors->first('segundo_nombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Segundo nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        @if($errors->has('segundo_nombre'))
+        {{ Form::label('s_segundo_nombre', '2do. Nombre:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('s_segundo_nombre', null, ['class' => $errors->first('s_segundo_nombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Segundo nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        @if($errors->has('s_segundo_nombre'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('segundo_nombre') }}
+                {{ $errors->first('s_segundo_nombre') }}
             </div>
         @endif
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('identitario', '1.2 Nombre Identitario:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('identitario', null, ['class' => $errors->first('identitario') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre Identitario', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        @if($errors->has('identitario'))
+        {{ Form::label('s_nombre_identitario', '1.2 Nombre Identitario:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('s_nombre_identitario', null, ['class' => $errors->first('s_nombre_identitario') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre Identitario', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        @if($errors->has('s_nombre_identitario'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('identitario') }}
+                {{ $errors->first('s_nombre_identitario') }}
             </div>
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('apodo', '1.3 Apodo:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('apodo', null, ['class' => $errors->first('apodo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Apodo', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        @if($errors->has('apodo'))
+        {{ Form::label('s_apodo', '1.3 Apodo:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('s_apodo', null, ['class' => $errors->first('s_apodo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Apodo', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        @if($errors->has('s_apodo'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('apodo') }}
+                {{ $errors->first('s_apodo') }}
             </div>
         @endif
     </div>
@@ -84,7 +84,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('d_nacimiento', '1.7 Fecha de d_nacimiento:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('d_nacimiento', null, ['id'=>'d_nacimiento','class' => $errors->first('d_nacimiento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::text('d_nacimiento', null, ['id'=>'d_nacimiento','class' => $errors->first('d_nacimiento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','autocomplete'=>"off"]) }}
         @if($errors->has('d_nacimiento'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('d_nacimiento') }}

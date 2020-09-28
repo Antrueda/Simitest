@@ -32,7 +32,7 @@ Route::group(['prefix' => 'csd'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
-    
+
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrar']

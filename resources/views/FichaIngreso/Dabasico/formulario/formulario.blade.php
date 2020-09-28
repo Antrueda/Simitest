@@ -1,7 +1,7 @@
 <div class="form-row">
     <div class="form-group col-md-4">
         {{ Form::label('diligenc', 'Fecha de Diligenciamiento (YYYY-MM-DD)', ['class' => 'control-label']) }}
-        {{ Form::text('diligenc', null, ['class' => $errors->first('diligenc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::text('diligenc', null, ['class' => $errors->first('diligenc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','autocomplete'=>"off"]) }}
         @if($errors->has('diligenc'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('diligenc') }}
@@ -115,7 +115,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('d_nacimiento', '1.4 Fecha de Nacimiento', ['class' => 'control-label']) }}
-        {{ Form::text('d_nacimiento', null, ['class' => 'form-control form-control-sm','readonly']) }}
+        {{ Form::text('d_nacimiento', null, ['class' => 'form-control form-control-sm','readonly','autocomplete'=>"off"]) }}
     </div>
     <div class="form-group col-md-4" id="edadxxxx">
         {{ Form::label('aniosxxx', '1.5 Edad (Años)', ['class' => 'control-label']) }}

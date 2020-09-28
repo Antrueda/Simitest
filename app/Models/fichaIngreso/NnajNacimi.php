@@ -40,20 +40,27 @@ class NnajNacimi extends Model
     {
         return $this->belongsTo(SisEsta::class, 'user_edita_id');
     }
-    public static function transaccion($dataxxxx)
+    /**
+     * almacenar datos de nacimiento
+     *
+     * @param array $dataxxxx
+     * @return $objetoxx
+     */
+    public static function getTransaccion($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
-            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            if ($dataxxxx['modeloxx'] != '') {
-                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if (isset($dataxxxx['objetoxx']->nnaj_nacimi->id)) {
+                $dataxxxx['objetoxx']->nnaj_nacimi->update($dataxxxx);
             } else {
-                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = NnajNacimi::create($dataxxxx['requestx']->all());
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = NnajNacimi::create($dataxxxx);
             }
-            return $dataxxxx['modeloxx'];
+            return $dataxxxx;
         }, 5);
         return $objetoxx;
     }
+
 
     public function sis_municipio()
     {

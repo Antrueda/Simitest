@@ -6,6 +6,8 @@ use App\Models\Parametro;
 use App\Models\Sistema\SisDocfuen;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class NnajFiCsd extends Model
 {
@@ -69,5 +71,25 @@ class NnajFiCsd extends Model
     public function sis_esta()
     {
         return $this->belongsTo(SisEsta::class, 'user_edita_id');
+    }
+    /**
+     * almacenar datos de datos comunes entre ficha de ingreso y consulta social en domicilio
+     *
+     * @param array $dataxxxx
+     * @return $objetoxx
+     */
+    public static function getTransaccion($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if (isset($dataxxxx['objetoxx']->nnaj_docu->id)) {
+                $dataxxxx['objetoxx']->nnaj_docu->update($dataxxxx);
+            } else {
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = NnajSitMil::create($dataxxxx);
+            }
+            return $dataxxxx;
+        }, 5);
+        return $objetoxx;
     }
 }

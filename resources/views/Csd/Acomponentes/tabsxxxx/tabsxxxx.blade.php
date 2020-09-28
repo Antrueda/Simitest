@@ -16,13 +16,6 @@
             @endcanany
             @endif
 
-            @if($todoxxxx['pestpadr']==2 || $todoxxxx['pestpadr']==3)
-            @canany(['csdxxxxx-leer', 'csdxxxxx-crear', 'csdxxxxx-editar', 'csdxxxxx-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdxxxxy') ?' active' : '' }}
-        text-sm" href="{{ $todoxxxx['rutaxxxx'] }}">CSD {{$todoxxxx['pestpadr']}}</a></li>
-            @endcanany
-            @endif
-
             @if($todoxxxx['pestpadr']==3)
             @canany(['csdatbas-leer', 'csdatbas-crear', 'csdatbas-editar'])
 

@@ -57,7 +57,7 @@
                         });
 
                         //f_situacion_militar(edadxxxx);
-                        $('#aniosxxx').text(edadxxxx)
+                        $('#aniosxxx').val(edadxxxx)
                     } else {
                         $.each(json, function(i, data) {
                             var selected = '';
@@ -274,8 +274,6 @@
         @if(old('prm_etnia_id') !== null)
         datamuni('prm_etnia_id', "{{old('prm_etnia_id')}}", "{{old('prm_poblacion_etnia_id')}}");
         @endif
-
-        @if(isset($todoxxxx['mindatex']))
         var fechactu = new Date();
         var fechaInicio = new Date(fechactu.getFullYear() - 28, fechactu.getMonth(), fechactu.getDate()).getTime();
         var fechaFin = new Date().getTime();
@@ -311,15 +309,15 @@
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
-            minDate: "<?= isset($todoxxxx['mindatex']) ? $todoxxxx['mindatex'] : '+0y +0m +0d' ?>",
-            maxDate: "<?= isset($todoxxxx['maxdatex']) ? $todoxxxx['maxdatex'] : '+0y +0m +0d' ?>",
-            yearRange: "-28:-5",
+             minDate: "{{$todoxxxx['mindatex']}}",
+             maxDate: "{{$todoxxxx['maxdatex']}}",
+            yearRange: "-90:-18",
 
             onSelect: function(dateText) {
                 f_nacimiento($(this).val(), '', '', '', '');
             }
         });
-        @endif
+
 
         $("#prm_doc_fisico_id").change(function() {
             f_documento_fisico($(this).val(), '');
