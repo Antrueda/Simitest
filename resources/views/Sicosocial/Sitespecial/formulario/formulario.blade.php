@@ -26,7 +26,7 @@
 <div class="row">
   <div class="col-md-6">
     {{ Form::label('prm_victima_id', '15.3 ¿Existe reconocimiento por parte del NNA como víctima de ESCNNA?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_victima_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_victima_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+    {{ Form::select('prm_victima_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_victima_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_victima_id'))
       <div class="invalid-feedback d-block">
           {{ $errors->first('prm_victima_id') }}

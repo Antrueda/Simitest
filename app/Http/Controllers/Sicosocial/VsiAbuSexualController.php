@@ -67,6 +67,11 @@ class VsiAbuSexualController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
+            
+
+            if($dataxxxx['modeloxx']->prm_evento_id==853){
+                $this->opciones['familiar']=[1269=>'NO APLICA'];
+            }
            
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;

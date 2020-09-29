@@ -17,7 +17,7 @@ class VsiSitEspecialEditarRequest extends FormRequest
         $this->_reglasx = [
             'victimas'       => 'required|array',
             'riesgos'        => 'required_if:victimas,853|array',
-            'prm_victima_id' => 'required_if:riesgos,853|exists:parametros,id',
+            'prm_victima_id' => 'nullable:|exists:parametros,id',
         ];
     }
     /**

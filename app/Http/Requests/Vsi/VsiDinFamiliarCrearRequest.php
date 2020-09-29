@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Vsi;
 
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\sicosocial\Vsi;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiDinFamiliarCrearRequest extends FormRequest
@@ -21,9 +22,7 @@ class VsiDinFamiliarCrearRequest extends FormRequest
         $this->_reglasx = [
             'prm_familiar_id' => 'required_without:prm_hogar_id',
             'prm_hogar_id' => 'required_without:prm_familiar_id',
-            'cuidador' => 'nullable|array',
-            'lugar' => 'required|string|max:4000',
-            'ausencia' => 'nullable|array',
+
             'descripcion' => 'required|string|max:4000',
             'calles' => 'nullable|array',
             'delitos' => 'nullable|array',
@@ -62,11 +61,11 @@ class VsiDinFamiliarCrearRequest extends FormRequest
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        $nnajxxxx = FiDatosBasico::find($this->segments()[1]);
-        $edad = $nnajxxxx->nnaj_nacimi->Edad;
-
-        if ($edad < 18) { //Mayor de edad
+        
+        $nnajxxxx = Vsi::find($this->segments()[1]);
+        $edad = $nnajxxxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
+        
+        if ($edad < 18) {
             $this->_mensaje['cuidador.required'] = 'Seleccione Quién(es) asume(n) el cuidado';
             $this->_reglasx['cuidador'] = 'Required';
             $this->_mensaje['lugar.required'] = 'Describa el lugar donde los cuidan';

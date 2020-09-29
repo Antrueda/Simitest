@@ -75,6 +75,9 @@
     <div class="col-md">
         {{ Form::label('jornada_entre', '9.6. ¿En qué jornada genera los ingresos?', ['class' => 'control-label col-md-8 col-form-label-sm']) }}
         <div class="row">
+            {{ Form::select('prm_jornada_genera_ingreso_id' , $todoxxxx["jorgener"], null, ['class' => 'form-control form-control-sm','id'=>'prm_jornada_genera_ingreso_id']) }}
+        </div>
+        <div class="row">
             <div class="col-md">
                 {{ Form::label('prm_jor_entre_id', 'Entre', ['class' => 'control-label col-md-8 col-form-label-sm']) }}
             </div>

@@ -23,7 +23,7 @@
   function doc1(valor) {
     if (valor != 853) {
       document.getElementById("prm_victima_id").hidden=true;
-      document.getElementById("prm_victima_id").value = [];
+      
     } else {
       document.getElementById("prm_victima_id").hidden=false;
     }
@@ -31,7 +31,8 @@
 
   function carga() {
     doc(document.getElementById('victimas').value);
-    doc1(document.getElementById('riesgos').value);
+    doc(document.getElementById('riesgos').value);
+    doc(document.getElementById('prm_victima_id').value);
   }
   window.onload = carga;
 </script>

@@ -33,7 +33,7 @@ function doc(valor){
         document.getElementById("dificultades_div").hidden=false;
         document.getElementById("dificultades").value=[];
         document.getElementById("prm_dificultad_id").hidden=true;
-        doc1(document.getElementById('prm_dificultad_id').value = 228);
+        
     } else {
         document.getElementById("dia").hidden=true;
         document.getElementById("dia").value='';
@@ -46,7 +46,7 @@ function doc(valor){
         document.getElementById("fortalezas_div").hidden=false;
         document.getElementById("dificultades_div").hidden=false;
         document.getElementById("prm_dificultad_id").hidden=false;
-        doc2(document.getElementById("prm_motivo_id").value = 1021);
+        
     }
 }
 function doc1(valor){
@@ -70,8 +70,8 @@ function doc2(valor) {
 }
 function carga() {
     doc(document.getElementById('prm_estudia_id').value);
-    doc1(document.getElementById('prm_dificultad_id').value);
-    doc2(document.getElementById('prm_motivo_id').value);
+    
+    
 
 }
 window.onload=carga;

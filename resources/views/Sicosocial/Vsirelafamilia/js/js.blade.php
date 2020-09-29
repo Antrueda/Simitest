@@ -19,12 +19,14 @@ function doc(valor) {
         document.getElementById("acciones_div").hidden=true;
         document.getElementById("acciones").value=[];
         document.getElementById("prm_denuncia_id").hidden=true;
+        document.getElementById("prm_denunante_id").hidden=true;
         
     } else {
         document.getElementById("famDificultades_div").hidden=false;
         document.getElementById("acciones_div").hidden=false;
         document.getElementById("prm_denuncia_id").hidden=false;
-        
+        document.getElementById("prm_denunante_id").hidden=false;
+     
     }
 }
 function doc1(valor){
@@ -53,6 +55,15 @@ function doc2(valor){
         document.getElementById("ano").hidden=false;
         document.getElementById("prm_responde_id").hidden=false;
         document.getElementById("descripcion1").hidden=false;
+    }
+}
+
+function doc3(valor){
+    if(valor == 228 || valor == 235){
+        document.getElementById("motivos_div").hidden=true;
+        document.getElementById("motivos").value=[];
+    } else {
+        document.getElementById("motivos").hidden=false;
     }
 }
 function carga() {

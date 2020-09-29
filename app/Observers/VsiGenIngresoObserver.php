@@ -21,6 +21,8 @@ class VsiGenIngresoObserver
         $log['prm_no_id'] = $modeloxx->prm_no_id;
         $log['cuanto'] = $modeloxx->cuanto;
         $log['prm_periodo_id'] = $modeloxx->prm_periodo_id;
+        $log['prm_jornada_genera_ingreso_id'] = $modeloxx->prm_jornada_genera_ingreso_id;
+
         $log['jornada_entre'] = $modeloxx->jornada_entre;
         $log['prm_jor_entre_id'] = $modeloxx->prm_jor_entre_id;
         $log['jornada_a'] = $modeloxx->jornada_a;

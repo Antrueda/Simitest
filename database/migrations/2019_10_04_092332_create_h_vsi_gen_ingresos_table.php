@@ -29,6 +29,7 @@ class CreateHVsiGenIngresosTable extends Migration
             $table->bigInteger('prm_no_id')->unsigned()->nullable();
             $table->Integer('cuanto')->unsigned()->nullable();
             $table->bigInteger('prm_periodo_id')->unsigned()->nullable();
+            $table->bigInteger('prm_jornada_genera_ingreso_id')->unsigned()->nullable();
             $table->Integer('jornada_entre')->unsigned()->nullable();
             $table->bigInteger('prm_jor_entre_id')->unsigned()->nullable();
             $table->Integer('jornada_a')->unsigned()->nullable();

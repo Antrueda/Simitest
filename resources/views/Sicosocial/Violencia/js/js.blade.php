@@ -35,8 +35,8 @@ function doc(valor){
         document.getElementById("prm_lab_psi_id").hidden=true;
         document.getElementById("prm_lab_sex_id").hidden=true;
         document.getElementById("prm_lab_eco_id").hidden=true;
-        
-        
+        document.getElementById("contextos_div").hidden=true;
+        document.getElementById("tipos_div").hidden=true;
 
     } else {
         document.getElementById("prm_fam_fis_id").hidden=false;
@@ -63,15 +63,16 @@ function doc(valor){
         document.getElementById("prm_lab_psi_id").hidden=false;
         document.getElementById("prm_lab_sex_id").hidden=false;
         document.getElementById("prm_lab_eco_id").hidden=false;
-        
-        
+        document.getElementById("contextos_div").hidden=false;
+        document.getElementById("tipos_div").hidden=false;
 
     }
 }
-/*
+
 function doc1(valor){
     if(valor == 228){
         document.getElementById("contextos_div").hidden=true;
+        document.getElementById("contextos").value=[];
     } else {
         document.getElementById("contextos_div").hidden=false;
     }
@@ -79,11 +80,12 @@ function doc1(valor){
 function doc2(valor){
     if(valor == 228){
         document.getElementById("tipos_div").hidden=true;
+        document.getElementById("tipos").value=[];
     } else {
         document.getElementById("tipos_div").hidden=false;
     }
 }
-*/
+
 function carga() {
     doc(document.getElementById('prm_tip_vio_id').value);
     doc1(document.getElementById('prm_dis_gen_id').value);

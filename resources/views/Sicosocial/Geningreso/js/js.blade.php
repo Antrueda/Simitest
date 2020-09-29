@@ -10,7 +10,39 @@ $(document).ready(function() {
     $('#labores').select2({
         language: "es"
     });
+    var f_campos=function(valuexxx,psalecte){
+           $('#prm_jornada_genera_ingreso_id').empty()
+                $.ajax({
+                    url : "{{ route('vsigener.jornada') }}",
+                    data : { 
+                        padrexxx:valuexxx,
+                    },
+                    type : 'GET',
+                    dataType : 'json',
+                    success : function(json) {
+                        $.each(json,function(i,d){
+                            var selected='';
+                            if(psalecte==d.valuexxx){
+                                selected='selected';
+                            }
+                            $('#prm_jornada_genera_ingreso_id').append('<option '+selected+' value="'+d.valuexxx+'">'+d.optionxx+'</option>');
+                        });
+                    },
+                    error : function(xhr, status) {
+                        alert('Disculpe, existió un problema');
+                    },
+                });
+            
+            
+        }
+
+
+
+    $("#prm_actividad_id").change(function(){
+        f_campos($(this).val(),'')
 });
+});
+
 function doc(valor){
     if(valor == 626){
         document.getElementById("trabaja").hidden=false;
@@ -26,6 +58,8 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=false;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
+        document.getElementById("prm_jornada_genera_ingreso_id").hidden=false;
+        
     }
     if(valor == 627) {
         document.getElementById("trabaja").hidden=true;
@@ -41,6 +75,8 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
+        document.getElementById("prm_jornada_genera_ingreso_id").hidden=false;
+        
     }
     if(valor == 628) {
         document.getElementById("trabaja").hidden=true;
@@ -49,6 +85,7 @@ function doc(valor){
         document.getElementById("prm_no_id").hidden=true;
         document.getElementById("jornada_entre").hidden=false;
         document.getElementById("prm_jor_entre_id").hidden=false;
+        document.getElementById("prm_jornada_genera_ingreso_id").hidden=false;
         document.getElementById("jornada_a").hidden=false;
         document.getElementById("prm_jor_a_id").hidden=false;
         document.getElementById("dias_div").hidden=false;
@@ -56,6 +93,7 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
+        
     }
     if(valor == 853) {
         document.getElementById("trabaja").hidden=true;
@@ -63,6 +101,7 @@ function doc(valor){
         document.getElementById("prm_otra_id").hidden=true;
         document.getElementById("prm_no_id").hidden=false;
         document.getElementById("jornada_entre").hidden=true;
+        document.getElementById("prm_jornada_genera_ingreso_id").hidden=true;
         document.getElementById("prm_jor_entre_id").hidden=true;
         document.getElementById("jornada_a").hidden=true;
         document.getElementById("prm_jor_a_id").hidden=true;
@@ -71,6 +110,8 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=true;
         document.getElementById("prm_aporta_id").hidden=true;
+        
+        
     }
     doc1(document.getElementById('prm_no_id').value);
     doc2(document.getElementById('prm_aporta_id').value);
@@ -79,18 +120,22 @@ function doc1(valor){
     if(valor == 711 && document.getElementById('prm_actividad_id').value == 853){
         document.getElementById("cuanto").hidden=false;
         document.getElementById("prm_periodo_id").hidden=false;
+          
     } else {
         document.getElementById("cuanto").hidden=true;
         document.getElementById("prm_periodo_id").hidden=true;
+        
     }
 }
 function doc2(valor){
     if(valor == 227 && document.getElementById('prm_actividad_id').value != 853){
         document.getElementById("porque").hidden=false;
         document.getElementById("cuanto_aporta").hidden=false;
+          
     } else {
         document.getElementById("porque").hidden=true;
         document.getElementById("cuanto_aporta").hidden=true;
+         
     }
 }
 function carga() {

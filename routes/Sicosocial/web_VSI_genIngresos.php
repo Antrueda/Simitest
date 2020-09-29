@@ -24,4 +24,8 @@ Route::group(['prefix' => 'genIngresos'], function () use($routexxx,$controll) {
 	    'uses' => $controll.'Controller@show',
 	    'middleware' => ['permission:'.$routexxx.'-leer']
 	])->name($routexxx.'.ver');
+	Route::get('jornada', [
+	    'uses' => $controll.'Controller@jornada',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.jornada');
 });

@@ -21,7 +21,7 @@
 <div class="row">
 	<div class="col-md-3">
 		{{ Form::label('prm_mala_id', '3.3 ¿Cuál es la persona con quien no tiene buenas relaciones en su familia?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_mala_id', $todoxxxx['familiar'], null, ['class' => $errors->first('prm_mala_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+		{{ Form::select('prm_mala_id', $todoxxxx['familiar'], null, ['class' => $errors->first('prm_mala_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc3(this.value)']) }}
 		@if($errors->has('prm_mala_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_mala_id') }}
@@ -30,7 +30,9 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('motivos', '3.4	Mencione el/los motivos por lo cual no existen buenas relaciones', ['class' => 'control-label col-form-label-sm']) }}
+		<div id="motivos_div">
 		{{ Form::select('motivos[]', $todoxxxx['motivosx'], null, ['class' => $errors->first('motivos') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'motivos', 'multiple']) }}
+		</div>
 		@if($errors->has('motivos'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('motivos') }}

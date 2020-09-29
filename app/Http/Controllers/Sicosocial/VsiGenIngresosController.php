@@ -58,24 +58,29 @@ class VsiGenIngresosController extends Controller
         $this->opciones['activida'] = Tema::combo(114, TRUE, false);
         $this->opciones['informal'] = Tema::combo(115, TRUE, false);
         $this->opciones['otrosxxx'] = Tema::combo(116, TRUE, false);
-        $this->opciones['ningunax'] = Tema::combo(122, false, false);
+        $this->opciones['ningunax'] = Tema::combo(122, TRUE, false);
         $this->opciones['tiempoxx'] = Tema::combo(4, false, false);
         $this->opciones['ampmxxxx'] = Tema::combo(5, false, false);
         $this->opciones['semanaxx'] = Tema::combo(129, false, false);
         $this->opciones['frecuenc'] = Tema::combo(110, true, false);
         $this->opciones['laboralx'] = Tema::combo(117, true, false);
-        $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['parentes'] = Tema::combo(66, false, false);
+        $this->opciones['jorgener'] = Tema::combo(123, true, false);
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
+            if($dataxxxx['modeloxx']->prm_actividad_id==853){
+                $this->opciones['jorgener']=[1269=>'NO APLICA'];
+            }
            
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
@@ -140,16 +145,9 @@ class VsiGenIngresosController extends Controller
 
     private function grabar($dataxxxx)
     {
-        $this->validator($dataxxxx['requestx']->all())->validate();
-        $dato = Vsi::findOrFail($dataxxxx['requestx']->vsi_id);
-        if($dato->nnaj->fi_datos_basico->nnaj_nacimi->edad >= 18){
-            $this->validatorMayor($dataxxxx['requestx']->all())->validate();
-        }
-        $registro = VsiGenIngreso::transaccion($dataxxxx);
-
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$registro->vsi_id])
-            ->with('info', $dataxxxx['menssage']);
+        ->route($this->opciones['routxxxx'] . '.editar', [VsiGenIngreso::transaccion($dataxxxx)->vsi_id])
+        ->with('info', $dataxxxx['menssage']);
     }
 
     /**
@@ -159,11 +157,11 @@ class VsiGenIngresosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vsi $objetoxx)
+    public function update(Request $request, VsiGenIngreso $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx->VsiGenIngreso,
+            'modeloxx' => $objetoxx,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }
@@ -178,6 +176,7 @@ class VsiGenIngresosController extends Controller
             'prm_no_id' => 'required_if:prm_actividad_id,853',
             'cuanto' => 'required_if:prm_no_id,711',
             'prm_periodo_id' => 'required_if:prm_actividad_id,853|required_if:prm_no_id,711',
+            'prm_jornada_genera_ingreso_id'=> 'required_if:prm_actividad_id,853|required_if:prm_no_id,711',
             'jornada_entre' => 'required_unless:prm_actividad_id,853',
             'prm_jor_entre_id' => 'required_unless:prm_actividad_id,853',
             'jornada_a' => 'required_unless:prm_actividad_id,853',
@@ -203,5 +202,17 @@ class VsiGenIngresosController extends Controller
             'quienes' => 'required|array',
             'labores' => 'required|array',
         ]);
+    }
+
+    public function jornada(\Illuminate\Http\Request $request)
+    {
+        
+        if ($request->ajax()) {
+            $respuest=Tema::combo(123, true, true);
+            if($request->padrexxx==853){ 
+            $respuest=[['valuexxx'=>1269,'optionxx'=>'NO APLICA']];
+            }
+            return response()->json($respuest);
+        }
     }
 }

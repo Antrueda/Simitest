@@ -29,6 +29,7 @@ class CreateVsiGenIngresosTable extends Migration
             $table->bigInteger('prm_no_id')->unsigned()->nullable();
             $table->Integer('cuanto')->unsigned()->nullable();
             $table->bigInteger('prm_periodo_id')->unsigned()->nullable();
+            $table->bigInteger('prm_jornada_genera_ingreso_id')->unsigned()->nullable();
             $table->Integer('jornada_entre')->unsigned()->nullable();
             $table->bigInteger('prm_jor_entre_id')->unsigned()->nullable();
             $table->Integer('jornada_a')->unsigned()->nullable();
@@ -48,6 +49,7 @@ class CreateVsiGenIngresosTable extends Migration
             $table->foreign('prm_otra_id')->references('id')->on('parametros');
             $table->foreign('prm_no_id')->references('id')->on('parametros');
             $table->foreign('prm_periodo_id')->references('id')->on('parametros');
+            $table->foreign('i_prm_jornada_genera_ingreso_id')->references('id')->on('parametros');
             $table->foreign('prm_jor_entre_id')->references('id')->on('parametros');
             $table->foreign('prm_jor_a_id')->references('id')->on('parametros');
             $table->foreign('prm_frecuencia_id')->references('id')->on('parametros');
