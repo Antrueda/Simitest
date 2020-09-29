@@ -66,7 +66,6 @@ class FiCompfami extends Model
     public static function transaccion($dataxxxx,  $objetoxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['prm_tipodocu_id'] = $dataxxxx['prm_documento_id'];
             $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
             $dt = new DateTime($dataxxxx['d_nacimiento']);
             $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');

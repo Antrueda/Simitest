@@ -24,9 +24,11 @@ class FiCompfamiCrearRequest extends FormRequest
             's_telefono.required' => 'Ingrese un número de teléfono',
             's_documento.required' => 'Ingrese el número de documento',
             'sis_municipio_id.required' => 'Seleccione un municipio',
+            'prm_tipodocu_id.required' => 'Seleccione tipo de documento',
         ];
 
         $this->_reglasx = [
+            'prm_tipodocu_id' => ['required'],
             'i_prm_parentesco_id' => ['required'],
             'i_prm_ocupacion_id' => ['required'],
             'i_prm_vinculado_idipron_id' => ['required'],

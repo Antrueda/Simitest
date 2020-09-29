@@ -21,6 +21,7 @@ class FiCompfamiUpdateRequest extends FormRequest
             's_telefono.required' => 'Ingrese un número de teléfono',
             's_documento.required'=> 'Ingrese el número de documento',
             'sis_municipio_id.required' => 'Seleccione un municipio',
+            'prm_tipodocu_id.required' => 'Seleccione tipo de documento',
         ];
 
         $this->_reglasx = [
@@ -30,6 +31,7 @@ class FiCompfamiUpdateRequest extends FormRequest
             'i_prm_convive_nnaj_id' => ['required'],
             'prm_reprlega_id'=>['required'],
             'd_nacimiento' => ['required'],
+            'prm_tipodocu_id' => ['required'],
             's_telefono' => ['required'],
             's_documento'=>['required'],
             'sis_municipio_id' => ['required'],
