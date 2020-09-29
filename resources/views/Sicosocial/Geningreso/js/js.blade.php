@@ -11,7 +11,7 @@ $(document).ready(function() {
         language: "es"
     });
     var f_campos=function(valuexxx,psalecte){
-           $('#prm_jornada_genera_ingreso_id').empty()
+           $('#prm_jornada_id').empty()
                 $.ajax({
                     url : "{{ route('vsigener.jornada') }}",
                     data : { 
@@ -25,7 +25,7 @@ $(document).ready(function() {
                             if(psalecte==d.valuexxx){
                                 selected='selected';
                             }
-                            $('#prm_jornada_genera_ingreso_id').append('<option '+selected+' value="'+d.valuexxx+'">'+d.optionxx+'</option>');
+                            $('#prm_jornada_id').append('<option '+selected+' value="'+d.valuexxx+'">'+d.optionxx+'</option>');
                         });
                     },
                     error : function(xhr, status) {
@@ -58,7 +58,7 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=false;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
-        document.getElementById("prm_jornada_genera_ingreso_id").hidden=false;
+        document.getElementById("prm_jornada_id").hidden=false;
         
     }
     if(valor == 627) {
@@ -75,7 +75,7 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
-        document.getElementById("prm_jornada_genera_ingreso_id").hidden=false;
+        document.getElementById("prm_jornada_id").hidden=false;
         
     }
     if(valor == 628) {
@@ -85,7 +85,7 @@ function doc(valor){
         document.getElementById("prm_no_id").hidden=true;
         document.getElementById("jornada_entre").hidden=false;
         document.getElementById("prm_jor_entre_id").hidden=false;
-        document.getElementById("prm_jornada_genera_ingreso_id").hidden=false;
+        document.getElementById("prm_jornada_id").hidden=false;
         document.getElementById("jornada_a").hidden=false;
         document.getElementById("prm_jor_a_id").hidden=false;
         document.getElementById("dias_div").hidden=false;
@@ -101,7 +101,7 @@ function doc(valor){
         document.getElementById("prm_otra_id").hidden=true;
         document.getElementById("prm_no_id").hidden=false;
         document.getElementById("jornada_entre").hidden=true;
-        document.getElementById("prm_jornada_genera_ingreso_id").hidden=true;
+        document.getElementById("prm_jornada_id").hidden=true;
         document.getElementById("prm_jor_entre_id").hidden=true;
         document.getElementById("jornada_a").hidden=true;
         document.getElementById("prm_jor_a_id").hidden=true;

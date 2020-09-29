@@ -15,7 +15,7 @@ class HVsiGenIngreso extends Model
         'prm_no_id',
         'cuanto',
         'prm_periodo_id',
-        'prm_jornada_genera_ingreso_id',
+        'prm_jornada_id',
         'jornada_entre',
         'prm_jor_entre_id',
         'jornada_a',
