@@ -363,7 +363,7 @@ class FiCompfamiController extends Controller
                     break;
                 case 'sis_pai_id':
                     $comboxxx = [['valuexxx' => 1, 'optionxx' => 'NO APLICA']];
-                    if ($dataxxxx['padrexxx'] == 2 || $dataxxxx['padrexxx'] == '') {
+                    if ($dataxxxx['padrexxx'] == 2) {
                         $comboxxx = SisDepartamento::combo($dataxxxx['padrexxx'], true);
                     }
                     $respuest = ['comboxxx' => $comboxxx, 'campoxxx' => 'sis_departamento_id', 'limpiarx' => '#sis_departamento_id,#sis_municipio_id'];
@@ -387,22 +387,23 @@ class FiCompfamiController extends Controller
     {
         if ($request->ajax()) {
             $respuest = [
-                'campoxxx' => 'prm_documento_id',
+                'campoxxx' => 'prm_tipodocu_id',
                 'comboxxx' => Tema::combo(3, true, true),
                 'cedulaxx' => '',
                 'readonly' => false,
                 'document' => 's_documento',
                 'tipoxxxx' => $request->tipoxxxx == 1 ? true : false,
-                'changesx' => '#sis_pai_id',
-                'valuexxx' => '',
+                'paisxxxx' => ['sis_pai_id', SisPai::combo(true, true)],
                 'departam' => ['sis_departamento_id', [['valuexxx' => '', 'optionxx' => 'Seleccione']]],
+                'municipi' => ['sis_municipio_id', [['valuexxx' => '', 'optionxx' => 'Seleccione']]],
             ];
             if ($request->padrexxx == 800 || $request->padrexxx == 1594 || $request->padrexxx == 145) {
                 $fechaxxx = str_replace([" ", '-', ':'], "", date('Y-m-d H:m:s'));
                 $respuest['comboxxx'] = [['valuexxx' => 145, 'optionxx' => 'SIN IDENTIFICACION']];
                 $respuest['readonly'] = true;
-                $respuest['changesx'] = '#sis_pai_id,#sis_departamento_id';
-                $respuest['valuexxx'] = 1;
+                $respuest['paisxxxx'][1] = [['valuexxx' => 1, 'optionxx' => 'NO APLICA']];
+                $respuest['departam'][1] = $respuest['paisxxxx'][1];
+                $respuest['municipi'][1] = $respuest['paisxxxx'][1];
                 $respuest['cedulaxx'] = $fechaxxx;
             }
             return response()->json($respuest);

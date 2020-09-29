@@ -17,8 +17,15 @@ class SisPai extends Model
     public static function combo($cabecera, $ajaxxxxx)
     {
         $comboxxx = [];
-        if ($cabecera)
-            $comboxxx = ['' => 'Seleccione'];
+        if ($cabecera){
+            if ($ajaxxxxx) {
+                $comboxxx[] =  ['valuexxx'=>'' , 'optionxx'=>'Seleccione'];
+            }else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+
+        }
+
         foreach (SisPai::get() as $sispaisx) {
             if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx'=>$sispaisx->id , 'optionxx'=>$sispaisx->s_pais];

@@ -97,7 +97,15 @@
             },
         });
     });
-
+    var f_datacomb=function(dataxxxx){
+        $.each(dataxxxx.dataxxxx,function(i,data){
+            var selected='';
+            if(data.valuexxx==dataxxxx.selected){
+                selected='selected';
+            }
+            $('#'+dataxxxx.campoxxx).append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>');
+        });
+    }
     var f_nadocume=function(dataxxxx){
         $.ajax({
             url: "{{ route($todoxxxx['routxxxx'].'.nadocume',$todoxxxx['parametr']) }}",
@@ -105,29 +113,16 @@
             type: 'GET',
             dataType: 'json',
             success: function(json) {
+                $('#'+json.paisxxxx[0]+',#'+json.departam[0]+',#'+json.municipi[0]).empty();
                 if(json.tipoxxxx){
-                    $('#'+json.campoxxx+',#'+json.departam[0]).empty();
-                    $(json.changesx).val(json.valuexxx);
-                    $(json.changesx).trigger("change");
-                    $.each(json.comboxxx,function(i,data){
-                        var selected='';
-                        if(data.valuexxx==dataxxxx.selected){
-                            selected='selected';
-                        }
-                        $('#'+json.campoxxx).append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>');
-                    });
-
+                    $('#'+json.campoxxx).empty();
+                    f_datacomb({dataxxxx:json.comboxxx,selected:'',campoxxx:json.campoxxx})
                 }
                 $("#"+json.document).prop('readonly', json.readonly);
                 $("#"+json.document).val(json.cedulaxx);
-                $.each(json.departam[1],function(i,data){
-                    var selected='';
-                    if(data.valuexxx==dataxxxx.selected){
-                        selected='selected';
-                    }
-                    $('#'+json.departam[0]).append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>');
-                });
-
+                f_datacomb({dataxxxx:json.paisxxxx[1],selected:'',campoxxx:json.paisxxxx[0]});
+                f_datacomb({dataxxxx:json.departam[1],selected:'',campoxxx:json.departam[0]});
+                f_datacomb({dataxxxx:json.municipi[1],selected:'',campoxxx:json.municipi[0]});
             },
             error: function(xhr, status) {
                 alert('Disculpe, existió un problema al calcular el número de documento');
