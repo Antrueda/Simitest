@@ -239,6 +239,24 @@ class SisEntidadsSeeder extends Seeder
             5 => $camposmagicos,
         ]);
 
+        $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'JOVENES EN ACCION']);
+        $entidadx->sis_servicios()->sync([
+            1 => $camposmagicos,
+            2 => $camposmagicos,
+            3 => $camposmagicos,
+            4 => $camposmagicos,
+            5 => $camposmagicos,
+        ]);
+
+        $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'FAMILIAS EN ACCION']);
+        $entidadx->sis_servicios()->sync([
+            1 => $camposmagicos,
+            2 => $camposmagicos,
+            3 => $camposmagicos,
+            4 => $camposmagicos,
+            5 => $camposmagicos,
+        ]);
+
 
 
         $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ];

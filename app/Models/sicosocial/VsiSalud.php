@@ -18,39 +18,39 @@ class VsiSalud extends Model{
         return $this->belongsTo(Vsi::class, 'vsi_id');
     }
 
-    public function atencion(){
+    public function prm_atencion(){
         return $this->belongsTo(Parametro::class, 'prm_atencion_id');
     }
 
-    public function condicion(){
+    public function prm_condicion(){
         return $this->belongsTo(Parametro::class, 'prm_condicion_id');
     }
 
-    public function medicamento(){
+    public function prm_medicamento_id(){
         return $this->belongsTo(Parametro::class, 'prm_medicamento_id');
     }
 
-    public function prescripcion(){
+    public function prm_prescripcion(){
         return $this->belongsTo(Parametro::class, 'prm_prescripcion_id');
     }
 
-    public function sexual(){
+    public function prm_sexual(){
         return $this->belongsTo(Parametro::class, 'prm_sexual_id');
     }
 
-    public function activa(){
+    public function prm_activa(){
         return $this->belongsTo(Parametro::class, 'prm_activa_id');
     }
 
-    public function embarazo(){
+    public function prm_embarazo(){
         return $this->belongsTo(Parametro::class, 'prm_embarazo_id');
     }
 
-    public function hijo(){
+    public function prm_hijo(){
         return $this->belongsTo(Parametro::class, 'prm_hijo_id');
     }
 
-    public function interrupcion(){
+    public function prm_interrupcion(){
         return $this->belongsTo(Parametro::class, 'prm_interrupcion_id');
     }
 
@@ -70,7 +70,8 @@ class VsiSalud extends Model{
             }
             if ( $dataxxxx['requestx']->prm_medicamento_id == 228) {
                  $dataxxxx['requestx']->request->add(["medicamento" => null]);
-                 $dataxxxx['requestx']->request->add(["prm_prescripcion_id" => null]);
+                }     
+                 if ( $dataxxxx['requestx']->prm_prescripcion_id == 228) {
                  $dataxxxx['requestx']->request->add(["descripcion" => null]);
             }
             if ( $dataxxxx['requestx']->prm_sexual_id == 228) {

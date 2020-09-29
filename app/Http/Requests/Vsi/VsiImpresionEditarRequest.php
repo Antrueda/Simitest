@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vsi;
 
+use App\Models\sicosocial\Vsi;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiImpresionEditarRequest extends FormRequest
@@ -50,6 +51,17 @@ class VsiImpresionEditarRequest extends FormRequest
 
     public function validar()
     {
+        $nnajxxxx = Vsi::find($this->segments()[1]);
+        $edad = $nnajxxxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
+
+        if ($edad < 18) { //Mayor de edad
+            $this->_mensaje['prm_ingreso_id.required'] = 'Seleccione si considera pertinente el Ingreso del NNA a IDIPRON';
+            $this->_reglasx['prm_ingreso_id'] = 'Required';
+            $this->_mensaje['porque.required'] = '¿Por que?';
+            $this->_reglasx['porque'] = 'Required';
+         
+        }
+    }
 
     }
 }

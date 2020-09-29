@@ -28,11 +28,16 @@ function doc(valor){
         document.getElementById("ano").hidden=false;
         document.getElementById("prm_motivo_id").hidden=false;
         document.getElementById("prm_rendimiento_id").hidden=false;
+        document.getElementById("prm_rendimiento_id").value=[];
         document.getElementById("fortalezas_div").hidden=false;
         document.getElementById("fortalezas").value=[];
         document.getElementById("dificultades_div").hidden=false;
         document.getElementById("dificultades").value=[];
         document.getElementById("prm_dificultad_id").hidden=true;
+        document.getElementById("prm_dificultad_id").value=[];
+        document.getElementById("causas_div").hidden=false;
+        
+             
         
     } else {
         document.getElementById("dia").hidden=true;
@@ -46,6 +51,8 @@ function doc(valor){
         document.getElementById("fortalezas_div").hidden=false;
         document.getElementById("dificultades_div").hidden=false;
         document.getElementById("prm_dificultad_id").hidden=false;
+        document.getElementById("causas_div").hidden=true;
+        document.getElementById("causas").value=[];
         
     }
 }
@@ -60,16 +67,11 @@ function doc1(valor){
         document.getElementById("dificultadesb_div").hidden=false;
     }
 }
-function doc2(valor) {
-    if (valor == 1022) {
-        document.getElementById("causas_div").hidden=false;
-    } else {
-        document.getElementById("causas_div").hidden=true;
-        document.getElementById("causas").value=[];
-    }
-}
+
 function carga() {
     doc(document.getElementById('prm_estudia_id').value);
+    doc(document.getElementById('prm_rendimiento_id').value);
+    
     
     
 

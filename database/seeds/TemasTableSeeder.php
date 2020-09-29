@@ -844,11 +844,10 @@ class TemasTableSeeder extends Seeder
             32  => $camposmagicos,
             115 => $camposmagicos,
             139 => $camposmagicos,
-            257 => $camposmagicos,
+            571 => $camposmagicos,
             258 => $camposmagicos,
             292 => $camposmagicos,
             293 => $camposmagicos,
-            851 => $camposmagicos,
             1803=> $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 73, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'CONVENCIÓN A']);
@@ -1236,6 +1235,7 @@ class TemasTableSeeder extends Seeder
             634 => $camposmagicos,
             635 => $camposmagicos,
             2217 => $camposmagicos,
+            811 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 116, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'OTRAS ACTIVIDADES']);
         $tema->parametros()->sync([
@@ -3287,7 +3287,7 @@ class TemasTableSeeder extends Seeder
 
         $this->getR([
             'nombrexx' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?',
-            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 2337,2354]
+            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 2337,2354,1726]
         ]); //343
 
         $this->getR([

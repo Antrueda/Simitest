@@ -20,9 +20,9 @@ class CreateHVsiDinfamMadresTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('prm_convive_id')->unsigned();
-            $table->integer('dia')->unsigned();
-            $table->integer('mes')->unsigned();
-            $table->integer('ano')->unsigned();
+            $table->integer('dia')->unsigned()->nullable();;
+            $table->integer('mes')->unsigned()->nullable();;
+            $table->integer('ano')->unsigned()->nullable();;
             $table->integer('hijo')->unsigned();
             $table->bigInteger('prm_separa_id')->unsigned()->nullable();
             $table = CamposMagicos::h_magicos($table);

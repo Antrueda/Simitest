@@ -196,7 +196,7 @@
         </div>
 
         <div class="form-group col-md-6">
-          {{ Form::label('i_primer_responsable', 'Responsable de la actividad', ['class' => 'control-label col-form-label-sm']) }}
+          {{ Form::label('i_primer_responsable', 'Funcionario(A)/Contratista', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::select('i_primer_responsable', $todoxxxx['usuarios'], null, ['class' => $errors->first('i_primer_responsable') ?
                 'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm',
                 'data-placeholder' => 'Seleccione el Responsable de la actividad','id' => 'i_primer_responsable','autofocus']) }}
@@ -208,7 +208,7 @@
         </div>
 
         <div class="form-group col-md-6">
-          {{ Form::label('i_segundo_responsable', 'Segundo responsable', ['class' => 'control-label col-form-label-sm']) }}
+          {{ Form::label('i_segundo_responsable', 'Funcionario(A)/Contratista', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::select('i_segundo_responsable', $todoxxxx['usuarios'], null, ['class' => $errors->first('i_segundo_responsable') ? 'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione el segundo responsable','id' => 'i_segundo_responsable','autofocus']) }}
             @if($errors->has('i_segundo_responsable'))
             <div class="invalid-feedback d-block">

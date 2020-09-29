@@ -155,6 +155,7 @@ class VsiEducacionController extends Controller
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }
+//10.5,10.8,
 
     protected function validator(array $data){
         return Validator::make($data, [
@@ -163,8 +164,8 @@ class VsiEducacionController extends Controller
             'mes' => 'nullable|min:0|max:99',
             'ano' => 'nullable|min:0|max:99',
             'prm_motivo_id' => 'required_if:prm_estudia_id,228',
-            'prm_rendimiento_id' => 'nullable|exists:parametros,id',
-            'prm_dificultad_id' => 'nullable|exists:parametros,id',
+            'prm_rendimiento_id' => 'required_if:prm_dificultad_id,227|exists:parametros,id',
+            'prm_dificultad_id' => 'required_if:prm_dificultad_id,227|exists:parametros,id',
             'prm_leer_id' => 'required_if:prm_dificultad_id,227',
             'prm_escribir_id' => 'required_if:prm_dificultad_id,227',
             'descripcion' => 'required|max:4000',
@@ -172,7 +173,7 @@ class VsiEducacionController extends Controller
             'fortalezas' => 'nullable|array',
             'dificultades' => 'nullable|array',
             'dificultadesa' => 'required_if:prm_dificultad_id,227|array',
-            'dificultadesb' => 'required_if:prm_dificultad_id,227|array',
+            'dificultadesb' => 'nullable|array',
         ]);
     }
 }

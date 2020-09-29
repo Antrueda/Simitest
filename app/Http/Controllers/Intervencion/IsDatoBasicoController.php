@@ -125,7 +125,7 @@ class IsDatoBasicoController extends Controller
             unset($this->opciones['tipatenc']['1066']);
         }
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
-        $this->opciones['usuarios'] = User::combo(true, false);
+        $this->opciones['usuarios'] = User::comboCargo(true, false);
         $this->opciones['tipatenc'] = [];
         $tipatenc = 0;
         if (auth()->user()->can('isintervencion-psicologo')) {

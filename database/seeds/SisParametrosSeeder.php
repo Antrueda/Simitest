@@ -2504,6 +2504,7 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'CLONAZEPAM']);//2464
         $this->getR(['nombrexx' => 'DIC , LADYS O LEYDIS (CLORURO DE METILENO O DICHLOROMETANO)']);//2465
         $this->getR(['nombrexx' => 'CONFLICTO ARMADO INTERNO']);//2466
-        $this->getR(['nombrexx' => 'CON MIEDO)']);//2467
+        $this->getR(['nombrexx' => 'CON MIEDO']);//2467
+    
     }
 }
