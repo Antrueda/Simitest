@@ -228,16 +228,7 @@
 		</div>
 	</div>
 	<div class="col-md">
-		{{ Form::label('prm_riesgo_id', '12.18 Nivel de riesgo', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_riesgo_id', $todoxxxx['riesgosx'], null, ['class' => $errors->first('prm_riesgo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-		@if($errors->has('prm_riesgo_id'))
-			<div class="invalid-feedback d-block">
-				{{ $errors->first('prm_riesgo_id') }}
-			</div>
-		@endif
-	</div>
-	<div class="col-md">
-		{{ Form::label(null, '12.19 ¿Hace cuánto fué el último intento de quitarse la vida?', ['class' => 'control-label col-form-label-sm']) }}
+		{{ Form::label(null, '12.18 ¿Hace cuánto fué el último intento de quitarse la vida?', ['class' => 'control-label col-form-label-sm']) }}
 		<div class="row">
 			<div class="col-md-4">
 				{{ Form::label('dia_ultimo', 'Día(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
@@ -268,6 +259,16 @@
 			</div>
 		</div>
 	</div>
+	<div class="col-md">
+		{{ Form::label('prm_riesgo_id', '12.19 Nivel de riesgo', ['class' => 'control-label col-form-label-sm']) }}
+		{{ Form::select('prm_riesgo_id', $todoxxxx['riesgosx'], null, ['class' => $errors->first('prm_riesgo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+		@if($errors->has('prm_riesgo_id'))
+			<div class="invalid-feedback d-block">
+				{{ $errors->first('prm_riesgo_id') }}
+			</div>
+		@endif
+	</div>
+
 </div>
 <div class="row">
 	<div class="col-md">

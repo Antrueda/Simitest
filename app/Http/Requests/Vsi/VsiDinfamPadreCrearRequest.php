@@ -17,9 +17,9 @@ class VsiDinfamPadreCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'prm_convive_id' => 'required|exists:parametros,id',
-            'dia' => 'required|integer|min:0|max:99',
-            'mes' => 'required|integer|min:0|max:99',
-            'ano' => 'required|integer|min:0|max:99',
+            'dia' => 'nullable|integer|min:0|max:99',
+            'mes' => 'nullable|integer|min:0|max:99',
+            'ano' => 'nullable|integer|min:0|max:99',
             'hijo' => 'required|integer|min:0|max:99',
             'prm_separa_id' => 'nullable|exists:parametros,id',
         ];

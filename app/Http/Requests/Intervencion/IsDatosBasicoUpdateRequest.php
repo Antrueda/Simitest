@@ -34,6 +34,7 @@ class IsDatosBasicoUpdateRequest extends FormRequest
             's_objetivo_sesion' => ['Required'],
             's_desarrollo_sesion' => ['Required'],
             's_conclusiones_sesion' => ['Required'],
+            'i_prm_area_proxima_id' => ['nullable'],
         ];
     }
     /**

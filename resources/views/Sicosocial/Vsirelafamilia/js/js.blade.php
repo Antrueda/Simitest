@@ -63,7 +63,7 @@ function doc3(valor){
         document.getElementById("motivos_div").hidden=true;
         document.getElementById("motivos").value=[];
     } else {
-        document.getElementById("motivos").hidden=false;
+        document.getElementById("motivos_div").hidden=false;
     }
 }
 function carga() {

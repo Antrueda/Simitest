@@ -73,18 +73,14 @@ function doc1(valor){
     if(valor == 228){
         document.getElementById("contextos_div").hidden=true;
         document.getElementById("contextos").value=[];
+        document.getElementById("tipos_div").hidden=true;
+        document.getElementById("tipos").value=[]
     } else {
         document.getElementById("contextos_div").hidden=false;
-    }
-}
-function doc2(valor){
-    if(valor == 228){
-        document.getElementById("tipos_div").hidden=true;
-        document.getElementById("tipos").value=[];
-    } else {
         document.getElementById("tipos_div").hidden=false;
     }
 }
+
 
 function carga() {
     doc(document.getElementById('prm_tip_vio_id').value);

@@ -48,7 +48,7 @@ class CreateHIsDatosBasicosTable extends Migration
             $table->bigInteger('i_prm_area_academica_id')->nullable()->unsigned();
             $table->bigInteger('i_prm_area_social_id')->nullable()->unsigned();
             $table->bigInteger('i_prm_area_familiar_id')->nullable()->unsigned();
-            $table->bigInteger('i_prm_area_proxima_id')->unsigned();
+            $table->bigInteger('i_prm_area_proxima_id')->unsigned()->nullable();
             $table->text('s_observaciones')->nullable();
             $table->date('d_fecha_proxima')->nullable();
             $table->bigInteger('i_primer_responsable')->unsigned();

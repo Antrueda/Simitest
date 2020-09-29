@@ -1824,7 +1824,7 @@ class TemasTableSeeder extends Seeder
             960 => $camposmagicos,
             961 => $camposmagicos,
             962 => $camposmagicos,
-            988 => $camposmagicos,
+            
 
         ]);
         $tema = Tema::create(['id' => 175, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'CÓMO ES LA RELACIÓN CON SU FAMILIA? VI']);

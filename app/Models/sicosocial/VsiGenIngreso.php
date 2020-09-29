@@ -40,7 +40,7 @@ class VsiGenIngreso extends Model{
     public function periodo(){
         return $this->belongsTo(Parametro::class, 'prm_periodo_id');
     }
-    public function prm_jornada_id(){
+    public function prm_jornada(){
         return $this->belongsTo(Parametro::class, 'prm_jornada_id');
     }
     public function jorEntre(){
