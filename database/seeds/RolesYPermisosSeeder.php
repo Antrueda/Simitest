@@ -63,10 +63,15 @@ class RolesYPermisosSeeder extends Seeder
 
 
         /**
-         * cabio de contraseña
+         * cambio de contraseña
          */
 
         $this->getPermisos(['permisox' => 'contrase', 'permisos' => ['editar'], 'compleme' => 'cambiar contraseña', 'pestania' => 1]);
+
+        /**
+         * acuerdo de confidencialidad
+         */
+        $this->getPermisos(['permisox' => 'acuerdo', 'permisos' => ['editar'], 'compleme' => 'Acuerdo de confidencialidad', 'pestania' => 1]);
         /** Crea permisos para cargos */
         $this->getPermisos(['permisox' => 'siscargo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'cargo', 'pestania' => 1]);
         // crear permisos persona

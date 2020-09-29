@@ -28,6 +28,14 @@ Route::group(['prefix' => 'usuario'], function () use ($controll, $routexxx) {
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
+    Route::get('acuerdo/{objetoxx}', [
+        'uses' => $controll . 'Controller@eacuerdo',
+        'middleware' => ['permission:' . $routexxx . '-acuerdo']
+    ])->name($routexxx . '.acuerdo');
+    Route::put('acuerdo/{objetoxx}', [
+        'uses' => $controll . 'Controller@uacuerdo',
+        'middleware' => ['permission:' . $routexxx . '-acuerdo']
+    ])->name($routexxx . '.acuerdo');
     Route::get('ver/{objetoxx}', [
         'uses' => $controll . 'Controller@show',
         'middleware' => ['permission:' . $routexxx . '-leer']
@@ -121,3 +129,4 @@ require_once('web_area_user.php');
 require_once('web_depe_user.php');
 require_once('web_role_user.php');
 require_once('web_contrasenia_user.php');
+require_once('web_acuerdo_user.php');

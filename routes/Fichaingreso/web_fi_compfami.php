@@ -57,5 +57,9 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
     Route::get('depamuni', [
 		'uses' => $controll.'Controller@getDepaMuni',
 		'middleware' => ['permission:'.$routexxx.'-leer']
-	])->name($routexxx.'.depamuni');
+    ])->name($routexxx.'.depamuni');
+    Route::get('cafecnac', [
+        'uses' => $controll . 'Controller@getFechaNacimiento',
+        'middleware' => ['permission:' . $routexxx . '-borrar']
+    ])->name($routexxx . '.cafecnac');
 });

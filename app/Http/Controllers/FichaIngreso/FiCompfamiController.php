@@ -372,4 +372,15 @@ class FiCompfamiController extends Controller
             return response()->json($respuest);
         }
     }
+    public function getFechaNacimiento(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = ['fechaxxx'=>'', 'edadxxxx'=>''];
+            if (is_numeric($request->padrexxx)) {
+                $fechaxxx = explode('-', date('Y-m-d'));
+                $respuest = ['fechaxxx'=>($fechaxxx[0] - $request->padrexxx) . '-' . $fechaxxx[1] . '-' . $fechaxxx[2], 'edadxxxx'=>$request->padrexxx];
+            }
+            return response()->json($respuest);
+        }
+    }
 }

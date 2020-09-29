@@ -196,7 +196,7 @@
                $('#aniosxxx').val(json.edadxxxx)
             },
             error: function(xhr, status) {
-                alert('Disculpe, existió un problema');
+                alert('Disculpe, existió un problema al calcular la fecha de nacimiento');
             },
         });
     });

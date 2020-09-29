@@ -31,6 +31,11 @@
         text-sm" href="{{ route('contrase.cambiar', $todoxxxx['parametr']) }}">CAMBIO DE CONTRASE&Nacute;A</a></li>
             @endcanany
 
+            @canany(['acuerdo-editar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='acuerdo') ?' active' : '' }}
+        text-sm" href="{{ route('acuerdo.editar', $todoxxxx['parametr']) }}">ACUERDO DE CONFIDENCIALIDAD</a></li>
+            @endcanany
+
 
             @endif
         </ul>
@@ -53,6 +58,9 @@
                 @endif
                 @if(isset($contrase))
                 {{ $contrase }}
+                @endif
+                @if(isset($acuerdo))
+                {{ $acuerdo }}
                 @endif
             </div>
         </div>

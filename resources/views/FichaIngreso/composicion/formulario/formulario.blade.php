@@ -35,9 +35,10 @@
         {{ Form::label('d_nacimiento', '1.4 Fecha de Nacimiento', ['class' => 'control-label']) }}
         {{ Form::text('d_nacimiento', null, ['class' => 'form-control form-control-sm','readonly']) }}
     </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('aniosxxx', 'Edad (Años)', ['class' => 'control-label']) }}
-        <div id="aniosxxx" class="form-control form-control-sm">{{ $todoxxxx['aniosxxx'] }}</div>
+    <div class="form-group col-md-4" id="edadxxxx">
+        {{ Form::label('aniosxxx', '1.5 Edad (Años)', ['class' => 'control-label']) }}
+        {{ Form::number('aniosxxx', null, ['class' => $errors->first('aniosxxx') ?
+    'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0', 'max' => '100','id'=>'aniosxxx']) }}
     </div>
 
     <div class="form-group col-md-4">

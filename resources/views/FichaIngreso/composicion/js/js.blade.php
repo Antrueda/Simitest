@@ -80,7 +80,23 @@
 
         });
 
-
+        $('#edadxxxx').on('change keyup','#aniosxxx',function(){
+        $.ajax({
+            url: "{{ route($todoxxxx['routxxxx'].'.cafecnac',$todoxxxx['parametr']) }}",
+            data: {
+                'padrexxx': $(this).val()
+            },
+            type: 'GET',
+            dataType: 'json',
+            success: function(json) {
+               $('#d_nacimiento').val(json.fechaxxx)
+               $('#aniosxxx').val(json.edadxxxx)
+            },
+            error: function(xhr, status) {
+                alert('Disculpe, existió un problema al calcular la fecha de nacimiento');
+            },
+        });
+    });
     });
 
     function soloLetras(e) {

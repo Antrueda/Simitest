@@ -16,7 +16,7 @@ class FiCompfamiUpdateRequest extends FormRequest
             'i_prm_ocupacion_id.required' => 'Seleccione la acupación del componente familiar',
             'i_prm_vinculado_idipron_id.required' => 'Indique si estuvo vinculado',
             'i_prm_convive_nnaj_id.required' => 'Indique si convive con el nnaj',
-            'd_nacimiento.required' => 'Seleccione la fecha de nacimiento',
+            'd_nacimiento.required' => 'Seleccione una fecha de nacimiento o digite la edad',
             'prm_reprlega_id.required' => 'Indique si es el representante legal',
             's_telefono.required' => 'Ingrese un número de teléfono',
             's_documento.required'=> 'Ingrese el número de documento',

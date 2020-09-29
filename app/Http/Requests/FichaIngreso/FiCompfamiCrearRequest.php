@@ -20,6 +20,7 @@ class FiCompfamiCrearRequest extends FormRequest
             'i_prm_vinculado_idipron_id.required' => 'Indique si estuvo vinculado',
             'i_prm_convive_nnaj_id.required' => 'Indique si convive con el nnaj',
             'prm_reprlega_id.required' => 'Indique si es el representante legal',
+            'd_nacimiento.required' => 'Seleccione una fecha de nacimiento o digite la edad',
             's_telefono.required' => 'Ingrese un número de teléfono',
             's_documento.required' => 'Ingrese el número de documento',
             'sis_municipio_id.required' => 'Seleccione un municipio',

@@ -148,6 +148,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(SisDepen::class)->withTimestamps();
     }
+
+    public function prm_tipodocu()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_documento_id');
+    }
     public function vinculacion()
     {
         return $this->belongsTo(Parametro::class, 'prm_tvinculacion_id');
