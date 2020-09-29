@@ -97,7 +97,52 @@
             },
         });
     });
+
+    var f_nadocume=function(dataxxxx){
+        $.ajax({
+            url: "{{ route($todoxxxx['routxxxx'].'.nadocume',$todoxxxx['parametr']) }}",
+            data: dataxxxx.dataxxxx,
+            type: 'GET',
+            dataType: 'json',
+            success: function(json) {
+                if(json.tipoxxxx){
+                    $('#'+json.campoxxx+',#'+json.departam[0]).empty();
+                    $(json.changesx).val(json.valuexxx);
+                    $(json.changesx).trigger("change");
+                    $.each(json.comboxxx,function(i,data){
+                        var selected='';
+                        if(data.valuexxx==dataxxxx.selected){
+                            selected='selected';
+                        }
+                        $('#'+json.campoxxx).append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>');
+                    });
+
+                }
+                $("#"+json.document).prop('readonly', json.readonly);
+                $("#"+json.document).val(json.cedulaxx);
+                $.each(json.departam[1],function(i,data){
+                    var selected='';
+                    if(data.valuexxx==dataxxxx.selected){
+                        selected='selected';
+                    }
+                    $('#'+json.departam[0]).append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>');
+                });
+
+            },
+            error: function(xhr, status) {
+                alert('Disculpe, existió un problema al calcular el número de documento');
+            },
+        });
+    }
+
+    $('#i_prm_parentesco_id').change(function(){
+        f_nadocume({dataxxxx:{padrexxx:$(this).val(),tipoxxxx:1},selected:''});
     });
+    $('#prm_tipodocu_id').change(function(){
+        f_nadocume({dataxxxx:{padrexxx:$(this).val(),tipoxxxx:2},selected:''});
+    });
+
+});
 
     function soloLetras(e) {
     key = e.keyCode || e.which;

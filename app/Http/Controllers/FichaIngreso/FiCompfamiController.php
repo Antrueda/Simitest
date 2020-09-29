@@ -41,7 +41,7 @@ class FiCompfamiController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
-        $this->opciones['parentes'] = Tema::combo(66, true, false);
+        $this->opciones['parentes'] = Tema::combo(358, true, false);
         $this->opciones['tipotele'] = Tema::combo(44, true, false);
         $this->opciones['vinculad'] = Tema::combo(287, true, false);
         $this->opciones['convivex'] = Tema::combo(23, true, false);
@@ -363,7 +363,7 @@ class FiCompfamiController extends Controller
                     break;
                 case 'sis_pai_id':
                     $comboxxx = [['valuexxx' => 1, 'optionxx' => 'NO APLICA']];
-                    if ($dataxxxx['padrexxx'] == 2) {
+                    if ($dataxxxx['padrexxx'] == 2 || $dataxxxx['padrexxx'] == '') {
                         $comboxxx = SisDepartamento::combo($dataxxxx['padrexxx'], true);
                     }
                     $respuest = ['comboxxx' => $comboxxx, 'campoxxx' => 'sis_departamento_id', 'limpiarx' => '#sis_departamento_id,#sis_municipio_id'];
@@ -375,10 +375,35 @@ class FiCompfamiController extends Controller
     public function getFechaNacimiento(Request $request)
     {
         if ($request->ajax()) {
-            $respuest = ['fechaxxx'=>'', 'edadxxxx'=>''];
+            $respuest = ['fechaxxx' => '', 'edadxxxx' => ''];
             if (is_numeric($request->padrexxx)) {
                 $fechaxxx = explode('-', date('Y-m-d'));
-                $respuest = ['fechaxxx'=>($fechaxxx[0] - $request->padrexxx) . '-' . $fechaxxx[1] . '-' . $fechaxxx[2], 'edadxxxx'=>$request->padrexxx];
+                $respuest = ['fechaxxx' => ($fechaxxx[0] - $request->padrexxx) . '-' . $fechaxxx[1] . '-' . $fechaxxx[2], 'edadxxxx' => $request->padrexxx];
+            }
+            return response()->json($respuest);
+        }
+    }
+    public function getNADocumento(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [
+                'campoxxx' => 'prm_documento_id',
+                'comboxxx' => Tema::combo(3, true, true),
+                'cedulaxx' => '',
+                'readonly' => false,
+                'document' => 's_documento',
+                'tipoxxxx' => $request->tipoxxxx == 1 ? true : false,
+                'changesx' => '#sis_pai_id',
+                'valuexxx' => '',
+                'departam' => ['sis_departamento_id', [['valuexxx' => '', 'optionxx' => 'Seleccione']]],
+            ];
+            if ($request->padrexxx == 800 || $request->padrexxx == 1594 || $request->padrexxx == 145) {
+                $fechaxxx = str_replace([" ", '-', ':'], "", date('Y-m-d H:m:s'));
+                $respuest['comboxxx'] = [['valuexxx' => 145, 'optionxx' => 'SIN IDENTIFICACION']];
+                $respuest['readonly'] = true;
+                $respuest['changesx'] = '#sis_pai_id,#sis_departamento_id';
+                $respuest['valuexxx'] = 1;
+                $respuest['cedulaxx'] = $fechaxxx;
             }
             return response()->json($respuest);
         }

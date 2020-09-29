@@ -60,6 +60,10 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
     ])->name($routexxx.'.depamuni');
     Route::get('cafecnac', [
         'uses' => $controll . 'Controller@getFechaNacimiento',
-        'middleware' => ['permission:' . $routexxx . '-borrar']
+        'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.cafecnac');
+    Route::get('nadocume', [
+        'uses' => $controll . 'Controller@getNADocumento',
+        'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.nadocume');
 });

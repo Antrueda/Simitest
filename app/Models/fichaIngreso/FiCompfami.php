@@ -66,7 +66,6 @@ class FiCompfami extends Model
     public static function transaccion($dataxxxx,  $objetoxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-
             $dataxxxx['prm_tipodocu_id'] = $dataxxxx['prm_documento_id'];
             $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
             $dt = new DateTime($dataxxxx['d_nacimiento']);
@@ -76,7 +75,6 @@ class FiCompfami extends Model
                 $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,$objetoxx);
                 $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
                 $objetoxx->update($dataxxxx);
-
             } else {
                 $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,'');
                 $dataxxxx['user_crea_id'] = Auth::user()->id;

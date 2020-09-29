@@ -86,6 +86,13 @@ class FiRazoneController extends Controller
             }
         }
 
+        if(!isset($dependen->user->id)){
+            return redirect()
+            ->route('fidatbas.editar', [
+                $dataxxxx['padrexxx']->id
+            ])
+            ->with('info', 'La upi al NNAJ no tiene un responsable, por favor comunicarse con el administrador del sistema');
+        }
         $this->opciones['depedile'] = [];
         $this->opciones['usuarioz'] = [$dependen->user->id=>$dependen->user->name];
         $this->opciones['deperesp'] = User::getAreasUser(['cabecera'=>true,'esajaxxx'=>false]);
