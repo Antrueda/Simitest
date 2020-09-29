@@ -210,7 +210,7 @@
             </div>
         @endif
         {{ Form::label('labores', '9.14. Labor que desempeña para conseguir los ingresos', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('labores[]', $todoxxxx['activida'], null, ['class' => $errors->first('labores') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'labores', 'multiple']) }}
+        {{ Form::select('labores[]', $todoxxxx['actividx'], null, ['class' => $errors->first('labores') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'labores', 'multiple']) }}
         @if($errors->has('labores'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('labores') }}

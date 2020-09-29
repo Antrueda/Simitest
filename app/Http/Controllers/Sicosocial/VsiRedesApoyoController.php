@@ -147,8 +147,8 @@ class VsiRedesApoyoController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'vsi_redsoc_pasados.id'],
-                    ['data' => 'servicio', 'name' => 'vsi_redsoc_pasados.servicio'],
                     ['data' => 'nombre', 'name' => 'vsi_redsoc_pasados.nombre'],
+                    ['data' => 'servicio', 'name' => 'vsi_redsoc_pasados.servicio'],
                     ['data' => 'dia', 'name' => 'vsi_redsoc_pasados.dia'],
                     ['data' => 'mes', 'name' => 'vsi_redsoc_pasados.mes'],
                     ['data' => 'ano', 'name' => 'vsi_redsoc_pasados.ano'],

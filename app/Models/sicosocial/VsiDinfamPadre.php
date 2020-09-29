@@ -34,18 +34,19 @@ class VsiDinfamPadre extends Model{
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-    public static function transaccion($dataxxxx,  $objetoxx)
+    public static function transaccion($dataxxxx)
     {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-        $dataxxxx['user_edita_id'] = Auth::user()->id;
-        if ($objetoxx != '') {
-            $objetoxx->update($dataxxxx);
-        } else {
-            $dataxxxx['user_crea_id'] = Auth::user()->id;
-            $objetoxx = VsiDinfamPadre::create($dataxxxx);
-        }
-        return $objetoxx;
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+
+            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            if ($dataxxxx['modeloxx'] != '') {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['modeloxx'] = VsiDinfamPadre::create($dataxxxx['requestx']->all());
+            }
+            return $dataxxxx['modeloxx'];
         }, 5);
-        return $usuariox;
+        return $objetoxx;
     }
 }

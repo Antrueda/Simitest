@@ -70,7 +70,7 @@ function doc(valor){
 }
 
 function doc1(valor){
-    if(valor == 228){
+    if(valor == 228 && document.getElementById('prm_dis_ori_id').value == 228){
         document.getElementById("contextos_div").hidden=true;
         document.getElementById("contextos").value=[];
         document.getElementById("tipos_div").hidden=true;
@@ -80,6 +80,22 @@ function doc1(valor){
         document.getElementById("tipos_div").hidden=false;
     }
 }
+
+
+function doc2(valor){
+    if(valor == 228 && document.getElementById('prm_dis_gen_id').value == 228){
+        document.getElementById("contextos_div").hidden=true;
+        document.getElementById("contextos").value=[];
+        document.getElementById("tipos_div").hidden=true;
+        document.getElementById("tipos").value=[]
+          
+    } else {
+        document.getElementById("contextos_div").hidden=false;
+        document.getElementById("tipos_div").hidden=false;
+        
+    }
+}
+
 
 
 function carga() {

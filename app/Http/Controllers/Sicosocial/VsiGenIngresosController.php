@@ -55,7 +55,8 @@ class VsiGenIngresosController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
        
-        $this->opciones['activida'] = Tema::combo(114, TRUE, false);
+        $this->opciones['activida'] = Tema::combo(114, true, false);
+        $this->opciones['actividx'] = Tema::combo(114, false, false);
         $this->opciones['informal'] = Tema::combo(115, TRUE, false);
         $this->opciones['otrosxxx'] = Tema::combo(116, TRUE, false);
         $this->opciones['ningunax'] = Tema::combo(122, TRUE, false);

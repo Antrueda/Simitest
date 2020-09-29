@@ -3253,12 +3253,12 @@ class TemasTableSeeder extends Seeder
 
         $this->getR([
             'nombrexx' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?',
-            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 2337, 2354,1726]
+            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 2337, 2354]
         ]); //343
 
         $this->getR([
             'nombrexx' => '¿POR LAS ACCIONES EN LAS CUALES PRESUNTAMENTE ESTA EN CONFLICTO CON LA LEY HA ACTUADO EN?',
-            'parametr' => [2338, 2339, 2340, 2341, 2342, 2343]
+            'parametr' => [2338, 2339, 2340, 2341, 2342, 2343,1726]
         ]); //344
         $this->getR([
             'nombrexx' => '12.1 ¿Presenta algún tipo de violencia?',

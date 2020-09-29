@@ -102,7 +102,7 @@
 <div class="row">
 	<div class="col-md-2">
 		{{ Form::label('prm_embarazo_id', '11.2.4 ¿Ha tenido embarazos?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_embarazo_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_embarazo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc3(this.value)']) }}
+		{{ Form::select('prm_embarazo_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_embarazo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc4(this.value)']) }}
 		@if($errors->has('prm_embarazo_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_embarazo_id') }}
@@ -120,7 +120,7 @@
 	</div>
 	<div class="col-md-2">
 		{{ Form::label('prm_hijo_id', '11.2.6 ¿Tiene hijos?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_hijo_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_hijo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc4(this.value)']) }}
+		{{ Form::select('prm_hijo_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_hijo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc5(this.value)']) }}
 		@if($errors->has('prm_hijo_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_hijo_id') }}
@@ -138,7 +138,7 @@
 	</div>
 	<div class="col-md-2">
 		{{ Form::label('prm_interrupcion_id', '11.2.8 ¿Ha presentado interrupción del embarazo?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_interrupcion_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_interrupcion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc5(this.value)']) }}
+		{{ Form::select('prm_interrupcion_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_interrupcion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc6(this.value)']) }}
 		@if($errors->has('prm_interrupcion_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_interrupcion_id') }}

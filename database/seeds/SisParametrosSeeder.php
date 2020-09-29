@@ -829,7 +829,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 808, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ACOMPAÑANTE']);
         Parametro::create(['id' => 809, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COMPAÑERO/A']);
         Parametro::create(['id' => 810, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NO FAMILIAR']);
-        Parametro::create(['id' => 811, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SERVICIOS DOMÉSTICOS']);
+        Parametro::create(['id' => 811, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SERVICIO DOMÉSTICOS']);
         Parametro::create(['id' => 812, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'HOGAR']);
         Parametro::create(['id' => 813, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'POR CONDICIÓN']);
         Parametro::create(['id' => 814, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'POR OPCIÓN']);

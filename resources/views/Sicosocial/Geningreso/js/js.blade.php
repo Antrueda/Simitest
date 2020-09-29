@@ -59,6 +59,10 @@ function doc(valor){
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
         document.getElementById("prm_jornada_id").hidden=false;
+        document.getElementById("expectativa").value=[];
+        document.getElementById("quienes").value=[];
+        document.getElementById("labores").value=[];
+        document.getElementById("descripcion").value=[];
         
     }
     if(valor == 627) {
@@ -76,6 +80,10 @@ function doc(valor){
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
         document.getElementById("prm_jornada_id").hidden=false;
+        document.getElementById("expectativa").value=[];
+        document.getElementById("quienes").value=[];
+        document.getElementById("labores").value=[];
+        document.getElementById("descripcion").value=[];
         
     }
     if(valor == 628) {
@@ -93,6 +101,10 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
+        document.getElementById("expectativa").value=[];
+        document.getElementById("quienes").value=[];
+        document.getElementById("labores").value=[];
+        document.getElementById("descripcion").value=[];
         
     }
     if(valor == 853) {
@@ -110,6 +122,10 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=true;
         document.getElementById("prm_aporta_id").hidden=true;
+        document.getElementById("expectativa").value=[];
+        document.getElementById("quienes").value=[];
+        document.getElementById("labores").value=[];
+        document.getElementById("descripcion").value=[];
         
         
     }

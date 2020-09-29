@@ -63,9 +63,10 @@ class VsiDinfamPadreController extends Controller
         ];
     }
 
-    public function index(Request $request)
+    public function index(Request $request,$padrexxx)
     {
         if ($request->ajax()) {
+            $request->padrexxx = $padrexxx;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.botones.botonesapi';
@@ -140,10 +141,9 @@ class VsiDinfamPadreController extends Controller
      */
     public function store(VsiDinfamPadreCrearRequest $request, $padrexxx)
     {
-        $dataxxxx = $request->all();
-        $dataxxxx['vsi_id'] = $padrexxx;
+        $request->request->add(['vsi_id' => $padrexxx]);
         return $this->grabar([
-            'dataxxxx' => $dataxxxx,
+            'requestx' => $request,
             'modeloxx' => '',
             'menssage' => 'Registro creado con éxito'
         ]);
@@ -181,7 +181,7 @@ class VsiDinfamPadreController extends Controller
     private function grabar($dataxxxx)
     {
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [VsiDinfamPadre::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [VsiDinfamPadre::transaccion($dataxxxx)->id])
             ->with('info', $dataxxxx['menssage']);
     }
 

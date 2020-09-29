@@ -10,7 +10,8 @@
               ['td' => 'TIPO DE ATENCIÓN'],
               ['td' => 'FECHA'],
               ['td' => 'UPI'],
-              ['td' => 'RESPONSABLE'],
+              ['td' => 'NOMBRE DEL RESPONSABLE'],
+              ['td' => 'APELLIDO DEL RESPONSABLE'],
               ['td' => 'ESTADO'],
           ];
 
@@ -21,6 +22,7 @@
               ['data' => 'd_fecha_diligencia', 'name' => 'd_fecha_diligencia'],
               ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
               ['data' => 's_primer_nombre', 'name' => 'users.s_primer_nombre'],
+              ['data' => 's_primer_apellido', 'name' => 'users.s_primer_apellido'],
               ['data' => 'sis_esta_id', 'name' => 'is_datos_basicos.sis_esta_id'],
           ];
           $todoxxxx['tablname'] = 'tbintervenciones';

@@ -98,7 +98,7 @@ trait VsiTrait
             'sis_estas.s_estado'
         ])
             ->join('parametros as convive', 'vsi_dinfam_padres.prm_convive_id', '=', 'convive.id')
-            ->join('parametros as separado', 'vsi_dinfam_padres.prm_separa_id', '=', 'separado.id')
+            ->leftJoin('parametros as separado', 'vsi_dinfam_padres.prm_separa_id', '=', 'separado.id')
             ->join('sis_estas', 'vsi_dinfam_padres.sis_esta_id', '=', 'sis_estas.id')
             ->where('vsi_dinfam_padres.vsi_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
@@ -118,7 +118,7 @@ trait VsiTrait
             'sis_estas.s_estado'
         ])
             ->join('parametros as convive', 'vsi_dinfam_madres.prm_convive_id', '=', 'convive.id')
-            ->join('parametros as separado', 'vsi_dinfam_madres.prm_separa_id', '=', 'separado.id')
+            ->leftJoin('parametros as separado', 'vsi_dinfam_madres.prm_separa_id', '=', 'separado.id')
             ->join('sis_estas', 'vsi_dinfam_madres.sis_esta_id', '=', 'sis_estas.id')
             ->where('vsi_dinfam_madres.vsi_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);

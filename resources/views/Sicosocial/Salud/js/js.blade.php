@@ -69,6 +69,31 @@ function doc3(valor) {
         document.getElementById("interrupcion").hidden=true;
     }
 }
+
+function doc4(valor) {
+    if (valor == 227) {
+        document.getElementById("embarazo").hidden=false;
+    } else {
+        document.getElementById("embarazo").hidden=true;
+    }
+}
+
+
+function doc5(valor) {
+    if (valor == 227) {
+        document.getElementById("hijo").hidden=false;
+    } else {
+        document.getElementById("hijo").hidden=true;
+    }
+}
+
+function doc6(valor) {
+    if (valor == 227) {
+        document.getElementById("interrupcion").hidden=false;
+    } else {
+        document.getElementById("interrupcion").hidden=true;
+    }
+}
 function carga() {
     doc(document.getElementById('prm_atencion_id').value);
     doc1(document.getElementById('prm_medicamento_id').value);
