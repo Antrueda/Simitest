@@ -24,7 +24,7 @@ class EstusuarioController extends Controller
             'permisox' => 'estausua',
             'parametr' => [],
             'rutacarp' => 'administracion.Estados.',
-            'tituloxx' => 'ESTADOS USUARIO',
+            'tituloxx' => 'JUSTIFICACIONES',
             'carpetax' => 'Estusuario',
             'slotxxxx' => 'estausua',
             'tablaxxx' => 'datatable',
@@ -73,8 +73,8 @@ class EstusuarioController extends Controller
         $this->opciones['rowscols'] = 'rowspancolspan';
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR MOTIVO ESTADO',
-                'titulist' => 'LISTA DE MOTIVOS ESTADO',
+                'titunuev' => 'CREAR JUSTIFICACION',
+                'titulist' => 'LISTA DE JUSTIFICACIONES',
                 'dataxxxx' => [],
                 'vercrear' => true,
                 'urlxxxxx' => route('estausua.estadosx', $this->opciones['parametr']),
@@ -82,7 +82,8 @@ class EstusuarioController extends Controller
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'MOTIVO (ESTADO)', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'JUSTIFICACION', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FORMULARIO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ],
 
@@ -92,6 +93,7 @@ class EstusuarioController extends Controller
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'estusuarios.id'],
                     ['data' => 'estado', 'name' => 'estusuarios.estado'],
+                    ['data' => 'nombre', 'name' => 'parametros.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

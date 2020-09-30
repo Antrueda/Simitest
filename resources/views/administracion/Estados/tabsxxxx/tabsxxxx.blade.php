@@ -7,7 +7,7 @@
 
             @canany(['estausua-leer', 'estausua-crear', 'estausua-editar', 'estausua-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='estausua') ?' active' : '' }}
-        text-sm" href="{{ route('estausua') }}">MOTIVOS (ESTADO)</a></li>
+        text-sm" href="{{ route('estausua') }}">JUSTIFICACIONES (ESTADO)</a></li>
 
 @endcanany
 

@@ -36,7 +36,7 @@
          <li class="nav-item">
              <a href="{{ route('estausua') }}" class="nav-link">
                  <i class="fas fa-door-open nav-icon"></i>
-                 <p>Motivos (Estado)</p>
+                 <p>Jusstificaciones (Estado)</p>
              </a>
          </li>
          @endcan

@@ -18,9 +18,11 @@ trait EstadosTrait
         $dataxxxx =  Estusuario::select([
             'estusuarios.id',
             'estusuarios.estado',
-            'sis_esta_id',
+            'estusuarios.sis_esta_id',
+            'parametros.nombre',
             'sis_estas.s_estado'
         ])
+        ->join('parametros', 'estusuarios.prm_formular_id', '=', 'parametros.id')
             ->join('sis_estas', 'estusuarios.sis_esta_id', '=', 'sis_estas.id');
         return $this->getDtGeneral($dataxxxx, $request);
     }
