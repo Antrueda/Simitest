@@ -57,7 +57,7 @@ class VsiAbuSexualController extends Controller
         $this->opciones['familiar'] = Tema::combo(66, true, false);
         $this->opciones['eventoxx'] = Tema::combo(202, true, false);
         $this->opciones['sexualxx'] = Tema::combo(203, true, false);
-        $this->opciones['estadosx'] = Tema::combo(204, false, false);
+        $this->opciones['estadosx'] = Tema::combo(204, true, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;

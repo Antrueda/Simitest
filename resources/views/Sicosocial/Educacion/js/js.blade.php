@@ -36,8 +36,7 @@ function doc(valor){
         document.getElementById("prm_dificultad_id").hidden=true;
         document.getElementById("prm_dificultad_id").value=[];
         document.getElementById("causas_div").hidden=false;
-        
-             
+    
         
     } else {
         document.getElementById("dia").hidden=true;
@@ -71,6 +70,7 @@ function doc1(valor){
 function carga() {
     doc(document.getElementById('prm_estudia_id').value);
     doc(document.getElementById('prm_rendimiento_id').value);
+    doc(document.getElementById('causas').value);
     
     
     

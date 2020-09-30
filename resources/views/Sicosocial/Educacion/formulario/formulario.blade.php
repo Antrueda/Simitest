@@ -66,7 +66,7 @@
 <div class="row">
 	<div class="col-md-3">
 		{{ Form::label('prm_rendimiento_id', '10.5 ¿Cómo ha sido su rendimiento académico hasta el momento?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_rendimiento_id', $todoxxxx['rendimie'], null, ['class' => $errors->first('prm_rendimiento_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+		{{ Form::select('prm_rendimiento_id', $todoxxxx['rendimie'], null, ['class' => $errors->first('prm_rendimiento_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'prm_rendimiento_id',]) }}
 		@if($errors->has('prm_rendimiento_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_rendimiento_id') }}

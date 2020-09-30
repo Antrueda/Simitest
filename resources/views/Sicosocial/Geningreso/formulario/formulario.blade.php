@@ -134,7 +134,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_frecuencia_id', '9.8. ¿Con qué frecuencia recibe el ingreso por la actividad?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_frecuencia_id', $todoxxxx['frecuenc'], null, ['class' => $errors->first('prm_frecuencia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_frecuencia_id', $todoxxxx['frecuenc'], null, ['class' => $errors->first('prm_frecuencia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id' => 'prm_frecuencia_id']) }}
         @if($errors->has('prm_frecuencia_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_frecuencia_id') }}
@@ -145,7 +145,7 @@
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_laboral_id', '9.9. ¿Tipo de relación laboral?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_laboral_id', $todoxxxx['laboralx'], null, ['class' => $errors->first('prm_laboral_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_laboral_id', $todoxxxx['laboralx'], null, ['class' => $errors->first('prm_laboral_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id' => 'prm_laboral_id']) }}
         @if($errors->has('prm_laboral_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_laboral_id') }}
@@ -154,7 +154,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('aporte', '9.10. Total de aportes mensuales al hogar', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('aporte', null, ['class' => $errors->first('aporte') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0']) }}
+        {{ Form::number('aporte', null, ['class' => $errors->first('aporte') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0','id' => 'aporte']) }}
         @if($errors->has('aporte'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('aporte') }}
@@ -163,7 +163,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_aporta_id', '9.11. ¿En el hogar usted realiza algún aporte mensual?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_aporta_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_aporta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
+        {{ Form::select('prm_aporta_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_aporta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)','id' => 'prm_aporta_id']) }}
         @if($errors->has('prm_aporta_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_aporta_id') }}
@@ -172,7 +172,7 @@
         <div class="row">
             <div class="col-md-6">
                 {{ Form::label('porque', '¿Porqué?:', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::text('porque', null, ['class' => $errors->first('porque') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Porqué', 'maxlength' => '120', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
+                {{ Form::text('porque', null, ['class' => $errors->first('porque') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id' => 'porque', 'placeholder' => 'Porqué', 'maxlength' => '120', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
                 @if($errors->has('porque'))
                     <div class="invalid-feedback d-block">
                         {{ $errors->first('porque') }}
@@ -181,7 +181,7 @@
             </div>
             <div class="col-md-6">
                 {{ Form::label('cuanto_aporta', '¿Cuánto?', ['class' => 'control-label col-form-label-sm']) }}
-                {{ Form::number('cuanto_aporta', null, ['class' => $errors->first('cuanto_aporta') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0']) }}
+                {{ Form::number('cuanto_aporta', null, ['class' => $errors->first('cuanto_aporta') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0','id' => 'cuanto_aporta']) }}
                 @if($errors->has('cuanto_aporta'))
                     <div class="invalid-feedback d-block">
                         {{ $errors->first('cuanto_aporta') }}
@@ -194,7 +194,7 @@
 <div class="row">
     <div class="col-md">
         {{ Form::label('expectativa', '9.12. Describa las expectativas de el/la Joven a nivel laboral y/o económico:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::textarea('expectativa', null, ['class' => $errors->first('expectativa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Expectativas', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        {{ Form::textarea('expectativa', null, ['class' => $errors->first('expectativa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id' => 'expectativa', 'placeholder' => 'Expectativas', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('expectativa'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('expectativa') }}
@@ -219,7 +219,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('descripcion', '9.15. Descripción:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'descripcion','placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('descripcion'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('descripcion') }}
