@@ -34,6 +34,7 @@ use App\Models\Sistema\SisEp;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
+use App\Models\Usuario\Estusuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -65,7 +66,7 @@ class AjaxxController extends Controller
     private function getEdad($fechaxxx)
     {
         if ($fechaxxx['opcionxx'] == 2) {
-            $nacimien=FiDatosBasico::where('sis_nnaj_id',$fechaxxx['padrexxx'])->first()->nnaj_nacimi;
+            $nacimien = FiDatosBasico::where('sis_nnaj_id', $fechaxxx['padrexxx'])->first()->nnaj_nacimi;
             $fechaxxx = explode('-', $nacimien->d_nacimiento);
         } else {
             $fechaxxx = explode('-', $fechaxxx['fechaxxx']);
@@ -293,7 +294,7 @@ class AjaxxController extends Controller
                     ]];
                     break;
             }
-            $respuest['enquedia']=Tema::combo(124, false, true);
+            $respuest['enquedia'] = Tema::combo(124, false, true);
             return response()->json($respuest);
         }
     }
@@ -1067,6 +1068,25 @@ class AjaxxController extends Controller
                     break;
             }
             return response()->json($respuest);
+        }
+    }
+    /**
+     * Justificaciones de los registros
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function getJustificaciones(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => $request->formular
+                ])
+            );
         }
     }
 }

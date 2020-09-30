@@ -55,7 +55,7 @@ class VsiDinFamiliarController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-    
+
         $this->opciones['sinoxxxx'] = Tema::combo(23, false, false);
         $this->opciones['familiax'] = Tema::combo(98, true, false);
         $this->opciones['hogarxxx'] = Tema::combo(99, true, false);
@@ -68,7 +68,7 @@ class VsiDinFamiliarController extends Controller
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $this->opciones['archivox']='';
         $vercrear = false;
-        
+
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $vercrear =true;
@@ -90,7 +90,7 @@ class VsiDinFamiliarController extends Controller
                 'titunuev' => 'CREAR RELACION',
                 'titulist' => 'LISTA DE RELACIONES DEL PROGENITOR',
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
-                'relacion' => '5.2.1 Relaciones de la progenitor (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
+                'relacion' => '5.2.1 Relaciones de la progenitora (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
                 'accitabl' => true,
                 'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsidfpad', $this->opciones['parametr'] ),
@@ -131,7 +131,7 @@ class VsiDinFamiliarController extends Controller
                 'titunuev' => 'CREAR RELACION',
                 'titulist' => 'LISTA DE RELACIONES DE LA PROGENITORA',
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
-                'relacion' => '5.2.2 Relaciones del progenitora (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
+                'relacion' => '5.2.2 Relaciones del progenitor (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
                 'accitabl' => true,
                 'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsidfmad', $this->opciones['parametr'] ),
@@ -171,7 +171,7 @@ class VsiDinFamiliarController extends Controller
 
         ];
 
-      
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**
@@ -185,7 +185,7 @@ class VsiDinFamiliarController extends Controller
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ]; 
+            ];
         return $this->view(['modeloxx' => '', 'accionxx' => 'Crear', 'padrexxx' => $padrexxx]);
     }
 
@@ -197,9 +197,9 @@ class VsiDinFamiliarController extends Controller
      */
     public function store(VsiDinFamiliarCrearRequest $requestx, $padrexxx)
     {
-        
-        
-        $requestx->request->add(['vsi_id'=> $padrexxx]); 
+
+
+        $requestx->request->add(['vsi_id'=> $padrexxx]);
         return $this->grabar([
             'requestx' => $requestx,
             'modeloxx' => '',
@@ -219,9 +219,9 @@ class VsiDinFamiliarController extends Controller
 
     public function edit(Vsi $objetoxx)
     {
-      
+
       //  $this->opciones['padrexxx'] = $objetoxx->id;
-       
+
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -248,7 +248,7 @@ class VsiDinFamiliarController extends Controller
      */
     public function update(VsiDinFamiliarEditarRequest $requestx,Vsi $objetoxx )
     {
-        
+
             return $this->grabar([
             'requestx' => $requestx,
             'modeloxx' => $objetoxx->VsiDinFamiliar,

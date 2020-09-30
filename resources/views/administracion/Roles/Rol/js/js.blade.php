@@ -9,9 +9,10 @@
             f_motivos({
                 dataxxxx: {
                     estadoid: $(this).val(),
+                    formular: 2351,
                 },
                 selected: '',
-                routexxx: "{{ route('dependencia.motivosx')}}"
+                routexxx: "{{ route('ajaxx.formular')}}"
             })
         });
 
@@ -19,9 +20,10 @@
         f_motivos({
             dataxxxx: {
                 estadoid: $('#sis_esta_id').val(),
+                formular: 2351,
             },
             selected: "{{old('estusuario_id')}}",
-            routexxx: "{{ route('dependencia.motivosx')}}"
+            routexxx: "{{ route('ajaxx.formular')}}"
         })
         @endif
 

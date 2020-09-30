@@ -116,7 +116,7 @@ class RolController extends Controller
         $this->opciones['anoxxxxx'] = 0;
         $this->opciones['hijoxxxx'] = 0;
 
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
@@ -251,4 +251,6 @@ class RolController extends Controller
             ->route($this->opciones['permisox'].'.editar', [$objetoxx->vsi_id])
             ->with('info', 'Razón inactivada correctamente');
     }
+
+
 }

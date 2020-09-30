@@ -6,3 +6,7 @@ Route::get('sisservicio', [
 Route::get('personal', [
     'uses' => 'AjaxxController@personal',
 ])->name('ajaxx.personal');
+
+Route::get('formular', [
+    'uses' => 'AjaxxController@getJustificaciones',
+])->name('ajaxx.formular');

@@ -9,7 +9,7 @@ use Spatie\Permission\Models\Role;
 
 class Roleext extends Role
 {
-    protected $fillable = ['name', 'sis_esta_id', 'user_crea_id','guard_name', 'user_edita_id'];
+    protected $fillable = ['name', 'sis_esta_id', 'user_crea_id','guard_name', 'estusuario_id','user_edita_id'];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
     public function creador()
     {
