@@ -12,7 +12,7 @@ class FiCompfamiUpdateRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'i_prm_parentesco_id.required' => 'Seleccione un parenteco con el nnaj',
+            'i_prm_parentesco_id.required' => 'Seleccione un parentesco con el nnaj',
             'i_prm_ocupacion_id.required' => 'Seleccione la acupación del componente familiar',
             'i_prm_vinculado_idipron_id.required' => 'Indique si estuvo vinculado',
             'i_prm_convive_nnaj_id.required' => 'Indique si convive con el nnaj',

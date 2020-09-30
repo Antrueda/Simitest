@@ -434,11 +434,10 @@ class TemasTableSeeder extends Seeder
             282 => $camposmagicos,
             283 => $camposmagicos,
         ]);
-        $tema = Tema::create(['id' => 36, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'Tipo Dirección']);
-        $tema->parametros()->sync([
-            285 => $camposmagicos,
-            286 => $camposmagicos,
-        ]);
+        $this->getR([
+            'nombrexx' => 'Tipo Dirección',
+            'parametr' => [235, 285, 286,]
+        ]); //36
         $tema = Tema::create(['id' => 37, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'Zona Donde Vive']);
         $tema->parametros()->sync([
             287 => $camposmagicos,

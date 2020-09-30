@@ -61,7 +61,7 @@ class NnajDese extends Model
             if ($dataxxxx['ajaxxxxx']) {
                 $comboxxx[] = ['valuexxx' => $registro->sis_servicio->id, 'optionxx' => $registro->sis_servicio->s_servicio];
             } else {
-                $comboxxx[$registro->id] = $registro->sis_servicio->s_servicio;
+                $comboxxx[$registro->sis_servicio->id] = $registro->sis_servicio->s_servicio;
             }
         }
         return $comboxxx;

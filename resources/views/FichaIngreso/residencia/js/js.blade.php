@@ -99,27 +99,11 @@ $("#i_prm_condicion_amb_id").change(function(){
         }
 
         @if(old('sis_localidad_id') !== null)
-        datadepa('sis_localidad_id', {
-            {
-                old('sis_localidad_id')
-            }
-        }, {
-            {
-                old('sis_upz_id')
-            }
-        });
+        datadepa('sis_localidad_id', "{{old('sis_localidad_id')}}", "{{old('sis_upz_id')}}");
 
-        @if(old('sis_upz_id') !== null)
-        datamuni('sis_upz_id', {
-            {
-                old('sis_upz_id')
-            }
-        }, {
-            {
-                old('sis_upzbarri_id')
-            }
-        });
-        @endif
+            @if(old('sis_upz_id') !== null)
+                datamuni('sis_upz_id', "{{old('sis_upz_id')}}", "{{old('sis_upzbarri_id')}}");
+            @endif
         @endif
 
         $(".sispaisx").change(function() {

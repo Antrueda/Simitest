@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sicosocial;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiDatoVincuCrearRequest;
 use App\Http\Requests\Vsi\VsiDatoVincuEditarRequest;
+use App\Models\Parametro;
 use App\Models\Sistema\SisEsta;
 use App\Models\sicosocial\VsiDatosVincula;
 use App\Traits\Vsi\VsiTrait;
@@ -95,7 +96,11 @@ class VsiDatoVincuController extends Controller
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
-        if ($dataxxxx['modeloxx'] != '') {
+        if ($dataxxxx['modeloxx'] != '') { ;
+            if($dataxxxx['modeloxx']->situaciones[0]->id==235){
+                $this->opciones['situacio'] = Parametro::find($dataxxxx['modeloxx']->situaciones[0]->id)->Combo;
+            }
+
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
@@ -105,7 +110,7 @@ class VsiDatoVincuController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
-         
+
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;

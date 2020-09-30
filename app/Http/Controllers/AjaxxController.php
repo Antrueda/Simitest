@@ -35,12 +35,14 @@ use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use App\Models\User;
 use App\Models\Usuario\Estusuario;
+use App\Traits\Ajax\VsiAjaxTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class AjaxxController extends Controller
 {
+    use VsiAjaxTrait;
     public function departamentos(Request $request)
     {
         if ($request->ajax()) {

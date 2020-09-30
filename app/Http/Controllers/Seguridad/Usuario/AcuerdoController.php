@@ -53,6 +53,7 @@ class AcuerdoController extends Controller
 
     private function view($dataxxxx)
     {
+        $this->opciones['fechfirm']=explode('-',date('Y-m-d'));
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];

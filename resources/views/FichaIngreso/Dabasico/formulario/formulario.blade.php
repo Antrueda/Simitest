@@ -119,7 +119,7 @@
     </div>
     <div class="form-group col-md-4" id="edadxxxx">
         {{ Form::label('aniosxxx', '1.5 Edad (Años)', ['class' => 'control-label']) }}
-        {{ Form::number('aniosxxx', null, ['class' => $errors->first('aniosxxx') ?
+        {{ Form::number('aniosxxx', isset($todoxxxx['modeloxx'])?$todoxxxx['modeloxx']->nnaj_nacimi->Edad:null, ['class' => $errors->first('aniosxxx') ?
     'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '6', 'max' => '100','id'=>'aniosxxx']) }}
     </div>
     <div class="form-group col-md-4">

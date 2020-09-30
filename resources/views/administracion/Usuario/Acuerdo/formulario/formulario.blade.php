@@ -2,7 +2,7 @@
     <div class="form-group col-md-12">
 
         <p>Entre el Instituto Distrital Para la Protecci&oacute;n de la ni&ntilde;ez y la juventud -IDIPRON y <strong>
-            {{auth()->user()->s_primer_nombre}} {{auth()->user()->s_segundo_nombre}} {{auth()->user()->s_primer_apellido}} {{auth()->user()->s_segundo_apellido}} </strong>
+                {{auth()->user()->s_primer_nombre}} {{auth()->user()->s_segundo_nombre}} {{auth()->user()->s_primer_apellido}} {{auth()->user()->s_segundo_apellido}} </strong>
             , de nacionalidad <strong>{{auth()->user()->sis_municipio->sis_departamento->sis_pai->s_pais}} </strong> con C.C. <strong>{{auth()->user()->prm_tipodocu->nombre}}</strong> No. <strong>{{auth()->user()->s_documento}}</strong> expedida en la ciudad de <strong>{{auth()->user()->sis_municipio->s_municipio}}</strong>, se suscribe el presente Acuerdo de Confidencialidad y de No Divulgaci&oacute;n de la Informaci&oacute;n.</p>
 
         <p>En atenci&oacute;n a lo anterior, se suscribe este documento, que consta de las siguientes cl&aacute;usulas:</p>
@@ -10,14 +10,30 @@
         <ol>
             <li>
                 <ol type="1" start="1" style="padding-left: 12px; text-align: justify;">
-                    <li>Que uno de los deberes de todo funcionario o contratista, es custodiar y cuidar la documentaci&oacute;n e informaci&oacute;n que por raz&oacute;n de su empleo, cargo, funci&oacute;n o relaci&oacute;n contractual conserve bajo su cuidado o a la cual tenga acceso, e impedir o evitar la divulgaci&oacute;n, sustracci&oacute;n, destrucci&oacute;n, fuga, ocultamiento o utilizaci&oacute;n indebida, de la informaci&oacute;n confidencial bien sea de car&aacute;cter institucional o informaci&oacute;n relacionada con entidades externas con las cuales se haya suscrito convenio, salvaguardando los intereses estrat&eacute;gicos del Instituto.</li>
+                    <li>
+                        Que uno de los deberes de todo funcionario o contratista, es custodiar y cuidar la
+                        documentaci&oacute;n e informaci&oacute;n que por raz&oacute;n de su empleo, cargo,
+                        funci&oacute;n o relaci&oacute;n contractual conserve bajo su cuidado o a la cual
+                        tenga acceso, e impedir o evitar la divulgaci&oacute;n, sustracci&oacute;n,
+                        destrucci&oacute;n, fuga, ocultamiento o utilizaci&oacute;n indebida, de la
+                        informaci&oacute;n confidencial bien sea de car&aacute;cter institucional o
+                        informaci&oacute;n relacionada con entidades externas con las cuales se haya suscrito
+                        convenio, salvaguardando los intereses estrat&eacute;gicos del Instituto.
+                    </li>
                 </ol>
             </li>
         </ol>
         <ol>
             <li>
                 <ol type="1" start="2" style="padding-left: 12px; text-align: justify;">
-                    <li>Se deber&aacute; tener en cuenta lo establecido en la Ley 1273 de 2009, la Ley 1581 de 2012, la Ley 1712 de 2014&nbsp; y el Decreto 1074 de 2015 en el libro 2, parte 2, t&iacute;tulo 2 en el cap&iacute;tulo 25, as&iacute; como de la Pol&iacute;tica de Tratamiento de Datos Personales (A-TIC-MA-002) &nbsp;y la Pol&iacute;tica de Seguridad y Controles B&aacute;sicos y Espec&iacute;ficos para el manejo de la Informaci&oacute;n (A-TIC-MA-001) fijadas tanto por el IDIPRON como por entidades externas, de acuerdo a lo dicho anteriormente.</li>
+                    <li>Se deber&aacute; tener en cuenta lo establecido en la Ley 1273 de 2009, la Ley 1581 de
+                        2012, la Ley 1712 de 2014&nbsp; y el Decreto 1074 de 2015 en el libro 2, parte 2,
+                        t&iacute;tulo 2 en el cap&iacute;tulo 25, as&iacute; como de la Pol&iacute;tica de
+                        Tratamiento de Datos Personales (A-TIC-MA-002) &nbsp;y la Pol&iacute;tica de Seguridad y
+                        Controles B&aacute;sicos y Espec&iacute;ficos para el manejo de la Informaci&oacute;n
+                        (A-TIC-MA-001) fijadas tanto por el IDIPRON como por entidades externas, de acuerdo a lo
+                        dicho anteriormente.
+                    </li>
                 </ol>
             </li>
         </ol>
@@ -55,9 +71,10 @@
         </p>
         <p style="padding-left: 26px; text-align: justify;">
             <strong>CL&Aacute;USULA SEGUNDA: OBLIGACIONES DE LOS FUNCIONARIOS O CONTRATISTAS QUE MANEJEN INFORMACI&Oacute;N DE
-                LA POBLACI&Oacute;N BENEFICIARIA DEL IDIPRON.&nbsp; </strong></p>
+                LA POBLACI&Oacute;N BENEFICIARIA DEL IDIPRON.&nbsp; </strong>
+        </p>
 
-        <ol  type="1" start="2">
+        <ol type="1" start="2">
             <li>
                 <ol type="1" start="1" style="padding-left: 12px; text-align: justify;">
                     <li>
@@ -128,27 +145,37 @@
             civiles y/o penales a que haya lugar.&nbsp;
         </p>
         <div style="padding-left: 26px; text-align: justify;">
-        <p>
-            Firmo el presente Acuerdo de Confidencialidad y No Divulgaci&oacute;n de la Informaci&oacute;n con pleno
-            conocimiento, y acepto los t&eacute;rminos y condiciones de lo aqu&iacute; estipulado.
-        </p>
+            <p>
+                Firmo el presente Acuerdo de Confidencialidad y No Divulgaci&oacute;n de la Informaci&oacute;n con pleno
+                conocimiento, y acepto los t&eacute;rminos y condiciones de lo aqu&iacute; estipulado.
+            </p>
 
+            <p>Entre el Instituto Distrital Para la Protecci&oacute;n de la ni&ntilde;ez y la juventud -IDIPRON y <strong>
+                    {{auth()->user()->s_primer_nombre}} {{auth()->user()->s_segundo_nombre}}
+                    {{auth()->user()->s_primer_apellido}} {{auth()->user()->s_segundo_apellido}} </strong>
+                , de nacionalidad <strong>{{auth()->user()->sis_municipio->sis_departamento->sis_pai->s_pais}}
+                     </strong> con C.C. <strong>{{auth()->user()->prm_tipodocu->nombre}}</strong> No.
+                     <strong>{{auth()->user()->s_documento}}</strong> expedida en la ciudad de
+                     <strong>{{auth()->user()->sis_municipio->s_municipio}}</strong>, se suscribe el presente Acuerdo de
+                     Confidencialidad y de No Divulgaci&oacute;n de la Informaci&oacute;n.</p>
 
-        <p>Se suscribe en la ciudad de (Nombre de la ciudad) _____________, el d&iacute;a (digitar en letras y n&uacute;meros la
-            fecha de firma del documento)_________ (__) de (digitar el mes de la firma del documento)______________ de 20
-            (Digitar el a&ntilde;o de firma de este acuerdo)__.</p>
+            <p>
+                Se suscribe en la ciudad de {{auth()->user()->sis_municipio->s_municipio}}, el d&iacute;a  {{$todoxxxx['fechfirm'][2]}} de {{$todoxxxx['fechfirm'][1]}} de {{$todoxxxx['fechfirm'][0]}}.
+            </p>
 
-        <p>Firma: &nbsp;(Espacio para la firma) _____________________________________</p>
+            <p>Firma: &nbsp;(Espacio para la firma) _____________________________________</p>
 
-        <p>Nombre: (Digitar nombre y apellidos claros) _____________________________________</p>
+            <p>
+                Nombre: {{auth()->user()->s_primer_nombre}} {{auth()->user()->s_segundo_nombre}} {{auth()->user()->s_primer_apellido}} {{auth()->user()->s_segundo_apellido}}
+            </p>
 
-        <p>No. Identificaci&oacute;n: (Digitar el n&uacute;mero de identificaci&oacute;n) ___________________________________</p>
+            <p>No. {{auth()->user()->s_documento}}</p>
 
-        <p>Cargo (Solo aplica para personal de planta) (Escribir el cargo por ejemplo profesional Universitario C&oacute;digo 219 Grado 01) _____________________________</p>
+            <p>Cargo {{auth()->user()->sis_cargo->s_cargo}} (Solo aplica para personal de planta) (Escribir el cargo por ejemplo profesional Universitario C&oacute;digo 219 Grado 01) _____________________________</p>
 
-        <p>Perfil contrato (Psic&oacute;loga, Tutor vivienda, etc.): (espacio para contratistas) _________________________</p>
+            <p>Perfil contrato (Psic&oacute;loga, Tutor vivienda, etc.): (espacio para contratistas) _________________________</p>
 
-        <p>&Aacute;rea de Derecho o UPI y/o Dependencia: (Escribir la dependencia o &aacute;rea de derecho a la que pertenece) _________________________________</p>
+            <p>&Aacute;rea de Derecho o UPI y/o Dependencia: (Escribir la dependencia o &aacute;rea de derecho a la que pertenece) _________________________________</p>
         </div>
     </div>
 </div>

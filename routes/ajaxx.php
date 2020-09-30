@@ -16,5 +16,6 @@ Route::group(['prefix' => 'ajaxx'], function () {
 	include_once('route_ajax/in_indicador.php');
 	include_once('route_ajax/ag_acciones.php');
 	include_once('route_ajax/acciongestion.php');
-	include_once('route_ajax/sis_dependencia.php');
+    include_once('route_ajax/sis_dependencia.php');
+    include_once('route_ajax/vsi_ajax.php');
 });

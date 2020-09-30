@@ -68,26 +68,26 @@
 
     var f_motivos = function(dataxxxx) {
         $('#estusuario_id').empty();
-            $.ajax({
-                url:dataxxxx.routexxx,
-                type: 'GET',
-                data:dataxxxx.dataxxxx,
-                dataType: 'json',
-                success: function(json) {
-                    $.each(json, function(i, data) {
-                        var selected = '';
-                        if (data.valuexxx == dataxxxx.selected) {
-                            selected = 'selected';
-                        }
-                        $('#estusuario_id').append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                    });
+        $.ajax({
+            url: dataxxxx.routexxx,
+            type: 'GET',
+            data: dataxxxx.dataxxxx,
+            dataType: 'json',
+            success: function(json) {
+                $.each(json, function(i, data) {
+                    var selected = '';
+                    if (data.valuexxx == dataxxxx.selected) {
+                        selected = 'selected';
+                    }
+                    $('#estusuario_id').append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                });
 
-                },
-                error: function(xhr, status) {
-                    alert('Disculpe, existiÃ³ un problema');
-                }
-            });
-        }
+            },
+            error: function(xhr, status) {
+                alert('Disculpe, existiÃ³ un problema');
+            }
+        });
+    }
 
     var f_inactivar = function(dataxxxx) {
         $.ajax({
@@ -96,7 +96,8 @@
             type: dataxxxx.typexxxx,
             dataType: 'json',
             success: function(json) {
-                setTimeout(function() { console.log(dataxxxx.datatabl)
+                setTimeout(function() {
+                    console.log(dataxxxx.datatabl)
                     dataxxxx.datatabl.ajax.reload();
                 }, 2000);
 
@@ -141,6 +142,60 @@
                 }
             });
     }
+
+    var getOption = function(dataxxxx) {
+        $("#" + dataxxxx.comboidx).append(
+            "<option " +
+            dataxxxx.selected +
+            ' value="' +
+            dataxxxx.valuexxx +
+            '">' +
+            dataxxxx.optionxx +
+            "</option>"
+        );
+    }
+
+    var getCombo = function(dataxxxx, json) {
+        $("#" + json.comboxxx).empty();
+        $.each(json.dataxxxx, function(i, d) {
+            var selected = "";
+            if (dataxxxx.psalecte == d.valuexxx) {
+                selected = "selected";
+            }
+            getOption({
+                comboidx: json.comboxxx,
+                selected: selected,
+                valuexxx: d.valuexxx,
+                optionxx: d.optionxx
+            });
+        });
+    };
+    /**
+     * realizar las validaciones cuando se selecciona NINGUNA, NO APLICA...
+     * @param {*} dataxxxx
+     */
+    var f_comboSimple = function(dataxxxx) {
+        $.ajax({
+            url: dataxxxx.urlxxxxx,
+            data: dataxxxx.dataxxxx,
+            type: "GET",
+            dataType: "json",
+            success: function(json) {
+                $("#" + json.selectxx).empty();
+                $.each(json.comboxxx, function(i, d) {
+                    getOption({
+                        comboidx: json.selectxx,
+                        selected: d.selected,
+                        valuexxx: d.valuexxx,
+                        optionxx: d.optionxx
+                    });
+                });
+            },
+            error: function(xhr, status) {
+                alert(dataxxxx.msnxxxxx);
+            }
+        });
+    };
 </script>
 @include('layouts.mensaje')
 @yield('scripts')
