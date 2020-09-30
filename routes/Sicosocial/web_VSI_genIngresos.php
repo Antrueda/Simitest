@@ -28,4 +28,8 @@ Route::group(['prefix' => 'genIngresos'], function () use($routexxx,$controll) {
 	    'uses' => $controll.'Controller@jornada',
 	    'middleware' => ['permission:'.$routexxx.'-leer']
 	])->name($routexxx.'.jornada');
+	Route::get('limpiar', [
+	    'uses' => $controll.'Controller@limpiar',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.limpiar');
 });

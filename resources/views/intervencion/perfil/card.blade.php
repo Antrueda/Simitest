@@ -18,7 +18,7 @@
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('d_fecha_diligencia', 'Fecha Diligenciamiento', ['class' => 'control-label']) }}
-          {{ Form::date('d_fecha_diligencia',  null, ['class' => 'form-control form-control-sm']) }}
+          {{ Form::date('d_fecha_diligencia',  null, ['class' => 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('i_prm_tipo_atencion_id', 'Tipo de Atención', ['class' => 'control-label']) }}
@@ -180,7 +180,7 @@
       <div class="form-row align-items-end">
         <div class="form-group col-md-6">
           {{ Form::label('d_fecha_proxima', 'Fecha Próxima Sesión', ['class' => 'control-label']) }}
-          {{ Form::date('d_fecha_proxima',  null, ['class' => 'form-control form-control-sm', $todoxxxx["readonly"]]) }}
+          {{ Form::date('d_fecha_proxima',  null, ['class' => 'form-control form-control-sm', $todoxxxx["readonly"],'max' => $todoxxxx['proxxxxx'],'min'=>$todoxxxx['hoyxxxxx']]) }}
         </div>
         <div class="form-group col-md-6">
           {{ Form::label('i_prm_area_proxima_id', 'Área de ajuste a trabajar en la próxima sesión', ['class' => 'control-label col-form-label-sm']) }}

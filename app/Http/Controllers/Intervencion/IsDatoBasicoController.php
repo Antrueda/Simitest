@@ -10,6 +10,7 @@ use App\Models\intervencion\IsDatosBasico;
 use App\Models\Sistema\SisDepen;
 use App\Models\User;
 use App\Models\Tema;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -60,6 +61,8 @@ class IsDatoBasicoController extends Controller
         $this->opciones['subsocia'] = Tema::combo(166, true, false);
         $this->opciones['subacade'] = Tema::combo(165, true, false);
         $this->opciones['nivavanc'] = Tema::combo(52, true, false);
+        $this->opciones['hoyxxxxx']= Carbon::today()->isoFormat('YYYY-MM-DD');
+        $this->opciones['proxxxxx']= Carbon::today()->add(3, 'Month')->isoFormat('YYYY-MM-DD');
 
         $this->opciones[''] = Tema::combo(52, true, false);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Intervencion;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class IsDatosBasicoUpdateRequest extends FormRequest
@@ -25,7 +26,7 @@ class IsDatosBasicoUpdateRequest extends FormRequest
         ];
         $this->_reglasx = [
             'sis_depen_id' => ['Required'],
-            'd_fecha_diligencia' => ['Required'],
+            'd_fecha_diligencia' => 'required|date|before_or_equal:'.Carbon::today()->isoFormat('YYYY-MM-DD'),
             'i_primer_responsable' => ['Required'],
             'i_prm_tipo_atencion_id' => ['Required'],
             'i_prm_area_ajuste_id' => ['Required'],
@@ -96,11 +97,7 @@ class IsDatosBasicoUpdateRequest extends FormRequest
             $this->_mensaje['i_prm_avance_academ_id.required'] ='Seleccione el avance en subárea académica';
             $this->_reglasx['i_prm_avance_academ_id']='required';
         }
-// ddd(date('Y-m-d',time()).' => '.$dataxxxx['d_fecha_diligencia']);
-        if(date('Y-m-d',time())<$dataxxxx['d_fecha_diligencia']){
-            $this->_mensaje['fechamayor.required'] ='La fecha de dilegenciamiento no puede ser mayor a hoy';
-            $this->_reglasx['fechamayor']='required';
-        }
+
         
     }
 }

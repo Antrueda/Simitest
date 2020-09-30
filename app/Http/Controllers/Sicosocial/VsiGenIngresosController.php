@@ -216,4 +216,17 @@ class VsiGenIngresosController extends Controller
             return response()->json($respuest);
         }
     }
+
+    function limpiar(Request $request)
+    {
+       
+        if ($request->ajax()) {
+            $respuest = [[
+                'semanaxx' => Tema::combo(129, false, true),
+                'parentes' =>  Tema::combo(66, false, true),
+                'actividx' =>  Tema::combo(114, false, true),
+            ]];
+            return response()->json($respuest);
+        }
+    }
 }
