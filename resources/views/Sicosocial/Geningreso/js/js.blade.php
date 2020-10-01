@@ -6,7 +6,7 @@ $(document).ready(function() {
     });
     $('#quienes').select2({
         language: "es",
-       
+
     });
     $('#labores').select2({
         language: "es"
@@ -15,7 +15,7 @@ $(document).ready(function() {
            $('#prm_jornada_id').empty()
                 $.ajax({
                     url : "{{ route('vsigener.jornada') }}",
-                    data : { 
+                    data : {
                         padrexxx:valuexxx,
                     },
                     type : 'GET',
@@ -33,8 +33,8 @@ $(document).ready(function() {
                         alert('Disculpe, existió un problema');
                     },
                 });
-            
-            
+
+
         }
 
         var f_limpiar = function(valuexxx,psalecte) {
@@ -64,14 +64,25 @@ $(document).ready(function() {
                 });
 
 
-            
+
         }
 
     $("#prm_actividad_id").change(function(){
         f_campos($(this).val(),'');
         f_limpiar($(this).val(),'');
-        
-});
+
+    });
+
+    $('#quienes').change(function() {
+        f_comboSimple({
+            dataxxxx: {
+                padrexxx: $(this).val() == '' ? 0 : $(this).val(),
+                selectxx: $(this).prop('id'),
+            },
+            urlxxxxx: "{{ route('ajaxx.nomasxxxx') }}",
+            msnxxxxx:"Disculpe, existió un problema al armar el combo"
+        });
+    });
 });
 
 
@@ -99,8 +110,8 @@ function doc(valor){
         document.getElementById("aporte").value='';
         document.getElementById("prm_frecuencia_id").value='';
         document.getElementById("prm_laboral_id").value='';
-        
-        
+
+
     }
     if(valor == 627) {
         document.getElementById("trabaja").hidden=true;
@@ -124,7 +135,7 @@ function doc(valor){
         document.getElementById("aporte").value='';
         document.getElementById("prm_frecuencia_id").value='';
         document.getElementById("prm_laboral_id").value='';
-        
+
     }
     if(valor == 628) {
         document.getElementById("trabaja").hidden=true;
@@ -148,7 +159,7 @@ function doc(valor){
         document.getElementById("aporte").value='';
         document.getElementById("prm_frecuencia_id").value='';
         document.getElementById("prm_laboral_id").value='';
-        
+
     }
     if(valor == 853) {
         document.getElementById("trabaja").hidden=true;
@@ -181,22 +192,22 @@ function doc1(valor){
     if(valor == 711 && document.getElementById('prm_actividad_id').value == 853){
         document.getElementById("cuanto").hidden=false;
         document.getElementById("prm_periodo_id").hidden=false;
-          
+
     } else {
         document.getElementById("cuanto").hidden=true;
         document.getElementById("prm_periodo_id").hidden=true;
-        
+
     }
 }
 function doc2(valor){
     if(valor == 227 && document.getElementById('prm_actividad_id').value != 853){
         document.getElementById("porque").hidden=false;
         document.getElementById("cuanto_aporta").hidden=false;
-          
+
     } else {
         document.getElementById("porque").hidden=true;
         document.getElementById("cuanto_aporta").hidden=true;
-         
+
     }
 }
 

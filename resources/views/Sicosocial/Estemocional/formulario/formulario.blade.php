@@ -76,7 +76,7 @@
 <div class="row">
 	<div class="col-md">
 		{{ Form::label('dificultades', '12.8 ¿Cuáles sentimientos y/o emociones se le dificulta expresar adecuadamente?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('dificultades[]', $todoxxxx['emocione'], null, ['class' => $errors->first('dificultades') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'dificultades', 'multiple']) }}
+		{{ Form::select('dificultades[]', $todoxxxx['dificult'], null, ['class' => $errors->first('dificultades') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'dificultades', 'multiple']) }}
 		@if($errors->has('dificultades'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('dificultades') }}

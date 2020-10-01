@@ -98,19 +98,21 @@ $(document).ready(function() {
             var nombre_fichero_seleccionado = fichero_seleccionado.replace(/.*[\/\\]/, ''); //Eliminamos el path hasta el fichero seleccionado
             $("#s_doc_adjunto_ar_label").text(nombre_fichero_seleccionado);
         });
+        $('#cuidador,#ausencia').change(function() {
+            f_comboSimple({
+                dataxxxx: {
+                    padrexxx: $(this).val() == '' ? 0 : $(this).val(),
+                    selectxx: $(this).prop('id'),
+                },
+                urlxxxxx: "{{ route('ajaxx.nomasxxxx') }}",
+                msnxxxxx:"Disculpe, existió un problema al armar el combo"
+            });
+        });
 
 });
 
 
 
-function doc(valor) {
-    if(valor == 235) {
-        document.getElementById("ausencia_div").hidden=true;
-        document.getElementById("ausencia").value = [];
-    } else {
-        document.getElementById("ausencia_div").hidden=false;
-    }
-}
 function doc1(valor) {
     if(valor != '') {
         document.getElementById("prm_hogar_id").hidden=true;
@@ -128,7 +130,6 @@ function doc2(valor) {
     }
 }
 function carga() {
-    doc(document.getElementById('cuidador').value)
     doc1(document.getElementById('prm_familiar_id').value)
     doc2(document.getElementById('prm_hogar_id').value)
 }

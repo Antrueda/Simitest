@@ -11,6 +11,17 @@ $(document).ready(function() {
         dropdownParent: $('#acciones_div'),
         language: "es"
     });
+
+    $('#acciones').change(function() {
+        f_comboSimple({
+            dataxxxx: {
+                padrexxx: $(this).val() == '' ? 0 : $(this).val(),
+                selectxx: $(this).prop('id'),
+            },
+            urlxxxxx: "{{ route('ajaxx.nomasxxxx') }}",
+            msnxxxxx:"Disculpe, existió un problema al armar el combo"
+        });
+    });
 });
 function doc(valor) {
     if(valor == 228){
@@ -20,13 +31,13 @@ function doc(valor) {
         document.getElementById("acciones").value=[];
         document.getElementById("prm_denuncia_id").hidden=true;
         document.getElementById("prm_denunante_id").hidden=true;
-        
+
     } else {
         document.getElementById("famDificultades_div").hidden=false;
         document.getElementById("acciones_div").hidden=false;
         document.getElementById("prm_denuncia_id").hidden=false;
         document.getElementById("prm_denunante_id").hidden=false;
-     
+
     }
 }
 function doc1(valor){

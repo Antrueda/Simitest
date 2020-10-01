@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Vsi\VsiDinFamiliarCrearRequest;
 use App\Http\Requests\Vsi\VsiDinFamiliarEditarRequest;
+use App\Models\Parametro;
 use App\Models\sicosocial\VsiDinFamiliar;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
@@ -71,6 +72,14 @@ class VsiDinFamiliarController extends Controller
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            $quienesx=$dataxxxx['modeloxx']->quienes[0];
+            if($quienesx->id==235){
+                $this->opciones['familiay'] = Parametro::find($quienesx->id)->Combo;
+            }
+            $ausencia=$dataxxxx['modeloxx']->ausencia[0];
+            if($ausencia->id==1269){
+                $this->opciones['ausencia'] = Parametro::find($ausencia->id)->Combo;
+            }
             $vercrear =true;
             foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
                 $this->opciones['archivox'] = $value;

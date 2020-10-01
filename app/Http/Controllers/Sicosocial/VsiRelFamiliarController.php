@@ -53,12 +53,12 @@ class VsiRelFamiliarController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-       
+
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['sinonaxx'] = Tema::combo(25, true, false);
         $this->opciones['familiar'] = Tema::combo(66, true, false);
         $this->opciones['motivosx'] = Tema::combo(174, false, false);
-        $this->opciones['acciones'] = Tema::combo(298, false, false);
+        $this->opciones['acciones'] = Tema::combo(298, true, false);
         $this->opciones['relacion'] = Tema::combo(175, true, false);
         $this->opciones['dificult'] = Tema::combo(176, false, false);
         $this->opciones['responde'] = Tema::combo(177, true, false);
@@ -104,8 +104,8 @@ class VsiRelFamiliarController extends Controller
      */
     public function store(VsiRelFamiliarCrearRequest $requestx,  $padrexxx)
     {
-        
-        $requestx->request->add(['vsi_id'=> $padrexxx]); 
+
+        $requestx->request->add(['vsi_id'=> $padrexxx]);
         //ddd($padrexxx);
         return $this->grabar([
             'requestx' => $requestx,

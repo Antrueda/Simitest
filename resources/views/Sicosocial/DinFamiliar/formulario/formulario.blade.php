@@ -61,7 +61,7 @@ if (isset($todoxxxx['rowscols'])) {
     </div>
     <div class="col-md">
         {{ Form::label('cuidador', '5.5 ¿Quién(es) asume(n) el cuidado y la crianza de los menores de 18 años en ausencia de los representantes legales?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('cuidador[]', $todoxxxx['familiay'], null, ['class' => $errors->first('cuidador') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'cuidador', 'multiple', 'onchange' => 'doc(this.value)']) }}
+        {{ Form::select('cuidador[]', $todoxxxx['familiay'], null, ['class' => $errors->first('cuidador') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'cuidador', 'multiple']) }}
         @if($errors->has('cuidador'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('cuidador') }}

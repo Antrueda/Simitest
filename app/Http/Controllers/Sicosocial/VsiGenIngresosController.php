@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sicosocial;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiGenIngresoCrearRequest;
 use App\Http\Requests\Vsi\VsiGenIngresoEditarRequest;
+use App\Models\Parametro;
 use App\Models\sicosocial\VsiGenIngreso;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
@@ -54,7 +55,6 @@ class VsiGenIngresosController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-       
         $this->opciones['activida'] = Tema::combo(114, true, false);
         $this->opciones['actividx'] = Tema::combo(114, false, false);
         $this->opciones['informal'] = Tema::combo(115, TRUE, false);
@@ -77,12 +77,16 @@ class VsiGenIngresosController extends Controller
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            $quienesx=$dataxxxx['modeloxx']->quienes[0]->id;
+            if($quienesx==235){
+                $this->opciones['parentes'] = Parametro::find($quienesx->id)->Combo;
+            }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
             if($dataxxxx['modeloxx']->prm_actividad_id==853){
                 $this->opciones['jorgener']=[1269=>'NO APLICA'];
             }
-           
+
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
@@ -98,7 +102,7 @@ class VsiGenIngresosController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-      
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -169,7 +173,7 @@ class VsiGenIngresosController extends Controller
 
     protected function validator(array $data){
         return Validator::make($data, [
-            
+
             'prm_actividad_id' => 'required|exists:parametros,id',
             'trabaja' => 'required_if:prm_actividad_id,626|max:120',
             'prm_informal_id' => 'required_if:prm_actividad_id,627',
@@ -207,10 +211,10 @@ class VsiGenIngresosController extends Controller
 
     public function jornada(\Illuminate\Http\Request $request)
     {
-        
+
         if ($request->ajax()) {
             $respuest=Tema::combo(123, true, true);
-            if($request->padrexxx==853){ 
+            if($request->padrexxx==853){
             $respuest=[['valuexxx'=>1269,'optionxx'=>'NO APLICA']];
             }
             return response()->json($respuest);
@@ -219,7 +223,7 @@ class VsiGenIngresosController extends Controller
 
     function limpiar(Request $request)
     {
-       
+
         if ($request->ajax()) {
             $respuest = [[
                 'semanaxx' => Tema::combo(129, false, true),

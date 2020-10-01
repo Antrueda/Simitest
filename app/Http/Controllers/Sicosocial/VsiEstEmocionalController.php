@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Sicosocial;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiEstEmocionalCrearRequest;
 use App\Http\Requests\Vsi\VsiEstEmocionalEditarRequest;
+use App\Models\Parametro;
 use App\Models\sicosocial\VsiEstEmocional;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
+
 class VsiEstEmocionalController extends Controller
 {
     use VsiTrait;
@@ -58,6 +60,7 @@ class VsiEstEmocionalController extends Controller
         $this->opciones['contexto'] = Tema::combo(160, true, false);
         $this->opciones['reaccion'] = Tema::combo(194, true, false);
         $this->opciones['emocione'] = Tema::combo(195, false, false);
+        $this->opciones['dificult'] = Tema::combo(195, false, false);
         $this->opciones['estresan'] = Tema::combo(293, false, false);
         $this->opciones['aconteci'] = Tema::combo(300, false, false);
         $this->opciones['riesgosx'] = Tema::combo(198, true, false);
@@ -72,14 +75,11 @@ class VsiEstEmocionalController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-           
-
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**
@@ -106,7 +106,7 @@ class VsiEstEmocionalController extends Controller
      */
     public function store(VsiEstEmocionalCrearRequest $request, $padrexxx)
     {
-       $request->request->add(['vsi_id' => $padrexxx]);
+        $request->request->add(['vsi_id' => $padrexxx]);
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => '',
@@ -160,6 +160,4 @@ class VsiEstEmocionalController extends Controller
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }
-
-
 }

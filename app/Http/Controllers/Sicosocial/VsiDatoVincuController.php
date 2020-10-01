@@ -98,11 +98,19 @@ class VsiDatoVincuController extends Controller
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
-        if ($dataxxxx['modeloxx'] != '') { ;
+        if ($dataxxxx['modeloxx'] != '') {
+            $personas=$dataxxxx['modeloxx']->personas[0];
+            if($personas->id==235){
+                $this->opciones['personas'] = Parametro::find($personas->id)->Combo;
+            }
             if($dataxxxx['modeloxx']->situaciones[0]->id==235){
                 $this->opciones['situacio'] = Parametro::find($dataxxxx['modeloxx']->situaciones[0]->id)->Combo;
             }
 
+            $emosione=$dataxxxx['modeloxx']->emociones[0];
+            if($emosione->id==931){
+                $this->opciones['emosione'] = Parametro::find($emosione->id)->Combo;
+            }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
