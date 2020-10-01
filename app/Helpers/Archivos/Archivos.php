@@ -28,7 +28,7 @@ class Archivos
         if ($dataxxxx['requestx']->hasFile($dataxxxx['nombarch'])) {
             $archivox = $dataxxxx['nomguard'].'_' . str_replace(['-', ' ', ':'], "_", date('Y-m-d H:m:s', time())) .
                 '.' . $dataxxxx['requestx']->file($dataxxxx['nombarch'])->extension();
-            $rutaxxxx = $dataxxxx['requestx']->file($dataxxxx['nombarch'])->storeAs('public/' . $dataxxxx['rutaxxxx'], $archivox);
+            $rutaxxxx = $dataxxxx['requestx']->file($dataxxxx['nombarch'])->storeAs( 'Archivos/'.$dataxxxx['rutaxxxx'], $archivox,'public');
         }
         return $rutaxxxx;
     }

@@ -72,14 +72,6 @@ class VsiDinFamiliarController extends Controller
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $quienesx=$dataxxxx['modeloxx']->quienes[0];
-            if($quienesx->id==235){
-                $this->opciones['familiay'] = Parametro::find($quienesx->id)->Combo;
-            }
-            $ausencia=$dataxxxx['modeloxx']->ausencia[0];
-            if($ausencia->id==1269){
-                $this->opciones['ausencia'] = Parametro::find($ausencia->id)->Combo;
-            }
             $vercrear =true;
             foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
                 $this->opciones['archivox'] = $value;

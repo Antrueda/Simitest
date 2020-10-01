@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Storage;
+
 $tablaxxx = 'principa';
 if (isset($todoxxxx['rowscols'])) {
     $tablaxxx = $todoxxxx['rowscols'];
@@ -17,7 +19,7 @@ if (isset($todoxxxx['rowscols'])) {
 @if($todoxxxx['archivox']!='')
 <div class="row">
     <div class="col-md-12">
-    <a href="{{Storage::url($todoxxxx['modeloxx']->s_doc_adjunto)}}" target="_blank" >{{$todoxxxx['archivox']}}</a>
+    <a href="{{asset($todoxxxx['modeloxx']->s_doc_adjunto)}}" target="_blank" >{{$todoxxxx['archivox']}}</a>
     </div>
 </div>
 @endif

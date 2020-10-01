@@ -81,10 +81,8 @@ class VsiDinFamiliar extends Model{
             $rutaxxxx = Archivos::getRuta(['requestx'=>$dataxxxx['requestx'],
             'nombarch'=>'s_doc_adjunto_ar',
             'rutaxxxx'=>'vsi/dinfamiliar','nomguard'=>'genograma']);
-            
             if($rutaxxxx!=false){
                $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
-
             }
             $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
             if ($dataxxxx['modeloxx'] != '') {
@@ -93,43 +91,50 @@ class VsiDinFamiliar extends Model{
                 $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
                 $dataxxxx['modeloxx'] = VsiDinFamiliar::create($dataxxxx['requestx']->all());
             }
-
             if($dataxxxx['requestx']->calles){
+                $dataxxxx['modeloxx']->calles()->detach();
                 foreach ($dataxxxx['requestx']->calles as $d) {
                     $dataxxxx['modeloxx']->calles()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
             if($dataxxxx['requestx']->delitos){
+                $dataxxxx['modeloxx']->delitos()->detach();
                 foreach ($dataxxxx['requestx']->delitos as $d) {
                     $dataxxxx['modeloxx']->delitos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
             if($dataxxxx['requestx']->prostituciones){
+                $dataxxxx['modeloxx']->prostituciones()->detach();
                 foreach ($dataxxxx['requestx']->prostituciones as $d) {
                     $dataxxxx['modeloxx']->prostituciones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
             if($dataxxxx['requestx']->libertades){
+                $dataxxxx['modeloxx']->libertades()->detach();
                 foreach ($dataxxxx['requestx']->libertades as $d) {
                     $dataxxxx['modeloxx']->libertades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
             if($dataxxxx['requestx']->consumo){
+                $dataxxxx['modeloxx']->consumo()->detach();
                 foreach ($dataxxxx['requestx']->consumo as $d) {
                     $dataxxxx['modeloxx']->consumo()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
             if($dataxxxx['requestx']->salud){
+                $dataxxxx['modeloxx']->salud()->detach();
                 foreach ($dataxxxx['requestx']->salud as $d) {
                     $dataxxxx['modeloxx']->salud()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
             if($dataxxxx['requestx']->cuidador){
+                $dataxxxx['modeloxx']->cuidador()->detach();
                 foreach ($dataxxxx['requestx']->cuidador as $d) {
                     $dataxxxx['modeloxx']->cuidador()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
             if($dataxxxx['requestx']->ausencia){
+                $dataxxxx['modeloxx']->ausencia()->detach();
                 foreach ($dataxxxx['requestx']->ausencia as $d) {
                     $dataxxxx['modeloxx']->ausencia()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
