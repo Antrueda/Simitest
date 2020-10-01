@@ -60,6 +60,27 @@ class SisDepensSeeder extends Seeder
 
         ]);
         $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'i_prm_responsable_id' => 2316];
+
+        SisDepen::create([
+            'id' => 29,
+            'nombre' => 'CAMINANDO RELAJADO',
+            'i_prm_cvital_id' => 1679,
+            'i_prm_tdependen_id' => 774,
+
+            'i_prm_sexo_id' => 2324,
+            's_direccion' => 'CALLE 15 #13-87',
+            'sis_departamento_id' => 6,
+            'sis_municipio_id' => 233,
+            'sis_upzbarri_id' => 1510,
+            's_telefono' => '3100411',
+            's_correo' => 'IDIPRON@IDIPRON.GOV.CO',
+
+            'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0,
+
+        ]);
+        $camposmagicos = ['user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1, 'i_prm_responsable_id' => 2316];
+
+
         $super = User::where('id', 1)->first();
 
         $super->sis_depens()->sync([
@@ -67,6 +88,15 @@ class SisDepensSeeder extends Seeder
             15 => $camposmagicos,
             23 => $camposmagicos,
         ]);
+
+        $super = User::where('id', 2)->first();
+
+        $super->sis_depens()->sync([
+            2 => $camposmagicos,
+            15 => $camposmagicos,
+            23 => $camposmagicos,
+        ]);
+
         $super = User::where('id', 3)->first();
 
         $super->sis_depens()->sync([
@@ -89,5 +119,64 @@ class SisDepensSeeder extends Seeder
             12 => $camposmagicos,
             16 => $camposmagicos,
         ]);
+
+        $super = User::where('id', 8)->first();
+        $super->sis_depens()->sync([
+            6 => $camposmagicos,
+            12 => $camposmagicos,
+            16 => $camposmagicos,
+        ]);
+
+        $super = User::where('id', 9)->first();
+        $super->sis_depens()->sync([
+            2 => $camposmagicos,
+            29 => $camposmagicos,
+        ]);
+
+        $super = User::where('id', 10)->first();
+        $super->sis_depens()->sync([
+            29 => $camposmagicos,
+        ]);
+
+        $super = User::where('id', 11)->first();
+        $super->sis_depens()->sync([
+            29 => $camposmagicos,
+        ]);
+
+        $super = User::where('id', 12)->first();
+        $super->sis_depens()->sync([
+            29 => $camposmagicos,
+        ]);
+
+
+        $super = User::where('id', 13)->first();
+        $super->sis_depens()->sync([
+            29 => $camposmagicos,
+        ]);
+        
+
+        $super = User::where('id', 14)->first();
+        $super->sis_depens()->sync([
+            29 => $camposmagicos,
+        ]);
+
+        $super = User::where('id', 15)->first();
+        $super->sis_depens()->sync([
+            29 => $camposmagicos,
+        ]);
+
+        $super = User::where('id', 16)->first();
+        $super->sis_depens()->sync([
+            29 => $camposmagicos,
+        ]);
+
+        $super = User::where('id', 17)->first();
+        $super->sis_depens()->sync([
+            29 => $camposmagicos,
+        ]);
+
+
+
+
     }
 }

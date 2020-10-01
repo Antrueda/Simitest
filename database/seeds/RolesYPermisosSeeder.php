@@ -417,6 +417,7 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosEnfermeria.php');
         Role::create(['name' => 'PSICÓLOGO(A) CLÍNICO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
             ->givePermissionTo(['intervención sicosocial especializada']);
+        
         Role::create(['name' => 'PRUEBA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['name' => 'aux_administrativo_territorio', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
             ->givePermissionTo([
@@ -438,5 +439,8 @@ class RolesYPermisosSeeder extends Seeder
                 'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
                 'firedactual-borrar', 'territorio-modulo'
             ]);
+            Role::create(['name' => 'PROMOTOR (A) SOCIAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);//10
+            require_once('RolesYPermisosReferente.php');//11 REFERENTE LOCAL
+            
     }
 }

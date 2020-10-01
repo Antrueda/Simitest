@@ -37,5 +37,56 @@ class SisAreasSeeder extends Seeder
             7 => $camposmagicos,
             8 => $camposmagicos,
           ]);
+
+          $super =User::where('id',3)->first();
+          $super->areas()->sync([
+            6 => $camposmagicos,
+            7 => $camposmagicos,
+            8 => $camposmagicos,
+          ]);
+
+
+          $super =User::where('id',10)->first();
+          $super->areas()->sync([
+             8 => $camposmagicos,
+          ]);
+
+          $super =User::where('id',11)->first();
+          $super->areas()->sync([
+             8 => $camposmagicos,
+          ]);
+          $super =User::where('id',12)->first();
+          $super->areas()->sync([
+             8 => $camposmagicos,
+          ]);
+          $super =User::where('id',13)->first();
+          $super->areas()->sync([
+             8 => $camposmagicos,
+          ]);
+          $super =User::where('id',14)->first();
+          $super->areas()->sync([
+             8 => $camposmagicos,
+          ]);
+
+          $super =User::where('id',15)->first();
+          $super->areas()->sync([
+             8 => $camposmagicos,
+          ]);
+
+          $super =User::where('id',16)->first();
+          $super->areas()->sync([
+             8 => $camposmagicos,
+          ]);
+
+          $super =User::where('id',17)->first();
+          $super->areas()->sync([
+             8 => $camposmagicos,
+          ]);
+
+          
+          
+
+          
+
     }
 }
