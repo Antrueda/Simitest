@@ -9,11 +9,11 @@
         @endif
     </div>
     <div class="col-md-6">
-        {{ Form::label('prm_persona_id', '1.12 ¿Qué persona(s) parecen producir o empeorar estas dificultades?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_persona_id', $todoxxxx['personas'], null, ['class' => $errors->first('prm_persona_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('prm_persona_id'))
+        {{ Form::label('personas', '1.12 ¿Qué persona(s) parecen producir o empeorar estas dificultades?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('personas[]', $todoxxxx['personas'], null, ['class' => $errors->first('personas') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'personas', 'multiple']) }}
+        @if($errors->has('personas'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('prm_persona_id') }}
+            {{ $errors->first('personas') }}
         </div>
         @endif
     </div>

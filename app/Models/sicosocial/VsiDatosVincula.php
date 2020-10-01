@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class VsiDatosVincula extends Model{
-    protected $fillable = ['vsi_id', 'prm_razon_id', 'prm_persona_id', 'dia', 'mes', 'ano', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['vsi_id', 'prm_razon_id', 'dia', 'mes', 'ano', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
@@ -33,6 +33,10 @@ class VsiDatosVincula extends Model{
 
     public function emociones(){
         return $this->belongsToMany(Parametro::class,'vsi_emocion_vincula', 'vsi_datos_vincula_id', 'parametro_id');
+    }
+
+    public function personas(){
+        return $this->belongsToMany(Parametro::class,'vsi_personas', 'vsi_datos_vincula_id', 'parametro_id');
     }
 
     public function creador(){

@@ -76,6 +76,8 @@ class VsiDatoVincuController extends Controller
                 $this->opciones['carpetax'] . '.botones.situacio';
             $request->emosione = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.botones.emosione';
+            $request->personas = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.botones.personas';
 
             $request->estadoxx = 'layouts.components.botones.estadosx';
             return $this->getDatosVincula($request);
@@ -84,7 +86,7 @@ class VsiDatoVincuController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['razonesx'] = Tema::combo(102, true, false);
-        $this->opciones['personas'] = Tema::combo(66, true, false);
+        $this->opciones['personas'] = Tema::combo(66, false, false);
         $this->opciones['situacio'] = Tema::combo(131, false, false);
         $this->opciones['emosione'] = Tema::combo(195, false, false);
 
@@ -179,11 +181,16 @@ class VsiDatoVincuController extends Controller
         $datoxxxx = VsiDatosVincula::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx']);
         $datoxxxx->situaciones()->detach();
         $datoxxxx->emociones()->detach();
+        $datoxxxx->personas()->detach();
         foreach ($dataxxxx['dataxxxx']['situaciones'] as $d) {
             $datoxxxx->situaciones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
         foreach ($dataxxxx['dataxxxx']['emociones'] as $d) {
             $datoxxxx->emociones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+        }
+
+        foreach ($dataxxxx['dataxxxx']['personas'] as $d) {
+            $datoxxxx->personas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
         }
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$datoxxxx->id])

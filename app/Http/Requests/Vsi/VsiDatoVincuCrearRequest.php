@@ -13,21 +13,21 @@ class VsiDatoVincuCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             'prm_razon_id.required' => 'Seleccione una razon',
-            'prm_persona_id.required' => 'Seleccione una persona',
             'ano.required' => 'ingrese un año',
             'mes.required' => 'ingrese un mes',
             'dia.required' => 'ingrese un día',
             'situaciones.required' => 'Seleccione una situacion',
-            'emociones.required' => 'Seleccione una emosión',
+            'emociones.required' => 'Seleccione una emoción',
+            'personas.required' => 'Seleccione una persona',
         ];
         $this->_reglasx = [
             'prm_razon_id' => 'required|exists:parametros,id',
-            'prm_persona_id' => 'required|exists:parametros,id',
             'dia' => 'nullable|integer|min:0|max:99',
             'mes' => 'nullable|integer|min:0|max:99',
             'ano' => 'nullable|integer|min:0|max:99',
             'situaciones' => 'required|array',
-            'emociones' => 'required|array'
+            'emociones' => 'required|array',
+            'personas' => 'required|array'
         ];
     }
     /**

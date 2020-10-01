@@ -72,12 +72,10 @@ trait VsiTrait
             'vsi_datos_vinculas.ano',
             'vsi_datos_vinculas.sis_esta_id',
             'razon.nombre as razon',
-            'persona.nombre as persona',
             'sis_estas.s_estado'
 
         ])
             ->join('parametros as razon', 'vsi_datos_vinculas.prm_razon_id', '=', 'razon.id')
-            ->join('parametros as persona', 'vsi_datos_vinculas.prm_persona_id', '=', 'persona.id')
             ->join('sis_estas', 'vsi_datos_vinculas.sis_esta_id', '=', 'sis_estas.id')
             ->where('vsi_datos_vinculas.vsi_id', $request->padrexxx);
         return $this->getDtDatosVincula($dataxxxx, $request);

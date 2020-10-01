@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function() {
-        $('#emociones,#situaciones').select2({
+        $('#emociones,#situaciones,#personas').select2({
             language: "es",
         });
 

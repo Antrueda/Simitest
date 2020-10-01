@@ -176,6 +176,16 @@ trait DatatableTrait
                 }
 
             )
+            ->addColumn(
+                'personas',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->personas, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
             ->rawColumns(['botonexx', 's_estado'])
             ->toJson();
     }

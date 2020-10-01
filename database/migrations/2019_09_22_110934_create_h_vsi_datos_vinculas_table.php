@@ -11,6 +11,7 @@ class CreateHVsiDatosVinculasTable extends Migration
     private $tablaxxx = 'h_vsi_datos_vinculas';
     private $tablaxxx2 = 'h_vsi_situacion_vincula';
     private $tablaxxx3 = 'h_vsi_emocion_vincula';
+    private $tablaxxx4 = 'h_vsi_personas';
     /**
      * Run the migrations.
      *
@@ -22,7 +23,6 @@ class CreateHVsiDatosVinculasTable extends Migration
         $table->bigIncrements('id');
         $table->bigInteger('vsi_id')->unsigned();
         $table->bigInteger('prm_razon_id')->unsigned();
-        $table->bigInteger('prm_persona_id')->unsigned();
         $table->Integer('dia')->unsigned()->nullable();
         $table->Integer('mes')->unsigned()->nullable();
         $table->Integer('ano')->unsigned()->nullable();
@@ -47,6 +47,15 @@ class CreateHVsiDatosVinculasTable extends Migration
         $table = CamposMagicos::h_magicos($table);
       });
       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
+      
+      Schema::create($this->tablaxxx4, function (Blueprint $table) {
+        $table->bigIncrements('id');
+        $table->bigInteger('parametro_id')->unsigned();
+        $table->bigInteger('vsi_datos_vincula_id')->unsigned();
+        $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
+        $table = CamposMagicos::h_magicos($table);
+      });
+      DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
     }
 
     /**
@@ -56,6 +65,7 @@ class CreateHVsiDatosVinculasTable extends Migration
      */
     public function down()
     {
+      Schema::dropIfExists($this->tablaxxx4);
       Schema::dropIfExists($this->tablaxxx3);
       Schema::dropIfExists($this->tablaxxx2);
       Schema::dropIfExists($this->tablaxxx);

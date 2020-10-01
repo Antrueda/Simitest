@@ -53,6 +53,12 @@ class Traductor {
         return VsiDatosVincula::where('vsi_id',$dataxxxx['vsiidxxx'])->first()->situaciones;
     }
 
+    public static function getPersonas($dataxxxx)
+    {
+
+        return VsiDatosVincula::where('vsi_id',$dataxxxx['vsiidxxx'])->first()->personas;
+    }
+
 
      /**
      * 1.15 ¿Qué emociones le generan estas dificultades?

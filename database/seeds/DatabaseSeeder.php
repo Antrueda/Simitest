@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SisMenusSeeder::class);
         $this->call(SisPestaniasSeeder::class);
         $this->call(RolesYPermisosSeeder::class);
-        
         $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosSeeder::class);
         $this->call(TemasTableSeeder::class);
@@ -166,6 +165,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiRedsocPasadoSeeder::class);  //54 falta
         $this->call(VsiSaludSeeder::class);
         $this->call(SisDiaFestivosSeeder::class);
+        $this->call(VsiPersonaSeeder::class);
 
     }
 }

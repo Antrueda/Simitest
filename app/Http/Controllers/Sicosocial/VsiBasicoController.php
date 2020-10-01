@@ -129,7 +129,7 @@ class VsiBasicoController extends Controller
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'vsi_datos_vinculas.id'],
                     ['data' => 'razon', 'name' => 'razon.nombre'],
-                    ['data' => 'persona', 'name' => 'persona.nombre'],
+                    ['data' => 'personas', 'name' => 'personas'],
                     ['data' => 'dia', 'name' => 'vsi_datos_vinculas.dia'],
                     ['data' => 'mes', 'name' => 'vsi_datos_vinculas.mes'],
                     ['data' => 'ano', 'name' => 'vsi_datos_vinculas.ano'],

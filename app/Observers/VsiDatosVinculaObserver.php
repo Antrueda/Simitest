@@ -15,7 +15,6 @@ class VsiDatosVinculaObserver
         // campos nuevos traidos desde $fillable -> modelo 
         $log['vsi_id'] = $modeloxx->vsi_id;
         $log['prm_razon_id'] = $modeloxx->prm_razon_id;
-        $log['prm_persona_id'] = $modeloxx->prm_persona_id;
         $log['dia'] = $modeloxx->dia;
         $log['mes'] = $modeloxx->mes;
         $log['ano'] = $modeloxx->ano;
