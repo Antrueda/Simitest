@@ -328,7 +328,8 @@ class FiCompfamiController extends Controller
         if ($request->ajax()) {
 
             $dataxxxx = [
-                'tipodocu' => ['prm_documento_id', ''],
+                'tipodocu' => ['prm_tipodocu_id', ''],
+                'edadxxxx' => '',
                 'paisxxxx' => ['sis_pai_id', ''],
                 'departam' => ['sis_departamento_id', [], ''],
                 'municipi' => ['sis_municipio_id', [], ''],
