@@ -68,6 +68,7 @@
                         f_dataxxx('i_prm_tipo_discapacidad_id', json[0].discapac, discapac);
                         f_dataxxx('i_prm_tiene_cert_discapacidad_id', json[0].certific, certific);
                         f_dataxxx('i_prm_disc_perm_independencia_id', json[0].independ, independ);
+                        $("#prm_discausa_id option[value=1269]").attr("selected",true);
                     },
                     error: function(xhr, status) {
                         alert('Disculpe, existió un problema');

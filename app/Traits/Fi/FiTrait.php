@@ -10,6 +10,7 @@ use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\fichaIngreso\FiSalud;
+use App\Models\Parametro;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
@@ -81,8 +82,14 @@ trait FiTrait
                     $respuest = $this->getCombo($dataxxxx);
                     break;
                 case 2:
-                    $dataxxxx = ['selectxx' => 'prm_discausa_id', 'valuexxx' => 27, 'optionxx' => 'NS/NR', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 341];
-                    $respuest = $this->getCombo($dataxxxx);
+                    if ($request->discapac == 228) {
+                        $parametr = Parametro::find(1269)->ComboAjaxUno;
+                        $parametr[0]['selected'] = 'selected';
+                        $respuest = ['selectxx' => 'prm_discausa_id', 'comboxxx' => $parametr, 'nigunaxx' => true];
+                    } else {
+                        $dataxxxx = ['selectxx' => 'prm_discausa_id', 'valuexxx' => 27, 'optionxx' => 'NS/NR', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 341];
+                        $respuest = $this->getCombo($dataxxxx);
+                    }
                     break;
                 case 3:
                     $dataxxxx = ['selectxx' => 'i_prm_condicion_amb_id', 'valuexxx' => 168, 'optionxx' => 'NINGUNO', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 42];

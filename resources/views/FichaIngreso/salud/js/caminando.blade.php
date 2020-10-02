@@ -53,11 +53,13 @@ var f_combo=function(dataxxxx){
         f_combo({padrexxx:$(this).val()==''?0:$(this).val(),opcionxx:1});
     })
     $("#prm_discausa_id").change(function(){
-        f_combo({padrexxx:$(this).val()==''?0:$(this).val(),opcionxx:2});
+        f_combo({padrexxx:$(this).val()==''?0:$(this).val(),opcionxx:2,discapac:$('#i_prm_tiene_discapacidad_id').val()});
+    })
+    $("#i_prm_tiene_discapacidad_id").change(function(){
+        f_combo({padrexxx:$('#prm_discausa_id').val()==''?0:$('#prm_discausa_id').val(),opcionxx:2,discapac:$(this).val()});
     })
 
-
-} );
+});
  function soloLetras(e) {
     key = e.keyCode || e.which;
     tecla = String.fromCharCode(key).toString();
