@@ -86,6 +86,10 @@ class VsiEstEmocionalCrearRequest extends FormRequest
 
     public function validar()
     {
-
+        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        if (!in_array(931, $dataxxxx['dificultades'])){
+            $this->_mensaje['descripcion_dificulta.required'] = 'Ingrese una descripción de la dificultad'; 
+            $this->_reglasx['descripcion_dificulta'] = 'required|string|max:4000';
+         }
     }
 }

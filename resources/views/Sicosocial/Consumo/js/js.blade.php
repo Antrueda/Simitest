@@ -8,7 +8,7 @@
       dropdownParent: $('#quienes_div'),
       language: "es"
     });
-    $('#expectativas').change(function() {
+    $('#expectativas,#quienes').change(function() {
         f_comboSimple({
             dataxxxx: {
                 padrexxx: $(this).val() == '' ? 0 : $(this).val(),

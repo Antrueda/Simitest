@@ -141,27 +141,43 @@ class VsiEstEmocional extends Model{
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiEstEmocional::create($dataxxxx['requestx']->all());
             }
-            foreach ($dataxxxx['requestx']->adecuados as $d) {
-                $dataxxxx['modeloxx']->adecuados()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+
+            $dataxxxx['modeloxx']->adecuados()->detach();
+            if($dataxxxx['requestx']->adecuados){
+                foreach ($dataxxxx['requestx']->adecuados as $d) {
+                    $dataxxxx['modeloxx']->adecuados()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
             }
-            foreach ($dataxxxx['requestx']->dificultades as $d) {
-                $dataxxxx['modeloxx']->dificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $dataxxxx['modeloxx']->dificultades()->detach();
+            if($dataxxxx['requestx']->dificultades){
+                foreach ($dataxxxx['requestx']->dificultades as $d) {
+                    $dataxxxx['modeloxx']->dificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
             }
+
+
+            $dataxxxx['modeloxx']->estresantes()->detach();
             if($dataxxxx['requestx']->estresantes){
                 foreach ($dataxxxx['requestx']->estresantes as $d) {
                     $dataxxxx['modeloxx']->estresantes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
+
+            $dataxxxx['modeloxx']->motivos()->detach();
             if($dataxxxx['requestx']->motivos){
                 foreach ($dataxxxx['requestx']->motivos as $d) {
                     $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
+
+            
+            $dataxxxx['modeloxx']->lesivas()->detach();
             if($dataxxxx['requestx']->lesivas){
                 foreach ($dataxxxx['requestx']->lesivas as $d) {
                     $dataxxxx['modeloxx']->lesivas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
+
 
 
             return $dataxxxx['modeloxx'];

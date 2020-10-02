@@ -72,8 +72,38 @@ $(document).ready(function() {
         f_limpiar($(this).val(),'');
 
     });
+    var f_buscarempleo = function(dataxxxx) {
+            $.ajax({
+                    url : "{{ route('ajaxx.buscempl') }}",
+                    data: dataxxxx.dataxxxx,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(respuest) {
+                        $("#"+respuest.selectxx).empty();
+                        $.each(respuest.comboxxx, function(i, data) {
+                            $("#"+respuest.selectxx).append('<option ' + data.selected + '  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
+                        $('#cuanto').val('')
+                        $('#cuanto').prop('readonly',respuest.readonly)
+                      },
+                    error: function(xhr, status) {
+                        alert('Disculpe, existió un problema al armar el combo para tiempo en busqueda');
+                    },
+                });
+        }
+    $("#prm_no_id").change(function(){
+        f_buscarempleo({
+            dataxxxx: {
+                padrexxx: $(this).val() == '' ? 0 : $(this).val(),
+                selectxx: 'prm_periodo_id',
+                selected: ''
+            },
+        });
+        
+    });
 
-    $('#quienes').change(function() {
+
+    $('#quienes,#labores').change(function() {
         f_comboSimple({
             dataxxxx: {
                 padrexxx: $(this).val() == '' ? 0 : $(this).val(),
@@ -96,6 +126,7 @@ function doc(valor){
         document.getElementById("jornada_entre").hidden=false;
         document.getElementById("prm_jor_entre_id").hidden=false;
         document.getElementById("jornada_a").hidden=false;
+        document.getElementById("prm_jornada_id").hidden=false;
         document.getElementById("prm_jor_a_id").hidden=false;
         document.getElementById("dias_div").hidden=false;
         document.getElementById("prm_frecuencia_id").hidden=false;
@@ -122,6 +153,7 @@ function doc(valor){
         document.getElementById("prm_jor_entre_id").hidden=false;
         document.getElementById("jornada_a").hidden=false;
         document.getElementById("prm_jor_a_id").hidden=false;
+        document.getElementById("prm_jornada_id").hidden=false;
         document.getElementById("dias_div").hidden=false;
         document.getElementById("prm_frecuencia_id").hidden=false;
         document.getElementById("prm_laboral_id").hidden=true;
@@ -146,6 +178,7 @@ function doc(valor){
         document.getElementById("prm_jor_entre_id").hidden=false;
         document.getElementById("jornada_a").hidden=false;
         document.getElementById("prm_jor_a_id").hidden=false;
+        document.getElementById("prm_jornada_id").hidden=false;
         document.getElementById("dias_div").hidden=false;
         document.getElementById("prm_frecuencia_id").hidden=false;
         document.getElementById("prm_laboral_id").hidden=true;
@@ -185,20 +218,10 @@ function doc(valor){
         document.getElementById("prm_frecuencia_id").value='';
         document.getElementById("prm_laboral_id").value='';
     }
-    doc1(document.getElementById('prm_no_id').value);
+    
     doc2(document.getElementById('prm_aporta_id').value);
 }
-function doc1(valor){
-    if(valor == 711 && document.getElementById('prm_actividad_id').value == 853){
-        document.getElementById("cuanto").hidden=false;
-        document.getElementById("prm_periodo_id").hidden=false;
 
-    } else {
-        document.getElementById("cuanto").hidden=true;
-        document.getElementById("prm_periodo_id").hidden=true;
-
-    }
-}
 function doc2(valor){
     if(valor == 227 && document.getElementById('prm_actividad_id').value != 853){
         document.getElementById("porque").hidden=false;

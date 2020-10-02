@@ -145,9 +145,11 @@ class VsiRelFamiliar extends Model
                 $dataxxxx['modeloxx'] = VsiRelFamiliar::create($dataxxxx['requestx']->all());
 
             }
-             $dataxxxx['modeloxx']->motivos()->detach();
-            foreach ($dataxxxx['requestx']->motivos as $d) {
-                 $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $dataxxxx['modeloxx']->motivos()->detach();
+            if($dataxxxx['requestx']->motivos){
+                foreach ($dataxxxx['requestx']->motivos as $d) {
+                   $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
             }
             $dataxxxx['modeloxx']->famDificultades()->detach();
             if($dataxxxx['requestx']->famDificultades){

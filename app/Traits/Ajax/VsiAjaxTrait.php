@@ -4,6 +4,7 @@ namespace App\Traits\Ajax;
 
 use App\Models\Parametro;
 use App\Models\Tema;
+use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
 
 /**
@@ -11,24 +12,33 @@ use Illuminate\Http\Request;
  */
 trait VsiAjaxTrait
 {
+    use CombosTrait;
     public function getCombo($dataxxxx)
     {
-        $opciones=[
-            'personas'=>[235,66],
-            'situaciones'=>[235,131],
-            'emociones'=>[931,195],
-            'cuidador'=>[235,66],
-            'ausencia'=>[1269,292],
-            'quienes'=>[235,66],
-            'adecuados'=>[931,195], //12.6 vsi
-            'dificultades'=>[931,195], //12.8 vsi
-            'acciones'=>[853,298],
-            'expectativas'=>[689,181],
+        $opciones = [
+            'personas' => [235, 66],
+            'situaciones' => [235, 131],
+            'emociones' => [931, 195],
+            'cuidador' => [235, 66],
+            'calles' => [235, 66],
+            'delitos' => [235, 66],
+            'prostituciones' => [235, 66],
+            'libertades' => [235, 66],
+            'consumo' => [235, 66],
+            'salud' => [235, 66],
+            'ausencia' => [1269, 292],
+            'quienes' => [235, 66],
+            'adecuados' => [931, 195], //12.6 vsi
+            'dificultades' => [931, 195], //12.8 vsi
+            'acciones' => [853, 298],
+            'expectativas' => [689, 181],
+            'labores' => [853, 114],
+            'dificultadex' => [689, 168],
         ];
 
 
         $parametr = Parametro::find($opciones[$dataxxxx['selectxx']][0])->ComboAjaxUno;
-        $parametr[0]['selected']='selected';
+        $parametr[0]['selected'] = 'selected';
         $respuest = ['selectxx' => $dataxxxx['selectxx'], 'comboxxx' => $parametr, 'nigunaxx' => true];
         if ($dataxxxx['padrexxx'] == 0) {
             $dataxxxx['padrexxx'] = [];
@@ -63,6 +73,23 @@ trait VsiAjaxTrait
                 'temaxxxx' => $request->temaxxxx
             ];
             $respuest = $this->getCombo($dataxxxx);
+            return response()->json($respuest);
+        }
+    }
+
+    public function getBuscatrabajo(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [
+                    'readonly' => false,
+                    'selectxx' => $request->selectxx,
+                    'comboxxx' => $this->combo(['cabecera' => true, 'ajaxxxxx' => true, 'temaxxxx' => 4, 'selected' => is_array($request->selected) ? $request->selected : [$request->selected]])
+            ];
+            if ($request->padrexxx != 711) {
+                $respuest['comboxxx'] = Parametro::find(1269)->ComboAjaxUno;
+                $respuest['readonly'] = true;
+            }
+
             return response()->json($respuest);
         }
     }

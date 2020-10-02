@@ -3,8 +3,19 @@ $(document).ready(function() {
     $('#facilitas').select2({
       language: "es"
     });
-    $('#dificultades').select2({
+    $('#dificultadex').select2({
       language: "es"
+    });
+
+    $('#dificultadex').change(function() {
+        f_comboSimple({
+            dataxxxx: {
+                padrexxx: $(this).val() == '' ? 0 : $(this).val(),
+                selectxx: $(this).prop('id'),
+            },
+            urlxxxxx: "{{ route('ajaxx.nomasxxxx') }}",
+            msnxxxxx:"Disculpe, existió un problema al armar el combo"
+        });
     });
 });
 function doc(valor) {

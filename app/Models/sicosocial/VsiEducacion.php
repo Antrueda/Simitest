@@ -98,6 +98,13 @@ class VsiEducacion extends Model{
                 $dataxxxx['modeloxx']->fortalezas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
             }
         }
+
+        $dataxxxx['modeloxx']->causas()->detach();
+        if($dataxxxx['requestx']->causas){
+            foreach ($dataxxxx['requestx']->causas as $d) {
+                $dataxxxx['modeloxx']->causas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            }
+        }
         $dataxxxx['modeloxx']->dificultades()->detach();
         if($dataxxxx['requestx']->dificultades){
             foreach ($dataxxxx['requestx']->dificultades as $d) {

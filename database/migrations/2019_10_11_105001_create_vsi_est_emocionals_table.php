@@ -30,8 +30,8 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table->binary('descripcion_siente');
             $table->bigInteger('prm_reacciona_id')->unsigned()->nullable();
             $table->binary('descripcion_reacciona');
-            $table->binary('descripcion_adecuado');
-            $table->binary('descripcion_dificulta');
+            $table->binary('descripcion_adecuado')->nullable();
+            $table->binary('descripcion_dificulta')->nullable();
             $table->bigInteger('prm_estresante_id')->unsigned();
             $table->binary('descripcion_estresante')->nullable();
             $table->bigInteger('prm_morir_id')->unsigned();

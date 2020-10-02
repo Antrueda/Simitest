@@ -22,7 +22,7 @@ class Parametro extends Model
     }
     public function getComboAjaxUnoAttribute()
     {
-        return [['valuexxx' => $this->id, 'optionxx' => $this->nombre]];
+        return [['valuexxx' => $this->id, 'optionxx' => $this->nombre, 'selected'=>'selected']];
     }
     public function getComboAjaxRegistroAttribute()
     {

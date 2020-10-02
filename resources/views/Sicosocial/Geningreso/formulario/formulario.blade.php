@@ -41,7 +41,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_no_id', '9.5 ¿Por qué no genera ingresos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_no_id', $todoxxxx['ningunax'], null, ['class' => $errors->first('prm_no_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+        {{ Form::select('prm_no_id', $todoxxxx['ningunax'], null, ['class' => $errors->first('prm_no_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_no_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_no_id') }}
@@ -53,7 +53,7 @@
         {{ Form::label('prm_periodo_id', 'tiempo', ['class' => 'control-label col-form-label-sm d-none']) }}
         <div class="row">
             <div class="col-md">
-                {{ Form::number('cuanto', null, ['class' => $errors->first('cuanto') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '99']) }}
+                {{ Form::number('cuanto', null, ['class' => $errors->first('cuanto') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '99',$todoxxxx['cuantoxx']]) }}
             </div>
             <div class="col-md">
                 {{ Form::select('prm_periodo_id', $todoxxxx['tiempoxx'], null, ['class' => $errors->first('prm_periodo_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
@@ -143,21 +143,22 @@
     </div>
 </div>
 <div class="row">
+    
     <div class="col-md">
-        {{ Form::label('prm_laboral_id', '9.9. ¿Tipo de relación laboral?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_laboral_id', $todoxxxx['laboralx'], null, ['class' => $errors->first('prm_laboral_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id' => 'prm_laboral_id']) }}
-        @if($errors->has('prm_laboral_id'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('prm_laboral_id') }}
-            </div>
-        @endif
-    </div>
-    <div class="col-md">
-        {{ Form::label('aporte', '9.10. Total de aportes mensuales al hogar', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('aporte', '9.9. Total de aportes mensuales al hogar', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::number('aporte', null, ['class' => $errors->first('aporte') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0','id' => 'aporte']) }}
         @if($errors->has('aporte'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('aporte') }}
+            </div>
+        @endif
+    </div>
+    <div class="col-md">
+        {{ Form::label('prm_laboral_id', '9.10. ¿Tipo de relación laboral?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_laboral_id', $todoxxxx['laboralx'], null, ['class' => $errors->first('prm_laboral_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id' => 'prm_laboral_id']) }}
+        @if($errors->has('prm_laboral_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_laboral_id') }}
             </div>
         @endif
     </div>

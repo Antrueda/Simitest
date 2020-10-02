@@ -5,6 +5,7 @@ namespace App\Traits\Combos;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
+use App\Models\Tema;
 
 trait CombosTrait
 {
@@ -74,4 +75,39 @@ trait CombosTrait
         }
         return $comboxxx;
     }
+
+    /*
+    * @param  $temaxxxx tema padre de los parámetros
+    * @param  $cabecera indica si el combo se debe devolver con el seleccione
+    * @param  $ajaxxxxx indica si el combo es para devolver en array para objeto json
+    * @return $comboxxx
+    */
+   public static function combo($dataxxxx) {
+     $comboxxx = [];
+     if ($dataxxxx['cabecera'] ) {
+       if ($dataxxxx['ajaxxxxx']) {
+         $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+       } else {
+         $comboxxx = ['' => 'Seleccione'];
+       }
+     }
+     $parametr = Tema::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
+             ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
+             ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
+             ->where('temas.id', $dataxxxx['temaxxxx'])
+             ->orderBy('parametros.id', 'asc')
+             ->get();
+     foreach ($parametr as $registro) {
+        if ($dataxxxx['ajaxxxxx']) {
+        $selected='';
+        if(in_array($registro->valuexxx,$dataxxxx['selected'])){ 
+           $selected='selected';
+        }
+         $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx, 'selected'=> $selected];
+       } else {
+         $comboxxx[$registro->valuexxx] = $registro->optionxx;
+       }
+     } 
+     return $comboxxx;    
+   }
 }

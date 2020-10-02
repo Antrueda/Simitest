@@ -51,7 +51,7 @@ function doc(valor){
         document.getElementById("dificultades_div").hidden=false;
         document.getElementById("prm_dificultad_id").hidden=false;
         document.getElementById("causas_div").hidden=true;
-        document.getElementById("causas").value=[];
+        
         
     }
 }
@@ -67,14 +67,6 @@ function doc1(valor){
     }
 }
 
-function carga() {
-    doc(document.getElementById('prm_estudia_id').value);
-    doc(document.getElementById('prm_rendimiento_id').value);
-    doc(document.getElementById('causas').value);
-    
-    
-    
 
-}
 window.onload=carga;
 </script>

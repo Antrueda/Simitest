@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vsi;
 
+use App\Models\sicosocial\Vsi;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiEstEmocionalEditarRequest extends FormRequest
@@ -21,7 +22,6 @@ class VsiEstEmocionalEditarRequest extends FormRequest
             'prm_reacciona_id' => 'nullable|exists:parametros,id',
             'descripcion_reacciona' => 'required|string|max:4000',
             'descripcion_adecuado' => 'required|string|max:4000',
-            'descripcion_dificulta' => 'required|string|max:4000',
             'prm_estresante_id' => 'required|exists:parametros,id',
             'descripcion_estresante' => 'required_if:prm_estresante_id,227|max:4000',
             'prm_morir_id' => 'required|exists:parametros,id',
@@ -86,6 +86,12 @@ class VsiEstEmocionalEditarRequest extends FormRequest
 
     public function validar()
     {
-
+        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        //ddd($dataxxxx['dificultades']);
+        if (!in_array(931, $dataxxxx['dificultades'])){
+            $this->_mensaje['descripcion_dificulta.required'] = 'Ingrese una descripción de la dificultad'; 
+            $this->_reglasx['descripcion_dificulta'] = 'required|string|max:4000';
+         }
     }
 }
+

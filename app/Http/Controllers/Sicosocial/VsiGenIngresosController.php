@@ -68,6 +68,7 @@ class VsiGenIngresosController extends Controller
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['parentes'] = Tema::combo(66, false, false);
         $this->opciones['jorgener'] = Tema::combo(123, true, false);
+        $this->opciones['cuantoxx'] = '';
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
@@ -77,14 +78,17 @@ class VsiGenIngresosController extends Controller
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $quienesx=$dataxxxx['modeloxx']->quienes[0]->id;
-            if($quienesx==235){
-                $this->opciones['parentes'] = Parametro::find($quienesx->id)->Combo;
-            }
+          
+            
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
             if($dataxxxx['modeloxx']->prm_actividad_id==853){
-                $this->opciones['jorgener']=[1269=>'NO APLICA'];
+                $this->opciones['jorgener']=Parametro::find(1269)->Combo;
+            }
+
+            if($dataxxxx['modeloxx']->prm_no_id!=711){
+                $this->opciones['cuantoxx']='readonly';
+                $this->opciones['tiempoxx']=Parametro::find(1269)->Combo;
             }
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;

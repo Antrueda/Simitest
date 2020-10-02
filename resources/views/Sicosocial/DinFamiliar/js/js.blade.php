@@ -98,7 +98,7 @@ $(document).ready(function() {
             var nombre_fichero_seleccionado = fichero_seleccionado.replace(/.*[\/\\]/, ''); //Eliminamos el path hasta el fichero seleccionado
             $("#s_doc_adjunto_ar_label").text(nombre_fichero_seleccionado);
         });
-        $('#cuidador,#ausencia').change(function() {
+        $('#cuidador,#ausencia,#calles,#delitos,#prostituciones,#libertades,#consumo,#salud').change(function() {
             f_comboSimple({
                 dataxxxx: {
                     padrexxx: $(this).val() == '' ? 0 : $(this).val(),
