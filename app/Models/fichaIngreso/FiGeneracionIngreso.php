@@ -83,13 +83,6 @@ class FiGeneracionIngreso extends Model{
       if(isset($dataxxxx['i_prm_dia_genera_id'])){
         FiGeneracionIngreso::grabarDiaGenera($objetoxx,$dataxxxx);
       }
-
-      $dataxxxx['sis_tabla_id']=15;
-      IndicadorHelper::asignaLineaBase($dataxxxx);
-
-      $dataxxxx['sis_tabla_id']=10;
-      IndicadorHelper::asignaLineaBase($dataxxxx);
-
       return $objetoxx;
     }, 5);
     return $usuariox;

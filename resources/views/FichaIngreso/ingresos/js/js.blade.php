@@ -86,7 +86,7 @@
             }
         }
 
-        @if(old('i_prm_actividad_genera_ingreso_id')!=null || isset($todoxxxx['modeloxx']))
+        @if(old('i_prm_actividad_genera_ingreso_id')!=null)
             f_generar_ingresos({limpiaxx:false,
             valuexxx:{{ isset($todoxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id)? $todoxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id: (old('i_prm_actividad_genera_ingreso_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}},
             trivalue:{{ isset($todoxxxx['modeloxx']->i_prm_trabajo_informal_id)? $todoxxxx['modeloxx']->i_prm_trabajo_informal_id: (old('i_prm_trabajo_informal_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}},
