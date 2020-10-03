@@ -7,6 +7,7 @@ use App\Http\Requests\FichaIngreso\FiRazoneCrearRequest;
 use App\Http\Requests\FichaIngreso\FiRazoneUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiRazone;
+use App\Models\Sistema\SisDepen;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Fi\FiTrait;
@@ -72,32 +73,12 @@ class FiRazoneController extends Controller
         $this->opciones['usuarios'] = User::combo(true, false);
 
         $this->opciones['estadoxx'] = 'ACTIVO';
-
-        $dependen = [];
-        foreach ($dataxxxx['padrexxx']->sis_nnaj->nnaj_upis as $key => $value) {
-            if ($value->prm_principa_id = 227) {
-                $dependen = $value;
-            }
-        }
-
-        foreach ($dependen->sis_depen->getDepeUsua as $key => $value) {
-            if ($value->i_prm_responsable_id == 227) {
-                $dependen = $value;
-            }
-        }
-
-        if(!isset($dependen->user->id)){
-            return redirect()
-            ->route('fidatbas.editar', [
-                $dataxxxx['padrexxx']->id
-            ])
-            ->with('info', 'La upi al NNAJ no tiene un responsable, por favor comunicarse con el administrador del sistema');
-        }
         $this->opciones['depedile'] = [];
-        $this->opciones['usuarioz'] = [$dependen->user->id=>$dependen->user->name];
-        $this->opciones['deperesp'] = User::getAreasUser(['cabecera'=>true,'esajaxxx'=>false]);
+        $dependen=SisDepen::find($dataxxxx['padrexxx']->sis_nnaj->NnajUpiPrincipal)->ResponsableNormal;
+        $this->opciones['usuarioz'] = $dependen[0];
+        $this->opciones['deperesp'] = $dependen[2];
         $this->opciones['cargodil'] = '';
-        $this->opciones['cargores'] = $dependen->user->sis_cargo->s_cargo;
+        $this->opciones['cargores'] = $dependen[1];
         // indica si se esta actualizando o viendo
         $vercrear = false;
         $parametr = 0;
@@ -251,17 +232,21 @@ class FiRazoneController extends Controller
                 case 'userd_id':
                     $respuest['campcarg'] = '#s_cargo_diligencia';
                     $respuest['campoxxx'] = '#sis_depend_id';
+                    $usuariox = User::find($dataxxxx['valuexxx']);
+                    $respuest['comboxxx'] = $usuariox->dependencias;
+                    $respuest['cargoxxx'] = $usuariox->sis_cargo->s_cargo;
                     break;
                 case 'userr_id':
                     $respuest['campcarg'] = '#s_cargo_responsable';
-                    $respuest['campoxxx'] = '#sis_depenr_id';
+                    $respuest['campoxxx'] = '#sis_depend_id';
+                    $dependen=SisDepen::find($dataxxxx['valuexxx']);
+                    $usuariox =$dependen->NnajUpi;
+                    $respuest['comboxxx'] = $usuariox[0];
+                    $respuest['cargoxxx'] = $usuariox[1];
                     break;
+                    
             }
-            if ($dataxxxx['valuexxx'] != '') {
-                $usuariox = User::comboDependencia($dataxxxx['valuexxx'], true, true);
-                $respuest['comboxxx'] = $usuariox[0];
-                $respuest['cargoxxx'] = $usuariox[1];
-            }
+        
             return response()->json($respuest);
         }
     }

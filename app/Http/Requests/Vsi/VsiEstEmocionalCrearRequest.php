@@ -13,6 +13,7 @@ class VsiEstEmocionalCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             'descripcion_siente.required_if' => 'Ingrese una descripción',
+            
         ];
         $this->_reglasx = [
             'prm_siente_id' => 'required|exists:parametros,id',
@@ -87,9 +88,8 @@ class VsiEstEmocionalCrearRequest extends FormRequest
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        if (!in_array(931, $dataxxxx['dificultades'])){
-            $this->_mensaje['descripcion_dificulta.required'] = 'Ingrese una descripción de la dificultad'; 
-            $this->_reglasx['descripcion_dificulta'] = 'required|string|max:4000';
+        if (in_array(931, $dataxxxx['dificultades'])){
+            $this->_reglasx['descripcion_dificulta'] = 'nullable|string|max:4000';
          }
     }
 }

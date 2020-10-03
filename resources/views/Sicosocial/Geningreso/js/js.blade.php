@@ -116,7 +116,6 @@ $(document).ready(function() {
 });
 
 
-
 function doc(valor){
     if(valor == 626){
         document.getElementById("trabaja").hidden=false;
@@ -126,7 +125,6 @@ function doc(valor){
         document.getElementById("jornada_entre").hidden=false;
         document.getElementById("prm_jor_entre_id").hidden=false;
         document.getElementById("jornada_a").hidden=false;
-        document.getElementById("prm_jornada_id").hidden=false;
         document.getElementById("prm_jor_a_id").hidden=false;
         document.getElementById("dias_div").hidden=false;
         document.getElementById("prm_frecuencia_id").hidden=false;
@@ -153,7 +151,6 @@ function doc(valor){
         document.getElementById("prm_jor_entre_id").hidden=false;
         document.getElementById("jornada_a").hidden=false;
         document.getElementById("prm_jor_a_id").hidden=false;
-        document.getElementById("prm_jornada_id").hidden=false;
         document.getElementById("dias_div").hidden=false;
         document.getElementById("prm_frecuencia_id").hidden=false;
         document.getElementById("prm_laboral_id").hidden=true;
@@ -178,7 +175,6 @@ function doc(valor){
         document.getElementById("prm_jor_entre_id").hidden=false;
         document.getElementById("jornada_a").hidden=false;
         document.getElementById("prm_jor_a_id").hidden=false;
-        document.getElementById("prm_jornada_id").hidden=false;
         document.getElementById("dias_div").hidden=false;
         document.getElementById("prm_frecuencia_id").hidden=false;
         document.getElementById("prm_laboral_id").hidden=true;
@@ -200,7 +196,6 @@ function doc(valor){
         document.getElementById("prm_otra_id").hidden=true;
         document.getElementById("prm_no_id").hidden=false;
         document.getElementById("jornada_entre").hidden=true;
-        document.getElementById("prm_jornada_id").hidden=true;
         document.getElementById("prm_jor_entre_id").hidden=true;
         document.getElementById("jornada_a").hidden=true;
         document.getElementById("prm_jor_a_id").hidden=true;
@@ -218,8 +213,21 @@ function doc(valor){
         document.getElementById("prm_frecuencia_id").value='';
         document.getElementById("prm_laboral_id").value='';
     }
-    
+    doc1(document.getElementById('prm_no_id').value);
     doc2(document.getElementById('prm_aporta_id').value);
+}
+
+
+function doc1(valor){
+    if(valor != 711){
+        document.getElementById("cuanto").hidden=true;
+        document.getElementById("prm_periodo_id").hidden=true;
+
+    } else {
+        document.getElementById("cuanto").hidden=false;
+        document.getElementById("prm_periodo_id").hidden=false;
+
+    }
 }
 
 function doc2(valor){

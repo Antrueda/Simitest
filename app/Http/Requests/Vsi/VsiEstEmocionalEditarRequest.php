@@ -24,6 +24,7 @@ class VsiEstEmocionalEditarRequest extends FormRequest
             'descripcion_adecuado' => 'required|string|max:4000',
             'prm_estresante_id' => 'required|exists:parametros,id',
             'descripcion_estresante' => 'required_if:prm_estresante_id,227|max:4000',
+            'descripcion_dificulta' => 'required|string|max:4000',
             'prm_morir_id' => 'required|exists:parametros,id',
             'dia_morir' => 'nullable|min:0|max:99',
             'mes_morir' => 'nullable|min:0|max:99',
@@ -87,10 +88,8 @@ class VsiEstEmocionalEditarRequest extends FormRequest
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        //ddd($dataxxxx['dificultades']);
-        if (!in_array(931, $dataxxxx['dificultades'])){
-            $this->_mensaje['descripcion_dificulta.required'] = 'Ingrese una descripción de la dificultad'; 
-            $this->_reglasx['descripcion_dificulta'] = 'required|string|max:4000';
+        if (in_array(931, $dataxxxx['dificultades'])){
+            $this->_reglasx['descripcion_dificulta'] = 'nullable|string|max:4000';
          }
     }
 }

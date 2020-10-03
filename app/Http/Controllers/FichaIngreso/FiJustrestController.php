@@ -49,7 +49,7 @@ class FiJustrestController extends Controller
         $this->opciones['actusrpa'] = Tema::combo(25, true, false);
         $this->opciones['actuspoa'] = Tema::combo(25, true, false);
         $this->opciones['motipard'] = Tema::combo(45, true, false);
-        $this->opciones['motisrpa'] = Tema::combo(23, true, false);
+        $this->opciones['motisrpa'] = Tema::combo(46, true, false);
         $this->opciones['sancsrpa'] = Tema::combo(47, true, false);
         $this->opciones['motispoa'] = Tema::combo(357, true, false);
         $this->opciones['sancspoa'] = Tema::combo(49, true, false);
@@ -172,7 +172,7 @@ class FiJustrestController extends Controller
                 $this->opciones['readteld'] = 'readonly';
                 $this->opciones['readluga'] = 'readonly';
             }
-
+/*
             if ($dataxxxx['modeloxx']->i_prm_ha_estado_srpa_id != 227) {
                 $this->opciones['actusrpa'] = [1 => 'NO APLICA'];
                 $this->opciones['titisrpa'] = [1 => 'NO APLICA'];
@@ -188,6 +188,7 @@ class FiJustrestController extends Controller
                 $this->opciones['readsrpa'] = 'readonly';
                 $this->opciones['sancsrpa'] = [1 => 'NO APLICA'];
             }
+            */
             if ($dataxxxx['modeloxx']->i_prm_ha_estado_spoa_id != 227) {
                 $this->opciones['actuspoa'] = [1 => 'NO APLICA'];
                 $this->opciones['titispoa'] = [1 => 'NO APLICA'];

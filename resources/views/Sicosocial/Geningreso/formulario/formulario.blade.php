@@ -41,7 +41,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_no_id', '9.5 ¿Por qué no genera ingresos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_no_id', $todoxxxx['ningunax'], null, ['class' => $errors->first('prm_no_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('prm_no_id', $todoxxxx['ningunax'], null, ['class' => $errors->first('prm_no_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc1(this.value)' ]) }}
         @if($errors->has('prm_no_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_no_id') }}

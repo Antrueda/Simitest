@@ -181,9 +181,45 @@ class User extends Authenticatable
     {
         return $this->s_documento . ' - ' . $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido;
     }
+
+
+    public function getDocNombreCompletoAjaxAttribute()
+    {
+        return ['valuexxx'=>$this->id,'optionxx'=>$this->s_documento . ' - ' . $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido];
+    }
+
+    public function getDocNombreCompletoNormalAttribute()
+    {
+        $nombrexx[$this->id]=
+        $this->s_documento . ' - ' . 
+        $this->s_primer_nombre . ' ' . 
+        $this->s_segundo_nombre . ' ' . 
+        $this->s_primer_apellido . ' ' . 
+        $this->s_segundo_apellido;
+        return  $nombrexx;
+    }
+
     public function getDocNombreCompletoCargoAttribute()
     {
         return $this->s_documento . ' - ' . $this->s_primer_nombre . ' ' . $this->s_segundo_nombre . ' ' . $this->s_primer_apellido . ' ' . $this->s_segundo_apellido . ' - ' . $this->sis_cargo->s_cargo;
+    }
+
+    public function getDependenciasAttribute()
+    {
+        $dependen = [['valuexxx'=>'','optionxx'=>'Seleccione']];
+        foreach($this->sis_depens as $value){
+            $dependen[] = $value->ComboAjax;
+        }
+        return $dependen;
+    }
+
+    public function getDependenciasNormalAttribute()
+    {
+        $dependen = [''=>'Seleccione'];
+        foreach($this->sis_depens as $value){
+            $dependen[$value->id] = $value->nombre;
+        }
+        return $dependen;
     }
 
     private static function userCombo($dataxxxx)

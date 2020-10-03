@@ -34,6 +34,7 @@ trait VsiAjaxTrait
             'expectativas' => [689, 181],
             'labores' => [853, 114],
             'dificultadex' => [689, 168],
+            'violbasa'=> [1269, 349],
         ];
 
 

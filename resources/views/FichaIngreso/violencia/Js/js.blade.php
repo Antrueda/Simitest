@@ -50,6 +50,7 @@
                     },
                 });
             }
+        
         });
 
 
@@ -114,4 +115,15 @@
             f_departamentos($(this).val(), 'i_prm_depto_certifica_id', '')
         });
     });
+
+            $('#violbasa').change(function() {
+                f_comboSimple({
+                    dataxxxx: {
+                        padrexxx: $(this).val() == '' ? 0 : $(this).val(),
+                        selectxx: $(this).prop('id'),
+                    },
+                    urlxxxxx: "{{ route('ajaxx.nomasxxxx') }}",
+                    msnxxxxx:"Disculpe, existió un problema al armar el combo"
+              });
+             });
 </script>

@@ -27,25 +27,16 @@
                 }
             });
         }
-        @if(old('userd_id') != null)) f_cargos({
-        dataxxxx: {
-            valuexxx: {
-                {
-                    old('userd_id')
-                }
-            },
-            campoxxx: 'userd_id',
-            selected: '{{old("sis_depend_id")}}'
-        }); @endif @if(old('userr_id') != null)) f_cargos({
-            dataxxxx: {
-                valuexxx: {
-                    {
-                        old('userr_id')
-                    }
-                },
-                campoxxx: 'userr_id',
-                selected: '{{old("sis_depenr_id")}}'
-            }); @endif $('.cargos').change(function() {
+         
+        @if(old('userr_id') != null)) 
+            f_cargos({
+                dataxxxx: {
+                    valuexxx: "{{old('userr_id')}}"",
+                    campoxxx: 'userr_id',
+                    selected: '{{old("sis_depenr_id")}}'
+            }); 
+        @endif 
+        $('.cargos').change(function() {
             f_cargos({
                 dataxxxx: {
                     valuexxx: $(this).val(),
@@ -53,7 +44,9 @@
                 },
                 selected: ''
             });
-        }); $('#s_documento').mask('000000000000'); $('#s_documento_responsable').mask('000000000000');
+        }); 
+        $('#s_documento').mask('000000000000'); 
+        $('#s_documento_responsable').mask('000000000000');
 
 
         $("#s_doc_adjunto_ar").change(function() {

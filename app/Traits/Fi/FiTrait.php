@@ -27,17 +27,24 @@ trait FiTrait
     use DatatableTrait;
     public function getCombo($dataxxxx)
     {
-        $respuest = ['selectxx' => $dataxxxx['selectxx'], 'comboxxx' => [['valuexxx' => $dataxxxx['valuexxx'], 'optionxx' => $dataxxxx['optionxx'], 'selected' => 'selected']], 'nigunaxx' => true];
+        $opciones = [
+            'personas' => [235, 66],
+        ];
+
+
+        $parametr = Parametro::find($opciones[$dataxxxx['selectxx']][0])->ComboAjaxUno;
+        $parametr[0]['selected'] = 'selected';
+        $respuest = ['selectxx' => $dataxxxx['selectxx'], 'comboxxx' => $parametr, 'nigunaxx' => true];
         if ($dataxxxx['padrexxx'] == 0) {
             $dataxxxx['padrexxx'] = [];
         }
         foreach ($dataxxxx['padrexxx']  as $key => $value) {
-            if ($value == $dataxxxx['valuexxx']) {
+            if ($value == $opciones[$dataxxxx['selectxx']][0]) {
                 $respuest['nigunaxx'] = false;
             }
         }
         if ($respuest['nigunaxx']) {
-            $respuest['comboxxx'] = Tema::combo($dataxxxx['temaxxxx'], false, true);
+            $respuest['comboxxx'] = Tema::combo($opciones[$dataxxxx['selectxx']][1], true, true);
             foreach ($respuest['comboxxx'] as $key => $value) {
                 $respuest['comboxxx'][$key]['selected'] = in_array($value['valuexxx'], $dataxxxx['padrexxx']) ? 'selected' : '';
             }
@@ -364,5 +371,18 @@ trait FiTrait
             ->join('parametros', 'fi_documentos_anexas.i_prm_documento_id', '=', 'parametros.id')
             ->where('fi_razones.id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
+    }
+    public function getNoMas(Request $request)
+    {
+        if ($request->ajax()) {
+            $dataxxxx = [
+                'selectxx' => $request->selectxx,
+                'valuexxx' => $request->valuexxx,
+                'padrexxx' => $request->padrexxx,
+                'temaxxxx' => $request->temaxxxx
+            ];
+            $respuest = $this->getCombo($dataxxxx);
+            return response()->json($respuest);
+        }
     }
 }
