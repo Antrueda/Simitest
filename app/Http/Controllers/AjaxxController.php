@@ -7,7 +7,6 @@ use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Indicadores\InBaseFuente;
 use App\Models\Indicadores\InDocIndi;
 use App\Models\Indicadores\InDocPregunta;
@@ -39,7 +38,6 @@ use App\Traits\Ajax\VsiAjaxTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
-
 class AjaxxController extends Controller
 {
     use VsiAjaxTrait;

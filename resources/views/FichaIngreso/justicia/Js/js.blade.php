@@ -127,16 +127,6 @@
             };
             f_ocultapard(dataxxxx);
         @endif
-       //OCULTA SRPA
-    //    var dataxxxx={
-    //         valuexxx:'',
-    //         camposxx:'#i_prm_actualmente_srpa_id,#i_prm_tipo_tiempo_srpa_id, #i_prm_motivo_srpa_id, #i_prm_sancion_srpa_id',
-    //         optionxx:1,
-    //         actusrpa:'',
-                // tiposrpa:'',
-                // motipard:'',
-                // sancsrpa:''
-    //     };
        var f_ocultasrpa = function(dataxxxx){
             $(dataxxxx.camposxx).empty();
             $(dataxxxx.camposxx).append('<option value="">Seleccione</>')

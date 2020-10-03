@@ -164,11 +164,9 @@ class FiCompfamiController extends Controller
             $dataxxxx['modeloxx']->s_primer_nombre = $datosbas->s_primer_nombre;
             $dataxxxx['modeloxx']->s_segundo_nombre = $datosbas->s_segundo_nombre;
             $dataxxxx['modeloxx']->s_documento = $datosbas->nnaj_docu->s_documento;
-            $dataxxxx['modeloxx']->prm_documento_id = $datosbas->nnaj_docu->tipoDocumento->id;
+            $dataxxxx['modeloxx']->prm_tipodocu_id = $datosbas->nnaj_docu->tipoDocumento->id;
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-            $fechaxxx = explode('-', $dataxxxx['modeloxx']->d_nacimiento);
-            $this->opciones['aniosxxx'] = Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
+            $dataxxxx['modeloxx']->aniosxxx=$datosbas->nnaj_nacimi->Edad;
             $dataxxxx['modeloxx']->sis_pai_id = $datosbas->nnaj_docu->sis_municipio->sis_departamento->sis_pai_id;
 
             $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
