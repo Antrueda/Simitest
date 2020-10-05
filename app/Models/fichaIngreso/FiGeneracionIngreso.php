@@ -63,7 +63,7 @@ class FiGeneracionIngreso extends Model{
       'user_edita_id'=>Auth::user()->id,
       'sis_esta_id'=>1,
     ];
-    FiDiasGeneraIngreso::where('fi_generacion_ingreso_id', $digenera->id)->delete();
+    
     foreach($dataxxxx['i_prm_dia_genera_id'] as $diagener){
       $datosxxx['i_prm_dia_genera_id']=$diagener;
       FiDiasGeneraIngreso::create($datosxxx);
@@ -80,6 +80,7 @@ class FiGeneracionIngreso extends Model{
         $dataxxxx['user_crea_id'] = Auth::user()->id;
         $objetoxx = FiGeneracionIngreso::create($dataxxxx);
       }
+      FiDiasGeneraIngreso::where('fi_generacion_ingreso_id', $objetoxx->id)->delete();
       if(isset($dataxxxx['i_prm_dia_genera_id'])){
         FiGeneracionIngreso::grabarDiaGenera($objetoxx,$dataxxxx);
       }

@@ -294,7 +294,7 @@ class AjaxxController extends Controller
                     ]];
                     break;
             }
-            $respuest['enquedia'] = Tema::combo(124, false, true);
+            
             return response()->json($respuest);
         }
     }
@@ -310,7 +310,17 @@ class AjaxxController extends Controller
             return response()->json($respuest);
         }
     }
+    function limpiardias(Request $request)
+    {
 
+        if ($request->ajax()) {
+            $respuest = [[
+                'diaseman' => Tema::combo(124, false, true),
+            ]];
+            return response()->json($respuest);
+        }
+    }
+   
     function consecutivoceduala(Request $request)
     {
         if ($request->ajax()) {

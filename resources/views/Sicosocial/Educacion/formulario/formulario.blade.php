@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-md-4">
 				{{ Form::label('dia', 'Día(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('dia', null, ['class' => $errors->first('dia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99']) }}
+				{{ Form::number('dia', null, ['class' => $errors->first('dia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
 				@if($errors->has('dia'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('dia') }}
@@ -24,7 +24,7 @@
 			</div>
 			<div class="col-md-4">
 				{{ Form::label('mes', 'Mes(es)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('mes', null, ['class' => $errors->first('mes') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Mes(es)', 'min' => '0', 'max' => '99']) }}
+				{{ Form::number('mes', null, ['class' => $errors->first('mes') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Mes(es)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
 				@if($errors->has('mes'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('mes') }}
@@ -33,7 +33,7 @@
 			</div>
 			<div class="col-md-4">
 				{{ Form::label('ano', 'Año(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('ano', null, ['class' => $errors->first('ano') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99']) }}
+				{{ Form::number('ano', null, ['class' => $errors->first('ano') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
 				@if($errors->has('ano'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('ano') }}
@@ -44,7 +44,7 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('prm_motivo_id', '10.3 Motivo por el cual no está escolarizado', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_motivo_id', $todoxxxx['motivosx'], null, ['class' => $errors->first('prm_motivo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
+		{{ Form::select('prm_motivo_id', $todoxxxx['motivosx'], null, ['class' => $errors->first('prm_motivo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)',$todoxxxx['readonly']]) }}
 		@if($errors->has('prm_motivo_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_motivo_id') }}
@@ -54,7 +54,7 @@
 	<div class="col-md-3">
 		{{ Form::label('causas', '10.4 ¿Cuáles son las principales causas de deserción?', ['class' => 'control-label col-form-label-sm']) }}
 		<div id="causas_div">
-			{{ Form::select('causas[]', $todoxxxx['causasxx'], null, ['class' => $errors->first('causas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'causas', 'multiple']) }}
+			{{ Form::select('causas[]', $todoxxxx['causasxx'], null, ['class' => $errors->first('causas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'causas', 'multiple', $todoxxxx['readonly']]) }}
 		</div>
 		@if($errors->has('causas'))
 			<div class="invalid-feedback d-block">

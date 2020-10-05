@@ -88,11 +88,9 @@ class FiRazoneController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $dilegenc = User::comboDependencia($dataxxxx['modeloxx']->userd_id, false, false);
-            $responsa = User::comboDependencia($dataxxxx['modeloxx']->userr_id, false, false);
             $this->opciones['depedile'] = $dilegenc[0];
-            $this->opciones['deperesp'] = $responsa[0];
             $this->opciones['cargodil'] = $dilegenc[1];
-            $this->opciones['cargores'] = $responsa[1];
+    
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
 
         }

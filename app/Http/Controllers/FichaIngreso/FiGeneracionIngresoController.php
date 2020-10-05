@@ -8,6 +8,7 @@ use App\Http\Requests\FichaIngreso\FiGeneracionIngresoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\Tema;
+use Illuminate\Http\Request;
 
 class FiGeneracionIngresoController extends Controller
 {
@@ -41,6 +42,7 @@ class FiGeneracionIngresoController extends Controller
         $this->opciones['jorgener'] = Tema::combo(123, true, false);
         $this->opciones['diaseman'] = Tema::combo(124, false, false);
         $this->opciones['frecugen'] = Tema::combo(125, true, false);
+        $this->opciones['formalxx'] = '';
     }
 
     private function view($dataxxxx)
@@ -71,8 +73,36 @@ class FiGeneracionIngresoController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+            
+            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id==626) {
+                $this->opciones['trabinfo'] = [1 => 'NO APLICA'];
+                $this->opciones['otractiv'] = [1 => 'NO APLICA'];
+                $this->opciones['raznogen'] = [1 => 'NO APLICA'];
+                
+                }
+            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id==627) {
+                    $this->opciones['otractiv'] = [1 => 'NO APLICA'];
+                    $this->opciones['formalxx'] = 'readonly';
+                    $this->opciones['raznogen'] = [1 => 'NO APLICA'];
+                    $this->opciones['tiporela'] = [1 => 'NO APLICA'];
+                }    
+            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id==628) {
+                    $this->opciones['trabinfo'] = [1 => 'NO APLICA'];
+                    $this->opciones['formalxx'] = 'readonly';
+                    $this->opciones['raznogen'] = [1 => 'NO APLICA'];
+                    $this->opciones['tiporela'] = [1 => 'NO APLICA'];
+                    }             
+            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id==853) {
+                    $this->opciones['trabinfo'] = [1 => 'NO APLICA'];
+                    $this->opciones['otractiv'] = [1 => 'NO APLICA'];
+                    $this->opciones['formalxx'] = 'readonly';
+                    $this->opciones['tiporela'] = [1 => 'NO APLICA'];
+                    
+                    }                
+                    
+                    
+        }    
 
-        }
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -156,4 +186,8 @@ class FiGeneracionIngresoController extends Controller
     {
         return $this->grabar($request->all(), $modeloxx, 'Generación de ingresos actualizado con exito', $padrexxx);
     }
+
+
+  
+
 }

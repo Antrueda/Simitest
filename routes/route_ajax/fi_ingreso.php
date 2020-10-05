@@ -5,3 +5,9 @@ Route::post('trabajogenera', [
 Route::post('jornadagenera', [
     'uses' => 'AjaxxController@jornadagenera',
 ])->name('ajaxx.jornadagenera');
+
+Route::get('limpiardias', [
+    'uses' => 'AjaxxController@limpiardias',
+])->name('ajaxx.limpiardias');
+
+

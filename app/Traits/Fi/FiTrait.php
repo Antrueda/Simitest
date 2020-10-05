@@ -29,6 +29,7 @@ trait FiTrait
     {
         $opciones = [
             'personas' => [235, 66],
+            'prm_discausa_id' => [1269, 341],
         ];
 
 

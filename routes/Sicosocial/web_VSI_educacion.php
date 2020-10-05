@@ -24,4 +24,9 @@ Route::group(['prefix' => 'educacion'], function () use($routexxx,$controll) {
 	    'uses' => $controll.'Controller@show',
 	    'middleware' => ['permission:'.$routexxx.'-leer']
 	])->name($routexxx.'.ver');
+
+	Route::get('limpiar', [
+	    'uses' => $controll.'Controller@limpiar',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.limpiar');
 });

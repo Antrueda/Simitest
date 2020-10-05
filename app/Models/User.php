@@ -323,7 +323,7 @@ class User extends Authenticatable
     {
         return User::userComboCargo(['cabecera' => $cabecera, 'ajaxxxxx' => $ajaxxxxx, 'notinxxx' => false]);
     }
-    public static function comboDependencia($cabecera, $ajaxxxxx)
+    public static function comboDependencia($padrexxx,$cabecera, $ajaxxxxx)
     {
         $comboxxx = [];
         if ($cabecera) {
@@ -333,7 +333,8 @@ class User extends Authenticatable
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $userxxxx = Auth::user();
+        
+        $userxxxx = User::find($padrexxx);
         foreach ($userxxxx->sis_depens as $registro) {
             if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];

@@ -5,7 +5,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_trabajo_formal', 'A.1 Mencione en qué trabaja (No aplica para CHC)', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_trabajo_formal', null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::text('s_trabajo_formal', null, ['class' => 'form-control form-control-sm', $todoxxxx["formalxx"]]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_trabajo_informal_id', 'B.1 (Si Indicó B. TRABAJO INFORMAL) Seleccione:', ['class' => 'control-label col-form-label-sm']) }}

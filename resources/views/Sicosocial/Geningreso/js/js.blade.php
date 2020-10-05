@@ -38,7 +38,7 @@ $(document).ready(function() {
         }
 
         var f_limpiar = function(valuexxx,psalecte) {
-            $("#dias,#quienes,#labores").empty();
+            $("#dias,#quienes,#labores,#expectativa,#descripcion,#prm_frecuencia_id").empty();
                 $.ajax({
                     url : "{{ route('vsigener.limpiar') }}",
                     data: {
@@ -55,6 +55,9 @@ $(document).ready(function() {
                         });
                         $.each(json[0].actividx, function(i, data) {
                             $('#labores').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
+                        $.each(json[0].frecuenc, function(i, data) {
+                            $('#prm_frecuencia_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
 
                     },
@@ -131,9 +134,6 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=false;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
-        document.getElementById("expectativa").value='';
-        document.getElementById("descripcion").value='';
-        document.getElementById("prm_aporta_id").value='';
         document.getElementById("porque").value='';
         document.getElementById("cuanto_aporta").value='';
         document.getElementById("aporte").value='';
@@ -156,13 +156,10 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
-        document.getElementById("expectativa").value='';
-        document.getElementById("descripcion").value='';
-        document.getElementById("prm_aporta_id").value='';
         document.getElementById("porque").value='';
         document.getElementById("cuanto_aporta").value='';
         document.getElementById("aporte").value='';
-        document.getElementById("prm_frecuencia_id").value='';
+        document.getElementById("prm_aporta_id").value='';
         document.getElementById("prm_laboral_id").value='';
 
     }
@@ -180,13 +177,10 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
-        document.getElementById("expectativa").value='';
-        document.getElementById("descripcion").value='';
-        document.getElementById("prm_aporta_id").value='';
         document.getElementById("porque").value='';
         document.getElementById("cuanto_aporta").value='';
         document.getElementById("aporte").value='';
-        document.getElementById("prm_frecuencia_id").value='';
+        document.getElementById("prm_aporta_id").value='';
         document.getElementById("prm_laboral_id").value='';
 
     }
@@ -204,13 +198,10 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=true;
         document.getElementById("prm_aporta_id").hidden=true;
-        document.getElementById("expectativa").value='';
-        document.getElementById("descripcion").value='';
-        document.getElementById("prm_aporta_id").value='';
         document.getElementById("porque").value='';
         document.getElementById("cuanto_aporta").value='';
         document.getElementById("aporte").value='';
-        document.getElementById("prm_frecuencia_id").value='';
+        document.getElementById("prm_aporta_id").value='';
         document.getElementById("prm_laboral_id").value='';
     }
     doc1(document.getElementById('prm_no_id').value);

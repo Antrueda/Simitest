@@ -28,7 +28,8 @@
             });
         }
          
-        @if(old('userr_id') != null)) 
+        @if(old('userr_id') != null)
+        alert(4)
             f_cargos({
                 dataxxxx: {
                     valuexxx: "{{old('userr_id')}}"",

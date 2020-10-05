@@ -17,7 +17,7 @@ class FiRazoneArchivoCrearRequest extends FormRequest {
     ];
     $this->_reglasx = [
         'i_prm_documento_id' => ['Required'],
-        's_doc_adjunto_ar' => 'required|file|mimes:pdf,jpg,jpeg|max:1024',
+        's_doc_adjunto_ar' => 'required|file|mimes:pdf,jpg,jpeg|max:2024',
     ];
   }
 

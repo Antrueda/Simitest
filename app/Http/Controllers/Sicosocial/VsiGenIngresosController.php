@@ -166,11 +166,11 @@ class VsiGenIngresosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, VsiGenIngreso $objetoxx)
+    public function update(Request $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiGenIngreso,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }
@@ -233,6 +233,7 @@ class VsiGenIngresosController extends Controller
                 'semanaxx' => Tema::combo(129, false, true),
                 'parentes' =>  Tema::combo(66, false, true),
                 'actividx' =>  Tema::combo(114, false, true),
+                'frecuenc' =>  Tema::combo(110, true, true),
             ]];
             return response()->json($respuest);
         }

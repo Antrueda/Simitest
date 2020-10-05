@@ -60,6 +60,7 @@ class VsiEducacionController extends Controller
         $this->opciones['materias'] = Tema::combo(208, false, false);
         $this->opciones['dificulx'] = Tema::combo(209, false, false);
         $this->opciones['dificuly'] = Tema::combo(210, false, false);
+        $this->opciones['readonly'] = '';
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
@@ -69,6 +70,13 @@ class VsiEducacionController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
+
+
+            if($dataxxxx['modeloxx']->prm_estudia_id==228){
+                $this->opciones['readonly'] = 'readonly';
+                
+            }
+
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
@@ -175,5 +183,21 @@ class VsiEducacionController extends Controller
             'dificultadesa' => 'required_if:prm_dificultad_id,227|array',
             'dificultadesb' => 'nullable|array',
         ]);
+    }
+
+
+    function limpiar(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [[
+                'causasxx' => Tema::combo(207, false, true),
+                'rendimie' =>  Tema::combo(206, true, true),
+                'motivosx' => Tema::combo(205, true, true),
+                'materias' =>  Tema::combo(208, false, true),
+                'dificulx' =>  Tema::combo(209, false, true),
+                'dificuly' =>  Tema::combo(210, false, true),
+            ]];
+            return response()->json($respuest);
+        }
     }
 }

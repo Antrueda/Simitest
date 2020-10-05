@@ -2,6 +2,9 @@
 //app/Helpers/Envato/User.php
 namespace App\Helpers\Traductor;
 
+use App\Models\sicosocial\Pivotes\VsiEmocionVincula;
+use App\Models\sicosocial\Pivotes\VsiPersona;
+use App\Models\sicosocial\Pivotes\VsiSituacionVincula;
 use App\Models\sicosocial\VsiDatosVincula;
 use App\Models\Sistema\SisTitulo;
 use Illuminate\Support\Facades\DB;
@@ -50,15 +53,18 @@ class Traductor {
     public static function getSituaciones($dataxxxx)
     {
 
-        return VsiDatosVincula::where('vsi_id',$dataxxxx['vsiidxxx'])->first()->situaciones;
+        return VsiSituacionVincula::select(['parametros.nombre'])
+        ->join('parametros','vsi_situacion_vincula.parametro_id','=','parametros.id')
+        ->where('vsi_datos_vincula_id',$dataxxxx['vsiidxxx'])->get();
     }
 
     public static function getPersonas($dataxxxx)
     {
 
-        return VsiDatosVincula::where('vsi_id',$dataxxxx['vsiidxxx'])->first()->personas;
+        return VsiPersona::select(['parametros.nombre'])
+        ->join('parametros','vsi_personas.parametro_id','=','parametros.id')
+        ->where('vsi_datos_vincula_id',$dataxxxx['vsiidxxx'])->get();
     }
-
 
      /**
      * 1.15 ¿Qué emociones le generan estas dificultades?
@@ -67,7 +73,9 @@ class Traductor {
      */
     public static function getEmociones($dataxxxx)
     {
-        return VsiDatosVincula::where('vsi_id',$dataxxxx['vsiidxxx'])->first()->emociones;
+        return VsiEmocionVincula::select(['parametros.nombre'])
+        ->join('parametros','vsi_emocion_vincula.parametro_id','=','parametros.id')
+        ->where('vsi_datos_vincula_id',$dataxxxx['vsiidxxx'])->get();
     }
 }
 
