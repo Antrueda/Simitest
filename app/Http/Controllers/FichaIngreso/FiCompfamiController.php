@@ -166,6 +166,7 @@ class FiCompfamiController extends Controller
             $dataxxxx['modeloxx']->s_documento = $datosbas->nnaj_docu->s_documento;
             $dataxxxx['modeloxx']->prm_tipodocu_id = $datosbas->nnaj_docu->tipoDocumento->id;
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            // ddd($datosbas);
             $dataxxxx['modeloxx']->aniosxxx=$datosbas->nnaj_nacimi->Edad;
             $dataxxxx['modeloxx']->sis_pai_id = $datosbas->nnaj_docu->sis_municipio->sis_departamento->sis_pai_id;
 

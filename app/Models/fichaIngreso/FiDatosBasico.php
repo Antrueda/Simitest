@@ -194,6 +194,9 @@ class FiDatosBasico extends Model
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = FiDatosBasico::create($dataxxxx);
             }
+            $dataxxxx['objetoxx']=$objetoxx;
+            $dataxxxx['fi_datos_basico_id']=$objetoxx->id;
+            NnajNacimi::getTransaccion($dataxxxx);
             return $objetoxx;
         }, 5);
 
