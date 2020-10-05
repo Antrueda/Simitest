@@ -30,6 +30,7 @@ class Archivos
                 '.' . $dataxxxx['requestx']->file($dataxxxx['nombarch'])->extension();
             $rutaxxxx = $dataxxxx['requestx']->file($dataxxxx['nombarch'])->storeAs( 'Archivos/'.$dataxxxx['rutaxxxx'], $archivox,'public');
         }
+
         return $rutaxxxx;
     }
 

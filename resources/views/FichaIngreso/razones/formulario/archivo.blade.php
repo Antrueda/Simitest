@@ -31,12 +31,5 @@
     'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf',
     'clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
     @endcomponent
-    @if($todoxxxx['archivox']!='')
-    <div class="row">
-        <div class="col-md-12">
-        <button type="button" class="btn btn-outline-primary" ><a href="{{Storage::url($todoxxxx['modeloxx']->s_ruta)}}" target="_blank" >Descargar Archivo</a></button>
-        </div>
-    </div>
-    @endif
 </div>
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')

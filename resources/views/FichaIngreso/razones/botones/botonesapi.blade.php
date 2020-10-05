@@ -8,5 +8,5 @@
 <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', [$queryxxx->id]) }}">Inactivar</a>
 @endif
 @if($requestx->puedinac)
-<a class="btn btn-sm btn-success " href="{{Storage::url($queryxxx->s_ruta)}}">Descargar</a>
+<a class="btn btn-sm btn-success " href="{{asset($queryxxx->s_ruta)}}" target="_blank" >Descargar</a>
 @endif
