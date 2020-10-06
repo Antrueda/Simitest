@@ -74,6 +74,7 @@
             if(sispaisid=='sis_pai_id' && $(this).val()!=2){
                 f_combo({dataxxxx:{tipoxxxx:'sis_pai_id',padrexxx:1},selected:''});
                 f_combo({dataxxxx:{tipoxxxx:'sis_departamento_id',padrexxx:1},selected:''});
+                f_combo({dataxxxx:{tipoxxxx:'sis_municipio_id',padrexxx:1},selected:''});
             }else{
                 f_combo({dataxxxx:{tipoxxxx:sispaisid,padrexxx:$(this).val()},selected:''});
             }
