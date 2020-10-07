@@ -2,7 +2,7 @@
   <div id="text" class="form-inline">
     <div class="input-group" style="display: inline-block;text-align: justify">
       <span class="input-group-addon" style="width:auto;">Yo, </span>
-      {{ Form::select('fi_compfami_id', $todoxxxx["autoriza"], null, ['class' => 'form-control-sm col-2']) }}
+      {{ Form::select('fi_compfami_id', $todoxxxx["autoriza"], null, ['class' => 'form-control-sm col-2','id'=>'fi_compfami_id']) }}
       <span class="input-group-addon" style="width:auto;">, mayor de edad identificado(a) con la Cédula de Ciudadanía No.</span>
       <strong>{{ $todoxxxx['sdocumen'] }} </strong>
       <span class="input-group-addon" style="width:auto;">de</span>
@@ -32,7 +32,7 @@
     <div class="input-group" style="display: inline-block;text-align: justify">
         <span class="input-group-addon" style="width:auto;">Igualmente, manifiesto que ACEPTO que dicho proceso sea realizado en las UNIDADES DE PROTECCIÓN INTEGRAL ubicadas dentro y fuera de la Ciudad de Bogotá, en la modalidad de:</span>
         <select id="i_prm_modalidad_id" name="i_prm_modalidad_id[]"
-        class="col-3" multiple="multiple">
+        class="col-3 select2" multiple="multiple">
           @foreach ($todoxxxx["modalupi"] as $valuexxx => $optionxx)
           <?php $situavux='' ?>
           @foreach ($todoxxxx["modaling"]['modaling'] as $situacx)

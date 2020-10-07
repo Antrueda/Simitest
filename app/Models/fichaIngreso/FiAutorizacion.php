@@ -32,7 +32,7 @@ class FiAutorizacion extends Model{
   }
   public function fi_compfami()
   {
-    return $this->hasMany(FiCompfami::class);
+    return $this->belongsTo(FiCompfami::class);
   }
 
   public function editor()

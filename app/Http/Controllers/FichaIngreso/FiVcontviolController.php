@@ -73,7 +73,7 @@ class FiVcontviolController extends Controller
         }
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id,$dataxxxx['temaxxxx']];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
-        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [

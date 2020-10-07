@@ -23,7 +23,7 @@ class FiRedApoyoActual extends Model
         'user_edita_id'
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1];
+    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1];
 
     public function creador()
     {
@@ -37,6 +37,9 @@ class FiRedApoyoActual extends Model
     public static function transaccion($dataxxxx,  $objetoxx)
     {
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+            $dataxxxx['s_nombre_persona'] = strtoupper($dataxxxx['s_nombre_persona']);
+            $dataxxxx['s_servicio'] = strtoupper($dataxxxx['s_servicio']);
+            $dataxxxx['s_direccion'] = strtoupper($dataxxxx['s_direccion']);
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if ($objetoxx != '') {
                 $objetoxx->update($dataxxxx);
@@ -45,7 +48,7 @@ class FiRedApoyoActual extends Model
                 $objetoxx = FiRedApoyoActual::create($dataxxxx);
             }
 
-            $dataxxxx['sis_tabla_id']=28;
+            $dataxxxx['sis_tabla_id'] = 28;
             IndicadorHelper::asignaLineaBase($dataxxxx);
 
             return $objetoxx;

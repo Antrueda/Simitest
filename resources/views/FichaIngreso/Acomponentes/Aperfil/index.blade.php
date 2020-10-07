@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-9">
         {{-- ventanas --}}
-        @include('layouts.components.perfilNNAJ.card')
+        @include('layouts.components.perfilNNAJ.cardgg')
         {{-- ventanas --}}
       </div>
 	  <div class="col-md-3">

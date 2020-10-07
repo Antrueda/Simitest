@@ -27,16 +27,15 @@
                 }
             });
         }
-         
+
         @if(old('userr_id') != null)
-        alert(4)
             f_cargos({
                 dataxxxx: {
-                    valuexxx: "{{old('userr_id')}}"",
+                    valuexxx: "{{old('userr_id')}}",
                     campoxxx: 'userr_id',
                     selected: '{{old("sis_depenr_id")}}'
-            }); 
-        @endif 
+            }});
+        @endif
         $('.cargos').change(function() {
             f_cargos({
                 dataxxxx: {
@@ -45,8 +44,8 @@
                 },
                 selected: ''
             });
-        }); 
-        $('#s_documento').mask('000000000000'); 
+        });
+        $('#s_documento').mask('000000000000');
         $('#s_documento_responsable').mask('000000000000');
 
 

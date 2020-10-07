@@ -111,22 +111,27 @@ class FiCompfami extends Model
      */
     public static function getComboResponsable($padrexxx, $cabecera, $ajaxxxxx, $edadxxxx)
     {
+        if($edadxxxx>=18){
+            $cabecera=false;
+        }
+        $compofam = FiCompfami::where(function ($consulta) use ($padrexxx, $edadxxxx) {
+            $consulta->where('sis_nnajnnaj_id', $padrexxx->sis_nnaj_id);
+              if($edadxxxx>=18){
+                $consulta->where('i_prm_parentesco_id', 805);
+              }
+            return $consulta;
+        })->get();
         $redirect = true;
         $comboxxx = [];
         if ($cabecera) {
             $comboxxx = ['' => 'Seleccione'];
         }
-        $compofam = FiCompfami::where(function ($consulta) use ($padrexxx, $edadxxxx) {
-            $consulta->where('sis_nnajnnaj_id', $padrexxx->sis_nnaj_id);
-            //   if($edadxxxx>=18){
-            //     $consulta->where('i_prm_parentesco_id', 805);
-            //   }
-            return $consulta;
-        })->get();
+
         foreach ($compofam as $registro) {
-            $edad = Carbon::parse($registro->d_nacimiento)->age;
+            $nombrexx = $registro->sis_nnaj->fi_datos_basico;
+            $edad = $nombrexx->nnaj_nacimi->Edad;
             if ($edad >= 18) {
-                $nombrexx = $registro->sis_nnaj->fi_datos_basico;
+
                 $nombrexx = $nombrexx->s_primer_nombre . ' ' . $nombrexx->s_segundo_nombre . ' ' .
                     $nombrexx->s_primer_apellido . ' ' . $nombrexx->s_segundo_apellido;
                 if ($ajaxxxxx) {

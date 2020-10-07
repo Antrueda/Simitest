@@ -123,9 +123,6 @@ class VsiEstEmocionalController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-
-        //$this->opciones['padrexxx'] = $objetoxx->id;
-        //$this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [

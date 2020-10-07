@@ -25,7 +25,7 @@ class FiRazonArchivoController extends Controller
         $this->opciones['carpetax'] = 'Razones';
         $this->opciones['slotxxxx'] = 'firazones';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "CONTACTO CON IDPRON Y TRATAMIENTO DE DATOS";
+        $this->opciones['tituloxx'] = "DOCUMENTOS ADJUNTOS DEL NNAJ";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';
@@ -62,6 +62,7 @@ class FiRazonArchivoController extends Controller
         // indica si se esta actualizando o viendo
         $dataxxxy = ['razonesx' => $dataxxxx['padrexxx'], 'selected' => '', 'temaxxxx' => 155, 'cabecera' => false, 'ajaxxxxx' => false];
         if ($dataxxxx['modeloxx'] != '') {
+
             $dataxxxy['selected'] = $dataxxxx['modeloxx']->i_prm_documento_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             foreach (explode('/', $dataxxxx['modeloxx']->s_ruta) as $value) {

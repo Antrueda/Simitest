@@ -15,7 +15,7 @@ class SisCargo extends Model
     public static function combo()
     {
         $comboxxx = ['' => 'Seleccione'];
-        foreach (SisCargo::get() as $localida) {
+        foreach (SisCargo::where('sis_esta_id',1)->get() as $localida) {
             $comboxxx[$localida->id] = $localida->s_cargo;
         }
         return $comboxxx;

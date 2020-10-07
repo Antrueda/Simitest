@@ -32,7 +32,8 @@ class VsiRelFamiliarCrearRequest extends FormRequest
             'mes.required' => 'Ingrese un mes',
             'ano.required' => 'Ingrese un año',
             'prm_responde_id.required' => 'Selecciones quien responde',
-            'descripcion1.required' => 'Ingrese una descripción'
+            'descripcion1.required' => 'Ingrese una descripción',
+
         ];
         $this->_reglasx = [
             'prm_representativa_id' => 'required|exists:parametros,id',
@@ -40,6 +41,8 @@ class VsiRelFamiliarCrearRequest extends FormRequest
             'prm_mala_id' => 'required|exists:parametros,id',
             'prm_relacion_id' => 'required|exists:parametros,id',
             'motivos' => 'required_unless:prm_mala_id,235|array',
+
+
             'prm_gusto_id' => 'required|exists:parametros,id',
             'porque' => 'required|string|max:4000',
             'prm_familia_id' => 'required|exists:parametros,id',

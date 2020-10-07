@@ -15,6 +15,7 @@ use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\Salud\Mitigacion\Vspa;
@@ -115,6 +116,20 @@ class SisNnaj extends Model
 
         return  $respuest;
     }
+
+    public function getFotoNnajAttribute()
+    {
+        $respuest='adminlte/dist/img/avatar5.png';
+        if(isset($this->fi_razone->id)) {
+            foreach ($this->fi_razone->fi_documentos_anexas as $key => $value) {
+                if($value->i_prm_documento_id==2468) {
+                    $respuest=$value->s_ruta;
+                }
+            }
+        }
+
+        return  $respuest;
+    }
     public function getNnajUpiPrincipalAttribute()
     {
         $principa = '';
@@ -132,5 +147,9 @@ class SisNnaj extends Model
     public function fi_compfamis()
     {
         return $this->hasMany(FiCompfami::class);
+    }
+    public function fi_razone()
+    {
+        return $this->hasOne(FiRazone::class);
     }
 }

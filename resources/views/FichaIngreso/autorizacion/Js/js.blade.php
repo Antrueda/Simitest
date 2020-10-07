@@ -22,9 +22,7 @@
                     },
                 });
         }
-        @if(isset($todoxxxx['modeloxx']->id))
-            f_ajax({valuexxx:"{{ $todoxxxx['modeloxx']->id }}}");
-        @endif
+
         $('#fi_compfami_id').change(function(){
             f_ajax({valuexxx:$(this).val()})
         });

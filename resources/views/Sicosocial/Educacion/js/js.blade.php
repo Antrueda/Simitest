@@ -84,8 +84,8 @@ function doc(valor){
         document.getElementById("dificultades_div").hidden=false;
         document.getElementById("prm_dificultad_id").hidden=true;
         document.getElementById("causas_div").hidden=false;
-    
-        
+
+
     } else {
         document.getElementById("dia").hidden=true;
         document.getElementById("dia").value='';
@@ -99,21 +99,19 @@ function doc(valor){
         document.getElementById("dificultades_div").hidden=false;
         document.getElementById("prm_dificultad_id").hidden=false;
         document.getElementById("causas_div").hidden=true;
-        
-        
+
+
     }
 }
 function doc1(valor){
     if(valor == 228){
         document.getElementById("dificultadesa_div").hidden=true;
         document.getElementById("dificultadesb_div").hidden=true;
-        
+
     } else {
         document.getElementById("dificultadesa_div").hidden=false;
         document.getElementById("dificultadesb_div").hidden=false;
     }
 }
 
-
-window.onload=carga;
 </script>

@@ -14,6 +14,13 @@ class RolEditarRequest extends FormRequest
         $this->_mensaje = [
             'name.required' => 'Ingrese el nombre del Rol',
             'name.unique' => 'El Rol ya se encuentra en uso',
+            'estusuario_id.unique' => 'Seleccione una justificación para el registro',
+        ];
+        $this->_reglasx = [
+            'estusuario_id' =>
+            [
+                'required',
+            ],
         ];
     }
     /**
@@ -29,6 +36,7 @@ class RolEditarRequest extends FormRequest
     public function messages()
     {
         return $this->_mensaje;
+
     }
 
     /**

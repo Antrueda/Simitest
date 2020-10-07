@@ -12,16 +12,20 @@ class RolCrearRequest extends FormRequest
 
     public function __construct()
     {
-
         $this->_mensaje = [
             'name.required' => 'Ingrese el nombre del Rol',
             'name.unique' => 'El Rol ya se encuentra en uso',
+            'estusuario_id.unique' => 'Seleccione una justificación para el registro',
         ];
         $this->_reglasx = [
             'name' =>
             [
                 'required',
                 'unique:roles,name,'
+            ],
+            'estusuario_id' =>
+            [
+                'required',
             ],
         ];
     }

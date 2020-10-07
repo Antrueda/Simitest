@@ -15,6 +15,7 @@ class VsiRelSocialesEditarRequest extends FormRequest
         $this->_mensaje = [
             'descripcion.required' => 'Ingrese una descripción',
             'prm_dificultad_id.required' => 'Seleccione una dificultad',
+            'facilitas.required' => 'Seleccione al menos un contexto'
         ];
         $this->_reglasx = [
             'descripcion' => 'required|string|max:4000',

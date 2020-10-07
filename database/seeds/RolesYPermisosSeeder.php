@@ -15,6 +15,7 @@ class RolesYPermisosSeeder extends Seeder
             'crear' => 'Permiso que permite crear registro para: ',
             'editar' => 'Permiso que permite editar registro para: ',
             'borrar' => 'Permiso que permite inactivar registro para: ',
+            'descarga'=>'Permiso que permite la descarga de archivos para: ',
             'factorxx' => 'Permioso que permite ver los: ',
             'metaxxxx' => 'Permioso que permite ver las: ',
             'psicologo' => 'Permioso que permite ver contenido de psicologo: ',
@@ -417,7 +418,7 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosEnfermeria.php');
         Role::create(['name' => 'PSICÓLOGO(A) CLÍNICO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
             ->givePermissionTo(['intervención sicosocial especializada']);
-        
+
         Role::create(['name' => 'PRUEBA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['name' => 'aux_administrativo_territorio', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
             ->givePermissionTo([
@@ -441,6 +442,6 @@ class RolesYPermisosSeeder extends Seeder
             ]);
             Role::create(['name' => 'PROMOTOR (A) SOCIAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);//10
             require_once('RolesYPermisosReferente.php');//11 REFERENTE LOCAL
-            
+
     }
 }

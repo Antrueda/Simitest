@@ -109,7 +109,7 @@ class FiAutorizacionController extends Controller
      */
     public function create(FiDatosBasico $padrexxx)
     {
-
+        $compofam = FiCompfami::where('id', 1)->first();
         $vestuari = FiAutorizacion::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
         if ($vestuari != null) {
             return redirect()
@@ -192,7 +192,7 @@ class FiAutorizacionController extends Controller
             $respuest = ['sdocumen' => ' ', 'expedici' => ' '];
             if ($dataxxxx['padrexxx'] != '') {
                 $compofam = FiCompfami::where('id', $dataxxxx['padrexxx'])->first();
-                $document=$compofam->sis_nnaj->datos_basico->nnaj_docu;
+                $document=$compofam->sis_nnaj->fi_datos_basico->nnaj_docu;
                 $respuest = ['sdocumen' => $document->s_documento, 'expedici' => $document->sis_municipio->s_municipio . ' (' . $document->sis_municipio->sis_departamento->s_departamento . ')'];
             }
             return response()->json($respuest);

@@ -1,7 +1,7 @@
 <div class="card card-success card-outline">
   <div class="card-body box-profile">
     <div class="text-center">
-      <img class="profile-user-img img-fluid img-circle" src="{{ asset('adminlte/dist/img/avatar2.png') }} "
+      <img class="profile-user-img img-fluid img-responsive" src="{{ asset('adminlte/dist/img/avatar2.png') }} "
         alt="User profile picture">
     </div>
     <h3 class="profile-username text-center">

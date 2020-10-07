@@ -31,5 +31,14 @@
     'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf',
     'clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
     @endcomponent
+
+    @if($todoxxxx['archivox']!='')
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-outline-primary" href="{{asset($todoxxxx['modeloxx']->s_ruta)}}" target="_blank">Ver Adjunto</a>
+        </div>
+    </div>
+    @endif
+
 </div>
-@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+

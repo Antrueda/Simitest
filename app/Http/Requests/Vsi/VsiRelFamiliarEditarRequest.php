@@ -33,7 +33,7 @@ class VsiRelFamiliarEditarRequest extends FormRequest
             'mes.required' => 'Ingrese un mes',
             'ano.required' => 'Ingrese un año',
             'prm_responde_id.required' => 'Selecciones quien responde',
-            'descripcion1.required' => 'Ingrese una descripción'
+            'descripcion1.required' => 'Ingrese una descripción',
         ];
         $this->_reglasx = [
             'prm_representativa_id' => 'required|exists:parametros,id',
@@ -55,7 +55,8 @@ class VsiRelFamiliarEditarRequest extends FormRequest
             'mes' => 'nullable:prm_dificultad_id,227|min:0|max:99',
             'ano' => 'nullable:prm_dificultad_id,227|min:0|max:99',
             'prm_responde_id' => 'required_if:prm_dificultad_id,227',
-            'descripcion1' => 'required_if:prm_dificultad_id,227'
+            'descripcion1' => 'required_if:prm_dificultad_id,227',
+
         ];
     }
     /**

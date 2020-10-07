@@ -112,10 +112,10 @@ class VsiEstEmocional extends Model{
                 $dataxxxx['requestx']->request->add(["lesivas"=> []]);
             }
             if ($dataxxxx['requestx']->prm_amenaza_id == 228) {
-                $dataxxxx['requestx']->request->add(["ideacion"=> null]);
+                $dataxxxx['requestx']->request->add(["amenaza"=> null]);
             }
             if ($dataxxxx['requestx']->prm_pensamiento_id == 228) {
-                $dataxxxx['requestx']->request->add(["amenaza"=> null]);
+                $dataxxxx['requestx']->request->add(["ideacion"=> null]);
             }
             if ($dataxxxx['requestx']->prm_sueno_id == 228) {
                 $dataxxxx['requestx']->request->add(["dia_sueno"=> null]);
@@ -170,7 +170,7 @@ class VsiEstEmocional extends Model{
                 }
             }
 
-            
+
             $dataxxxx['modeloxx']->lesivas()->detach();
             if($dataxxxx['requestx']->lesivas){
                 foreach ($dataxxxx['requestx']->lesivas as $d) {
