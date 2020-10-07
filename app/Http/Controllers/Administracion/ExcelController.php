@@ -15,6 +15,7 @@ use App\Imports\Csd\CsdDinFamiliarImport;
 use App\Imports\Csd\CsdDinfamIncumpleImport;
 use App\Imports\Csd\CsdDinfamProblemaImport;
 use App\Imports\Csd\CsdViolenciaImport;
+use App\Imports\Users\UserImport;
 use App\Imports\Vsi\VsiAbuSexualImport;
 use App\Imports\Vsi\VsiConcepRedImport;
 use App\Imports\Vsi\VsiConceptoImport;
@@ -93,6 +94,7 @@ use App\Models\sicosocial\VsiRedsocPasado;
 use App\Models\sicosocial\VsiRelFamiliar;
 use App\Models\sicosocial\VsiRelSociales;
 use App\Models\sicosocial\VsiViolencia;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -196,36 +198,33 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = VsiAbuSexual::get();
+        $dataxxxx = User::get();
         foreach ($dataxxxx as $registro) {
-            echo "VsiAbuSexual::create([
-                'vsi_id' => {$registro->vsi_id},
-                'prm_evento_id' => {$registro->prm_evento_id},
-                'dia' => {$registro->dia},
-                'mes' => {$registro->mes},
-                'ano' => {$registro->ano},
-                'prm_momento_id' => {$registro->prm_momento_id},
-
-                'prm_tipo_id' => {$registro->prm_tipo_id},
-                'dia_ult' => {$registro->dia_ult},
-                'mes_ult' => {$registro->mes_ult},
-                'ano_ult' => {$registro->ano_ult},
-                'prm_momento_ult_id' => {$registro->prm_momento_ult_id},
-                'prm_persona_ult_id' => {$registro->prm_persona_ult_id},
-                'prm_tipo_ult_id' => {$registro->prm_tipo_ult_id},
-                'prm_convive_id' => {$registro->prm_convive_id},
-                'prm_presencia_id' => {$registro->prm_presencia_id},
-                'prm_reconoce_id' => {$registro->prm_reconoce_id},
-                'prm_apoyo_id' => {$registro->prm_apoyo_id},
-                'prm_denuncia_id' => {$registro->prm_denuncia_id},
-                'prm_terapia_id' => {$registro->prm_terapia_id},
-                'prm_estado_id' => {$registro->prm_estado_id},
-                'informacion' => '{$registro->informacion}',
+            echo "User::create([
+                's_primer_nombre' => '{$registro->s_primer_nombre}',
+                's_segundo_nombre' => '{$registro->s_segundo_nombre}',
+                's_primer_apellido' => '{$registro->s_primer_apellido}',
+                's_segundo_apellido' => '{$registro->s_segundo_apellido}',
+                's_telefono' => {$registro->s_telefono},
+                'name' => '{$registro->name}',
+                'email' => '{$registro->email}',
+                'password' => {$registro->s_documento},
+                'prm_tvinculacion_id' => {$registro->prm_tvinculacion_id},
+                'itiestan' => {$registro->itiestan},
+                'itiegabe' => {$registro->itiegabe},
+                's_matriculap' => '{$registro->s_matriculap}',
+                'sis_cargo_id' => {$registro->sis_cargo_id},
+                'd_vinculacion' => '{$registro->d_vinculacion}',
+                'd_finvinculacion' => '{$registro->d_finvinculacion}',
+                's_documento' => {$registro->s_documento},
+                'prm_documento_id' => {$registro->prm_documento_id},
+                'sis_municipio_id' => {$registro->sis_municipio_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 'sis_esta_id' => {$registro->sis_esta_id},
                 'created_at' => '{$registro->created_at}',
                 'updated_at' => '{$registro->updated_at}',
+                'password_change_at'=>'{$registro->password_change_at}',
                                 
             ]); <br />";;
         }
@@ -241,7 +240,7 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $excelxxx = $request->file('excelxxx');
-        Excel::import(new VsiAbuSexualImport(), $excelxxx);
+        Excel::import(new UserImport(), $excelxxx);
         return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }

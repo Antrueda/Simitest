@@ -176,6 +176,10 @@ class FiCompfamiController extends Controller
             if ($dataxxxx['modeloxx']->sis_pai_id != 2) {
                 $this->opciones['municipi'] = $this->opciones['departam'] = [1 => 'NO APLICA'];
             }
+
+
+ 
+
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
