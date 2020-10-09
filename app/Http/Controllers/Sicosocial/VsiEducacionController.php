@@ -10,6 +10,7 @@ use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+
 class VsiEducacionController extends Controller
 {
     use VsiTrait;
@@ -52,7 +53,7 @@ class VsiEducacionController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        
+
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['motivosx'] = Tema::combo(205, true, false);
         $this->opciones['causasxx'] = Tema::combo(207, false, false);
@@ -72,9 +73,8 @@ class VsiEducacionController extends Controller
             $this->opciones['pestpadr'] = 3;
 
 
-            if($dataxxxx['modeloxx']->prm_estudia_id==228){
+            if ($dataxxxx['modeloxx']->prm_estudia_id == 228) {
                 $this->opciones['readonly'] = 'readonly';
-                
             }
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
@@ -109,7 +109,7 @@ class VsiEducacionController extends Controller
      */
     public function store(Request $request, $padrexxx)
     {
-       $request->request->add(['vsi_id' => $padrexxx]);
+        $request->request->add(['vsi_id' => $padrexxx]);
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => '',
@@ -163,10 +163,11 @@ class VsiEducacionController extends Controller
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }
-//10.5,10.8,
 
-    protected function validator(array $data){
-        return Validator::make($data, [
+
+    protected function validator(array $data)
+    {
+        $requestx = [
             'prm_estudia_id' => 'required|exists:parametros,id',
             'dia' => 'nullable|min:0|max:99',
             'mes' => 'nullable|min:0|max:99',
@@ -180,9 +181,12 @@ class VsiEducacionController extends Controller
             'causas' => 'required_if:prm_motivo_id,1022|array',
             'fortalezas' => 'nullable|array',
             'dificultades' => 'nullable|array',
-            'dificultadesa' => 'required_if:prm_dificultad_id,227|array',
             'dificultadesb' => 'nullable|array',
-        ]);
+        ];
+        if ($data['prm_dificultad_id'] == 227) {
+            $requestx['dificultadesa'] = 'required|array';
+        }
+        return Validator::make($data, $requestx);
     }
 
 

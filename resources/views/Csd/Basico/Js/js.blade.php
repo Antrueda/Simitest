@@ -5,7 +5,6 @@
     $(function() {
         $('.select2').select2({
             language: "es",
-            // theme: 'bootstrap4',
         });
         // Máscara documento
         $('#s_documento').mask('000000000000');
@@ -309,10 +308,8 @@
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             changeYear: true,
-             minDate: "{{$todoxxxx['mindatex']}}",
-             maxDate: "{{$todoxxxx['maxdatex']}}",
+            maxDate: "-0y +0m +0d",
             yearRange: "-90:-18",
-
             onSelect: function(dateText) {
                 f_nacimiento($(this).val(), '', '', '', '');
             }

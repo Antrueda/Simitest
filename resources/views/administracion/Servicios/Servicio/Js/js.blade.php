@@ -5,7 +5,7 @@
     $(function(){
         $('.select2').select2({
             language: "es",
-            theme: 'bootstrap4'
+            //theme: 'bootstrap4'
         });
         // Máscara documento
         $('#s_documento').mask('000000000000');

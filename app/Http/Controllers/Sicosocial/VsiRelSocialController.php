@@ -67,7 +67,7 @@ class VsiRelSocialController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-           
+
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
@@ -84,7 +84,7 @@ class VsiRelSocialController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -147,11 +147,11 @@ class VsiRelSocialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiRelSocialesEditarRequest $request, VsiRelSociale $objetoxx)
+    public function update(VsiRelSocialesEditarRequest $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiRelSociale,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

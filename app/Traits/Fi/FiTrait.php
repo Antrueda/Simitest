@@ -31,6 +31,7 @@ trait FiTrait
             'personas' => [235, 66],
             'prm_discausa_id' => [1269, 341],
             'prm_victataq_id' => [853, 342],
+            'i_prm_condicion_amb_id' => [168, 42],
         ];
 
 

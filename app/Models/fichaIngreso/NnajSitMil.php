@@ -46,8 +46,9 @@ class NnajSitMil extends Model
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if (isset($dataxxxx['objetoxx']->nnaj_docu->id)) {
-                $dataxxxx['objetoxx']->nnaj_docu->update($dataxxxx);
+
+            if (isset($dataxxxx['objetoxx']->nnaj_sit_mil->id)) {
+                $dataxxxx['objetoxx']->nnaj_sit_mil->update($dataxxxx);
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['modeloxx'] = NnajSitMil::create($dataxxxx);

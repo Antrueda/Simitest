@@ -97,23 +97,23 @@ class FiSaludController extends Controller
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->i_prm_tentidad_id, true, false);
             $this->opciones['puedexxx'] = '';
             if ($dataxxxx['modeloxx']->i_prm_tiene_discapacidad_id == 228) {
-                $this->opciones['noapdisc'] = [1 => 'NO APLICA'];
-                $this->opciones['tipodisc'] = [1 => 'NO APLICA'];
-                $this->opciones['discausa'] = [['valuexxx'=>1269,'optionxx'=>'NO APLICA']];
-                
+                $this->opciones['noapdisc'] = [1269 => 'NO APLICA'];
+                $this->opciones['tipodisc'] = [1269 => 'NO APLICA'];
+                $this->opciones['discausa'] = [1269=>'NO APLICA'];
+
             }
             if ($dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 228 || $dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 235) {
-                $this->opciones['noapdisc'] = [1 => 'NO APLICA'];
-                $this->opciones['metantic'] = [1 => 'NO APLICA'];
+                $this->opciones['noapdisc'] = [1269 => 'NO APLICA'];
+                $this->opciones['metantic'] = [1269 => 'NO APLICA'];
             }
             if ($dataxxxx['modeloxx']->i_prm_regimen_salud_id == 168) {
-                $this->opciones['entid_id'] = [1 => 'NO APLICA'];
+                $this->opciones['entid_id'] = [1269 => 'NO APLICA'];
             }
             if ($dataxxxx['modeloxx']->i_comidas_diarias > 4) {
-                $this->opciones['motcomdi'] = [1 => 'NO APLICA'];
+                $this->opciones['motcomdi'] = [1269 => 'NO APLICA'];
             }
             if ($dataxxxx['padrexxx']->nnaj_sexo->prm_sexo_id==20) {
-                $this->opciones['condnoap']=  [1 => 'NO APLICA'];
+                $this->opciones['condnoap']=  [1269 => 'NO APLICA'];
             }
             if ($dataxxxx['modeloxx']->i_prm_esta_gestando_id == 228 || $dataxxxx['modeloxx']->i_prm_esta_gestando_id == 235) {
                 $this->opciones['readgest'] = 'readonly';
@@ -126,13 +126,13 @@ class FiSaludController extends Controller
                 $this->opciones['readhijo'] = 'readonly';
             }
             if ($dataxxxx['modeloxx']->i_prm_tiene_problema_salud_id == 228) {
-                $this->opciones['probsalu'] = [1 => 'NO APLICA'];
+                $this->opciones['probsalu'] = [1269 => 'NO APLICA'];
             }
             if ($dataxxxx['modeloxx']->i_prm_consume_medicamentos_id == 228) {
                 $this->opciones['cualmedi'] = 'readonly';
             }
             if ($dataxxxx['modeloxx']->d_puntaje_sisben != '') {//
-                $this->opciones['apsisben'] = [1 => 'NO APLICA'];
+                $this->opciones['apsisben'] = [1269 => 'NO APLICA'];
             }
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

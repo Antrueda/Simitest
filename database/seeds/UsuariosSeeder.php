@@ -134,7 +134,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '34567890';
         $dataxxxx['telefono'] = '3173809970';
         $dataxxxx['cargoxxx'] = '1';
-        $dataxxxx['excepcio'] = '';
+        // $dataxxxx['excepcio'] = '';
         $dataxxxx['emailxxx'] = 'fi@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'FICHA DE INGRESO';
         $dataxxxx['namexxxx'] = 'FICHA DE INGRESO';
@@ -149,7 +149,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '1018495166';
         $dataxxxx['telefono'] = '3162767270';
         $dataxxxx['cargoxxx'] = '5';
-        $dataxxxx['excepcio'] = '';
+        // $dataxxxx['excepcio'] = '';
         $dataxxxx['emailxxx'] = 'CAMILOC@IDIPRON.GOV.CO';
         $dataxxxx['rolxxxxx'] = 'FICHA DE INGRESO';
         $dataxxxx['namexxxx'] = 'CAMILO ANDRES CENDALES';
@@ -163,7 +163,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '74130816';
         $dataxxxx['telefono'] = '3103331041';
         $dataxxxx['cargoxxx'] = '2';
-        $dataxxxx['excepcio'] = '';
+        // $dataxxxx['excepcio'] = '';
         $dataxxxx['emailxxx'] = 'wilmars@IDIPRON.GOV.CO';
         $dataxxxx['rolxxxxx'] = 'super-administrador';
         $dataxxxx['namexxxx'] = 'WILMAR FERNANDO SANABRIA HIGUERA';
@@ -177,7 +177,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '52810740';
         $dataxxxx['telefono'] = '3115726733';
         $dataxxxx['cargoxxx'] = '22';
-        $dataxxxx['excepcio'] = '';
+        // $dataxxxx['excepcio'] = '';
         $dataxxxx['emailxxx'] = 'ivonep@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'REFERENTE LOCAL';
         $dataxxxx['namexxxx'] = 'IVONNE ROCIO PEÑA CASTAÑEDA';
@@ -191,7 +191,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '52449006';
         $dataxxxx['telefono'] = '3144131283';
         $dataxxxx['cargoxxx'] = '22';
-        $dataxxxx['excepcio'] = '';
+        // $dataxxxx['excepcio'] = '';
         $dataxxxx['emailxxx'] = 'anacb@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'REFERENTE LOCAL';
         $dataxxxx['namexxxx'] = 'ANA EDITH CLAVIJO BELTRAN';
@@ -204,7 +204,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '52290925';
         $dataxxxx['telefono'] = '3115726733';
         $dataxxxx['cargoxxx'] = '21';
-        $dataxxxx['excepcio'] = '';
+        // $dataxxxx['excepcio'] = '';
         $dataxxxx['emailxxx'] = 'yeniz@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'YENI ESMERALDA ZAPATA SANABRIA';
@@ -232,7 +232,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '80793453';
         $dataxxxx['telefono'] = '3117348211';
         $dataxxxx['cargoxxx'] = '21';
-        $dataxxxx['excepcio'] = '';
+        // $dataxxxx['excepcio'] = '';
         $dataxxxx['emailxxx'] = 'rodrigarzo@gmail.com';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'HERNAN DARIO RODRIGUEZ GARZON';
@@ -246,7 +246,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '1032507610';
         $dataxxxx['telefono'] = '3016525108';
         $dataxxxx['cargoxxx'] = '21';
-        $dataxxxx['excepcio'] = '';
+        // $dataxxxx['excepcio'] = '';
         $dataxxxx['emailxxx'] = 'camilo.estrada1099@gmail.com';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'CAMILO ANDRES SERRANO ESTRADA';
@@ -260,7 +260,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '53131394';
         $dataxxxx['telefono'] = '3143459735';
         $dataxxxx['cargoxxx'] = '21';
-        $dataxxxx['excepcio'] = '';
+        // $dataxxxx['excepcio'] = '';
         $dataxxxx['emailxxx'] = 'ladydiaz.08@gmail.com';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'LEIDY MABEL DIAZ CAÑIZALES';
@@ -273,14 +273,21 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '1030524396';
         $dataxxxx['telefono'] = '3144783112';
         $dataxxxx['cargoxxx'] = '21';
-        $dataxxxx['excepcio'] = '';
+        // $dataxxxx['excepcio'] = '';
         $dataxxxx['emailxxx'] = 'ori-132@hotmail.com';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'ORIANA ANDREA PINTO POVEDA';
         $this->getR($dataxxxx); // 17
 
 
-        User::create([ 's_primer_nombre' => 'ADDY', 's_segundo_nombre' => 'ISAMAR', 's_primer_apellido' => 'PARALES', 's_segundo_apellido' => 'PEREZ', 's_telefono' => 3166279224, 'name' => 'ADDY ISAMAR PARALES PEREZ', 'email' => 'S-IZA@HOTMAIL.COM', 'password' => 1121863554, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => 'N/A', 'sis_cargo_id' => 5, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 1121863554, 'prm_documento_id' => 19, 'sis_municipio_id' => 465, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2, 'created_at' => '2020-10-06 18:45:06', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2020-11-06', ]);
+        User::create(
+            [ 's_primer_nombre' => 'ADDY',
+            's_segundo_nombre' => 'ISAMAR',
+            's_primer_apellido' => 'PARALES',
+            's_segundo_apellido' => 'PEREZ',
+            's_telefono' => 3166279224,
+            'name' => 'ADDY ISAMAR PARALES PEREZ',
+            'email' => 'S-IZA@HOTMAIL.COM', 'password' => 1121863554, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => 'N/A', 'sis_cargo_id' => 5, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 1121863554, 'prm_documento_id' => 19, 'sis_municipio_id' => 465, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2, 'created_at' => '2020-10-06 18:45:06', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2020-11-06', ]);
         User::create([ 's_primer_nombre' => 'ADELMO', 's_segundo_nombre' => 'ENRIQUE', 's_primer_apellido' => 'JIMENEZ', 's_segundo_apellido' => 'ZAMBRANO', 's_telefono' => 3158210456, 'name' => 'ADELMO ENRIQUE JIMENEZ ZAMBRANO', 'email' => 'ADELMOJ@IDIPRON.GOV.CO', 'password' => 73106884, 'prm_tvinculacion_id' => 1672, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => 'N/A', 'sis_cargo_id' => 5, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 73106884, 'prm_documento_id' => 19, 'sis_municipio_id' => 997, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2, 'created_at' => '2020-10-06 18:45:06', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2020-11-06', ]);
         User::create([ 's_primer_nombre' => 'ADRIAN', 's_segundo_nombre' => 'KATERINE', 's_primer_apellido' => 'REYES', 's_segundo_apellido' => 'ARCON', 's_telefono' => 3006939521, 'name' => 'ADRIAN KATERINE REYES ARCON', 'email' => '114', 'password' => 1031143688, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => 'N/A', 'sis_cargo_id' => 25, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 1031143688, 'prm_documento_id' => 19, 'sis_municipio_id' => 233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2, 'created_at' => '2020-10-06 18:45:06', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2020-11-06', ]);
         User::create([ 's_primer_nombre' => 'ADRIANA', 's_segundo_nombre' => 'PATRICIA', 's_primer_apellido' => 'POSADA', 's_segundo_apellido' => 'BELTRAN', 's_telefono' => 3168094853, 'name' => 'ADRIANA PATRICIA POSADA BELTRAN', 'email' => '20', 'password' => 1013593466, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => 'N/A', 'sis_cargo_id' => 29, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 1013593466, 'prm_documento_id' => 19, 'sis_municipio_id' => 233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2, 'created_at' => '2020-10-06 18:45:06', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2020-11-06', ]);

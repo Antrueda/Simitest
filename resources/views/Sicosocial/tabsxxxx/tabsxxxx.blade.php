@@ -20,7 +20,7 @@
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsidabas') ?' active' : '' }}
         text-sm" href="{{ route('vsidabas.editar',$todoxxxx['parametr']) }}">Datos Basicos</a></li>
             @endcanany
- 
+
             <?php
             $pestania='2. Motivos de vinculación y bienvenida';
             $permisox='vsibienv';
@@ -144,8 +144,8 @@
             @include('Sicosocial.tabsxxxx.pestaniascheckarea')
 
             <?php
-         
-            $pestania='20. Impresicón diagnóstica y análisis social';
+
+            $pestania='20. Impresición diagnóstica y análisis social';
             $permisox='vsisocia';
             $checkxxx=$todoxxxx['vsixxxxx']->VsiConcepto;
             ?>

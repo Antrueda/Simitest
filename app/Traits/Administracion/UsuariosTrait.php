@@ -18,6 +18,7 @@ trait UsuariosTrait
         $dataxxxx =  User::select([
 
             'users.id',
+            'users.s_documento',
             'users.s_primer_nombre',
             'users.s_segundo_nombre',
             'users.s_primer_apellido',

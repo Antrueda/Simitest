@@ -76,7 +76,7 @@ class FiViolenciaController extends Controller
 
             $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->i_prm_depto_certifica_id, false);
             $this->opciones['deparexp'] = SisDepartamento::combo(2, false);
-
+            $this->opciones['departam'][1]=$this->opciones['deparexp'][1]='NO APLICA';
             if ($dataxxxx['modeloxx']->i_prm_condicion_presenta_id == 853 || $dataxxxx['modeloxx']->i_prm_condicion_presenta_id == 455) {
                 $this->opciones['condiesp'] = [1 => 'NO APLICA'];
             }

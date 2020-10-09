@@ -99,6 +99,7 @@ class UsuarioController extends Controller
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
@@ -111,6 +112,7 @@ class UsuarioController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'users.id'],
+                    ['data' => 's_documento', 'name' => 'users.s_documento'],
                     ['data' => 's_primer_nombre', 'name' => 'users.s_primer_nombre'],
                     ['data' => 's_segundo_nombre', 'name' => 'users.s_segundo_nombre'],
                     ['data' => 's_primer_apellido', 'name' => 'users.s_primer_apellido'],

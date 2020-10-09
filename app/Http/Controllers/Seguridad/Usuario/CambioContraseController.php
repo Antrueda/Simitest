@@ -20,7 +20,7 @@ class CambioContraseController extends Controller
             'permisox' => 'contrase',
             'parametr' => [],
             'rutacarp' => 'administracion.Usuario.',
-            'tituloxx' => 'ROLES',
+            'tituloxx' => 'CAMBIO DE CONTRASEÑA',
             'carpetax' => 'Contrasenia',
             'slotxxxx' => 'contrase',
             'tablaxxx' => 'datatable',

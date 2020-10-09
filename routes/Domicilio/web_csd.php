@@ -42,7 +42,7 @@ Route::group(['prefix' => 'csd'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'Controller@destroy',
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
-     include_once('web_CSD_basico.php');
+
     // include_once('web_CSD_violencia.php');
     // include_once('web_CSD_situacionesespecial.php');
     // include_once('web_CSD_justicia.php');
@@ -55,3 +55,4 @@ Route::group(['prefix' => 'csd'], function () use ($routexxx, $controll) {
     // include_once('web_CSD_redesapoyo.php');
     // include_once('web_CSD_conclusiones.php');
 });
+include_once('web_CSD_basico.php');

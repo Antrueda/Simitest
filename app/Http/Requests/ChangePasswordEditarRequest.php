@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use App\Models\Logs\HUser;
-use App\Rules\ValidaPassword;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,8 +16,8 @@ class ChangePasswordEditarRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'password.min' => 'La  contraseña debe tener al menos 8 carracteres',
-            'password_confirmation.min' => 'La confirmación de la contraseña debe tener al menos 8 carracteres',
+            'password.min' => 'La  contraseña debe tener al menos 8 caracteres',
+            'password_confirmation.min' => 'La confirmación de la contraseña debe tener al menos 8 caracteres',
             'password.regex' => 'La contraseña debe tener por lo menos un letra en (MAYUSCULA), una en (minuscula), un número y un carecter especial que puede ser alguno de los siguientes (!$#%*)',
         ];
         $this->_reglasx = [

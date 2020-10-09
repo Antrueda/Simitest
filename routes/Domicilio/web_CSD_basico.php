@@ -1,7 +1,7 @@
 <?php
 $routexxx = 'csdatbas';
 $controll = 'Domicilio\CsdBasico';
-Route::group(['prefix' => '{padrexxx}/datosbasicos'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'csd/{padrexxx}/datosbasicos'], function () use ($routexxx, $controll) {
 
     Route::get('nuevo', [
         'uses' => $controll . 'Controller@create',
@@ -11,7 +11,8 @@ Route::group(['prefix' => '{padrexxx}/datosbasicos'], function () use ($routexxx
         'uses' => $controll . 'Controller@store',
         'middleware' => ['permission:' . $routexxx . '-crear']
 	])->name($routexxx . '.crear');
-
+});
+Route::group(['prefix' => 'csd/datosbasico'], function () use ($routexxx, $controll) {
 	Route::get('ver/{modeloxx}', [
         'uses' => $controll . 'Controller@show',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']

@@ -87,14 +87,16 @@ class VsiEstEmocionalEditarRequest extends FormRequest
 
     public function validar()
     {
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        if (in_array(931, $dataxxxx['dificultades'])){
-            $this->_reglasx['descripcion_dificulta'] = 'nullable|string|max:4000';
-         }
-         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-         if (in_array(931, $dataxxxx['adecuados'])){
-             $this->_reglasx['descripcion_adecuado'] = 'nullable|string|max:4000';
-          }
+        if (isset($this->dificultades)) {
+            if (in_array(931, $this->dificultades)) {
+                $this->_reglasx['descripcion_dificulta'] = 'nullable|string|max:4000';
+            }
+        }
+        if (isset($this->adecuados)) {
+            if (in_array(931, $this->adecuados)) {
+                $this->_reglasx['descripcion_adecuado'] = 'nullable|string|max:4000';
+            }
+        }
     }
 }
 

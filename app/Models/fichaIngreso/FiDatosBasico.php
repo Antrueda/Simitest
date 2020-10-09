@@ -4,9 +4,7 @@ namespace App\Models\fichaIngreso;
 
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
-use App\Models\sicosocial\NnajNfamili;
 use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisDepeServ;
 use App\Models\Sistema\SisDocfuen;
 use Carbon\Carbon;
 
@@ -24,7 +22,6 @@ class FiDatosBasico extends Model
         's_segundo_nombre',
         's_primer_apellido',
         's_segundo_apellido',
-
         's_apodo',
         'sis_nnaj_id',
         'prm_tipoblaci_id',
@@ -34,8 +31,6 @@ class FiDatosBasico extends Model
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
-
-
     ];
 
 
@@ -56,7 +51,10 @@ class FiDatosBasico extends Model
         return $this->hasOne(NnajSitMil::class);
     }
 
-
+    public function fi_csdvsi()
+    {
+        return $this->hasOne(FiCsdvsi::class);
+    }
 
     public function nnaj_sexo()
     {
@@ -185,6 +183,7 @@ class FiDatosBasico extends Model
             $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
             $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['s_segundo_apellido']);
             $dataxxxx['user_edita_id'] = Auth::user()->id;
+
             if ($objetoxx != '') {
                 /** Actualizar registro */
                 $objetoxx->update($dataxxxx);
@@ -221,6 +220,10 @@ class FiDatosBasico extends Model
             $dt = new DateTime($dataxxxx['d_nacimiento']);
             $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
             $dataxxxx['user_edita_id'] = Auth::user()->id;
+            /**
+             * verificar que la persona ya se encuentre registrada
+             */
+            $dataxxxx['sis_docfuen_id']=4;
             $objetver=NnajDocu::where('s_documento',$dataxxxx['s_documento'] )->first();
             if ($objetoxx == ''&& isset($objetver->id)) {
                 $objetoxx=$objetver->fi_datos_basico;
@@ -247,6 +250,7 @@ class FiDatosBasico extends Model
             }
             $dataxxxx['fi_datos_basico_id'] = $objetoxx->id;
             $dataxxxx['objetoxx']=$objetoxx;
+            FiCsdvsi::getTransaccion($dataxxxx);
             NnajSexo::getTransaccion($dataxxxx);
             NnajNacimi::getTransaccion($dataxxxx);
             NnajDocu::getTransaccion($dataxxxx);

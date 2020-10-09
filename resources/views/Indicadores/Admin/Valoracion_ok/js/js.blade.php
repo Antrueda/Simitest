@@ -2,7 +2,7 @@
   $(function() {
     $('.select2').select2({
             language: "es",
-            theme: 'bootstrap4'
+            //theme: 'bootstrap4'
         });
     var f_campos = function(valuexxx) {
       $('#i_prm_nivel_id,#i_prm_categoria_id').empty();

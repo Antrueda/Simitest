@@ -25,16 +25,16 @@ class CreateComfacsdsTable extends Migration
             $table = CamposMagicos::magicos($table);
         });
 
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL COMPONENTE FAMILIAR QUE RESPONDE LA CONSULTA SOCIAL EN DOMICILIO'");
-        
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DE DONDE SE ACTUALIZAN LOS DATOS BASICOS DE FICHA DE INGRESO'");
+
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('fi_compfami_id')->unsigned()->comment('COMPONENTE FAMILIAR QUE RESPONDE LA CSD');
             $table->bigInteger('csd_id')->unsigned()->comment('ID Cconsulta social en domicilio');
             $table = CamposMagicos::magicos($table);
-            
+
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**
