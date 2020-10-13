@@ -2,17 +2,17 @@
 
 namespace App\Observers;
 
-use App\Models\Logs\Hpost;
-use App\Models\post;
+use App\Models\Logs\HPost;
+use App\Models\Post;
 
-class postObserver
+class PostObserver
 {
     private function getLog($modeloxx)
     {
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['titulo'] = $modeloxx->titulo;
         $log['descripcion'] = $modeloxx->descripcion;
         $log['user_id'] = $modeloxx->user_id;
@@ -26,52 +26,52 @@ class postObserver
         return $log;
     }
 
-    public function created(post $modeloxx)
+    public function created(Post $modeloxx)
     {
-        Hpost::create($this->getLog($modeloxx));
+        HPost::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the post "updated" event.
+     * Handle the Post "updated" event.
      *
-     * @param  App\Models\post  $modeloxx
+     * @param  App\Models\Post  $modeloxx
      * @return void
      */
-    public function updated(post $modeloxx)
+    public function updated(Post $modeloxx)
     {
-        Hpost::create($this->getLog($modeloxx));
+        HPost::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the post "deleted" event.
+     * Handle the Post "deleted" event.
      *
-     * @param  App\Models\post  $modeloxx
+     * @param  App\Models\Post  $modeloxx
      * @return void
      */
-    public function deleted(post $modeloxx)
+    public function deleted(Post $modeloxx)
     {
-        Hpost::create($this->getLog($modeloxx));
+        HPost::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the post "restored" event.
+     * Handle the Post "restored" event.
      *
-     * @param  App\Models\post  $modeloxx
+     * @param  App\Models\Post  $modeloxx
      * @return void
      */
-    public function restored(post $modeloxx)
+    public function restored(Post $modeloxx)
     {
-        Hpost::create($this->getLog($modeloxx));
+        HPost::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the post "force deleted" event.
+     * Handle the Post "force deleted" event.
      *
-     * @param  App\Models\post  $modeloxx
+     * @param  App\Models\Post  $modeloxx
      * @return void
      */
-    public function forceDeleted(post $modeloxx)
+    public function forceDeleted(Post $modeloxx)
     {
-        Hpost::create($this->getLog($modeloxx));
+        HPost::create($this->getLog($modeloxx));
     }
 }

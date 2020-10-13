@@ -183,7 +183,7 @@ use App\Observers\InValidacionObserver;
 use App\Observers\ParametroObserver;
 use App\Observers\ParametroTemaObserver;
 use App\Observers\PermissionextObserver;
-use App\Observers\postObserver;
+use App\Observers\PostObserver;
 use App\Observers\RoleextObserver;
 use App\Observers\RolUsuarioObserver;
 use App\Observers\SisActividadObserver;
@@ -325,7 +325,7 @@ class AppServiceProvider extends ServiceProvider
         // CARPETA RAIZ
         // Parametro::observe(ParametroObserver::class);
         Permissionext::observe(PermissionextObserver::class);
-        post::observe(postObserver::class);
+        Post::observe(PostObserver::class);
 
         Tema::observe(TemaObserver::class);
         User::observe(UserObserver::class);

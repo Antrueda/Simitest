@@ -73,7 +73,7 @@ class VsiEducacionController extends Controller
             $this->opciones['pestpadr'] = 3;
 
 
-            if ($dataxxxx['modeloxx']->prm_estudia_id == 228) {
+            if ($dataxxxx['modeloxx']->prm_estudia_id == 227) {
                 $this->opciones['readonly'] = 'readonly';
             }
 
@@ -169,9 +169,6 @@ class VsiEducacionController extends Controller
     {
         $requestx = [
             'prm_estudia_id' => 'required|exists:parametros,id',
-            'dia' => 'nullable|min:0|max:99',
-            'mes' => 'nullable|min:0|max:99',
-            'ano' => 'nullable|min:0|max:99',
             'prm_motivo_id' => 'required_if:prm_estudia_id,228',
             'prm_rendimiento_id' => 'required_if:prm_estudia_id,227',
             'prm_dificultad_id' => 'required_if:prm_estudia_id,227',
@@ -183,8 +180,16 @@ class VsiEducacionController extends Controller
             'dificultades' => 'nullable|array',
             'dificultadesb' => 'nullable|array',
         ];
-        if ($data['prm_dificultad_id'] == 227) {
+        if ($data['prm_dificultad_id'] == 227 ) {
             $requestx['dificultadesa'] = 'required|array';
+        }
+        if($data['prm_estudia_id'] == 228 &
+        ($data['dia']=='' || $data['dia']==0)&
+        ($data['mes']=='' || $data['mes']==0)&
+        ($data['ano']=='' || $data['ano']==0) ){
+            $requestx['dia'] = 'required|min:0|max:99';
+            $requestx['mes'] = 'nullable|min:0|max:99';
+            $requestx['ano'] = 'nullable|min:0|max:99';
         }
         return Validator::make($data, $requestx);
     }

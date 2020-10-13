@@ -37,7 +37,7 @@ class AlertaController extends Controller
             'fechedit' => '',
             'usercrea' => '',
             'useredit' => '',
-            
+
             'usuariox' => [],
 
             'confirmx' => 'Desea inactivar la alerta: ',
@@ -72,7 +72,7 @@ class AlertaController extends Controller
      */
     public function index()
     {
-       
+
         $this->opciones['botoform'][0]['routingx'][1] = [];
         $this->opciones['padrexxx'] = '';
         $this->opciones['esindexx'] = true;
@@ -112,7 +112,7 @@ class AlertaController extends Controller
             ]
 
         ];
-        
+
         $this->opciones['accionxx'] = 'index';
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -131,8 +131,8 @@ class AlertaController extends Controller
     }
     private function view($dataxxxx)
     {
-       
-       
+
+
         $this->opciones['parametr'] = [];
         $this->opciones['botoform'][0]['routingx'][1] = [];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
@@ -188,11 +188,11 @@ class AlertaController extends Controller
         User::all()
                 ->except($post->user_id)
                 ->each(function(user $user)use ($post){
-                $user->notify(new PostNotification($post));  
+                $user->notify(new PostNotification($post));
                 });
                 e*/
 
-        event(new PostEvent($post));        
+        event(new PostEvent($post));
         return $this->grabar([
             'dataxxxx' => $dataxxxx,
             'modeloxx' => '',
@@ -222,7 +222,7 @@ class AlertaController extends Controller
     public function edit(Post $objetoxx)
     {
 
-       
+
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -264,7 +264,7 @@ class AlertaController extends Controller
      */
     public function destroy(Request $request)
     {
-       
+
     }
 
     public function markNotification(request $request){
@@ -276,7 +276,7 @@ class AlertaController extends Controller
 
     public function inicio(){
         $postnotification = auth()->user()->unreadNotifications;
-        return view('alertas.tabsxxxx.notifications',compact('postnotification'));
+        return view('Alertas.tabsxxxx.notifications',compact('postnotification'));
     }
 
 }

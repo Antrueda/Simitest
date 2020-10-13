@@ -53,51 +53,35 @@ var f_limpiar = function(valuexxx,psalecte) {
                         $.each(json[0].motivosx, function(i, data) {
                             $('#prm_motivo_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
-
                     },
                     error: function(xhr, status) {
                         alert('Disculpe, existió un problema');
                     },
                 });
-
-
-
         }
 
     $("#prm_estudia_id").change(function(){
         f_limpiar($(this).val(),'');
-
     });
 
 
 
 function doc(valor){
     if(valor == 228){
-        document.getElementById("dia").hidden=false;
-        document.getElementById("mes").hidden=false;
-        document.getElementById("ano").hidden=false;
-        document.getElementById("prm_motivo_id").hidden=false;
+$('.tiempoxx').prop('readonly',false)
+$('#prm_motivo_id').attr("disabled", false);
         document.getElementById("prm_rendimiento_id").hidden=false;
         document.getElementById("prm_rendimiento_id").value=[];
         document.getElementById("fortalezas_div").hidden=false;
         document.getElementById("fortalezas").value=[];
         document.getElementById("dificultades_div").hidden=false;
-        document.getElementById("prm_dificultad_id").hidden=true;
         document.getElementById("causas_div").hidden=false;
-
-
     } else {
-        document.getElementById("dia").hidden=true;
-        document.getElementById("dia").value='';
-        document.getElementById("mes").hidden=true;
-        document.getElementById("mes").value='';
-        document.getElementById("ano").hidden=true;
-        document.getElementById("ano").value='';
-        document.getElementById("prm_motivo_id").hidden=true;
+        $('.tiempoxx').prop('readonly',true)
+        $('#prm_motivo_id').attr("disabled", true);
         document.getElementById("prm_rendimiento_id").hidden=false;
         document.getElementById("fortalezas_div").hidden=false;
         document.getElementById("dificultades_div").hidden=false;
-        document.getElementById("prm_dificultad_id").hidden=false;
         document.getElementById("causas_div").hidden=true;
 
 
