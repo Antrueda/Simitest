@@ -1,7 +1,7 @@
 <?php
 $routexxx = 'csdresidencia';
-$controll = 'Domicilio\csdresidencia';
-Route::group(['prefix' => '{padrexxx}/residencia'], function () use ($routexxx, $controll) {
+$controll = 'Domicilio\CsdResidencia';
+Route::group(['prefix' => '{padrexxx}/csdresidencia'], function () use ($routexxx, $controll) {
 	Route::get('nuevo', [
 		'uses' => $controll.'Controller@create',
 		'middleware' => ['permission:'.$routexxx.'-crear']

@@ -21,7 +21,7 @@ class CsdBienvenidaController extends Controller
         $this->opciones['permisox'] = 'csdbienvenida';
         $this->opciones['routxxxx'] = 'csdbienvenida';
         $this->opciones['rutacarp'] = 'Csd.';
-        $this->opciones['carpetax'] = 'bienvenida';
+        $this->opciones['carpetax'] = 'Bienvenida';
         $this->opciones['slotxxxx'] = 'csdbienvenida';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "MOTIVOS DE VINCULACIÓN Y BIENVENIDA";

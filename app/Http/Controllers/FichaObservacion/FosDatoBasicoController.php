@@ -64,9 +64,12 @@ class FosDatoBasicoController extends Controller
     {
 
         $this->opciones['cabecera'] = [
-            ['td' => 'Id'],
+            ['td' => 'ID'],
             ['td' => 'PRIMER NOMBRE'],
             ['td' => 'SEGUNDO NOMBRE'],
+            ['td' => 'PRIMER NOMBRE'],
+            ['td' => 'SEGUNDO NOMBRE'],
+
             ['td' => 'DOCUMENTO'],
             ['td' => 'ESTADO'],
         ];
@@ -78,6 +81,7 @@ class FosDatoBasicoController extends Controller
             ['data' => 's_segundo_apellido', 'name' => 's_segundo_apellido'],
             ['data' => 's_apodo', 'name' => 's_apodo'],
 
+            ['data' => 's_apodo', 'name' => 's_apodo'],
         ];
         $this->opciones['permisox'] = 'fosfichaobservacion';
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);

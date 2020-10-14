@@ -1,6 +1,6 @@
 <?php
 $routexxx = 'csdjusticia';
-$controll = 'Domicilio\csdjusticia';
+$controll = 'Domicilio\CsdJusticia';
 Route::group(['prefix' => '{padrexxx}/justicia'], function () use ($routexxx, $controll) {
 	Route::get('nuevo', [
 		'uses' => $controll.'Controller@create',

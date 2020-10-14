@@ -9,7 +9,7 @@
             {{ $todoxxxx['titulist'] }}
             @if($todoxxxx['vercrear'])
                 @can($todoxxxx['permisox'].'-crear')
-                    <a class="btn btn-sm btn-primary ml-2" title="{{ $todoxxxx['titunuev'] }}" href="{{ route($todoxxxx['routxxxx'].'.nuevo',$todoxxxx['parametr']) }}">  
+                    <a class="btn btn-sm btn-primary ml-2" title="{{ $todoxxxx['titunuev'] }}" href="{{ route($todoxxxx['routxxxx'].'.nuevo',$todoxxxx['parametr']) }}">
                         CREAR {{ $todoxxxx['titunuev'] }}
                     </a>
                 @endcan
@@ -19,15 +19,15 @@
     <div class="card-body">
         @canany([$todoxxxx['permisox'].'-leer',$todoxxxx['permisox'].'-crear',$todoxxxx['permisox'].'-editar',$todoxxxx['permisox'].'-borrar'])
             <div class="table-responsive">
-                <table id="{{ $todoxxxx['tablaxxx'] }}" class="table table-bordered   table-sm">
+                <table id="{{ $todoxxxx['tablaxxx'] }}" class="table table-striped table-bordered dt-responsive nowrap">
                     <thead>
                         <tr class="text-center">
                             @if ($todoxxxx['accitabl'])
-                                <th width="200">Acciones</th> 
+                                <th width="200">Acciones</th>
                             @endif
-                           
-                        
-                            
+
+
+
                             @foreach( $todoxxxx['cabecera'] as $cabecera )
                                 <th> {{  $cabecera['td']   }}</th>
                             @endforeach
@@ -37,11 +37,11 @@
                     <tfoot>
                         <tr class="text-center">
                             @if ($todoxxxx['accitabl'])
-                                <th width="150">Acciones</th> 
+                                <th width="150">Acciones</th>
                             @endif
-                           
-                        
-                            
+
+
+
                             @foreach( $todoxxxx['cabecera'] as $cabecera )
                                 <th> {{  $cabecera['td']   }}</th>
                             @endforeach

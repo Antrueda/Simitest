@@ -1,18 +1,23 @@
 <?php
-Route::group(['prefix' => 'fos'], function () {
+$controll='FichaObservacion\Fos';
+$routxxxx='fosfichaobservacion';
+Route::group(['prefix' => 'nnajsfos'], function () use($controll,$routxxxx){
 	Route::get('', [
-		'uses' => 'FichaObservacion\FosDatoBasicoController@index',
-		'middleware' => ['permission:fosfichaobservacion-leer|fosfichaobservacion-crear|fosfichaobservacion-editar|fosfichaobservacion-borrar']
-	])->name('fos');
-
+		'uses' => $controll.'Controller@index',
+		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
+	])->name($routxxxx);
+    Route::get('listaxxx', [
+		'uses' => $controll.'Controller@getListado',
+		'middleware' => ['permission:'.$routxxxx.'-leer']
+    ])->name($routxxxx.'.listaxxx');
 	Route::get('{id}', [
-		'uses' => 'FichaObservacion\FosDatoBasicoController@lista',
-		'middleware' => ['permission:fosfichaobservacion-leer|fosfichaobservacion-crear|fosfichaobservacion-editar|fosfichaobservacion-borrar']
-	])->name('fos.ver');
-	
+		'uses' => $controll.'Controller@lista',
+		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
+	])->name($routxxxx.'.ver');
+
 	Route::get('obtenerTipoSeguimientos', [
-		'uses' => 'FichaObservacion\FosDatoBasicoController@obtenerTipoSeguimientos',
-		'middleware' => ['permission:fosfichaobservacion-leer|fosfichaobservacion-crear|fosfichaobservacion-editar|fosfichaobservacion-borrar']
-	 ])->name('fos.fichaobservacion.obtenerTipoSeguimientos');
+		'uses' => $controll.'Controller@obtenerTipoSeguimientos',
+		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
+	 ])->name($routxxxx.'.fichaobservacion.obtenerTipoSeguimientos');
 	include_once('web_fos_ficha_observacion.php');
 });

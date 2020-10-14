@@ -20,6 +20,7 @@
 {{-- <link rel="stylesheet" href="{{ asset ('adminlte/plugins/summernote/summernote-bs4.css') }}"> --}}
 <link rel="stylesheet" href="{{ asset ('adminlte/plugins/toastr/toastr.min.css') }}">
 <link rel="stylesheet" href="{{ asset ('adminlte/plugins/datatables/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset ('adminlte/plugins/datatables/responsive.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset ('css/select.dataTables.min.css') }}">
 <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset ('adminlte/dist/css/simi.css') }}">

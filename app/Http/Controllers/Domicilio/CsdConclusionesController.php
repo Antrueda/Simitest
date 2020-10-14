@@ -23,7 +23,7 @@ class CsdConclusionesController extends Controller
         $this->opciones['permisox'] = 'csdconclusiones';
         $this->opciones['routxxxx'] = 'csdconclusiones';
         $this->opciones['rutacarp'] = 'Csd.';
-        $this->opciones['carpetax'] = 'conclusiones';
+        $this->opciones['carpetax'] = 'Conclusiones';
         $this->opciones['slotxxxx'] = 'csdconclusiones';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "Conclusiones";
