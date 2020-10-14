@@ -33,7 +33,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['slotxxxx'] = 'csdcomfamiliar';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "COMPOSICI{$this->opciones['vocalesx'][3]}N FAMILIAR";
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
 
@@ -57,7 +57,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['ocupacio'] = Tema::combo(294, true, false);
         $this->opciones['vinculax'] = Tema::combo(287, true, false);
         $this->opciones['vinculaz'] = Tema::combo(287, true, false);
-        
+
         $this->opciones['nacicomp'] = '';
 
         $this->opciones['botoform'] = [
@@ -326,5 +326,5 @@ class CsdCompfamiController extends Controller
             ->with('info', 'Componenete familiar inactivado correctamente');
     }
 
-  
+
 }

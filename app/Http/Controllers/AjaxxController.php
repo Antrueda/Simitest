@@ -65,31 +65,34 @@ class AjaxxController extends Controller
 
     private function getEdad($fechaxxx)
     {
+        $edadxxxx=0;
         if ($fechaxxx['opcionxx'] == 2) {
-            $nacimien = FiDatosBasico::where('sis_nnaj_id', $fechaxxx['padrexxx'])->first()->nnaj_nacimi;
-            $fechaxxx = explode('-', $nacimien->d_nacimiento);
+            $edadxxxx = FiDatosBasico::where('sis_nnaj_id', $fechaxxx['padrexxx'])->first()->nnaj_nacimi->Edad;
         } else {
             $fechaxxx = explode('-', $fechaxxx['fechaxxx']);
+            if(count($fechaxxx)){
+                $fechaxxx=[0,0,0];
+            }
+            $edadxxxx=Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
         }
+        return $edadxxxx;
 
-        return Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
     }
 
     function saberEdad(Request $request)
     {
         if ($request->ajax()) {
             $edadxxxx = $this->getEdad($request->all());
-            $noaplica = [['valuexxx' => 1, 'optionxx' => 'NO APLICA']];
+            $noaplica = Parametro::find(1269)->ComboAjaxUno;
             $respuest = [[
                 'edadxxxx' => $this->getEdad($request->all()),
                 'generoxx' => ($edadxxxx < 15) ? $noaplica : Tema::combo(12, false, true),
                 'orientac' => ($edadxxxx < 15) ? $noaplica : Tema::combo(13, false, true),
-                'estacivi' => ($edadxxxx < 15) ? [['valuexxx' => 153, 'optionxx' => 'SOLTERO(A)']] : Tema::combo(19, false, true),
+                'estacivi' => ($edadxxxx < 15) ? Parametro::find(153)->ComboAjaxUno : Tema::combo(19, false, true),
                 'sexoxxxx' =>  Tema::combo(11, false, true),
                 'condicio' => ($edadxxxx < 18) ? $noaplica : Tema::combo(23, false, true),
                 'tiplibre' => ($edadxxxx < 18) ? $noaplica : Tema::combo(33, false, true),
             ]];
-
             return response()->json($respuest);
         }
     }
@@ -294,7 +297,7 @@ class AjaxxController extends Controller
                     ]];
                     break;
             }
-            
+
             return response()->json($respuest);
         }
     }
@@ -320,7 +323,7 @@ class AjaxxController extends Controller
             return response()->json($respuest);
         }
     }
-   
+
     function consecutivoceduala(Request $request)
     {
         if ($request->ajax()) {

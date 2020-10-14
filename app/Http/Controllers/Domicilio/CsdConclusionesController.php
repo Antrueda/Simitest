@@ -27,7 +27,7 @@ class CsdConclusionesController extends Controller
         $this->opciones['slotxxxx'] = 'csdconclusiones';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "Conclusiones";
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
         $this->opciones['readonly'] = '';
@@ -40,8 +40,8 @@ class CsdConclusionesController extends Controller
         $this->opciones['condicix'] = Tema::combo(23, false, false);
         $this->opciones['familiax'] = Tema::combo(66, true, false);
     }
-   
-   
+
+
 
     private function view($dataxxxx)
     {
@@ -52,7 +52,7 @@ class CsdConclusionesController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
-            
+
         ];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
@@ -94,7 +94,7 @@ class CsdConclusionesController extends Controller
         return redirect()
         ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, CsdConclusiones::transaccion($dataxxxx,  $objetoxx)->id])
         ->with('info', $infoxxxx);
-  
+
     }
 
     /**
@@ -110,7 +110,7 @@ class CsdConclusionesController extends Controller
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Conclusiones registradas con exito', $padrexxx);
-        
+
     }
 
     /**
@@ -157,8 +157,8 @@ class CsdConclusionesController extends Controller
         return $this->grabar($request, $modeloxx, 'Conclusiones actualizadas con exito', $padrexxx);
     }
 
- 
 
 
-  
+
+
 }

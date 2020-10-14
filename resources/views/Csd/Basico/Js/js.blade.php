@@ -210,12 +210,6 @@
 
             if (valuexxx != '') {
                 var fechaxxx = '';
-                if ($('#d_nacimiento').val() == '') {
-                    $("#prm_sexo_id").empty();
-                    $("#prm_sexo_id").append('<option value="">Seleccione</>')
-                    alert('Por favor seleccione una fecha')
-                    return false;
-                }
                 $.ajax({
                     url: "{{ route('ajaxx.situacionmilitar') }}",
                     data: {
@@ -277,8 +271,6 @@
         var fechaInicio = new Date(fechactu.getFullYear() - 28, fechactu.getMonth(), fechactu.getDate()).getTime();
         var fechaFin = new Date().getTime();
         var diff = parseInt((fechaFin - fechaInicio) / (1000 * 60 * 60 * 24));
-
-
         var f_nacimiento = function(valuexxx, orientac, generoxx, estadoxx, sexoxxxx) {
             dataxxxx = {
                 url: "{{ route('ajaxx.edad') }}",
@@ -294,13 +286,9 @@
                 estadoxx: estadoxx,
                 sexoxxxx: sexoxxxx
             }
-
             f_ajax(dataxxxx, '');
         }
-
-
         @if(old('d_nacimiento') !== null)
-
         f_nacimiento('{{ old("d_nacimiento") }}', '{{ old("prm_orientacion_sexual_id") }}', '{{ old("prm_identidad_genero_id") }}', '{{ old("prm_estado_civil_id") }}', '{{ old("prm_sexo_id") }}');
         @endif
 

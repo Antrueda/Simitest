@@ -25,7 +25,7 @@ class CsdJusticiaController extends Controller
         $this->opciones['slotxxxx'] = 'csdjusticia';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "JUSTICIA RESTAURATIVA";
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
         /** botones que se presentan en los formularios */
@@ -60,7 +60,7 @@ class CsdJusticiaController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
-     
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -86,7 +86,7 @@ class CsdJusticiaController extends Controller
         return redirect()
         ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, CsdJusticia::transaccion($dataxxxx,  $objetoxx)->id])
         ->with('info', $infoxxxx);
-  
+
     }
     /**
      * Store a newly created resource in storage.

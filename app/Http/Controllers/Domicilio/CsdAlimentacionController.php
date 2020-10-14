@@ -22,7 +22,7 @@ class CsdAlimentacionController extends Controller
         $this->opciones['carpetax'] = 'Alimentacion';
         $this->opciones['slotxxxx'] = 'csdalimentacion';
         $this->opciones['tituloxx'] = 'Alimentacion';
-        $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
+        $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
@@ -41,7 +41,7 @@ class CsdAlimentacionController extends Controller
         $this->opciones['familiax'] = Tema::combo(66, false, false);
         $this->opciones['entidadx'] = Tema::combo(113, true, false);
 
-        
+
 
         $this->opciones['botoform'] = [
             [
@@ -66,7 +66,7 @@ class CsdAlimentacionController extends Controller
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
         $this->opciones['readchcx'] = '';
-        $this->opciones['pestpadr'] = 2;
+        $this->opciones['pestpadr'] = 3;
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
@@ -96,7 +96,7 @@ class CsdAlimentacionController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear','formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
-    
+
 
     private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
     {
@@ -104,11 +104,11 @@ class CsdAlimentacionController extends Controller
             ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, CsdAlimentacion::transaccion($dataxxxx, $objetoxx)->id])
             ->with('info', $infoxxxx);
     }
-     
+
     public function store(CsdAlimentacionCrearRequest $request, Csd $padrexxx)
     {
         $dataxxxx = $request->all();
-        
+
         $dataxxxx['csd_id'] = $padrexxx->id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;

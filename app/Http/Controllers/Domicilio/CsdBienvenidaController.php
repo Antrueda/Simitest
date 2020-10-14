@@ -25,7 +25,7 @@ class CsdBienvenidaController extends Controller
         $this->opciones['slotxxxx'] = 'csdbienvenida';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "MOTIVOS DE VINCULACIÓN Y BIENVENIDA";
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
@@ -48,7 +48,7 @@ class CsdBienvenidaController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        
+
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
@@ -121,7 +121,7 @@ class CsdBienvenidaController extends Controller
      */
     public function show(CsdBienvenida $modeloxx)
     {
-    
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->csd]);
     }
 

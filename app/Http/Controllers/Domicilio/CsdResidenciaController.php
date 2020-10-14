@@ -26,9 +26,9 @@ class CsdResidenciaController extends Controller
         $this->opciones['routxxxx'] = 'csdresidencia';
         $this->opciones['rutacarp'] = 'Csd.';
         $this->opciones['carpetax'] = 'Residencia';
-        $this->opciones['slotxxxx'] = 'residencia';
+        $this->opciones['slotxxxx'] = 'csdresidencia';
         $this->opciones['tituloxx'] = 'RESIDENCIA';
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
@@ -106,7 +106,7 @@ class CsdResidenciaController extends Controller
                 $this->opciones['alfabeto'] = [1 => 'NO APLICA'];
                 $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
             }
-     
+
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
                         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
@@ -151,7 +151,7 @@ class CsdResidenciaController extends Controller
         $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Datos de residencia creados con exito', $padrexxx);
     }
-    
+
 
     /**
      * Display the specified resource.

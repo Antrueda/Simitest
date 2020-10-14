@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Csd\CsdSituacionCrearRequest;
+
 use App\Http\Requests\Csd\CsdSituacionEditarRequest;
-use App\Http\Requests\Csd\CsdSituacionespecialCrearRequest;
-use App\Http\Requests\Csd\CsdSituacionespecialEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\Tema;
 use Illuminate\Http\Request;
@@ -24,7 +22,7 @@ class CsdSituacionEspecialController extends Controller
         $this->opciones['slotxxxx'] = 'csdsituacionespecial';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "Situacion Especial";
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
         $this->middleware(['permission:'
@@ -45,21 +43,21 @@ class CsdSituacionEspecialController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],];
-            
+
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = 'ACTIVO';
-      
+
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-           
+
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
 
-        
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -102,7 +100,7 @@ class CsdSituacionEspecialController extends Controller
         $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Situaciones especiales insertadas con exito','padrexxx'=> $padrexxx]);
     }
-    
+
     protected function validator(array $data){
         return Validator::make($data, [
             'especiales' => 'nullable|array',

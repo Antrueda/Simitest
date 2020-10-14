@@ -25,7 +25,7 @@ class CsdViolenciaController extends Controller
         $this->opciones['slotxxxx'] = 'csdviolencia';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "VIOLENCIA";
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
         $this->middleware(['permission:'
@@ -35,7 +35,7 @@ class CsdViolenciaController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['condixxx'] = Tema::combo(57, true, false);
-        
+
 
     }
 
@@ -63,15 +63,15 @@ class CsdViolenciaController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->departamento_cond_id, false);
             $this->opciones['departam'] = SisDepartamento::combo(2, false);
-            
+
             $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->departamento_cert_id, false);
             $this->opciones['deparexp'] = SisDepartamento::combo(2, false);
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
         $this->setModelo((isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx'] : false);
-       
-        
+
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

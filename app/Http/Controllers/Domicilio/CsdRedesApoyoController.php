@@ -5,12 +5,9 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdRedApoyoAntecedenteCrearRequest;
 use App\Http\Requests\Csd\CsdRedApoyoAntecedenteEditarRequest;
-use App\Http\Requests\FichaIngreso\FiRedesApoyoCrearRequest;
-use App\Http\Requests\FichaIngreso\FiRedesApoyoUpdateRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdRedsocPasado;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
@@ -31,7 +28,7 @@ class CsdRedesApoyoController extends Controller
         $this->opciones['slotxxxx'] = 'csdredesapoyo';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "REDES DE APOYO";
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
         /** botones que se presentan en los formularios */

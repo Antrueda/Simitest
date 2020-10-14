@@ -29,7 +29,7 @@ class CsdDinFamiliarController extends Controller
         $this->opciones['slotxxxx'] = 'csddinfamiliar';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "DINAMICA FAMILIAR";
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
         /** botones que se presentan en los formularios */
@@ -55,7 +55,7 @@ class CsdDinFamiliarController extends Controller
         $this->opciones['incumple'] = Tema::combo(107, false, false);
         $this->opciones['destacan'] = Tema::combo(108, true, false);
         $this->opciones['sucesosx'] = Tema::combo(109, true, false);
-        
+
 
     }
     public function getListadop(Request $request, Csd $padrexxx)
@@ -187,7 +187,7 @@ class CsdDinFamiliarController extends Controller
                 'routxxxx' => 'csddfmad',
                 'parametr' => $this->opciones['parametr'] ,
             ]
-            
+
         ];
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
