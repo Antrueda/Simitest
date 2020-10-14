@@ -11,7 +11,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('departamento_cond_id', '2.1(a) Departamento', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('departamento_cond_id', $todoxxxx["departam"], null, ['class' => $errors->first('departamento_cond_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm departam',]) }}
+      {{ Form::select('departamento_cond_id', $todoxxxx["departam"], null, ['class' => 'form-control form-control-sm departam',]) }}
       @if($errors->has('departamento_cond_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('departamento_cond_id') }}
@@ -40,7 +40,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('departamento_cert_id', 'Lugar de expedición 2.2(a) Departamento', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('departamento_cert_id',$todoxxxx["departam"], null, ['class' => $errors->first('departamento_cert_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm departam']) }}
+      {{ Form::select('departamento_cert_id',$todoxxxx["departam"], null, ['class' => 'form-control form-control-sm departam']) }}
       @if($errors->has('departamento_cert_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('departamento_cert_id') }}

@@ -23,7 +23,7 @@ class CsdGeneracionIngresosController extends Controller
         $this->opciones['carpetax'] = 'Ingresos';
         $this->opciones['slotxxxx'] = 'csdgeningresos';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "CONSUMO SPA";
+        $this->opciones['tituloxx'] = "GENERACION DE INGRESOS";
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
@@ -123,8 +123,6 @@ class CsdGeneracionIngresosController extends Controller
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
 
-
-
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -135,6 +133,11 @@ class CsdGeneracionIngresosController extends Controller
      */
     public function create(Csd $padrexxx)
     {
+        $vestuari = CsdGenIngreso::where('csd_id', $padrexxx->id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('csdgeningresos.editar', [$padrexxx->id, $vestuari->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
             [

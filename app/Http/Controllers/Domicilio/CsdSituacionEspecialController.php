@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Csd\CsdSituacionEditarRequest;
 use App\Models\consulta\Csd;
+use App\Models\consulta\pivotes\CsdNnajEspecial;
 use App\Models\Tema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -68,6 +69,12 @@ class CsdSituacionEspecialController extends Controller
      */
     public function create(Csd $padrexxx)
     {
+
+        $vestuari = CsdNnajEspecial::where('csd_id', $padrexxx->id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('csdsituacionespecial.editar', [$padrexxx->id, $vestuari->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
@@ -148,6 +155,6 @@ class CsdSituacionEspecialController extends Controller
      */
     public function update(CsdSituacionEditarRequest $request, Csd $modeloxx)
     {
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Situaciones Especiales actualizadas','modeloxx'=>$modeloxx]);
+        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Situaciones Especiales actualizadas','modeloxx'=>$modeloxx,'padrexxx'=>$modeloxx]);
     }
 }

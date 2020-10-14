@@ -120,6 +120,11 @@ class CsdResidenciaController extends Controller
      */
     public function create(Csd $padrexxx)
     {
+        $vestuari = CsdResidencia::where('csd_id', $padrexxx->id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('csdresidencia.editar', [$padrexxx->id, $vestuari->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =

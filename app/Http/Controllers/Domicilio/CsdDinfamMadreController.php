@@ -38,11 +38,9 @@ class CsdDinfamMadreController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-        $this->opciones['sustanci'] = Tema::combo(53, true, false);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => ['csddinfamiliar.nuevo', []],
-            'formhref' => 2, 'tituloxx' => "VOLVER A CONSUMO SPA", 'clasexxx' => 'btn btn-sm btn-primary'
+            'formhref' => 2, 'tituloxx' => "VOLVER A DINAMICA FAMILIAR", 'clasexxx' => 'btn btn-sm btn-primary'
         ];
     }
 
@@ -178,6 +176,7 @@ class CsdDinfamMadreController extends Controller
      */
     public function edit(Csd $padrexxx, CsdDinfamMadre $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

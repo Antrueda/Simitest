@@ -53,6 +53,7 @@ class CsdViolenciaController extends Controller
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['departxx'] = SisDepartamento::orderBy('s_departamento')->get();
         $this->opciones['departam'] = ['' => 'Seleccione'];
         $this->opciones['municipi'] = ['' => 'Seleccione'];
         $this->opciones['deparexp'] = ['' => 'Seleccione'];
@@ -73,6 +74,7 @@ class CsdViolenciaController extends Controller
 
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        
     }
 
     /**
@@ -82,6 +84,11 @@ class CsdViolenciaController extends Controller
      */
     public function create(Csd $padrexxx)
     {
+        $vestuari = CsdViolencia::where('csd_id', $padrexxx->id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('csdviolencia.editar', [$padrexxx->id, $vestuari->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =

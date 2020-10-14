@@ -79,6 +79,11 @@ class CsdBienvenidaController extends Controller
      */
     public function create(Csd $padrexxx)
     {
+        $vestuari = CsdBienvenida::where('csd_id', $padrexxx->id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('csdbienvenida.editar', [$vestuari->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =

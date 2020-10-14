@@ -13,7 +13,6 @@
                     data.optionxx + '</option>')
             });
         }
-      
         $("#prm_condicion_id").change(function() {
             $("#departamento_cond_id,  #prm_certificado_id, #departamento_cert_id,#municipio_cond_id").empty();
             if ($(this).val() != '') {
@@ -52,8 +51,6 @@
             }
         
         });
-
-
         var f_municipos = function(valuexxx, campoxxx, selected) {
 
             $.ajax({
@@ -73,9 +70,8 @@
                 },
             });
         }
-        $('.departam').change(function() {
-            var id = $(this).prop('id').split('_')[3];
-            f_municipos($(this).val(), 'municipio' + id + '_id', '');
+        $('#departamento_cond_id').change(function() {
+            f_municipos($(this).val(), 'municipio_cond_id', '');
         });
         var deptcond = "{{old('departamento_cond_id')}}";
         if (deptcond != '') {
@@ -83,8 +79,10 @@
                 'municipio_cond_id',
                 '{{ old("municipio_cond_id") }}');
         }
+        $('#departamento_cert_id').change(function() {
+            f_municipos($(this).val(), 'municipio_cert_id', '');
+        });
         var deptcert = "{{old('departamento_cert_id')}}";
-
         if (deptcond != '') {
             f_municipos('{{ old("departamento_cert_id") }}',
             'municipio_cert_id',

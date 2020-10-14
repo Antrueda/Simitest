@@ -43,12 +43,7 @@ class CsdAlimentacionController extends Controller
 
 
 
-        $this->opciones['botoform'] = [
-            [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => ['fidatbas', []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJS', 'clasexxx' => 'btn btn-sm btn-primary'
-            ],
-        ];
+
     }
     private function view($dataxxxx)
     {
@@ -87,6 +82,12 @@ class CsdAlimentacionController extends Controller
      */
     public function create(Csd $padrexxx)
     {
+
+        $vestuari = CsdAlimentacion::where('csd_id', $padrexxx->id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =

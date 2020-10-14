@@ -17,7 +17,7 @@ class CsdSituacionEditarRequest extends FormRequest
           
           ];
         $this->_reglasx = [
-            
+            'especiales' => 'nullable|array',
            
         ];
     }
