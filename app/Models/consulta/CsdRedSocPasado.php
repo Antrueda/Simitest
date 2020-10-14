@@ -42,6 +42,7 @@ class CsdRedsocPasado extends Model
                 $objetoxx->update($dataxxxx);
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['prm_tipofuen_id'] = 2315;
                 $objetoxx = CsdRedsocPasado::create($dataxxxx);
             }
             return $objetoxx;

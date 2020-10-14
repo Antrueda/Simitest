@@ -54,7 +54,7 @@ class CsdRedesApoyoController extends Controller
             'formhref' => 2, 'tituloxx' => "VOLVER A REDES DE APOYO", 'clasexxx' => 'btn btn-sm btn-primary'
         ];
     }
-    public function index(FiDatosBasico $padrexxx)
+    public function index(Csd $padrexxx)
     {
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
@@ -85,10 +85,10 @@ class CsdRedesApoyoController extends Controller
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'csd_redsoc_pasados.id'],
                     ['data' => 'nombre', 'name' => 'sis_entidads.nombre'],
-                    ['data' => 'servicio', 'name' => 'servicios'],
-                    ['data' => 'i_tiempo', 'name' => 'csd_redsoc_pasados.i_tiempo'],
+                    ['data' => 'servicios', 'name' => 'servicios'],
+                    ['data' => 'cantidad', 'name' => 'csd_redsoc_pasados.cantidad'],
                     ['data' => 'tipotiem', 'name' => 'tiempo.nombre as tipotiem'],
-                    ['data' => 'anioxxxx', 'name' => 'anio.nombre as anioxxxx'],
+                    ['data' => 'ano', 'name' => 'csd_redsoc_pasados.ano'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatableantecedentes',
@@ -102,7 +102,7 @@ class CsdRedesApoyoController extends Controller
                 'titulist' => 'LISTA DE REDES DE APOYO ACTUALES',
                 'dataxxxx' => [],
                 'vercrear' => true,
-                'urlxxxxx' => route( 'firedactual.redactua', [$padrexxx->id]),
+                'urlxxxxx' => route( 'csdredactual.redactua', [$padrexxx->id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -126,19 +126,20 @@ class CsdRedesApoyoController extends Controller
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatableredesactuales',
-                'permisox' => 'firedactual',
-                'routxxxx' => 'firedactual',
+                'permisox' => 'csdredactual',
+                'routxxxx' => 'csdredactual',
                 'parametr' => [$padrexxx->id],
             ],
         ];
-        $this->opciones['usuariox'] = $padrexxx;
+        $this->opciones['usuariox'] = $padrexxx->sis_nnaj->fi_datos_basico;
+        $this->opciones['csdxxxxx'] = $padrexxx;
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     public function getAntecedentes(Request $request, Csd $padrexxx)
     {
         if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->padrexxx = $padrexxx->id;
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -147,13 +148,10 @@ class CsdRedesApoyoController extends Controller
             return $this->getAntecedentesTrait($request);
         }
     }
-
-
     private function view($dataxxxx)
     {
-
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
@@ -203,9 +201,9 @@ class CsdRedesApoyoController extends Controller
                     ['data' => 'id', 'name' => 'csd_redsoc_pasados.id'],
                     ['data' => 'nombre', 'name' => 'sis_entidads.nombre'],
                     ['data' => 'servicios', 'name' => 'servicios'],
-                    ['data' => 'prm_unidad_id', 'name' => 'csd_redsoc_pasados.prm_unidad_id'],
+                    ['data' => 'cantidad', 'name' => 'csd_redsoc_pasados.cantidad'],
                     ['data' => 'tipotiem', 'name' => 'tiempo.nombre as tipotiem'],
-                    ['data' => 'anioxxxx', 'name' => 'anio.nombre as anioxxxx'],
+                    ['data' => 'ano', 'name' => 'csd_redsoc_pasados.ano'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatableantecedentes',
@@ -224,6 +222,12 @@ class CsdRedesApoyoController extends Controller
      */
     public function create(Csd $padrexxx)
     {
+        $vestuari = CsdRedsocPasado::where('csd_id', $padrexxx->id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
+        }
+        $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -248,7 +252,8 @@ class CsdRedesApoyoController extends Controller
     public function store(CsdRedApoyoAntecedenteCrearRequest $request, Csd $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
         return $this->grabar($dataxxxx, '', 'Red Apoyo creado con exito', $padrexxx);
     }
 
@@ -271,7 +276,7 @@ class CsdRedesApoyoController extends Controller
      */
     public function edit(Csd $padrexxx,  CsdRedsocPasado $modeloxx)
     {
-
+        $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -292,7 +297,7 @@ class CsdRedesApoyoController extends Controller
         return $this->grabar($request->all(), $modeloxx, 'Red Apoyo actualizado con exito', $padrexxx);
     }
 
-    public function inactivate(Csd $padrexxx,CsdRedsocPasado        $modeloxx)
+    public function inactivate(Csd $padrexxx,CsdRedsocPasado $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {

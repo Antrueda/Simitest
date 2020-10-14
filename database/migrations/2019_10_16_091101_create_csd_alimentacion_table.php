@@ -26,7 +26,8 @@ class CreateCsdAlimentacionTable extends Migration
             $table = CamposMagicos::getForeign($table, 'csd');
             $table = CamposMagicos::getForeign($table, 'prm_horario_id','parametros');
             $table = CamposMagicos::getForeign($table, 'prm_apoyo_id','parametros');
-            $table = CamposMagicos::getForeignN($table, 'prm_entidad_id','parametros');
+            $table->bigInteger('prm_entidad_id')->unsigned()->nullable();
+            $table->foreign('prm_entidad_id')->references('id')->on('parametros');
             $table = CamposMagicos::getForeign($table, 'prm_tipofuen_id','parametros');
             $table = CamposMagicos::magicos($table);
         });

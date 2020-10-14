@@ -245,18 +245,17 @@ trait CsdTrait
             'csd_redsoc_pasados.id',
             'sis_entidads.nombre',
             'csd_redsoc_pasados.servicios',
-            'csd_redsoc_pasados.tiempo',
+            'csd_redsoc_pasados.cantidad',
             'tiempo.nombre as tipotiem',
-            'anio.nombre as anioxxxx',
+            'csd_redsoc_pasados.ano',
             'csd_redsoc_pasados.csd_id',
             'csd_redsoc_pasados.sis_esta_id',
             'csd_redsoc_pasados.created_at',
             'sis_estas.s_estado'
         )
             ->join('sis_estas', 'csd_redsoc_pasados.sis_esta_id', '=', 'sis_estas.id')
-            ->join('sis_entidads', 'csd_redsoc_pasados.sis_entidad_id', '=', 'sis_entidads.id')
+            ->join('sis_entidads', 'csd_redsoc_pasados.nombre', '=', 'sis_entidads.id')
             ->join('parametros as tiempo', 'csd_redsoc_pasados.prm_unidad_id', '=', 'tiempo.id')
-            ->join('parametros as anio', 'csd_redsoc_pasados.ano', '=', 'anio.id')
             ->where(
                 'csd_redsoc_pasados.csd_id',
                 $request->padrexxx

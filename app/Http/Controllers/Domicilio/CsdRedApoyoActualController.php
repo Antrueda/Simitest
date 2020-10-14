@@ -47,7 +47,7 @@ class CsdRedApoyoActualController extends Controller
         $this->opciones['anioserv'] = Tema::combo(84, true, false);
 
         $this->opciones['botoform'][] = [
-            'mostrars' => true, 'accionxx' => '', 'routingx' => ['firedapoyo', []],
+            'mostrars' => true, 'accionxx' => '', 'routingx' => ['csdredesapoyo', []],
             'formhref' => 2, 'tituloxx' => "VOLVER A REDES DE APOYO", 'clasexxx' => 'btn btn-sm btn-primary'
         ];
     }
@@ -55,7 +55,7 @@ class CsdRedApoyoActualController extends Controller
     public function getActuales(Request $request, Csd $padrexxx)
     {
         if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->padrexxx = $padrexxx->id;
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -64,15 +64,13 @@ class CsdRedApoyoActualController extends Controller
             return $this->getActualesTrait($request);
         }
     }
-
-
     private function view($dataxxxx)
     {
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.'.$dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
@@ -101,7 +99,7 @@ class CsdRedApoyoActualController extends Controller
                 'titunuev' => 'CREAR RED DE APOYO',
                 'titulist' => 'LISTA DE REDES DE APOYO ACTUALES',
                 'dataxxxx' => [],
-                'vercrear' => false,
+                'vercrear' =>true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.redactua', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
@@ -141,6 +139,12 @@ class CsdRedApoyoActualController extends Controller
      */
     public function create(Csd $padrexxx)
     {
+        $vestuari = CsdRedsocActual::where('csd_id', $padrexxx->id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
+        }
+        $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -165,7 +169,9 @@ class CsdRedApoyoActualController extends Controller
     public function store(CsdRedApoyoActualCrearRequest $request,Csd $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
+        $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Red Apoyo creado con exito', $padrexxx);
     }
 
@@ -188,6 +194,7 @@ class CsdRedApoyoActualController extends Controller
      */
     public function edit(Csd $padrexxx,  CsdRedsocActual $modeloxx)
     {
+        $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

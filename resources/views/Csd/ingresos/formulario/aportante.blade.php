@@ -84,3 +84,4 @@
         @endif
     </div>
 </div>
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')

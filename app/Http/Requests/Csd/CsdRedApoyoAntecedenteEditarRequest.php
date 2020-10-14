@@ -12,18 +12,22 @@ class CsdRedApoyoAntecedenteEditarRequest extends FormRequest
 
     public function __construct()
     {
-         $this->_mensaje = [
-            'tiempo.required' => 'Ingrese el tiempo',
+        $this->_mensaje = [
+            'nombre.required' => 'Ingrese la entidad',
+            'cantidad.required' => 'Ingrese el tiempo',
             'servicios.required' => 'Escriba el servicio recibido',
             'prm_unidad_id.required' => 'Seleccione el tiempo',
             'ano.required' => 'Seleccione el añio de prestacion del servicio',
            
         ];
         $this->_reglasx = [
-            'tiempo' => ['required'],
-            'servicios' => ['required'],
-            'prm_unidad_id' => ['required'],
-            'ano' => ['required'],
+            'nombre'        => 'required|string|max:120',
+            'cantidad'      => 'nullable|integer|min:1|max:99',
+            'prm_unidad_id' => 'required|exists:parametros,id',
+            'ano'           => 'required|integer|min:2000|max:2030',
+            'servicios'     => 'required|string|max:120',
+            'retiro'        => 'nullable|string|max:120',
+        
         ];
     }
     /**

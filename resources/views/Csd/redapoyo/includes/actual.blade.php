@@ -47,8 +47,8 @@
       {{ Form::text('s_telefono', null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-sm-9">
-      {{ Form::label('s_direccion', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('s_direccion', null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::label('direccion', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::text('direccion', null, ['class' => 'form-control form-control-sm']) }}
     </div>
   </div>
 

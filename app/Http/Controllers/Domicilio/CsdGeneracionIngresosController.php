@@ -52,7 +52,7 @@ class CsdGeneracionIngresosController extends Controller
     public function getListado(Request $request, Csd $padrexxx)
     {
         if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->padrexxx = $padrexxx->id;
             $request->datobasi = $padrexxx->id;
             $request->routexxx = ['csdgenaporta'];
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -82,7 +82,7 @@ class CsdGeneracionIngresosController extends Controller
                 'dataxxxx' => [],
                 'vercrear' => true,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route('csdgeningresos.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
                         ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],

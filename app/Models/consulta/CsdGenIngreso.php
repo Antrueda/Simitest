@@ -63,7 +63,7 @@ class CsdGenIngreso extends Model{
     }
     return $vestuari;
   }
-  public function prm_dia_genera_id(){
+  public function prm_dia_genera(){
     return $this->belongsToMany(Parametro::class,'csd_dias_gen_ingresos','csd_gen_ingresos_id','prm_dia_genera_id');
   }
 

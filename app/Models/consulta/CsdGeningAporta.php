@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CsdGeningAporta extends Model{
 	protected $fillable = ['csd_id', 'prm_aporta_id', 'mensual', 'aporte', 'jornada_entre', 'prm_entre_id', 'jornada_a', 'prm_a_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id','prm_tipofuen_id'];
@@ -39,4 +41,29 @@ class CsdGeningAporta extends Model{
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
     }
+
+    public static function transaccion($dataxxxx,$objetoxx)
+    {
+        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            $dataxxxx['prm_tipofuen_id'] = 2315;
+            $dataxxxx['sis_esta_id'] = 1;
+            if ($objetoxx != '') {
+                $objetoxx->update($dataxxxx);
+            } else {
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $objetoxx = CsdGeningAporta::create($dataxxxx);
+            }
+            $objetoxx->dias()->detach();
+            if($dataxxxx['dias']){
+                foreach ($dataxxxx['dias'] as $d) {
+                    $objetoxx->dias()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
+            }
+
+         return $objetoxx;
+        }, 5);
+        return $usuariox;
+    }
+
 }

@@ -67,6 +67,8 @@ include_once('web_csd_dinfamadre.php');
 include_once('web_CSD_bienvenida.php');
 include_once('web_CSD_alimentacion.php');
 include_once('web_CSD_geningresos.php');
-//include_once('web_CSD_redesapoyo.php');
+include_once('web_csd_genaporte.php');
+include_once('web_CSD_redesapoyo.php');
+include_once('web_CSD_redapoyo_actual.php');
 include_once('web_CSD_conclusiones.php');
 

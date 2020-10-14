@@ -13,16 +13,18 @@ class CsdRedApoyoActualCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'servicios.required' => 'Escriba el servicio recibido',
+            'nombre.required' => 'Escriba el servicio recibido',
             'prm_tipo_id.required' => 'Seleccione un tipo de red',
             'nombre.required' => 'Ingrese el nombre de la persona',
             'telefono.required' => 'Ingrese un número de teléfono',
             'direccion.required' => 'Ingrese una dirección'
         ];
         $this->_reglasx = [
-            'servicios' => ['required'],
-            'prm_tipo_id' => ['required'],
-            'nombre' => ['required'],
+            'prm_tipo_id' => 'required|exists:parametros,id',
+            'nombre'      => 'required|string|max:120',
+            'telefono'    => 'nullable|string|max:120',
+            'direccion'   => 'nullable|string|max:120',
+            'servicios'   => 'required|string|max:120',
       
         ];
     }

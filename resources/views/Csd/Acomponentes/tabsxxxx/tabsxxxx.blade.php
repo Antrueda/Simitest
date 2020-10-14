@@ -80,6 +80,12 @@
             text-sm" href="{{ $respuest['rutaxxxx'] }}">10. Generación de Ingresos</a></li>
             @endcanany
 
+            @canany(['csdredesapoyo-leer', 'csdredesapoyo-crear', 'csdredesapoyo-editar'])
+
+            <?php $respuest=PCsd::getRDb(['permisox' => 'csdredesapoyo', 'sisnnajx' => $todoxxxx['csdxxxxx']]);?>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdredesapoyo') ?' active' : '' }} text-sm" href="{{ route('csdredesapoyo', $todoxxxx['pestpara'][0]) }}">11. Redes Sociales de Apoyo</a></li>
+            @endcanany
+
             @canany(['csdconclusiones-leer', 'csdconclusiones-crear', 'csdconclusiones-editar'])
 
             <?php $respuest=PCsd::getRDb(['permisox' => 'csdconclusiones', 'sisnnajx' => $todoxxxx['csdxxxxx']]);?>

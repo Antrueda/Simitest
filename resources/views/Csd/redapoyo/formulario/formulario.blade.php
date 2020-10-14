@@ -1,25 +1,35 @@
 <div class="form-row align-items-end">
   <div class="form-group col-md-6">
-    {{ Form::label('sis_entidad_id', 'Entidad', ['class' => 'control-label']) }}
-    {{ Form::select('sis_entidad_id', $todoxxxx["endidadx"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('nombre', 'Entidad', ['class' => 'control-label']) }}
+    {{ Form::select('nombre', $todoxxxx["endidadx"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-6">
-    {{ Form::label('s_servicio', 'Servicios o beneficios recibidos', ['class' => 'control-label']) }}
-    {{ Form::text('s_servicio', null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('servicios', 'Servicios o beneficios recibidos', ['class' => 'control-label']) }}
+    {{ Form::text('servicios', null, ['class' => 'form-control form-control-sm']) }}
   </div>
 </div>
 <div class="form-row align-items-end">
-  <div class="form-group col-md-6">
-    {{ Form::label('i_prm_tiempo_id', '¿Durante cuánto tiempo?', ['class' => 'control-label']) }}
+  <div class="form-group col-md-4">
+    {{ Form::label('prm_unidad_id', '¿Durante cuánto tiempo?', ['class' => 'control-label']) }}
     <div class="input-group">
-      {{ Form::number('i_tiempo', null, ['class' => 'form-control form-control-sm']) }}
-      {{ Form::select('i_prm_tiempo_id', $todoxxxx["tipotiem"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::number('cantidad', null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('prm_unidad_id', $todoxxxx["tipotiem"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
   </div>
-  <div class="form-group col-md-6">
-    {{ Form::label('i_prm_anio_prestacion_id', 'Año de prestación del servicio', ['class' => 'control-label']) }}
-    {{ Form::select('i_prm_anio_prestacion_id', $todoxxxx["anioserv"], null, ['class' => 'form-control form-control-sm']) }}
+  <div class="form-group col-md-4">
+    {{ Form::label('ano', '11.1.4 Año de prestación de servicios', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::number('ano', null, ['class' => $errors->first('ano') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '2000', 'max' => '2030']) }}
+  </div>
+  <div class="form-group col-md-4">
+    {{ Form::label('retiro', '11.1.5 Motivo de retiro', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('retiro', null, ['class' => $errors->first('retiro') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    @if($errors->has('retiro'))
+    <div class="invalid-feedback d-block">
+        {{ $errors->first('retiro') }}
+    </div>
+    @endif
   </div>
 </div>
+
 
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')

@@ -1,3 +1,4 @@
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 <div class="row">
     <div class="col-md">
         {{ Form::label('observacion', '10.8 Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
