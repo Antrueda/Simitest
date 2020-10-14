@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CsdDinFamiliar extends Model{
     protected $fillable = ['csd_id', 'descripcion', 'relevantes', 'prm_familiar_id', 'prm_hogar_id',
@@ -111,4 +113,53 @@ class CsdDinFamiliar extends Model{
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
     }
+
+
+    public static function transaccion($dataxxxx,  $objetoxx)
+  {
+    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+      $dataxxxx['user_edita_id'] = Auth::user()->id;
+      if ($objetoxx != '') {
+        $objetoxx->update($dataxxxx);
+      } else {
+        $dataxxxx['user_crea_id'] = Auth::user()->id;
+        $dataxxxx['prm_tipofuen_id'] = 2315;
+        $objetoxx = CsdDinFamiliar::create($dataxxxx);
+      }
+      $objetoxx->antecedentes()->detach();
+      if($dataxxxx['antecedentes']){
+          foreach ($dataxxxx['antecedentes'] as $d) {
+              $objetoxx->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+          }
+      }
+      $objetoxx->problemas()->detach();
+      if($dataxxxx['problemas']){
+          foreach ($dataxxxx['problemas'] as $d) {
+              $objetoxx->problemas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+          }
+      }
+      $objetoxx->normas()->detach();
+      if($dataxxxx['normas']){
+          foreach ($dataxxxx['normas'] as $d) {
+              $objetoxx->normas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+          }
+      }
+      $objetoxx->establecen()->detach();
+      if($dataxxxx['establecen']){
+          foreach ($dataxxxx['establecen'] as $d) {
+              $objetoxx->establecen()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+          }
+      }
+
+      $objetoxx->incumple()->detach();
+      if($dataxxxx['incumple']){
+          foreach ($dataxxxx['incumple'] as $d) {
+              $objetoxx->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+          }
+      }
+
+      return $objetoxx;
+    }, 5);
+    return $usuariox;
+  }
 }

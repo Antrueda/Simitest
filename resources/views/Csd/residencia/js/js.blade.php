@@ -1,203 +1,103 @@
 <script>
+    var localidad = [
+
+    ];
+
     $(document).ready(function() {
-        $('.select2').select2({
+        $('#ambientes,#prm_comparte_id').select2({
             language: "es"
         });
-
-        var f_combo=function(dataxxxx){
-
-$.ajax({
-           url : "{{ route('fisalud.victimax',$todoxxxx['parametr']) }}",
-           data : dataxxxx,
-           type : 'GET',
-           dataType : 'json',
-           success : function(json) {
-            $('#'+json.selectxx).empty();
-               $.each(json.comboxxx,function(i,data){
-
-                   $('#'+json.selectxx).append('<option '+data.selected+'  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-
-                });
-           },
-           error : function(xhr, status) {
-               alert('Disculpe, existió un problema');
-           },
-       });
-}
-$("#i_prm_condicion_amb_id").change(function(){
-    f_combo({padrexxx:$(this).val()==''?0:$(this).val(),opcionxx:3});
-})
-    });
-    $(function() {
-        var f_ajax = function(dataxxxx, pselecte) {
+        var f_localupz = function(dataxxxx) {
+            $('#' + dataxxxx.selectxx).empty()
+            $('#' + dataxxxx.selectxx).append('<option value="">Seleccione</option>')
+            if (dataxxxx.dataxxxx.upzbarri == 1) {
+                $('#sis_upzbarri_id').empty()
+                $('#sis_upzbarri_id').append('<option value="">Seleccione</option>')
+            }
             $.ajax({
-                url: dataxxxx.url,
-                data: dataxxxx.data,
-                type: dataxxxx.type,
-                dataType: dataxxxx.datatype,
-                success: function(json) {
-                    if (json[0].valuexxx == 1) {
-                        $("#" + dataxxxx.campoxxx).empty();
-                    }
-                    $.each(json, function(i, data) {
-                        var selected = '';
-                        if (eval(data.valuexxx) == eval(pselecte)) {
-                            selected = 'selected'
-                        }
-                        $('#' + dataxxxx.campoxxx).append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                url: "{{ route('csdresidencia.locali',$todoxxxx["parametr"]) }}",
+                dataType: "json",
+                type: 'GET',
+                data: dataxxxx.dataxxxx,
+                success: function(data) {
+                    $.each(data, function name(i, d) {
+                        $('#' + dataxxxx.selectxx).append('<option value="' + d.valuexxx + '">' + d.optionxx + '</option>')
                     });
-
-
-                },
-                error: function(xhr, status) {
-                    alert('Disculpe, existió un problema');
-                },
+                }
             });
         }
-        var datadepa = function(campoxxx, valuexxx, selected) {
+        $('#sis_localidad_id').change(function() {
 
-            var departam = 'sis_upz_id';
-            var municipi = 'sis_upzbarri_id';
-            var routexxx = "{{ route('ajaxx.upz') }}";
-
-            $("#" + departam + ",#" + municipi).empty();
-            $("#" + departam + ",#" + municipi).append('<option value="">Seleccione</option>')
-            dataxxxx = {
-                url: routexxx,
-                data: {
-                    _token: $("input[name='_token']").val(),
-                    'sispaisx': valuexxx
+            f_localupz({
+                dataxxxx: {
+                    upzbarri: 1,
+                    padrexxx: $(this).val()
                 },
-                type: 'POST',
-                datatype: 'json',
-                campoxxx: departam
-            }
-            if (valuexxx != '') {
-                f_ajax(dataxxxx, selected);
-            }
-        }
-        var datamuni = function(campoxxx, valuexxx, selected) {
+                selectxx: 'sis_upz_id'
+            })
+        });
+        $('#sis_localidad_id').change(function() {
 
-            var municipi = 'sis_upzbarri_id';
-            var routexxx = "{{ route('ajaxx.barrio') }}"
-
-            $("#" + municipi).empty();
-            $("#" + municipi).append('<option value="">Seleccione</>')
-            dataxxxx = {
-                url: routexxx,
-                data: {
-                    _token: $("input[name='_token']").val(),
-                    'departam': valuexxx
+            f_localupz({
+                dataxxxx: {
+                    upzbarri: 2,
+                    padrexxx: $(this).val()
                 },
-                type: 'POST',
-                datatype: 'json',
-                campoxxx: municipi
-            }
-            if (valuexxx != '') {
-                f_ajax(dataxxxx, selected);
-            }
-        }
-
-        @if(old('sis_localidad_id') !== null)
-        datadepa('sis_localidad_id', {
-            {
-                old('sis_localidad_id')
-            }
-        }, {
-            {
-                old('sis_upz_id')
-            }
+                selectxx: 'sis_upzbarri_id'
+            })
         });
-
-        @if(old('sis_upz_id') !== null)
-        datamuni('sis_upz_id', {
-            {
-                old('sis_upz_id')
-            }
-        }, {
-            {
-                old('sis_upzbarri_id')
-            }
-        });
-        @endif
-        @endif
-
-        $(".sispaisx").change(function() {
-            datadepa($(this).prop('id'), $(this).val(), '');
-        });
-        $(".departam").change(function() {
-            datamuni($(this).prop('id'), $(this).val(), '')
-        });
-
-        // INICIO esconde campos según la zona de residencia
-        var f_tipozona = function(valuexxx) {
-            $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").empty();
-            $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").append('<option value="">Seleccione</>')
-            if (valuexxx != '') {
-                // if (valuexxx == 287) {
-                    $('#s_complemento').val('');
-                // }
-                $.ajax({
-                    url: "{{ route('ajaxx.escondesitipodir') }}",
-                    data: {
-                        _token: $("input[name='_token']").val(),
-                        'padrexxx': valuexxx
-                    },
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function(json) {
-                        $('#s_nombre_via,#s_nombre_via,#i_via_generadora,#i_placa_vg').val('');
-                        $('#s_nombre_via').prop('readonly', json[0].nomviapr);
-                        $('#i_via_generadora').prop('readonly', json[0].numerovg);
-                        $('#i_placa_vg').prop('readonly', json[0].placavgx);
-                        if (json[0].tipoviax[0].valuexxx == 1) {
-                            $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").empty();
-                        }
-                        $.each(json[0].tipoviax, function(i, data) {
-                            $('#i_prm_tipo_via_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                        });
-                        $.each(json[0].alfviapr, function(i, data) {
-                            $('#i_prm_alfabeto_via_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                        });
-                        $.each(json[0].tienebis, function(i, data) {
-                            $('#i_prm_tiene_bis_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                        });
-                        $.each(json[0].letrabis, function(i, data) {
-                            $('#i_prm_bis_alfabeto_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                        });
-                        $.each(json[0].cuadravp, function(i, data) {
-                            $('#i_prm_cuadrante_vp_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                        });
-                        $.each(json[0].alfabevg, function(i, data) {
-                            $('#i_prm_alfabetico_vg_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                        });
-                        $.each(json[0].cuadravg, function(i, data) {
-                            $('#i_prm_cuadrante_vg_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
-                        });
-                    },
-                    error: function(xhr, status) {
-                        alert('Disculpe, existió un problema');
-                    },
-                });
-            }
-        }
-
-        @if(old('i_prm_zona_direccion_id') != null)
-        f_tipozona("{{old('i_prm_zona_direccion_id')}}");
-        @endif
-
-        $("#i_prm_zona_direccion_id").change(function() {
-            f_tipozona($(this).val());
-        });
-
-        // FIN esconde campos según la zona de residencia
-
     });
 
-    function soloNumeros(e) {
-        var keynum = window.event ? window.event.keyCode : e.which;
-        if ((keynum == 8) || (keynum == 46))
-            return true;
-        return /\d/.test(String.fromCharCode(keynum));
+
+    function doc(valor) {
+        // Urbana
+        if (valor == 287) {
+            document.getElementById("prm_dir_via_id").hidden = false;
+            document.getElementById("dir_nombre").hidden = false;
+            document.getElementById("prm_dir_alfavp_id").hidden = false;
+            document.getElementById("prm_dir_bis_id").hidden = false;
+            document.getElementById("prm_dir_alfabis_id").hidden = false;
+            document.getElementById("prm_dir_cuadrantevp_id").hidden = false;
+            document.getElementById("dir_generadora").hidden = false;
+            document.getElementById("prm_dir_alfavg_id").hidden = false;
+            document.getElementById("dir_placa").hidden = false;
+            document.getElementById("prm_dir_cuadrantevg_id").hidden = false;
+            document.getElementById("prm_estrato_id").hidden = false;
+            document.getElementById("dir_complemento").hidden = false;
+        }
+        // Rural
+        if (valor == 288) {
+            document.getElementById("prm_dir_via_id").hidden = true;
+            document.getElementById("dir_nombre").hidden = true;
+            document.getElementById("prm_dir_alfavp_id").hidden = true;
+            document.getElementById("prm_dir_bis_id").hidden = true;
+            document.getElementById("prm_dir_alfabis_id").hidden = true;
+            document.getElementById("prm_dir_cuadrantevp_id").hidden = true;
+            document.getElementById("dir_generadora").hidden = true;
+            document.getElementById("prm_dir_alfavg_id").hidden = true;
+            document.getElementById("dir_placa").hidden = true;
+            document.getElementById("prm_dir_cuadrantevg_id").hidden = true;
+            document.getElementById("prm_estrato_id").hidden = true;
+            document.getElementById("dir_complemento").hidden = false;
+        }
+        if (valor == 289) {
+            document.getElementById("prm_dir_via_id").hidden = true;
+            document.getElementById("dir_nombre").hidden = true;
+            document.getElementById("prm_dir_alfavp_id").hidden = true;
+            document.getElementById("prm_dir_bis_id").hidden = true;
+            document.getElementById("prm_dir_alfabis_id").hidden = true;
+            document.getElementById("prm_dir_cuadrantevp_id").hidden = true;
+            document.getElementById("dir_generadora").hidden = true;
+            document.getElementById("prm_dir_alfavg_id").hidden = true;
+            document.getElementById("dir_placa").hidden = true;
+            document.getElementById("prm_dir_cuadrantevg_id").hidden = true;
+            document.getElementById("prm_estrato_id").hidden = true;
+            document.getElementById("dir_complemento").hidden = true;
+        }
     }
+
+    function carga() {
+        doc(document.getElementById('prm_dir_zona_id').value);
+    }
+    window.onload = carga;
 </script>

@@ -4,7 +4,10 @@ namespace App\Models\consulta;
 
 use App\Helpers\Indicadores\IndicadorHelper;
 use App\Http\Requests\Csd\CsdResidenciaEditarRequest;
+use App\Models\consulta\pivotes\CsdRescamass;
+use App\Models\consulta\pivotes\CsdReshogar;
 use App\Models\consulta\pivotes\CsdResideambiente;
+use App\Models\consulta\pivotes\CsdResobsers;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
@@ -147,6 +150,10 @@ class CsdResidencia extends Model{
         return $this->belongsToMany(Parametro::class,'csd_reside_ambiente', 'csd_residencia_id', 'parametro_id');
     }
 
+    public function prm_comparte(){
+        return $this->belongsToMany(Parametro::class,'csd_rescamass', 'csd_residencia_id', 'prm_comparte_id');
+    }
+
     public function compartes(){
         return $this->belongsToMany(Parametro::class,'csd_rescamass', 'csd_residencia_id', 'prm_comparte_id');
     }
@@ -156,6 +163,20 @@ class CsdResidencia extends Model{
         return $this->hasOne(NnajSitMil::class);
     }
 
+    public function resobservacion()
+    {
+        return $this->hasOne(CsdResobsers::class);
+    }
+
+    public function reshogar()
+    {
+        return $this->hasOne(CsdReshogar::class);
+    }
+
+    public function rescamas()
+    {
+        return $this->hasOne(CsdRescamass::class);
+    }
 
     public function creador(){
         return $this->belongsTo(User::class, 'user_crea_id');
@@ -185,17 +206,31 @@ class CsdResidencia extends Model{
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if ($objetoxx != '') {
                 $objetoxx->update($dataxxxx);
+                $objetoxx->resobservacion->update($dataxxxx);
+                $objetoxx->reshogar->update($dataxxxx);
+                $objetoxx->rescamas->update($dataxxxx);
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = CsdResidencia::create($dataxxxx);
+                $dataxxxx['csd_residencia_id'] = $objetoxx->id;
+                $dataxxxx['objetoxx']=$objetoxx;
+                CsdReshogar::create($dataxxxx);
+                CsdResobsers::create($dataxxxx);
+
             }
-            CsdResidencia::grabarOpciones($objetoxx, $dataxxxx);
+            $objetoxx->ambientes()->detach();
+            if($dataxxxx['ambientes']){
+                foreach ($dataxxxx['ambientes'] as $d) {
+                    $objetoxx->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+                }
+            }
+            $objetoxx->prm_comparte()->detach();
+            if($dataxxxx['prm_comparte_id']){
+                foreach ($dataxxxx['prm_comparte_id'] as $d) {
+                    $objetoxx->prm_comparte()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
+            }
 
-            $dataxxxx['sis_tabla_id'] = 30;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
-
-            $dataxxxx['sis_tabla_id'] = 6;
-            IndicadorHelper::asignaLineaBase($dataxxxx);
 
             return $objetoxx;
         }, 5);

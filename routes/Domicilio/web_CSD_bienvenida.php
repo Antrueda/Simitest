@@ -1,15 +1,27 @@
 <?php
-Route::group(['prefix' => '{id}/bienvenida'], function () {
-  Route::get('', [
-    'uses' => 'Domicilio\CsdBienvenidaController@show',
-    'middleware' => ['permission:csdbienvenida-crear|csdbienvenida-editar']
-  ])->name('CSD.bienvenida');
-  Route::post('', [
-    'uses' => 'Domicilio\CsdBienvenidaController@store',
-    'middleware' => ['permission:csdbienvenida-crear']
-  ]);
-  Route::put('{id1}', [
-    'uses' => 'Domicilio\CsdBienvenidaController@update',
-    'middleware' => ['permission:csdbienvenida-editar']
-  ])->name('CSD.bienvenida.editar');
+$routexxx = 'csdbienvenida';
+$controll = 'Domicilio\CsdBienvenida';
+Route::group(['prefix' => '{padrexxx}/bienvenida'], function () use ($routexxx, $controll) {
+    Route::get('nuevo', [
+        'uses' => $controll . 'Controller@create',
+        'middleware' => ['permission:' . $routexxx . '-crear']
+    ])->name($routexxx . '.nuevo');
+    Route::post('crear', [
+        'uses' => $controll . 'Controller@store',
+        'middleware' => ['permission:' . $routexxx . '-crear']
+	])->name($routexxx . '.crear');
+});
+Route::group(['prefix' => 'csd/bienvenida'], function () use ($routexxx, $controll) {
+	Route::get('ver/{modeloxx}', [
+        'uses' => $controll . 'Controller@show',
+        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+    ])->name($routexxx . '.ver');
+    Route::get('editar/{modeloxx}', [
+        'uses' => $controll . 'Controller@edit',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editar');
+    Route::put('editar/{modeloxx}', [
+        'uses' => $controll . 'Controller@update',
+        'middleware' => ['permission:' . $routexxx . '-editar']
+    ])->name($routexxx . '.editar');
 });

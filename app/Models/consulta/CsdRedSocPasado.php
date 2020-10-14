@@ -5,6 +5,8 @@ namespace App\Models\consulta;
 use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CsdRedsocPasado extends Model
 {
@@ -30,5 +32,20 @@ class CsdRedsocPasado extends Model
 
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
+    public static function transaccion($dataxxxx,  $objetoxx)
+    {
+        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if ($objetoxx != '') {
+                $objetoxx->update($dataxxxx);
+            } else {
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $objetoxx = CsdRedsocPasado::create($dataxxxx);
+            }
+            return $objetoxx;
+        }, 5);
+        return $usuariox;
     }
 }

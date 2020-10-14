@@ -1,15 +1,27 @@
 <?php
-Route::group(['prefix' => '{id}/alimentacion'], function () {
-  Route::get('', [
-    'uses' => 'Domicilio\CsdAlimentacionController@show',
-    'middleware' => ['permission:csdalimentacion-crear|csdalimentacion-editar']
-  ])->name('CSD.alimentacion');
-  Route::post('', [
-    'uses' => 'Domicilio\CsdAlimentacionController@store',
-    'middleware' => ['permission:csdalimentacion-crear']
-  ]);
-  Route::put('{id1}', [
-    'uses' => 'Domicilio\CsdAlimentacionController@update',
-    'middleware' => ['permission:csdalimentacion-editar']
-  ])->name('CSD.alimentacion.editar');
+$routexxx = 'csdalimentacion';
+$controll = 'Domicilio\csdalimentacion';
+Route::group(['prefix' => '{padrexxx}/alimentacion'], function () use ($routexxx, $controll) {
+	Route::get('nuevo', [
+		'uses' => $controll.'Controller@create',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
+	Route::post('crear', [
+		'uses' => $controll.'Controller@store',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.crear');
+
+	Route::get('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@edit',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+
+	Route::put('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@update',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::get('ver/{modeloxx}', [
+		'uses' => $controll.'Controller@show',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
 });

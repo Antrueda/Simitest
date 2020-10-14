@@ -1,20 +1,22 @@
-<div class="form-row align-items-end">
-  <div class="form-group col-md-4">
-    {{ Form::label('i_prm_quiere_entrar_id', '15.1 ¿Quieres entrar al IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_quiere_entrar_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+<div class="row">
+  <div class="col-md-6">
+    <label for="prm_persona_id" class="control-label col-form-label-sm">
+      8.1 ¿Porqué motivo decidió vinvular al {{ Form::select('prm_persona_id', $todoxxxx["personax"], null, ['class' => $errors->first('prm_persona_id') ? 'form-control-sm is-invalid' : 'form-control-sm', 'autofocus']) }} al poyecto pedagógico?
+    </label>
+    @if($errors->has('prm_persona_id'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('prm_persona_id') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-6">
+    {{ Form::label('motivos', 'Motivos', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('motivos[]', $todoxxxx["motivosx"], null, ['class' => $errors->first('motivos') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'motivos', 'multiple']) }}
+    @if($errors->has('motivos'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('motivos') }}
+    </div>
+    @endif
   </div>
 </div>
-<div class="form-row align-items-end">
-  <div class="form-group col-md-6">
-    {{ Form::label('s_porque_quiere_entrar', '¿Por qué?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('s_porque_quiere_entrar', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'class' => 'md-textarea form-control', 'id' => 's_porque_quiere_entrar', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
-    <p id="contadorporquequiere">0/4000</p>
-  </div>
-  <div class="form-group col-md-6">
-    {{ Form::label('s_que_gustaria_hacer', '15.1 ¿Qué te gustaría hacer en el IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('s_que_gustaria_hacer', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'class' => 'md-textarea form-control', 'id' => 's_que_gustaria_hacer', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
-    <p id="contadorgustariahacer">0/4000</p>
-  </div>
- 
- 
-</div>
+

@@ -44,18 +44,18 @@ class CsdConclusiones extends Model{
     return $this->belongsTo(User::class, 'user_edita_id');
   }
 
-  public static function transaccion($dataxxxx)
+  public static function transaccion($dataxxxx,$objetoxx)
   {
-      $objetoxx = DB::transaction(function () use ($dataxxxx) {
-          $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-          if ($dataxxxx['modeloxx'] != '') {
-              $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+          $dataxxxx['user_edita_id']=Auth::user()->id;
+          if ($objetoxx != '') {
+              $objetoxx->update($dataxxxx['requestx']->all());
           } else {
-              $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-              $dataxxxx['modeloxx'] = CsdConclusiones::create($dataxxxx['requestx']->all());
+              $dataxxxx['user_crea_id'] = Auth::user()->id;
+              $objetoxx = CsdConclusiones::create($dataxxxx);
           }
-          return $dataxxxx['modeloxx'];
+          return $objetoxx;
       }, 5);
-      return $objetoxx;
+      return $usuariox;
   }
 }

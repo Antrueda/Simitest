@@ -1,22 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\FichaIngreso;
+namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdConclusionesCrearRequest;
 use App\Http\Requests\Csd\CsdConclusionesEditarRequest;
-use App\Http\Requests\FichaIngreso\FiRazoneCrearRequest;
-use App\Http\Requests\FichaIngreso\FiRazoneUpdateRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdConclusiones;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiRazone;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
 
-class BkCsdConclusionesController extends Controller
+class CsdConclusionesController extends Controller
 {
     use FiTrait;
     private $opciones;
@@ -26,11 +22,11 @@ class BkCsdConclusionesController extends Controller
 
         $this->opciones['permisox'] = 'csdconclusiones';
         $this->opciones['routxxxx'] = 'csdconclusiones';
-        $this->opciones['rutacarp'] = 'FichaIngreso.';
-        $this->opciones['carpetax'] = 'Razones';
+        $this->opciones['rutacarp'] = 'Csd.';
+        $this->opciones['carpetax'] = 'conclusiones';
         $this->opciones['slotxxxx'] = 'csdconclusiones';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "RAZONES PARA ENTRAR AL IDIPRON";
+        $this->opciones['tituloxx'] = "Conclusiones";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
@@ -50,13 +46,13 @@ class BkCsdConclusionesController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'],
+            
         ];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
@@ -66,8 +62,8 @@ class BkCsdConclusionesController extends Controller
 
 
         // indica si se esta actualizando o viendo
- 
         if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['pestpadr'] = 3;
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
@@ -83,9 +79,7 @@ class BkCsdConclusionesController extends Controller
      */
     public function create(Csd $padrexxx)
     {
-
-        $this->opciones['csdxxxxx']=$padrexxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -94,11 +88,13 @@ class BkCsdConclusionesController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    private function grabar($dataxxxx)
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
     {
+
         return redirect()
-        ->route('csdconclusiones.editar', [CsdConclusiones::transaccion($dataxxxx)->id])
-        ->with('info', $dataxxxx['infoxxxx']);
+        ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, CsdConclusiones::transaccion($dataxxxx,  $objetoxx)->id])
+        ->with('info', $infoxxxx);
+  
     }
 
     /**
@@ -109,7 +105,12 @@ class BkCsdConclusionesController extends Controller
      */
     public function store(CsdConclusionesCrearRequest $request, Csd $padrexxx)
     {
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Conclusiones insertadas con exito','padrexxx'=> $padrexxx]);
+        $dataxxxx = $request->all();
+        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
+        $dataxxxx['prm_tipofuen_id'] = 2315;
+        return $this->grabar($dataxxxx, '', 'Conclusiones registradas con exito', $padrexxx);
+        
     }
 
     /**
@@ -118,7 +119,7 @@ class BkCsdConclusionesController extends Controller
      * @param  \App\Models\FiRazone  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $modeloxx)
+    public function show(Csd $padrexxx, CsdConclusiones $modeloxx)
     {
         $this->opciones['csdxxxxx']=$modeloxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
@@ -131,10 +132,9 @@ class BkCsdConclusionesController extends Controller
      * @param  \App\Models\FiRazone  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $modeloxx)
-    {  
-        $this->opciones['csdxxxxx']=$modeloxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
+    public function edit(Csd $padrexxx, CsdConclusiones $modeloxx)
+    {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -142,7 +142,7 @@ class BkCsdConclusionesController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $modeloxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -157,12 +157,7 @@ class BkCsdConclusionesController extends Controller
         return $this->grabar($request, $modeloxx, 'Conclusiones actualizadas con exito', $padrexxx);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FiRazone  $objetoxx
-     * @return \Illuminate\Http\Response
-     */
+ 
 
 
   

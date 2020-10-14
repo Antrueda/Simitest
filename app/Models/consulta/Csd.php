@@ -129,14 +129,15 @@ class Csd extends Model
     public static function transaespecial($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            $dataxxxx['padrexxxx']->especiales()->detach();
+            $dataxxxx['padrexxx']->especiales()->detach();
             if($dataxxxx['requestx']->especiales){
                 foreach ( $dataxxxx['requestx']->especiales as $d) {
-                    $dataxxxx['requestx']->especiales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+                    $dataxxxx['padrexxx']->especiales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
                 }
             }
-            return $dataxxxx['padrexxxx'];
+            return $dataxxxx['padrexxx'];
         }, 5);
         return $objetoxx;
     }

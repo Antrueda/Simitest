@@ -3,354 +3,276 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
+use App\Http\Requests\Csd\CsdDinfamiliarCrearRequest;
+use App\Http\Requests\Csd\CsdDinfamiliarEditarRequest;
+use App\Http\Requests\FichaIngreso\FiConsumoSpaCrearRequest;
+use App\Http\Requests\FichaIngreso\FiConsumoSpaUpdateRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdDinFamiliar;
-use App\Models\consulta\CsdDinfamMadre;
-use App\Models\consulta\CsdDinfamPadre;
-use App\Models\sicosocial\Vsi;
+use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\Tema;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Storage;
+use App\Traits\Csd\CsdTrait;
 
-class CsdDinFamiliarController extends Controller{
+use Illuminate\Http\Request;
 
-    public function __construct(){
+class CsdDinFamiliarController extends Controller
+{
+    use CsdTrait;
+    private $opciones;
+    public function __construct()
+    {
 
-        $this->opciones['permisox']='csddinfamiliar';
+        $this->opciones['permisox'] = 'csddinfamiliar';
+        $this->opciones['routxxxx'] = 'csddinfamiliar';
+        $this->opciones['rutacarp'] = 'Csd.';
+        $this->opciones['carpetax'] = 'dimfamiliar';
+        $this->opciones['slotxxxx'] = 'csddinfamiliar';
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['tituloxx'] = "DINAMICA FAMILIAR";
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        // 'urlxxxxx' => 'api/fi/fisustanciaconsumida',
         $this->middleware(['permission:'
+            . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
-            . $this->opciones['permisox'] . '-editar'
-           ]);
+            . $this->opciones['permisox'] . '-editar|'
+            . $this->opciones['permisox'] . '-borrar']);
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['antecede'] = Tema::combo(97, false, false);
+        $this->opciones['familiar'] = Tema::combo(66, false, false);
+        $this->opciones['familiax'] = Tema::combo(98, true, false);
+        $this->opciones['hogarxxx'] = Tema::combo(99, true, false);
+        $this->opciones['separacx'] = Tema::combo(176, true, false);
+        $this->opciones['traslado'] = Tema::combo(100, true, false);
+        $this->opciones['problema'] = Tema::combo(102, false, false);
+        $this->opciones['reglasxx'] = Tema::combo(103, true, false);
+        $this->opciones['actuandx'] = Tema::combo(104, true, false);
+        $this->opciones['manerasx'] = Tema::combo(105, true, false);
+        $this->opciones['acudexxx'] = Tema::combo(106, false, false);
+        $this->opciones['incumple'] = Tema::combo(107, false, false);
+        $this->opciones['destacan'] = Tema::combo(108, true, false);
+        $this->opciones['sucesosx'] = Tema::combo(109, true, false);
+        
+
     }
-
-    public function show($id){
-        $dato = Csd::findOrFail($id);
-        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
-        $valor = $dato->CsdDinFamiliar->where('sis_esta_id', 1)->sortByDesc('id')->first();
-        $valorMadre = $dato->CsdDinfamMadre->where('sis_esta_id', 1)->sortByDesc('id');
-        $valorPadre = $dato->CsdDinfamPadre->where('sis_esta_id', 1)->sortByDesc('id');
-        $antecedentes = Tema::findOrFail(97)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $familiar = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(98)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $familiar[$k] = $d;
-        }
-        $hogar = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(99)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $hogar[$k] = $d;
-        }
-        $familiares = ['' => 'Seleccione...'];
-        foreach ( Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d){
-            $familiares[$k] = $d;
-        }
-        $separacion = ['' => 'Seleccione...'];
-        foreach ( Tema::findOrFail(176)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d){
-            $separacion[$k] = $d;
-        }
-        $traslado = ['' => 'Seleccione...'];
-        foreach ( Tema::findOrFail(100)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d){
-            $traslado[$k] = $d;
-        }
-        $problematicas = Tema::findOrFail(102)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $reglas = Tema::findOrFail(103)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $actuan = ['' => 'Seleccione...'];
-        foreach ( Tema::findOrFail(104)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d){
-            $actuan[$k] = $d;
-        }
-        $maneras = ['' => 'Seleccione...'];
-        foreach ( Tema::findOrFail(105)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d){
-            $maneras[$k] = $d;
-        }
-        $acude = ['' => 'Seleccione...'];
-        foreach ( Tema::findOrFail(106)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d){
-            $acude[$k] = $d;
-        }
-        $incumple = Tema::findOrFail(107)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $destacan = ['' => 'Seleccione...'];
-        foreach ( Tema::findOrFail(108)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d){
-            $destacan[$k] = $d;
-        }
-        $sucesos = ['' => 'Seleccione...'];
-        foreach ( Tema::findOrFail(109)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d){
-            $sucesos[$k] = $d;
-        }
-
-        return view('Domicilio.index', ['accion' => 'DinFamiliar'], compact('dato', 'nnajs', 'valor', 'sino', 'antecedentes', 'valorMadre', 'valorPadre', 'familiar', 'hogar', 'familiares', 'separacion', 'traslado', 'problematicas', 'reglas', 'actuan', 'maneras', 'acude', 'incumple', 'destacan', 'sucesos'));
-    }
-
-    public function store(Request $request, $id){
-        $this->validator($request->all())->validate();
-        if($request->prm_familiar_id){
-            $request['prm_hogar_id'] = null;
-        }
-
-        if($request->prm_hogar_id){
-            $request['prm_familiar_id'] = null;
-        }
-
-        if($request->prm_bogota_id == 227) {
-            $request["prm_traslado_id"] = null;
-        }
-
-        if($request->prm_norma_id == 228) {
-            $request["prm_conoce_id"] = null;
-            $request["establecen"] = [];
-            $request["prm_actuan_id"] = null;
-            $request["porque"] = null;
-        }
-
-        $dato = Csd::findOrFail($request->csd_id);
-        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
-        $paso = 0;
-        foreach ($nnajs as $d) {
-    //            ddd($nnajs);
-            if($d->FiDatosBasico->first()->edad < 18){
-                $paso++;
-            }
-        }
-        if ($paso > 0) {
-            $this->validatorMenor($request->all())->validate();
-        }
-        $request["prm_tipofuen_id"] = 2315;
-        $request['sis_esta_id']=1;
-        $dato = CsdDinFamiliar::create($request->all());
-
-        if($request->antecedentes) {
-            foreach ($request->antecedentes as $d) {
-                $dato->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-            }
-        }
-
-        foreach ($request->problemas as $d) {
-            $dato->problemas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-        }
-
-        if($request->prm_norma_id == 227) {
-            foreach ($request->normas as $d) {
-                $dato->normas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-            }
-        }
-
-        if($request->establecen) {
-            foreach ($request->establecen as $d) {
-                $dato->establecen()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-            }
-        }
-
-        if($request->incumple) {
-            foreach ($request->incumple as $d) {
-                $dato->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-            }
-        }
-        Vsi::indicador($id, 123);
-        Vsi::indicador($id, 124);
-        Vsi::indicador($id, 125);
-        Vsi::indicador($id, 126);
-        Vsi::indicador($id, 128);
-        Vsi::indicador($id, 130);
-
-        return redirect()->route('CSD.dinfamiliar', $request->csd_id)->with('info', 'Registro creado con éxito');
-    }
-
-    public function storeMadre(Request $request, $id){
-        $this->validatorMadre($request->all())->validate();
-        $request["prm_tipofuen_id"] = 2315;
-        $request['sis_esta_id']=1;
-        if ($request->prm_convive_id==227) {
-            if($request->dia + $request->mes + $request->ano == 0){
-                return back()->withErrors([
-                    'dia' => 'Día, mes o año, al menos uno debe ser mayor de cero',
-                    'mes' => 'Día, mes o año, al menos uno debe ser mayor de cero',
-                    'ano' => 'Día, mes o año, al menos uno debe ser mayor de cero',
-                ])->withInput();
-            }
-        }
-        $dato = CsdDinfamMadre::create($request->all());
-        Vsi::indicador($id, 127);
-        return redirect()->route('CSD.dinfamiliar', $request->csd_id)->with('info', 'Registro creado con éxito');
-    }
-
-    public function storePadre(Request $request, $id){
-        $this->validatorPadre($request->all())->validate();
-        $request["prm_tipofuen_id"] = 2315;
-        $request['sis_esta_id']=1;
-        if ($request->prm_convive_id==227) {
-            if($request->dia + $request->mes + $request->ano == 0){
-                return back()->withErrors([
-                    'dia' => 'Día, mes o año, al menos uno debe ser mayor de cero',
-                    'mes' => 'Día, mes o año, al menos uno debe ser mayor de cero',
-                    'ano' => 'Día, mes o año, al menos uno debe ser mayor de cero',
-                ])->withInput();
-            }
-        }
-        $dato = CsdDinfamPadre::create($request->all());
-        Vsi::indicador($id, 129);
-        return redirect()->route('CSD.dinfamiliar', $request->csd_id)->with('info', 'Registro creado con éxito');
-    }
-
-    public function storeGenograma(Request $request, $id){
-        if(!is_null($request->archivo)) {
-            Storage::putFileAs('public/domicilio/genograma', $request->file('archivo'), $id . '.jpg', 'public');
-            return redirect()->route('CSD.dinfamiliar', $id)->with('info', 'Registro actualizado con éxito');
-        } else {
-            return redirect()->route('CSD.dinfamiliar', $id);
+    public function getListadop(Request $request, Csd $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->id;
+            $request->datobasi = $padrexxx->id;
+            $request->routexxx = ['csddfpad'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
+            return $this->getPadres($request);
         }
     }
 
-    public function update(Request $request, $id, $id1){
-        $this->validator($request->all())->validate();
-        if($request->prm_familiar_id){
-            $request['prm_hogar_id'] = null;
+    public function getListadom(Request $request, Csd $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->id;
+            $request->datobasi = $padrexxx->id;
+            $request->routexxx = ['csddfmad'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
+            return $this->getMadres($request);
+        }
+    }
+    private function view($dataxxxx)
+    {
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
+        $this->opciones['estadoxx'] = 'ACTIVO';
+
+        // indica si se esta actualizando o viendo
+        $vercrear = false;
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $this->opciones['pestpadr'] = 3;
+            $this->opciones['puedexxx'] = '';
+            $vercrear = true;
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
 
-        if($request->prm_hogar_id){
-            $request['prm_familiar_id'] = null;
-        }
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'CREAR RELACION',
+                'titulist' => 'LISTA DE RELACIONES DEL PROGENITOR',
+                'dataxxxx' => [],
+                'vercrear' => $vercrear,
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listapxx', [$dataxxxx['padrexxx']->id]),
+                'cabecera' => [
+                    [
+                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'CONVIVIERON', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'TIEMPO DE CONVIVENCIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
+                        ['td' => '# HIJOS(AS)', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'MOTIVO DE SEPARACION', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                    ],
+                    [
+                        ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'AñO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
 
-        if($request->prm_bogota_id == 227) {
-            $request["prm_traslado_id"] = null;
-        }
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'csd_dinfam_padres.id'],
+                    ['data' => 'convive', 'name' => 'convive.nombre as convive'],
+                    ['data' => 'dia', 'name' => 'csd_dinfam_padres.dia'],
+                    ['data' => 'mes', 'name' => 'csd_dinfam_padres.mes'],
+                    ['data' => 'ano', 'name' => 'csd_dinfam_padres.ano'],
+                    ['data' => 'hijo', 'name' => 'csd_dinfam_padres.hijo'],
+                    ['data' => 'separado', 'name' => 'separado.nombre as separado'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatablepadre',
+                'permisox' => 'csddfpad',
+                'routxxxx' => 'csddfpad',
+                'parametr' => [$dataxxxx['padrexxx']->id],
+            ],
+            [
+                'titunuev' => 'CREAR RELACION',
+                'titulist' => 'LISTA DE RELACIONES DEL PROGENITORA',
+                'dataxxxx' => [],
+                'vercrear' => $vercrear,
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listamxx', [$dataxxxx['padrexxx']->id]),
+                'cabecera' => [
+                    [
+                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'CONVIVIERON', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'TIEMPO DE CONVIVENCIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
+                        ['td' => '# HIJOS(AS)', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'MOTIVO DE SEPARACION', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                    ],
+                    [
+                        ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'AñO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
 
-        if($request->prm_norma_id == 228) {
-            $request["prm_conoce_id"] = null;
-            $request["establecen"] = [];
-            $request["prm_actuan_id"] = null;
-            $request["porque"] = null;
-        }
-        $dato = Csd::findOrFail($request->csd_id);
-        $nnajs = $dato->nnajs->where('sis_esta_id', 1)->all();
-        $paso = 0;
-        foreach ($nnajs as $d) {
-            if($d->FiDatosBasico->first()->edad < 18){
-                $paso++;
-            }
-        }
-        if ($paso > 0) {
-            $this->validatorMenor($request->all())->validate();
-        }
-        $dato = CsdDinFamiliar::findOrFail($id1);
-        $dato->fill($request->all())->save();
-        $dato->antecedentes()->detach();
-        if($request->antecedentes) {
-            foreach ($request->antecedentes as $d) {
-                $dato->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-            }
-        }
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'csd_dinfam_madres.id'],
+                    ['data' => 'convive', 'name' => 'convive.nombre as convive'],
+                    ['data' => 'dia', 'name' => 'csd_dinfam_madres.dia'],
+                    ['data' => 'mes', 'name' => 'csd_dinfam_madres.mes'],
+                    ['data' => 'ano', 'name' => 'csd_dinfam_madres.ano'],
+                    ['data' => 'hijo', 'name' => 'csd_dinfam_madres.hijo'],
+                    ['data' => 'separado', 'name' => 'separado.nombre as separado'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatablemadre',
+                'permisox' => 'csddfmad',
+                'routxxxx' => 'csddfmad',
+                'parametr' => $this->opciones['parametr'] ,
+            ]
+            
+        ];
 
-        $dato->problemas()->detach();
-        foreach ($request->problemas as $d) {
-            $dato->problemas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-        }
-
-        $dato->normas()->detach();
-        if($request->prm_norma_id == 227) {
-            foreach ($request->normas as $d) {
-                $dato->normas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-            }
-        }
-
-        $dato->establecen()->detach();
-        if($request->establecen) {
-            foreach ($request->establecen as $d) {
-                $dato->establecen()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-            }
-        }
-
-        $dato->incumple()->detach();
-        if($request->incumple) {
-            foreach ($request->incumple as $d) {
-                $dato->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-            }
-        }
-        Vsi::indicador($id, 123);
-        Vsi::indicador($id, 124);
-        Vsi::indicador($id, 125);
-        Vsi::indicador($id, 126);
-        Vsi::indicador($id, 128);
-        Vsi::indicador($id, 130);
-
-        return redirect()->route('CSD.dinfamiliar', $id)->with('info', 'Registro actualizado con éxito');
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function destroyMadre($id, $id1){
-        $dato = CsdDinfamMadre::findOrFail($id1);
-        $dato->sis_esta_id = 2;
-        $dato->save();
-        return redirect()->route('CSD.dinfamiliar', $id)->with('info', 'Registro eliminado con éxito');
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Csd $padrexxx)
+    {
+        $this->opciones['csdxxxxx']=$padrexxx;
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    public function destroyPadre($id, $id1){
-        $dato = CsdDinfamPadre::findOrFail($id1);
-        $dato->sis_esta_id = 2;
-        $dato->save();
-        return redirect()->route('CSD.dinfamiliar', $id)->with('info', 'Registro eliminado con éxito');
+    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
+    {
+        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
+        return redirect()
+            ->route('csddinfamiliar.editar', [$padrexxx->id, CsdDinFamiliar::transaccion($dataxxxx, $objectx)->id])
+            ->with('info', $infoxxxx);
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+
+    public function store(CsdDinfamiliarCrearRequest $request, Csd $padrexxx)
+    {
+        $dataxxxx = $request->all();
+        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        return $this->grabar($dataxxxx, '', 'Consumo SPA creado con exito', $padrexxx);
     }
 
-    protected function validator(array $data){
-        return Validator::make($data, [
-            'csd_id' => 'required|exists:csds,id',
-            'descripcion' => 'nullable|string|max:4000',
-            'relevantes' => 'required|string|max:4000',
-            'prm_familiar_id' => 'required_without:prm_hogar_id',
-            'prm_hogar_id' => 'required_without:prm_familiar_id',
-            'descripcion_0' => 'required|string|max:4000',
-            'prm_bogota_id' => 'required|exists:parametros,id',
-            'prm_traslado_id' => 'required_if:prm_bogota_id,228',
-            'jefe1' => 'nullable|string|max:120',
-            'prm_jefe1_id' => 'nullable|exists:parametros,id',
-            'jefe2' => 'nullable|string|max:120',
-            'prm_jefe2_id' => 'nullable|exists:parametros,id',
-            'descripcion_1' => 'required|string|max:4000',
-            'prm_cuidador_id' => 'nullable|exists:parametros,id',
-            'descripcion_2' => 'required|string|max:4000',
-            'afronta' => 'required|string|max:4000',
-            'prm_norma_id' => 'required|exists:parametros,id',
-            'prm_conoce_id' => 'required_if:prm_norma_id,227',
-            'establecen' => 'required_if:prm_norma_id,227|array',
-            'observacion' => 'required|string|max:4000',
-            'prm_actuan_id' => 'required_if:prm_norma_id,227',
-            'porque' => 'nullable|string|max:4000',
-            'prm_solucion_id' => 'required|exists:parametros,id',
-            'prm_problema_id' => 'required|exists:parametros,id',
-            'prm_destaca_id' => 'required|exists:parametros,id',
-            'prm_positivo_id' => 'required|exists:parametros,id',
-            'antecedentes' => 'nullable|array',
-            'problemas' => 'required|array',
-            'incumple' => 'required|array',
-            'normas' => 'required_if:prm_norma_id,227|array',
-        ]);
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiConsumoSpa  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(CsdDinFamiliar $modeloxx,Csd $padrexxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 
-    protected function validatorMenor(array $data){
-        return Validator::make($data, [
-            'jefe1' => 'required|string|max:120',
-            'prm_jefe1_id' => 'required|exists:parametros,id',
-        ]);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiConsumoSpa  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Csd $padrexxx,  CsdDinFamiliar $modeloxx)
+    {
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 
-    protected function validatorMadre(array $data){
-        return Validator::make($data, [
-            'csd_id' => 'required|exists:csds,id',
-            'prm_convive_id' => 'required|exists:parametros,id',
-            'dia' => 'exclude_if:prm_convive_id,228|min:0|max:30',
-            'mes' => 'exclude_if:prm_convive_id,228|min:0|max:11',
-            'ano' => 'exclude_if:prm_convive_id,228|min:0|max:99',
-            'hijo' => 'required|integer|min:0|max:99',
-            'prm_separa_id' => 'nullable|exists:parametros,id',
-        ]);
-    }
 
-    protected function validatorPadre(array $data){
-        return Validator::make($data, [
-            'csd_id' => 'required|exists:csds,id',
-            'prm_convive_id' => 'required|exists:parametros,id',
-            'dia' => 'exclude_if:prm_convive_id,228|min:0|max:30',
-            'mes' => 'exclude_if:prm_convive_id,228|min:0|max:11',
-            'ano' => 'exclude_if:prm_convive_id,228|min:0|max:99',
-            'hijo' => 'required|integer|min:0|max:99',
-            'prm_separa_id'  => 'nullable|exists:parametros,id',
-        ]);
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiConsumoSpa  $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(CsdDinfamiliarEditarRequest $request, Csd $padrexxx, CsdDinFamiliar $modeloxx)
+    {
+        return $this->grabar($request->all(), $modeloxx, 'Consumo SPA actualizado con exito', $padrexxx);
     }
 }

@@ -11,7 +11,7 @@ use App\Models\consulta\CsdJusticia;
 use App\Models\sicosocial\Vsi;
 use Illuminate\Support\Facades\Validator;
 
-class CsdJusticiaController extends Controller{
+class BkCsdJusticiaController extends Controller{
 
     public function __construct(){
 

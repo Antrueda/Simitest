@@ -56,3 +56,17 @@ Route::group(['prefix' => 'csd'], function () use ($routexxx, $controll) {
     // include_once('web_CSD_conclusiones.php');
 });
 include_once('web_CSD_basico.php');
+include_once('web_CSD_violencia.php');
+include_once('web_CSD_situacionesespecial.php');
+include_once('web_CSD_justicia.php');
+include_once('web_CSD_residencia.php');
+include_once('web_CSD_dinfamiliar.php');
+include_once('web_csd_dinfampadre.php');
+include_once('web_csd_dinfamadre.php');
+// include_once('web_CSD_comfamiliar.php');
+include_once('web_CSD_bienvenida.php');
+include_once('web_CSD_alimentacion.php');
+include_once('web_CSD_geningresos.php');
+//include_once('web_CSD_redesapoyo.php');
+include_once('web_CSD_conclusiones.php');
+

@@ -1,6 +1,12 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script>
 
+
+$(document).ready(function() {
+    $('#motivos').select2({
+      language: "es"
+    });
+  });
     // CONTADOR DE CARACTERES
     init_contadorTa("s_porque_quiere_entrar","contadorporquequiere", 4000);
     init_contadorTa("s_que_gustaria_hacer","contadorgustariahacer", 4000);

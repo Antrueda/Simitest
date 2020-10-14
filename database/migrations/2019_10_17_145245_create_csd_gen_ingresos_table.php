@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -8,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 class CreateCsdGenIngresosTable extends Migration
 {
     private $tablaxxx = 'csd_gen_ingresos';
+    private $tablaxxx2 = 'csd_dias_gen_ingresos';
     /**
      * Run the migrations.
      *
@@ -47,6 +49,15 @@ class CreateCsdGenIngresosTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA GENERACION DE INGRESOS AL INTERIOR DEL NUCLEO FAMILIAR DE LA PERSONA PERSONA ENTREVISTADA, SECCION 10 GENERACION DE INGRESOS DE CONSULTA SOCIAL EN DOMICILIO'");
+        Schema::create($this->tablaxxx2, function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('csd_gen_ingresos_id')->unsigned()->comment('REGISTRO GENINGRESO AL QUE SE LE ASIGNA EL DÍA');
+            $table->bigIntegeR('prm_dia_genera_id')->unsigned()->comment('FI 7.3 DIA GENERA INGRESO');
+            $table->foreign('csd_gen_ingresos_id')->references('id')->on('csd_gen_ingresos');
+            $table->foreign('prm_dia_genera_id')->references('id')->on('parametros');
+            CamposMagicos::magicos($table);
+        });
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE DIAS EN LOS QUE SE REALIZA LA GENERACION DE LOS INGRESOS POR PARTE LA PERSONA ENTREVISTADA, PREGUNTA 7.3 SECCION 7 GENERACION DE INGRESOS DE LA FICHA DE INGRESO'");
     }
 
     /**
@@ -57,5 +68,6 @@ class CreateCsdGenIngresosTable extends Migration
     public function down()
     {
         Schema::dropIfExists($this->tablaxxx);
+        Schema::dropIfExists($this->tablaxxx2);
     }
 }

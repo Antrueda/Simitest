@@ -1,19 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\FichaIngreso;
+namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdJusticiaCrearRequest;
 use App\Http\Requests\Csd\CsdJusticiaEditarRequest;
-use App\Http\Requests\FichaIngreso\FiJustrestCrearRequest;
-use App\Http\Requests\FichaIngreso\FiJustrestUpdateRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdJusticia;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiJustrest;
-use App\Models\fichaIngreso\FiProcesoPard;
-use App\Models\fichaIngreso\FiProcesoSpoa;
-use App\Models\fichaIngreso\FiProcesoSrpa;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
@@ -54,17 +47,14 @@ class CsdJusticiaController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'],
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.' . $dataxxxx['accionxx'][2]]
-        ];
+        $this->opciones['ruarchjs'] = [['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],];
         $this->opciones['estadoxx'] = 'ACTIVO';
         if ($dataxxxx['modeloxx'] != '') {
-            
+            $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['puedexxx'] = '';
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -90,12 +80,13 @@ class CsdJusticiaController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario',  'js',], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx)
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
     {
-        $usuariox = CsdJusticia::transaccion($dataxxxx);
+
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$usuariox->id])
-            ->with('info',$dataxxxx['infoxxxx']);
+        ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, CsdJusticia::transaccion($dataxxxx,  $objetoxx)->id])
+        ->with('info', $infoxxxx);
+  
     }
     /**
      * Store a newly created resource in storage.
@@ -108,9 +99,9 @@ class CsdJusticiaController extends Controller
     public function store(CsdJusticiaCrearRequest $request, Csd $padrexxx)
     {
         $dataxxxx = $request->all();
-        $request->request->add(['prm_tipofuen_id'=>2315]);
-        $request->request->add(['sis_esta_id'=>1]);
-        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
+        $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Justicia creada con exito', $padrexxx);
     }
 
@@ -135,8 +126,7 @@ class CsdJusticiaController extends Controller
      */
     public function edit(Csd $padrexxx, CsdJusticia $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
+        $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -159,3 +149,4 @@ class CsdJusticiaController extends Controller
         return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con exito', $padrexxx);
     }
 }
+

@@ -14,8 +14,8 @@
             });
         }
       
-        $("#i_prm_condicion_presenta_id").change(function() {
-            $("#i_prm_depto_condicion_id,  #i_prm_tiene_certificado_id, #i_prm_depto_certifica_id,#i_prm_municipio_condicion_id").empty();
+        $("#prm_condicion_id").change(function() {
+            $("#departamento_cond_id,  #prm_certificado_id, #departamento_cert_id,#municipio_cond_id").empty();
             if ($(this).val() != '') {
                 $.ajax({
                     url: "{{ route('ajaxx.condespecial') }}",
@@ -27,22 +27,22 @@
                     dataType: 'json',
                     success: function(json) {
                         if (json[0].dptcondi[0].valuexxx == 1) {
-                            $("#i_prm_municipio_certifica_id,#i_prm_municipio_condicion_id,#i_prm_depto_condicion_id,  #i_prm_tiene_certificado_id, #i_prm_depto_certifica_id").empty();
+                            $("#municipio_cert_id,#municipio_cond_id,#departamento_cond_id,  #prm_certificado_id, #departamento_cert_id").empty();
                         }
                         $.each(json[0].dptcondi, function(i, data) {
-                            $('#i_prm_depto_condicion_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                            $('#departamento_cond_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
                         $.each(json[0].muncondi, function(i, data) {
-                            $('#i_prm_municipio_condicion_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                            $('#municipio_cond_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
                         $.each(json[0].tiecerti, function(i, data) {
-                            $('#i_prm_tiene_certificado_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                            $('#prm_certificado_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
                         $.each(json[0].dptcerti, function(i, data) {
-                            $('#i_prm_depto_certifica_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                            $('#departamento_cert_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
                         $.each(json[0].muncerti, function(i, data) {
-                            $('#i_prm_municipio_certifica_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                            $('#municipio_cert_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
                     },
                     error: function(xhr, status) {
@@ -50,6 +50,7 @@
                     },
                 });
             }
+        
         });
 
 
@@ -74,20 +75,20 @@
         }
         $('.departam').change(function() {
             var id = $(this).prop('id').split('_')[3];
-            f_municipos($(this).val(), 'i_prm_municipio_' + id + '_id', '');
+            f_municipos($(this).val(), 'municipio' + id + '_id', '');
         });
-        var deptcond = "{{old('i_prm_depto_condicion_id')}}";
+        var deptcond = "{{old('departamento_cond_id')}}";
         if (deptcond != '') {
-            f_municipos('{{ old("i_prm_depto_condicion_id") }}',
-                'i_prm_municipio_condicion_id',
-                '{{ old("i_prm_municipio_condicion_id") }}');
+            f_municipos('{{ old("departamento_cond_id") }}',
+                'municipio_cond_id',
+                '{{ old("municipio_cond_id") }}');
         }
-        var deptcert = "{{old('i_prm_depto_certifica_id')}}";
+        var deptcert = "{{old('departamento_cert_id')}}";
 
         if (deptcond != '') {
-            f_municipos('{{ old("i_prm_depto_certifica_id") }}',
-            'i_prm_municipio_certifica_id',
-            '{{ old("i_prm_municipio_certifica_id") }}');
+            f_municipos('{{ old("departamento_cert_id") }}',
+            'municipio_cert_id',
+            '{{ old("municipio_cert_id") }}');
         }  
         var f_departamentos = function(valuexxx, campoxxx, selected) {
 
@@ -110,8 +111,8 @@
             });
         }
 
-        $('#i_prm_tiene_certificado_id').change(function() {
-            f_departamentos($(this).val(), 'i_prm_depto_certifica_id', '')
+        $('#prm_certificado_id').change(function() {
+            f_departamentos($(this).val(), 'departamento_cert_id', '')
         });
     });
 </script>

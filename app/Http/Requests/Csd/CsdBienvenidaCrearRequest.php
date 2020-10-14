@@ -19,7 +19,6 @@ class CsdBienvenidaCrearRequest extends FormRequest
             'motivos.required'  => 'Seleccione un motivo',
             ];
         $this->_reglasx = [
-            'csd_id'    => 'required|exists:csds,id',
             'prm_persona_id' => 'required|exists:parametros,id',
             'motivos'  => 'required|array'
         ];

@@ -3,6 +3,11 @@
 namespace App\Traits\Csd;
 
 use App\Models\consulta\Csd;
+use App\Models\consulta\CsdDinfamMadre;
+use App\Models\consulta\CsdDinfamPadre;
+use App\Models\consulta\CsdGeningAporta;
+use App\Models\consulta\CsdRedsocActual;
+use App\Models\consulta\CsdRedsocPasado;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
@@ -236,47 +241,47 @@ trait CsdTrait
     }
     public function getAntecedentesTrait($request)
     {
-        $dataxxxx =  FiRedApoyoAntecedente::select(
-            'fi_red_apoyo_antecedentes.id',
+        $dataxxxx =  CsdRedsocPasado::select(
+            'csd_redsoc_pasados.id',
             'sis_entidads.nombre',
-            'fi_red_apoyo_antecedentes.s_servicio',
-            'fi_red_apoyo_antecedentes.i_tiempo',
+            'csd_redsoc_pasados.servicios',
+            'csd_redsoc_pasados.tiempo',
             'tiempo.nombre as tipotiem',
             'anio.nombre as anioxxxx',
-            'fi_red_apoyo_antecedentes.sis_nnaj_id',
-            'fi_red_apoyo_antecedentes.sis_esta_id',
-            'fi_red_apoyo_antecedentes.created_at',
+            'csd_redsoc_pasados.csd_id',
+            'csd_redsoc_pasados.sis_esta_id',
+            'csd_redsoc_pasados.created_at',
             'sis_estas.s_estado'
         )
-            ->join('sis_estas', 'fi_red_apoyo_antecedentes.sis_esta_id', '=', 'sis_estas.id')
-            ->join('sis_entidads', 'fi_red_apoyo_antecedentes.sis_entidad_id', '=', 'sis_entidads.id')
-            ->join('parametros as tiempo', 'fi_red_apoyo_antecedentes.i_prm_tiempo_id', '=', 'tiempo.id')
-            ->join('parametros as anio', 'fi_red_apoyo_antecedentes.i_prm_anio_prestacion_id', '=', 'anio.id')
+            ->join('sis_estas', 'csd_redsoc_pasados.sis_esta_id', '=', 'sis_estas.id')
+            ->join('sis_entidads', 'csd_redsoc_pasados.sis_entidad_id', '=', 'sis_entidads.id')
+            ->join('parametros as tiempo', 'csd_redsoc_pasados.prm_unidad_id', '=', 'tiempo.id')
+            ->join('parametros as anio', 'csd_redsoc_pasados.ano', '=', 'anio.id')
             ->where(
-                'fi_red_apoyo_antecedentes.sis_nnaj_id',
+                'csd_redsoc_pasados.csd_id',
                 $request->padrexxx
             );
         return $this->getDtAcciones($dataxxxx, $request);
     }
     public function getActualesTrait($request)
     {
-        $dataxxxx =  FiRedApoyoActual::select(
-            'fi_red_apoyo_actuals.id',
-            'fi_red_apoyo_actuals.sis_nnaj_id',
+        $dataxxxx =  CsdRedsocActual::select(
+            'csd_redsoc_actuals.id',
+            'csd_redsoc_actuals.csd_id',
             'red.nombre as redxxxxx',
-            'fi_red_apoyo_actuals.s_nombre_persona',
-            'fi_red_apoyo_actuals.s_servicio',
-            'fi_red_apoyo_actuals.s_telefono',
-            'fi_red_apoyo_actuals.s_direccion',
-            'fi_red_apoyo_actuals.sis_esta_id',
-            'fi_red_apoyo_actuals.created_at',
+            'csd_redsoc_actuals.nombre',
+            'csd_redsoc_actuals.servicios',
+            'csd_redsoc_actuals.telefono',
+            'csd_redsoc_actuals.direccion',
+            'csd_redsoc_actuals.sis_esta_id',
+            'csd_redsoc_actuals.created_at',
             'sis_estas.s_estado'
         )
-            ->join('sis_estas', 'fi_red_apoyo_actuals.sis_esta_id', '=', 'sis_estas.id')
-            ->join('parametros as red', 'fi_red_apoyo_actuals.i_prm_tipo_red_id', '=', 'red.id')
+            ->join('sis_estas', 'csd_redsoc_actuals.sis_esta_id', '=', 'sis_estas.id')
+            ->join('parametros as red', 'csd_redsoc_actuals.prm_tipo_id', '=', 'red.id')
             ->where(function ($queryxxx) use ($request) {
                 $queryxxx
-                    ->where('fi_red_apoyo_actuals.sis_nnaj_id', $request->padrexxx);
+                    ->where('csd_redsoc_actuals.csd_id', $request->padrexxx);
             });
         return $this->getDtAcciones($dataxxxx, $request);
     }
@@ -345,6 +350,66 @@ trait CsdTrait
             ->join('sis_estas', 'fi_documentos_anexas.sis_esta_id', '=', 'sis_estas.id')
             ->join('parametros', 'fi_documentos_anexas.i_prm_documento_id', '=', 'parametros.id')
             ->where('fi_razones.id', $request->padrexxx);
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
+    public function getPadres($request)
+    {
+        $dataxxxx =  CsdDinfamPadre::select([
+            'csd_dinfam_padres.id',
+            'convive.nombre as convive',
+            'csd_dinfam_padres.dia',
+            'csd_dinfam_padres.mes',
+            'csd_dinfam_padres.ano',
+            'csd_dinfam_padres.hijo',
+            'csd_dinfam_padres.created_at',
+            'separado.nombre as separado',
+            'csd_dinfam_padres.sis_esta_id',
+            'sis_estas.s_estado'
+        ])
+            ->join('parametros as convive', 'csd_dinfam_padres.prm_convive_id', '=', 'convive.id')
+            ->leftJoin('parametros as separado', 'csd_dinfam_padres.prm_separa_id', '=', 'separado.id')
+            ->join('sis_estas', 'csd_dinfam_padres.sis_esta_id', '=', 'sis_estas.id')
+            ->where('csd_dinfam_padres.csd_id', $request->padrexxx);
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
+    public function getAportantes($request)
+    {
+        $dataxxxx =  CsdGeningAporta::select([
+            'csd_gening_aportas.id',
+            'aporta.nombre as aporta',
+            'csd_gening_aportas.mensual',
+            'csd_gening_aportas.aporte',
+            'csd_gening_aportas.created_at',
+            'csd_gening_aportas.sis_esta_id',
+            'sis_estas.s_estado'
+        ])
+            ->join('parametros as aporta', 'csd_gening_aportas.prm_aporta_id', '=', 'aporta.id')
+            ->join('sis_estas', 'csd_gening_aportas.sis_esta_id', '=', 'sis_estas.id')
+            ->where('csd_gening_aportas.csd_id', $request->padrexxx);
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
+
+    public function getMadres($request)
+    {
+        $dataxxxx =  CsdDinfamMadre::select([
+            'csd_dinfam_madres.id',
+            'convive.nombre as convive',
+            'csd_dinfam_madres.dia',
+            'csd_dinfam_madres.mes',
+            'csd_dinfam_madres.ano',
+            'csd_dinfam_madres.created_at',
+            'csd_dinfam_madres.hijo',
+            'separado.nombre as separado',
+            'csd_dinfam_madres.sis_esta_id',
+            'sis_estas.s_estado'
+        ])
+            ->join('parametros as convive', 'csd_dinfam_madres.prm_convive_id', '=', 'convive.id')
+            ->leftJoin('parametros as separado', 'csd_dinfam_madres.prm_separa_id', '=', 'separado.id')
+            ->join('sis_estas', 'csd_dinfam_madres.sis_esta_id', '=', 'sis_estas.id')
+            ->where('csd_dinfam_madres.csd_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 }

@@ -1,36 +1,59 @@
-@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
-<div class="form-row align-items-end">
-  <div class="form-group col-md-12">
-    {{ Form::label('i_prm_violencia_genero_id', '12.2 ¿El tipo de violencia referenciado corresponde a violencia basada en género/identidad de género u orientación sexual?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_violencia_genero_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+
+<div class="row">
+  <div class="col-md">
+      {{ Form::label('prm_condicion_id', '2.1 ¿Qué condición especial presenta?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_condicion_id', $todoxxxx["condixxx"], null, ['class' => $errors->first('prm_condicion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm ']) }}
+      @if($errors->has('prm_condicion_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_condicion_id') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('departamento_cond_id', '2.1(a) Departamento', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('departamento_cond_id', $todoxxxx["departam"], null, ['class' => $errors->first('departamento_cond_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm departam',]) }}
+      @if($errors->has('departamento_cond_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('departamento_cond_id') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('municipio_cond_id', '2.1(b) Municipio', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('municipio_cond_id',$todoxxxx["municipi"], null, ['class' => $errors->first('municipio_cond_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('municipio_cond_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('municipio_cond_id') }}
+          </div>
+      @endif
   </div>
 </div>
-<div class="form-row align-items-end">
-  <div class="form-group col-md-4">
-    {{ Form::label('i_prm_condicion_presenta_id', '12.3 ¿Qué condición especial presenta?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_condicion_presenta_id', $todoxxxx["condespe"], null, ['class' => 'form-control form-control-sm']) }}
+<div class="row">
+  <div class="col-md">
+      {{ Form::label('prm_certificado_id', '2.2 ¿Cuenta con certificado?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_certificado_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_certificado_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_certificado_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_certificado_id') }}
+          </div>
+      @endif
   </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('i_prm_depto_condicion_id', 'Departamento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_depto_condicion_id', $todoxxxx["departam"], null, ['class' => 'form-control form-control-sm departam']) }}
+  <div class="col-md">
+      {{ Form::label('departamento_cert_id', 'Lugar de expedición 2.2(a) Departamento', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('departamento_cert_id',$todoxxxx["departam"], null, ['class' => $errors->first('departamento_cert_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm departam']) }}
+      @if($errors->has('departamento_cert_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('departamento_cert_id') }}
+          </div>
+      @endif
   </div>
-  <div class="form-group col-md-4">
-    
-    {{ Form::label('i_prm_municipio_condicion_id', 'Ciudad', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_municipio_condicion_id', $todoxxxx["municipi"], null, ['class' => 'form-control form-control-sm']) }}
+  <div class="col-md">
+      {{ Form::label('municipio_cert_id', '2.2(b) Municipio', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('municipio_cert_id', $todoxxxx["municipi"],null, ['class' => $errors->first('municipio_cert_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('municipio_cert_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('municipio_cert_id') }}
+          </div>
+      @endif
   </div>
 </div>
-<div class="form-row align-items-end">
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_tiene_certificado_id', '12.4 ¿Cuenta con certificado?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_tiene_certificado_id', $todoxxxx["condiesp"], null, ['class' => 'form-control form-control-sm']) }}
-    </div>
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_depto_certifica_id', 'Departamento', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_depto_certifica_id', $todoxxxx["deparexp"], null, ['class' => 'form-control form-control-sm departam']) }}
-    </div>
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_municipio_certifica_id', 'Ciudad', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_municipio_certifica_id', $todoxxxx["municexp"], null, ['class' => 'form-control form-control-sm']) }}
-    </div>
-  </div>

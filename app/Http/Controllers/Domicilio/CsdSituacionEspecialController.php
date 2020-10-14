@@ -1,27 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\FichaIngreso;
+namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Csd\CsdSituacionCrearRequest;
+use App\Http\Requests\Csd\CsdSituacionEditarRequest;
 use App\Http\Requests\Csd\CsdSituacionespecialCrearRequest;
 use App\Http\Requests\Csd\CsdSituacionespecialEditarRequest;
 use App\Models\consulta\Csd;
-use App\Models\consulta\CsdViolencia;
-use App\Models\Sistema\SisDepartamento;
-use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
-use App\Traits\Fi\VcontviolTrait;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CsdSituacionEspecialController extends Controller
 {
-    use VcontviolTrait;
     private $opciones;
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdsituacionespecial';
         $this->opciones['routxxxx'] = 'csdsituacionespecial';
         $this->opciones['rutacarp'] = 'Csd.';
-        $this->opciones['carpetax'] = 'SituacionEspecial';
+        $this->opciones['carpetax'] = 'Situacion';
         $this->opciones['slotxxxx'] = 'csdsituacionespecial';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "Situacion Especial";
@@ -41,7 +40,7 @@ class CsdSituacionEspecialController extends Controller
     {
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -53,9 +52,10 @@ class CsdSituacionEspecialController extends Controller
       
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
+           
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['pestpadr'] = 3;
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
 
@@ -81,7 +81,6 @@ class CsdSituacionEspecialController extends Controller
     }
     private function grabar($dataxxxx)
     {
-        
         return redirect()
             ->route('csdsituacionespecial.editar', [Csd::transaespecial($dataxxxx)->id])
             ->with('info', $dataxxxx['infoxxxx']);
@@ -94,13 +93,21 @@ class CsdSituacionEspecialController extends Controller
      */
 
 
-    public function store(CsdSituacionespecialCrearRequest $request, Csd $padrexxx)
+    public function store(Request $request, Csd $padrexxx)
     {
-        $request->request->add(['prm_tipofuen_id'=>2315]);
-        $request->request->add(['sis_esta_id'=>1]);
+        $this->validator($request->all())->validate();
+        $dataxxxx = $request->all();
+        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
+        $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Situaciones especiales insertadas con exito','padrexxx'=> $padrexxx]);
     }
-
+    
+    protected function validator(array $data){
+        return Validator::make($data, [
+            'especiales' => 'nullable|array',
+        ]);
+    }
     /**
      * Display the specified resource.
      *
@@ -141,7 +148,7 @@ class CsdSituacionEspecialController extends Controller
      * @param  \App\Models\csdsituacionespecial  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdSituacionespecialEditarRequest $request, Csd $modeloxx)
+    public function update(CsdSituacionEditarRequest $request, Csd $modeloxx)
     {
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Situaciones Especiales actualizadas','modeloxx'=>$modeloxx]);
     }

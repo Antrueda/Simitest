@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\FichaIngreso;
+namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdViolenciaCrearRequest;
@@ -35,14 +35,14 @@ class CsdViolenciaController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['condixxx'] = Tema::combo(57, true, false);
+        
 
     }
 
     private function view($dataxxxx)
     {
-
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -50,9 +50,6 @@ class CsdViolenciaController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
 
         ];
-                if ($dataxxxx['padrexxx']->prm_estrateg_id == 2323) {
-            $condespe = 351;
-        }
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = 'ACTIVO';
@@ -62,12 +59,12 @@ class CsdViolenciaController extends Controller
         $this->opciones['municexp'] = ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
+            $this->opciones['pestpadr'] = 3;
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->i_prm_depto_condicion_id, false);
+            $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->departamento_cond_id, false);
             $this->opciones['departam'] = SisDepartamento::combo(2, false);
-
-            $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->i_prm_depto_certifica_id, false);
+            
+            $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->departamento_cert_id, false);
             $this->opciones['deparexp'] = SisDepartamento::combo(2, false);
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
@@ -94,12 +91,11 @@ class CsdViolenciaController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear','formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx)
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
     {
-        $usuariox = CsdViolencia::transaccion($dataxxxx);
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$usuariox->id])
-            ->with('info',$dataxxxx['infoxxxx']);
+            ->route('csdviolencia.editar', [$padrexxx->id, CsdViolencia::transaccion($dataxxxx, $objetoxx)->id])
+            ->with('info', $infoxxxx);
     }
     /**
      * Store a newly created resource in storage.
@@ -114,7 +110,7 @@ class CsdViolenciaController extends Controller
         $dataxxxx = $request->all();
         $request->request->add(['prm_tipofuen_id'=>2315]);
         $request->request->add(['sis_esta_id'=>1]);
-        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        $dataxxxx['csd_id'] = $padrexxx->id;
         return $this->grabar($dataxxxx, '', 'Violencia y condición especial creada con exito', $padrexxx);
     }
 
@@ -126,7 +122,6 @@ class CsdViolenciaController extends Controller
      */
     public function show(Csd $padrexxx, CsdViolencia $modeloxx)
     {
-        
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 
@@ -138,8 +133,7 @@ class CsdViolenciaController extends Controller
      */
     public function edit(Csd $padrexxx, CsdViolencia $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
+        $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -147,7 +141,7 @@ class CsdViolenciaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**

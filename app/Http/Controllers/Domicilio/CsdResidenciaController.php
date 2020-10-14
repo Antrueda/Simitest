@@ -1,20 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\FichaIngreso;
+namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdResidenciaCrearRequest;
 use App\Http\Requests\Csd\CsdResidenciaEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
+use App\Models\consulta\pivotes\CsdRescamass;
 use App\Models\consulta\pivotes\CsdResideambiente;
-use App\Models\fichaIngreso\FiCondicionAmbiente;
-use App\Models\fichaIngreso\FiDatosBasico;
-
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
+use Illuminate\Http\Request;
 
 class CsdResidenciaController extends Controller
 {
@@ -43,6 +42,7 @@ class CsdResidenciaController extends Controller
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['dircondi'] = Tema::combo(23, true, false);
         $this->opciones['residees'] = Tema::combo(35, true, false);
+        $this->opciones['tiporexx'] = Tema::combo(34, true, false);
         $this->opciones['tipodire'] = Tema::combo(36, true, false);
         $this->opciones['zonadire'] = Tema::combo(37, true, false);
         $this->opciones['cuadrant'] = Tema::combo(38, true, false);
@@ -50,8 +50,10 @@ class CsdResidenciaController extends Controller
         $this->opciones['estratox'] = Tema::combo(41, true, false);
         $this->opciones['condambi'] = Tema::combo(42, false, false);
         $this->opciones['tpviapal'] = Tema::combo(62, true, false);
+        $this->opciones['familiax'] = Tema::combo(66, false, false);
         $this->opciones['pisoxxxx'] = Tema::combo(90, true, false);
         $this->opciones['murosxxx'] = Tema::combo(91, true, false);
+        $this->opciones['estadosx'] = Tema::combo(93, true, false);
         $this->opciones['esparcha'] = Tema::combo(291, true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
 
@@ -73,7 +75,7 @@ class CsdResidenciaController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
@@ -94,24 +96,19 @@ class CsdResidenciaController extends Controller
         // indica si se esta actualizando o viendo
 
         $this->opciones['condsele'] = CsdResideambiente::getCondicionAbiente(0);
+        $this->opciones['camasxxx'] = CsdRescamass::getCamas(0);
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $this->opciones['pestpadr'] = 3;
             if ($dataxxxx['modeloxx']->i_prm_zona_direccion_id == 289) {
                 $this->opciones['dircondi'] = [1 => 'NO APLICA'];
                 $this->opciones['cuadrant'] = [1 => 'NO APLICA'];
                 $this->opciones['alfabeto'] = [1 => 'NO APLICA'];
                 $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
             }
-
+     
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-            if ($dataxxxx['padrexxx']->prm_tipoblaci_id != 650) {
-                $dataxxxx['modeloxx']->sis_localidad_id=$dataxxxx['modeloxx']->sis_barrio->sis_localupz->sis_localidad_id;
-                $this->opciones['upzxxxxx'] = SisUpz::combo($dataxxxx['modeloxx']->sis_localidad_id, false);
-                $dataxxxx['modeloxx']->sis_upz_id=$dataxxxx['modeloxx']->sis_barrio->sis_localupz_id;
-                $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
-                $this->opciones['condsele'] = CsdResideambiente::getCondicionAbiente($dataxxxx['modeloxx']->id);
-            }
-            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+                        $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -121,7 +118,7 @@ class CsdResidenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(FiDatosBasico $padrexxx)
+    public function create(Csd $padrexxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
@@ -132,11 +129,10 @@ class CsdResidenciaController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario',  'js',], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx)
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx,$padrexxx)
     {
-        $modeloxx = CsdResidencia::transaccion($dataxxxx,  $objetoxx);
         return redirect()
-            ->route('fi.residencia.editar', [$modeloxx->sis_nnaj->fi_datos_basico->id,  $modeloxx->id])
+            ->route('csdresidencia.editar', [$padrexxx->id, CsdResidencia::transaccion($dataxxxx, $objetoxx)->id])
             ->with('info', $infoxxxx);
     }
     /**
@@ -150,9 +146,9 @@ class CsdResidenciaController extends Controller
     public function store(Csd $padrexxx, CsdResidenciaCrearRequest $request)
     {
         $dataxxxx = $request->all();
-        $request->request->add(['prm_tipofuen_id'=>2315]);
-        $request->request->add(['sis_esta_id'=>1]);
-        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
+        $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Datos de residencia creados con exito', $padrexxx);
     }
     
@@ -179,8 +175,7 @@ class CsdResidenciaController extends Controller
      */
     public function edit(Csd $padrexxx,  CsdResidencia $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
+        $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -201,5 +196,22 @@ class CsdResidenciaController extends Controller
     public function update(CsdResidenciaEditarRequest $request,  Csd $padrexxx, CsdResidencia $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Datos de residencia actualizados con exito', $padrexxx);
+    }
+
+
+    public function getLocaliUpz(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            switch ($request->upzbarri) {
+                case 1: // upzs
+                    $respuest = SisUpz::combo($request->padrexxx, true);
+                    break;
+                case 2: // barrios
+                    $respuest = SisBarrio::combo($request->padrexxx, true);
+                    break;
+            }
+            return response()->json($respuest);
+        }
     }
 }

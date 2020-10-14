@@ -42,11 +42,19 @@ class CsdBienvenida extends Model{
   {
       $objetoxx = DB::transaction(function () use ($dataxxxx) {
           $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+          
           if ($dataxxxx['modeloxx'] != '') {
               $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
           } else {
               $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
               $dataxxxx['modeloxx'] = CsdBienvenida::create($dataxxxx['requestx']->all());
+          }
+          
+          $dataxxxx['modeloxx']->motivos()->detach();
+          if($dataxxxx['requestx']->motivos){
+            foreach ( $dataxxxx['requestx']->motivos as $d) {
+                  $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+              }
           }
           return $dataxxxx['modeloxx'];
       }, 5);

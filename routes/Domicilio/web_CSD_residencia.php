@@ -1,19 +1,33 @@
 <?php
-Route::group(['prefix' => '{id}/residencia'], function () {
-  Route::get('', [
-    'uses' => 'Domicilio\CsdResidenciaController@show',
-    'middleware' => ['permission:csdresidencia-crear|csdresidencia-editar']
-  ])->name('CSD.residencia');
-  Route::post('', [
-    'uses' => 'Domicilio\CsdResidenciaController@store',
-    'middleware' => ['permission:csdresidencia-crear']
-  ]);
-  Route::put('{id1}', [
-    'uses' => 'Domicilio\CsdResidenciaController@update',
-    'middleware' => ['permission:csdresidencia-editar']
-  ])->name('CSD.residencia.editar');
+$routexxx = 'csdresidencia';
+$controll = 'Domicilio\csdresidencia';
+Route::group(['prefix' => '{padrexxx}/residencia'], function () use ($routexxx, $controll) {
+	Route::get('nuevo', [
+		'uses' => $controll.'Controller@create',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
+	Route::post('crear', [
+		'uses' => $controll.'Controller@store',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.crear');
 
-  Route::get('getLocaliUpz', [
-    'uses' => 'Domicilio\CsdResidenciaController@getLocaliUpz',
-  ])->name('CSD.getLocaliUpz');
+	Route::get('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@edit',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+
+	Route::put('editar/{modeloxx}', [
+		'uses' => $controll.'Controller@update',
+		'middleware' => ['permission:'.$routexxx.'-editar']
+	])->name($routexxx.'.editar');
+	Route::get('ver/{modeloxx}', [
+		'uses' => $controll.'Controller@show',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.ver');
+	Route::get('locali', [
+	    'uses' => $controll.'Controller@getLocaliUpz',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.locali');
 });
+
+

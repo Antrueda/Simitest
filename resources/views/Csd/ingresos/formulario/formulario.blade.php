@@ -1,82 +1,106 @@
-<div class="form-row align-items-end">
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_actividad_genera_ingreso_id', '7.1 ¿Que actividad realiza para generar ingresos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_actividad_genera_ingreso_id', $todoxxxx["acgening"], null, ['class' => 'form-control form-control-sm']) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('s_trabajo_formal', 'A.1 Mencione en qué trabaja (No aplica para CHC)', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_trabajo_formal', null, ['class' => 'form-control form-control-sm']) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_trabajo_informal_id', 'B.1 (Si Indicó B. TRABAJO INFORMAL) Seleccione:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_trabajo_informal_id', $todoxxxx["trabinfo"], null, ['class' => 'form-control form-control-sm']) }}
-    </div>
-</div>
-<div class="form-row align-items-end">
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_otra_actividad_id', 'C.1 (Si Indicó C. OTRAS ACTIVIDADES) Seleccione:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_otra_actividad_id', $todoxxxx["otractiv"], null, ['class' => 'form-control form-control-sm']) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_razon_no_genera_ingreso_id', 'D.1 ¿Por qué no genera ingresos? (No Aplica para CHC)', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_razon_no_genera_ingreso_id', $todoxxxx["raznogen"], null, ['class' => 'form-control form-control-sm']) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_dias_buscando_empleo_id', 'D.1(a) ¿Hace cuánto?', ['class' => 'control-label col-form-label-sm']) }}
-        <div class="row">
-            <div class="col-md-4">
-                {{ Form::label('i_dias_buscando_empleo', 'Día(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-                {{ Form::text('i_dias_buscando_empleo', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", 'placeholder' => 'Día(s)']) }}
+<div class="row">
+    <div class="col-md">
+        {{ Form::label('observacion', '10.8 Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::textarea('observacion', null, ['class' => $errors->first('observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Observaciones', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        @if($errors->has('observacion'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('observacion') }}
             </div>
-            <div class="col-md-4">
-                {{ Form::label('i_meses_buscando_empleo', 'Mes(es)', ['class' => 'control-label col-form-label-sm d-none']) }}
-                {{ Form::text('i_meses_buscando_empleo', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", 'placeholder' => 'Mes(es)']) }}
-            </div>
-            <div class="col-md-4">
-                {{ Form::label('i_anos_buscando_empleo', 'Año(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-                {{ Form::text('i_anos_buscando_empleo', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", 'placeholder' => 'Año(s)']) }}
-            </div>
-        </div>
-    </div>
-</div>
-<div class="form-row align-items-end">
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_jornada_genera_ingreso_id', '7.2 ¿En qué jornada genera los ingresos? (No Aplica para CHC)', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_jornada_genera_ingreso_id' , $todoxxxx["jorgener"], null, ['class' => 'form-control form-control-sm']) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('s_hora_inicial', 'Hora desde', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::time('s_hora_inicial', null, ['class' => 'form-control form-control-sm',$todoxxxx['readhora']]) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('s_hora_final', 'Hora hasta', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::time('s_hora_final', null, ['class' => 'form-control form-control-sm',$todoxxxx['readhora']]) }}
-    </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_dia_genera_id', '7.3 ¿En qué días?', ['class' => 'control-label']) }}
-        {{ Form::select('i_prm_dia_genera_id[]', $todoxxxx['diaseman'], null, ['class' => $errors->first('i_prm_dia_genera_id') ?
-    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple', 'id'=>'i_prm_dia_genera_id',
-    'data-placeholder' => 'Seleccione los motivos de vinculación']) }}
-        @if($errors->has('i_prm_dia_genera_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('i_prm_dia_genera_id') }}
-        </div>
         @endif
     </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_frec_ingreso_id', '7.4 ¿Con qué frecuencia recibe el ingreso por la actividad?', ['class' => 'control-label col-form-label-sm']) }}
-        <div class="row">
-            <div class="col-md-6">
-                {{ Form::select('i_prm_frec_ingreso_id', $todoxxxx["frecugen"], null, ['class' => 'form-control form-control-sm']) }}
+</div>
+<h6 class="col-form-label-sm">Datos de quién brinda la información</h6>
+<div class="row">
+    <div class="col-md">
+        {{ Form::label('prm_actividad_id', '10.9 ¿Qué actividades realiza para generar ingresos?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_actividad_id', $todoxxxx["acgening"], null, ['class' => $errors->first('prm_actividad_id') ? 'form-control form-control-sm is-invalid' : 'form-control float-right form-control-sm', 'onchange' => 'doc(this.value)']) }}
+        @if($errors->has('prm_actividad_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_actividad_id') }}
             </div>
-            <div class="col-md-6">
-                {{ Form::label('i_total_ingreso_mensual', '$', ['class' => 'control-label col-form-label-sm d-none']) }}
-                {{ Form::text('i_total_ingreso_mensual', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", 'placeholder' => '$']) }}
+        @endif
+    </div>
+    <div class="col-md">
+        {{ Form::label('trabaja', '10.9.1 Mencione en qué trabaja', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('trabaja', null, ['class' => $errors->first('trabaja') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'maxlenght' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        @if($errors->has('trabaja'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('trabaja') }}
+            </div>
+        @endif
+    </div>
+    <div class="col-md">
+        {{ Form::label('prm_informal_id', '10.9.2 Seleccione', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_informal_id', $todoxxxx["trabinfo"], null, ['class' => $errors->first('prm_informal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('prm_informal_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_informal_id') }}
+            </div>
+        @endif
+    </div>
+</div>
+<div class="row">
+    <div class="col-md">
+        {{ Form::label('prm_otra_id', '10.9.3 Seleccione', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_otra_id',  $todoxxxx["otractiv"], null, ['class' => $errors->first('prm_otra_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('prm_otra_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_otra_id') }}
+            </div>
+        @endif
+    </div>
+    <div class="col-md">
+        {{ Form::label('prm_laboral_id', '10.10 ¿Tipo de relación laboral?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_laboral_id', $todoxxxx["tiporela"], null, ['class' => $errors->first('prm_laboral_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('prm_laboral_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_laboral_id') }}
+            </div>
+        @endif
+    </div>
+    <div class="col-md">
+        {{ Form::label('prm_frecuencia_id', '10.11 ¿Con qué frecuencia recibe el ingreso por la actividad?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_frecuencia_id', $todoxxxx["frecugen"], null, ['class' => $errors->first('prm_frecuencia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('prm_frecuencia_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_frecuencia_id') }}
+            </div>
+        @endif
+    </div>
+</div>
+<div class="row">
+    <div class="col-md">
+        {{ Form::label('intensidad', '10.12 ¿Con qué intensidad de horas ejerce la(s) actividad(es)?', ['class' => 'control-label col-form-label-sm']) }}
+        <div class="row">
+            <div class="col-md">
+                {{ Form::number('intensidad', null, ['class' => $errors->first('intensidad') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '24']) }}
+            </div>
+            <div class="col-md">
+                 (horas al día)
             </div>
         </div>
+        @if($errors->has('intensidad'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('intensidad') }}
+            </div>
+        @endif
     </div>
-    <div class="form-group col-md-4">
-        {{ Form::label('i_prm_tipo_relacion_laboral_id', '7.5 ¿Tipo de relación laboral? (No aplica para CHC)', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_tipo_relacion_laboral_id', $todoxxxx["tiporela"], null, ['class' => 'form-control form-control-sm']) }}
+    <div class="col-md">
+        {{ Form::label('prm_dificultad_id', '10.13 ¿Considera que la familia presenta dificultades económicas?', ['class' => 'control-label col-md-8 col-form-label-sm']) }}
+        {{ Form::select('prm_dificultad_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_dificultad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('prm_dificultad_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_dificultad_id') }}
+            </div>
+        @endif
+    </div>
+    <div class="col-md">
+        {{ Form::label('razon', 'Indique la(s) razón(es)', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::textarea('razon', null, ['class' => $errors->first('razon') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Indique la(s) Razón(es)', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        @if($errors->has('razon'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('v') }}
+            </div>
+        @endif
     </div>
 </div>

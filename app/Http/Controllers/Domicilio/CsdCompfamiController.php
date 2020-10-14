@@ -269,11 +269,9 @@ class CsdCompfamiController extends Controller
      * @param  \App\Models\FiCompfami  $residencia
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $padrexxx, CsdComFamiliar $modeloxx)
+    public function show(CsdComFamiliar $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->csd]);
     }
 
     /**
@@ -282,9 +280,9 @@ class CsdCompfamiController extends Controller
      * @param  \App\Models\FiCompfami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx, CsdComFamiliar $modeloxx)
+    public function edit(CsdComFamiliar $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx;
+        $this->opciones['csdxxxxx']=$modeloxx->csd;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -293,7 +291,7 @@ class CsdCompfamiController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $modeloxx->csd]);
     }
 
     /**

@@ -1,268 +1,525 @@
-<div class="form-row align-items-end">
-  {{ Form::hidden('tipo_poblacion', $todoxxxx['usuariox']->prm_tipoblaci_id) }}
-  <div class="form-group col-md-4">
-    {{ Form::label('i_prm_tiene_dormir_id', '3.1 ¿Tiene lugar de residencia en dónde dormir?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_tiene_dormir_id', $todoxxxx["condicio"], null, ['class' => $errors->first('i_prm_tiene_dormir_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('i_prm_tiene_dormir_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('i_prm_tiene_dormir_id') }}
-      </div>
-    @endif
+<div class="row">
+  <div class="col-md">
+      {{ Form::label('prm_tipo_id', '5.1 Tipo de residencia', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_tipo_id', $todoxxxx["tiporexx"], null, ['class' => $errors->first('prm_tipo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus']) }}
+      @if($errors->has('prm_tipo_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_tipo_id') }}
+          </div>
+      @endif
   </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('i_prm_tipo_duerme_id', '3.2 Tipo de residencia o lugar donde duerme', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_tipo_duerme_id', $todoxxxx["tiporesi"], null, ['class' => $errors->first('i_prm_tipo_duerme_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('i_prm_tipo_duerme_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('i_prm_tipo_duerme_id') }}
-      </div>
-    @endif
+  <div class="col-md">
+      {{ Form::label('prm_es_id', '5.2 La residencia es:', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_es_id', $todoxxxx["residees"], null, ['class' => $errors->first('prm_es_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_es_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_es_id') }}
+          </div>
+      @endif
   </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('i_prm_tipo_tenencia_id', '3.3 La residencia es:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_tipo_tenencia_id', $todoxxxx["residees"], null, ['class' => $errors->first('i_prm_tipo_tenencia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('i_prm_tipo_tenencia_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('i_prm_tipo_tenencia_id') }}
-      </div>
-    @endif
+  <div class="col-md">
+      {{ Form::label('prm_dir_tipo_id', '5.3 Dirección de residencia actual', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_dir_tipo_id',  $todoxxxx["tipodire"], null, ['class' => $errors->first('prm_dir_tipo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_dir_tipo_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_dir_tipo_id') }}
+          </div>
+      @endif
   </div>
 </div>
- <fieldset>
-  <legend>3.4 Dirección de residencia actual/ dirección de focalización</legend>
-  <div class="form-row align-items-end">
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_tipo_direccion_id', 'Tipo Dirección', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_tipo_direccion_id', $todoxxxx["tipodire"], null, ['class' => $errors->first('i_prm_tipo_direccion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('i_prm_tipo_direccion_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('i_prm_tipo_direccion_id') }}
-        </div>
+<div class="row">
+  <div class="col-md">
+      {{ Form::label('prm_dir_zona_id', 'Zona', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_dir_zona_id', $todoxxxx["zonadire"] , null, ['class' => $errors->first('prm_dir_zona_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc(this.value)']) }}
+      @if($errors->has('prm_dir_zona_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_dir_zona_id') }}
+          </div>
       @endif
-    </div>
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_zona_direccion_id', 'Zona Dirección', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_zona_direccion_id', $todoxxxx["zonadire"], null, ['class' => $errors->first('i_prm_zona_direccion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('i_prm_zona_direccion_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('i_prm_zona_direccion_id') }}
-        </div>
-      @endif
-    </div>
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_tipo_via_id', 'Tipo vía principal (VP)', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_tipo_via_id', $todoxxxx["tpviapal"] , null, ['class' => $errors->first('i_prm_tipo_via_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('i_prm_tipo_via_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('i_prm_tipo_via_id') }}
-        </div>
-      @endif
-    </div>
   </div>
-  <div class="form-row align-items-end">
-    <div class="form-group col-md-4">
-      {{ Form::label('s_nombre_via', 'Número/Nombre Vía principal', ['class' => 'control-label col-form-label-sm'], $todoxxxx['readchcx']) }}
-      {{ Form::text('s_nombre_via', null, ['class' => $errors->first('s_nombre_via') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;', 'placeholder' => 'Número/Nombre Vía principal']) }}
-      @if($errors->has('s_nombre_via'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('s_nombre_via') }}
-        </div>
+  <div class="col-md">
+      {{ Form::label('prm_dir_via_id', 'Tipo Vía Principal (VP)', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_dir_via_id', $todoxxxx["tpviapal"] , null, ['class' => $errors->first('prm_dir_via_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_dir_via_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_dir_via_id') }}
+          </div>
       @endif
-    </div>
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_alfabeto_via_id', 'Alfabeto Via Principal', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_alfabeto_via_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('i_prm_alfabeto_via_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
-      @if($errors->has('i_prm_alfabeto_via_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('i_prm_alfabeto_via_id') }}
-        </div>
-      @endif
-    </div>
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_tiene_bis_id', 'Bis', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_tiene_bis_id', $todoxxxx["dircondi"], null, ['class' => $errors->first('i_prm_tiene_bis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('i_prm_tiene_bis_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('i_prm_tiene_bis_id') }}
-        </div>
-      @endif
-    </div>
   </div>
-  <div class="form-row align-items-end">
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_bis_alfabeto_id', 'Letra Bis', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_bis_alfabeto_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('i_prm_bis_alfabeto_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
-      @if($errors->has('i_prm_bis_alfabeto_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('i_prm_bis_alfabeto_id') }}
-        </div>
+  <div class="col-md">
+      {{ Form::label('dir_nombre', 'Número/Nombre Vía Principal', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::text('dir_nombre', null, ['class' => $errors->first('dir_nombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Via principal', 'maxlength' => '120', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      @if($errors->has('dir_nombre'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('dir_nombre') }}
+          </div>
       @endif
-    </div>
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_cuadrante_vp_id', 'Cuadrante VP', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_cuadrante_vp_id', $todoxxxx["cuadrant"], null, ['class' => $errors->first('i_prm_cuadrante_vp_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('i_prm_cuadrante_vp_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('i_prm_cuadrante_vp_id') }}
-        </div>
-      @endif
-    </div>
-    <div class="form-group col-md-4">
-      {{ Form::label('i_via_generadora', '# No. Vía Generadora (VG)', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('i_via_generadora', null, ['class' => $errors->first('i_via_generadora') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Vía Generadora', 'min' => '1', 'max' => '250']) }}
-      @if($errors->has('i_via_generadora'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('i_via_generadora') }}
-        </div>
-      @endif
-    </div>
-  </div>
-  <div class="form-row align-items-end">
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_alfabetico_vg_id', 'Alfabético VG', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_alfabetico_vg_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('i_prm_alfabetico_vg_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
-      @if($errors->has('i_prm_alfabetico_vg_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('i_prm_alfabetico_vg_id') }}
-        </div>
-      @endif
-    </div>
-    <div class="form-group col-md-4">
-      {{ Form::label('i_placa_vg', 'Placa VG', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('i_placa_vg', null, ['class' => $errors->first('i_placa_vgi_placa_vg') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Placa VG', 'min' => '1', 'max' => '250']) }}
-      @if($errors->has('i_placa_vg'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('i_placa_vg') }}
-        </div>
-      @endif
-    </div>
-    <div class="form-group col-md-4">
-      {{ Form::label('i_prm_cuadrante_vg_id', 'Cuadrante VG', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_cuadrante_vg_id', $todoxxxx["cuadrant"], null, ['class' => $errors->first('i_prm_cuadrante_vg_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('i_prm_cuadrante_vg_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('i_prm_cuadrante_vg_id') }}
-        </div>
-      @endif
-    </div>
-  </div>
-</fieldset>
-<div class="form-row align-items-end">
-  <div class="form-group col-md-4">
-    {{ Form::label('i_prm_estrato_id', '3.5 Estrato socioeconómico', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_estrato_id', $todoxxxx["estratox"], null, ['class' => $errors->first('i_prm_estrato_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('i_prm_estrato_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('i_prm_estrato_id') }}
-      </div>
-    @endif
-  </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('i_prm_espacio_parcha_id', '3.6 Espacio donde parcha', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_espacio_parcha_id', $todoxxxx["esparcha"], null, ['class' => $errors->first('i_prm_espacio_parcha_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('i_prm_espacio_parcha_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('i_prm_espacio_parcha_id') }}
-      </div>
-    @endif
-  </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('s_nombre_espacio_parcha', '3.6A Nombre del espacio', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('s_nombre_espacio_parcha', null, ['class' => $errors->first('s_nombre_espacio_parcha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) }}
-    @if($errors->has('s_nombre_espacio_parcha'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('s_nombre_espacio_parcha') }}
-      </div>
-    @endif
   </div>
 </div>
-<div class="form-row align-items-end">
-  <div class="form-group col-md-4">
-    {{ Form::label('s_complemento', '3.7 Complemento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('s_complemento', null, ['class' => $errors->first('s_complemento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;']) }}
-    @if($errors->has('s_complemento'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('s_complemento') }}
-      </div>
-    @endif
+<div class="row">
+  <div class="col-md">
+      {{ Form::label('prm_dir_alfavp_id', 'Alfabético Vía Principal', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_dir_alfavp_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('prm_dir_alfavp_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_dir_alfavp_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_dir_alfavp_id') }}
+          </div>
+      @endif
   </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('sis_localidad_id', '3.8 Localidad', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_localidad_id', $todoxxxx["localida"], null, ['class' => $errors->first('sis_localidad_id') ? 'form-control sispaisx form-control-sm is-invalid' : 'form-control sispaisx form-control-sm']) }}
-    @if($errors->has('sis_localidad_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('sis_localidad_id') }}
-      </div>
-    @endif
+  <div class="col-md">
+      {{ Form::label('prm_dir_bis_id', 'BIS', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_dir_bis_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_dir_bis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_dir_bis_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_dir_bis_id') }}
+          </div>
+      @endif
   </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('sis_upz_id', '3.9 No. UPZ', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_upz_id', $todoxxxx["upzxxxxx"], null, ['class' => $errors->first('sis_upz_id') ? 'form-control departam form-control-sm is-invalid' : 'form-control departam form-control-sm']) }}
-    @if($errors->has('sis_upz_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('sis_upz_id') }}
-      </div>
-    @endif
-  </div>
-</div>
-<div class="form-row align-items-end">
-  <div class="form-group col-md-4">
-    {{ Form::label('sis_upzbarri_id', '3.11 Barrio', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('sis_upzbarri_id', $todoxxxx["barrioxx"], null, ['class' => $errors->first('sis_upzbarri_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('sis_upzbarri_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('sis_upzbarri_id') }}
-      </div>
-    @endif
-  </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('s_telefono_uno', '3.12 Teléfono 1', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('s_telefono_uno', null, ['class' => $errors->first('s_telefono_uno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
-    @if($errors->has('s_telefono_uno'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('s_telefono_uno') }}
-      </div>
-    @endif
-  </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('s_telefono_dos', '3.13 Teléfono 2', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('s_telefono_dos', null, ['class' => $errors->first('s_telefono_dos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
-    @if($errors->has('s_telefono_dos'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('s_telefono_dos') }}
-      </div>
-    @endif
+  <div class="col-md">
+      {{ Form::label('prm_dir_alfabis_id', 'Letra BIS', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_dir_alfabis_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('prm_dir_alfabis_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_dir_alfabis_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_dir_alfabis_id') }}
+          </div>
+      @endif
   </div>
 </div>
-<div class="form-row align-items-end">
-  <div class="form-group col-md-4">
-    {{ Form::label('s_telefono_tres', '3.14 Teléfono 3', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('s_telefono_tres', null, ['class' => $errors->first('s_telefono_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
-    @if($errors->has('s_telefono_tres'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('s_telefono_tres') }}
-      </div>
-    @endif
+<div class="row">
+  <div class="col-md">
+      {{ Form::label('prm_dir_cuadrantevp_id', 'Cuadrante VP', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_dir_cuadrantevp_id', $todoxxxx["cuadrant"], null, ['class' => $errors->first('prm_dir_cuadrantevp_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_dir_cuadrantevp_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_dir_cuadrantevp_id') }}
+          </div>
+      @endif
   </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('s_email_facebook', '3.15 E-mail o Facebook', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('s_email_facebook', null, ['class' => $errors->first('s_email_facebook') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;', $todoxxxx['readchcx']]) }}
-    @if($errors->has('s_email_facebook'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('s_email_facebook') }}
-      </div>
-    @endif
+  <div class="col-md">
+      {{ Form::label('dir_generadora', 'Nº Vía Generadora (VG)', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::text('dir_generadora', null, ['class' => $errors->first('dir_generadora') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número', 'min' => '0', 'max' => '99', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      @if($errors->has('dir_generadora'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('dir_generadora') }}
+          </div>
+      @endif
   </div>
-  <div class="form-group col-md-12">
-    {{ Form::label('i_prm_condicion_amb_id', '3.16 Condiciones del ambiente y riesgo cerca de la vivienda / lugar de focalización (Para CHC)', ['class' => 'control-label']) }}
-    {{ Form::select('i_prm_condicion_amb_id[]', $todoxxxx['condambi'], null, ['class' => $errors->first('i_prm_condicion_amb_id') ?
-    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple','id'=>'i_prm_condicion_amb_id',
-    'data-placeholder' => 'Digite el responsable']) }}
-    @if($errors->has('i_prm_condicion_amb_id'))
-    <div class="invalid-feedback d-block">
-      {{ $errors->first('i_prm_condicion_amb_id') }}
-    </div>
-    @endif
+  <div class="col-md">
+      {{ Form::label('prm_dir_alfavg_id', 'Alfabético VG', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_dir_alfavg_id', $todoxxxx["alfabeto"], null, ['class' => $errors->first('prm_dir_alfavg_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_dir_alfavg_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_dir_alfavg_id') }}
+          </div>
+      @endif
+  </div>
+</div>
+<div class="row">
+  <div class="col-md">
+      {{ Form::label('dir_placa', 'Placa VG', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::text('dir_placa', null, ['class' => $errors->first('dir_placa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número', 'min' => '0', 'max' => '99', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      @if($errors->has('dir_placa'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('dir_placa') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('prm_dir_cuadrantevg_id', 'Cuadrante VG', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_dir_cuadrantevg_id', $todoxxxx["cuadrant"], null, ['class' => $errors->first('prm_dir_cuadrantevg_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_dir_cuadrantevg_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_dir_cuadrantevg_id') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('prm_estrato_id', '5.4 Estrato socioeconómico', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_estrato_id', $todoxxxx["estratox"], null, ['class' => $errors->first('prm_estrato_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_estrato_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_estrato_id') }}
+          </div>
+      @endif
+  </div>
+</div>
+<div class="row">
+  <div class="col-md">
+      {{ Form::label('dir_complemento', '5.5 Complemento', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::text('dir_complemento', null, ['class' => $errors->first('dir_complemento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Complemento', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      @if($errors->has('dir_complemento'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('dir_complemento') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('sis_localidad_id', '5.6 Localidad', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('sis_localidad_id',$todoxxxx["localida"], null, ['class' => $errors->first('sis_localidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('sis_localidad_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('sis_localidad_id') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('sis_upz_id', '5.7 Nº UPZ - 5.8 Nombre de UPZ', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('sis_upz_id', $todoxxxx["upzxxxxx"], null, ['class' => $errors->first('sis_upz_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('sis_upz_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('sis_upz_id') }}
+          </div>
+      @endif
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+      {{ Form::label('sis_upzbarri_id', '5.9 Barrio', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('sis_upzbarri_id', $todoxxxx["barrioxx"] , null, ['class' => $errors->first('sis_upzbarri_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('sis_upzbarri_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('sis_upzbarri_id') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md-3">
+      {{ Form::label('telefono_uno', '5.10 Teléfono fijo', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::number('telefono_uno', null, ['class' => $errors->first('telefono_uno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'min' => '0', 'maxlength' => '10']) }}
+      @if($errors->has('telefono_uno'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('telefono_uno') }}
+          </div>
+      @endif
+  </div>
+</div>
+<div class="row">
+  <div class="col-md">
+      {{ Form::label('telefono_dos', '5.11 Celular 1', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::number('telefono_dos', null, ['class' => $errors->first('telefono_dos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Celular 1', 'min' => '0', 'maxlength' => '10']) }}
+      @if($errors->has('telefono_dos'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('telefono_dos') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('telefono_tres', '5.12 Celular 2', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::number('telefono_tres', null, ['class' => $errors->first('telefono_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Celular 2', 'min' => '0', 'maxlength' => '10']) }}
+      @if($errors->has('telefono_tres'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('telefono_tres') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('email', '5.13 E-mail o Facebook', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::email('email', null, ['class' => $errors->first('email') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Email o Facecook', 'maxlength' => '120']) }}
+      @if($errors->has('email'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('email') }}
+          </div>
+      @endif
+  </div>
+</div>
+<div class="row">
+  <div class="col-md">
+      {{ Form::label('ambientes', '5.14 Condiciones del ambiente y riesgo cerca de la vivienda (para CHC lugar de focalización)', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('ambientes[]', $todoxxxx["condambi"] , null, ['class' => $errors->first('ambientes') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'ambientes', 'multiple']) }}
+      @if($errors->has('ambientes'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('ambientes') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('prm_piso_id', '5.15 Material predominante de los pisos', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_piso_id', $todoxxxx["pisoxxxx"] , null, ['class' => $errors->first('prm_piso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_piso_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_piso_id') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('prm_muro_id', '5.16 Material de muros de cerramiento exterior', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_muro_id', $todoxxxx["murosxxx"] , null, ['class' => $errors->first('prm_muro_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_muro_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_muro_id') }}
+          </div>
+      @endif
+  </div>
+</div>
+<div class="form-row">
+  <label class="col-form-label-sm">5.17 Condiciones ambientales y de salubridad de la vivienda</label>
+  <div class="col-md-12">
+      <table class="table-sm table-hover my-2">
+     <thead class="text-center">
+  <th>Ítem</th>
+  <th>Estado</th>
+</thead>
+<tbody>
+  <tr>
+    <th>Higiene y Aseo</th>
+    <th>
+      {{ Form::select('prm_higiene_id', $todoxxxx["estadosx"] , null, ['class' => $errors->first('prm_higiene_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_higiene_id'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('prm_higiene_id') }}
+        </div>
+      @endif
+    </th>
+  </tr>
+  <tr>
+    <th>Ventilación</th>
+    <th>
+      {{ Form::select('prm_ventilacion_id', $todoxxxx["estadosx"], null, ['class' => $errors->first('prm_ventilacion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_ventilacion_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('prm_ventilacion_id') }}
+      </div>
+      @endif
+    </th>
+  </tr>
+  <tr>
+    <th>Iluminación</th>
+    <th>
+      {{ Form::select('prm_iluminacion_id', $todoxxxx["estadosx"], null, ['class' => $errors->first('prm_iluminacion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_iluminacion_id'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('prm_iluminacion_id') }}
+        </div>
+      @endif
+    </th>
+  </tr>
+  <tr>
+    <th>Orden</th>
+    <th>
+      {{ Form::select('prm_orden_id', $todoxxxx["estadosx"], null, ['class' => $errors->first('prm_orden_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_orden_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('prm_orden_id') }}
+      </div>
+      @endif
+    </th>
+  </tr>
+</tbody>
   </div>
 
+</table>
+
+<div class="row">
+  
+<div class="col-md">
+  <label class="col-form-label-sm">5.19 Espacios de los que disponen en este hogar:</label>
+  <div class="col-md">
+      <table class="table-sm table-hover my-2">
+     <thead class="text-center">
+  <th>Ítem</th>
+  <th>Cantidad</th>
+</thead>
+<tbody>
+  <tr>
+    <th>BAÑO</th>
+    <th>
+      {{ Form::number('banocant', null, ['class' => $errors->first('banocant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('banocant'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('banocant') }}
+        </div>
+      @endif
+    </th>
+  </tr>
+  <tr>
+    <th>COMEDOR</th>
+    <th>
+      {{ Form::number('comedorcant', null, ['class' => $errors->first('comedorcant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('comedorcant'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('comedorcant') }}
+      </div>
+      @endif
+    </th>
+  </tr>
+  <tr>
+    <th>SALA</th>
+    <th>
+      {{ Form::number('salacant', null, ['class' => $errors->first('salacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('salacant'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('salacant') }}
+        </div>
+      @endif
+    </th>
+  </tr>
+  <tr>
+    <th>SALA COMEDOR</th>
+    <th>
+      {{ Form::number('salacomcant', null, ['class' => $errors->first('salacomcant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('salacomcant'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('salacomcant') }}
+      </div>
+      @endif
+    </th>
+  </tr>
+  <tr>
+      <th>COCINA</th>
+      <th>
+        {{ Form::number('cocinacant', null, ['class' => $errors->first('cocinacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('cocinacant'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('cocinacant') }}
+        </div>
+        @endif
+      </th>
+    </tr>
+    <tr>
+      <th>HABITACIONES</th>
+      <th>
+        {{ Form::number('habitacant', null, ['class' => $errors->first('habitacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('habitacant'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('habitacant') }}
+        </div>
+        @endif
+      </th>
+    </tr>
+    <tr>
+      <th>PATIO/ZONA DE ROPAS</th>
+      <th>
+        {{ Form::number('patiocant', null, ['class' => $errors->first('patiocant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('patiocant'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('patiocant') }}
+        </div>
+        @endif
+      </th>
+    </tr>
+</tbody>
+  </div>
+
+  </table>
+
+  <div class="col-md">
+  <label class="col-form-label-sm">5.20 ¿La familia comparte con otro hogar o familia, alguno de los siguientes espacios? </label>
+  <div class="col-md">
+      <table class="table-sm table-hover my-2">
+     <thead class="text-center">
+  <th>Ítem</th>
+  <th>Comparte</th>
+</thead>
+<tbody>
+  <tr>
+    <th>BAÑO</th>
+    <th>
+      {{ Form::select('prm_bano_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_bano_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_bano_id'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('prm_bano_id') }}
+        </div>
+      @endif
+    </th>
+  </tr>
+  <tr>
+    <th>COMEDOR</th>
+    <th>
+      {{ Form::select('prm_comedor_id',$todoxxxx["condicio"], null, ['class' => $errors->first('prm_comedor_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_comedor_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('prm_comedor_id') }}
+      </div>
+      @endif
+    </th>
+  </tr>
+  <tr>
+    <th>SALA</th>
+    <th>
+      {{ Form::select('prm_sala_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_sala_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_sala_id'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('prm_sala_id') }}
+        </div>
+      @endif
+    </th>
+  </tr>
+  <tr>
+      <th>COCINA</th>
+      <th>
+        {{ Form::select('prm_cocina_id',$todoxxxx["condicio"], null, ['class' => $errors->first('prm_cocina_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('prm_cocina_id'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('prm_cocina_id') }}
+        </div>
+        @endif
+      </th>
+    </tr>
+    <tr>
+      <th>HABITACIONES</th>
+      <th>
+        {{ Form::select('prm_habita_id',$todoxxxx["condicio"], null, ['class' => $errors->first('prm_habita_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('prm_habita_id'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('prm_habita_id') }}
+        </div>
+        @endif
+      </th>
+    </tr>
+    <tr>
+      <th>PATIO</th>
+      <th>
+        {{ Form::select('prm_patio_id',$todoxxxx["condicio"], null, ['class' => $errors->first('prm_patio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('prm_patio_id'))
+        <div class="invalid-feedback d-block">
+          {{ $errors->first('prm_patio_id') }}
+        </div>
+        @endif
+      </th>
+    </tr>
+</tbody>
+  </div>
+</div>
+</table>
+</div>
+
+<div class="row">
+ <div class="col-md">
+      {{ Form::label('numerocamas', '5.21 Número de camas', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::number('numerocamas', null, ['class' => $errors->first('numerocamas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('numerocamas'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('numerocamas') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('prm_hacinam_id', 'Hacinamiento', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_hacinam_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_hacinam_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      @if($errors->has('prm_hacinam_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('prm_hacinam_id') }}
+          </div>
+      @endif
+  </div>
+  <div class="col-md">
+      {{ Form::label('prm_comparte_id', '5.23 ¿Quiénes comparten cama?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_comparte_id[]', $todoxxxx["familiax"] , null, ['class' => $errors->first('prm_comparte_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_comparte_id', 'multiple']) }}
+      @if($errors->has('prm_comparte_id'))
+          <div class="invalid-feedback d-block">
+              {{ $errors->first('camascomp') }}
+          </div>
+      @endif
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    {{ Form::label('observaciones', '5.24 Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'observaciones de la visita social en domicilio', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    @if($errors->has('observaciones'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('observaciones') }}
+      </div>
+    @endif
+  </div>
 </div>

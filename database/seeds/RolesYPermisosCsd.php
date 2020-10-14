@@ -32,11 +32,23 @@
         //Crear areas para CSD Dinámica familiar
         $this->getPermisos(['permisox' => 'csddinfamiliar', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Dinámica Familiar CSD', 'pestania' => 1]);
 
+        //Crear areas para Csd Dinámica Familiar padre
+        $this->getPermisos(['permisox' => 'csddfpad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Dinámica Familiar Padre CSD', 'pestania' => 1]);
+
+         //Crear areas para Csd Dinámica Familiar madre
+        $this->getPermisos(['permisox' => 'csddfmad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Dinámica Familiar Madre CSD', 'pestania' => 1]);
+   
+
         //Crear areas para CSD Residencia
         $this->getPermisos(['permisox' => 'csdresidencia', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Residencia CSD', 'pestania' => 1]);
 
         //Crear areas para CSD Generación de Ingresos
         $this->getPermisos(['permisox' => 'csdgeningresos', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Generación de Ingresos CSD', 'pestania' => 1]);
+        
+        //Crear areas para CSD Generación de Ingresos
+        $this->getPermisos(['permisox' => 'csdgenaporta', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Aporta Generación de Ingresos CSD', 'pestania' => 1]);
 
         //Crear areas para CSD Redes de Apoyo
-        $this->getPermisos(['permisox' => 'csdredesapoyo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo CSD', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'csdredesapoyo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo Antecdente', 'pestania' => 1]);
+
+        $this->getPermisos(['permisox' => 'csdredactual', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes de Apoyo Actual CSD', 'pestania' => 1]);
