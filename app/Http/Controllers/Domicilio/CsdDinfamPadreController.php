@@ -163,7 +163,7 @@ class CsdDinfamPadreController extends Controller
         $dataxxxx = $request->all();
         $dataxxxx['csd_id'] = $padrexxx->id;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Sustancia creada con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Relacion progenitor creada con exito', $padrexxx);
     }
 
 
@@ -197,7 +197,7 @@ class CsdDinfamPadreController extends Controller
      */
     public function update(Request $request,  Csd $padrexxx, CsdDinfamPadre $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Sustancia actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Relacion progenitor actualizada con exito', $padrexxx);
     }
 
     public function inactivate(Csd $padrexxx,CsdDinfamPadre $modeloxx)

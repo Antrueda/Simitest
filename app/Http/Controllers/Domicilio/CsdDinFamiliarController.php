@@ -32,9 +32,11 @@ class CsdDinFamiliarController extends Controller
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
-        /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
-        // 'urlxxxxx' => 'api/fi/fisustanciaconsumida',
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
@@ -70,7 +72,6 @@ class CsdDinFamiliarController extends Controller
             return $this->getPadres($request);
         }
     }
-
     public function getListadom(Request $request, Csd $padrexxx)
     {
         if ($request->ajax()) {
@@ -91,8 +92,10 @@ class CsdDinFamiliarController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
+
         $this->opciones['estadoxx'] = 'ACTIVO';
 
         // indica si se esta actualizando o viendo
@@ -105,7 +108,7 @@ class CsdDinFamiliarController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
-
+        
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR RELACION',
@@ -113,7 +116,7 @@ class CsdDinFamiliarController extends Controller
                 'dataxxxx' => [],
                 'vercrear' => $vercrear,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listapxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route('csddinfamiliar.listapxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
                         ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -153,7 +156,7 @@ class CsdDinFamiliarController extends Controller
                 'dataxxxx' => [],
                 'vercrear' => $vercrear,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listamxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route('csddinfamiliar.listamxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
                         ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],

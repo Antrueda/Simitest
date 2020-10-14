@@ -34,10 +34,7 @@ Route::group(['prefix' => '{padrexxx}/geningresos'], function () use ($routexxx,
 		'middleware' => ['permission:'.$routexxx.'-borrar']
 	])->name('CSD.geningresos.aportante.borrar');
 
-	Route::get('listaxxx', [
-		'uses' => $controll.'Controller@getListado',
-		'middleware' => ['permission:'.$routexxx.'-leer']
-	])->name($routexxx.'.listaxxx');
+
 
 
 });

@@ -74,6 +74,7 @@
             f_municipos($(this).val(), 'municipio_cond_id', '');
         });
         var deptcond = "{{old('departamento_cond_id')}}";
+
         if (deptcond != '') {
             f_municipos('{{ old("departamento_cond_id") }}',
                 'municipio_cond_id',
@@ -83,6 +84,7 @@
             f_municipos($(this).val(), 'municipio_cert_id', '');
         });
         var deptcert = "{{old('departamento_cert_id')}}";
+        
         if (deptcond != '') {
             f_municipos('{{ old("departamento_cert_id") }}',
             'municipio_cert_id',

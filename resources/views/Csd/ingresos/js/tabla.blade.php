@@ -1,7 +1,7 @@
 <script>
     var table ='';
  $(document).ready(function() {
-     @foreach ($todoxxxx['tablasxx'] as $tablasxx)
+   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
      {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
          "serverSide": true,
          "lengthMenu":				[[5, 10, 20, 25, 50, -1], [5, 10, 20, 25, 50, "Todos"]],

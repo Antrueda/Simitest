@@ -37,5 +37,10 @@ $controll='Domicilio\CsdGeneracionAportante';
 			'uses' => $controll . 'Controller@destroy',
 			'middleware' => ['permission:' . $routexxx . '-borrar']
 		])->name($routexxx . '.borrar');
+
+		Route::get('listaxxx', [
+			'uses' => $controll.'Controller@getListado',
+			'middleware' => ['permission:'.$routexxx.'-leer']
+		])->name($routexxx.'.listaxxx');
 	});
 

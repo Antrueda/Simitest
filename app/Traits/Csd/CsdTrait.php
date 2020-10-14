@@ -213,32 +213,7 @@ trait CsdTrait
             ->whereNotIn('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $request->padrexxx)->get());
         return $this->getDtAcciones($dataxxxx, $request);
     }
-    public function getDiagnostico($request)
-    {
-        $dataxxxx =  FiSalud::select(
-            'fi_enfermedades_familias.id',
-            'fi_enfermedades_familias.created_at',
-            'fi_saluds.sis_nnaj_id',
-            'fi_enfermedades_familias.sis_esta_id',
-            'fi_datos_basicos.s_primer_nombre',
-            'fi_datos_basicos.s_segundo_nombre',
-            'fi_datos_basicos.s_primer_apellido',
-            'fi_datos_basicos.s_segundo_apellido',
-            'fi_enfermedades_familias.s_tipo_enfermedad',
-            'medicina.nombre as medicina',
-            'sis_estas.s_estado',
-            'fi_enfermedades_familias.s_medicamento',
-            'tratamiento.nombre as tratamiento'
-        )
-            ->join('fi_enfermedades_familias', 'fi_saluds.id', '=', 'fi_enfermedades_familias.fi_salud_id')
-            ->join('parametros as medicina', 'fi_enfermedades_familias.i_prm_recibe_medicina_id', '=', 'medicina.id')
-            ->join('parametros as tratamiento', 'fi_enfermedades_familias.i_prm_rec_tratamiento_id', '=', 'tratamiento.id')
-            ->join('fi_compfamis', 'fi_enfermedades_familias.fi_compfami_id', '=', 'fi_compfamis.id')
-            ->join('fi_datos_basicos', 'fi_compfamis.sis_nnaj_id', '=', 'fi_datos_basicos.sis_nnaj_id')
-            ->join('sis_estas', 'fi_enfermedades_familias.sis_esta_id', '=', 'sis_estas.id')
-            ->where('fi_saluds.sis_nnaj_id', $request->padrexxx);
-        return $this->getDtAcciones($dataxxxx, $request);
-    }
+
     public function getAntecedentesTrait($request)
     {
         $dataxxxx =  CsdRedsocPasado::select(
@@ -364,12 +339,14 @@ trait CsdTrait
             'csd_dinfam_padres.created_at',
             'separado.nombre as separado',
             'csd_dinfam_padres.sis_esta_id',
-            'sis_estas.s_estado'
+            'sis_estas.s_estado',
+            
         ])
             ->join('parametros as convive', 'csd_dinfam_padres.prm_convive_id', '=', 'convive.id')
             ->leftJoin('parametros as separado', 'csd_dinfam_padres.prm_separa_id', '=', 'separado.id')
             ->join('sis_estas', 'csd_dinfam_padres.sis_esta_id', '=', 'sis_estas.id')
             ->where('csd_dinfam_padres.csd_id', $request->padrexxx);
+            
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -387,6 +364,7 @@ trait CsdTrait
             ->join('parametros as aporta', 'csd_gening_aportas.prm_aporta_id', '=', 'aporta.id')
             ->join('sis_estas', 'csd_gening_aportas.sis_esta_id', '=', 'sis_estas.id')
             ->where('csd_gening_aportas.csd_id', $request->padrexxx);
+            
         return $this->getDtAcciones($dataxxxx, $request);
     }
 

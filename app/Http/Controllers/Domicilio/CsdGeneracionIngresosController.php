@@ -27,9 +27,11 @@ class CsdGeneracionIngresosController extends Controller
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
-        /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
-        // 'urlxxxxx' => 'api/fi/fisustanciaconsumida',
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
@@ -49,19 +51,6 @@ class CsdGeneracionIngresosController extends Controller
 
 
     }
-    public function getListado(Request $request, Csd $padrexxx)
-    {
-        if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->id;
-            $request->datobasi = $padrexxx->id;
-            $request->routexxx = ['csdgenaporta'];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
-            return $this->getAportantes($request);
-        }
-    }
-
 
     private function view($dataxxxx)
     {
@@ -76,16 +65,15 @@ class CsdGeneracionIngresosController extends Controller
         ];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['tablasxx'] = [
-            [
+             [
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'titunuev' => 'CREAR APORTANTE',
                 'titulist' => 'LISTA DE APORTANTES',
                 'dataxxxx' => [],
                 'vercrear' => true,
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route('csdgeningresos.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route( 'csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
-                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => '10.1 ¿Quién Aporta?', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => '10.2 Total Ingresos Mensuales', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
@@ -97,7 +85,6 @@ class CsdGeneracionIngresosController extends Controller
                     ],
                 ],
                 'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'csd_gening_aportas.id'],
                     ['data' => 'aporta', 'name' => 'aporta.nombre as aporta'],
                     ['data' => 'mensual', 'name' => 'csd_gening_aportas.mensual'],
@@ -106,12 +93,11 @@ class CsdGeneracionIngresosController extends Controller
                     ['data' => 'aporte', 'name' => 'csd_gening_aportas.aporte'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
-                'tablaxxx' => 'datatable',
+                'tablaxxx' => 'datatableaporta',
                 'permisox' => 'csdgenaporta',
                 'routxxxx' => 'csdgenaporta',
                 'parametr' => [$dataxxxx['padrexxx']->id],
             ],
-
         ];
 
         // indica si se esta actualizando o viendo

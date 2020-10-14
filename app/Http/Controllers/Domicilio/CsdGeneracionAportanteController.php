@@ -52,7 +52,18 @@ class CsdGeneracionAportanteController extends Controller
             'formhref' => 2, 'tituloxx' => "VOLVER A GENERACION DE INGRESOS", 'clasexxx' => 'btn btn-sm btn-primary'
         ];
     }
-
+    public function getListado(Request $request, Csd $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->id;
+            $request->datobasi = $padrexxx->id;
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.antecedentes';
+            $request->estadoxx = $this->opciones['rutacarp'].'Acomponentes.Botones.estadosx';
+            return $this->getAportantes($request);
+        }
+    }
     private function view($dataxxxx)
     {
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
@@ -92,7 +103,7 @@ class CsdGeneracionAportanteController extends Controller
                 'dataxxxx' => [],
                 'vercrear' => true,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route( 'csdgeningresos.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
                         ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -103,7 +114,6 @@ class CsdGeneracionAportanteController extends Controller
                         ['td' => '10.4 Jornada en que realiza la actividad', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => '10.5 Días', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-
                     ],
                 ],
                 'columnsx' => [
