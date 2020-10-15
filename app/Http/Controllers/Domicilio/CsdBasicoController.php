@@ -85,6 +85,7 @@ class CsdBasicoController extends Controller
         $this->opciones['estacivi'] = Tema::combo(19, true, false);
         $this->opciones['grupetni'] = Tema::combo(20, true, false);
         $this->opciones['grupindi'] = Tema::combo(61, true, false);
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
 
         $this->opciones['tipoblac'] = Tema::combo(119, true, false);
         $this->opciones['paisxxxx'] = SisPai::combo(true, false);

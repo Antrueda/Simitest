@@ -26,6 +26,8 @@
       $('#prm_cuidador_id').select2({
         language: "es"
       });
+
+      
   });
     function doc(valor) {
       if(valor == 227){
@@ -42,12 +44,14 @@
         document.getElementById("establecen_div").hidden=false;
         document.getElementById("prm_actuan_id").hidden=false;
         document.getElementById("porque").hidden=false;
+        document.getElementById("observacion").hidden=false;
       } else {
         document.getElementById("prm_conoce_id").hidden=true;
         document.getElementById("normas_div").hidden=true;
         document.getElementById("establecen_div").hidden=true;
         document.getElementById("prm_actuan_id").hidden=true;
         document.getElementById("porque").hidden=true;
+        document.getElementById("observacion").hidden=true;
       }
     }
     
@@ -75,6 +79,53 @@
       doc3(document.getElementById('prm_hogar_id').value);
   
     }
+
+    function soloLetras(e) {
+        key = e.keyCode || e.which;
+        tecla = String.fromCharCode(key).toString();
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ"; //Se define todo el abecedario que se quiere que se muestre.
+        especiales = [8, 37, 39, 46, 6]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
+
+        tecla_especial = false
+        for (var i in especiales) {
+            if (key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+        }
+        if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+            return false;
+        }
+    }
+
+    init_contadorTa("descripcion_1", "contadordescripcion1", 4000);
+    init_contadorTa("descripcion_2", "contadordescripcion2", 4000);
+    init_contadorTa("observacion", "contadorobservacion", 4000);
+    init_contadorTa("porque", "contadorporque", 4000);
+    init_contadorTa("descripcion", "contadordescripcion", 4000);
+    init_contadorTa("relevantes", "contadorrelevantes", 4000);
+    init_contadorTa("descripcion_0", "contadordescripcion_0", 4000);
+
+function init_contadorTa(idtextarea, idcontador, max) {
+    $("#" + idtextarea).keyup(function() {
+        updateContadorTa(idtextarea, idcontador, max);
+    });
+    $("#" + idtextarea).change(function() {
+        updateContadorTa(idtextarea, idcontador, max);
+    });
+}
+
+function updateContadorTa(idtextarea, idcontador, max) {
+    var contador = $("#" + idcontador);
+    var ta = $("#" + idtextarea);
+    contador.html("0/" + max);
+    contador.html(ta.val().length + "/" + max);
+    if (parseInt(ta.val().length) > max) {
+        ta.val(ta.val().substring(0, max - 1));
+        contador.html(max + "/" + max);
+    }
+
+}
   
     window.onload = carga;
   

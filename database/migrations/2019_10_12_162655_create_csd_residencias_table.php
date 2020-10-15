@@ -42,7 +42,7 @@ class CreateCsdResidenciasTable extends Migration
             $table->string('dir_complemento', 300)->nullable();
             $table->bigInteger('sis_upzbarri_id')->unsigned()->nullable();
             $table->string('telefono_uno', 10)->nullable();
-            $table->string('telefono_dos', 10);
+            $table->string('telefono_dos', 10)->nullable();
             $table->string('telefono_tres', 10)->nullable();
             $table->string('email')->nullable();
             $table->bigInteger('prm_piso_id')->unsigned();

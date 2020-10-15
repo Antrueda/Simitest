@@ -55,22 +55,17 @@ class CsdResidenciaController extends Controller
         $this->opciones['murosxxx'] = Tema::combo(91, true, false);
         $this->opciones['estadosx'] = Tema::combo(93, true, false);
         $this->opciones['esparcha'] = Tema::combo(291, true, false);
+        $this->opciones['servicio'] = Tema::combo(94, true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
 
-        $this->opciones['botoform'] = [
-            [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => ['fidatbas', []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJS', 'clasexxx' => 'btn btn-sm btn-primary'
-            ],
-        ];
-    }
+       }
     private function view($dataxxxx)
     {
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         /** informacion que se va a mostrar en la vista */
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.'.$dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
@@ -106,6 +101,7 @@ class CsdResidenciaController extends Controller
                 $this->opciones['alfabeto'] = [1 => 'NO APLICA'];
                 $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
             }
+            
 
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
                         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

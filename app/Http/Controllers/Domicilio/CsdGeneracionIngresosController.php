@@ -153,7 +153,9 @@ class CsdGeneracionIngresosController extends Controller
     public function store(Request $request, Csd $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
+        $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Generacion de ingresos guardado con exito', $padrexxx);
     }
 

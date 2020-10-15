@@ -36,7 +36,7 @@ class CsdDinfamiliarEditarRequest extends FormRequest
             'prm_norma_id' => 'required|exists:parametros,id',
             'prm_conoce_id' => 'required_if:prm_norma_id,227',
             'establecen' => 'required_if:prm_norma_id,227|array',
-            'observacion' => 'required|string|max:4000',
+            'observacion' => 'nullable|string|max:4000',
             'prm_actuan_id' => 'required_if:prm_norma_id,227',
             'porque' => 'nullable|string|max:4000',
             'prm_solucion_id' => 'required|exists:parametros,id',

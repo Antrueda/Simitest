@@ -69,6 +69,7 @@ class CsdViolenciaController extends Controller
             $this->opciones['deparexp'] = SisDepartamento::combo(2, false);
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+            
         }
         $this->setModelo((isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx'] : false);
 

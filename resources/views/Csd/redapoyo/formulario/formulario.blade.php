@@ -1,7 +1,7 @@
 <div class="form-row align-items-end">
   <div class="form-group col-md-6">
     {{ Form::label('nombre', 'Entidad', ['class' => 'control-label']) }}
-    {{ Form::select('nombre', $todoxxxx["endidadx"], null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::text('nombre',  null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-6">
     {{ Form::label('servicios', 'Servicios o beneficios recibidos', ['class' => 'control-label']) }}

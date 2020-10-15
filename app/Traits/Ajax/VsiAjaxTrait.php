@@ -35,6 +35,12 @@ trait VsiAjaxTrait
             'labores' => [853, 114],
             'dificultadex' => [689, 168],
             'violbasa'=> [1269, 349],
+            'especiales'=> [168, 89],
+            'ambientes'=> [168, 42],
+            'prm_comparte_id'=> [235, 66],
+            'prepara'=> [235, 66],
+            
+
         ];
 
 

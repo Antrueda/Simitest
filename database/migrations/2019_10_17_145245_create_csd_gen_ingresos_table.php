@@ -20,7 +20,7 @@ class CreateCsdGenIngresosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
-            $table->string('observacion', 4000);
+            $table->string('observacion', 4000)->nullable();
             $table->bigInteger('prm_actividad_id')->unsigned();
             $table->string('trabaja')->nullable();
             $table->bigInteger('prm_informal_id')->unsigned()->nullable();

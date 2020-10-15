@@ -730,7 +730,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 63, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'MOTIVO VINCULACION IDIPRON']);
         $tema->parametros()->sync([
-            566 => $camposmagicos,
+            
             761 => $camposmagicos,
             762 => $camposmagicos,
             763 => $camposmagicos,
@@ -978,6 +978,7 @@ class TemasTableSeeder extends Seeder
             334 => $camposmagicos,
             366 => $camposmagicos,
             381 => $camposmagicos,
+            168 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 90, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'MATERIAL PISOS']);
         $tema->parametros()->sync([
@@ -1096,9 +1097,12 @@ class TemasTableSeeder extends Seeder
             581 => $camposmagicos,
             583 => $camposmagicos,
             582 => $camposmagicos,
-            973 => $camposmagicos,
+            577 => $camposmagicos,
             974 => $camposmagicos,
-            975 => $camposmagicos,
+            571 => $camposmagicos,
+            655 => $camposmagicos,
+            578 => $camposmagicos,
+            580 => $camposmagicos,
             976 => $camposmagicos,
             978 => $camposmagicos,
             563 => $camposmagicos,

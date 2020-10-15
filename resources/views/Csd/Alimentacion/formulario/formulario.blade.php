@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('cant_personas', '9.1 ¿Cuántos miembros de la familia ingieren alimentos que son preparados en esta vivienda?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('cant_personas', null, ['class' => $errors->first('cant_personas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nº Personas', 'min' => '0', 'max' => '99']) }}
+    {{ Form::number('cant_personas', null, ['class' => $errors->first('cant_personas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nº Personas', 'min' => '0', 'max' => '50']) }}
     @if($errors->has('cant_personas'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('cant_personas') }}

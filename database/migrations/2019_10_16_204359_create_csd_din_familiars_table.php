@@ -41,7 +41,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->binary('afronta');
             $table->bigInteger('prm_norma_id')->unsigned();
             $table->bigInteger('prm_conoce_id')->unsigned()->nullable();
-            $table->binary('observacion');
+            $table->binary('observacion')->nullable();;
             $table->bigInteger('prm_actuan_id')->unsigned()->nullable();
             $table->string('porque', 4000)->nullable();
             $table->bigInteger('prm_solucion_id')->unsigned();

@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_tipo_id', '5.1 Tipo de residencia', ['class' => 'control-label col-form-label-sm']) }}
@@ -155,7 +159,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('sis_localidad_id', '5.6 Localidad', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('sis_localidad_id',$todoxxxx["localida"], null, ['class' => $errors->first('sis_localidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('sis_localidad_id',$todoxxxx["localida"], null, ['class' => $errors->first('sis_localidad_id') ? 'form-control sispaisx form-control-sm is-invalid' : 'form-control sispaisx form-control-sm']) }}
       @if($errors->has('sis_localidad_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('sis_localidad_id') }}
@@ -164,7 +168,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('sis_upz_id', '5.7 Nº UPZ - 5.8 Nombre de UPZ', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('sis_upz_id', $todoxxxx["upzxxxxx"], null, ['class' => $errors->first('sis_upz_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('sis_upz_id', $todoxxxx["upzxxxxx"], null, ['class' => $errors->first('sis_upz_id') ? 'form-control departam form-control-sm is-invalid' : 'form-control departam form-control-sm']) }}
       @if($errors->has('sis_upz_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('sis_upz_id') }}
@@ -250,7 +254,8 @@
       @endif
   </div>
 </div>
-<div class="form-row">
+
+<div class="form">
   <label class="col-form-label-sm">5.17 Condiciones ambientales y de salubridad de la vivienda</label>
   <div class="col-md-12">
       <table class="table-sm table-hover my-2">
@@ -322,7 +327,7 @@
   <tr>
     <th>BAÑO</th>
     <th>
-      {{ Form::number('banocant', null, ['class' => $errors->first('banocant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::number('banocant', null, ['class' => $errors->first('banocant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
       @if($errors->has('banocant'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('banocant') }}
@@ -333,7 +338,7 @@
   <tr>
     <th>COMEDOR</th>
     <th>
-      {{ Form::number('comedorcant', null, ['class' => $errors->first('comedorcant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::number('comedorcant', null, ['class' => $errors->first('comedorcant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
       @if($errors->has('comedorcant'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('comedorcant') }}
@@ -344,7 +349,7 @@
   <tr>
     <th>SALA</th>
     <th>
-      {{ Form::number('salacant', null, ['class' => $errors->first('salacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::number('salacant', null, ['class' => $errors->first('salacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
       @if($errors->has('salacant'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('salacant') }}
@@ -355,7 +360,7 @@
   <tr>
     <th>SALA COMEDOR</th>
     <th>
-      {{ Form::number('salacomcant', null, ['class' => $errors->first('salacomcant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::number('salacomcant', null, ['class' => $errors->first('salacomcant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
       @if($errors->has('salacomcant'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('salacomcant') }}
@@ -366,7 +371,7 @@
   <tr>
       <th>COCINA</th>
       <th>
-        {{ Form::number('cocinacant', null, ['class' => $errors->first('cocinacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::number('cocinacant', null, ['class' => $errors->first('cocinacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min'=>'0','max'=>'10']) }}
         @if($errors->has('cocinacant'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('cocinacant') }}
@@ -377,7 +382,7 @@
     <tr>
       <th>HABITACIONES</th>
       <th>
-        {{ Form::number('habitacant', null, ['class' => $errors->first('habitacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::number('habitacant', null, ['class' => $errors->first('habitacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min'=>'0','max'=>'10']) }}
         @if($errors->has('habitacant'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('habitacant') }}
@@ -388,7 +393,7 @@
     <tr>
       <th>PATIO/ZONA DE ROPAS</th>
       <th>
-        {{ Form::number('patiocant', null, ['class' => $errors->first('patiocant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::number('patiocant', null, ['class' => $errors->first('patiocant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
         @if($errors->has('patiocant'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('patiocant') }}
@@ -485,7 +490,7 @@
 <div class="row">
  <div class="col-md">
       {{ Form::label('numerocamas', '5.21 Número de camas', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('numerocamas', null, ['class' => $errors->first('numerocamas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::number('numerocamas', null, ['class' => $errors->first('numerocamas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
       @if($errors->has('numerocamas'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('numerocamas') }}
@@ -516,6 +521,7 @@
   <div class="col-md-12">
     {{ Form::label('observaciones', '5.24 Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'observaciones de la visita social en domicilio', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadorporqueingresar">0/4000</p>
     @if($errors->has('observaciones'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('observaciones') }}
@@ -523,3 +529,44 @@
     @endif
   </div>
 </div>
+
+<br>
+ <button type="button" name="add" id="add" class="btn btn-success btn-xs">Agregar</button>
+</div>
+<br />
+<form method="post" id="user_form">
+ <div class="table-responsive">
+  <table class="table table-striped table-bordered" id="user_data">
+   <tr>
+    <th>Servicio</th>
+    <th>Legal</th>
+    <th>Details</th>
+    <th>Remove</th>
+   </tr>
+  </table>
+ </div>
+ </form>
+
+<br />
+</div>
+<div id="user_dialog" title="Insertar Servicio">
+<div class="form-group">
+  {{ Form::label('prm_servicio_id', 'Servicio', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::select('prm_servicio_id', $todoxxxx["servicio"], null, ['class' => $errors->first('prm_servicio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'servicio']) }}
+ <span id="error_first_name" class="text-danger"></span>
+</div>
+<div class="form-group">
+  {{ Form::label('prm_legalxxx_id', '¿Es legal?', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::select('prm_legalxxx_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_legalxxx_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'legal']) }}
+ <span id="error_last_name" class="text-danger"></span>
+</div>
+<div class="form-group" align="center">
+ <input type="hidden" name="row_id" id="hidden_row_id" />
+ <button type="button" name="save" id="save" class="btn btn-info">Agregar</button>
+</div>
+</div>
+<div id="action_alert" title="Action">
+
+</div>
+ </body> 
+

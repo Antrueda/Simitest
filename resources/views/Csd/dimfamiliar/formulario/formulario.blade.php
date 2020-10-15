@@ -1,6 +1,36 @@
 <div class="row">
+    <div class="col-md">
+        {{ Form::label('prm_familiar_id', '6.3 Tipología familiar', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_familiar_id', $todoxxxx["familiax"], null, ['class' => $errors->first('prm_familiar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
+        @if($errors->has('prm_familiar_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_familiar_id') }}
+            </div>
+        @endif
+    </div>
+    <div class="col-md">
+        {{ Form::label('prm_hogar_id', '6.4 Tipología de Hogar', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_hogar_id', $todoxxxx["hogarxxx"], null, ['class' => $errors->first('prm_hogar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc3(this.value)']) }}
+        @if($errors->has('prm_hogar_id'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('prm_hogar_id') }}
+            </div>
+        @endif
+    </div>
+    <div class="col-md">
+        {{ Form::label('descripcion_0', '6.5 Descripción (Interpretación de la composición familiar, motivos de separaciones, fallecimientos, tipo de relaciones, impacto en el NNAJ)', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::textarea('descripcion_0', null, ['class' => $errors->first('descripcion_0') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción de la composición familiar', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadordescripcion_0">0/4000</p>
+        @if($errors->has('descripcion_0'))
+            <div class="invalid-feedback d-block">
+                {{ $errors->first('descripcion_0') }}
+            </div>
+        @endif
+    </div>
+  </div>
+<div class="row">
   <div class="col-md">
-      {{ Form::label('antecedentes', '6.1 Antecedentes de problemas sociales asociados con la familia actual y extensa?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('antecedentes', '6.6 Antecedentes de problemas sociales asociados con la familia actual y extensa?', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('antecedentes[]',$todoxxxx["antecede"], null, ['class' => $errors->first('antecedentes') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'antecedentes', 'multiple', 'autofocus']) }}
       @if($errors->has('antecedentes'))
           <div class="invalid-feedback d-block">
@@ -11,6 +41,7 @@
   <div class="col-md">
       {{ Form::label('descripcion', 'Descripcion:', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      <p id="contadordescripcion">0/4000</p>
       @if($errors->has('descripcion'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('descripcion') }}
@@ -18,8 +49,9 @@
       @endif
   </div>
   <div class="col-md">
-      {{ Form::label('relevantes', '6.2 Acontecimientos relevantes en la familia (fallecimientos, nacimientos, migraciones, eventos traumáticos, etc):', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('relevantes', '6.7 Acontecimientos relevantes en la familia (fallecimientos, nacimientos, migraciones, eventos traumáticos, etc):', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::textarea('relevantes', null, ['class' => $errors->first('relevantes') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Escriba los acontecimientos más relevantes', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      <p id="contadorrelevantes">0/4000</p>
       @if($errors->has('relevantes'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('relevantes') }}
@@ -27,35 +59,7 @@
       @endif
   </div>
 </div>
-<div class="row">
-  <div class="col-md">
-      {{ Form::label('prm_familiar_id', '6.5 Tipología familiar', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_familiar_id', $todoxxxx["familiax"], null, ['class' => $errors->first('prm_familiar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
-      @if($errors->has('prm_familiar_id'))
-          <div class="invalid-feedback d-block">
-              {{ $errors->first('prm_familiar_id') }}
-          </div>
-      @endif
-  </div>
-  <div class="col-md">
-      {{ Form::label('prm_hogar_id', '6.6 Tipología de Hogar', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_hogar_id', $todoxxxx["hogarxxx"], null, ['class' => $errors->first('prm_hogar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc3(this.value)']) }}
-      @if($errors->has('prm_hogar_id'))
-          <div class="invalid-feedback d-block">
-              {{ $errors->first('prm_hogar_id') }}
-          </div>
-      @endif
-  </div>
-  <div class="col-md">
-      {{ Form::label('descripcion_0', 'Descripción (Interpretación de la composición familiar, motivos de separaciones, fallecimientos, tipo de relaciones, impacto en el NNAJ)', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::textarea('descripcion_0', null, ['class' => $errors->first('descripcion_0') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción de la composición familiar', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-      @if($errors->has('descripcion_0'))
-          <div class="invalid-feedback d-block">
-              {{ $errors->first('descripcion_0') }}
-          </div>
-      @endif
-  </div>
-</div>
+
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_bogota_id', '6.8 ¿Usted y su familia siempre han vivido en Bogotá?', ['class' => 'control-label col-form-label-sm']) }}
@@ -79,7 +83,7 @@
       <div class="row">
           <div class="col-md-12">
               {{ Form::label('jefe1', '6.10 ¿Quén o quiénes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm']) }}
-              {{ Form::text('jefe1', null, ['class' => $errors->first('jefe1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+              {{ Form::text('jefe1', null, ['class' => $errors->first('jefe1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',  "onkeypress" => "return soloLetras(event);"]) }}
               @if($errors->has('jefe1'))
                   <div class="invalid-feedback d-block">
                       {{ $errors->first('jefe1') }}
@@ -97,7 +101,7 @@
       <div class="row mt-2">
           <div class="col-md-12">
               {{ Form::label('jefe2', '6.10 ¿Quén o quiénes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm d-none']) }}
-              {{ Form::text('jefe2', null, ['class' => $errors->first('jefe2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+              {{ Form::text('jefe2', null, ['class' => $errors->first('jefe2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',  "onkeypress" => "return soloLetras(event);"]) }}
               @if($errors->has('jefe2'))
                   <div class="invalid-feedback d-block">
                       {{ $errors->first('jefe2') }}
@@ -118,6 +122,7 @@
   <div class="col-md">
       {{ Form::label('descripcion_1', '6.11 Descripción de hechos relevantes en las etapas del desarrollo, potencialidades, talentos del NNAJ)', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::textarea('descripcion_1', null, ['class' => $errors->first('descripcion_1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Percepción de quién recibe la consulta sobre el NNAJ', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      <p id="contadordescripcion1">0/4000</p>
       @if($errors->has('descripcion_1'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('descripcion_1') }}
@@ -136,6 +141,7 @@
   <div class="col-md">
       {{ Form::label('descripcion_2', 'Descripción', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::textarea('descripcion_2', null, ['class' => $errors->first('descripcion_2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Describir en qué lugar realiza el cuidado y si tiene algún costo, entre otras', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      <p id="contadordescripcion2">0/4000</p>
       @if($errors->has('descripcion_2'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('descripcion_2') }}
@@ -208,7 +214,8 @@
 <div class="row">
   <div class="col-md">
       {{ Form::label('observacion', '6.19 Observaciones', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::textarea('observacion', null, ['class' => $errors->first('observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Observaciones', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      {{ Form::textarea('observacion', null, ['class' => $errors->first('observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Observaciones', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;', 'id' => 'observacion']) }}
+      <p id="contadorobservacion">0/4000</p>
       @if($errors->has('observacion'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('observacion') }}
@@ -227,6 +234,7 @@
   <div class="col-md">
       {{ Form::label('porque', '¿Por qué?:', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::textarea('porque', null, ['class' => $errors->first('porque') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      <p id="contadorporque">0/4000</p>
       @if($errors->has('porque'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('porque') }}
@@ -283,5 +291,6 @@
       @endif
   </div>
 </div>
+<br>
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 

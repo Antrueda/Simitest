@@ -44,13 +44,13 @@ class CsdDinFamiliarController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['antecede'] = Tema::combo(97, false, false);
-        $this->opciones['familiar'] = Tema::combo(66, false, false);
+        $this->opciones['familiar'] = Tema::combo(66, true, false);
         $this->opciones['familiax'] = Tema::combo(98, true, false);
         $this->opciones['hogarxxx'] = Tema::combo(99, true, false);
         $this->opciones['separacx'] = Tema::combo(176, true, false);
         $this->opciones['traslado'] = Tema::combo(100, true, false);
         $this->opciones['problema'] = Tema::combo(102, false, false);
-        $this->opciones['reglasxx'] = Tema::combo(103, true, false);
+        $this->opciones['reglasxx'] = Tema::combo(103, false, false);
         $this->opciones['actuandx'] = Tema::combo(104, true, false);
         $this->opciones['manerasx'] = Tema::combo(105, true, false);
         $this->opciones['acudexxx'] = Tema::combo(106, false, false);
@@ -237,8 +237,10 @@ class CsdDinFamiliarController extends Controller
     public function store(CsdDinfamiliarCrearRequest $request, Csd $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Consumo SPA creado con exito', $padrexxx);
+        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
+        $dataxxxx['prm_tipofuen_id'] = 2315;
+        return $this->grabar($dataxxxx, '', 'Dinamica familiar creada con exito', $padrexxx);
     }
 
     /**
@@ -281,6 +283,6 @@ class CsdDinFamiliarController extends Controller
      */
     public function update(CsdDinfamiliarEditarRequest $request, Csd $padrexxx, CsdDinFamiliar $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Consumo SPA actualizado con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Dinamica familiar actualizado con exito', $padrexxx);
     }
 }

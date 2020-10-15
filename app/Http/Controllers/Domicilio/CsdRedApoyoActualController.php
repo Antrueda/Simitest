@@ -22,7 +22,7 @@ class CsdRedApoyoActualController extends Controller
         $this->opciones['permisox'] = 'csdredactual';
         $this->opciones['routxxxx'] = 'csdredactual';
         $this->opciones['rutacarp'] = 'Csd.';
-        $this->opciones['carpetax'] = 'Redapoyo';
+        $this->opciones['carpetax'] = 'redapoyo';
         $this->opciones['slotxxxx'] = 'csdredactual';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "REDES DE APOYO ACTUALES";
@@ -32,7 +32,6 @@ class CsdRedApoyoActualController extends Controller
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
 
