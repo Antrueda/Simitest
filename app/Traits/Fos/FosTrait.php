@@ -3,6 +3,7 @@
 namespace App\Traits\Fos;
 
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\Sistema\SisDepeUsua;
 use App\Traits\DatatableTrait;
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +54,26 @@ trait FosTrait
                 'sis_estas.s_estado',
                 'fi_datos_basicos.user_crea_id',
             ]);
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
+    public function getFos($request)
+    {
+        $dataxxxx = FosDatosBasico::select(
+            'fos_datos_basicos.id',
+            'fos_datos_basicos.sis_nnaj_id',
+            'fos_datos_basicos.d_fecha_diligencia',
+            'sis_depens.nombre as s_upi',
+            'areas.nombre as s_area',
+            'fos_tses.nombre as s_tipo',
+            'fos_stses.nombre as s_sub',
+            'fos_datos_basicos.sis_esta_id'
+        )
+            ->join('sis_depens', 'fos_datos_basicos.sis_depen_id', '=', 'sis_depens.id')
+            ->join('areas', 'fos_datos_basicos.area_id', '=', 'areas.id')
+            ->join('fos_tses', 'fos_datos_basicos.fos_tse_id', '=', 'fos_tses.id')
+            ->join('fos_stses', 'fos_datos_basicos.fos_stse_id', '=', 'fos_stses.id')
+            ->where('fos_datos_basicos.sis_esta_id', 1)->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 }

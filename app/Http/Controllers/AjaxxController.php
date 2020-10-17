@@ -69,9 +69,9 @@ class AjaxxController extends Controller
         if ($fechaxxx['opcionxx'] == 2) {
             $edadxxxx = FiDatosBasico::where('sis_nnaj_id', $fechaxxx['padrexxx'])->first()->nnaj_nacimi->Edad;
         } else {
-            $fechaxxx = explode('-', $fechaxxx['fechaxxx']);
-            if(count($fechaxxx)>0){
-                $edadxxxx=Carbon::createFromDate($fechaxxx[0], $fechaxxx[1], $fechaxxx[2])->age;
+            $fechaxxe = explode('-', $fechaxxx['fechaxxx']);
+            if($fechaxxx['fechaxxx']!=NULL){
+                $edadxxxx=Carbon::createFromDate($fechaxxe[0], $fechaxxe[1], $fechaxxe[2])->age;
             }
         }
         return $edadxxxx;

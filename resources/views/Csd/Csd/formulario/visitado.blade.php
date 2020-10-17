@@ -20,6 +20,4 @@
         @endif
     </div>
 </div>
-@if($todoxxxx['vercrear'])
-@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
-@endif
+

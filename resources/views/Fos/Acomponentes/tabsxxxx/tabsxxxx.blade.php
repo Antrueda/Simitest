@@ -13,7 +13,7 @@
 
             @if($todoxxxx['pestpadr']==2)
             @canany(['fosfichaobservacion-leer', 'fosfichaobservacion-crear', 'fosfichaobservacion-editar', 'fosfichaobservacion-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fosfichaobservacion') ?' active' : '' }}
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fosxxxxx') ?' active' : '' }}
         text-sm" href="{{ route('fosfichaobservacion.lista',$todoxxxx['pestpara'][0]) }}">FOS NNAJ</a></li>
             @endcanany
             @if($todoxxxx['usuariox']->prm_estrateg_id != 2323)

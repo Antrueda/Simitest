@@ -4,6 +4,8 @@
         //Crear CSD
         $this->getPermisos(['permisox' => 'csdxxxxx', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'CSD', 'pestania' => 1]);
 
+// Nnajs vistitados
+$this->getPermisos(['permisox' => 'nnajvisi', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Nnajs visitados CSD', 'pestania' => 1]);
 
         //Crear CSD datos básicos
         $this->getPermisos(['permisox' => 'csdatbas', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Datos Básicos CSD', 'pestania' => 1]);
@@ -37,14 +39,14 @@
 
          //Crear areas para Csd Dinámica Familiar madre
         $this->getPermisos(['permisox' => 'csddfmad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Dinámica Familiar Madre CSD', 'pestania' => 1]);
-   
+
 
         //Crear areas para CSD Residencia
         $this->getPermisos(['permisox' => 'csdresidencia', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Residencia CSD', 'pestania' => 1]);
 
         //Crear areas para CSD Generación de Ingresos
         $this->getPermisos(['permisox' => 'csdgeningresos', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Generación de Ingresos CSD', 'pestania' => 1]);
-        
+
         //Crear areas para CSD Generación de Ingresos
         $this->getPermisos(['permisox' => 'csdgenaporta', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Aporta Generación de Ingresos CSD', 'pestania' => 1]);
 

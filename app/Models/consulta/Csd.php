@@ -2,6 +2,7 @@
 
 namespace App\Models\consulta;
 
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Sistema\SisNnaj;
@@ -121,6 +122,9 @@ class Csd extends Model
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = Csd::create($dataxxxx['requestx']->all());
             }
+            $dataxxxx['requestx']->request->add(['csd_id' =>$dataxxxx['modeloxx'] ->id]);
+            $dataxxxx['requestx']->request->add(['sis_nnaj_id' =>$dataxxxx['modeloxx'] ->sis_nnaj_id]);
+            CsdSisNnaj::transaccion($dataxxxx);
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
@@ -129,7 +133,7 @@ class Csd extends Model
     public static function transaespecial($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
-            
+
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             $dataxxxx['padrexxx']->especiales()->detach();
             if($dataxxxx['requestx']->especiales){

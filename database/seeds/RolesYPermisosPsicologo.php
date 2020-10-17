@@ -8,6 +8,7 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 'agactividad-leer', 'agactividad-crear', 'agactividad-editar', 'agactividad-borrar',
                 'vsidabas-leer', 'vsidabas-crear', 'vsidabas-editar',
                 'vsibienv-leer', 'vsibienv-crear', 'vsibienv-editar',
+                'nnajvisi-leer', 'nnajvisi-crear', 'nnajvisi-editar', 'nnajvisi-borrar',
                 'vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar',
                 'fiarchiv-leer', 'fiarchiv-crear', 'fiarchiv-editar', 'fiarchiv-borrar','fiarchiv-descarga',
                 'vsiviole-leer', 'vsiviole-crear', 'vsiviole-editar',
@@ -51,8 +52,6 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 'csdcomfamiliar-leer', 'csdcomfamiliar-crear', 'csdcomfamiliar-editar', 'csdcomfamiliar-borrar',
                 'csdresidencia-leer', 'csdresidencia-crear', 'csdresidencia-editar', 'csdresidencia-borrar',
                 'csdgeningresos-leer', 'csdgeningresos-crear', 'csdgeningresos-editar', 'csdgeningresos-borrar',
-                'csdgenaporta-leer', 'csdgenaporta-crear', 'csdgenaporta-editar', 'csdgenaporta-borrar',
-                'csdredactual-leer', 'csdredactual-crear', 'csdredactual-editar', 'csdredactual-borrar',
                 'csdredesapoyo-leer', 'csdredesapoyo-crear', 'csdredesapoyo-editar', 'csdredesapoyo-borrar',
                 // ficha de ingreso
                 'ficonvio-leer', 'ficonvio-crear', 'ficonvio-editar', 'ficonvio-borrar',

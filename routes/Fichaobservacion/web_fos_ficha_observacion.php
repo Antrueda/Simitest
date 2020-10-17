@@ -1,7 +1,7 @@
 <?php
 $controll='FichaObservacion\Fos';
 $routxxxx='fosfichaobservacion';
-Route::group(['prefix' => '{nnaj}/fos'], function () use($controll,$routxxxx){
+Route::group(['prefix' => '{padrexxx}/fos'], function () use($controll,$routxxxx){
 
 	Route::get('nuevo', [
 		'uses' => $controll.'Controller@create',
@@ -15,7 +15,7 @@ Route::group(['prefix' => '{nnaj}/fos'], function () use($controll,$routxxxx){
     Route::get('', [
 		'uses' => $controll.'Controller@fosIndex',
 		'middleware' => ['permission:'.$routxxxx.'-leer']
-    ])->name($routxxxx.'.lista');
+    ])->name($routxxxx.'.listafos');
 });
 
 Route::group(['prefix' => 'fos'], function () use($controll,$routxxxx){

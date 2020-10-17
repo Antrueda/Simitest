@@ -14,9 +14,8 @@
     <div class="card-body">
         @canany([$todoxxxx['permisox'].'-leer',$todoxxxx['permisox'].'-crear',$todoxxxx['permisox'].'-editar',$todoxxxx['permisox'].'-borrar'])
         <div class="table-responsive">
-            <table id="{{ $tableName }}" class="table table-bordered   table-sm">
+            <table id="{{ $tableName }}" class="table table-striped table-bordered dt-responsive nowrap">
                 <thead>
-
                     @foreach( $todoxxxx['cabecera'] as $cabecera )
                     <tr class="text-center">
                         @foreach( $cabecera as $cabecerx)

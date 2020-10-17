@@ -8,6 +8,7 @@ Role::create(['name' => 'TRABAJADOR(A) SOCIAL', 'user_crea_id' => 1, 'user_edita
                 'agactividad-leer', 'agactividad-crear', 'agactividad-editar', 'agactividad-borrar',
                 'vsidabas-leer', 'vsidabas-crear', 'vsidabas-editar',
                 'vsibienv-leer', 'vsibienv-crear', 'vsibienv-editar',
+                'nnajvisi-leer', 'nnajvisi-crear', 'nnajvisi-editar', 'nnajvisi-borrar',
                 'vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar',
                 'vsiviole-leer', 'vsiviole-crear', 'vsiviole-editar',
                 'vsieduca-leer', 'vsieduca-crear', 'vsieduca-editar',

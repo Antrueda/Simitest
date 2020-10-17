@@ -1,14 +1,14 @@
 <?php
 
 use App\CamposMagicos\CamposMagicos;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateHFiNucleoFamiliarsTable extends Migration
+class CreateNuclfamisTable extends Migration
 {
-    private $tablaxxx = 'h_fi_nucleo_familiars';
+    private $tablaxxx = 'nuclfamis';
     /**
      * Run the migrations.
      *
@@ -19,9 +19,9 @@ class CreateHFiNucleoFamiliarsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('en_uso');
-            $table = CamposMagicos::h_magicos($table);
+            $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS CONSECUTIVOS DE O LOS NUCLEOS FAMILIARES A LOS QUE PERTENECE EL NNAJ'");
     }
 
     /**

@@ -5,26 +5,20 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdCrearRequest;
 use App\Models\consulta\Csd;
-use App\Models\fichaIngreso\FiDatosBasico;
-
-use App\Models\Tema;
-
-
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\fichaIngreso\NnajDese;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\Csd\CsdTrait;
 
-class CsdController extends Controller
+class CsdNnajvisitadoController extends Controller
 {
     use CsdTrait;
     private $opciones;
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'csdxxxxx';
+        $this->opciones['permisox'] = 'nnajvisi';
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
@@ -32,9 +26,9 @@ class CsdController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
-        $this->opciones['routxxxx'] = 'csdxxxxx';
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['tituhead'] = 'NNAJ VISITADO';
+        $this->opciones['routxxxx'] = 'nnajvisi';
         $this->opciones['slotxxxx'] = 'csdxxxxx';
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['rutacarp'] = 'Csd.';
@@ -46,57 +40,14 @@ class CsdController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-
-
-
-
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
-
-        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['tituloxx'] = "NNAJ VISITADO";
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
                 'formhref' => 2, 'tituloxx' => 'VOLVER A CSDS', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
-    }
-
-    public function index(SisNnaj $padrexxx)
-    {
-        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
-        $this->opciones['tablasxx'] = [
-            [
-                'titunuev' => 'NUEVO CONSULTA SOCIAL EN DOMICILIO',
-                'titulist' => 'LISTA DE CONSULTA SOCIAL EN DOMICILIO',
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
-                'cabecera' => [
-                    [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'PROPÓSITO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FECHA DE DILIGENCIAMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                    ]
-                ],
-                'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'csds.id'],
-                    ['data' => 'proposito', 'name' => 'csds.proposito'],
-                    ['data' => 'fecha', 'name' => 'csds.fecha'],
-                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                ],
-                'tablaxxx' => 'datatable',
-                'permisox' => $this->opciones['permisox'],
-                'routxxxx' => $this->opciones['routxxxx'],
-                'parametr' => [$padrexxx->id],
-            ]
-        ];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
-        ];
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     public function getListado(Request $request, SisNnaj $padrexxx)
@@ -108,7 +59,7 @@ class CsdController extends Controller
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            return $this->getCsdNnaj($request);
+            return $this->getVisitados($request);
 
         }
     }
@@ -134,17 +85,14 @@ class CsdController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['vercrear']=false;
-        $parametr=0;
+        $vercrear=false;
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['vercrear']=true;
-            $parametr=$dataxxxx['modeloxx']->id;
+            $vercrear=true;
             $this->opciones['pestpadr'] = 3;
             $this->opciones['csdxxxxx']=$dataxxxx['modeloxx'];
             $this->opciones['modeloxx']=$dataxxxx['modeloxx'];
@@ -163,8 +111,8 @@ class CsdController extends Controller
                 'titunuev' => 'NUEVO NNAJ VISITADO',
                 'titulist' => 'LISTA DE NNAJ VISITADOS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => $this->opciones['vercrear'],
-                'urlxxxxx' => route( 'nnajvisi.listaxxx', [$parametr]),
+                'vercrear' => $vercrear,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -181,18 +129,18 @@ class CsdController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'csds.id'],
-                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
-                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
-                    ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
+                    ['data' => 'proposito', 'name' => 'csds.proposito'],
+                    ['data' => 'fecha', 'name' => 'csds.fecha'],
+                    ['data' => 'id', 'name' => 'csds.id'],
+                    ['data' => 'proposito', 'name' => 'csds.proposito'],
+                    ['data' => 'fecha', 'name' => 'csds.fecha'],
+                    ['data' => 'fecha', 'name' => 'csds.fecha'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
-                'permisox' => 'nnajvisi',
-                'routxxxx' => 'nnajvisi',
-                'parametr' => [$parametr],
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => [$dataxxxx['padrexxx']->id],
             ]
         ];
         // Se arma el titulo de acuerdo al array opciones
@@ -208,7 +156,7 @@ class CsdController extends Controller
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'csd'],'padrexxx'=>$padrexxx->fi_datos_basico]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'visitado'],'padrexxx'=>$padrexxx->fi_datos_basico]);
     }
     public function store(CsdCrearRequest $request, SisNnaj $padrexxx )
     {

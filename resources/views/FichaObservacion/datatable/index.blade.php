@@ -25,5 +25,5 @@
 
 @section('codigo')
 @include('FichaObservacion.datatable.js')
-@include('Especiales.Jss.tooltips')
+@include('Especiales.Jss.Tooltips')
 @endsection

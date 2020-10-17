@@ -18,6 +18,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
+use App\Models\Sistema\SisNnaj;
 use App\Traits\Fos\FosTrait;
 
 class FosController extends Controller
@@ -115,8 +116,11 @@ class FosController extends Controller
      *
      * @return void
      */
-    public function fosIndex()
+    public function fosIndex(SisNnaj $padrexxx)
     {
+        $this->opciones['slotxxxx']='fosxxxxx';
+        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+        $this->opciones['pestpara'] = [$padrexxx->id];
         $this->opciones['pestpadr'] = 2;
         $this->opciones['tablasxx'] = [
             [
@@ -124,16 +128,16 @@ class FosController extends Controller
                 'titulist' => 'LISTA DE FOS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => false,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listafos', [$padrexxx->id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ÁREA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SUBSEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -170,6 +174,23 @@ class FosController extends Controller
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getNnajs($request);
+        }
+    }
+
+/**
+ * listo de fos para NNAJ
+ *
+ * @param Request $request
+ * @return void
+ */
+    public function getFos(Request $request)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesfos';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             return $this->getNnajs($request);
         }
@@ -259,7 +280,7 @@ class FosController extends Controller
 
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-            $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
 
             $this->opciones['perfilxx'] = 'conperfi';

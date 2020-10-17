@@ -8,18 +8,15 @@ use App\Models\consulta\CsdDinfamPadre;
 use App\Models\consulta\CsdGeningAporta;
 use App\Models\consulta\CsdRedsocActual;
 use App\Models\consulta\CsdRedsocPasado;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiJustrest;
 use App\Models\fichaIngreso\FiRazone;
-use App\Models\fichaIngreso\FiRedApoyoActual;
-use App\Models\fichaIngreso\FiRedApoyoAntecedente;
-use App\Models\fichaIngreso\FiSalud;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
-use App\Models\User;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -50,24 +47,8 @@ trait CsdTrait
         return $respuest;
     }
 
-    public function getCsdNnaj($request)
-    {
 
-        $dataxxxx =  Csd::select([
-            'csds.id',
-            'csds.proposito', 
-            'csds.fecha',
-            'csds.sis_esta_id',
-            'sis_estas.s_estado',
-            'csds.created_at',
-        ])
-            ->join('sis_estas', 'csds.sis_esta_id', '=', 'sis_estas.id')
-            ->where('csds.sis_nnaj_id', $request->padrexxx);
 
-            
-        return $this->getDtAcciones($dataxxxx, $request);
-    }
-   
     public function getUltimoNivel(Request $request)
     {
         if ($request->ajax()) {
@@ -146,7 +127,7 @@ trait CsdTrait
     }
 
 
-   
+
     public function getNnajsFi2user($request)
     {
         $userxxxx['user_id'] = Auth::user()->id;
@@ -340,13 +321,13 @@ trait CsdTrait
             'separado.nombre as separado',
             'csd_dinfam_padres.sis_esta_id',
             'sis_estas.s_estado',
-            
+
         ])
             ->join('parametros as convive', 'csd_dinfam_padres.prm_convive_id', '=', 'convive.id')
             ->leftJoin('parametros as separado', 'csd_dinfam_padres.prm_separa_id', '=', 'separado.id')
             ->join('sis_estas', 'csd_dinfam_padres.sis_esta_id', '=', 'sis_estas.id')
             ->where('csd_dinfam_padres.csd_id', $request->padrexxx);
-            
+
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -364,7 +345,7 @@ trait CsdTrait
             ->join('parametros as aporta', 'csd_gening_aportas.prm_aporta_id', '=', 'aporta.id')
             ->join('sis_estas', 'csd_gening_aportas.sis_esta_id', '=', 'sis_estas.id')
             ->where('csd_gening_aportas.csd_id', $request->padrexxx);
-            
+
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -387,6 +368,62 @@ trait CsdTrait
             ->leftJoin('parametros as separado', 'csd_dinfam_madres.prm_separa_id', '=', 'separado.id')
             ->join('sis_estas', 'csd_dinfam_madres.sis_esta_id', '=', 'sis_estas.id')
             ->where('csd_dinfam_madres.csd_id', $request->padrexxx);
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
+    /**
+     * consultas sociales del nnaj
+     *
+     * @param [type] $request
+     * @return void
+     */
+    public function getCsdNnaj($request)
+    {
+        $dataxxxx =  CsdSisNnaj::select([
+            'csds.id',
+            'csds.proposito',
+            'csds.fecha',
+            'csds.sis_esta_id',
+            'sis_estas.s_estado',
+            'csds.created_at',
+        ])
+            ->join('csds', 'csd_sis_nnaj.csd_id', '=', 'csds.id')
+            ->join('sis_estas', 'csds.sis_esta_id', '=', 'sis_estas.id')
+
+            ->where('csds.sis_nnaj_id', $request->padrexxx);
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
+    /**
+     * lista de nnaj visitados en la csd
+     *
+     * @param [type] $request
+     * @return void
+     */
+    public function getVisitados($request)
+    {
+        $dataxxxx =  CsdSisNnaj::select([
+            'csd_sis_nnaj.id',
+            'fi_datos_basicos.s_primer_nombre',
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
+            'nnaj_docus.s_documento',
+            'sis_depens.nombre',
+            'csd_sis_nnaj.sis_esta_id',
+            'csd_sis_nnaj.created_at',
+            'sis_estas.s_estado'
+        ])
+
+            ->join('csds', 'csd_sis_nnaj.csd_id', '=', 'csds.id')
+            ->join('nnaj_upis', 'csds.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
+            ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+            ->join('fi_datos_basicos', 'csds.sis_nnaj_id', '=', 'fi_datos_basicos.sis_nnaj_id')
+            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('sis_estas', 'csd_sis_nnaj.sis_esta_id', '=', 'sis_estas.id')
+            ->where('nnaj_upis.prm_principa_id', 227)
+
+            ->where('csd_sis_nnaj.csd_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 }
