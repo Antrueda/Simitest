@@ -40,5 +40,10 @@ Route::group(['prefix' => 'nnajvisitado'], function () use ($routexxx, $controll
         'uses' => $controll . 'Controller@destroy',
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
+    Route::get('visitado', [
+        'uses' => $controll . 'Controller@getVisitado',
+        'middleware' => ['permission:' . $routexxx . '-borrar']
+    ])->name($routexxx . '.visitado');
+
 });
 

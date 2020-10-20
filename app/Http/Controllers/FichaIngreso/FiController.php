@@ -161,8 +161,6 @@ class FiController extends Controller
 
     private function view($dataxxxx)
     {
-
-
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {
@@ -186,7 +184,7 @@ class FiController extends Controller
         $this->opciones['municipi'] = ['' => 'Seleccione'];
         $this->opciones['deparexp'] = ['' => 'Seleccione'];
         $this->opciones['municexp'] = ['' => 'Seleccione'];
-        $this->opciones['mindatex'] = "-28y +0m +0d";
+        $this->opciones['mindatex'] = "-29y +0m +1d";
         $this->opciones['maxdatex'] = "-0y +0m +0d";
 
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];

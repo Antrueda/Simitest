@@ -126,7 +126,21 @@ class FiDatosBasico extends Model
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-
+    public function getNombreCedulaAjaxAttribute()
+    {
+        return [['valuexxx'=>$this->sis_nnaj_id,
+        'optionxx'=>$this->s_primer_nombre . ' ' .
+            $this->s_segundo_nombre . ' ' .
+            $this->s_primer_apellido . ' ' .
+            $this->s_segundo_apellido.' ('.$this->nnaj_docu->s_documento.')','selected'=>'selected']];
+    }
+    public function getNombreCedulaAttribute()
+    {
+        return ['valuexxx'=>$this->s_primer_nombre . ' ' .
+            $this->s_segundo_nombre . ' ' .
+            $this->s_primer_apellido . ' ' .
+            $this->s_segundo_apellido.' ('.$this->nnaj_docu->s_documento.')'];
+    }
 
     public function getNombreCompletoAttribute()
     {

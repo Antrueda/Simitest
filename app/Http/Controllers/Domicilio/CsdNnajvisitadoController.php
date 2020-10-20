@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Csd\CsdCrearRequest;
+use App\Http\Requests\Csd\CsdVisitadoCrearRequest;
 use App\Models\consulta\Csd;
-use Carbon\Carbon;
+use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\Sistema\SisEsta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Sistema\SisNnaj;
@@ -40,7 +41,6 @@ class CsdNnajvisitadoController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['estrateg'] = ['' => 'Seleccione'];
         $this->opciones['tituloxx'] = "NNAJ VISITADO";
         $this->opciones['botoform'] = [
             [
@@ -59,13 +59,13 @@ class CsdNnajvisitadoController extends Controller
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            return $this->getVisitados($request);
+            return $this->getNnajs($request);
 
         }
     }
     private function grabar($dataxxxx)
     {
-        $usuariox = Csd::transaccion($dataxxxx);
+        $usuariox = CsdSisNnaj::transaccion($dataxxxx);
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$usuariox->id])
             ->with('info',$dataxxxx['infoxxxx']);
@@ -80,20 +80,22 @@ class CsdNnajvisitadoController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['botoform'][0]['routingx'][1]=$dataxxxx['padrexxx']->id;
-        $this->opciones['hoyxxxxx']= Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.visitabla']
         ];
 
+        $this->opciones['nnajidxx'] = [''=>'Seleccione'];
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $vercrear=false;
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         if ($dataxxxx['modeloxx'] != '') {
-            $vercrear=true;
             $this->opciones['pestpadr'] = 3;
+            $this->opciones['nnajidxx']=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->NombreCedula;
+
             $this->opciones['csdxxxxx']=$dataxxxx['modeloxx'];
             $this->opciones['modeloxx']=$dataxxxx['modeloxx'];
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
@@ -109,32 +111,28 @@ class CsdNnajvisitadoController extends Controller
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO NNAJ VISITADO',
-                'titulist' => 'LISTA DE NNAJ VISITADOS',
+                'titulist' => 'LISTA DE NNAJ, SELECCIONE EL VISITADO',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => $vercrear,
+                'vercrear' => false,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO APERLLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'csds.id'],
-                    ['data' => 'proposito', 'name' => 'csds.proposito'],
-                    ['data' => 'fecha', 'name' => 'csds.fecha'],
-                    ['data' => 'id', 'name' => 'csds.id'],
-                    ['data' => 'proposito', 'name' => 'csds.proposito'],
-                    ['data' => 'fecha', 'name' => 'csds.fecha'],
-                    ['data' => 'fecha', 'name' => 'csds.fecha'],
+                    ['data' => 'id', 'name' => 'sis_nnajs.id'],
+                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -147,7 +145,7 @@ class CsdNnajvisitadoController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function create(SisNnaj $padrexxx)
+    public function create(Csd $padrexxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route('csdxxxxx.nuevo',$padrexxx->id);
@@ -156,13 +154,11 @@ class CsdNnajvisitadoController extends Controller
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'visitado'],'padrexxx'=>$padrexxx->fi_datos_basico]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'visitado'],'padrexxx'=>$padrexxx]);
     }
-    public function store(CsdCrearRequest $request, SisNnaj $padrexxx )
+    public function store(CsdVisitadoCrearRequest $request, Csd $padrexxx )
     {
-        $request->request->add(['prm_tipofuen_id'=>2315]);
-        $request->request->add(['sis_esta_id'=>1]);
-        $request->request->add(['sis_nnaj_id'=>$padrexxx->id]);
+        $request->request->add(['csd_id'=>$padrexxx->id]);
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Consulta creada con exito','modeloxx'=>'']);
     }
 
@@ -172,10 +168,10 @@ class CsdNnajvisitadoController extends Controller
      * @param  \App\Models\FiDatosBasico $modeloxx
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $modeloxx)
+    public function show(CsdSisNnaj $modeloxx)
     {
         $this->opciones['rutaxxxx']=route('csdxxxxx.ver',$modeloxx->id);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->csd]);
     }
 
     /**
@@ -184,7 +180,7 @@ class CsdNnajvisitadoController extends Controller
      * @param  \App\Models\FiDatosBasico $modeloxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $modeloxx)
+    public function edit(CsdSisNnaj $modeloxx)
     {
         $this->opciones['rutaxxxx']=route('csdxxxxx.editar',$modeloxx->id);
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -194,7 +190,7 @@ class CsdNnajvisitadoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'visitado'], 'padrexxx' => $modeloxx->csd]);
     }
 
     /**
@@ -204,12 +200,12 @@ class CsdNnajvisitadoController extends Controller
      * @param  \App\Models\FiDatosBasico $padrexxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdCrearRequest $request,  Csd $modeloxx)
+    public function update(CsdVisitadoCrearRequest $request,  CsdSisNnaj $modeloxx)
     {
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Datos básicos actualizados con exito','modeloxx'=>$modeloxx]);
     }
 
-    public function inactivate(Csd $modeloxx)
+    public function inactivate(CsdSisNnaj $modeloxx)
     {
         $this->opciones['rutaxxxx']=route('csdxxxxx.borrar',$modeloxx->id);
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -223,7 +219,7 @@ class CsdNnajvisitadoController extends Controller
     }
 
 
-    public function destroy(Request $request, Csd $modeloxx)
+    public function destroy(Request $request, CsdSisNnaj $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

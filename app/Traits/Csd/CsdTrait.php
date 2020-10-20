@@ -2,7 +2,6 @@
 
 namespace App\Traits\Csd;
 
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdDinfamMadre;
 use App\Models\consulta\CsdDinfamPadre;
 use App\Models\consulta\CsdGeningAporta;
@@ -427,7 +426,6 @@ trait CsdTrait
             ->where('csd_sis_nnaj.csd_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
-
     public function getServicio($request)
     {
         $dataxxxx =  CsdResservi::select([
@@ -437,14 +435,50 @@ trait CsdTrait
             'csd_resservis.created_at',
             'csd_resservis.sis_esta_id',
             'sis_estas.s_estado',
-            
+
         ])
             ->join('parametros as servicio', 'csd_resservis.prm_servicio_id', '=', 'servicio.id')
             ->leftJoin('parametros as legal', 'csd_resservis.prm_legalxxx_id', '=', 'legal.id')
             ->join('sis_estas', 'csd_resservis.sis_esta_id', '=', 'sis_estas.id')
             ->where('csd_resservis.csd_residencia_id', $request->padrexxx);
-            
+
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+    public function getNnajs($request)
+    {
+
+        $dataxxxx =  FiDatosBasico::select([
+            'sis_nnajs.id',
+            'fi_datos_basicos.s_primer_nombre',
+            'nnaj_docus.s_documento',
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
+            'fi_datos_basicos.sis_esta_id',
+            'fi_datos_basicos.created_at',
+            'sis_estas.s_estado',
+            'fi_datos_basicos.user_crea_id',
+        ])
+            ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
+            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+            ->where('sis_nnajs.prm_escomfam_id', 227);
+
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
+/**
+ * encontrar el nnaj visitado
+ */
+
+    public function getVisitado(Request $request)
+    {
+
+        if ($request->ajax()) {
+            return response()->json([
+                'dataxxxx'=>FiDatosBasico::where('sis_nnaj_id',$request->padrexxx)->first()->NombreCedulaAjax,
+                'campoxxx'=>'sis_nnaj_id',
+                ]);
+        }
+    }
 }

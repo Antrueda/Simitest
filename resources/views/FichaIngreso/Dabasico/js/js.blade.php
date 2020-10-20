@@ -340,7 +340,7 @@
             changeYear: true,
             minDate: "<?= isset($todoxxxx['mindatex']) ? $todoxxxx['mindatex'] : '+0y +0m +0d' ?>",
             maxDate: "<?= isset($todoxxxx['maxdatex']) ? $todoxxxx['maxdatex'] : '+0y +0m +0d' ?>",
-            yearRange: "-28:-5",
+            yearRange: "-29:-5",
 
             onSelect: function(dateText) {
                 f_nacimiento($(this).val(), '', '', '', '');
