@@ -1,3 +1,28 @@
+<?php
+
+use Illuminate\Support\Facades\Storage;
+
+$tablaxxx = 'principa';
+if (isset($todoxxxx['rowscols'])) {
+    $tablaxxx = $todoxxxx['rowscols'];
+}
+
+?>
+<div class="form-row align-items-end form-group col-md-12" style="margin-bottom: 40px">
+    {{ Form::label('s_doc_adjunto_ar', '5.1 GENOGRAMA', ['class' => 'control-label col-form-label-sm']) }}
+    @component('layouts.components.archivos.upload')
+    @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto_ar','descripc'=>'Seleccione un archivo','idlabelx'=>'s_doc_adjunto_ar_label',
+    'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf','clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
+    @endcomponent
+
+</div>
+@if($todoxxxx['archivox']!='')
+<div class="row">
+    <div class="col-md-12">
+    <a href="{{asset($todoxxxx['modeloxx']->s_doc_adjunto)}}" target="_blank" >{{$todoxxxx['archivox']}}</a>
+    </div>
+</div>
+@endif
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_familiar_id', '6.3 Tipología familiar', ['class' => 'control-label col-form-label-sm']) }}
@@ -191,7 +216,7 @@
   <div class="col-md">
       {{ Form::label('normas', '6.17 ¿Quién(es) establece(n) las órdenes y reglas en el hogar?', ['class' => 'control-label col-form-label-sm']) }}
       <div id="normas_div">
-          {{ Form::select('normas[]', $todoxxxx["familiar"], null, ['class' => $errors->first('normas') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'normas', 'multiple']) }}
+          {{ Form::select('normas[]', $todoxxxx["familian"], null, ['class' => $errors->first('normas') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'normas', 'multiple']) }}
       </div>
       @if($errors->has('normas'))
           <div class="invalid-feedback d-block">

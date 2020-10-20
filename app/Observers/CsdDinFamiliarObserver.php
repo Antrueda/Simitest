@@ -16,6 +16,7 @@ class CsdDinFamiliarObserver
         $log['csd_id'] = $modeloxx->csd_id;
         $log['descripcion'] = $modeloxx->descripcion;
         $log['relevantes'] = $modeloxx->relevantes;
+        $log['s_doc_adjunto'] = $modeloxx->s_doc_adjunto;        
         $log['prm_familiar_id'] = $modeloxx->prm_familiar_id;
         $log['prm_hogar_id'] = $modeloxx->prm_hogar_id;
         $log['descripcion_0'] = $modeloxx->descripcion_0;

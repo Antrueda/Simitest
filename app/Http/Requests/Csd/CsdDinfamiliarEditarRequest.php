@@ -15,6 +15,8 @@ class CsdDinfamiliarEditarRequest extends FormRequest
          $this->_mensaje = [
             'prm_traslado_id.required' => 'Indique por que se trasladaron',
             'prm_conoce_id.required' => 'Indique si su familia conoce las normas y limites',
+            's_doc_adjunto_ar.required'=>'Debe adjuntar el genograma',
+            's_doc_adjunto_ar.mimes'=>'El archivo debe ser imagen o pdf',
             
         ];
         $this->_reglasx = [
@@ -35,7 +37,7 @@ class CsdDinfamiliarEditarRequest extends FormRequest
             'afronta' => 'required|string|max:4000',
             'prm_norma_id' => 'required|exists:parametros,id',
             'prm_conoce_id' => 'required_if:prm_norma_id,227',
-            'establecen' => 'required_if:prm_norma_id,227|array',
+            'establecen' => 'nullable|array',
             'observacion' => 'nullable|string|max:4000',
             'prm_actuan_id' => 'required_if:prm_norma_id,227',
             'porque' => 'nullable|string|max:4000',
@@ -44,9 +46,10 @@ class CsdDinfamiliarEditarRequest extends FormRequest
             'prm_destaca_id' => 'required|exists:parametros,id',
             'prm_positivo_id' => 'required|exists:parametros,id',
             'antecedentes' => 'nullable|array',
-            'problemas' => 'required|array',
-            'incumple' => 'required|array',
-            'normas' => 'required_if:prm_norma_id,227|array',
+            'problemas' => 'nullable|array',
+            'incumple' => 'nullable|array',
+            'normas' => 'nullable|array',
+            's_doc_adjunto_ar' => 'nullable|file|mimes:pdf,jpg,jpeg|max:1024',
         ];
     }
     /**

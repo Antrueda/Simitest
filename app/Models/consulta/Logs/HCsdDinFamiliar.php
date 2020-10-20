@@ -16,6 +16,7 @@ class HCsdDinFamiliar extends Model
         'prm_bogota_id',
         'prm_traslado_id',
         'jefe1',
+        's_doc_adjunto',
         'prm_jefe1_id',
         'jefe2',
         'prm_jefe2_id',

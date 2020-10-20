@@ -8,12 +8,14 @@ use App\Models\consulta\CsdGeningAporta;
 
 
 use App\Models\Tema;
+use App\Traits\Csd\CsdTrait;
 use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CsdGeneracionAportanteController extends Controller
 {
+    use CsdTrait;
     private $opciones;
     public function __construct()
     {

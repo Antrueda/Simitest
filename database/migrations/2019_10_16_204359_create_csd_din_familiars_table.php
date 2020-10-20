@@ -26,6 +26,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->bigInteger('csd_id')->unsigned();
             $table->binary('descripcion')->nullable();
             $table->binary('relevantes');
+            $table->string('s_doc_adjunto', 150)->nullable();
             $table->bigInteger('prm_familiar_id')->nullable()->unsigned();
             $table->bigInteger('prm_hogar_id')->nullable()->unsigned();
             $table->binary('descripcion_0');

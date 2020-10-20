@@ -45,6 +45,7 @@ class CsdDinFamiliarController extends Controller
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['antecede'] = Tema::combo(97, false, false);
         $this->opciones['familiar'] = Tema::combo(66, true, false);
+        $this->opciones['familian'] = Tema::combo(66, true, false);
         $this->opciones['familiax'] = Tema::combo(98, true, false);
         $this->opciones['hogarxxx'] = Tema::combo(99, true, false);
         $this->opciones['separacx'] = Tema::combo(176, true, false);
@@ -95,18 +96,21 @@ class CsdDinFamiliarController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
-
+        $this->opciones['archivox']='';
         $this->opciones['estadoxx'] = 'ACTIVO';
 
         // indica si se esta actualizando o viendo
         $vercrear = false;
         if ($dataxxxx['modeloxx'] != '') {
+            foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
+                $this->opciones['archivox'] = $value;
+            }
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
             $this->opciones['puedexxx'] = '';
             $vercrear = true;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
         
         $this->opciones['tablasxx'] = [
@@ -203,28 +207,28 @@ class CsdDinFamiliarController extends Controller
      */
     public function create(Csd $padrexxx)
     {
+     
         $vestuari = CsdDinFamiliar::where('csd_id', $padrexxx->id)->first();
         if ($vestuari != null) {
             return redirect()
-                ->route('csddinfamiliar.editar', [$padrexxx->id, $vestuari->id]);
+                ->route('csddinfamiliar.editar', [$vestuari->id]);
         }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
-    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
+    private function grabar($dataxxxx)
     {
-        $dataxxxx['csd_id'] = $padrexxx->id;
-        $dataxxxx['sis_esta_id'] = 1;
+        
         return redirect()
-            ->route('csddinfamiliar.editar', [$padrexxx->id, CsdDinFamiliar::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
+            ->route('csddinfamiliar.editar', [CsdDinFamiliar::transaccion($dataxxxx)->id])
+            ->with('info', $dataxxxx['menssage']);;
     }
     /**
      * Store a newly created resource in storage.
@@ -234,13 +238,17 @@ class CsdDinFamiliarController extends Controller
      */
 
 
-    public function store(CsdDinfamiliarCrearRequest $request, Csd $padrexxx)
+    public function store(CsdDinfamiliarCrearRequest $requestx, Csd $padrexxx)
     {
-        $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
-        $dataxxxx['sis_esta_id'] = 1;
-        $dataxxxx['prm_tipofuen_id'] = 2315;
-        return $this->grabar($dataxxxx, '', 'Dinamica familiar creada con exito', $padrexxx);
+          
+        $requestx->request->add(['csd_id'=> $padrexxx->id]);
+        $requestx->request->add(['sis_esta_id'=> 1]);
+        $requestx->request->add(['prm_tipofuen_id'=> 2315]);
+        return $this->grabar([
+            'requestx' => $requestx,
+            'modeloxx' => '',
+            'menssage' => 'Registro creado con éxito'
+            ]);
     }
 
     /**
@@ -249,9 +257,9 @@ class CsdDinFamiliarController extends Controller
      * @param  \App\Models\FiConsumoSpa  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(CsdDinFamiliar $modeloxx,Csd $padrexxx)
+    public function show(CsdDinFamiliar $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario', 'js',], 'padrexxx' => $modeloxx->csd]);
     }
 
     /**
@@ -260,9 +268,11 @@ class CsdDinFamiliarController extends Controller
      * @param  \App\Models\FiConsumoSpa  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx,  CsdDinFamiliar $modeloxx)
+    public function edit(CsdDinFamiliar $modeloxx)
     {
-        $this->opciones['csdxxxxx'] = $padrexxx;
+        
+        $this->opciones['csdxxxxx']=$modeloxx->csd;
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -270,7 +280,8 @@ class CsdDinFamiliarController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar',  'formulario', 'js',], 'padrexxx' => $modeloxx->csd]);
+
     }
 
 
@@ -281,8 +292,9 @@ class CsdDinFamiliarController extends Controller
      * @param  \App\Models\FiConsumoSpa  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdDinfamiliarEditarRequest $request, Csd $padrexxx, CsdDinFamiliar $modeloxx)
+    public function update(CsdDinfamiliarEditarRequest $requestx, CsdDinFamiliar $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Dinamica familiar actualizado con exito', $padrexxx);
+        return $this->grabar(['requestx'=>$requestx,'menssage'=>'Dinamica familiar actualizada con exito','padrexxx'=>$modeloxx->csd,'modeloxx'=>$modeloxx]);
     }
 }
+

@@ -2,6 +2,7 @@
 
 namespace App\Models\consulta;
 
+use App\Helpers\Archivos\Archivos;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
@@ -14,6 +15,7 @@ class CsdDinFamiliar extends Model{
     'descripcion_0', 'prm_bogota_id', 'prm_traslado_id', 'jefe1', 'prm_jefe1_id', 'jefe2', 'prm_jefe2_id',
     'descripcion_1', 'prm_cuidador_id', 'descripcion_2', 'afronta', 'prm_norma_id', 'prm_conoce_id',
     'observacion', 'prm_actuan_id', 'porque', 'prm_solucion_id', 'prm_problema_id', 'prm_destaca_id',
+    's_doc_adjunto',
     'prm_positivo_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id','prm_tipofuen_id'];
 
     protected $attributes = ['user_crea_id'=>1,'user_edita_id'=>1];
@@ -115,51 +117,56 @@ class CsdDinFamiliar extends Model{
     }
 
 
-    public static function transaccion($dataxxxx,  $objetoxx)
+    public static function transaccion($dataxxxx)
   {
-    $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-      $dataxxxx['user_edita_id'] = Auth::user()->id;
-      if ($objetoxx != '') {
-        $objetoxx->update($dataxxxx);
-      } else {
-        $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $dataxxxx['prm_tipofuen_id'] = 2315;
-        $objetoxx = CsdDinFamiliar::create($dataxxxx);
-      }
-      $objetoxx->antecedentes()->detach();
-      if($dataxxxx['antecedentes']){
-          foreach ($dataxxxx['antecedentes'] as $d) {
-              $objetoxx->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-          }
-      }
-      $objetoxx->problemas()->detach();
-      if($dataxxxx['problemas']){
-          foreach ($dataxxxx['problemas'] as $d) {
-              $objetoxx->problemas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-          }
-      }
-      $objetoxx->normas()->detach();
-      if($dataxxxx['normas']){
-          foreach ($dataxxxx['normas'] as $d) {
-              $objetoxx->normas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-          }
-      }
-      $objetoxx->establecen()->detach();
-      if($dataxxxx['establecen']){
-          foreach ($dataxxxx['establecen'] as $d) {
-              $objetoxx->establecen()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-          }
-      }
+    $objetoxx = DB::transaction(function () use ($dataxxxx) {
+        $rutaxxxx = Archivos::getRuta(['requestx'=>$dataxxxx['requestx'],
+        'nombarch'=>'s_doc_adjunto_ar',
+        'rutaxxxx'=>'csd/dinfamiliar','nomguard'=>'genograma']);
+        if($rutaxxxx!=false){
+           $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
+        }
+        $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+        if ($dataxxxx['modeloxx'] != '') {
+            $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+        } else {
+            $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+            $dataxxxx['modeloxx'] = CsdDinFamiliar::create($dataxxxx['requestx']->all());
+        }
+        if($dataxxxx['requestx']->antecedentes){
+            $dataxxxx['modeloxx']->antecedentes()->detach();
+            foreach ($dataxxxx['requestx']->antecedentes as $d) {
+                $dataxxxx['modeloxx']->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315 ]);
+            }
+        }
+        if($dataxxxx['requestx']->problemas){
+            $dataxxxx['modeloxx']->problemas()->detach();
+            foreach ($dataxxxx['requestx']->problemas as $d) {
+                $dataxxxx['modeloxx']->problemas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+            }
+        }
+        if($dataxxxx['requestx']->normas){
+            $dataxxxx['modeloxx']->normas()->detach();
+            foreach ($dataxxxx['requestx']->normas as $d) {
+                $dataxxxx['modeloxx']->normas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+            }
+        }
+        if($dataxxxx['requestx']->establecen){
+            $dataxxxx['modeloxx']->establecen()->detach();
+            foreach ($dataxxxx['requestx']->establecen as $d) {
+                $dataxxxx['modeloxx']->establecen()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+            }
+        }
 
-      $objetoxx->incumple()->detach();
-      if($dataxxxx['incumple']){
-          foreach ($dataxxxx['incumple'] as $d) {
-              $objetoxx->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
-          }
-      }
+      if($dataxxxx['requestx']->incumple){
+            $dataxxxx['modeloxx']->incumple()->detach();
+            foreach ($dataxxxx['requestx']->incumple as $d) {
+                $dataxxxx['modeloxx']->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+            }
+        }
 
-      return $objetoxx;
+        return $dataxxxx['modeloxx'];
     }, 5);
-    return $usuariox;
+    return $objetoxx;
   }
 }

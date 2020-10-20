@@ -114,5 +114,36 @@
         $('#prm_certificado_id').change(function() {
             f_departamentos($(this).val(), 'departamento_cert_id', '')
         });
+
     });
+
+    function doc(valor){
+	if(valor == 450 || valor == 451 || valor == 452 || valor == 936 || valor == 454){
+		document.getElementById("departamento_cond_id").hidden=false;
+        document.getElementById("municipio_cond_id").hidden=false;
+        document.getElementById("prm_certificado_id").hidden=false;
+        
+	} else {
+		document.getElementById("departamento_cond_id").hidden=true;
+        document.getElementById("municipio_cond_id").hidden=true;
+        document.getElementById("prm_certificado_id").hidden=true;
+        doc1(document.getElementById('prm_certificado_id').value=228);
+	}
+}
+function doc1(valor){
+    if(valor == 227){
+        document.getElementById("departamento_cert_id").hidden=false;
+        document.getElementById("municipio_cert_id").hidden=false;
+    } else {
+        document.getElementById("departamento_cert_id").hidden=true;
+        document.getElementById("municipio_cert_id").hidden=true;
+    }
+}
+
+function carga() {
+	doc(document.getElementById('prm_condicion_id').value);
+    doc1(document.getElementById('prm_certificado_id').value);
+}
+window.onload=carga;
+    
 </script>

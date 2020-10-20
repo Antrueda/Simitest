@@ -11,22 +11,6 @@ Route::group(['prefix' => '{padrexxx}/dinfamiliar'], function () use ($routexxx,
 		'uses' => $controll.'Controller@store',
 		'middleware' => ['permission:'.$routexxx.'-crear']
 	])->name($routexxx.'.crear');
-
-	Route::get('editar/{modeloxx}', [
-		'uses' => $controll.'Controller@edit',
-		'middleware' => ['permission:'.$routexxx.'-editar']
-	])->name($routexxx.'.editar');
-
-	Route::put('editar/{modeloxx}', [
-		'uses' => $controll.'Controller@update',
-		'middleware' => ['permission:'.$routexxx.'-editar']
-	])->name($routexxx.'.editar');
-	Route::get('ver/{modeloxx}', [
-		'uses' => $controll.'Controller@show',
-		'middleware' => ['permission:'.$routexxx.'-leer']
-	])->name($routexxx.'.ver');
-
-
 	Route::get('listapxx', [
 		'uses' => $controll.'Controller@getListadop',
 		'middleware' => ['permission:'.$routexxx.'-leer']
@@ -47,4 +31,26 @@ Route::group(['prefix' => '{padrexxx}/dinfamiliar'], function () use ($routexxx,
         'middleware' => ['permission:'.$routexxx.'-crear']
 	])->name($routexxx.'.padre');
 
-});
+	Route::post('genograma', [
+        'uses' => $controll.'Controller@storeGenograma',
+        'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.genograma');
+});	
+
+Route::group(['prefix' => 'csd/dinfamiliar'], function () use ($routexxx, $controll) {
+		Route::get('ver/{modeloxx}', [
+			'uses' => $controll . 'Controller@show',
+			'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+		])->name($routexxx . '.ver');
+		Route::get('editar/{modeloxx}', [
+			'uses' => $controll . 'Controller@edit',
+			'middleware' => ['permission:' . $routexxx . '-editar']
+		])->name($routexxx . '.editar');
+		Route::put('editar/{modeloxx}', [
+			'uses' => $controll . 'Controller@update',
+			'middleware' => ['permission:' . $routexxx . '-editar']
+		])->name($routexxx . '.editar');
+	});
+
+
+	

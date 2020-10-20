@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_condicion_id', '2.1 ¿Qué condición especial presenta?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_condicion_id', $todoxxxx["condixxx"], null, ['class' => $errors->first('prm_condicion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm ']) }}
+      {{ Form::select('prm_condicion_id', $todoxxxx["condixxx"], null, ['class' => $errors->first('prm_condicion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm ', 'onchange' => 'doc(this.value)']) }}
       @if($errors->has('prm_condicion_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('prm_condicion_id') }}
@@ -31,7 +31,7 @@
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_certificado_id', '2.2 ¿Cuenta con certificado?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_certificado_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_certificado_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('prm_certificado_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_certificado_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
       @if($errors->has('prm_certificado_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('prm_certificado_id') }}

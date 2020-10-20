@@ -26,6 +26,7 @@ class CreateHCsdDinFamiliarsTable extends Migration
             $table->bigInteger('csd_id')->unsigned();
             $table->binary('descripcion')->nullable();
             $table->binary('relevantes');
+            $table->string('s_doc_adjunto', 150)->nullable();
             $table->bigInteger('prm_familiar_id')->nullable()->unsigned();
             $table->bigInteger('prm_hogar_id')->nullable()->unsigned();
             $table->binary('descripcion_0');
@@ -41,7 +42,7 @@ class CreateHCsdDinFamiliarsTable extends Migration
             $table->binary('afronta');
             $table->bigInteger('prm_norma_id')->unsigned();
             $table->bigInteger('prm_conoce_id')->unsigned()->nullable();
-            $table->binary('observacion');
+            $table->binary('observacion')->nullable();
             $table->bigInteger('prm_actuan_id')->unsigned()->nullable();
             $table->string('porque', 4000)->nullable();
             $table->bigInteger('prm_solucion_id')->unsigned();
