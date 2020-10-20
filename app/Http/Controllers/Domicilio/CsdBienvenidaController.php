@@ -126,7 +126,6 @@ class CsdBienvenidaController extends Controller
      */
     public function show(CsdBienvenida $modeloxx)
     {
-
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->csd]);
     }
 

@@ -13,10 +13,12 @@ use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
+use App\Traits\Csd\CcontviolTrait;
 use Illuminate\Http\Request;
 
 class CsdResidenciaController extends Controller
 {
+    use CcontviolTrait;
     private $opciones;
 
     public function __construct()
@@ -67,7 +69,8 @@ class CsdResidenciaController extends Controller
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.'.$dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']           
+            
         ];
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
@@ -91,21 +94,76 @@ class CsdResidenciaController extends Controller
         // indica si se esta actualizando o viendo
 
         $this->opciones['condsele'] = CsdResideambiente::getCondicionAbiente(0);
-        $this->opciones['camasxxx'] = CsdRescamass::getCamas(0);
+        
         if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $this->opciones['pestpadr'] = 3;
+            
+            //ddd($dataxxxx['modeloxx']->reshogar->csd_residencia_id == $dataxxxx['modeloxx']->id);
+            //5.19
+            if($dataxxxx['modeloxx']->reshogar){ 
+            $dataxxxx['modeloxx']->banocant = $dataxxxx['modeloxx']->reshogar->banocant;
+            $dataxxxx['modeloxx']->comedorcant = $dataxxxx['modeloxx']->reshogar->comedorcant;
+            $dataxxxx['modeloxx']->salacant = $dataxxxx['modeloxx']->reshogar->salacant;
+            $dataxxxx['modeloxx']->salacomcant = $dataxxxx['modeloxx']->reshogar->salacomcant;
+            $dataxxxx['modeloxx']->cocinacant = $dataxxxx['modeloxx']->reshogar->cocinacant;
+            $dataxxxx['modeloxx']->habitacant = $dataxxxx['modeloxx']->reshogar->habitacant;
+            $dataxxxx['modeloxx']->patiocant = $dataxxxx['modeloxx']->reshogar->patiocant;
+            $dataxxxx['modeloxx']->prm_bano_id = $dataxxxx['modeloxx']->reshogar->prm_bano_id;
+            $dataxxxx['modeloxx']->prm_comedor_id = $dataxxxx['modeloxx']->reshogar->prm_comedor_id;
+            $dataxxxx['modeloxx']->prm_sala_id = $dataxxxx['modeloxx']->reshogar->prm_sala_id;
+            $dataxxxx['modeloxx']->prm_cocina_id = $dataxxxx['modeloxx']->reshogar->prm_cocina_id;
+            $dataxxxx['modeloxx']->prm_habita_id = $dataxxxx['modeloxx']->reshogar->prm_habita_id;
+            $dataxxxx['modeloxx']->prm_patio_id = $dataxxxx['modeloxx']->reshogar->prm_patio_id;
+            }
+            //5.20
+            if($dataxxxx['modeloxx']->resobservacion){ 
+             $dataxxxx['modeloxx']->observaciones = $dataxxxx['modeloxx']->resobservacion->observaciones;
+            }
+
             if ($dataxxxx['modeloxx']->i_prm_zona_direccion_id == 289) {
                 $this->opciones['dircondi'] = [1 => 'NO APLICA'];
                 $this->opciones['cuadrant'] = [1 => 'NO APLICA'];
                 $this->opciones['alfabeto'] = [1 => 'NO APLICA'];
                 $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
             }
+         
             
 
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
                         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
+        $this->opciones['tablasxx'][] =
+            [
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'titunuev' => 'SERVICIOS',
+                'titulist' => 'LISTA DE SERVICIOS',
+                'dataxxxx' => [],
+                'titupreg' => 'Indicar que serivicio tiene en el hogar',
+                'vercrear' => (isset($this->opciones['modeloxx'])),
+                'urlxxxxx' => route('csdresservi.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'cabecera' => [
+                    [
+                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'SERVICIO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => '¿Es Legal?', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
+                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                    ],
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'csd_resservis.id'],
+                    ['data' => 'servicio', 'name' => 'servicio.nombre as servicio'],
+                    ['data' => 'legal', 'name' => 'legal.nombre as legal'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatablepresentadas',
+                'permisox' => 'csdresservi',
+                'routxxxx' => 'csdresservi',
+                'parametr' => [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0],
+            ];
+            
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -196,6 +254,7 @@ class CsdResidenciaController extends Controller
      */
     public function update(CsdResidenciaEditarRequest $request,  Csd $padrexxx, CsdResidencia $modeloxx)
     {
+        //ddd($request);
         return $this->grabar($request->all(), $modeloxx, 'Datos de residencia actualizados con exito', $padrexxx);
     }
 

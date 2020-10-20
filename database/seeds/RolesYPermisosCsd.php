@@ -44,6 +44,10 @@ $this->getPermisos(['permisox' => 'nnajvisi', 'permisos' => ['leer', 'crear', 'e
         //Crear areas para CSD Residencia
         $this->getPermisos(['permisox' => 'csdresidencia', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Residencia CSD', 'pestania' => 1]);
 
+        //Crear areas para CSD Residencia
+        $this->getPermisos(['permisox' => 'csdresservi', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Residencia CSD', 'pestania' => 1]);
+
+
         //Crear areas para CSD Generación de Ingresos
         $this->getPermisos(['permisox' => 'csdgeningresos', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Generación de Ingresos CSD', 'pestania' => 1]);
 

@@ -507,11 +507,11 @@
       @endif
   </div>
   <div class="col-md">
-      {{ Form::label('prm_comparte_id', '5.23 ¿Quiénes comparten cama?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_comparte_id[]', $todoxxxx["familiax"] , null, ['class' => $errors->first('prm_comparte_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_comparte_id', 'multiple']) }}
-      @if($errors->has('prm_comparte_id'))
+      {{ Form::label('comparte', '5.23 ¿Quiénes comparten cama?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('comparte[]', $todoxxxx["familiax"] , null, ['class' => $errors->first('comparte') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'comparte', 'multiple']) }}
+      @if($errors->has('comparte'))
           <div class="invalid-feedback d-block">
-              {{ $errors->first('camascomp') }}
+              {{ $errors->first('comparte') }}
           </div>
       @endif
   </div>
@@ -530,43 +530,5 @@
   </div>
 </div>
 
-<br>
- <button type="button" name="add" id="add" class="btn btn-success btn-xs">Agregar</button>
-</div>
-<br />
-<form method="post" id="user_form">
- <div class="table-responsive">
-  <table class="table table-striped table-bordered" id="user_data">
-   <tr>
-    <th>Servicio</th>
-    <th>Legal</th>
-    <th>Details</th>
-    <th>Remove</th>
-   </tr>
-  </table>
- </div>
- </form>
-
-<br />
-</div>
-<div id="user_dialog" title="Insertar Servicio">
-<div class="form-group">
-  {{ Form::label('prm_servicio_id', 'Servicio', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::select('prm_servicio_id', $todoxxxx["servicio"], null, ['class' => $errors->first('prm_servicio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'servicio']) }}
- <span id="error_first_name" class="text-danger"></span>
-</div>
-<div class="form-group">
-  {{ Form::label('prm_legalxxx_id', '¿Es legal?', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::select('prm_legalxxx_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_legalxxx_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'legal']) }}
- <span id="error_last_name" class="text-danger"></span>
-</div>
-<div class="form-group" align="center">
- <input type="hidden" name="row_id" id="hidden_row_id" />
- <button type="button" name="save" id="save" class="btn btn-info">Agregar</button>
-</div>
-</div>
-<div id="action_alert" title="Action">
-
-</div>
- </body> 
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 

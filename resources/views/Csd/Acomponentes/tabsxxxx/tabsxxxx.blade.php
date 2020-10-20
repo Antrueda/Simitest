@@ -59,6 +59,14 @@
             text-sm" href="{{ $respuest['rutaxxxx'] }}">6. Dinámica familiar</a></li>
             @endcanany
 
+
+            @canany(['csdcomfamiliar-leer', 'csdcomfamiliar-crear', 'csdcomfamiliar-editar'])
+
+            <?php $respuest=PCsd::getRDb(['permisox' => 'csdcomfamiliar', 'sisnnajx' => $todoxxxx['csdxxxxx']]);?>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdcomfamiliar') ?' active' : '' }}
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">7. Composición Familiar</a></li>
+            @endcanany
+
             @canany(['csdbienvenida-leer', 'csdbienvenida-crear', 'csdbienvenida-editar'])
 
             <?php $respuest=PCsd::getRDb(['permisox' => 'csdbienvenida', 'sisnnajx' => $todoxxxx['csdxxxxx']]);?>

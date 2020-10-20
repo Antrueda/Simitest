@@ -1,14 +1,3 @@
-<div class="form-row align-items-end">
-    <div class="form-group col-md-12">
-        {{ Form::label($todoxxxx["contviol"][1], $todoxxxx["contviol"][2], ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select($todoxxxx["contviol"][1], $todoxxxx["contviol"][0], null, ['class' => 'form-control form-control-sm']) }}
-        @if($errors->has($todoxxxx["contviol"][1]))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first($todoxxxx["contviol"][1]) }}
-        </div>
-        @endif
-    </div>
-</div>
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <h3 class="card-title">

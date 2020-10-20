@@ -35,7 +35,7 @@ class Csd extends Model
 
     public function CsdResidencia()
     {
-        return $this->hasMany(CsdResidencia::class, 'csd_id');
+        return $this->hasOne(CsdResidencia::class, 'csd_id');
     }
 
     public function CsdViolencia()
@@ -109,6 +109,11 @@ class Csd extends Model
     }
 
     public function especiales()
+    {
+        return $this->belongsToMany(Parametro::class, 'csd_nnaj_especial', 'csd_id', 'parametro_id');
+    }
+
+    public function servicios()
     {
         return $this->belongsToMany(Parametro::class, 'csd_nnaj_especial', 'csd_id', 'parametro_id');
     }

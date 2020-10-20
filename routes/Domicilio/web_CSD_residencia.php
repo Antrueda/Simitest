@@ -29,5 +29,6 @@ Route::group(['prefix' => '{padrexxx}/csdresidencia'], function () use ($routexx
 	    'middleware' => ['permission:'.$routexxx.'-leer']
 	])->name($routexxx.'.locali');
 });
+require_once('web_csdresservi.php');
 
 

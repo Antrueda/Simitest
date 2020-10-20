@@ -114,7 +114,7 @@ $("#i_prm_condicion_amb_id").change(function(){
         });
 
         // INICIO esconde campos según la zona de residencia
-        $('#ambientes,#prm_comparte_id').change(function() {
+        $('#ambientes,#comparte').change(function() {
         f_comboSimple({
             dataxxxx: {
                 padrexxx: $(this).val() == '' ? 0 : $(this).val(),

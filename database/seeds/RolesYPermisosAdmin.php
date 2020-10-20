@@ -86,6 +86,7 @@ Role::create(['name' => 'administrador', 'user_crea_id' => 1, 'user_edita_id' =>
     'csdresidencia-leer', 'csdresidencia-crear', 'csdresidencia-editar', 'csdresidencia-borrar',
     'csdgeningresos-leer', 'csdgeningresos-crear', 'csdgeningresos-editar', 'csdgeningresos-borrar',
     'csdredesapoyo-leer', 'csdredesapoyo-crear', 'csdredesapoyo-editar', 'csdredesapoyo-borrar',
+    'csdresservi-leer', 'csdresservi-crear', 'csdresservi-editar', 'csdresservi-borrar',
     // ficha de ingreso
     // 'fiantecedentes-leer', 'fiantecedentes-crear', 'fiantecedentes-editar', 'fiantecedentes-borrar',
     'firedactual-leer', 'firedactual-crear', 'firedactual-editar', 'firedactual-borrar',

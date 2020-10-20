@@ -2,12 +2,12 @@
 
 namespace App\Models\consulta;
 
-use App\Helpers\Indicadores\IndicadorHelper;
-use App\Http\Requests\Csd\CsdResidenciaEditarRequest;
+
 use App\Models\consulta\pivotes\CsdRescamass;
 use App\Models\consulta\pivotes\CsdReshogar;
 use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdResobsers;
+use App\Models\consulta\pivotes\CsdResservi;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
@@ -150,11 +150,7 @@ class CsdResidencia extends Model{
         return $this->belongsToMany(Parametro::class,'csd_reside_ambiente', 'csd_residencia_id', 'parametro_id');
     }
 
-    public function prm_comparte(){
-        return $this->belongsToMany(Parametro::class,'csd_rescamass', 'csd_residencia_id', 'prm_comparte_id');
-    }
-
-    public function compartes(){
+    public function comparte(){
         return $this->belongsToMany(Parametro::class,'csd_rescamass', 'csd_residencia_id', 'prm_comparte_id');
     }
 
@@ -176,6 +172,10 @@ class CsdResidencia extends Model{
     public function rescamas()
     {
         return $this->hasOne(CsdRescamass::class);
+    }
+    public function csdresservi()
+    {
+        return $this->hasMany(CsdResservi::class);
     }
 
     public function creador(){
@@ -206,16 +206,27 @@ class CsdResidencia extends Model{
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if ($objetoxx != '') {
                 $objetoxx->update($dataxxxx);
+                $dataxxxx['csd_residencia_id'] = $objetoxx->id;
+                $dataxxxx['objetoxx']=$objetoxx;
+                if ($objetoxx->resobservacion != '') {
                 $objetoxx->resobservacion->update($dataxxxx);
-                $objetoxx->reshogar->update($dataxxxx);
-                $objetoxx->rescamas->update($dataxxxx);
-            } else {
+                 }else{
+                    CsdResobsers::create($dataxxxx);
+                 }
+
+                 if ($objetoxx->reshogar != '') {
+                        $objetoxx->reshogar->update($dataxxxx);
+                    }else{
+                    CsdReshogar::create($dataxxxx);
+                }
+            }else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = CsdResidencia::create($dataxxxx);
                 $dataxxxx['csd_residencia_id'] = $objetoxx->id;
                 $dataxxxx['objetoxx']=$objetoxx;
-                CsdReshogar::create($dataxxxx);
                 CsdResobsers::create($dataxxxx);
+                CsdReshogar::create($dataxxxx);
+      
 
             }
             $objetoxx->ambientes()->detach();
@@ -224,10 +235,10 @@ class CsdResidencia extends Model{
                     $objetoxx->ambientes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
                 }
             }
-            $objetoxx->prm_comparte()->detach();
-            if($dataxxxx['prm_comparte_id']){
-                foreach ($dataxxxx['prm_comparte_id'] as $d) {
-                    $objetoxx->prm_comparte()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $objetoxx->comparte()->detach();
+            if($dataxxxx['comparte']){
+                foreach ($dataxxxx['comparte'] as $d) {
+                    $objetoxx->comparte()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
 

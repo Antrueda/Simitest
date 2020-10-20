@@ -8,6 +8,7 @@ use App\Models\consulta\CsdDinfamPadre;
 use App\Models\consulta\CsdGeningAporta;
 use App\Models\consulta\CsdRedsocActual;
 use App\Models\consulta\CsdRedsocPasado;
+use App\Models\consulta\pivotes\CsdResservi;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiConsumoSpa;
@@ -426,4 +427,24 @@ trait CsdTrait
             ->where('csd_sis_nnaj.csd_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
+
+    public function getServicio($request)
+    {
+        $dataxxxx =  CsdResservi::select([
+            'csd_resservis.id',
+            'servicio.nombre as servicio',
+            'legal.nombre as legal',
+            'csd_resservis.created_at',
+            'csd_resservis.sis_esta_id',
+            'sis_estas.s_estado',
+            
+        ])
+            ->join('parametros as servicio', 'csd_resservis.prm_servicio_id', '=', 'servicio.id')
+            ->leftJoin('parametros as legal', 'csd_resservis.prm_legalxxx_id', '=', 'legal.id')
+            ->join('sis_estas', 'csd_resservis.sis_esta_id', '=', 'sis_estas.id')
+            ->where('csd_resservis.csd_residencia_id', $request->padrexxx);
+            
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
 }

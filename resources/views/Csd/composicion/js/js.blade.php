@@ -80,6 +80,41 @@
 
         });
 
+        var regisalu = function(valuexxx, selectep) {
+            $("#prm_cualeps_id").empty();
+            $.ajax({
+                url: "{{ route('ajaxx.regimensalud') }}",
+                data: {
+                    _token: $("input[name='_token']").val(),
+                    'padrexxx': valuexxx
+                },
+                type: 'POST',
+                dataType: 'json',
+                success: function(json) {
+                    $.each(json[0].entidadx, function(i, data) {
+                        var selected = '';
+                        if (selectep == data.valuexxx) {
+                            selected = 'selected';
+                        }
+                        $('#prm_cualeps_id').append('<option ' + selected + '  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+
+                    });
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existió un problema');
+                },
+            });
+        }
+        var prmresal = "{{old('prm_regimen_id')}}";
+        if (prmresal != '') {
+            regisalu(prmresal, "{{old('prm_cualeps_id')}}");
+        }
+        $("#prm_regimen_id").change(function() {
+            regisalu($(this).val(), '');
+        });
+        @if(old('prm_grupo_etnico_id') !== null)
+        datamuni('prm_grupo_etnico_id', "{{old('prm_grupo_etnico_id')}}", "{{old('prm_cualGrupo_id')}}");
+        @endif
 
     });
 

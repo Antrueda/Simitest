@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Traits\Fi;
+namespace App\Traits\Csd;
 
 /**
- * Este trait permite armar la tabla para la combinacion de los contextos y las violencias
+ * Este trait permite armar la tabla para la combinacion de los contextos y las servicioas
  */
-trait VcontviolTrait
+trait CcontviolTrait
 {
     private $modeloxx;
     private $tablaxxx;
@@ -17,11 +17,11 @@ trait VcontviolTrait
 
     public function getCabeceraBase()
     {
-        $this->tablaxxx = ['violenci' => [], 'contexto' => [], 'colspanx' => 0];
+        $this->tablaxxx = ['servicio' => [], 'contexto' => [], 'colspanx' => 0];
         $cabecera = [
             [
                 ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                ['td' => 'AMBITO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                ['td' => 'Servicio', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
             ],
         ];
         return $cabecera;
@@ -31,20 +31,21 @@ trait VcontviolTrait
      */
     public function getCabeceraCuerpo($dataxxxx)
     {
-
-        $this->tablaxxx = ['violenci' => [], 'contexto' => [], 'colspanx' => 0];
-        foreach ($this->modeloxx->fi_contviol as $key => $value) {
+        
+        $this->tablaxxx = ['servicio' => [], 'contexto' => [], 'colspanx' => 0];
+        foreach ($this->modeloxx->csdresservi as $key => $value) {
+            
             /**
              * encontrar nombre de colunas
              */
-            $violenci=['td' => $value->prm_violenci->nombre, 'id' => $value->prm_violenci_id, 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1];
-            if (!in_array($violenci, $this->tablaxxx['violenci']) && $dataxxxx['temaidxx'] == $value->tema_id) {
-                $this->tablaxxx['violenci'][] = $violenci;
+            $servicio=['td' => $value->prm_servicio->nombre, 'id' => $value->prm_servicio_id, 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1];
+            if (!in_array($servicio, $this->tablaxxx['servicio'])) {
+                $this->tablaxxx['servicio'][] = $servicio;
                 $this->tablaxxx['colspanx']++;
             }
             /** encontrar los contextos (filas) */
-            $contexto=['td' => $value->prm_contexto->nombre, 'id' => $value->prm_contexto_id];
-            if (!in_array($contexto, $this->tablaxxx['contexto']) && $dataxxxx['temaidxx'] == $value->tema_id) {
+            $contexto=['td' => $value->prm_legalxxx->nombre, 'id' => $value->prm_legalxxx_id];
+            if (!in_array($contexto, $this->tablaxxx['contexto'])) {
                 $this->tablaxxx['contexto'][] = $contexto;
             }
         }
@@ -55,10 +56,10 @@ trait VcontviolTrait
         $cabecera = [
             [
                 ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
-                ['td' => 'AMBITO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                ['td' => 'VIOLENCIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => $this->tablaxxx['colspanx']],
+                ['td' => 'SERVICIO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                ['td' => '¿Es Legal?', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => $this->tablaxxx['colspanx']],
             ],
-            $this->tablaxxx['violenci'],
+            $this->tablaxxx['servicio'],
         ];
         return $cabecera;
     }
@@ -68,7 +69,7 @@ trait VcontviolTrait
         $this->temaidxx=$dataxxxx['temaidxx'];
         $cabecera = $this->getCabeceraBase();
         if ($this->modeloxx) {
-            if (isset($this->modeloxx->fi_contviol[0])) {
+            if (isset($this->modeloxx->csdresservi[0])) {
                 $cabecera = $this->getCabecera($dataxxxx);
             }
         }
@@ -83,12 +84,12 @@ trait VcontviolTrait
                 ['td' => 1,],
                 ['td' => $valuex['td']],
              ];
-            foreach ($this->tablaxxx['violenci'] as $key => $value) {
+            foreach ($this->tablaxxx['servicio'] as $key => $value) {
                 $respuest='NO';
-                foreach ($this->modeloxx->fi_contviol as $key => $valuey) {
-                    if($valuey->prm_contexto_id==$valuex['id'] && $valuey->prm_violenci_id==$value['id']&& $this->temaidxx==$valuey->tema_id){
+                foreach ($this->modeloxx->csdresservi as $key => $valuey) {
+                    if($valuey->prm_legalxxx_id==$valuex['id'] && $valuey->prm_servicio_id==$value['id']){
                         $respuest=$valuey->prm_respuest->nombre;
-                        $cuerpoxx[$keyc][0]['botonesx'][]=[$valuey->id,$valuey->prm_contexto->nombre.' '.$valuey->prm_violenci->nombre];
+                        $cuerpoxx[$keyc][0]['botonesx'][]=[$valuey->id,$valuey->prm_legalxxx->nombre.' '.$valuey->prm_servicio->nombre];
                     
                     }
                 }

@@ -2,6 +2,7 @@
 
 namespace App\Models\consulta\pivotes;
 
+use App\Models\consulta\CsdResidencia;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

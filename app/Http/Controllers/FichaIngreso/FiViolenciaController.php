@@ -51,7 +51,7 @@ class FiViolenciaController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],            
         ];
         $condespe = 57;
         if ($dataxxxx['padrexxx']->prm_estrateg_id == 2323) {

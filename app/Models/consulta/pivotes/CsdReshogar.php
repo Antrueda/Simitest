@@ -2,6 +2,7 @@
 
 namespace App\Models\consulta\pivotes;
 
+use App\Models\consulta\CsdResidencia;
 use Illuminate\Database\Eloquent\Model;
 
 class CsdReshogar extends Model
@@ -72,30 +73,5 @@ class CsdReshogar extends Model
     }
 
 
-    public static function actividades($padrexxx)
-    {
-        $vestuari = ['activitl' => FiActividadTiempoLibre::where('fi_actividadestl_id', $padrexxx)->first(), 'formular' => false];
-        if ($vestuari['activitl'] == null) {
-            $vestuari['formular'] = true;
-        }
-        return $vestuari;
-    }
-    public static function setActividadtl($objetoxx, $dataxxxx)
-    {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $datosxxx = [
-                'fi_actividadestl_id' => $objetoxx->id,
-                'user_crea_id' => Auth::user()->id,
-                'user_edita_id' => Auth::user()->id,
-                'sis_esta_id' => 1,
-            ];
-            // dd($dataxxxx);
-            FiActividadTiempoLibre::where('fi_actividadestl_id', $objetoxx->id)->delete();
-            foreach ($dataxxxx['i_prm_actividad_tl_id'] as $diagener) {
-                $datosxxx['i_prm_actividad_tl_id'] = $diagener;
-                FiActividadTiempoLibre::create($datosxxx);
-            }
-            return $objetoxx;
-        }, 5);
-    }
+    
 }
