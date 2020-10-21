@@ -414,15 +414,13 @@ trait CsdTrait
             'csd_sis_nnaj.created_at',
             'sis_estas.s_estado'
         ])
-
             ->join('csds', 'csd_sis_nnaj.csd_id', '=', 'csds.id')
             ->join('nnaj_upis', 'csds.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
-            ->join('fi_datos_basicos', 'csds.sis_nnaj_id', '=', 'fi_datos_basicos.sis_nnaj_id')
+            ->join('fi_datos_basicos', 'csd_sis_nnaj.sis_nnaj_id', '=', 'fi_datos_basicos.sis_nnaj_id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'csd_sis_nnaj.sis_esta_id', '=', 'sis_estas.id')
             ->where('nnaj_upis.prm_principa_id', 227)
-
             ->where('csd_sis_nnaj.csd_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }

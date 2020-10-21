@@ -8,8 +8,13 @@ Route::group(['prefix' => '{padrexxx}/csds'], function () use ($routexxx, $contr
     ])->name($routexxx);
     Route::get('listaxxx', [
         'uses' => $controll . 'Controller@getListado',
-        'middleware' => ['permission:' . $routexxx . '-leer']
+        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
     ])->name($routexxx . '.listaxxx');
+    Route::get('visitados', [
+        'uses' => $controll . 'Controller@getNnajVisitados',
+        'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+    ])->name($routexxx . '.visitado');
+
     Route::get('nuevo', [
         'uses' => $controll . 'Controller@create',
         'middleware' => ['permission:' . $routexxx . '-crear']

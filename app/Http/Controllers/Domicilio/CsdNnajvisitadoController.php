@@ -44,7 +44,7 @@ class CsdNnajvisitadoController extends Controller
         $this->opciones['tituloxx'] = "NNAJ VISITADO";
         $this->opciones['botoform'] = [
             [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'mostrars' => true, 'accionxx' => '', 'routingx' => ['csdxxxxx.editar', []],
                 'formhref' => 2, 'tituloxx' => 'VOLVER A CSDS', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];

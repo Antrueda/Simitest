@@ -112,6 +112,20 @@ class CsdController extends Controller
 
         }
     }
+    public function getNnajVisitados(Request $request, Csd $padrexxx)
+    {
+        if ($request->ajax()) {
+
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->padrexxx = $padrexxx->id;
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getVisitados($request);
+
+        }
+    }
+
     private function grabar($dataxxxx)
     {
         $usuariox = Csd::transaccion($dataxxxx);
@@ -164,7 +178,7 @@ class CsdController extends Controller
                 'titulist' => 'LISTA DE NNAJ VISITADOS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => $this->opciones['vercrear'],
-                'urlxxxxx' => route( 'nnajvisi.listaxxx', [$parametr]),
+                'urlxxxxx' => route( $this->opciones['routxxxx'] .'.visitado', [$parametr]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -180,7 +194,7 @@ class CsdController extends Controller
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'csds.id'],
+                    ['data' => 'id', 'name' => 'csd_sis_nnaj.id'],
                     ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
                     ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
                     ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
