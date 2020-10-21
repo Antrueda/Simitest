@@ -24,7 +24,7 @@ class CsdDinfamPadreController extends Controller
         $this->opciones['permisox'] = 'csddfpad';
         $this->opciones['routxxxx'] = 'csddfpad';
         $this->opciones['rutacarp'] = 'Csd.';
-        $this->opciones['carpetax'] = 'dimfamiliar';
+        $this->opciones['carpetax'] = 'Dimfamiliar';
         $this->opciones['slotxxxx'] = 'csddinfamiliar';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "DINAMICA FAMILIAR";

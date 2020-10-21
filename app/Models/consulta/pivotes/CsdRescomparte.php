@@ -5,12 +5,12 @@ namespace App\Models\consulta\pivotes;
 use App\Models\consulta\CsdResidencia;
 use Illuminate\Database\Eloquent\Model;
 
-class CsdReshogar extends Model
+class CsdRescomparte extends Model
 {
-    protected $table = 'csd_reshogars';
+    protected $table = 'csd_rescomparte';
 
     protected $fillable = [ 'prm_espacio_id',
-    'espaciocant',
+    'prm_comparte_id',
     'csd_residencia_id',
     'user_crea_id',
     'user_edita_id',
@@ -26,6 +26,12 @@ class CsdReshogar extends Model
     {
       return $this->belongsTo(Parametro::class,'prm_espacio_id');
     }
+
+    public function prm_comparte()
+    {
+      return $this->belongsTo(Parametro::class,'prm_comparte_id');
+    }
+
 
     public function creador()
     {

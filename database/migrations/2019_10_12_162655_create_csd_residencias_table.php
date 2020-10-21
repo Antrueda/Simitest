@@ -14,6 +14,7 @@ class CreateCsdResidenciasTable extends Migration
     private $tablaxxx4 = 'csd_reshogars';
     private $tablaxxx5 = 'csd_rescamass';
     private $tablaxxx6 = 'csd_resobsers';
+    private $tablaxxx7 = 'csd_rescomparte';
     /**
      * Run the migrations.
      *
@@ -109,26 +110,10 @@ class CreateCsdResidenciasTable extends Migration
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('prm_bano_id')->unsigned();
-            $table->bigInteger('banocant')->nullable();
-            $table->bigInteger('prm_comedor_id')->unsigned();
-            $table->bigInteger('comedorcant')->nullable();
-            $table->bigInteger('prm_sala_id')->unsigned();
-            $table->bigInteger('salacant')->nullable();
-            $table->bigInteger('salacomcant')->nullable();
-            $table->bigInteger('prm_cocina_id')->unsigned();
-            $table->bigInteger('cocinacant')->nullable();
-            $table->bigInteger('prm_habita_id')->unsigned();
-            $table->bigInteger('habitacant')->nullable();
-            $table->bigInteger('prm_patio_id')->unsigned();
-            $table->bigInteger('patiocant')->nullable();
+            $table->bigInteger('prm_espacio_id')->unsigned();
+            $table->bigInteger('espaciocant')->nullable();
             $table->bigInteger('csd_residencia_id')->unsigned();
-            $table->foreign('prm_bano_id')->references('id')->on('parametros');
-            $table->foreign('prm_comedor_id')->references('id')->on('parametros');
-            $table->foreign('prm_sala_id')->references('id')->on('parametros');
-            $table->foreign('prm_cocina_id')->references('id')->on('parametros');
-            $table->foreign('prm_habita_id')->references('id')->on('parametros');
-            $table->foreign('prm_patio_id')->references('id')->on('parametros');
+            $table->foreign('prm_espacio_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table->unique(['csd_residencia_id']);
             $table = CamposMagicos::magicos($table);
@@ -154,6 +139,20 @@ class CreateCsdResidenciasTable extends Migration
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LAS OBSERVACIONES REALIZADAS POR EL FUNCIONARIO A LA RESIDENCIA'");
+
+        Schema::create($this->tablaxxx7, function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('prm_espacio_id')->unsigned();
+            $table->bigInteger('prm_otrafamilia_id')->unsigned();
+            $table->bigInteger('csd_residencia_id')->unsigned();
+            $table->foreign('prm_espacio_id')->references('id')->on('parametros');
+            $table->foreign('prm_otrafamilia_id')->references('id')->on('parametros');
+            $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
+            $table->unique(['csd_residencia_id']);
+            $table = CamposMagicos::magicos($table);
+        });
+        DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
+
     }
 
     
@@ -167,6 +166,7 @@ class CreateCsdResidenciasTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists($this->tablaxxx7);
         Schema::dropIfExists($this->tablaxxx6);
         Schema::dropIfExists($this->tablaxxx5);
         Schema::dropIfExists($this->tablaxxx4);

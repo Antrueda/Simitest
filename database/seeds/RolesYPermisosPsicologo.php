@@ -41,7 +41,6 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 'vsiconse-leer', 'vsiconse-crear', 'vsiconse-editar',
                 //Consulta Social en Domicilio
                 'csdxxxxx-leer', 'csdxxxxx-crear', 'csdxxxxx-editar', 'csdxxxxx-borrar',
-                'csdatbas-leer', 'csdatbas-crear', 'csdatbas-editar',
                 'csdviolencia-leer', 'csdviolencia-crear', 'csdviolencia-editar', 'csdviolencia-borrar',
                 'csdsituacionespecial-leer', 'csdsituacionespecial-crear', 'csdsituacionespecial-editar', 'csdsituacionespecial-borrar',
                 'csdjusticia-leer', 'csdjusticia-crear', 'csdjusticia-editar', 'csdjusticia-borrar',
@@ -52,6 +51,11 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 'csdcomfamiliar-leer', 'csdcomfamiliar-crear', 'csdcomfamiliar-editar', 'csdcomfamiliar-borrar',
                 'csdresidencia-leer', 'csdresidencia-crear', 'csdresidencia-editar', 'csdresidencia-borrar',
                 'csdgeningresos-leer', 'csdgeningresos-crear', 'csdgeningresos-editar', 'csdgeningresos-borrar',
+                'csdredesapoyo-leer', 'csdredesapoyo-crear', 'csdredesapoyo-editar', 'csdredesapoyo-borrar',
+                'csdgenaporta-leer', 'csdgenaporta-crear', 'csdgenaporta-editar', 'csdgenaporta-borrar',
+                'csdredactual-leer', 'csdredactual-crear', 'csdredactual-editar', 'csdredactual-borrar',
+                'csddfpad-leer', 'csddfpad-crear', 'csddfpad-editar', 'csddfpad-borrar',
+                'csddfmad-leer', 'csddfmad-crear', 'csddfmad-editar', 'csddfmad-borrar',
                 'csdredesapoyo-leer', 'csdredesapoyo-crear', 'csdredesapoyo-editar', 'csdredesapoyo-borrar',
                 'csdresservi-leer', 'csdresservi-crear', 'csdresservi-editar', 'csdresservi-borrar',
                 // ficha de ingreso

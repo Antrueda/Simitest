@@ -69,7 +69,8 @@ class CsdResidenciaController extends Controller
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']           
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],  
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']          
             
         ];
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
@@ -133,7 +134,7 @@ class CsdResidenciaController extends Controller
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
                         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
-        $this->opciones['tablasxx'][] =
+        $this->opciones['tablasxx'] = [ 
             [
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'titunuev' => 'SERVICIOS',
@@ -162,6 +163,36 @@ class CsdResidenciaController extends Controller
                 'permisox' => 'csdresservi',
                 'routxxxx' => 'csdresservi',
                 'parametr' => [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0],
+            ],
+            [
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'titunuev' => 'SERVICIOS',
+                'titulist' => 'LISTA DE SERVICIOS',
+                'dataxxxx' => [],
+                'titupreg' => 'Indicar que serivicio tiene en el hogar',
+                'vercrear' => (isset($this->opciones['modeloxx'])),
+                'urlxxxxx' => route('csdresservi.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'cabecera' => [
+                    [
+                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'SERVICIO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => '¿Es Legal?', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
+                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                    ],
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'csd_resservis.id'],
+                    ['data' => 'servicio', 'name' => 'servicio.nombre as servicio'],
+                    ['data' => 'legal', 'name' => 'legal.nombre as legal'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatable519',
+                'permisox' => 'csdresservi',
+                'routxxxx' => 'csdresservi',
+                'parametr' => [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0],
+            ],
             ];
             
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

@@ -23,7 +23,7 @@ class CsdDinfamMadreController extends Controller
         $this->opciones['permisox'] = 'csddfmad';
         $this->opciones['routxxxx'] = 'csddfmad';
         $this->opciones['rutacarp'] = 'Csd.';
-        $this->opciones['carpetax'] = 'dimfamiliar';
+        $this->opciones['carpetax'] = 'Dimfamiliar';
         $this->opciones['slotxxxx'] = 'csddinfamiliar';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "DINAMICA FAMILIAR";

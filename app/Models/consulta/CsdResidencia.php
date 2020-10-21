@@ -4,6 +4,7 @@ namespace App\Models\consulta;
 
 
 use App\Models\consulta\pivotes\CsdRescamass;
+use App\Models\consulta\pivotes\CsdRescomparte;
 use App\Models\consulta\pivotes\CsdReshogar;
 use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdResobsers;
@@ -166,7 +167,12 @@ class CsdResidencia extends Model{
 
     public function reshogar()
     {
-        return $this->hasOne(CsdReshogar::class);
+        return $this->hasMany(CsdReshogar::class);
+    }
+
+    public function rescomparte()
+    {
+        return $this->hasMany(CsdRescomparte::class);
     }
 
     public function rescamas()
