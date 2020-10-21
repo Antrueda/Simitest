@@ -9,7 +9,7 @@ if (isset($todoxxxx['rowscols'])) {
 
 ?>
 <div class="form-row align-items-end form-group col-md-12" style="margin-bottom: 40px">
-    {{ Form::label('s_doc_adjunto_ar', '5.1 GENOGRAMA', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_doc_adjunto_ar', '6.1 GENOGRAMA', ['class' => 'control-label col-form-label-sm']) }}
     @component('layouts.components.archivos.upload')
     @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto_ar','descripc'=>'Seleccione un archivo','idlabelx'=>'s_doc_adjunto_ar_label',
     'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf','clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
@@ -23,6 +23,13 @@ if (isset($todoxxxx['rowscols'])) {
     </div>
 </div>
 @endif
+
+<div class="row">
+    <div class="col-md-12">
+        <h6>6.2 Relaciones de pareja</h6>
+    </div>
+</div>
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_familiar_id', '6.3 Tipología familiar', ['class' => 'control-label col-form-label-sm']) }}
@@ -317,5 +324,5 @@ if (isset($todoxxxx['rowscols'])) {
   </div>
 </div>
 <br>
-@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+
 

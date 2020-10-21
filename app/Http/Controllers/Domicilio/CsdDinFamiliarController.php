@@ -45,16 +45,16 @@ class CsdDinFamiliarController extends Controller
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['antecede'] = Tema::combo(97, false, false);
         $this->opciones['familiar'] = Tema::combo(66, true, false);
-        $this->opciones['familian'] = Tema::combo(66, true, false);
+        $this->opciones['familian'] = Tema::combo(66, false, false);
         $this->opciones['familiax'] = Tema::combo(98, true, false);
         $this->opciones['hogarxxx'] = Tema::combo(99, true, false);
         $this->opciones['separacx'] = Tema::combo(176, true, false);
         $this->opciones['traslado'] = Tema::combo(100, true, false);
-        $this->opciones['problema'] = Tema::combo(102, false, false);
+        $this->opciones['problema'] = Tema::combo(102, true, false);
         $this->opciones['reglasxx'] = Tema::combo(103, false, false);
         $this->opciones['actuandx'] = Tema::combo(104, true, false);
         $this->opciones['manerasx'] = Tema::combo(105, true, false);
-        $this->opciones['acudexxx'] = Tema::combo(106, false, false);
+        $this->opciones['acudexxx'] = Tema::combo(106, true, false);
         $this->opciones['incumple'] = Tema::combo(107, false, false);
         $this->opciones['destacan'] = Tema::combo(108, true, false);
         $this->opciones['sucesosx'] = Tema::combo(109, true, false);
@@ -116,47 +116,7 @@ class CsdDinFamiliarController extends Controller
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR RELACION',
-                'titulist' => 'LISTA DE RELACIONES DEL PROGENITOR',
-                'dataxxxx' => [],
-                'vercrear' => $vercrear,
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route('csddinfamiliar.listapxx', [$dataxxxx['padrexxx']->id]),
-                'cabecera' => [
-                    [
-                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'CONVIVIERON', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'TIEMPO DE CONVIVENCIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
-                        ['td' => '# HIJOS(AS)', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'MOTIVO DE SEPARACION', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                    ],
-                    [
-                        ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'AñO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                    ]
-
-                ],
-                'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'csd_dinfam_padres.id'],
-                    ['data' => 'convive', 'name' => 'convive.nombre as convive'],
-                    ['data' => 'dia', 'name' => 'csd_dinfam_padres.dia'],
-                    ['data' => 'mes', 'name' => 'csd_dinfam_padres.mes'],
-                    ['data' => 'ano', 'name' => 'csd_dinfam_padres.ano'],
-                    ['data' => 'hijo', 'name' => 'csd_dinfam_padres.hijo'],
-                    ['data' => 'separado', 'name' => 'separado.nombre as separado'],
-                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                ],
-                'tablaxxx' => 'datatablepadre',
-                'permisox' => 'csddfpad',
-                'routxxxx' => 'csddfpad',
-                'parametr' => [$dataxxxx['padrexxx']->id],
-            ],
-            [
-                'titunuev' => 'CREAR RELACION',
-                'titulist' => 'LISTA DE RELACIONES DEL PROGENITORA',
+                'titulist' => '6.2.1 RELACIONES DE LA PROGENITORA ',
                 'dataxxxx' => [],
                 'vercrear' => $vercrear,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
@@ -193,7 +153,46 @@ class CsdDinFamiliarController extends Controller
                 'permisox' => 'csddfmad',
                 'routxxxx' => 'csddfmad',
                 'parametr' => $this->opciones['parametr'] ,
-            ]
+            ],[ 
+            'titunuev' => 'CREAR RELACION',
+            'titulist' => '6.2.2 RELACIONES DEL PROGENITOR ',
+            'dataxxxx' => [],
+            'vercrear' => $vercrear,
+            'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+            'urlxxxxx' => route('csddinfamiliar.listapxx', [$dataxxxx['padrexxx']->id]),
+            'cabecera' => [
+                [
+                    ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
+                    ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                    ['td' => 'CONVIVIERON', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                    ['td' => 'TIEMPO DE CONVIVENCIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
+                    ['td' => '# HIJOS(AS)', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                    ['td' => 'MOTIVO DE SEPARACION', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                    ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                ],
+                [
+                    ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'AñO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                ]
+
+            ],
+            'columnsx' => [
+                ['data' => 'botonexx', 'name' => 'botonexx'],
+                ['data' => 'id', 'name' => 'csd_dinfam_padres.id'],
+                ['data' => 'convive', 'name' => 'convive.nombre as convive'],
+                ['data' => 'dia', 'name' => 'csd_dinfam_padres.dia'],
+                ['data' => 'mes', 'name' => 'csd_dinfam_padres.mes'],
+                ['data' => 'ano', 'name' => 'csd_dinfam_padres.ano'],
+                ['data' => 'hijo', 'name' => 'csd_dinfam_padres.hijo'],
+                ['data' => 'separado', 'name' => 'separado.nombre as separado'],
+                ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+            ],
+            'tablaxxx' => 'datatablepadre',
+            'permisox' => 'csddfpad',
+            'routxxxx' => 'csddfpad',
+            'parametr' => [$dataxxxx['padrexxx']->id],
+        ]
 
         ];
 
