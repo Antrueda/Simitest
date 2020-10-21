@@ -14,7 +14,6 @@ use App\Traits\Fi\VcontviolTrait;
 
 class CsdViolenciaController extends Controller
 {
-    use VcontviolTrait;
     private $opciones;
     public function __construct()
     {

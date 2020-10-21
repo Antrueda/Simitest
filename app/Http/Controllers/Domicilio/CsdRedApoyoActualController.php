@@ -22,7 +22,7 @@ class CsdRedApoyoActualController extends Controller
         $this->opciones['permisox'] = 'csdredactual';
         $this->opciones['routxxxx'] = 'csdredactual';
         $this->opciones['rutacarp'] = 'Csd.';
-        $this->opciones['carpetax'] = 'redapoyo';
+        $this->opciones['carpetax'] = 'Redapoyo';
         $this->opciones['slotxxxx'] = 'csdredactual';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "REDES DE APOYO ACTUALES";

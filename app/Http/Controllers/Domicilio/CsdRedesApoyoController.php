@@ -24,7 +24,7 @@ class CsdRedesApoyoController extends Controller
         $this->opciones['permisox'] = 'csdredesapoyo';
         $this->opciones['routxxxx'] = 'csdredesapoyo';
         $this->opciones['rutacarp'] = 'Csd.';
-        $this->opciones['carpetax'] = 'redapoyo';
+        $this->opciones['carpetax'] = 'Redapoyo';
         $this->opciones['slotxxxx'] = 'csdredesapoyo';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "REDES DE APOYO";
