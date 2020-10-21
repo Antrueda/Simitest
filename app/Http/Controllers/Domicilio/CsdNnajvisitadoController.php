@@ -80,7 +80,7 @@ class CsdNnajvisitadoController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['botoform'][0]['routingx'][1]=$dataxxxx['padrexxx']->id;
-        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        // $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
@@ -93,7 +93,7 @@ class CsdNnajvisitadoController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['pestpadr'] = 3;
+            // $this->opciones['pestpadr'] = 3;
             $this->opciones['nnajidxx']=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->NombreCedula;
 
             $this->opciones['csdxxxxx']=$dataxxxx['modeloxx'];

@@ -390,7 +390,7 @@ trait CsdTrait
             ->join('csds', 'csd_sis_nnaj.csd_id', '=', 'csds.id')
             ->join('sis_estas', 'csds.sis_esta_id', '=', 'sis_estas.id')
 
-            ->where('csds.sis_nnaj_id', $request->padrexxx);
+            ->where('csd_sis_nnaj.sis_nnaj_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -444,7 +444,7 @@ trait CsdTrait
     }
     public function getNnajs($request)
     {
-
+        $notinxxx = CsdSisNnaj::select(['sis_nnaj_id'])->where('csd_id', $request->padrexxx)->get();
         $dataxxxx =  FiDatosBasico::select([
             'sis_nnajs.id',
             'fi_datos_basicos.s_primer_nombre',
@@ -460,23 +460,24 @@ trait CsdTrait
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+            ->whereNotIn('fi_datos_basicos.sis_nnaj_id', $notinxxx)
             ->where('sis_nnajs.prm_escomfam_id', 227);
 
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
-/**
- * encontrar el nnaj visitado
- */
+    /**
+     * encontrar el nnaj visitado
+     */
 
     public function getVisitado(Request $request)
     {
 
         if ($request->ajax()) {
             return response()->json([
-                'dataxxxx'=>FiDatosBasico::where('sis_nnaj_id',$request->padrexxx)->first()->NombreCedulaAjax,
-                'campoxxx'=>'sis_nnaj_id',
-                ]);
+                'dataxxxx' => FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->NombreCedulaAjax,
+                'campoxxx' => 'sis_nnaj_id',
+            ]);
         }
     }
 }

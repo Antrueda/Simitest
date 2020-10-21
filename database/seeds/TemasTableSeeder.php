@@ -730,7 +730,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 63, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'MOTIVO VINCULACION IDIPRON']);
         $tema->parametros()->sync([
-            
+
             761 => $camposmagicos,
             762 => $camposmagicos,
             763 => $camposmagicos,
@@ -1229,7 +1229,7 @@ class TemasTableSeeder extends Seeder
         // $tema->parametros()->sync([
 
         // ]);
-        $tema = Tema::create(['id' => 119, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPO POBLACION']);
+        $tema = Tema::create(['id' => 119, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPO POBLACION FI']);
         $tema->parametros()->sync([
             650 => $camposmagicos,
             651 => $camposmagicos,
@@ -3326,14 +3326,17 @@ class TemasTableSeeder extends Seeder
             'parametr' => [
                 235, 600,770,771,776,777,778,779,780,781,782,783,784,785,786,787,788,789,790,791,792,793,794,
                 795,796,797,798,799,800,801,802,803,805,808,809,810,1479,1480,1594,
-                //  2322,
             ]
         ]); //358
-
-
+        $this->getR([
+            'nombrexx' => 'TIPO POBLACION CSD',
+            'parametr' => [
+                650,651,1269
+            ]
+        ]); //359
         // $this->getR([
         //     'nombrexx' => '',
         //     'parametr' => []
-        // ]); //359
+        // ]); //360
     }
 }

@@ -5,20 +5,14 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdBasicoCrearRequest;
 use App\Http\Requests\Csd\CsdBasicoEditarRequest;
-use App\Http\Requests\Csd\CsdCrearRequest;
 use App\Models\consulta\Csd;
-use App\Models\consulta\CsdDatosBasico;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
-use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
-use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisPai;
-use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
-use App\Models\User;
 use Carbon\Carbon;
 
 class CsdBasicoController extends Controller
@@ -87,7 +81,7 @@ class CsdBasicoController extends Controller
         $this->opciones['grupindi'] = Tema::combo(61, true, false);
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
 
-        $this->opciones['tipoblac'] = Tema::combo(119, true, false);
+        $this->opciones['tipoblac'] = Tema::combo(359, true, false);
         $this->opciones['paisxxxx'] = SisPai::combo(true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
