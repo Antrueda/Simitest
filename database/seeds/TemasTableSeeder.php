@@ -3333,7 +3333,17 @@ class TemasTableSeeder extends Seeder
             'parametr' => [
                 650,651,1269
             ]
-        ]); //359
+        ]); 
+        
+        $this->getR([
+            'nombrexx' => 'PROBLEMA CSD',
+            'parametr' => [
+                567 ,568 ,569 ,561 ,572 ,573 ,574 ,575 ,576 ,579 ,581 ,583 ,582 ,577 ,571 ,655 ,578 ,580,563//  2322,
+            ]
+        ]); //360
+        
+        
+        //359
         // $this->getR([
         //     'nombrexx' => '',
         //     'parametr' => []
