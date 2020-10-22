@@ -3342,10 +3342,11 @@ class TemasTableSeeder extends Seeder
             ]
         ]); //360
 
+
         $this->getR([
             'nombrexx' => 'TIPO DE DOCUMENTO CSD',
             'parametr' => [
-                ,19 ,142 ,143 ,144 ,145//  2322,
+                    19,142 ,143 ,144 ,145//  2322,
             ]
         ]); //361
 
