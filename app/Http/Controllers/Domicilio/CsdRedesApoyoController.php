@@ -222,11 +222,6 @@ class CsdRedesApoyoController extends Controller
      */
     public function create(Csd $padrexxx)
     {
-        $vestuari = CsdRedsocPasado::where('csd_id', $padrexxx->id)->first();
-        if ($vestuari != null) {
-            return redirect()
-                ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
-        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
             [

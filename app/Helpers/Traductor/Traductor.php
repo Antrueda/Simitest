@@ -2,6 +2,8 @@
 //app/Helpers/Envato/User.php
 namespace App\Helpers\Traductor;
 
+use App\Models\consulta\CsdGeningAporta;
+use App\Models\consulta\pivotes\CsdGeningDia;
 use App\Models\sicosocial\Pivotes\VsiEmocionVincula;
 use App\Models\sicosocial\Pivotes\VsiPersona;
 use App\Models\sicosocial\Pivotes\VsiSituacionVincula;
@@ -76,6 +78,13 @@ class Traductor {
         return VsiEmocionVincula::select(['parametros.nombre'])
         ->join('parametros','vsi_emocion_vincula.parametro_id','=','parametros.id')
         ->where('vsi_datos_vincula_id',$dataxxxx['vsiidxxx'])->get();
+    }
+
+    public static function getDias($dataxxxx)
+    {
+        return CsdGeningDia::select(['parametros.nombre'])
+        ->join('parametros','csd_gening_dias.parametro_id','=','parametros.id')
+        ->where('csd_geningreso_id',$dataxxxx['padrexxx'])->get();
     }
 }
 

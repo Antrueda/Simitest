@@ -219,21 +219,12 @@ class CsdResidencia extends Model{
                  }else{
                     CsdResobsers::create($dataxxxx);
                  }
-
-                 if ($objetoxx->reshogar != '') {
-                        $objetoxx->reshogar->update($dataxxxx);
-                    }else{
-                    CsdReshogar::create($dataxxxx);
-                }
-            }else {
+             }else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = CsdResidencia::create($dataxxxx);
                 $dataxxxx['csd_residencia_id'] = $objetoxx->id;
                 $dataxxxx['objetoxx']=$objetoxx;
                 CsdResobsers::create($dataxxxx);
-                CsdReshogar::create($dataxxxx);
-      
-
             }
             $objetoxx->ambientes()->detach();
             if($dataxxxx['ambientes']){

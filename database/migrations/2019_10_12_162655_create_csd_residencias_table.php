@@ -93,8 +93,7 @@ class CreateCsdResidenciasTable extends Migration
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
-     
-     
+        
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('prm_servicio_id')->unsigned();

@@ -7,6 +7,8 @@ use App\Models\consulta\CsdDinfamPadre;
 use App\Models\consulta\CsdGeningAporta;
 use App\Models\consulta\CsdRedsocActual;
 use App\Models\consulta\CsdRedsocPasado;
+use App\Models\consulta\pivotes\CsdRescomparte;
+use App\Models\consulta\pivotes\CsdReshogar;
 use App\Models\consulta\pivotes\CsdResservi;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiCompfami;
@@ -199,7 +201,7 @@ trait CsdTrait
     {
         $dataxxxx =  CsdRedsocPasado::select(
             'csd_redsoc_pasados.id',
-            'sis_entidads.nombre',
+            'csd_redsoc_pasados.nombre',
             'csd_redsoc_pasados.servicios',
             'csd_redsoc_pasados.cantidad',
             'tiempo.nombre as tipotiem',
@@ -210,7 +212,6 @@ trait CsdTrait
             'sis_estas.s_estado'
         )
             ->join('sis_estas', 'csd_redsoc_pasados.sis_esta_id', '=', 'sis_estas.id')
-            ->join('sis_entidads', 'csd_redsoc_pasados.nombre', '=', 'sis_entidads.id')
             ->join('parametros as tiempo', 'csd_redsoc_pasados.prm_unidad_id', '=', 'tiempo.id')
             ->where(
                 'csd_redsoc_pasados.csd_id',
@@ -338,15 +339,21 @@ trait CsdTrait
             'aporta.nombre as aporta',
             'csd_gening_aportas.mensual',
             'csd_gening_aportas.aporte',
+            'csd_gening_aportas.jornada_entre',
+            'entre.nombre as entre',
+            'csd_gening_aportas.jornada_a',
+            'jornada.nombre as jornada',
             'csd_gening_aportas.created_at',
             'csd_gening_aportas.sis_esta_id',
             'sis_estas.s_estado'
         ])
             ->join('parametros as aporta', 'csd_gening_aportas.prm_aporta_id', '=', 'aporta.id')
+            ->join('parametros as entre', 'csd_gening_aportas.prm_entre_id', '=', 'entre.id')
+            ->join('parametros as jornada', 'csd_gening_aportas.prm_a_id', '=', 'jornada.id')
             ->join('sis_estas', 'csd_gening_aportas.sis_esta_id', '=', 'sis_estas.id')
             ->where('csd_gening_aportas.csd_id', $request->padrexxx);
 
-        return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtAportantes($dataxxxx, $request);
     }
 
 
@@ -442,6 +449,45 @@ trait CsdTrait
 
         return $this->getDtAcciones($dataxxxx, $request);
     }
+
+    public function getEspacio($request)
+    {
+        $dataxxxx =  CsdReshogar::select([
+            'csd_reshogars.id',
+            'espacio.nombre as espacio',
+            'csd_reshogars.espaciocant',
+            'csd_reshogars.created_at',
+            'csd_reshogars.sis_esta_id',
+            'sis_estas.s_estado',
+
+        ])
+            ->join('parametros as espacio', 'csd_reshogars.prm_espacio_id', '=', 'espacio.id')
+            ->join('sis_estas', 'csd_reshogars.sis_esta_id', '=', 'sis_estas.id')
+            ->where('csd_reshogars.csd_residencia_id', $request->padrexxx);
+
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
+    public function getComparte($request)
+    {
+        $dataxxxx =  CsdRescomparte::select([
+            'csd_rescomparte.id',
+            'espacio.nombre as espacio',
+            'comparte.nombre as comparte',
+            'csd_rescomparte.created_at',
+            'csd_rescomparte.sis_esta_id',
+            'sis_estas.s_estado',
+
+        ])
+            ->join('parametros as espacio', 'csd_rescomparte.prm_espacio_id', '=', 'espacio.id')
+            ->leftJoin('parametros as comparte', 'csd_rescomparte.prm_otrafamilia_id', '=', 'comparte.id')
+            ->join('sis_estas', 'csd_rescomparte.sis_esta_id', '=', 'sis_estas.id')
+            ->where('csd_rescomparte.csd_residencia_id', $request->padrexxx);
+
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
+
     public function getNnajs($request)
     {
         $notinxxx = CsdSisNnaj::select(['sis_nnaj_id'])->where('csd_id', $request->padrexxx)->get();

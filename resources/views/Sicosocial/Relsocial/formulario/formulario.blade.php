@@ -21,7 +21,7 @@
 <div class="row">
     <div class="col-md-3">
         {{ Form::label('dificultades', '6.3 ¿En qué contextos se le dificulta interactuar con otras personas?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('dificultades[]', $todoxxxx['contextx'], null, ['class' => $errors->first('dificultades') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'dificultades', 'onchange' => 'doc(this.value)', 'multiple']) }}
+        {{ Form::select('dificultades[]', $todoxxxx['contextx'], null, ['class' => $errors->first('dificultades') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'dificultadez', 'onchange' => 'doc(this.value)', 'multiple']) }}
         @if($errors->has('dificultades'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('dificultades') }}

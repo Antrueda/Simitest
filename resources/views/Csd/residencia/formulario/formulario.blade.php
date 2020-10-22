@@ -1,7 +1,4 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="bootstrap.min.css" />
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_tipo_id', '5.1 Tipo de residencia', ['class' => 'control-label col-form-label-sm']) }}
@@ -31,6 +28,7 @@
       @endif
   </div>
 </div>
+
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_dir_zona_id', 'Zona', ['class' => 'control-label col-form-label-sm']) }}
@@ -60,6 +58,7 @@
       @endif
   </div>
 </div>
+
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_dir_alfavp_id', 'Alfabético Vía Principal', ['class' => 'control-label col-form-label-sm']) }}
@@ -89,6 +88,7 @@
       @endif
   </div>
 </div>
+
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_dir_cuadrantevp_id', 'Cuadrante VP', ['class' => 'control-label col-form-label-sm']) }}
@@ -118,6 +118,7 @@
       @endif
   </div>
 </div>
+
 <div class="row">
   <div class="col-md">
       {{ Form::label('dir_placa', 'Placa VG', ['class' => 'control-label col-form-label-sm']) }}
@@ -147,6 +148,7 @@
       @endif
   </div>
 </div>
+
 <div class="row">
   <div class="col-md">
       {{ Form::label('dir_complemento', '5.5 Complemento', ['class' => 'control-label col-form-label-sm']) }}
@@ -176,6 +178,7 @@
       @endif
   </div>
 </div>
+
 <div class="row">
   <div class="col-md-3">
       {{ Form::label('sis_upzbarri_id', '5.9 Barrio', ['class' => 'control-label col-form-label-sm']) }}
@@ -196,6 +199,8 @@
       @endif
   </div>
 </div>
+
+
 <div class="row">
   <div class="col-md">
       {{ Form::label('telefono_dos', '5.11 Celular 1', ['class' => 'control-label col-form-label-sm']) }}
@@ -235,6 +240,7 @@
           </div>
       @endif
   </div>
+
   <div class="col-md">
       {{ Form::label('prm_piso_id', '5.15 Material predominante de los pisos', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('prm_piso_id', $todoxxxx["pisoxxxx"] , null, ['class' => $errors->first('prm_piso_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
@@ -253,240 +259,74 @@
           </div>
       @endif
   </div>
-</div>
 
-<div class="form">
-  <label class="col-form-label-sm">5.17 Condiciones ambientales y de salubridad de la vivienda</label>
   <div class="col-md-12">
-      <table class="table-sm table-hover my-2">
-     <thead class="text-center">
-  <th>Ítem</th>
-  <th>Estado</th>
-</thead>
-<tbody>
-  <tr>
-    <th>Higiene y Aseo</th>
-    <th>
-      {{ Form::select('prm_higiene_id', $todoxxxx["estadosx"] , null, ['class' => $errors->first('prm_higiene_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('prm_higiene_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('prm_higiene_id') }}
+    {{ Form::label('numerocamas', '5.21 Número de camas', ['class' => 'control-label col-form-label-sm']) }}
+    <div class="card card-outline card-secondary">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table-sm table-hover my-12" style="width: 100%">
+            <thead class="text-center">
+              <th>Ítem</th>
+              <th>Estado</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Higiene y Aseo</th>
+                <th>
+                  {{ Form::select('prm_higiene_id', $todoxxxx["estadosx"] , null, ['class' => $errors->first('prm_higiene_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+                  @if($errors->has('prm_higiene_id'))
+                    <div class="invalid-feedback d-block">
+                      {{ $errors->first('prm_higiene_id') }}
+                    </div>
+                  @endif
+                </th>
+              </tr>
+              <tr>
+                <th>Ventilación</th>
+                <th>
+                  {{ Form::select('prm_ventilacion_id', $todoxxxx["estadosx"], null, ['class' => $errors->first('prm_ventilacion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+                  @if($errors->has('prm_ventilacion_id'))
+                  <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_ventilacion_id') }}
+                  </div>
+                  @endif
+                </th>
+              </tr>
+              <tr>
+                <th>Iluminación</th>
+                <th>
+                  {{ Form::select('prm_iluminacion_id', $todoxxxx["estadosx"], null, ['class' => $errors->first('prm_iluminacion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+                  @if($errors->has('prm_iluminacion_id'))
+                    <div class="invalid-feedback d-block">
+                      {{ $errors->first('prm_iluminacion_id') }}
+                    </div>
+                  @endif
+                </th>
+              </tr>
+              <tr>
+                <th>Orden</th>
+                <th>
+                  {{ Form::select('prm_orden_id', $todoxxxx["estadosx"], null, ['class' => $errors->first('prm_orden_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+                  @if($errors->has('prm_orden_id'))
+                  <div class="invalid-feedback d-block">
+                    {{ $errors->first('prm_orden_id') }}
+                  </div>
+                  @endif
+                </th>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      @endif
-    </th>
-  </tr>
-  <tr>
-    <th>Ventilación</th>
-    <th>
-      {{ Form::select('prm_ventilacion_id', $todoxxxx["estadosx"], null, ['class' => $errors->first('prm_ventilacion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('prm_ventilacion_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_ventilacion_id') }}
       </div>
-      @endif
-    </th>
-  </tr>
-  <tr>
-    <th>Iluminación</th>
-    <th>
-      {{ Form::select('prm_iluminacion_id', $todoxxxx["estadosx"], null, ['class' => $errors->first('prm_iluminacion_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('prm_iluminacion_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('prm_iluminacion_id') }}
-        </div>
-      @endif
-    </th>
-  </tr>
-  <tr>
-    <th>Orden</th>
-    <th>
-      {{ Form::select('prm_orden_id', $todoxxxx["estadosx"], null, ['class' => $errors->first('prm_orden_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('prm_orden_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_orden_id') }}
-      </div>
-      @endif
-    </th>
-  </tr>
-</tbody>
+    </div>
   </div>
-
-</table>
-
+</div>  
 <div class="row">
-  
-<div class="col-md">
-  <label class="col-form-label-sm">5.19 Espacios de los que disponen en este hogar:</label>
-  <div class="col-md">
-      <table class="table-sm table-hover my-2">
-     <thead class="text-center">
-  <th>Ítem</th>
-  <th>Cantidad</th>
-</thead>
-<tbody>
-  <tr>
-    <th>BAÑO</th>
-    <th>
-      {{ Form::number('banocant', null, ['class' => $errors->first('banocant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
-      @if($errors->has('banocant'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('banocant') }}
-        </div>
-      @endif
-    </th>
-  </tr>
-  <tr>
-    <th>COMEDOR</th>
-    <th>
-      {{ Form::number('comedorcant', null, ['class' => $errors->first('comedorcant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
-      @if($errors->has('comedorcant'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('comedorcant') }}
-      </div>
-      @endif
-    </th>
-  </tr>
-  <tr>
-    <th>SALA</th>
-    <th>
-      {{ Form::number('salacant', null, ['class' => $errors->first('salacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
-      @if($errors->has('salacant'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('salacant') }}
-        </div>
-      @endif
-    </th>
-  </tr>
-  <tr>
-    <th>SALA COMEDOR</th>
-    <th>
-      {{ Form::number('salacomcant', null, ['class' => $errors->first('salacomcant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
-      @if($errors->has('salacomcant'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('salacomcant') }}
-      </div>
-      @endif
-    </th>
-  </tr>
-  <tr>
-      <th>COCINA</th>
-      <th>
-        {{ Form::number('cocinacant', null, ['class' => $errors->first('cocinacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min'=>'0','max'=>'10']) }}
-        @if($errors->has('cocinacant'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('cocinacant') }}
-        </div>
-        @endif
-      </th>
-    </tr>
-    <tr>
-      <th>HABITACIONES</th>
-      <th>
-        {{ Form::number('habitacant', null, ['class' => $errors->first('habitacant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min'=>'0','max'=>'10']) }}
-        @if($errors->has('habitacant'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('habitacant') }}
-        </div>
-        @endif
-      </th>
-    </tr>
-    <tr>
-      <th>PATIO/ZONA DE ROPAS</th>
-      <th>
-        {{ Form::number('patiocant', null, ['class' => $errors->first('patiocant') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
-        @if($errors->has('patiocant'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('patiocant') }}
-        </div>
-        @endif
-      </th>
-    </tr>
-</tbody>
-  </div>
-
-  </table>
-
-  <div class="col-md">
-  <label class="col-form-label-sm">5.20 ¿La familia comparte con otro hogar o familia, alguno de los siguientes espacios? </label>
-  <div class="col-md">
-      <table class="table-sm table-hover my-2">
-     <thead class="text-center">
-  <th>Ítem</th>
-  <th>Comparte</th>
-</thead>
-<tbody>
-  <tr>
-    <th>BAÑO</th>
-    <th>
-      {{ Form::select('prm_bano_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_bano_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('prm_bano_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('prm_bano_id') }}
-        </div>
-      @endif
-    </th>
-  </tr>
-  <tr>
-    <th>COMEDOR</th>
-    <th>
-      {{ Form::select('prm_comedor_id',$todoxxxx["condicio"], null, ['class' => $errors->first('prm_comedor_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('prm_comedor_id'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_comedor_id') }}
-      </div>
-      @endif
-    </th>
-  </tr>
-  <tr>
-    <th>SALA</th>
-    <th>
-      {{ Form::select('prm_sala_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_sala_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-      @if($errors->has('prm_sala_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('prm_sala_id') }}
-        </div>
-      @endif
-    </th>
-  </tr>
-  <tr>
-      <th>COCINA</th>
-      <th>
-        {{ Form::select('prm_cocina_id',$todoxxxx["condicio"], null, ['class' => $errors->first('prm_cocina_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('prm_cocina_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('prm_cocina_id') }}
-        </div>
-        @endif
-      </th>
-    </tr>
-    <tr>
-      <th>HABITACIONES</th>
-      <th>
-        {{ Form::select('prm_habita_id',$todoxxxx["condicio"], null, ['class' => $errors->first('prm_habita_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('prm_habita_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('prm_habita_id') }}
-        </div>
-        @endif
-      </th>
-    </tr>
-    <tr>
-      <th>PATIO</th>
-      <th>
-        {{ Form::select('prm_patio_id',$todoxxxx["condicio"], null, ['class' => $errors->first('prm_patio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('prm_patio_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('prm_patio_id') }}
-        </div>
-        @endif
-      </th>
-    </tr>
-</tbody>
-  </div>
+  <div class="col-md-12">
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 </div>
-</table>
 </div>
-
 <div class="row">
  <div class="col-md">
       {{ Form::label('numerocamas', '5.21 Número de camas', ['class' => 'control-label col-form-label-sm']) }}
@@ -530,5 +370,5 @@
   </div>
 </div>
 
-@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+
 

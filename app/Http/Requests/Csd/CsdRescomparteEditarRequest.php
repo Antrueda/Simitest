@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\Csd;
 
-
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CsdGeneracionIngresosCrearRequest extends FormRequest
+class CsdRescomparteEditarRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
@@ -13,19 +13,14 @@ class CsdGeneracionIngresosCrearRequest extends FormRequest
     public function __construct()
     {
 
-       
         $this->_mensaje = [
-            'prm_actividad_id.required' => 'Seleccione tipo de actividad',
+            'prm_espacio_id.required'=>'Seleccione el tipo de espacio',
+            'prm_otrafamilia_id.required'=>'Indique si comparte',
             ];
         $this->_reglasx = [
-            'prm_actividad_id' => 'required|exists:parametros,id',
-            'trabaja' => 'required_if:prm_actividad_id,626',
-            'prm_informal_id' => 'required_if:prm_actividad_id,627',
-            'prm_otra_id' => 'c,628',
-            'prm_laboral_id' => 'required_if:prm_actividad_id,626',
-            'intensidad' => 'required_unless:prm_actividad_id,853',
-            'razon' => 'required_if:prm_dificultad_id,227|string|max:4000',
-        ];
+            'prm_espacio_id' => 'required|exists:parametros,id',
+            'prm_otrafamilia_id' => 'required|exists:parametros,id',
+           ];
     }
     /**
      * Determine if the user is authorized to make this request.

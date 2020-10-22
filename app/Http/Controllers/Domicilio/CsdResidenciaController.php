@@ -18,7 +18,6 @@ use Illuminate\Http\Request;
 
 class CsdResidenciaController extends Controller
 {
-    use CcontviolTrait;
     private $opciones;
 
     public function __construct()
@@ -95,35 +94,17 @@ class CsdResidenciaController extends Controller
         // indica si se esta actualizando o viendo
 
         $this->opciones['condsele'] = CsdResideambiente::getCondicionAbiente(0);
-        
+        $vercrear=false;
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            
-            //ddd($dataxxxx['modeloxx']->reshogar->csd_residencia_id == $dataxxxx['modeloxx']->id);
-            //5.19
-            if($dataxxxx['modeloxx']->reshogar){ 
-            $dataxxxx['modeloxx']->banocant = $dataxxxx['modeloxx']->reshogar->banocant;
-            $dataxxxx['modeloxx']->comedorcant = $dataxxxx['modeloxx']->reshogar->comedorcant;
-            $dataxxxx['modeloxx']->salacant = $dataxxxx['modeloxx']->reshogar->salacant;
-            $dataxxxx['modeloxx']->salacomcant = $dataxxxx['modeloxx']->reshogar->salacomcant;
-            $dataxxxx['modeloxx']->cocinacant = $dataxxxx['modeloxx']->reshogar->cocinacant;
-            $dataxxxx['modeloxx']->habitacant = $dataxxxx['modeloxx']->reshogar->habitacant;
-            $dataxxxx['modeloxx']->patiocant = $dataxxxx['modeloxx']->reshogar->patiocant;
-            $dataxxxx['modeloxx']->prm_bano_id = $dataxxxx['modeloxx']->reshogar->prm_bano_id;
-            $dataxxxx['modeloxx']->prm_comedor_id = $dataxxxx['modeloxx']->reshogar->prm_comedor_id;
-            $dataxxxx['modeloxx']->prm_sala_id = $dataxxxx['modeloxx']->reshogar->prm_sala_id;
-            $dataxxxx['modeloxx']->prm_cocina_id = $dataxxxx['modeloxx']->reshogar->prm_cocina_id;
-            $dataxxxx['modeloxx']->prm_habita_id = $dataxxxx['modeloxx']->reshogar->prm_habita_id;
-            $dataxxxx['modeloxx']->prm_patio_id = $dataxxxx['modeloxx']->reshogar->prm_patio_id;
-            }
             //5.20
             if($dataxxxx['modeloxx']->resobservacion){ 
              $dataxxxx['modeloxx']->observaciones = $dataxxxx['modeloxx']->resobservacion->observaciones;
             }
-
+            $vercrear=true;
             if ($dataxxxx['modeloxx']->i_prm_zona_direccion_id == 289) {
-                $this->opciones['dircondi'] = [1 => 'NO APLICA'];
+                $this->opciones['dircondi'] = [1269 => 'NO APLICA'];
                 $this->opciones['cuadrant'] = [1 => 'NO APLICA'];
                 $this->opciones['alfabeto'] = [1 => 'NO APLICA'];
                 $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
@@ -134,68 +115,97 @@ class CsdResidenciaController extends Controller
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
                         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
-        $this->opciones['tablasxx'] = [ 
+
+
+        $this->opciones['tablasxx'] = [
             [
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'titunuev' => 'SERVICIOS',
+                'titunuev' => 'AGREGAR SERVICIO',
                 'titulist' => 'LISTA DE SERVICIOS',
-                'dataxxxx' => [],
-                'titupreg' => 'Indicar que serivicio tiene en el hogar',
-                'vercrear' => (isset($this->opciones['modeloxx'])),
-                'urlxxxxx' => route('csdresservi.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'pregunta'=>'5.18 ¿Con cuáles de los siguientes servicios públicos, privados o comunales cuenta el lugar de vivienda?',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
+                'vercrear' => $vercrear,
+                'urlxxxxx' => route('csdresservi.otracosa', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
-                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'SERVICIO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => '¿Es Legal?', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
-                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                    ],
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => '¿ES LEGAL?', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'csd_resservis.id'],
-                    ['data' => 'servicio', 'name' => 'servicio.nombre as servicio'],
-                    ['data' => 'legal', 'name' => 'legal.nombre as legal'],
+                    ['data' => 'servicio', 'name' => 'parametros.nombre as servicio '],
+                    ['data' => 'legal', 'name' => 'parametros.nombre as legal'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
-                'tablaxxx' => 'datatablepresentadas',
+                'tablaxxx' => 'datatable',
                 'permisox' => 'csdresservi',
                 'routxxxx' => 'csdresservi',
-                'parametr' => [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0],
+                'parametr' => [$dataxxxx['padrexxx']->id],
             ],
             [
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'titunuev' => 'SERVICIOS',
-                'titulist' => 'LISTA DE SERVICIOS',
-                'dataxxxx' => [],
-                'titupreg' => 'Indicar que serivicio tiene en el hogar',
-                'vercrear' => (isset($this->opciones['modeloxx'])),
-                'urlxxxxx' => route('csdresservi.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'titunuev' => 'AGREGAR ESPACIO',
+                'titulist' => 'LISTA DE ESPACIO QUE DISPONE',
+                'pregunta'=>'5.19 Espacios de los que disponen en este hogar:',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
+                'vercrear' => $vercrear,
+                'urlxxxxx' => route('csdreshogar.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
-                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'SERVICIO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => '¿Es Legal?', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
-                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                    ],
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESPACIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'CANTIDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'csd_resservis.id'],
-                    ['data' => 'servicio', 'name' => 'servicio.nombre as servicio'],
-                    ['data' => 'legal', 'name' => 'legal.nombre as legal'],
+                    ['data' => 'id', 'name' => 'csd_reshogars.id'],
+                    ['data' => 'espacio', 'name' => 'parametros.nombre as espacio'],
+                    ['data' => 'espaciocant', 'name' => 'csd_reshogars.espaciocant'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable519',
-                'permisox' => 'csdresservi',
-                'routxxxx' => 'csdresservi',
-                'parametr' => [(isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx']->id : 0],
+                'permisox' => 'csdreshogar',
+                'routxxxx' => 'csdreshogar',
+                'parametr' => [$dataxxxx['padrexxx']->id],
             ],
-            ];
-            
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+            [
+                'titunuev' => 'AGREGAR ESPACIO QUE COMPARTE',
+                'titulist' => 'LISTA DE COMPARTE',
+                'pregunta'=>'5.20 La familia comparte con otro hogar o familia, alguno de los siguientes espacios:',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
+                'vercrear' => $vercrear,
+                'urlxxxxx' => route('csdrescomparte.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESPACIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'COMPARTE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'csd_rescomparte.id'],
+                    ['data' => 'espacio', 'name' => 'parametros.nombre as espacio'],
+                    ['data' => 'comparte', 'name' => 'parametros.nombre as comparte'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatable520',
+                'permisox' => 'csdrescomparte',
+                'routxxxx' => 'csdrescomparte',
+                'parametr' => [$dataxxxx['padrexxx']->id],
+            ],
+        ];
+
+
+  return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     /**

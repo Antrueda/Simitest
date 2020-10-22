@@ -29,7 +29,7 @@ class CreateCsdGenIngresosTable extends Migration
             $table->bigInteger('prm_frecuencia_id')->unsigned()->nullable();
             $table->integer('intensidad')->unsigned()->nullable();
             $table->bigInteger('prm_dificultad_id')->unsigned();
-            $table->string('razon', 4000);
+            $table->string('razon', 4000)->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

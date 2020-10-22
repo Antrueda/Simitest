@@ -1,8 +1,8 @@
 <?php
 
-$routexxx = 'csdresservi';
-$controll = 'Domicilio\CsdResservi';
-Route::group(['prefix' => '{padrexxx}/csdservicio'], function () use ($routexxx, $controll) {
+$routexxx = 'csdrescomparte';
+$controll = 'Domicilio\CsdRescomparte';
+Route::group(['prefix' => '{padrexxx}/csdcomparte'], function () use ($routexxx, $controll) {
 	Route::get('nuevo', [
         'uses' => $controll.'Controller@create',
         'middleware' => ['permission:'.$routexxx.'-crear']
@@ -13,7 +13,6 @@ Route::group(['prefix' => '{padrexxx}/csdservicio'], function () use ($routexxx,
         'middleware' => ['permission:'.$routexxx.'-crear']
     ])->name($routexxx.'.crear');
 
-    
         Route::get('borrar/{modeloxx}', [
         'uses' => $controll.'Controller@inactivate',
         'middleware' => ['permission:'.$routexxx.'-borrar']
@@ -24,15 +23,12 @@ Route::group(['prefix' => '{padrexxx}/csdservicio'], function () use ($routexxx,
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
 
-
-    Route::get('otracosa', [
+    Route::get('listaxxx', [
         'uses' => $controll . 'Controller@getListado',
         'middleware' => ['permission:' . $routexxx . '-leer']
-    ])->name($routexxx . '.otracosa');
-
-
+    ])->name($routexxx . '.listaxxx');
 });
-Route::group(['prefix' => 'csdservicio'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'comparte'], function () use ($routexxx, $controll) {
 
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'Controller@edit',

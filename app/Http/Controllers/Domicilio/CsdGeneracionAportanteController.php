@@ -54,17 +54,18 @@ class CsdGeneracionAportanteController extends Controller
             'formhref' => 2, 'tituloxx' => "VOLVER A GENERACION DE INGRESOS", 'clasexxx' => 'btn btn-sm btn-primary'
         ];
     }
-    public function getListado(Request $request, Csd $padrexxx)
+    public function getListado(Request $request, $padrexxx)
     {
         if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->id;
-            $request->datobasi = $padrexxx->id;
+            $request->padrexxx = $padrexxx;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.antecedentes';
-            $request->estadoxx = $this->opciones['rutacarp'].'Acomponentes.Botones.estadosx';
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->diaseman = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.botones.diaseman';
+            $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
             return $this->getAportantes($request);
-        }
+         }
     }
     private function view($dataxxxx)
     {
@@ -100,35 +101,43 @@ class CsdGeneracionAportanteController extends Controller
         }
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR APORTANTE',
+                'titunuev' => 'AGREGAR APORTANTE',
                 'titulist' => 'LISTA DE APORTANTES',
-                'dataxxxx' => [],
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.aporte',
                 'vercrear' => true,
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
-                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => '10.1 ¿Quién Aporta?', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => '10.2 Total Ingresos Mensuales', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
-                        ['td' => '10.3 Aporte que le hace al hogar', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => '10.4 Jornada en que realiza la actividad', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => '10.5 Días', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => '10.1 ¿Quién Aporta?', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => '10.2 Total Ingresos Mensuales', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => '10.3 Aporte que le hace al hogar', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => '10.4 Jornada en que realiza la actividad', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 4],
+                        ['td' => '10.5 Días', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                    ],
+                    [
+                        ['td' => 'Hora', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Periodo', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Hora ', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Periodo', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ],
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'csd_gening_aportas.id'],
-                    ['data' => 'aporta', 'name' => 'aporta.nombre as aporta'],
+                    ['data' => 'aporta', 'name' => 'parametros.nombre as aporta'],
                     ['data' => 'mensual', 'name' => 'csd_gening_aportas.mensual'],
                     ['data' => 'aporte', 'name' => 'csd_gening_aportas.aporte'],
-                    ['data' => 'aporte', 'name' => 'csd_gening_aportas.aporte'],
-                    ['data' => 'aporte', 'name' => 'csd_gening_aportas.aporte'],
+                    ['data' => 'jornada_entre', 'name' => 'csd_gening_aportas.jornada_entre'],
+                    ['data' => 'entre', 'name' => 'parametros.nombre as aporta'],
+                    ['data' => 'jornada_a', 'name' => 'csd_gening_aportas.jornada_a'],
+                    ['data' => 'jornada', 'name' => 'parametros.nombre as jornada'],
+                    ['data' => 'diaseman', 'name' => 'diaseman'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
-                'tablaxxx' => 'datatableaporta',
+                'tablaxxx' => 'datatable',
                 'permisox' => 'csdgenaporta',
                 'routxxxx' => 'csdgenaporta',
                 'parametr' => [$dataxxxx['padrexxx']->id],

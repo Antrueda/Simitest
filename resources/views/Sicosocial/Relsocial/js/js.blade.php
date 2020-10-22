@@ -6,8 +6,11 @@ $(document).ready(function() {
     $('#dificultadex').select2({
       language: "es"
     });
+    $('#dificultadez').select2({
+      language: "es"
+    });
 
-    $('#dificultadex').change(function() {
+    $('#dificultadex,#dificultadez').change(function() {
         f_comboSimple({
             dataxxxx: {
                 padrexxx: $(this).val() == '' ? 0 : $(this).val(),

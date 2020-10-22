@@ -27,7 +27,7 @@ class CsdGeneracionIngresosEditarRequest extends FormRequest
             'prm_frecuencia_id' => 'exclude_if:prm_actividad_id,853',
             'intensidad' => 'required_unless:prm_actividad_id,853',
             'prm_dificultad_id' => 'required|exists:parametros,id',
-            'razon' => 'required|string|max:4000',
+            'razon' => 'required_if:prm_dificultad_id,227|string|max:4000',
         ];
     }
     /**

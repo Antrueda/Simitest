@@ -40,6 +40,7 @@ trait VsiAjaxTrait
             'comparte'=> [235, 66],
             'prepara'=> [235, 66],
             'normas'=> [235, 66],
+            'dificultadez'=> [689, 168],
             
 
         ];

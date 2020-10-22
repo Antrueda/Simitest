@@ -3,16 +3,14 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Csd\CsdResservicioCrearRequest;
-use App\Http\Requests\Csd\CsdResservicioEditRequest;
+use App\Http\Requests\Csd\CsdRescomparteCrearRequest;
+use App\Http\Requests\Csd\CsdRescomparteEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
-use App\Models\consulta\pivotes\CsdResservi;
-
+use App\Models\consulta\pivotes\CsdRescomparte;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
-use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,20 +22,20 @@ use Illuminate\Support\Facades\Auth;
  *
  * siempre y cuando la respuesta sea SI
  */
-class CsdResserviController extends Controller
+class CsdRescomparteController extends Controller
 {
     use CsdTrait;
 
     private $opciones;
     public function __construct()
     {
-        $this->opciones['permisox'] = 'csdresservi';
-        $this->opciones['routxxxx'] = 'csdresservi';
+        $this->opciones['permisox'] = 'csdrescomparte';
+        $this->opciones['routxxxx'] = 'csdrescomparte';
         $this->opciones['rutacarp'] = 'Csd.';
         $this->opciones['carpetax'] = 'Residencia';
         $this->opciones['slotxxxx'] = 'csdresidencia';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "SERVICIOS";
+        $this->opciones['tituloxx'] = "Comparte";
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
@@ -47,7 +45,7 @@ class CsdResserviController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['servicio'] = Tema::combo(94, true, false);
+        $this->opciones['espaciox'] = Tema::combo(96, true, false);
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => ['csdresidencia.editar', []],
@@ -63,7 +61,7 @@ class CsdResserviController extends Controller
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
-            return $this->getServicio($request);
+            return $this->getComparte($request);
             
         }
     }
@@ -115,13 +113,13 @@ class CsdResserviController extends Controller
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'servicios'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'comparte'], 'padrexxx' => $padrexxx]);
     }
 
     private function grabar($dataxxxx)
     {
         return redirect()
-        ->route('csdresservi.editar', [CsdResservi::transaccion($dataxxxx)->id])
+        ->route('csdrescomparte.editar', [CsdRescomparte::transaccion($dataxxxx)->id])
         ->with('info', $dataxxxx['infoxxxx']);
     }
     /**
@@ -132,7 +130,7 @@ class CsdResserviController extends Controller
      */
 
 
-    public function store(CsdResservicioCrearRequest $request,Csd $padrexxx)
+    public function store(CsdRescomparteCrearRequest $request,Csd $padrexxx)
     {   
         $request->request->add(['csd_residencia_id' => $padrexxx->CsdResidencia->id]);
         $request->request->add(['sis_esta_id' =>1]);
@@ -146,9 +144,9 @@ class CsdResserviController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(CsdResservi $modeloxx)
+    public function show(CsdRescomparte $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'servicios'], 'padrexxx' => $modeloxx->csd_residencia->csd_id]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'comparte'], 'padrexxx' => $modeloxx->csd_residencia->csd_id]);
     }
 
     /**
@@ -157,7 +155,7 @@ class CsdResserviController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(CsdResservi $modeloxx,Csd $padrexxx)
+    public function edit(CsdRescomparte $modeloxx,Csd $padrexxx)
     {
         //ddd($modeloxx->csd_residencia->csd);
         $this->opciones['csdxxxxx'] = $modeloxx->csd_residencia->csd;
@@ -168,7 +166,7 @@ class CsdResserviController extends Controller
             ];
         return $this->view([
             'modeloxx' => $modeloxx,
-            'accionxx' => ['editar', 'servicios'],
+            'accionxx' => ['editar', 'comparte'],
             'padrexxx' => $modeloxx->csd_residencia->csd]);
 
     }
@@ -180,12 +178,12 @@ class CsdResserviController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdResservicioEditRequest $request, CsdResservi $modeloxx, CsdResidencia $padrexxx)
+    public function update(CsdRescomparteEditarRequest $request, CsdRescomparte $modeloxx, CsdResidencia $padrexxx)
     {
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con exito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
     }
 
-    public function inactivate(CsdResidencia $padrexxx,CsdResservi $modeloxx)
+    public function inactivate(CsdResidencia $padrexxx,CsdRescomparte $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -197,11 +195,11 @@ class CsdResserviController extends Controller
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$padrexxx]);
     }
-    public function destroy(CsdResidencia $padrexxx,CsdResservi $modeloxx)
+    public function destroy(CsdResidencia $padrexxx,CsdRescomparte $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route('csddinfamiliar.nuevo', [$padrexxx->id])
-            ->with('info', 'Red actual inactivada correctamente');
+            ->route('csdresidencia.nuevo', [$padrexxx->id])
+            ->with('info', 'Espacio inactivado correctamente');
     }
 }
