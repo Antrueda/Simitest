@@ -56,7 +56,7 @@ class VsiConsentimientoController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         ;
 
-        $this->opciones['usuarios'] = User::combo(true, false);
+        $this->opciones['usuarios'] = User::comboCargo(true, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;

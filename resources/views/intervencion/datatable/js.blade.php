@@ -38,7 +38,6 @@
 
           var f_combo = function(dataxxxx){
           $('#i_prm_subarea_ajuste_id').empty();
-          $('#i_prm_subarea_ajuste_id').append('<option selected value="">Seleccione</option>');
           $.ajax({
           url: "{{ route('is.intervencion.subarea',$todoxxxx['nnajregi'])}}",
                   type: 'POST',
@@ -73,7 +72,6 @@
 
                 var f_combo2 = function(dataxxxx){
                 $('#i_prm_area_ajuste_id,#i_prm_subarea_ajuste_id').empty();
-                
                 $.ajax({
                 url: "{{ route('is.intervencion.area',$todoxxxx['nnajregi'])}}",
                         type: 'POST',
@@ -81,9 +79,12 @@
                                 'areajust':dataxxxx.valuexxx,
                         },
                         dataType: 'json',
-                        success: function (json) {
-                        $('#i_prm_area_ajuste_id').val('');
-                        $.each(json, function(id, data){
+                                success: function (json) {
+                                $.each(json.areajust, function(id, data){
+                                var selected = '';
+                                if (data.valuexxx == dataxxxx.selected){
+                                selected = 'selected';
+                                }
                                 $('#i_prm_area_ajuste_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                                 });
                         },

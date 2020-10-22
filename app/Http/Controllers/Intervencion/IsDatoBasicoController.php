@@ -61,8 +61,8 @@ class IsDatoBasicoController extends Controller
         $this->opciones['subsocia'] = Tema::combo(166, true, false);
         $this->opciones['subacade'] = Tema::combo(165, true, false);
         $this->opciones['nivavanc'] = Tema::combo(52, true, false);
-        $this->opciones['hoyxxxxx']= Carbon::today()->isoFormat('YYYY-MM-DD');
-        $this->opciones['proxxxxx']= Carbon::today()->add(3, 'Month')->isoFormat('YYYY-MM-DD');
+        $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
+        $this->opciones['proxxxxx'] = Carbon::today()->add(3, 'Month')->isoFormat('YYYY-MM-DD');
 
         $this->opciones[''] = Tema::combo(52, true, false);
     }
@@ -276,11 +276,18 @@ class IsDatoBasicoController extends Controller
                     'subareax' => Tema::combo(165, $cabecera, $ajaxxxxx),
                 ];
                 break;
-                case 1269: //Académica
+            case 1269: //Académica
+                if ($ajaxxxxx) {
                     $respuest = [
-                        'subareax' => [['valuexxx'=>1269,'optionxx'=>'NO APLICA']],
+                        'subareax' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
                     ];
-                    break;
+                } else {
+                    $respuest = [
+                        'subareax' => [1269 => 'NO APLICA'], // solucionado, pruebe
+                    ];
+                }
+
+                break;
         }
         return $respuest;
     }
@@ -288,16 +295,71 @@ class IsDatoBasicoController extends Controller
     public function subareasajax(\Illuminate\Http\Request $request)
     {
         if ($request->ajax()) {
-            return response()->json($this->casos($request->all()['areaxxxx'], false, true));
+            return response()->json($this->casos($request->all()['areaxxxx'], true, true)); // eso es
         }
     }
 
     public function areasajax(\Illuminate\Http\Request $request)
     {
-        
+
         if ($request->ajax()) {
-            return response()->json(Tema::combo(212, true, true));
+            return response()->json($this->atencion($request->all()['areajust'], true, true)); // eso es
         }
+    }
+
+    private function atencion($areajust, $cabecera, $ajaxxxxx)
+    {
+        $respuest = [];
+        switch ($areajust) {
+            case 1060: //Social Familiar
+                $respuest = [
+                    'areajust' => Tema::combo(212, $cabecera, $ajaxxxxx),
+                ];
+                break;
+            case 1061: //Social Familiar
+                $respuest = [
+                    'areajust' => Tema::combo(212, $cabecera, $ajaxxxxx),
+                ];
+                break;
+            case 1062: //Social Familiar
+                $respuest = [
+                    'areajust' => Tema::combo(212, $cabecera, $ajaxxxxx),
+                ];
+                break;
+            case 1063: //Social NNAJ
+                $respuest = [
+                    'areajust' => Tema::combo(212, $cabecera, $ajaxxxxx),
+                ];
+                break;
+            case 1064: //PSICOSocial
+                $respuest = [
+                    'areajust' => Tema::combo(212, $cabecera, $ajaxxxxx),
+                ];
+                break;
+            case 1065: //Comportamental
+                $respuest = [
+                    'areajust' => Tema::combo(212, $cabecera, $ajaxxxxx),
+                ];
+                break;
+            case 1066: //Comportamental
+                $respuest = [
+                    'areajust' => Tema::combo(212, $cabecera, $ajaxxxxx),
+                ];
+                break;
+            case 1067: //Académica
+                if ($ajaxxxxx) {
+                    $respuest = [
+                        'areajust' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
+                    ];
+                } else {
+                    $respuest = [
+                        'areajust' => [1269 => 'NO APLICA'],
+                    ];
+                }
+
+                break;
+        }
+        return $respuest;
     }
 
     public function intlista(Request $request, $nnajxxxx)
@@ -305,7 +367,7 @@ class IsDatoBasicoController extends Controller
         if ($request->ajax()) {
             $actualxx = IsDatosBasico::select([
                 'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id', 'is_datos_basicos.sis_nnaj_id', 'tipoaten.nombre as tipoxxxx',
-                'is_datos_basicos.d_fecha_diligencia', 'sis_depens.nombre', 'users.s_primer_nombre', 'is_datos_basicos.sis_esta_id','users.s_primer_apellido'
+                'is_datos_basicos.d_fecha_diligencia', 'sis_depens.nombre', 'users.s_primer_nombre', 'is_datos_basicos.sis_esta_id', 'users.s_primer_apellido'
             ])
                 ->join('sis_depens', 'is_datos_basicos.sis_depen_id', '=', 'sis_depens.id')
                 ->join('users', 'is_datos_basicos.i_primer_responsable', '=', 'users.id')
