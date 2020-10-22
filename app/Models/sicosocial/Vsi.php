@@ -108,7 +108,7 @@ class Vsi extends Model{
     public function VsiConcepto(){
         return $this->hasOne(VsiConcepto::class, 'vsi_id');
     }
-    
+
 
     public function VsiConsentimiento(){
         return $this->hasOne(VsiConsentimiento::class, 'vsi_id');
@@ -172,12 +172,12 @@ class Vsi extends Model{
         $sociales=$this->sociales()->count();
         $familiar=$this->familiares()->count();
         $areaajust=false;
-        
+
         if ($emociona |$sexuales||$comporta||$academic||$sociales||$familiar) {
             $areaajust=true;
              }
         return $areaajust;
-   
+
 }
     public static function indicador($sis_nnaj_id, $sis_tabla_id)
     {
@@ -193,7 +193,7 @@ class Vsi extends Model{
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
         $dataxxxx['user_edita_id'] = Auth::user()->id;
 
-        
+
         if ($objetoxx != '') {
             $objetoxx->update($dataxxxx);
         } else {
@@ -205,4 +205,8 @@ class Vsi extends Model{
         return $usuariox;
     }
 
+    public function fi_csdvsi()
+    {
+        return $this->hasOne(FiCsdvsi::class);
+    }
 }

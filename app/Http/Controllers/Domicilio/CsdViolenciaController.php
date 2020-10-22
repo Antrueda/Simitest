@@ -7,6 +7,7 @@ use App\Http\Requests\Csd\CsdViolenciaCrearRequest;
 use App\Http\Requests\Csd\CsdViolenciaEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdViolencia;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
@@ -68,12 +69,12 @@ class CsdViolenciaController extends Controller
             $this->opciones['deparexp'] = SisDepartamento::combo(2, false);
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-            
+
         }
-        
+
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
-        
+
     }
 
     /**
@@ -81,7 +82,7 @@ class CsdViolenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj  $padrexxx)
     {
         $vestuari = CsdViolencia::where('csd_id', $padrexxx->id)->first();
         if ($vestuari != null) {
@@ -111,12 +112,12 @@ class CsdViolenciaController extends Controller
      */
 
 
-    public function store(CsdViolenciaCrearRequest $request, Csd $padrexxx)
+    public function store(CsdViolenciaCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
         $request->request->add(['prm_tipofuen_id'=>2315]);
         $request->request->add(['sis_esta_id'=>1]);
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         return $this->grabar($dataxxxx, '', 'Violencia y condición especial creada con exito', $padrexxx);
     }
 
@@ -126,7 +127,7 @@ class CsdViolenciaController extends Controller
      * @param  \App\Models\csdviolencia  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $padrexxx, CsdViolencia $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdViolencia $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
@@ -137,7 +138,7 @@ class CsdViolenciaController extends Controller
      * @param  \App\Models\csdviolencia  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx, CsdViolencia $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx, CsdViolencia $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -157,7 +158,7 @@ class CsdViolenciaController extends Controller
      * @param  \App\Models\csdviolencia  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdViolenciaEditarRequest $request, Csd $padrexxx, CsdViolencia $modeloxx)
+    public function update(CsdViolenciaEditarRequest $request, CsdSisNnaj $padrexxx, CsdViolencia $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Violencia y condición especial actualizada con exito', $padrexxx);
     }

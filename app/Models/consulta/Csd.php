@@ -3,6 +3,7 @@
 namespace App\Models\consulta;
 
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\fichaIngreso\FiCsdvsi;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Sistema\SisNnaj;
@@ -149,5 +150,10 @@ class Csd extends Model
             return $dataxxxx['padrexxx'];
         }, 5);
         return $objetoxx;
+    }
+
+    public function fi_csdvsi()
+    {
+        return $this->hasOne(FiCsdvsi::class);
     }
 }

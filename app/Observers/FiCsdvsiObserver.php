@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\fichaIngreso\FiCsdvsi;
+use App\Models\fichaIngreso\Logs\HFiCsdvsi;
 
 class FiCsdvsiObserver
 {
@@ -15,6 +16,10 @@ class FiCsdvsiObserver
         $log['vsi_id'] = $modeloxx->vsi_id;
         $log['csd_id'] = $modeloxx->csd_id;
         $log['fi_datos_basico_id'] = $modeloxx->fi_datos_basico_id;
+        $log['created_csd'] = $modeloxx->created_csd;
+        $log['updated_csd'] = $modeloxx->updated_csd;
+        $log['created_vsi'] = $modeloxx->created_vsi;
+        $log['updated_vsi'] = $modeloxx->updated_vsi;
         // campos por defecto, no borrar.
         $log['deleted_at'] = $modeloxx->deleted_at;
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
@@ -34,7 +39,7 @@ class FiCsdvsiObserver
      */
     public function created(FiCsdvsi $fiCsdvsi)
     {
-        //ddd($fiCsdvsi->getDirty());
+        HFiCsdvsi::create($this->getLog($fiCsdvsi));
     }
 
     /**
@@ -45,7 +50,8 @@ class FiCsdvsiObserver
      */
     public function updated(FiCsdvsi $fiCsdvsi)
     {
-        ddd($fiCsdvsi->getDirty());
+        HFiCsdvsi::create($this->getLog($fiCsdvsi));
+        ///ddd($fiCsdvsi->getDirty());
     }
 
     /**
@@ -56,7 +62,7 @@ class FiCsdvsiObserver
      */
     public function deleted(FiCsdvsi $fiCsdvsi)
     {
-        //
+        HFiCsdvsi::create($this->getLog($fiCsdvsi));
     }
 
     /**
@@ -67,7 +73,7 @@ class FiCsdvsiObserver
      */
     public function restored(FiCsdvsi $fiCsdvsi)
     {
-        //
+        HFiCsdvsi::create($this->getLog($fiCsdvsi));
     }
 
     /**
@@ -78,6 +84,6 @@ class FiCsdvsiObserver
      */
     public function forceDeleted(FiCsdvsi $fiCsdvsi)
     {
-        //
+        HFiCsdvsi::create($this->getLog($fiCsdvsi));
     }
 }

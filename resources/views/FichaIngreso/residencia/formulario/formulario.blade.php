@@ -109,7 +109,7 @@
     </div>
     <div class="form-group col-md-4">
       {{ Form::label('i_via_generadora', '# No. Vía Generadora (VG)', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('i_via_generadora', null, ['class' => $errors->first('i_via_generadora') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Vía Generadora', 'min' => '1', 'max' => '250']) }}
+      {{ Form::number('i_via_generadora', null, ['class' => $errors->first('i_via_generadora') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Vía Generadora', 'min' => '0', 'max' => '250']) }}
       @if($errors->has('i_via_generadora'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('i_via_generadora') }}

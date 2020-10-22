@@ -9,6 +9,7 @@ use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
 use App\Models\consulta\pivotes\CsdRescamass;
 use App\Models\consulta\pivotes\CsdResideambiente;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
@@ -68,9 +69,9 @@ class CsdResidenciaController extends Controller
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],  
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']          
-            
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+
         ];
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
@@ -99,7 +100,7 @@ class CsdResidenciaController extends Controller
             $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             //5.20
-            if($dataxxxx['modeloxx']->resobservacion){ 
+            if($dataxxxx['modeloxx']->resobservacion){
              $dataxxxx['modeloxx']->observaciones = $dataxxxx['modeloxx']->resobservacion->observaciones;
             }
             $vercrear=true;
@@ -109,8 +110,8 @@ class CsdResidenciaController extends Controller
                 $this->opciones['alfabeto'] = [1 => 'NO APLICA'];
                 $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
             }
-         
-            
+
+
 
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
                         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -213,7 +214,7 @@ class CsdResidenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
         $vestuari = CsdResidencia::where('csd_id', $padrexxx->id)->first();
         if ($vestuari != null) {
@@ -243,7 +244,7 @@ class CsdResidenciaController extends Controller
      */
 
 
-    public function store(Csd $padrexxx, CsdResidenciaCrearRequest $request)
+    public function store(CsdSisNnaj $padrexxx, CsdResidenciaCrearRequest $request)
     {
         $dataxxxx = $request->all();
         $dataxxxx['csd_id'] = $padrexxx->id;
@@ -259,7 +260,7 @@ class CsdResidenciaController extends Controller
      * @param  \App\Models\CsdResidencia  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $padrexxx, CsdResidencia $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdResidencia $modeloxx)
     {
         $this->opciones['csdxxxxx']=$modeloxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
@@ -273,7 +274,7 @@ class CsdResidenciaController extends Controller
      * * @param    $nnajregi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx,  CsdResidencia $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx,  CsdResidencia $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -293,7 +294,7 @@ class CsdResidenciaController extends Controller
      * @param  \App\Models\CsdResidencia  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdResidenciaEditarRequest $request,  Csd $padrexxx, CsdResidencia $modeloxx)
+    public function update(CsdResidenciaEditarRequest $request,  CsdSisNnaj $padrexxx, CsdResidencia $modeloxx)
     {
         //ddd($request);
         return $this->grabar($request->all(), $modeloxx, 'Datos de residencia actualizados con exito', $padrexxx);

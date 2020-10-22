@@ -1,15 +1,12 @@
 <?php
 $routexxx = 'nnajvisi';
 $controll = 'Domicilio\CsdNnajvisitado';
-Route::group(['prefix' => '{padrexxx}/nnajvisitados'], function () use ($routexxx, $controll) {
+Route::group(['prefix' => 'nnaj/{padrexxx}/csd/{csdxxxxx}/visitados'], function () use ($routexxx, $controll) {
     Route::get('', [
         'uses' => $controll . 'Controller@index',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
     ])->name($routexxx);
-    Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@getListado',
-        'middleware' => ['permission:' . $routexxx . '-leer']
-    ])->name($routexxx . '.listaxxx');
+
     Route::get('nuevo', [
         'uses' => $controll . 'Controller@create',
         'middleware' => ['permission:' . $routexxx . '-crear']
@@ -18,8 +15,19 @@ Route::group(['prefix' => '{padrexxx}/nnajvisitados'], function () use ($routexx
         'uses' => $controll . 'Controller@store',
         'middleware' => ['permission:' . $routexxx . '-crear']
     ])->name($routexxx . '.crear');
+    Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@getListado',
+        'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.listaxxx');
+    Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@getListado',
+        'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.listaxxx');
 });
-Route::group(['prefix' => 'nnajvisitado'], function () use ($routexxx, $controll) {
+
+
+Route::group(['prefix' => '{padrexxx}/nnajcsd'], function () use ($routexxx, $controll) {
+
     Route::get('ver/{modeloxx}', [
         'uses' => $controll . 'Controller@show',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
@@ -44,6 +52,4 @@ Route::group(['prefix' => 'nnajvisitado'], function () use ($routexxx, $controll
         'uses' => $controll . 'Controller@getVisitado',
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.visitado');
-
 });
-

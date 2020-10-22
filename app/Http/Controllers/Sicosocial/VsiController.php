@@ -102,7 +102,7 @@ class VsiController extends Controller
                 'cabecera' => [
                     ['td' => 'ID'],
                     ['td' => 'DEPENDENCIA'],
-                    ['td' => 'FECHA DILIGENCIAMIENDO'],
+                    ['td' => 'FECHA DILIGENCIAMIENTO'],
                     ['td' => 'ESTADO'],
                 ],
                 'columnsx' => [
@@ -248,7 +248,7 @@ class VsiController extends Controller
      */
     public function update(VsiEditarRequest $request, Vsi $objetoxx)
     {
-        
+
         return $this->grabar([
             'dataxxxx' => $request->all(),
             'modeloxx' => $objetoxx,

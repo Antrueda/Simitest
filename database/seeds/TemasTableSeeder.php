@@ -3333,8 +3333,8 @@ class TemasTableSeeder extends Seeder
             'parametr' => [
                 650,651,1269
             ]
-        ]); 
-        
+        ]);
+
         $this->getR([
             'nombrexx' => 'PROBLEMA CSD',
             'parametr' => [
@@ -3350,12 +3350,12 @@ class TemasTableSeeder extends Seeder
             ]
         ]); //361
 
-        
-        
+
+
         //359
         // $this->getR([
         //     'nombrexx' => '',
         //     'parametr' => []
-        // ]); //360
+        // ]); //362
     }
 }

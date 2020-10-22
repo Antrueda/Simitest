@@ -14,6 +14,7 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\NnajUpi;
@@ -151,5 +152,10 @@ class SisNnaj extends Model
     public function fi_razone()
     {
         return $this->hasOne(FiRazone::class);
+    }
+
+    public function csd_sis_nnaj()
+    {
+        return $this->hasOne(CsdSisNnaj::class);
     }
 }

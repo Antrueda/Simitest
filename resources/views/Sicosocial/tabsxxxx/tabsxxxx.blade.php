@@ -145,7 +145,7 @@
 
             <?php
 
-            $pestania='20. Impresición diagnóstica y análisis social';
+            $pestania='20. Impresión diagnóstica y análisis social';
             $permisox='vsisocia';
             $checkxxx=$todoxxxx['vsixxxxx']->VsiConcepto;
             ?>

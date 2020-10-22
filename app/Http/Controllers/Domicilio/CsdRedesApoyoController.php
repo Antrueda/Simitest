@@ -7,6 +7,7 @@ use App\Http\Requests\Csd\CsdRedApoyoAntecedenteCrearRequest;
 use App\Http\Requests\Csd\CsdRedApoyoAntecedenteEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdRedsocPasado;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Tema;
@@ -54,8 +55,9 @@ class CsdRedesApoyoController extends Controller
             'formhref' => 2, 'tituloxx' => "VOLVER A REDES DE APOYO", 'clasexxx' => 'btn btn-sm btn-primary'
         ];
     }
-    public function index(Csd $padrexxx)
+    public function index(CsdSisNnaj $padrexxx)
     {
+        $padrexxx=$padrexxx->csd;
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
@@ -136,8 +138,9 @@ class CsdRedesApoyoController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function getAntecedentes(Request $request, Csd $padrexxx)
+    public function getAntecedentes(Request $request, CsdSisNnaj $padrexxx)
     {
+        $padrexxx=$padrexxx->csd;
         if ($request->ajax()) {
             $request->padrexxx = $padrexxx->id;
             $request->datobasi = $padrexxx->id;
@@ -220,7 +223,7 @@ class CsdRedesApoyoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
@@ -244,10 +247,10 @@ class CsdRedesApoyoController extends Controller
      */
 
 
-    public function store(CsdRedApoyoAntecedenteCrearRequest $request, Csd $padrexxx)
+    public function store(CsdRedApoyoAntecedenteCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         return $this->grabar($dataxxxx, '', 'Red Apoyo creado con exito', $padrexxx);
     }
@@ -258,7 +261,7 @@ class CsdRedesApoyoController extends Controller
      * @param  \App\Models\FiRedesApoyo  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $padrexxx, CsdRedsocPasado $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdRedsocPasado $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver','formulario'], 'padrexxx' => $padrexxx]);
     }
@@ -269,7 +272,7 @@ class CsdRedesApoyoController extends Controller
      * @param  \App\Models\FiRedesApoyo  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx,  CsdRedsocPasado $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx,  CsdRedsocPasado $modeloxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
@@ -287,12 +290,12 @@ class CsdRedesApoyoController extends Controller
      * @param  \App\Models\FiRedesApoyo  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdRedApoyoAntecedenteEditarRequest $request, Csd $padrexxx, CsdRedsocPasado $modeloxx)
+    public function update(CsdRedApoyoAntecedenteEditarRequest $request, CsdSisNnaj $padrexxx, CsdRedsocPasado $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Red Apoyo actualizado con exito', $padrexxx);
     }
 
-    public function inactivate(Csd $padrexxx,CsdRedsocPasado $modeloxx)
+    public function inactivate(CsdSisNnaj $padrexxx,CsdRedsocPasado $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -304,7 +307,7 @@ class CsdRedesApoyoController extends Controller
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy','destroy'], 'padrexxx' => $padrexxx]);
     }
-    public function destroy(Csd $padrexxx,CsdRedsocPasado $modeloxx)
+    public function destroy(CsdSisNnaj $padrexxx,CsdRedsocPasado $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

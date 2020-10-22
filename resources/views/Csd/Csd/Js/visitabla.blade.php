@@ -34,7 +34,7 @@ $(document).ready(function() {
     }
     var f_visitado=function(dataxxxx){
         $.ajax({
-            url: "{{ route($todoxxxx['routxxxx'].'.visitado') }}",
+            url: "{{ route($todoxxxx['routxxxx'].'.visitado',$todoxxxx['parametr'][0]) }}",
             data: dataxxxx,
             type: 'GET',
             dataType: 'json',

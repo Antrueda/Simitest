@@ -7,6 +7,7 @@ use App\Http\Requests\Csd\CsdRedApoyoActualCrearRequest;
 use App\Http\Requests\Csd\CsdRedApoyoActualEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdRedsocActual;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
 use Illuminate\Http\Request;
@@ -51,8 +52,9 @@ class CsdRedApoyoActualController extends Controller
         ];
     }
 
-    public function getActuales(Request $request, Csd $padrexxx)
+    public function getActuales(Request $request, CsdSisNnaj $padrexxx)
     {
+        $padrexxx=$padrexxx->csd;
         if ($request->ajax()) {
             $request->padrexxx = $padrexxx->id;
             $request->datobasi = $padrexxx->id;
@@ -136,7 +138,7 @@ class CsdRedApoyoActualController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
 
         $this->opciones['csdxxxxx']=$padrexxx;
@@ -161,10 +163,10 @@ class CsdRedApoyoActualController extends Controller
      */
 
 
-    public function store(CsdRedApoyoActualCrearRequest $request,Csd $padrexxx)
+    public function store(CsdRedApoyoActualCrearRequest $request,CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Red Apoyo creado con exito', $padrexxx);
@@ -176,7 +178,7 @@ class CsdRedApoyoActualController extends Controller
      * @param  \App\Models\FiRedApoyoActual  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $padrexxx,CsdRedsocActual $modeloxx)
+    public function show(CsdSisNnaj $padrexxx,CsdRedsocActual $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['ver','formactual'], 'padrexxx' => $padrexxx]);
     }
@@ -187,7 +189,7 @@ class CsdRedApoyoActualController extends Controller
      * @param  \App\Models\FiRedApoyoActual  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx,  CsdRedsocActual $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx,  CsdRedsocActual $modeloxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
@@ -205,12 +207,12 @@ class CsdRedApoyoActualController extends Controller
      * @param  \App\Models\FiRedApoyoActual  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdRedApoyoActualEditarRequest $request,  Csd $padrexxx,  CsdRedsocActual $modeloxx)
+    public function update(CsdRedApoyoActualEditarRequest $request,  CsdSisNnaj $padrexxx,  CsdRedsocActual $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Red actual actualizada con exito',$padrexxx);
     }
 
-    public function inactivate(Csd $padrexxx,CsdRedsocActual $modeloxx)
+    public function inactivate(CsdSisNnaj $padrexxx,CsdRedsocActual $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -222,7 +224,7 @@ class CsdRedApoyoActualController extends Controller
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$padrexxx]);
     }
-    public function destroy(Csd $padrexxx,CsdRedsocActual $modeloxx)
+    public function destroy(CsdSisNnaj $padrexxx,CsdRedsocActual $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

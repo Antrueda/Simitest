@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdSituacionEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\pivotes\CsdNnajEspecial;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -67,7 +68,7 @@ class CsdSituacionEspecialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
 
         $vestuari = CsdNnajEspecial::where('csd_id', $padrexxx->id)->first();
@@ -98,7 +99,7 @@ class CsdSituacionEspecialController extends Controller
      */
 
 
-    public function store(Request $request, Csd $padrexxx)
+    public function store(Request $request, CsdSisNnaj $padrexxx)
     {
         $this->validator($request->all())->validate();
         $dataxxxx = $request->all();
@@ -119,7 +120,7 @@ class CsdSituacionEspecialController extends Controller
      * @param  \App\Models\csdsituacionespecial  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $modeloxx)
+    public function show(CsdSisNnaj $modeloxx)
     {
         $this->opciones['csdxxxxx']=$modeloxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
@@ -132,7 +133,7 @@ class CsdSituacionEspecialController extends Controller
      * @param  \App\Models\csdsituacionespecial  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $modeloxx)
+    public function edit(CsdSisNnaj $modeloxx)
     {
         $this->opciones['csdxxxxx']=$modeloxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
@@ -153,7 +154,7 @@ class CsdSituacionEspecialController extends Controller
      * @param  \App\Models\csdsituacionespecial  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdSituacionEditarRequest $request, Csd $modeloxx)
+    public function update(CsdSituacionEditarRequest $request, CsdSisNnaj $modeloxx)
     {
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Situaciones Especiales actualizadas','modeloxx'=>$modeloxx,'padrexxx'=>$modeloxx]);
     }
