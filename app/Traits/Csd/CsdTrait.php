@@ -2,6 +2,7 @@
 
 namespace App\Traits\Csd;
 
+use App\Models\consulta\CsdComFamiliar;
 use App\Models\consulta\CsdDinfamMadre;
 use App\Models\consulta\CsdDinfamPadre;
 use App\Models\consulta\CsdGeningAporta;
@@ -158,22 +159,19 @@ trait CsdTrait
 
     public function getCompoFami($request)
     {
-        $dataxxxx =  FiCompfami::select([
-            'fi_compfamis.id',
-            'fi_datos_basicos.s_primer_nombre',
-            'nnaj_docus.s_documento',
-            'fi_datos_basicos.s_segundo_nombre',
-            'fi_datos_basicos.s_primer_apellido',
-            'fi_datos_basicos.s_segundo_apellido',
-            'fi_compfamis.sis_esta_id',
-            'fi_compfamis.created_at',
+        $dataxxxx =  CsdComFamiliar::select([
+            'csd_com_familiars.id',
+            'csd_com_familiars.primer_nombre',
+            'csd_com_familiars.documento',
+            'csd_com_familiars.segundo_nombre',
+            'csd_com_familiars.primer_apellido',
+            'csd_com_familiars.segundo_apellido',
+            'csd_com_familiars.sis_esta_id',
+            'csd_com_familiars.created_at',
             'sis_estas.s_estado'
         ])
-            ->join('sis_nnajs', 'fi_compfamis.sis_nnaj_id', '=', 'sis_nnajs.id')
-            ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-            ->join('sis_estas', 'fi_compfamis.sis_esta_id', '=', 'sis_estas.id')
-            ->where('fi_compfamis.sis_nnajnnaj_id', $request->padrexxx);
+            ->join('sis_estas', 'csd_com_familiars.sis_esta_id', '=', 'sis_estas.id')
+            ->where('csd_com_familiars.csd_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 

@@ -153,9 +153,14 @@ class CsdComFamiliar extends Model{
       $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
 
           $dataxxxx['prm_tipodocu_id'] = $dataxxxx['prm_documento_id'];
-          $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
-          $dt = new DateTime($dataxxxx['d_nacimiento']);
-          $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
+          $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['primer_nombre']);
+          $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['segundo_nombre']);
+          $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['primer_apellido']);
+          $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['segundo_apellido']);
+          $dataxxxx['s_documento'] = $dataxxxx['documento'];
+          $dataxxxx['identitario'] = strtoupper($dataxxxx['identitario']);
+          $dt = new DateTime($dataxxxx['nacimiento']);
+          $dataxxxx['nacimiento'] = $dt->format('Y-m-d');
           $dataxxxx['user_edita_id'] = Auth::user()->id;
           if ($objetoxx != '') {
               $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,$objetoxx);

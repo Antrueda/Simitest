@@ -88,8 +88,10 @@ class CsdCompfamiController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
+        $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['pestpara'][0] = [$padrexxx->id];
+        $this->opciones['usuariox'] = $padrexxx->sis_nnaj->fi_datos_basico;
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
@@ -112,12 +114,12 @@ class CsdCompfamiController extends Controller
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'fi_compfamis.id'],
-                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
-                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+                    ['data' => 'id', 'name' => 'csd_com_familiars.id'],
+                    ['data' => 'primer_nombre', 'name' => 'csd_com_familiars.primer_nombre'],
+                    ['data' => 'segundo_nombre', 'name' => 'csd_com_familiars.segundo_nombre'],
+                    ['data' => 'primer_apellido', 'name' => 'csd_com_familiars.primer_apellido'],
+                    ['data' => 'segundo_apellido', 'name' => 'csd_com_familiars.segundo_apellido'],
+                    ['data' => 'documento', 'name' => 'csd_com_familiars.documento'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -128,14 +130,13 @@ class CsdCompfamiController extends Controller
 
         ];
         $this->opciones['accionxx'] = 'index';
-        $this->opciones['usuariox'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
     }
     public function getListado(Request $request, CsdSisNnaj $padrexxx)
     {
         if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->padrexxx = $padrexxx->csd_id;
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -176,30 +177,16 @@ class CsdCompfamiController extends Controller
         $this->opciones['poblindi'] = ['' => 'Seleccione'];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['aniosxxx'] = '';
-        $this->opciones['departam'] = ['' => 'Seleccione'];
-        $this->opciones['municipi'] = ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $datosbas = $dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico;
-            $dataxxxx['modeloxx']->s_primer_apellido = $datosbas->s_primer_apellido;
-            $dataxxxx['modeloxx']->s_segundo_apellido = $datosbas->s_segundo_apellido;
-            $dataxxxx['modeloxx']->s_primer_nombre = $datosbas->s_primer_nombre;
-            $dataxxxx['modeloxx']->s_segundo_nombre = $datosbas->s_segundo_nombre;
-            $dataxxxx['modeloxx']->s_documento = $datosbas->nnaj_docu->s_documento;
-            $dataxxxx['modeloxx']->prm_tipodocu_id = $datosbas->nnaj_docu->tipoDocumento->id;
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $dataxxxx['modeloxx']->aniosxxx=$datosbas->nnaj_nacimi->Edad;
-            $dataxxxx['modeloxx']->sis_pai_id = $datosbas->nnaj_docu->sis_municipio->sis_departamento->sis_pai_id;
-
-            $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
-            $dataxxxx['modeloxx']->sis_departamento_id = $datosbas->nnaj_docu->sis_municipio->sis_departamento_id;
-            $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamento_id, false);
+            
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);
             if ($dataxxxx['modeloxx']->sis_pai_id != 2) {
                 $this->opciones['municipi'] = $this->opciones['departam'] = [1 => 'NO APLICA'];
             }
             $this->opciones['poblindi'] = Tema::combo(61, true, false);
-            if ($this->opciones['modeloxx']->prm_grupo_etnico_id != 157) {
+            if ($dataxxxx['modeloxx']->prm_grupo_etnico_id != 157) {
                 $this->opciones['poblindi'] =  [1269 => 'NO APLICA'];
             }
             if ($dataxxxx['modeloxx']->prm_regimen_id == 168) {
@@ -293,9 +280,12 @@ class CsdCompfamiController extends Controller
     public function store(CsdCompfamiCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
-        $request->request->add(['prm_tipofuen_id'=>2315]);
-        $request->request->add(['sis_esta_id'=>1]);
+        
+        
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
+        $dataxxxx['prm_tipofuen_id'] = 2315;
+        $dataxxxx['sis_esta_id'] = 1;
         return $this->grabar($dataxxxx, '', 'Composicion familiar creada con exito', $padrexxx);
     }
 
@@ -318,8 +308,7 @@ class CsdCompfamiController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,CsdComFamiliar $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx->csd;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
+        $this->opciones['csdxxxxx']=$padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [

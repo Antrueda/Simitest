@@ -72,11 +72,11 @@ $(document).ready(function() {
         }
 
   $('#{{ $tablasxx["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
-    $('#s_primer_apellido').val('');
-            $('#s_primer_nombre').val('');
-            $('#s_segundo_apellido').val('');
-            $('#s_segundo_nombre').val('');
-            $('#s_documento').val('');
+    $('#primer_apellido').val('');
+            $('#primer_nombre').val('');
+            $('#segundo_apellido').val('');
+            $('#segundo_nombre').val('');
+            $('#documento').val('');
 
 
         if ( $(this).hasClass('selected') ) {
@@ -86,12 +86,12 @@ $(document).ready(function() {
             {{ $tablasxx["tablaxxx"] }}.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
             var d = {{$tablasxx["tablaxxx"]}}.row(this).data();
-            $('#s_primer_apellido').val(d.s_primer_apellido);
-            $('#s_primer_nombre').val(d.s_primer_nombre);
-            $('#s_segundo_apellido').val(d.s_segundo_apellido);
-            $('#s_segundo_nombre').val(d.s_segundo_nombre);
-            $('#s_documento').val(d.s_documento);
-            $('#d_nacimiento').val(d.d_nacimiento);
+            $('#primer_apellido').val(d.s_primer_apellido);
+            $('#primer_nombre').val(d.s_primer_nombre);
+            $('#segundo_apellido').val(d.s_segundo_apellido);
+            $('#segundo_nombre').val(d.s_segundo_nombre);
+            $('#documento').val(d.s_documento);
+            $('#nacimiento').val(d.d_nacimiento);
             dataxxxx={
                     url:"{{ route('ajaxx.edad') }}",
                     data:{

@@ -133,12 +133,13 @@ class PCsdHelper
      */
     public static function getComposicion($dataxxxx)
     {
-        $dataxxxx['modeloxx'] = '';
+
+        //$respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.nuevo', $dataxxxx['padrexxx']->id);
+        $respuest = ['rutaxxxx' =>route('csdcomfamiliar' , $dataxxxx['padrexxx']->id), 'classxxx' => 'fas fa-check text-success'];
         if (count($dataxxxx['padrexxx']->csd->CsdComFamiliar)>0) {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
+            $respuest['classxxx'] = 'fas fa-times text-danger';
         }
-        $dataxxxx['permisox'] = 'csdcomfamiliar';
-        return PCsdHelper::getRoute($dataxxxx);
+        return $respuest;
     }
 
     /**
