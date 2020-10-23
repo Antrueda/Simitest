@@ -21,7 +21,6 @@ class CsdRedesApoyoController extends Controller
     private $opciones;
     public function __construct()
     {
-
         $this->opciones['permisox'] = 'csdredesapoyo';
         $this->opciones['routxxxx'] = 'csdredesapoyo';
         $this->opciones['rutacarp'] = 'Csd.';
@@ -57,6 +56,7 @@ class CsdRedesApoyoController extends Controller
     }
     public function index(CsdSisNnaj $padrexxx)
     {
+        $this->opciones['csdxxxxx']=$padrexxx;
         $padrexxx=$padrexxx->csd;
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
@@ -134,7 +134,6 @@ class CsdRedesApoyoController extends Controller
             ],
         ];
         $this->opciones['usuariox'] = $padrexxx->sis_nnaj->fi_datos_basico;
-        $this->opciones['csdxxxxx'] = $padrexxx;
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

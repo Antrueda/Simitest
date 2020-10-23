@@ -41,7 +41,7 @@ class Csd extends Model
 
     public function CsdViolencia()
     {
-        return $this->hasMany(CsdViolencia::class, 'csd_id');
+        return $this->hasOne(CsdViolencia::class, 'csd_id');
     }
 
     public function CsdDatosBasico()
@@ -141,10 +141,10 @@ class Csd extends Model
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
 
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            $dataxxxx['padrexxx']->especiales()->detach();
+            $dataxxxx['padrexxx']->csd->especiales()->detach();
             if($dataxxxx['requestx']->especiales){
                 foreach ( $dataxxxx['requestx']->especiales as $d) {
-                    $dataxxxx['padrexxx']->especiales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+                    $dataxxxx['padrexxx']->csd->especiales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
                 }
             }
             return $dataxxxx['padrexxx'];

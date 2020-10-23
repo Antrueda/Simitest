@@ -7,6 +7,7 @@ use App\Http\Requests\Csd\CsdConclusionesCrearRequest;
 use App\Http\Requests\Csd\CsdConclusionesEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdConclusiones;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Fi\FiTrait;
@@ -77,14 +78,9 @@ class CsdConclusionesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
 
-        $vestuari = CsdConclusiones::where('csd_id', $padrexxx->id)->first();
-        if ($vestuari != null) {
-            return redirect()
-                ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
-        }
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
             [
@@ -109,10 +105,10 @@ class CsdConclusionesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CsdConclusionesCrearRequest $request, Csd $padrexxx)
+    public function store(CsdConclusionesCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Conclusiones registradas con exito', $padrexxx);
@@ -125,11 +121,10 @@ class CsdConclusionesController extends Controller
      * @param  \App\Models\FiRazone  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $padrexxx, CsdConclusiones $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        $this->opciones['csdxxxxx']=$padrexxx;
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -138,7 +133,7 @@ class CsdConclusionesController extends Controller
      * @param  \App\Models\FiRazone  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx, CsdConclusiones $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -158,7 +153,7 @@ class CsdConclusionesController extends Controller
      * @param  \App\Models\FiRazone  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdConclusionesEditarRequest $request, Csd $padrexxx, CsdConclusiones $modeloxx)
+    public function update(CsdConclusionesEditarRequest $request, CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
     {
         return $this->grabar($request, $modeloxx, 'Conclusiones actualizadas con exito', $padrexxx);
     }

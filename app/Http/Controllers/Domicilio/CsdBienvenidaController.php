@@ -8,6 +8,7 @@ use App\Http\Requests\Csd\CsdBienvenidaEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdBienvenida;
 use App\Models\consulta\CsdDatosBasico;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 
 class CsdBienvenidaController extends Controller
@@ -77,13 +78,9 @@ class CsdBienvenidaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
-        $vestuari = CsdBienvenida::where('csd_id', $padrexxx->id)->first();
-        if ($vestuari != null) {
-            return redirect()
-                ->route('csdbienvenida.editar', [$vestuari->id]);
-        }
+
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
@@ -98,7 +95,7 @@ class CsdBienvenidaController extends Controller
     private function grabar($dataxxxx)
     {
         return redirect()
-        ->route('csdbienvenida.editar', [CsdBienvenida::transaccion($dataxxxx)->id])
+        ->route('csdbienvenida.editar', [$dataxxxx['padrexxx']->id,CsdBienvenida::transaccion($dataxxxx)->id])
         ->with('info', $dataxxxx['infoxxxx']);
     }
     /**
@@ -109,12 +106,17 @@ class CsdBienvenidaController extends Controller
      */
 
 
-    public function store(CsdBienvenidaCrearRequest $request,Csd $padrexxx)
+    public function store(CsdBienvenidaCrearRequest $request,CsdSisNnaj $padrexxx)
     {
-        $request->request->add(['csd_id' => $padrexxx->id]);
+        $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['sis_esta_id' =>1]);
         $request->request->add(['prm_tipofuen_id' =>2315]);
-        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Bienvenida creada con exito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
+        return $this->grabar([
+            'requestx'=>$request,
+            'infoxxxx'=>'Bienvenida creada con exito',
+            'padrexxx'=>$padrexxx,
+            'modeloxx'=>''
+            ]);
 
     }
 
@@ -124,9 +126,10 @@ class CsdBienvenidaController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(CsdBienvenida $modeloxx)
+    public function show(CsdSisNnaj $padrexxx,CsdBienvenida $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->csd]);
+        return $this->view([
+            'modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -135,10 +138,9 @@ class CsdBienvenidaController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(CsdBienvenida $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx,CsdBienvenida $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx->csd;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
+        $this->opciones['csdxxxxx']=$padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -146,7 +148,7 @@ class CsdBienvenidaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar',  'formulario', 'js',], 'padrexxx' => $modeloxx->csd]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar',  'formulario', 'js',], 'padrexxx' => $padrexxx]);
 
     }
 
@@ -157,8 +159,12 @@ class CsdBienvenidaController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdBienvenidaEditarRequest $request, CsdBienvenida $modeloxx)
+    public function update(CsdBienvenidaEditarRequest $request,CsdSisNnaj $padrexxx, CsdBienvenida $modeloxx)
     {
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Bienvenida actualizada con exito','padrexxx'=>$modeloxx->csd,'modeloxx'=>$modeloxx]);
+        return $this->grabar([
+            'requestx'=>$request,
+            'infoxxxx'=>'Bienvenida actualizada con exito',
+            'padrexxx'=>$padrexxx,
+            'modeloxx'=>$modeloxx]);
     }
 }

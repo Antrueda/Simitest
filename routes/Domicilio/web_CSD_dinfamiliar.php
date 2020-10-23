@@ -35,9 +35,6 @@ Route::group(['prefix' => '{padrexxx}/dinfamiliar'], function () use ($routexxx,
         'uses' => $controll.'Controller@storeGenograma',
         'middleware' => ['permission:'.$routexxx.'-crear']
     ])->name($routexxx.'.genograma');
-});	
-
-Route::group(['prefix' => 'csd/dinfamiliar'], function () use ($routexxx, $controll) {
 		Route::get('ver/{modeloxx}', [
 			'uses' => $controll . 'Controller@show',
 			'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
@@ -53,4 +50,4 @@ Route::group(['prefix' => 'csd/dinfamiliar'], function () use ($routexxx, $contr
 	});
 
 
-	
+

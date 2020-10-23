@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdGenIngreso;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
 
@@ -108,7 +109,7 @@ class CsdGeneracionIngresosController extends Controller
                 'parametr' => [$dataxxxx['padrexxx']->id],
             ],
         ];
-    
+
 
         // indica si se esta actualizando o viendo
         $vercrear = false;
@@ -127,13 +128,8 @@ class CsdGeneracionIngresosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
-        $vestuari = CsdGenIngreso::where('csd_id', $padrexxx->id)->first();
-        if ($vestuari != null) {
-            return redirect()
-                ->route('csdgeningresos.editar', [$padrexxx->id, $vestuari->id]);
-        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
             [
@@ -160,10 +156,10 @@ class CsdGeneracionIngresosController extends Controller
      */
 
 
-    public function store(Request $request, Csd $padrexxx)
+    public function store(Request $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Generacion de ingresos guardado con exito', $padrexxx);
@@ -175,7 +171,7 @@ class CsdGeneracionIngresosController extends Controller
      * @param  \App\Models\FiConsumoSpa  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $padrexxx, CsdGenIngreso $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdGenIngreso $modeloxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
@@ -187,7 +183,7 @@ class CsdGeneracionIngresosController extends Controller
      * @param  \App\Models\FiConsumoSpa  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx, CsdGenIngreso $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx, CsdGenIngreso $modeloxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
@@ -205,7 +201,7 @@ class CsdGeneracionIngresosController extends Controller
      * @param  \App\Models\FiConsumoSpa  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Csd $padrexxx, CsdGenIngreso $modeloxx)
+    public function update(Request $request, CsdSisNnaj $padrexxx, CsdGenIngreso $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Generacion de ingresos actualizado con exito', $padrexxx);
     }

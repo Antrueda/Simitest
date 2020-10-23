@@ -7,6 +7,7 @@ use App\Http\Requests\Csd\CsdJusticiaCrearRequest;
 use App\Http\Requests\Csd\CsdJusticiaEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdJusticia;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
@@ -69,14 +70,8 @@ class CsdJusticiaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
-
-        $vestuari = CsdJusticia::where('csd_id', $padrexxx->id)->first();
-        if ($vestuari != null) {
-            return redirect()
-                ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
-        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
@@ -102,10 +97,10 @@ class CsdJusticiaController extends Controller
      */
 
 
-    public function store(CsdJusticiaCrearRequest $request, Csd $padrexxx)
+    public function store(CsdJusticiaCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Justicia creada con exito', $padrexxx);
@@ -117,9 +112,9 @@ class CsdJusticiaController extends Controller
      * @param  \App\Models\FiJustrest  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $padrexxx, CsdJusticia $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdJusticia $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx;
+        $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
     }
@@ -130,7 +125,7 @@ class CsdJusticiaController extends Controller
      * @param  \App\Models\FiJustrest  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx, CsdJusticia $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx, CsdJusticia $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -150,7 +145,7 @@ class CsdJusticiaController extends Controller
      * @param  \App\Models\FiJustrest  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdJusticiaEditarRequest $request,  Csd $padrexxx, CsdJusticia $modeloxx)
+    public function update(CsdJusticiaEditarRequest $request,  CsdSisNnaj $padrexxx, CsdJusticia $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con exito', $padrexxx);
     }

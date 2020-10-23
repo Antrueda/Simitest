@@ -129,6 +129,7 @@ class CsdViolenciaController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx, CsdViolencia $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 

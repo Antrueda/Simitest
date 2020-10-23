@@ -54,8 +54,7 @@ class PCsdHelper
     public static function getViolecia($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-        // ddd($dataxxxx['padrexxx']->csd->fi_csdvsi);
-        if ($dataxxxx['padrexxx']->csd->csd_viliencia != '') {
+        if ($dataxxxx['padrexxx']->csd->CsdViolencia != '') { // debe ser así
             $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
         }
         $dataxxxx['permisox'] = 'csdviolencia';
@@ -73,7 +72,7 @@ class PCsdHelper
         if (count($dataxxxx['padrexxx']->csd->especiales) >0) {
             $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
         }
-        $dataxxxx['permisox'] = 'csdviolencia';
+        $dataxxxx['permisox'] = 'csdsituacionespecial';
         return PCsdHelper::getRoute($dataxxxx);
     }
 

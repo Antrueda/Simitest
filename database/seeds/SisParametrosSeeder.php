@@ -2464,7 +2464,7 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'Yukuna']);//2425
         $this->getR(['nombrexx' => 'Yuko']);//2426
         $this->getR(['nombrexx' => 'Yuruti']);//2427
-        $this->getR(['nombrexx' => 'Senu']);//2428
+        $this->getR(['nombrexx' => 'sinú (zenú)']);//2428
         $this->getR(['nombrexx' => 'Guane']);//2429
         $this->getR(['nombrexx' => 'Mokana']);//2430
         $this->getR(['nombrexx' => 'Otavaleño']);//2431

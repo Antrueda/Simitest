@@ -7,9 +7,8 @@ use App\Http\Requests\FichaIngreso\FiCompfamiCrearRequest;
 use App\Http\Requests\FichaIngreso\FiCompfamiUpdateRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdComFamiliar;
-use App\Models\fichaIngreso\FiCompfami;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Sistema\SisMunicipio;
@@ -17,7 +16,6 @@ use App\Models\Sistema\SisPai;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class CsdCompfamiController extends Controller
@@ -82,7 +80,7 @@ class CsdCompfamiController extends Controller
         ];
     }
 
-    public function index(FiDatosBasico $padrexxx)
+    public function index(CsdSisNnaj $padrexxx)
     {
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */
@@ -136,7 +134,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['parametr'] = [$padrexxx->id];
         return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
     }
-    public function getListado(Request $request, FiDatosBasico $padrexxx)
+    public function getListado(Request $request, CsdSisNnaj $padrexxx)
     {
         if ($request->ajax()) {
             $request->padrexxx = $padrexxx->sis_nnaj_id;
@@ -148,7 +146,7 @@ class CsdCompfamiController extends Controller
             return $this->getCompoFami($request);
         }
     }
-    public function getListodo(Request $request, FiDatosBasico $padrexxx)
+    public function getListodo(Request $request, CsdSisNnaj $padrexxx)
     {
         if ($request->ajax()) {
             $request->padrexxx = $padrexxx->sis_nnaj_id;
@@ -160,7 +158,7 @@ class CsdCompfamiController extends Controller
             return $this->getTodoComFami($request);
         }
     }
-    
+
     private function view($dataxxxx)
     {
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
@@ -212,7 +210,7 @@ class CsdCompfamiController extends Controller
             }
 
 
- 
+
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
@@ -273,7 +271,7 @@ class CsdCompfamiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
@@ -299,7 +297,7 @@ class CsdCompfamiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FiCompfamiCrearRequest $request, Csd $padrexxx)
+    public function store(FiCompfamiCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
         $request->request->add(['prm_tipofuen_id'=>2315]);
@@ -314,9 +312,9 @@ class CsdCompfamiController extends Controller
      * @param  \App\Models\FiCompfami  $residencia
      * @return \Illuminate\Http\Response
      */
-    public function show(CsdComFamiliar $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->csd]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -325,7 +323,7 @@ class CsdCompfamiController extends Controller
      * @param  \App\Models\FiCompfami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(CsdComFamiliar $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx,CsdComFamiliar $modeloxx)
     {
         $this->opciones['csdxxxxx']=$modeloxx->csd;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
@@ -336,7 +334,7 @@ class CsdCompfamiController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $modeloxx->csd]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -346,12 +344,12 @@ class CsdCompfamiController extends Controller
      * @param  \App\Models\FiCompfami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiCompfamiUpdateRequest $request, Csd $padrexxx, CsdComFamiliar $modeloxx)
+    public function update(FiCompfamiUpdateRequest $request, CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Composicion familiar actualizada con exito', $padrexxx);
     }
 
-    public function inactivate(Csd $padrexxx, CsdComFamiliar $modeloxx)
+    public function inactivate(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -363,7 +361,7 @@ class CsdCompfamiController extends Controller
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx]);
     }
-    public function destroy(Csd $padrexxx, CsdComFamiliar $modeloxx)
+    public function destroy(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

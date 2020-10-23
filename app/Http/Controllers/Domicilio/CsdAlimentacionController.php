@@ -7,6 +7,7 @@ use App\Http\Requests\Csd\CsdAlimentacionCrearRequest;
 use App\Http\Requests\Csd\CsdAlimentacionEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 
 class CsdAlimentacionController extends Controller
@@ -80,16 +81,9 @@ class CsdAlimentacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
-
-        $vestuari = CsdAlimentacion::where('csd_id', $padrexxx->id)->first();
-        if ($vestuari != null) {
-            return redirect()
-                ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
-        }
         $this->opciones['csdxxxxx']=$padrexxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -106,11 +100,11 @@ class CsdAlimentacionController extends Controller
             ->with('info', $infoxxxx);
     }
 
-    public function store(CsdAlimentacionCrearRequest $request, Csd $padrexxx)
+    public function store(CsdAlimentacionCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
 
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Datos de alimentacion creados con exito', $padrexxx);
@@ -122,9 +116,9 @@ class CsdAlimentacionController extends Controller
      * @param  \App\Models\csdalimentacion  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(Csd $padrexxx, CsdAlimentacion $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdAlimentacion $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx;
+        $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
     }
@@ -136,7 +130,7 @@ class CsdAlimentacionController extends Controller
      * * @param    $nnajregi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx,  CsdAlimentacion $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx,  CsdAlimentacion $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -156,7 +150,7 @@ class CsdAlimentacionController extends Controller
      * @param  \App\Models\csdalimentacion  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdAlimentacionEditarRequest $request,  Csd $padrexxx, CsdAlimentacion $modeloxx)
+    public function update(CsdAlimentacionEditarRequest $request,  CsdSisNnaj $padrexxx, CsdAlimentacion $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Datos de alimentacion actualizados especial actualizada con exito', $padrexxx);
     }
