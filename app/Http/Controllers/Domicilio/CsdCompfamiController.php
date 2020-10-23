@@ -3,18 +3,16 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaIngreso\FiCompfamiCrearRequest;
-use App\Http\Requests\FichaIngreso\FiCompfamiUpdateRequest;
-use App\Models\consulta\Csd;
+use App\Http\Requests\Csd\CsdCompfamiCrearRequest;
+use App\Http\Requests\Csd\CsdCompfamiEditarRequest;
 use App\Models\consulta\CsdComFamiliar;
 use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
 use App\Models\Tema;
-use App\Traits\Fi\FiTrait;
+use App\Traits\Csd\CsdTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +20,7 @@ class CsdCompfamiController extends Controller
 {
 
     private $opciones;
-    use FiTrait;
+    use CsdTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdcomfamiliar';
@@ -297,7 +295,7 @@ class CsdCompfamiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FiCompfamiCrearRequest $request, CsdSisNnaj $padrexxx)
+    public function store(CsdCompfamiCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
         $request->request->add(['prm_tipofuen_id'=>2315]);
@@ -344,7 +342,7 @@ class CsdCompfamiController extends Controller
      * @param  \App\Models\FiCompfami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiCompfamiUpdateRequest $request, CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
+    public function update(CsdCompfamiEditarRequest $request, CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Composicion familiar actualizada con exito', $padrexxx);
     }

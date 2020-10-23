@@ -4,7 +4,7 @@ namespace App\Http\Requests\Csd;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CsdCompfamiCrearRequest extends FormRequest
+class CsdCompfamiEditarRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
