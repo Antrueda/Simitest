@@ -155,6 +155,8 @@ class CsdBasicoController extends Controller
     public function create(CsdSisNnaj $padrexxx)
     {
 
+        ///
+
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
