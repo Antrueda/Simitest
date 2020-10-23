@@ -126,11 +126,10 @@ class CsdDatosBasico extends Model{
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = Csd::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = CsdDatosBasico::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
     }
-    
 }

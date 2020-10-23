@@ -39,8 +39,8 @@ class PCsdHelper
     public static function getDaBa($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-        if ($dataxxxx['padrexxx']->csd->fi_csdvsi != null) {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
+        if ($dataxxxx['padrexxx']->csd->CsdDatosBasico != null) { // debe ser así
+            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdViolencia;
         }
         $dataxxxx['permisox'] = 'csdatbas';
         return PCsdHelper::getRoute($dataxxxx);
@@ -54,7 +54,6 @@ class PCsdHelper
     public static function getViolecia($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-        //ddd($dataxxxx['padrexxx']->csd->CsdViolencia);
         if ($dataxxxx['padrexxx']->csd->CsdViolencia != null) { // debe ser así
             $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdViolencia;
         }

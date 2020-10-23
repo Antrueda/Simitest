@@ -5,14 +5,12 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdBasicoCrearRequest;
 use App\Http\Requests\Csd\CsdBasicoEditarRequest;
-use App\Models\consulta\Csd;
+use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
-use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisPai;
 use App\Models\Tema;
 use Carbon\Carbon;
@@ -52,7 +50,7 @@ class CsdBasicoController extends Controller
     }
     private function grabar($dataxxxx)
     {
-        $usuariox = FiDatosBasico::getTransactionCsd($dataxxxx);
+        $usuariox = CsdDatosBasico::getTransactionCsd($dataxxxx);
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$dataxxxx['padrexxx']->id,$usuariox->id])
             ->with('info', $dataxxxx['infoxxxx']);
@@ -154,9 +152,6 @@ class CsdBasicoController extends Controller
 
     public function create(CsdSisNnaj $padrexxx)
     {
-
-        ///
-
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
@@ -178,10 +173,10 @@ class CsdBasicoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\FiDatosBasico $modeloxx
+     * @param  \App\Models\CsdDatosBasico $modeloxx
      * @return \Illuminate\Http\Response
      */
-    public function show(CsdSisNnaj $padrexxx,FiDatosBasico $modeloxx)
+    public function show(CsdSisNnaj $padrexxx,CsdDatosBasico $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', $modeloxx->id);
@@ -191,10 +186,10 @@ class CsdBasicoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\FiDatosBasico $modeloxx
+     * @param  \App\Models\CsdDatosBasico $modeloxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(CsdSisNnaj $padrexxx,FiDatosBasico $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx,CsdDatosBasico $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -215,7 +210,7 @@ class CsdBasicoController extends Controller
      * @param  \App\Models\FiDatosBasico $padrexxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdBasicoEditarRequest $request, CsdSisNnaj $padrexxx,FiDatosBasico $modeloxx)
+    public function update(CsdBasicoEditarRequest $request, CsdSisNnaj $padrexxx,CsdDatosBasico $modeloxx)
     {
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con exito', 'modeloxx' => $modeloxx,'padrexxx'=>$padrexxx]);
     }

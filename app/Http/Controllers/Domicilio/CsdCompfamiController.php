@@ -188,7 +188,6 @@ class CsdCompfamiController extends Controller
             $dataxxxx['modeloxx']->s_documento = $datosbas->nnaj_docu->s_documento;
             $dataxxxx['modeloxx']->prm_tipodocu_id = $datosbas->nnaj_docu->tipoDocumento->id;
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            // ddd($datosbas);
             $dataxxxx['modeloxx']->aniosxxx=$datosbas->nnaj_nacimi->Edad;
             $dataxxxx['modeloxx']->sis_pai_id = $datosbas->nnaj_docu->sis_municipio->sis_departamento->sis_pai_id;
 
@@ -204,12 +203,8 @@ class CsdCompfamiController extends Controller
                 $this->opciones['poblindi'] =  [1269 => 'NO APLICA'];
             }
             if ($dataxxxx['modeloxx']->prm_regimen_id == 168) {
-                $this->opciones['entid_id'] = [1269 => 'NO APLICA'];
+                $this->opciones['entid_id'] = [1 => 'NO APLICA'];
             }
-
-
-
-
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
