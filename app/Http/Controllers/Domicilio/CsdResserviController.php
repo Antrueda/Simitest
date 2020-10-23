@@ -133,12 +133,13 @@ class CsdResserviController extends Controller
 
     public function store(CsdResservicioCrearRequest $request, CsdSisNnaj $padrexxx)
     {
+        
         $request->request->add(['csd_residencia_id' => $padrexxx->csd->CsdResidencia->id]);
         $request->request->add(['sis_esta_id' => 1]);
         return $this->grabar([
             'requestx' => $request, 
             'infoxxxx' => 'Servicio creado con exito', 
-            'padrexxx' => $padrexxx->csd_id, 
+            'padrexxx' => $padrexxx, 
             'modeloxx' => '', 
             ]);
     }
@@ -198,6 +199,7 @@ class CsdResserviController extends Controller
 
     public function inactivate(CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
@@ -210,6 +212,7 @@ class CsdResserviController extends Controller
     }
     public function destroy(CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route('csddinfamiliar.nuevo', [$padrexxx->id])

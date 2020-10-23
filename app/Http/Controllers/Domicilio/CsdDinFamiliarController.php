@@ -213,7 +213,7 @@ class CsdDinFamiliarController extends Controller
         $vestuari = CsdDinFamiliar::where('csd_id', $padrexxx->csd_id)->first();
         if ($vestuari != null) {
             return redirect()
-                ->route('csddinfamiliar.editar', [$padrexxx->id, $vestuari->id]);
+                ->route('csddinfamiliar.editar', [$padrexxx->csd_id, $vestuari->id]);
         }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);

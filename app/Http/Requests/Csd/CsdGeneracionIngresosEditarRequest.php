@@ -2,32 +2,28 @@
 
 namespace App\Http\Requests\Csd;
 
-
 use Illuminate\Foundation\Http\FormRequest;
 
 class CsdGeneracionIngresosEditarRequest extends FormRequest
 {
+
     private $_mensaje;
     private $_reglasx;
 
     public function __construct()
     {
-
-       
-        $this->_mensaje = [
+         $this->_mensaje = [
             'prm_actividad_id.required' => 'Seleccione tipo de actividad',
-            ];
+            
+        ];
         $this->_reglasx = [
-            'observacion' => 'required|string|max:4000',
             'prm_actividad_id' => 'required|exists:parametros,id',
             'trabaja' => 'required_if:prm_actividad_id,626',
             'prm_informal_id' => 'required_if:prm_actividad_id,627',
-            'prm_otra_id' => 'required_if:prm_actividad_id,628',
+            'prm_otra_id' => 'c,628',
             'prm_laboral_id' => 'required_if:prm_actividad_id,626',
-            'prm_frecuencia_id' => 'exclude_if:prm_actividad_id,853',
             'intensidad' => 'required_unless:prm_actividad_id,853',
-            'prm_dificultad_id' => 'required|exists:parametros,id',
-            'razon' => 'required_if:prm_dificultad_id,227|string|max:4000',
+            'razon' => 'exclude_if:prm_dificultad_id,227|string|max:4000',
         ];
     }
     /**
@@ -44,6 +40,7 @@ class CsdGeneracionIngresosEditarRequest extends FormRequest
     {
         return $this->_mensaje;
     }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -52,10 +49,12 @@ class CsdGeneracionIngresosEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        return $this->_reglasx;    }
+        return $this->_reglasx;
+    }
 
-        public function validar()
-        {
-
-        }
+    public function validar()
+    {
+        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
+        
+    }
 }

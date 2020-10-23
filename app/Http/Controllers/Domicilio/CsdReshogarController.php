@@ -189,6 +189,7 @@ class CsdReshogarController extends Controller
 
     public function inactivate(CsdSisNnaj $padrexxx,CsdReshogar $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
@@ -201,6 +202,7 @@ class CsdReshogarController extends Controller
     }
     public function destroy(CsdSisNnaj $padrexxx,CsdReshogar $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route('csdresidencia.nuevo', [$padrexxx->id])

@@ -61,7 +61,7 @@ class CsdGeneracionAportanteController extends Controller
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->diaseman = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.botones.diaseman';
+                $this->opciones['carpetax'] . '.Botones.diaseman';
             $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
             return $this->getAportantes($request);
          }

@@ -64,7 +64,7 @@
                   @endif
 
                   $('#i_prm_area_ajuste_id').change(function(){
-          f_combo({valuexxx:$(this).val(), selected:''})
+                f_combo({valuexxx:$(this).val(), selected:''})
           });
           });
 

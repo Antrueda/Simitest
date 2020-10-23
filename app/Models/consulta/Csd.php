@@ -31,7 +31,7 @@ class Csd extends Model
     }
     public function CsdJusticia()
     {
-        return $this->hasMany(CsdJusticia::class, 'csd_id');
+        return $this->hasOne(CsdJusticia::class, 'csd_id');
     }
 
     public function CsdResidencia()
@@ -51,17 +51,17 @@ class Csd extends Model
 
     public function CsdConclusiones()
     {
-        return $this->hasMany(CsdConclusiones::class, 'csd_id');
+        return $this->hasOne(CsdConclusiones::class, 'csd_id');
     }
 
     public function CsdBienvenida()
     {
-        return $this->hasMany(CsdBienvenida::class, 'csd_id');
+        return $this->hasOne(CsdBienvenida::class, 'csd_id');
     }
 
     public function CsdAlimentacion()
     {
-        return $this->hasMany(CsdAlimentacion::class, 'csd_id');
+        return $this->hasOne(CsdAlimentacion::class, 'csd_id');
     }
 
     public function CsdRedsocPasado()
@@ -86,7 +86,7 @@ class Csd extends Model
 
     public function CsdDinFamiliar()
     {
-        return $this->hasMany(CsdDinFamiliar::class, 'csd_id');
+        return $this->hasOne(CsdDinFamiliar::class, 'csd_id');
     }
 
     public function CsdGeningAporta()
@@ -96,7 +96,7 @@ class Csd extends Model
 
     public function CsdGenIngreso()
     {
-        return $this->hasMany(CsdGenIngreso::class, 'csd_id');
+        return $this->hasOne(CsdGenIngreso::class, 'csd_id');
     }
 
     public function CsdComFamiliar()

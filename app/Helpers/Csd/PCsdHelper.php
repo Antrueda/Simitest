@@ -54,8 +54,9 @@ class PCsdHelper
     public static function getViolecia($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-        if ($dataxxxx['padrexxx']->csd->CsdViolencia != '') { // debe ser así
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
+        //ddd($dataxxxx['padrexxx']->csd->CsdViolencia);
+        if ($dataxxxx['padrexxx']->csd->CsdViolencia != null) { // debe ser así
+            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdViolencia;
         }
         $dataxxxx['permisox'] = 'csdviolencia';
         return PCsdHelper::getRoute($dataxxxx);
@@ -86,8 +87,8 @@ class PCsdHelper
     {
         $dataxxxx['modeloxx'] = '';
 
-        if (count($dataxxxx['padrexxx']->csd->CsdJusticia)>0) {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
+        if ($dataxxxx['padrexxx']->csd->CsdJusticia != null) { // debe ser así
+            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdJusticia;
         }
         $dataxxxx['permisox'] = 'csdjusticia';
         return PCsdHelper::getRoute($dataxxxx);
@@ -102,8 +103,8 @@ class PCsdHelper
     {
         $dataxxxx['modeloxx'] = '';
         // ddd($dataxxxx['padrexxx']->csd->fi_csdvsi);
-        if ($dataxxxx['padrexxx']->csd->CsdResidencia != '') {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
+        if ($dataxxxx['padrexxx']->csd->CsdResidencia != null) {
+            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdResidencia;
         }
         $dataxxxx['permisox'] = 'csdresidencia';
         return PCsdHelper::getRoute($dataxxxx);
@@ -118,8 +119,8 @@ class PCsdHelper
     public static function getDinamica($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-        if (count($dataxxxx['padrexxx']->csd->CsdDinFamiliar)>0 ) {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
+        if ($dataxxxx['padrexxx']->csd->CsdDinFamiliar != null) {
+        $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdDinFamiliar;
         }
         $dataxxxx['permisox'] = 'csddinfamiliar';
         return PCsdHelper::getRoute($dataxxxx);
@@ -150,9 +151,8 @@ class PCsdHelper
     public static function getBienvenida($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-        // ddd($dataxxxx['padrexxx']->csd->fi_csdvsi);
-        if (count($dataxxxx['padrexxx']->csd->CsdBienvenida)>0) {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
+        if ($dataxxxx['padrexxx']->csd->CsdBienvenida != null) {
+        $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdBienvenida;
         }
         $dataxxxx['permisox'] = 'csdbienvenida';
         return PCsdHelper::getRoute($dataxxxx);
@@ -167,8 +167,8 @@ class PCsdHelper
     public static function getAlimentacion($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-        if (count($dataxxxx['padrexxx']->csd->CsdAlimentacion)>0) {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
+        if ($dataxxxx['padrexxx']->csd->CsdAlimentacion != null) {
+        $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdAlimentacion;
         }
         $dataxxxx['permisox'] = 'csdalimentacion';
         return PCsdHelper::getRoute($dataxxxx);
@@ -183,8 +183,8 @@ class PCsdHelper
     public static function getIngresos($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-        if (count($dataxxxx['padrexxx']->csd->CsdGenIngreso)>0) {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
+        if ($dataxxxx['padrexxx']->csd->CsdGenIngreso != null) {
+        $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdGenIngreso;
         }
         $dataxxxx['permisox'] = 'csdgeningresos';
         return PCsdHelper::getRoute($dataxxxx);
@@ -216,9 +216,8 @@ class PCsdHelper
     public static function getConclusiones($dataxxxx)
     {
         $dataxxxx['modeloxx'] = '';
-
-        if (count($dataxxxx['padrexxx']->csd->CsdConclusiones)>0) {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
+        if ($dataxxxx['padrexxx']->csd->CsdConclusiones != null) {
+        $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdConclusiones;
         }
         $dataxxxx['permisox'] = 'csdconclusiones';
         return PCsdHelper::getRoute($dataxxxx);

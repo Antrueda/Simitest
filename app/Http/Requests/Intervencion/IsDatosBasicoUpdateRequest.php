@@ -71,7 +71,10 @@ class IsDatosBasicoUpdateRequest extends FormRequest
             $this->_mensaje['i_segundo_responsable.required'] ='Seleccione el segundo responsable';
             $this->_reglasx['i_segundo_responsable']='required';
         }
-
+        if ($dataxxxx['i_prm_tipo_atencion_id'] == '1067'){
+            $this->request->add(['i_prm_area_ajuste_id'=>1269]);
+            $this->request->add(['i_prm_subarea_ajuste_id'=>1269]);
+        }
   
         if ($dataxxxx['i_prm_subarea_emocional_id'] > '0'){
             $this->_mensaje['i_prm_avance_emocional_id.required'] ='Seleccione el avance en subárea emocional';

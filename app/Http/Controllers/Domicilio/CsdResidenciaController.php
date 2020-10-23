@@ -246,7 +246,7 @@ class CsdResidenciaController extends Controller
     public function store(CsdSisNnaj $padrexxx, CsdResidenciaCrearRequest $request)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar($dataxxxx, '', 'Datos de residencia creados con exito', $padrexxx);
@@ -263,7 +263,7 @@ class CsdResidenciaController extends Controller
     {
         $this->opciones['csdxxxxx']=$modeloxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $padrexxx]);
     }
 
     /**

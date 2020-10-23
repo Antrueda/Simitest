@@ -102,7 +102,6 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('prm_servicio_id')->references('id')->on('parametros');
             $table->foreign('prm_legalxxx_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
-            $table->unique(['prm_servicio_id', 'csd_residencia_id']);
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
@@ -114,7 +113,6 @@ class CreateCsdResidenciasTable extends Migration
             $table->bigInteger('csd_residencia_id')->unsigned();
             $table->foreign('prm_espacio_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
-            $table->unique(['csd_residencia_id']);
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
@@ -125,7 +123,6 @@ class CreateCsdResidenciasTable extends Migration
             $table->bigInteger('csd_residencia_id')->unsigned();
             $table->foreign('prm_comparte_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
-            $table->unique(['prm_comparte_id', 'csd_residencia_id']);
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
@@ -147,7 +144,6 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('prm_espacio_id')->references('id')->on('parametros');
             $table->foreign('prm_otrafamilia_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
-            $table->unique(['csd_residencia_id']);
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");

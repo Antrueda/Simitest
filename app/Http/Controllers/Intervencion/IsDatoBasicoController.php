@@ -283,9 +283,10 @@ class IsDatoBasicoController extends Controller
                     ];
                 } else {
                     $respuest = [
-                        'subareax' => [1269 => 'NO APLICA'], // solucionado, pruebe
+                        'subareax' => [1269 => 'NO APLICA'], 
                     ];
                 }
+                
 
                 break;
         }

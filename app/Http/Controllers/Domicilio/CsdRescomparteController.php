@@ -136,7 +136,7 @@ class CsdRescomparteController extends Controller
     {   
         $request->request->add(['csd_residencia_id' => $padrexxx->csd->CsdResidencia->id]);
         $request->request->add(['sis_esta_id' =>1]);
-        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Servicio creado con exito','padrexxx'=>$padrexxx->csd_id,'modeloxx'=>'']);
+        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Servicio creado con exito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
 
     }
 
@@ -185,8 +185,9 @@ class CsdRescomparteController extends Controller
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con exito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
     }
 
-    public function inactivate(CsdResidencia $padrexxx,CsdRescomparte $modeloxx)
+    public function inactivate(CsdSisNnaj $padrexxx,CsdRescomparte $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
@@ -197,8 +198,9 @@ class CsdRescomparteController extends Controller
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$padrexxx]);
     }
-    public function destroy(CsdResidencia $padrexxx,CsdRescomparte $modeloxx)
+    public function destroy(CsdSisNnaj $padrexxx,CsdRescomparte $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route('csdresidencia.nuevo', [$padrexxx->id])
