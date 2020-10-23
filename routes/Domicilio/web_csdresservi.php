@@ -30,10 +30,6 @@ Route::group(['prefix' => '{padrexxx}/csdservicio'], function () use ($routexxx,
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.otracosa');
 
-
-});
-Route::group(['prefix' => 'csdservicio'], function () use ($routexxx, $controll) {
-
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'Controller@edit',
         'middleware' => ['permission:' . $routexxx . '-editar']

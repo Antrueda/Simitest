@@ -8,6 +8,7 @@ use App\Http\Requests\Csd\CsdRescomparteEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
 use App\Models\consulta\pivotes\CsdRescomparte;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
@@ -76,7 +77,7 @@ class CsdRescomparteController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
-        $this->opciones['botoform'][0]['routingx'][1]=[$dataxxxx['padrexxx']->id,$dataxxxx['padrexxx']->CsdResidencia->id];
+        $this->opciones['botoform'][0]['routingx'][1]=[$dataxxxx['padrexxx']->id,$dataxxxx['padrexxx']->csd->CsdResidencia->id];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
@@ -85,6 +86,7 @@ class CsdRescomparteController extends Controller
             // $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']];
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             
             
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
@@ -103,7 +105,7 @@ class CsdRescomparteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
         
         $this->opciones['csdxxxxx']=$padrexxx;
@@ -119,7 +121,7 @@ class CsdRescomparteController extends Controller
     private function grabar($dataxxxx)
     {
         return redirect()
-        ->route('csdrescomparte.editar', [CsdRescomparte::transaccion($dataxxxx)->id])
+        ->route('csdrescomparte.editar', [$dataxxxx['padrexxx']->id,CsdRescomparte::transaccion($dataxxxx)->id])
         ->with('info', $dataxxxx['infoxxxx']);
     }
     /**
@@ -130,9 +132,9 @@ class CsdRescomparteController extends Controller
      */
 
 
-    public function store(CsdRescomparteCrearRequest $request,Csd $padrexxx)
+    public function store(CsdRescomparteCrearRequest $request,CsdSisNnaj $padrexxx)
     {   
-        $request->request->add(['csd_residencia_id' => $padrexxx->CsdResidencia->id]);
+        $request->request->add(['csd_residencia_id' => $padrexxx->csd->CsdResidencia->id]);
         $request->request->add(['sis_esta_id' =>1]);
         return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Servicio creado con exito','padrexxx'=>$padrexxx->csd_id,'modeloxx'=>'']);
 
@@ -144,9 +146,10 @@ class CsdRescomparteController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(CsdRescomparte $modeloxx)
+    public function show(CsdSisNnaj $padrexxx,CsdRescomparte $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'comparte'], 'padrexxx' => $modeloxx->csd_residencia->csd_id]);
+        $this->opciones['csdxxxxx']=$padrexxx;
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'comparte'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -155,19 +158,18 @@ class CsdRescomparteController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(CsdRescomparte $modeloxx,Csd $padrexxx)
+    public function edit(CsdSisNnaj $padrexxx, CsdRescomparte $modeloxx)
     {
-        //ddd($modeloxx->csd_residencia->csd);
-        $this->opciones['csdxxxxx'] = $modeloxx->csd_residencia->csd;
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-        return $this->view([
-            'modeloxx' => $modeloxx,
-            'accionxx' => ['editar', 'comparte'],
-            'padrexxx' => $modeloxx->csd_residencia->csd]);
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'comparte', 'js',], 'padrexxx' => $padrexxx]);
+    
 
     }
 
@@ -178,7 +180,7 @@ class CsdRescomparteController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdRescomparteEditarRequest $request, CsdRescomparte $modeloxx, CsdResidencia $padrexxx)
+    public function update(CsdRescomparteEditarRequest $request, CsdSisNnaj $padrexxx,CsdRescomparte $modeloxx)
     {
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con exito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
     }

@@ -27,8 +27,6 @@ Route::group(['prefix' => '{padrexxx}/csdcomparte'], function () use ($routexxx,
         'uses' => $controll . 'Controller@getListado',
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.listaxxx');
-});
-Route::group(['prefix' => 'comparte'], function () use ($routexxx, $controll) {
 
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'Controller@edit',

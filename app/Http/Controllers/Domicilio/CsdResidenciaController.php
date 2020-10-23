@@ -117,7 +117,6 @@ class CsdResidenciaController extends Controller
                         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
 
-
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'AGREGAR SERVICIO',

@@ -261,7 +261,7 @@
   </div>
 
   <div class="col-md-12">
-    {{ Form::label('numerocamas', '5.21 Número de camas', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('Condiciones ambientales', '5.17 Condiciones ambientales y de salubridad de la vivienda', ['class' => 'control-label col-form-label-sm']) }}
     <div class="card card-outline card-secondary">
       <div class="card-body">
         <div class="table-responsive">

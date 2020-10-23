@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class CsdResservi extends Model
 {
-    protected $table = 'csd_resservis';
-
+  
     protected $fillable = ['prm_servicio_id','prm_legalxxx_id','csd_residencia_id', 'user_crea_id', 'user_edita_id','sis_esta_id'];
 
 

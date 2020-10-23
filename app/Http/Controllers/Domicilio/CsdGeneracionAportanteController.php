@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdGeningAporta;
-
-
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
 use Illuminate\Http\Client\Request as ClientRequest;
@@ -87,7 +86,6 @@ class CsdGeneracionAportanteController extends Controller
         $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->id;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
@@ -151,7 +149,7 @@ class CsdGeneracionAportanteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
@@ -176,16 +174,16 @@ class CsdGeneracionAportanteController extends Controller
      */
 
 
-    public function store(Request $request, Csd $padrexxx)
+    public function store(Request $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
         return $this->grabar($dataxxxx, '', 'Aportante creado con exito', $padrexxx);
     }
 
 
-    public function show(Csd $padrexxx, CsdGeningAporta $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdGeningAporta $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'aportante'], 'padrexxx' => $padrexxx]);
     }
@@ -195,8 +193,9 @@ class CsdGeneracionAportanteController extends Controller
      * @param  \App\Models\FiSustanciaaportante $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx, CsdGeningAporta $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx, CsdGeningAporta $modeloxx)
     {
+     
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
             [
@@ -213,12 +212,12 @@ class CsdGeneracionAportanteController extends Controller
      * @param  \App\Models\FiSustanciaaportante $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  Csd $padrexxx, CsdGeningAporta $modeloxx)
+    public function update(Request $request,  CsdSisNnaj $padrexxx, CsdGeningAporta $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Aportante actualizado con exito', $padrexxx);
     }
 
-    public function inactivate(Csd $padrexxx,CsdGeningAporta $modeloxx)
+    public function inactivate(CsdSisNnaj $padrexxx,CsdGeningAporta $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -230,7 +229,7 @@ class CsdGeneracionAportanteController extends Controller
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$padrexxx]);
     }
-    public function destroy(Csd $padrexxx,CsdGeningAporta $modeloxx)
+    public function destroy(CsdSisNnaj $padrexxx,CsdGeningAporta $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

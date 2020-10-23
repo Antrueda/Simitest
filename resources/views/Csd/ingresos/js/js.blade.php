@@ -4,6 +4,83 @@
     $('#dias').select2({
       language: "es"
     });
+    var f_generar_ingresos = function(dataxxxx){
+           $('#prm_frecuencia_id').val('')
+            $("#prm_informal_id, #prm_otra_id, #prm_laboral_id").empty();
+            $("#prm_informal_id, #prm_otra_id, #prm_laboral_id").append('<option value="">Seleccione</>')
+            if(dataxxxx.valuexxx!=''){
+                $.ajax({
+                url : "{{ route('ajaxx.trabajogenera') }}",
+                data : {
+                        _token: $("input[name='_token']").val(),
+                        'padrexxx':dataxxxx.valuexxx
+                    },
+                type : 'POST',
+                dataType : 'json',
+                success : function(json) {
+
+                    if(dataxxxx.limpiaxx==true){
+                        $('#trabaja').val(json[0].valuexxx)
+                    }
+                    if(json[0].trabinfo[0].valuexxx==1){
+                        $("#prm_informal_id").empty();
+                    }
+                    if(json[0].otractiv[0].valuexxx==1){
+                        $("#prm_otra_id").empty();
+                    }
+                    if(json[0].tiporela[0].valuexxx==1){
+                        $("#prm_laboral_id").empty();
+                    }
+                    $('#trabaja').prop('readonly',json[0].trabform)
+              
+
+                    $.each(json[0].trabinfo,function(i,data){
+                        var selected = '';
+                        if(dataxxxx.trivalue==data.valuexxx) {
+                            selected = 'selected';
+                        }
+                        $('#prm_informal_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                    });
+
+
+
+                    $.each(json[0].otractiv,function(i,data){
+                        var selected = '';
+                        if(dataxxxx.travalue==data.valuexxx) {
+                            selected = 'selected';
+                        }
+                        $('#prm_otra_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                    });
+                    $.each(json[0].tiporela,function(i,data){
+                        var selected = '';
+                        if(dataxxxx.relvalue==data.valuexxx) {
+                            selected = 'selected';
+                        }
+                        $('#prm_laboral_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                    });
+                   },
+                error : function(xhr, status) {
+                    alert('Disculpe, existió un problema');
+                },
+            });
+            }
+        }
+        @if(old('prm_actividad_id')!=null)
+            f_generar_ingresos({
+                limpiaxx:false,
+            valuexxx:{{ isset($todoxxxx['modeloxx']->prm_actividad_id)? $todoxxxx['modeloxx']->prm_actividad_id: (old('prm_actividad_id') !=null ? old('prm_actividad_id'):0)}},
+            trivalue:{{ isset($todoxxxx['modeloxx']->prm_informal_id)? $todoxxxx['modeloxx']->prm_informal_id: (old('prm_informal_id') !=null ? old('prm_actividad_id'):0)}},
+            travalue:{{ isset($todoxxxx['modeloxx']->prm_otra_id)? $todoxxxx['modeloxx']->prm_otra_id: (old('prm_otra_id') !=null ? old('prm_actividad_id'):0)}},
+            relvalue:{{ isset($todoxxxx['modeloxx']->prm_laboral_id)? $todoxxxx['modeloxx']->prm_laboral_id: (old('prm_laboral_id') !=null ? old('prm_actividad_id'):0)}}
+        }
+);
+        @endif
+        $("#prm_actividad_id").change(function(){
+            f_generar_ingresos({valuexxx:$(this).val(), trivalue:'', travalue:'', noivalue:'', relvalue:'', limpiaxx:true});
+            f_limpiar($(this).val(),'');
+        });
+
+
   });
     function doc(valor){
         if(valor == 626){

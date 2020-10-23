@@ -27,8 +27,6 @@ Route::group(['prefix' => '{padrexxx}/espacio'], function () use ($routexxx, $co
         'uses' => $controll . 'Controller@getListado',
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.listaxxx');
-});
-Route::group(['prefix' => 'espacios'], function () use ($routexxx, $controll) {
 
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'Controller@edit',

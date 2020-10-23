@@ -51,7 +51,7 @@ class CsdDinFamiliarController extends Controller
         $this->opciones['hogarxxx'] = Tema::combo(99, true, false);
         $this->opciones['separacx'] = Tema::combo(176, true, false);
         $this->opciones['traslado'] = Tema::combo(100, true, false);
-        $this->opciones['problema'] = Tema::combo(360, true, false);
+        $this->opciones['problema'] = Tema::combo(360, false, false);
         $this->opciones['reglasxx'] = Tema::combo(103, false, false);
         $this->opciones['actuandx'] = Tema::combo(104, true, false);
         $this->opciones['manerasx'] = Tema::combo(105, true, false);
@@ -209,6 +209,12 @@ class CsdDinFamiliarController extends Controller
      */
     public function create(CsdSisNnaj $padrexxx)
     {
+
+        $vestuari = CsdDinFamiliar::where('csd_id', $padrexxx->csd_id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('csddinfamiliar.editar', [$padrexxx->id, $vestuari->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =

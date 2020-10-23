@@ -2510,5 +2510,6 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'PRACTICANTES']);//2470
         $this->getR(['nombrexx' => 'PROVISIONAL']);//2471
         $this->getR(['nombrexx' => 'VOLUNTARIO']);//2472
+        $this->getR(['nombrexx' => 'VIOLENCIA DE GENERO ']);//2473
     }
 }

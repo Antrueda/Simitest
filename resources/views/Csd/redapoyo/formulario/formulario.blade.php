@@ -1,11 +1,11 @@
 <div class="form-row align-items-end">
   <div class="form-group col-md-6">
     {{ Form::label('nombre', 'Entidad', ['class' => 'control-label']) }}
-    {{ Form::text('nombre',  null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::text('nombre',  null, ['class' => 'form-control form-control-sm','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
   </div>
   <div class="form-group col-md-6">
     {{ Form::label('servicios', 'Servicios o beneficios recibidos', ['class' => 'control-label']) }}
-    {{ Form::text('servicios', null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::text('servicios', null, ['class' => 'form-control form-control-sm','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) }}
   </div>
 </div>
 <div class="form-row align-items-end">

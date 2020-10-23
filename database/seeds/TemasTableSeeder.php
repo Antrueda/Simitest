@@ -1046,6 +1046,8 @@ class TemasTableSeeder extends Seeder
             466 => $camposmagicos,
             468 => $camposmagicos,
             470 => $camposmagicos,
+            334=> $camposmagicos,
+            2473=> $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 98, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPOLOGIA FAMILIAR']);
         $tema->parametros()->sync([
@@ -3338,7 +3340,7 @@ class TemasTableSeeder extends Seeder
         $this->getR([
             'nombrexx' => 'PROBLEMA CSD',
             'parametr' => [
-                567 ,568 ,569 ,561 ,572 ,573 ,574 ,575 ,576 ,579 ,581 ,583 ,582 ,577 ,571 ,655 ,578 ,580,563//  2322,
+                567 ,568 ,569 ,561 ,572 ,573 ,574 ,575 ,576 ,579 ,581 ,583 ,582 ,577 ,571 ,655 ,578 ,580//  2322,
             ]
         ]); //360
 

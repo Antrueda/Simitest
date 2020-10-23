@@ -130,6 +130,11 @@ class CsdGeneracionIngresosController extends Controller
      */
     public function create(CsdSisNnaj $padrexxx)
     {
+        $vestuari = CsdGenIngreso::where('csd_id', $padrexxx->csd_id)->first();
+        if ($vestuari != null) {
+            return redirect()
+                ->route('csdgeningresos.editar', [$padrexxx->id, $vestuari->id]);
+        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
             [
@@ -141,7 +146,7 @@ class CsdGeneracionIngresosController extends Controller
 
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
     {
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['prm_tipofuen_id'] = 2315;
         $dataxxxx['sis_esta_id'] = 1;
         return redirect()

@@ -8,7 +8,7 @@ use App\Http\Requests\Csd\CsdResservicioEditRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdResidencia;
 use App\Models\consulta\pivotes\CsdResservi;
-
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
@@ -64,12 +64,11 @@ class CsdResserviController extends Controller
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
             return $this->getServicio($request);
-            
         }
     }
     private function view($dataxxxx)
     {
-        
+
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -78,7 +77,7 @@ class CsdResserviController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
-        $this->opciones['botoform'][0]['routingx'][1]=[$dataxxxx['padrexxx']->id,$dataxxxx['padrexxx']->CsdResidencia->id];
+        $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id, $dataxxxx['padrexxx']->csd->CsdResidencia->id];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
@@ -86,9 +85,9 @@ class CsdResserviController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             // $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->opciones['parametr'] = [$dataxxxx['padrexxx']];
-            
-            
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+
+
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -105,11 +104,10 @@ class CsdResserviController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
-        
-        $this->opciones['csdxxxxx']=$padrexxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -120,9 +118,10 @@ class CsdResserviController extends Controller
 
     private function grabar($dataxxxx)
     {
+        // [$dataxxxx['padrexxx']->id,CsdDinFamiliar::transaccion($dataxxxx)->id])
         return redirect()
-        ->route('csdresservi.editar', [CsdResservi::transaccion($dataxxxx)->id])
-        ->with('info', $dataxxxx['infoxxxx']);
+            ->route('csdresservi.editar', [$dataxxxx['padrexxx']->id,CsdResservi::transaccion($dataxxxx)->id])
+            ->with('info', $dataxxxx['infoxxxx']);
     }
     /**
      * Store a newly created resource in storage.
@@ -132,12 +131,16 @@ class CsdResserviController extends Controller
      */
 
 
-    public function store(CsdResservicioCrearRequest $request,Csd $padrexxx)
-    {   
-        $request->request->add(['csd_residencia_id' => $padrexxx->CsdResidencia->id]);
-        $request->request->add(['sis_esta_id' =>1]);
-        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Servicio creado con exito','padrexxx'=>$padrexxx->csd_id,'modeloxx'=>'']);
-
+    public function store(CsdResservicioCrearRequest $request, CsdSisNnaj $padrexxx)
+    {
+        $request->request->add(['csd_residencia_id' => $padrexxx->csd->CsdResidencia->id]);
+        $request->request->add(['sis_esta_id' => 1]);
+        return $this->grabar([
+            'requestx' => $request, 
+            'infoxxxx' => 'Servicio creado con exito', 
+            'padrexxx' => $padrexxx->csd_id, 
+            'modeloxx' => '', 
+            ]);
     }
 
     /**
@@ -146,9 +149,11 @@ class CsdResserviController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(CsdResservi $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'servicios'], 'padrexxx' => $modeloxx->csd_residencia->csd_id]);
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', $modeloxx->id);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'servicios'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -157,20 +162,20 @@ class CsdResserviController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(CsdResservi $modeloxx,Csd $padrexxx)
+    public function edit(CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
-        //ddd($modeloxx->csd_residencia->csd);
-        $this->opciones['csdxxxxx'] = $modeloxx->csd_residencia->csd;
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-        return $this->view([
-            'modeloxx' => $modeloxx,
-            'accionxx' => ['editar', 'servicios'],
-            'padrexxx' => $modeloxx->csd_residencia->csd]);
+        
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        //el problema se presenta en el edit
 
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'servicios', 'js',], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -180,12 +185,18 @@ class CsdResserviController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdResservicioEditRequest $request, CsdResservi $modeloxx, CsdResidencia $padrexxx)
+    public function update(CsdResservicioEditRequest $request, CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con exito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
+        return $this->grabar([
+            'requestx' => $request, 
+            'infoxxxx' => 
+            'Servicio actualizado con exito', 
+            'padrexxx' => $padrexxx, 
+            'modeloxx' => $modeloxx
+            ]);
     }
 
-    public function inactivate(CsdResidencia $padrexxx,CsdResservi $modeloxx)
+    public function inactivate(CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -195,9 +206,9 @@ class CsdResserviController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx]);
     }
-    public function destroy(CsdResidencia $padrexxx,CsdResservi $modeloxx)
+    public function destroy(CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

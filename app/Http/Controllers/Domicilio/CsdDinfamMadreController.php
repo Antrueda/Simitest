@@ -7,6 +7,7 @@ use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaCrearRequest;
 use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaUpdateRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdDinfamMadre;
+use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiSustanciaConsumida;
 
@@ -130,8 +131,9 @@ class CsdDinfamMadreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Csd $padrexxx)
+    public function create(CsdSisNnaj $padrexxx)
     {
+  
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
@@ -155,7 +157,7 @@ class CsdDinfamMadreController extends Controller
      */
 
 
-    public function store(Request $request, Csd $padrexxx)
+    public function store(Request $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
         $dataxxxx['csd_id'] = $padrexxx->id;
@@ -164,7 +166,7 @@ class CsdDinfamMadreController extends Controller
     }
 
 
-    public function show(Csd $padrexxx, CsdDinfamMadre $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdDinfamMadre $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'progenitora'], 'padrexxx' => $padrexxx]);
     }
@@ -174,7 +176,7 @@ class CsdDinfamMadreController extends Controller
      * @param  \App\Models\FiSustanciaprogenitora $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(Csd $padrexxx, CsdDinfamMadre $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx, CsdDinfamMadre $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
@@ -192,12 +194,12 @@ class CsdDinfamMadreController extends Controller
      * @param  \App\Models\FiSustanciaConsumida $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiSustanciaConsumidaUpdateRequest $request,  Csd $padrexxx, CsdDinfamMadre $modeloxx)
+    public function update(FiSustanciaConsumidaUpdateRequest $request,  CsdSisNnaj $padrexxx, CsdDinfamMadre $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Relacion progenitora actualizada con exito', $padrexxx);
     }
 
-    public function inactivate(Csd $padrexxx,CsdDinfamMadre $modeloxx)
+    public function inactivate(CsdSisNnaj $padrexxx,CsdDinfamMadre $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -209,7 +211,7 @@ class CsdDinfamMadreController extends Controller
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$padrexxx]);
     }
-    public function destroy(Csd $padrexxx,CsdDinfamMadre $modeloxx)
+    public function destroy(CsdSisNnaj $padrexxx,CsdDinfamMadre $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()

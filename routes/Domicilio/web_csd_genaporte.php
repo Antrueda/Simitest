@@ -13,15 +13,10 @@ Route::group(['prefix' => '{padrexxx}/genaportes'], function () use ($routexxx, 
 		'middleware' => ['permission:' . $routexxx . '-crear']
 	])->name($routexxx . '.crear');
 
-
 	Route::get('listaxxx', [
 		'uses' => $controll . 'Controller@getListado',
 		'middleware' => ['permission:' . $routexxx . '-leer']
 	])->name($routexxx . '.listaxxx');
-});
-
-
-Route::group(['prefix' => 'genaporte'], function () use ($routexxx, $controll) {
 
 	Route::get('editar/{modeloxx}', [
 		'uses' => $controll . 'Controller@edit',
