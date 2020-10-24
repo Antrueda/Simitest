@@ -26,6 +26,14 @@ class CamposMagicos
         $table->foreign($c[1])->references('id')->on($c[0]);
         return $table;
     }
+
+    public static function getForeigDefault($table, $campoxxx, $default,$tablaxxx = false)
+    {
+        $c=CamposMagicos::armarCampo($tablaxxx,$campoxxx);
+        $table->bigInteger($c[1])->default($default)->unsigned();
+        $table->foreign($c[1])->references('id')->on($c[0]);
+        return $table;
+    }
     /**
      *
      * Crea la relacion entre tablas recibiendo el nombre de las tablas y del campo con nulo

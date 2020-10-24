@@ -118,7 +118,7 @@ class CsdDatosBasico extends Model{
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-    public static function transaccion($dataxxxx)
+    public static function getTransaccion($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);

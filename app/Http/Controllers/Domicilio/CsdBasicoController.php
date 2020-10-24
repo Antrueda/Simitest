@@ -51,7 +51,7 @@ class CsdBasicoController extends Controller
     }
     private function grabar($dataxxxx)
     {
-        $usuariox = CsdDatosBasico::getTransactionCsd($dataxxxx);
+        $usuariox = CsdDatosBasico::getTransaccion($dataxxxx);
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$dataxxxx['padrexxx']->id,$usuariox->id])
             ->with('info', $dataxxxx['infoxxxx']);
@@ -91,11 +91,6 @@ class CsdBasicoController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
-        $localida = 0;
-        $paisxxxx = $localida;
-        $paisexpe = $localida;
-        $departam = $localida;
-        $depaexpe = $localida;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         if ($dataxxxx['modeloxx'] != '') {
@@ -103,15 +98,18 @@ class CsdBasicoController extends Controller
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['grupindi'] = Parametro::find(1269)->Combo;
             }
+            if ($dataxxxx['modeloxx']->prm_doc_fisico_id == 227) {
+                $this->opciones['sindocum'] = Parametro::find(1269)->Combo;
+            }
 
             $this->opciones['parametr'][1] =$dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
-        $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
-        $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
-        $this->opciones['municexp'] = SisMunicipio::combo($depaexpe, false);
-        $this->opciones['deparexp'] = SisDepartamento::combo($paisexpe, false);
+        $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamento_id, false);
+        $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
+        $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamentoexp_id, false);
+        $this->opciones['deparexp'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_paiexp_id, false);
 
 
         // Se arma el titulo de acuerdo al array opciones
@@ -178,7 +176,7 @@ class CsdBasicoController extends Controller
      * @param  \App\Models\FiDatosBasico $padrexxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdBasicoEditarRequest $request, CsdSisNnaj $padrexxx,CsdDatosBasico $modeloxx)
+    public function update(CsdBasicoCrearRequest $request, CsdSisNnaj $padrexxx,CsdDatosBasico $modeloxx)
     {
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con exito', 'modeloxx' => $modeloxx,'padrexxx'=>$padrexxx]);
     }
