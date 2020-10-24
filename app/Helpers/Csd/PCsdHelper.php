@@ -40,7 +40,7 @@ class PCsdHelper
     {
         $dataxxxx['modeloxx'] = '';
         if ($dataxxxx['padrexxx']->csd->CsdDatosBasico != null) { // debe ser así
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdViolencia;
+            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdDatosBasico;
         }
         $dataxxxx['permisox'] = 'csdatbas';
         return PCsdHelper::getRoute($dataxxxx);

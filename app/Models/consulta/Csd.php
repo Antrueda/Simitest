@@ -46,7 +46,7 @@ class Csd extends Model
 
     public function CsdDatosBasico()
     {
-        return $this->hasMany(CsdDatosBasico::class, 'csd_id');
+        return $this->hasOne(CsdDatosBasico::class, 'csd_id');
     }
 
     public function CsdConclusiones()

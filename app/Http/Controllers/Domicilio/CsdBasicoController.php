@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdBasicoCrearRequest;
 use App\Http\Requests\Csd\CsdBasicoEditarRequest;
+use App\Models\consulta\Csd;
 use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Parametro;
@@ -98,46 +99,13 @@ class CsdBasicoController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         if ($dataxxxx['modeloxx'] != '') {
-            if ($dataxxxx['modeloxx']->nnaj_fi_csd->prm_etnia_id != 157) {
+
+            if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['grupindi'] = Parametro::find(1269)->Combo;
             }
 
             $this->opciones['parametr'][1] =$dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
-            $dataxxxx['modeloxx']->prm_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_etnia_id;
-            $dataxxxx['modeloxx']->prm_poblacion_etnia_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_poblacion_etnia_id;
-            $dataxxxx['modeloxx']->prm_gsanguino_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_gsanguino_id;
-            $dataxxxx['modeloxx']->prm_factor_rh_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_factor_rh_id;
-            $dataxxxx['modeloxx']->prm_estado_civil_id = $dataxxxx['modeloxx']->nnaj_fi_csd->prm_estado_civil_id;
-
-            /** orientacion sexual */
-            $dataxxxx['modeloxx']->s_nombre_identitario = $dataxxxx['modeloxx']->nnaj_sexo->s_nombre_identitario;
-            $dataxxxx['modeloxx']->prm_sexo_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_sexo_id;
-            $dataxxxx['modeloxx']->prm_identidad_genero_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_identidad_genero_id;
-            $dataxxxx['modeloxx']->prm_orientacion_sexual_id = $dataxxxx['modeloxx']->nnaj_sexo->prm_orientacion_sexual_id;
-
-            // /** Nacimiento */
-
-            $dataxxxx['modeloxx']->d_nacimiento = $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento;
-            $dataxxxx['modeloxx']->aniosxxx = $dataxxxx['modeloxx']->nnaj_nacimi->Edad;
-            $dataxxxx['modeloxx']->sis_pai_id = $paisxxxx = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departamento->sis_pai_id;
-            $dataxxxx['modeloxx']->sis_departamento_id = $departam = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departamento_id;
-
-            /** documento de identidad */
-            $dataxxxx['modeloxx']->s_documento = $dataxxxx['modeloxx']->nnaj_docu->s_documento;
-
-            $dataxxxx['modeloxx']->prm_ayuda_id = $dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
-            $dataxxxx['modeloxx']->prm_tipodocu_id = $dataxxxx['modeloxx']->nnaj_docu->prm_tipodocu_id;
-            $dataxxxx['modeloxx']->prm_doc_fisico_id = $dataxxxx['modeloxx']->nnaj_docu->prm_doc_fisico_id;
-
-            $dataxxxx['modeloxx']->sis_paiexp_id = $paisexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departamento->sis_pai_id;
-            $dataxxxx['modeloxx']->sis_departamentoexp_id = $depaexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departamento_id;
-            $dataxxxx['modeloxx']->sis_municipioexp_id = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio_id;
-
-            /** situacion militar */
-            $dataxxxx['modeloxx']->prm_situacion_militar_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_situacion_militar_id;
-            $dataxxxx['modeloxx']->prm_clase_libreta_id = $dataxxxx['modeloxx']->nnaj_sit_mil->prm_clase_libreta_id;
-
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);

@@ -19,34 +19,38 @@ class CreateHCsdDatosBasicosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
-            $table->string('primer_nombre');
-            $table->string('segundo_nombre')->nullable();
-            $table->string('primer_apellido');
-            $table->string('segundo_apellido')->nullable();
-            $table->string('identitario')->nullable();
-            $table->string('apodo')->nullable();
+            $table->string('s_primer_nombre');
+            $table->string('s_segundo_nombre')->nullable();
+            $table->string('s_primer_apellido');
+            $table->string('s_segundo_apellido')->nullable();
+            $table->string('s_nombre_identitario')->nullable();
+            $table->string('s_apodo')->nullable();
             $table->bigInteger('prm_sexo_id')->unsigned();
-            $table->bigInteger('prm_genero_id')->unsigned();
-            $table->bigInteger('prm_sexual_id')->unsigned();
-            $table->date('nacimiento');
-            $table->bigInteger('pais_id')->unsigned();
-            $table->bigInteger('departamento_id')->unsigned();
-            $table->bigInteger('municipio_id')->unsigned();
-            $table->bigInteger('prm_documento_id')->unsigned();
+            $table->bigInteger('prm_identidad_genero_id')->unsigned();
+            $table->bigInteger('prm_orientacion_sexual_id')->unsigned();
+            $table->date('d_nacimiento');
+
+            $table->bigInteger('sis_pai_id')->unsigned();
+            $table->bigInteger('sis_departamento_id')->unsigned();
+            $table->bigInteger('sis_municipio_id')->unsigned();
+            $table->bigInteger('prm_tipodocu_id')->unsigned();
             $table->bigInteger('prm_doc_fisico_id')->unsigned();
-            $table->bigInteger('prm_sin_fisico_id')->unsigned()->nullable();
-            $table->string('documento');
-            $table->bigInteger('pais_docum_id')->unsigned();
-            $table->bigInteger('departamento_docum_id')->unsigned();
-            $table->bigInteger('municipio_docum_id')->unsigned()->nullable();
-            $table->bigInteger('prm_gruposang_id')->unsigned();
-            $table->bigInteger('prm_factorsang_id')->unsigned();
-            $table->bigInteger('prm_militar_id')->unsigned()->nullable();
-            $table->bigInteger('prm_libreta_id')->unsigned()->nullable();
-            $table->bigInteger('prm_civil_id')->unsigned();
+            $table->bigInteger('prm_ayuda_id')->unsigned()->nullable();
+            $table->string('s_documento');
+
+
+
+            $table->bigInteger('sis_paiexp_id')->unsigned();
+            $table->bigInteger('sis_departamentoexp_id')->unsigned();
+            $table->bigInteger('sis_municipioexp_id')->unsigned()->nullable();
+            $table->bigInteger('prm_gsanguino_id')->unsigned();
+            $table->bigInteger('prm_factor_rh_id')->unsigned();
+            $table->bigInteger('prm_situacion_militar_id')->unsigned()->nullable();
+            $table->bigInteger('prm_clase_libreta_id')->unsigned()->nullable();
+            $table->bigInteger('prm_estado_civil_id')->unsigned();
             $table->bigInteger('prm_etnia_id')->unsigned();
-            $table->bigInteger('prm_cual_id')->unsigned()->nullable();
-            $table->bigInteger('prm_poblacion_id')->unsigned()->nullable();
+            $table->bigInteger('prm_poblacion_etnia_id')->unsigned()->nullable();
+            $table->bigInteger('prm_tipoblaci_id')->unsigned()->nullable();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
