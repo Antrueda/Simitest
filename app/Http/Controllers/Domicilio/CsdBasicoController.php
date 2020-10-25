@@ -14,11 +14,13 @@ use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
 use App\Models\Tema;
+use App\Traits\Fi\DatosBasicosTrait;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class CsdBasicoController extends Controller
 {
-
+use DatosBasicosTrait;
     private $opciones;
 
     public function __construct()
@@ -51,9 +53,10 @@ class CsdBasicoController extends Controller
     }
     private function grabar($dataxxxx)
     {
-        $usuariox = CsdDatosBasico::getTransaccion($dataxxxx);
+        $dataxxxx['requestx']->request->add(['tipoacci' => 3]);
+        $usuariox = $this->getTransaccion($dataxxxx);
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$dataxxxx['padrexxx']->id,$usuariox->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$dataxxxx['padrexxx']->id,$usuariox['objetoxx']->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
     /**
@@ -132,8 +135,10 @@ class CsdBasicoController extends Controller
         $request->request->add(['prm_tipofuen_id' => 2315]);
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['sis_esta_id' => 1]);
+        $request->request->add(['user_crea_id' => Auth::user()->id]);
+        $request->request->add(['user_edita_id' => Auth::user()->id]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con exito', 'modeloxx' => '','padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con exito', 'objetoxx' => '','padrexxx'=>$padrexxx]);
     }
 
     /**
@@ -178,6 +183,10 @@ class CsdBasicoController extends Controller
      */
     public function update(CsdBasicoCrearRequest $request, CsdSisNnaj $padrexxx,CsdDatosBasico $modeloxx)
     {
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con exito', 'modeloxx' => $modeloxx,'padrexxx'=>$padrexxx]);
+        $request->request->add(['user_edita_id' => Auth::user()->id]);
+        $request->request->add(['sis_esta_id' => 1]);
+        $request->request->add(['csd_id' => $padrexxx->csd_id]);
+        $request->request->add(['prm_tipofuen_id' => 2315]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con exito', 'objetoxx' => $modeloxx,'padrexxx'=>$padrexxx]);
     }
 }

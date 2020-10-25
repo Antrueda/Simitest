@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisPai;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -33,7 +34,10 @@ class CsdDatosBasico extends Model{
     public function sexo(){
         return $this->belongsTo(Parametro::class, 'prm_sexo_id');
     }
-
+    public function getEdadAttribute()
+    {
+        return Carbon::parse($this->d_nacimiento)->age;
+    }
     public function genero(){
         return $this->belongsTo(Parametro::class, 'prm_identidad_genero_id');
     }

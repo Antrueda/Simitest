@@ -12,22 +12,22 @@ class CsdComFamiliarObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['csd_id'] = $modeloxx->csd_id;
-        $log['primer_apellido'] = $modeloxx->primer_apellido;
-        $log['segundo_apellido'] = $modeloxx->segundo_apellido;
-        $log['primer_nombre'] = $modeloxx->primer_nombre;
-        $log['segundo_nombre'] = $modeloxx->segundo_nombre;
-        $log['identitario'] = $modeloxx->identitario;
-        $log['prm_documento_id'] = $modeloxx->prm_documento_id;
-        $log['documento'] = $modeloxx->documento;
-        $log['nacimiento'] = $modeloxx->nacimiento;
+        $log['s_primer_apellido'] = $modeloxx->s_primer_apellido;
+        $log['s_segundo_apellido'] = $modeloxx->s_segundo_apellido;
+        $log['s_primer_nombre'] = $modeloxx->s_primer_nombre;
+        $log['s_segundo_nombre'] = $modeloxx->s_segundo_nombre;
+        $log['s_nombre_identitario'] = $modeloxx->s_nombre_identitario;
+        $log['prm_tipodocu_id'] = $modeloxx->prm_tipodocu_id;
+        $log['s_documento'] = $modeloxx->s_documento;
+        $log['d_nacimiento'] = $modeloxx->d_nacimiento;
         $log['prm_sexo_id'] = $modeloxx->prm_sexo_id;
-        $log['prm_estadoivil_id'] = $modeloxx->prm_estadoivil_id;
-        $log['prm_genero_id'] = $modeloxx->prm_genero_id;
-        $log['prm_sexual_id'] = $modeloxx->prm_sexual_id;
-        $log['prm_grupo_etnico_id'] = $modeloxx->prm_grupo_etnico_id;
-        $log['prm_cualGrupo_id'] = $modeloxx->prm_cualGrupo_id;
+        $log['prm_estado_civil_id'] = $modeloxx->prm_estado_civil_id;
+        $log['prm_identidad_genero_id'] = $modeloxx->prm_identidad_genero_id;
+        $log['prm_orientacion_sexual_id'] = $modeloxx->prm_orientacion_sexual_id;
+        $log['prm_etnia_id'] = $modeloxx->prm_etnia_id;
+        $log['prm_poblacion_etnia_id'] = $modeloxx->prm_poblacion_etnia_id;
         $log['prm_ocupacion_id'] = $modeloxx->prm_ocupacion_id;
         $log['prm_parentezco_id'] = $modeloxx->prm_parentezco_id;
         $log['prm_convive_id'] = $modeloxx->prm_convive_id;
