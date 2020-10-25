@@ -198,13 +198,12 @@ class PCsdHelper
      */
     public static function getRedes($dataxxxx)
     {
-        $dataxxxx['modeloxx'] = '';
-
+        //$dataxxxx['modeloxx'] = '';
+        $respuest = ['rutaxxxx' =>route('csdredesapoyo' , $dataxxxx['padrexxx']->csd_id), 'classxxx' => 'fas fa-check text-success'];
         if (count($dataxxxx['padrexxx']->csd->CsdRedsocPasado)>0 || count($dataxxxx['padrexxx']->csd->CsdRedsocActual)>0) {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
+            $respuest['classxxx'] = 'fas fa-times text-danger';
         }
-        $dataxxxx['permisox'] = 'csdredesapoyo';
-        return PCsdHelper::getRoute($dataxxxx);
+        return  $respuest;
     }
 
     /**
