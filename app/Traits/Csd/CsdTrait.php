@@ -161,11 +161,11 @@ trait CsdTrait
     {
         $dataxxxx =  CsdComFamiliar::select([
             'csd_com_familiars.id',
-            'csd_com_familiars.primer_nombre',
-            'csd_com_familiars.documento',
-            'csd_com_familiars.segundo_nombre',
-            'csd_com_familiars.primer_apellido',
-            'csd_com_familiars.segundo_apellido',
+            'csd_com_familiars.s_primer_nombre',
+            'csd_com_familiars.s_documento',
+            'csd_com_familiars.s_segundo_nombre',
+            'csd_com_familiars.s_primer_apellido',
+            'csd_com_familiars.s_segundo_apellido',
             'csd_com_familiars.sis_esta_id',
             'csd_com_familiars.created_at',
             'sis_estas.s_estado'

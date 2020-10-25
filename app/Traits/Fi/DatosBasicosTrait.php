@@ -151,7 +151,7 @@ trait DatosBasicosTrait
                     'sis_esta_id' => 1,
                     'user_crea_id' => $dataxxxx['requestx']->user_crea_id,
                     'user_edita_id' => $dataxxxx['requestx']->user_edita_id,
-                    'prm_escomfam_id' => 227])->id]);
+                    'prm_escomfam_id' => $dataxxxx['requestx']->prm_escomfam_id])->id]);
 
                 $dataxxxx['objetoxx'] = FiDatosBasico::create($dataxxxx['requestx']->all());
             }
@@ -167,9 +167,8 @@ trait DatosBasicosTrait
      */
     public function setVisitadoCsd($dataxxxx)
     {
-        $nnajxxxx = $dataxxxx['nnajxxxx']['document']->sis_nnaj;
-        if ($nnajxxxx->prm_escomfam_id == 227) {
-
+        $nnajxxxx = $dataxxxx['nnajxxxx']['document'];
+        if (isset($nnajxxxx->sis_nnaj) && $nnajxxxx->sis_nnaj->prm_escomfam_id == 227) {
             $dataxxxx['objetoxx'] = CsdSisNnaj::where('csd_id', $dataxxxx['nnajxxxx']['objetoxx']->csd_id)
             ->where('sis_nnaj_id', $nnajxxxx->id)
             ->first();
@@ -192,19 +191,23 @@ trait DatosBasicosTrait
      */
     public function setCsd($dataxxxx)
     {
-        $respuest = $this->getCedulaFi($dataxxxx);
-        if ($respuest['respuest']) {
-            $dataxxxx['objetoxx']='';
-            $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 1269]);
-            $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 4]);
-            $dataxxxx['requestx']->request->add(['sis_depen_id' => 28]);
-            $dataxxxx['requestx']->request->add(['sis_servicio_id' => 1]);
-            $respuest = ['respuest' => false, 'document' => $this->setNnaj($dataxxxx)];
-        }
         /** Actualizar registro */
         if ($dataxxxx['objetoxx'] != '') {
+            $respuest = $this->getCedulaFi($dataxxxx);
             $dataxxxx['objetoxx']->update($dataxxxx['requestx']->all());
         } else {
+            $respuest = $this->getCedulaFi($dataxxxx);
+
+            if ($respuest['respuest']) {
+                $dataxxxx['objetoxx']='';
+                $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_escomfam_id' => 228]);
+                $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 4]);
+                $dataxxxx['requestx']->request->add(['sis_depen_id' => 28]);
+                $dataxxxx['requestx']->request->add(['sis_servicio_id' => 1]);
+                $respuesx=$this->setNnaj($dataxxxx);
+                $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'],'compfami'=>$respuesx['compfami']];
+            }
             $dataxxxx['objetoxx'] = CsdDatosBasico::create($dataxxxx['requestx']->all());
         }
         $this->setComposionFamiliarDBCsd($dataxxxx);

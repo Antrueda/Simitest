@@ -8,20 +8,20 @@ class HCsdComFamiliar extends Model
 {
     protected $fillable = [
         'csd_id',
-        'primer_apellido',
-        'segundo_apellido',
-        'primer_nombre',
-        'segundo_nombre',
-        'identitario',
-        'prm_documento_id',
-        'documento',
-        'nacimiento',
+        's_primer_apellido',
+        's_segundo_apellido',
+        's_primer_nombre',
+        's_segundo_nombre',
+        's_nombre_identitario',
+        'prm_tipodocu_id',
+        's_documento',
+        'd_nacimiento',
         'prm_sexo_id',
-        'prm_estadoivil_id',
-        'prm_genero_id',
-        'prm_sexual_id',
-        'prm_grupo_etnico_id',
-        'prm_cualGrupo_id',
+        'prm_estado_civil_id',
+        'prm_identidad_genero_id',
+        'prm_orientacion_sexual_id',
+        'prm_etnia_id',
+        'prm_poblacion_etnia_id',
         'prm_ocupacion_id',
         'prm_parentezco_id',
         'prm_convive_id',
@@ -46,7 +46,7 @@ class HCsdComFamiliar extends Model
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
-        
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

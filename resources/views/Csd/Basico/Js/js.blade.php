@@ -20,26 +20,13 @@
                     }
                     if (dataxxxx.data.fechaxxx) {
                         var edadxxxx = eval(json[0].edadxxxx)
-                        $("#prm_estado_civil_id,#prm_identidad_genero_id,#prm_orientacion_sexual_id,#prm_sexo_id").empty();
-                        $("#prm_estado_civil_id,#prm_identidad_genero_id,#prm_orientacion_sexual_id,#prm_sexo_id").append('<option value="" >Seleccione</option>');
+                        $("#prm_estado_civil_id").empty();
+                        $("#prm_estado_civil_id").append('<option value="" >Seleccione</option>');
                         if (edadxxxx <= 14) {
-                            $("#prm_estado_civil_id,#prm_identidad_genero_id,#prm_orientacion_sexual_id").empty();
+                            $("#prm_estado_civil_id").empty();
                         }
 
-                        $.each(json[0].orientac, function(i, d) {
-                            var selected = '';
-                            if (dataxxxx.orientac == d.valuexxx) {
-                                selected = 'selected';
-                            }
-                            $("#prm_orientacion_sexual_id").append('<option ' + selected + ' value="' + d.valuexxx + '">' + d.optionxx + '</option>');
-                        });
-                        $.each(json[0].generoxx, function(i, d) {
-                            var selected = '';
-                            if (dataxxxx.generoxx == d.valuexxx) {
-                                selected = 'selected';
-                            }
-                            $("#prm_identidad_genero_id").append('<option ' + selected + ' value="' + d.valuexxx + '">' + d.optionxx + '</option>');
-                        });
+
                         $.each(json[0].estacivi, function(i, d) {
                             var selected = '';
                             if (dataxxxx.estadoxx == d.valuexxx) {
@@ -47,13 +34,7 @@
                             }
                             $("#prm_estado_civil_id").append('<option ' + selected + ' value="' + d.valuexxx + '">' + d.optionxx + '</option>');
                         });
-                        $.each(json[0].sexoxxxx, function(i, d) {
-                            var selected = '';
-                            if (dataxxxx.sexoxxxx == d.valuexxx) {
-                                selected = 'selected';
-                            }
-                            $("#prm_sexo_id").append('<option ' + selected + ' value="' + d.valuexxx + '">' + d.optionxx + '</option>');
-                        });
+
 
                         //f_situacion_militar(edadxxxx);
                         $('#aniosxxx').val(edadxxxx)

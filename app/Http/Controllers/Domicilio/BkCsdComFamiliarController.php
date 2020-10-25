@@ -116,8 +116,8 @@ class BkCsdComFamiliarController extends Controller{
     if($request->prm_regimen_id == 168){
       $request["prm_cualeps_id"] = null;
     }
-    if ($request->prm_grupo_etnico_id != 157) {
-      $request['prm_cualGrupo_id'] = null;
+    if ($request->prm_etnia_id != 157) {
+      $request['prm_poblacion_etnia_id'] = null;
     }
     $request["prm_tipofuen_id"]=2315;
     $dato = CsdComFamiliar::create($request->all());
@@ -166,7 +166,7 @@ class BkCsdComFamiliarController extends Controller{
       'prm_genero_id'     => 'nullable|exists:parametros,id',
       'prm_sexual_id'     => 'nullable|exists:parametros,id',
       'prm_grupo_etnico_id' => 'required|exists:parametros,id',
-      'prm_cualGrupo_id'  => 'required_if:prm_grupo_etnico_id,157',
+      'prm_poblacion_etnia_id'  => 'required_if:prm_etnia_id,157',
       'prm_ocupacion_id'  => 'required|exists:parametros,id',
       'prm_parentezco_id' => 'required|exists:parametros,id',
       'prm_convive_id'    => 'required|exists:parametros,id',

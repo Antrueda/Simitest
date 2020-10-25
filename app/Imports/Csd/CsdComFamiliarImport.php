@@ -19,7 +19,7 @@ class CsdComFamiliarImport implements ToModel
         $date = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToTimestamp($row[8]+1);
         return new ConsultaCsdComFamiliar([
             'csd_id' => $row[0],
-            'primer_apellido' => $row[1],
+            's_primer_apellido' => $row[1],
             'segundo_apellido' => $row[2] == '' ? ' ' : $row[2], // en este caso cuando es texto
             'primer_nombre' => $row[3],
             'segundo_nombre' =>  $row[4] == '' ? ' ' : $row[4],
@@ -52,7 +52,7 @@ class CsdComFamiliarImport implements ToModel
             'prm_aprobado_id' => $row[29],
             'prm_educacion_id' => $row[30],
             'prm_estudia_id' => $row[31],
-            'prm_cualGrupo_id'=>2316,
+            'prm_poblacion_etnia_id'=>2316,
             'user_crea_id' => 1,
             'user_edita_id' => 1,
             'sis_esta_id' => 1,

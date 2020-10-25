@@ -2,46 +2,52 @@
 
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
-        {{ Form::label('primer_apellido', '7.1 1er. Apellido', ['class' => 'control-label']) }}
-        {{ Form::text('primer_apellido', null, ['class' => 'form-control form-control-sm',
+        {{ Form::label('s_primer_apellido', '7.1 1er. Apellido', ['class' => 'control-label']) }}
+        {{ Form::text('s_primer_apellido', null, ['class' => 'form-control form-control-sm',
      "onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);"]) }}
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('segundo_apellido', '7.2 2do. Apellido', ['class' => 'control-label']) }}
-        {{ Form::text('segundo_apellido', null, ['class' => 'form-control form-control-sm' ,
+        {{ Form::label('s_segundo_apellido', '7.2 2do. Apellido', ['class' => 'control-label']) }}
+        {{ Form::text('s_segundo_apellido', null, ['class' => 'form-control form-control-sm' ,
      "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) }}
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('primer_nombre', '7.3 1er. Nombre', ['class' => 'control-label']) }}
-        {{ Form::text('primer_nombre', null, ['class' => 'form-control form-control-sm',
+        {{ Form::label('s_primer_nombre', '7.3 1er. Nombre', ['class' => 'control-label']) }}
+        {{ Form::text('s_primer_nombre', null, ['class' => 'form-control form-control-sm',
      "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) }}
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('segundo_nombre', '7.4 2do. Nombre', ['class' => 'control-label']) }}
-        {{ Form::text('segundo_nombre', null, ['class' => 'form-control form-control-sm',
+        {{ Form::label('s_segundo_nombre', '7.4 2do. Nombre', ['class' => 'control-label']) }}
+        {{ Form::text('s_segundo_nombre', null, ['class' => 'form-control form-control-sm',
      "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) }}
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('identitario', '7.5 Nombre Identitario', ['class' => 'control-label']) }}
-        {{ Form::text('identitario', null, ['class' => 'form-control form-control-sm',
+        {{ Form::label('s_nombre_identitario', '7.5 Nombre Identitario', ['class' => 'control-label']) }}
+        {{ Form::text('s_nombre_identitario', null, ['class' => 'form-control form-control-sm',
      "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) }}
     </div>
     <div class="form-group col-md-4">
-      {{ Form::label('prm_documento_id', '7.6 Tipo de Documento', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_documento_id', $todoxxxx["tipodocu"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::label('prm_tipodocu_id', '7.6 Tipo de Documento', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::select('prm_tipodocu_id', $todoxxxx["tipodocu"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('documento', '7.7 Número del documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('documento', null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::label('s_documento', '7.7 Número del documento', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('s_documento', null, ['class' => 'form-control form-control-sm']) }}
 </div>
 <div class="form-group col-md-4">
-  {{ Form::label('nacimiento', '7.8 Fecha de Nacimiento', ['class' => 'control-label']) }}
-  {{ Form::text('nacimiento', null, ['class' => 'form-control form-control-sm','readonly']) }}
+  {{ Form::label('d_nacimiento', '7.8 Fecha de Nacimiento', ['class' => 'control-label']) }}
+  {{ Form::text('d_nacimiento', null, ['class' => 'form-control form-control-sm','readonly']) }}
 </div>
-<div class="form-group col-md-4">
-  {{ Form::label('aniosxxx', 'Edad (Años)', ['class' => 'control-label']) }}
-  <div id="aniosxxx" class="form-control form-control-sm">{{ $todoxxxx['aniosxxx'] }}</div>
-</div>
+<div class="form-group col-md-4" id="edadxxxx">
+        {{ Form::label('aniosxxx', '1.5 Edad (Años)', ['class' => 'control-label']) }}
+        {{ Form::number('aniosxxx', isset($todoxxxx['modeloxx'])?$todoxxxx['modeloxx']->Edad:null, ['class' => $errors->first('aniosxxx') ?
+    'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '6', 'max' => '100','id'=>'aniosxxx']) }}
+    </div>
+    <div class="form-group col-md-4">
+        {{ Form::label('', 'AÑOS', ['class' => 'control-label']) }}
+        <div class="form-control form-control-sm">AÑOS</div>
+    </div>
+
 <div class="form-group col-md-4">
   {{ Form::label('prm_sexo_id', '7.9 ¿Cuál es su sexo de nacimiento?', ['class' => 'control-label col-form-label-sm']) }}
   {{ Form::select('prm_sexo_id', $todoxxxx["sexoxxxx"], null, ['class' => $errors->first('prm_sexo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
@@ -51,59 +57,59 @@
   </div>
   @endif
 </div>
- 
+
   <div class="form-group col-md-4">
-    {{ Form::label('prm_estadoivil_id', '7.10 ¿Cuál es su estado civil?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_estadoivil_id', $todoxxxx["estadciv"], null, ['class' => $errors->first('prm_estadoivil_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_estadoivil_id'))
+    {{ Form::label('prm_estado_civil_id', '7.10 ¿Cuál es su estado civil?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_estado_civil_id', $todoxxxx["estadciv"], null, ['class' => $errors->first('prm_estado_civil_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_estado_civil_id'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('prm_estadoivil_id') }}
+      {{ $errors->first('prm_estado_civil_id') }}
     </div>
     @endif
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('prm_genero_id', '7.11 ¿Cuál es su identidad de género?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_genero_id', $todoxxxx["generoxx"], null, ['class' => $errors->first('prm_genero_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_genero_id'))
+    {{ Form::label('prm_identidad_genero_id', '7.11 ¿Cuál es su identidad de género?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_identidad_genero_id', $todoxxxx["generoxx"], null, ['class' => $errors->first('prm_identidad_genero_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_identidad_genero_id'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('prm_genero_id') }}
+      {{ $errors->first('prm_identidad_genero_id') }}
     </div>
     @endif
   </div>
     <div class="form-group col-md-4">
-    {{ Form::label('prm_genero_id', '7.11 ¿Cuál es su identidad de género?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_genero_id', $todoxxxx["generoxx"], null, ['class' => $errors->first('prm_genero_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_genero_id'))
+    {{ Form::label('prm_identidad_genero_id', '7.11 ¿Cuál es su identidad de género?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_identidad_genero_id', $todoxxxx["generoxx"], null, ['class' => $errors->first('prm_identidad_genero_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_identidad_genero_id'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('prm_genero_id') }}
+      {{ $errors->first('prm_identidad_genero_id') }}
     </div>
     @endif
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('prm_sexual_id', '7.12 Cuál es su orientación sexual?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_sexual_id',$todoxxxx["orexualx"], null, ['class' => $errors->first('prm_sexual_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_sexual_id'))
+    {{ Form::label('prm_orientacion_sexual_id', '7.12 Cuál es su orientación sexual?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_orientacion_sexual_id',$todoxxxx["orexualx"], null, ['class' => $errors->first('prm_orientacion_sexual_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_orientacion_sexual_id'))
     <div class="invalid-feedback d-block">
-      {{ $errors->first('prm_sexual_id') }}
+      {{ $errors->first('prm_orientacion_sexual_id') }}
     </div>
     @endif
   </div>
 
   <div class="form-group col-md-4">
-        {{ Form::label('prm_grupo_etnico_id', '7.13 ¿Con cuál grupo étnico se reconoce?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_grupo_etnico_id', $todoxxxx["grupoetn"], null, ['class' => $errors->first('prm_grupo_etnico_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
-        @if($errors->has('prm_grupo_etnico_id'))
+        {{ Form::label('prm_etnia_id', '7.13 ¿Con cuál grupo étnico se reconoce?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_etnia_id', $todoxxxx["grupoetn"], null, ['class' => $errors->first('prm_etnia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+        @if($errors->has('prm_etnia_id'))
         <div class="invalid-feedback d-block">
-          {{ $errors->first('prm_grupo_etnico_id') }}
+          {{ $errors->first('prm_etnia_id') }}
         </div>
         @endif
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('prm_cualGrupo_id', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_cualGrupo_id', $todoxxxx["poblindi"], null, ['class' => $errors->first('prm_cualGrupo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_cualGrupo_id'))
+    {{ Form::label('prm_poblacion_etnia_id', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_poblacion_etnia_id', $todoxxxx["poblindi"], null, ['class' => $errors->first('prm_poblacion_etnia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_poblacion_etnia_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_cualGrupo_id') }}
+        {{ $errors->first('prm_poblacion_etnia_id') }}
       </div>
     @endif
   </div>

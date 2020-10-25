@@ -91,10 +91,14 @@
             </div>
         @endif
     </div>
-    <div class="form-group form-group col-md-4" id="edadxxxx">
-        {{ Form::label('aniosxxx', '1.8 Edad (Años)', ['class' => 'control-label']) }}
-        {{ Form::number('aniosxxx', null, ['class' => $errors->first('aniosxxx') ?
+    <div class="form-group col-md-4" id="edadxxxx">
+        {{ Form::label('aniosxxx', '1.5 Edad (Años)', ['class' => 'control-label']) }}
+        {{ Form::number('aniosxxx', isset($todoxxxx['modeloxx'])?$todoxxxx['modeloxx']->Edad:null, ['class' => $errors->first('aniosxxx') ?
     'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '6', 'max' => '100','id'=>'aniosxxx']) }}
+    </div>
+    <div class="form-group col-md-4">
+        {{ Form::label('', 'AÑOS', ['class' => 'control-label']) }}
+        <div class="form-control form-control-sm">AÑOS</div>
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_pai_id', '1.9 País de nacimiento', ['class' => 'control-label col-form-label-sm']) }}

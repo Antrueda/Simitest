@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CsdBasicoController extends Controller
 {
-use DatosBasicosTrait;
+    use DatosBasicosTrait;
     private $opciones;
 
     public function __construct()
@@ -56,7 +56,7 @@ use DatosBasicosTrait;
         $dataxxxx['requestx']->request->add(['tipoacci' => 3]);
         $usuariox = $this->getTransaccion($dataxxxx);
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$dataxxxx['padrexxx']->id,$usuariox['objetoxx']->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [$dataxxxx['padrexxx']->id, $usuariox['objetoxx']->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
     /**
@@ -96,6 +96,12 @@ use DatosBasicosTrait;
         ];
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
+
+        $sispaisx=0;
+        $sispaexp=0;
+        $departam=0;
+        $deparexp=0;
+
         if ($dataxxxx['modeloxx'] != '') {
 
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
@@ -105,14 +111,20 @@ use DatosBasicosTrait;
                 $this->opciones['sindocum'] = Parametro::find(1269)->Combo;
             }
 
-            $this->opciones['parametr'][1] =$dataxxxx['modeloxx']->id;
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $sispaisx=$dataxxxx['modeloxx']->sis_pai_id;
+            $sispaexp=$dataxxxx['modeloxx']->sis_paiexp_id;
+            $departam=$dataxxxx['modeloxx']->sis_departamento_id;
+            $deparexp=$dataxxxx['modeloxx']->sis_departamentoexp_id;
+
         }
-        $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamento_id, false);
-        $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
-        $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamentoexp_id, false);
-        $this->opciones['deparexp'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_paiexp_id, false);
+
+        $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
+            $this->opciones['departam'] = SisDepartamento::combo($sispaisx, false);
+            $this->opciones['municexp'] = SisMunicipio::combo($deparexp, false);
+            $this->opciones['deparexp'] = SisDepartamento::combo($sispaexp, false);
 
 
         // Se arma el titulo de acuerdo al array opciones
@@ -138,7 +150,7 @@ use DatosBasicosTrait;
         $request->request->add(['user_crea_id' => Auth::user()->id]);
         $request->request->add(['user_edita_id' => Auth::user()->id]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con exito', 'objetoxx' => '','padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con exito', 'objetoxx' => '', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -147,7 +159,7 @@ use DatosBasicosTrait;
      * @param  \App\Models\CsdDatosBasico $modeloxx
      * @return \Illuminate\Http\Response
      */
-    public function show(CsdSisNnaj $padrexxx,CsdDatosBasico $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdDatosBasico $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', $modeloxx->id);
@@ -160,7 +172,7 @@ use DatosBasicosTrait;
      * @param  \App\Models\CsdDatosBasico $modeloxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(CsdSisNnaj $padrexxx,CsdDatosBasico $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx, CsdDatosBasico $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -181,12 +193,12 @@ use DatosBasicosTrait;
      * @param  \App\Models\FiDatosBasico $padrexxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdBasicoCrearRequest $request, CsdSisNnaj $padrexxx,CsdDatosBasico $modeloxx)
+    public function update(CsdBasicoCrearRequest $request, CsdSisNnaj $padrexxx, CsdDatosBasico $modeloxx)
     {
         $request->request->add(['user_edita_id' => Auth::user()->id]);
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con exito', 'objetoxx' => $modeloxx,'padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con exito', 'objetoxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 }

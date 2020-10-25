@@ -112,8 +112,8 @@
         $("#prm_regimen_id").change(function() {
             regisalu($(this).val(), '');
         });
-        @if(old('prm_grupo_etnico_id') !== null)
-        datamuni('prm_grupo_etnico_id', "{{old('prm_grupo_etnico_id')}}", "{{old('prm_cualGrupo_id')}}");
+        @if(old('prm_etnia_id') !== null)
+        datamuni('prm_etnia_id', "{{old('prm_etnia_id')}}", "{{old('prm_poblacion_etnia_id')}}");
         @endif
 
     });
