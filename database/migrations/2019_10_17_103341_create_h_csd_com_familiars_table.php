@@ -46,7 +46,7 @@ class CreateHCsdComFamiliarsTable extends Migration
             $table->bigInteger('prm_discapacidad_id')->unsigned();
             $table->bigInteger('prm_cual_id')->unsigned()->nullable();
             $table->bigInteger('prm_peso_id')->unsigned();
-            $table->bigInteger('prm_peso_dos_id')->unsigned();
+            $table->bigInteger('prm_peso_dos_id')->unsigned()->nullable();
             $table->bigInteger('prm_leer_id')->unsigned();
             $table->bigInteger('prm_escribir_id')->unsigned();
             $table->bigInteger('prm_operaciones_id')->unsigned();

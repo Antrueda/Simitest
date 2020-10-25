@@ -123,7 +123,7 @@ class CsdDinFamiliarController extends Controller
                 'dataxxxx' => [],
                 'vercrear' => $vercrear,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route('csddinfamiliar.listamxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route('csddinfamiliar.listamxx', [$dataxxxx['padrexxx']->csd_id]),
                 'cabecera' => [
                     [
                         ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -162,7 +162,7 @@ class CsdDinFamiliarController extends Controller
             'dataxxxx' => [],
             'vercrear' => $vercrear,
             'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-            'urlxxxxx' => route('csddinfamiliar.listapxx', [$dataxxxx['padrexxx']->id]),
+            'urlxxxxx' => route('csddinfamiliar.listapxx', [$dataxxxx['padrexxx']->csd_id]),
             'cabecera' => [
                 [
                     ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],

@@ -91,7 +91,7 @@ class CsdDinfamPadreController extends Controller
                 'dataxxxx' => [],
                 'vercrear' => true,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route( 'csddinfamiliar.listapxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route( 'csddinfamiliar.listapxx', [$dataxxxx['padrexxx']->csd_id]),
                 'cabecera' => [
                     [
                         ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],

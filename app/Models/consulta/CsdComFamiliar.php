@@ -2,6 +2,7 @@
 
 namespace App\Models\consulta;
 
+use App\Models\consulta\pivotes\CsdResobsers;
 use App\Models\fichaIngreso\NnajDocu;
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,7 +32,7 @@ class CsdComFamiliar extends Model{
   }
 
   public function documentos(){
-    return $this->belongsTo(Parametro::class, 'prm_documento_id');
+    return $this->belongsTo(Parametro::class, 'prm_tipodocu_id');
   }
   public function getEdadAttribute()
   {
@@ -42,19 +43,19 @@ class CsdComFamiliar extends Model{
   }
 
   public function estadoCivil(){
-    return $this->belongsTo(Parametro::class, 'prm_estadoivil_id');
+    return $this->belongsTo(Parametro::class, 'prm_estado_civil_id');
   }
 
   public function genero(){
-    return $this->belongsTo(Parametro::class, 'prm_genero_id');
+    return $this->belongsTo(Parametro::class, 'prm_identidad_genero_id');
   }
 
   public function sexual(){
-    return $this->belongsTo(Parametro::class, 'prm_sexual_id');
+    return $this->belongsTo(Parametro::class, 'prm_orientacion_sexual_id');
   }
 
   public function grupoEtnico(){
-    return $this->belongsTo(Parametro::class, 'prm_grupo_etnico_id');
+    return $this->belongsTo(Parametro::class, 'prm_etnia_id');
   }
 
   public function cualGrupo(){
@@ -136,7 +137,10 @@ class CsdComFamiliar extends Model{
   public function estudiaActual(){
     return $this->belongsTo(Parametro::class, 'prm_estudia_id');
   }
-
+  public function observaciones()
+  {
+      return $this->hasOne(CsdComFamiliarObservaciones::class);
+  }
 
   public static function composicion($usuariox)
   {
@@ -154,27 +158,39 @@ class CsdComFamiliar extends Model{
   {
       $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
 
-          $dataxxxx['prm_tipodocu_id'] = $dataxxxx['prm_documento_id'];
-          $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['primer_nombre']);
-          $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['segundo_nombre']);
-          $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['primer_apellido']);
-          $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['segundo_apellido']);
-          $dataxxxx['s_documento'] = $dataxxxx['documento'];
-          $dataxxxx['identitario'] = strtoupper($dataxxxx['identitario']);
-          $dt = new DateTime($dataxxxx['nacimiento']);
-          $dataxxxx['nacimiento'] = $dt->format('Y-m-d');
+          $dataxxxx['prm_tipodocu_id'] = $dataxxxx['prm_tipodocu_id'];
+          $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
+          $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
+          $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
+          $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['s_segundo_apellido']);
+          $dataxxxx['s_documento'] = $dataxxxx['s_documento'];
+          $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
+          $dt = new DateTime($dataxxxx['d_nacimiento']);
+          $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
           $dataxxxx['user_edita_id'] = Auth::user()->id;
           if ($objetoxx != '') {
               $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,$objetoxx);
               $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
               $objetoxx->update($dataxxxx);
-
+              $dataxxxx['csd_id'] = $objetoxx->csd_id;
+              $dataxxxx['objetoxx']=$objetoxx;
+              ddd($objetoxx->observaciones);
+            
+              if ($objetoxx->observaciones != '') {
+              $objetoxx->observaciones->update($dataxxxx);
+               }else{
+                CsdComFamiliarObservaciones::create($dataxxxx);
+               }
           } else {
               $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,'');
               $dataxxxx['user_crea_id'] = Auth::user()->id;
               $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
               $objetoxx = CsdComFamiliar::create($dataxxxx);
-          }
+              $dataxxxx['csd_id'] = $objetoxx->csd_id;
+              $dataxxxx['objetoxx']=$objetoxx;
+              ddd($objetoxx->observaciones);
+              CsdComFamiliarObservaciones::create($dataxxxx);
+        }
           return $objetoxx;
       }, 5);
       return $objetoxx;

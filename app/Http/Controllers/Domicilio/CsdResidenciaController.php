@@ -116,7 +116,7 @@ class CsdResidenciaController extends Controller
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
                         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
-
+        
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'AGREGAR SERVICIO',
@@ -124,7 +124,7 @@ class CsdResidenciaController extends Controller
                 'pregunta'=>'5.18 ¿Con cuáles de los siguientes servicios públicos, privados o comunales cuenta el lugar de vivienda?',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
                 'vercrear' => $vercrear,
-                'urlxxxxx' => route('csdresservi.otracosa', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route('csdresservi.otracosa', [$dataxxxx['padrexxx']->csd->csdresidencia->id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -152,7 +152,7 @@ class CsdResidenciaController extends Controller
                 'pregunta'=>'5.19 Espacios de los que disponen en este hogar:',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
                 'vercrear' => $vercrear,
-                'urlxxxxx' => route('csdreshogar.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route('csdreshogar.listaxxx', [$dataxxxx['padrexxx']->csd->csdresidencia->id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -180,7 +180,7 @@ class CsdResidenciaController extends Controller
                 'pregunta'=>'5.20 La familia comparte con otro hogar o familia, alguno de los siguientes espacios:',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
                 'vercrear' => $vercrear,
-                'urlxxxxx' => route('csdrescomparte.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route('csdrescomparte.listaxxx', [$dataxxxx['padrexxx']->csd->csdresidencia->id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -200,11 +200,10 @@ class CsdResidenciaController extends Controller
                 'tablaxxx' => 'datatable520',
                 'permisox' => 'csdrescomparte',
                 'routxxxx' => 'csdrescomparte',
-                'parametr' => [$dataxxxx['padrexxx']->id],
+                'parametr' => [$dataxxxx['padrexxx']->csd->csdresidencia->id],
             ],
         ];
-
-
+        
   return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

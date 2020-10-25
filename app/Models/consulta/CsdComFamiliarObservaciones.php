@@ -5,6 +5,8 @@ namespace App\Models\consulta;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CsdComFamiliarObservaciones extends Model{
     protected $fillable = [
@@ -24,4 +26,20 @@ class CsdComFamiliarObservaciones extends Model{
     public function editor(){
         return $this->belongsTo(User::class, 'user_edita_id');
     }
+
+    public static function getTransaccion($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if (isset($dataxxxx['objetoxx']->observaciones->id)) {
+                $dataxxxx['objetoxx']->observaciones->update($dataxxxx);
+            } else {
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = CsdComFamiliarObservaciones::create($dataxxxx);
+            }
+            return $dataxxxx;
+        }, 5);
+        return $objetoxx;
+    }
+
 }

@@ -31,6 +31,37 @@ $(document).ready(function() {
             });
         }
 
+        var datamuni = function(campoxxx, valuexxx, selected) {
+            var routexxx = "{{ route('fidatbas.municipio') }}"
+            var municipi = 'sis_municipioexp_id';
+            if (campoxxx == 'prm_etnia_id') {
+                municipi = 'prm_poblacion_etnia_id';
+                routexxx = "{{ route('ajaxx.poblacionetnia') }}"
+            }
+            $("#" + municipi).empty();
+            dataxxxx = {
+                url: routexxx,
+                data: {
+                    _token: $("input[name='_token']").val(),
+                    'departam': valuexxx
+                },
+                type: 'POST',
+                datatype: 'json',
+                campoxxx: municipi
+            }
+            if (valuexxx != '') {
+                f_ajax(dataxxxx, selected);
+            }
+        }
+
+ 
+        @if(old('prm_etnia_id') !== null)
+        datamuni('prm_etnia_id', "{{old('prm_etnia_id')}}", "{{old('prm_poblacion_etnia_id')}}");
+        @endif
+
+        $("#prm_etnia_id").change(function() {
+            datamuni($(this).prop('id'), $(this).val(), '')
+        });
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
         "serverSide": true,
@@ -72,11 +103,11 @@ $(document).ready(function() {
         }
 
   $('#{{ $tablasxx["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
-    $('#primer_apellido').val('');
-            $('#primer_nombre').val('');
-            $('#segundo_apellido').val('');
-            $('#segundo_nombre').val('');
-            $('#documento').val('');
+    $('#s_primer_apellido').val('');
+            $('#s_primer_nombre').val('');
+            $('#s_segundo_apellido').val('');
+            $('#s_segundo_nombre').val('');
+            $('#s_documento').val('');
 
 
         if ( $(this).hasClass('selected') ) {
@@ -86,12 +117,12 @@ $(document).ready(function() {
             {{ $tablasxx["tablaxxx"] }}.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
             var d = {{$tablasxx["tablaxxx"]}}.row(this).data();
-            $('#primer_apellido').val(d.s_primer_apellido);
-            $('#primer_nombre').val(d.s_primer_nombre);
-            $('#segundo_apellido').val(d.s_segundo_apellido);
-            $('#segundo_nombre').val(d.s_segundo_nombre);
-            $('#documento').val(d.s_documento);
-            $('#nacimiento').val(d.d_nacimiento);
+            $('#s_primer_apellido').val(d.s_primer_apellido);
+            $('#s_primer_nombre').val(d.s_primer_nombre);
+            $('#s_segundo_apellido').val(d.s_segundo_apellido);
+            $('#s_segundo_nombre').val(d.s_segundo_nombre);
+            $('#s_documento').val(d.s_documento);
+            $('#d_nacimiento').val(d.d_nacimiento);
             dataxxxx={
                     url:"{{ route('ajaxx.edad') }}",
                     data:{

@@ -7,6 +7,7 @@ use App\Http\Requests\Csd\CsdCompfamiCrearRequest;
 use App\Http\Requests\Csd\CsdCompfamiEditarRequest;
 use App\Models\consulta\CsdComFamiliar;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\Parametro;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Sistema\SisMunicipio;
@@ -177,15 +178,19 @@ class CsdCompfamiController extends Controller
         $this->opciones['poblindi'] = ['' => 'Seleccione'];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['aniosxxx'] = '';
+        $this->opciones['poblindi'] = Tema::combo(61, true, false);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
+                $this->opciones['grupindi'] = Parametro::find(1269)->Combo;
+            }
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);
             if ($dataxxxx['modeloxx']->sis_pai_id != 2) {
                 $this->opciones['municipi'] = $this->opciones['departam'] = [1 => 'NO APLICA'];
             }
-            $this->opciones['poblindi'] = Tema::combo(61, true, false);
+            
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['poblindi'] =  [1269 => 'NO APLICA'];
             }
