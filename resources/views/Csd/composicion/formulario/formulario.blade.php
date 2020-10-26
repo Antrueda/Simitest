@@ -300,5 +300,16 @@
     </div>
     @endif
   </div>
-
+</div>
+<div class="row">
+  <div class="col-md-12">
+    {{ Form::label('observaciones', '7.30 Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'observaciones de la visita social en domicilio', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadorporqueingresar">0/4000</p>
+    @if($errors->has('observaciones'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('observaciones') }}
+      </div>
+    @endif
+  </div>
 </div>

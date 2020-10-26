@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
-use App\Models\consulta\Csd;
+use App\Http\Requests\Csd\CsdGeneracionIngresosCrearRequest;
+use App\Http\Requests\Csd\CsdGeneracionIngresosEditarRequest;
 use App\Models\consulta\CsdGenIngreso;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
-
-use Illuminate\Http\Request;
 
 class CsdGeneracionIngresosController extends Controller
 {
@@ -71,7 +70,7 @@ class CsdGeneracionIngresosController extends Controller
                 'titulist' => 'LISTA DE APORTANTES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.aporte',
                 'vercrear' => true,
-                'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->id]),
+                'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->csd_id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -136,6 +135,7 @@ class CsdGeneracionIngresosController extends Controller
                 ->route('csdgeningresos.editar', [$padrexxx->csd_id, $vestuari->id]);
         }
         $this->opciones['csdxxxxx']=$padrexxx;
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -158,7 +158,7 @@ class CsdGeneracionIngresosController extends Controller
      */
 
 
-    public function store(Request $request, CsdSisNnaj $padrexxx)
+    public function store(CsdGeneracionIngresosCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
         $dataxxxx['csd_id'] = $padrexxx->csd_id;
@@ -203,7 +203,7 @@ class CsdGeneracionIngresosController extends Controller
      * @param  \App\Models\FiConsumoSpa  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CsdSisNnaj $padrexxx, CsdGenIngreso $modeloxx)
+    public function update(CsdGeneracionIngresosEditarRequest $request, CsdSisNnaj $padrexxx, CsdGenIngreso $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Generacion de ingresos actualizado con exito', $padrexxx);
     }
