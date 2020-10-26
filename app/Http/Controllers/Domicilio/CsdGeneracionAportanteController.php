@@ -102,11 +102,10 @@ class CsdGeneracionAportanteController extends Controller
                 'titunuev' => 'AGREGAR APORTANTE',
                 'titulist' => 'LISTA DE APORTANTES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.aporte',
-                'vercrear' => true,
+                'vercrear' => false,
                 'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->csd_id]),
                 'cabecera' => [
                     [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => '10.1 ¿Quién Aporta?', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => '10.2 Total Ingresos Mensuales', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
@@ -123,7 +122,6 @@ class CsdGeneracionAportanteController extends Controller
                     ],
                 ],
                 'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'csd_gening_aportas.id'],
                     ['data' => 'aporta', 'name' => 'parametros.nombre as aporta'],
                     ['data' => 'mensual', 'name' => 'csd_gening_aportas.mensual'],
