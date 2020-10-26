@@ -137,6 +137,9 @@ class SisLocalupzSeeder extends Seeder
         'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
         SisLocalupz::create(['id' => 119, 'sis_upz_id' => 118, 'sis_localidad_id' => 5, 'user_crea_id' => 1, 'user_edita_id' => 1,
         'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
+        SisLocalupz::create(['id' => 120, 'sis_upz_id' => 119, 'sis_localidad_id' => 21, 'user_crea_id' => 1, 'user_edita_id' => 1,
+        'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
+
 
     }
 }

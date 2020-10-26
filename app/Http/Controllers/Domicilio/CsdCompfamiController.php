@@ -199,6 +199,10 @@ class CsdCompfamiController extends Controller
             if ($dataxxxx['modeloxx']->prm_regimen_id == 168) {
                 $this->opciones['entid_id'] = [1 => 'NO APLICA'];
             }
+
+            if ($dataxxxx['modeloxx']->sisben != '') {//
+                $this->opciones['nsnoresp'] = [1269 => 'NO APLICA'];
+            }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =

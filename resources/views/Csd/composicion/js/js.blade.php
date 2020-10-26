@@ -113,8 +113,45 @@
         $("#prm_regimen_id").change(function() {
             regisalu($(this).val(), '');
         });
+        
 
     });
+    var f_sisben=function(valuexxx,pselecte){
+           // if(valuexxx!=''){
+               $.ajax({
+               url : "{{ route('ajaxx.puntajesisben') }}",
+               data : {
+                       _token: $("input[name='_token']").val(),
+                       'padrexxx':valuexxx
+                   },
+               type : 'POST',
+               dataType : 'json',
+               success : function(json) {
+                   if(json[0].pusisben[0].valuexxx==1){
+                       $("#prm_sisben_id").empty();
+                   }
+                   $.each(json[0].pusisben,function(i,data){
+                       $('#prm_sisben_id').append('<option value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                   });
+               },
+               error : function(xhr, status) {
+                   alert('Disculpe, existió un problema');
+               },
+           });
+           // }
+       }
+       @if(old('sisben')!=null)
+       f_sisben({{ old('sisben') }},{{ old('prm_sisben_id')  }});
+       @endif
+       $("#sisben").keyup(function(){
+           $("#prm_sisben_id").empty();
+           $("#prm_sisben_id").append('<option value="">Seleccione</>')
+           f_sisben($(this).val(),'');
+       });
+
+       //MASCARA PUNTAJE SISBEN
+       $('#sisben').mask('00.00');
+
 
     function soloLetras(e) {
     key = e.keyCode || e.which;

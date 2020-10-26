@@ -65,6 +65,9 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
     Route::get('nadocume', [
         'uses' => $controll . 'Controller@getNADocumento',
         'middleware' => ['permission:' . $routexxx . '-leer']
-    ])->name($routexxx . '.nadocume');
+	])->name($routexxx . '.nadocume');
+	Route::post('puntajesisben', [
+		'uses' => 'AjaxxController@puntajesisben',
+	])->name('ajaxx.puntajesisben');
 });
 

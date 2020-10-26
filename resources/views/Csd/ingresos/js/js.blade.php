@@ -82,6 +82,8 @@
 
 
   });
+
+
     function doc(valor){
         if(valor == 626){
             document.getElementById("trabaja").hidden=false;

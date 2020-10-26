@@ -187,26 +187,18 @@
     @endif
   </div>
   <div class="form-group col-md-4">
-    <div class="row align-items-end">
-      <div class="col-md-6">
-        {{ Form::label('sisben', '7.21 Puntaje de SISBEN', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('sisben', null, ['class' => $errors->first('sisben') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Puntaje', 'min' => '0', 'max' => '99']) }}
-        @if($errors->has('sisben'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('sisben') }}
+    {{ Form::label('puntajesisben', '7.21 Puntaje de SISBEN', ['class' => 'control-label col-form-label-sm']) }}
+    <div class="row">
+        <div class="col-md-6">
+            {{ Form::label('sisben', 'Puntaje SISBEN', ['class' => 'control-label col-form-label-sm d-none']) }}
+            {{ Form::text('sisben', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
         </div>
-        @endif
-      </div>
-      <div class="col-md-6">
-        {{ Form::select('prm_sisben_id', $todoxxxx["nsnoresp"], null, ['class' => $errors->first('prm_sisben_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('prm_sisben_id'))
-        <div class="invalid-feedback d-block">
-          {{ $errors->first('prm_sisben_id') }}
+        <div class="col-md-6">
+            {{ Form::label('prm_sisben_id', 'Tiene SISBEN', ['class' => 'control-label col-form-label-sm d-none']) }}
+            {{ Form::select('prm_sisben_id', $todoxxxx["nsnoresp"], null, ['class' => 'form-control form-control-sm select2']) }}
         </div>
-        @endif
-      </div>
     </div>
-  </div>
+</div>
 </div>
 <div class="row">
   <div class="col-md-3">
@@ -303,7 +295,7 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-    {{ Form::label('observaciones', '7.30 Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('observaciones', '7.31 Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'observaciones de la visita social en domicilio', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadorporqueingresar">0/4000</p>
     @if($errors->has('observaciones'))
