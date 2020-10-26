@@ -68,7 +68,7 @@ class CsdGeneracionIngresosController extends Controller
             [
                 'titunuev' => 'AGREGAR APORTANTE',
                 'titulist' => 'LISTA DE APORTANTES',
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.aporte',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.indexfooter',
                 'vercrear' => true,
                 'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->csd_id]),
                 'cabecera' => [
@@ -87,6 +87,14 @@ class CsdGeneracionIngresosController extends Controller
                         ['td' => 'Periodo', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Hora ', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Periodo', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ],
+                ],
+                'footerxx' => [
+                    [
+                        ['td' => 'TOTA INGRESOS MENSUALES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 3],
+                        ['td' => '', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => '', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => '', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 6],
                     ],
                 ],
                 'columnsx' => [

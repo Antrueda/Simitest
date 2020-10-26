@@ -23,6 +23,7 @@ $(document).ready(function() {
         "language": {
             "url": "{{ url('/adminlte/plugins/datatables/Spanish.lang') }}"
         }
+
     });
   @endforeach
 } );
