@@ -120,7 +120,7 @@ class CsdDinfamMadreController extends Controller
                 'tablaxxx' => 'datatablemadre',
                 'permisox' => 'csddfmad',
                 'routxxxx' => 'csddfmad',
-                'parametr' => [$dataxxxx['padrexxx']->id],
+                'parametr' => [$dataxxxx['padrexxx']->csd_id],
             ],
         ];
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

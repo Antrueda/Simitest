@@ -12,18 +12,19 @@ class CsdGeneracionIngresosCrearRequest extends FormRequest
 
     public function __construct()
     {
-         $this->_mensaje = [
+        $this->_mensaje = [
             'prm_actividad_id.required' => 'Seleccione tipo de actividad',
+            'observacion.required' => 'Por favor ingrese alguna observacion',
             
         ];
         $this->_reglasx = [
             'prm_actividad_id' => 'required|exists:parametros,id',
             'trabaja' => 'required_if:prm_actividad_id,626',
             'prm_informal_id' => 'required_if:prm_actividad_id,627',
-            'prm_otra_id' => 'c,628',
+            'prm_otra_id' => 'required_if:prm_actividad_id,628',
             'prm_laboral_id' => 'required_if:prm_actividad_id,626',
             'intensidad' => 'required_unless:prm_actividad_id,853',
-            'razon' => 'exclude_if:prm_dificultad_id,227|string|max:4000',
+            'razon' => 'exclude_if:prm_dificultad_id,228|string|max:4000',
         ];
     }
     /**

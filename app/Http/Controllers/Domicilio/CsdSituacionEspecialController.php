@@ -71,10 +71,10 @@ class CsdSituacionEspecialController extends Controller
     public function create(CsdSisNnaj $padrexxx)
     {
 
-        $vestuari = CsdNnajEspecial::where('csd_id', $padrexxx->id)->first();
+        $vestuari = CsdNnajEspecial::where('csd_id', $padrexxx->csd_id)->first();
         if ($vestuari != null) {
             return redirect()
-                ->route('csdsituacionespecial.editar', [$padrexxx->id, $vestuari->id]);
+                ->route('csdsituacionespecial.editar', [$padrexxx->csd_id, $vestuari->id]);
         }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
@@ -103,7 +103,7 @@ class CsdSituacionEspecialController extends Controller
     {
         $this->validator($request->all())->validate();
         $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Situaciones especiales insertadas con exito','padrexxx'=> $padrexxx]);

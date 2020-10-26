@@ -137,10 +137,7 @@ class CsdComFamiliar extends Model{
   public function estudiaActual(){
     return $this->belongsTo(Parametro::class, 'prm_estudia_id');
   }
-  public function observaciones()
-  {
-      return $this->hasOne(CsdComFamiliarObservaciones::class);
-  }
+
 
   public static function composicion($usuariox)
   {
@@ -174,8 +171,7 @@ class CsdComFamiliar extends Model{
               $objetoxx->update($dataxxxx);
               $dataxxxx['csd_id'] = $objetoxx->csd_id;
               $dataxxxx['objetoxx']=$objetoxx;
-              ddd($objetoxx->observaciones);
-            
+              
               if ($objetoxx->observaciones != '') {
               $objetoxx->observaciones->update($dataxxxx);
                }else{
@@ -188,7 +184,6 @@ class CsdComFamiliar extends Model{
               $objetoxx = CsdComFamiliar::create($dataxxxx);
               $dataxxxx['csd_id'] = $objetoxx->csd_id;
               $dataxxxx['objetoxx']=$objetoxx;
-              ddd($objetoxx->observaciones);
               CsdComFamiliarObservaciones::create($dataxxxx);
         }
           return $objetoxx;
