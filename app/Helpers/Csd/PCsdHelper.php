@@ -133,11 +133,9 @@ class PCsdHelper
      */
     public static function getComposicion($dataxxxx)
     {
-
-        //$respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.nuevo', $dataxxxx['padrexxx']->id);
-        $respuest = ['rutaxxxx' =>route('csdcomfamiliar' , $dataxxxx['padrexxx']->id), 'classxxx' => 'fas fa-check text-success'];
+        $respuest = ['rutaxxxx' =>route('csdcomfamiliar' , $dataxxxx['padrexxx']->id), 'classxxx' => 'fas fa-times text-danger'];
         if (count($dataxxxx['padrexxx']->csd->CsdComFamiliar)>0) {
-            $respuest['classxxx'] = 'fas fa-times text-danger';
+            $respuest['classxxx'] = 'fas fa-check text-success';
         }
         return $respuest;
     }
@@ -199,9 +197,9 @@ class PCsdHelper
     public static function getRedes($dataxxxx)
     {
         //$dataxxxx['modeloxx'] = '';
-        $respuest = ['rutaxxxx' =>route('csdredesapoyo' , $dataxxxx['padrexxx']->csd_id), 'classxxx' => 'fas fa-check text-success'];
+        $respuest = ['rutaxxxx' =>route('csdredesapoyo' , $dataxxxx['padrexxx']->csd_id), 'classxxx' => 'fas fa-times text-danger'];
         if (count($dataxxxx['padrexxx']->csd->CsdRedsocPasado)>0 || count($dataxxxx['padrexxx']->csd->CsdRedsocActual)>0) {
-            $respuest['classxxx'] = 'fas fa-times text-danger';
+            $respuest['classxxx'] = 'fas fa-check text-success';
         }
         return  $respuest;
     }

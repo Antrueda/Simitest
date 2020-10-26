@@ -101,7 +101,7 @@ class AjaxxController extends Controller
             $dataxxxx = $request->all();
             $respuest = [['valuexxx' => 1, 'optionxx' => 'NO APLICA']];
             if ($dataxxxx['departam'] == 157) {
-                $respuest = Tema::combo(61, false, true);
+                $respuest = Tema::combo(61, true, true);
             }
             return response()->json($respuest);
         }

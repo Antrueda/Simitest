@@ -191,10 +191,10 @@ class User extends Authenticatable
     public function getDocNombreCompletoNormalAttribute()
     {
         $nombrexx[$this->id]=
-        $this->s_documento . ' - ' . 
-        $this->s_primer_nombre . ' ' . 
-        $this->s_segundo_nombre . ' ' . 
-        $this->s_primer_apellido . ' ' . 
+        $this->s_documento . ' - ' .
+        $this->s_primer_nombre . ' ' .
+        $this->s_segundo_nombre . ' ' .
+        $this->s_primer_apellido . ' ' .
         $this->s_segundo_apellido;
         return  $nombrexx;
     }
@@ -222,7 +222,7 @@ class User extends Authenticatable
         return $dependen;
     }
 
-    private static function userCombo($dataxxxx)
+    public static function userCombo($dataxxxx)
     {
         $comboxxx = [];
         if ($dataxxxx['cabecera']) {
@@ -333,7 +333,7 @@ class User extends Authenticatable
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        
+
         $userxxxx = User::find($padrexxx);
         foreach ($userxxxx->sis_depens as $registro) {
             if ($ajaxxxxx) {

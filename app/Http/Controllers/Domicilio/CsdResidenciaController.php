@@ -59,15 +59,14 @@ class CsdResidenciaController extends Controller
         $this->opciones['esparcha'] = Tema::combo(291, true, false);
         $this->opciones['servicio'] = Tema::combo(94, true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
-
-       }
+    }
     private function view($dataxxxx)
     {
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         /** informacion que se va a mostrar en la vista */
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
@@ -95,15 +94,16 @@ class CsdResidenciaController extends Controller
         // indica si se esta actualizando o viendo
 
         $this->opciones['condsele'] = CsdResideambiente::getCondicionAbiente(0);
-        $vercrear=false;
+        $vercrear = false;
+        $residenc = 0;
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             //5.20
-            if($dataxxxx['modeloxx']->resobservacion){
-             $dataxxxx['modeloxx']->observaciones = $dataxxxx['modeloxx']->resobservacion->observaciones;
+            if ($dataxxxx['modeloxx']->resobservacion) {
+                $dataxxxx['modeloxx']->observaciones = $dataxxxx['modeloxx']->resobservacion->observaciones;
             }
-            $vercrear=true;
+            $vercrear = true;
             if ($dataxxxx['modeloxx']->i_prm_zona_direccion_id == 289) {
                 $this->opciones['dircondi'] = [1269 => 'NO APLICA'];
                 $this->opciones['cuadrant'] = [1 => 'NO APLICA'];
@@ -114,17 +114,18 @@ class CsdResidenciaController extends Controller
 
 
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-                        $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $residenc = $dataxxxx['padrexxx']->csd->CsdResidencia->id;
         }
-        
+
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'AGREGAR SERVICIO',
                 'titulist' => 'LISTA DE SERVICIOS',
-                'pregunta'=>'5.18 ¿Con cuáles de los siguientes servicios públicos, privados o comunales cuenta el lugar de vivienda?',
+                'pregunta' => '5.18 ¿Con cuáles de los siguientes servicios públicos, privados o comunales cuenta el lugar de vivienda?',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
                 'vercrear' => $vercrear,
-                'urlxxxxx' => route('csdresservi.otracosa', [$dataxxxx['padrexxx']->csd->csdresidencia->id]),
+                'urlxxxxx' => route('csdresservi.otracosa', [$residenc]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -149,10 +150,10 @@ class CsdResidenciaController extends Controller
             [
                 'titunuev' => 'AGREGAR ESPACIO',
                 'titulist' => 'LISTA DE ESPACIO QUE DISPONE',
-                'pregunta'=>'5.19 Espacios de los que disponen en este hogar:',
+                'pregunta' => '5.19 Espacios de los que disponen en este hogar:',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
                 'vercrear' => $vercrear,
-                'urlxxxxx' => route('csdreshogar.listaxxx', [$dataxxxx['padrexxx']->csd->csdresidencia->id]),
+                'urlxxxxx' => route('csdreshogar.listaxxx', [$residenc]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -177,10 +178,10 @@ class CsdResidenciaController extends Controller
             [
                 'titunuev' => 'AGREGAR ESPACIO QUE COMPARTE',
                 'titulist' => 'LISTA DE COMPARTE',
-                'pregunta'=>'5.20 La familia comparte con otro hogar o familia, alguno de los siguientes espacios:',
+                'pregunta' => '5.20 La familia comparte con otro hogar o familia, alguno de los siguientes espacios:',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
                 'vercrear' => $vercrear,
-                'urlxxxxx' => route('csdrescomparte.listaxxx', [$dataxxxx['padrexxx']->csd->csdresidencia->id]),
+                'urlxxxxx' => route('csdrescomparte.listaxxx', [$residenc]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -200,11 +201,11 @@ class CsdResidenciaController extends Controller
                 'tablaxxx' => 'datatable520',
                 'permisox' => 'csdrescomparte',
                 'routxxxx' => 'csdrescomparte',
-                'parametr' => [$dataxxxx['padrexxx']->csd->csdresidencia->id],
+                'parametr' => [$residenc],
             ],
         ];
-        
-  return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
     /**
@@ -219,8 +220,8 @@ class CsdResidenciaController extends Controller
             return redirect()
                 ->route('csdresidencia.editar', [$padrexxx->id, $vestuari->id]);
         }
-        $this->opciones['csdxxxxx']=$padrexxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -228,7 +229,7 @@ class CsdResidenciaController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario',  'js',], 'padrexxx' => $padrexxx]);
     }
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx,$padrexxx)
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
     {
         return redirect()
             ->route('csdresidencia.editar', [$padrexxx->id, CsdResidencia::transaccion($dataxxxx, $objetoxx)->id])
@@ -260,8 +261,8 @@ class CsdResidenciaController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx, CsdResidencia $modeloxx)
     {
-        $this->opciones['csdxxxxx']=$modeloxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
+        $this->opciones['csdxxxxx'] = $modeloxx;
+        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', $modeloxx->id);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $padrexxx]);
     }
 

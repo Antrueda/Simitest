@@ -8,9 +8,7 @@ use App\Http\Requests\Csd\CsdCompfamiEditarRequest;
 use App\Models\consulta\CsdComFamiliar;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Parametro;
-use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisEntidadSalud;
-use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
@@ -190,7 +188,7 @@ class CsdCompfamiController extends Controller
             if ($dataxxxx['modeloxx']->sis_pai_id != 2) {
                 $this->opciones['municipi'] = $this->opciones['departam'] = [1 => 'NO APLICA'];
             }
-            
+
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['poblindi'] =  [1269 => 'NO APLICA'];
             }
@@ -268,12 +266,20 @@ class CsdCompfamiController extends Controller
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario',  'js',], 'padrexxx' => $padrexxx]);
     }
 
-    private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
+    private function grabar($dataxxxx)
     {
-        $dataxxxx['sis_nnajnnaj_id'] = $padrexxx->sis_nnaj_id;
+
+        $dataxxxx['requestx']->request->add(['tipoacci' => 3]);
+        $usuariox = $this->getTransaccion($dataxxxx);
+
+
         return redirect()
-            ->route('csdcomfamiliar.editar', [$padrexxx->id, CsdComFamiliar::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
+            ->route('csdcomfamiliar.editar', [$dataxxxx['padrexxx']->id, $usuariox['objetoxx']->id])
+            ->with('info', $dataxxxx['infoxxxx']);
+
+            // return redirect()
+            // ->route('csdcomfamiliar.editar', [$padrexxx->id, CsdComFamiliar::transaccion($dataxxxx, $objectx)->id])
+            // ->with('info', $infoxxxx);
     }
 
     /**
@@ -284,14 +290,13 @@ class CsdCompfamiController extends Controller
      */
     public function store(CsdCompfamiCrearRequest $request, CsdSisNnaj $padrexxx)
     {
-        $dataxxxx = $request->all();
 
+        $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
+        $request->request->add(['csd_id' => $padrexxx->csd_id]);
+        $request->request->add(['prm_tipofuen_id' => 2315]);
+        $request->request->add(['sis_esta_id' => 1]);
 
-        $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        $dataxxxx['csd_id'] = $padrexxx->csd_id;
-        $dataxxxx['prm_tipofuen_id'] = 2315;
-        $dataxxxx['sis_esta_id'] = 1;
-        return $this->grabar($dataxxxx, '', 'Composicion familiar creada con exito', $padrexxx);
+        return $this->grabar(['requestx'=>$request, 'objetoxx'=>'', 'infoxxxx'=>'Composicion familiar creada con exito', 'padrexxx'=>$padrexxx]);
     }
 
     /**

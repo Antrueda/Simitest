@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Csd\CsdSituacionEditarRequest;
 use App\Models\consulta\Csd;
-use App\Models\consulta\pivotes\CsdNnajEspecial;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
 use Illuminate\Http\Request;
@@ -52,7 +51,6 @@ class CsdSituacionEspecialController extends Controller
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
@@ -71,11 +69,6 @@ class CsdSituacionEspecialController extends Controller
     public function create(CsdSisNnaj $padrexxx)
     {
 
-        $vestuari = CsdNnajEspecial::where('csd_id', $padrexxx->id)->first();
-        if ($vestuari != null) {
-            return redirect()
-                ->route('csdsituacionespecial.editar', [$padrexxx->id, $vestuari->id]);
-        }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
@@ -102,10 +95,8 @@ class CsdSituacionEspecialController extends Controller
     public function store(Request $request, CsdSisNnaj $padrexxx)
     {
         $this->validator($request->all())->validate();
-        $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
-        $dataxxxx['sis_esta_id'] = 1;
-        $dataxxxx['prm_tipofuen_id'] = 2315;
+        $request->request->add(['sis_esta_id' => 1]);
+        $request->request->add(['prm_tipofuen_id' => 2315]);
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Situaciones especiales insertadas con exito','padrexxx'=> $padrexxx]);
     }
 
@@ -124,7 +115,7 @@ class CsdSituacionEspecialController extends Controller
     {
         $this->opciones['csdxxxxx']=$modeloxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx->csd, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx]);
     }
 
     /**
@@ -136,7 +127,6 @@ class CsdSituacionEspecialController extends Controller
     public function edit(CsdSisNnaj $modeloxx)
     {
         $this->opciones['csdxxxxx']=$modeloxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.editar',$modeloxx->id);
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -144,7 +134,7 @@ class CsdSituacionEspecialController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar',  'formulario', 'js',], 'padrexxx' => $modeloxx]);
+        return $this->view(['modeloxx' => $modeloxx->csd, 'accionxx' => ['editar',  'formulario', 'js',], 'padrexxx' => $modeloxx]);
     }
 
     /**
@@ -156,6 +146,8 @@ class CsdSituacionEspecialController extends Controller
      */
     public function update(CsdSituacionEditarRequest $request, CsdSisNnaj $modeloxx)
     {
+        $request->request->add(['prm_tipofuen_id' => 2315]);
+        $request->request->add(['sis_esta_id' => 1]);
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Situaciones Especiales actualizadas','modeloxx'=>$modeloxx,'padrexxx'=>$modeloxx]);
     }
 }

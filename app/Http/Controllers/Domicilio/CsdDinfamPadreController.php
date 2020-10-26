@@ -3,16 +3,9 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaCrearRequest;
-use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaUpdateRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdDinfamPadre;
 use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiSustanciaConsumida;
-
 use App\Models\Tema;
-use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -89,7 +82,7 @@ class CsdDinfamPadreController extends Controller
                 'titunuev' => 'CREAR RELACION',
                 'titulist' => 'LISTA DE RELACIONES DEL PROGENITOR',
                 'dataxxxx' => [],
-                'vercrear' => true,
+                'vercrear' => false,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'urlxxxxx' => route( 'csddinfamiliar.listapxx', [$dataxxxx['padrexxx']->csd_id]),
                 'cabecera' => [

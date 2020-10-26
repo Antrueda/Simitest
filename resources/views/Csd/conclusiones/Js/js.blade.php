@@ -61,6 +61,27 @@
             var nombre_fichero_seleccionado = fichero_seleccionado.replace(/.*[\/\\]/, ''); //Eliminamos el path hasta el fichero seleccionado
             $("#docontacto").text(nombre_fichero_seleccionado);
         });
+        $("#user_doc1_id,#user_doc2_id").change(function() {
+            $.ajax({
+                url: "{{ route('csdconclusiones.responsa',$todoxxxx['csdxxxxx']->id)}}",
+                type: 'GET',
+                data: {
+                    comboxxx:$(this).prop('id'),
+                    usernotx:$(this).val()
+                },
+                dataType: 'json',
+                success: function(json) {
+                    $(json.comboxxx).empty();
+                    $.each(json.dataxxxx, function(id, data) {
+                        $(json.comboxxx).append('<option value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                    });
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existe un problema al seleccionar el responsable');
+                }
+            });
+        });
+
 
     });
 

@@ -151,8 +151,8 @@ function updateContadorTa(idtextarea, idcontador, max) {
 }
 
 
-    $(document).ready(function(){ 
- 
+    $(document).ready(function(){
+
  var count = 0;
 
  $('#user_dialog').dialog({
@@ -190,7 +190,7 @@ function updateContadorTa(idtextarea, idcontador, max) {
    $('#error_servicio').text(error_servicio);
    $('#servicio').css('border-color', '');
    servicio = $('#servicio').val();
-  } 
+  }
   if($('#legal').val() == '')
   {
    error_legal = 'Last Name is required';
@@ -291,8 +291,8 @@ function updateContadorTa(idtextarea, idcontador, max) {
    $('#action_alert').dialog('open');
   }
  });
- 
-});  
+
+});
         // FIN esconde campos según la zona de residencia
 
     });
@@ -310,7 +310,7 @@ function updateContadorTa(idtextarea, idcontador, max) {
             document.getElementById("dir_placa").hidden = false;
             document.getElementById("prm_dir_cuadrantevg_id").hidden = false;
             document.getElementById("prm_estrato_id").hidden = false;
-            document.getElementById("dir_complemento").hidden = false;
+
         }
         // Rural
         if (valor == 288) {
@@ -325,7 +325,7 @@ function updateContadorTa(idtextarea, idcontador, max) {
             document.getElementById("dir_placa").hidden = true;
             document.getElementById("prm_dir_cuadrantevg_id").hidden = true;
             document.getElementById("prm_estrato_id").hidden = true;
-            document.getElementById("dir_complemento").hidden = false;
+
         }
         if (valor == 289) {
             document.getElementById("prm_dir_via_id").hidden = true;
@@ -339,14 +339,13 @@ function updateContadorTa(idtextarea, idcontador, max) {
             document.getElementById("dir_placa").hidden = true;
             document.getElementById("prm_dir_cuadrantevg_id").hidden = true;
             document.getElementById("prm_estrato_id").hidden = true;
-            document.getElementById("dir_complemento").hidden = true;
         }
     }
 
     function carga() {
         doc(document.getElementById('prm_dir_zona_id').value);
     }
-    
+
 
 
 

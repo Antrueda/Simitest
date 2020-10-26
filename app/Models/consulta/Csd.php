@@ -113,11 +113,6 @@ class Csd extends Model
     {
         return $this->belongsToMany(Parametro::class, 'csd_nnaj_especial', 'csd_id', 'parametro_id');
     }
-
-    public function servicios()
-    {
-        return $this->belongsToMany(Parametro::class, 'csd_nnaj_especial', 'csd_id', 'parametro_id');
-    }
     public static function transaccion($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
@@ -143,8 +138,10 @@ class Csd extends Model
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             $dataxxxx['padrexxx']->csd->especiales()->detach();
             if($dataxxxx['requestx']->especiales){
+
                 foreach ( $dataxxxx['requestx']->especiales as $d) {
-                    $dataxxxx['padrexxx']->csd->especiales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+
+                    $dataxxxx['padrexxx']->csd->especiales()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'prm_tipofuen_id'=>$dataxxxx['requestx']->prm_tipofuen_id,'sis_esta_id'=>$dataxxxx['requestx']->sis_esta_id]);
                 }
             }
             return $dataxxxx['padrexxx'];

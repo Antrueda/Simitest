@@ -6,15 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdCrearRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\fichaIngreso\FiDatosBasico;
-
-use App\Models\Tema;
-
-
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\fichaIngreso\NnajDese;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\Csd\CsdTrait;
 

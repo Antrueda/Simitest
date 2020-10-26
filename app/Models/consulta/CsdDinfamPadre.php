@@ -47,7 +47,6 @@ class CsdDinfamPadre extends Model{
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = CsdDinfamPadre::create($dataxxxx);
             }
-
          return $objetoxx;
         }, 5);
         return $usuariox;

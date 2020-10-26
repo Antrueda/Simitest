@@ -3,14 +3,9 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaCrearRequest;
 use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaUpdateRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdDinfamMadre;
 use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiSustanciaConsumida;
-
 use App\Models\Tema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -84,9 +79,9 @@ class CsdDinfamMadreController extends Controller
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR RELACION',
-                'titulist' => 'LISTA DE RELACIONES DEL PROGENITORA',
+                'titulist' => 'LISTA DE RELACIONES DE LA PROGENITORA',
                 'dataxxxx' => [],
-                'vercrear' => true,
+                'vercrear' => false,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'urlxxxxx' => route( 'csddinfamiliar.listamxx', [$dataxxxx['padrexxx']->csd_id]),
                 'cabecera' => [
@@ -133,7 +128,7 @@ class CsdDinfamMadreController extends Controller
      */
     public function create(CsdSisNnaj $padrexxx)
     {
-  
+
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =

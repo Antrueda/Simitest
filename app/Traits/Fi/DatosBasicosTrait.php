@@ -53,7 +53,7 @@ trait DatosBasicosTrait
         return $respuest;
     }
     /**
-     * agregar datos basicos a la composicon familiar en CSD
+     * registrar desde datos basicos a la composicon familiar en CSD
      *
      * @param array $dataxxxx
      * @return void
@@ -89,6 +89,34 @@ trait DatosBasicosTrait
                 $dataxxxx['user_edita_id'] = Auth::user()->id;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['objetoxx'] = CsdComFamiliar::create($dataxxxx['requestx']->all());
+            }
+            return $dataxxxx['objetoxx'];
+        }, 5);
+        return $objetoxx;
+    }
+
+    /**
+     * registrar composicon familiar en CSD
+     *
+     * @param array $dataxxxx
+     * @return void
+     */
+    public function setComposionFamiliarCsd($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx = $this->getAMayuculas($dataxxxx);
+            $dt = new DateTime($dataxxxx['d_nacimiento']);
+            $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if ($dataxxxx['objetoxx'] != '') {
+                $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,$dataxxxx['objetoxx']);
+                $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
+                $dataxxxx['objetoxx']->update($dataxxxx);
+            } else {
+                $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,'');
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
+                $dataxxxx['objetoxx'] = CsdComFamiliar::create($dataxxxx);
             }
             return $dataxxxx['objetoxx'];
         }, 5);
@@ -152,7 +180,6 @@ trait DatosBasicosTrait
                     'user_crea_id' => $dataxxxx['requestx']->user_crea_id,
                     'user_edita_id' => $dataxxxx['requestx']->user_edita_id,
                     'prm_escomfam_id' => $dataxxxx['requestx']->prm_escomfam_id])->id]);
-
                 $dataxxxx['objetoxx'] = FiDatosBasico::create($dataxxxx['requestx']->all());
             }
             return ['objetoxx' => $dataxxxx['objetoxx'], 'compfami' => $compfami];
@@ -236,7 +263,7 @@ trait DatosBasicosTrait
                     $objetoxx = $this->setCsd($dataxxxx);
                     break;
                 case '4': // composicion familiar csd
-                    # code...
+                    $this->setComposionFamiliarFi($dataxxxx);
                     break;
             }
             return $objetoxx;

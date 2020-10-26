@@ -97,7 +97,7 @@
 
   <div class="form-group col-md-4">
         {{ Form::label('prm_etnia_id', '7.13 ¿Con cuál grupo étnico se reconoce?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_etnia_id', $todoxxxx["grupoetn"], null, ['class' => $errors->first('prm_etnia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+        {{ Form::select('prm_etnia_id', $todoxxxx["grupoetn"], null, ['class' => $errors->first('prm_etnia_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_etnia_id'))
         <div class="invalid-feedback d-block">
           {{ $errors->first('prm_etnia_id') }}
@@ -170,7 +170,7 @@
 <div class="row align-items-end">
   <div class="form-group col-md-4">
     {{ Form::label('prm_regimen_id', '7.20 Régimen en salud', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_regimen_id', $todoxxxx["estafili"], null, ['class' => $errors->first('prm_regimen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc2(this.value)']) }}
+    {{ Form::select('prm_regimen_id', $todoxxxx["estafili"], null, ['class' => $errors->first('prm_regimen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_regimen_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_regimen_id') }}
@@ -211,7 +211,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_discapacidad_id', '7.22 ¿Tiene algún tipo de discapacidad?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_discapacidad_id', $todoxxxx["condicix"], null, ['class' => $errors->first('prm_discapacidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc(this.value)']) }}
+    {{ Form::select('prm_discapacidad_id', $todoxxxx["condicix"], null, ['class' => $errors->first('prm_discapacidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_discapacidad_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_discapacidad_id') }}

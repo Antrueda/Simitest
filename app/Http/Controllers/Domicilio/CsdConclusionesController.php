@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdConclusionesCrearRequest;
 use App\Http\Requests\Csd\CsdConclusionesEditarRequest;
 use App\Models\consulta\Csd;
+use App\Models\consulta\CsdComFamiliar;
 use App\Models\consulta\CsdConclusiones;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\Parametro;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Fi\FiTrait;
@@ -38,14 +40,32 @@ class CsdConclusionesController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicix'] = Tema::combo(23, false, false);
-        $this->opciones['familiax'] = Tema::combo(66, true, false);
+
     }
 
 
 
     private function view($dataxxxx)
     {
+        if($dataxxxx['padrexxx']->csd->CsdDatosBasico==null){
+            return redirect()
+            ->route('csdatbas.nuevo', [$dataxxxx['padrexxx']->id])
+            ->with('info', 'Por favor llene los datos basicos de la consulta primero');
+        }
+        //ddd($dataxxxx['padrexxx']->csd->CsdDatosBasico);
+        $this->opciones['condicix'] = Tema::combo(23, false, false);
+        $compfami=CsdComFamiliar::where('csd_id',$dataxxxx['padrexxx']->csd_id)
+        ->where('s_documento',$dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
+        ->first();
+        $this->opciones['familiax'] = Parametro::find( $compfami->prm_parentezco_id)->combo;
+        $nombrexx=$dataxxxx['padrexxx']->csd->CsdDatosBasico;
+        $nombrexx=
+        $nombrexx->s_primer_nombre.' '.
+        $nombrexx->s_segundo_nombre.' '.
+        $nombrexx->s_primer_apellido.' '.
+        $nombrexx->s_segundo_apellido;
+        $this->opciones['document']=$dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento;
+        $this->opciones['nombrexx']=$nombrexx;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -57,8 +77,8 @@ class CsdConclusionesController extends Controller
         ];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
-        $this->opciones['usuarios'] = User::combo(true, false);
-        $this->opciones['usuarioz'] = User::combo(true, false);
+        $this->opciones['usuarios'] = User::userCombo(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>false ]);
+        $this->opciones['usuarioz'] = $this->opciones['usuarios'];
         $this->opciones['estadoxx'] = 'ACTIVO';
 
 
@@ -158,7 +178,14 @@ class CsdConclusionesController extends Controller
         return $this->grabar($request, $modeloxx, 'Conclusiones actualizadas con exito', $padrexxx);
     }
 
-
+    function getResponsable(Request $request,CsdSisNnaj $padrexxx)
+    {
+        if ($request->ajax()) {
+            $camposxx=['user_doc1_id'=>'#user_doc2_id','user_doc2_id'=>'#user_doc1_id'];
+            $usuarios = User::userCombo(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx] ]);
+            return response()->json(['dataxxxx'=>$usuarios,'comboxxx'=>$camposxx[$request->comboxxx]]);
+        }
+    }
 
 
 

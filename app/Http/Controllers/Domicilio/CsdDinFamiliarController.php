@@ -67,7 +67,6 @@ class CsdDinFamiliarController extends Controller
         $padrexxx=$padrexxx->csd;
         if ($request->ajax()) {
             $request->padrexxx = $padrexxx->id;
-            $request->datobasi = $padrexxx->id;
             $request->routexxx = ['csddfpad'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -80,7 +79,6 @@ class CsdDinFamiliarController extends Controller
         $padrexxx=$padrexxx->csd;
         if ($request->ajax()) {
             $request->padrexxx = $padrexxx->id;
-            $request->datobasi = $padrexxx->id;
             $request->routexxx = ['csddfmad'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';

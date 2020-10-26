@@ -185,6 +185,7 @@ class CsdGeneracionAportanteController extends Controller
 
     public function show(CsdSisNnaj $padrexxx, CsdGeningAporta $modeloxx)
     {
+        $this->opciones['csdxxxxx']=$padrexxx;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'aportante'], 'padrexxx' => $padrexxx]);
     }
     /**
@@ -195,7 +196,7 @@ class CsdGeneracionAportanteController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdGeningAporta $modeloxx)
     {
-     
+
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
             [

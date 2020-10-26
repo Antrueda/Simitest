@@ -23,5 +23,9 @@ Route::group(['prefix' => '{padrexxx}/conclusiones'], function () use ($routexxx
 	Route::get('ver/{modeloxx}', [
 		'uses' => $controll.'Controller@show',
 		'middleware' => ['permission:'.$routexxx.'-leer']
-	])->name($routexxx.'.ver');
+    ])->name($routexxx.'.ver');
+    Route::get('responsa', [
+		'uses' => $controll.'Controller@getResponsable',
+		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar']
+    ])->name($routexxx.'.responsa');
 });
