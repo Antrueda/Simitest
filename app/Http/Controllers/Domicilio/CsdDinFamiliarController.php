@@ -64,8 +64,10 @@ class CsdDinFamiliarController extends Controller
     }
     public function getListadop(Request $request, CsdSisNnaj $padrexxx)
     {
-        $padrexxx=$padrexxx->csd;
+
         if ($request->ajax()) {
+            $request->datobasi = $padrexxx->id;
+            $padrexxx=$padrexxx->csd;
             $request->padrexxx = $padrexxx->id;
             $request->routexxx = ['csddfpad'];
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -76,8 +78,11 @@ class CsdDinFamiliarController extends Controller
     }
     public function getListadom(Request $request, CsdSisNnaj $padrexxx)
     {
-        $padrexxx=$padrexxx->csd;
+
+
         if ($request->ajax()) {
+            $request->datobasi = $padrexxx->id;
+            $padrexxx=$padrexxx->csd;
             $request->padrexxx = $padrexxx->id;
             $request->routexxx = ['csddfmad'];
             $request->botonesx = $this->opciones['rutacarp'] .

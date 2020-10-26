@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Csd\CsdDinfamMadreCrearRequest;
+use App\Http\Requests\Csd\CsdDinfamMadreEditarRequest;
 use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaUpdateRequest;
 use App\Models\consulta\CsdDinfamMadre;
 use App\Models\consulta\pivotes\CsdSisNnaj;
@@ -152,7 +154,7 @@ class CsdDinfamMadreController extends Controller
      */
 
 
-    public function store(Request $request, CsdSisNnaj $padrexxx)
+    public function store(CsdDinfamMadreCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
         $dataxxxx['csd_id'] = $padrexxx->id;
@@ -189,7 +191,7 @@ class CsdDinfamMadreController extends Controller
      * @param  \App\Models\FiSustanciaConsumida $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiSustanciaConsumidaUpdateRequest $request,  CsdSisNnaj $padrexxx, CsdDinfamMadre $modeloxx)
+    public function update(CsdDinfamMadreEditarRequest $request,  CsdSisNnaj $padrexxx, CsdDinfamMadre $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Relacion progenitora actualizada con exito', $padrexxx);
     }

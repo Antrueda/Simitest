@@ -8,7 +8,7 @@
                 type : dataxxxx.type,
                 dataType : dataxxxx.datatype,
                 success : function(json) {
-                    $('#aniosxxx').text(json[0].edadxxxx)
+                    $('#aniosxxx').val(json[0].edadxxxx)
                 },
                 error : function(xhr, status) {
                     alert('Disculpe, existió un problema');

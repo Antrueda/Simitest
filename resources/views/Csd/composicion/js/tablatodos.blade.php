@@ -54,7 +54,7 @@ $(document).ready(function() {
             }
         }
 
- 
+
         @if(old('prm_etnia_id') !== null)
         datamuni('prm_etnia_id', "{{old('prm_etnia_id')}}", "{{old('prm_poblacion_etnia_id')}}");
         @endif
@@ -94,7 +94,13 @@ $(document).ready(function() {
                 type : dataxxxx.type,
                 dataType : dataxxxx.datatype,
                 success : function(json) {
-                    $('#aniosxxx').text(json[0].edadxxxx)
+                    $.each(json, function(i, data) {
+                            var selected = '';
+                            if (eval(data.valuexxx) == eval(pselecte)) {
+                                selected = 'selected'
+                            }
+                            $('#' + dataxxxx.campoxxx).append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
                 },
                 error : function(xhr, status) {
                     alert('Disculpe, existió un problema');

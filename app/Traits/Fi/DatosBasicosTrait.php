@@ -3,6 +3,7 @@
 namespace App\Traits\Fi;
 
 use App\Models\consulta\CsdComFamiliar;
+use App\Models\consulta\CsdComFamiliarObservaciones;
 use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiCompfami;
@@ -95,6 +96,9 @@ trait DatosBasicosTrait
         return $objetoxx;
     }
 
+
+
+
     /**
      * registrar composicon familiar en CSD
      *
@@ -105,19 +109,39 @@ trait DatosBasicosTrait
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx = $this->getAMayuculas($dataxxxx);
-            $dt = new DateTime($dataxxxx['d_nacimiento']);
-            $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            $dt = new DateTime($dataxxxx['requestx']->d_nacimiento);
+            $dataxxxx['requestx']->request->add(['d_nacimiento' => $dt->format('Y-m-d')]);
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['objetoxx'] != '') {
-                $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,$dataxxxx['objetoxx']);
-                $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
-                $dataxxxx['objetoxx']->update($dataxxxx);
+                $dataxxxx['objetoxx']->update($dataxxxx['requestx']->all());
             } else {
-                $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,'');
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
-                $dataxxxx['objetoxx'] = CsdComFamiliar::create($dataxxxx);
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['objetoxx'] = CsdComFamiliar::create($dataxxxx['requestx']->all());
             }
+            $dataxxxx['requestx']->request->add(['s_documento' => 9999999999]);
+            $respuest = $this->getCedulaFi($dataxxxx);
+
+            if ($respuest['respuest']) {
+                $dataxxxx['objetoxx']='';
+                $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_escomfam_id' => 228]);
+                $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 4]);
+                $dataxxxx['requestx']->request->add(['sis_depen_id' => 28]);
+                $dataxxxx['requestx']->request->add(['sis_servicio_id' => 1]);
+                $dataxxxx['requestx']->request->add(['prm_tipoblaci_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_orientacion_sexual_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['sis_municipio_id' => 1]);
+                $dataxxxx['requestx']->request->add(['prm_doc_fisico_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_ayuda_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_situacion_militar_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_clase_libreta_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_gsanguino_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_factor_rh_id' => 1269]);
+                $respuesx=$this->setNnaj($dataxxxx);
+                $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'],'compfami'=>$respuesx['compfami']];
+            }
+
+            CsdComFamiliarObservaciones::getTransaccion($dataxxxx);
             return $dataxxxx['objetoxx'];
         }, 5);
         return $objetoxx;
@@ -263,7 +287,7 @@ trait DatosBasicosTrait
                     $objetoxx = $this->setCsd($dataxxxx);
                     break;
                 case '4': // composicion familiar csd
-                    $this->setComposionFamiliarFi($dataxxxx);
+                    $objetoxx =$this->setComposionFamiliarCsd($dataxxxx);
                     break;
             }
             return $objetoxx;

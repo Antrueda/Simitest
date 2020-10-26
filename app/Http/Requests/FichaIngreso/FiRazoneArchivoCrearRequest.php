@@ -20,7 +20,6 @@ class FiRazoneArchivoCrearRequest extends FormRequest
             'i_prm_documento_id' => ['Required'],
             's_doc_adjunto_ar' => [
                 'required',
-                'file',
                 'max:2024',
             ],
 
@@ -62,6 +61,6 @@ class FiRazoneArchivoCrearRequest extends FormRequest
             $extensio = 'jpeg';
         }
         $this->_mensaje['s_doc_adjunto_ar.mimes'] = 'El archivo debe tener extensión: ' . $extensio;
-        $this->_reglasx['s_doc_adjunto_ar'] = $mimexxxx;
+        $this->_reglasx['s_doc_adjunto_ar'][2] = $mimexxxx;
     }
 }

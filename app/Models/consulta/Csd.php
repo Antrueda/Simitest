@@ -106,7 +106,7 @@ class Csd extends Model
 
     public function CsdComFamiliarObservaciones()
     {
-        return $this->hasMany(CsdComFamiliarObservaciones::class, 'csd_id');
+        return $this->hasOne(CsdComFamiliarObservaciones::class, 'csd_id');
     }
 
     public function especiales()
