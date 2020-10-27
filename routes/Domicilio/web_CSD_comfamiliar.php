@@ -66,6 +66,27 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
         'uses' => $controll . 'Controller@getNADocumento',
         'middleware' => ['permission:' . $routexxx . '-leer']
 	])->name($routexxx . '.nadocume');
+
+	Route::get('observaciones', [
+		'uses' => $controll.'Controller@createObservaciones',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.observaciones.nuevo');
+
+	Route::post('observacionescrear', [
+		'uses' => $controll .'Controller@storeObservaciones',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+  ])->name($routexxx . '.observaciones.crear');
+
+  Route::put('editar/{modeloxx}', [
+    'uses' => $controll .'Controller@updateObservaciones',
+    'middleware' => ['permission:'.$routexxx.'-editar']
+  ])->name($routexxx . '.observaciones.editar');
+
+  Route::put('editar/{modeloxx}', [
+    'uses' => $controll .'Controller@updateObservaciones',
+	'middleware' => ['permission:'.$routexxx.'-editar']
+  ])->name($routexxx . '.observaciones.editar');
+
 	Route::post('puntajesisben', [
 		'uses' => 'AjaxxController@puntajesisben',
 	])->name('ajaxx.puntajesisben');

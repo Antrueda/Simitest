@@ -45,7 +45,7 @@
 <div class="row">
   <div class="col-md">
       {{ Form::label('hijo', '# Hijos(as)', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('hijo', 0, ['class' => $errors->first('hijo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Hijos', 'min' => '0', 'max' => '99']) }}
+      {{ Form::number('hijo', null, ['class' => $errors->first('hijo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Hijos', 'min' => '0', 'max' => '99']) }}
       @if($errors->has('hijo'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('hijo') }}

@@ -141,7 +141,7 @@ trait DatosBasicosTrait
                 $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'],'compfami'=>$respuesx['compfami']];
             }
 
-            CsdComFamiliarObservaciones::getTransaccion($dataxxxx);
+           // CsdComFamiliarObservaciones::getTransaccion($dataxxxx);
             return $dataxxxx['objetoxx'];
         }, 5);
         return $objetoxx;

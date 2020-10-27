@@ -76,15 +76,6 @@
     </div>
     @endif
   </div>
-    <div class="form-group col-md-4">
-    {{ Form::label('prm_identidad_genero_id', '7.11 ¿Cuál es su identidad de género?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_identidad_genero_id', $todoxxxx["generoxx"], null, ['class' => $errors->first('prm_identidad_genero_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_identidad_genero_id'))
-    <div class="invalid-feedback d-block">
-      {{ $errors->first('prm_identidad_genero_id') }}
-    </div>
-    @endif
-  </div>
   <div class="form-group col-md-4">
     {{ Form::label('prm_orientacion_sexual_id', '7.12 Cuál es su orientación sexual?', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('prm_orientacion_sexual_id',$todoxxxx["orexualx"], null, ['class' => $errors->first('prm_orientacion_sexual_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
@@ -203,7 +194,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_discapacidad_id', '7.22 ¿Tiene algún tipo de discapacidad?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_discapacidad_id', $todoxxxx["condicix"], null, ['class' => $errors->first('prm_discapacidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_discapacidad_id', $todoxxxx["condicix"], null, ['class' => $errors->first('prm_discapacidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','onchange' => 'doc(this.value)']) }}
     @if($errors->has('prm_discapacidad_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_discapacidad_id') }}
@@ -290,18 +281,6 @@
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_estudia_id') }}
     </div>
-    @endif
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    {{ Form::label('observaciones', '7.31 Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'observaciones de la visita social en domicilio', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-    <p id="contadorporqueingresar">0/4000</p>
-    @if($errors->has('observaciones'))
-      <div class="invalid-feedback d-block">
-        {{ $errors->first('observaciones') }}
-      </div>
     @endif
   </div>
 </div>

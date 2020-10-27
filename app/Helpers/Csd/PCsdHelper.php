@@ -133,12 +133,14 @@ class PCsdHelper
      */
     public static function getComposicion($dataxxxx)
     {
-        $respuest = ['rutaxxxx' =>route('csdcomfamiliar' , $dataxxxx['padrexxx']->id), 'classxxx' => 'fas fa-times text-danger'];
-        if (count($dataxxxx['padrexxx']->csd->CsdComFamiliar)>0) {
-            $respuest['classxxx'] = 'fas fa-check text-success';
+
+        $dataxxxx['modeloxx'] = '';
+        if (count($dataxxxx['padrexxx']->csd->CsdComFamiliar) >0) {
+            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
         }
-        return $respuest;
-    }
+        $dataxxxx['permisox'] = 'csdcomfamiliar';
+        return PCsdHelper::getRoute($dataxxxx);
+      }
 
     /**
      * ruta para la pestaña de motivos de vinculacion y bienvenida
