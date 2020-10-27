@@ -1,2 +1,2 @@
 
-<a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[0].'.lista', $queryxxx->id) }}">Seleccionar</a>
+<a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[0].'.indexfos', $queryxxx->id) }}">Seleccionar</a>
