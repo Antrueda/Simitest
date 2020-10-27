@@ -14,6 +14,7 @@ class CreateVsiEstEmocionalsTable extends Migration
     private $tablaxxx4 = 'vsi_estemo_estresante';
     private $tablaxxx5 = 'vsi_estemo_motivo';
     private $tablaxxx6 = 'vsi_estemo_lesiva';
+    private $tablaxxx7 = 'vsi_estemo_contexto';
 
     /**
      * Run the migrations.
@@ -138,6 +139,18 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDUCTAS AUTO LESIVAS EN LA PERSONA ENTREVISTADA, PREGUNTA 12.23 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
+
+        Schema::create($this->tablaxxx7, function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('parametro_id')->unsigned();
+            $table->bigInteger('vsi_estemocional_id')->unsigned();
+
+            $table->foreign('parametro_id')->references('id')->on('parametros');
+            $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
+            $table->unique(['parametro_id', 'vsi_estemocional_id']);
+            $table = CamposMagicos::magicos($table);
+        });
+        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDUCTAS AUTO LESIVAS EN LA PERSONA ENTREVISTADA, PREGUNTA 12.23 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
     }
 
     /**
@@ -147,6 +160,7 @@ class CreateVsiEstEmocionalsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists($this->tablaxxx7);
         Schema::dropIfExists($this->tablaxxx6);
         Schema::dropIfExists($this->tablaxxx5);
         Schema::dropIfExists($this->tablaxxx4);

@@ -14,6 +14,7 @@ class CreateHVsiEstEmocionalsTable extends Migration
     private $tablaxxx4 = 'h_vsi_estemo_estresante';
     private $tablaxxx5 = 'h_vsi_estemo_motivo';
     private $tablaxxx6 = 'h_vsi_estemo_lesiva';
+    private $tablaxxx7 = 'h_vsi_estemo_contexto';
 
     /**
      * Run the migrations.
@@ -104,6 +105,14 @@ class CreateHVsiEstEmocionalsTable extends Migration
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");
+
+        Schema::create($this->tablaxxx7, function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('parametro_id')->unsigned();
+            $table->bigInteger('vsi_estemocional_id')->unsigned();
+            $table = CamposMagicos::h_magicos($table);
+        });
+        DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");
     }
 
     /**

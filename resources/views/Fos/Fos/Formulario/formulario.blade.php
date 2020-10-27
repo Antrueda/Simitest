@@ -5,7 +5,7 @@
     </div>
     <div class="form-group col-md-6">
         {{ Form::label('d_fecha_diligencia', 'Fecha Diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('d_fecha_diligencia', null, ['class' => 'form-control form-control-sm',$todoxxxx["readonly"],'style'=>'border:1px']) }}
+        {{ Form::text('d_fecha_diligencia', null, ['class' => 'form-control form-control-sm','style'=>'border:1px']) }}
     </div>
 </div>
 <div class="form-row align-items-end">

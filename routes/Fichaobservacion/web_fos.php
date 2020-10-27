@@ -54,7 +54,11 @@ Route::group(['prefix' => 'nnajsfos'], function () use($controll,$routxxxx){
     Route::put('borrar/{modeloxx}', [
 		'uses' => $controll . 'Controller@destroy',
 		'middleware' => ['permission:' . $routxxxx . '-borrar']
-    ])->name($routxxxx . '.borrar');
+	])->name($routxxxx . '.borrar');
+	Route::get('obtenerTipoSeguimientos', [
+		'uses' => $controll.'Controller@obtenerTipoSeguimientos',
+		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
+	 ])->name($routxxxx.'.obtenerTipoSeguimientos');
 
 });
 

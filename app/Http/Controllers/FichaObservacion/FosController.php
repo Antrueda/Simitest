@@ -5,20 +5,23 @@ namespace App\Http\Controllers\FichaObservacion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
+use App\Http\Requests\FichaObservacion\FosDatosBasicoCrearRequest;
+use App\Http\Requests\FichaObservacion\FosDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
 
-use App\Models\Sistema\SisUpz;
+
 use App\Models\Tema;
 use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
+use App\Models\fichaobservacion\FosDatosBasico;
+use App\Models\fichaobservacion\FosStse;
+use App\Models\fichaobservacion\FosTse;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\Fos\FosTrait;
 
@@ -127,6 +130,7 @@ class FosController extends Controller
             return $this->getNnajs($request);
         }
     }
+  
     /**
      * vista de las fos que tiene el nnaj
      *
@@ -160,12 +164,12 @@ class FosController extends Controller
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'fi_datos_basicos.id'],
-                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
-                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                    ['data' => 'id', 'name' => 'fos_datos_basicos.id'],
+                    ['data' => 'areas', 'name' => 'fos_datos_basicos.area_id'],
+                    ['data' => 'seguimiento', 'name' => 'seguimiento.nombre as seguimiento'],
+                    ['data' => 'subseguimiento', 'name' => 'subseguimiento.nombre as subseguimiento'],
+                    ['data' => 'upi', 'name' => 'upi.nombre as upi'],
+                    ['data' => 'd_fecha_diligencia', 'name' => 'fos_datos_basicos.d_fecha_diligencia'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -187,25 +191,17 @@ class FosController extends Controller
      * @param Request $request
      * @return void
      */
-    public function getListaFos(Request $request)
+    public function getListaFos(Request $request, SisNnaj $padrexxx)
     {
         if ($request->ajax()) {
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesfos';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            return $this->getNnajs($request);
+            return $this->getFosDiligenciado($request);
         }
     }
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx)
-    {
-        $dataxxxx['sis_docfuen_id'] = 2;
-        $dataxxxx['sis_esta_id'] = 1;
-        $usuariox = $this->bitacora->grabar($dataxxxx, $objetoxx);
-        return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$usuariox->id])
-            ->with('info', $infoxxxx);
-    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -221,17 +217,32 @@ class FosController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
-        ];
+            ];
 
-        $this->opciones['parametr']=[$dataxxxx['padrexxx']->id];
-        $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
-        $this->opciones['dependen'] = User::getDependenciasUser(['cabecera' => true, 'esajaxxx' => false]);
-        $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
+        
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
+        $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['seguixxx'] = ['' => 'Seleccione'];
+        $this->opciones['tipsegui'] = ['' => 'Seleccione'];
+        $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id',$dataxxxx['padrexxx']->id)->first();
+        $this->opciones['mindatex'] = "-28y +0m +0d";
+        $this->opciones['maxdatex'] = "-6y +0m +0d";
+        $this->opciones['usuarios'] = User::comboCargo(true, false);
         $this->opciones['compfami'] = FiCompfami::combo($this->opciones['datobasi'], true, false);
+        $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['seguixxx'] = FosTse::combo($dataxxxx['modeloxx']->area_id, true, false);
+            $this->opciones['tipsegui'] = FosStse::combo([
+                'ajaxxxxx' => false,
+                'cabecera' => true,
+                'seguimie' => $dataxxxx['modeloxx']->fos_tse_id
+            ]);;
 
 
         }
@@ -249,9 +260,21 @@ class FosController extends Controller
 
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$padrexxx]);
     }
-    public function store(FiDatosBasicoCrearRequest $request)
+
+    public function store(FosDatosBasicoCrearRequest $request,SisNnaj $padrexxx)
     {
-        return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
+        $dataxxxx = $request->all();
+       return $this->grabar($dataxxxx, '', 'Justicia restaurativa creada con exito', $padrexxx);
+    }
+
+    private function grabar($dataxxxx, $objetoxx, $infoxxxx,$padrexxx)
+    {
+        $dataxxxx['sis_docfuen_id'] = 2;
+        $dataxxxx['sis_nnaj_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, FosDatosBasico::transaccion($dataxxxx,  $objetoxx)->id])
+         ->with('info', $infoxxxx);
     }
 
     /**
@@ -260,7 +283,7 @@ class FosController extends Controller
      * @param  \App\Models\FiDatosBasico $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(FiDatosBasico $objetoxx)
+    public function show(SisNnaj $objetoxx)
     {
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
     }
@@ -271,7 +294,7 @@ class FosController extends Controller
      * @param  \App\Models\FiDatosBasico $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(FiDatosBasico $objetoxx)
+    public function edit(SisNnaj $padrexxx, FosDatosBasico $modeloxx)
     {
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -280,7 +303,7 @@ class FosController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $objetoxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -290,13 +313,13 @@ class FosController extends Controller
      * @param  \App\Models\FiDatosBasico $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FiDatosBasicoUpdateRequest $request,  FiDatosBasico $objetoxx)
+    public function update(FosDatosBasicoUpdateRequest $request,  SisNnaj $padrexxx,FosDatosBasico $modeloxx)
     {
 
-        return $this->grabar($request->all(), $objetoxx, 'Datos básicos actualizados con exito');
+        return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con exito', $padrexxx);
     }
 
-    public function inactivate(FiDatosBasico $objetoxx)
+    public function inactivate(SisNnaj $objetoxx)
     {
         $this->opciones['parametr'] = [$objetoxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -310,7 +333,7 @@ class FosController extends Controller
     }
 
 
-    public function destroy(Request $request, FiDatosBasico $objetoxx)
+    public function destroy(request $request, SisNnaj $objetoxx)
     {
 
         $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -359,6 +382,37 @@ class FosController extends Controller
             if (is_numeric($request->padrexxx) && $request->padrexxx >= 6) {
                 $fechaxxx = explode('-', date('Y-m-d'));
                 $respuest = ['fechaxxx' => ($fechaxxx[0] - $request->padrexxx) . '-' . $fechaxxx[1] . '-' . $fechaxxx[2], 'edadxxxx' => $request->padrexxx];
+            }
+            return response()->json($respuest);
+        }
+    }
+
+    public function obtenerTipoSeguimientos(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            switch ($request->tipoxxxx) {
+                case 1:
+                    $respuest = [
+                        'comboxxx' => FosTse::combo(
+                            $request->all()['valuexxx'],
+                            true,
+                            true
+                        ),
+                        'campoxxx' => '#fos_tse_id'
+                    ];
+                    break;
+                case 2:
+                    $respuest = [
+                        'comboxxx' => FosStse::combo([
+                            'ajaxxxxx' => true,
+                            'cabecera' => true,
+                            'areaxxxx' => $request->all()['valuexx1'],
+                            'seguimie' => $request->all()['valuexxx']
+                        ]),
+                        'campoxxx' => '#fos_stse_id'
+                    ];
+                    break;
             }
             return response()->json($respuest);
         }
