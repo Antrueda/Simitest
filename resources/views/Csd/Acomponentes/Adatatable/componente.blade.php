@@ -29,13 +29,4 @@
         @endcanany
         
     </div>
-    <div class="form-row align-items-end">
-        <div class="form-group col-md-12">
-            {{ Form::label('observaciones', '7.31 Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'observaciones de la visita social en domicilio', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}       
-            </div>
-            <a class="btn btn-sm btn-primary ml-2" title="{{$todoxxxx['observar']}}" href="{{ route($todoxxxx['routxxxx'].'.observaciones.nuevo',$todoxxxx['parametr']) }}">
-                {{ $todoxxxx['observar'] }}
-            </a>
-    </div>
-</div>
+  </div>

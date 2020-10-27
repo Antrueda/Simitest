@@ -32,13 +32,13 @@ class CsdComFamiliarObservaciones extends Model{
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if (isset($dataxxxx['objetoxx']->observaciones->id)) {
-                $dataxxxx['objetoxx']->observaciones->update($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx']->observaciones->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
 
                 $dataxxxx['modeloxx'] = CsdComFamiliarObservaciones::create($dataxxxx['requestx']->all());
             }
-            return $dataxxxx;
+            return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
     }

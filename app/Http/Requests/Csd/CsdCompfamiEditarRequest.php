@@ -63,7 +63,7 @@ class CsdCompfamiEditarRequest extends FormRequest
             'prm_vin_pasado_id' => 'required|exists:parametros,id',
             'prm_regimen_id'    => 'required|exists:parametros,id',
             'prm_cualeps_id'    => 'required_if:prm_regimen_id,227',
-            'sisben'            => 'required|integer|min:0|max:99',
+            'sisben'            => 'required|between:0,99.99',
             'prm_sisben_id'     => 'required|exists:parametros,id',
             'prm_discapacidad_id' => 'required|exists:parametros,id',
             'prm_cual_id'       => 'required_if:prm_discapacidad_id,227',

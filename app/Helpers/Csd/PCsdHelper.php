@@ -138,7 +138,7 @@ class PCsdHelper
         if (count($dataxxxx['padrexxx']->csd->CsdComFamiliar) >0) {
             $dataxxxx['modeloxx'] = $dataxxxx['padrexxx'];
         }
-        $dataxxxx['permisox'] = 'csdcomfamiliar';
+        $dataxxxx['permisox'] = 'csdcomfamirobserva';
         return PCsdHelper::getRoute($dataxxxx);
       }
 

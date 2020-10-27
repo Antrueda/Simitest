@@ -61,6 +61,7 @@ Role::create(['name' => 'TRABAJADOR(A) SOCIAL', 'user_crea_id' => 1, 'user_edita
                 'csdresservi-leer', 'csdresservi-crear', 'csdresservi-editar', 'csdresservi-borrar',
                 'csdreshogar-leer', 'csdreshogar-crear', 'csdreshogar-editar', 'csdreshogar-borrar',
                 'csdrescomparte-leer', 'csdrescomparte-crear', 'csdrescomparte-editar', 'csdrescomparte-borrar',
+                'csdcomfamirobserva-leer', 'csdcomfamirobserva-crear', 'csdcomfamirobserva-editar', 'csdcomfamirobserva-borrar',
                 // ficha de ingreso
                 'ficonvio-leer', 'ficonvio-crear', 'ficonvio-editar', 'ficonvio-borrar',
                 'fivestuario-leer', 'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar',

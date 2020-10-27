@@ -36,7 +36,7 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('medicamento', '11.1.4 ¿Cuál medicamento?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::text('medicamento', null, ['class' => $errors->first('medicamento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Cuál medicamento', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+		{{ Form::text('medicamento', null, ['class' => $errors->first('medicamento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Cuál medicamento', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
 		@if($errors->has('medicamento'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('medicamento') }}

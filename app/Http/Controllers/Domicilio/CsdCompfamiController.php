@@ -69,12 +69,13 @@ class CsdCompfamiController extends Controller
         $this->opciones['nsnoresp'] = Tema::combo(26, true, false);
         $this->opciones['educacio'] = Tema::combo(153, true, false);
         $this->opciones['entid_id'] = ['' => 'Seleccione'];
+        $this->opciones['observac'] = 'csdcomfamirobserva.nuevo';
 
         $this->opciones['nacicomp'] = '';
 
         $this->opciones['botoform'] = [
             [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['observac'], []],
                 'formhref' => 2, 'tituloxx' => "VOLVER A COMPOSICI{$this->opciones['vocalesx'][3]}N FAMILIAR", 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
@@ -190,13 +191,7 @@ class CsdCompfamiController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->csd->CsdComFamiliarObservaciones);
 
-            if($dataxxxx['modeloxx']->csd->CsdComFamiliarObservaciones){
-                $dataxxxx['modeloxx']->observaciones=$dataxxxx['modeloxx']->csd->CsdComFamiliarObservaciones->observaciones;
-            }
-
-            if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
-                $this->opciones['grupindi'] = Parametro::find(1269)->Combo;
-            }
+ 
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);

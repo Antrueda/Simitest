@@ -1,20 +1,11 @@
 <?php
-$routexxx='csdcomfamiliar';
-$controll='Domicilio\CsdCompfami';
-Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routexxx,$controll){
+$routexxx='csdcomfamirobserva';
+$controll='Domicilio\CsdCompfamiObservacion';
+Route::group(['prefix' => '{padrexxx}/composicion'], function () use($routexxx,$controll){
 	Route::get('', [
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
     ])->name($routexxx);
-    Route::get('listaxxx', [
-		'uses' => $controll.'Controller@getListado',
-		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
-	])->name($routexxx.'.listaxxx');
-
-    Route::get('listodox', [
-		'uses' => $controll.'Controller@getListodo',
-		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
-	])->name($routexxx.'.listodox');
 	Route::get('nuevo', [
 		'uses' => $controll.'Controller@create',
 		'middleware' => ['permission:'.$routexxx.'-crear']
@@ -67,8 +58,4 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
         'middleware' => ['permission:' . $routexxx . '-leer']
 	])->name($routexxx . '.nadocume');
 
-	Route::post('puntajesisben', [
-		'uses' => 'AjaxxController@puntajesisben',
-	])->name('ajaxx.puntajesisben');
 });
-

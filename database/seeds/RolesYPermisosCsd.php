@@ -28,6 +28,9 @@ $this->getPermisos(['permisox' => 'nnajvisi', 'permisos' => ['leer', 'crear', 'e
         //Crear areas para CSD Composición Familiar
         $this->getPermisos(['permisox' => 'csdcomfamiliar', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Composición Familiar CSD', 'pestania' => 1]);
 
+        //Crear areas para CSD Composición Familiar
+        $this->getPermisos(['permisox' => 'csdcomfamirobserva', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Observacion Composición Familiar CSD', 'pestania' => 1]);
+
         //Crear areas para CSD conclusiones
         $this->getPermisos(['permisox' => 'csdconclusiones', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Conclusiones CSD', 'pestania' => 1]);
 

@@ -73,10 +73,10 @@
             @endcanany
 
 
-            @canany(['csdcomfamiliar-leer', 'csdcomfamiliar-crear', 'csdcomfamiliar-editar'])
+            @canany(['csdcomfamirobserva-leer', 'csdcomfamirobserva-crear', 'csdcomfamirobserva-editar'])
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 7]); ?>
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdcomfamiliar') ?' active' : '' }}
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdcomfamirobserva') ?' active' : '' }}
             text-sm" href="{{ $respuest['rutaxxxx'] }}">7. Composición Familiar
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                </a></li>
