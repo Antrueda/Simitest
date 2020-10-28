@@ -9,7 +9,6 @@ class HVsiEstEmocional extends Model
     protected $fillable = [
         'vsi_id',
         'prm_siente_id',
-        'prm_contexto_id',
         'descripcion_siente',
         'prm_reacciona_id',
         'descripcion_reacciona',

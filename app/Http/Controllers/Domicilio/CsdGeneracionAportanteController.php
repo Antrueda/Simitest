@@ -76,7 +76,7 @@ class CsdGeneracionAportanteController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablafooter']
         ];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
@@ -101,11 +101,12 @@ class CsdGeneracionAportanteController extends Controller
             [
                 'titunuev' => 'AGREGAR APORTANTE',
                 'titulist' => 'LISTA DE APORTANTES',
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.aporte',
-                'vercrear' => false,
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.indexfooter',
+                'vercrear' => true,
                 'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->csd_id]),
                 'cabecera' => [
                     [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => '10.1 ¿Quién Aporta?', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => '10.2 Total Ingresos Mensuales', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
@@ -121,7 +122,16 @@ class CsdGeneracionAportanteController extends Controller
                         ['td' => 'Periodo', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ],
                 ],
+                'footerxx' => [
+                    [
+                        ['td' => 'TOTA INGRESOS MENSUALES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 3],
+                        ['td' => '', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => '', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => '', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 6],
+                    ],
+                ],
                 'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'csd_gening_aportas.id'],
                     ['data' => 'aporta', 'name' => 'parametros.nombre as aporta'],
                     ['data' => 'mensual', 'name' => 'csd_gening_aportas.mensual'],
@@ -139,6 +149,7 @@ class CsdGeneracionAportanteController extends Controller
                 'parametr' => [$dataxxxx['padrexxx']->id],
             ],
         ];
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

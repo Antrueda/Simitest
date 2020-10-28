@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class VsiEstEmocional extends Model{
-	protected $fillable = ['vsi_id', 'prm_siente_id', 'prm_contexto_id', 'descripcion_siente', 'prm_reacciona_id', 'descripcion_reacciona', 'descripcion_adecuado', 'descripcion_dificulta', 'prm_estresante_id', 'descripcion_estresante', 'prm_morir_id', 'dia_morir', 'mes_morir', 'ano_morir', 'prm_pensamiento_id', 'prm_amenaza_id', 'prm_intento_id', 'ideacion', 'amenaza', 'intento', 'prm_riesgo_id', 'dia_ultimo', 'mes_ultimo', 'ano_ultimo', 'descripcion_motivo', 'prm_lesiva_id', 'descripcion_lesiva', 'prm_sueno_id', 'dia_sueno', 'mes_sueno', 'ano_sueno', 'descripcion_sueno', 'prm_alimenticio_id', 'dia_alimenticio', 'mes_alimenticio', 'ano_alimenticio', 'descripcion_alimenticio', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
+	protected $fillable = ['vsi_id', 'prm_siente_id', 'descripcion_siente', 'prm_reacciona_id', 'descripcion_reacciona', 'descripcion_adecuado', 'descripcion_dificulta', 'prm_estresante_id', 'descripcion_estresante', 'prm_morir_id', 'dia_morir', 'mes_morir', 'ano_morir', 'prm_pensamiento_id', 'prm_amenaza_id', 'prm_intento_id', 'ideacion', 'amenaza', 'intento', 'prm_riesgo_id', 'dia_ultimo', 'mes_ultimo', 'ano_ultimo', 'descripcion_motivo', 'prm_lesiva_id', 'descripcion_lesiva', 'prm_sueno_id', 'dia_sueno', 'mes_sueno', 'ano_sueno', 'descripcion_sueno', 'prm_alimenticio_id', 'dia_alimenticio', 'mes_alimenticio', 'ano_alimenticio', 'descripcion_alimenticio', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
 
 	protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
@@ -20,10 +20,6 @@ class VsiEstEmocional extends Model{
 
     public function siente(){
         return $this->belongsTo(Parametro::class, 'prm_siente_id');
-    }
-
-    public function contexto(){
-        return $this->belongsTo(Parametro::class, 'prm_contexto_id');
     }
 
     public function reacciona(){
@@ -86,6 +82,10 @@ class VsiEstEmocional extends Model{
         return $this->belongsToMany(Parametro::class,'vsi_estemo_lesiva', 'vsi_estemocional_id', 'parametro_id');
     }
 
+    public function contexto(){
+        return $this->belongsToMany(Parametro::class,'vsi_estemo_contexto', 'vsi_estemocional_id', 'parametro_id');
+    }
+
     public function creador(){
         return $this->belongsTo(User::class, 'user_crea_id');
     }
@@ -146,6 +146,13 @@ class VsiEstEmocional extends Model{
             if($dataxxxx['requestx']->adecuados){
                 foreach ($dataxxxx['requestx']->adecuados as $d) {
                     $dataxxxx['modeloxx']->adecuados()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
+            }
+
+           $dataxxxx['modeloxx']->contexto()->detach();
+            if($dataxxxx['requestx']->contexto){
+                foreach ($dataxxxx['requestx']->contexto as $d) {
+                    $dataxxxx['modeloxx']->contexto()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
                 }
             }
             $dataxxxx['modeloxx']->dificultades()->detach();

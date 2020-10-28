@@ -17,7 +17,6 @@ class VsiEstEmocionalEditarRequest extends FormRequest
         ];
         $this->_reglasx = [
             'prm_siente_id' => 'required|exists:parametros,id',
-            'prm_contexto_id' => 'required|exists:parametros,id',
             'descripcion_siente' => 'required|string|max:4000',
             'prm_reacciona_id' => 'nullable|exists:parametros,id',
             'descripcion_reacciona' => 'required|string|max:4000',
@@ -57,6 +56,7 @@ class VsiEstEmocionalEditarRequest extends FormRequest
             'estresantes' => 'required_if:prm_estresante_id,227|array',
             'motivos' => 'required_if:prm_morir_id,227|array',
             'lesivas' => 'required_if:prm_lesiva_id,227|array',
+            'contexto' => 'required|array',
         ];
     }
     /**

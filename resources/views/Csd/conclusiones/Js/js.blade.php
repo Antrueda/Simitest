@@ -61,7 +61,7 @@
             var nombre_fichero_seleccionado = fichero_seleccionado.replace(/.*[\/\\]/, ''); //Eliminamos el path hasta el fichero seleccionado
             $("#docontacto").text(nombre_fichero_seleccionado);
         });
-        $("#user_doc1_id,#user_doc2_id").change(function() {
+        $("#user_doc1_id").change(function() {
             $.ajax({
                 url: "{{ route('csdconclusiones.responsa',$todoxxxx['csdxxxxx']->id)}}",
                 type: 'GET',

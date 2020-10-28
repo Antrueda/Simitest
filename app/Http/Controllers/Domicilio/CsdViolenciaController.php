@@ -24,7 +24,7 @@ class CsdViolenciaController extends Controller
         $this->opciones['carpetax'] = 'Violencia';
         $this->opciones['slotxxxx'] = 'csdviolencia';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "VIOLENCIA";
+        $this->opciones['tituloxx'] = "VIOLENCIAS Y CONDICIÓN ESPECIAL";
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';

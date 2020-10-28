@@ -14,6 +14,9 @@ $(document).ready(function() {
         dropdownParent: $('#motivos_div'),
         language: "es"
     });
+    $('#contexto').select2({
+        language: "es"
+    });
     $('#lesivas').select2({
         dropdownParent: $('#lesivas_div'),
         language: "es"

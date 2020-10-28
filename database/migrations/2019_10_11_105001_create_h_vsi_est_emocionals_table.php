@@ -27,7 +27,6 @@ class CreateHVsiEstEmocionalsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('prm_siente_id')->unsigned();
-            $table->bigInteger('prm_contexto_id')->unsigned();
             $table->binary('descripcion_siente');
             $table->bigInteger('prm_reacciona_id')->unsigned()->nullable();
             $table->binary('descripcion_reacciona');

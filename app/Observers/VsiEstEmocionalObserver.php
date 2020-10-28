@@ -15,7 +15,6 @@ class VsiEstEmocionalObserver
         // campos nuevos traidos desde $fillable -> modelo 
         $log['vsi_id'] = $modeloxx->vsi_id;
         $log['prm_siente_id'] = $modeloxx->prm_siente_id;
-        $log['prm_contexto_id'] = $modeloxx->prm_contexto_id;
         $log['descripcion_siente'] = $modeloxx->descripcion_siente;
         $log['prm_reacciona_id'] = $modeloxx->prm_reacciona_id;
         $log['descripcion_reacciona'] = $modeloxx->descripcion_reacciona;

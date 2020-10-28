@@ -21,6 +21,7 @@ class FosDatosBasicoObserver
         $log['fos_stse_id'] = $modeloxx->fos_stse_id;
         $log['s_observacion'] = $modeloxx->s_observacion;
         $log['fi_compfami_id'] = $modeloxx->fi_compfami_id;
+        $log['i_responsable'] = $modeloxx->i_responsable;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

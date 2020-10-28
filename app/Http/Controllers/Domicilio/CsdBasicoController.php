@@ -49,7 +49,7 @@ class CsdBasicoController extends Controller
 
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
-        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['tituloxx'] = "DATOS BÁSICOS (De quién brinda la información – Debe ser mayor de edad)";
     }
     private function grabar($dataxxxx)
     {

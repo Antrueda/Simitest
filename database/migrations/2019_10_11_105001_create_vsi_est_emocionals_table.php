@@ -27,7 +27,6 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('prm_siente_id')->unsigned();
-            $table->bigInteger('prm_contexto_id')->unsigned();
             $table->binary('descripcion_siente');
             $table->bigInteger('prm_reacciona_id')->unsigned()->nullable();
             $table->binary('descripcion_reacciona');
@@ -66,7 +65,6 @@ class CreateVsiEstEmocionalsTable extends Migration
 
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_siente_id')->references('id')->on('parametros');
-            $table->foreign('prm_contexto_id')->references('id')->on('parametros');
             $table->foreign('prm_reacciona_id')->references('id')->on('parametros');
             $table->foreign('prm_estresante_id')->references('id')->on('parametros');
             $table->foreign('prm_morir_id')->references('id')->on('parametros');
@@ -150,7 +148,7 @@ class CreateVsiEstEmocionalsTable extends Migration
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDUCTAS AUTO LESIVAS EN LA PERSONA ENTREVISTADA, PREGUNTA 12.23 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONTEXTO EN LA PERSONA ENTREVISTADA, PREGUNTA 12.23 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
     }
 
     /**

@@ -21,7 +21,8 @@ class FosDatosBasico extends Model{
         'fi_compfami_id',
         'user_crea_id',
         'user_edita_id',
-        'sis_esta_id'
+        'sis_esta_id',
+        'i_responsable'
     ];
 
     public function creador(){
@@ -32,7 +33,9 @@ class FosDatosBasico extends Model{
         return $this->belongsTo(User::class, 'user_edita_id');
     }
 
-
+    public function responsable(){
+        return $this->belongsTo(User::class, 'i_responsable');
+    }
 
     public function SisNnaj(){
         return $this->belongsTo(SisNnaj::class, 'sis_nnaj_id');

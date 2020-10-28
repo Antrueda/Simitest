@@ -18,6 +18,7 @@ class HFosDatosBasico extends Model
         'sis_esta_id',
         'user_crea_id',
         'user_edita_id',
+        'i_responsable',
 
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];

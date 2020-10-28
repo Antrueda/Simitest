@@ -24,6 +24,7 @@ class CreateHFosDatosBasicosTable extends Migration
             $table->bigInteger('area_id')->unsigned();
             $table->bigInteger('fos_tse_id')->unsigned();
             $table->bigInteger('fos_stse_id')->unsigned();
+            $table->bigInteger('i_responsable')->unsigned();
             $table->text('s_observacion');
             $table->bigInteger('fi_compfami_id')->unsigned()->nullable();
             $table = CamposMagicos::h_magicos($table);

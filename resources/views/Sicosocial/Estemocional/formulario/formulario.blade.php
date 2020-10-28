@@ -13,11 +13,11 @@
 				@endif
 			</div>
 			<div class="col-md">
-				{{ Form::label('prm_contexto_id', '12.2 ¿En qué contextos predominan éstos estado de ánimo?', ['class' => 'control-label col-form-label-sm']) }}
-				{{ Form::select('prm_contexto_id', $todoxxxx['contexto'], null, ['class' => $errors->first('prm_contexto_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-				@if($errors->has('prm_contexto_id'))
+				{{ Form::label('contexto', '12.2 ¿En qué contextos predominan éstos estado de ánimo?', ['class' => 'control-label col-form-label-sm']) }}
+				{{ Form::select('contexto[]', $todoxxxx['contexto'], null, ['class' => $errors->first('contexto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...','id' => 'contexto', 'multiple']) }}
+				@if($errors->has('contexto'))
 					<div class="invalid-feedback d-block">
-						{{ $errors->first('prm_contexto_id') }}
+						{{ $errors->first('contexto') }}
 					</div>
 				@endif
 			</div>

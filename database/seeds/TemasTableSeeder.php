@@ -1207,6 +1207,7 @@ class TemasTableSeeder extends Seeder
             634 => $camposmagicos,
             635 => $camposmagicos,
             2177 => $camposmagicos,
+            2217 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 116, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'OTRAS ACTIVIDADES']);
         $tema->parametros()->sync([

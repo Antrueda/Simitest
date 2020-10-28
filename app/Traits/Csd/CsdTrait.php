@@ -213,10 +213,7 @@ trait CsdTrait
         )
             ->join('sis_estas', 'csd_redsoc_pasados.sis_esta_id', '=', 'sis_estas.id')
             ->join('parametros as tiempo', 'csd_redsoc_pasados.prm_unidad_id', '=', 'tiempo.id')
-            ->where(
-                'csd_redsoc_pasados.csd_id',
-                $request->padrexxx
-            );
+            ->where('csd_redsoc_pasados.csd_id',$request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
     public function getActualesTrait($request)

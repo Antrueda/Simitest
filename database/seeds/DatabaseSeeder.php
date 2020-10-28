@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\sicosocial\Pivotes\VsiEstemoContexto;
 use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Seeder;
 
@@ -109,6 +110,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiRelFamiliarSeeder::class);  //57 ok
         $this->call(VsiRelfamAccionesSeeder::class);  //55 estan mal los id de vsi_relfamiliar_id
         $this->call(VsiEstEmocionalSeeder::class);
+        
         $this->call(VsiRelfamDificultadSeeder::class);
         $this->call(VsiActEmocionalSeeder::class);
         $this->call(VsiActemoFisiologicaSeeder::class);
@@ -151,6 +153,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiEstemoEstresanteSeeder::class);  //33 falta
         $this->call(VsiEstemoLesivaSeeder::class);  //34 falta
         $this->call(VsiEstemoMotivoSeeder::class);  //35 falta
+        $this->call(VsiEstemoContextoSeeder::class);
         $this->call(VsiFacProtectorSeeder::class);  //36 falta
         $this->call(VsiFacRiesgoSeeder::class);  //37 falta
         $this->call(VsiMetaSeeder::class);  //41 falta

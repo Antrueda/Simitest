@@ -17,7 +17,7 @@ class VsiEstEmocionalCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'prm_siente_id' => 'required|exists:parametros,id',
-            'prm_contexto_id' => 'required|exists:parametros,id',
+            'contexto' => 'required|array',
             'descripcion_siente' => 'required|string|max:4000',
             'prm_reacciona_id' => 'nullable|exists:parametros,id',
             'descripcion_reacciona' => 'required|string|max:4000',

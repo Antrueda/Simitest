@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Csd;
 
+use App\Models\consulta\pivotes\CsdResservi;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -48,6 +49,16 @@ class CsdResservicioEditRequest extends FormRequest
 
         public function validar()
         {
+            $registro = CsdResservi::select('csd_resservis.id')
+            ->join('csd_residencias', 'csd_resservis.csd_residencia_id', '=', 'csd_residencias.id')
+            ->where('csd_residencias.id', $this->segments()[0])
+            ->where('csd_resservis.prm_servicio_id', $this->prm_servicio_id)
+            ->first();
+
+        if (isset($registro->id)) {
+            $this->_mensaje['existexx.required'] = 'el servicio ya existe';
+            $this->_reglasx['existexx'] = ['Required',];
+        }
 
         }
 }

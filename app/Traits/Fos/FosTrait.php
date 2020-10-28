@@ -68,6 +68,8 @@ trait FosTrait
             'upi.nombre as upi',
             'fos_datos_basicos.d_fecha_diligencia',
             'fos_datos_basicos.sis_esta_id',
+            'fos_datos_basicos.sis_nnaj_id',
+            'a'
             )
             ->join('sis_estas', 'fos_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->join('sis_depens as upi', 'fos_datos_basicos.sis_depen_id', '=', 'upi.id')
@@ -75,7 +77,6 @@ trait FosTrait
             ->join('parametros as seguimiento', 'fos_datos_basicos.fos_tse_id', '=', 'seguimiento.id')
             ->join('parametros as subseguimiento', 'fos_datos_basicos.fos_stse_id', '=', 'subseguimiento.id')
             ->join('fos_stses', 'fos_datos_basicos.fos_stse_id', '=', 'fos_stses.id')
-            ->where('fos_datos_basicos.sis_esta_id', 1)
             ->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx);
          return $this->getDtAcciones($dataxxxx, $request);
     }
@@ -105,6 +106,29 @@ trait FosTrait
         }
 
           
+    }
+
+    public function getTodoComFami(request $request)
+    {
+        $dataxxxx = FosDatosBasico::select(
+            'fos_datos_basicos.id',
+            'area.nombre as area',
+            'seguimiento.nombre as seguimiento',
+            'subseguimiento.nombre as seguimiento',
+            'upi.nombre as upi',
+            'fos_datos_basicos.d_fecha_diligencia',
+            'fos_datos_basicos.sis_esta_id',
+            'fos_datos_basicos.sis_nnaj_id',
+            'a'
+            )
+            ->join('sis_estas', 'fos_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+            ->join('sis_depens as upi', 'fos_datos_basicos.sis_depen_id', '=', 'upi.id')
+            ->join('areas as area', 'fos_datos_basicos.area_id', '=', 'area.id')
+            ->join('parametros as seguimiento', 'fos_datos_basicos.fos_tse_id', '=', 'seguimiento.id')
+            ->join('parametros as subseguimiento', 'fos_datos_basicos.fos_stse_id', '=', 'subseguimiento.id')
+            ->join('fos_stses', 'fos_datos_basicos.fos_stse_id', '=', 'fos_stses.id')
+            ->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx);
+         return $this->getDtAcciones($dataxxxx, $request);
     }
 
 

@@ -3,19 +3,13 @@
 namespace App\Http\Controllers\FichaObservacion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
-use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Http\Requests\FichaObservacion\FosDatosBasicoCrearRequest;
 use App\Http\Requests\FichaObservacion\FosDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
-
-
 use App\Models\Tema;
 use App\Models\User;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
@@ -46,7 +40,6 @@ class FosController extends Controller
         $this->opciones['slotxxxx'] = 'fosfichaobservacion';
         $this->opciones['perfilxx'] = 'sinperfi';
         $this->opciones['rutacarp'] = 'Fos.';
-        $this->opciones['parametr'] = [];
         $this->opciones['carpetax'] = 'Fos';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
@@ -56,7 +49,6 @@ class FosController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
 
 
-        $this->opciones['localida'] = SisLocalidad::combo();
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
         $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
@@ -136,20 +128,24 @@ class FosController extends Controller
      *
      * @return void
      */
+
+     
     public function indexFos(SisNnaj $padrexxx)
     {
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['slotxxxx'] = 'fosxxxxx';
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
-        $this->opciones['pestpara'] = [$padrexxx->id];
+        $this->opciones['parametr'] = [$padrexxx->id];
+        $this->opciones['pestpara'][0] = [$padrexxx->id];
         $this->opciones['pestpadr'] = 2;
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVA FOS',
                 'titulist' => 'LISTA DE FOS',
+                'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listafos', [$padrexxx->id]),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listafos',  $this->opciones['parametr']),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -175,25 +171,20 @@ class FosController extends Controller
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
                 'routxxxx' => $this->opciones['routxxxx'],
-                'parametr' => [$padrexxx->id],
+                'parametr' => $this->opciones['parametr'],
             ]
         ];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
+        $this->opciones['parametr'] = [$padrexxx->id];
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-
-    /**
-     * listado de fos por cada NNAJ
-     *
-     * @param Request $request
-     * @return void
-     */
     public function getListaFos(Request $request, SisNnaj $padrexxx)
     {
         if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesfos';
@@ -201,6 +192,7 @@ class FosController extends Controller
             return $this->getFosDiligenciado($request);
         }
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -250,6 +242,8 @@ class FosController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
+
+
     public function create(SisNnaj $padrexxx)
     {
         $this->opciones['botoform'][] =
@@ -294,7 +288,7 @@ class FosController extends Controller
      * @param  \App\Models\FiDatosBasico $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(SisNnaj $padrexxx, FosDatosBasico $modeloxx)
+    public function edit(FosDatosBasico $modeloxx)
     {
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -303,7 +297,7 @@ class FosController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $modeloxx->SisNnaj]);
     }
 
     /**
@@ -313,10 +307,10 @@ class FosController extends Controller
      * @param  \App\Models\FiDatosBasico $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(FosDatosBasicoUpdateRequest $request,  SisNnaj $padrexxx,FosDatosBasico $modeloxx)
+    public function update(FosDatosBasicoUpdateRequest $request,  FosDatosBasico $modeloxx)
     {
 
-        return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con exito', $modeloxx->SisNnaj);
     }
 
     public function inactivate(SisNnaj $objetoxx)

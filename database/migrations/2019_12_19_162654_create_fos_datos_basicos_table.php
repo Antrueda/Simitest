@@ -25,10 +25,12 @@ class CreateFosDatosBasicosTable extends Migration
             $table->bigInteger('fos_stse_id')->unsigned();
             $table->text('s_observacion');
             $table->bigInteger('fi_compfami_id')->unsigned()->nullable();
+            $table->bigInteger('i_responsable')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
+            
             $table->timestamps();
 
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
@@ -38,6 +40,7 @@ class CreateFosDatosBasicosTable extends Migration
             $table->foreign('fos_stse_id')->references('id')->on('fos_stses');
             $table->foreign('fi_compfami_id')->references('id')->on('fi_compfamis');
             $table->foreign('user_crea_id')->references('id')->on('users');
+            $table->foreign('i_responsable')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DE UN SEGUIMIENTO, FICHA DE OBSERVACION'");
