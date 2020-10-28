@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Csd\CsdCompfamiCrearRequest;
-use App\Http\Requests\Csd\CsdCompfamiEditarRequest;
 use App\Http\Requests\Csd\CsdCompfamiObservacionCrearRequest;
 use App\Http\Requests\Csd\CsdCompfamiObservacionEditarRequest;
 use App\Models\consulta\CsdComFamiliarObservaciones;

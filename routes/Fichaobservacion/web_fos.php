@@ -11,7 +11,7 @@ Route::group(['prefix' => 'nnajsfos'], function () use($controll,$routxxxx){
 		'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.listaxxx');
 
-    Route::get('listafos', [
+    Route::get('{padrexxx}/listafos', [
 		'uses' => $controll.'Controller@getListaFos',
 		'middleware' => ['permission:'.$routxxxx.'-leer']
 	])->name($routxxxx.'.listafos');
