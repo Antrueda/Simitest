@@ -22,7 +22,7 @@ class CsdCompfamiObservacionController extends Controller
         $this->opciones['routxxxx'] = 'csdcomfamirobserva';
         $this->opciones['rutacarp'] = 'Csd.';
         $this->opciones['carpetax'] = 'Composicion';
-        $this->opciones['slotxxxx'] = 'csdcomfamiliar';
+        $this->opciones['slotxxxx'] = 'csdcomfamirobserva';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "COMPOSICI{$this->opciones['vocalesx'][3]}N FAMILIAR";
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
@@ -34,7 +34,7 @@ class CsdCompfamiObservacionController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-      
+
         }
 
     private function view($dataxxxx)
@@ -63,7 +63,7 @@ class CsdCompfamiObservacionController extends Controller
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route('csdcomfamiliar.listaxxx', [$dataxxxx['padrexxx']->csd_id]),
-                
+
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -98,7 +98,7 @@ class CsdCompfamiObservacionController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             }
-           
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

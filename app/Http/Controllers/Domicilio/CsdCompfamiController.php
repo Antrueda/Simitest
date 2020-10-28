@@ -29,7 +29,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['routxxxx'] = 'csdcomfamiliar';
         $this->opciones['rutacarp'] = 'Csd.';
         $this->opciones['carpetax'] = 'Composicion';
-        $this->opciones['slotxxxx'] = 'csdcomfamiliar';
+        $this->opciones['slotxxxx'] = 'csdcomfamirobserva';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "COMPOSICI{$this->opciones['vocalesx'][3]}N FAMILIAR";
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
@@ -126,7 +126,7 @@ class CsdCompfamiController extends Controller
                     ['data' => 's_documento', 'name' => 'csd_com_familiars.s_documento'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
-                'contviol' => [       
+                'contviol' => [
                     'observaciones',
                     '7.31 Observaciones'
                 ],
@@ -189,7 +189,9 @@ class CsdCompfamiController extends Controller
         $this->opciones['poblindi'] = Tema::combo(61, true, false);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            
+            //ddd($dataxxxx['modeloxx']->csd->CsdComFamiliarObservaciones);
+
+
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);
@@ -248,8 +250,8 @@ class CsdCompfamiController extends Controller
 
                 ],
 
-         
-           
+
+
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
                 'routxxxx' => $this->opciones['routxxxx'],
@@ -391,7 +393,7 @@ class CsdCompfamiController extends Controller
 
 
       }
-    
+
       public function updateObservaciones(Request $request,CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx){
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['sis_esta_id' => 1]);
