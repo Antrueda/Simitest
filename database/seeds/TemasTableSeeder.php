@@ -1057,9 +1057,7 @@ class TemasTableSeeder extends Seeder
             520 => $camposmagicos,
             534 => $camposmagicos,
             546 => $camposmagicos,
-            1639 => $camposmagicos,
-            2150 => $camposmagicos,
-        ]);
+            ]);
         $tema = Tema::create(['id' => 99, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPOLOGIA DE HOGAR']);
         $tema->parametros()->sync([
             552 => $camposmagicos,

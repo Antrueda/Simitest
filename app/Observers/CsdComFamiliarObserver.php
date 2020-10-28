@@ -34,6 +34,7 @@ class CsdComFamiliarObserver
         $log['prm_visitado_id'] = $modeloxx->prm_visitado_id;
         $log['prm_vin_actual_id'] = $modeloxx->prm_vin_actual_id;
         $log['prm_vin_pasado_id'] = $modeloxx->prm_vin_pasado_id;
+        $log['prm_convencion_id'] = $modeloxx->prm_convencion_id;
         $log['prm_regimen_id'] = $modeloxx->prm_regimen_id;
         $log['prm_cualeps_id'] = $modeloxx->prm_cualeps_id;
         $log['sisben'] = $modeloxx->sisben;

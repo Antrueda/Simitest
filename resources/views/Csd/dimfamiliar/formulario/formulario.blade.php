@@ -62,7 +62,7 @@ if (isset($todoxxxx['rowscols'])) {
   </div>
 <div class="row">
   <div class="col-md">
-      {{ Form::label('antecedentes', '6.6 Antecedentes de problemas sociales asociados con la familia actual y extensa?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('antecedentes', '6.6 Antecedentes de problemas sociales asociados con la familia actual y extensa', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('antecedentes[]',$todoxxxx["antecede"], null, ['class' => $errors->first('antecedentes') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'antecedentes', 'multiple', 'autofocus']) }}
       @if($errors->has('antecedentes'))
           <div class="invalid-feedback d-block">
@@ -152,7 +152,7 @@ if (isset($todoxxxx['rowscols'])) {
 </div>
 <div class="row">
   <div class="col-md">
-      {{ Form::label('descripcion_1', '6.11 Descripción de hechos relevantes en las etapas del desarrollo, potencialidades, talentos del NNAJ)', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('descripcion_1', '6.11 Descripción de hechos relevantes en las etapas de desarrollo, potencialidades, habilidades, talentos del NNAJ', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::textarea('descripcion_1', null, ['class' => $errors->first('descripcion_1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Percepción de quién recibe la consulta sobre el NNAJ', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
       <p id="contadordescripcion1">0/4000</p>
       @if($errors->has('descripcion_1'))
@@ -162,7 +162,7 @@ if (isset($todoxxxx['rowscols'])) {
       @endif
   </div>
   <div class="col-md">
-      {{ Form::label('prm_cuidador_id', '6.12 ¿Quién? asume el cuidado y crianza de los menores de 18 años en ausencia de padres o representante legal?', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('prm_cuidador_id', '6.12 ¿Quién asume el cuidado y crianza de los menores de 18 años en ausencia de padres o representante legal?', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('prm_cuidador_id', $todoxxxx["familiar"], null, ['class' => $errors->first('prm_cuidador_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
       @if($errors->has('prm_cuidador_id'))
           <div class="invalid-feedback d-block">

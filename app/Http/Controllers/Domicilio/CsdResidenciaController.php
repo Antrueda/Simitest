@@ -178,7 +178,7 @@ class CsdResidenciaController extends Controller
             [
                 'titunuev' => 'AGREGAR ESPACIO QUE COMPARTE',
                 'titulist' => 'LISTA DE COMPARTE',
-                'pregunta' => '5.20 La familia comparte con otro hogar o familia, alguno de los siguientes espacios:',
+                'pregunta' => '5.20 ¿La familia comparte con otro hogar o familia, alguno de los siguientes espacios?',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
                 'vercrear' => $vercrear,
                 'urlxxxxx' => route('csdrescomparte.listaxxx', [$residenc]),

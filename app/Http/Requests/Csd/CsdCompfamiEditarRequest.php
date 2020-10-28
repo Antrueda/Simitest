@@ -61,9 +61,10 @@ class CsdCompfamiEditarRequest extends FormRequest
             'prm_visitado_id'   => 'required|exists:parametros,id',
             'prm_vin_actual_id' => 'required|exists:parametros,id',
             'prm_vin_pasado_id' => 'required|exists:parametros,id',
+            'prm_convencion_id' => 'nullable|exists:parametros,id',
             'prm_regimen_id'    => 'required|exists:parametros,id',
             'prm_cualeps_id'    => 'required_if:prm_regimen_id,227',
-            'sisben'            => 'required|between:0,99.99',
+            'sisben'            => 'required_if:prm_sisben_id,null|between:0,99.99',
             'prm_sisben_id'     => 'required|exists:parametros,id',
             'prm_discapacidad_id' => 'required|exists:parametros,id',
             'prm_cual_id'       => 'required_if:prm_discapacidad_id,227',
@@ -103,6 +104,10 @@ class CsdCompfamiEditarRequest extends FormRequest
 
         public function validar()
         {
-
+            $dataxxxx = $this->toArray();
+            if ($dataxxxx['prm_vin_actual_id'] == 227||$dataxxxx['prm_vin_pasado_id']==227 ) {
+                $this->_mensaje['prm_convencion_id.required'] = 'Seleccione el servicio';
+                $this->_reglasx['prm_convencion_id'] = 'required';
+            }
         }
 }

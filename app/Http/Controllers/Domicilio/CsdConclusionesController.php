@@ -29,7 +29,7 @@ class CsdConclusionesController extends Controller
         $this->opciones['carpetax'] = 'Conclusiones';
         $this->opciones['slotxxxx'] = 'csdconclusiones';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "Conclusiones";
+        $this->opciones['tituloxx'] = "CONCLUSIONES DE LA CONSULTA SOCIAL EN DOMICILIO";
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
@@ -93,90 +93,75 @@ class CsdConclusionesController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(CsdSisNnaj $padrexxx)
-    {
+   
+public function create(CsdSisNnaj $padrexxx)
+{
 
-        $this->opciones['csdxxxxx'] = $padrexxx;
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
-    }
-
-    private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
-    {
-
-        return redirect()
-        ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, CsdConclusiones::transaccion($dataxxxx,  $objetoxx)->id])
+    $this->opciones['csdxxxxx']=$padrexxx;
+    $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
+    $this->opciones['botoform'][] =
+        [
+            'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+        ];
+    return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
+}
+private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
+{
+    return redirect()
+        ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, CsdConclusiones::transaccion($dataxxxx, $objectx)->id])
         ->with('info', $infoxxxx);
+}
+/**
+ * Store a newly created resource in storage.
+ *
+ * @param  \Illuminate\Http\Request  $request
+ * @return \Illuminate\Http\Response
+ */
 
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(CsdConclusionesCrearRequest $request, CsdSisNnaj $padrexxx)
-    {
-        $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->csd_id;
-        $dataxxxx['sis_esta_id'] = 1;
-        $dataxxxx['prm_tipofuen_id'] = 2315;
-        return $this->grabar($dataxxxx, '', 'Conclusiones registradas con exito', $padrexxx);
+public function store(CsdConclusionesCrearRequest $request, CsdSisNnaj $padrexxx)
+{
+    $dataxxxx = $request->all();
+    $dataxxxx['csd_id'] = $padrexxx->id;
+    $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+    return $this->grabar($dataxxxx, '', 'Conclusiones registradas con exito', $padrexxx);
+}
 
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\FiRazone  $objetoxx
-     * @return \Illuminate\Http\Response
-     */
-    public function show(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
-    {
-        $this->opciones['csdxxxxx']=$padrexxx;
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $padrexxx]);
-    }
+public function show(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
+{
+    return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
+}
+/**
+ * Show the form for editing the specified resource.
+ *
+ * @param  \App\Models\FiSustanciaformulario $objetoxx
+ * @return \Illuminate\Http\Response
+ */
+public function edit(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
+{
+    $this->opciones['csdxxxxx'] = $padrexxx;
+    $this->opciones['botoform'][] =
+        [
+            'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+        ];
+    return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\FiRazone  $objetoxx
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
-    {
-        $this->opciones['csdxxxxx'] = $padrexxx;
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
-        }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
-    }
+/**
+ * Update the specified resource in storage.
+ *
+ * @param  \Illuminate\Http\Request $request
+ * @param  \App\Models\FiSustanciaConsumida $objetoxx
+ * @return \Illuminate\Http\Response
+ */
+public function update(CsdConclusionesEditarRequest $request,  CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
+{
+    return $this->grabar($request->all(), $modeloxx, 'Conclusiones actualizadas con exito', $padrexxx);
+}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FiRazone  $objetoxx
-     * @return \Illuminate\Http\Response
-     */
-    public function update(CsdConclusionesEditarRequest $request, CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
-    {
-        return $this->grabar($request, $modeloxx, 'Conclusiones actualizadas con exito', $padrexxx);
-    }
 
     function getResponsable(Request $request,CsdSisNnaj $padrexxx)
     {

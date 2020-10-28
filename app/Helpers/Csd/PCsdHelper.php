@@ -135,7 +135,7 @@ class PCsdHelper
     {
 
         $dataxxxx['modeloxx'] = '';
-        if (count($dataxxxx['padrexxx']->csd->CsdComFamiliarObservaciones) !=null) {
+        if ($dataxxxx['padrexxx']->csd->CsdComFamiliarObservaciones !=null) {
             $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdComFamiliarObservaciones;
         }
         $dataxxxx['permisox'] = 'csdcomfamirobserva';

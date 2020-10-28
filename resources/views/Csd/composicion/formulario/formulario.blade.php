@@ -151,6 +151,10 @@
   {{ Form::label('prm_vin_pasado_id', '7.19 ¿Estuvo vinculado(a) con el IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
   {{ Form::select('prm_vin_pasado_id', $todoxxxx["convivex"], null, ['class' => 'form-control form-control-sm']) }}
 </div>
+<div class="form-group col-md-4">
+  {{ Form::label('prm_convencion_id', 'Convenciones preguntas 7.18 y 7.19', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::select('prm_convencion_id', $todoxxxx["convenci"], null, ['class' => 'form-control form-control-sm']) }}
+</div>
 </div>
 <hr>
 <div class="row">
@@ -182,11 +186,11 @@
     <div class="row">
         <div class="col-md-6">
             {{ Form::label('sisben', 'Puntaje SISBEN', ['class' => 'control-label col-form-label-sm d-none']) }}
-            {{ Form::text('sisben', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);"]) }}
+            {{ Form::text('sisben', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);",'id'=>'sisben']) }}
         </div>
         <div class="col-md-6">
             {{ Form::label('prm_sisben_id', 'Tiene SISBEN', ['class' => 'control-label col-form-label-sm d-none']) }}
-            {{ Form::select('prm_sisben_id', $todoxxxx["nsnoresp"], null, ['class' => 'form-control form-control-sm select2']) }}
+            {{ Form::select('prm_sisben_id', $todoxxxx["nsnoresp"], null, ['class' => 'form-control form-control-sm select2','onchange' => 'doc1(this.value)']) }}
         </div>
     </div>
 </div>

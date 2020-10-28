@@ -405,7 +405,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 384, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'BALDOSA, VINILO, TABLETA, LADRILLO, MADERA, MADERA BUERDA, TABLA, TABLÓN']);
         Parametro::create(['id' => 385, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CEMENTO, GRAVILLA']);
         Parametro::create(['id' => 386, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TIERRA, ARENA, MATERIAL ORGÁNICO']);
-        Parametro::create(['id' => 387, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MAMPOSTERÍA A LA VISTA (BLOQUE, LADRILLO)']);
+        Parametro::create(['id' => 387, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MAMPOSTERÍA A LA VISTA (BLOQUE, LADRILLÓ)']);
         Parametro::create(['id' => 388, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MAMPOSTERÍA CON ACABADOS']);
         Parametro::create(['id' => 389, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MADERA']);
         Parametro::create(['id' => 390, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CENTRO ZONAL SANTAFE']);

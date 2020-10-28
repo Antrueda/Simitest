@@ -68,6 +68,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['discapac'] = Tema::combo(24, true, false);
         $this->opciones['nsnoresp'] = Tema::combo(26, true, false);
         $this->opciones['educacio'] = Tema::combo(153, true, false);
+        $this->opciones['convenci'] = Tema::combo(287, true, false);
         $this->opciones['entid_id'] = ['' => 'Seleccione'];
         $this->opciones['observac'] = 'csdcomfamirobserva.nuevo';
 
@@ -183,7 +184,6 @@ class CsdCompfamiController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['pais_idx'] = SisPai::combo(true, false);
-        $this->opciones['poblindi'] = ['' => 'Seleccione'];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['aniosxxx'] = '';
         $this->opciones['poblindi'] = Tema::combo(61, true, false);

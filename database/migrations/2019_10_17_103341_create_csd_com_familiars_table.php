@@ -38,6 +38,7 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->bigInteger('prm_visitado_id')->unsigned();
             $table->bigInteger('prm_vin_actual_id')->unsigned();
             $table->bigInteger('prm_vin_pasado_id')->unsigned();
+            $table->bigInteger('prm_convencion_id')->nullable()->unsigned();
             $table->bigInteger('prm_regimen_id')->unsigned();
             $table->bigInteger('prm_cualeps_id')->unsigned()->nullable();
             $table->decimal('sisben', 19, 2)->nullable();
@@ -75,6 +76,7 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->foreign('prm_visitado_id')->references('id')->on('parametros');
             $table->foreign('prm_vin_actual_id')->references('id')->on('parametros');
             $table->foreign('prm_vin_pasado_id')->references('id')->on('parametros');
+            $table->foreign('prm_convencion_id')->references('id')->on('parametros');
             $table->foreign('prm_regimen_id')->references('id')->on('parametros');
             $table->foreign('prm_cualeps_id')->references('id')->on('parametros');
             $table->foreign('prm_sisben_id')->references('id')->on('parametros');

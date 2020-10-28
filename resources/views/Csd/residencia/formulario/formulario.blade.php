@@ -1,7 +1,7 @@
 
 <div class="row">
   <div class="col-md">
-      {{ Form::label('prm_tipo_id', '5.1 Tipo de residencia', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('prm_tipo_id', '5.1 Tipo de residencia o lugar donde duerme', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('prm_tipo_id', $todoxxxx["tiporexx"], null, ['class' => $errors->first('prm_tipo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus']) }}
       @if($errors->has('prm_tipo_id'))
           <div class="invalid-feedback d-block">
