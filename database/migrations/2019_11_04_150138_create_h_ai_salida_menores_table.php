@@ -68,7 +68,11 @@ class CreateHAiSalidaMenoresTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('prm_id')->unsigned();
+            $table->bigInteger('prm_condicion_id')->unsigned();
+            $table->bigInteger('prm_orientado_id')->unsigned();
+            $table->bigInteger('prm_enfermerd_id')->unsigned();
+            $table->bigInteger('prm_brotes_id')->unsigned();
+            $table->bigInteger('prm_laceracio_id')->unsigned();
             $table->bigInteger('ai_salida_menores_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });

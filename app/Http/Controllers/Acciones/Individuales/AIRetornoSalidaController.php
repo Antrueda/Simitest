@@ -3,125 +3,248 @@
 namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
 use App\Models\Acciones\Individuales\AiRetornoSalida;
-use App\Models\Sistema\SisDepen;
+use App\Models\consulta\pivotes\CsdSisNnaj;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
-use Illuminate\Support\Carbon;
+use App\Traits\Acciones\SalidaTrait;
 
-class AIRetornoSalidaController extends Controller{
+class AIRetornoSalidaController extends Controller
+{
+    use SalidaTrait;
+    private $opciones;
 
-    public function __construct(){
-
-        $this->opciones['permisox']='airetornosalida';
+    public function __construct()
+    {
+        $this->opciones['permisox'] = 'airetornosalida';
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
+        $this->opciones['tituhead'] = 'Retorno de salidas y permisos con acudiente y/o representante legal';
+        $this->opciones['routxxxx'] = 'airetornosalida';
+        $this->opciones['slotxxxx'] = 'airetornosalida';
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['rutacarp'] = 'Acciones.';
+        $this->opciones['parametr'] = [];
+        $this->opciones['carpetax'] = 'Individuales.RetornoSalida';
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['ampmxxxx'] = Tema::combo(5, false, false);
+        $this->opciones['document'] = Tema::combo(3, false, false);
+        $this->opciones['parentez'] = Tema::combo(66, false, false);
+        $this->opciones['condicix'] = Tema::combo(308, false, false);
+        $this->opciones['parentez'] = Tema::combo(66, false, false);
+        
+        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A SALIDAS', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
+    }
+    public function index(SisNnaj $padrexxx)
+    {
+        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
 
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'REGISTRAR RETORNO',
+                'titulist' => 'LISTA DE RETORNOS',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'HORA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                                  ]
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'ai_retorno_salidas.id'],
+                    ['data' => 'fecha', 'name' => 'ai_retorno_salidas.fecha'],
+                    ['data' => 'hora_retorno', 'name' => 'ai_retorno_salidas.hora_retorno'],
+                    ['data' => 'upi', 'name' => 'upi.nombre as upi'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => [$padrexxx->id],
+            ]
+        ];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ];
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function index($id){
-        $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->fi_datos_basico;
-        $retorno = $dato->AiRetornoSalida->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        return view('Acciones.Individuales.index', ['accion' => 'RetornoSalida', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'retorno'));
+    public function getListado(Request $request, SisNnaj $padrexxx)
+    {
+        if ($request->ajax()) {
+
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->padrexxx = $padrexxx->id;
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getRetorno($request);
+        }
     }
 
-    public function create($id){
-        $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->fi_datos_basico;
-        $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
-        $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $documento = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $documento[$k] = $d;
+    private function grabar($dataxxxx)
+    {
+        $usuariox = AiRetornoSalida::transaccion($dataxxxx);
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$dataxxxx['padrexxx']->id, $usuariox->id])
+            ->with('info', $dataxxxx['infoxxxx']);
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    private function view($dataxxxx)
+    {
+        $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->id;
+        $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ];
+
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['usuarioz'] = User::comboCargo(true, false);
+        $this->opciones['vercrear'] = false;
+        $parametr = 0;
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['vercrear'] = true;
+            $parametr = $dataxxxx['modeloxx']->id;
+            $this->opciones['pestpadr'] = 3;
+            $dataxxxx['modeloxx']->prm_condicion_id =  $dataxxxx['modeloxx']->condicion->prm_condicion_id;
+            $dataxxxx['modeloxx']->prm_orientado_id =  $dataxxxx['modeloxx']->condicion->prm_orientado_id;
+            $dataxxxx['modeloxx']->prm_enfermerd_id =  $dataxxxx['modeloxx']->condicion->prm_enfermerd_id;
+            $dataxxxx['modeloxx']->prm_brotes_id =  $dataxxxx['modeloxx']->condicion->prm_brotes_id;
+            $dataxxxx['modeloxx']->prm_laceracio_id =  $dataxxxx['modeloxx']->condicion->prm_laceracio_id;
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', $dataxxxx['padrexxx']->sis_nnaj_id],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+
+       
         }
-        $parentezco = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $parentezco[$k] = $d;
-        }
-        $condiciones = Tema::findOrFail(308)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $usuarios = ['' => 'Seleccione...'];
-        foreach (User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
-                $usuarios[$k] = $d;
-        }
-        $retorno = $dato->AiRetornoSalida->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
-        return view('Acciones.Individuales.index', ['accion' => 'RetornoSalida', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'upis',
-                                                                                        'ampm', 'usuarios', 'documento', 'parentezco',
-                                                                                        'condiciones', 'sino', 'retorno', 'hoy'));
+        // Se arma el titulo de acuerdo al array opciones
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function store(Request $request){
-        $this->validator($request->all())->validate();
-        $dato = AiRetornoSalida::create($request->all());
-        foreach ($request->condiciones as $k => $d) {
-            $dato->condiciones()->attach($k, ['valor_id' => $d, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-        }
-        return redirect()->route('ai.retornosalida', $request->sis_nnaj_id)->with('info', 'Registro creado con éxito');
+    public function create(SisNnaj $padrexxx)
+    {
+        $this->opciones['rutaxxxx'] = route('airetornosalida.nuevo', $padrexxx->id);
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
+    }
+    public function store(Request $request, SisNnaj $padrexxx)
+    {
+        $request->request->add(['sis_esta_id' => 1]);
+        $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos de retorno creada con exito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
     }
 
-    public function edit($id, $id0){
-        $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->fi_datos_basico;
-        $upis = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
-        $ampm = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $documento = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(3)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $documento[$k] = $d;
-        }
-        $parentezco = ['' => 'Seleccione...'];
-        foreach (Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id') as $k => $d) {
-            $parentezco[$k] = $d;
-        }
-        $condiciones = Tema::findOrFail(308)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $sino = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $usuarios = ['' => 'Seleccione...'];
-        foreach (User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id') as $k => $d) {
-                $usuarios[$k] = $d;
-        }
-        $retorno = $dato->AiRetornoSalida->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $valor = AiRetornoSalida::findOrFail($id0);
-        $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
-        return view('Acciones.Individuales.index', ['accion' => 'RetornoSalida', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'valor', 'upis', 'ampm', 'usuarios', 'documento', 'parentezco', 'condiciones', 'sino', 'retorno', 'valor', 'hoy'));
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiDatosBasico $modeloxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(SisNnaj $padrexxx, AiRetornoSalida $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 
-    public function update(Request $request, $id, $id1){
-        $this->validator($request->all())->validate();
-        $dato = AiRetornoSalida::findOrFail($id1);
-        $dato->fill($request->all())->save();
-        $dato->condiciones()->detach();
-        foreach ($request->condiciones as $k => $d) {
-            $dato->condiciones()->attach($k, ['valor_id' => $d, 'user_crea_id' => 1, 'user_edita_id' => 1]);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiDatosBasico $modeloxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(SisNnaj $padrexxx, AiRetornoSalida $modeloxx)
+    {
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
         }
-        return redirect()->route('ai.retornosalida', $id)->with('info', 'Registro actualizado con éxito');
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 
-    protected function validator(array $data){
-        $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
-        return Validator::make($data, [
-            'sis_nnaj_id'    => 'required|exists:sis_nnajs,id',
-            'prm_upi_id'     => 'required|exists:sis_depens,id',
-            'fecha'          => 'required|date|before_or_equal:'.$hoy,
-            'hora_retorno'   => 'required',
-            'prm_hor_ret_id' => 'required|exists:parametros,id',
-            'descripcion'    => 'required|string|max:4000',
-            'observaciones'  => 'required|string|max:4000',
-            'nombres_retorna'=> 'nullable|string|max:120',
-            'prm_doc_id'     => 'nullable|exists:parametros,id',
-            'doc_retorna'    => 'nullable|integer',
-            'prm_parentezco_id' => 'nullable|exists:parametros,id',
-            'responsable'    => 'required|exists:users,id',
-            'user_doc1_id'   => 'required|exists:users,id',
-            'condiciones' => 'required|array',
-        ]);
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiDatosBasico $padrexxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, SisNnaj $padrexxx,  AiRetornoSalida $modeloxx)
+    {
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos de retorno actualizados con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
+    }
+
+    public function inactivate(SisNnaj $modeloxx)
+    {
+        $this->opciones['rutaxxxx'] = route('csdxxxxx.borrar', $modeloxx->id);
+        if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'INACTIVAR', 'routingx' => [$this->opciones['routxxxx'] . '.borrar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+    }
+
+
+    public function destroy(Request $request, SisNnaj $modeloxx)
+    {
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj->id])
+            ->with('info', 'CSD inactivada correctamente');
     }
 }

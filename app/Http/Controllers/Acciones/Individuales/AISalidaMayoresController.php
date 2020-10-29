@@ -169,7 +169,7 @@ class AISalidaMayoresController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-        $this->opciones['rutaxxxx'] = route('aisalidamenores.nuevo', $padrexxx->id);
+        $this->opciones['rutaxxxx'] = route('aisalidamayores.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -181,7 +181,7 @@ class AISalidaMayoresController extends Controller
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con exito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida registrada con exito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -222,7 +222,7 @@ class AISalidaMayoresController extends Controller
      */
     public function update(Request $request, SisNnaj $padrexxx,  AiSalidaMayores $modeloxx)
     {
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida actualizada con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
     public function inactivate(SisNnaj $modeloxx)

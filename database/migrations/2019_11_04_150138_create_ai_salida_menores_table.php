@@ -92,13 +92,21 @@ class CreateAiSalidaMenoresTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('prm_id')->unsigned();
+            $table->bigInteger('prm_condicion_id')->unsigned();
+            $table->bigInteger('prm_orientado_id')->unsigned();
+            $table->bigInteger('prm_enfermerd_id')->unsigned();
+            $table->bigInteger('prm_brotes_id')->unsigned();
+            $table->bigInteger('prm_laceracio_id')->unsigned();
             $table->bigInteger('ai_salida_menores_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('prm_id')->references('id')->on('parametros');
+            $table->timestamps();
+            $table->foreign('prm_condicion_id')->references('id')->on('parametros');
+            $table->foreign('prm_orientado_id')->references('id')->on('parametros');
+            $table->foreign('prm_enfermerd_id')->references('id')->on('parametros');
+            $table->foreign('prm_brotes_id')->references('id')->on('parametros');
+            $table->foreign('prm_laceracio_id')->references('id')->on('parametros');
             $table->foreign('ai_salida_menores_id')->references('id')->on('ai_salida_menores');
-            $table->unique(['id', 'prm_id', 'ai_salida_menores_id']);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES DE SALIDA DEL MENOR DE EDAD, ACCIONES INDIVIDUALES'");
     }

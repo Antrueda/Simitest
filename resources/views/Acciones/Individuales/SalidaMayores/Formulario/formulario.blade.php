@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-2">
         {{ Form::label('fecha', 'Fecha', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('fecha', null, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::date('fecha', null, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
         @if($errors->has('fecha'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('fecha') }}

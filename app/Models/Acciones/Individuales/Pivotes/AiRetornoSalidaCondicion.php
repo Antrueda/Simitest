@@ -2,21 +2,21 @@
 
 namespace App\Models\Acciones\Individuales\pivotes;
 
-use App\Models\Acciones\Individuales\AiSalidaMenores;
+use App\Models\Acciones\Individuales\AiRetornoSalida;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class AiSalidaMenoresCon extends Model
+class AiRetornoSalidaCondicion extends Model
 {
-    protected $table = 'ai_salida_menores_con';
+    protected $table = 'ai_retorno_salidas_condicion';
 
-    protected $fillable = ['prm_condicion_id','ai_salida_menores_id', 'user_crea_id', 
-    'user_edita_id','prm_orientado_id','prm_enfermerd_id','prm_brotes_id','prm_laceracio_id'];
+    protected $fillable = ['prm_condicion_id','ai_retorno_salida_id', 'user_crea_id', 'user_edita_id',
+    'prm_orientado_id','prm_enfermerd_id','prm_brotes_id','prm_laceracio_id'];
 
-    public function salidamenores()
+    public function retornosalida()
     {
-      return $this->belongsTo(AiSalidaMenores::class);
+      return $this->belongsTo(AiRetornoSalida::class);
     }
 
     public function creador()
@@ -37,11 +37,12 @@ class AiSalidaMenoresCon extends Model
                 $dataxxxx['objetoxx']->resobservacion->update($dataxxxx);
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $dataxxxx['modeloxx'] = AiSalidaMenoresCon::create($dataxxxx);
+                $dataxxxx['modeloxx'] = AiRetornoSalida::create($dataxxxx);
             }
             return $dataxxxx;
         }, 5);
         return $objetoxx;
     }
+
 
 }

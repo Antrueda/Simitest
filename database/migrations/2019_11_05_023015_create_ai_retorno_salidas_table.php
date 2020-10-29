@@ -49,15 +49,22 @@ class CreateAiRetornoSalidasTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DEL RETORNO DE UN ESCAPE DE UN BENEFICIARIO DE LOS SERVICIOS DE IDIPRON DE UNA UPI DENTRO DE LAS ACCIONES GRUPALES'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigInteger('parametro_id')->unsigned();
+            $table->bigIncrements('id');
+            $table->bigInteger('prm_condicion_id')->unsigned();
+            $table->bigInteger('prm_orientado_id')->unsigned();
+            $table->bigInteger('prm_enfermerd_id')->unsigned();
+            $table->bigInteger('prm_brotes_id')->unsigned();
+            $table->bigInteger('prm_laceracio_id')->unsigned();
             $table->bigInteger('retorno_id')->unsigned();
-            $table->bigInteger('valor_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-            $table->foreign('parametro_id')->references('id')->on('parametros');
-            $table->foreign('retorno_id')->references('id')->on('ai_retorno_salidas');
-            $table->foreign('valor_id')->references('id')->on('parametros');
-            $table->unique(['parametro_id', 'retorno_id']);
+            $table->foreign('prm_condicion_id')->references('id')->on('parametros');
+            $table->foreign('prm_orientado_id')->references('id')->on('parametros');
+            $table->foreign('prm_enfermerd_id')->references('id')->on('parametros');
+            $table->foreign('prm_brotes_id')->references('id')->on('parametros');
+            $table->foreign('prm_laceracio_id')->references('id')->on('parametros');
+            $table->foreign('ai_retorno_salida_id')->references('id')->on('ai_retorno_salidas');
+            $table->timestamps();
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA DE FORMA PARAMETRIZADA LOS PORMENORESDE LA CONDICION DE LLEGADA DE UN BENEFICIARIO DE LOS SERVICIOS DE IDIPRON DE UNA UPI DENTRO DE LAS ACCIONES GRUPALES'");
     }

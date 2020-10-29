@@ -37,9 +37,13 @@ class CreateHAiRetornoSalidasTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('retorno_id')->unsigned();
-            $table->bigInteger('valor_id')->unsigned();
+            $table->bigIncrements('id');
+            $table->bigInteger('prm_condicion_id')->unsigned();
+            $table->bigInteger('prm_orientado_id')->unsigned();
+            $table->bigInteger('prm_enfermerd_id')->unsigned();
+            $table->bigInteger('prm_brotes_id')->unsigned();
+            $table->bigInteger('prm_laceracio_id')->unsigned();
+            $table->bigInteger('ai_retorno_salida_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

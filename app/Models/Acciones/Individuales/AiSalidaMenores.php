@@ -2,6 +2,7 @@
 
 namespace App\Models\Acciones\Individuales;
 
+use App\Models\Acciones\Individuales\pivotes\AiSalidaMenoresCon;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Parametro;
@@ -72,10 +73,11 @@ class AiSalidaMenores extends Model{
     public function objetivo(){
         return $this->belongsToMany(Parametro::class,'ai_salida_menores_obj', 'ai_salida_menores_id', 'parametro_id');
     }
-
-    public function condiciones(){
-        return $this->belongsToMany(Parametro::class,'ai_salida_menores_con', 'ai_salida_menores_id', 'prm_id');
+    public function condiciones()
+    {
+        return $this->hasOne(AiSalidaMenoresCon::class);
     }
+
 
     public static function transaccion($dataxxxx)
     {
@@ -84,9 +86,19 @@ class AiSalidaMenores extends Model{
             
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+                $dataxxxx['requestx']->request->add(['ai_salida_menores_id' => $dataxxxx['modeloxx']->id]);
+                $dataxxxx['objetoxx']=$dataxxxx['modeloxx'];
+                if ($dataxxxx['modeloxx']->condiciones != '') {
+                    $dataxxxx['modeloxx']->condiciones->update($dataxxxx['requestx']->all());
+                }else{
+                    AiSalidaMenoresCon::create($dataxxxx['requestx']->all());
+                }
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = AiSalidaMenores::create($dataxxxx['requestx']->all());
+                $dataxxxx['requestx']->request->add(['ai_salida_menores_id' => $dataxxxx['modeloxx']->id]);
+                $dataxxxx['objetoxx']=$dataxxxx['modeloxx'];
+                AiSalidaMenoresCon::create($dataxxxx['requestx']->all());
             }
             
             $dataxxxx['modeloxx']->objetivo()->detach();
@@ -96,13 +108,7 @@ class AiSalidaMenores extends Model{
                 }
             }
 
-            $dataxxxx['modeloxx']->condiciones()->detach();
-            if($dataxxxx['requestx']->condiciones){
-              foreach ( $dataxxxx['requestx']->condiciones as $d) {
-                    $dataxxxx['modeloxx']->condiciones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
-                }
-            }
-            return $dataxxxx['modeloxx'];
+           return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;
     }

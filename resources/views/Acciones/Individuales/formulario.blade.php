@@ -51,7 +51,7 @@
                     <a class="dropdown-item{{ ($accion == 'SalidaMayores') ?' active' : '' }}" href="{{ route('aisalidamayores', $nnaj->sis_nnaj_id) }}">Salida de Jóvenes Mayores de Edad</a>
                     <a class="dropdown-item{{ ($accion == 'Evasion') ?' active' : '' }}" href="{{ route('ai.evasion', $nnaj->sis_nnaj_id) }}">Reporte de Evasión</a>
                     <a class="dropdown-item{{ ($accion == 'SalidaMenores') ?' active' : '' }}" href="{{ route('aisalidamenores', $nnaj->sis_nnaj_id) }}">Salidas y permisos con acompañamiento y/o representante legal</a>
-                    <a class="dropdown-item{{ ($accion == 'RetornoSalida') ?' active' : '' }}" href="{{ route('ai.retornosalida', $nnaj->sis_nnaj_id) }}">Retorno de salidas y permisos con acudiente y/o representante legal</a>
+                    <a class="dropdown-item{{ ($accion == 'RetornoSalida') ?' active' : '' }}" href="{{ route('airetornosalida', $nnaj->sis_nnaj_id) }}">Retorno de salidas y permisos con acudiente y/o representante legal</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

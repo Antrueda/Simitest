@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones;
 
+use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\consulta\CsdComFamiliar;
@@ -401,6 +402,24 @@ trait SalidaTrait
             ->join('sis_estas', 'ai_salida_menores.sis_esta_id', '=', 'sis_estas.id')
             ->where('ai_salida_menores.sis_nnaj_id', $request->padrexxx);
         return $this->getDtSalidas($dataxxxx, $request);
+    }
+
+    
+    public function getRetorno($request)
+    {
+        $dataxxxx =  AiRetornoSalida::select([
+            'ai_retorno_salidas.id',
+            'ai_retorno_salidas.fecha',
+            'upi.nombre as upi',
+            'ai_retorno_salidas.hora_retorno',
+            'ai_retorno_salidas.sis_esta_id',
+            'ai_retorno_salidas.sis_nnaj_id',
+            'ai_retorno_salidas.created_at',
+            ])
+            ->join('sis_depens as upi', 'ai_retorno_salidas.prm_upi_id', '=', 'upi.id')
+            ->join('sis_estas', 'ai_retorno_salidas.sis_esta_id', '=', 'sis_estas.id')
+            ->where('ai_retorno_salidas.sis_nnaj_id', $request->padrexxx);
+        return $this->getDtAcciones($dataxxxx, $request);
     }
 
     public function getSalidasMayores($request)

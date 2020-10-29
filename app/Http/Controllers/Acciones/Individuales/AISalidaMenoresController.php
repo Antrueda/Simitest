@@ -170,10 +170,11 @@ class AISalidaMenoresController extends Controller
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
-            $this->opciones['csdxxxxx'] = $dataxxxx['modeloxx'];
-
-            $this->opciones['csdxxxxx'] = CsdSisNnaj::where('sis_nnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('csd_id', $dataxxxx['modeloxx']->id)->first();
-
+            $dataxxxx['modeloxx']->prm_condicion_id =  $dataxxxx['modeloxx']->condiciones->prm_condicion_id;
+            $dataxxxx['modeloxx']->prm_orientado_id =  $dataxxxx['modeloxx']->condiciones->prm_orientado_id;
+            $dataxxxx['modeloxx']->prm_enfermerd_id =  $dataxxxx['modeloxx']->condiciones->prm_enfermerd_id;
+            $dataxxxx['modeloxx']->prm_brotes_id =  $dataxxxx['modeloxx']->condiciones->prm_brotes_id;
+            $dataxxxx['modeloxx']->prm_laceracio_id =  $dataxxxx['modeloxx']->condiciones->prm_laceracio_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];

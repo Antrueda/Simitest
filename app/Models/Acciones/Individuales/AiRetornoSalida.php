@@ -2,11 +2,14 @@
 
 namespace App\Models\Acciones\Individuales;
 
+use App\Models\Acciones\Individuales\pivotes\AiRetornoSalidaCondicion;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisDepen;
 use App\Models\Parametro;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AiRetornoSalida extends Model{
     protected $fillable = [
@@ -38,7 +41,37 @@ class AiRetornoSalida extends Model{
         return $this->belongsTo(Parametro::class, 'prm_parentezco_id');
     }
 
-    public function condiciones(){
-        return $this->belongsToMany(Parametro::class,'ai_retorno_salidas_condicion', 'retorno_id', 'parametro_id')->withPivot('valor_id');
+    public function condicion()
+    {
+        return $this->hasOne(AiRetornoSalidaCondicion::class);
+    }
+
+
+    public static function transaccion($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            
+            if ($dataxxxx['modeloxx'] != '') {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+                $dataxxxx['requestx']->request->add(['ai_retorno_salida_id' => $dataxxxx['modeloxx']->id]);
+                $dataxxxx['objetoxx']=$dataxxxx['modeloxx'];
+                if ($dataxxxx['modeloxx']->condicion != '') {
+                    $dataxxxx['modeloxx']->condicion->update($dataxxxx['requestx']->all());
+                }else{
+                    AiRetornoSalidaCondicion::create($dataxxxx['requestx']->all());
+                }
+
+            } else {
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['modeloxx'] = AiRetornoSalida::create($dataxxxx['requestx']->all());
+                $dataxxxx['requestx']->request->add(['ai_retorno_salida_id' => $dataxxxx['modeloxx']->id]);
+                $dataxxxx['objetoxx']=$dataxxxx['modeloxx'];
+                AiRetornoSalidaCondicion::create($dataxxxx['requestx']->all());
+            }
+            
+        return $dataxxxx['modeloxx'];
+        }, 5);
+        return $objetoxx;
     }
 }
