@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Parametro;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisDepen;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AiSalidaMenores extends Model{
     protected $fillable = [
@@ -73,5 +75,35 @@ class AiSalidaMenores extends Model{
 
     public function condiciones(){
         return $this->belongsToMany(Parametro::class,'ai_salida_menores_con', 'ai_salida_menores_id', 'prm_id');
+    }
+
+    public static function transaccion($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            
+            if ($dataxxxx['modeloxx'] != '') {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['modeloxx'] = AiSalidaMenores::create($dataxxxx['requestx']->all());
+            }
+            
+            $dataxxxx['modeloxx']->objetivo()->detach();
+            if($dataxxxx['requestx']->objetivo){
+              foreach ( $dataxxxx['requestx']->objetivo as $d) {
+                    $dataxxxx['modeloxx']->objetivo()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
+            }
+
+            $dataxxxx['modeloxx']->condiciones()->detach();
+            if($dataxxxx['requestx']->condiciones){
+              foreach ( $dataxxxx['requestx']->condiciones as $d) {
+                    $dataxxxx['modeloxx']->condiciones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return $objetoxx;
     }
 }

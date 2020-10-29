@@ -39,7 +39,6 @@ class CreateHCsdComFamiliarsTable extends Migration
             $table->bigInteger('prm_visitado_id')->unsigned();
             $table->bigInteger('prm_vin_actual_id')->unsigned();
             $table->bigInteger('prm_vin_pasado_id')->unsigned();
-            $table->bigInteger('prm_convencion_id')->nullable()->unsigned();
             $table->bigInteger('prm_regimen_id')->unsigned();
             $table->bigInteger('prm_cualeps_id')->unsigned()->nullable();
             $table->decimal('sisben', 19, 2)->nullable();

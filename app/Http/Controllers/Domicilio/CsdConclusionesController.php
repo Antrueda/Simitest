@@ -77,7 +77,7 @@ class CsdConclusionesController extends Controller
         ];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
-        $this->opciones['usuarios'] = User::userCombo(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>false ]);
+        $this->opciones['usuarios'] = User::comboCargo(true, false);
         $this->opciones['usuarioz'] = $this->opciones['usuarios'];
         $this->opciones['estadoxx'] = 'ACTIVO';
 

@@ -25,7 +25,6 @@ class AISalidaMenoresRequest extends FormRequest
     {
         
         return [
-            'sis_nnaj_id'       => 'required|exists:sis_nnajs,id',
             'prm_upi_id'        => 'required|exists:sis_depens,id',
             'fecha'             => 'required|date',
             'hora_salida'       => 'required|date_format:"h:i"',

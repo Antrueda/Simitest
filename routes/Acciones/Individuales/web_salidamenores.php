@@ -1,23 +1,49 @@
 <?php
-  Route::group(['prefix' => '{id}/salidamenores'], function () {
-    Route::get('', [
-      'uses' => 'Acciones\Individuales\AISalidaMenoresController@index',
-      'middleware' => ['permission:aisalidamenores-leer|aisalidamenores-crear|aisalidamenores-editar|aisalidamenores-borrar']
-    ])->name('ai.salidamenores');
-    Route::get('nuevo', [
-    'uses' => 'Acciones\Individuales\AISalidaMenoresController@create',
-    'middleware' => ['permission:aisalidamenores-crear|aisalidamenores-editar']
-    ])->name('ai.salidamenores.nuevo');
-    Route::post('nuevo', [
-      'uses' => 'Acciones\Individuales\AISalidaMenoresController@store',
-      'middleware' => ['permission:aisalidamenores-crear']
-    ]);
-    Route::get('editar/{id0}', [
-      'uses' => 'Acciones\Individuales\AISalidaMenoresController@edit',
-      'middleware' => ['permission:aisalidamenores-crear|aisalidamenores-editar']
-    ])->name('ai.salidamenores.editar');
-    Route::put('editar/{id0}', [
-      'uses' => 'Acciones\Individuales\AISalidaMenoresController@update',
-      'middleware' => ['permission:aisalidamenores-editar']
-    ]);
-  });
+$routexxx = 'aisalidamenores';
+$controll = 'Acciones\Individuales\AISalidaMenores';
+Route::group(['prefix' => '{padrexxx}/salidamenores'], function () use ($controll, $routexxx) {
+  Route::get('', [
+    'uses' => $controll . 'Controller@index',
+    'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+])->name($routexxx);
+Route::get('listaxxx', [
+    'uses' => $controll . 'Controller@getListado',
+    'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+])->name($routexxx . '.listaxxx');
+Route::get('visitados', [
+    'uses' => $controll . 'Controller@getNnajVisitados',
+    'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+])->name($routexxx . '.visitado');
+
+Route::get('nuevo', [
+    'uses' => $controll . 'Controller@create',
+    'middleware' => ['permission:' . $routexxx . '-crear']
+])->name($routexxx . '.nuevo');
+Route::post('crear', [
+    'uses' => $controll . 'Controller@store',
+    'middleware' => ['permission:' . $routexxx . '-crear']
+])->name($routexxx . '.crear');
+
+Route::get('ver/{modeloxx}', [
+    'uses' => $controll . 'Controller@show',
+    'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
+])->name($routexxx . '.ver');
+Route::get('editar/{modeloxx}', [
+    'uses' => $controll . 'Controller@edit',
+    'middleware' => ['permission:' . $routexxx . '-editar']
+])->name($routexxx . '.editar');
+Route::put('editar/{modeloxx}', [
+    'uses' => $controll . 'Controller@update',
+    'middleware' => ['permission:' . $routexxx . '-editar']
+])->name($routexxx . '.editar');
+Route::get('borrar/{modeloxx}', [
+    'uses' => $controll . 'Controller@inactivate',
+    'middleware' => ['permission:' . $routexxx . '-borrar']
+])->name($routexxx . '.borrar');
+
+Route::put('borrar/{modeloxx}', [
+    'uses' => $controll . 'Controller@destroy',
+    'middleware' => ['permission:' . $routexxx . '-borrar']
+])->name($routexxx . '.borrar');
+
+});

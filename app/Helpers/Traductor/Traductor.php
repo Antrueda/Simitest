@@ -2,6 +2,8 @@
 //app/Helpers/Envato/User.php
 namespace App\Helpers\Traductor;
 
+use App\Models\Acciones\Individuales\pivotes\AiSalidaMayoresRazones;
+use App\Models\Acciones\Individuales\pivotes\AiSalidaMenoresObj;
 use App\Models\consulta\CsdGeningAporta;
 use App\Models\consulta\pivotes\CsdGeningDia;
 use App\Models\sicosocial\Pivotes\VsiEmocionVincula;
@@ -85,6 +87,20 @@ class Traductor {
         return CsdGeningDia::select(['parametros.nombre'])
         ->join('parametros','csd_gening_dias.parametro_id','=','parametros.id')
         ->where('csd_geningreso_id',$dataxxxx['padrexxx'])->get();
+    }
+
+    public static function getObjetivo($dataxxxx)
+    {
+        return AiSalidaMenoresObj::select(['parametros.nombre'])
+        ->join('parametros','ai_salida_menores_obj.parametro_id','=','parametros.id')
+        ->where('ai_salida_menores_id',$dataxxxx['padrexxx'])->get();
+    }
+
+    public static function getRazones($dataxxxx)
+    {
+        return AiSalidaMayoresRazones::select(['parametros.nombre'])
+        ->join('parametros','ai_salida_mayores_razones.parametro_id','=','parametros.id')
+        ->where('ai_salmay_id',$dataxxxx['padrexxx'])->get();
     }
 }
 

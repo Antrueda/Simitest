@@ -145,15 +145,11 @@
 </div>
 <div class="form-group col-md-4">
   {{ Form::label('prm_vin_actual_id', '7.18 ¿Vinculado(a) actualmente con el IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::select('prm_vin_actual_id', $todoxxxx["convivex"], null, ['class' => 'form-control form-control-sm']) }}
+  {{ Form::select('prm_vin_actual_id', $todoxxxx["vinculax"], null, ['class' => 'form-control form-control-sm']) }}
 </div>
 <div class="form-group col-md-4">
   {{ Form::label('prm_vin_pasado_id', '7.19 ¿Estuvo vinculado(a) con el IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::select('prm_vin_pasado_id', $todoxxxx["convivex"], null, ['class' => 'form-control form-control-sm']) }}
-</div>
-<div class="form-group col-md-4">
-  {{ Form::label('prm_convencion_id', 'Convenciones preguntas 7.18 y 7.19', ['class' => 'control-label col-form-label-sm']) }}
-  {{ Form::select('prm_convencion_id', $todoxxxx["convenci"], null, ['class' => 'form-control form-control-sm']) }}
+  {{ Form::select('prm_vin_pasado_id', $todoxxxx["vinculax"], null, ['class' => 'form-control form-control-sm']) }}
 </div>
 </div>
 <hr>

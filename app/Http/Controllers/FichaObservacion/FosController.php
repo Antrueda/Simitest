@@ -140,8 +140,8 @@ class FosController extends Controller
         $this->opciones['pestpadr'] = 2;
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVA FOS',
-                'titulist' => 'LISTA DE FOS',
+                'titunuev' => 'NUEVA FICHA DE OBSERVACION',
+                'titulist' => 'LISTA DE FICHA DE OBSERVACION',
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
@@ -258,7 +258,7 @@ class FosController extends Controller
     public function store(FosDatosBasicoCrearRequest $request,SisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
-       return $this->grabar($dataxxxx, '', 'Justicia restaurativa creada con exito', $padrexxx);
+       return $this->grabar($dataxxxx, '', 'FOS creada con exito', $padrexxx);
     }
 
     private function grabar($dataxxxx, $objetoxx, $infoxxxx,$padrexxx)
@@ -310,7 +310,7 @@ class FosController extends Controller
     public function update(FosDatosBasicoUpdateRequest $request,  FosDatosBasico $modeloxx)
     {
 
-        return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con exito', $modeloxx->SisNnaj);
+        return $this->grabar($request->all(), $modeloxx, 'FOS actualizada con exito', $modeloxx->SisNnaj);
     }
 
     public function inactivate(SisNnaj $objetoxx)
