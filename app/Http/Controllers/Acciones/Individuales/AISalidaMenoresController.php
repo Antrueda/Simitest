@@ -47,7 +47,7 @@ class AISalidaMenoresController extends Controller
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['condicix'] = Tema::combo(25, true, false);
         $this->opciones['ampmxxxx'] = Tema::combo(5, true, false);
-        $this->opciones['objetivo'] = Tema::combo(307, true, false);
+        $this->opciones['objetivo'] = Tema::combo(307, false, false);
         $this->opciones['document'] = Tema::combo(3,true, false);
         $this->opciones['parentez'] = Tema::combo(66,true, false);
         $this->opciones['condixxx'] = Tema::combo(308, false, false);
@@ -84,7 +84,7 @@ class AISalidaMenoresController extends Controller
                         ['td' => 'FECHA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'RAZONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'TIEMPO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TIEMPO(DÍAS)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
