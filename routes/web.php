@@ -12,7 +12,7 @@
 */
 
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+
 
 Route::get('/', function () {
     User::where('sis_esta_id', 1)->whereDate('d_finvinculacion', '<', date('Y-m-d', time()))
@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor']], function () {
         'middleware' => 'ChangePasswor',
         'uses' => 'Auth\LoginController@getCambio'
     ]);
-    
+
     include_once('Seguridad/web_rol.php');
     include_once('Seguridad/web_usuario.php');
     include_once('Administracion/web_admin.php');
@@ -66,5 +66,5 @@ Route::group(['middleware' => ['auth', 'ChangePasswor']], function () {
     include_once('webs/excel/web_excel.php');
     include_once('ajaxx.php');
     include_once('Indicadores/web_in.php');
-    
+
 });

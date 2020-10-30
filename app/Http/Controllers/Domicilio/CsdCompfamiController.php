@@ -287,7 +287,10 @@ class CsdCompfamiController extends Controller
         $dataxxxx['requestx']->request->add(['prm_peso_dos_id' => 1269]);
         $usuariox = $this->getTransaccion($dataxxxx);
         return redirect()
-            ->route('csdcomfamiliar.editar', [$dataxxxx['padrexxx']->id, $usuariox->id])
+            ->route('csdcomfamiliar.editar', [
+                $dataxxxx['padrexxx']->id,
+                $usuariox->id
+                ])
             ->with('info', $dataxxxx['infoxxxx']);
 
             // return redirect()

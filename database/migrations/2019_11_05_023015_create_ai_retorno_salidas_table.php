@@ -56,6 +56,7 @@ class CreateAiRetornoSalidasTable extends Migration
             $table->bigInteger('prm_brotes_id')->unsigned();
             $table->bigInteger('prm_laceracio_id')->unsigned();
             $table->bigInteger('retorno_id')->unsigned();
+            $table->bigInteger('ai_retorno_salida_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('prm_condicion_id')->references('id')->on('parametros');
