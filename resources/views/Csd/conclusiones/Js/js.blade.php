@@ -81,9 +81,10 @@
                 }
             });
         });
-
-
-    });
+        @if(old('user_doc1_id')!=null)
+        f_cargos({{ old('user_doc1_id') }},{{ old('user_doc2_id')  }},1);
+        @endif
+     });
 
     function soloNumeros(e) {
         var keynum = window.event ? window.event.keyCode : e.which;

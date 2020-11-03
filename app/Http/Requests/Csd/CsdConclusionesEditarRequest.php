@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Csd;
 
+use App\Models\consulta\CsdConclusiones;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -55,6 +56,9 @@ class CsdConclusionesEditarRequest extends FormRequest
 
         public function validar()
         {
-
+            if($this->user_doc1_id==$this->user_doc2_id){
+                $this->_mensaje['existexx.required'] = 'No se puede registrar el mismo funcionario';
+                $this->_reglasx['existexx'] = ['Required',];
+            } 
         }
 }

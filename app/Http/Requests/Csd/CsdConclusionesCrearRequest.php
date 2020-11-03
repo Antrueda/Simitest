@@ -55,6 +55,10 @@ class CsdConclusionesCrearRequest extends FormRequest
 
         public function validar()
         {
+            if($this->user_doc1_id==$this->user_doc2_id){
+                $this->_mensaje['existexx.required'] = 'No se puede registrar el mismo funcionario';
+                $this->_reglasx['existexx'] = ['Required',];
+            } 
 
         }
 }
