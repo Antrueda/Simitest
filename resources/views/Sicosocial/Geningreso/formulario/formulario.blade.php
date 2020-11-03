@@ -79,7 +79,7 @@
         </div>
         <div class="row">
             <div class="col-md">
-                {{ Form::label('prm_jor_entre_id', 'Entre', ['class' => 'control-label col-md-8 col-form-label-sm']) }}
+                {{ Form::label('prm_jor_entre_id', 'De', ['class' => 'control-label col-md-8 col-form-label-sm']) }}
             </div>
             <div class="col-md">
                 {{ Form::number('jornada_entre', null, ['class' => $errors->first('jornada_entre') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '12']) }}

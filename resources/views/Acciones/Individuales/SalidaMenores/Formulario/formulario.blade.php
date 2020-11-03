@@ -28,14 +28,6 @@
           </div>
         @endif
       </div>
-      <div class="col-md-6">
-        {{ Form::select('prm_hor_sal_id', $todoxxxx['ampmxxxx'], null, ['class' => $errors->first('prm_hor_sal_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
-        @if($errors->has('prm_hor_sal_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('prm_hor_sal_id') }}
-          </div>
-        @endif
-      </div>
     </div>
   </div>
 </div>
@@ -56,6 +48,7 @@
   </div>
 </div>
 <hr>
+@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('primer_apellido', 'Primer Apellido', ['class' => 'control-label col-form-label-sm']) }}
@@ -326,6 +319,7 @@
   <div class="col-md-12">
     {{ Form::label('descripcion', 'Descripcion de la condición física y comportamentales en que sale el/la NNA:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadordescripcion">0/4000</p>
     @if($errors->has('descripcion'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('descripcion') }}
@@ -337,6 +331,7 @@
   <div class="col-md-12">
     {{ Form::label('objetos', 'Objetos con los cuales sale del IDIPRON:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('objetos', null, ['class' => $errors->first('objetos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Describa los objetos que lleva el NNA', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadordescripcion1">0/4000</p>
     @if($errors->has('objetos'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('objetos') }}
@@ -372,7 +367,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('novedad', 'Novedad', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('novedad', null, ['class' => $errors->first('novedad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Novedad', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::text('novedad', null, ['class' => $errors->first('novedad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Novedad', 'maxlength' => '2000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     @if($errors->has('novedad'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('novedad') }}
@@ -404,6 +399,7 @@
   <div class="col-md-12">
     {{ Form::label('causa', 'En caso de existir una justa causa para que el NNA no regrese a la UPI en la fecha establecida, indique el motivo:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('causa', null, ['class' => $errors->first('causa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Describa la justa causa', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadordescripcion2">0/4000</p>
     @if($errors->has('causa'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('causa') }}

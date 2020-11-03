@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 class AiSalidaMenores extends Model{
     protected $fillable = [
         'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
-        'prm_upi_id', 'fecha', 'hora_salida', 'prm_hor_sal_id',
+        'prm_upi_id', 'fecha', 'hora_salida', 
         'primer_apellido', 'segundo_apellido', 'primer_nombre', 'segundo_nombre',
         'prm_doc_id', 'documento', 'prm_parentezco_id', 'prm_autorizado_id',
         'ape1_autorizado', 'ape2_autorizado', 'nom1_autorizado', 'nom2_autorizado',
@@ -34,10 +34,6 @@ class AiSalidaMenores extends Model{
         return $this->belongsTo(SisDepen::class, 'prm_upi_id');
     }
     
-    public function horaSalida(){
-        return $this->belongsTo(Parametro::class, 'prm_hor_sal_id');
-    }
-
     public function documento(){
         return $this->belongsTo(Parametro::class, 'prm_doc_id');
     }

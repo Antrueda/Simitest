@@ -16,8 +16,11 @@ use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
+use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\Fos\FosTrait;
+use Carbon\Carbon;
 
 class FosController extends Controller
 {
@@ -50,7 +53,7 @@ class FosController extends Controller
 
 
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
-
+        
         $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
         $this->opciones['botoform'] = [
             [
@@ -150,22 +153,26 @@ class FosController extends Controller
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ÁREA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SUBSEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'OBSERVACION', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FUNCIONARIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'fos_datos_basicos.id'],
+                    ['data' => 'upi', 'name' => 'upi.nombre as upi'],
+                    ['data' => 'd_fecha_diligencia', 'name' => 'fos_datos_basicos.d_fecha_diligencia'],
                     ['data' => 'areas', 'name' => 'fos_datos_basicos.area_id'],
                     ['data' => 'seguimiento', 'name' => 'seguimiento.nombre as seguimiento'],
                     ['data' => 'subseguimiento', 'name' => 'subseguimiento.nombre as subseguimiento'],
-                    ['data' => 'upi', 'name' => 'upi.nombre as upi'],
-                    ['data' => 'd_fecha_diligencia', 'name' => 'fos_datos_basicos.d_fecha_diligencia'],
+                    ['data' => 's_observacion', 'name' => 'fos_datos_basicos.s_observacion'],
+                    ['data' => 'name', 'name' => 'users.name'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -216,6 +223,7 @@ class FosController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['seguixxx'] = ['' => 'Seleccione'];
+        $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['tipsegui'] = ['' => 'Seleccione'];
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id',$dataxxxx['padrexxx']->id)->first();
         $this->opciones['mindatex'] = "-28y +0m +0d";
@@ -223,7 +231,8 @@ class FosController extends Controller
         $this->opciones['usuarios'] = User::comboCargo(true, false);
         $this->opciones['compfami'] = FiCompfami::combo($this->opciones['datobasi'], true, false);
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
-        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['dependen'] = SisDepen::combo(true, false);
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
@@ -265,7 +274,6 @@ class FosController extends Controller
     {
         $dataxxxx['sis_docfuen_id'] = 2;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->id;
-        $dataxxxx['sis_esta_id'] = 1;
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, FosDatosBasico::transaccion($dataxxxx,  $objetoxx)->id])
          ->with('info', $infoxxxx);
@@ -277,9 +285,10 @@ class FosController extends Controller
      * @param  \App\Models\FiDatosBasico $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(SisNnaj $objetoxx)
+    public function show(FosDatosBasico $objetoxx)
     {
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx->SisNnaj]);
+    
     }
 
     /**

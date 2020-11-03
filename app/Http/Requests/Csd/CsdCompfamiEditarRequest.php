@@ -104,15 +104,6 @@ class CsdCompfamiEditarRequest extends FormRequest
 
         public function validar()
         {
-            $registro = CsdComFamiliar::select('csd_com_familiars.id')
-            ->join('csds', 'csd_com_familiars.csd_id', '=', 'csds.id')
-            ->where('csds.id', $this->segments()[0])
-            ->where('csd_com_familiars.s_documento', $this->s_documento)
-            ->first();
-
-        if (isset($registro->id)) {
-            $this->_mensaje['existexx.required'] = 'El registro ya existe';
-            $this->_reglasx['existexx'] = ['Required',];
-        }
+          
         }
 }

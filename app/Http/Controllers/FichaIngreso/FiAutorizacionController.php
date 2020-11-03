@@ -72,7 +72,7 @@ class FiAutorizacionController extends Controller
 
         //Esconder campos según la edad
 
-
+        
         $this->opciones['autoriza'] = $compofami[1];
         $this->opciones['sdocumen'] = '';
         $this->opciones['expedici'] = '';
@@ -92,7 +92,7 @@ class FiAutorizacionController extends Controller
         $this->opciones['estadoxx'] = 'ACTIVO';
 
         // indica si se esta actualizando o viendo
-
+        ddd($compofami);
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

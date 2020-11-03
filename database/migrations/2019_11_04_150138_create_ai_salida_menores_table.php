@@ -23,7 +23,6 @@ class CreateAiSalidaMenoresTable extends Migration
             $table->bigInteger('prm_upi_id')->unsigned();
             $table->date('fecha');
             $table->time('hora_salida');
-            $table->bigInteger('prm_hor_sal_id')->unsigned();
             $table->string('primer_apellido', 120);
             $table->string('segundo_apellido', 120);
             $table->string('primer_nombre', 120);
@@ -62,7 +61,6 @@ class CreateAiSalidaMenoresTable extends Migration
 
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
-            $table->foreign('prm_hor_sal_id')->references('id')->on('parametros');
             $table->foreign('prm_doc_id')->references('id')->on('parametros');
             $table->foreign('prm_parentezco_id')->references('id')->on('parametros');
             $table->foreign('prm_autorizado_id')->references('id')->on('parametros');

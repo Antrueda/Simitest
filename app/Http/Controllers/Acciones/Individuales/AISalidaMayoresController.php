@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Acciones\Individuales;
 use App\Http\Controllers\Controller;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\Sistema\SisDepen;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -138,7 +139,7 @@ class AISalidaMayoresController extends Controller
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['dependen'] = SisDepen::combo(true, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['vercrear'] = false;
         $parametr = 0;

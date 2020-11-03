@@ -50,7 +50,7 @@ if (isset($todoxxxx['rowscols'])) {
 </div>
 <div class="row">
     <div class="col-md">
-        {{ Form::label('motivos', '7.1.4 Motivos por el cual se presenta la restricción', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('motivos', '7.1.4 Motivos por el cual se presenta la dificultad', ['class' => 'control-label col-form-label-sm']) }}
         <div id="motivos_div">
             {{ Form::select('motivos[]', $todoxxxx['motivosx'], null, ['class' => $errors->first('motivos') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'motivos', 'multiple']) }}
         </div>

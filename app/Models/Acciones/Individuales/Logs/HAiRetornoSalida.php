@@ -11,7 +11,6 @@ class HAiRetornoSalida extends Model
         'prm_upi_id',
         'fecha',
         'hora_retorno',
-        'prm_hor_ret_id',
         'descripcion',
         'observaciones',
         'nombres_retorna',

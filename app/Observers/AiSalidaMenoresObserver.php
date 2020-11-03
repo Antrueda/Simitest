@@ -17,7 +17,6 @@ class AiSalidaMenoresObserver
         $log['prm_upi_id'] = $modeloxx->prm_upi_id;
         $log['fecha'] = $modeloxx->fecha;
         $log['hora_salida'] = $modeloxx->hora_salida;
-        $log['prm_hor_sal_id'] = $modeloxx->prm_hor_sal_id;
         $log['primer_apellido'] = $modeloxx->primer_apellido;
         $log['segundo_apellido'] = $modeloxx->segundo_apellido;
         $log['primer_nombre'] = $modeloxx->primer_nombre;

@@ -11,7 +11,6 @@ class HAiSalidaMenores extends Model
         'prm_upi_id',
         'fecha',
         'hora_salida',
-        'prm_hor_sal_id',
         'primer_apellido',
         'segundo_apellido',
         'primer_nombre',

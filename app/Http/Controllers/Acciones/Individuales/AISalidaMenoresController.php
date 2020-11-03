@@ -7,6 +7,8 @@ use App\Http\Requests\Csd\CsdCrearRequest;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\consulta\Csd;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\fichaIngreso\FiCompfami;
+use App\Models\Sistema\SisDepen;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +38,6 @@ class AISalidaMenoresController extends Controller
         $this->opciones['slotxxxx'] = 'aisalidamenores';
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['rutacarp'] = 'Acciones.';
-        $this->opciones['parametr'] = [];
         $this->opciones['carpetax'] = 'Individuales.SalidaMenores';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
@@ -158,11 +159,21 @@ class AISalidaMenoresController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablatodos']
             ];
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
+        $compofami = FiCompfami::getComboResponsable($dataxxxx['padrexxx'], true, false, $edad);
+        //ddd( $edad);
+        if ($compofami[0]) {
+            return redirect()
+                ->route('ficomposicion', [$dataxxxx['padrexxx']->sis_nnaj_id])
+                ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
+        }
+        //ddd($compofami[1]);
+        $this->opciones['dependen'] = SisDepen::combo(true, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['vercrear'] = false;
         $parametr = 0;
@@ -187,9 +198,61 @@ class AISalidaMenoresController extends Controller
             }
 
        
-        }
+        }  
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'CREAR COMPONENTE FAMILIAR',
+                'titulist' => 'REPRESENTANTE LEGAL',
+                'dataxxxx' => [],
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'vercrear' => false,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', $this->opciones['parametr']),
+                'cabecera' => [
+                    [
+                        // ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA NACIMIENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ],
+                ],
+                'columnsx' => [
+                    // ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'sis_nnajs.id'],
+                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+                    ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                ],
+
+
+
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => $this->opciones['parametr'],
+            ],
+
+        ];
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    public function getListodo(Request $request, CsdSisNnaj $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->datobasi = $padrexxx->id;
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getTodoComFami($request);
+        }
     }
 
     public function create(SisNnaj $padrexxx)
@@ -206,7 +269,7 @@ class AISalidaMenoresController extends Controller
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con exito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida creada con exito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -247,12 +310,12 @@ class AISalidaMenoresController extends Controller
      */
     public function update(Request $request, SisNnaj $padrexxx,  AiSalidaMenores $modeloxx)
     {
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida actualizada con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
-    public function inactivate(Csd $modeloxx)
+    public function inactivate(SisNnaj $padrexxx,AiSalidaMenores $modeloxx)
     {
-        $this->opciones['rutaxxxx'] = route('csdxxxxx.borrar', $modeloxx->id);
+        $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
                 [
@@ -260,15 +323,16 @@ class AISalidaMenoresController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'], 'padrexxx'=>$padrexxx]);
     }
 
 
-    public function destroy(Request $request, Csd $modeloxx)
+    public function destroy(SisNnaj $padrexxx, AiSalidaMenores $modeloxx)
     {
+        
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj->id])
-            ->with('info', 'CSD inactivada correctamente');
+        ->route('aisalidamenores.nuevo', [$padrexxx->id])
+        ->with('info', 'Red actual inactivada correctamente');
     }
 }

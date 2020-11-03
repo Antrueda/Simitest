@@ -3,15 +3,15 @@
         {{ Form::label('sis_depen_id', 'UPI / Dependencia', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm']) }}
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-2">
         {{ Form::label('d_fecha_diligencia', 'Fecha Diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('d_fecha_diligencia', null, ['class' => 'form-control form-control-sm','style'=>'border:1px']) }}
+        {{ Form::date('d_fecha_diligencia', null, ['class' => 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
     </div>
 </div>
 <div class="form-row align-items-end">
     <div class="form-group col-md-6">
         {{ Form::label('area_id', 'Área / Contexto Pedagógico', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('area_id', $todoxxxx["areacont"], null, ['class' => $errors->first('area_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
+        {{ Form::select('area_id', $todoxxxx["areacont"], null, ['class' => $errors->first('area_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','data-toggle'=>'tooltip','data-placement'=>'top', 'title'=>'Hooray']) }}
     </div>
     <div class="form-group col-md-6">
         {{ Form::label('fos_tse_id', 'Tipo de Seguimiento', ['class' => 'control-label col-form-label-sm']) }}
@@ -43,4 +43,14 @@
         {{ Form::label('i_responsable', 'Responsable de la actividad', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_responsable', $todoxxxx['usuarios'], null, ['class' => 'form-control form-control-sm']) }}
     </div>
+</div>
+
+<div class="col-md-12">
+    {{ Form::label('sis_esta_id', 'Estado', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('sis_esta_id', $todoxxxx['estadoxx'], null, ['class' => $errors->first('sis_esta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus']) }}
+    @if($errors->has('sis_esta_id'))
+    <div class="invalid-feedback d-block">
+        {{ $errors->first('sis_esta_id') }}
+    </div>
+    @endif
 </div>

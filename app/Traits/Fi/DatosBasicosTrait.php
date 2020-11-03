@@ -84,7 +84,7 @@ trait DatosBasicosTrait
                 $dataxxxx['requestx']->request->add(['prm_leer_id'=>1269]);
                 $dataxxxx['requestx']->request->add(['prm_escribir_id'=>1269]);
                 $dataxxxx['requestx']->request->add(['prm_operaciones_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_aprobado_id'=>1269]);
+                
                 $dataxxxx['requestx']->request->add(['prm_educacion_id'=>1269]);
                 $dataxxxx['requestx']->request->add(['prm_estudia_id'=>1269]);
                 $dataxxxx['user_edita_id'] = Auth::user()->id;

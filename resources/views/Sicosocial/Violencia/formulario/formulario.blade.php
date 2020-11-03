@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-3">
         {{ Form::label('prm_tip_vio_id', '4.1 ¿Presenta algún tipo de violencia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tip_vio_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_tip_vio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...', 'onchange' => 'doc(this.value)']) }}
+        {{ Form::select('prm_tip_vio_id', $todoxxxx['sinoxxxz'], null, ['class' => $errors->first('prm_tip_vio_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...', 'onchange' => 'doc(this.value)']) }}
     </div>
 </div>
 <div class="row">
@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                {{ Form::label('contextos', '4.4 ¿En qué contexto se ha sentido discriminado?', ['class' => 'control-label col-form-label-sm']) }}
+                {{ Form::label('contextos', '4.4 ¿En qué contexto se ha sentido discriminado/a?', ['class' => 'control-label col-form-label-sm']) }}
                 <div id="contextos_div">
                     {{ Form::select('contextos[]', $todoxxxx['contexto'], null, ['class' => $errors->first('contextos') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'contextos', 'multiple']) }}
                 </div>

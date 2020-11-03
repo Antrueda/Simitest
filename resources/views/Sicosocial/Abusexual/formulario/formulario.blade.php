@@ -21,7 +21,7 @@
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('dia', '14.3 ¿Hace cuánto tiempo fué el primer evento?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('dia', '14.3 ¿Hace cuánto tiempo fué el 1er. Evento?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="row">
             <div class="col-md-4">
                 {{ Form::number('dia', null, ['class' => $errors->first('dia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99']) }}

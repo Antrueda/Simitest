@@ -180,6 +180,8 @@ trait SalidaTrait
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
             ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
+            ->join('fi_compfamis', 'sis_nnajs.id', '=', 'fi_compfamis.sis_nnaj_id')
+            ->where('fi_compfamis.prm_reprlega_id',227)
             ->whereNotIn('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $request->padrexxx)->get());
         return $this->getDtAcciones($dataxxxx, $request);
     }

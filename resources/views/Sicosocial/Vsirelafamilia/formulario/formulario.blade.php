@@ -80,7 +80,7 @@
 		@endif
 	</div>
 	<div class="col-md-3">
-			{{ Form::label('famDificultades', '3.9 ¿cuáles?', ['class' => 'control-label col-form-label-sm']) }}
+			{{ Form::label('famDificultades', '3.9 ¿Cuáles?', ['class' => 'control-label col-form-label-sm']) }}
 			<div id="famDificultades_div">
 				{{ Form::select('famDificultades[]', $todoxxxx['dificult'], null, ['class' => $errors->first('famDificultades') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'famDificultades', 'multiple']) }}
 			</div>

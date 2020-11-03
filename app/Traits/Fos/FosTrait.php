@@ -67,12 +67,15 @@ trait FosTrait
             'fos_stses.nombre as subseguimiento',
             'upi.nombre as upi',
             'fos_datos_basicos.d_fecha_diligencia',
+            'fos_datos_basicos.s_observacion',
+            'users.name',
             'fos_datos_basicos.sis_esta_id',
             'fos_datos_basicos.created_at',
             'fos_datos_basicos.sis_nnaj_id',
             )
             ->join('sis_estas', 'fos_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->join('sis_depens as upi', 'fos_datos_basicos.sis_depen_id', '=', 'upi.id')
+            ->join('users', 'fos_datos_basicos.i_responsable', '=', 'users.id')
             ->join('areas', 'fos_datos_basicos.area_id', '=', 'areas.id')
             ->join('fos_tses', 'fos_datos_basicos.fos_tse_id', '=', 'fos_tses.id')
             ->join('fos_stses', 'fos_datos_basicos.fos_stse_id', '=', 'fos_stses.id')

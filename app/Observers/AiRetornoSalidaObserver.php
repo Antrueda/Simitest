@@ -17,7 +17,6 @@ class AiRetornoSalidaObserver
         $log['prm_upi_id'] = $modeloxx->prm_upi_id;
         $log['fecha'] = $modeloxx->fecha;
         $log['hora_retorno'] = $modeloxx->hora_retorno;
-        $log['prm_hor_ret_id'] = $modeloxx->prm_hor_ret_id;
         $log['descripcion'] = $modeloxx->descripcion;
         $log['observaciones'] = $modeloxx->observaciones;
         $log['nombres_retorna'] = $modeloxx->nombres_retorna;

@@ -49,7 +49,7 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->bigInteger('prm_leer_id')->unsigned();
             $table->bigInteger('prm_escribir_id')->unsigned();
             $table->bigInteger('prm_operaciones_id')->unsigned();
-            $table->bigInteger('prm_aprobado_id')->unsigned();
+            $table->bigInteger('prm_aprobado_id')->unsigned()->nullable();
             $table->bigInteger('prm_educacion_id')->unsigned();
             $table->bigInteger('prm_estudia_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();

@@ -476,7 +476,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 455, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CABEZA DE FAMILIA']);
         Parametro::create(['id' => 456, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COCINA']);
         Parametro::create(['id' => 457, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'HABITACIONES']);
-        Parametro::create(['id' => 458, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PATIO']);
+        Parametro::create(['id' => 458, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PATIO/ZONA DE ROPAS']);
         Parametro::create(['id' => 459, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ABANDONO DEL HOGAR POR PARTE DEL PADRE O MADRE']);
         Parametro::create(['id' => 460, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONSUMO DE SPA POR PARTE DE ALGÚN MIEMBRO DE LA FAMILIA']);
         Parametro::create(['id' => 461, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VIOLENCIA INTRA FAMILIAR']);

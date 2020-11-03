@@ -195,14 +195,7 @@ class CsdCompfamiController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);
-            if ($dataxxxx['modeloxx']->sis_pai_id != 2) {
-                $this->opciones['municipi'] = $this->opciones['departam'] = [1 => 'NO APLICA'];
-            }
-
-                  if ($dataxxxx['modeloxx']->prm_regimen_id == 168) {
-                $this->opciones['entid_id'] = [1 => 'NO APLICA'];
-            }
-
+            
             if ($dataxxxx['modeloxx']->sisben != '') {//
                 $this->opciones['nsnoresp'] = [1269 => 'NO APLICA'];
             }
@@ -285,14 +278,11 @@ class CsdCompfamiController extends Controller
 
         $dataxxxx['requestx']->request->add(['tipoacci' => 4]);
         $dataxxxx['requestx']->request->add(['prm_peso_dos_id' => 1269]);
-        $usuariox = $this->getTransaccion($dataxxxx);
-        return redirect()
-            ->route('csdcomfamiliar.editar', [
-                $dataxxxx['padrexxx']->id,
-                $usuariox->id
-                ])
+        $usuariox = $this->getTransaccion($dataxxxx)->id;
+        return redirect()->route('csdcomfamiliar.editar', [$dataxxxx['padrexxx']->id,$usuariox])
             ->with('info', $dataxxxx['infoxxxx']);
 
+      
             // return redirect()
             // ->route('csdcomfamiliar.editar', [$padrexxx->id, CsdComFamiliar::transaccion($dataxxxx, $objectx)->id])
             // ->with('info', $infoxxxx);
@@ -321,6 +311,7 @@ class CsdCompfamiController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
+        $this->opciones['csdxxxxx']=$padrexxx;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

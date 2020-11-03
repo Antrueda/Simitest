@@ -258,7 +258,7 @@
 <div class="row">
   <div class="form-group col-md-4">
     {{ Form::label('prm_aprobado_id', '7.28 Último grado, módulo o semestre aprobado', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_aprobado_id', $todoxxxx["aprobado"], null, ['class' => $errors->first('prm_aprobado_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_aprobado_id', $todoxxxx["aprobado"], null, ['class' => $errors->first('prm_aprobado_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','data-placeholder' => 'Seleccione...']) }}
     @if($errors->has('prm_aprobado_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_aprobado_id') }}
