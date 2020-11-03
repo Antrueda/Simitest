@@ -165,9 +165,9 @@ class AISalidaMenoresController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
-        $compofami = FiCompfami::getComboResponsable($dataxxxx['padrexxx'], true, false, $edad);
-        //ddd( $edad);
-        if ($compofami[0]) {
+        
+        $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('prm_reprlega_id',227)->first();
+        if ($compofami==null) {
             return redirect()
                 ->route('ficomposicion', [$dataxxxx['padrexxx']->sis_nnaj_id])
                 ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
@@ -242,10 +242,10 @@ class AISalidaMenoresController extends Controller
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-    public function getListodo(Request $request, CsdSisNnaj $padrexxx)
+    public function getListodo(Request $request, SisNnaj $padrexxx)
     {
         if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->padrexxx = $padrexxx->id;
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .

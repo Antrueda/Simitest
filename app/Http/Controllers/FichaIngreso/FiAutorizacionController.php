@@ -50,8 +50,9 @@ class FiAutorizacionController extends Controller
     {
         $this->opciones['parentes'] = Tema::combo(66, true, false);
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
+
         $compofami = FiCompfami::getComboResponsable($dataxxxx['padrexxx'], true, false, $edad);
-        //ddd( $edad);
+        ddd($dataxxxx['padrexxx']);
         if ($compofami[0]) {
             return redirect()
                 ->route('ficomposicion', [$dataxxxx['padrexxx']->sis_nnaj_id])

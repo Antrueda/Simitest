@@ -120,6 +120,7 @@ class FiCompfami extends Model
               if($edadxxxx>=18){
                 $consulta->where('i_prm_parentesco_id', 805);
               }
+              
             return $consulta;
         })->get();
         $redirect = true;
