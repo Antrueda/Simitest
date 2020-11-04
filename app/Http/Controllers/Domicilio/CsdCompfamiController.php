@@ -187,8 +187,7 @@ class CsdCompfamiController extends Controller
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->csd->CsdComFamiliarObservaciones);
-
-
+            
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);
@@ -275,8 +274,8 @@ class CsdCompfamiController extends Controller
 
         $dataxxxx['requestx']->request->add(['tipoacci' => 4]);
         $dataxxxx['requestx']->request->add(['prm_peso_dos_id' => 1269]);
-        $usuariox = $this->getTransaccion($dataxxxx)->id;
-        return redirect()->route('csdcomfamiliar.editar', [$dataxxxx['padrexxx']->id,$usuariox])
+        $usuariox = $this->getTransaccion($dataxxxx);
+        return redirect()->route('csdcomfamiliar.editar', [$dataxxxx['padrexxx']->id,$usuariox->id])
             ->with('info', $dataxxxx['infoxxxx']);
 
       
