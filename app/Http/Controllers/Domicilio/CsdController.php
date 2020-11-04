@@ -215,7 +215,7 @@ class CsdController extends Controller
         $this->opciones['rutaxxxx'] = route('csdxxxxx.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'csd'], 'padrexxx' => $padrexxx->fi_datos_basico]);

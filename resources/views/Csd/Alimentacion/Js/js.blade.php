@@ -13,7 +13,7 @@
       language: "es"
     });
 
-    $('#prepara').change(function() {
+    $('#prepara,#ingeridas').change(function() {
         f_comboSimple({
             dataxxxx: {
                 padrexxx: $(this).val() == '' ? 0 : $(this).val(),

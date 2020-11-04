@@ -53,4 +53,8 @@ Route::get('nnajsele', [
     'uses' => $controll . 'Controller@getNnajsele',
     'middleware' => ['permission:' . $routexxx . '-borrar']
 ])->name($routexxx . '.nnajsele');
+Route::get('cargos', [
+    'uses' => $controll . 'Controller@cargos',
+    'middleware' => ['permission:' . $routexxx . '-leer']
+])->name($routexxx . '.cargos');
 });

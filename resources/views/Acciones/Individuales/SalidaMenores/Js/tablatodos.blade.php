@@ -133,9 +133,8 @@ $(document).ready(function() {
             $('#primer_nombre').val('');
             $('#segundo_apellido').val('');
             $('#segundo_nombre').val('');
-            $('#prm_doc_id').val('');
             $('#documento').val('');
-            $('#prm_parentezco_id').val('');
+ 
 
 
         if ( $(this).hasClass('selected') ) {
@@ -150,9 +149,7 @@ $(document).ready(function() {
             $('#segundo_apellido').val(d.s_segundo_apellido);
             $('#segundo_nombre').val(d.s_segundo_nombre);
             $('#documento').val(d.s_documento);
-            $('#prm_doc_id').val(d.prm_documento_id);
-            $('#prm_parentezco_id').val(d.i_prm_parentesco_id);
-            dataxxxx={
+             dataxxxx={
                     url:"{{ route('ajaxx.edad') }}",
                     data:{
                         _token: $("input[name='_token']").val(),

@@ -251,8 +251,6 @@ class FosController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-
-
     public function create(SisNnaj $padrexxx)
     {
         $this->opciones['botoform'][] =

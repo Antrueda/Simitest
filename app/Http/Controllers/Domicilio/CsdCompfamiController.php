@@ -48,7 +48,6 @@ class CsdCompfamiController extends Controller
         $this->opciones['generoxx'] = Tema::combo(12, true, false);
         $this->opciones['orexualx'] = Tema::combo(13, true, false);
         $this->opciones['aprobado'] = Tema::combo(154, true, false);
-        $this->opciones['tipodocu'] = Tema::combo(3, true, false);
         $this->opciones['discapac'] = Tema::combo(24, true, false);
         $this->opciones['educacio'] = Tema::combo(153, true, false);
         $this->opciones['estadciv'] = Tema::combo(19, true, false);
@@ -64,8 +63,6 @@ class CsdCompfamiController extends Controller
         $this->opciones['convivex'] = Tema::combo(23, true, false);
         $this->opciones['reprlega'] = Tema::combo(23, true, false);
         $this->opciones['ocupacio'] = Tema::combo(156, true, false);
-        $this->opciones['tipodocu'] = Tema::combo(3, true, false);
-        $this->opciones['discapac'] = Tema::combo(24, true, false);
         $this->opciones['nsnoresp'] = Tema::combo(26, true, false);
         $this->opciones['educacio'] = Tema::combo(153, true, false);
         $this->opciones['convenci'] = Tema::combo(287, true, false);
@@ -267,7 +264,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario',  'js',], 'padrexxx' => $padrexxx]);

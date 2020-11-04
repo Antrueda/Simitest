@@ -69,17 +69,6 @@
                 });
             });
 
-            $("#d_fecha_diligencia").datepicker({
-                dateFormat: "yy-mm-dd",
-                changeMonth: true,
-                changeYear: true,
-                maxDate:'+0d',
-                yearRange: "-70:+0",
-                onSelect: function(dateText) {
-                
-                }
-            });
-
             var f_tooltip=function(dataxxxx){  
         var propieda=dataxxxx.thisxxxx.attr('propiedad'); 
         var elemento=$("#"+propieda).val();

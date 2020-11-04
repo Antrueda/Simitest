@@ -90,7 +90,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_doc_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_doc_id', $todoxxxx['document'], null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+    {{ Form::select('prm_doc_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
     @if($errors->has('prm_doc_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_doc_id') }}
@@ -176,7 +176,7 @@
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_doc2_id', 'Tipo de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_doc2_id', $todoxxxx['document'], null, ['class' => $errors->first('prm_doc2_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
+    {{ Form::select('prm_doc2_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_doc2_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
     @if($errors->has('prm_doc2_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_doc2_id') }}

@@ -400,7 +400,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 379, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CENTRO ESPECIALIZADO REVIVIR']);
         Parametro::create(['id' => 380, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CENTRO ZONAL SAN CRISTOBAL']);
         Parametro::create(['id' => 381, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'HACINAMIENTO']);
-        Parametro::create(['id' => 382, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MARMOL, PARQUÉS, MADERA PULIDA Y LACADA']);
+        Parametro::create(['id' => 382, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MÁRMOL, PARQUÉS, MADERA PULIDA Y LACADA']);
         Parametro::create(['id' => 383, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ALFOMBRA O TAPETE DE PARED A PARED']);
         Parametro::create(['id' => 384, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'BALDOSA, VINILO, TABLETA, LADRILLO, MADERA, MADERA BUERDA, TABLA, TABLÓN']);
         Parametro::create(['id' => 385, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CEMENTO, GRAVILLA']);

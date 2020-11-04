@@ -1939,6 +1939,7 @@ class SisUpzbarrisSeeder extends Seeder
         SisUpzbarri::create(['id' => 1922, 'sis_localupz_id' => 118, 'sis_barrio_id' => 1652, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisUpzbarri::create(['id' => 1923, 'sis_localupz_id' => 119, 'sis_barrio_id' => 1652, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisUpzbarri::create(['id' => 1924, 'sis_localupz_id' => 120, 'sis_barrio_id' => 1653, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
+        SisUpzbarri::create(['id' => 1925, 'sis_localupz_id' => 121, 'sis_barrio_id' => 1653, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
 
 
 

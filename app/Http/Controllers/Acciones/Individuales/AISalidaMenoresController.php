@@ -49,7 +49,7 @@ class AISalidaMenoresController extends Controller
         $this->opciones['condicix'] = Tema::combo(25, true, false);
         $this->opciones['ampmxxxx'] = Tema::combo(5, true, false);
         $this->opciones['objetivo'] = Tema::combo(307, false, false);
-        $this->opciones['document'] = Tema::combo(3,true, false);
+        $this->opciones['tipodocu'] = Tema::combo(3,true, false);
         $this->opciones['parentez'] = Tema::combo(66,true, false);
         $this->opciones['condixxx'] = Tema::combo(308, false, false);
         
@@ -173,7 +173,7 @@ class AISalidaMenoresController extends Controller
                 ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
         }
         //ddd($compofami[1]);
-        $this->opciones['dependen'] = SisDepen::combo(true, false);
+        $this->opciones['dependen'] = User::getUpiUsuario(false, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['vercrear'] = false;
         $parametr = 0;
@@ -334,5 +334,25 @@ class AISalidaMenoresController extends Controller
         return redirect()
         ->route('aisalidamenores.nuevo', [$padrexxx->id])
         ->with('info', 'Red actual inactivada correctamente');
+    }
+
+    public function cargos(Request $request, $padrexxx)
+    {
+        if ($request->ajax()) {
+            $dataxxxx = $request->all();
+            $respuest = ['comboxxx' => [], 'campoxxx' => '', 'cargoxxx' => '', 'campcarg' => ''];
+            switch ($dataxxxx['campoxxx']) {
+                case 'userr_id':
+                    $respuest['campcarg'] = '#s_cargo_responsable';
+                    $respuest['campoxxx'] = '#sis_depend_id';
+                    $dependen=SisDepen::find($dataxxxx['valuexxx']);
+                    $usuarioz =$dependen->NnajUpi;
+                    $respuest['comboxxx'] = $usuarioz[0];
+                    $respuest['cargoxxx'] = $usuarioz[1];
+                    break;
+            }
+        
+            return response()->json($respuest);
+        }
     }
 }

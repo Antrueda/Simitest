@@ -39,6 +39,7 @@ trait VsiAjaxTrait
             'ambientes'=> [168, 42],
             'comparte'=> [235, 66],
             'prepara'=> [235, 66],
+            'ingeridas'=> [853, 112],
             'normas'=> [235, 66],
             'dificultadez'=> [689, 168],
             
