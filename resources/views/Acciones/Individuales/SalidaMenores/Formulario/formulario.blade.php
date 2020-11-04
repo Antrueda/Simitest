@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-4">
     {{ Form::label('prm_upi_id', 'UPI en la que se encuentra activo el NNA', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('prm_upi_id', $todoxxxx['dependen'], null, ['class' => $errors->first('prm_upi_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI', 'autofocus']) }}
     @if($errors->has('prm_upi_id'))
@@ -8,7 +8,7 @@
     </div>
     @endif
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
     {{ Form::label('fecha', 'Fecha de salida', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::date('fecha', null, ['class' => $errors->first('fecha') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
     @if($errors->has('fecha'))
@@ -17,18 +17,14 @@
     </div>
     @endif
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
     {{ Form::label('hora_salida', 'Hora de salida', ['class' => 'control-label col-form-label-sm']) }}
-    <div class="row">
-      <div class="col-md-6">
-        {{ Form::time('hora_salida', null, ['class' => $errors->first('hora_salida') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::time('hora_salida', null, ['class' => $errors->first('hora_salida') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('hora_salida'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('hora_salida') }}
           </div>
-        @endif
-      </div>
-    </div>
+       @endif
   </div>
 </div>
 <div class="row">

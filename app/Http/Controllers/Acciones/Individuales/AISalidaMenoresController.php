@@ -173,7 +173,7 @@ class AISalidaMenoresController extends Controller
                 ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
         }
         //ddd($compofami[1]);
-        $this->opciones['dependen'] = User::getUpiUsuario(false, false);
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['vercrear'] = false;
         $parametr = 0;
