@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones;
 
+use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
@@ -404,6 +405,23 @@ trait SalidaTrait
             ->join('sis_estas', 'ai_salida_menores.sis_esta_id', '=', 'sis_estas.id')
             ->where('ai_salida_menores.sis_nnaj_id', $request->padrexxx);
         return $this->getDtSalidas($dataxxxx, $request);
+    }
+
+    public function getEvasion($request)
+    {
+        $dataxxxx =  AiReporteEvasion::select([
+            'ai_reporte_evasions.id',
+            'ai_reporte_evasions.fecha_evasion',
+            'upi.nombre as upi',
+            'ai_reporte_evasions.hora_evasion',
+            'ai_reporte_evasions.sis_esta_id',
+            'ai_reporte_evasions.sis_nnaj_id',
+            'ai_reporte_evasions.created_at',
+            ])
+            ->join('sis_depens as upi', 'ai_reporte_evasions.prm_upi_id', '=', 'upi.id')
+            ->join('sis_estas', 'ai_reporte_evasions.sis_esta_id', '=', 'sis_estas.id')
+            ->where('ai_reporte_evasions.sis_nnaj_id', $request->padrexxx);
+        return $this->getDtAcciones($dataxxxx, $request);
     }
 
     

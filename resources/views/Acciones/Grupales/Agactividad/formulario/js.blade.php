@@ -73,15 +73,6 @@
         });
 
 
-        $("#d_registro").datepicker({
-            dateFormat: "yy-mm-dd",
-            changeMonth: true,
-            changeYear: true,
-            minDate: {{ $todoxxxx['tiempoxx'] }},
-            maxDate:'+0d',
-            yearRange: "-70:+0",
-            onSelect: function(dateText) {
-            }
-        });
+    
     });
 </script>   

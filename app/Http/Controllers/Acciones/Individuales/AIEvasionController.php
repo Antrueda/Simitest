@@ -3,207 +3,318 @@
 namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
+use App\Http\Requests\Csd\CsdCrearRequest;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
+use App\Models\Acciones\Individuales\AiSalidaMenores;
+use App\Models\consulta\Csd;
+use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\fichaIngreso\FiCompfami;
+use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisMunicipio;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
-use App\Models\Sistema\SisDepartamento;
-use App\Models\Sistema\SisMunicipio;
-use Illuminate\Support\Carbon;
+use App\Traits\Acciones\SalidaTrait;
 
-class AIEvasionController extends Controller{
-    public function __construct(){
+class AIEvasionController extends Controller
+{
+    use SalidaTrait;
+    private $opciones;
 
-        $this->opciones['permisox']='evasion';
+    public function __construct()
+    {
+        $this->opciones['permisox'] = 'aievasion';
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
+        $this->opciones['tituhead'] = 'Reporte de Evasión';
+        $this->opciones['routxxxx'] = 'aievasion';
+        $this->opciones['slotxxxx'] = 'aievasion';
+        $this->opciones['perfilxx'] = 'conperfi';
+        $this->opciones['rutacarp'] = 'Acciones.';
+        $this->opciones['carpetax'] = 'Individuales.Evasion';
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['contextu'] = Tema::combo(273, true, false);
+        $this->opciones['rostroxx'] = Tema::combo(274, true, false);
+        $this->opciones['pielxxxx'] = Tema::combo(275, false, false);
+        $this->opciones['cabellox'] = Tema::combo(276,true, false);
+        $this->opciones['cabelloz'] = Tema::combo(277,true, false);
+        $this->opciones['cabelloy'] = Tema::combo(278,true, false);
+        $this->opciones['ojosxxxx'] = Tema::combo(279,true, false);
+        $this->opciones['narizxxx'] = Tema::combo(280,true, false);
+        $this->opciones['tamanoxx'] = Tema::combo(281,true, false);
+        $this->opciones['prendaxx'] = Tema::combo(304,true, false);
+        $this->opciones['parentez'] = Tema::combo(66,true, false);
+        $this->opciones['atencion'] = Tema::combo(306, false, false);
+        
+        
+        
+
+
+
+        $this->opciones['estrateg'] = ['' => 'Seleccione'];
+
+        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A SALIDAS', 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
+    }
+    public function index(SisNnaj $padrexxx)
+    {
+        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'REGISTRAR NUEVA SALIDA',
+                'titulist' => 'LISTA DE SALIDAS',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'vercrear' => true,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA DE EVASION', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'HORA DE EVASIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'ai_reporte_evasions.id'],
+                    ['data' => 'tiempo', 'name' => 'ai_reporte_evasions.fecha_evasion'],
+                    ['data' => 'upi', 'name' => 'upi.nombre as upi'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => [$padrexxx->id],
+            ]
+        ];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ];
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    public function index($id){
-        $dato = SisNnaj::findOrFail($id);
-        $nnaj = $dato->fi_datos_basico;
-        $evasiones = $dato->AiReporteEvasion->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Inicio'], compact('dato', 'nnaj', 'evasiones'));
+    public function getListado(Request $request, SisNnaj $padrexxx)
+    {
+        if ($request->ajax()) {
+
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->padrexxx = $padrexxx->id;
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->razonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.razonesx';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getEvasion($request);
+        }
+    }
+    public function getNnajVisitados(Request $request, Csd $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->padrexxx = $padrexxx->id;
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getVisitados($request);
+        }
     }
 
-    public function create($id){
-        $dato  = SisNnaj::findOrFail($id);
-        $nnaj  = $dato->fi_datos_basico;
-        $evasiones  = $dato->AiReporteEvasion->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis  = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
-        $ampm  = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $contextura = Tema::findOrFail(273)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $rostro= Tema::findOrFail(274)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $piel  = Tema::findOrFail(275)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $cabello    = Tema::findOrFail(276)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $tCabello   = Tema::findOrFail(277)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $cCabello   = Tema::findOrFail(278)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $ojos  = Tema::findOrFail(279)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $nariz = Tema::findOrFail(280)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $tamanio    = Tema::findOrFail(281)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $prendas    = Tema::findOrFail(304)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $familiares = Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $atencion   = Tema::findOrFail(306)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $usuarios   = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
-        $depajs = SisDepartamento::orderBy('s_departamento')->get();
-        $upisjs = SisDepen::orderBy('nombre')->get();
-        $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
-        $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', 6)->pluck('s_municipio', 'id');
-        $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
-        return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Nueva'], compact('dato', 'nnaj', 'evasiones', 'upis', 'ampm', 'contextura', 'rostro', 'piel', 'cabello', 'sino', 'tCabello', 'cCabello', 'ojos', 'nariz', 'tamanio', 'prendas', 'familiares', 'atencion', 'usuarios', 'depajs', 'upisjs', 'departamentos', 'municipios', 'hoy'));    }
+    private function grabar($dataxxxx)
+    {
+        $usuariox = AiReporteEvasion::transaccion($dataxxxx);
+        return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$dataxxxx['padrexxx']->id, $usuariox->id])
+            ->with('info', $dataxxxx['infoxxxx']);
+    }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
-    public function store(Request $request){
-        $this->validator($request->all())->validate();
-        if($request->prm_tinturado_id != 227) {
-            $request["tintura"] = null;
+    private function view($dataxxxx)
+    {
+        $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->id;
+        $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
+        $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ];
+
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
+        $departam=0;
+        
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['usuarioz'] = User::comboCargo(true, false);
+        $this->opciones['vercrear'] = false;
+        $parametr = 0;
+        if ($dataxxxx['modeloxx'] != '') {
+            $this->opciones['vercrear'] = true;
+            $parametr = $dataxxxx['modeloxx']->id;
+            $this->opciones['pestpadr'] = 3;
+            $dataxxxx['modeloxx']->prm_condicion_id =  $dataxxxx['modeloxx']->condiciones->prm_condicion_id;
+            $dataxxxx['modeloxx']->prm_orientado_id =  $dataxxxx['modeloxx']->condiciones->prm_orientado_id;
+            $dataxxxx['modeloxx']->prm_enfermerd_id =  $dataxxxx['modeloxx']->condiciones->prm_enfermerd_id;
+            $dataxxxx['modeloxx']->prm_brotes_id =  $dataxxxx['modeloxx']->condiciones->prm_brotes_id;
+            $dataxxxx['modeloxx']->prm_laceracio_id =  $dataxxxx['modeloxx']->condiciones->prm_laceracio_id;
+            $departam=$dataxxxx['modeloxx']->sis_departamento_id;
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', $dataxxxx['padrexxx']->sis_nnaj_id],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+        }  
+        $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
+        $this->opciones['departam'] = SisDepartamento::combo(2, false);
+        // Se arma el titulo de acuerdo al array opciones
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+    public function getListodo(Request $request, SisNnaj $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->id;
+            $request->datobasi = $padrexxx->id;
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getTodoComFami($request);
         }
-        if($request->prm_tipCabello_id != 227) {
-            $request["prm_corCabello_id"] = null;
-        }
-        if($request->prm_tienelunar_id != 227) {
-            $request["cuantos"] = null;
-            $request["prm_tamlunar_id"] = null;
-        }
-        if($request->prm_reporta_id != 227) {
-            $request["prm_llamada_id"] = null;
-            $request["radicado"]       = null;
-            $request["recibe_denuncia"]= null;
-            $request["institución"]    = null;
-            $request["nombre_recibe"]  = null;
-            $request["cargo_recibe"]   = null;
-            $request["placa_recibe"]   = null;
-            $request["fecha_denuncia"] = null;
-            $request["hora_denuncia"]  = null;
-            $request["prm_hor_denuncia_id"] = null;
-        }
-        $dato = AiReporteEvasion::create($request->all());
-        return redirect()->route('ai.evasion', $request->sis_nnaj_id)->with('info', 'Registro creado con éxito');
     }
 
-    public function edit($id, $id0){
-        $dato  = SisNnaj::findOrFail($id);
-        $nnaj  = $dato->fi_datos_basico;
-        $evasiones  = $dato->AiReporteEvasion->where('sis_esta_id', 1)->sortByDesc('fecha')->all();
-        $upis  = SisDepen::orderBy('nombre')->pluck('nombre', 'id');
-        $ampm  = Tema::findOrFail(5)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $contextura = Tema::findOrFail(273)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $rostro= Tema::findOrFail(274)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $piel  = Tema::findOrFail(275)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $cabello    = Tema::findOrFail(276)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $sino  = Tema::findOrFail(23)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $tCabello   = Tema::findOrFail(277)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $cCabello   = Tema::findOrFail(278)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $ojos  = Tema::findOrFail(279)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $nariz = Tema::findOrFail(280)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $tamanio    = Tema::findOrFail(281)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $prendas    = Tema::findOrFail(304)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $familiares = Tema::findOrFail(66)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $atencion   = Tema::findOrFail(306)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $usuarios   = User::where('sis_esta_id', 1)->orderBy('s_primer_nombre')->orderBy('s_segundo_nombre')->orderBy('s_primer_apellido')->orderBy('s_segundo_apellido')->get()->pluck('doc_nombre_completo_cargo', 'id');
-        $valor = AiReporteEvasion::findOrFail($id0);
-        $depajs = SisDepartamento::orderBy('s_departamento')->get();
-        $departamentos = SisDepartamento::orderBy('s_departamento')->where('sis_pai_id', 2)->pluck('s_departamento', 'id');
-        $municipios = SisMunicipio::orderBy('s_municipio')->where('sis_departamento_id', $valor->departamento_id)->pluck('s_municipio', 'id');
-        $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
-        return view('Acciones.Individuales.index', ['accion' => 'Evasion', 'tarea' => 'Editar'], compact('dato', 'nnaj', 'evasiones', 'upis', 'ampm', 'contextura', 'rostro', 'piel', 'cabello', 'sino', 'tCabello', 'cCabello', 'ojos', 'nariz', 'tamanio', 'prendas', 'familiares', 'atencion', 'usuarios', 'valor', 'depajs', 'departamentos', 'municipios', 'hoy'));
+    public function create(SisNnaj $padrexxx)
+    {
+        $this->opciones['rutaxxxx'] = route('aisalidamenores.nuevo', $padrexxx->id);
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
+    }
+    public function store(Request $request, SisNnaj $padrexxx)
+    {
+        $request->request->add(['sis_esta_id' => 1]);
+        $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida creada con exito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
     }
 
-    public function update(Request $request, $id, $id0){
-        $this->validator($request->all())->validate();
-
-        if($request->prm_tinturado_id != 227) {
-            $request["tintura"] = null;
-        }
-
-        if($request->prm_tipCabello_id != 227) {
-            $request["prm_corCabello_id"] = null;
-        }
-
-        if($request->prm_tienelunar_id != 227) {
-            $request["cuantos"] = null;
-            $request["prm_tamlunar_id"] = null;
-        }
-
-        if($request->prm_reporta_id != 227) {
-            $request["prm_llamada_id"] = null;
-            $request["radicado"]       = null;
-            $request["recibe_denuncia"]= null;
-            $request["institución"]    = null;
-            $request["nombre_recibe"]  = null;
-            $request["cargo_recibe"]   = null;
-            $request["placa_recibe"]   = null;
-            $request["fecha_denuncia"] = null;
-            $request["hora_denuncia"]  = null;
-            $request["prm_hor_denuncia_id"] = null;
-        }
-
-        $dato = AiReporteEvasion::findOrFail($id0);
-        $dato->fill($request->all())->save();
-
-        return redirect()->route('ai.evasion', $id)->with('info', 'Registro actualizado con éxito');
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\FiDatosBasico $modeloxx
+     * @return \Illuminate\Http\Response
+     */
+    public function show(SisNnaj $padrexxx, AiReporteEvasion $modeloxx)
+    {
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 
-    protected function validator(array $data){
-        $hoy = Carbon::today()->isoFormat('YYYY-MM-DD');
-        return Validator::make($data, [
-            'sis_nnaj_id'   => 'required|exists:sis_nnajs,id',
-            'departamento_id' => 'required|exists:sis_departamentos,id',
-            'municipio_id' => 'required|exists:sis_municipios,id',
-            'fecha_diligenciamiento' => 'required|date',
-            'prm_upi_id'    => 'required|exists:sis_depens,id',
-            'lugar_evasion' => 'required|string|max:120',
-            'fecha_evasion' => 'required|date|before_or_equal:'.$hoy,
-            'hora_evasion'  => 'required',
-            'prm_hor_eva_id'=> 'required|exists:parametros,id',
-            'nnaj_talla'    => 'required|integer',
-            'nnaj_peso'     => 'required|integer',
-            'prm_contextura_id' => 'required|exists:parametros,id',
-            'prm_rostro_id' => 'required|exists:parametros,id',
-            'prm_piel_id'   => 'required|exists:parametros,id',
-            'prm_colCabello_id' => 'required|exists:parametros,id',
-            'prm_tinturado_id'  => 'required|exists:parametros,id',
-            'tintura'       => 'required_if:prm_tinturado_id,227|max:120',
-            'prm_tipCabello_id' => 'required|exists:parametros,id',
-            'prm_corCabello_id' => 'required_unless:prm_tipCabello_id,1459|exists:parametros,id',
-            'prm_ojos_id'   => 'required|exists:parametros,id',
-            'prm_nariz_id'  => 'required|exists:parametros,id',
-            'prm_tienelunar_id' => 'required|exists:parametros,id',
-            'cuantos'       => 'required_if:prm_tienelunar_id,227',
-            'prm_tamlunar_id'   => 'required_if:prm_tienelunar_id,227|exists:parametros,id',
-            'senias'        => 'required|string|max:4000',
-            'circunstancias'=> 'required|string|max:4000',
-            'prm_familiar1_id' => 'required|exists:parametros,id',
-            'nombre_familiar1' => 'required|string|max:120',
-            'direccion_familiar1' => 'required|string|max:120',
-            'tel_familiar1'    => 'required|integer',
-            'prm_familiar2_id' => 'required|exists:parametros,id',
-            'nombre_familiar2' => 'required|string|max:120',
-            'direccion_familiar2' => 'required|string|max:120',
-            'tel_familiar2'    => 'required|integer',
-            'observaciones_fam'=> 'required|string|max:4000',
-            'prm_reporta_id'   => 'required|exists:parametros,id',
-            'prm_llamada_id'   => 'required_if:prm_reporta_id,227|exists:parametros,id',
-            'radicado'         => 'required_if:prm_reporta_id,227|max:120',
-            'recibe_denuncia'  => 'required_if:prm_reporta_id,227|max:120',
-            'user_doc1_id'     => 'required|exists:users,id',
-            'user_doc2_id'     => 'required|exists:users,id',
-            'responsable'      => 'required|exists:users,id',
-            'institución'      => 'required_if:prm_reporta_id,227|max:120',
-            'nombre_recibe'    => 'required_if:prm_reporta_id,227|max:120',
-            'cargo_recibe'     => 'required_if:prm_reporta_id,227|max:120',
-            'placa_recibe'     => 'required_if:prm_reporta_id,227|max:120',
-            'fecha_denuncia'   => 'required_if:prm_reporta_id,227',
-            'hora_denuncia'    => 'required_if:prm_reporta_id,227',
-            'prm_hor_denuncia_id' => 'required_if:prm_reporta_id,227|exists:parametros,id'
-        ]);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\FiDatosBasico $modeloxx
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(SisNnaj $padrexxx, AiReporteEvasion $modeloxx)
+    {
+        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiDatosBasico $padrexxx
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, SisNnaj $padrexxx,  AiReporteEvasion $modeloxx)
+    {
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida actualizada con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
+    }
+
+    public function inactivate(SisNnaj $padrexxx,AiReporteEvasion $modeloxx)
+    {
+        $this->opciones['parametr'] = [$padrexxx->id];
+        if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'INACTIVAR', 'routingx' => [$this->opciones['routxxxx'] . '.borrar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'], 'padrexxx'=>$padrexxx]);
+    }
+
+
+    public function destroy(SisNnaj $padrexxx, AiReporteEvasion $modeloxx)
+    {
+        
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+        ->route('aisalidamenores.nuevo', [$padrexxx->id])
+        ->with('info', 'Red actual inactivada correctamente');
+    }
+
+    public function cargos(Request $request, $padrexxx)
+    {
+        if ($request->ajax()) {
+            $dataxxxx = $request->all();
+            $respuest = ['comboxxx' => [], 'campoxxx' => '', 'cargoxxx' => '', 'campcarg' => ''];
+            switch ($dataxxxx['campoxxx']) {
+                case 'userr_id':
+                    $respuest['campcarg'] = '#s_cargo_responsable';
+                    $respuest['campoxxx'] = '#sis_depend_id';
+                    $dependen=SisDepen::find($dataxxxx['valuexxx']);
+                    $usuarioz =$dependen->NnajUpi;
+                    $respuest['comboxxx'] = $usuarioz[0];
+                    $respuest['cargoxxx'] = $usuarioz[1];
+                    break;
+            }
+        
+            return response()->json($respuest);
+        }
     }
 }

@@ -8,6 +8,8 @@ use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AiReporteEvasion extends Model{
     
@@ -111,5 +113,30 @@ class AiReporteEvasion extends Model{
 
     public function horaDenuncia(){
         return $this->belongsTo(Parametro::class, 'prm_hor_denuncia_id');
+    }
+
+    public static function transaccion($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            
+            if ($dataxxxx['modeloxx'] != '') {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+                $dataxxxx['requestx']->request->add(['ai_salida_menores_id' => $dataxxxx['modeloxx']->id]);
+                $dataxxxx['objetoxx']=$dataxxxx['modeloxx'];
+          
+            } else {
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['modeloxx'] = AiReporteEvasion::create($dataxxxx['requestx']->all());
+                $dataxxxx['requestx']->request->add(['ai_salida_menores_id' => $dataxxxx['modeloxx']->id]);
+                $dataxxxx['objetoxx']=$dataxxxx['modeloxx'];
+              
+            }
+            
+         
+
+           return $dataxxxx['modeloxx'];
+        }, 5);
+        return $objetoxx;
     }
 }

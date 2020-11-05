@@ -110,6 +110,15 @@ class FosDatoBasicoController extends Controller
         if ($fechaxxx[1] < 12) {
             $fechaxxx[1] = $fechaxxx[1] + 1;
         }
+        $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
+
+        $compofami = FiCompfami::getComboResponsable($dataxxxx['padrexxx'], true, false, $edad);
+        ddd($dataxxxx['padrexxx']);
+        if ($compofami[0]) {
+            return redirect()
+                ->route('ficomposicion', [$dataxxxx['padrexxx']->sis_nnaj_id])
+                ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
+        }
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
         $this->opciones['tipsegui'] = ['' => 'Seleccione'];
         $this->opciones['seguixxx'] = ['' => 'Seleccione'];

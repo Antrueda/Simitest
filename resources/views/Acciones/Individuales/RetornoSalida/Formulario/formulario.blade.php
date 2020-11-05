@@ -19,24 +19,13 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('hora_retorno', 'Hora del retorno', ['class' => 'control-label col-form-label-sm']) }}
-    <div class="row">
-      <div class="col-md-6">
         {{ Form::time('hora_retorno', null, ['class' => $errors->first('hora_retorno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('hora_retorno'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('hora_retorno') }}
           </div>
         @endif
-      </div>
-      <div class="col-md-6">
-        {{ Form::select('prm_hor_ret_id', $todoxxxx['ampmxxxx'], null, ['class' => $errors->first('prm_hor_ret_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
-        @if($errors->has('prm_hor_ret_id'))
-          <div class="invalid-feedback d-block">
-            {{ $errors->first('prm_hor_ret_id') }}
-          </div>
-        @endif
-      </div>
-    </div>
+
   </div>
 </div>
 <div class="row mt-3">

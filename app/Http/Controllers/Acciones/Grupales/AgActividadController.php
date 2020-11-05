@@ -186,7 +186,7 @@ class AgActividadController extends Controller
 
     private function grabar($dataxxxx, $objectx, $infoxxxx)
     {
-
+        ddd($dataxxxx);
         return redirect()
             ->route('ag.acti.actividad.editar', [AgActividad::transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);

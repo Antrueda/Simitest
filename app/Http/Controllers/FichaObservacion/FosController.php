@@ -229,6 +229,14 @@ class FosController extends Controller
         $this->opciones['mindatex'] = "-28y +0m +0d";
         $this->opciones['maxdatex'] = "-6y +0m +0d";
         $this->opciones['usuarios'] = User::comboCargo(true, false);
+        $edad = $dataxxxx['padrexxx']->fi_datos_basico->nnaj_nacimi->Edad;
+        
+        $compofami = FiCompfami::getComboResponsable($dataxxxx['padrexxx']->fi_datos_basico, true, false, $edad);
+        if ($compofami[0]) {
+            return redirect()
+                ->route('ficomposicion', [$dataxxxx['padrexxx']->id])
+                ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
+        }
         $this->opciones['compfami'] = FiCompfami::combo($this->opciones['datobasi'], true, false);
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
         $this->opciones['dependen'] = SisDepen::combo(true, false);

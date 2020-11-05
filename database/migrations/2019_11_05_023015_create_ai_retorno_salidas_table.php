@@ -22,7 +22,6 @@ class CreateAiRetornoSalidasTable extends Migration
             $table->bigInteger('prm_upi_id')->unsigned();
             $table->date('fecha');
             $table->time('hora_retorno');
-            $table->bigInteger('prm_hor_ret_id')->unsigned();
             $table->string('descripcion', 4000);
             $table->string('observaciones', 4000);
             $table->string('nombres_retorna', 120)->nullable();
@@ -38,7 +37,6 @@ class CreateAiRetornoSalidasTable extends Migration
             $table->timestamps();
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
-            $table->foreign('prm_hor_ret_id')->references('id')->on('parametros');
             $table->foreign('prm_doc_id')->references('id')->on('parametros');
             $table->foreign('prm_parentezco_id')->references('id')->on('parametros');
             $table->foreign('responsable')->references('id')->on('users');

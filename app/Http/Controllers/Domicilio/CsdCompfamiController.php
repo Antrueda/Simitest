@@ -187,7 +187,9 @@ class CsdCompfamiController extends Controller
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->csd->CsdComFamiliarObservaciones);
-            
+            if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
+                $this->opciones['poblindi'] = Parametro::find(1269)->Combo;
+            }
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);

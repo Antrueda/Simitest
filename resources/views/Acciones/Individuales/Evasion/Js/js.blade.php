@@ -1,14 +1,5 @@
 <script>
-  @isset ($depajs)
-    @foreach($depajs as $d)
-      var depa_{{ $d->id }}=[
-        @foreach($d->sis_municipios as $m)
-          [{{$m->id}}, "{{ $m->s_municipio }}"],
-        @endforeach
-      ];
-    @endforeach
-  @endisset
-  @isset ($upisjs)
+    @isset ($upisjs)
     @foreach($upisjs as $d)
       var upi_{{ $d->id }}=[ "{{ $d->s_direccion }}", "{{ $d->s_telefono }}" ];
     @endforeach
@@ -29,7 +20,44 @@
     $('#responsable').select2({
       language: "es"
     });
-  });
+        var f_combo = function(dataxxxx, campoxxx) {
+            $("#" + campoxxx).empty();
+            $.each(dataxxxx, function(i, data) {
+                $("#" + campoxxx).append('<option ' +
+                    data.selected + ' value="' +
+                    data.valuexxx + '">' +
+                    data.optionxx + '</option>')
+            });
+        }
+        var f_municipos = function(valuexxx, campoxxx, selected) {
+                  $.ajax({
+                      url: "{{ route('ajaxx.municipios') }}",
+                      data: {
+                          padrexxx: valuexxx,
+                          pselecte: selected,
+                          campoxxx: campoxxx
+                      },
+                      type: 'GET',
+                      dataType: 'json',
+                      success: function(json) {
+                          f_combo(json[0], json[1]);
+                      },
+                      error: function(xhr, status) {
+                          alert('Disculpe, existió un problema');
+                      },
+                  });
+                  }
+                  $('#departamento_id').change(function() {
+                  f_municipos($(this).val(), 'municipio_id', '');
+                  });
+                  var deptcond = "{{old('departamento_id')}}";
+
+                  if (deptcond != '') {
+                  f_municipos('{{ old("departamento_id") }}',
+                      'municipio_id',
+                      '{{ old("municipio_id") }}');
+                  }
+                    });
 
   function doc(valor){
     if(valor == 228){
@@ -82,9 +110,7 @@
       document.getElementById("fecha_denuncia").value='';
       document.getElementById("hora_denuncia").hidden=true;
       document.getElementById("hora_denuncia").value='';
-      document.getElementById("prm_hor_denuncia_id").hidden=true;
-      document.getElementById("prm_hor_denuncia_id").value='';
-    } else {
+} else {
       document.getElementById("prm_llamada_id").hidden=false;
       document.getElementById("radicado").hidden=false;
       document.getElementById("recibe_denuncia").hidden=false;
@@ -94,7 +120,7 @@
       document.getElementById("placa_recibe").hidden=false;
       document.getElementById("fecha_denuncia").hidden=false;
       document.getElementById("hora_denuncia").hidden=false;
-      document.getElementById("prm_hor_denuncia_id").hidden=false;
+      
     }
   }
 

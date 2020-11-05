@@ -23,7 +23,6 @@ class CreateHAiRetornoSalidasTable extends Migration
             $table->bigInteger('prm_upi_id')->unsigned();
             $table->date('fecha');
             $table->time('hora_retorno');
-            $table->bigInteger('prm_hor_ret_id')->unsigned();
             $table->string('descripcion', 4000);
             $table->string('observaciones', 4000);
             $table->string('nombres_retorna', 120)->nullable();
