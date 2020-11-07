@@ -18,6 +18,7 @@ class FiSituacionEspecialObserver
        
         $log['i_tiempo'] = $modeloxx->i_tiempo;
         $log['i_prm_ttiempo_id'] = $modeloxx->i_prm_ttiempo_id;
+        $log['prm_presconf_id'] = $modeloxx->prm_presconf_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

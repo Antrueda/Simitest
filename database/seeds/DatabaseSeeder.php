@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(SisEstasSeeder::class);
-
         $this->call(SisParametrosSeeder::class);
         $this->call(SisPaisSeeder::class);
         $this->call(SisDepartamentoSeeder::class);
@@ -45,6 +44,27 @@ class DatabaseSeeder extends Seeder
         $this->call(SisProcesosSeeder::class);
         $this->call(SisActividadProcesosSeeder::class);
         $this->call(SisNnajsSeeder::class);
+        $this->call(NnajCaminandoSeeder::class);//nuevo
+        $this->call(FiBienvenidaSeeder::class);//nuevo
+        $this->call(FiResidenciaSeeder::class);//nuevo
+        $this->call(FiFormacionSeeder::class);//nuevo
+        $this->call(FiSaludSeeder::class);//nuevo
+        $this->call(FiGeneracionIngresoSeeder::class);//nuevo
+        $this->call(FiActividadestlSeeder::class);//nuevo
+        $this->call(FiConsumoSpaSeeder::class);//nuevo
+        $this->call(FiRedApoyoActualSeeder::class);//nuevo
+        $this->call(FiRedApoyoAntecedenteSeeder::class);//nuevo
+        $this->call(FiViolenciaSeeder::class);//nuevo
+        $this->call(FiSituacionEspecialSeeder::class);//nuevo
+        $this->call(FiContactoSeeder::class);//nuevo
+        $this->call(FiCompfamiSeeder::class);//nuevo
+        $this->call(FiJustrestSeeder::class);//nuevo
+        $this->call(FiAutorizacionSeeder::class);//nuevo
+        $this->call(FiRazoneSeeder::class);//nuevo
+        
+        
+        
+        
         $this->call(CsdsSeeder::class);
         $this->call(CsdSisNnajSeeder::class);
         $this->call(CsdJusticiasSeeder::class);

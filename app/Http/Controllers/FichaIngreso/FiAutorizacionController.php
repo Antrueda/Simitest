@@ -52,7 +52,6 @@ class FiAutorizacionController extends Controller
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
 
         $compofami = FiCompfami::getComboResponsable($dataxxxx['padrexxx'], true, false, $edad);
-        ddd($dataxxxx['padrexxx']);
         if ($compofami[0]) {
             return redirect()
                 ->route('ficomposicion', [$dataxxxx['padrexxx']->sis_nnaj_id])
@@ -93,7 +92,6 @@ class FiAutorizacionController extends Controller
         $this->opciones['estadoxx'] = 'ACTIVO';
 
         // indica si se esta actualizando o viendo
-        ddd($compofami);
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

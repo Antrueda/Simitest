@@ -13,6 +13,7 @@ class HFiSituacionEspecial extends Model
         'i_prm_tipo_id',
         'i_tiempo',
         'i_prm_ttiempo_id',
+        'prm_presconf_id',
         'sis_esta_id',
         
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
