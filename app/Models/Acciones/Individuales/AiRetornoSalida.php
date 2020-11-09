@@ -2,7 +2,7 @@
 
 namespace App\Models\Acciones\Individuales;
 
-use App\Models\Acciones\Individuales\pivotes\AiRetornoSalidaCondicion;
+use App\Models\Acciones\Individuales\Pivotes\AiRetornoSalidaCondicion;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Sistema\SisNnaj;
@@ -18,7 +18,7 @@ class AiRetornoSalida extends Model{
         'descripcion', 'observaciones', 'nombres_retorna', 'prm_doc_id',
         'doc_retorna', 'prm_parentezco_id', 'responsable', 'user_doc1_id'
     ];
-    
+
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
     public function nnaj(){
@@ -51,7 +51,7 @@ class AiRetornoSalida extends Model{
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            
+
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
                 $dataxxxx['requestx']->request->add(['ai_retorno_salida_id' => $dataxxxx['modeloxx']->id]);
@@ -69,7 +69,7 @@ class AiRetornoSalida extends Model{
                 $dataxxxx['objetoxx']=$dataxxxx['modeloxx'];
                 AiRetornoSalidaCondicion::create($dataxxxx['requestx']->all());
             }
-            
+
         return $dataxxxx['modeloxx'];
         }, 5);
         return $objetoxx;

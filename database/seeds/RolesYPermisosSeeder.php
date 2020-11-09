@@ -44,6 +44,7 @@ class RolesYPermisosSeeder extends Seeder
     {
         // Restablecer roles y permisos en caché
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        require_once('Reportes/RolesYPermisosReportesSeeder.php');// Reportes
         // crear permisos permiso
         $this->getPermisos(['permisox' => 'permiso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Permisos', 'pestania' => 1]);
 
@@ -405,8 +406,6 @@ class RolesYPermisosSeeder extends Seeder
 
         $this->getPermisos(['permisox' => 'fossubtipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
 
-        //permisos para el cargue excel
-        $this->getPermisos(['permisox' => 'excel', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'manejo de archivos excel', 'pestania' => 1]);
 
         // crear roles y asignar los permisos
         Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(Permission::all());

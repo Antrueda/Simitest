@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Acciones\Individuales\pivotes;
+namespace App\Models\Acciones\Individuales\Pivotes;
 
 use Illuminate\Database\Eloquent\Model;
 

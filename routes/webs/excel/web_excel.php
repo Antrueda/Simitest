@@ -1,13 +1,23 @@
 <?php
 
-$controll = 'Administracion\Excel';
+$controll = 'Administracion\Reportes\Excel\Excel';
 $routexxx = 'excel';
 Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 
-	Route::get('', [
-		'uses' => $controll . 'Controller@index',
+	Route::get('excel', [
+		'uses' => $controll . 'Controller@getExcel',
 		'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
-	])->name($routexxx);
+    ])->name($routexxx);
+    Route::get('exportar', [
+		'uses' => $controll . 'Controller@setExcel',
+		'middleware' => ['permission:' . $routexxx . '-crear']
+	])->name($routexxx . '.exportar');
+
+
+
+
+
+
 	Route::get('nuevo', [
 		'uses' => $controll . 'Controller@create',
 		'middleware' => ['permission:' . $routexxx . '-crear']
@@ -39,5 +49,5 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 		'middleware' => ['permission:' . $routexxx . '-borrar']
 	])->name($routexxx . '.borrar');
 
-	
+
 });

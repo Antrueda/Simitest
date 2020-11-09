@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Acciones\Individuales\pivotes;
+namespace App\Models\Acciones\Individuales\Pivotes;
 
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +11,7 @@ class AiSalidaMenoresCon extends Model
 {
     protected $table = 'ai_salida_menores_con';
 
-    protected $fillable = ['prm_condicion_id','ai_salida_menores_id', 'user_crea_id', 
+    protected $fillable = ['prm_condicion_id','ai_salida_menores_id', 'user_crea_id',
     'user_edita_id','prm_orientado_id','prm_enfermerd_id','prm_brotes_id','prm_laceracio_id'];
 
     public function salidamenores()
@@ -23,7 +23,7 @@ class AiSalidaMenoresCon extends Model
     {
       return $this->belongsTo(User::class, 'user_crea_id');
     }
-  
+
     public function editor()
     {
       return $this->belongsTo(User::class, 'user_edita_id');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Acciones\Individuales\pivotes;
+namespace App\Models\Acciones\Individuales\Pivotes;
 
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use Illuminate\Database\Eloquent\Model;
@@ -23,7 +23,7 @@ class AiRetornoSalidaCondicion extends Model
     {
       return $this->belongsTo(User::class, 'user_crea_id');
     }
-  
+
     public function editor()
     {
       return $this->belongsTo(User::class, 'user_edita_id');
