@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Csd\CsdGeneracionAportanteCrearRequest;
+use App\Http\Requests\Csd\CsdGeneracionAportanteEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdGeningAporta;
 use App\Models\consulta\pivotes\CsdSisNnaj;
@@ -183,7 +185,7 @@ class CsdGeneracionAportanteController extends Controller
      */
 
 
-    public function store(Request $request, CsdSisNnaj $padrexxx)
+    public function store(CsdGeneracionAportanteCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
         $dataxxxx['csd_id'] = $padrexxx->csd_id;
@@ -222,7 +224,7 @@ class CsdGeneracionAportanteController extends Controller
      * @param  \App\Models\FiSustanciaaportante $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  CsdSisNnaj $padrexxx, CsdGeningAporta $modeloxx)
+    public function update(CsdGeneracionAportanteEditarRequest $request,  CsdSisNnaj $padrexxx, CsdGeningAporta $modeloxx)
     {
         return $this->grabar($request->all(), $modeloxx, 'Aportante actualizado con exito', $padrexxx);
     }

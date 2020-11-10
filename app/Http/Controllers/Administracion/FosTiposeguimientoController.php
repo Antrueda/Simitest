@@ -145,6 +145,7 @@ class FosTipoSeguimientoController extends Controller
     {
       $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
         $dataxxxx['user_edita_id'] = Auth::user()->id;
+        $dataxxxx['sis_esta_id'] = 1;
         if ($objetoxx != '') {
           $objetoxx->update($dataxxxx);
         } else {

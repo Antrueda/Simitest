@@ -159,6 +159,7 @@ class FosSubTipoSeguimientoController extends Controller
     {
         $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
             $dataxxxx['user_edita_id'] = Auth::user()->id;
+            $dataxxxx['sis_esta_id'] = 1;
             if ($objetoxx != '') {
                 $objetoxx->update($dataxxxx);
             } else {
@@ -185,6 +186,7 @@ class FosSubTipoSeguimientoController extends Controller
      */
     public function update(FosStseEditarRequest $request, FosStse $objetoxx)
     {
+        
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, $objetoxx, 'Linea base del NNAJ actualizada con éxito');
     }

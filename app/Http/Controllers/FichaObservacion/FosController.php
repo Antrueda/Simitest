@@ -153,13 +153,13 @@ class FosController extends Controller
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FECHA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ÁREA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UPI/ÁREA/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA REGISTRO SEUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ÁREA DERECHO/CONTEXTO PEDAGÓGICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SUBSEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SUB-TIPO DE SEGUIMIENTO.', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'OBSERVACION', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FUNCIONARIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZA EL SEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -218,7 +218,6 @@ class FosController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
             ];
 
-        
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -228,7 +227,7 @@ class FosController extends Controller
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id',$dataxxxx['padrexxx']->id)->first();
         $this->opciones['mindatex'] = "-28y +0m +0d";
         $this->opciones['maxdatex'] = "-6y +0m +0d";
-        $this->opciones['usuarios'] = User::comboCargo(true, false);
+        $this->opciones['usuarios'] = User::ComboCargoRes(false, false);
         $edad = $dataxxxx['padrexxx']->fi_datos_basico->nnaj_nacimi->Edad;
         
         $compofami = FiCompfami::getComboResponsable($dataxxxx['padrexxx']->fi_datos_basico, true, false, $edad);
@@ -239,7 +238,7 @@ class FosController extends Controller
         }
         $this->opciones['compfami'] = FiCompfami::combo($this->opciones['datobasi'], true, false);
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
-        $this->opciones['dependen'] = SisDepen::combo(true, false);
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
@@ -281,7 +280,7 @@ class FosController extends Controller
         $dataxxxx['sis_docfuen_id'] = 2;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->id;
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, FosDatosBasico::transaccion($dataxxxx,  $objetoxx)->id])
+            ->route($this->opciones['routxxxx'] . '.editar', [ FosDatosBasico::transaccion($dataxxxx, $objetoxx)->id])
          ->with('info', $infoxxxx);
     }
 
