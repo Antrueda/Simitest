@@ -42,7 +42,7 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-12">
         {{ Form::label('i_responsable', 'Responsable de la actividad', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_responsable', $todoxxxx['usuarios'], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_responsable', $todoxxxx['usuarios'], null, ['class' => 'form-control form-control-sm','id'=>'responsable']) }}
     </div>
 </div>
 

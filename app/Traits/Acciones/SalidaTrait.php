@@ -539,4 +539,6 @@ trait SalidaTrait
             return response()->json($respuest);
         }
     }
+
+    
 }
