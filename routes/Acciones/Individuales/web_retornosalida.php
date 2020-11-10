@@ -45,5 +45,10 @@ $controll = 'Acciones\Individuales\AIRetornoSalida';
         'uses' => $controll . 'Controller@destroy',
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
-    
+});
+    Route::group(['prefix' => 'resretornosalida'], function () use ($controll, $routexxx) {
+        Route::get('responsa', [
+            'uses' => $controll . 'Controller@getResponsable',
+            'middleware' => ['permission:' . $routexxx . '-borrar']
+        ])->name($routexxx . '.responsa');
     });
