@@ -22,6 +22,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiJustrest;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
@@ -182,7 +183,7 @@ trait SalidaTrait
             ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
             ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
             ->join('fi_compfamis', 'sis_nnajs.id', '=', 'fi_compfamis.sis_nnaj_id')
-            ->where('fi_compfamis.prm_reprlega_id',227)
+            ->where('fi_compfamis.prm_reprlega_id', 227)
             ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $request->padrexxx)->get());
         return $this->getDtAcciones($dataxxxx, $request);
     }
@@ -203,7 +204,7 @@ trait SalidaTrait
         )
             ->join('sis_estas', 'csd_redsoc_pasados.sis_esta_id', '=', 'sis_estas.id')
             ->join('parametros as tiempo', 'csd_redsoc_pasados.prm_unidad_id', '=', 'tiempo.id')
-            ->where('csd_redsoc_pasados.csd_id',$request->padrexxx);
+            ->where('csd_redsoc_pasados.csd_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
     public function getActualesTrait($request)
@@ -400,7 +401,7 @@ trait SalidaTrait
             'ai_salida_menores.sis_esta_id',
             'ai_salida_menores.sis_nnaj_id',
             'ai_salida_menores.created_at',
-            ])
+        ])
             ->join('sis_depens as upi', 'ai_salida_menores.prm_upi_id', '=', 'upi.id')
             ->join('sis_estas', 'ai_salida_menores.sis_esta_id', '=', 'sis_estas.id')
             ->where('ai_salida_menores.sis_nnaj_id', $request->padrexxx);
@@ -417,14 +418,14 @@ trait SalidaTrait
             'ai_reporte_evasions.sis_esta_id',
             'ai_reporte_evasions.sis_nnaj_id',
             'ai_reporte_evasions.created_at',
-            ])
+        ])
             ->join('sis_depens as upi', 'ai_reporte_evasions.prm_upi_id', '=', 'upi.id')
             ->join('sis_estas', 'ai_reporte_evasions.sis_esta_id', '=', 'sis_estas.id')
             ->where('ai_reporte_evasions.sis_nnaj_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
-    
+
     public function getRetorno($request)
     {
         $dataxxxx =  AiRetornoSalida::select([
@@ -435,7 +436,7 @@ trait SalidaTrait
             'ai_retorno_salidas.sis_esta_id',
             'ai_retorno_salidas.sis_nnaj_id',
             'ai_retorno_salidas.created_at',
-            ])
+        ])
             ->join('sis_depens as upi', 'ai_retorno_salidas.prm_upi_id', '=', 'upi.id')
             ->join('sis_estas', 'ai_retorno_salidas.sis_esta_id', '=', 'sis_estas.id')
             ->where('ai_retorno_salidas.sis_nnaj_id', $request->padrexxx);
@@ -452,7 +453,7 @@ trait SalidaTrait
             'ai_salida_mayores.sis_esta_id',
             'ai_salida_mayores.sis_nnaj_id',
             'ai_salida_mayores.created_at',
-            ])
+        ])
             ->join('sis_depens as upi', 'ai_salida_mayores.prm_upi_id', '=', 'upi.id')
             ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id')
             ->where('ai_salida_mayores.sis_nnaj_id', $request->padrexxx);
@@ -471,14 +472,14 @@ trait SalidaTrait
             'fos_datos_basicos.sis_esta_id',
             'fos_datos_basicos.created_at',
             'fos_datos_basicos.sis_nnaj_id',
-            )
+        )
             ->join('sis_estas', 'fos_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->join('sis_depens as upi', 'fos_datos_basicos.sis_depen_id', '=', 'upi.id')
             ->join('areas', 'fos_datos_basicos.area_id', '=', 'areas.id')
             ->join('fos_tses', 'fos_datos_basicos.fos_tse_id', '=', 'fos_tses.id')
             ->join('fos_stses', 'fos_datos_basicos.fos_stse_id', '=', 'fos_stses.id')
             ->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx);
-         return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtAcciones($dataxxxx, $request);
     }
 
     /**
@@ -525,4 +526,17 @@ trait SalidaTrait
     }
 
     /******************************** FIN COMPOSICON FAMILIAR **************************************** */
+
+
+    public function getResponsable(Request $request)
+    {
+        if ($request->ajax()) {
+            
+            
+            $respuest = ['comboxxx' =>SisDepen::find($request->padrexxx)->ResponsableAjax, 
+                    'campoxxx' => '#responsable', 
+                    'selected' => 'selected'];
+            return response()->json($respuest);
+        }
+    }
 }

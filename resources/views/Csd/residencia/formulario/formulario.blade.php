@@ -101,7 +101,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('dir_generadora', 'Nº Vía Generadora (VG)', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('dir_generadora', null, ['class' => $errors->first('dir_generadora') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número', 'min' => '0', 'max' => '99', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      {{ Form::number('dir_generadora', null, ['class' => $errors->first('dir_generadora') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número', 'min' => '0', 'max' => '99', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
       @if($errors->has('dir_generadora'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('dir_generadora') }}

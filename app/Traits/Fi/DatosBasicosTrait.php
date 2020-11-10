@@ -70,7 +70,7 @@ trait DatosBasicosTrait
                 $dataxxxx = $this->getAMayuculas($dataxxxx);
                 $dt = new DateTime($dataxxxx['requestx']->d_nacimiento);
                 $dataxxxx['requestx']->request->add(['d_nacimiento'=>$dt->format('Y-m-d')]);
-                $dataxxxx['requestx']->request->add(['prm_ocupacion_id'=>1269]);
+                $dataxxxx['requestx']->request->add(['prm_ocupacion_id'=>1]);
                 $dataxxxx['requestx']->request->add(['prm_parentezco_id'=>1269]);
                 $dataxxxx['requestx']->request->add(['prm_convive_id'=>1269]);
                 $dataxxxx['requestx']->request->add(['prm_visitado_id'=>1269]);
@@ -140,7 +140,7 @@ trait DatosBasicosTrait
                 $respuesx=$this->setNnaj($dataxxxx);
                 $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'],'compfami'=>$respuesx['compfami']];
             }
-
+//
            // CsdComFamiliarObservaciones::getTransaccion($dataxxxx);
             return $dataxxxx['objetoxx'];
         }, 5);

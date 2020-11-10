@@ -115,6 +115,8 @@ class IsDatoBasicoController extends Controller
     $areaxxxx=User::getAreasUser($userxxxx);
     ddd($areaxxxx);
     */
+    
+    $this->opciones['usuariox'] = $this->opciones['nnajregi'];
         $fechaxxx = explode('-', date('Y-m-d'));
             // dd($fechaxxx);
         ;
@@ -368,7 +370,7 @@ class IsDatoBasicoController extends Controller
         if ($request->ajax()) {
             $actualxx = IsDatosBasico::select([
                 'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id', 'is_datos_basicos.sis_nnaj_id', 'tipoaten.nombre as tipoxxxx',
-                'is_datos_basicos.d_fecha_diligencia', 'sis_depens.nombre', 'users.s_primer_nombre', 'is_datos_basicos.sis_esta_id', 'users.s_primer_apellido'
+                'is_datos_basicos.d_fecha_diligencia', 'sis_depens.nombre', 'users.name', 'is_datos_basicos.sis_esta_id'
             ])
                 ->join('sis_depens', 'is_datos_basicos.sis_depen_id', '=', 'sis_depens.id')
                 ->join('users', 'is_datos_basicos.i_primer_responsable', '=', 'users.id')
@@ -383,6 +385,15 @@ class IsDatoBasicoController extends Controller
                 ->addColumn('btns', 'intervencion/botones/botones')
                 ->rawColumns(['btns'])
                 ->toJson();
+        }
+    }
+
+    function getResponsable(Request $request,IsDatosBasico $padrexxx)
+    {
+        if ($request->ajax()) {
+            $camposxx=['i_primer_responsable'=>'#i_segundo_responsable','i_segundo_responsable'=>'#i_primer_responsable'];
+            $usuarios = User::userCombo(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx] ]);
+            return response()->json(['dataxxxx'=>$usuarios,'comboxxx'=>$camposxx[$request->comboxxx]]);
         }
     }
 }

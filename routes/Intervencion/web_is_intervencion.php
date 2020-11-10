@@ -49,4 +49,15 @@ Route::group(['prefix' => '{nnaj}/isintervencion'], function () {
 		'uses' => 'Intervencion\IsDatoBasicoController@intlista',
 		'middleware' => ['permission:isintervencion-leer|isintervencion-crear|isintervencion-editar|isintervencion-borrar']
 	])->name('is.intervencion.intlista');
+
+	Route::get('intlista', [
+		'uses' => 'Intervencion\IsDatoBasicoController@intlista',
+		'middleware' => ['permission:isintervencion-leer|isintervencion-crear|isintervencion-editar|isintervencion-borrar']
+	])->name('is.intervencion.intlista');
+
+
+	Route::get('responsa', [
+		'uses' => 'Intervencion\IsDatoBasicoController@getResponsable',
+		'middleware' => ['permission:isintervencion-leer|isintervencion-crear|isintervencion-editar|isintervencion-borrar']
+		])->name('is.intervencion.responsable');
 });

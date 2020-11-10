@@ -88,56 +88,78 @@ class SisDepen extends Model
     public function getDepeUsua()
     {
 
-        return $this->hasMany(SisDepeUsua::class,'sis_depen_id');
+        return $this->hasMany(SisDepeUsua::class, 'sis_depen_id');
     }
 
     public function sis_servicios()
     {
 
-        return $this->belongsToMany(SisServicio::class,'sis_depeservs','sis_depen_id','sis_servicio_id')->withTimestamps();
+        return $this->belongsToMany(SisServicio::class, 'sis_depeservs', 'sis_depen_id', 'sis_servicio_id')->withTimestamps();
     }
 
-    public function getComboAjaxAttribute(){
-        return  ['valuexxx'=>$this->id,'optionxx'=>$this->nombre];
+    public function getComboAjaxAttribute()
+    {
+        return  ['valuexxx' => $this->id, 'optionxx' => $this->nombre];
     }
 
-    public function getComboNormalAttribute(){
-        return  [$this->id=>$this->nombre];
+    public function getComboNormalAttribute()
+    {
+        return  [$this->id => $this->nombre];
     }
-    public function getResponsableNormalAttribute(){
-        $responsa=[''=>'Sin responsable'];
-        $cargoxxx='';
-        $dependen=[''=>'Sin dependencias'];
-            foreach($this->getDepeUsua as $value){
-                if($value->i_prm_responsable_id==227){
-                    $dependen=$value->user->DependenciasNormal;
-                    $responsa=$value->user->DocNombreCompletoNormal;
-                    $cargoxxx=$value->user->sis_cargo->s_cargo;
-                }
+    public function getResponsableNormalAttribute()
+    {
+        $responsa = ['' => 'Sin responsable'];
+        $cargoxxx = '';
+        $dependen = ['' => 'Sin dependencias'];
+        foreach ($this->getDepeUsua as $value) {
+            if ($value->i_prm_responsable_id == 227) {
+                $dependen = $value->user->DependenciasNormal;
+                $responsa = $value->user->DocNombreCompletoNormal;
+                $cargoxxx = $value->user->sis_cargo->s_cargo;
             }
-            $respuest=[$responsa,$cargoxxx,$dependen];
+        }
+        $respuest = [$responsa, $cargoxxx, $dependen];
         return  $respuest;
     }
 
 
-    public function getResponsableAttribute(){
-        $responsa=[['valuexxx'=>'','optionxx'=>'Sin responsable']];
-        $cargoxxx='';
-        $dependen=[['valuexxx'=>'','optionxx'=>'Sin dependencias']];
-            foreach($this->getDepeUsua as $value){
-                if($value->i_prm_responsable_id==227){
-                    $dependen=$value->user->Dependencias;
-                    $responsa=[$value->user->DocNombreCompletoAjax];
-                    $cargoxxx=$value->user->sis_cargo->s_cargo;
-                }
+    public function getResponsableAttribute()
+    {
+        $responsa = [['valuexxx' => '', 'optionxx' => 'Sin responsable']];
+        $cargoxxx = '';
+        $dependen = [['valuexxx' => '', 'optionxx' => 'Sin dependencias']];
+        foreach ($this->getDepeUsua as $value) {
+            if ($value->i_prm_responsable_id == 227) {
+                $dependen = $value->user->Dependencias;
+                $responsa = [$value->user->DocNombreCompletoAjax];
+                $cargoxxx = $value->user->sis_cargo->s_cargo;
             }
-            $respuest=[$responsa,$cargoxxx,$dependen];
+        }
+        $respuest = [$responsa, $cargoxxx, $dependen];
         return  $respuest;
     }
+    /** encontrar el responsabe de la unidad en formato ajax */
+    public function getResponsableAjaxAttribute()
+    {
+        $responsa = [['valuexxx' => '', 'optionxx' => 'UPI SIN RESPONSABLE']];
+        foreach ($this->getDepeUsua as $value) {
+            if ($value->i_prm_responsable_id == 227) {
+                $responsa[0]['valuexxx'] = $value->user_id;
+                $responsa[0]['optionxx'] = $value->user->name;
+            }
+        }
+        return $responsa;
+    }
+
 
     public function users()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function sis_upzbarri()

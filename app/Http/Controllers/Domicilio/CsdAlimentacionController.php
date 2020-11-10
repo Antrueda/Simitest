@@ -67,11 +67,11 @@ class CsdAlimentacionController extends Controller
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['pestpadr'] = 3;
-            $this->opciones['csdxxxxx']=$dataxxxx['modeloxx'];
+            $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+            $this->opciones['puedexxx'] = '';
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -84,6 +84,7 @@ class CsdAlimentacionController extends Controller
     public function create(CsdSisNnaj $padrexxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

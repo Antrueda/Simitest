@@ -101,6 +101,11 @@ class IsDatosBasicoUpdateRequest extends FormRequest
             $this->_reglasx['i_prm_avance_academ_id']='required';
         }
 
+        if($this->i_primer_responsable==$this->i_segundo_responsable){
+            $this->_mensaje['existexx.required'] = 'No se puede registrar el mismo funcionario';
+            $this->_reglasx['existexx'] = ['Required',];
+        }
+
         
     }
 }

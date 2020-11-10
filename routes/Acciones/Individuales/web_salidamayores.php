@@ -41,4 +41,7 @@ Route::group(['prefix' => '{padrexxx}/salidamayores'], function () use ($control
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
     
+
+
+
 });

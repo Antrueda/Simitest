@@ -433,7 +433,7 @@
 <div class="row">
   <div class="col-md">
     {{ Form::label('responsable', 'Responsable de la UPI', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('responsable', $todoxxxx['usuarioz'], null, ['class' => $errors->first('responsable') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
+    {{ Form::select('responsable', $todoxxxx['usuarioz'], null, ['class' => $errors->first('responsable') ? 'form-control  form-control-sm is-invalid' : 'form-control  form-control-sm', 'data-placeholder' => 'Digite el número de documento','id'=>'responsable']) }}
     @if($errors->has('responsable'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('responsable') }}

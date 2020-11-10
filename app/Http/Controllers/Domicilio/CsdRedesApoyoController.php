@@ -57,8 +57,7 @@ class CsdRedesApoyoController extends Controller
     public function index(CsdSisNnaj $padrexxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
-        $padrexxx=$padrexxx->csd;
-        $this->opciones['ruarchjs'] = [
+       $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
 
@@ -133,7 +132,10 @@ class CsdRedesApoyoController extends Controller
                 'parametr' => [$padrexxx->id],
             ],
         ];
+        $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['usuariox'] = $padrexxx->sis_nnaj->fi_datos_basico;
+        $this->opciones['pestpara'] = [$padrexxx->id];
+        
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -169,8 +171,11 @@ class CsdRedesApoyoController extends Controller
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
 
+            $this->opciones['pestpadr'] = 3;
+            $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -225,6 +230,7 @@ class CsdRedesApoyoController extends Controller
     public function create(CsdSisNnaj $padrexxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -261,8 +267,10 @@ class CsdRedesApoyoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(CsdSisNnaj $padrexxx, CsdRedsocPasado $modeloxx)
-    {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver','formulario'], 'padrexxx' => $padrexxx]);
+     {
+        $this->opciones['csdxxxxx']=$padrexxx;
+        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
     }
 
     /**

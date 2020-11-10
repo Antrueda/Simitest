@@ -68,11 +68,12 @@ class CsdBasicoController extends Controller
 
     private function view($dataxxxx)
     {
+        
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['document'] = Tema::combo(361, true, false);
         $this->opciones['neciayud'] = Tema::combo(23, false, false);
         $this->opciones['docufisi'] = Tema::combo(23, false, false);
-        $this->opciones['situdefi'] = Tema::combo(23, false, false);
+        $this->opciones['situdefi'] = Tema::combo(23, true, false);
         $this->opciones['sindocum'] = Tema::combo(286, true, false);
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['generoxx'] = Tema::combo(12, true, false);
