@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Individuales\AIRetornoSalidaRequest;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisDepen;
@@ -179,7 +180,7 @@ class AIRetornoSalidaController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
-    public function store(Request $request, SisNnaj $padrexxx)
+    public function store(AIRetornoSalidaRequest $request, SisNnaj $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
@@ -222,7 +223,7 @@ class AIRetornoSalidaController extends Controller
      * @param  \App\Models\FiDatosBasico $padrexxx
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SisNnaj $padrexxx,  AiRetornoSalida $modeloxx)
+    public function update(AIRetornoSalidaRequest $request, SisNnaj $padrexxx,  AiRetornoSalida $modeloxx)
     {
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos de retorno actualizados con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
