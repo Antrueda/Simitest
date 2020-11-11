@@ -50,11 +50,11 @@ class AIRetornoSalidaController extends Controller
         $this->opciones['condicix'] = Tema::combo(308, false, false);
         $this->opciones['parentez'] = Tema::combo(66, false, false);
         
-        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['tituloxx'] = "Retorno de salidas y permisos con acudiente y/o representante legal";
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A SALIDAS', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A RETORNOS', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
     }

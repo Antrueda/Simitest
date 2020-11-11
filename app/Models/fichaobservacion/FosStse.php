@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FosStse extends Model{
     protected $fillable = [
-         'fos_tse_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id','sis_esta_id',
+         'fos_tse_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id','sis_esta_id',  
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];

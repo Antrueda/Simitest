@@ -504,11 +504,12 @@ trait SalidaTrait
         if ($request->ajax()) {
 
             $dataxxxx = [
-                'tipodocu' => ['prm_tipodocu_id', ''],
+                'tipodocu' => ['prm_doc_id', ''],
                 'edadxxxx' => '',
                 'paisxxxx' => ['sis_pai_id', ''],
                 'departam' => ['sis_departamento_id', [], ''],
                 'municipi' => ['sis_municipio_id', [], ''],
+                
             ];
             $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
             if (isset($document->id)) {
@@ -539,6 +540,7 @@ trait SalidaTrait
             return response()->json($respuest);
         }
     }
+
 
     
 }

@@ -119,6 +119,7 @@ class FosSubTipoSeguimientoController extends Controller
     public function store(FosStseCrearRequest $request)
     {
         $dataxxxx = $request->all();
+        $dataxxxx['sis_esta_id'] = 1;
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
     }
 

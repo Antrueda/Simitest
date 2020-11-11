@@ -50,8 +50,8 @@ Route::group(['prefix' => '{padrexxx}/salidamenores'], function () use ($control
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
     ])->name($routexxx . '.listodox');
     Route::get('nnajsele', [
-        'uses' => $controll . 'Controller@getNnajsele',
-        'middleware' => ['permission:' . $routexxx . '-borrar']
+		'uses' => $controll . 'Controller@getNnajsele',
+		'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.nnajsele');
     Route::get('cargos', [
         'uses' => $controll . 'Controller@cargos',

@@ -16,13 +16,21 @@ class CsdGeneracionAportanteEditarRequest extends FormRequest
             'prm_aporta_id.required' => 'Seleccione aportante',
             'mensual.required' => 'Por favor indique el ingreso mensual',
             'aporte.required' => 'Por favor indique el aporte',
-            
-        ];
+            'jornada_a.required' => 'Por favor indique el aporte',
+            'prm_a_id.required' => 'Por favor indique el aporte',
+            'jornada_entre.required' => 'Por favor indique el aporte',
+            'prm_entre_id.required' => 'Por favor indique el aporte',
+            ];
         $this->_reglasx = [
             'prm_aporta_id' => 'required|exists:parametros,id',
+            'prm_a_id' => 'required|exists:parametros,id',
+            'prm_entre_id' => 'required|exists:parametros,id',
             'mensual' => 'required|integer|min:0',
             'aporte' => 'required|integer|min:0',
+            'jornada_a' => 'required|integer|min:0',
+            'jornada_entre' => 'required|integer|min:0',
             'dias' => 'required|array',
+        
         ];
     }
     /**

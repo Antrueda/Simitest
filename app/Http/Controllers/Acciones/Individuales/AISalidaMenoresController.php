@@ -59,7 +59,7 @@ class AISalidaMenoresController extends Controller
 
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
-        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['tituloxx'] = "Salidas y permisos con acompañamiento y/o Representante Legal";
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
@@ -70,13 +70,13 @@ class AISalidaMenoresController extends Controller
     public function index(SisNnaj $padrexxx)
     {
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
-
+   
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'REGISTRAR NUEVA SALIDA',
                 'titulist' => 'LISTA DE SALIDAS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
+                'vercrear' => (isset($this->opciones['usuariox']) && $this->opciones['usuariox']->nnaj_nacimi->edad <= 18) ? true : false,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
                 'cabecera' => [
                     [
@@ -164,6 +164,8 @@ class AISalidaMenoresController extends Controller
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        
+        $dataxxxx['padrexxx']->s_primer_nombre;
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
         
         $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('prm_reprlega_id',227)->first();
@@ -174,6 +176,7 @@ class AISalidaMenoresController extends Controller
         }
         //ddd($compofami[1]);
         $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['dependez'] = SisDepen::combo(true, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['vercrear'] = false;
         $parametr = 0;
@@ -181,6 +184,7 @@ class AISalidaMenoresController extends Controller
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
+            
             $dataxxxx['modeloxx']->prm_condicion_id =  $dataxxxx['modeloxx']->condiciones->prm_condicion_id;
             $dataxxxx['modeloxx']->prm_orientado_id =  $dataxxxx['modeloxx']->condiciones->prm_orientado_id;
             $dataxxxx['modeloxx']->prm_enfermerd_id =  $dataxxxx['modeloxx']->condiciones->prm_enfermerd_id;

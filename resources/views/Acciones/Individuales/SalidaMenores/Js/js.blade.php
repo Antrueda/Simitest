@@ -6,9 +6,6 @@
     $('#objetivo').select2({
       language: "es"
     });
-    $('#prm_parentezco_id').select2({
-      language: "es"
-    });
     $('#prm_parentezco2_id').select2({
       language: "es"
     });

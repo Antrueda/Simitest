@@ -12,9 +12,11 @@
             @canany(['aisalidamenores-leer', 'aisalidamenores-crear', 'aisalidamenores-editar', 'aisalidamenores-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aisalidamenores') ?' active' : '' }}
 
-        text-sm" href="{{ route('aisalidamenores',$todoxxxx['usuariox']->sis_nnaj_id) }}">VOLVER A ACCIONES</a></li>
+        text-sm" href="{{ route('aisalidamenores',$todoxxxx['usuariox']->sis_nnaj_id) }}">VOLVER A SALIDAS</a></li>
             @endcanany
             @endif
+
+            
 
          
         </ul>

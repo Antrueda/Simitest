@@ -26,7 +26,7 @@ $(document).ready(function() {
                     $('#'+json.municipi[0]+' option[value='+json.municipi[2]+']').attr('selected', 'selected');
                 },
                 error : function(xhr, status) {
-                    alert('Disculpe, existió un problemadddd');
+                    alert('Disculpe, existió un problema');
                 },
             });
         }
