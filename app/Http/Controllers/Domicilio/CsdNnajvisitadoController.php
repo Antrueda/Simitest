@@ -172,8 +172,7 @@ class CsdNnajvisitadoController extends Controller
      */
     public function show(SisNnaj $padrexxx,CsdSisNnaj $modeloxx)
     {
-        $this->opciones['rutaxxxx']=route('csdxxxxx.ver',$modeloxx->id);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->csd]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'visitado'], 'padrexxx' => $padrexxx, 'csdxxxxx' => $modeloxx->csd]);
     }
 
     /**
@@ -205,6 +204,7 @@ class CsdNnajvisitadoController extends Controller
      */
     public function update(CsdVisitadoCrearRequest $request, SisNnaj $padrexxx, CsdSisNnaj $modeloxx)
     {
+        $request->request->add(['csd_id'=>$modeloxx->id]);
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Datos básicos actualizados con exito','modeloxx'=>$modeloxx]);
     }
 
@@ -227,6 +227,6 @@ class CsdNnajvisitadoController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj->id])
-            ->with('info', 'CSD inactivada correctamente');
+            ->with('info', 'Nnaj visitado inactivado correctamente');
     }
 }

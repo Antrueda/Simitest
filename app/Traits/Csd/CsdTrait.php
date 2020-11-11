@@ -177,6 +177,13 @@ trait CsdTrait
 
     public function getTodoComFami($request)
     {
+
+        $notinxxx=CsdComFamiliar::select('sis_nnaj_id')
+        ->join('nnaj_docus','csd_com_familiars.s_documento','=','nnaj_docus.s_documento')
+        ->join('fi_datos_basicos','nnaj_docus.fi_datos_basico_id','=','fi_datos_basicos.id')
+        ->where('csd_id',$request->csdxxxxx)
+        ->groupBy('sis_nnaj_id')
+        ->get();
         $dataxxxx =  SisNnaj::select([
             'sis_nnajs.id',
             'fi_datos_basicos.s_primer_nombre',
@@ -193,7 +200,7 @@ trait CsdTrait
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
             ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
-            ->whereNotIn('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $request->padrexxx)->get());
+            ->whereNotIn('sis_nnajs.id', $notinxxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -406,6 +413,7 @@ trait CsdTrait
      */
     public function getVisitados($request)
     {
+
         $dataxxxx =  CsdSisNnaj::select([
             'csd_sis_nnaj.id',
             'fi_datos_basicos.s_primer_nombre',
@@ -425,7 +433,7 @@ trait CsdTrait
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'csd_sis_nnaj.sis_esta_id', '=', 'sis_estas.id')
             ->where('nnaj_upis.prm_principa_id', 227)
-            ->where('csd_sis_nnaj.csd_id', $request->padrexxx);
+            ->where('csd_sis_nnaj.csd_id', $request->csdxxxxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
     public function getServicio($request)

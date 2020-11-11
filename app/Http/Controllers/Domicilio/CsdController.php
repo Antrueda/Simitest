@@ -83,8 +83,8 @@ class CsdController extends Controller
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
-                'permisox' => $this->opciones['permisox'],
-                'routxxxx' => $this->opciones['routxxxx'],
+                'permisox' => 'nnajvisi',
+                'routxxxx' => 'nnajvisi',
                 'parametr' => [$padrexxx->id],
             ]
         ];
@@ -106,11 +106,12 @@ class CsdController extends Controller
             return $this->getCsdNnaj($request);
         }
     }
-    public function getNnajVisitados(Request $request, Csd $padrexxx)
+    public function getNnajVisitados(Request $request, SisNnaj $padrexxx,Csd $csdxxxxx)
     {
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->routexxx = ['nnajvisi'];
             $request->padrexxx = $padrexxx->id;
+            $request->csdxxxxx = $csdxxxxx->id;
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -173,7 +174,7 @@ class CsdController extends Controller
                     'titulist' => 'LISTA DE NNAJ VISITADOS',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => $this->opciones['vercrear'],
-                    'urlxxxxx' => route($this->opciones['routxxxx'] . '.visitado', [$parametr]),
+                    'urlxxxxx' => route($this->opciones['routxxxx'] . '.visitado', $this->opciones['parametr']),
                     'cabecera' => [
                         [
                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],

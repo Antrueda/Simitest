@@ -10,7 +10,7 @@ Route::group(['prefix' => '{padrexxx}/csds'], function () use ($routexxx, $contr
         'uses' => $controll . 'Controller@getListado',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
     ])->name($routexxx . '.listaxxx');
-    Route::get('visitados', [
+    Route::get('{csdxxxxx}/visitados', [
         'uses' => $controll . 'Controller@getNnajVisitados',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
     ])->name($routexxx . '.visitado');
@@ -76,4 +76,3 @@ include_once('web_CSD_violencia.php');
     include_once('web_CSD_redapoyo_actual.php');
     include_once('web_CSD_conclusiones.php');
 
-    

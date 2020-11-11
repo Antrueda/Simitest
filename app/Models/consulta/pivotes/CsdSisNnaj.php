@@ -3,13 +3,16 @@
 namespace App\Models\consulta\pivotes;
 
 use App\Models\consulta\Csd;
+use App\Models\consulta\CsdComFamiliar;
 use App\Models\Sistema\SisNnaj;
+use App\Traits\Fi\DatosBasicosTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CsdSisNnaj extends Model
 {
+    use DatosBasicosTrait;
     protected $table = 'csd_sis_nnaj';
 
     protected $fillable = ['csd_id', 'sis_nnaj_id','prm_tipofuen_id', 'user_crea_id', 'user_edita_id','sis_esta_id'];
@@ -34,6 +37,7 @@ class CsdSisNnaj extends Model
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $modeloxx = CsdSisNnaj::create($dataxxxx['requestx']->all());
             }
+            CsdComFamiliar::setCfNnajCsd($dataxxxx);
             return $modeloxx;
         }, 5);
         return $objetoxx;

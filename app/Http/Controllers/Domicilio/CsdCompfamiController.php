@@ -157,6 +157,7 @@ class CsdCompfamiController extends Controller
         if ($request->ajax()) {
             $request->padrexxx = $padrexxx->sis_nnaj_id;
             $request->datobasi = $padrexxx->id;
+            $request->csdxxxxx = $padrexxx->csd_id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -193,7 +194,7 @@ class CsdCompfamiController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);
-            
+
             if ($dataxxxx['modeloxx']->sisben != '') {//
                 $this->opciones['nsnoresp'] = [1269 => 'NO APLICA'];
             }
@@ -279,11 +280,6 @@ class CsdCompfamiController extends Controller
         $usuariox = $this->getTransaccion($dataxxxx);
         return redirect()->route('csdcomfamiliar.editar', [$dataxxxx['padrexxx']->id,$usuariox->id])
             ->with('info', $dataxxxx['infoxxxx']);
-
-      
-            // return redirect()
-            // ->route('csdcomfamiliar.editar', [$padrexxx->id, CsdComFamiliar::transaccion($dataxxxx, $objectx)->id])
-            // ->with('info', $infoxxxx);
     }
 
     /**

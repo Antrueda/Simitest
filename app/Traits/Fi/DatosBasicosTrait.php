@@ -40,7 +40,7 @@ trait DatosBasicosTrait
     public function setNnaj($dataxxxx)
     {
         $respuest = $this->setFi($dataxxxx);
-        $dataxxxx=$dataxxxx['requestx']->all();
+        $dataxxxx = $dataxxxx['requestx']->all();
         $dataxxxx['objetoxx'] = $respuest['objetoxx'];
         $dataxxxx['fi_datos_basico_id'] = $dataxxxx['objetoxx']->id;
         FiCsdvsi::getTransaccion($dataxxxx);
@@ -53,6 +53,10 @@ trait DatosBasicosTrait
         FiDiligenc::transaccion($dataxxxx, $respuest['objetoxx']);
         return $respuest;
     }
+
+
+
+
     /**
      * registrar desde datos basicos a la composicon familiar en CSD
      *
@@ -63,30 +67,30 @@ trait DatosBasicosTrait
     {
 
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
-            $compfami=CsdComFamiliar::where('csd_id',$dataxxxx['objetoxx']->id)
-            ->where('s_documento',$dataxxxx['requestx']->s_documento)
-            ->first();
+            $compfami = CsdComFamiliar::where('csd_id', $dataxxxx['objetoxx']->id)
+                ->where('s_documento', $dataxxxx['requestx']->s_documento)
+                ->first();
             if ($compfami == null) {
                 $dataxxxx = $this->getAMayuculas($dataxxxx);
                 $dt = new DateTime($dataxxxx['requestx']->d_nacimiento);
-                $dataxxxx['requestx']->request->add(['d_nacimiento'=>$dt->format('Y-m-d')]);
-                $dataxxxx['requestx']->request->add(['prm_ocupacion_id'=>1]);
-                $dataxxxx['requestx']->request->add(['prm_parentezco_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_convive_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_visitado_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_vin_actual_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_vin_pasado_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_regimen_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_sisben_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_discapacidad_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_peso_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_peso_dos_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_leer_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_escribir_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_operaciones_id'=>1269]);
-                
-                $dataxxxx['requestx']->request->add(['prm_educacion_id'=>1269]);
-                $dataxxxx['requestx']->request->add(['prm_estudia_id'=>1269]);
+                $dataxxxx['requestx']->request->add(['d_nacimiento' => $dt->format('Y-m-d')]);
+                $dataxxxx['requestx']->request->add(['prm_ocupacion_id' => 1]);
+                $dataxxxx['requestx']->request->add(['prm_parentezco_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_convive_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_visitado_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_vin_actual_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_vin_pasado_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_regimen_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_sisben_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_discapacidad_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_peso_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_peso_dos_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_leer_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_escribir_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_operaciones_id' => 1269]);
+
+                $dataxxxx['requestx']->request->add(['prm_educacion_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_estudia_id' => 1269]);
                 $dataxxxx['user_edita_id'] = Auth::user()->id;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['objetoxx'] = CsdComFamiliar::create($dataxxxx['requestx']->all());
@@ -98,7 +102,61 @@ trait DatosBasicosTrait
 
 
 
+    public function setCfNnajCsd($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $document = FiDatosBasico::where('sis_nnaj_id', $dataxxxx['requestx']->sis_nnaj_id)->first();
 
+            $compfami = CsdComFamiliar::where('csd_id', $dataxxxx['requestx']->csd_id)
+                ->where('s_documento', $dataxxxx['requestx']->s_documento)
+                ->first();
+
+            if (!isset($compfami->id)) {
+                $compfami = [
+                    'csd_id' => $dataxxxx['requestx']->csd_id,
+                    'user_crea_id' => Auth::user()->id,
+                    'user_edita_id' => Auth::user()->id,
+                    'sis_esta_id' => $dataxxxx['requestx']->sis_esta_id,
+                    's_primer_apellido' => $document->s_primer_apellido,
+                    's_segundo_apellido' => $document->s_segundo_apellido,
+                    's_primer_nombre' => $document->s_primer_nombre,
+                    's_segundo_nombre' => $document->s_segundo_nombre,
+                    's_nombre_identitario' => $document->nnaj_sexo->s_nombre_identitario,
+                    'prm_tipodocu_id' => $document->nnaj_docu->prm_tipodocu_id,
+                    's_documento' => $document->nnaj_docu->s_documento,
+                    'd_nacimiento' => $document->nnaj_nacimi->d_nacimiento,
+                    'prm_sexo_id' => $document->nnaj_sexo->prm_sexo_id,
+                    'prm_estado_civil_id' => $document->nnaj_fi_csd->prm_estado_civil_id,
+                    'prm_identidad_genero_id' => $document->nnaj_sexo->prm_identidad_genero_id,
+                    'prm_orientacion_sexual_id' => $document->nnaj_sexo->prm_orientacion_sexual_id,
+                    'prm_etnia_id' => $document->nnaj_fi_csd->prm_etnia_id,
+                    'prm_poblacion_etnia_id' => $document->nnaj_fi_csd->prm_poblacion_etnia_id,
+                    'prm_ocupacion_id' => 1269,
+                    'prm_parentezco_id' => 805,
+                    'prm_convive_id' => 1269,
+                    'prm_visitado_id' => 1269,
+                    'prm_vin_actual_id' => 227,
+                    'prm_vin_pasado_id' => 1269,
+                    'prm_regimen_id' => 1269,
+                    'prm_cualeps_id' => 1269,
+                    // 'sisben',
+                    'prm_sisben_id' => 1269,
+                    'prm_discapacidad_id' => 1269,
+                    'prm_cual_id' => 1269,
+                    'prm_peso_id' => 1269,
+                    'prm_peso_dos_id' => 1269,
+                    'prm_leer_id' => 1269,
+                    'prm_escribir_id'=> 1269,
+                    'prm_operaciones_id' => 1269,
+                    'prm_aprobado_id' => 1269,
+                    'prm_educacion_id' => 1269,
+                    'prm_estudia_id' => 1269,
+                    'prm_tipofuen_id' => $dataxxxx['requestx']->prm_tipofuen_id
+                ];
+                $dataxxxx['objetoxx'] = CsdComFamiliar::create($compfami);
+            }
+        }, 5);
+    }
     /**
      * registrar composicon familiar en CSD
      *
@@ -108,6 +166,7 @@ trait DatosBasicosTrait
     public function setComposionFamiliarCsd($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $this->setCfNnajCsd($dataxxxx);
             $dataxxxx = $this->getAMayuculas($dataxxxx);
             $dt = new DateTime($dataxxxx['requestx']->d_nacimiento);
             $dataxxxx['requestx']->request->add(['d_nacimiento' => $dt->format('Y-m-d')]);
@@ -118,11 +177,11 @@ trait DatosBasicosTrait
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['objetoxx'] = CsdComFamiliar::create($dataxxxx['requestx']->all());
             }
-            $dataxxxx['requestx']->request->add(['s_documento' => 9999999999]);
+
             $respuest = $this->getCedulaFi($dataxxxx);
 
             if ($respuest['respuest']) {
-                $dataxxxx['objetoxx']='';
+                $dataxxxx['objetoxx'] = '';
                 $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 1269]);
                 $dataxxxx['requestx']->request->add(['prm_escomfam_id' => 228]);
                 $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 4]);
@@ -137,11 +196,11 @@ trait DatosBasicosTrait
                 $dataxxxx['requestx']->request->add(['prm_clase_libreta_id' => 1269]);
                 $dataxxxx['requestx']->request->add(['prm_gsanguino_id' => 1269]);
                 $dataxxxx['requestx']->request->add(['prm_factor_rh_id' => 1269]);
-                $respuesx=$this->setNnaj($dataxxxx);
-                $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'],'compfami'=>$respuesx['compfami']];
+                $respuesx = $this->setNnaj($dataxxxx);
+                $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'], 'compfami' => $respuesx['compfami']];
             }
-//
-           // CsdComFamiliarObservaciones::getTransaccion($dataxxxx);
+            //
+            // CsdComFamiliarObservaciones::getTransaccion($dataxxxx);
             return $dataxxxx['objetoxx'];
         }, 5);
         return $objetoxx;
@@ -168,17 +227,17 @@ trait DatosBasicosTrait
     public function getAMayuculas($dataxxxx)
     {
         if (!isset($dataxxxx['requestx']->s_apodo)) {
-            $dataxxxx['requestx']->request->add(['s_apodo'=>'']);
+            $dataxxxx['requestx']->request->add(['s_apodo' => '']);
         }
         if (!isset($dataxxxx['requestx']->s_nombre_identitario)) {
-            $dataxxxx['requestx']->request->add(['s_nombre_identitario'=>'']);
+            $dataxxxx['requestx']->request->add(['s_nombre_identitario' => '']);
         }
-        $dataxxxx['requestx']->request->add(['s_primer_nombre'=>strtoupper($dataxxxx['requestx']->s_primer_nombre)]);
-        $dataxxxx['requestx']->request->add(['s_segundo_nombre'=>strtoupper($dataxxxx['requestx']->s_segundo_nombre)]);
-        $dataxxxx['requestx']->request->add(['s_primer_apellido'=>strtoupper($dataxxxx['requestx']->s_primer_apellido)]);
-        $dataxxxx['requestx']->request->add(['s_segundo_apellido'=>strtoupper($dataxxxx['requestx']->s_segundo_apellido)]);
-        $dataxxxx['requestx']->request->add(['s_nombre_identitario'=>strtoupper($dataxxxx['requestx']->s_nombre_identitario)]);
-        $dataxxxx['requestx']->request->add(['s_apodo'=>strtoupper($dataxxxx['requestx']->s_apodo)]);
+        $dataxxxx['requestx']->request->add(['s_primer_nombre' => strtoupper($dataxxxx['requestx']->s_primer_nombre)]);
+        $dataxxxx['requestx']->request->add(['s_segundo_nombre' => strtoupper($dataxxxx['requestx']->s_segundo_nombre)]);
+        $dataxxxx['requestx']->request->add(['s_primer_apellido' => strtoupper($dataxxxx['requestx']->s_primer_apellido)]);
+        $dataxxxx['requestx']->request->add(['s_segundo_apellido' => strtoupper($dataxxxx['requestx']->s_segundo_apellido)]);
+        $dataxxxx['requestx']->request->add(['s_nombre_identitario' => strtoupper($dataxxxx['requestx']->s_nombre_identitario)]);
+        $dataxxxx['requestx']->request->add(['s_apodo' => strtoupper($dataxxxx['requestx']->s_apodo)]);
         return $dataxxxx;
     }
     /**
@@ -203,7 +262,8 @@ trait DatosBasicosTrait
                     'sis_esta_id' => 1,
                     'user_crea_id' => $dataxxxx['requestx']->user_crea_id,
                     'user_edita_id' => $dataxxxx['requestx']->user_edita_id,
-                    'prm_escomfam_id' => $dataxxxx['requestx']->prm_escomfam_id])->id]);
+                    'prm_escomfam_id' => $dataxxxx['requestx']->prm_escomfam_id
+                ])->id]);
                 $dataxxxx['objetoxx'] = FiDatosBasico::create($dataxxxx['requestx']->all());
             }
             return ['objetoxx' => $dataxxxx['objetoxx'], 'compfami' => $compfami];
@@ -221,8 +281,8 @@ trait DatosBasicosTrait
         $nnajxxxx = $dataxxxx['nnajxxxx']['document'];
         if (isset($nnajxxxx->sis_nnaj) && $nnajxxxx->sis_nnaj->prm_escomfam_id == 227) {
             $dataxxxx['objetoxx'] = CsdSisNnaj::where('csd_id', $dataxxxx['nnajxxxx']['objetoxx']->csd_id)
-            ->where('sis_nnaj_id', $nnajxxxx->id)
-            ->first();
+                ->where('sis_nnaj_id', $nnajxxxx->id)
+                ->first();
             if ($dataxxxx['objetoxx'] == null) {
                 $dataxxxx['user_edita_id'] = Auth::user()->id;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
@@ -250,14 +310,14 @@ trait DatosBasicosTrait
             $respuest = $this->getCedulaFi($dataxxxx);
 
             if ($respuest['respuest']) {
-                $dataxxxx['objetoxx']='';
+                $dataxxxx['objetoxx'] = '';
                 $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 1269]);
                 $dataxxxx['requestx']->request->add(['prm_escomfam_id' => 228]);
                 $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 4]);
                 $dataxxxx['requestx']->request->add(['sis_depen_id' => 28]);
                 $dataxxxx['requestx']->request->add(['sis_servicio_id' => 1]);
-                $respuesx=$this->setNnaj($dataxxxx);
-                $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'],'compfami'=>$respuesx['compfami']];
+                $respuesx = $this->setNnaj($dataxxxx);
+                $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'], 'compfami' => $respuesx['compfami']];
             }
             $dataxxxx['objetoxx'] = CsdDatosBasico::create($dataxxxx['requestx']->all());
         }
@@ -287,7 +347,7 @@ trait DatosBasicosTrait
                     $objetoxx = $this->setCsd($dataxxxx);
                     break;
                 case '4': // composicion familiar csd
-                    $objetoxx =$this->setComposionFamiliarCsd($dataxxxx);
+                    $objetoxx = $this->setComposionFamiliarCsd($dataxxxx);
                     break;
             }
             return $objetoxx;

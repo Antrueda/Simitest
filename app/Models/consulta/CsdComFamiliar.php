@@ -3,6 +3,7 @@
 namespace App\Models\consulta;
 
 use App\Models\consulta\pivotes\CsdResobsers;
+use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajDocu;
 use Illuminate\Database\Eloquent\Model;
 
@@ -148,8 +149,67 @@ class CsdComFamiliar extends Model{
       }
       return $vestuari;
   }
+/**
+ * se agrega el nnaj seleccionado en nnaj visitado csd a la composicion familiar
+ *
+ * @param array $dataxxxx
+ * @return void
+ */
+  public static function setCfNnajCsd($dataxxxx)
+  {
+      $objetoxx = DB::transaction(function () use ($dataxxxx) {
+          $document = FiDatosBasico::where('sis_nnaj_id', $dataxxxx['requestx']->sis_nnaj_id)->first();
 
+          $compfami = CsdComFamiliar::where('csd_id', $dataxxxx['requestx']->csd_id)
+              ->where('s_documento', $dataxxxx['requestx']->s_documento)
+              ->first();
 
+          if (!isset($compfami->id)) {
+              $compfami = [
+                  'csd_id' => $dataxxxx['requestx']->csd_id,
+                  'user_crea_id' => Auth::user()->id,
+                  'user_edita_id' => Auth::user()->id,
+                  'sis_esta_id' => $dataxxxx['requestx']->sis_esta_id,
+                  's_primer_apellido' => strtoupper($document->s_primer_apellido),
+                  's_segundo_apellido' => strtoupper($document->s_segundo_apellido),
+                  's_primer_nombre' => strtoupper($document->s_primer_nombre),
+                  's_segundo_nombre' => strtoupper($document->s_segundo_nombre),
+                  's_nombre_identitario' => strtoupper($document->nnaj_sexo->s_nombre_identitario),
+                  'prm_tipodocu_id' => $document->nnaj_docu->prm_tipodocu_id,
+                  's_documento' => $document->nnaj_docu->s_documento,
+                  'd_nacimiento' => $document->nnaj_nacimi->d_nacimiento,
+                  'prm_sexo_id' => $document->nnaj_sexo->prm_sexo_id,
+                  'prm_estado_civil_id' => $document->nnaj_fi_csd->prm_estado_civil_id,
+                  'prm_identidad_genero_id' => $document->nnaj_sexo->prm_identidad_genero_id,
+                  'prm_orientacion_sexual_id' => $document->nnaj_sexo->prm_orientacion_sexual_id,
+                  'prm_etnia_id' => $document->nnaj_fi_csd->prm_etnia_id,
+                  'prm_poblacion_etnia_id' => $document->nnaj_fi_csd->prm_poblacion_etnia_id,
+                  'prm_ocupacion_id' => 1269,
+                  'prm_parentezco_id' => 805,
+                  'prm_convive_id' => 1269,
+                  'prm_visitado_id' => 1269,
+                  'prm_vin_actual_id' => 227,
+                  'prm_vin_pasado_id' => 1269,
+                  'prm_regimen_id' => 1269,
+                  'prm_cualeps_id' => 1269,
+                  // 'sisben',
+                  'prm_sisben_id' => 1269,
+                  'prm_discapacidad_id' => 1269,
+                  'prm_cual_id' => 1269,
+                  'prm_peso_id' => 1269,
+                  'prm_peso_dos_id' => 1269,
+                  'prm_leer_id' => 1269,
+                  'prm_escribir_id'=> 1269,
+                  'prm_operaciones_id' => 1269,
+                  'prm_aprobado_id' => 1269,
+                  'prm_educacion_id' => 1269,
+                  'prm_estudia_id' => 1269,
+                  'prm_tipofuen_id' => $dataxxxx['requestx']->prm_tipofuen_id
+              ];
+              $dataxxxx['objetoxx'] = CsdComFamiliar::create($compfami);
+          }
+      }, 5);
+  }
 
   public static function transaccion($dataxxxx,  $objetoxx)
   {
@@ -171,7 +231,7 @@ class CsdComFamiliar extends Model{
               $objetoxx->update($dataxxxx);
               $dataxxxx['csd_id'] = $objetoxx->csd_id;
               $dataxxxx['objetoxx']=$objetoxx;
-              
+
               if ($objetoxx->observaciones != '') {
               $objetoxx->observaciones->update($dataxxxx);
                }else{
