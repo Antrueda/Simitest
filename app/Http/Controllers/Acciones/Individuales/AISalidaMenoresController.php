@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\AISalidaMenoresRequest;
-use App\Http\Requests\Csd\CsdCrearRequest;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\consulta\Csd;
-use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\Sistema\SisDepen;
 use Carbon\Carbon;

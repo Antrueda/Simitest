@@ -46,7 +46,7 @@ class AIRetornoSalidaController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['ampmxxxx'] = Tema::combo(5, false, false);
-        $this->opciones['document'] = Tema::combo(3, false, false);
+        $this->opciones['document'] = Tema::combo(3, true, false);
         $this->opciones['parentez'] = Tema::combo(66, false, false);
         $this->opciones['condicix'] = Tema::combo(308, false, false);
         $this->opciones['parentez'] = Tema::combo(66, false, false);
