@@ -67,10 +67,13 @@ trait DatosBasicosTrait
     {
 
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
-            $compfami = CsdComFamiliar::where('csd_id', $dataxxxx['objetoxx']->id)
+            $compfami = CsdComFamiliar::where('csd_id', $dataxxxx['requestx']->csd_id)
                 ->where('s_documento', $dataxxxx['requestx']->s_documento)
                 ->first();
+
+
             if ($compfami == null) {
+
                 $dataxxxx = $this->getAMayuculas($dataxxxx);
                 $dt = new DateTime($dataxxxx['requestx']->d_nacimiento);
                 $dataxxxx['requestx']->request->add(['d_nacimiento' => $dt->format('Y-m-d')]);
@@ -94,7 +97,9 @@ trait DatosBasicosTrait
                 $dataxxxx['user_edita_id'] = Auth::user()->id;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['objetoxx'] = CsdComFamiliar::create($dataxxxx['requestx']->all());
+
             }
+
             return $dataxxxx['objetoxx'];
         }, 5);
         return $objetoxx;

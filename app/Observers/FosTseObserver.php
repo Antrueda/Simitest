@@ -12,7 +12,7 @@ class FosTseObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['area_id'] = $modeloxx->area_id;
         $log['nombre'] = $modeloxx->nombre;
         $log['descripcion'] = $modeloxx->descripcion;

@@ -62,7 +62,7 @@ class CsdCompfamiObservacionController extends Controller
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route('csdcomfamiliar.listaxxx', [$dataxxxx['padrexxx']->csd_id]),
+                'urlxxxxx' => route('csdcomfamiliar.listaxxx', [$dataxxxx['padrexxx']->sis_nnaj_id,$dataxxxx['padrexxx']->csd_id]),
 
                 'cabecera' => [
                     [

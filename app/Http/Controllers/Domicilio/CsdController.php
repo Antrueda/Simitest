@@ -83,8 +83,8 @@ class CsdController extends Controller
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
-                'permisox' => 'nnajvisi',
-                'routxxxx' => 'nnajvisi',
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
                 'parametr' => [$padrexxx->id],
             ]
         ];

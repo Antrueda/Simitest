@@ -113,7 +113,7 @@
         $("#prm_regimen_id").change(function() {
             regisalu($(this).val(), '');
         });
-        
+
 
     });
     var f_sisben=function(valuexxx,pselecte){
@@ -198,12 +198,9 @@ function updateContadorTa(idtextarea, idcontador, max) {
 function doc(valor){
         if(valor == 227){
             document.getElementById("prm_cual_id").hidden=false;
-        }else{ 
+        }else{
             document.getElementById("prm_cual_id").hidden=true;
             }
     }
-    function carga() {
-        doc(document.getElementById('prm_discapacidad_id').value);
-    }
-    window.onload=carga;
+
 </script>

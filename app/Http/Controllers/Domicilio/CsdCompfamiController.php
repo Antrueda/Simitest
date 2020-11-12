@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdCompfamiCrearRequest;
 use App\Http\Requests\Csd\CsdCompfamiEditarRequest;
+use App\Models\consulta\Csd;
 use App\Models\consulta\CsdComFamiliar;
 use App\Models\consulta\CsdComFamiliarObservaciones;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Parametro;
 use App\Models\Sistema\SisEntidadSalud;
+use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisPai;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
@@ -93,6 +95,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['pestpara'][0] = [$padrexxx->id];
         $this->opciones['usuariox'] = $padrexxx->sis_nnaj->fi_datos_basico;
+
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
@@ -100,11 +103,11 @@ class CsdCompfamiController extends Controller
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.componente',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', $this->opciones['parametr']),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->sis_nnaj_id,$padrexxx->csd_id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' =>'', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
@@ -140,10 +143,10 @@ class CsdCompfamiController extends Controller
         $this->opciones['parametr'] = [$padrexxx->id];
         return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
     }
-    public function getListado(Request $request, CsdSisNnaj $padrexxx)
+    public function getListado(Request $request, SisNnaj $padrexxx, Csd $csdxxxxx)
     {
         if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->csd_id;
+            $request->padrexxx = $csdxxxxx->id;
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
@@ -207,6 +210,7 @@ class CsdCompfamiController extends Controller
                     ];
             }
         }
+
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
@@ -214,7 +218,7 @@ class CsdCompfamiController extends Controller
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => false,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', $this->opciones['parametr']),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', $dataxxxx['padrexxx']->csd_id),
                 'cabecera' => [
                     [
                         // ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],

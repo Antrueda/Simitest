@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdBasicoCrearRequest;
-use App\Http\Requests\Csd\CsdBasicoEditarRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Parametro;
@@ -68,7 +66,7 @@ class CsdBasicoController extends Controller
 
     private function view($dataxxxx)
     {
-        
+
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['document'] = Tema::combo(361, true, false);
         $this->opciones['neciayud'] = Tema::combo(23, false, false);

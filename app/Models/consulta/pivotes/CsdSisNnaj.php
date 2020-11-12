@@ -28,6 +28,7 @@ class CsdSisNnaj extends Model
     public static function transaccion($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['prm_tipofuen_id' => 2315]);
             $modeloxx=CsdSisNnaj::where('csd_id',$dataxxxx['requestx']->csd_id)->where('sis_nnaj_id',$dataxxxx['requestx']->sis_nnaj_id)->first();
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($modeloxx->id)) {

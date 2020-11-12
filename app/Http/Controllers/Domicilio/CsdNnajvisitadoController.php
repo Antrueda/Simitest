@@ -99,6 +99,7 @@ class CsdNnajvisitadoController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             // $this->opciones['pestpadr'] = 3;
             $this->opciones['nnajidxx']=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->NombreCedula;
+
             $this->opciones['csdxxxxx']=$dataxxxx['modeloxx'];
             $this->opciones['modeloxx']=$dataxxxx['modeloxx'];
             $this->opciones['parametr'][2] = $dataxxxx['modeloxx']->id;
@@ -172,7 +173,7 @@ class CsdNnajvisitadoController extends Controller
      */
     public function show(SisNnaj $padrexxx,CsdSisNnaj $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'visitado'], 'padrexxx' => $padrexxx, 'csdxxxxx' => $modeloxx->csd]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'visitado'], 'padrexxx' => $modeloxx->sis_nnaj, 'csdxxxxx' => $modeloxx->csd]);
     }
 
     /**
@@ -183,7 +184,6 @@ class CsdNnajvisitadoController extends Controller
      */
     public function edit(SisNnaj $padrexxx,CsdSisNnaj $modeloxx)
     {
-        $this->opciones['rutaxxxx']=route('csdxxxxx.editar',[$padrexxx->id,$modeloxx->csd_id]);
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -192,7 +192,7 @@ class CsdNnajvisitadoController extends Controller
                 ];
         }
 
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'visitado'], 'padrexxx' => $padrexxx, 'csdxxxxx' => $modeloxx->csd]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'visitado'], 'padrexxx' => $modeloxx->sis_nnaj, 'csdxxxxx' => $modeloxx->csd]);
     }
 
     /**
@@ -204,8 +204,8 @@ class CsdNnajvisitadoController extends Controller
      */
     public function update(CsdVisitadoCrearRequest $request, SisNnaj $padrexxx, CsdSisNnaj $modeloxx)
     {
-        $request->request->add(['csd_id'=>$modeloxx->id]);
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Datos básicos actualizados con exito','modeloxx'=>$modeloxx]);
+        $request->request->add(['csd_id'=>$modeloxx->csd_id]);
+        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Datos básicos actualizados con exito','modeloxx'=>$modeloxx,'padrexxx'=>$padrexxx]);
     }
 
     public function inactivate(SisNnaj $padrexxx,CsdSisNnaj $modeloxx)

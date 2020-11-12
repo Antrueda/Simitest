@@ -1,15 +1,19 @@
 <?php
 $routexxx='csdcomfamiliar';
 $controll='Domicilio\CsdCompfami';
+Route::group(['prefix' => '{padrexxx}/{csdxxxxx}/listcomp'], function () use($routexxx,$controll){
+    Route::get('listaxxx', [
+		'uses' => $controll.'Controller@getListado',
+		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
+	])->name($routexxx.'.listaxxx');
+});
+
 Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routexxx,$controll){
 	Route::get('', [
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
     ])->name($routexxx);
-    Route::get('listaxxx', [
-		'uses' => $controll.'Controller@getListado',
-		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
-	])->name($routexxx.'.listaxxx');
+
 
     Route::get('listodox', [
 		'uses' => $controll.'Controller@getListodo',

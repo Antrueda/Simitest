@@ -15,12 +15,12 @@ Route::group(['prefix' => 'nnaj/{padrexxx}/csd/{csdxxxxx}/visitados'], function 
         'uses' => $controll . 'Controller@store',
         'middleware' => ['permission:' . $routexxx . '-crear']
     ])->name($routexxx . '.crear');
+
+
     Route::get('listaxxx', [
         'uses' => $controll . 'Controller@getListado',
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.listaxxx');
-
-
 
 });
 
@@ -51,4 +51,6 @@ Route::group(['prefix' => '{padrexxx}/nnajcsd'], function () use ($routexxx, $co
         'uses' => $controll . 'Controller@getVisitado',
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.visitado');
+
+
 });

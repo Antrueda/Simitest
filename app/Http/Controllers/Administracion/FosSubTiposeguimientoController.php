@@ -118,6 +118,7 @@ class FosSubTipoSeguimientoController extends Controller
      */
     public function store(FosStseCrearRequest $request)
     {
+
         $dataxxxx = $request->all();
         $dataxxxx['sis_esta_id'] = 1;
         return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
@@ -187,7 +188,7 @@ class FosSubTipoSeguimientoController extends Controller
      */
     public function update(FosStseEditarRequest $request, FosStse $objetoxx)
     {
-        
+
         $dataxxxx = $request->all();
         return $this->grabar($dataxxxx, $objetoxx, 'Linea base del NNAJ actualizada con éxito');
     }

@@ -136,7 +136,7 @@ class FiDatosBasico extends Model
     }
     public function getNombreCedulaAttribute()
     {
-        return ['valuexxx'=>$this->s_primer_nombre . ' ' .
+        return [$this->sis_nnaj_id=>$this->s_primer_nombre . ' ' .
             $this->s_segundo_nombre . ' ' .
             $this->s_primer_apellido . ' ' .
             $this->s_segundo_apellido.' ('.$this->nnaj_docu->s_documento.')'];
