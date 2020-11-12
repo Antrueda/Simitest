@@ -505,6 +505,7 @@ trait SalidaTrait
 
             $dataxxxx = [
                 'tipodocu' => ['prm_doc_id', ''],
+                'parentes' => ['prm_parentezco_id', ''],
                 'edadxxxx' => '',
                 'paisxxxx' => ['sis_pai_id', ''],
                 'departam' => ['sis_departamento_id', [], ''],
@@ -520,6 +521,7 @@ trait SalidaTrait
                 $dataxxxx['departam'][2] = $expedici->sis_departamento_id;
                 $dataxxxx['municipi'][1] = SisMunicipio::combo($dataxxxx['departam'][2], true);
                 $dataxxxx['municipi'][2] = $expedici->id;
+                $dataxxxx['parentes'][1] = FiCompfami::where('sis_nnaj_id',$request->padrexxx)->first()->Parentesco;
             }
 
             return response()->json($dataxxxx);

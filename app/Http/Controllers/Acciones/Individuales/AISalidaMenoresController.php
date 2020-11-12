@@ -75,7 +75,7 @@ class AISalidaMenoresController extends Controller
                 'titunuev' => 'REGISTRAR NUEVA SALIDA',
                 'titulist' => 'LISTA DE SALIDAS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => (isset($this->opciones['usuariox']) && $this->opciones['usuariox']->nnaj_nacimi->edad <= 18) ? true : false,
+                'vercrear' => true, // (isset($this->opciones['usuariox']) && $this->opciones['usuariox']->nnaj_nacimi->edad <= 18) ? true : false,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
                 'cabecera' => [
                     [

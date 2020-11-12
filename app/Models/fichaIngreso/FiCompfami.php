@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
@@ -41,6 +42,17 @@ class FiCompfami extends Model
     public function sis_nnaj()
     {
         return $this->belongsTo(SisNnaj::class);
+    }
+
+    public function getParentesco()
+    {
+        return $this->belongsTo(Parametro::class,'i_prm_parentesco_id');
+    }
+
+
+    public function getParentescoAttribute()
+    {
+        return [['valuexxx'=>$this->i_prm_parentesco_id,'optionxx'=>$this->getParentesco->nombre]];
     }
 
     public function sis_nnajnnaj()

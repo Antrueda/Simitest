@@ -1,5 +1,5 @@
 <?php
-Route::group(['prefix' => 'fostipo'], function () {
+Route::group(['prefix' => 'fostipox'], function () {
     Route::get('', [
 	    'uses' => 'Administracion\FosTipoSeguimientoController@index',
 	    'middleware' => ['permission:fostipo-leer|fostipo-crear|fostipo-editar|fostipo-borrar']
