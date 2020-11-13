@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdDinfamMadreCrearRequest;
 use App\Http\Requests\Csd\CsdDinfamMadreEditarRequest;
-use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaUpdateRequest;
 use App\Models\consulta\CsdDinfamMadre;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CsdDinfamMadreController extends Controller
@@ -78,6 +76,7 @@ class CsdDinfamMadreController extends Controller
                     ];
             }
         }
+
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR RELACION',
@@ -85,7 +84,7 @@ class CsdDinfamMadreController extends Controller
                 'dataxxxx' => [],
                 'vercrear' => false,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route( 'csddinfamiliar.listamxx', [$dataxxxx['padrexxx']->csd_id]),
+                'urlxxxxx' => route( 'csddinfamiliar.listamxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
                         ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -117,7 +116,7 @@ class CsdDinfamMadreController extends Controller
                 'tablaxxx' => 'datatablemadre',
                 'permisox' => 'csddfmad',
                 'routxxxx' => 'csddfmad',
-                'parametr' => [$dataxxxx['padrexxx']->csd_id],
+                'parametr' => [$dataxxxx['padrexxx']->id],
             ],
         ];
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -130,7 +129,6 @@ class CsdDinfamMadreController extends Controller
      */
     public function create(CsdSisNnaj $padrexxx)
     {
-
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
@@ -142,6 +140,7 @@ class CsdDinfamMadreController extends Controller
     }
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
     {
+
         return redirect()
             ->route('csddfmad.editar', [$padrexxx->id, CsdDinfamMadre::transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);
@@ -157,7 +156,7 @@ class CsdDinfamMadreController extends Controller
     public function store(CsdDinfamMadreCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
         return $this->grabar($dataxxxx, '', 'Relacion progenitora creada con exito', $padrexxx);
     }
@@ -175,6 +174,7 @@ class CsdDinfamMadreController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdDinfamMadre $modeloxx)
     {
+
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
             [

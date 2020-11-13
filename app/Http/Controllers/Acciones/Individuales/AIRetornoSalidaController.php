@@ -49,8 +49,8 @@ class AIRetornoSalidaController extends Controller
         $this->opciones['document'] = Tema::combo(3, true, false);
         $this->opciones['parentez'] = Tema::combo(66, false, false);
         $this->opciones['condicix'] = Tema::combo(308, false, false);
-        $this->opciones['parentez'] = Tema::combo(66, false, false);
-        
+        $this->opciones['parentez'] = Tema::combo(66, true, false);
+
         $this->opciones['tituloxx'] = "Retorno de salidas y permisos con acudiente y/o representante legal";
         $this->opciones['botoform'] = [
             [
@@ -72,19 +72,31 @@ class AIRetornoSalidaController extends Controller
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
                 'cabecera' => [
                     [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FECHA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'HORA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                                  ]
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'FECHA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'HORA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'FUNCIONARIO/CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 4],
+                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                    ],[
+
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'ai_retorno_salidas.id'],
                     ['data' => 'fecha', 'name' => 'ai_retorno_salidas.fecha'],
                     ['data' => 'hora_retorno', 'name' => 'ai_retorno_salidas.hora_retorno'],
+                    ['data' => 's_primer_nombre', 'name' => 'users.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'users.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'users.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'users.s_segundo_apellido'],
                     ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
@@ -136,7 +148,7 @@ class AIRetornoSalidaController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
-            ];
+        ];
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
@@ -163,8 +175,6 @@ class AIRetornoSalidaController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
-
-       
         }
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -175,7 +185,7 @@ class AIRetornoSalidaController extends Controller
         $this->opciones['rutaxxxx'] = route('airetornosalida.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);

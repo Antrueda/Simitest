@@ -5,12 +5,8 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdDinfamiliarCrearRequest;
 use App\Http\Requests\Csd\CsdDinfamiliarEditarRequest;
-use App\Http\Requests\FichaIngreso\FiConsumoSpaCrearRequest;
-use App\Http\Requests\FichaIngreso\FiConsumoSpaUpdateRequest;
-use App\Models\consulta\Csd;
 use App\Models\consulta\CsdDinFamiliar;
 use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
 
@@ -82,8 +78,8 @@ class CsdDinFamiliarController extends Controller
 
         if ($request->ajax()) {
             $request->datobasi = $padrexxx->id;
-            $padrexxx=$padrexxx->csd;
-            $request->padrexxx = $padrexxx->id;
+
+            $request->padrexxx = $padrexxx->csd_id;
             $request->routexxx = ['csddfmad'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -126,7 +122,7 @@ class CsdDinFamiliarController extends Controller
                 'dataxxxx' => [],
                 'vercrear' => $vercrear,
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'urlxxxxx' => route('csddinfamiliar.listamxx', [$dataxxxx['padrexxx']->csd_id]),
+                'urlxxxxx' => route('csddinfamiliar.listamxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
                         ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -165,7 +161,7 @@ class CsdDinFamiliarController extends Controller
             'dataxxxx' => [],
             'vercrear' => $vercrear,
             'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-            'urlxxxxx' => route('csddinfamiliar.listapxx', [$dataxxxx['padrexxx']->csd_id]),
+            'urlxxxxx' => route('csddinfamiliar.listapxx', [$dataxxxx['padrexxx']->id]),
             'cabecera' => [
                 [
                     ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -216,7 +212,7 @@ class CsdDinFamiliarController extends Controller
         $vestuari = CsdDinFamiliar::where('csd_id', $padrexxx->csd_id)->first();
         if ($vestuari != null) {
             return redirect()
-                ->route('csddinfamiliar.editar', [$padrexxx->csd_id, $vestuari->id]);
+                ->route('csddinfamiliar.editar', [$padrexxx->id, $vestuari->id]);
         }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
@@ -277,6 +273,7 @@ class CsdDinFamiliarController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,CsdDinFamiliar $modeloxx)
     {
+
         $this->opciones['csdxxxxx']=$padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =

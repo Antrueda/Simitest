@@ -53,7 +53,7 @@ class FosController extends Controller
 
 
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
-        
+
         $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
         $this->opciones['botoform'] = [
             [
@@ -125,14 +125,14 @@ class FosController extends Controller
             return $this->getNnajs($request);
         }
     }
-  
+
     /**
      * vista de las fos que tiene el nnaj
      *
      * @return void
      */
 
-     
+
     public function indexFos(SisNnaj $padrexxx)
     {
         $this->opciones['perfilxx'] = 'conperfi';
@@ -199,7 +199,7 @@ class FosController extends Controller
             return $this->getFosDiligenciado($request);
         }
     }
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -229,7 +229,7 @@ class FosController extends Controller
         $this->opciones['maxdatex'] = "-6y +0m +0d";
         $this->opciones['usuarios'] = User::ComboCargoRes(false, false);
         $edad = $dataxxxx['padrexxx']->fi_datos_basico->nnaj_nacimi->Edad;
-        
+
         $compofami = FiCompfami::getComboResponsable($dataxxxx['padrexxx']->fi_datos_basico, true, false, $edad);
         if ($compofami[0]) {
             return redirect()
@@ -293,7 +293,7 @@ class FosController extends Controller
     public function show(FosDatosBasico $objetoxx)
     {
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx->SisNnaj]);
-    
+
     }
 
     /**

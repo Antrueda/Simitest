@@ -127,14 +127,17 @@ class FiCompfami extends Model
         if($edadxxxx>=18){
             $cabecera=false;
         }
+
         $compofam = FiCompfami::where(function ($consulta) use ($padrexxx, $edadxxxx) {
             $consulta->where('sis_nnajnnaj_id', $padrexxx->sis_nnaj_id);
               if($edadxxxx>=18){
                 $consulta->where('i_prm_parentesco_id', 805);
               }
-              
+
             return $consulta;
         })->get();
+
+
         $redirect = true;
         $comboxxx = [];
         if ($cabecera) {
@@ -159,6 +162,8 @@ class FiCompfami extends Model
                 $redirect = false;
             }
         }
+
+
         return [$redirect, $comboxxx];
     }
     public function sis_pai()

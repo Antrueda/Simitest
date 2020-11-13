@@ -8,7 +8,7 @@ use App\Http\Requests\Csd\CsdDinfamPadreEditarRequest;
 use App\Models\consulta\CsdDinfamPadre;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 
 class CsdDinfamPadreController extends Controller
@@ -157,7 +157,7 @@ class CsdDinfamPadreController extends Controller
     public function store(CsdDinfamPadreCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
-        $dataxxxx['csd_id'] = $padrexxx->id;
+        $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
         return $this->grabar($dataxxxx, '', 'Relacion progenitor creada con exito', $padrexxx);
     }

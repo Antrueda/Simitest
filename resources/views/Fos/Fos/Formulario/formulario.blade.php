@@ -3,10 +3,10 @@
         {{ Form::label('sis_depen_id', 'UPI / Dependencia', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm']) }}
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-md-6" >
         {{ Form::label('d_fecha_diligencia', 'Fecha Diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('d_fecha_diligencia', null, ['class' => $errors->first('d_fecha_diligencia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'max' => $todoxxxx['hoyxxxxx']]) }}
-        
+        {{ Form::date('d_fecha_diligencia', null, ['class' => $errors->first('d_fecha_diligencia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'max' => $todoxxxx['hoyxxxxx'],'style'=>'width: 100%;']) }}
+
     </div>
 </div>
 <div class="form-row align-items-end">

@@ -398,11 +398,17 @@ trait SalidaTrait
             'ai_salida_menores.fecha',
             'upi.nombre as upi',
             'ai_salida_menores.tiempo',
+            'ai_salida_menores.causa',
             'ai_salida_menores.sis_esta_id',
             'ai_salida_menores.sis_nnaj_id',
+            'users.s_primer_nombre',
+            'users.s_segundo_nombre',
+            'users.s_primer_apellido',
+            'users.s_segundo_apellido',
             'ai_salida_menores.created_at',
         ])
             ->join('sis_depens as upi', 'ai_salida_menores.prm_upi_id', '=', 'upi.id')
+            ->join('users', 'ai_salida_menores.user_doc1_id', '=', 'users.id')
             ->join('sis_estas', 'ai_salida_menores.sis_esta_id', '=', 'sis_estas.id')
             ->where('ai_salida_menores.sis_nnaj_id', $request->padrexxx);
         return $this->getDtSalidas($dataxxxx, $request);
@@ -435,10 +441,15 @@ trait SalidaTrait
             'ai_retorno_salidas.hora_retorno',
             'ai_retorno_salidas.sis_esta_id',
             'ai_retorno_salidas.sis_nnaj_id',
+            'users.s_primer_nombre',
+            'users.s_segundo_nombre',
+            'users.s_primer_apellido',
+            'users.s_segundo_apellido',
             'ai_retorno_salidas.created_at',
         ])
             ->join('sis_depens as upi', 'ai_retorno_salidas.prm_upi_id', '=', 'upi.id')
             ->join('sis_estas', 'ai_retorno_salidas.sis_esta_id', '=', 'sis_estas.id')
+            ->join('users', 'ai_retorno_salidas.user_doc1_id', '=', 'users.id')
             ->where('ai_retorno_salidas.sis_nnaj_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
@@ -510,7 +521,7 @@ trait SalidaTrait
                 'paisxxxx' => ['sis_pai_id', ''],
                 'departam' => ['sis_departamento_id', [], ''],
                 'municipi' => ['sis_municipio_id', [], ''],
-                
+
             ];
             $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
             if (isset($document->id)) {
@@ -534,15 +545,15 @@ trait SalidaTrait
     public function getResponsable(Request $request)
     {
         if ($request->ajax()) {
-            
-            
-            $respuest = ['comboxxx' =>SisDepen::find($request->padrexxx)->ResponsableAjax, 
-                    'campoxxx' => '#responsable', 
+
+
+            $respuest = ['comboxxx' =>SisDepen::find($request->padrexxx)->ResponsableAjax,
+                    'campoxxx' => '#responsable',
                     'selected' => 'selected'];
             return response()->json($respuest);
         }
     }
 
 
-    
+
 }

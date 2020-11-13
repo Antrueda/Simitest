@@ -23,11 +23,11 @@ class AISalidaMenoresRequest extends FormRequest
      */
     public function rules()
     {
-        
+
         return [
             'prm_upi_id'        => 'required|exists:sis_depens,id',
             'fecha'             => 'required|date',
-            'prm_hor_sal_id'    => 'required|exists:parametros,id',
+            'hora_salida'    => 'required',
             'primer_apellido'   => 'required|string|max:120',
             'segundo_apellido'  => 'nullable|string|max:120',
             'primer_nombre'     => 'required|string|max:120',
@@ -50,7 +50,7 @@ class AISalidaMenoresRequest extends FormRequest
             'objetos'           => 'required|string|max:4000',
             'prm_upi2_id'       => 'required|exists:parametros,id',
             'tiempo'            => 'required|integer',
-            'novedad'           => 'required|string|max:120',
+
             'dir_salida'        => 'required|string|max:120',
             'tel_contacto'      => 'required|integer',
             'causa'             => 'nullable|string|max:4000',
@@ -59,7 +59,11 @@ class AISalidaMenoresRequest extends FormRequest
             'responsable'       => 'required|exists:users,id',
             'user_doc1_id'      => 'required|exists:users,id',
             'objetivo'          => 'required|array',
-            'condiciones'       => 'required|array'
+            'prm_condicion_id'       => 'required',
+            'prm_orientado_id'       => 'required',
+            'prm_enfermerd_id'       => 'required',
+            'prm_brotes_id'       => 'required',
+            'prm_laceracio_id'       => 'required',
         ];
     }
 }

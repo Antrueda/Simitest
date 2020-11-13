@@ -120,11 +120,11 @@ class SisNnaj extends Model
 
     public function getFotoNnajAttribute()
     {
-        $respuest='adminlte/dist/img/avatar5.png';
-        if(isset($this->fi_razone->id)) {
+        $respuest = 'adminlte/dist/img/avatar5.png';
+        if (isset($this->fi_razone->id)) {
             foreach ($this->fi_razone->fi_documentos_anexas as $key => $value) {
-                if($value->i_prm_documento_id==2468) {
-                    $respuest=$value->s_ruta;
+                if ($value->i_prm_documento_id == 2468) {
+                    $respuest = $value->s_ruta;
                 }
             }
         }
@@ -140,6 +140,43 @@ class SisNnaj extends Model
             }
         }
         return  $principa;
+    }
+
+    public function getUpiNnaj($dataxxxx)
+    {
+        $principa = '';
+
+        foreach ($dataxxxx as $value) {
+            if ($value->prm_principa_id == 227) {
+                $principa = $value->sis_depen;
+            }
+        }
+        return  $principa;
+    }
+    public function getUpiPrincipalAttribute()
+    {
+        return $this->getUpiNnaj($this->nnaj_upis);
+    }
+    public function getResponsableAttribute()
+    {
+        $principa = '';
+
+        foreach ($this->getUpiNnaj($this->nnaj_upis)->getDepeUsua as $value) {
+            if ($value->i_prm_responsable_id == 227) {
+                $principa = $value->user;
+            }
+        }
+        $cargoxxx=$principa->sis_cargo;
+        $nombrexx=
+        $principa->s_primer_nombre.' '.
+        $principa->s_segundo_nombre.' '.
+        $principa->s_primer_apellido.' '.
+        $principa->s_segundo_apellido;
+        $respuest=[
+            [$principa->id=>$principa->s_documento.' - '.$nombrexx.' - '.$cargoxxx->s_cargo],
+        ];
+
+        return $respuest;
     }
     public function nnaj_depes()
     {

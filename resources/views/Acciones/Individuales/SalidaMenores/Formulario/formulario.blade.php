@@ -1,6 +1,6 @@
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Información básica del NNAJ</h6>
+    <h6>Información básica del NNA</h6>
   </div>
 </div>
 
@@ -21,17 +21,17 @@
     {{ Form::label('segunapellido', 'Segundo Apellido', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('segunapellido',  $todoxxxx['usuariox']->s_segundo_apellido, ['class' => $errors->first('segunapellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
   </div>
-  
+
   <div class="form-group col-md-3">
     {{ Form::label('nombreidentitario', 'Nombre Identitario', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('nombreidentitario',  $todoxxxx['usuariox']->nnaj_sexo->s_nombre_identitario, ['class' => $errors->first('nombreidentitario') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
   </div>
-   
+
    <div class="form-group col-md-3">
     {{ Form::label('tipodocumento', 'Tipo de Documento', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('tipodocumento',  $todoxxxx['usuariox']->nnaj_docu->tipoDocumento->nombre, ['class' => $errors->first('tipodocumento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
   </div>
-   
+
    <div class="form-group col-md-3">
     {{ Form::label('nodocumento', 'No. De Documento', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('nodocumento',  $todoxxxx['usuariox']->nnaj_docu->s_documento, ['class' => $errors->first('tipodocumento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
@@ -481,7 +481,7 @@
 <div class="row">
   <div class="col-md">
     {{ Form::label('responsable', 'Responsable de la UPI', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('responsable', $todoxxxx['usuarioz'], null, ['class' => $errors->first('responsable') ? 'form-control  form-control-sm is-invalid' : 'form-control  form-control-sm', 'data-placeholder' => 'Digite el número de documento','id'=>'responsable']) }}
+    {{ Form::select('responsable', $todoxxxx['respoupi'], null, ['class' => $errors->first('responsable') ? 'form-control  form-control-sm is-invalid' : 'form-control  form-control-sm', 'data-placeholder' => 'Digite el número de documento','id'=>'responsable']) }}
     @if($errors->has('responsable'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('responsable') }}

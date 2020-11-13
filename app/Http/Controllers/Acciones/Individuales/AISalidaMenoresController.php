@@ -51,8 +51,8 @@ class AISalidaMenoresController extends Controller
         $this->opciones['tipodocu'] = Tema::combo(3,true, false);
         $this->opciones['parentez'] = Tema::combo(66,true, false);
         $this->opciones['condixxx'] = Tema::combo(308, false, false);
-        
-        
+
+
 
 
 
@@ -69,7 +69,7 @@ class AISalidaMenoresController extends Controller
     public function index(SisNnaj $padrexxx)
     {
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
-   
+
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'REGISTRAR NUEVA SALIDA',
@@ -79,13 +79,22 @@ class AISalidaMenoresController extends Controller
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
                 'cabecera' => [
                     [
-                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FECHA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'RAZONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'TIEMPO(DÍAS)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'FECHA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'OBJETIVO DE LA SALIDA', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'TIEMPO(DÍAS)', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'OBSERVACIÓN', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'FUCIONARIO/CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 4],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                    ],
+                    [
+
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
@@ -95,6 +104,11 @@ class AISalidaMenoresController extends Controller
                     ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                     ['data' => 'razonesx', 'name' => 'razonesx'],
                     ['data' => 'tiempo', 'name' => 'ai_salida_menores.tiempo'],
+                    ['data' => 'causa', 'name' => 'ai_salida_menores.causa'],
+                    ['data' => 's_primer_nombre', 'name' => 'users.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'users.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'users.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'users.s_segundo_apellido'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -163,27 +177,29 @@ class AISalidaMenoresController extends Controller
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        
+
         $dataxxxx['padrexxx']->s_primer_nombre;
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
-        
+
         $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('prm_reprlega_id',227)->first();
         if ($compofami==null) {
             return redirect()
                 ->route('ficomposicion', [$dataxxxx['padrexxx']->sis_nnaj_id])
                 ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
         }
-        //ddd($compofami[1]);
-        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+
+        $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
+        $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
         $this->opciones['dependez'] = SisDepen::combo(true, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
+        $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
         $this->opciones['vercrear'] = false;
         $parametr = 0;
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
-            
+
             $dataxxxx['modeloxx']->prm_condicion_id =  $dataxxxx['modeloxx']->condiciones->prm_condicion_id;
             $dataxxxx['modeloxx']->prm_orientado_id =  $dataxxxx['modeloxx']->condiciones->prm_orientado_id;
             $dataxxxx['modeloxx']->prm_enfermerd_id =  $dataxxxx['modeloxx']->condiciones->prm_enfermerd_id;
@@ -200,8 +216,8 @@ class AISalidaMenoresController extends Controller
                     ];
             }
 
-       
-        }  
+
+        }
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
@@ -263,7 +279,7 @@ class AISalidaMenoresController extends Controller
         $this->opciones['rutaxxxx'] = route('aisalidamenores.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
@@ -332,7 +348,7 @@ class AISalidaMenoresController extends Controller
 
     public function destroy(SisNnaj $padrexxx, AiSalidaMenores $modeloxx)
     {
-        
+
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
         ->route('aisalidamenores.nuevo', [$padrexxx->id])
@@ -354,7 +370,7 @@ class AISalidaMenoresController extends Controller
                     $respuest['cargoxxx'] = $usuarioz[1];
                     break;
             }
-        
+
             return response()->json($respuest);
         }
     }

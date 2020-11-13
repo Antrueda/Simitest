@@ -130,7 +130,7 @@
 </div>
 <div class="row align-items-end">
 <div class="form-group col-md-4">
-  {{ Form::label('prm_parentezco_id', '7.15 Parentezco con el NNAJ principal de referencia', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::label('prm_parentezco_id', '7.15 Parentesco con el NNAJ principal de referencia', ['class' => 'control-label col-form-label-sm']) }}
   {{ Form::select('prm_parentezco_id', $todoxxxx["parentes"], null, ['class' => 'form-control form-control-sm']) }}
 </div>
 

@@ -45,7 +45,7 @@ class CreateAiSalidaMenoresTable extends Migration
             $table->string('objetos', 4000);
             $table->bigInteger('prm_upi2_id')->unsigned();
             $table->Integer('tiempo');
-            $table->string('novedad', 120);
+            $table->string('novedad', 120)->nullable();
             $table->string('dir_salida', 120);
             $table->string('tel_contacto', 10);
             $table->string('causa', 4000)->nullable();

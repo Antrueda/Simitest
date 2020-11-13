@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdConclusionesCrearRequest;
 use App\Http\Requests\Csd\CsdConclusionesEditarRequest;
-use App\Models\consulta\Csd;
+
 use App\Models\consulta\CsdComFamiliar;
 use App\Models\consulta\CsdConclusiones;
 use App\Models\consulta\pivotes\CsdSisNnaj;
@@ -93,7 +93,7 @@ class CsdConclusionesController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-   
+
 public function create(CsdSisNnaj $padrexxx)
 {
 
@@ -123,7 +123,7 @@ private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
 public function store(CsdConclusionesCrearRequest $request, CsdSisNnaj $padrexxx)
 {
     $dataxxxx = $request->all();
-    $dataxxxx['csd_id'] = $padrexxx->id;
+    $dataxxxx['csd_id'] = $padrexxx->csd_id;
     $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
     return $this->grabar($dataxxxx, '', 'Conclusiones registradas con exito', $padrexxx);
 }

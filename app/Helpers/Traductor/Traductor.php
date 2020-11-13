@@ -2,16 +2,15 @@
 //app/Helpers/Envato/User.php
 namespace App\Helpers\Traductor;
 
-use App\Models\Acciones\Individuales\pivotes\AiSalidaMayoresRazones;
-use App\Models\Acciones\Individuales\pivotes\AiSalidaMenoresObj;
-use App\Models\consulta\CsdGeningAporta;
+use App\Models\Acciones\Individuales\Pivotes\AiSalidaMayoresRazones;
+use App\Models\Acciones\Individuales\Pivotes\AiSalidaMenoresObj;
 use App\Models\consulta\pivotes\CsdGeningDia;
 use App\Models\sicosocial\Pivotes\VsiEmocionVincula;
 use App\Models\sicosocial\Pivotes\VsiPersona;
 use App\Models\sicosocial\Pivotes\VsiSituacionVincula;
-use App\Models\sicosocial\VsiDatosVincula;
+
 use App\Models\Sistema\SisTitulo;
-use Illuminate\Support\Facades\DB;
+
 
 class Traductor {
     /**
