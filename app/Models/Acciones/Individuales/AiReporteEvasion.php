@@ -117,7 +117,7 @@ class AiReporteEvasion extends Model{
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $rutaxxxx = Archivos::getRuta(['requestx'=>$dataxxxx['requestx'],
             'nombarch'=>'s_doc_adjunto_ar',
-            'rutaxxxx'=>'csd/dinfamiliar','nomguard'=>'genograma']);
+            'rutaxxxx'=>'aievasion/adjunto','nomguard'=>'documento']);
             if($rutaxxxx!=false){
                $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
             }
