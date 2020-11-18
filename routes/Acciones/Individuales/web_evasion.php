@@ -47,3 +47,13 @@ $controll = 'Acciones\Individuales\AIEvasion';
     ])->name($routexxx . '.borrar');
     
 });
+Route::group(['prefix' => 'resevasion'], function () use ($controll, $routexxx) {
+    Route::get('responsa', [
+        'uses' => $controll . 'Controller@getResponsable',
+        'middleware' => ['permission:' . $routexxx . '-borrar']
+    ])->name($routexxx . '.responsa');
+    Route::get('direccion', [
+        'uses' => $controll . 'Controller@getDireccion',
+        'middleware' => ['permission:' . $routexxx . '-borrar']
+    ])->name($routexxx . '.direccion');
+});

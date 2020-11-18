@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\AgActividadCrearRequest;
 use App\Http\Requests\Acciones\Grupales\AgActividadEditarRequest;
 use App\Models\Acciones\Grupales\AgActividad;
+use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTema;
+use App\Models\fichaobservacion\FosTse;
 use App\Models\Indicadores\Area;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
@@ -111,10 +113,8 @@ class AgActividadController extends Controller
             ['data' => 'apellido22', 'name' => 'fi_datos_basicos.s_segundo_apellido as apellido22'],
             ['data' => 'nombre11', 'name' => 'fi_datos_basicos.s_primer_nombre as nombre11'],
             ['data' => 'nombre22', 'name' => 'fi_datos_basicos.s_primer_nombre as nombre22'],
-            ['data' => 'documento2', 'name' => 'fi_datos_basicos.s_documento as documento2'],
+            ['data' => 'documento2', 'name' => 'nnaj_docus.s_documento as documento2'],
         ];
-
-
 
         $this->opciones['urlxxxre'] = 'api/ag/relaciones';
         $this->opciones['routxxxc'] = 'ag.acti.actividad';
@@ -149,11 +149,19 @@ class AgActividadController extends Controller
         $this->opciones['dirigido'] = Tema::combo(285, true, false);
         $this->opciones['condicio'] = Tema::combo(338, true, false);
         $this->opciones['recursox'] = AgRecurso::comb(true, false);
+        $notinxxx = [];
+     
 
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
 
         if ($nombobje != '') {
+            
+            $responsa = AgAsistente::where('ag_actividad_id', $objetoxx->id)->get();
+            foreach ($responsa as $responsx) {
+                $notinxxx[] = $responsx->fi_dato_basico_id;
+            }
+            
             if ($objetoxx->sis_depdestino_id == 1) {
                 $this->opciones['lugarxxx'] = Tema::combo(336, true, false);
             }
@@ -186,7 +194,7 @@ class AgActividadController extends Controller
 
     private function grabar($dataxxxx, $objectx, $infoxxxx)
     {
-        ddd($dataxxxx);
+        
         return redirect()
             ->route('ag.acti.actividad.editar', [AgActividad::transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);
@@ -249,15 +257,15 @@ class AgActividadController extends Controller
 
     public function getEliminar(Request $request)
     {
-        // if ($request->ajax()) {
-        //     $dataxxxx = $request->all();
-        //     switch($request->tablaxxx){
-        //         case 1:
+         if ($request->ajax()) {
+            $dataxxxx = $request->all();
+            switch($request->tablaxxx){
+                case 1:
 
-        //         break;
-        //     }
-        //     return response()->json(FosTse::combo($dataxxxx['padrexxx'], false, true));
-        // }
+               break;
+            }
+           return response()->json(FosTse::combo($dataxxxx['padrexxx'], false, true));
+         }
 
     }
 }

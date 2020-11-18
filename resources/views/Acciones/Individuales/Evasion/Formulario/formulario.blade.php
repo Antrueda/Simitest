@@ -1,3 +1,51 @@
+<div class="row mt-3">
+  <div class="col-md-12">
+    <h6>Información básica del NNA</h6>
+  </div>
+</div>
+
+<div class="form-row align-items-end">
+  <div class="form-group col-md-3">
+    {{ Form::label('primnombre', 'Primer Nombre', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('primnombre',  $todoxxxx['usuariox']->s_primer_nombre, ['class' => $errors->first('primnombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
+  </div>
+  <div class="form-group col-md-3">
+    {{ Form::label('segunnombre', 'Segundo Nombre', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('segunnombre',  $todoxxxx['usuariox']->s_segundo_nombre, ['class' => $errors->first('segunnombre') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
+  </div>
+  <div class="form-group col-md-3">
+    {{ Form::label('primapellido', 'Primer Apellido', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('primapellido',  $todoxxxx['usuariox']->s_primer_apellido, ['class' => $errors->first('primapellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
+  </div>
+  <div class="form-group col-md-3">
+    {{ Form::label('segunapellido', 'Segundo Apellido', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('segunapellido',  $todoxxxx['usuariox']->s_segundo_apellido, ['class' => $errors->first('segunapellido') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
+  </div>
+
+  <div class="form-group col-md-3">
+    {{ Form::label('nombreidentitario', 'Nombre Identitario', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('nombreidentitario',  $todoxxxx['usuariox']->nnaj_sexo->s_nombre_identitario, ['class' => $errors->first('nombreidentitario') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
+  </div>
+
+   <div class="form-group col-md-3">
+    {{ Form::label('tipodocumento', 'Tipo de Documento', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('tipodocumento',  $todoxxxx['usuariox']->nnaj_docu->tipoDocumento->nombre, ['class' => $errors->first('tipodocumento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
+  </div>
+
+   <div class="form-group col-md-3">
+    {{ Form::label('nodocumento', 'No. De Documento', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('nodocumento',  $todoxxxx['usuariox']->nnaj_docu->s_documento, ['class' => $errors->first('tipodocumento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
+  </div>
+</div>
+
+
+
+
+<div class="row mt-3">
+  <div class="col-md-12">
+    <h6>-</h6>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-12">
     <h6>LUGAR Y FECHA DE DILIGENCIAMIENTO </h6>
@@ -24,7 +72,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('fecha_diligenciamiento', 'Fecha de diligenciamiento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::date('fecha_diligenciamiento', null, ['class' => $errors->first('fecha_diligenciamiento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus']) }}
+    {{ Form::date('fecha_diligenciamiento', null, ['class' => $errors->first('fecha_diligenciamiento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus','max' => $todoxxxx['hoyxxxxx']]) }}
     @if($errors->has('fecha_diligenciamiento'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('fecha_diligenciamiento') }}
@@ -41,7 +89,7 @@
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('prm_upi_id', 'UPI/Área/Dependencia', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_upi_id',$todoxxxx['dependen'], null, ['class' => $errors->first('prm_upi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'cambiaUpi(this.value)']) }}
+    {{ Form::select('prm_upi_id',$todoxxxx['dependen'], null, ['class' => $errors->first('prm_upi_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_upi_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_upi_id') }}
@@ -50,6 +98,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('direccion', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('direccion', null, ['class' => $errors->first('direccion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly','id'=>'direccion']) }}
     <div id="direccion"></div>
   </div>
   <div class="col-md-4">
@@ -78,7 +127,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('hora_evasion', 'Hora de evasion', ['class' => 'control-label col-form-label-sm']) }}
-     {{ Form::time('hora_evasion', null, ['class' => $errors->first('hora_evasion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '00:00', 'max' => '12:59']) }}
+     {{ Form::time('hora_evasion', null, ['class' => $errors->first('hora_evasion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('hora_evasion'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('hora_evasion') }}
@@ -487,7 +536,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('fecha_denuncia', 'Fecha de la denuncia', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::date('fecha_denuncia', null, ['class' => $errors->first('fecha_denuncia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::date('fecha_denuncia', null, ['class' => $errors->first('fecha_denuncia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
     @if($errors->has('fecha_denuncia'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('fecha_denuncia') }}
@@ -496,7 +545,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('hora_denuncia', 'Hora de la denuncia', ['class' => 'control-label col-form-label-sm']) }}
-          {{ Form::time('hora_denuncia', null, ['class' => $errors->first('hora_denuncia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '00:00', 'max' => '12:00', 'id' => 'hora_denuncia']) }}
+          {{ Form::time('hora_denuncia', null, ['class' => $errors->first('hora_denuncia') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '00:00', 'id' => 'hora_denuncia']) }}
         @if($errors->has('hora_denuncia'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('hora_denuncia') }}
@@ -505,6 +554,31 @@
      
   </div>
 </div>
+<?php
+
+use Illuminate\Support\Facades\Storage;
+
+$tablaxxx = 'principa';
+if (isset($todoxxxx['rowscols'])) {
+    $tablaxxx = $todoxxxx['rowscols'];
+}
+
+?>
+<div class="form-row align-items-end form-group col-md-12" style="margin-bottom: 40px">
+    {{ Form::label('s_doc_adjunto_ar', 'Cargar Documento', ['class' => 'control-label col-form-label-sm']) }}
+    @component('layouts.components.archivos.upload')
+    @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto_ar','descripc'=>'Seleccione un archivo','idlabelx'=>'s_doc_adjunto_ar_label',
+    'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf','clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
+    @endcomponent
+
+</div>
+@if($todoxxxx['archivox']!='')
+<div class="row">
+    <div class="col-md-12">
+    <a href="{{asset($todoxxxx['modeloxx']->s_doc_adjunto)}}" target="_blank" >{{$todoxxxx['archivox']}}</a>
+    </div>
+</div>
+@endif
 
 
 

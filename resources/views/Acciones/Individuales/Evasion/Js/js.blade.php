@@ -58,6 +58,50 @@
                       '{{ old("municipio_id") }}');
                   }
                     });
+                    var f_repsable = function(dataxxxx) {
+                 $.ajax({
+                url: "{{ route('aisalidamenores.responsa')}}",
+                type: 'GET',
+                data: dataxxxx.dataxxxx,
+                dataType: 'json',
+                success: function(json) { 
+                    $(json.campoxxx).empty();
+                    $.each(json.comboxxx, function(id, data) { console.log(data)
+                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                    });
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existe un problema as buscar el responsable de la upi');
+                }
+            });
+        }
+        var f_direccion = function(dataxxxx) {
+                 $.ajax({
+                url: "{{ route('aievasion.direccion')}}",
+                type: 'GET',
+                data: dataxxxx.dataxxxx,
+                dataType: 'json',
+                success: function(json) { 
+                    $(json.campoxxx).empty();
+                    $.each(json.comboxxx, function(id, data) { console.log(data)
+                        $(json.campoxxx).append('<option ' + data.selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                    });
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existe un problema as buscar el responsable de la upi');
+                }
+            });
+        }
+        $('#prm_upi_id').change(function() {
+          f_repsable({dataxxxx:{padrexxx:$(this).val(),selected:''}})
+        });
+        $("#s_doc_adjunto_ar").change(function() {
+            var fichero_seleccionado = $(this).val();
+            var nombre_fichero_seleccionado = fichero_seleccionado.replace(/.*[\/\\]/, ''); //Eliminamos el path hasta el fichero seleccionado
+            $("#s_doc_adjunto_ar_label").text(nombre_fichero_seleccionado);
+        });
+        
+  
 
   function doc(valor){
     if(valor == 228){

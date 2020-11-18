@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Individuales\AIEvasionRequest;
 use App\Http\Requests\Csd\CsdCrearRequest;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
@@ -73,7 +74,7 @@ class AIEvasionController extends Controller
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A SALIDAS', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A EVASIONES', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
     }
@@ -83,8 +84,8 @@ class AIEvasionController extends Controller
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'REGISTRAR NUEVA SALIDA',
-                'titulist' => 'LISTA DE SALIDAS',
+                'titunuev' => 'REGISTRAR NUEVA EVASION',
+                'titulist' => 'LISTA DE EVASIONES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
@@ -175,18 +176,20 @@ class AIEvasionController extends Controller
         $departam=0;
         
         $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['dependex']= SisDepen::orderBy('nombre')->get();
+        
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['vercrear'] = false;
+        $this->opciones['archivox']='';
         $parametr = 0;
         if ($dataxxxx['modeloxx'] != '') {
+            foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
+                $this->opciones['archivox'] = $value;
+            }
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
-            $dataxxxx['modeloxx']->prm_condicion_id =  $dataxxxx['modeloxx']->condiciones->prm_condicion_id;
-            $dataxxxx['modeloxx']->prm_orientado_id =  $dataxxxx['modeloxx']->condiciones->prm_orientado_id;
-            $dataxxxx['modeloxx']->prm_enfermerd_id =  $dataxxxx['modeloxx']->condiciones->prm_enfermerd_id;
-            $dataxxxx['modeloxx']->prm_brotes_id =  $dataxxxx['modeloxx']->condiciones->prm_brotes_id;
-            $dataxxxx['modeloxx']->prm_laceracio_id =  $dataxxxx['modeloxx']->condiciones->prm_laceracio_id;
+           
             $departam=$dataxxxx['modeloxx']->sis_departamento_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
@@ -199,6 +202,47 @@ class AIEvasionController extends Controller
                     ];
             }
         }  
+
+        $this->opciones['tablasxx'] = [
+            [
+                'titunuev' => 'CREAR COMPONENTE FAMILIAR',
+                'titulist' => 'REPRESENTANTE LEGAL',
+                'dataxxxx' => [],
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+                'vercrear' => false,
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', $this->opciones['parametr']),
+                'cabecera' => [
+                    [
+                        // ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA NACIMIENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ],
+                ],
+                'columnsx' => [
+                    // ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'sis_nnajs.id'],
+                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+                    ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                ],
+
+
+
+                'tablaxxx' => 'datatable',
+                'permisox' => $this->opciones['permisox'],
+                'routxxxx' => $this->opciones['routxxxx'],
+                'parametr' => $this->opciones['parametr'],
+            ],
+
+        ];
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
         $this->opciones['departam'] = SisDepartamento::combo(2, false);
         // Se arma el titulo de acuerdo al array opciones
@@ -219,7 +263,7 @@ class AIEvasionController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
-        $this->opciones['rutaxxxx'] = route('aisalidamenores.nuevo', $padrexxx->id);
+        $this->opciones['rutaxxxx'] = route('aievasion.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -227,7 +271,7 @@ class AIEvasionController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
-    public function store(Request $request, SisNnaj $padrexxx)
+    public function store(AIEvasionRequest $request, SisNnaj $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
@@ -270,7 +314,7 @@ class AIEvasionController extends Controller
      * @param  \App\Models\FiDatosBasico $padrexxx
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SisNnaj $padrexxx,  AiReporteEvasion $modeloxx)
+    public function update(AIEvasionRequest $request, SisNnaj $padrexxx,  AiReporteEvasion $modeloxx)
     {
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida actualizada con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
@@ -298,23 +342,5 @@ class AIEvasionController extends Controller
         ->with('info', 'Red actual inactivada correctamente');
     }
 
-    public function cargos(Request $request, $padrexxx)
-    {
-        if ($request->ajax()) {
-            $dataxxxx = $request->all();
-            $respuest = ['comboxxx' => [], 'campoxxx' => '', 'cargoxxx' => '', 'campcarg' => ''];
-            switch ($dataxxxx['campoxxx']) {
-                case 'userr_id':
-                    $respuest['campcarg'] = '#s_cargo_responsable';
-                    $respuest['campoxxx'] = '#sis_depend_id';
-                    $dependen=SisDepen::find($dataxxxx['valuexxx']);
-                    $usuarioz =$dependen->NnajUpi;
-                    $respuest['comboxxx'] = $usuarioz[0];
-                    $respuest['cargoxxx'] = $usuarioz[1];
-                    break;
-            }
-        
-            return response()->json($respuest);
-        }
-    }
+   
 }

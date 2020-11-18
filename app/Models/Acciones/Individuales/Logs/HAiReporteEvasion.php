@@ -15,7 +15,7 @@ class HAiReporteEvasion extends Model
         'lugar_evasion',
         'fecha_evasion',
         'hora_evasion',
-        'prm_hor_eva_id',
+        
         'nnaj_talla',
         'nnaj_peso',
         'prm_contextura_id',

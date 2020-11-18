@@ -21,7 +21,6 @@ class AiReporteEvasionObserver
         $log['lugar_evasion'] = $modeloxx->lugar_evasion;
         $log['fecha_evasion'] = $modeloxx->fecha_evasion;
         $log['hora_evasion'] = $modeloxx->hora_evasion;
-        $log['prm_hor_eva_id'] = $modeloxx->prm_hor_eva_id;
         $log['nnaj_talla'] = $modeloxx->nnaj_talla;
         $log['nnaj_peso'] = $modeloxx->nnaj_peso;
         $log['prm_contextura_id'] = $modeloxx->prm_contextura_id;

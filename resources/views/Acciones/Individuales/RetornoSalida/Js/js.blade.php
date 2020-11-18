@@ -34,6 +34,5 @@
         $('#prm_upi_id').change(function() {
           f_repsable({dataxxxx:{padrexxx:$(this).val(),selected:''}})
         });
-
   });
 </script>

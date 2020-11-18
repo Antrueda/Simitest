@@ -151,6 +151,11 @@ class SisDepen extends Model
         return $responsa;
     }
 
+    public function getDireccionAjaxAttribute()
+    {
+        return  [$this->id => $this->s_direccion];
+    }
+
 
     public function users()
     {

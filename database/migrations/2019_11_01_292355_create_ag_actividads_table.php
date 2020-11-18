@@ -1,5 +1,6 @@
 <?php
 
+use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -39,22 +40,16 @@ class CreateAgActividadsTable extends Migration
             $table->text('s_resultad',4000);
             $table->text('s_evaluaci',4000);
             $table->text('s_observac',4000);
-            $table->bigInteger('user_crea_id')->unsigned(); 
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->timestamps();
             $table->foreign('area_id')->references('id')->on('areas');
             $table->foreign('sis_deporigen_id')->references('id')->on('sis_depens');
             $table->foreign('sis_depdestino_id')->references('id')->on('sis_depens');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('ag_tema_id')->references('id')->on('ag_temas');
             $table->foreign('i_prm_lugar_id')->references('id')->on('parametros');
             $table->foreign('ag_taller_id')->references('id')->on('ag_tallers');
             $table->foreign('ag_sttema_id')->references('id')->on('ag_subtemas');
             $table->foreign('i_prm_dirig_id')->references('id')->on('parametros');
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
+            $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE RELACIONA LOS DETALLES DE LAS ACTIVIDADES REALIZADAS CON DEPENDENCIA, TEMA, LUGAR, TALER Y OBJETIVO  PERTECECIENTES A LAS ACTIVIDADES GRUPALES'");
 
@@ -81,10 +76,7 @@ class CreateAgActividadsTable extends Migration
             $table->text('s_resultad',4000);
             $table->text('s_evaluaci',4000);
             $table->text('s_observac',4000);
-            $table->Integer('user_crea_id'); 
-            $table->integer('user_edita_id');
-            $table->integer('sis_esta_id')->default(1);
-            $table->timestamps();
+            $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
     }

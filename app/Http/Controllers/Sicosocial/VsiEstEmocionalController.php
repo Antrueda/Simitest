@@ -57,7 +57,7 @@ class VsiEstEmocionalController extends Controller
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['sentimie'] = Tema::combo(170, true, false);
-        $this->opciones['contexto'] = Tema::combo(160, true, false);
+        $this->opciones['contexto'] = Tema::combo(160, false, false);
         $this->opciones['reaccion'] = Tema::combo(194, true, false);
         $this->opciones['emocione'] = Tema::combo(195, false, false);
         $this->opciones['dificult'] = Tema::combo(195, false, false);

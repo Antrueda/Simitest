@@ -145,11 +145,12 @@ Route::get('ag/asistentes', function (Request $request) {
             'fi_datos_basicos.s_segundo_nombre as nombre22',
             'fi_datos_basicos.s_primer_apellido as apellido11',
             'fi_datos_basicos.s_segundo_apellido as apellido22',
-            'fi_datos_basicos.s_documento as documento2',
+            'nnaj_docus.s_documento as documento2',
             'ag_actividads.id',
         ])
             ->join('ag_actividads', 'ag_asistentes.ag_actividad_id', '=', 'ag_actividads.id')
             ->join('fi_datos_basicos', 'ag_asistentes.fi_dato_basico_id', '=', 'fi_datos_basicos.id')
+            ->join('nnaj_docus', 'ag_asistentes.fi_dato_basico_id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->where('ag_asistentes.sis_esta_id', 1)
             ->where('ag_asistentes.ag_actividad_id', $request->all()['ag_actividad_id']))
         ->addColumn('btns', 'Acciones/Grupales/Agactividad/botones/botonelim')

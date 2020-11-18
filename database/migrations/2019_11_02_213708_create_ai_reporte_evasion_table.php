@@ -25,7 +25,7 @@ class CreateAiReporteEvasionTable extends Migration
             $table->string('lugar_evasion', 120);
             $table->date('fecha_evasion');
             $table->time('hora_evasion');
-            $table->bigInteger('prm_hor_eva_id')->unsigned();
+           
             $table->Integer('nnaj_talla');
             $table->Integer('nnaj_peso');
             $table->bigInteger('prm_contextura_id')->unsigned();
@@ -42,15 +42,16 @@ class CreateAiReporteEvasionTable extends Migration
             $table->Integer('cuantos')->nullable();
             $table->bigInteger('prm_tamlunar_id')->unsigned()->nullable();
             $table->string('senias', 4000);
+            $table->string('s_doc_adjunto', 200)->nullable();
             $table->string('circunstancias', 4000);
             $table->bigInteger('prm_familiar1_id')->unsigned();
             $table->string('nombre_familiar1', 120);
             $table->string('direccion_familiar1', 120);
             $table->string('tel_familiar1', 10);
-            $table->bigInteger('prm_familiar2_id')->unsigned();
-            $table->string('nombre_familiar2', 120);
-            $table->string('direccion_familiar2', 120);
-            $table->string('tel_familiar2', 10);
+            $table->bigInteger('prm_familiar2_id')->unsigned()->nullable();
+            $table->string('nombre_familiar2', 120)->nullable();
+            $table->string('direccion_familiar2', 120)->nullable();
+            $table->string('tel_familiar2', 10)->nullable();
             $table->string('observaciones_fam', 4000);
             $table->bigInteger('prm_reporta_id')->unsigned();
             $table->bigInteger('prm_llamada_id')->unsigned()->nullable();
@@ -76,7 +77,6 @@ class CreateAiReporteEvasionTable extends Migration
             $table->foreign('departamento_id')->references('id')->on('sis_departamentos');
             $table->foreign('municipio_id')->references('id')->on('sis_municipios');
             $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
-            $table->foreign('prm_hor_eva_id')->references('id')->on('parametros');
             $table->foreign('prm_contextura_id')->references('id')->on('parametros');
             $table->foreign('prm_rostro_id')->references('id')->on('parametros');
             $table->foreign('prm_piel_id')->references('id')->on('parametros');

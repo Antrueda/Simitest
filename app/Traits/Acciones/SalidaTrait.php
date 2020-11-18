@@ -21,6 +21,7 @@ use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiJustrest;
 use App\Models\fichaIngreso\FiRazone;
+use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDepeUsua;
@@ -545,10 +546,18 @@ trait SalidaTrait
     public function getResponsable(Request $request)
     {
         if ($request->ajax()) {
-
-
             $respuest = ['comboxxx' =>SisDepen::find($request->padrexxx)->ResponsableAjax,
                     'campoxxx' => '#responsable',
+                    'selected' => 'selected'];
+            return response()->json($respuest);
+        }
+    }
+
+    public function getDireccion(Request $request)
+    {
+        if ($request->ajax()) {
+            $respuest = ['comboxxx' =>SisDepen::find($request->padrexxx)->DireccionAjax,
+                    'campoxxx' => '#direccion',
                     'selected' => 'selected'];
             return response()->json($respuest);
         }

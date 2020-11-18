@@ -846,17 +846,18 @@ class AjaxxController extends Controller
             foreach ($responsa as $responsx) {
                 $notinxxx[] = $responsx->fi_dato_basico_id;
             }
-
-            $usuario = FiDatosBasico::orWhere('s_documento', 'LIKE', '%' . $dataxxxx['buscarxx'] . '%')
-                ->whereNotIn('id', $notinxxx)
+            
+            $usuario = FiDatosBasico::orWhere('nnaj_docus.s_documento', 'LIKE', '%' . $dataxxxx['buscarxx'] . '%')
+                ->whereNotIn('fi_datos_basicos.id', $notinxxx)
                 ->orWhere('s_primer_nombre', 'LIKE', '%' . $dataxxxx['buscarxx'] . '%')
-                ->whereNotIn('id', $notinxxx)
+                ->whereNotIn('fi_datos_basicos.id', $notinxxx)
                 ->orWhere('s_primer_apellido', 'LIKE', '%' . $dataxxxx['buscarxx'] . '%')
-                ->whereNotIn('id', $notinxxx)
+                ->whereNotIn('fi_datos_basicos.id', $notinxxx)
                 ->orWhere('s_segundo_nombre', 'LIKE', '%' . $dataxxxx['buscarxx'] . '%')
-                ->whereNotIn('id', $notinxxx)
+                ->whereNotIn('fi_datos_basicos.id', $notinxxx)
                 ->orWhere('s_segundo_apellido', 'LIKE', '%' . $dataxxxx['buscarxx'] . '%')
-                ->whereNotIn('id', $notinxxx)
+                ->whereNotIn('fi_datos_basicos.id', $notinxxx)
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->get();
             $comboxxx = [];
             foreach ($usuario as $registro) {

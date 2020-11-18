@@ -163,7 +163,6 @@ class BkAIEvasionController extends Controller{
             'lugar_evasion' => 'required|string|max:120',
             'fecha_evasion' => 'required|date|before_or_equal:'.$hoy,
             'hora_evasion'  => 'required',
-            'prm_hor_eva_id'=> 'required|exists:parametros,id',
             'nnaj_talla'    => 'required|integer',
             'nnaj_peso'     => 'required|integer',
             'prm_contextura_id' => 'required|exists:parametros,id',

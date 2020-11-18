@@ -12,6 +12,7 @@ class CreateTriggerAgActividads extends Migration
      */
     public function up()
     {
+        /*
         DB::unprepared('
         CREATE TRIGGER trigger_ag_actividads_nuevo AFTER INSERT ON `ag_actividads` FOR EACH ROW
         BEGIN
@@ -150,6 +151,7 @@ class CreateTriggerAgActividads extends Migration
             );
         END
     ');
+    */
     }
 
     /**

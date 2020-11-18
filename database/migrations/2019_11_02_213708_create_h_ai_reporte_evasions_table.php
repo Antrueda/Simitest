@@ -26,9 +26,9 @@ class CreateHAiReporteEvasionsTable extends Migration
             $table->string('lugar_evasion', 120);
             $table->date('fecha_evasion');
             $table->time('hora_evasion');
-            $table->bigInteger('prm_hor_eva_id')->unsigned();
             $table->Integer('nnaj_talla');
             $table->Integer('nnaj_peso');
+            $table->string('s_doc_adjunto', 200)->nullable();
             $table->bigInteger('prm_contextura_id')->unsigned();
             $table->bigInteger('prm_rostro_id')->unsigned();
             $table->bigInteger('prm_piel_id')->unsigned();
