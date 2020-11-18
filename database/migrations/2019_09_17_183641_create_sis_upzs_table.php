@@ -28,7 +28,7 @@ class CreateSisUpzsTable extends Migration
         });
         Schema::create('h_sis_upzs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('s_upz')->unique();
+            $table->string('s_upz');
             $table->string('s_codigo', 3);
             $table = CamposMagicos::h_magicos($table);
         });

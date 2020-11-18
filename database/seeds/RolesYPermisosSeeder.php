@@ -24,7 +24,8 @@ class RolesYPermisosSeeder extends Seeder
             'admin' => 'Permiso para administrar: ',
             'area-admin' => 'Permiso para administrar: ',
             'tipo-admin' => 'Permiso para administrar: ',
-            'sub-tipo-admin' => 'Permiso para administrar: '
+            'sub-tipo-admin' => 'Permiso para administrar: ',
+            'activarx' => 'Permiso que permite activar registro para: '
         ];
         foreach ($dataxxxx['permisos'] as $value) {
             Permission::create([

@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\sicosocial\Pivotes\VsiEstemoContexto;
-use App\Models\Usuario\Estusuario;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,6 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SisMenusSeeder::class);
         $this->call(SisPestaniasSeeder::class);
         $this->call(RolesYPermisosSeeder::class);
+        $this->call(RolesYPermisosUbicacionSeeder::class);
+        $this->call(CarguedocuSeeder::class);
         $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosSeeder::class);
         $this->call(TemasTableSeeder::class);
@@ -61,10 +61,10 @@ class DatabaseSeeder extends Seeder
         $this->call(FiJustrestSeeder::class);//nuevo
         $this->call(FiAutorizacionSeeder::class);//nuevo
         $this->call(FiRazoneSeeder::class);//nuevo
-        
-        
-        
-        
+
+
+
+
         $this->call(CsdsSeeder::class);
         $this->call(CsdSisNnajSeeder::class);
         $this->call(CsdJusticiasSeeder::class);
@@ -130,7 +130,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiRelFamiliarSeeder::class);  //57 ok
         $this->call(VsiRelfamAccionesSeeder::class);  //55 estan mal los id de vsi_relfamiliar_id
         $this->call(VsiEstEmocionalSeeder::class);
-        
+
         $this->call(VsiRelfamDificultadSeeder::class);
         $this->call(VsiActEmocionalSeeder::class);
         $this->call(VsiActemoFisiologicaSeeder::class);

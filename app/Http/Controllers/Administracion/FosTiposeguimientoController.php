@@ -10,7 +10,7 @@ use App\Models\Indicadores\Area;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class FosTipoSeguimientoController extends Controller
+class FosTiposeguimientoController extends Controller
 {
     private $opciones;
     public function __construct()

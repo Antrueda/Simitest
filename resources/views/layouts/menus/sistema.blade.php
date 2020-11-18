@@ -163,7 +163,14 @@
              </a>
          </li>
          @endcan
-
+         @can('ubicacion-modulo')
+         <li class="nav-item">
+             <a href="{{ route('ubicacio') }}" class="nav-link">
+                 <i class="fas fa-chess-pawn nav-icon"></i>
+                 <p>Ubicación</p>
+             </a>
+         </li>
+         @endcan
 
      </ul>
  </li>

@@ -17,5 +17,13 @@
         </li>
 
         @endcanany
+        @can('cargdocu-modulo')
+         <li class="nav-item">
+             <a href="{{ route('cargdocu') }}" class="nav-link">
+                 <i class="fas fa-chess-pawn nav-icon"></i>
+                 <p>Documentación del beneficiario</p>
+             </a>
+         </li>
+         @endcan
     </ul>
 </li>

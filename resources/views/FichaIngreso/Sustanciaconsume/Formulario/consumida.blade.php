@@ -10,12 +10,12 @@
         {{ Form::number('i_edad_uso', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Edad uso por primera vez', 'min' => '1', 'max' => '28']) }}
       </div>
       <div class="form-group col-md-4">
-        {{ Form::label('i_prm_consume_id', 'Ha consumido el último mes?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('i_prm_consume_id', 'Ha consufffmido el último mes?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_consume_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
       </div>
   </div>
 
-  <a href="{{route('fi.consumo.nuevo',$todoxxxx["nnajregi"])}}" class="btn btn-sm btn-primary" 
+  <a href="{{route('fi.consumo.nuevo',$todoxxxx["nnajregi"])}}" class="btn btn-sm btn-primary"
 role="button">Volver a Consumo SPA</a>
 
 <div class="form-group col-md-12">
@@ -33,14 +33,14 @@ role="button">Volver a Consumo SPA</a>
         </h3>
     </div>
     <div class="card-body">
-        
+
       @component('FichaIngreso.consumo.datatable.index', ['todoxxxx'=>$todoxxxx])
         @slot('tableName')
           {{ $todoxxxx['tablname']}}
         @endslot
         @slot('class')
         @endslot
-      @endcomponent 
+      @endcomponent
     </div>
   </div>
 </div>

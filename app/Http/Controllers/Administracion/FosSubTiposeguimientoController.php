@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class FosSubTipoSeguimientoController extends Controller
+class FosSubTiposeguimientoController extends Controller
 {
     private $opciones;
 

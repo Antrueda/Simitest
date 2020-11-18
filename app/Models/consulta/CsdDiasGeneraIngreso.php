@@ -6,12 +6,12 @@ use App\Models\consulta\CsdGenIngreso;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
-class CsdDiasGenIngreso extends Model
+class CsdDiasGeneraIngreso extends Model
 {
     protected $fillable = [
         'prm_dia_genera_id',
-        'csd_gen_ingresos_id', 
-        'user_crea_id', 
+        'csd_gen_ingresos_id',
+        'user_crea_id',
         'user_edita_id',
         'sis_esta_id'
       ];
@@ -23,7 +23,7 @@ class CsdDiasGenIngreso extends Model
       {
         return $this->belongsTo(User::class, 'user_crea_id');
       }
-    
+
       public function editor()
       {
         return $this->belongsTo(User::class, 'user_edita_id');

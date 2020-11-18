@@ -7,7 +7,7 @@ use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaCrearRequest;
 use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiSustanciaConsumida;
-
+use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,6 +37,8 @@ class FiSustanciaConsumidaController extends Controller
 
         $this->opciones['sustanci'] = Tema::combo(53, true, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => ['ficonsumo.nuevo', []],
             'formhref' => 2, 'tituloxx' => "VOLVER A CONSUMO SPA", 'clasexxx' => 'btn btn-sm btn-primary'
@@ -57,14 +59,14 @@ class FiSustanciaConsumidaController extends Controller
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
 
         $this->opciones['servicio'] = ['' => 'seleccione'];
-        $this->opciones['estadoxx'] = 'ACTIVO';
+
         $this->opciones['botoform'][0]['routingx'][1] = $dataxxxx['padrexxx']->id;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
 
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
+
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
