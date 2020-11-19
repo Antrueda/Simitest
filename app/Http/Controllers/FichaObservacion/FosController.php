@@ -38,7 +38,7 @@ class FosController extends Controller
 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'FICHA DE OBSERVACION Y SEGUIMIENTO (FOS)';
+        $this->opciones['tituhead'] = 'FICHA DE OBSERVACIÓN Y/O SEGUIMIENTO';
         $this->opciones['routxxxx'] = 'fosfichaobservacion';
         $this->opciones['slotxxxx'] = 'fosfichaobservacion';
         $this->opciones['perfilxx'] = 'sinperfi';
@@ -54,7 +54,7 @@ class FosController extends Controller
 
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
-        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['tituloxx'] = "FICHA DE OBSERVACIÓN Y/O SEGUIMIENTO";
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
@@ -154,7 +154,7 @@ class FosController extends Controller
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI/ÁREA/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FECHA REGISTRO SEUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'FECHA REGISTRO SEGUIMIENTO:', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ÁREA DERECHO/CONTEXTO PEDAGÓGICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SUB-TIPO DE SEGUIMIENTO.', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -262,7 +262,7 @@ class FosController extends Controller
     {
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 

@@ -19,6 +19,8 @@ class CreateFosTsesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('area_id')->unsigned();
+            $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
+            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table->string('nombre', 120);
             $table->text('descripcion', 4000)->nullable();
             $table->foreign('area_id')->references('id')->on('areas');

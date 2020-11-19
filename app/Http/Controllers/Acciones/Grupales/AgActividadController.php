@@ -16,6 +16,7 @@ use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Tema;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,16 +51,22 @@ class AgActividadController extends Controller
         ];
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
-            ['td' => 'REGISTRO ACTIVIDAD'],
-            ['td' => 'DEPENDENCIA ORIGEN'],
+            ['td' => 'UPI/ÁREA/DEPENDENCIA'],
+            ['td' => 'FECHA REGISTRO ACTIVIDAD'],
+            ['td' => 'ÁREA/CONTEXTO PEDAGÓGICO'],
+            ['td' => 'TEMA GENERAL'],
+            ['td' => 'NOMBRE TALLER'],
             ['td' => 'ESTADO'],
         ];
         $this->opciones['columnsx'] = [
             ['data' => 'btns', 'name' => 'btns'],
             ['data' => 'id', 'name' => 'ag_actividads.id'],
-            ['data' => 'd_registro', 'name' => 'ag_actividads.d_registro'],
             ['data' => 'sis_deporigen_id', 'name' => 'sis_depens.nombre as sis_deporigen_id'],
-            ['data' => 'sis_esta_id', 'name' => 'ag_actividads.sis_esta_id'],
+            ['data' => 'd_registro', 'name' => 'ag_actividads.d_registro'],
+            ['data' => 'area', 'name' => 'areas.nombre as area'],
+            ['data' => 'tema', 'name' => 'ag_temas.s_tema as tema'],
+            ['data' => 'taller', 'name' => 'ag_tallers.s_taller as taller'],
+            ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
 
         ];
     }
@@ -119,22 +126,23 @@ class AgActividadController extends Controller
         $this->opciones['urlxxxre'] = 'api/ag/relaciones';
         $this->opciones['routxxxc'] = 'ag.acti.actividad';
         $this->opciones['cabecere'] = [
-            ['td' => 'CANTIDAD'],
-            ['td' => 'RECURSO'],
             ['td' => 'TIPO DE RECURSO'],
+            ['td' => 'RECURSO'],
+            ['td' => 'CANTIDAD'],
             ['td' => 'UNIDAD DE MEDIDA'],
         ];
         $this->opciones['columnre'] = [
             ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'cantidad', 'name' => 'ag_relacions.i_cantidad as cantidad'],
-            ['data' => 'recursox', 'name' => 'ag_recursos.s_recurso as recursox'],
             ['data' => 'trecurso', 'name' => 'parametros.nombre as trecurso'],
+            ['data' => 'recursox', 'name' => 'ag_recursos.s_recurso as recursox'],
+            ['data' => 'cantidad', 'name' => 'ag_relacions.i_cantidad as cantidad'],
             ['data' => 'umedidax', 'name' => 'parametros.nombre as umedidax'],
 
         ];
 
 
         $this->opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
+        $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['entidadx'] = SisEntidad::combo(true, false);
         $this->opciones['dependen'] = User::getDependenciasUser(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['upidepen'] = SisDepen::combo(true, false);
@@ -177,8 +185,7 @@ class AgActividadController extends Controller
         }
 
         // Se arma el titulo de acuerdo al array opciones
-        $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
-        return view($this->opciones['rutacarp'] . $vistaxxx, ['todoxxxx' => $this->opciones]);
+            return view($this->opciones['rutacarp'] . $vistaxxx, ['todoxxxx' => $this->opciones]);
     }
 
     /**
@@ -188,7 +195,7 @@ class AgActividadController extends Controller
      */
     public function create()
     {
-        return $this->view('', '', 'Crear', 'crear');
+        return $this->view('', '', 'Guardar', 'crear');
     }
 
 
@@ -267,5 +274,13 @@ class AgActividadController extends Controller
            return response()->json(FosTse::combo($dataxxxx['padrexxx'], false, true));
          }
 
+    }
+
+    public function destroyasistente(AgAsistente $objetoxx)
+    {
+        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
+        $objetoxx->delete();
+        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
+        return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
     }
 }

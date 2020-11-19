@@ -8,6 +8,7 @@ use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
 use App\Models\Indicadores\Area;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
+use App\Models\Usuario\Estusuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +37,10 @@ class FosSubTiposeguimientoController extends Controller
         $this->opciones['rutaxxxx'] = 'fossubtipo';
         $this->opciones['routnuev'] = 'fossubtipo';
         $this->opciones['routxxxx'] = 'fossubtipo';
+        $this->opciones['fechcrea'] =  '';
+        $this->opciones['fechedit'] =  '';
+        $this->opciones['usercrea'] =  '';
+        $this->opciones['useredit'] =  '';
 
         $this->opciones['botoform'] = [
             ['mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
@@ -81,15 +86,25 @@ class FosSubTiposeguimientoController extends Controller
         $this->opciones['fosareas'] =  Area::comb( true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
+        $this->opciones['modeloxz'] ='';
         // indica si se esta actualizando o viendo
         $this->opciones['nivelxxx'] = '';
+        $estadoid=0;
         $this->opciones['tiposegu'] = [];
         if ($nombobje != '') {
             $objetoxx->area_id=$objetoxx->fos_tse->area_id;
             $this->opciones['tiposegu'] =FosTse::combo($objetoxx->area_id, true, false);
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
+            $this->opciones['modeloxz'] = $nombobje;
+            
         }
+        $this->opciones['motivozx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $this->opciones['estadoxx'] == 'ACTIVO' ? $this->opciones['estadoxx'] == 'ACTIVO' : $estadoid,
+            'formular' => 2481
+        ]);
 
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];

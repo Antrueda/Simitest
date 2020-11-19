@@ -4,7 +4,7 @@
   @include('reutilizar.titulocav')
   <div class="card-body">
     <h5 class="card-title"></h5>
-    {!! Form::open([route($todoxxxx["routxxxx"].'.borrar', $todoxxxx["parametr"]), 'method' => 'DELETE']) !!}
+    {!! Form::open([route($todoxxxx["routxxxx"].'.inctivar', $todoxxxx["parametr"]), 'method' => 'DELETE']) !!}
       @include('layouts.components.botones.botones')  
       @include($todoxxxx["rutacarp"].'formulario.formulario')
       @include('layouts.components.botones.botones') 

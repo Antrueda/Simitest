@@ -28,9 +28,9 @@
         
     <div class="card-header">
             <h3 class="card-title">
-                Responsable de la actividad 
+                FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER  
                 <a class="btn btn-sm btn-primary" href="{{ route('respo.nuevo', $todoxxxx['modeloxx']->id) }}">
-                    Nuevo Responsable</a>
+                    Agregar Funcionario</a>
             </h3>
         </div>
         <div class="card-body">
@@ -57,9 +57,9 @@
 <div class="card card-outline card-secondary">
         <div class="card-header">
                 <h3 class="card-title">
-                    Asistentes de la actividad
+                    Participantes de la actividad y/o taller.
                     <a class="btn btn-sm btn-primary" href="{{ route('ag.acti.actividad.editar', $todoxxxx['modeloxx']->id) }}">
-                        Nuevo Asistente</a>
+                        Nuevo Participante</a>
                 </h3>
                 
             </div>

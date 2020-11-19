@@ -7,6 +7,7 @@ use App\Http\Requests\FichaObservacion\FosTseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosTseEditarRequest;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Indicadores\Area;
+use App\Models\Usuario\Estusuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -33,6 +34,10 @@ class FosTiposeguimientoController extends Controller
         $this->opciones['rutaxxxx'] = 'fostipo';
         $this->opciones['routnuev'] = 'fostipo';
         $this->opciones['routxxxx'] = 'fostipo';
+        $this->opciones['fechcrea'] =  '';
+        $this->opciones['fechedit'] =  '';
+        $this->opciones['usercrea'] =  '';
+        $this->opciones['useredit'] =  '';
 
         $this->opciones['botoform'] = [
             ['mostrars' => true, 'accionxx' => 'Editar', 'routingx' => [$this->opciones['routxxxx'], []], 'formhref' => 2, 'tituloxx' => 'Volver a Tipo Seguimiento','clasexxx'=>'btn btn-sm btn-primary'],
@@ -47,7 +52,7 @@ class FosTiposeguimientoController extends Controller
      */
     public function index()
     {
-        $this->opciones['titunuev'] = 'Nuevo Tipo de Segumineto';
+        $this->opciones['titunuev'] = 'Nuevo Tipo de Seguimiento';
         $this->opciones['titulist'] = 'Lista de Tipos de Seguimiento';
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'botonesx', 'dataxxxx' => 'FichaObservacion/Admin/TipoSeguimiento/botones/botonesapi'],
@@ -75,13 +80,25 @@ class FosTiposeguimientoController extends Controller
 
         $this->opciones['fosareas'] = $areas = Area::orderBy('nombre')->where('sis_esta_id', '1')->pluck('nombre', 'id');
         $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
+        $this->opciones['modeloxz'] ='';
+        $estadoid=0;
+        
         // indica si se esta actualizando o viendo
         $this->opciones['nivelxxx'] = '';
         if ($nombobje != '') {
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
+            $this->opciones['modeloxz'] = $nombobje;
+            
         }
+        $this->opciones['motivozx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $this->opciones['estadoxx'] == 'ACTIVO' ? $this->opciones['estadoxx'] == 'ACTIVO' : $estadoid,
+            'formular' => 2480
+        ]);
 
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];

@@ -27,6 +27,38 @@
         </div>
       @endif
   </div>
+
+  <div class="form-group col-md-12">
+    {{ Form::label('descripcion', 'Descripción:', ['class' => 'control-label col-form-label-sm']) }}
+     @if ($todoxxxx['accionxx'] == 'Ver')
+         {{ Form::textarea('descripcion', $todoxxxx['modeloxx']->descripcion, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Escriba una descripción para el sub tipo de seguimiento', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+     @else
+         {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Escriba una descripción para el sub tipo de seguimiento', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+     @endif
+     <p id="contadordescripcion">0/4000</p>
+ </div>
+ @if($errors->has('descripcion'))
+     <div class="invalid-feedback d-block">
+         {{ $errors->first('descripcion') }}
+     </div>
+ @endif
+</div>
  
 </div>
+@if($todoxxxx['modeloxz'] != null)
+
+
+<div class="form-group row">
+  <div class="form-group col-md-12">
+      {{ Form::label('estusuario_id','Justificación Estado') }}
+      {{ Form::select('estusuario_id',$todoxxxx['motivozx'], null,['class'=> $errors->first('estusuario_id') ? 'form-control is-invalid' :'form-control form-control-sm select2','autofocus']) }}
+      @if($errors->has('estusuario_id'))
+      <div class="invalid-feedback d-block">
+          {{ $errors->first('estusuario_id') }}
+      </div>
+      @endif
+  </div>
+      @include('layouts.registro')
+  </div>
+  @endif
 

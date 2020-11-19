@@ -7,7 +7,7 @@
             @if($todoxxxx['pestpadr']==1 || $todoxxxx['pestpadr']==2)
             @canany(['fosfichaobservacion-leer', 'fosfichaobservacion-crear', 'fosfichaobservacion-editar', 'fosfichaobservacion-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fosfichaobservacion') ?' active' : '' }}
-        text-sm" href="{{ route('fosfichaobservacion') }}">NNAJS</a></li>
+        text-sm" href="{{ route('fosfichaobservacion') }}">NNAJ</a></li>
             @endcanany
             @endif
 

@@ -28,7 +28,7 @@
 </div>
 <div class="form-row align-items-end">
     <div class="form-group col-md-12">
-        {{ Form::label('s_observacion', 'Observacion y/o Seguimiento', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('s_observacion', 'Observación y/o Seguimiento', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('s_observacion', null, ['class' => $errors->first('s_observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_observacion', 'maxlength' => '4000',"onkeyup" => "javascript:this.value=this.value.toUpperCase()", 'style' => 'text-transform:uppercase' ]) }}
         <p id="contadorobservacion">0/4000</p>
     </div>

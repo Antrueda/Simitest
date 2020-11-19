@@ -13,7 +13,7 @@ class SisTitulosSeeder extends Seeder
     public function run()
     {
         SisTitulo::create(['id' => 1, 's_titulo' => 'FECHA REGISTRO ACTIVIDAD', 's_tooltip' => 'FECHA REGISTRO ACTIVIDAD', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
-        SisTitulo::create(['id' => 2, 's_titulo' => 'AREA', 's_tooltip' => 'AREA', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
+        SisTitulo::create(['id' => 2, 's_titulo' => 'ÁREA /CONTEXTO PEDAGÓGICO', 's_tooltip' => 'AREA', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 3, 's_titulo' => 'UPI/Dependencia de origen', 's_tooltip' => 'UPI/Dependencia de origen', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 4, 's_titulo' => 'Tema general', 's_tooltip' => 'Tema general', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 5, 's_titulo' => 'Nombre taller', 's_tooltip' => 'Nombre taller', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
@@ -47,7 +47,7 @@ class SisTitulosSeeder extends Seeder
         SisTitulo::create(['id' => 33, 's_titulo' => 'seleccionar todo', 's_tooltip' => 'seleccionar todo', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 34, 's_titulo' => 'LISTADO LUGARES', 's_tooltip' => 'LISTADO LUGARES', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 35, 's_titulo' => 'OBSERVACION DEL REGIRSTRO', 's_tooltip' => 'OBSERVACION DEL REGIRSTRO', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
-        SisTitulo::create(['id' => 36, 's_titulo' => 'RESPONSABLE', 's_tooltip' => 'RESPONSABLE', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
+        SisTitulo::create(['id' => 36, 's_titulo' => 'FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER ', 's_tooltip' => 'RESPONSABLE', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 37, 's_titulo' => 'ACCIONES GRUPALES', 's_tooltip' => 'ACCIONES GRUPALES', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 38, 's_titulo' => 'NUEVO RESPONSABLE', 's_tooltip' => 'NUEVO RESPONSABLE', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         // SisTitulo::create(['s_titulo' => '', 's_tooltip' => '',"sis_esta_id"=>1,"user_crea_id"=>1,"user_edita_id"=>1]);

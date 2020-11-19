@@ -1,7 +1,7 @@
 <div class="form-group row">
     <div class="form-group col-md-4">
         {{ Form::label('d_registro',Tr::getTitulo(1,1), ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::date('d_registro', null, ['class' => 'form-control form-control-sm ','style'=>'height:38px']) }}
+        {{ Form::date('d_registro', null, ['class' => 'form-control form-control-sm ','style'=>'height:38px','max' => $todoxxxx['hoyxxxxx']]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('area_id', Tr::getTitulo(2,1), ['class' => 'control-label col-form-label-sm']) }}

@@ -106,8 +106,13 @@ Route::get('ag/subtemas', function (Request $request) {
 Route::get('ag/actividades', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     return datatables()
-        ->eloquent(AgActividad::select(['ag_actividads.id', 'ag_actividads.d_registro', 'sis_depens.nombre as sis_deporigen_id', 'ag_actividads.sis_esta_id'])
+        ->eloquent(AgActividad::select(['ag_actividads.id', 'ag_actividads.d_registro', 'sis_depens.nombre as sis_deporigen_id', 'sis_estas.s_estado','areas.nombre as area',
+        'ag_temas.s_tema as tema','ag_tallers.s_taller as taller',])
             ->join('sis_depens', 'ag_actividads.sis_deporigen_id', '=', 'sis_depens.id')
+            ->join('areas', 'ag_actividads.area_id', '=', 'areas.id') 
+            ->join('sis_estas', 'ag_actividads.sis_esta_id', '=', 'sis_estas.id')
+            ->join('ag_temas', 'ag_actividads.ag_tema_id', '=', 'ag_temas.id') 
+            ->join('ag_tallers', 'ag_actividads.ag_taller_id', '=', 'ag_tallers.id') 
             ->where('ag_actividads.sis_esta_id', 1))
         ->addColumn('btns', 'Acciones/Grupales/Agactividad/botones/botonesapi')
         ->rawColumns(['btns'])

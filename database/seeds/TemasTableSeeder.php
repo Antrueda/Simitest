@@ -3219,7 +3219,7 @@ class TemasTableSeeder extends Seeder
         $tema = Tema::create(['id' => 338, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'RESPONSABLE DE LA ACTIVIDAD',]);
         $tema->parametros()->sync([
             1770 => $camposmagicos,
-            1771 => $camposmagicos,
+            808 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 339, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'SEXO DEPENDENCIAS',]);
         $tema->parametros()->sync([
@@ -3234,6 +3234,8 @@ class TemasTableSeeder extends Seeder
             2327 => $camposmagicos,
             2328 => $camposmagicos,
             2351 => $camposmagicos,
+            2480 => $camposmagicos,
+            2481 => $camposmagicos,
         ]);
 
         $tema = Tema::create(['id' => 341, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL',]);
