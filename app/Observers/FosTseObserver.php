@@ -17,6 +17,7 @@ class FosTseObserver
         $log['nombre'] = $modeloxx->nombre;
         $log['descripcion'] = $modeloxx->descripcion;
         // campos por defecto, no borrar.
+        $log['estusuario_id']= $modeloxx->fos_tse_id;
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
         $log['metodoxx'] = request()->method();

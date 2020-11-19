@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class FosStse extends Model{
     protected $fillable = [
-         'fos_tse_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id','sis_esta_id',  
+         'fos_tse_id','estusuario_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id','sis_esta_id',
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
@@ -16,7 +16,7 @@ class FosStse extends Model{
         return $this->belongsTo(FosTse::class);
     }
 
-   
+
 
 
     /**
@@ -32,14 +32,14 @@ class FosStse extends Model{
         if($dataxxxx['cabecera']) {
             if ($dataxxxx['ajaxxxxx']) {
                 $comboxxx[] = [
-                    'valuexxx' => '', 
+                    'valuexxx' => '',
                     'optionxx' => 'Seleccione'];
             } else {
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
         $parametr = FosStse::select(['id as valuexxx', 'nombre as optionxx'])
-           
+
             ->where('fos_tse_id', $dataxxxx['seguimie'])
             ->where('sis_esta_id', 1)
             ->orderBy('id', 'asc')

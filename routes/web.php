@@ -66,5 +66,5 @@ Route::group(['middleware' => ['auth', 'ChangePasswor']], function () {
     include_once('webs/excel/web_excel.php');
     include_once('ajaxx.php');
     include_once('Indicadores/web_in.php');
-
+    include_once('Fosadmin/web_modulo.php');
 });
