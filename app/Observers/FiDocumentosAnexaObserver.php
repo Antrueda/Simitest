@@ -12,8 +12,8 @@ class FiDocumentosAnexaObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
-        $log['fi_razone_id'] = $modeloxx->fi_razone_id;
+        // campos nuevos traidos desde $fillable -> modelo
+        $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         $log['i_prm_documento_id'] = $modeloxx->i_prm_documento_id;
         $log['s_ruta'] = $modeloxx->s_ruta;
         // campos por defecto, no borrar.

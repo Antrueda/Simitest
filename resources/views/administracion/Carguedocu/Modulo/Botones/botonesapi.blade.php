@@ -5,7 +5,7 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         @if(auth()->user()->can( $requestx->routexxx[1].'-leer'))
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[1], $queryxxx->id) }}">Cargue FI</a>
+            <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[1], $queryxxx->sis_nnaj_id) }}">Cargue FI</a>
         </div>
         @endif
 

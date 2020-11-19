@@ -38,15 +38,15 @@ class CreateFiRazonesTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fi_razone_id')->unsigned();
+            $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('i_prm_documento_id')->unsigned();
-            
+
             $table->text('s_ruta');
-            $table->foreign('fi_razone_id')->references('id')->on('fi_razones');
+            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('i_prm_documento_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE REGISTRA LOS DOCUMENTOS ANEXOS ASOCIADOS A LAS RAZONES PARA INGRESAR AL IDIPRON, SECCION 15 BIENVENIDA DE LA FICHA DE INGRESO'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE REGISTRA LOS DOCUMENTOS ANEXOS ASOCIADOS AL NNAJ'");
     }
 
     /**

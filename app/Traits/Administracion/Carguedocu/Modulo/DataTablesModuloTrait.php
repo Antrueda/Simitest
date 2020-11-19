@@ -20,9 +20,9 @@ trait DataTablesModuloTrait
         $dataxxxx['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO DOCUMENTO',
-                'titulist' => 'LISTA DE DOCUMENTOS NNAJ'."'S",
+                'titulist' => 'LISTA NNAJ'."'S",
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
+                'vercrear' => false,
                 'permtabl' => [$this->opciones['permisox'].'-modulo'],
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
                 'cabecera' => [

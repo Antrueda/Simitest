@@ -7,7 +7,7 @@ Route::group(['prefix' => '{padrexxx}/carguefis'], function () use($routexxx,$co
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
     ])->name($routexxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'Controller@listaNnaj',
+		'uses' => $controll.'Controller@listaDocumentos',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
     ])->name($routexxx.'.listaxxx');
     Route::get('nuevo', [

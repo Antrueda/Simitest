@@ -2,7 +2,8 @@
 
 namespace App\Traits\Administracion\Carguedocu\Fi;
 
-
+use App\Models\fichaIngreso\FiDocumentosAnexa;
+use App\Models\Tema;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -50,11 +51,12 @@ trait ParametrizarTrait
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "FI";
+        $this->opciones['tituloxx'] = "DOCUMENTO ANEXO FI";
     }
 
     public function getBotones($dataxxxx)
     {
+
         if (auth()->user()->can($this->opciones['permisox'] . '-' . $dataxxxx[0])) {
             $this->opciones['botoform'][] = [
                 'routingx' => $dataxxxx[1],

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Administracion\Carguedocu;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Sistema\Carguedocu\SisPaisCrearRequest;
-use App\Http\Requests\Sistema\Carguedocu\SisPaisEditarRequest;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Sistema\SisPai;
+use App\Http\Requests\FichaIngreso\FiRazoneArchivoCrearRequest;
+use App\Models\fichaIngreso\FiDocumentosAnexa;
+use App\Models\Sistema\SisNnaj;
 use App\Traits\Administracion\Carguedocu\Fi\CrudTrait;
 use App\Traits\Administracion\Carguedocu\Fi\DataTablesTrait;
 use App\Traits\Administracion\Carguedocu\Fi\ParametrizarTrait;
@@ -33,99 +32,107 @@ class CargueDocuFiController extends Controller
         $this->middleware($this->getMware());
     }
 
-    public function index(FiDatosBasico $padrexxx)
+    public function index(SisNnaj $padrexxx)
     {
+        $this->pestanix['cardocfi']=[true,$padrexxx];
+        $this->opciones['ppadrexx']=$padrexxx;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
     }
 
 
-    public function create()
+    public function create(SisNnaj $padrexxx)
     {
+        $this->pestanix['cardocfi']=[true,$padrexxx];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['crear', [], 1, 'GUARDAR PAIS', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
+            $this->getBotones(['crear', [$padrexxx], 1, 'GUARDAR DOCUMENTO', 'btn btn-sm btn-primary']),
+            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$padrexxx]
         );
     }
-    public function store(SisPaisCrearRequest $request)
+    public function store(FiRazoneArchivoCrearRequest $request,SisNnaj $padrexxx)
     {
-        return $this->setPais([
+        $request->request->add(['sis_nnaj_id'=>$padrexxx->id]);
+        return $this->setFiDocumentosAnexa([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Pais creados con exito',
+            'infoxxxx' =>       'Documenteo creados con exito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
 
-    public function show(SisPai $modeloxx)
+    public function show(FiDocumentosAnexa $modeloxx)
     {
-        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A PAISES', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EIDTAR PAIS', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR NUEVO PAIS', 'btn btn-sm btn-primary'])
-            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]
+        // $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        // $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj->id]], 2, 'VOLVER A DOCUMENTOS', 'btn btn-sm btn-primary']);
+        // $this->getBotones(['editar', [], 1, 'EIDTAR DOCUMENTO', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj->id]], 2, 'CREAR NUEVO DOCUMENTO', 'btn btn-sm btn-primary']);
+
+        return $this->view($do,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj->id]
         );
     }
 
 
-    public function edit(SisPai $modeloxx)
+    public function edit(FiDocumentosAnexa $modeloxx)
     {
+        $this->pestanix['cardocfi']=[true,$modeloxx->sis_nnaj];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A PAISES', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EIDTAR PAIS', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR NUEVO PAIS', 'btn btn-sm btn-primary'])
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A DOCUMENTOS', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EIDTAR DOCUMENTO', 'btn btn-sm btn-primary']);
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR NUEVO DOCUMENTO', 'btn btn-sm btn-primary'])
             ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario']]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj]
         );
     }
 
 
-    public function update(SisPaisEditarRequest $request,  SisPai $modeloxx)
+    public function update(FiRazoneArchivoCrearRequest $request,  FiDocumentosAnexa $modeloxx)
     {
-        return $this->setPais([
+        return $this->setFiDocumentosAnexa([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'País editado con exito',
+            'infoxxxx' => 'Documento editado con exito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
 
-    public function inactivate(SisPai $modeloxx)
+    public function inactivate(FiDocumentosAnexa $modeloxx)
     {
+        $this->pestanix['cardocfi']=[true,$modeloxx->sis_nnaj];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR PAIS', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy']]
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR DOCUMENTO', 'btn btn-sm btn-primary'])            ,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
         );
     }
 
 
-    public function destroy(Request $request, SisPai $modeloxx)
+    public function destroy(Request $request, FiDocumentosAnexa $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [])
-            ->with('info', 'País inactivado correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
+            ->with('info', 'Documento inactivado correctamente');
     }
 
-    public function activate(SisPai $modeloxx)
+    public function activate(FiDocumentosAnexa $modeloxx)
     {
+        $this->pestanix['cardocfi']=[true,$modeloxx->sis_nnaj];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR PAIS', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar']]
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR DOCUMENTO', 'btn btn-sm btn-primary'])            ,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->sis_nnaj]
         );
 
     }
-    public function activar(Request $request, SisPai $modeloxx)
+    public function activar(Request $request, FiDocumentosAnexa $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [])
-            ->with('info', 'País activado correctamente');
+            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
+            ->with('info', 'Documento activado correctamente');
     }
 }

@@ -16,21 +16,20 @@
         @if($queryxxx->sis_esta_id==1)
         @if(auth()->user()->can($requestx->routexxx[0] . '-borrar'))
         <div class="dropdown-item">
-        <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', [$queryxxx->id]) }}">Inactivar</a>
+            <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', [$queryxxx->id]) }}">Inactivar</a>
         </div>
         @endif
 
         @else
         @if(auth()->user()->can($requestx->routexxx[0] . '-activarx'))
         <div class="dropdown-item">
-        <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.activarx', [$queryxxx->id]) }}">Activar</a>
+            <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.activarx', [$queryxxx->id]) }}">Activar</a>
         </div>
         @endif
         @endif
-        @if(auth()->user()->can( $requestx->routexxx[0].'-editar'))
+
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[1], $queryxxx->id) }}">Departamentos</a>
+            <a class="btn btn-sm btn-primary" href="{{asset($queryxxx->s_ruta)}}" target="_blank">Ver Adjunto</a>
         </div>
-        @endif
     </div>
 </div>
