@@ -20,7 +20,18 @@ trait CombosTrait
         }
         return $comboxxx;
     }
-
+    public function getCuerpoCombo($dataxxxx)
+    {
+        $comboxxx = $this->getCabecera($dataxxxx);
+        foreach ($dataxxxx['dataxxxx'] as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
     public function getInRespuestas($dataxxxx)
     {
         $comboxxx = $this->getCabecera($dataxxxx);
@@ -57,7 +68,7 @@ trait CombosTrait
     {
         $notinxxx = [];
         $comboxxx = $this->getCabecera($dataxxxx);
-        $soportes = InActsoporte::where('in_accion_gestion_id',$dataxxxx['padrexxx'])->get(); 
+        $soportes = InActsoporte::where('in_accion_gestion_id', $dataxxxx['padrexxx'])->get();
         foreach ($soportes as $registro) {
             if (!in_array($registro->sis_fsoporte_id, $notinxxx)) {
                 $notinxxx[] = $registro->sis_fsoporte_id;
@@ -65,7 +76,7 @@ trait CombosTrait
         }
         $soportes = InAccionGestion::find($dataxxxx['padrexxx'])->sis_actividad->sis_fsoportes;
         foreach ($soportes as $registro) {
-            if (!in_array($registro->id, $notinxxx)|| $registro->id==$dataxxxx['seleccio']) {
+            if (!in_array($registro->id, $notinxxx) || $registro->id == $dataxxxx['seleccio']) {
                 if ($dataxxxx['ajaxxxxx']) {
                     $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
                 } else {
@@ -82,32 +93,41 @@ trait CombosTrait
     * @param  $ajaxxxxx indica si el combo es para devolver en array para objeto json
     * @return $comboxxx
     */
-   public static function combo($dataxxxx) {
-     $comboxxx = [];
-     if ($dataxxxx['cabecera'] ) {
-       if ($dataxxxx['ajaxxxxx']) {
-         $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
-       } else {
-         $comboxxx = ['' => 'Seleccione'];
-       }
-     }
-     $parametr = Tema::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
-             ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
-             ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
-             ->where('temas.id', $dataxxxx['temaxxxx'])
-             ->orderBy('parametros.id', 'asc')
-             ->get();
-     foreach ($parametr as $registro) {
-        if ($dataxxxx['ajaxxxxx']) {
-        $selected='';
-        if(in_array($registro->valuexxx,$dataxxxx['selected'])){ 
-           $selected='selected';
+    public static function combo($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
         }
-         $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx, 'selected'=> $selected];
-       } else {
-         $comboxxx[$registro->valuexxx] = $registro->optionxx;
-       }
-     } 
-     return $comboxxx;    
-   }
+        $parametr = Tema::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
+            ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
+            ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
+            ->where('temas.id', $dataxxxx['temaxxxx'])
+            ->orderBy('parametros.id', 'asc')
+            ->get();
+        foreach ($parametr as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $selected = '';
+                if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
+                    $selected = 'selected';
+                }
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx, 'selected' => $selected];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
+
+    public function getResponsablesActividad($dataxxxx)
+    {
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajax']) {
+            }
+        }
+    }
 }

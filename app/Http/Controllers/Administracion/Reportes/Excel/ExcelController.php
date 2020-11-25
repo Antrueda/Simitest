@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Administracion\Reportes\Excel;
 
-use App\Exports\FiDatosBasicosExport;
+use App\Exports\FiDatosBasicoExport;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -42,7 +42,7 @@ class ExcelController extends Controller
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJS', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJ', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
     }
@@ -52,7 +52,7 @@ class ExcelController extends Controller
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO NNAJ',
-                'titulist' => 'LISTA DE NNAJS',
+                'titulist' => 'LISTA DE NNAJ',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
@@ -153,6 +153,10 @@ class ExcelController extends Controller
     }
     public function setExcel()
     {
-        return Excel::download(new FiDatosBasicosExport, 'caminando.xls');
+        return (new FiDatosBasicoExport)->download('invoices.xlsx');
+        // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
+        // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return (new FiDatosBasicoExport)->download('invoices.xls');
+        // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
     }
 }

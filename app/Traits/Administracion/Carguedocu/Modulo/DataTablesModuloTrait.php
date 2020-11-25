@@ -20,7 +20,7 @@ trait DataTablesModuloTrait
         $dataxxxx['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO DOCUMENTO',
-                'titulist' => 'LISTA NNAJ'."'S",
+                'titulist' => 'LISTA NNAJ',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => false,
                 'permtabl' => [$this->opciones['permisox'].'-modulo'],
@@ -44,7 +44,7 @@ trait DataTablesModuloTrait
                     ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
                     ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
 
-                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apelldiso'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
                     ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],

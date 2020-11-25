@@ -8,9 +8,9 @@
     </a>
     <ul class="nav nav-treeview">
 
-        @can('agactividad-leer')
+        @can('taccform-modulo')
             <li class="nav-item">
-                <a href="{{ route('ag.acti') }}" class="nav-link">
+                <a href="{{ route('taccform') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
                 <p>Talleres y Acciones Formativas</p>
                 </a>
@@ -20,7 +20,7 @@
             <li class="nav-item">
               <a href="{{ route('fosfichaobservacion')}}" class="nav-link">
                 <i class="fas fa-home nav-icon"></i>
-                <p>Ficha de Observación</p>
+                <p>Ficha de Observación y/o seguimiento</p>
               </a>
             </li>
             @endcan

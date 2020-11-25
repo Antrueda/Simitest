@@ -21,7 +21,7 @@ class VsiNnajController extends Controller
             'permisox' => 'vsinnajs',
             'parametr' => [],
             'rutacarp' => 'Sicosocial.',
-            'tituloxx' => 'NNAJS',
+            'tituloxx' => 'NNAJ',
             'carpetax' => 'Vsinnaj',
             'slotxxxx' => 'vsinnajs',
             'tablaxxx' => 'usuarios',
@@ -66,7 +66,7 @@ class VsiNnajController extends Controller
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NNAJ',
-                'titulist' => 'LISTA DE NNAJS',
+                'titulist' => 'LISTA DE NNAJ',
                 'dataxxxx' => [
                     ['campoxxx' => 'botonesx', 'dataxxxx' =>
                     $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],

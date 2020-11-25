@@ -70,7 +70,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '12345678';
         $dataxxxx['telefono'] = '3173809970';
         $dataxxxx['cargoxxx'] = '1';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'nuevosimi@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'super-administrador';
         $dataxxxx['namexxxx'] = 'FERNANDO SANABRIA';
@@ -83,7 +83,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '1031143437';
         $dataxxxx['telefono'] = '3173809970';
         $dataxxxx['cargoxxx'] = '1';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'YENNYCC@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'PSICÓLOGO(A)';
         $dataxxxx['namexxxx'] = 'YENNY ADREA CORZO CÁCERES';
@@ -96,7 +96,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '52796926';
         $dataxxxx['telefono'] = '3173809970';
         $dataxxxx['cargoxxx'] = '1';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'edithf@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'PSICÓLOGO(A)';
         $dataxxxx['namexxxx'] = 'EDITH JOHANNA FUENTES VIDAL';
@@ -109,7 +109,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '53141198';
         $dataxxxx['telefono'] = '3173809970';
         $dataxxxx['cargoxxx'] = '1';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'solr@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'aux_administrativo_territorio';
         $dataxxxx['namexxxx'] = 'SOL MARINA RODRIGUEZ MARIN';
@@ -121,7 +121,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '52223097';
         $dataxxxx['telefono'] = '3173809970';
         $dataxxxx['cargoxxx'] = '1';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'LUZAC@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'aux_administrativo_territorio';
         $dataxxxx['namexxxx'] = 'LUZ FARYDE AYA CORRALES';
@@ -134,7 +134,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '34567890';
         $dataxxxx['telefono'] = '3173809970';
         $dataxxxx['cargoxxx'] = '1';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'fi@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'FICHA DE INGRESO';
         $dataxxxx['namexxxx'] = 'FICHA DE INGRESO';
@@ -149,7 +149,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '1018495166';
         $dataxxxx['telefono'] = '3162767270';
         $dataxxxx['cargoxxx'] = '5';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'CAMILOC@IDIPRON.GOV.CO';
         $dataxxxx['rolxxxxx'] = 'FICHA DE INGRESO';
         $dataxxxx['namexxxx'] = 'CAMILO ANDRES CENDALES';
@@ -163,7 +163,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '74130816';
         $dataxxxx['telefono'] = '3103331041';
         $dataxxxx['cargoxxx'] = '2';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'wilmars@IDIPRON.GOV.CO';
         $dataxxxx['rolxxxxx'] = 'super-administrador';
         $dataxxxx['namexxxx'] = 'WILMAR FERNANDO SANABRIA HIGUERA';
@@ -177,7 +177,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '52810740';
         $dataxxxx['telefono'] = '3115726733';
         $dataxxxx['cargoxxx'] = '22';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'ivonep@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'REFERENTE LOCAL';
         $dataxxxx['namexxxx'] = 'IVONNE ROCIO PEÑA CASTAÑEDA';
@@ -191,7 +191,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '52449006';
         $dataxxxx['telefono'] = '3144131283';
         $dataxxxx['cargoxxx'] = '22';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'anacb@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'REFERENTE LOCAL';
         $dataxxxx['namexxxx'] = 'ANA EDITH CLAVIJO BELTRAN';
@@ -204,7 +204,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '52290925';
         $dataxxxx['telefono'] = '3115726733';
         $dataxxxx['cargoxxx'] = '21';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'yeniz@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'YENI ESMERALDA ZAPATA SANABRIA';
@@ -218,7 +218,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '88140302';
         $dataxxxx['telefono'] = '3142394572';
         $dataxxxx['cargoxxx'] = '21';
-        $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'rafaelg@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'RAFAEL GONZALEZ RUEDAS';
@@ -232,7 +232,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '80793453';
         $dataxxxx['telefono'] = '3117348211';
         $dataxxxx['cargoxxx'] = '21';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'rodrigarzo@gmail.com';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'HERNAN DARIO RODRIGUEZ GARZON';
@@ -246,7 +246,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '1032507610';
         $dataxxxx['telefono'] = '3016525108';
         $dataxxxx['cargoxxx'] = '21';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'camilo.estrada1099@gmail.com';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'CAMILO ANDRES SERRANO ESTRADA';
@@ -260,7 +260,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '53131394';
         $dataxxxx['telefono'] = '3143459735';
         $dataxxxx['cargoxxx'] = '21';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'ladydiaz.08@gmail.com';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'LEIDY MABEL DIAZ CAÑIZALES';
@@ -273,7 +273,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '1030524396';
         $dataxxxx['telefono'] = '3144783112';
         $dataxxxx['cargoxxx'] = '21';
-        // $dataxxxx['excepcio'] = '';
+
         $dataxxxx['emailxxx'] = 'ori-132@hotmail.com';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'ORIANA ANDREA PINTO POVEDA';

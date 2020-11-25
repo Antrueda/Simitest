@@ -65,7 +65,7 @@ class FTSeguimientoController extends Controller
     {
         // $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         // $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj->id]], 2, 'VOLVER A DOCUMENTOS', 'btn btn-sm btn-primary']);
-        // $this->getBotones(['editar', [], 1, 'EIDTAR DOCUMENTO', 'btn btn-sm btn-primary']);
+        // $this->getBotones(['editar', [], 1, 'EDiTAR DOCUMENTO', 'btn btn-sm btn-primary']);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj->id]], 2, 'CREAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary']);
 
         return $this->view($do,
@@ -78,7 +78,7 @@ class FTSeguimientoController extends Controller
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A TIPOS DE SEGUMIENTO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EIDTAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDiTAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary']);
         return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj]

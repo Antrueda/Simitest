@@ -46,13 +46,13 @@ class FiCompfami extends Model
 
     public function getParentesco()
     {
-        return $this->belongsTo(Parametro::class,'i_prm_parentesco_id');
+        return $this->belongsTo(Parametro::class, 'i_prm_parentesco_id');
     }
 
 
     public function getParentescoAttribute()
     {
-        return [['valuexxx'=>$this->i_prm_parentesco_id,'optionxx'=>$this->getParentesco->nombre]];
+        return [['valuexxx' => $this->i_prm_parentesco_id, 'optionxx' => $this->getParentesco->nombre]];
     }
 
     public function sis_nnajnnaj()
@@ -84,11 +84,11 @@ class FiCompfami extends Model
             $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             if ($objetoxx != '') {
-                $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,$objetoxx);
+                $datosbas = NnajDocu::setDBComposicionFamiliar($dataxxxx, $objetoxx);
                 $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
                 $objetoxx->update($dataxxxx);
             } else {
-                $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,'');
+                $datosbas = NnajDocu::setDBComposicionFamiliar($dataxxxx, '');
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
                 $objetoxx = FiCompfami::create($dataxxxx);
@@ -124,15 +124,15 @@ class FiCompfami extends Model
      */
     public static function getComboResponsable($padrexxx, $cabecera, $ajaxxxxx, $edadxxxx)
     {
-        if($edadxxxx>=18){
-            $cabecera=false;
+        if ($edadxxxx >= 18) {
+            $cabecera = false;
         }
 
         $compofam = FiCompfami::where(function ($consulta) use ($padrexxx, $edadxxxx) {
             $consulta->where('sis_nnajnnaj_id', $padrexxx->sis_nnaj_id);
-              if($edadxxxx>=18){
+            if ($edadxxxx >= 18) {
                 $consulta->where('i_prm_parentesco_id', 805);
-              }
+            }
 
             return $consulta;
         })->get();
@@ -163,8 +163,70 @@ class FiCompfami extends Model
             }
         }
 
-
+        if (count($comboxxx) == 0) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'NO HAY COMPONENTE FAMILIAR MAYOR DE EDAD'
+                ];
+            } else {
+                $comboxxx[''] = 'NO HAY COMPONENTE FAMILIAR MAYOR DE EDAD';
+            }
+        }
         return [$redirect, $comboxxx];
+    }
+
+    /**
+     * Este método comprueba si existe un componte familiar mayor de edad para que sea el responsable del en FOS
+     */
+    public static function getResponsableFos($padrexxx, $cabecera, $ajaxxxxx)
+    {
+        $compofam = FiCompfami::where(function ($consulta) use ($padrexxx) {
+            $consulta->where('sis_nnajnnaj_id', $padrexxx->sis_nnaj_id);
+            return $consulta;
+        })->get();
+
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        foreach ($compofam as $registro) {
+            $nombrexx = $registro->sis_nnaj->fi_datos_basico;
+            $edad = $nombrexx->nnaj_nacimi->Edad;
+            if ($edad >= 18) {
+
+                $nombrexx = $nombrexx->s_primer_nombre . ' ' . $nombrexx->s_segundo_nombre . ' ' .
+                    $nombrexx->s_primer_apellido . ' ' . $nombrexx->s_segundo_apellido;
+                if ($ajaxxxxx) {
+                    $comboxxx[] = [
+                        'valuexxx' => $registro->id,
+                        'optionxx' => $nombrexx
+                    ];
+                } else {
+                    $comboxxx[$registro->id] = $nombrexx;
+                }
+            }
+        }
+
+        if (count($comboxxx) == 0) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'NO HAY COMPONENTE FAMILIAR MAYOR DE EDAD'
+                ];
+            } else {
+                $comboxxx[''] = 'NO HAY COMPONENTE FAMILIAR MAYOR DE EDAD';
+            }
+        }
+        return  $comboxxx;
     }
     public function sis_pai()
     {

@@ -2,7 +2,7 @@
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <h3 class="card-title">
-            NNAJs Con Indicadores
+            NNAJ Con Indicadores
         </h3>
     </div>
     <div class="card-body">

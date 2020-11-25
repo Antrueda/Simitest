@@ -7,7 +7,7 @@
             @if($todoxxxx['pestpadr']==1 || $todoxxxx['pestpadr']==2)
             @canany(['fidatbas-leer', 'fidatbas-crear', 'fidatbas-editar', 'fidatbas-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fidatbas') ?' active' : '' }}
-        text-sm" href="{{ route('fidatbas') }}">NNAJS</a></li>
+        text-sm" href="{{ route('fidatbas') }}">NNAJ</a></li>
             @endcanany
             @endif
 

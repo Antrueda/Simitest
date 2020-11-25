@@ -62,10 +62,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FiJustrestSeeder::class);//nuevo
         $this->call(FiAutorizacionSeeder::class);//nuevo
         $this->call(FiRazoneSeeder::class);//nuevo
-
-
-
-
         $this->call(CsdsSeeder::class);
         $this->call(CsdSisNnajSeeder::class);
         $this->call(CsdJusticiasSeeder::class);

@@ -30,11 +30,12 @@ trait PestaniasTrait
         $pestania['cargdocu'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'NNAJ'."'S",
+            'tituloxx' => 'NNAJ',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
+
         $pestania['cardocfi'] = [
             'routexxx' => '',
             'activexx' => '',

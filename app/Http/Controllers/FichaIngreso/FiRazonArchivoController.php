@@ -137,11 +137,11 @@ class FiRazonArchivoController extends Controller
      */
     public function store(FiRazoneArchivoCrearRequest $request, FiRazone $padrexxx)
     {
-        $request->request->add(['fi_razone_id' => $padrexxx->id]);
+        $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Razones para ingreso creados creada con exito'
+            'infoxxxx' => 'Documento creado con exito'
         ]);
     }
 

@@ -16,6 +16,7 @@ use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
@@ -117,18 +118,18 @@ class SisNnaj extends Model
 
         return  $respuest;
     }
-
+    public function fi_documentos_anexas()
+    {
+        return $this->hasMany(FiDocumentosAnexa::class);
+    }
     public function getFotoNnajAttribute()
     {
         $respuest = 'adminlte/dist/img/avatar5.png';
-        if (isset($this->fi_razone->id)) {
-            foreach ($this->fi_razone->fi_documentos_anexas as $key => $value) {
-                if ($value->i_prm_documento_id == 2468) {
-                    $respuest = $value->s_ruta;
-                }
+        foreach ($this->fi_documentos_anexas as $key => $value) {
+            if ($value->i_prm_documento_id == 2468 && $value->sis_esta_id==1) {
+                $respuest = $value->s_ruta;
             }
         }
-
         return  $respuest;
     }
     public function getNnajUpiPrincipalAttribute()
@@ -166,14 +167,14 @@ class SisNnaj extends Model
                 $principa = $value->user;
             }
         }
-        $cargoxxx=$principa->sis_cargo;
-        $nombrexx=
-        $principa->s_primer_nombre.' '.
-        $principa->s_segundo_nombre.' '.
-        $principa->s_primer_apellido.' '.
-        $principa->s_segundo_apellido;
-        $respuest=[
-            [$principa->id=>$principa->s_documento.' - '.$nombrexx.' - '.$cargoxxx->s_cargo],
+        $cargoxxx = $principa->sis_cargo;
+        $nombrexx =
+            $principa->s_primer_nombre . ' ' .
+            $principa->s_segundo_nombre . ' ' .
+            $principa->s_primer_apellido . ' ' .
+            $principa->s_segundo_apellido;
+        $respuest = [
+            [$principa->id => $principa->s_documento . ' - ' . $nombrexx . ' - ' . $cargoxxx->s_cargo],
         ];
 
         return $respuest;

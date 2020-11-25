@@ -83,7 +83,7 @@
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('d_nacimiento', '1.7 Fecha de d_nacimiento:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('d_nacimiento', '1.7 Fecha de nacimiento:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('d_nacimiento', null, ['id'=>'d_nacimiento','class' => $errors->first('d_nacimiento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','autocomplete'=>"off"]) }}
         @if($errors->has('d_nacimiento'))
             <div class="invalid-feedback d-block">

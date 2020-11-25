@@ -14,7 +14,7 @@ class FosStseObserver
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo
         $log['fos_tse_id'] = $modeloxx->fos_tse_id;
-        $log['estusuario_id']= $modeloxx->fos_tse_id;
+        $log['estusuario_id']= $modeloxx->estusuario_id;
         $log['codigo'] = $modeloxx->codigo;
         $log['nombre'] = $modeloxx->nombre;
         $log['descripcion'] = $modeloxx->descripcion;

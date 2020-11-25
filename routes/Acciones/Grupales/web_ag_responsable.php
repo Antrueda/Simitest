@@ -1,33 +1,48 @@
 <?php
-Route::group(['prefix' => '{activida}/responsable'], function () {
+$controll = 'Acciones\Grupales\AgResponsable';
+$routxxxx = 'agrespon';
+Route::group(['prefix' => '{padrexxx}/agresponsable'], function () use($controll,$routxxxx) {
 	Route::get('nuevo', [
-	    'uses' => 'Acciones\Grupales\AgResponsableController@create',
-	    'middleware' => ['permission:agactividad-crear']
-	])->name('respo.nuevo');
+	    'uses' => $controll.'Controller@create',
+	    'middleware' => ['permission:'.$routxxxx.'-crear']
+	])->name($routxxxx.'.nuevo');
 	Route::post('nuevo', [
-	    'uses' => 'Acciones\Grupales\AgResponsableController@store',
-	    'middleware' => ['permission:agactividad-crear']
-	])->name('respo.crear');
+	    'uses' => $controll.'Controller@store',
+	    'middleware' => ['permission:'.$routxxxx.'-crear']
+    ])->name($routxxxx.'.crear');
+});
+Route::group(['prefix' => 'agresponsable'], function () use($controll,$routxxxx) {
 
-	Route::get('editar/{objetoxx}', [
-	    'uses' => 'Acciones\Grupales\AgResponsableController@edit',
-	    'middleware' => ['permission:agactividad-editar']
-	])->name('respo.editar');
-	Route::put('editar/{objetoxx}', [
-	    'uses' => 'Acciones\Grupales\AgResponsableController@update',
-	    'middleware' => ['permission:agactividad-editar']
-	])->name('respo.editar');	
+	Route::get('editar/{modeloxx}', [
+	    'uses' => $controll.'Controller@edit',
+	    'middleware' => ['permission:'.$routxxxx.'-editar']
+	])->name($routxxxx.'.editar');
+	Route::put('editar/{modeloxx}', [
+	    'uses' => $controll.'Controller@update',
+	    'middleware' => ['permission:'.$routxxxx.'-editar']
+	])->name($routxxxx.'.editar');
 
-	Route::get('ver/{objetoxx}', [
-	    'uses' => 'Acciones\Grupales\AgResponsableController@show',
-	    'middleware' => ['permission:agrecurso-leer']
-	])->name('respo.ver');
-	Route::get('inctivar/{objetoxx}', [
-	    'uses' => 'Acciones\Grupales\AgResponsableController@editInactivar',
-	    'middleware' => ['permission:agactividad-editar']
-	])->name('respo.inctivar');
-	Route::put('inctivar/{objetoxx}', [
-	    'uses' => 'Acciones\Grupales\AgResponsableController@updateInactivar',
-	    'middleware' => ['permission:agactividad-editar']
-	])->name('respo.inctivar');
+	Route::get('ver/{modeloxx}', [
+	    'uses' => $controll.'Controller@show',
+	    'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx.'.ver');
+	Route::get('borrar/{modeloxx}', [
+        'uses' => $controll . 'Controller@inactivate',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.borrar');
+
+    Route::put('borrar/{modeloxx}', [
+        'uses' => $controll . 'Controller@destroy',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.borrar');
+
+    Route::get('activate/{modeloxx}', [
+        'uses' => $controll . 'Controller@activate',
+        'middleware' => ['permission:' . $routxxxx . '-activarx']
+    ])->name($routxxxx . '.activarx');
+
+    Route::put('activate/{modeloxx}', [
+        'uses' => $controll . 'Controller@activar',
+        'middleware' => ['permission:' . $routxxxx . '-activarx']
+    ])->name($routxxxx . '.activarx');
 });

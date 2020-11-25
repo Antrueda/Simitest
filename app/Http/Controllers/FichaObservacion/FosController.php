@@ -57,8 +57,8 @@ class FosController extends Controller
         $this->opciones['tituloxx'] = "FICHA DE OBSERVACIÓN Y/O SEGUIMIENTO";
         $this->opciones['botoform'] = [
             [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJS', 'clasexxx' => 'btn btn-sm btn-primary'
+                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'.indexfos', []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A FOS NNAJ', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
     }
@@ -72,7 +72,7 @@ class FosController extends Controller
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO NNAJ',
-                'titulist' => 'LISTA DE NNAJS',
+                'titulist' => 'LISTA DE NNAJ',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => false,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
@@ -138,13 +138,14 @@ class FosController extends Controller
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['slotxxxx'] = 'fosxxxxx';
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['pestpara'][0] = [$padrexxx->id];
         $this->opciones['pestpadr'] = 2;
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVA FICHA DE OBSERVACION',
-                'titulist' => 'LISTA DE FICHA DE OBSERVACION',
+                'titunuev' => 'NUEVA FICHA DE OBSERVACIÓN',
+                'titulist' => 'LISTA DE FICHA DE OBSERVACIÓN',
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
@@ -153,13 +154,13 @@ class FosController extends Controller
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'UPI/ÁREA/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FECHA REGISTRO SEGUIMIENTO:', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ÁREA DERECHO/CONTEXTO PEDAGÓGICO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SUB-TIPO DE SEGUIMIENTO.', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'OBSERVACION', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZA EL SEGUIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UPI / Dependencia:', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Fecha Diligenciamiento:', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Área / Contexto Pedagógico:', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Tipo de Seguimiento:', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Sub-Tipo de Seguimiento:', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Observación y/o Seguimiento:', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Funcionario (Funcionaria) y/o contratista que realiza el seguimiento', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -210,6 +211,7 @@ class FosController extends Controller
 
     private function view($dataxxxx)
     {
+        $this->opciones['slotxxxx'] = 'fosxxxxx';
         $this->opciones['pestpadr'] = 2;
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
@@ -228,15 +230,9 @@ class FosController extends Controller
         $this->opciones['mindatex'] = "-28y +0m +0d";
         $this->opciones['maxdatex'] = "-6y +0m +0d";
         $this->opciones['usuarios'] = User::ComboCargoRes(false, false);
-        $edad = $dataxxxx['padrexxx']->fi_datos_basico->nnaj_nacimi->Edad;
+       $dataxxxx['padrexxx']->fi_datos_basico->nnaj_nacimi->Edad;
 
-        $compofami = FiCompfami::getComboResponsable($dataxxxx['padrexxx']->fi_datos_basico, true, false, $edad);
-        if ($compofami[0]) {
-            return redirect()
-                ->route('ficomposicion', [$dataxxxx['padrexxx']->id])
-                ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
-        }
-        $this->opciones['compfami'] = FiCompfami::combo($this->opciones['datobasi'], true, false);
+        $this->opciones['compfami'] = FiCompfami::getResponsableFos($dataxxxx['padrexxx']->fi_datos_basico, true, false);
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
         $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
@@ -272,6 +268,7 @@ class FosController extends Controller
     public function store(FosDatosBasicoCrearRequest $request,SisNnaj $padrexxx)
     {
         $dataxxxx = $request->all();
+        $dataxxxx['sis_esta_id']=1;
        return $this->grabar($dataxxxx, '', 'FOS creada con exito', $padrexxx);
     }
 
@@ -290,9 +287,9 @@ class FosController extends Controller
      * @param  \App\Models\FiDatosBasico $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(FosDatosBasico $objetoxx)
+    public function show(FosDatosBasico $modeloxx)
     {
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx->SisNnaj]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->SisNnaj]);
 
     }
 
@@ -304,6 +301,7 @@ class FosController extends Controller
      */
     public function edit(FosDatosBasico $modeloxx)
     {
+
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -327,9 +325,9 @@ class FosController extends Controller
         return $this->grabar($request->all(), $modeloxx, 'FOS actualizada con exito', $modeloxx->SisNnaj);
     }
 
-    public function inactivate(SisNnaj $objetoxx)
+    public function inactivate( FosDatosBasico $modeloxx)
     {
-        $this->opciones['parametr'] = [$objetoxx->id];
+
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
                 [
@@ -337,17 +335,17 @@ class FosController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view($objetoxx,  'modeloxx', 'Destroy');
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->SisNnaj]);
     }
 
 
-    public function destroy(request $request, SisNnaj $objetoxx)
+    public function destroy(request $request, FosDatosBasico $modeloxx)
     {
 
-        $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [])
-            ->with('info', 'Sucursal inactivada correctamente');
+            ->route($this->opciones['permisox'].'.indexfos', [$modeloxx->id])
+            ->with('info', 'Ficha de observación inactivada correctamente');
     }
 
     public function municipioajax(Request $request)

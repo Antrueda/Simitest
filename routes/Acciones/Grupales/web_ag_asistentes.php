@@ -1,7 +1,48 @@
 <?php
-Route::group(['prefix' => '{activida}/asistente'], function () {
-	Route::delete('inctivar/{objetoxx}', [
-	    'uses' => 'Acciones\Grupales\AgActividadController@destroyasistente',
-	    'middleware' => ['permission:agactividad-borrar']
-	])->name('asistente.borrar');
+$controll = 'Acciones\Grupales\AgAsistente';
+$routxxxx = 'agasiste';
+Route::group(['prefix' => '{padrexxx}/agsisitente'], function () use ($controll, $routxxxx) {
+    Route::get('nuevo', [
+        'uses' => $controll . 'Controller@create',
+        'middleware' => ['permission:' . $routxxxx . '-crear']
+    ])->name($routxxxx . '.nuevo');
+    Route::post('nuevo', [
+        'uses' => $controll . 'Controller@store',
+        'middleware' => ['permission:' . $routxxxx . '-crear']
+    ])->name($routxxxx . '.crear');
+});
+Route::group(['prefix' => 'agsisitente'], function () use ($controll, $routxxxx) {
+
+    Route::get('editar/{modeloxx}', [
+        'uses' => $controll . 'Controller@edit',
+        'middleware' => ['permission:' . $routxxxx . '-editar']
+    ])->name($routxxxx . '.editar');
+    Route::put('editar/{modeloxx}', [
+        'uses' => $controll . 'Controller@update',
+        'middleware' => ['permission:' . $routxxxx . '-editar']
+    ])->name($routxxxx . '.editar');
+
+    Route::get('ver/{modeloxx}', [
+        'uses' => $controll . 'Controller@show',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.ver');
+    Route::get('borrar/{modeloxx}', [
+        'uses' => $controll . 'Controller@inactivate',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.borrar');
+
+    Route::put('borrar/{modeloxx}', [
+        'uses' => $controll . 'Controller@destroy',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.borrar');
+
+    Route::get('activate/{modeloxx}', [
+        'uses' => $controll . 'Controller@activate',
+        'middleware' => ['permission:' . $routxxxx . '-activarx']
+    ])->name($routxxxx . '.activarx');
+
+    Route::put('activate/{modeloxx}', [
+        'uses' => $controll . 'Controller@activar',
+        'middleware' => ['permission:' . $routxxxx . '-activarx']
+    ])->name($routxxxx . '.activarx');
 });

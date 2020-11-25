@@ -33,7 +33,8 @@
         {{ Form::label('descripcion', 'Descripción:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid contarcaracteres' :
             'form-control form-control-sm contarcaracteres', 'placeholder' => 'Escriba una descripción para el sub tipo de seguimiento',
-            'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;','contador'=>'ags_descripcion']) }}
+            'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',
+            'contador'=>'ags_descripcion']) }}
         <p id="ags_descripcion">0/4000</p>
         @if($errors->has('descripcion'))
         <div class="invalid-feedback d-block">

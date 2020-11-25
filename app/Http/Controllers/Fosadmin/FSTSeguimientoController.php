@@ -7,10 +7,10 @@ use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
-use App\Traits\Fosadmin\SubTiposeg\CrudTrait;
-use App\Traits\Fosadmin\SubTiposeg\DataTablesTrait;
-use App\Traits\Fosadmin\SubTiposeg\ParametrizarTrait;
-use App\Traits\Fosadmin\SubTiposeg\VistasTrait;
+use App\Traits\Fosadmin\Subtiposeg\CrudTrait;
+use App\Traits\Fosadmin\Subtiposeg\DataTablesTrait;
+use App\Traits\Fosadmin\Subtiposeg\ParametrizarTrait;
+use App\Traits\Fosadmin\Subtiposeg\VistasTrait;
 use App\Traits\Fosadmin\ListadosTrait;
 use App\Traits\Fosadmin\PestaniasTrait;
 use Illuminate\Http\Request;
@@ -82,8 +82,8 @@ class FSTSeguimientoController extends Controller
     {
         $this->pestanix['fosubtse']=[true,$modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->fos_tse_id]], 2, 'VOLVER A SUB TIPOS DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EIDTAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->fos_tse_id]], 2, 'VOLVER A SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDITAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
         return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->fos_tse_id]], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->fos_tse]

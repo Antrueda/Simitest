@@ -6,281 +6,124 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\AgActividadCrearRequest;
 use App\Http\Requests\Acciones\Grupales\AgActividadEditarRequest;
 use App\Models\Acciones\Grupales\AgActividad;
-use App\Models\Acciones\Grupales\AgAsistente;
-use App\Models\Acciones\Grupales\AgRecurso;
-use App\Models\Acciones\Grupales\AgTaller;
-use App\Models\Acciones\Grupales\AgTema;
-use App\Models\fichaobservacion\FosTse;
-use App\Models\Indicadores\Area;
-use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisEntidad;
-use App\Models\Tema;
-use App\Models\User;
-use Carbon\Carbon;
+use App\Traits\Acciones\Grupales\Tallacciones\CrudTrait;
+use App\Traits\Acciones\Grupales\Tallacciones\ParametrizarTrait;
+use App\Traits\Acciones\Grupales\Tallacciones\VistasTrait;
+use App\Traits\Acciones\Grupales\ListadosTrait;
+use App\Traits\Acciones\Grupales\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AgActividadController extends Controller
 {
-    private $opciones;
+    use ListadosTrait; // trait que arma las consultas para las datatables
+    use CrudTrait; // trait donde se hace el crud de localidades
+    use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use VistasTrait; // trait que arma la logica para lo metodos: crud
+    use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones['permisox']='agactividad';
-        $this->middleware(['permission:'
-            . $this->opciones['permisox'] . '-leer|'
-            . $this->opciones['permisox'] . '-crear|'
-            . $this->opciones['permisox'] . '-editar|'
-            . $this->opciones['permisox'] . '-borrar']);
-
-        $this->opciones = [
-            'tituloxx' => 'TALLERES Y ACCIONES FORMATIVAS',
-            'rutaxxxx' => 'ag.acti.actividad',
-            'accionxx' => '',
-            'rutacarp' => 'Acciones.Grupales.Agactividad.',
-            'volverax' => 'Volver a Actividades',
-            'readonly' => '', // esta opcion es para cundo está por la parte de ver
-            'carpetax' => 'Agactividad',
-            'modeloxx' => '',
-            'permisox' => 'agactividad',
-            'routxxxx' => 'ag.acti.actividad',
-            'routinde' => 'ag.acti',
-            'parametr' => [],
-            'urlxxxxx' => 'api/ag/actividades',
-            'routnuev' => 'ag.acti.actividad',
-            'nuevoxxx' => 'Nuevo Registro',
-        ];
-        $this->opciones['cabecera'] = [
-            ['td' => 'ID'],
-            ['td' => 'UPI/ÁREA/DEPENDENCIA'],
-            ['td' => 'FECHA REGISTRO ACTIVIDAD'],
-            ['td' => 'ÁREA/CONTEXTO PEDAGÓGICO'],
-            ['td' => 'TEMA GENERAL'],
-            ['td' => 'NOMBRE TALLER'],
-            ['td' => 'ESTADO'],
-        ];
-        $this->opciones['columnsx'] = [
-            ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'id', 'name' => 'ag_actividads.id'],
-            ['data' => 'sis_deporigen_id', 'name' => 'sis_depens.nombre as sis_deporigen_id'],
-            ['data' => 'd_registro', 'name' => 'ag_actividads.d_registro'],
-            ['data' => 'area', 'name' => 'areas.nombre as area'],
-            ['data' => 'tema', 'name' => 'ag_temas.s_tema as tema'],
-            ['data' => 'taller', 'name' => 'ag_tallers.s_taller as taller'],
-            ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-
-        ];
+        $this->opciones['permisox'] = 'agactividad';
+        $this->opciones['routxxxx'] = 'agactividad';
+        $this->getOpciones();
+        $this->middleware($this->getMware());
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
+        $this->opciones['tablinde']=true;
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
     }
 
-
-    private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
-    {
-        $this->opciones["tiempoxx"] = - (Auth::user()->i_tiempo - 1);
-
-        $this->opciones["urlxxxag"] = 'api/ag/responsables';
-        $this->opciones['routxxxa'] = 'ag.acti.actividad';
-        $this->opciones['cabeceag'] = [
-            ['td' => 'PRIMER APELLIDO'],
-            ['td' => 'SEGUNDO APELLIDO'],
-            ['td' => 'PRIMER NOMBRE'],
-            ['td' => 'SEGUNDO NOMBRE'],
-            ['td' => 'RESPONSABLE DE LA ACTIVIDAD'],
-            ['td' => 'DOCUMENTO'],
-        ];
-        $this->opciones['columnag'] = [
-            ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'apellido1', 'name' => 'user.s_primer_apellido as apellido1'],
-            ['data' => 'apellido2', 'name' => 'user.s_segundo_apellido as apellido2'],
-            ['data' => 'nombre1', 'name' => 'user.s_primer_nombre as nombre1'],
-            ['data' => 'nombre2', 'name' => 'user.s_primer_nombre as nombre2'],
-            ['data' => 'i_prm_responsable_id', 'name' => 'parametros.name as i_prm_responsable_id'],
-            ['data' => 'documento1', 'name' => 'user.s_documento as documento1'],
-        ];
-
-        $this->opciones["urlxxxas"] = 'api/ag/asistentes';
-        $this->opciones['routxxxb'] = 'ag.acti.actividad';
-        $this->opciones['cabeceas'] = [
-            ['td' => 'PRIMER APELLIDO'],
-            ['td' => 'SEGUNDO APELLIDO'],
-            ['td' => 'PRIMER NOMBRE'],
-            ['td' => 'SEGUNDO NOMBRE'],
-            ['td' => 'DOCUMENTO'],
-        ];
-        $this->opciones['columnas'] = [
-            ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'apellido11', 'name' => 'fi_datos_basicos.s_primer_apellido as apellido11'],
-            ['data' => 'apellido22', 'name' => 'fi_datos_basicos.s_segundo_apellido as apellido22'],
-            ['data' => 'nombre11', 'name' => 'fi_datos_basicos.s_primer_nombre as nombre11'],
-            ['data' => 'nombre22', 'name' => 'fi_datos_basicos.s_primer_nombre as nombre22'],
-            ['data' => 'documento2', 'name' => 'nnaj_docus.s_documento as documento2'],
-        ];
-
-        $this->opciones['urlxxxre'] = 'api/ag/relaciones';
-        $this->opciones['routxxxc'] = 'ag.acti.actividad';
-        $this->opciones['cabecere'] = [
-            ['td' => 'TIPO DE RECURSO'],
-            ['td' => 'RECURSO'],
-            ['td' => 'CANTIDAD'],
-            ['td' => 'UNIDAD DE MEDIDA'],
-        ];
-        $this->opciones['columnre'] = [
-            ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 'trecurso', 'name' => 'parametros.nombre as trecurso'],
-            ['data' => 'recursox', 'name' => 'ag_recursos.s_recurso as recursox'],
-            ['data' => 'cantidad', 'name' => 'ag_relacions.i_cantidad as cantidad'],
-            ['data' => 'umedidax', 'name' => 'parametros.nombre as umedidax'],
-
-        ];
-
-
-        $this->opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
-        $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
-        $this->opciones['entidadx'] = SisEntidad::combo(true, false);
-        $this->opciones['dependen'] = User::getDependenciasUser(['cabecera' => true, 'esajaxxx' => false]);
-        $this->opciones['upidepen'] = SisDepen::combo(true, false);
-
-        //$this->opciones['dependen'] = SisDepen::combo(true, false);
-        $this->opciones['agtemaxx'] = ['' => 'Seleccione'];
-        $this->opciones['lugarxxx'] = [1 => 'NO APLICA'];
-        //Tema::combo(291, true, false);
-        $this->opciones['tallerxx'] = ['' => 'Seleccione'];
-        $this->opciones['subtemax'] = [1 => 'NO APLICA'];
-        $this->opciones['transver'] = AgTaller::comb(true, false);
-        $this->opciones['dirigido'] = Tema::combo(285, true, false);
-        $this->opciones['condicio'] = Tema::combo(338, true, false);
-        $this->opciones['recursox'] = AgRecurso::comb(true, false);
-        $notinxxx = [];
-     
-
-        $this->opciones['accionxx'] = $accionxx;
-        // indica si se esta actualizando o viendo
-
-        if ($nombobje != '') {
-            
-            $responsa = AgAsistente::where('ag_actividad_id', $objetoxx->id)->get();
-            foreach ($responsa as $responsx) {
-                $notinxxx[] = $responsx->fi_dato_basico_id;
-            }
-            
-            if ($objetoxx->sis_depdestino_id == 1) {
-                $this->opciones['lugarxxx'] = Tema::combo(336, true, false);
-            }
-            $this->opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false, 'areasele' => $objetoxx->area_id]);
-            $this->opciones['agtemaxx'] = Area::combo_temas(['cabecera' => true, 'ajaxxxxx' => false, 'areaxxxx' => $objetoxx->area_id]);
-            $this->opciones['tallerxx'] = AgTema::combo_talleres(['cabecera' => true, 'ajaxxxxx' => false, 'agtemaid' => $objetoxx->ag_tema_id]);
-
-            $agtaller = AgTaller::combo_subtemas(['cabecera' => true, 'ajaxxxxx' => false, 'agtaller' => $objetoxx->ag_taller_id]);
-            if (count($agtaller) == 1) {
-                $this->opciones['subtemax'] = [1 => 'NO APLICA'];
-            }
-            $this->opciones[$nombobje] = $objetoxx;
-        }
-
-        // Se arma el titulo de acuerdo al array opciones
-            return view($this->opciones['rutacarp'] . $vistaxxx, ['todoxxxx' => $this->opciones]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return $this->view('', '', 'Guardar', 'crear');
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        return $this->view(
+            $this->getBotones(['crear', [], 1, 'GUARDAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary']),
+            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
+        );
     }
-
-
-    private function grabar($dataxxxx, $objectx, $infoxxxx)
-    {
-        
-        return redirect()
-            ->route('ag.acti.actividad.editar', [AgActividad::transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(AgActividadCrearRequest $request)
     {
-        $dataxxxx = $request->all();
-        return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
+
+        return $this->setAgActividad([
+            'requestx' => $request,
+            'modeloxx' => '',
+            'infoxxxx' =>       'Tipo seguimiento creados con exito',
+            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(AgActividad $objetoxx)
+
+    public function show(AgActividad $modeloxx)
     {
-        $this->opciones['readonly'] = 'readonly';
-        return $this->view($objetoxx,  'modeloxx', 'Ver', 'ver');
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj->id]], 2, 'CREAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary']);
+        return $this->view($do,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj->id]
+        );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(AgActividad $objetoxx)
+
+    public function edit(AgActividad $modeloxx)
     {
-        $this->opciones['actualiz'] = '';
-        return $this->view($objetoxx,  'modeloxx', 'Editar', 'editar');
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A TIPOS DE SEGUMIENTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDiTAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary']);
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary'])
+            ,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj]
+        );
     }
 
-    public function update(AgActividadEditarRequest $request, AgActividad $objetoxx)
+
+    public function update(AgActividadEditarRequest $request,  AgActividad $modeloxx)
     {
-        $dataxxxx = $request->all();
-        return $this->grabar($dataxxxx, $objetoxx, 'Indicador actualizado con éxito');
+        return $this->setAgActividad([
+            'requestx' => $request,
+            'modeloxx' => $modeloxx,
+            'infoxxxx' => 'Tipo de seguiminto editado con exito',
+            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(AgActividad $objetoxx)
+    public function inactivate(AgActividad $modeloxx)
     {
-        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
-        $objetoxx->save();
-        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
-        return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        return $this->view(
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary'])            ,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
+        );
     }
 
-    public function getEliminar(Request $request)
+
+    public function destroy(Request $request, AgActividad $modeloxx)
     {
-         if ($request->ajax()) {
-            $dataxxxx = $request->all();
-            switch($request->tablaxxx){
-                case 1:
 
-               break;
-            }
-           return response()->json(FosTse::combo($dataxxxx['padrexxx'], false, true));
-         }
-
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
+            ->with('info', 'Topo de segumiento inactivado correctamente');
     }
 
-    public function destroyasistente(AgAsistente $objetoxx)
+    public function activate(AgActividad $modeloxx)
     {
-        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
-        $objetoxx->delete();
-        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
-        return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        return $this->view(
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR TIPO SEGUMIENTO', 'btn btn-sm btn-primary'])            ,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->sis_nnaj]
+        );
+
+    }
+    public function activar(Request $request, AgActividad $modeloxx)
+    {
+        $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
+            ->with('info', 'Tipo de seguimiento activado correctamente');
     }
 }

@@ -103,65 +103,11 @@ Route::get('ag/subtemas', function (Request $request) {
         ->toJson();
 });
 
-Route::get('ag/actividades', function (Request $request) {
-    if (!$request->ajax()) return redirect('/');
-    return datatables()
-        ->eloquent(AgActividad::select(['ag_actividads.id', 'ag_actividads.d_registro', 'sis_depens.nombre as sis_deporigen_id', 'sis_estas.s_estado','areas.nombre as area',
-        'ag_temas.s_tema as tema','ag_tallers.s_taller as taller',])
-            ->join('sis_depens', 'ag_actividads.sis_deporigen_id', '=', 'sis_depens.id')
-            ->join('areas', 'ag_actividads.area_id', '=', 'areas.id') 
-            ->join('sis_estas', 'ag_actividads.sis_esta_id', '=', 'sis_estas.id')
-            ->join('ag_temas', 'ag_actividads.ag_tema_id', '=', 'ag_temas.id') 
-            ->join('ag_tallers', 'ag_actividads.ag_taller_id', '=', 'ag_tallers.id') 
-            ->where('ag_actividads.sis_esta_id', 1))
-        ->addColumn('btns', 'Acciones/Grupales/Agactividad/botones/botonesapi')
-        ->rawColumns(['btns'])
-        ->toJson();
-});
 
-Route::get('ag/responsables', function (Request $request) {
-    if (!$request->ajax()) return redirect('/');
-    return datatables()
-        ->eloquent(AgResponsable::select([
-            'parametros.nombre as i_prm_responsable_id','ag_responsables.sis_esta_id',
-            'users.s_primer_nombre as nombre1',
-            'users.s_segundo_nombre as nombre2',
-            'users.s_primer_apellido as apellido1',
-            'users.s_segundo_apellido as apellido2',
-            'users.s_documento as documento1','sis_estas.s_estado',
-            'ag_actividads.id','ag_responsables.ag_actividad_id'
-        ])
-            ->join('ag_actividads', 'ag_responsables.ag_actividad_id', '=', 'ag_actividads.id')
-            ->join('parametros', 'ag_responsables.i_prm_responsable_id', '=', 'parametros.id')
-            ->join('users', 'ag_responsables.user_id', '=', 'users.id')
-            ->join('sis_estas', 'ag_responsables.sis_esta_id', '=', 'sis_estas.id')
-            ->where('ag_responsables.ag_actividad_id', $request->all()['ag_actividad_id']))
-        ->addColumn('btns', $request->botonesx)
-        ->addColumn('s_estado', $request->estadoxx)
-        ->rawColumns(['btns','s_estado'])
-        ->toJson();
-});
 
-Route::get('ag/asistentes', function (Request $request) {
-    if (!$request->ajax()) return redirect('/');
-    return datatables()
-        ->eloquent(AgAsistente::select([
-            'fi_datos_basicos.s_primer_nombre as nombre11',
-            'fi_datos_basicos.s_segundo_nombre as nombre22',
-            'fi_datos_basicos.s_primer_apellido as apellido11',
-            'fi_datos_basicos.s_segundo_apellido as apellido22',
-            'nnaj_docus.s_documento as documento2',
-            'ag_actividads.id',
-        ])
-            ->join('ag_actividads', 'ag_asistentes.ag_actividad_id', '=', 'ag_actividads.id')
-            ->join('fi_datos_basicos', 'ag_asistentes.fi_dato_basico_id', '=', 'fi_datos_basicos.id')
-            ->join('nnaj_docus', 'ag_asistentes.fi_dato_basico_id', '=', 'nnaj_docus.fi_datos_basico_id')
-            ->where('ag_asistentes.sis_esta_id', 1)
-            ->where('ag_asistentes.ag_actividad_id', $request->all()['ag_actividad_id']))
-        ->addColumn('btns', 'Acciones/Grupales/Agactividad/botones/botonelim')
-        ->rawColumns(['btns'])
-        ->toJson();
-});
+
+
+
 
 Route::get('ag/relaciones', function (Request $request) {
     if (!$request->ajax()) return redirect('/');

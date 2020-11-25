@@ -316,7 +316,13 @@ class RolesYPermisosSeeder extends Seeder
 
         $this->getPermisos(['permisox' => 'agconvenio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Convenios Acciones Grupales', 'pestania' => 1]);
 
-        $this->getPermisos(['permisox' => 'agactividad', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
+
+        $this->getPermisos(['permisox' => 'taccform', 'permisos' => ['modulo'], 'compleme' => 'Módulo de talleres y acciones formativas', 'pestania' => 1]);
+
+        $this->getPermisos(['permisox' => 'agactividad', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agrespon', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agasiste', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agrecurs', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
 
         /**
          * Permisos para Acciones Individuales

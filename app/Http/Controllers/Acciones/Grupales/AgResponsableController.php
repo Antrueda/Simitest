@@ -2,208 +2,129 @@
 
 namespace App\Http\Controllers\Acciones\Grupales;
 
-use App\Helpers\Traductor\Traductor;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Grupales\AgResponsableCrearRequest;
 use App\Http\Requests\Acciones\Grupales\AgResponsableEditarRequest;
+use App\Http\Requests\Acciones\Grupales\AgResponsableCrearRequest;
+use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\AgResponsable;
-use App\Models\Sistema\SisObse;
-use App\Models\Tema;
-use App\Models\User;
+use App\Traits\Acciones\Grupales\Responsable\CrudTrait;
+use App\Traits\Acciones\Grupales\Responsable\ParametrizarTrait;
+use App\Traits\Acciones\Grupales\Responsable\VistasTrait;
+use App\Traits\Acciones\Grupales\ListadosTrait;
+use App\Traits\Acciones\Grupales\PestaniasTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class AgResponsableController extends Controller
 {
-    private $opciones;
-
+    use ListadosTrait; // trait que arma las consultas para las datatables
+    use CrudTrait; // trait donde se hace el crud de localidades
+    use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
+    use VistasTrait; // trait que arma la logica para lo metodos: crud
+    use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     public function __construct()
     {
-        $this->opciones = [
-            'permisox' => 'agactividad',
-            'parametr' => [],
-            'rutacarp' => 'Acciones.Grupales.Agactividad.Responsable.',
-            'tituloxx' => Traductor::getTitulo(36, 1),
-        ];
-
-        $this->middleware(['permission:'
-            . $this->opciones['permisox'] . '-leer|'
-            . $this->opciones['permisox'] . '-crear|'
-            . $this->opciones['permisox'] . '-editar|'
-            . $this->opciones['permisox'] . '-borrar']);
-
-        $this->opciones['readonly'] = '';
-        $this->opciones['rutaxxxx'] = 'respo';
-        $this->opciones['routnuev'] = 'respo';
-        $this->opciones['routxxxx'] = 'respo';
+        $this->opciones['permisox'] = 'agrespon';
+        $this->opciones['routxxxx'] = 'agrespon';
+        $this->getOpciones();
+        $this->middleware($this->getMware());
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
 
-
-    private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
+    public function create(AgActividad $padrexxx)
     {
-        $this->opciones['observac'] = SisObse::combo(['cabecera' => true, 'esajaxxx' => false]);
-        $this->opciones['condicio'] = Tema::combo(338, true, false);
-        $this->opciones['responsa'] = User::comboResponsables([
-            'cabecera' => true,
-            'ajaxxxxx' => false, 'objetoxx' => $objetoxx, 'activida' => $this->opciones['parametr'][0]
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->getBotones(['crear', [$padrexxx->id], 1, 'GUARDAR RESPOSABLE', 'btn btn-sm btn-primary']);
+        return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
+    }
+    public function store(AgResponsableCrearRequest $request, AgActividad $padrexxx)
+    {
+        $request->request->add(['ag_actividad_id' => $padrexxx->id, 'sis_esta_id' => 1]);
+        return $this->setAgResponsable([
+            'requestx' => $request,
+            'modeloxx' => '',
+            'infoxxxx' =>       'Responsable creados con exito',
+            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
-
-        $this->opciones['accionxx'] = $accionxx;
-        // indica si se esta actualizando o viendo
-        if ($nombobje != '') {
-            $this->opciones[$nombobje] = $objetoxx;
-        }
-        // Se arma el titulo de acuerdo al array opciones
-        $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
-        return view($vistaxxx, ['todoxxxx' => $this->opciones]);
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($activida)
-    {
-        $this->opciones['iformula'] = 1;
-        $responsa = AgResponsable::where('ag_actividad_id', $activida)->get();
-        if (count($responsa) == 3) {
-            return redirect()
-                ->route('ag.acti.actividad.editar', [$activida])
-                ->with('info', 'La actividad ya tiene 3 responsables o acompañantes');
-        }
-
-        $this->opciones['parametr'] = [$activida];
-        $this->botones(['activida'=>$activida,'nuevoxxx'=>false]);
-
-
-        return $this->view(true, '', 'CREAR', $this->opciones['rutacarp'] . 'crear');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store($activida, AgResponsableCrearRequest $request)
-    {
-        $this->opciones['parametr'] = [$activida];
-        $dataxxxx = $request->all();
-        $dataxxxx['ag_actividad_id'] = $activida;
-        return $this->grabar($dataxxxx, '', 'Registro creado con éxito');
     }
 
 
+    public function show(AgResponsable $modeloxx)
+    {
+        $padrexxx = $modeloxx->ag_actividad;
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
+        return $this->view($this->opciones,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
+    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($activida, AgResponsable $objetoxx)
+
+    public function edit(AgResponsable $modeloxx)
     {
-        $this->opciones['iformula'] = 1;
-        $this->opciones['parametr'] = [$activida, $objetoxx->id];
-        $this->botones(['activida'=>$activida,'nuevoxxx'=>true]);
-        return $this->view($objetoxx,  'modeloxx', 'EDITAR', $this->opciones['rutacarp'] . 'editar');
+        $padrexxx = $modeloxx->ag_actividad;
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDiTAR RESPOSABLE', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'CREAR RESPOSABLE', 'btn btn-sm btn-primary']);
+        return $this->view(
+            $this->opciones,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]
+        );
     }
-    private function transaccion($dataxxxx,  $objetoxx)
+
+
+    public function update(AgResponsableEditarRequest $request,  AgResponsable $modeloxx)
     {
-        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if ($objetoxx != '') {
-                $objetoxx->update($dataxxxx);
-            } else {
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = AgResponsable::create($dataxxxx);
-            }
-            return $objetoxx;
-        }, 5);
-        return $usuariox;
+        return $this->setAgResponsable([
+            'requestx' => $request,
+            'modeloxx' => $modeloxx,
+            'infoxxxx' => 'Responsable editado con exito',
+            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
+        ]);
     }
-    private function grabar($dataxxxx, $objectx, $infoxxxx)
+
+    public function inactivate(AgResponsable $modeloxx)
     {
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->ag_actividad_id];
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->getBotones(['editar', ['agactividad.editar', [$modeloxx->ag_actividad_id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
+        return $this->view(
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR RESPOSABLE', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->ag_actividad]
+        );
+    }
+
+
+    public function destroy(Request $request, AgResponsable $modeloxx)
+    {
+        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [$dataxxxx['ag_actividad_id'], $this->transaccion($dataxxxx, $objectx)->id])
-            ->with('info', $infoxxxx);
+            ->route('agactividad.editar', [$modeloxx->ag_actividad_id])
+            ->with('info', 'Responsable inactivado correctamente');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update($activida, AgResponsableEditarRequest $request, AgResponsable $objetoxx)
+    public function activate(AgResponsable $modeloxx)
     {
-        $this->opciones['parametr'] = [$activida, $objetoxx->id];
-        $dataxxxx = $request->all();
-        $dataxxxx['ag_actividad_id'] = $activida;
-        return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->ag_actividad_id];
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->getBotones(['editar', ['agactividad.editar', [$modeloxx->ag_actividad_id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
+        return $this->view(
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR RESPOSABLE', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->ag_actividad]
+        );
     }
-    private function botones($dataxxxx)
+    public function activar(Request $request, AgResponsable $modeloxx)
     {
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$dataxxxx['activida']]],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-        $responsa = AgResponsable::where('ag_actividad_id', $dataxxxx['activida'])->get();
-        if (count($responsa) < 3 && $dataxxxx['nuevoxxx']) {
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => '', 'routingx' => ['respo.nuevo', [$dataxxxx['activida']]],
-                    'formhref' => 2, 'tituloxx' => Traductor::getTitulo(38, 1), 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
-        }
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => ['ag.acti.actividad.editar', [$dataxxxx['activida']]],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A ' . Traductor::getTitulo(37, 1), 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-    }
-    public function editInactivar($activida, AgResponsable $objetoxx)
-    {
-        $this->opciones['iformula'] = 2;
-        $this->opciones['parametr'] = [$activida, $objetoxx->id];
-        $this->botones(['activida'=>$activida,'nuevoxxx'=>true]);
-        return $this->view($objetoxx,  'modeloxx', 'INACTIVAR', $this->opciones['rutacarp'] . 'inactivar');
-    }
-
-    public function updateInctivar($activida, AgResponsableEditarRequest $request, AgResponsable $objetoxx)
-    {
-        $this->opciones['parametr'] = [$activida, $objetoxx->id];
-        $dataxxxx = $request->all();
-        $dataxxxx['ag_actividad_id'] = $activida;
-        return $this->grabar($dataxxxx, $objetoxx, 'Registro actualizado con éxito');
-    }
-
-    public function show($activida, AgResponsable $objetoxx)
-    {
-        $this->opciones['iformula'] = 1;
-        $this->opciones['parametr'] = [$activida, $objetoxx->id];
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$activida]],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-        $responsa = AgResponsable::where('ag_actividad_id', $activida)->get();
-        if (count($responsa) < 3) {
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => '', 'routingx' => ['respo.nuevo', [$activida]],
-                    'formhref' => 2, 'tituloxx' => Traductor::getTitulo(38, 1), 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
-        }
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => ['ag.acti.actividad.editar', [$activida]],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A ' . Traductor::getTitulo(37, 1), 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-
-        return $this->view($objetoxx,  'modeloxx', 'VER', 'ver');
+        $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route('agactividad.editar', [$modeloxx->ag_actividad_id])
+            ->with('info', 'Responsable activado correctamente');
     }
 }

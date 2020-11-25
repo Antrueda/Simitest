@@ -11,7 +11,7 @@
         <a class="nav-link {{$todoxxxx['pestania']['nnajxxxx'][0]}}
                 {{ $todoxxxx['pestania']['nnajxxxx'][3]}} text-sm" href="
                 {{ $todoxxxx['pestania']['nnajxxxx'][2] }}">
-          NNAJS
+          NNAJ
           <span class="fas fa-check text-success" aria-hidden="true"></span>
         </a>
       </li>

@@ -21,7 +21,7 @@ trait DataTablesTrait
         $dataxxxx['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO TIPO SEGUIMIENTO',
-                'titulist' => 'LISTA DE TIPOS DE SEGUIMIENTO',
+                'titulist' => 'LISTA DE TIPO DE SEGUIMIENTO',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($dataxxxx['routxxxx'] . '.listaxxx', []),
