@@ -1,6 +1,6 @@
 <div class="form-row">
   <div class="form-group col-md-3">
-    {{ Form::label('prm_sexo_etario_id', 'Sexo', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('prm_sexo_etario_id', '2.1 Sexo', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('prm_sexo_etario_id', $todoxxxx['sexoetar'], null, ['class' => $errors->first('prm_sexo_etario_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_sexo_etario_id'))
       <div class="invalid-feedback d-block">
@@ -29,7 +29,7 @@
     @endif
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('prm_t_zapato_id', 'Zapatos', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('prm_t_zapato_id', '2.2 Zapatos', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('prm_t_zapato_id', $todoxxxx['tallzapa'], null, ['class' => $errors->first('prm_t_zapato_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_t_zapato_id'))
       <div class="invalid-feedback d-block">

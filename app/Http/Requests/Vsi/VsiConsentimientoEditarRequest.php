@@ -12,7 +12,7 @@ class VsiConsentimientoEditarRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-
+            'user_doc1_id.required'=> 'Seleccione el funcionario responsable',
         ];
         $this->_reglasx = [
             'user_doc1_id' => 'required|exists:users,id',
@@ -47,6 +47,9 @@ class VsiConsentimientoEditarRequest extends FormRequest
 
     public function validar()
     {
-
+        if($this->user_doc1_id==$this->user_doc2_id){
+            $this->_mensaje['existexx.required'] = 'No se puede registrar el mismo funcionario';
+            $this->_reglasx['existexx'] = ['Required',];
+        } 
     }
 }

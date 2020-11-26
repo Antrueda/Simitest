@@ -1102,12 +1102,12 @@ class TemasTableSeeder extends Seeder
             571 => $camposmagicos,
             655 => $camposmagicos,
             578 => $camposmagicos,
-            580 => $camposmagicos,
+            975 => $camposmagicos,
             976 => $camposmagicos,
             978 => $camposmagicos,
             563 => $camposmagicos,
-            337 => $camposmagicos,
             339 => $camposmagicos,
+            973 => $camposmagicos,
             1788 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 103, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'FORMA ESTABLECER REGLAS HOGAR']);

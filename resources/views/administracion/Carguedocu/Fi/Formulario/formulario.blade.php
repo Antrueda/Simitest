@@ -2,10 +2,10 @@
 
 
     <div class="form-group col-md-12">
-        {{ Form::label('i_prm_documento_id', '17.2 Copia documentos que anexa', ['class' => 'control-label']) }}
+        {{ Form::label('i_prm_documento_id', 'Copia documentos que anexa', ['class' => 'control-label']) }}
         {{ Form::select('i_prm_documento_id', $todoxxxx['docanexa'], null, ['class' => $errors->first('i_prm_documento_id') ?
     'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos',
-    'data-placeholder' => 'Indique el docuemto que se va anexar']) }}
+    'data-placeholder' => 'Indique el documento que se va anexar']) }}
         @if($errors->has('i_prm_documento_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_documento_id') }}

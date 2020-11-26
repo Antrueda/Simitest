@@ -117,7 +117,7 @@ class CsdDinFamiliarController extends Controller
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR RELACION',
+                'titunuev' => 'CREAR RELACIÓN',
                 'titulist' => '6.2.1 RELACIONES DE LA PROGENITORA ',
                 'dataxxxx' => [],
                 'vercrear' => $vercrear,
@@ -136,7 +136,7 @@ class CsdDinFamiliarController extends Controller
                     [
                         ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'AñO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'AÑO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ]
 
                 ],
@@ -156,7 +156,7 @@ class CsdDinFamiliarController extends Controller
                 'routxxxx' => 'csddfmad',
                 'parametr' => $this->opciones['parametr'] ,
             ],[
-            'titunuev' => 'CREAR RELACION',
+            'titunuev' => 'CREAR RELACIÓN',
             'titulist' => '6.2.2 RELACIONES DEL PROGENITOR ',
             'dataxxxx' => [],
             'vercrear' => $vercrear,
@@ -175,7 +175,7 @@ class CsdDinFamiliarController extends Controller
                 [
                     ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                    ['td' => 'AñO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'AÑO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                 ]
 
             ],

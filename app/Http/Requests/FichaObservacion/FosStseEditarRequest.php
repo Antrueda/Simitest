@@ -13,7 +13,7 @@ class FosStseEditarRequest extends FormRequest
     {
         $this->_mensaje = [
             'nombre.required' => 'El nombre es requerido',
-            'fos_tse_id.required' => 'Seleccione un tipo de seguimiento',
+            
             'nombre.unique' => 'El nombre ya existe',
             'nombre.max' => 'El nombre un máximo de 120 caracteres',
         ];

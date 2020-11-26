@@ -88,7 +88,7 @@ class VsiDinFamiliarController extends Controller
         $this->opciones['rowscols'] = 'rowspancolspan';
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR RELACION',
+                'titunuev' => 'CREAR RELACIÓN',
                 'titulist' => 'LISTA DE RELACIONES DEL PROGENITOR',
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '5.2.1 Relaciones de la progenitora (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
@@ -108,7 +108,7 @@ class VsiDinFamiliarController extends Controller
                     [
                         ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'AñO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'AÑO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ]
 
                 ],
@@ -129,7 +129,7 @@ class VsiDinFamiliarController extends Controller
                 'parametr' => $this->opciones['parametr'] ,
             ],
             [
-                'titunuev' => 'CREAR RELACION',
+                'titunuev' => 'CREAR RELACIÓN',
                 'titulist' => 'LISTA DE RELACIONES DE LA PROGENITORA',
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
                 'relacion' => '5.2.2 Relaciones del progenitor (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
@@ -149,7 +149,7 @@ class VsiDinFamiliarController extends Controller
                     [
                         ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'AñO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'AÑO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ]
 
                 ],
@@ -226,7 +226,7 @@ class VsiDinFamiliarController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

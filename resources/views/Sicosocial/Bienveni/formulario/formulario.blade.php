@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md">
 		{{ Form::label('motivos', '2.1 ¿Cuáles son los motivos por los cuales desea vincularse al IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('motivos[]', $todoxxxx['motivosx'], null, ['class' => $errors->first('motivos') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'motivos', 'multiple', 'autofocus']) }}
+		{{ Form::select('motivos[]', $todoxxxx['motivosx'], null, ['class' => $errors->first('motivos') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione', 'id' => 'motivos', 'multiple', 'autofocus']) }}
 		@if($errors->has('motivos'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('motivos') }}

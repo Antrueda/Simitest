@@ -26,7 +26,7 @@ class VsiImpresionController extends Controller
             'permisox' => 'vsisocia',
             'parametr' => [],
             'rutacarp' => 'Sicosocial.',
-            'tituloxx' => 'IMPRESION DIAGNOSTICA Y ANALISIS SOCIAL',
+            'tituloxx' => 'IMPRESIÓN DIAGNÓSTICA Y ANÁLISIS SOCIAL',
             'carpetax' => 'Impresion',
             'slotxxxx' => 'vsisocia',
             'tablaxxx' => 'datatable',
@@ -123,7 +123,7 @@ class VsiImpresionController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

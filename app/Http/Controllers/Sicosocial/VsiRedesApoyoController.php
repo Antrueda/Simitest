@@ -134,13 +134,13 @@ class VsiRedesApoyoController extends Controller
                         ['td' => 'SERVICIOS O BENEFICIOS RECIBIDOS', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'DURANTE CUANTO TIEMPO?', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
 
-                        ['td' => 'AñO PRESTACION DEL SERVICIO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'AÑO PRESTACION DEL SERVICIO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
                     ],
                     [
                         ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'AñO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'AÑO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ]
 
                 ],
@@ -212,7 +212,7 @@ class VsiRedesApoyoController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

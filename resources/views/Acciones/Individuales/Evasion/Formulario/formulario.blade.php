@@ -80,9 +80,10 @@
     @endif
   </div>
 </div>
-<div class="row mt-3">
+<br>
+<div class="row">
   <div class="col-md-12">
-    <h6>Antecedentes Institucionales</h6>
+    <h6>ANTECEDENTES INSTITUCIONALES</h6>
   </div>
 </div>
 <hr>
@@ -135,9 +136,10 @@
         @endif
   </div>
 </div>
-<div class="row mt-3">
+<br>
+<div class="row">
   <div class="col-md-12">
-    <h6>Características Físicas</h6>
+    <b><h6>CARACTERISTICAS FISICAS</h6></b>
   </div>
 </div>
 <hr>
@@ -320,7 +322,7 @@
 <hr>
 <div class="row">
   <div class="col-md-3">
-    {{ Form::label('prm_familiar1_id', 'Parentezco', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('prm_familiar1_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('prm_familiar1_id', $todoxxxx['parentez'], null, ['class' => $errors->first('v') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_familiar1_id']) }}
     @if($errors->has('prm_familiar1_id'))
       <div class="invalid-feedback d-block">
@@ -358,7 +360,7 @@
 </div>
 <div class="row">
   <div class="col-md-3">
-    {{ Form::label('prm_familiar2_id', 'Parentezco', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('prm_familiar2_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('prm_familiar2_id',$todoxxxx['parentez'], null, ['class' => $errors->first('v') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_familiar2_id']) }}
     @if($errors->has('prm_familiar2_id'))
       <div class="invalid-feedback d-block">

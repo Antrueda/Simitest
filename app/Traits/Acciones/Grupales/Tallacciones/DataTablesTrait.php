@@ -66,7 +66,7 @@ trait DataTablesTrait
             $responsa = AgResponsable::where('ag_actividad_id', $dataxxxx['modeloxx']->id)->get();
             $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'NUEVO RESPONSABLE',
+                    'titunuev' => 'AGREGAR RESPONSABLE',
                     'titulist' => 'LISTA DE RESPONSABLES',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => 'Funcionarios y/o contratistas que realizan la actividada/taller:',
@@ -111,7 +111,7 @@ trait DataTablesTrait
 
             $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'NUEVO ASISTENTE',
+                    'titunuev' => 'AGREGAR ASISTENTES',
                     'titulist' => 'LISTA DE ASISTENTES',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => 'Participantes de la actividad y/o taller:',
@@ -149,44 +149,44 @@ trait DataTablesTrait
                     'routxxxx' => 'agasiste',
                     'parametr' => [$dataxxxx['modeloxx']->id],
                 ];
-            // $dataxxxx['tablasxx'][] =
-            //     [
-            //         'titunuev' => 'RECURSO',
-            //         'titulist' => 'LISTA DE RECUSOS',
-            //         'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-            //         'titupreg' => 'Relación de recursos a emplear:',
-            //         'vercrear' => true,
-            //         'urlxxxxx' => route($dataxxxx['routxxxx'] . '.responsa', $dataxxxx['modeloxx']->id), // $this->opciones['urlxxxre'] = 'api/ag/relaciones';
-            //         'permtabl' => [
-            //             $dataxxxx['permisox'] . '-leer',
-            //             $dataxxxx['permisox'] . '-crear',
-            //             $dataxxxx['permisox'] . '-editar',
-            //             $dataxxxx['permisox'] . '-borrar',
-            //             $dataxxxx['permisox'] . '-activar',
-            //         ],
-            //         'cabecera' => [
-            //             [
-            //                 ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
-            //                 ['td' => 'Tipo de recurso', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-            //                 ['td' => 'Recurso', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-            //                 ['td' => 'Cantidad', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-            //                 ['td' => 'Unidad de medida', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-            //                 ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-            //             ]
-            //         ],
-            //         'columnsx' => [
-            //             ['data' => 'botonexx', 'name' => 'botonexx'],
-            //             ['data' => 'trecurso', 'name' => 'parametros.nombre as trecurso'],
-            //             ['data' => 'recursox', 'name' => 'ag_recursos.s_recurso as recursox'],
-            //             ['data' => 'cantidad', 'name' => 'ag_relacions.i_cantidad as cantidad'],
-            //             ['data' => 'umedidax', 'name' => 'parametros.nombre as umedidax'],
-            //             ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-            //         ],
-            //         'tablaxxx' => 'datatablerecursos',
-            //         'permisox' => $dataxxxx['permisox'],
-            //         'routxxxx' => 'agrespon',
-            //         'parametr' => [$dataxxxx['modeloxx']->id],
-            //     ];
+             $dataxxxx['tablasxx'][] =
+                 [
+                     'titunuev' => 'RECURSO',
+                     'titulist' => 'LISTA DE RECUSOS',
+                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
+                     'titupreg' => 'Relación de recursos a emplear:',
+                     'vercrear' => true,
+                     'urlxxxxx' => route($dataxxxx['routxxxx'] . '.responsa', $dataxxxx['modeloxx']->id),//  $this->opciones['urlxxxre'] = 'api/ag/relaciones';
+                     'permtabl' => [
+                         $dataxxxx['permisox'] . '-leer',
+                         $dataxxxx['permisox'] . '-crear',
+                         $dataxxxx['permisox'] . '-editar',
+                         $dataxxxx['permisox'] . '-borrar',
+                         $dataxxxx['permisox'] . '-activar',
+                     ],
+                     'cabecera' => [
+                         [
+                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                             ['td' => 'Tipo de recurso', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                             ['td' => 'Recurso', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                             ['td' => 'Cantidad', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                             ['td' => 'Unidad de medida', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ]
+                     ],
+                     'columnsx' => [
+                         ['data' => 'botonexx', 'name' => 'botonexx'],
+                         ['data' => 'trecurso', 'name' => 'parametros.nombre as trecurso'],
+                         ['data' => 'recursox', 'name' => 'ag_recursos.s_recurso as recursox'],
+                         ['data' => 'cantidad', 'name' => 'ag_relacions.i_cantidad as cantidad'],
+                         ['data' => 'umedidax', 'name' => 'parametros.nombre as umedidax'],
+                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                     ],
+                     'tablaxxx' => 'datatablerecursos',
+                     'permisox' => $dataxxxx['permisox'],
+                     'routxxxx' => 'agrespon',
+                     'parametr' => [$dataxxxx['modeloxx']->id],
+                 ];
         }
         $dataxxxx['ruarchjs'][] =
             ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tabla'];

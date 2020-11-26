@@ -13,6 +13,8 @@ class VsiSaludCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             'descripcion.required_if' => 'Ingrese una descripción',
+            'medicamento.required_if' => 'Indique cual un medicamento',
+            'prm_prescripcion_id.required_if' => 'Indique si ha tomado el medicamento bajo prescripcion medica',
         ];
         $this->_reglasx = [
             'prm_atencion_id' => 'required|exists:parametros,id',

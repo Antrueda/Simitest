@@ -12,7 +12,7 @@
                 <li class="nav-item">
                     <a href="{{ route('fosadmin') }}" class="nav-link">
                         <i class="fas fa-compass nav-icon"></i>
-                        <p>FOS</p>
+                        <p>Administración Tipo y Subtipo de Seguimiento</p>
                     </a>
                 </li>
             @endcan

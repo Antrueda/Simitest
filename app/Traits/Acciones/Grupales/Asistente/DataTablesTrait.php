@@ -54,7 +54,7 @@ trait DataTablesTrait
         $this->opciones['tablasxx'][] =
             [
                 'titunuev' => 'NUEVO RESPONSABLE',
-                'titulist' => 'LISTA DE RESPONSABLES',
+                'titulist' => 'LISTA DE NNAJS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'titupreg' => '',
                 'vercrear' => FALSE,
@@ -76,17 +76,17 @@ trait DataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'ag_responsables.id'],
-                    ['data' => 's_primer_apellido', 'name' => 'user.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'user.s_segundo_apellido'],
-                    ['data' => 's_primer_nombre', 'name' => 'user.s_primer_nombre'],
-                    ['data' => 's_primer_nombre', 'name' => 'user.s_primer_nombre'],
-                    ['data' => 's_documento', 'name' => 'user.s_documento'],
+                    ['data' => 'id', 'name' => 'fi_datos_basicos.id'],
+                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' => $this->opciones['permisox'],
-                'routxxxx' => 'agrespon',
+                'routxxxx' => 'agasiste',
                 'parametr' => [$this->opciones['padrexxx']->id],
             ];
         $this->opciones['ruarchjs'][] =

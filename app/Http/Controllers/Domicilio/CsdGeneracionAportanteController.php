@@ -27,7 +27,7 @@ class CsdGeneracionAportanteController extends Controller
         $this->opciones['carpetax'] = 'Ingresos';
         $this->opciones['slotxxxx'] = 'csdgeningresos';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "GENERACION DE INGRESOS";
+        $this->opciones['tituloxx'] = "GENERACIÓN DE INGRESOS";
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
@@ -52,7 +52,7 @@ class CsdGeneracionAportanteController extends Controller
             $this->opciones['familiar'] = Tema::combo(66, true, false);
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => ['csdgeningresos.nuevo', []],
-            'formhref' => 2, 'tituloxx' => "VOLVER A GENERACION DE INGRESOS", 'clasexxx' => 'btn btn-sm btn-primary'
+            'formhref' => 2, 'tituloxx' => "VOLVER A GENERACIÓN DE INGRESOS", 'clasexxx' => 'btn btn-sm btn-primary'
         ];
     }
     public function getListado(Request $request, $padrexxx)

@@ -63,9 +63,13 @@ function doc2(valor){
 function doc3(valor) {
     if (valor == 227) {
         document.getElementById("ideacion").hidden=false;
+        document.getElementById("prm_amenaza_id").value=[];
+        document.getElementById("prm_intento_id").value=[];
     } else {
         document.getElementById("ideacion").hidden=true;
         document.getElementById("ideacion").value=null;
+        document.getElementById("prm_amenaza_id").value=228;
+        document.getElementById("prm_intento_id").value=228;
     }
 }
 function doc4(valor) {

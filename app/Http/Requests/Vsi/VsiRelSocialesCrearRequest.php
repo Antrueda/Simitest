@@ -13,11 +13,18 @@ class VsiRelSocialesCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             'descripcion.required' => 'Ingrese una descripción',
-            'facilitas.required' => 'Seleccione al menos un contexto'
+            'facilitas.required' => 'Seleccione al menos un contexto',
+            'completa.required' => 'Ingrese una descripción',
+            'prm_dificultad_id.required' => 'Ingrese una descripción',
+            
         ];
         $this->_reglasx = [
             'descripcion' => 'required|string|max:4000',
+            'prm_dificultad_id' => 'nullable|exists:parametros,id',
+            'completa' => 'nullable|string|max:4000',
             'facilitas' => 'required|array',
+            'dificultades' => 'required|array',
+            'completa' => 'required|string|max:4000',
         ];
     }
     /**

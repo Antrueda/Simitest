@@ -1,9 +1,13 @@
 <section class="content">
   <div class="container-fluid">
     <div class="row">
+      <div class="col-md-3">
+        {{--  Info Basica --}}
+        @include('intervencion.perfil.infoBase')
+      </div>
       <div class="col-md-9">
         {{-- ventanas --}}
-        <div style="display:{{ $todoxxxx['disptabx'] }}">
+          <div style="display:{{ $todoxxxx['disptabx'] }}">
           <?php
           $todoxxxx['cabecera'] = [
               ['td' => 'Id'],
@@ -39,10 +43,7 @@
         @include('intervencion.perfil.card')
         {{-- ventanas --}}
       </div>
-      <div class="col-md-3">
-        {{--  Info Basica --}}
-        @include('intervencion.perfil.infoBase')
-      </div>
+ 
     </div>
   </div>
 </section>

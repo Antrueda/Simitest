@@ -8,17 +8,17 @@
             @if($todoxxxx['pestpadr']==2)
             @canany(['vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsixxxxx') ?' active' : '' }}
-            text-sm" href="{{ route('vsixxxxx',$todoxxxx['usuariox']) }}">Valoracion Sicosocial</a></li>
+            text-sm" href="{{ route('vsixxxxx',$todoxxxx['usuariox']) }}">Valoración Sicosocial</a></li>
             @endcanany
             @endif
             @if($todoxxxx['pestpadr']==3)
             @canany(['vsixxxxx-leer', 'vsixxxxx-crear', 'vsixxxxx-editar', 'vsixxxxx-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsixxxxx') ?' active' : '' }}
-        text-sm" href="{{ route('vsixxxxx',$todoxxxx['usuariox']) }}">Valoracion Sicosocial</a></li>
+        text-sm" href="{{ route('vsixxxxx',$todoxxxx['usuariox']) }}">Valoración Sicosocial</a></li>
             @endcanany
             @canany(['vsidabas-editar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsidabas') ?' active' : '' }}
-        text-sm" href="{{ route('vsidabas.editar',$todoxxxx['parametr']) }}">Datos Basicos</a></li>
+        text-sm" href="{{ route('vsidabas.editar',$todoxxxx['parametr']) }}">Datos Básicos</a></li>
             @endcanany
 
             <?php
@@ -98,7 +98,7 @@
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='13. Activación emocional';
+            $pestania='13. Estado emocional';
             $permisox='vsiactiv';
             $checkxxx=$todoxxxx['vsixxxxx']->VsiActEmocional;
             ?>

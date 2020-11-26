@@ -79,7 +79,7 @@ class CsdDinfamMadreController extends Controller
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR RELACION',
+                'titunuev' => 'CREAR RELACIÓN',
                 'titulist' => 'LISTA DE RELACIONES DE LA PROGENITORA',
                 'dataxxxx' => [],
                 'vercrear' => false,
@@ -158,7 +158,7 @@ class CsdDinfamMadreController extends Controller
         $dataxxxx = $request->all();
         $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Relacion progenitora creada con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Relación progenitora creada con exito', $padrexxx);
     }
 
 
@@ -193,7 +193,7 @@ class CsdDinfamMadreController extends Controller
      */
     public function update(CsdDinfamMadreEditarRequest $request,  CsdSisNnaj $padrexxx, CsdDinfamMadre $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Relacion progenitora actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Relación progenitora actualizada con exito', $padrexxx);
     }
 
     public function inactivate(CsdSisNnaj $padrexxx,CsdDinfamMadre $modeloxx)

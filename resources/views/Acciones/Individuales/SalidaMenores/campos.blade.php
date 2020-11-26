@@ -114,7 +114,7 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('prm_parentezco_id', 'Parentezco', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('prm_parentezco_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('prm_parentezco_id', $parentezco, null, ['class' => $errors->first('prm_parentezco_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
     @if($errors->has('prm_parentezco_id'))
       <div class="invalid-feedback d-block">

@@ -219,7 +219,7 @@ class FosController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
             ];
-
+        
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -229,8 +229,8 @@ class FosController extends Controller
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id',$dataxxxx['padrexxx']->id)->first();
         $this->opciones['mindatex'] = "-28y +0m +0d";
         $this->opciones['maxdatex'] = "-6y +0m +0d";
-        $this->opciones['usuarios'] = User::ComboCargoRes(false, false);
-       $dataxxxx['padrexxx']->fi_datos_basico->nnaj_nacimi->Edad;
+        $this->opciones['usuarios'] = User::getUsuario(false, false);
+        $dataxxxx['padrexxx']->fi_datos_basico->nnaj_nacimi->Edad;
 
         $this->opciones['compfami'] = FiCompfami::getResponsableFos($dataxxxx['padrexxx']->fi_datos_basico, true, false);
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];

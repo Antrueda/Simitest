@@ -22,7 +22,7 @@ class VsiActEmocionalController extends Controller
             'permisox' => 'vsiactiv',
             'parametr' => [],
             'rutacarp' => 'Sicosocial.',
-            'tituloxx' => 'ACTIVIDAD EMOCIONAL',
+            'tituloxx' => 'ESTADO EMOCIONAL',
             'carpetax' => 'Actemocional',
             'slotxxxx' => 'vsiactiv',
             'tablaxxx' => 'datatable',
@@ -123,7 +123,7 @@ class VsiActEmocionalController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

@@ -52,7 +52,7 @@ class AIEvasionController extends Controller
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['contextu'] = Tema::combo(273, true, false);
         $this->opciones['rostroxx'] = Tema::combo(274, true, false);
-        $this->opciones['pielxxxx'] = Tema::combo(275, false, false);
+        $this->opciones['pielxxxx'] = Tema::combo(275, true, false);
         $this->opciones['cabellox'] = Tema::combo(276,true, false);
         $this->opciones['cabelloz'] = Tema::combo(277,true, false);
         $this->opciones['cabelloy'] = Tema::combo(278,true, false);
@@ -210,7 +210,7 @@ class AIEvasionController extends Controller
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => false,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listodox', $this->opciones['parametr']),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.visitado', $this->opciones['parametr']),
                 'cabecera' => [
                     [
                         // ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],

@@ -36,7 +36,7 @@ trait ParametrizarTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ADMINISTRACIÓN TIPO SEGUIMIENTO';
+        $this->opciones['tituhead'] = 'ADMINISTRACIÓN TIPO DE SEGUIMIENTO';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';

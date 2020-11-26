@@ -360,7 +360,7 @@
 <div class="row">
   <div class="col-md-12">
     {{ Form::label('observaciones', '5.24 Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'observaciones de la visita social en domicilio', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'observaciones de la visita social en domicilio', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.charAt(0).toUpperCase()+this.value.slice(1)', 'style' => 'text-transform:uppercase;']) }}
     <p id="contadorporqueingresar">0/4000</p>
     @if($errors->has('observaciones'))
       <div class="invalid-feedback d-block">

@@ -24,7 +24,7 @@ class VsiViolenciaController extends Controller
             'permisox' => 'vsiviole',
             'parametr' => [],
             'rutacarp' => 'Sicosocial.',
-            'tituloxx' => 'VIOLENCIAS Y CONDICION ESPECIAL',
+            'tituloxx' => 'VIOLENCIAS Y CONDICIÓN ESPECIAL',
             'carpetax' => 'Violencia',
             'slotxxxx' => 'vsiviole',
             'tablaxxx' => 'datatable',
@@ -55,7 +55,7 @@ class VsiViolenciaController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['sinoxxxz'] = Tema::combo(25, true, false);
+        $this->opciones['sinoxxxz'] = Tema::combo(23, true, false);
         $this->opciones['sinoxxxx'] = Tema::combo(25, true, false);
         $this->opciones['contexto'] = Tema::combo(142, false, false);
         $this->opciones['violenci'] = Tema::combo(7, false, false);
@@ -122,7 +122,7 @@ class VsiViolenciaController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

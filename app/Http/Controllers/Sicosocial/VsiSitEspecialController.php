@@ -22,7 +22,7 @@ class VsiSitEspecialController extends Controller
             'permisox' => 'vsisitua',
             'parametr' => [],
             'rutacarp' => 'Sicosocial.',
-            'tituloxx' => 'SITUACION ESPECIAL Y ESCNNA',
+            'tituloxx' => 'SITUACIÓN ESPECIAL Y ESCNNA',
             'carpetax' => 'Sitespecial',
             'slotxxxx' => 'vsisitua',
             'tablaxxx' => 'datatable',
@@ -121,7 +121,7 @@ class VsiSitEspecialController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

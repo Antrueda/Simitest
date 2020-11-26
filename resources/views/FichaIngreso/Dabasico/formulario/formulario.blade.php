@@ -202,7 +202,7 @@
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('prm_tipodocu_id', '1.11 Documento de Identificación', ['class' => 'control-label']) }}
+        {{ Form::label('prm_tipodocu_id', '1.11 Documento con el cual se identifica"', ['class' => 'control-label']) }}
         {{ Form::select('prm_tipodocu_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_tipodocu_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_tipodocu_id'))
         <div class="invalid-feedback d-block">
@@ -230,7 +230,7 @@
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('s_documento', '1.13 Número de Documento', ['class' => 'control-label']) }}
+        {{ Form::label('s_documento', '1.13 No. de Documento', ['class' => 'control-label']) }}
         {{ Form::number('s_documento', null, ['class' => $errors->first('s_documento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $todoxxxx['readfisi']]) }}
         @if($errors->has('s_documento'))
         <div class="invalid-feedback d-block">

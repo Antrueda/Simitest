@@ -31,11 +31,11 @@
         <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_sexo->prmSexo->nombre }}</a>
       </li>
       <li class="list-group-item">
-        <b>DIRECCION</b>
+        <b>DIRECCIÓN</b>
         <a class="float-right">{{ count($todoxxxx['usuariox']->SisNnaj->FiResidencia)>0 ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first()->direccion : '' }}</a>
       </li>
       <li class="list-group-item">
-        <b>TELEFONO</b>
+        <b>TELÉFONO</b>
         <a class="float-right">{{ count($todoxxxx['usuariox']->SisNnaj->FiResidencia)>0 ? $todoxxxx['usuariox']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first()->telefonos : '' }}</a>
       </li>
       <li class="list-group-item">

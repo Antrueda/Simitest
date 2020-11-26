@@ -16,14 +16,13 @@ class FosStseCrearRequest extends FormRequest
        
         $this->_mensaje = [
             'nombre.required' => 'El nombre es requerido',
-            'fos_tse_id.required' => 'Seleccione una tipo de seguimiento',
+            
             'nombre.unique' => 'El nombre ya existe',
             'nombre.max' => 'El nombre debe tener un máximo de 120 caracteres',
             'nombre.max' => 'La descripción debe tener un máximo de 4000 caracteres',
         ];
         $this->_reglasx = [
         'nombre' => ['Required','string','max:120','unique:fos_stses'],
-            'fos_tse_id' => ['Required'],
             'descripcion' => ['nullable','max:4000'],
         ];
     }

@@ -77,10 +77,20 @@ function doc3(valor){
         document.getElementById("motivos_div").hidden=false;
     }
 }
+
+function doc4(valor){
+    if(valor == 228){
+        document.getElementById("prm_denunante_id").hidden=true;
+        document.getElementById("prm_denunante_id").value=[];
+    } else {
+        document.getElementById("prm_denunante_id").hidden=false;
+    }
+}
 function carga() {
     doc(document.getElementById('prm_familia_id').value);
     doc1(document.getElementById('prm_pareja_id').value);
     doc2(document.getElementById('prm_dificultad_id').value);
+    doc4(document.getElementById('prm_denunante_id').value);
 }
 window.onload=carga;
 </script>

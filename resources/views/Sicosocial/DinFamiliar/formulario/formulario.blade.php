@@ -147,7 +147,7 @@ if (isset($todoxxxx['rowscols'])) {
         @endif
     </div>
     <div class="col-md-4">
-        {{ Form::label('salud', '5.8.6 Salud mental', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('salud', '5.8.6 Atención en Salud Mental', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('salud[]', $todoxxxx['familiay'], null, ['class' => $errors->first('salud') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'salud', 'multiple']) }}
         @if($errors->has('salud'))
         <div class="invalid-feedback d-block">

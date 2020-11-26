@@ -24,6 +24,14 @@
               </a>
             </li>
             @endcan
+            @can('fosfichaobservacion-leer')
+            <li class="nav-item">
+              <a href="{{ route('fosfichaobservacion')}}" class="nav-link">
+                <i class="fas fa-home nav-icon"></i>
+                <p>SALIDA DE JÓVENES MAYORES DE EDAD</p>
+              </a>
+            </li>
+            @endcan
 
 
     </ul>

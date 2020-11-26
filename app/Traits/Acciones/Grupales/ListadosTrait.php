@@ -78,6 +78,7 @@ trait ListadosTrait
     }
     function getNnajs(Request $request)
     {
+        
         if ($request->ajax()) {
             $request->routexxx = ['agasiste'];
             $request->botonesx = $this->opciones['rutacarp'] .

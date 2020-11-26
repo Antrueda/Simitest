@@ -19,15 +19,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-12">
-        {{ Form::label('fos_tse_id', 'Tipo de Seguimiento:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('fos_tse_id', $todoxxxx['tiposegu'], null, ['class' => $errors->first('fos_tse_id') ? 'form-control is-invalid select2' : 'form-control select2']) }}
-        @if($errors->has('fos_tse_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('fos_tse_id') }}
-        </div>
-        @endif
-    </div>
+   
 
     <div class="form-group col-md-12">
         {{ Form::label('descripcion', 'Descripción:', ['class' => 'control-label col-form-label-sm']) }}

@@ -1,6 +1,6 @@
 <div class="form-group row">
 <div class="col-md-4">
-        {{ Form::label('sis_depen_id', 'UPI/CONTEXTO', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('sis_depen_id', 'UPI', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => $errors->first('sis_depen_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus','placeholder'=>'Selecione']) }}
         @if($errors->has('sis_depen_id'))
             <div class="invalid-feedback d-block">

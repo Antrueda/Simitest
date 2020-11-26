@@ -23,7 +23,7 @@ class CsdGeneracionIngresosController extends Controller
         $this->opciones['carpetax'] = 'Ingresos';
         $this->opciones['slotxxxx'] = 'csdgeningresos';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "GENERACION DE INGRESOS";
+        $this->opciones['tituloxx'] = "GENERACIÓN DE INGRESOS";
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
@@ -172,7 +172,7 @@ class CsdGeneracionIngresosController extends Controller
         $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
-        return $this->grabar($dataxxxx, '', 'Generacion de ingresos guardado con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Generación de ingresos guardado con exito', $padrexxx);
     }
 
     /**
@@ -213,6 +213,6 @@ class CsdGeneracionIngresosController extends Controller
      */
     public function update(CsdGeneracionIngresosEditarRequest $request, CsdSisNnaj $padrexxx, CsdGenIngreso $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Generacion de ingresos actualizado con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Generación de ingresos actualizado con exito', $padrexxx);
     }
 }

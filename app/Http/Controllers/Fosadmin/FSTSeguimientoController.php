@@ -67,10 +67,10 @@ class FSTSeguimientoController extends Controller
 
     public function show(FosStse $modeloxx)
     {
-        // $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        // $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->fos_tse_id->id]], 2, 'VOLVER A DOCUMENTOS', 'btn btn-sm btn-primary']);
-        // $this->getBotones(['editar', [], 1, 'EIDTAR DOCUMENTO', 'btn btn-sm btn-primary']);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->fos_tse_id]], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
+         $this->getBotones(['editar', [], 1, 'EDITAR DOCUMENTO', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
 
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->fos_tse]
@@ -93,6 +93,7 @@ class FSTSeguimientoController extends Controller
 
     public function update(FosStseEditarRequest $request,  FosStse $modeloxx)
     {
+        $request->request->add(['fos_tse_id' => $modeloxx->id]);
         return $this->setFosSubTiposeg([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
