@@ -1,6 +1,6 @@
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Información básica del NNA</h6>
+    <h5>Información básica del NNA</h5>
   </div>
 </div>
 
@@ -45,7 +45,7 @@
 
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>-</h6>
+    <h5>-</h5>
   </div>
 </div>
 <div class="row">
@@ -80,7 +80,7 @@
 </div>
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Datos del regreso del NNA</h6>
+    <h5>Datos del regreso del NNA</h5>
     <span>Condiciones de salud en las cuales regresa el niño, niña o adolescente.</span>
   </div>
 </div>
@@ -165,6 +165,7 @@
   <div class="col-md-12">
     {{ Form::label('descripcion', 'Descripcion de la condición física y comportamentales en que regresa el/la NNA:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadordescripcion">0/4000</p>
     @if($errors->has('descripcion'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('descripcion') }}
@@ -176,6 +177,7 @@
   <div class="col-md-12">
     {{ Form::label('observaciones', 'Observaciones generales', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('observaciones', null, ['class' => $errors->first('observaciones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Objetos personales con los que llega el NNA, novedad del regreso u otro tipo de observación', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadorobservaciones">0/4000</p>
     @if($errors->has('observaciones'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('observaciones') }}
@@ -185,7 +187,7 @@
 </div>
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Firma</h6>
+    <h5>Firma</h5>
   </div>
 </div>
 <hr>

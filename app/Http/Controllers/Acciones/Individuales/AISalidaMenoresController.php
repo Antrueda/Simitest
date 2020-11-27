@@ -32,7 +32,7 @@ class AISalidaMenoresController extends Controller
 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'Salidas y permisos con acompañamiento y/o Representante Legal';
+        $this->opciones['tituhead'] = 'SALIDAS Y PERMISOS CON ACOMPAÑAMIENTO Y/O REPRESENTANTE LEGAL';
         $this->opciones['routxxxx'] = 'aisalidamenores';
         $this->opciones['slotxxxx'] = 'aisalidamenores';
         $this->opciones['perfilxx'] = 'conperfi';
@@ -58,7 +58,7 @@ class AISalidaMenoresController extends Controller
 
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
-        $this->opciones['tituloxx'] = "Salidas y permisos con acompañamiento y/o Representante Legal";
+        $this->opciones['tituloxx'] = "SALIDAS Y PERMISOS CON ACOMPAÑAMIENTO Y/O REPRESENTANTE LEGAL";
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
@@ -86,16 +86,12 @@ class AISalidaMenoresController extends Controller
                         ['td' => 'OBJETIVO DE LA SALIDA', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'TIEMPO(DÍAS)', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'OBSERVACIÓN', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'FUCIONARIO/CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 4],
+                        ['td' => '', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                     ],
                     [
-
-                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                    ]
+                        ['td' => 'FUNCIONARIO(A) / CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
@@ -105,10 +101,7 @@ class AISalidaMenoresController extends Controller
                     ['data' => 'razonesx', 'name' => 'razonesx'],
                     ['data' => 'tiempo', 'name' => 'ai_salida_menores.tiempo'],
                     ['data' => 'causa', 'name' => 'ai_salida_menores.causa'],
-                    ['data' => 's_primer_nombre', 'name' => 'users.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'users.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'users.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'users.s_segundo_apellido'],
+                    ['data' => 'nombre', 'name' => 'users.name as nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -312,7 +305,7 @@ class AISalidaMenoresController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

@@ -1,9 +1,9 @@
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Información básica del NNA</h6>
+    <h5>Información básica del NNA</h5>
   </div>
 </div>
-
+<hr style="border:3px;">
 <div class="form-row align-items-end">
   <div class="form-group col-md-3">
     {{ Form::label('primnombre', 'Primer Nombre', ['class' => 'control-label col-form-label-sm']) }}
@@ -39,16 +39,17 @@
 </div>
 
 
-
+<hr style="border:3px;">
 
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>-</h6>
+    <h5>-</h5>
   </div>
 </div>
 <div class="row">
   <div class="col-md-4">
-    {{ Form::label('prm_upi_id', 'UPI en la que se encuentra activo el NNA', ['class' => 'control-label col-form-label-sm']) }}
+
+    {{ Form::label('prm_upi_id', 'UPI', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('prm_upi_id', $todoxxxx['dependen'], null, ['class' => $errors->first('prm_upi_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI', 'autofocus']) }}
     @if($errors->has('prm_upi_id'))
     <div class="invalid-feedback d-block">
@@ -86,12 +87,13 @@
     @endif
   </div>
 </div>
+<hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Información básica del representante legal</h6>
+    <h5>Información básica del representante legal</h5>
   </div>
 </div>
-<hr>
+<hr style="border:3px;">
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 <div class="row">
   <div class="col-md-3">
@@ -172,13 +174,14 @@
     @endif
   </div>
 </div>
+<hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Persona autorizada por el Representante Legal que recoja al NNA</h6>
+    <h5>Persona autorizada por el Representante Legal que recoja al NNA</h5>
     <span>(Solo aplica para casos que no salga con el representante legal)</span>
   </div>
 </div>
-<hr>
+<hr style="border:3px;">
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('ape1_autorizado', 'Primer Apellido', ['class' => 'control-label col-form-label-sm']) }}
@@ -276,13 +279,14 @@
     @endif
   </div>
 </div>
+<hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Datos de salida del NNA</h6>
+    <h5>Datos de salida del NNA</h5>
     <span>Condiciones de salud en las cuales sale el niño, niña o adolescente.</span>
   </div>
 </div>
-<hr>
+<hr style="border:3px;">
 <div class="row">
   <div class="col-md-6">
     <div class="row mt-2">
@@ -383,12 +387,13 @@
     @endif
   </div>
 </div>
+<hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Información de la salida</h6>
+    <h5>Información de la salida</h5>
   </div>
 </div>
-<hr>
+<hr style="border:3px;">
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_upi2_id', 'UPI/AREA/DEPENDENCIA', ['class' => 'control-label col-form-label-sm']) }}
@@ -453,10 +458,10 @@
 </div>
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Información de quien aprueba la salida</h6>
+    <h5>Información de quien aprueba la salida</h5>
   </div>
 </div>
-<hr>
+<hr style="border:3px;">
 <span>Representante legal o persona que recoge al NNA</span>
 <div class="row">
   <div class="col-md-3">

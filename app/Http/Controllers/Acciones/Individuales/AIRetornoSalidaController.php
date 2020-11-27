@@ -31,7 +31,7 @@ class AIRetornoSalidaController extends Controller
 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'Retorno de salidas y permisos con acudiente y/o representante legal';
+        $this->opciones['tituhead'] = 'RETORNO DE SALIDAS Y PERMISOS CON ACUDIENTE Y/O REPRESENTANTE LEGAL';
         $this->opciones['routxxxx'] = 'airetornosalida';
         $this->opciones['slotxxxx'] = 'airetornosalida';
         $this->opciones['perfilxx'] = 'conperfi';
@@ -51,7 +51,7 @@ class AIRetornoSalidaController extends Controller
         $this->opciones['condicix'] = Tema::combo(308, false, false);
         $this->opciones['parentez'] = Tema::combo(66, true, false);
 
-        $this->opciones['tituloxx'] = "Retorno de salidas y permisos con acudiente y/o representante legal";
+        $this->opciones['tituloxx'] = "RETORNO DE SALIDAS Y PERMISOS CON ACUDIENTE Y/O REPRESENTANTE LEGAL";
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
@@ -220,7 +220,7 @@ class AIRetornoSalidaController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

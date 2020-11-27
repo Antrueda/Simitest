@@ -402,10 +402,7 @@ trait SalidaTrait
             'ai_salida_menores.causa',
             'ai_salida_menores.sis_esta_id',
             'ai_salida_menores.sis_nnaj_id',
-            'users.s_primer_nombre',
-            'users.s_segundo_nombre',
-            'users.s_primer_apellido',
-            'users.s_segundo_apellido',
+            'users.name as nombre',
             'ai_salida_menores.created_at',
         ])
             ->join('sis_depens as upi', 'ai_salida_menores.prm_upi_id', '=', 'upi.id')

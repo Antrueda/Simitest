@@ -12,7 +12,14 @@
             @canany(['aisalidamenores-leer', 'aisalidamenores-crear', 'aisalidamenores-editar', 'aisalidamenores-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aisalidamenores') ?' active' : '' }}
 
-        text-sm" href="{{ route('aisalidamenores',$todoxxxx['usuariox']->sis_nnaj_id) }}">VOLVER A SALIDAS</a></li>
+        text-sm" href="{{ route('aisalidamenores',$todoxxxx['usuariox']->sis_nnaj_id) }}">IR A SALIDAS Y PERMISOS</a></li>
+            @endcanany
+            @endif
+            @if($todoxxxx['pestpadr']==1 || $todoxxxx['pestpadr']==2|| $todoxxxx['pestpadr']==3)
+            @canany(['airetornosalida-leer', 'airetornosalida-crear', 'airetornosalida-editar', 'airetornosalida-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='airetornosalida') ?' active' : '' }}
+
+        text-sm" href="{{ route('airetornosalida',$todoxxxx['usuariox']->sis_nnaj_id) }}">IR A RETORNO DE SALIDAS</a></li>
             @endcanany
             @endif
 

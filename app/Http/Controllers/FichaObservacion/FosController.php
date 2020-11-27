@@ -160,7 +160,7 @@ class FosController extends Controller
                         ['td' => 'Tipo de Seguimiento:', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Sub-Tipo de Seguimiento:', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'Observación y/o Seguimiento:', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'Funcionario (Funcionaria) y/o contratista que realiza el seguimiento', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'Funcionario (a)/ Contratista que Realiza el Seguimiento', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
