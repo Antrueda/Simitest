@@ -39,7 +39,7 @@ trait PestaniasTrait
         $pestania['cardocfi'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'FI',
+            'tituloxx' => 'DOCUMENTOS DEL NNAJ',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

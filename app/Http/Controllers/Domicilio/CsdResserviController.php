@@ -153,7 +153,6 @@ class CsdResserviController extends Controller
     public function show(CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
-        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', $modeloxx->id);
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'servicios'], 'padrexxx' => $padrexxx]);
     }
 
@@ -170,7 +169,7 @@ class CsdResserviController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

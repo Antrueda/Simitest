@@ -267,6 +267,7 @@ class FosController extends Controller
 
     public function store(FosDatosBasicoCrearRequest $request,SisNnaj $padrexxx)
     {
+     
         $dataxxxx = $request->all();
         $dataxxxx['sis_esta_id']=1;
        return $this->grabar($dataxxxx, '', 'FOS creada con exito', $padrexxx);

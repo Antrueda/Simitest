@@ -43,7 +43,7 @@
         <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_sexo->s_nombre_identitario }}</a>
       </li>
       <li class="list-group-item">
-        <b>TIPO DE POBLACION</b>
+        <b>TIPO DE POBLACIÓN</b>
         <a class="float-right">{{ $todoxxxx['usuariox']->prmTipoPobla->nombre }}</a>
       </li>
     </ul>

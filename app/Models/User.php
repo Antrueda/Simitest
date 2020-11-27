@@ -421,7 +421,7 @@ class User extends Authenticatable
             }
         }
 
-        $upixxxxx = User::select(['users.name'])->where('users.id', Auth::user()->id)
+        $upixxxxx = User::where('users.id', Auth::user()->id)
             ->get();
         foreach ($upixxxxx as $registro) {
 

@@ -59,13 +59,17 @@
                   }
           });
           }
+          $('#i_prm_area_ajuste_id').change(function(){
+                f_combo({valuexxx:$(this).val(), selected:''})
+                
+          });
+          
+      
           @if (old('i_prm_area_ajuste_id'))
                   f_combo({valuexxx:{{ old('i_prm_area_ajuste_id') }}, selected:'{{ old("i_prm_subarea_ajuste_id") }}'})
                   @endif
 
-                  $('#i_prm_area_ajuste_id').change(function(){
-                f_combo({valuexxx:$(this).val(), selected:''})
-          });
+
           });
 
           $(function(){
@@ -158,6 +162,8 @@
 
   }
   @endif
+
+
 </script>
 
 

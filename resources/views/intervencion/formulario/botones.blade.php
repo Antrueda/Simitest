@@ -4,10 +4,10 @@
     @endif --}}
     @if($todoxxxx['accionxx']!='Crear')
         <a href="{{route($todoxxxx['routnuev'].'.nuevo',[$todoxxxx['nnajregi']])}}" 
-        class="btn btn-sm btn-primary" role="button">Nuevo Registro</a>
+        class="btn btn-sm btn-primary" role="button">Nueva Intervención</a>
     @endif
 
     <a href="{{route($todoxxxx['routinde'])}}" 
-    class="btn btn-sm btn-primary" role="button">Volver a lista de NNAJ</a>
+    class="btn btn-sm btn-primary" role="button">Volver a los NNAJ</a>
     
 </div>

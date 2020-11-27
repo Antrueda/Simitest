@@ -71,7 +71,7 @@ class VsiFactorController extends Controller
         $this->opciones['rowscols'] = 'rowspancolspan';
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR FACTOR PROCTECTOR',
+                'titunuev' => 'CREAR FACTOR PROTECTOR',
                 'titulist' => 'LISTA DE FACTORES PROTECTORES',
                 'dataxxxx' => [['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id]],
                 'relacion' => '17.1 FACTOR PROTECTOR',

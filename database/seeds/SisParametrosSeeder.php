@@ -2519,6 +2519,8 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'VASECTOMIA ']);//2479
         $this->getR(['nombrexx' => 'TIPO DE SEGUIMIENTO']);//2480
         $this->getR(['nombrexx' => 'SUB TIPO DE SEGUIMIENTO']);//2481
+        $this->getR(['nombrexx' => 'ADECUADA']);//2482
+        $this->getR(['nombrexx' => 'INADECUADA']);//2483
 
  
     }

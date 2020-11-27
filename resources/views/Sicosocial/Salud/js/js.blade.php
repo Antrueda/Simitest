@@ -31,8 +31,10 @@ function doc(valor){
 function doc1(valor){
     if(valor == 228){
         document.getElementById("medicamento").hidden=true;
+        document.getElementById("prm_prescripcion_id").hidden=true;
     } else {
         document.getElementById("medicamento").hidden=false; 
+        document.getElementById("prm_prescripcion_id").hidden=false;
 
     }
 }

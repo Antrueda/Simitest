@@ -180,10 +180,7 @@ class FiController extends Controller
 
         $this->opciones['estadoxx'] = 'ACTIVO';
 
-        $this->opciones['departam'] = ['' => 'Seleccione'];
-        $this->opciones['municipi'] = ['' => 'Seleccione'];
-        $this->opciones['deparexp'] = ['' => 'Seleccione'];
-        $this->opciones['municexp'] = ['' => 'Seleccione'];
+
         $this->opciones['mindatex'] = "-29y +0m +1d";
         $this->opciones['maxdatex'] = "-0y +0m +0d";
 
@@ -323,15 +320,15 @@ class FiController extends Controller
         }
         // ddd( $this->opciones['neciayud']);
         $this->opciones['dependen'] = User::getUpiUsuario(false, false);
-        $this->opciones['upzxxxxx']  = SisUpz::combo($localida, false);
-        $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
+        $this->opciones['upzxxxxx']  = SisUpz::combo(false, false);
+        $this->opciones['barrioxx'] = SisBarrio::combo(false, false);
 
-        $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
-        $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
+        $this->opciones['municipi'] = SisMunicipio::combo(false, false);
+        $this->opciones['departam'] = SisDepartamento::combo(false, false);
 
 
-        $this->opciones['municexp'] = SisMunicipio::combo($depaexpe, false);
-        $this->opciones['deparexp'] = SisDepartamento::combo($paisexpe, false);
+        $this->opciones['municexp'] = SisMunicipio::combo(false, false);
+        $this->opciones['deparexp'] = SisDepartamento::combo(false, false);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }

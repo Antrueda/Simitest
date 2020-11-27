@@ -338,7 +338,7 @@
       @endif
   </div>
   <div class="col-md">
-      {{ Form::label('prm_hacinam_id', 'Hacinamiento', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('prm_hacinam_id', '5.22 Hacinamiento', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('prm_hacinam_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_hacinam_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
       @if($errors->has('prm_hacinam_id'))
           <div class="invalid-feedback d-block">

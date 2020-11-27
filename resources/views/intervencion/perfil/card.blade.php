@@ -13,7 +13,7 @@
       <div class="form-row align-items-end">
           {{ Form::hidden('sis_nnaj_id', $todoxxxx['nnajregi']) }}
         <div class="form-group col-md-4">
-          {{ Form::label('sis_depen_id', 'UPI', ['class' => 'control-label']) }}
+          {{ Form::label('sis_depen_id', '"UPI/ÁREA/CONTEXTO"', ['class' => 'control-label']) }}
 		      {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm']) }}
         </div>
         <div class="form-group col-md-4">

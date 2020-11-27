@@ -266,9 +266,8 @@ class CsdResidenciaController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx, CsdResidencia $modeloxx)
     {
-        $this->opciones['csdxxxxx'] = $modeloxx;
-        $this->opciones['rutaxxxx'] = route($this->opciones['permisox'] . '.ver', $modeloxx->id);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $padrexxx]);
+        $this->opciones['csdxxxxx'] = $padrexxx;
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'servicios'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -284,7 +283,7 @@ class CsdResidenciaController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

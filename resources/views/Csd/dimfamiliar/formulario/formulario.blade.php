@@ -194,6 +194,7 @@ if (isset($todoxxxx['rowscols'])) {
   <div class="col-md">
       {{ Form::label('afronta', '6.14 ¿Cómo las afrontan?', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::textarea('afronta', null, ['class' => $errors->first('afronta') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Describir cómo afronta las problemáticas', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      <p id="contadorafronta">0/4000</p>
       @if($errors->has('afronta'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('afronta') }}

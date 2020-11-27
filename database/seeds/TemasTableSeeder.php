@@ -1097,7 +1097,6 @@ class TemasTableSeeder extends Seeder
             581 => $camposmagicos,
             583 => $camposmagicos,
             582 => $camposmagicos,
-            577 => $camposmagicos,
             974 => $camposmagicos,
             571 => $camposmagicos,
             655 => $camposmagicos,
@@ -1500,6 +1499,10 @@ class TemasTableSeeder extends Seeder
             271 => $camposmagicos,
             272 => $camposmagicos,
             273 => $camposmagicos,
+            509 => $camposmagicos,
+            274 => $camposmagicos,
+            275 => $camposmagicos,
+            276 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 146, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'MANERA CONTACTO IDIPRON']);
         $tema->parametros()->sync([
@@ -2775,8 +2778,8 @@ class TemasTableSeeder extends Seeder
 
         $tema = Tema::create(['id' => 290, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'IDENTIDAD DE GÉNERO']);
         $tema->parametros()->sync([
-            1069 => $camposmagicos,
-            1277 => $camposmagicos,
+            2482 => $camposmagicos,
+            2483 => $camposmagicos,
         ]);
 
         $tema = Tema::create(['id' => 291, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'ESPACIO DONDE PARCHA']);

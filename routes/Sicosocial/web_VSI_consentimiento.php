@@ -19,5 +19,10 @@ Route::group(['prefix' => 'consentimiento'], function () use($routexxx,$controll
 	Route::put('editar/{objetoxx}', [
 	    'uses' => $controll.'Controller@update',
 	    'middleware' => ['permission:'.$routexxx.'-editar']
-	])->name($routexxx.'.editar');
+    ])->name($routexxx.'.editar');
+    
+    Route::get('responsa', [
+		'uses' => $controll.'Controller@getResponsable',
+		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar']
+    ])->name($routexxx.'.responsa');
 });

@@ -36,7 +36,7 @@ class CsdRescomparteController extends Controller
         $this->opciones['carpetax'] = 'Residencia';
         $this->opciones['slotxxxx'] = 'csdresidencia';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "Comparte";
+        $this->opciones['tituloxx'] = "ESPACIO QUE COMPARTE";
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
@@ -164,7 +164,7 @@ class CsdRescomparteController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

@@ -25,7 +25,7 @@ class IsDatoBasicoController extends Controller
         $this->bitacora = new IsDatosBasico();
 
         $this->opciones = [
-            'tituloxx' => 'Intervención',
+            'tituloxx' => 'INTERVENCIÓN',
             'rutaxxxx' => 'is.intervencion',
             'routxxxx' => 'is.intervencion',
             'routinde' => 'is',
@@ -162,17 +162,19 @@ class IsDatoBasicoController extends Controller
                     ->route('is.intervencion.lista', [$this->opciones['nnajregi']])
                     ->with('info', 'Superfil no está autorizado para ver intervenciones sicosociales especializadas');
             }
-
+            if ($nombobje->i_prm_area_ajuste_id != 1269) {
+                $this->opciones['subareas'] = [1269 => 'NO APLICA'];
+            }   
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
             $this->opciones['subareas'] = $this->casos($objetoxx->i_prm_area_ajuste_id, true, false);
+
         }
 
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['areajusx'] = IsDatosBasico::getAreajuste($objetoxx);
-        $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
-
+        
         $rutaxxxx = 'intervencion.' . strtolower($this->opciones['accionxx']);
 
         return view($rutaxxxx, ['todoxxxx' => $this->opciones]);
@@ -374,6 +376,7 @@ class IsDatoBasicoController extends Controller
             ])
                 ->join('sis_depens', 'is_datos_basicos.sis_depen_id', '=', 'sis_depens.id')
                 ->join('users', 'is_datos_basicos.i_primer_responsable', '=', 'users.id')
+                
                 ->join('parametros as tipoaten', 'is_datos_basicos.i_prm_tipo_atencion_id', '=', 'tipoaten.id')
                 ->where(function ($queryxxx) use ($nnajxxxx) {
                     $queryxxx->where('is_datos_basicos.sis_esta_id', 1)->where('is_datos_basicos.sis_nnaj_id', $nnajxxxx);

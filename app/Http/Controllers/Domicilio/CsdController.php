@@ -47,7 +47,7 @@ class CsdController extends Controller
 
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
-        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['tituloxx'] = "CONSULTA SOCIAL EN DOMICILIO";
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
@@ -251,7 +251,7 @@ class CsdController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $modeloxx->id]],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

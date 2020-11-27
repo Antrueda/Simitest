@@ -1,6 +1,6 @@
 <div class="form-row">
     <div class="form-group col-md-4">
-        {{ Form::label('diligenc', 'Fecha de Diligenciamiento (YYYY-MM-DD)', ['class' => 'control-label']) }}
+        {{ Form::label('diligenc', 'Fecha de Diligenciamiento (AAAA-MM-DD)', ['class' => 'control-label']) }}
         {{ Form::text('diligenc', null, ['class' => $errors->first('diligenc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','autocomplete'=>"off"]) }}
         @if($errors->has('diligenc'))
         <div class="invalid-feedback d-block">
@@ -202,7 +202,7 @@
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('prm_tipodocu_id', '1.11 Documento con el cual se identifica"', ['class' => 'control-label']) }}
+        {{ Form::label('prm_tipodocu_id', '1.11 Documento con el cual se identifica', ['class' => 'control-label']) }}
         {{ Form::select('prm_tipodocu_id', $todoxxxx['tipodocu'], null, ['class' => $errors->first('prm_tipodocu_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('prm_tipodocu_id'))
         <div class="invalid-feedback d-block">
@@ -357,7 +357,7 @@
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('sis_upz_id', '1.19(d) UPZ(Unidad Zonal de Planeación)', ['class' => 'control-label']) }}
+        {{ Form::label('sis_upz_id', '1.19(d) UPZ(Unidad de Planeamiento Zonal)', ['class' => 'control-label']) }}
         {{ Form::select('sis_upz_id', $todoxxxx['upzxxxxx'], null, ['class' => $errors->first('sis_upz_id') ? 'form-control departam form-control-sm is-invalid' : 'form-control departam form-control-sm']) }}
         @if($errors->has('sis_upz_id'))
         <div class="invalid-feedback d-block">

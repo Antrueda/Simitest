@@ -38,7 +38,7 @@
         @endif
     </div>
     <div class="col-md-6">
-        {{ Form::label('completa', '6.5 Realice una descripción completa de sí mismo en todos los aspectos (cualidades, aspectos a mejorar y expectativas a corto, mediano y largo plazo) Obligatorio:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('completa', '6.5 Realice una descripción completa de sí mismo en todos los aspectos (cualidades, aspectos a mejorar y expectativas a corto, mediano y largo plazo):', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('completa', null, ['class' => $errors->first('completa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción completa', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
         @if($errors->has('completa'))
             <div class="invalid-feedback d-block">

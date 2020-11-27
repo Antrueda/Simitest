@@ -15,6 +15,9 @@ class VsiSaludEditarRequest extends FormRequest
             'descripcion.required_if' => 'Ingrese una descripción',
             'medicamento.required_if' => 'Indique cual un medicamento',
             'prm_prescripcion_id.required_if' => 'Indique si ha tomado el medicamento bajo prescripcion medica',
+            'prm_atencion_id.required' => 'Seleccione si ha recibido un tipo de atención psicológica y/o psiquiatría',
+            'prm_medicamento_id.required' => 'Indique si le han ordenado algun medicamentoo psiquiátrico',
+            'prm_sexual_id.required' => 'Indique si ha iniciado su vida sexual',
         ];
         $this->_reglasx = [
             'prm_atencion_id' => 'required|exists:parametros,id',

@@ -74,7 +74,7 @@ class FiResidenciaController extends Controller
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
         $this->opciones['readchcx'] = '';
-        if ($this->opciones['usuariox']->prm_poblacion_id == 650) {
+        if ($this->opciones['usuariox']->prm_tipoblaci_id == 650) {
             $this->opciones['readchcx'] = 'readonly';
             $this->opciones['residees'] = [1 => 'NO APLICA'];
             $this->opciones['localida'] = [22 => 'NO APLICA'];

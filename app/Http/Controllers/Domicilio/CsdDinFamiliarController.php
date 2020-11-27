@@ -25,7 +25,7 @@ class CsdDinFamiliarController extends Controller
         $this->opciones['carpetax'] = 'Dimfamiliar';
         $this->opciones['slotxxxx'] = 'csddinfamiliar';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "DINAMICA FAMILIAR";
+        $this->opciones['tituloxx'] = "DINÁMICA FAMILIAR";
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
@@ -278,7 +278,7 @@ class CsdDinFamiliarController extends Controller
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

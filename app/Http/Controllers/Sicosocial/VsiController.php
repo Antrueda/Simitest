@@ -30,7 +30,7 @@ class VsiController extends Controller
             'permisox' => 'vsixxxxx',
             'parametr' => [],
             'rutacarp' => 'Sicosocial.',
-            'tituloxx' => 'VALORACION SICOSOCIAL',
+            'tituloxx' => 'VALORACIÓN SICOSOCIAL',
             'carpetax' => 'Vsi',
             'slotxxxx' => 'vsixxxxx',
             'tablaxxx' => 'datatable',
@@ -90,8 +90,8 @@ class VsiController extends Controller
         $this->opciones['esindexx'] = true;
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'VALORACION SICOSOCIAL',
-                'titulist' => 'LISTA DE VALORACION SICOSOCIAL ',
+                'titunuev' => 'VALORACIÓN SICOSOCIAL',
+                'titulist' => 'LISTA DE VALORACIÓN SICOSOCIAL ',
                 'dataxxxx' => [
 
                 ],

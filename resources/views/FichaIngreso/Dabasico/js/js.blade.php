@@ -115,7 +115,6 @@
             }
 
             $("#" + departam + ",#" + municipi).empty();
-            $("#" + departam + ",#" + municipi).append('<option value="">Seleccione</option>')
             dataxxxx = {
                 url: routexxx,
                 data: {
@@ -150,7 +149,6 @@
                 routexxx = "{{ route('ajaxx.poblacionetnia') }}"
             }
             $("#" + municipi).empty();
-            $("#" + municipi).append('<option value="">Seleccione</>')
             dataxxxx = {
                 url: routexxx,
                 data: {

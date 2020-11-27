@@ -11,6 +11,7 @@ use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class VsiConsentimientoController extends Controller
 {
@@ -151,6 +152,15 @@ class VsiConsentimientoController extends Controller
             'modeloxx' => $objetoxx->VsiConsentimiento,
             'menssage' => 'Registro actualizado con éxito'
         ]);
+    }
+
+    function getResponsable(Request $request,Vsi $padrexxx)
+    {
+        if ($request->ajax()) {
+            $camposxx=['user_doc1_id'=>'#user_doc2_id','user_doc2_id'=>'#user_doc1_id'];
+            $usuarios = User::userCombo(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx] ]);
+            return response()->json(['dataxxxx'=>$usuarios,'comboxxx'=>$camposxx[$request->comboxxx]]);
+        }
     }
 
 

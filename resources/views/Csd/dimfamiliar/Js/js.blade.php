@@ -120,6 +120,8 @@
     init_contadorTa("descripcion", "contadordescripcion", 4000);
     init_contadorTa("relevantes", "contadorrelevantes", 4000);
     init_contadorTa("descripcion_0", "contadordescripcion_0", 4000);
+    init_contadorTa("afronta", "contadorafronta", 4000);
+    
 
 function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {

@@ -26,7 +26,7 @@ class VsiDinFamiliarController extends Controller
             'permisox' => 'vsidinam',
             'parametr' => [],
             'rutacarp' => 'Sicosocial.',
-            'tituloxx' => 'DINAMICA FAMILIAR',
+            'tituloxx' => 'DINÁMICA FAMILIAR',
             'carpetax' => 'DinFamiliar',
             'slotxxxx' => 'vsidinam',
             'tablaxxx' => 'datatable',
