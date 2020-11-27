@@ -154,6 +154,7 @@ class AIRetornoSalidaController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['dependen'] = SisDepen::combo(true, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
+        $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
         $this->opciones['vercrear'] = false;
         $parametr = 0;
         if ($dataxxxx['modeloxx'] != '') {
