@@ -167,6 +167,9 @@ class SisNnaj extends Model
                 $principa = $value->user;
             }
         }
+        if($principa==''){
+            $respuest = [['UPI SIN RESPONSABLE']];
+        }else{
         $cargoxxx = $principa->sis_cargo;
         $nombrexx =
             $principa->s_primer_nombre . ' ' .
@@ -176,6 +179,8 @@ class SisNnaj extends Model
         $respuest = [
             [$principa->id => $principa->s_documento . ' - ' . $nombrexx . ' - ' . $cargoxxx->s_cargo],
         ];
+        }   
+       
 
         return $respuest;
     }
