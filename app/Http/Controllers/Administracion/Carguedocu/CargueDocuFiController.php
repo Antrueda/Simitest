@@ -36,6 +36,7 @@ class CargueDocuFiController extends Controller
     {
         $this->pestanix['cardocfi']=[true,$padrexxx];
         $this->opciones['ppadrexx']=$padrexxx;
+        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
     }

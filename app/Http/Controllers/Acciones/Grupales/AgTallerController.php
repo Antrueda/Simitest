@@ -104,7 +104,7 @@ class AgTallerController extends Controller
         }
 
         // Se arma el titulo de acuerdo al array opciones
-        $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
+        $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
         return view($this->opciones['rutacarp'].$vistaxxx, ['todoxxxx' => $this->opciones]);
     }
 
@@ -125,7 +125,7 @@ class AgTallerController extends Controller
 
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'] . '.editar',
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar',
                 $this->opciones['parametr']],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];

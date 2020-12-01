@@ -27,7 +27,7 @@ class DependenciaController extends Controller
             'permisox' => 'dependencia',
             'parametr' => [],
             'rutacarp' => 'administracion.dependencia.',
-            'tituloxx' => 'Dependencia',
+            'tituloxx' => 'DEPENDENCIAS',
             'carpetax' => 'Dependencia',
             'slotxxxx' => 'dependen',
             'indecrea' => false,
@@ -53,7 +53,7 @@ class DependenciaController extends Controller
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'Volver a dependencias', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A DEPENDENCIAS', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
     }
@@ -71,7 +71,7 @@ class DependenciaController extends Controller
         $this->opciones['esindexx'] = true;
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'Nueva Dependencia',
+                'titunuev' => 'NUEVA DEPENDENCIA',
                 'titulist' => 'Lista de Dependencias',
                 'dataxxxx' => [
                     ['campoxxx' => 'botonesx', 'dataxxxx' =>
@@ -162,7 +162,7 @@ class DependenciaController extends Controller
             'formular' => 2327
         ]);
         // Se arma el titulo de acuerdo al array opciones
-        $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
+        $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
         return view($vistaxxx, ['todoxxxx' => $this->opciones]);
     }
     /**
@@ -175,7 +175,7 @@ class DependenciaController extends Controller
         $this->opciones['indecrea'] = true;
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'Crear', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . '.pestanias');

@@ -79,7 +79,7 @@ class AgTemaController extends Controller
         }
 
         // Se arma el titulo de acuerdo al array opciones
-        $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
+        $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
         return view($this->opciones['rutacarp'] . $vistaxxx, ['todoxxxx' => $this->opciones]);
     }
 

@@ -72,7 +72,7 @@ class InPreguntaController extends Controller
       $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
     }
     // Se arma el titulo de acuerdo al array opciones
-    $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
+    $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
     return view($vistaxxx, ['todoxxxx' => $this->opciones]);
   }
 

@@ -23,6 +23,7 @@ trait VistasTrait
     public function view($opciones, $dataxxxx)
     {
         $opciones['archivox'] = '';
+        $opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $opciones = $this->getVista($opciones, $dataxxxx);
         $selected = 0;

@@ -59,7 +59,7 @@ class FiProcesoFamiliaController extends Controller
 
     }
     // Se arma el titulo de acuerdo al array opciones
-    $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . $this->opciones['tituloxx'];
+    $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
     return view('FichaIngreso.pestanias', ['todoxxxx' => $this->opciones]);
   }
 

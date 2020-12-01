@@ -40,7 +40,7 @@ trait ParametrizarTrait
         $this->opciones['tituhead'] = 'CARGUE DE DOCUMENTOS';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
-        $this->opciones['perfilxx'] = 'sinperfi';
+        $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['rutacarp'] = 'administracion.Carguedocu.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];

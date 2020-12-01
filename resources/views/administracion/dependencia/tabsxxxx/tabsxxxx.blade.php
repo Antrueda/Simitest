@@ -7,20 +7,20 @@
             @if($todoxxxx['pestpadr'])
             @canany(['dependencia-leer', 'dependencia-crear', 'dependencia-editar', 'dependencia-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='dependen') ?' active' : '' }}
-        text-sm" href="{{ route('dependencia') }}">Dependencia</a></li>
+        text-sm" href="{{ route('dependencia') }}">DEPENDENCIA</a></li>
             @endcanany
             @else
             @canany(['dependencia-leer', 'dependencia-crear', 'dependencia-editar', 'dependencia-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='dependen') ?' active' : '' }}
-        text-sm" href="{{ route('dependencia') }}">Dependencia</a></li>
+        text-sm" href="{{ route('dependencia') }}">DEPENDENCIA</a></li>
             @endcanany
             @canany(['servdepe-leer', 'servdepe-crear', 'servdepe-editar', 'servdepe-borrar'])
             <li class="nav-item" readonly><a class="nav-link{{ ($todoxxxx['slotxxxx']=='servdepe') ?' active' : '' }}
-        text-sm" href="{{ route('servdepe', $todoxxxx['parametr']) }}">Servicios</a></li>
+        text-sm" href="{{ route('servdepe', $todoxxxx['parametr']) }}">SERVICIOS</a></li>
             @endcanany
             @canany(['usuadepe-leer', 'usuadepe-crear', 'usuadepe-editar', 'usuadepe-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='usuadepe') ?' active' : '' }}
-        text-sm" href="{{ route('usuadepe', $todoxxxx['parametr']) }}">Personal</a></li>
+        text-sm" href="{{ route('usuadepe', $todoxxxx['parametr']) }}">PERSONAL</a></li>
             @endcanany
             @endif
         </ul>
