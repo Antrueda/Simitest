@@ -190,6 +190,8 @@ class VsiController extends Controller
     {
         $dataxxxx=$request->all();
         $dataxxxx['sis_nnaj_id']=$padrexxx;
+        $dataxxxx['sis_esta_id']=1;
+        
         return $this->grabar([
             'dataxxxx' => $dataxxxx,
             'modeloxx' => '',
@@ -271,3 +273,4 @@ class VsiController extends Controller
         }
     }
 }
+

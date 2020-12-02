@@ -1,16 +1,15 @@
 <?php
-$routexxx='alertas';
-$controll='Alerta';
-Route::group(['prefix' => 'alerta'], function ()use($routexxx,$controll){
+$routexxx='mensajes';
+$controll='Mensaje';
+Route::group(['prefix' => 'mensaje'], function ()use($routexxx,$controll){
 	Route::get('', [
 		'uses' => $controll.'Controller@inicio', 
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
 	])->name($routexxx);
-
-	Route::get('alertas', [
+	Route::get('mensajes', [
 		'uses' => $controll.'Controller@getData', 
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
-	])->name($routexxx.'.alertas');
+	])->name($routexxx.'.mensajes');
 	Route::get('nuevo', [
 		'uses' => $controll.'Controller@create',
 		'middleware' => ['permission:'.$routexxx.'-crear']

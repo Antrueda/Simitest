@@ -101,6 +101,7 @@ class VsiAntecedenteController extends Controller
     public function store(VsiAntecedenteCrearRequest $request, $padrexxx)
     {
        $request->request->add(['vsi_id' => $padrexxx]);
+       $request->request->add(['sis_esta_id'=> 1]);
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => '',

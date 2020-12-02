@@ -102,6 +102,7 @@ class VsiViolenciaController extends Controller
     public function store(VsiViolenciaCrearRequest $requestx, $padrexxx)
     {
         $requestx->request->add(['vsi_id'=> $padrexxx]); 
+        $requestx->request->add(['sis_esta_id'=> 1]);
         return $this->grabar([
             'requestx' => $requestx,
             'modeloxx' => '',

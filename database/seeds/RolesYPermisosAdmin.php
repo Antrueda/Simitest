@@ -137,4 +137,8 @@ Role::create(['name' => 'administrador', 'user_crea_id' => 1, 'user_edita_id' =>
     'fos-admin', 'fos-area-admin', 'fos-tipo-admin', 'fos-sub-tipo-admin',
     'fostipo-leer', 'fostipo-crear', 'fostipo-editar', 'fostipo-borrar',
     'fossubtipo-leer', 'fossubtipo-crear', 'fossubtipo-editar', 'fossubtipo-borrar',
+
+
+    'alertas-leer', 'alertas-crear', 'alertas-editar', 'alertas-borrar',
+    'mensajes-leer', 'mensajes-crear', 'mensajes-editar', 'mensajes-borrar',
 ]);

@@ -142,10 +142,20 @@
          <li class="nav-item">
              <a href="{{ route('alertas') }}" class="nav-link">
                  <i class="fas fa-chess-pawn nav-icon"></i>
-                 <p>Mensajes</p>
+                 <p>Alertas</p>
              </a>
          </li>
          @endcan
+         @can('alertas-leer')
+         <li class="nav-item">
+             <a href="{{ route('mensajes.index') }}" class="nav-link">
+                 <i class="fas fa-chess-pawn nav-icon"></i>
+                 <p>Mensaje</p>
+             </a>
+         </li>
+         @endcan
+
+         
          @can('eps-leer')
          <li class="nav-item">
              <a href="{{ route('eps') }}" class="nav-link">

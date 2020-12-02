@@ -91,8 +91,6 @@ class AlertaController extends Controller
                     ['td' => 'ID'],
                     ['td' => 'TITULO'], /////
                     ['td' => 'DESCRIPCION'],////
-
-
                     ['td' => 'ESTADO'],
                 ],
                 'columnsx' => [
@@ -166,7 +164,7 @@ class AlertaController extends Controller
 
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'CREAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => 'Crear',]);
@@ -221,12 +219,10 @@ class AlertaController extends Controller
      */
     public function edit(Post $objetoxx)
     {
-
-
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+    if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'MODIFICAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$objetoxx->id]],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$objetoxx->id]],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }

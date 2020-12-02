@@ -1,6 +1,7 @@
 <?php
 $routexxx='alertas';
 $controll='Alerta';
+
 Route::group(['prefix' => 'alerta'], function ()use($routexxx,$controll){
 	Route::get('', [
 		'uses' => $controll.'Controller@inicio', 

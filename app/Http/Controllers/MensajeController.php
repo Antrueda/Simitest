@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PostEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Alertas\AlertasCrearRequest;
 use App\Http\Requests\Alertas\AlertasEditarRequest;
-use App\Models\mensajes;
-use App\Models\Sistema\SisEsta;
-use App\Notifications\PostNotification;
-use Illuminate\Http\Request;
+use App\Models\Sistema\SisMunicipio;
+use App\Models\Tema;
 
-use App\Traits\Alertas\AlertasTrait;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\fichaIngreso\NnajDese;
+use App\Models\Mensajes;
+use App\Traits\Alertas\AlertasTrait;
 
 class MensajeController extends Controller
 {
@@ -20,103 +23,90 @@ class MensajeController extends Controller
 
     public function __construct()
     {
-        $this->opciones = [
-            'permisox' => 'mensajes', ///////////////////////////////
-            'parametr' => [],
-            'rutacarp' => 'Mensajes.', ///////////////////////////////
-            'tituloxx' => 'Mensajes',//////////////////////////////////
-            'carpetax' => 'Mensaje',//////////////////////////////////////
-            'slotxxxx' => 'Mensajes',//////////////////////////
-            'tablaxxx' => 'datatable',
-            'indecrea' => false, // false muestra las pestañas
-            'esindexx' => false,
-            'tituhead' => '',
-            'fechcrea' => '',
-            'fechedit' => '',
-            'usercrea' => '',
-            'useredit' => '',
-            
-            'usuariox' => [],
-
-            'confirmx' => 'Desea inactivar el mensaje: ',
-            'reconfir' => 'Realmente desea inactivar el mensaje: ',
-            'msnxxxxx' => 'No se puedo inactivar el mensaje',
-            'rutaxxxx' => 'mensajes', //////////////////////////
-            'routnuev' => 'mensajes',/////////////////////////
-            'routxxxx' => 'mensajes',/////////////////////
-        ];
-
+        $this->opciones['permisox'] = 'mensajes';
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
+        $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+        $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
+        $this->opciones['tituhead'] = 'Mensajes';
+        $this->opciones['routxxxx'] = 'mensajes';
+        $this->opciones['slotxxxx'] = 'mensajes';
+        $this->opciones['perfilxx'] = 'sinperfi';
+        $this->opciones['rutacarp'] = 'Mensajes.';
+        $this->opciones['parametr'] = [];
+        $this->opciones['carpetax'] = 'Mensajes';
+        /** botones que se presentan en los formularios */
+        $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
+        /** informacion que se va a mostrar en la vista */
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
+        /** ruta que arma el formulario */
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
+
+        $this->opciones['tituloxx'] = "MENSAJES";
+        $this->opciones['fechcrea'] ='';
+        $this->opciones['fechedit'] ='';
+        $this->opciones['usercrea'] ='';
+        $this->opciones['useredit'] ='';
+  
 
 
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A MENSAJES', 'clasexxx' => 'btn btn-sm btn-primary' ///////////////////////////
+                'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJ', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
     }
 
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-       
-        $this->opciones['botoform'][0]['routingx'][1] = [];
-        $this->opciones['padrexxx'] = '';
-        $this->opciones['esindexx'] = true;
+
+
+        // $respuest = Http::get('http://localhost:8085/areas')->json();
+        // // echo '<pre>';
+        // // print_r($respuest);
+
+        // ddd($respuest);
+
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'MENSAJES', ////////
                 'titulist' => 'LISTA DE MENSAJES',////////
-                'dataxxxx' => [
-
-                ],
-
-                'accitabl' => true,
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'].'.mensaje',$this->opciones['parametr']), //////
+                'urlxxxxx' => route($this->opciones['routxxxx'].'.mensajes',$this->opciones['parametr']), //////
                 'cabecera' => [
-                    ['td' => 'ID'],
-                    ['td' => 'TITULO'], /////
-                    ['td' => 'DESCRIPCION'],////
-
-
-                    ['td' => 'ESTADO'],
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TITULO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DESCRIPCION', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'posts.id'],
-                    ['data' => 'titulo', 'name' => 'posts.titulo'], //////
-                    ['data' => 'descripcion', 'name' => 'posts.descripcion'],  //////
-
-
-
+                    ['data' => 'id', 'name' => 'fi_datos_basicos.id'],
+                    ['data' => 'titulo', 'name' => 'nnaj_docus.s_documento'],
+                    ['data' => 'descripcion', 'name' => 'fi_datos_basicos.s_primer_nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
-                'tablaxxx' => $this->opciones['tablaxxx'],
+                'tablaxxx' => 'mensajedatatable',
                 'permisox' => $this->opciones['permisox'],
                 'routxxxx' => $this->opciones['routxxxx'],
-                'parametr' => $this->opciones['botoform'][0]['routingx'][1],
+                'parametr' => [],
             ]
-
         ];
-        
-        $this->opciones['accionxx'] = 'index';
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ];
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-/**
- * datos que se muestarn en la tabla del index
- */
+
     public function getData(Request $request)
     {
         if ($request->ajax()) {
@@ -124,67 +114,85 @@ class MensajeController extends Controller
             $request->botonesx= $this->opciones['rutacarp'] .
             $this->opciones['carpetax'] . '.botones.botonesapi';
             $request->estadoxx='layouts.components.botones.estadosx';
-            return $this->getRegistros($request);
+            return $this->getMensajes($request);
         }
     }
-    private function view($dataxxxx)
+    private function grabar($dataxxxx)
     {
-       
-       
-        $this->opciones['parametr'] = [];
-        $this->opciones['botoform'][0]['routingx'][1] = [];
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $this->opciones['accionxx'] = $dataxxxx['accionxx'];
-        // indica si se esta actualizando o viendo
-        if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
-                $this->opciones['botoform'][] =
-                    [
-                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', []],
-                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
-                    ];
-            }
-            $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
-            $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
-            $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
-            $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
-            $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
-        }
-
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+        return redirect()
+        ->route($this->opciones['routxxxx'] . '.editar', [Mensajes::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id])
+        ->with('info', $dataxxxx['menssage']);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-        return $this->view(['modeloxx' => '', 'accionxx' => 'Crear',]);
-    }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    private function view($dataxxxx)
+    {
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
+
+        $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['servicio'] = ['' => 'Seleccione'];
+        // indica si se esta actualizando o viendo
+        $this->opciones['aniosxxx'] = '';
+        if ($dataxxxx['modeloxx'] != '') {
+        
+
+            $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+            $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+            $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+            $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
+
+            $this->opciones['perfilxx'] = 'sinperfi';
+            $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
+            $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
+          
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', $this->opciones['parametr']],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+          
+        }
+        
+        // Se arma el titulo de acuerdo al array opciones
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
+
+    public function create()
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
+    }
     public function store(AlertasCrearRequest $request)
     {
         $dataxxxx = $request->all();
         $dataxxxx['user_id']=Auth::user()->id;
-        $post = mensajes::create($dataxxxx);
+        $post = Mensajes::create($dataxxxx);
         //auth()->user()->notify(new PostNotification($post));
-
-        
-
+        /*
+        User::all()
+                ->except($post->user_id)
+                ->each(function(user $user)use ($post){
+                $user->notify(new PostNotification($post));
+                });
+                e*/
 
         return $this->grabar([
             'dataxxxx' => $dataxxxx,
@@ -196,67 +204,69 @@ class MensajeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\FiDatosBasico $objetoxx
      * @return \Illuminate\Http\Response
      */
     public function show(Mensajes $objetoxx)
     {
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->id];
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Ver']);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\FiDatosBasico $objetoxx
      * @return \Illuminate\Http\Response
      */
     public function edit(Mensajes $objetoxx)
     {
-
-       
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$objetoxx->id]],
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar']);
-    }
-
-    private function grabar($dataxxxx)
-    {
-        return redirect()
-            ->route($this->opciones['routxxxx'] . '.editar', [mensajes::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id])
-            ->with('info', $dataxxxx['menssage']);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $objetoxx]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Mensajes $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(AlertasEditarRequest $request, Mensajes $objetoxx)
+    public function update(AlertasEditarRequest $request,  Mensajes $objetoxx)
     {
-        return $this->grabar([
-            'dataxxxx' => $request->all(),
-            'modeloxx' => $objetoxx,
-            'menssage' => 'Registro actualizado con éxito'
-        ]);
+
+        return $this->grabar($request->all(), $objetoxx, 'Datos básicos actualizados con exito');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request)
+    public function inactivate(Mensajes $objetoxx)
     {
-       
+        $this->opciones['parametr'] = [$objetoxx->id];
+        if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'INACTIVAR', 'routingx' => [$this->opciones['routxxxx'] . '.borrar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view($objetoxx,  'modeloxx', 'Destroy');
     }
+
+
+    public function destroy(Request $request, Mensajes $objetoxx)
+    {
+
+        $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route($this->opciones['permisox'], [])
+            ->with('info', 'Sucursal inactivada correctamente');
+    }
+
+   
 }
+
+

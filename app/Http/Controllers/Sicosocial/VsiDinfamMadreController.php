@@ -139,6 +139,7 @@ class VsiDinfamMadreController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['vsi_id'] = $padrexxx;
+        $dataxxxx['sis_esta_id']=1;
         return $this->grabar([
             'dataxxxx' => $dataxxxx,
             'modeloxx' => '',

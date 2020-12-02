@@ -106,6 +106,7 @@ class VsiRelFamiliarController extends Controller
     {
 
         $requestx->request->add(['vsi_id'=> $padrexxx]);
+        $requestx->request->add(['sis_esta_id'=> 1]);
         //ddd($padrexxx);
         return $this->grabar([
             'requestx' => $requestx,

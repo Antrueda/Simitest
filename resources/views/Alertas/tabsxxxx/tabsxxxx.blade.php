@@ -10,6 +10,12 @@
         text-sm" href="{{ route('alertas') }}">ALERTAS</a></li>
             @endcanany
 
+            @canany(['mensajes-leer', 'mensajes-crear', 'mensajes-editar', 'mensajes-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='mensajes') ?' active' : '' }}
+        text-sm" href="{{ route('mensajes.index') }}">MENSAJES</a></li>
+            @endcanany
+
+
 
         </ul>
     </div>
