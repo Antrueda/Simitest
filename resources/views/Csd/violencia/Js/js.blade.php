@@ -54,7 +54,7 @@
         var f_municipos = function(valuexxx, campoxxx, selected) {
 
             $.ajax({
-                url: "{{ route('ajaxx.municipios') }}",
+                url: "{{ route('ajaxx.gmunicipios') }}",
                 data: {
                     padrexxx: valuexxx,
                     pselecte: selected,
@@ -66,11 +66,11 @@
                     f_combo(json[0], json[1]);
                 },
                 error: function(xhr, status) {
-                    alert('Disculpe, existió un problema');
+                    alert('Disculpe, existió un problema al listar los municpios');
                 },
             });
         }
-        $('#departamento_cond_id').change(function() {
+        $('#departamento_cond_id').change(function() { 
             f_municipos($(this).val(), 'municipio_cond_id', '');
         });
         var deptcond = "{{old('departamento_cond_id')}}";

@@ -98,7 +98,7 @@
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='13. Estado emocional';
+            $pestania='13. Activación emocional';
             $permisox='vsiactiv';
             $checkxxx=$todoxxxx['vsixxxxx']->VsiActEmocional;
             ?>

@@ -22,7 +22,7 @@ class VsiActEmocionalController extends Controller
             'permisox' => 'vsiactiv',
             'parametr' => [],
             'rutacarp' => 'Sicosocial.',
-            'tituloxx' => 'ESTADO EMOCIONAL',
+            'tituloxx' => 'ACTIVACIÓN EMOCIONAL',
             'carpetax' => 'Actemocional',
             'slotxxxx' => 'vsiactiv',
             'tablaxxx' => 'datatable',

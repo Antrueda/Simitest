@@ -12,3 +12,6 @@ Route::get('municipios', [
     'uses' => 'AjaxxController@municipios',
 ])->name('ajaxx.municipios');
 
+Route::get('getmunicipios', [
+    'uses' => 'AjaxxController@getMunicipios',
+])->name('ajaxx.gmunicipios');

@@ -2,7 +2,8 @@
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <h3 class="card-title">
-            Datos
+            DATOS        <a href="{{route($todoxxxx['routnuev'].'.nuevo',[$todoxxxx['nnajregi']])}}" 
+            class="btn btn-sm btn-primary" role="button">NUEVA INTERVENCIÓN</a>
         </h3>
     </div>
     <div class="card-body">

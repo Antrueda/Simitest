@@ -1,8 +1,9 @@
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Información básica del NNA</h6>
+    <h6>Datos básicos</h6>
   </div>
 </div>
+<hr>
 
 <div class="form-row align-items-end">
   <div class="form-group col-md-3">
@@ -37,6 +38,7 @@
     {{ Form::text('nodocumento',  $todoxxxx['usuariox']->nnaj_docu->s_documento, ['class' => $errors->first('tipodocumento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
   </div>
 </div>
+<hr>
 
 
 
@@ -139,7 +141,7 @@
 <br>
 <div class="row">
   <div class="col-md-12">
-    <b><h6>CARACTERISTICAS FISICAS</h6></b>
+    <b><h6>CARACTERÍSTICAS FÍSICAS</h6></b>
   </div>
 </div>
 <hr>
@@ -255,7 +257,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('prm_nariz_id', 'Nariz', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_nariz_id', $todoxxxx['ojosxxxx'], null, ['class' => $errors->first('prm_nariz_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    {{ Form::select('prm_nariz_id', $todoxxxx['narizxxx'], null, ['class' => $errors->first('prm_nariz_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
     @if($errors->has('prm_nariz_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('prm_nariz_id') }}
@@ -265,7 +267,7 @@
 </div>
 <div class="row"> 
   <div class="col-md-4">
-    {{ Form::label('prm_tienelunar_id', '¿Tiene lunares?', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('prm_tienelunar_id', 'Lunar', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('prm_tienelunar_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_tienelunar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
     @if($errors->has('prm_tienelunar_id'))
       <div class="invalid-feedback d-block">
@@ -296,6 +298,7 @@
   <div class="col-md-12">
     {{ Form::label('senias', 'Señas particulares:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('senias', null, ['class' => $errors->first('senias') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Cicatrices, manchas, características físicas evidentes (amputación de una parte del cuerpo, uso de tatuajes, etc.)', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadorsenias">0/4000</p>
     @if($errors->has('senias'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('senias') }}
@@ -307,6 +310,7 @@
   <div class="col-md-12">
     {{ Form::label('circunstancias', 'Circunstancias en las que se presenta la evasión (Relato detallado):', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('circunstancias', null, ['class' => $errors->first('circunstancias') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Lugar, actividad que estaba realizando, personas que estaban en la actividad, si estaba acompañado(a).', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadorcircunstancias">0/4000</p>
     @if($errors->has('circunstancias'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('circunstancias') }}

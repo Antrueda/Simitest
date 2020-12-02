@@ -470,10 +470,10 @@ class AjaxxController extends Controller
             $dataxxxx = $request->all();
             $respuest = [[
                 'dptcondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : SisDepartamento::combo(2, true),
-                'muncondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : [['valuexxx' => '', 'optionxx' => 'Seleccion']],
+                'muncondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : [['valuexxx' => '', 'optionxx' => 'Seleccione']],
                 'tiecerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : Tema::combo(23, true, true),
                 'dptcerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : SisDepartamento::combo(2, true),
-                'muncerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : [['valuexxx' => '', 'optionxx' => 'Seleccion']],
+                'muncerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? [['valuexxx' => 1, 'optionxx' => 'NO APLICA']] : [['valuexxx' => '', 'optionxx' => 'Seleccione']],
             ]];
             return response()->json($respuest);
         }
@@ -1041,7 +1041,7 @@ class AjaxxController extends Controller
         }
         return $comboxxx;
     }
-    function municipios(Request $request)
+    public function municipios(Request $request)
     {
         if ($request->ajax()) {
 
@@ -1052,6 +1052,21 @@ class AjaxxController extends Controller
             ]);
         }
     }
+
+    public function getMunicipios(Request $request)
+    {
+        if ($request->ajax()) {
+            
+// solucioando
+            $dataxxxx = SisMunicipio::select(['id as valuexxx', 's_municipio as optionxx'])->where('sis_departamento_id', $request->all()['padrexxx'])->get();
+            return response()->json([
+                $this->getCombos($dataxxxx, true, $request->all()['pselecte']),
+                $request->all()['campoxxx']
+            ]);
+        }
+    }
+
+
     public function getDepartamentos(Request $request)
     {
         if ($request->ajax()) {

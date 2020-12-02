@@ -37,7 +37,7 @@ class AIEvasionController extends Controller
 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'Reporte de Evasión';
+        $this->opciones['tituhead'] = 'REPORTE DE EVASIÓN';
         $this->opciones['routxxxx'] = 'aievasion';
         $this->opciones['slotxxxx'] = 'aievasion';
         $this->opciones['perfilxx'] = 'conperfi';
@@ -70,7 +70,7 @@ class AIEvasionController extends Controller
 
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
-        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['tituloxx'] = "REPORTE DE EVASIÓN";
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
@@ -84,7 +84,7 @@ class AIEvasionController extends Controller
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'REGISTRAR NUEVA EVASION',
+                'titunuev' => 'REGISTRAR NUEVA EVASIÓN',
                 'titulist' => 'LISTA DE EVASIONES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
@@ -175,7 +175,8 @@ class AIEvasionController extends Controller
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
         $departam=0;
         
-        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
+        $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
         $this->opciones['dependex']= SisDepen::orderBy('nombre')->get();
         
         $this->opciones['usuarioz'] = User::comboCargo(true, false);

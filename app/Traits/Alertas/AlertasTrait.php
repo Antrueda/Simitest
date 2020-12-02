@@ -36,8 +36,8 @@ trait AlertasTrait
             'sis_esta_id',
             'sis_estas.s_estado'
         ])
-            ->join('sis_estas', 'mensajes.sis_esta_id', '=', 'sis_estas.id')
-            ->where('mensajes.sis_esta_id', 1);
+            ->join('sis_estas', 'mensajes.sis_esta_id', '=', 'sis_estas.id');
+            
         return $this->getDtGeneral($dataxxxx, $request);
     }
 

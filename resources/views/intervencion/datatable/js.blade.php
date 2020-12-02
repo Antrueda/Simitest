@@ -51,6 +51,7 @@
                   if (data.valuexxx == dataxxxx.selected){
                   selected = 'selected';
                   }
+                  
                   $('#i_prm_subarea_ajuste_id').append('<option ' + selected + ' value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                   });
                   },
@@ -88,6 +89,11 @@
                                 var selected = '';
                                 if (data.valuexxx == dataxxxx.selected){
                                 selected = 'selected';
+                                }
+                                if(data.valuexxx==1269){
+                                        $('#i_prm_subarea_ajuste_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')  
+                                }else{
+                                        $('#i_prm_subarea_ajuste_id').append('<option  value="">Seleccione</option>')  
                                 }
                                 $('#i_prm_area_ajuste_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                                 });

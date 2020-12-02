@@ -13,7 +13,7 @@ class EstusuarioEditarRequest extends FormRequest
     {
         $this->_mensaje = [
             'estado.required' => 'Ingrese el nombre del estado',
-            'estado.unique' => 'El estado ya se encuentra en uso',
+            
             'prm_formular_id.required' => 'Seleccione un formulario',
         ];
         $this->_reglasx=['prm_formular_id'=>'required'];
@@ -42,7 +42,7 @@ class EstusuarioEditarRequest extends FormRequest
     {
         $this->validar();
         $this->_reglasx['estado']= ['required',
-            'unique:estusuarios,estado,' . $this->segments()[2]];
+            'estado,' . $this->segments()[2]];
         return $this->_reglasx;
     }
 

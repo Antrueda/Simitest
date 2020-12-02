@@ -65,6 +65,13 @@ class IsDatoBasicoController extends Controller
         $this->opciones['proxxxxx'] = Carbon::today()->add(3, 'Month')->isoFormat('YYYY-MM-DD');
 
         $this->opciones[''] = Tema::combo(52, true, false);
+        
+        $this->opciones['botoform'] = [
+            [
+                'mostrars' => true, 'accionxx' => '', 'routingx' => ['is.intervencion.lista', []],
+                'formhref' => 2, 'tituloxx' => "VOLVER A INTERVENCIÓN", 'clasexxx' => 'btn btn-sm btn-primary'
+            ],
+        ];
     }
 
     public function index(Request $request)
@@ -115,7 +122,10 @@ class IsDatoBasicoController extends Controller
     $areaxxxx=User::getAreasUser($userxxxx);
     ddd($areaxxxx);
     */
-    
+  
+
+
+    $this->opciones['botoform'][0]['routingx'] [1][0]=   $this->opciones['nnajregi'];
     $this->opciones['usuariox'] = $this->opciones['nnajregi'];
         $fechaxxx = explode('-', date('Y-m-d'));
             // dd($fechaxxx);
@@ -156,13 +166,13 @@ class IsDatoBasicoController extends Controller
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {
-
+            $this->opciones['botoform'][0]['routingx'] [1][1]=   $objetoxx->id;
             if (!$tienper && $objetoxx->i_prm_tipo_atencion_id == 1066) {
                 return redirect()
                     ->route('is.intervencion.lista', [$this->opciones['nnajregi']])
                     ->with('info', 'Superfil no está autorizado para ver intervenciones sicosociales especializadas');
             }
-            if ($nombobje->i_prm_area_ajuste_id != 1269) {
+            if ($objetoxx->i_prm_area_ajuste_id != 1269) {
                 $this->opciones['subareas'] = [1269 => 'NO APLICA'];
             }   
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
@@ -182,6 +192,11 @@ class IsDatoBasicoController extends Controller
 
     public function create($nnajregi)
     {
+        $this->opciones['botoform'][] =
+        [
+            'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+        ];
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
@@ -191,6 +206,7 @@ class IsDatoBasicoController extends Controller
 
     public function lista($nnajregi)
     {
+        
         $this->opciones['nnajregi'] = $nnajregi;
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
         return $this->view('', '', 'crear');
@@ -204,6 +220,7 @@ class IsDatoBasicoController extends Controller
      */
     public function show($nnajregi, IsDatosBasico $intervencion)
     {
+        $this->opciones['nnajregi'] = $nnajregi;
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
     }
 
@@ -215,6 +232,11 @@ class IsDatoBasicoController extends Controller
      */
     public function edit($nnajregi, IsDatosBasico $intervencion)
     {
+        $this->opciones['botoform'][] =
+        [
+            'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+            'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+        ];
         $this->opciones['disptabx'] = "none";
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;

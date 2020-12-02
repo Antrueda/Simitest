@@ -20,7 +20,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('municipio_cond_id', '2.1(b) Municipio', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('municipio_cond_id',$todoxxxx["municipi"], null, ['class' => $errors->first('municipio_cond_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('municipio_cond_id',$todoxxxx["municipi"], null, ['class' => $errors->first('municipio_cond_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'municipio_cond_id']) }}
       @if($errors->has('municipio_cond_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('municipio_cond_id') }}

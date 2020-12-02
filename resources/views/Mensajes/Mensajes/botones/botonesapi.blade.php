@@ -6,5 +6,5 @@
 @endif
 
 @if($requestx->puedinac)
-<button class="btn btn-sm btn-danger dttservicios" id="{{$queryxxx->id}}">Inactivar</button>
+<a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', [$queryxxx->id]) }}">Inactivar</a>
 @endif

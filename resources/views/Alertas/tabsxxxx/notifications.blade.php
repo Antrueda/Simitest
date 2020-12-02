@@ -8,10 +8,7 @@
             <li class="nav-item"><a class="nav-link text-sm" href="{{ route('alertas.index') }}">ALERTAS</a></li>
             @endcanany
 
-            @canany(['mensajes-leer', 'mensajes-crear', 'mensajes-editar', 'mensajes-borrar'])
-            <li class="nav-item"><a class="nav-link text-sm" href="{{ route('mensajes.index') }}">MENSAJES</a></li>
-            @endcanany
-        </ul>
+       </ul>
     </div>
 <div class="card-header">Notificaciones no leidas</div>
   <div class="card-body">

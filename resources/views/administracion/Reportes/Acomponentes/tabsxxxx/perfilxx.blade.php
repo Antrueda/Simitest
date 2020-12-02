@@ -23,8 +23,8 @@
         <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_nacimi->d_nacimiento }}</a>
       </li>
       <li class="list-group-item">
-        <b></b>
-        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_nacimi->Edad }} años</a>
+        <b>EDAD</b>
+        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_nacimi->Edad }} Años</a>
       </li>
       <li class="list-group-item">
         <b>SEXO DE NACIMIENTO</b>

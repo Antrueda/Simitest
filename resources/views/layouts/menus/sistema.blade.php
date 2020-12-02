@@ -148,7 +148,7 @@
          @endcan
          @can('alertas-leer')
          <li class="nav-item">
-             <a href="{{ route('mensajes.index') }}" class="nav-link">
+             <a href="{{ route('mensajes') }}" class="nav-link">
                  <i class="fas fa-chess-pawn nav-icon"></i>
                  <p>Mensaje</p>
              </a>

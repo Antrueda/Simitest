@@ -1,11 +1,6 @@
 <div style="display:{{ $todoxxxx['dispform'] }}" >
 
-<div class="form-group card-footer text-muted text-center">
-  @if($todoxxxx['accionxx']!='Ver')
-    {{ Form::submit($todoxxxx['accionxx'], ['class'=>'btn btn-sm btn-primary']) }}
-  @endif
-  <a class="btn btn-sm btn-primary" href="{{ route('is.intervencion.lista', $todoxxxx['nnajregi']) }}">Volver</a>
-</div>
+
 
 <div class="card" >
 
@@ -220,9 +215,5 @@
   </div>
 </div>
 
-<div class="form-group card-footer text-muted text-center">
-    @if($todoxxxx['accionxx']!='Ver')
-      {{ Form::submit($todoxxxx['accionxx'], ['class'=>'btn btn-sm btn-primary']) }}
-    @endif
-  </div>
+
 </div>

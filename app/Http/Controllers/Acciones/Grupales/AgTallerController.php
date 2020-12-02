@@ -202,7 +202,7 @@ class AgTallerController extends Controller
             ];
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'Editar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', $this->opciones['parametr']],
+                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', $this->opciones['parametr']],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view($objetoxx,  'modeloxx', 'Editar', 'editar');

@@ -15,14 +15,13 @@ class EstusuarioCrearRequest extends FormRequest
 
         $this->_mensaje = [
             'estado.required' => 'Ingrese el nombre del estado',
-            'estado.unique' => 'El estado ya se encuentra en uso',
             'prm_formular_id.required' => 'Seleccione un formulario',
         ];
         $this->_reglasx = [
             'estado' =>
             [
                 'required',
-                'unique:estusuarios,estado,'
+                
             ],
             'prm_formular_id' =>
             [

@@ -117,12 +117,7 @@ class MensajeController extends Controller
             return $this->getMensajes($request);
         }
     }
-    private function grabar($dataxxxx)
-    {
-        return redirect()
-        ->route($this->opciones['routxxxx'] . '.editar', [Mensajes::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id])
-        ->with('info', $dataxxxx['menssage']);
-    }
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -182,23 +177,18 @@ class MensajeController extends Controller
     }
     public function store(AlertasCrearRequest $request)
     {
-        $dataxxxx = $request->all();
-        $dataxxxx['user_id']=Auth::user()->id;
-        $post = Mensajes::create($dataxxxx);
-        //auth()->user()->notify(new PostNotification($post));
-        /*
-        User::all()
-                ->except($post->user_id)
-                ->each(function(user $user)use ($post){
-                $user->notify(new PostNotification($post));
-                });
-                e*/
-
         return $this->grabar([
-            'dataxxxx' => $dataxxxx,
+            'requestx'=>$request,
             'modeloxx' => '',
             'menssage' => 'Registro creado con éxito'
         ]);
+    }
+
+    private function grabar($dataxxxx)
+    {
+        return redirect()
+        ->route($this->opciones['routxxxx'] . '.editar', [Mensajes::transaccion($dataxxxx)->id])
+        ->with('info', $dataxxxx['menssage']);
     }
 
     /**
@@ -237,10 +227,11 @@ class MensajeController extends Controller
      * @param  \App\Models\Mensajes $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(AlertasEditarRequest $request,  Mensajes $objetoxx)
-    {
 
-        return $this->grabar($request->all(), $objetoxx, 'Datos básicos actualizados con exito');
+
+    public function update(AlertasEditarRequest $request, Mensajes $objetoxx)
+    {
+        return $this->grabar(['requestx'=>$request,'modeloxx'=> $objetoxx,'infoxxxx'=>'Mensaje actualizado con exito'] );
     }
 
     public function inactivate(Mensajes $objetoxx)
@@ -253,7 +244,7 @@ class MensajeController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view($objetoxx,  'modeloxx', 'Destroy');
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$objetoxx]);
     }
 
 

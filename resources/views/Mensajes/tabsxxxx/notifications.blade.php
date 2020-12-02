@@ -9,7 +9,7 @@
             @endcanany
 
             @canany(['alertas-leer', 'alertas-crear', 'alertas-editar', 'alertas-borrar'])
-            <li class="nav-item"><a class="nav-link text-sm" href="{{ route('mensajes.index') }}">MENSAJES</a></li>
+            <li class="nav-item"><a class="nav-link text-sm" href="{{ route('mensajes') }}">MENSAJES</a></li>
             @endcanany
         </ul>
     </div>

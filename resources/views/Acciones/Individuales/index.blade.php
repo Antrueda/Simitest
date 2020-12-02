@@ -3,7 +3,7 @@
 @section('content')
 <div class="content-header">
   <h1>
-    Acciones Individuales
+    ACCIONES INDIVIDUALES
     @if(@isset($accion))
       <a class="btn btn-sm btn-primary ml-2" title="Regresar" href="{{ route('ai') }}">
         Regresar

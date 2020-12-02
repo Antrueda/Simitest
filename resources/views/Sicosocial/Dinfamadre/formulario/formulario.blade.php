@@ -15,7 +15,7 @@
                     <tr>
                         <th>DIA</th>
                         <th>MES</th>
-                        <th>AñO</th>
+                        <th>AÑO</th>
                     </tr>
                 </thead>
                 <tbody>

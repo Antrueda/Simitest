@@ -27,10 +27,11 @@
             'mensajes.created_at',
             'sis_esta_id',
             'sis_estas.s_estado'
-        ])
+        ])->orderBy('mensajes.created_at', 'DESC')
             ->join('sis_estas', 'mensajes.sis_esta_id', '=', 'sis_estas.id')
-            ->where('mensajes.sis_esta_id', 1)->pluck('descripcion')->take(5)->sortByDesc('created_at');;
+            ->where('mensajes.sis_esta_id', 1)->pluck('descripcion')->take(5);
             $numero=1;
+            
             foreach($mensajes as $value) {
               echo '<tr>';
               echo '<td align="left">' . $numero . '</td>';

@@ -57,7 +57,7 @@
         var f_municipos = function(valuexxx, campoxxx, selected) {
 
             $.ajax({
-                url: "{{ route('ajaxx.municipios') }}",
+                url: "{{ route('ajaxx.gmunicipios') }}",
                 data: {
                     padrexxx: valuexxx,
                     pselecte: selected,

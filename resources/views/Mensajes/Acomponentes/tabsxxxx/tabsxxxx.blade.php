@@ -7,7 +7,7 @@
             @if($todoxxxx['pestpadr']==1 || $todoxxxx['pestpadr']==2)
             @canany(['mensajes-leer', 'mensajes-crear', 'mensajes-editar', 'mensajes-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='mensajes') ?' active' : '' }}
-        text-sm" href="{{ route('mensajes.index') }}">MENSAJES</a></li>
+        text-sm" href="{{ route('mensajes') }}">MENSAJES</a></li>
             @endcanany
             @endif
 
