@@ -44,14 +44,7 @@ class CreateAiReporteEvasionTable extends Migration
             $table->string('senias', 4000);
             $table->string('s_doc_adjunto', 200)->nullable();
             $table->string('circunstancias', 4000);
-            $table->bigInteger('prm_familiar1_id')->unsigned();
-            $table->string('nombre_familiar1', 120);
-            $table->string('direccion_familiar1', 120);
-            $table->string('tel_familiar1', 10);
-            $table->bigInteger('prm_familiar2_id')->unsigned()->nullable();
-            $table->string('nombre_familiar2', 120)->nullable();
-            $table->string('direccion_familiar2', 120)->nullable();
-            $table->string('tel_familiar2', 10)->nullable();
+   
             $table->string('observaciones_fam', 4000);
             $table->bigInteger('prm_reporta_id')->unsigned();
             $table->bigInteger('prm_llamada_id')->unsigned()->nullable();
@@ -88,8 +81,7 @@ class CreateAiReporteEvasionTable extends Migration
             $table->foreign('prm_nariz_id')->references('id')->on('parametros');
             $table->foreign('prm_tienelunar_id')->references('id')->on('parametros');
             $table->foreign('prm_tamlunar_id')->references('id')->on('parametros');
-            $table->foreign('prm_familiar1_id')->references('id')->on('parametros');
-            $table->foreign('prm_familiar2_id')->references('id')->on('parametros');
+            
             $table->foreign('prm_reporta_id')->references('id')->on('parametros');
             $table->foreign('prm_llamada_id')->references('id')->on('parametros');
             $table->foreign('user_doc1_id')->references('id')->on('users');

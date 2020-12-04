@@ -168,6 +168,7 @@ class AIEvasionController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
             ];
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
@@ -177,12 +178,18 @@ class AIEvasionController extends Controller
         
         $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
         $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
+        $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
+        $this->opciones['depended'] = $upinnajx->id=$upinnajx->s_direccion;
+        $this->opciones['dependet'] = $upinnajx->id=$upinnajx->s_telefono ;
         $this->opciones['dependex']= SisDepen::orderBy('nombre')->get();
         
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
+        
+
         $this->opciones['vercrear'] = false;
         $this->opciones['archivox']='';
         $parametr = 0;
+        $vercrear = false;
         if ($dataxxxx['modeloxx'] != '') {
             foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
                 $this->opciones['archivox'] = $value;
@@ -202,66 +209,86 @@ class AIEvasionController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
+            $parametr = $dataxxxx['modeloxx']->id;
+            $vercrear = true;
         }  
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'CREAR COMPONENTE FAMILIAR',
-                'titulist' => 'REPRESENTANTE LEGAL',
-                'dataxxxx' => [],
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => false,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.visitado', $this->opciones['parametr']),
+                'titunuev' => 'AGREGAR VESTUARIO',
+                'titulist' => 'LISTA DE VESTUARIO',
+                'pregunta' => 'Vestuario: (Detallar ampliamente el vestuario (prendas y colores, accesorios) que lleva el Niño, Niña o Adolescente en el momento de la evasión)',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
+                'vercrear' => $vercrear,
+                'urlxxxxx' => route('evasionves.otracosa', [$parametr]),
                 'cabecera' => [
                     [
-                        // ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'FECHA NACIMIENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                    ],
+                        ['td' => 'PRENDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'MATERIAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'COLOR', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
                 ],
                 'columnsx' => [
-                    // ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'sis_nnajs.id'],
-                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
-                    ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
-                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'evasion_vestuarios.id'],
+                    ['data' => 'vestuario', 'name' => 'vestuario.nombre as vestuario '],
+                    ['data' => 'material', 'name' => 'evasion_vestuarios.material '],
+                    ['data' => 'color', 'name' => 'evasion_vestuarios.color'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
-
-
-
-                'tablaxxx' => 'datatable',
-                'permisox' => $this->opciones['permisox'],
-                'routxxxx' => $this->opciones['routxxxx'],
-                'parametr' => $this->opciones['parametr'],
+                'tablaxxx' => 'datatableves',
+                'permisox' => 'evasionves',
+                'routxxxx' => 'evasionves',
+                'parametr' => [$parametr],
             ],
-
+            [
+                'titunuev' => 'AGREGAR FAMILIAR',
+                'titulist' => 'LISTA DE FAMILIARES',
+                'pregunta' => 'DATOS FAMILIARES (De acuerdo a ficha de ingreso)',
+                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
+                'vercrear' => $vercrear,
+                'urlxxxxx' => route('evasionpar.listaxxx', [$parametr]),
+                'cabecera' => [
+                    [
+                        ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PARENTESCO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'DIRECCIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'TELÉFONO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'evasion_parentescos.id'],
+                    ['data' => 'parentesco', 'name' => 'parentesco.nombre as parentesco '],
+                    ['data' => 'primer_nombre', 'name' => 'evasion_parentescos.primer_nombre '],
+                    ['data' => 'segundo_nombre', 'name' => 'evasion_parentescos.segundo_nombre'],
+                    ['data' => 'primer_apellido', 'name' => 'evasion_parentescos.primer_apellido'],
+                    ['data' => 'segundo_apellido', 'name' => 'evasion_parentescos.segundo_apellido'],
+                    ['data' => 'direccion_familiar', 'name' => 'evasion_parentescos.direccion_familiar'],
+                    ['data' => 's_telefono', 'name' => 'evasion_parentescos.s_telefono'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatable',
+                'permisox' => 'evasionpar',
+                'routxxxx' => 'evasionpar',
+                'parametr' => [$parametr],
+            ],
         ];
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
         $this->opciones['departam'] = SisDepartamento::combo(2, false);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-    public function getListodo(Request $request, SisNnaj $padrexxx)
-    {
-        if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->id;
-            $request->datobasi = $padrexxx->id;
-            $request->routexxx = [$this->opciones['routxxxx']];
-            $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
-            $request->estadoxx = 'layouts.components.botones.estadosx';
-            return $this->getTodoComFami($request);
-        }
-    }
-
+   
     public function create(SisNnaj $padrexxx)
     {
         $this->opciones['rutaxxxx'] = route('aievasion.nuevo', $padrexxx->id);

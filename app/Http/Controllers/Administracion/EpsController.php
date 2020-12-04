@@ -17,11 +17,11 @@ class EpsController extends Controller
     {
 
         $this->opciones = [
-            'tituloxx' => 'Entidad salud',
+            'tituloxx' => 'ENTIDAD SALUD',
             'rutaxxxx' => 'eps',
             'accionxx' => '',
             'rutacarp' => 'administracion.eps.',
-            'volverax' => 'Volver a Entidad salud',
+            'volverax' => 'VOLVER A ENTIDAD DE SALUD',
             'readonly' => '', // esta opcion es para cundo está por la parte de ver
             'carpetax' => 'eps',
             'modeloxx' => '',

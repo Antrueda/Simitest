@@ -24,7 +24,7 @@ class UsuarioDepController extends Controller
             'permisox' => 'usuadepe',
             'parametr' => [],
             'rutacarp' => 'administracion.dependencia.',
-            'tituloxx' => 'Usuarios',
+            'tituloxx' => 'USUARIOS',
             'carpetax' => 'Usuario',
             'slotxxxx' => 'usuadepe',
             'tablaxxx' => 'usuariosdep',

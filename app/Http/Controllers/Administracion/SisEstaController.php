@@ -20,7 +20,7 @@ class SisEstaController extends Controller
             'permisox' => 'sisesta',
             'parametr' => [],
             'rutacarp' => 'administracion.Sisestas.',
-            'tituloxx' => 'Estados del sistema',
+            'tituloxx' => 'ESTADOS DEL SISTEMA',
         ];
 
 

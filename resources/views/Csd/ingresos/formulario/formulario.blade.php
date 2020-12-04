@@ -3,6 +3,7 @@
     <div class="col-md">
         {{ Form::label('observacion', '10.8 Observaciones:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('observacion', null, ['class' => $errors->first('observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Observaciones', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadorobservacion">0/4000</p>
         @if($errors->has('observacion'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('observacion') }}
@@ -98,6 +99,7 @@
     <div class="col-md">
         {{ Form::label('razon', 'Indique la(s) razón(es)', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('razon', null, ['class' => $errors->first('razon') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Indique la(s) Razón(es)', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadorrazon">0/4000</p>
         @if($errors->has('razon'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('v') }}

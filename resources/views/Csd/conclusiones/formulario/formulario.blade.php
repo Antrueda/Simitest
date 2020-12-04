@@ -2,6 +2,7 @@
   <div class="col-md-12">
     {{ Form::label('conclusiones', 'Conclusiones:', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('conclusiones', null, ['class' => $errors->first('conclusiones') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Conclusiones de la visita social en domicilio', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadorconclusiones">0/4000</p>
     @if($errors->has('conclusiones'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('conclusiones') }}

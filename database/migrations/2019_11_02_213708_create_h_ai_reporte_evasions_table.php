@@ -44,14 +44,6 @@ class CreateHAiReporteEvasionsTable extends Migration
             $table->bigInteger('prm_tamlunar_id')->unsigned()->nullable();
             $table->string('senias', 4000);
             $table->string('circunstancias', 4000);
-            $table->bigInteger('prm_familiar1_id')->unsigned();
-            $table->string('nombre_familiar1', 120);
-            $table->string('direccion_familiar1', 120);
-            $table->string('tel_familiar1', 10);
-            $table->bigInteger('prm_familiar2_id')->unsigned();
-            $table->string('nombre_familiar2', 120);
-            $table->string('direccion_familiar2', 120);
-            $table->string('tel_familiar2', 10);
             $table->string('observaciones_fam', 4000);
             $table->bigInteger('prm_reporta_id')->unsigned();
             $table->bigInteger('prm_llamada_id')->unsigned()->nullable();

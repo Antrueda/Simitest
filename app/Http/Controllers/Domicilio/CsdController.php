@@ -61,7 +61,7 @@ class CsdController extends Controller
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO CONSULTA SOCIAL EN DOMICILIO',
+                'titunuev' => 'NUEVA CONSULTA SOCIAL EN DOMICILIO',
                 'titulist' => 'LISTA DE CONSULTA SOCIAL EN DOMICILIO',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,

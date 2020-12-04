@@ -53,8 +53,8 @@ class CsdReshogarCrearRequest extends FormRequest
             ->join('csd_residencias', 'csd_reshogars.csd_residencia_id', '=', 'csd_residencias.id')
             ->where('csd_residencias.id', $this->segments()[0])
             ->where('csd_reshogars.prm_espacio_id', $this->prm_espacio_id)
+            
             ->first();
-
         if (isset($registro->id)) {
             $this->_mensaje['existexx.required'] = 'el espacio ya existe';
             $this->_reglasx['existexx'] = ['Required',];

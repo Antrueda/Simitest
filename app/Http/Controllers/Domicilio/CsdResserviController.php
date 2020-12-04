@@ -152,7 +152,9 @@ class CsdResserviController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
+        //a
         $this->opciones['csdxxxxx'] = $padrexxx;
+        
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'servicios'], 'padrexxx' => $padrexxx]);
     }
 

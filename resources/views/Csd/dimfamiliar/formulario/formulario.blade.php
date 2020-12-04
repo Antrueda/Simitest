@@ -9,6 +9,8 @@ if (isset($todoxxxx['rowscols'])) {
 
 ?>
 <div class="form-row align-items-end form-group col-md-12" style="margin-bottom: 40px">
+
+    
     {{ Form::label('s_doc_adjunto_ar', '6.1 GENOGRAMA', ['class' => 'control-label col-form-label-sm']) }}
     @component('layouts.components.archivos.upload')
     @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto_ar','descripc'=>'Seleccione un archivo','idlabelx'=>'s_doc_adjunto_ar_label',

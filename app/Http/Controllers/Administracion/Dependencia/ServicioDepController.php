@@ -23,7 +23,7 @@ class ServicioDepController extends Controller
             'permisox' => 'servdepe',
             'parametr' => [],
             'rutacarp' => 'administracion.dependencia.',
-            'tituloxx' => 'Servicios',
+            'tituloxx' => 'SERVICIOS',
             'carpetax' => 'Servicio',
             'slotxxxx' => 'servdepe',
             'tablaxxx' => 'serviciosdep',

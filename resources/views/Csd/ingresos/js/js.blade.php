@@ -118,7 +118,8 @@
             document.getElementById("intensidad").hidden=true;
         }
     }
-    init_contadorTa("observaciones", "contadordescripcion1", 4000);
+    init_contadorTa("razon", "contadorrazon", 4000);
+    init_contadorTa("observacion", "contadorobservacion", 4000);
 
     function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {
@@ -145,3 +146,4 @@ function updateContadorTa(idtextarea, idcontador, max) {
     }
     window.onload=carga;
     </script>
+

@@ -38,14 +38,6 @@ class AiReporteEvasionObserver
         $log['prm_tamlunar_id'] = $modeloxx->prm_tamlunar_id;
         $log['senias'] = $modeloxx->senias;
         $log['circunstancias'] = $modeloxx->circunstancias;
-        $log['prm_familiar1_id'] = $modeloxx->prm_familiar1_id;
-        $log['nombre_familiar1'] = $modeloxx->nombre_familiar1;
-        $log['direccion_familiar1'] = $modeloxx->direccion_familiar1;
-        $log['tel_familiar1'] = $modeloxx->tel_familiar1;
-        $log['prm_familiar2_id'] = $modeloxx->prm_familiar2_id;
-        $log['nombre_familiar2'] = $modeloxx->nombre_familiar2;
-        $log['direccion_familiar2'] = $modeloxx->direccion_familiar2;
-        $log['tel_familiar2'] = $modeloxx->tel_familiar2;
         $log['observaciones_fam'] = $modeloxx->observaciones_fam;
         $log['prm_reporta_id'] = $modeloxx->prm_reporta_id;
         $log['prm_llamada_id'] = $modeloxx->prm_llamada_id;

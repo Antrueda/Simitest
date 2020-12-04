@@ -57,3 +57,7 @@ Route::group(['prefix' => 'resevasion'], function () use ($controll, $routexxx) 
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.direccion');
 });
+
+
+require_once('web_evasionvestuario.php');
+require_once('web_evasionparetensco.php');

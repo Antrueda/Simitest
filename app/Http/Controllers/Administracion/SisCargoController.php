@@ -18,7 +18,7 @@ class SisCargoController extends Controller
     {
 
         $this->opciones = [
-            'tituloxx' => 'Cargos',
+            'tituloxx' => 'CARGOS',
             'rutaxxxx' => 'sis.cargo',
             'rutacarp' => 'administracion.cargo.',
             'accionxx' => '',

@@ -136,6 +136,7 @@ $(document).ready(function() {
             $('#segundo_apellido').val('');
             $('#segundo_nombre').val('');
             $('#documento').val('');
+            $('#s_telefono').val('');
  
 
 
@@ -150,7 +151,7 @@ $(document).ready(function() {
             $('#primer_nombre').val(d.s_primer_nombre);
             $('#segundo_apellido').val(d.s_segundo_apellido);
             $('#segundo_nombre').val(d.s_segundo_nombre);
-            $('#documento').val(d.s_documento);
+            $('#s_telefono').val(d.s_telefono);
              dataxxxx={
                     url:"{{ route('ajaxx.edad') }}",
                     data:{

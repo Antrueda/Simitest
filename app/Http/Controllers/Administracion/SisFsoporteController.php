@@ -18,7 +18,7 @@ class SisFsoporteController extends Controller
     {
 
         $this->opciones = [
-            'tituloxx' => 'Fuente Soporte',
+            'tituloxx' => 'FUENTE SOPORTE',
             'rutaxxxx' => 'fsoporte',
             'accionxx' => '',
             'rutacarp' => 'administracion.fsoporte.',

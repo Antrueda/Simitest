@@ -6,6 +6,8 @@ use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
+use App\Models\Acciones\Individuales\Pivotes\EvasionParentesco;
+use App\Models\Acciones\Individuales\Pivotes\EvasionVestuario;
 use App\Models\consulta\CsdComFamiliar;
 use App\Models\consulta\CsdDinfamMadre;
 use App\Models\consulta\CsdDinfamPadre;
@@ -174,10 +176,12 @@ trait SalidaTrait
             'fi_datos_basicos.s_segundo_nombre',
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
+            'fi_compfamis.s_telefono',
             'sis_nnajs.sis_esta_id',
             'nnaj_nacimis.d_nacimiento',
             'sis_nnajs.created_at',
-            'sis_estas.s_estado'
+            'sis_estas.s_estado',
+            
         ])
             ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
@@ -186,6 +190,7 @@ trait SalidaTrait
             ->join('fi_compfamis', 'sis_nnajs.id', '=', 'fi_compfamis.sis_nnaj_id')
             ->where('fi_compfamis.prm_reprlega_id', 227)
             ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $request->padrexxx)->get());
+            
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -504,6 +509,48 @@ trait SalidaTrait
                 'campoxxx' => 'sis_nnaj_id',
             ]);
         }
+    }
+
+
+    public function getParentesco($request)
+    {
+        $dataxxxx =  EvasionParentesco::select([
+            'evasion_parentescos.id',
+            'parentesco.nombre as parentesco',
+            'evasion_parentescos.primer_apellido',
+            'evasion_parentescos.segundo_apellido',
+            'evasion_parentescos.primer_nombre',
+            'evasion_parentescos.segundo_nombre',
+            'evasion_parentescos.direccion_familiar',
+            'evasion_parentescos.s_telefono',
+            'evasion_parentescos.sis_esta_id',
+            'evasion_parentescos.created_at',
+            'sis_estas.s_estado',
+            ])
+            ->join('parametros as parentesco', 'evasion_parentescos.prm_parentezco_id', '=', 'parentesco.id')
+            ->join('sis_estas', 'evasion_parentescos.sis_esta_id', '=', 'sis_estas.id')
+            ->where('evasion_parentescos.reporte_evasion_id', $request->padrexxx);
+
+        return $this->getDtAcciones($dataxxxx, $request);
+    }
+
+    public function getVestuario($request)
+    {
+        $dataxxxx =  EvasionVestuario::select([
+            'evasion_vestuarios.id',
+            'vestuario.nombre as vestuario',
+            'evasion_vestuarios.material',
+            'evasion_vestuarios.color',
+            'evasion_vestuarios.created_at',
+            'evasion_vestuarios.sis_esta_id',
+            'sis_estas.s_estado',
+
+        ])
+            ->join('parametros as vestuario', 'evasion_vestuarios.prm_vestuario_id', '=', 'vestuario.id')
+            ->join('sis_estas', 'evasion_vestuarios.sis_esta_id', '=', 'sis_estas.id')
+            ->where('evasion_vestuarios.reporte_evasion_id', $request->padrexxx);
+
+        return $this->getDtAcciones($dataxxxx, $request);
     }
 
 

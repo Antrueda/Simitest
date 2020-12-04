@@ -1,9 +1,4 @@
 <script>
-    @isset ($upisjs)
-    @foreach($upisjs as $d)
-      var upi_{{ $d->id }}=[ "{{ $d->s_direccion }}", "{{ $d->s_telefono }}" ];
-    @endforeach
-  @endisset
   $(document).ready(function(){
     $('#prm_familiar1_id').select2({
       language: "es"
@@ -31,7 +26,7 @@
         }
         var f_municipos = function(valuexxx, campoxxx, selected) {
                   $.ajax({
-                      url: "{{ route('ajaxx.municipios') }}",
+                      url: "{{ route('ajaxx.gmunicipios') }}",
                       data: {
                           padrexxx: valuexxx,
                           pselecte: selected,
@@ -185,25 +180,6 @@
     document.forma.municipio_id.options[0].selected = true;
   }
 
-  function cambiaUpi(upi){
-    if (upi !== '') {
-      mi_upi=eval("upi_" + upi);
-      document.getElementById("direccion").innerHTML = mi_upi[0];
-      document.getElementById("telefono").innerHTML = mi_upi[1];
-    }else{
-      document.getElementById("direccion").innerHTML = "";
-      document.getElementById("telefono").innerHTML = "";
-    }
-  }
-
-  function carga(){
-    doc(document.getElementById('prm_tinturado_id').value);
-    doc1(document.getElementById('prm_tipCabello_id').value);
-    doc2(document.getElementById('prm_tienelunar_id').value);
-    doc3(document.getElementById('prm_reporta_id').value);
-    cambiaUpi(document.getElementById('prm_upi_id').value);
-  }
-  window.onload = carga;
 
 
 init_contadorTa("senias", "contadorsenias", 4000);

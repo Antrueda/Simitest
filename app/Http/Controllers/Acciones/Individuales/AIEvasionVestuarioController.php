@@ -1,19 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Domicilio;
+namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Csd\CsdReshogarCrearRequest;
-use App\Http\Requests\Csd\CsdReshogarEditarRequest;
-use App\Http\Requests\Csd\CsdResservicioCrearRequest;
-use App\Http\Requests\Csd\CsdResservicioEditRequest;
-use App\Models\consulta\Csd;
-use App\Models\consulta\CsdResidencia;
-use App\Models\consulta\pivotes\CsdReshogar;
-use App\Models\consulta\pivotes\CsdResservi;
-use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Http\Requests\Acciones\Individuales\EvasionVestuarioRequest;
+
+use App\Models\Acciones\Individuales\AiReporteEvasion;
+use App\Models\Acciones\Individuales\Pivotes\EvasionVestuario;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
+use App\Traits\Acciones\SalidaTrait;
 use App\Traits\Csd\CsdTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,33 +22,33 @@ use Illuminate\Support\Facades\Auth;
  *
  * siempre y cuando la respuesta sea SI
  */
-class CsdReshogarController extends Controller
+class AIEvasionVestuarioController extends Controller
 {
-    use CsdTrait;
+    use SalidaTrait;
 
     private $opciones;
     public function __construct()
     {
-        $this->opciones['permisox'] = 'csdreshogar';
-        $this->opciones['routxxxx'] = 'csdreshogar';
-        $this->opciones['rutacarp'] = 'Csd.';
-        $this->opciones['carpetax'] = 'Residencia';
-        $this->opciones['slotxxxx'] = 'csdresidencia';
+        $this->opciones['permisox'] = 'evasionves';
+        $this->opciones['routxxxx'] = 'evasionves';
+        $this->opciones['rutacarp'] = 'Acciones.';
+        $this->opciones['carpetax'] = 'Individuales.Evasion';
+        $this->opciones['slotxxxx'] = 'aievasion';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "ESPACIOS";
+        $this->opciones['tituloxx'] = "VESTUARIO";
         $this->opciones['pestpadr'] = 3; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
-        $this->opciones['tituhead'] = 'CONSULTA SOCIAL EN DOMICILIO';
+        $this->opciones['tituhead'] = 'REPORTE DE EVASIÓN';
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['espaciox'] = Tema::combo(96, true, false);
+        $this->opciones['prendaxx'] = Tema::combo(304, true, false);
         $this->opciones['botoform'] = [
             [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => ['csdresidencia.editar', []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A RESIDENCIA', 'clasexxx' => 'btn btn-sm btn-primary'
+                'mostrars' => true, 'accionxx' => '', 'routingx' => ['aievasion.editar', []],
+                'formhref' => 2, 'tituloxx' => 'VOLVER A EVASIÓN', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
     }
@@ -64,7 +60,7 @@ class CsdReshogarController extends Controller
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
-            return $this->getEspacio($request);
+            return $this->getVestuario($request);
             
         }
     }
@@ -72,14 +68,14 @@ class CsdReshogarController extends Controller
     {
         
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
+        $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
-        ];
-        $this->opciones['botoform'][0]['routingx'][1]=[$dataxxxx['padrexxx']->id,$dataxxxx['padrexxx']->csd->CsdResidencia->id];
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
+            ];
+        $this->opciones['botoform'][0]['routingx'][1]=[$dataxxxx['padrexxx']->sis_nnaj_id,$dataxxxx['padrexxx']->id];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
@@ -106,23 +102,21 @@ class CsdReshogarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(CsdSisNnaj $padrexxx)
+    public function create(AiReporteEvasion $padrexxx)
     {
-        
-        $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'espacios'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'vestuario'], 'padrexxx' => $padrexxx]);
     }
 
     private function grabar($dataxxxx)
     {
         return redirect()
-        ->route('csdreshogar.editar', [$dataxxxx['padrexxx']->id,CsdReshogar::transaccion($dataxxxx)->id])
+        ->route('evasionves.editar', [$dataxxxx['padrexxx']->id,EvasionVestuario::transaccion($dataxxxx)->id])
         ->with('info', $dataxxxx['infoxxxx']);
     }
     /**
@@ -133,9 +127,9 @@ class CsdReshogarController extends Controller
      */
 
 
-    public function store(CsdReshogarCrearRequest $request,CsdSisNnaj $padrexxx)
+    public function store(EvasionVestuarioRequest $request,AiReporteEvasion $padrexxx)
     {   
-        $request->request->add(['csd_residencia_id' => $padrexxx->csd->CsdResidencia->id]);
+        $request->request->add(['reporte_evasion_id' => $padrexxx->id]);
         $request->request->add(['sis_esta_id' =>1]);
         return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Espacio creado con exito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
 
@@ -147,10 +141,10 @@ class CsdReshogarController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function show(CsdSisNnaj $padrexxx, CsdReshogar $modeloxx)
+    public function show(AiReporteEvasion $padrexxx, EvasionVestuario $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'espacios'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'vestuario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -159,7 +153,7 @@ class CsdReshogarController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(CsdSisNnaj $padrexxx, CsdReshogar $modeloxx)
+    public function edit(AiReporteEvasion $padrexxx, EvasionVestuario $modeloxx)
     {
         
         $this->opciones['csdxxxxx'] = $padrexxx;
@@ -170,7 +164,7 @@ class CsdReshogarController extends Controller
             ];
         return $this->view([
             'modeloxx' => $modeloxx,
-            'accionxx' => ['editar', 'espacios'],
+            'accionxx' => ['editar', 'vestuario'],
             'padrexxx' => $padrexxx]);
 
     }
@@ -182,12 +176,12 @@ class CsdReshogarController extends Controller
      * @param  \App\Models\FiBienvenida  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdReshogarEditarRequest $request, CsdSisNnaj $padrexxx, CsdReshogar $modeloxx )
+    public function update(EvasionVestuarioRequest $request, AiReporteEvasion $padrexxx, EvasionVestuario $modeloxx )
     {
         return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con exito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
     }
 
-    public function inactivate(CsdSisNnaj $padrexxx,CsdReshogar $modeloxx)
+    public function inactivate(AiReporteEvasion $padrexxx,EvasionVestuario $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
@@ -200,7 +194,7 @@ class CsdReshogarController extends Controller
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'],'padrexxx'=>$padrexxx]);
     }
-    public function destroy(CsdSisNnaj $padrexxx,CsdReshogar $modeloxx)
+    public function destroy(AiReporteEvasion $padrexxx,EvasionVestuario $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);

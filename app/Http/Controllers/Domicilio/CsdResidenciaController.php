@@ -123,6 +123,11 @@ class CsdResidenciaController extends Controller
             $residenc = $dataxxxx['padrexxx']->csd->CsdResidencia->id;
         }
 
+
+
+
+        
+
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'AGREGAR SERVICIO',

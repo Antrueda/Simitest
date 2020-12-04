@@ -112,7 +112,7 @@
     }
 
     // CONTADOR DE CARACTERES
-    init_contadorTa("s_porque_ingresar", "contadorporqueingresar", 4000);
+    init_contadorTa("conclusiones", "contadorconclusiones", 4000);
 
     function init_contadorTa(idtextarea, idcontador, max) {
         $("#" + idtextarea).keyup(function() {

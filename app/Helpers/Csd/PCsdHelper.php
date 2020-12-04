@@ -18,13 +18,17 @@ class PCsdHelper
     public static function getRoute($dataxxxx)
     {
         $respuest = ['rutaxxxx' => '', 'classxxx' => 'fas fa-check text-success'];
+
         if ($dataxxxx['modeloxx'] == '') {
             $respuest['classxxx'] = 'fas fa-times text-danger';
             $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.nuevo', $dataxxxx['padrexxx']->id);
+
         } else if (auth()->user()->can($dataxxxx['permisox']  . '-editar')) {
             $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.editar', [$dataxxxx['padrexxx']->id, $dataxxxx['modeloxx']->id]);
+
         } else {
             $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.ver', [$dataxxxx['padrexxx']->id, $dataxxxx['modeloxx']->id]);
+            
         }
         return $respuest;
     }

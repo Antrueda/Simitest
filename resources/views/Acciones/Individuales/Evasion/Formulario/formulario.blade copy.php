@@ -99,13 +99,14 @@
       </div>
     @endif
   </div>
-  <div class="form-group col-md-3">
+  <div class="col-md-4">
     {{ Form::label('direccion', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('direccion',  $todoxxxx['depended'], ['class' => $errors->first('telefono') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
+    {{ Form::text('direccion', null, ['class' => $errors->first('direccion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly','id'=>'direccion']) }}
+    <div id="direccion"></div>
   </div>
-  <div class="form-group col-md-3">
+  <div class="col-md-4">
     {{ Form::label('telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('telefono',  $todoxxxx['dependet'], ['class' => $errors->first('telefono') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
+    <div id="telefono"></div>
   </div>
 </div>
 <div class="row">
@@ -317,10 +318,87 @@
     @endif
   </div>
 </div>
-<div class="row">
+<div class="row mt-3">
   <div class="col-md-12">
-@include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+    <h6>Datos Familiares (De acuerdo a Ficha de Ingreso)</h6>
+  </div>
 </div>
+<hr>
+<div class="row">
+  <div class="col-md-3">
+    {{ Form::label('prm_familiar1_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_familiar1_id', $todoxxxx['parentez'], null, ['class' => $errors->first('v') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_familiar1_id']) }}
+    @if($errors->has('prm_familiar1_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('prm_familiar1_id') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('nombre_familiar1', 'Nombres y Apellidos', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('nombre_familiar1', null, ['class' => $errors->first('nombre_familiar1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre completo del familiar', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    @if($errors->has('nombre_familiar1'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('nombre_familiar1') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('direccion_familiar1', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('direccion_familiar1', null, ['class' => $errors->first('direccion_familiar1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    @if($errors->has('direccion_familiar1'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('direccion_familiar1') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('tel_familiar1', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::number('tel_familiar1', null, ['class' => $errors->first('tel_familiar1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'min' => '0', 'maxlength' => '10']) }}
+    @if($errors->has('tel_familiar1'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('tel_familiar1') }}
+    </div>
+    @endif
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    {{ Form::label('prm_familiar2_id', 'Parentesco', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_familiar2_id',$todoxxxx['parentez'], null, ['class' => $errors->first('v') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'prm_familiar2_id']) }}
+    @if($errors->has('prm_familiar2_id'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('prm_familiar2_id') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('nombre_familiar2', 'Nombres y Apellidos', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('nombre_familiar2', null, ['class' => $errors->first('nombre_familiar2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre completo del familiar', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    @if($errors->has('nombre_familiar2'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('nombre_familiar2') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('direccion_familiar2', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('direccion_familiar2', null, ['class' => $errors->first('direccion_familiar2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    @if($errors->has('direccion_familiar2'))
+      <div class="invalid-feedback d-block">
+        {{ $errors->first('direccion_familiar2') }}
+      </div>
+    @endif
+  </div>
+  <div class="col-md-3">
+    {{ Form::label('tel_familiar2', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::number('tel_familiar2', null, ['class' => $errors->first('tel_familiar2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'min' => '0', 'maxlength' => '10']) }}
+    @if($errors->has('tel_familiar2'))
+    <div class="invalid-feedback d-block">
+      {{ $errors->first('tel_familiar2') }}
+    </div>
+    @endif
+  </div>
 </div>
 <div class="row">
   <div class="col-md-12">
@@ -409,7 +487,7 @@
 <div class="row">
   <div class="col-md">
     {{ Form::label('responsable', 'Responsable de la UPI', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('responsable', $todoxxxx['respoupi'], null, ['class' => $errors->first('responsable') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
+    {{ Form::select('responsable', $todoxxxx['usuarioz'], null, ['class' => $errors->first('responsable') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
     @if($errors->has('responsable'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('responsable') }}
