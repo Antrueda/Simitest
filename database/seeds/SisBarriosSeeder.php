@@ -1665,5 +1665,7 @@ class SisBarriosSeeder extends Seeder
         SisBarrio::create(['id' => 1651, 's_barrio' => 'VILLAS DE BOLÍVAR', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisBarrio::create(['id' => 1652, 's_barrio' => 'BARRIO INCORRECTO EN LA BASE PLANA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisBarrio::create(['id' => 1653, 's_barrio' => 'NO APLICA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
+        SisBarrio::create(['id' => 1654, 's_barrio' => 'BRISAS DEL TINTAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
+
     }
 }

@@ -19,10 +19,7 @@ Route::group(['prefix' => 'agactividad'], function () use($controll,$routxxxx) {
         'uses' => $controll . 'Controller@getAsistente',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agasiste');
-    Route::get('{padrexxx}/listannajs', [
-        'uses' => $controll . 'Controller@getNnajs',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.listnnaj');
+
 	Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']

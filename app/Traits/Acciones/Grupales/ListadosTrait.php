@@ -76,15 +76,16 @@ trait ListadosTrait
             return $this->getDt($dataxxxx, $request);
         }
     }
-    function getNnajs(Request $request)
+    public function getNnajs(Request $request, AgActividad $padrexxx)
     {
-        
         if ($request->ajax()) {
             $request->routexxx = ['agasiste'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
+                $this->opciones['carpetax'] . '.Botones.agregarnnaj';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $responsa = AgAsistente::select(['fi_dato_basico_id'])->where('ag_actividad_id', $request->ag_actividad_id)->get();
+            $responsa = AgAsistente::select(['fi_dato_basico_id'])
+                ->where('ag_actividad_id', $padrexxx->id)
+                ->get();
             $dataxxxx = FiDatosBasico::select([
                 'fi_datos_basicos.id',
                 'nnaj_docus.s_documento',
@@ -104,7 +105,7 @@ trait ListadosTrait
         }
     }
 
-    public function getAsistente(Request $request,AgActividad $padrexxx)
+    public function getAsistente(Request $request, AgActividad $padrexxx)
     {
         if ($request->ajax()) {
             $request->routexxx = ['agasiste'];
@@ -126,6 +127,18 @@ trait ListadosTrait
                 ->where('ag_asistentes.sis_esta_id', 1)
                 ->where('ag_asistentes.ag_actividad_id', $padrexxx->id);
             return $this->getDtGok($dataxxxx, $request);
+        }
+    }
+
+    function getAgregarNnaj(Request $request, AgActividad $padrexxx)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            $dataxxxx = $request->all();
+            $dataxxxx['ag_actividad_id'] = $padrexxx->id;
+            $dataxxxx['sis_esta_id'] = 1;
+            AgAsistente::transaccion($dataxxxx, '');
+            return response()->json($respuest);
         }
     }
 }

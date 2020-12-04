@@ -27,7 +27,7 @@ class InLigruController extends Controller
              'slotxxxy' => 'diagnost', // indica cual es la pestaña padre que debe estar activa
             'slotxxxx' => 'linegrup', // indica cual es la pestaña hija que debe estar activa
             'carpetax' => 'Inligru', // carpeta a la que accede el controlador
-            'indecrea' => false,    // false indica que no debe estar dentro una pestaña, 
+            'indecrea' => false,    // false indica que no debe estar dentro una pestaña,
             //true indica que debe estar dentro de una pestaña
             'esindexx' => false  // true indica que debe mostrar el index y false el formulario
         ];
@@ -100,7 +100,7 @@ class InLigruController extends Controller
         * se crea la funcionalidad de las pestañas para la asignacion de grupos a la línea base
         * cuando se esta en el crear, editar o ver
         */
-        $this->opciones['pestania'] = $this->getAreas(['tablaxxx' => $this->opciones['slotxxxx'], 
+        $this->opciones['pestania'] = $this->getAreas(['tablaxxx' => $this->opciones['slotxxxx'],
         'padrexxx' => $dataxxxx['padrexxx'],
         'routxxxx'=>$this->opciones['routxxxx']]);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -150,7 +150,7 @@ class InLigruController extends Controller
     public function edit(InLigru $objetoxx)
     {
         $padrexxx=$objetoxx->in_base_fuente;
-        $this->opciones['tituloxx'] = 'MODIFICAR GRUPO';
+        $this->opciones['tituloxx'] = 'EDITAR GRUPO';
         $this->opciones['maximoxx'] = [$objetoxx->id => $objetoxx->id];
         $this->opciones['linebase'] = [$objetoxx->id => $padrexxx->in_fuente->in_linea_base->s_linea_base];
         $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
@@ -159,13 +159,13 @@ class InLigruController extends Controller
         $this->opciones['parametr'] = [$padrexxx->id, $objetoxx->id];
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'EDITAR', 
+                'mostrars' => true, 'accionxx' => 'EDITAR',
                 'formhref' => 1, 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 
             $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'MODIFICAR', 'routingx' => ['grupregu', [$objetoxx->id]],
+                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => ['grupregu', [$objetoxx->id]],
                 'formhref' => 2, 'tituloxx' => 'ASIGNAR P', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
             return $this->view(['objetoxx'=>$objetoxx,'accionxx'=>'Editar','padrexxx'=>$padrexxx]);

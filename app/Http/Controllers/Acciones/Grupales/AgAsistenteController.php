@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Acciones\Grupales;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Grupales\AgAsistenteEditarRequest;
-use App\Http\Requests\Acciones\Grupales\AgAsistenteCrearRequest;
 use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\AgAsistente;
 use App\Traits\Acciones\Grupales\Asistente\CrudTrait;
@@ -36,7 +34,7 @@ class AgAsistenteController extends Controller
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->opciones['botoform']=[];
-        return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
     }
 
     public function inactivate(AgAsistente $modeloxx)

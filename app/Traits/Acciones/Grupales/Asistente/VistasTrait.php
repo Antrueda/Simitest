@@ -18,7 +18,7 @@ trait VistasTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
     }
-    public function view($opciones, $dataxxxx)
+    public function view($dataxxxx)
     {
         $this->opciones['parametr'][] = $this->opciones['padrexxx']->id;
         $this->getVista($dataxxxx);

@@ -1,7 +1,7 @@
 <?php
 $controll = 'Acciones\Grupales\AgAsistente';
 $routxxxx = 'agasiste';
-Route::group(['prefix' => '{padrexxx}/agsisitente'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => '{padrexxx}/agsisitentes'], function () use ($controll, $routxxxx) {
     Route::get('nuevo', [
         'uses' => $controll . 'Controller@create',
         'middleware' => ['permission:' . $routxxxx . '-crear']
@@ -10,6 +10,14 @@ Route::group(['prefix' => '{padrexxx}/agsisitente'], function () use ($controll,
         'uses' => $controll . 'Controller@store',
         'middleware' => ['permission:' . $routxxxx . '-crear']
     ])->name($routxxxx . '.crear');
+    Route::get('agregar', [
+        'uses' => $controll . 'Controller@getAgregarNnaj',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.agregar');
+    Route::get('listannajs', [
+        'uses' => $controll . 'Controller@getNnajs',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.listnnaj');
 });
 Route::group(['prefix' => 'agsisitente'], function () use ($controll, $routxxxx) {
 
@@ -21,6 +29,8 @@ Route::group(['prefix' => 'agsisitente'], function () use ($controll, $routxxxx)
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routxxxx . '-editar']
     ])->name($routxxxx . '.editar');
+
+
 
     Route::get('ver/{modeloxx}', [
         'uses' => $controll . 'Controller@show',

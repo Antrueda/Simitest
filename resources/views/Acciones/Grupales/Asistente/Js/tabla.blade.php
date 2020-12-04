@@ -25,5 +25,50 @@ $(document).ready(function() {
         }
     });
   @endforeach
+
+
+  var f_ajax = function(valuexxx) {
+            $.ajax({
+                url: "{{ route($todoxxxx['permisox'].'.agregar',$todoxxxx['parametr'])}}",
+                type: 'GET',
+                data: {
+                    'fi_dato_basico_id': valuexxx,
+                },
+                dataType: 'json',
+                success: function(json) {
+                    toastr.success('Permiso asigndo con éxito');
+                        {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
+                        {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.ajax.reload();
+
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, al agregar el asitente');
+                }
+            });
+        }
+
+        @can('agasiste-editar')
+
+            // $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
+            //     var id= {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data();
+
+            //     if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
+            //         $(this).addClass('btn-danger');
+            //         // f_ajax(id.id,0);
+            //     }
+
+            // //console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
+            // } );
+
+            $('#{{ $todoxxxx["tablasxx"][1]["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
+                var id= {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.row( this ).data();
+                if ( !$(this).hasClass('btn-primary' &&  id!=undefined) ) {
+                    $(this).addClass('btn-primary');
+                    f_ajax(id.id);
+                }
+            } );
+        @endcan
+
+
 } );
 </script>

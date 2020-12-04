@@ -21,7 +21,7 @@ trait DataTablesTrait
                 'titulist' => 'LISTA DE ASISTENTES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'titupreg' => '',
-                'vercrear' => true,
+                'vercrear' => false,
                 'urlxxxxx' => route('agactividad.agasiste', $this->opciones['padrexxx']->id), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
                 'permtabl' => [
                     'agactividad-leer',
@@ -54,13 +54,13 @@ trait DataTablesTrait
         $this->opciones['tablasxx'][] =
             [
                 'titunuev' => 'NUEVO RESPONSABLE',
-                'titulist' => 'LISTA DE NNAJS',
+                'titulist' => 'LISTA DE NNAJ',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'titupreg' => '',
                 'vercrear' => FALSE,
-                'urlxxxxx' => route('agactividad.listnnaj', $this->opciones['padrexxx']->id),
+                'urlxxxxx' => route('agasiste.listnnaj', $this->opciones['padrexxx']->id),
                 'permtabl' => [
-                    'agactividad-leer',
+                    'agasiste-leer',
                 ],
                 'cabecera' => [
                     [

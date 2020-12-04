@@ -28,11 +28,11 @@ class InFuenteController extends Controller
             'slotxxxy' => 'diagnost', // indica cual es la pestaña padre que debe estar activa
             'slotxxxx' => 'basefuen', // indica cual es la pestaña hija que debe estar activa
             'carpetax' => 'Infuente', // carpeta a la que accede el controlador
-            'indecrea' => false,    // false indica que no debe estar dentro una pestaña, 
+            'indecrea' => false,    // false indica que no debe estar dentro una pestaña,
             //true indica que debe estar dentro de una pestaña
             'esindexx' => false,  // true indica que debe mostrar el index y false el formulario
             'pestania' => [
-                
+
             ]
         ];
         $this->middleware(['permission:' .
@@ -109,7 +109,7 @@ class InFuenteController extends Controller
         * se crea la funcionalidad de las pestañas para la asignacion de linea base al indiecador
         * cuando se esta en el crear, editar o ver
         */
-        $this->opciones['pestania'] = $this->getAreas(['tablaxxx' => $this->opciones['slotxxxx'], 
+        $this->opciones['pestania'] = $this->getAreas(['tablaxxx' => $this->opciones['slotxxxx'],
         'padrexxx' => $dataxxxx['padrexxx'],
         'routxxxx'=>$this->opciones['routxxxx']]);
 
@@ -175,12 +175,12 @@ class InFuenteController extends Controller
 
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'MODIFICAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', $this->opciones['parametr']],
-                'formhref' => 1, 'tituloxx' => 'MODIFICAR', 'clasexxx' => 'btn btn-sm btn-primary'
+                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', $this->opciones['parametr']],
+                'formhref' => 1, 'tituloxx' => 'EDITAR', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'MODIFICAR', 'routingx' => ['bd.basedocumen', [$objetoxx->id]],
+                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => ['bd.basedocumen', [$objetoxx->id]],
                 'formhref' => 2, 'tituloxx' => 'ASIGNAR DF', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
             return $this->view(['objetoxx'=>$objetoxx,'accionxx'=>'Editar','padrexxx'=>$padrexxx]);

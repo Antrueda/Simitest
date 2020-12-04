@@ -180,12 +180,12 @@ class InBaseFuenteController extends Controller
         $this->opciones['linebase'] = [$padrexxx->id => $padrexxx->in_linea_base->s_linea_base];
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'MODIFICAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', $this->opciones['parametr']],
-                'formhref' => 1, 'tituloxx' => 'MODIFICAR', 'clasexxx' => 'btn btn-sm btn-primary'
+                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', $this->opciones['parametr']],
+                'formhref' => 1, 'tituloxx' => 'EDITAR', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'MODIFICAR', 'routingx' => ['inligru', [$objetoxx->id]],
+                'mostrars' => true, 'accionxx' => 'EDITAR', 'routingx' => ['inligru', [$objetoxx->id]],
                 'formhref' => 2, 'tituloxx' => 'ASIGNAR G-LB', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         return $this->view(['objetoxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $padrexxx]);

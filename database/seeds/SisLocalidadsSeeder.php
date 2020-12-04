@@ -15,27 +15,27 @@ class SisLocalidadsSeeder extends Seeder
         SisLocalidad::create([
             'id'=>1,
             's_localidad' => 'USAQUÉN',
-        ]);
+        ]);//1
         SisLocalidad::create([
             'id'=>2,
             's_localidad' => 'CHAPINERO',
-        ]);
+        ]);//2
         SisLocalidad::create([
             'id'=>3,
             's_localidad' => 'SANTA FE',
-        ]);
+        ]);//3
         SisLocalidad::create([
             'id'=>4,
             's_localidad' => 'SAN CRISTÓBAL',
-        ]);
+        ]);//4
         SisLocalidad::create([
             'id'=>5,
             's_localidad' => 'USME',
-        ]);
+        ]);//5
         SisLocalidad::create([
             'id'=>6,
             's_localidad' => 'TUNJUELITO',
-        ]);
+        ]);//6
         SisLocalidad::create([
             'id'=>7,
             's_localidad' => 'BOSA',
