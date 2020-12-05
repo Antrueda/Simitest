@@ -28,7 +28,7 @@
       @canany(['firedapoyo-leer', 'firedapoyo-crear', 'firedapoyo-editar', 'firedapoyo-borrar'])
       <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='redapoyo') ?' active' : '' }} text-sm" href="{{ route('fi.redapoyo', $todoxxxx['datobasi']->sis_nnaj_id) }}"         >9. Redes de Apoyo</a></li>
       @endcanany
-      @if($todoxxxx['datobasi']->prm_poblacion_id == 651) 
+      @if($todoxxxx['datobasi']->prm_poblacion_id == 651)
         @canany(['fijusticia-leer', 'fijusticia-crear', 'fijusticia-editar', 'fijusticia-borrar'])
         <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='justicia') ?' active' : '' }} text-sm" href="{{ route('fi.justicia.nuevo', $todoxxxx['datobasi']->sis_nnaj_id) }}" >10. Justicia Restaurativa</a></li>
         @endcanany
@@ -40,7 +40,7 @@
       <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='violencia') ?' active' : '' }} text-sm" href="{{ route('fi.violencia.nuevo', $todoxxxx['datobasi']->sis_nnaj_id) }}"   >12. Violencias y Condición Especial</a></li>
       @endcanany
       @canany(['fisituacion-leer', 'fisituacion-crear', 'fisituacion-editar', 'fisituacion-borrar'])
-      <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='situacion') ?' active' : '' }} text-sm" href="{{ route('fi.situacion.nuevo', $todoxxxx['datobasi']->sis_nnaj_id) }}"       >13. Tipo de Población</a></li>
+      <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='situación') ?' active' : '' }} text-sm" href="{{ route('fi.situacion.nuevo', $todoxxxx['datobasi']->sis_nnaj_id) }}"       >13. Tipo de Población</a></li>
       @endcanany
       @canany(['ficontacto-leer', 'ficontacto-crear', 'ficontacto-editar', 'ficontacto-borrar'])
       <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='contacto') ?' active' : '' }} text-sm" href="{{ route('fi.contacto.nuevo', $todoxxxx['datobasi']->sis_nnaj_id) }}"         >14. Contacto con IDIPRON y Tratamiento de Datos</a></li>

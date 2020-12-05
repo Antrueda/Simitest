@@ -153,7 +153,7 @@ class SisDepensSeeder extends Seeder
         $super->sis_depens()->sync([
             29 => $camposmagicos,
         ]);
-        
+
 
         $super = User::where('id', 14)->first();
         $super->sis_depens()->sync([
@@ -175,7 +175,13 @@ class SisDepensSeeder extends Seeder
             29 => $camposmagicos,
         ]);
 
+        $super = User::where('id', 904)->first();
 
+        $super->sis_depens()->sync([
+            2 => $camposmagicos,
+            15 => $camposmagicos,
+            23 => $camposmagicos,
+        ]);
 
 
     }

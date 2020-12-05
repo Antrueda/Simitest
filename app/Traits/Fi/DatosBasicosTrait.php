@@ -172,15 +172,16 @@ trait DatosBasicosTrait
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $this->setCfNnajCsd($dataxxxx);
+            $objetoxx=$dataxxxx['objetoxx'];
             $dataxxxx = $this->getAMayuculas($dataxxxx);
             $dt = new DateTime($dataxxxx['requestx']->d_nacimiento);
             $dataxxxx['requestx']->request->add(['d_nacimiento' => $dt->format('Y-m-d')]);
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            if ($dataxxxx['objetoxx'] != '') {
-                $dataxxxx['objetoxx']->update($dataxxxx['requestx']->all());
+            if ($objetoxx != '') {
+                $objetoxx->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['objetoxx'] = CsdComFamiliar::create($dataxxxx['requestx']->all());
+                $objetoxx = CsdComFamiliar::create($dataxxxx['requestx']->all());
             }
 
             $respuest = $this->getCedulaFi($dataxxxx);
@@ -206,7 +207,7 @@ trait DatosBasicosTrait
             }
             //
             // CsdComFamiliarObservaciones::getTransaccion($dataxxxx);
-            return $dataxxxx['objetoxx'];
+            return $objetoxx;
         }, 5);
         return $objetoxx;
     }

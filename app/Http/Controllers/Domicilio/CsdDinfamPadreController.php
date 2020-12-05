@@ -165,6 +165,7 @@ class CsdDinfamPadreController extends Controller
 
     public function show(CsdSisNnaj $padrexxx, CsdDinfamPadre $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'progenitor'], 'padrexxx' => $padrexxx]);
     }
     /**

@@ -24,7 +24,7 @@ class SisAreasSeeder extends Seeder
         Area::create(['id' => 6, 'nombre' => 'SICOSOCIAL', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //6
         Area::create(['id' => 7, 'nombre' => 'SOCIOLEGAL', 'contexto' => 'SL', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //7
         Area::create(['id' => 8, 'nombre' => 'TRANSVERSALES', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //8
-    
+
         $super =User::where('id',1)->first();
         $super->areas()->sync([
             6 => $camposmagicos,
@@ -82,11 +82,15 @@ class SisAreasSeeder extends Seeder
           $super->areas()->sync([
              8 => $camposmagicos,
           ]);
+          $super =User::where('id',904)->first();
+          $super->areas()->sync([
+            6 => $camposmagicos,
+            7 => $camposmagicos,
+            8 => $camposmagicos,
+          ]);
 
-          
-          
 
-          
+
 
     }
 }

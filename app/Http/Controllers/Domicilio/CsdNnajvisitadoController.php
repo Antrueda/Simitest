@@ -126,7 +126,7 @@ class CsdNnajvisitadoController extends Controller
                         ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO APERLLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -173,7 +173,7 @@ class CsdNnajvisitadoController extends Controller
      */
     public function show(SisNnaj $padrexxx,CsdSisNnaj $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'visitado'], 'padrexxx' => $modeloxx->sis_nnaj, 'csdxxxxx' => $modeloxx->csd]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'visitado'], 'padrexxx' => $padrexxx, 'csdxxxxx' => $modeloxx->csd]);
     }
 
     /**
@@ -192,7 +192,7 @@ class CsdNnajvisitadoController extends Controller
                 ];
         }
 
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'visitado'], 'padrexxx' => $modeloxx->sis_nnaj, 'csdxxxxx' => $modeloxx->csd]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'visitado'], 'padrexxx' => $padrexxx, 'csdxxxxx' => $modeloxx->csd]);
     }
 
     /**

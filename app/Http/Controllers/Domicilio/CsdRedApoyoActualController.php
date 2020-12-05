@@ -180,6 +180,7 @@ class CsdRedApoyoActualController extends Controller
      */
     public function show(CsdSisNnaj $padrexxx,CsdRedsocActual $modeloxx)
     {
+        $this->opciones['csdxxxxx']=$padrexxx;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['ver','formactual'], 'padrexxx' => $padrexxx]);
     }
 

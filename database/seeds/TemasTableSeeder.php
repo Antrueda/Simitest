@@ -1202,7 +1202,7 @@ class TemasTableSeeder extends Seeder
             632 => $camposmagicos,
             633 => $camposmagicos,
             634 => $camposmagicos,
-            635 => $camposmagicos,
+            // 635 => $camposmagicos,
             2177 => $camposmagicos,
             2217 => $camposmagicos,
         ]);

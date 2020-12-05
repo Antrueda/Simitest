@@ -171,7 +171,7 @@
     }
 
 }
-init_contadorTa("observaciones", "contadordescripcion1", 4000);
+init_contadorTa("observaciones", "contaobservaciones", 4000);
 
 function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {

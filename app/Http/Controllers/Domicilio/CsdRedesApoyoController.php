@@ -135,7 +135,7 @@ class CsdRedesApoyoController extends Controller
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['usuariox'] = $padrexxx->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$padrexxx->id];
-        
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -269,8 +269,8 @@ class CsdRedesApoyoController extends Controller
     public function show(CsdSisNnaj $padrexxx, CsdRedsocPasado $modeloxx)
      {
         $this->opciones['csdxxxxx']=$padrexxx;
-        $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'csd'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        // $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.ver',$modeloxx->id);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
