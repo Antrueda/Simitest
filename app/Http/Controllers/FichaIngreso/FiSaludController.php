@@ -25,7 +25,7 @@ class FiSaludController extends Controller
         $this->opciones['carpetax'] = 'Salud';
         $this->opciones['slotxxxx'] = 'fisalud';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "DIAGNOSTICO INTEGRANTE FAMILIAR;
+        $this->opciones['tituloxx'] = "DIAGNOSTICO INTEGRANTE FAMILIAR";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';

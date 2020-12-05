@@ -21,7 +21,7 @@ class CsdAlimentacionCrearRequest extends FormRequest
             'prm_horario_id.required'=>'Indique si tiene un horario de consumo para los alimentos',
             'prepara.required'=>'Indique quien prepara los alimentos',
             'prm_apoyo_id.required'=>'Seleccione si recibe apoyo alimentario',
-            'prm_entidad_id.required'=>'Seleccione de que entidad recibe apoyo entidad',
+            'prm_entidad_id.required_if'=>'Seleccione de que entidad recibe apoyo entidad',
      
           ];
         $this->_reglasx = [

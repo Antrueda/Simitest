@@ -15,6 +15,9 @@ class CsdGeneracionIngresosCrearRequest extends FormRequest
         $this->_mensaje = [
             'prm_actividad_id.required' => 'Seleccione tipo de actividad',
             'observacion.required' => 'Por favor ingrese alguna observacion',
+            'prm_laboral_id.required_if' => 'Indique tipo de relacion laboral',
+            'intensidad.required_unless' => 'Indique con que intencidad de horas ejerce su labor',
+            
 
         ];
         $this->_reglasx = [
@@ -61,3 +64,4 @@ class CsdGeneracionIngresosCrearRequest extends FormRequest
 
     }
 }
+
