@@ -24,7 +24,7 @@ class FiBienvenidaController extends Controller
         $this->opciones['carpetax'] = 'Bienvenida';
         $this->opciones['slotxxxx'] = 'fibienvenida';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "MOTIVOS DE VINCULACIÓN Y BIENVENIDA";
+        $this->opciones['tituloxx'] = "BIENVENIDA";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';

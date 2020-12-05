@@ -46,7 +46,7 @@ class AIEvasionRequest extends FormRequest
             'prm_nariz_id'  => 'required|exists:parametros,id',
             'prm_tienelunar_id' => 'required|exists:parametros,id',
             'cuantos'       => 'required_if:prm_tienelunar_id,227',
-            'prm_tamlunar_id'   => 'required_if:prm_tienelunar_id,227|exists:parametros,id',
+            'prm_tamlunar_id'   => 'required_if:prm_tienelunar_id,227',
             'senias'        => 'required|string|max:4000',
             'circunstancias'=> 'required|string|max:4000',
             'observaciones_fam'=> 'required|string|max:4000',

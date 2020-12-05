@@ -115,8 +115,7 @@ $("#i_prm_condicion_amb_id").change(function(){
 
         // INICIO esconde campos según la zona de residencia
         var f_tipozona = function(valuexxx) {
-            $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").empty();
-            $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").append('<option value="">Seleccione</>')
+       
             if (valuexxx != '') {
                 // if (valuexxx == 287) {
                     $('#s_complemento').val('');
@@ -130,13 +129,10 @@ $("#i_prm_condicion_amb_id").change(function(){
                     type: 'POST',
                     dataType: 'json',
                     success: function(json) {
-                        $('#s_nombre_via,#s_nombre_via,#i_via_generadora,#i_placa_vg').val('');
+                        
                         $('#s_nombre_via').prop('readonly', json[0].nomviapr);
                         $('#i_via_generadora').prop('readonly', json[0].numerovg);
                         $('#i_placa_vg').prop('readonly', json[0].placavgx);
-                        if (json[0].tipoviax[0].valuexxx == 1) {
-                            $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").empty();
-                        }
                         $.each(json[0].tipoviax, function(i, data) {
                             $('#i_prm_tipo_via_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
@@ -170,7 +166,39 @@ $("#i_prm_condicion_amb_id").change(function(){
         f_tipozona("{{old('i_prm_zona_direccion_id')}}");
         @endif
 
+        @if(old('i_prm_tipo_via_id') != null)
+        f_tipozona("{{old('i_prm_tipo_via_id')}}");
+        @endif
+
+        @if(old('i_prm_alfabeto_via_id') != null)
+        f_tipozona("{{old('i_prm_alfabeto_via_id')}}");
+        @endif
+
+        @if(old('i_prm_tiene_bis_id') != null)
+        f_tipozona("{{old('i_prm_tiene_bis_id')}}");
+        @endif
+        
+        @if(old('i_prm_bis_alfabeto_id') != null)
+        f_tipozona("{{old('i_prm_bis_alfabeto_id')}}");
+        @endif
+
+        @if(old('i_prm_cuadrante_vp_id') != null)
+        f_tipozona("{{old('i_prm_cuadrante_vp_id')}}");
+        @endif
+
+        @if(old('i_prm_alfabetico_vg_id') != null)
+        f_tipozona("{{old('i_prm_alfabetico_vg_id')}}");
+        @endif
+
+        @if(old('i_prm_cuadrante_vg_id') != null)
+        f_tipozona("{{old('i_prm_cuadrante_vg_id')}}");
+        @endif
+
+
         $("#i_prm_zona_direccion_id").change(function() {
+            $('#s_nombre_via,#s_nombre_via,#i_via_generadora,#i_placa_vg').val('');
+            $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").empty();
+            $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").append('<option value="">Seleccione</>')
             f_tipozona($(this).val());
         });
 

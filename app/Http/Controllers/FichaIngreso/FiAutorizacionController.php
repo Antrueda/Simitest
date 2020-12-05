@@ -27,7 +27,7 @@ class FiAutorizacionController extends Controller
         $this->opciones['carpetax'] = 'Autorizacion';
         $this->opciones['slotxxxx'] = 'fiautorizacion';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "CONTACTO CON IDPRON Y TRATAMIENTO DE DATOS";
+        $this->opciones['tituloxx'] = "AUTORIZACIÓN DE VINCULACIÓN, USO Y PUBLICACIÓN DE FOTOS";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';

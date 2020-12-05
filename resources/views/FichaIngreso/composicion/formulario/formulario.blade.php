@@ -42,11 +42,11 @@
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('prm_tipodocu_id', 'Tipo de Identificación', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_tipodocu_id', 'Tipo de Documento', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_tipodocu_id', $todoxxxx["tipodocu"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('s_documento', 'Número de Documento', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('s_documento', 'No. de Documento', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('s_documento', null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
@@ -81,8 +81,8 @@
         {{ Form::select('i_prm_ocupacion_id', $todoxxxx["ocupacio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('s_telefono', 'Número de Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_telefono', null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::label('s_telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::number('s_telefono', null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_convive_nnaj_id', '¿Convive con el NNAJ?', ['class' => 'control-label col-form-label-sm']) }}

@@ -349,7 +349,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('sis_localidad_id', '1.19(b) Localidad', ['class' => 'control-label']) }}
-        {{ Form::select('sis_localidad_id', $todoxxxx['localida'], null, ['class' => $errors->first('sis_localidad_id') ? 'form-control sispaisx form-control-sm is-invalid' : 'form-control sispaisx form-control-sm']) }}
+        {{ Form::select('sis_localidad_id', $todoxxxx['localida'], null, ['class' => $errors->first('sis_localidad_id') ? 'form-control sispaisx form-control-sm is-invalid' : 'form-control sispaisx form-control-sm','placeholder'=>'Selecione']) }}
         @if($errors->has('sis_localidad_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_localidad_id') }}
@@ -367,7 +367,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_upzbarri_id', '1.19(c) Barrio', ['class' => 'control-label']) }}
-        {{ Form::select('sis_upzbarri_id', $todoxxxx['barrioxx'], null, ['class' => $errors->first('sis_upzbarri_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::select('sis_upzbarri_id', $todoxxxx['barrioxx'], null, ['class' => $errors->first('sis_upzbarri_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','placeholder'=>'Selecione']) }}
         @if($errors->has('sis_upzbarri_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_upzbarri_id') }}

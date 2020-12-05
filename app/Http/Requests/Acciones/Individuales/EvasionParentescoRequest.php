@@ -16,18 +16,18 @@ class EvasionParentescoRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'prm_familiar_id.required'=>'Seleccione el parentesco',
+            'prm_parentezco_id.required'=>'Seleccione el parentesco',
             'primer_apellido.required'=>'Ingrese el primer apellido',
             'primer_nombre.required'=>'Ingrese el primer nombre',
-            'tel_familiar.required'=>'Ingrese el telefono',
+            's_telefono.required'=>'Ingrese el telefono',
             'direccion_familiar.required'=>'Ingrese la dirección',
             ];
         $this->_reglasx = [
-            'prm_familiar_id' => 'required|exists:parametros,id',
+            'prm_parentezco_id' => 'required|exists:parametros,id',
             'primer_apellido' => 'required',
             'primer_nombre' => 'required',
             'direccion_familiar' => 'required',
-            'tel_familiar' => 'required',
+            's_telefono' => 'required',
             ];
     }
     /**

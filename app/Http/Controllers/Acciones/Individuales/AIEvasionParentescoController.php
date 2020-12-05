@@ -94,8 +94,9 @@ class AIEvasionParentescoController extends Controller
             // $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            
-            
+            $familiar = EvasionParentesco::where('reporte_evasion_id', $dataxxxx['padrexxx']->id)->get();
+           
+            if(count($familiar)<2){
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -103,6 +104,7 @@ class AIEvasionParentescoController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
+        }
         }
         $this->opciones['tablasxx'] = [
             [

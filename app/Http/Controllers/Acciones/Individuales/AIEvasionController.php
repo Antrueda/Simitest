@@ -7,6 +7,7 @@ use App\Http\Requests\Acciones\Individuales\AIEvasionRequest;
 use App\Http\Requests\Csd\CsdCrearRequest;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
+use App\Models\Acciones\Individuales\Pivotes\EvasionParentesco;
 use App\Models\consulta\Csd;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiCompfami;
@@ -212,7 +213,7 @@ class AIEvasionController extends Controller
             $parametr = $dataxxxx['modeloxx']->id;
             $vercrear = true;
         }  
-
+        $familiar = EvasionParentesco::where('reporte_evasion_id',$parametr)->get();
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'AGREGAR VESTUARIO',
@@ -245,11 +246,12 @@ class AIEvasionController extends Controller
                 'parametr' => [$parametr],
             ],
             [
+                
                 'titunuev' => 'AGREGAR FAMILIAR',
                 'titulist' => 'LISTA DE FAMILIARES',
                 'pregunta' => 'DATOS FAMILIARES (De acuerdo a ficha de ingreso)',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
-                'vercrear' => $vercrear,
+                'vercrear' => ($vercrear && count($familiar) == 1 )? true : false,
                 'urlxxxxx' => route('evasionpar.listaxxx', [$parametr]),
                 'cabecera' => [
                     [

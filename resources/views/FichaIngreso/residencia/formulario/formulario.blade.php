@@ -108,7 +108,7 @@
       @endif
     </div>
     <div class="form-group col-md-4">
-      {{ Form::label('i_via_generadora', '# No. Vía Generadora (VG)', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::label('i_via_generadora', 'No. Vía Generadora (VG)', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::number('i_via_generadora', null, ['class' => $errors->first('i_via_generadora') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Vía Generadora', 'min' => '0', 'max' => '250']) }}
       @if($errors->has('i_via_generadora'))
         <div class="invalid-feedback d-block">
@@ -196,7 +196,7 @@
     @endif
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('sis_upz_id', '3.9 No. UPZ', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('sis_upz_id', '3.9 Nombre UPZ', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::select('sis_upz_id', $todoxxxx["upzxxxxx"], null, ['class' => $errors->first('sis_upz_id') ? 'form-control departam form-control-sm is-invalid' : 'form-control departam form-control-sm']) }}
     @if($errors->has('sis_upz_id'))
       <div class="invalid-feedback d-block">
@@ -216,7 +216,7 @@
     @endif
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('s_telefono_uno', '3.12 Teléfono 1', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_telefono_uno', '3.12 Celular 1', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('s_telefono_uno', null, ['class' => $errors->first('s_telefono_uno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
     @if($errors->has('s_telefono_uno'))
       <div class="invalid-feedback d-block">
@@ -225,7 +225,7 @@
     @endif
   </div>
   <div class="form-group col-md-4">
-    {{ Form::label('s_telefono_dos', '3.13 Teléfono 2', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_telefono_dos', '3.13 Celular 2', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('s_telefono_dos', null, ['class' => $errors->first('s_telefono_dos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
     @if($errors->has('s_telefono_dos'))
       <div class="invalid-feedback d-block">
@@ -236,7 +236,7 @@
 </div>
 <div class="form-row align-items-end">
   <div class="form-group col-md-4">
-    {{ Form::label('s_telefono_tres', '3.14 Teléfono 3', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_telefono_tres', '3.14 Celular 3', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('s_telefono_tres', null, ['class' => $errors->first('s_telefono_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", $todoxxxx['readchcx']]) }}
     @if($errors->has('s_telefono_tres'))
       <div class="invalid-feedback d-block">

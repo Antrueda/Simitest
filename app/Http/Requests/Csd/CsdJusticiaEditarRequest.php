@@ -15,9 +15,9 @@ class CsdJusticiaEditarRequest extends FormRequest
 
         $this->_mensaje = [
             'prm_vinculado_id.required'=>'Seleccione si se encuentra vinculado a la violencia',
-            'prm_vin_causa_id.required'=>'Seleccione la causa',
+            'prm_vin_causa_id.required_if'=>'Seleccione la causa',
             'prm_riesgo_id.required'=>'Seleccione si se encuentra en riesgo de participar en actos delictivos',
-            'prm_rie_causa_id.required'=>'Seleccione la causa',
+            'prm_rie_causa_id.required_if'=>'Seleccione la causa',
      
           ];
         $this->_reglasx = [

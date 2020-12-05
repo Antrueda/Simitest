@@ -17,6 +17,13 @@ class CsdDinfamiliarEditarRequest extends FormRequest
             'prm_conoce_id.required' => 'Indique si su familia conoce las normas y limites',
             's_doc_adjunto_ar.required'=>'Debe adjuntar el genograma',
             's_doc_adjunto_ar.mimes'=>'El archivo debe ser imagen o pdf',
+            'prm_familiar_id.required' => 'Indique la Tipología Familiar',
+            'prm_hogar_id.required' => 'Indique la Tipología de Hogar',
+            'prm_bogota_id.required' => 'Indique por que se trasladaron Bogotá',
+            'prm_solucion_id.required' => 'Indique como solucionan los problemas en casa',
+            'prm_problema_id.required' => 'Indique a quién acude cuando hay problemas en casa',
+            'prm_destaca_id.required' => 'Indique si los miembros de la familia se destacan',
+            'prm_positivo_id.required' => 'Indique Cómo actúa la familia cuando hay sucesos positivos',
             
         ];
         $this->_reglasx = [

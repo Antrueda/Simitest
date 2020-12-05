@@ -27,7 +27,7 @@ class FiRazoneController extends Controller
         $this->opciones['carpetax'] = 'Razones';
         $this->opciones['slotxxxx'] = 'firazones';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "RAZONES PARA ENTRAR AL IDIPRON";
+        $this->opciones['tituloxx'] = "RAZONES PARA INGRESAR AL IDIPRON";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';

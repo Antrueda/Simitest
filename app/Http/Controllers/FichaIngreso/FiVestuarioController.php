@@ -18,7 +18,7 @@ class FiVestuarioController extends Controller
     {
 
         $this->opciones = [
-            'tituloxx' => 'Vestuario',
+            'tituloxx' => 'VESTUARIO',
             'permisox' => 'fivestuario',
             'rutaxxxx' => 'FichaIngreso',
             'accionxx' => '',
