@@ -1287,7 +1287,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 1266, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'RECONSTRUCCIÓN']);
         Parametro::create(['id' => 1267, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROFILAXIS']);
         Parametro::create(['id' => 1268, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DETARTRAJE']);
-        Parametro::create(['id' => 1269, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NO APLICA']);
+        Parametro::create(['id' => 1269, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REUTILIZAR']);
         Parametro::create(['id' => 1270, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'D - DEPENDIENTE']);
         Parametro::create(['id' => 1271, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SD - SEMIDEPENDIENTE']);
         Parametro::create(['id' => 1272, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'I - INDEPENDIENTE']);
@@ -2517,11 +2517,13 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'HIJASTRA ']);//2477
         $this->getR(['nombrexx' => 'LIGADURA TROMPAS ']);//2478
         $this->getR(['nombrexx' => 'VASECTOMIA ']);//2479
-        $this->getR(['nombrexx' => 'TIPO DE SEGUIMIENTO']);//2480
-        $this->getR(['nombrexx' => 'SUB TIPO DE SEGUIMIENTO']);//2481
-        $this->getR(['nombrexx' => 'ADECUADA']);//2482
-        $this->getR(['nombrexx' => 'INADECUADA']);//2483
+        $this->getR(['nombrexx' => 'FABRICACIÓN, TRÁFICO O PORTE DE ARMA DE FUEGO']);//2480
+        $this->getR(['nombrexx' => 'PORTE Y SUMINISTRO DE ESCOPOLAMINA(SUSTANCIAS SIMILARES)']);//2481
+        $this->getR(['nombrexx' => 'TIPO DE SEGUIMIENTO']);//2482
+        $this->getR(['nombrexx' => 'SUB TIPO DE SEGUIMIENTO']);//2483
+        $this->getR(['nombrexx' => 'ADECUADA']);//2484
+        $this->getR(['nombrexx' => 'INADECUADA']);//2485
+        $this->getR(['nombrexx' => 'TOMASERA']);//2486
 
- 
     }
 }

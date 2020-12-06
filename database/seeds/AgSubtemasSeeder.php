@@ -12,6 +12,6 @@ class AgSubtemasSeeder extends Seeder
      */
     public function run()
     {
-        AgSubtema::create(["s_subtema"=>"NO APLICA","s_descripcion"=>"NO APLICA","sis_esta_id"=>1,"user_crea_id"=>1,"user_edita_id"=>1]);
+        AgSubtema::create(["s_subtema"=>"N/A","s_descripcion"=>"N/A","sis_esta_id"=>1,"user_crea_id"=>1,"user_edita_id"=>1]);
     }
 }

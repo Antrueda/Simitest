@@ -51,7 +51,6 @@
         }
         var f_discapacidad = function(valuexxx, discapac, certific, independ) {
             $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").empty();
-            $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").append('<option value="">Seleccione</>')
             if (valuexxx != '') {
                 $.ajax({
                     url: "{{ route('ajaxx.discapacitado') }}",

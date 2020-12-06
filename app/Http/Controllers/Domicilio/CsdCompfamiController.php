@@ -199,7 +199,7 @@ class CsdCompfamiController extends Controller
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->prm_regimen_id, true, false);
 
             if ($dataxxxx['modeloxx']->sisben != '') {//
-                $this->opciones['nsnoresp'] = [1269 => 'NO APLICA'];
+                $this->opciones['nsnoresp'] = Parametro::find(235)->Combo;
             }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {

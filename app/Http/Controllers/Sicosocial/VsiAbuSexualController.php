@@ -52,7 +52,7 @@ class VsiAbuSexualController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        
+
         $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['familiar'] = Tema::combo(66, true, false);
         $this->opciones['eventoxx'] = Tema::combo(202, true, false);
@@ -67,12 +67,12 @@ class VsiAbuSexualController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-            
+
 
             if($dataxxxx['modeloxx']->prm_evento_id==853){
-                $this->opciones['familiar']=[1269=>'NO APLICA'];
+                $this->opciones['familiar']=Parametro::find(235)->Combo;
             }
-           
+
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;

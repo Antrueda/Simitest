@@ -1,6 +1,7 @@
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 
 <div class="form-row align-items-end">
+<input type="hidden" id="tablaselect" value="NO">
     <div class="form-group col-md-4">
         {{ Form::label('s_primer_apellido', '1.1 1er. Apellido', ['class' => 'control-label']) }}
         {{ Form::text('s_primer_apellido', null, ['class' => 'form-control form-control-sm',

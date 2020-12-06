@@ -125,6 +125,6 @@ class SisUpzsSeeder extends Seeder
         SisUpz::create(['id' => 116,  's_upz' => 'Álamos', 's_codigo' => 116]);
         SisUpz::create(['id' => 117,  's_upz' => 'Aeropuerto Eldorado', 's_codigo' => 117]);
         SisUpz::create(['id' => 118,  's_upz' => 'UPZ INCORRECTA EN LA BASE PLANA', 's_codigo' => 118]);
-        SisUpz::create(['id' => 119,  's_upz' => 'NO APLICA', 's_codigo' => 119]);
+        SisUpz::create(['id' => 119,  's_upz' => 'N/A', 's_codigo' => 119]);
     }
 }

@@ -74,16 +74,7 @@ class FiResidenciaController extends Controller
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
         $this->opciones['readchcx'] = '';
-        if ($this->opciones['usuariox']->prm_tipoblaci_id == 650) {
-            $this->opciones['readchcx'] = 'readonly';
-            $this->opciones['residees'] = [1 => 'NO APLICA'];
-            $this->opciones['localida'] = [22 => 'NO APLICA'];
-            $this->opciones['upzxxxxx'] = [134 => 'NO APLICA'];
-            $this->opciones['barrioxx'] = [1 => 'NO APLICA'];
-            $this->opciones['tiporesi'] = Tema::combo(145, true, false);
-        } else {
-            $this->opciones['tiporesi'] = Tema::combo(34, true, false);
-        }
+
 
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
@@ -93,10 +84,10 @@ class FiResidenciaController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             if ($dataxxxx['modeloxx']->i_prm_zona_direccion_id == 289) {
-                $this->opciones['dircondi'] = [1 => 'NO APLICA'];
-                $this->opciones['cuadrant'] = [1 => 'NO APLICA'];
-                $this->opciones['alfabeto'] = [1 => 'NO APLICA'];
-                $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
+                $this->opciones['dircondi'] = [235 => 'N/A'];
+                $this->opciones['cuadrant'] = [235 => 'N/A'];
+                $this->opciones['alfabeto'] = [235 => 'N/A'];
+                $this->opciones['tpviapal'] = [235 => 'N/A'];
             }
 
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
@@ -106,6 +97,17 @@ class FiResidenciaController extends Controller
                 $dataxxxx['modeloxx']->sis_upz_id=$dataxxxx['modeloxx']->sis_barrio->sis_localupz_id;
                 $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
                 $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente($dataxxxx['modeloxx']->id);
+            }
+
+            if ($this->opciones['usuariox']->prm_tipoblaci_id == 650) {
+                $this->opciones['readchcx'] = 'readonly';
+                $this->opciones['residees'] = [235 => 'N/A'];
+                $this->opciones['localida'] = [22 => 'N/A'];
+                $this->opciones['upzxxxxx'] = [134 => 'N/A'];
+                $this->opciones['barrioxx'] = [1 => 'N/A'];
+                $this->opciones['tiporesi'] = Tema::combo(145, true, false);
+            } else {
+                $this->opciones['tiporesi'] = Tema::combo(34, true, false);
             }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }

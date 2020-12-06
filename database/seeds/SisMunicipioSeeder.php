@@ -12,7 +12,7 @@ class SisMunicipioSeeder extends Seeder
      */
     public function run()
     {
-        SisMunicipio::create(['sis_departamento_id' => 1, 's_municipio' => 'NO APLICA']);
+        SisMunicipio::create(['sis_departamento_id' => 1, 's_municipio' => 'N/A']);
         SisMunicipio::create(['sis_departamento_id' => 8, 's_municipio' => 'SAN MATEO']);
         SisMunicipio::create(['sis_departamento_id' => 8, 's_municipio' => 'SAN MIGUEL DE SEMA']);
         SisMunicipio::create(['sis_departamento_id' => 8, 's_municipio' => 'SAN PABLO DE BORBUR']);

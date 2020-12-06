@@ -7,6 +7,7 @@ use App\Http\Requests\FichaIngreso\FiFormacionCrearRequest;
 use App\Http\Requests\FichaIngreso\FiFormacionUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiFormacion;
+use App\Models\Parametro;
 use App\Models\Sistema\SisInstitucionEdu;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
@@ -74,17 +75,17 @@ class FiFormacionController extends Controller
         $this->opciones['readinst'] = '';
         // Si es CHC
         if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) {
-            $this->opciones['natuenti'] = [1 => 'NO APLICA'];
-            $this->opciones['jornestu'] = [1 => 'NO APLICA'];
-            $this->opciones['insti_id'] = [1 => 'NO APLICA'];
-            $this->opciones['actuestu'] = [228 => 'NO'];
+            $this->opciones['natuenti'] = Parametro::find(235)->Combo;
+            $this->opciones['jornestu'] = Parametro::find(235)->Combo;
+            $this->opciones['insti_id'] = [1 => 'N/A'];
+            // $this->opciones['actuestu'] = [228 => 'NO']; // se quita
         }
 
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1]=$dataxxxx['modeloxx']->id;
             if ($dataxxxx['modeloxx']->i_prm_estudia_id == 228) {
-                $this->opciones['natuenti'] = [1 => 'NO APLICA'];
-                $this->opciones['jornestu'] = [1 => 'NO APLICA'];
+                $this->opciones['natuenti'] = Parametro::find(235)->Combo;
+                $this->opciones['jornestu'] = Parametro::find(235)->Combo;
                 $this->opciones['readinst'] = 'readonly';
             } elseif ($dataxxxx['modeloxx']->i_prm_estudia_id == 227) {
                 $this->opciones['readdiax'] = 'readonly';

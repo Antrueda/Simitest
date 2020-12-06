@@ -65,7 +65,7 @@ class IsDatoBasicoController extends Controller
         $this->opciones['proxxxxx'] = Carbon::today()->add(3, 'Month')->isoFormat('YYYY-MM-DD');
 
         $this->opciones[''] = Tema::combo(52, true, false);
-        
+
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => ['is.intervencion.lista', []],
@@ -122,7 +122,7 @@ class IsDatoBasicoController extends Controller
     $areaxxxx=User::getAreasUser($userxxxx);
     ddd($areaxxxx);
     */
-  
+
 
 
     $this->opciones['botoform'][0]['routingx'] [1][0]=   $this->opciones['nnajregi'];
@@ -173,8 +173,8 @@ class IsDatoBasicoController extends Controller
                     ->with('info', 'Superfil no está autorizado para ver intervenciones sicosociales especializadas');
             }
             if ($objetoxx->i_prm_area_ajuste_id != 1269) {
-                $this->opciones['subareas'] = [1269 => 'NO APLICA'];
-            }   
+                $this->opciones['subareas'] = Parametro::find(235)->Combo;
+            }
             $this->opciones['estadoxx'] = $objetoxx->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
             $this->opciones['subareas'] = $this->casos($objetoxx->i_prm_area_ajuste_id, true, false);
@@ -184,7 +184,7 @@ class IsDatoBasicoController extends Controller
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['areajusx'] = IsDatosBasico::getAreajuste($objetoxx);
-        
+
         $rutaxxxx = 'intervencion.' . strtolower($this->opciones['accionxx']);
 
         return view($rutaxxxx, ['todoxxxx' => $this->opciones]);
@@ -206,7 +206,7 @@ class IsDatoBasicoController extends Controller
 
     public function lista($nnajregi)
     {
-        
+
         $this->opciones['nnajregi'] = $nnajregi;
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
         return $this->view('', '', 'crear');
@@ -305,14 +305,14 @@ class IsDatoBasicoController extends Controller
             case 1269: //Académica
                 if ($ajaxxxxx) {
                     $respuest = [
-                        'subareax' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
+                        'subareax' => Parametro::find(235)->Combo,
                     ];
                 } else {
                     $respuest = [
-                        'subareax' => [1269 => 'NO APLICA'], 
+                        'subareax' => Parametro::find(235)->Combo,
                     ];
                 }
-                
+
 
                 break;
         }
@@ -376,11 +376,11 @@ class IsDatoBasicoController extends Controller
             case 1067: //Académica
                 if ($ajaxxxxx) {
                     $respuest = [
-                        'areajust' => [['valuexxx' => 1269, 'optionxx' => 'NO APLICA']],
+                        'areajust' => Parametro::find(235)->Combo,
                     ];
                 } else {
                     $respuest = [
-                        'areajust' => [1269 => 'NO APLICA'],
+                        'areajust' => Parametro::find(235)->Combo,
                     ];
                 }
 
@@ -398,7 +398,7 @@ class IsDatoBasicoController extends Controller
             ])
                 ->join('sis_depens', 'is_datos_basicos.sis_depen_id', '=', 'sis_depens.id')
                 ->join('users', 'is_datos_basicos.i_primer_responsable', '=', 'users.id')
-                
+
                 ->join('parametros as tipoaten', 'is_datos_basicos.i_prm_tipo_atencion_id', '=', 'tipoaten.id')
                 ->where(function ($queryxxx) use ($nnajxxxx) {
                     $queryxxx->where('is_datos_basicos.sis_esta_id', 1)->where('is_datos_basicos.sis_nnaj_id', $nnajxxxx);

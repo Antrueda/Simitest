@@ -56,6 +56,7 @@ class CsdRedesApoyoController extends Controller
     }
     public function index(CsdSisNnaj $padrexxx)
     {
+
         $this->opciones['csdxxxxx']=$padrexxx;
        $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
@@ -134,6 +135,7 @@ class CsdRedesApoyoController extends Controller
         ];
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['usuariox'] = $padrexxx->sis_nnaj->fi_datos_basico;
+
         $this->opciones['pestpara'] = [$padrexxx->id];
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -141,9 +143,8 @@ class CsdRedesApoyoController extends Controller
 
     public function getAntecedentes(Request $request, CsdSisNnaj $padrexxx)
     {
-        $padrexxx=$padrexxx->csd;
         if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->id;
+            $request->padrexxx = $padrexxx->csd_id;
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .

@@ -7,11 +7,14 @@ use App\Http\Requests\FichaIngreso\FiGeneracionIngresoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiGeneracionIngresoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
+use App\Models\Parametro;
 use App\Models\Tema;
-use Illuminate\Http\Request;
+use App\Traits\Fi\FiTrait;
+
 
 class FiGeneracionIngresoController extends Controller
 {
+    use FiTrait;
     private $opciones;
     public function __construct()
     {
@@ -51,7 +54,7 @@ class FiGeneracionIngresoController extends Controller
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         /** informacion que se va a mostrar en la vista */
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.'.$dataxxxx['accionxx'][1];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
@@ -73,36 +76,34 @@ class FiGeneracionIngresoController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-            
-            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id==626) {
-                $this->opciones['trabinfo'] = [1 => 'NO APLICA'];
-                $this->opciones['otractiv'] = [1 => 'NO APLICA'];
-                $this->opciones['raznogen'] = [1 => 'NO APLICA'];
-                
-                }
-            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id==627) {
-                    $this->opciones['otractiv'] = [1 => 'NO APLICA'];
-                    $this->opciones['formalxx'] = 'readonly';
-                    $this->opciones['raznogen'] = [1 => 'NO APLICA'];
-                    $this->opciones['tiporela'] = [1 => 'NO APLICA'];
-                }    
-            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id==628) {
-                    $this->opciones['trabinfo'] = [1 => 'NO APLICA'];
-                    $this->opciones['formalxx'] = 'readonly';
-                    $this->opciones['raznogen'] = [1 => 'NO APLICA'];
-                    $this->opciones['tiporela'] = [1 => 'NO APLICA'];
-                    }             
-            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id==853) {
-                    $this->opciones['trabinfo'] = [1 => 'NO APLICA'];
-                    $this->opciones['otractiv'] = [1 => 'NO APLICA'];
-                    $this->opciones['formalxx'] = 'readonly';
-                    $this->opciones['tiporela'] = [1 => 'NO APLICA'];
-                    
-                    }                
-                    
-                    
-        }    
 
+            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id == 626) {
+                $this->opciones['trabinfo'] = Parametro::find(235)->Combo;
+                $this->opciones['otractiv'] = Parametro::find(235)->Combo;
+                $this->opciones['raznogen'] = Parametro::find(235)->Combo;
+            }
+            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id == 627) {
+                $this->opciones['otractiv'] = Parametro::find(235)->Combo;
+                $this->opciones['formalxx'] = 'readonly';
+                $this->opciones['raznogen'] = Parametro::find(235)->Combo;
+                $this->opciones['tiporela'] = Parametro::find(235)->Combo;
+            }
+            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id == 628) {
+                $this->opciones['trabinfo'] = Parametro::find(235)->Combo;
+                $this->opciones['formalxx'] = 'readonly';
+                $this->opciones['raznogen'] = Parametro::find(235)->Combo;
+                $this->opciones['tiporela'] = Parametro::find(235)->Combo;
+            }
+            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id == 853) {
+                $this->opciones['trabinfo'] = Parametro::find(235)->Combo;
+                $this->opciones['otractiv'] = Parametro::find(235)->Combo;
+                $this->opciones['formalxx'] = 'readonly';
+                $this->opciones['tiporela'] = Parametro::find(235)->Combo;
+            }
+        }
+        $this->opciones['readdiax'] = 'readonly';
+        $this->opciones['readmesx'] = 'readonly';
+        $this->opciones['readanio'] = 'readonly';
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -123,7 +124,8 @@ class FiGeneracionIngresoController extends Controller
             return redirect()
                 ->route($this->opciones['routxxxx'] . '.editar', [$padrexxx->id, $vestuari->id]);
         }
-        return $this->view(['modeloxx' => '', 'accionxx'=>['crear','formulario'], 'padrexxx' => $padrexxx]);
+
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', $padrexxx->prm_tipoblaci_id == 650 ? 'chcxxxxx' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     private function grabar($dataxxxx, $objetoxx, $infoxxxx, $padrexxx)
@@ -155,7 +157,7 @@ class FiGeneracionIngresoController extends Controller
      */
     public function show(FiDatosBasico $padrexxx, FiGeneracionIngreso $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['ver','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', $padrexxx->prm_tipoblaci_id == 650 ? 'chcxxxxx' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -172,7 +174,7 @@ class FiGeneracionIngresoController extends Controller
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 
-            return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $padrexxx->prm_tipoblaci_id == 650 ? 'chcxxxxx' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -186,8 +188,4 @@ class FiGeneracionIngresoController extends Controller
     {
         return $this->grabar($request->all(), $modeloxx, 'Generación de ingresos actualizado con exito', $padrexxx);
     }
-
-
-  
-
 }

@@ -99,10 +99,10 @@
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('i_prm_conoce_metodos_id', '6.13 ¿Tiene conocimiento sobre métodos anticonceptivos?', ['class' => 'control-label']) }}
+        {{ Form::label('i_prm_conoce_metodos_id', '6.13 ¿Tiene conocimiento nnnnn sobre métodos anticonceptivos?', ['class' => 'control-label']) }}
         {{ Form::select('i_prm_conoce_metodos_id', $todoxxxx['condnoap'], null, ['class' => $errors->first('i_prm_conoce_metodos_id') ?
-    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm',
-    'data-placeholder' => 'Seleccione los eventos médicos importantes']) }}
+    'form-control select2 form-control-sm is-invalid usameanti' : 'form-control select2 form-control-sm usameanti',
+    'data-placeholder' => 'Seleccione Tiene conocimiento sobre métodos anticonceptivos']) }}
         @if($errors->has('i_prm_conoce_metodos_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_conoce_metodos_id') }}
@@ -111,7 +111,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_usa_metodos_id', '6.14 ¿Usa métodos anticonceptivos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_usa_metodos_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm select2']) }}
+        {{ Form::select('i_prm_usa_metodos_id', $todoxxxx["usameant"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_cual_metodo_id', '6.15 ¿Cuál método?', ['class' => 'control-label col-form-label-sm']) }}

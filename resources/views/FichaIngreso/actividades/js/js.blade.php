@@ -7,7 +7,7 @@
         //SI PRACTICA ALGUNA RELIGIÓN, SELECCIONE CUAL
         var f_practicareligion = function(valuexxx,pselecte){
             $("#i_prm_religion_practica_id, #i_prm_sacramentos_hechos_id").empty();
-            $("#i_prm_religion_practica_id").append('<option value="">Seleccione</>')
+
             if(valuexxx != ''){
                 $.ajax({
                     url : "{{ route('ajaxx.practicareligion') }}",
@@ -18,28 +18,14 @@
                     type : 'POST',
                     dataType : 'json',
                     success : function(json) {
-                        if(json[0].cualreli[0].valuexxx==1){
-                            $("#i_prm_religion_practica_id, #i_prm_sacramentos_hechos_id").empty();
-                        }
-
-                        $.each(json[0].cualreli,function(i,data){
-                            var selected = '';
-                            if (data.valuexxx == pselecte){
-                                selected = 'selected';
-                            }
-                            $('#i_prm_religion_practica_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-
-                        });
-                        $.each(json[0].sacramen,function(i,data){
-                            var selected = '';
-                            if (data.valuexxx == 1){
-                                selected = 'selected';
-                            }
-                            $('#i_prm_sacramentos_hechos_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                        $.each(json.combosxx,function(i,dataxxxx){
+                            $.each(dataxxxx.comboxxx,function(i,data){
+                               $(dataxxxx.nombrexx).append('<option '+dataxxxx.selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                            });
                         });
                     },
                     error : function(xhr, status) {
-                        alert('Disculpe, existió un problema');
+                        alert('Disculpe, existió un problema las religioes y los sacramentos');
                     },
                 });
             }
@@ -58,7 +44,6 @@
         // SI ES CATÓLICO SELECCIONE CUAL SACRAMENTO TIENE
         var f_cualsacramento = function(valuexxx){
             $("#i_prm_sacramentos_hechos_id").empty();
-            //$("#i_prm_sacramentos_hechos_id").append('<option value="">Seleccione</>')
             if(valuexxx != ''){
                 $.ajax({
                     url : "{{ route('ajaxx.cualsacramento') }}",
@@ -69,19 +54,12 @@
                     type : 'POST',
                     dataType : 'json',
                     success : function(json) {
-                        if(json[0].sacramen[0].valuexxx==1){
-                            $("#i_prm_sacramentos_hechos_id").empty();
-                        }
-                        $.each(json[0].sacramen,function(i,data){
-                            var selected = '';
-                            if (data.valuexxx == 1){
-                                selected = 'selected';
-                            }
-                            $('#i_prm_sacramentos_hechos_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                        $.each(json.comboxxx,function(i,data){
+                            $('#i_prm_sacramentos_hechos_id').append('<option '+json.selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
                     },
                     error : function(xhr, status) {
-                        alert('Disculpe, existió un problema');
+                        alert('Disculpe, existió un problema listar los sacramentos');
                     },
                 });
             }

@@ -91,9 +91,40 @@ $(function(){
         });
 
 
+       $("#i_prm_conoce_metodos_id").change(function(){
+           $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id,#i_prm_usa_metodos_id").empty();
+           if($(this).val()!=''){
+               $.ajax({
+               url : "{{ route('ajaxx.anticonceptivo') }}",
+               data : {
+                       _token: $("input[name='_token']").val(),
+                       'padrexxx':$(this).val()
+                   },
+               type : 'POST',
+               dataType : 'json',
+               success : function(json) {
+                   if(json[0].cuametod[0].valuexxx==1){
+                       $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id,#i_prm_usa_metodos_id").empty();
+                   }
+                   $.each(json[0].cuametod,function(i,data){
+                           $('#i_prm_cual_metodo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                   });
+                   $.each(json[0].usavolun,function(i,data){
+                           $('#i_prm_uso_voluntario_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                   });
+                   $.each(json[0].usameant,function(i,data){
+                           $('#i_prm_usa_metodos_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                   });
+               },
+               error : function(xhr, status) {
+                   alert('Disculpe, existió un problema');
+               },
+           });
+           }
+       });
+
        $("#i_prm_usa_metodos_id").change(function(){
            $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id").empty();
-           $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id").append('<option value="">Seleccione</>')
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.anticonceptivo') }}",
@@ -113,6 +144,9 @@ $(function(){
                    $.each(json[0].usavolun,function(i,data){
                            $('#i_prm_uso_voluntario_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
+                   $.each(json[0].usameant,function(i,data){
+                           $('#i_prm_usa_metodos_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                   });
                },
                error : function(xhr, status) {
                    alert('Disculpe, existió un problema');
@@ -122,10 +156,8 @@ $(function(){
        });
 
 
-
        $("#i_comidas_diarias").keyup(function(){
            $("#i_prm_razon_no_cinco_comidas_id").empty();
-           $("#i_prm_razon_no_cinco_comidas_id").append('<option value="">Seleccione</>')
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.comidasdiarias') }}",
@@ -236,7 +268,6 @@ $(function(){
 
        $("#i_prm_tiene_problema_salud_id").change(function(){
            $("#i_prm_problema_salud_id").empty();
-           $("#i_prm_problema_salud_id").append('<option value="">Seleccione</>')
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.tieneprobsalud') }}",
@@ -310,7 +341,6 @@ $(function(){
        @endif
        $("#d_puntaje_sisben").keyup(function(){
            $("#i_prm_tiene_sisben_id").empty();
-           $("#i_prm_tiene_sisben_id").append('<option value="">Seleccione</>')
            f_sisben($(this).val(),'');
        });
 

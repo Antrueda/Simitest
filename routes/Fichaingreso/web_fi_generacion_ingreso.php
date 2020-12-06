@@ -26,10 +26,19 @@ Route::group(['prefix' => '{padrexxx}/fiingreso'], function () use($routexxx,$co
 	Route::get('ver/{modeloxx}', [
 		'uses' => $controll.'Controller@show',
 		'middleware' => ['permission:'.$routexxx.'-leer']
-	])->name($routexxx.'.ver');
+    ])->name($routexxx.'.ver');
+
+
 
 	Route::delete('borrar/{modeloxx}', [
 		'uses' => $controll.'Controller@destroy',
 		'middleware' => ['permission:'.$routexxx.'-borrar']
 	])->name('fiingreso.borrar');
+});
+
+Route::group(['prefix' => 'fiingreso'], function () use($routexxx,$controll){
+    Route::get('pgeningr', [
+		'uses' => $controll.'Controller@getGeneraIngreso',
+		'middleware' => ['permission:'.$routexxx.'-leer']
+	])->name($routexxx.'.pgeningr');
 });

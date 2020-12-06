@@ -49,7 +49,7 @@
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_sacramentos_hechos_id', '8.8 Indique sacramentos hechos', ['class' => 'control-label']) }}
         {{ Form::select('i_prm_sacramentos_hechos_id[]', $todoxxxx['sacramen'], null, ['class' => $errors->first('i_prm_sacramentos_hechos_id') ?
-    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple',
+    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple','id'=>'i_prm_sacramentos_hechos_id',
     'data-placeholder' => 'Seleccione los sacramentos hechos']) }}
         @if($errors->has('i_prm_sacramentos_hechos_id'))
         <div class="invalid-feedback d-block">

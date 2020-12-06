@@ -34,7 +34,7 @@
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fisalud') ?' active' : '' }} text-sm" href="{{ route('fisalud.nuevo', $todoxxxx['pestpara'][0]) }}">6. SALUD</a></li>
             @endcanany
             @canany(['fiingresos-leer', 'fiingresos-crear', 'fiingresos-editar', 'fiingresos-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiingresos') ?' active' : '' }} text-sm" href="{{ route('fiingresos.nuevo', $todoxxxx['pestpara'][0]) }}">7. GENEREACIÓN DE INGRESOS</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiingresos') ?' active' : '' }} text-sm" href="{{ route('fiingresos.nuevo', $todoxxxx['pestpara'][0]) }}">7. GENERACIÓN DE INGRESOS</a></li>
             @endcanany
             @canany(['fiactividades-leer', 'fiactividades-crear', 'fiactividades-editar', 'fiactividades-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiactividades') ?' active' : '' }} text-sm" href="{{ route('fiactividades.nuevo', $todoxxxx['pestpara'][0]) }}">8. ACTIVIDADES EN TIEMPO LIBRE</a></li>
@@ -51,13 +51,13 @@
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='ficonsumo') ?' active' : '' }} text-sm" href="{{ route('ficonsumo.nuevo', $todoxxxx['pestpara'][0]) }}">11. CONSUMO SPA</a></li>
             @endcanany
             @canany(['fiviolencia-leer', 'fiviolencia-crear', 'fiviolencia-editar', 'fiviolencia-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiviolencia') ?' active' : '' }} text-sm" href="{{ route('fiviolencia.nuevo', $todoxxxx['pestpara'][0]) }}">12. VIOLENCAS Y CONDICIÒN ESPECIAL</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fiviolencia') ?' active' : '' }} text-sm" href="{{ route('fiviolencia.nuevo', $todoxxxx['pestpara'][0]) }}">12. VIOLENCIAS Y CONDICIÓN ESPECIAL</a></li>
             @endcanany
             @canany(['fisituacion-leer', 'fisituacion-crear', 'fisituacion-editar', 'fisituacion-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fisituacion') ?' active' : '' }} text-sm" href="{{ route('fisituacion.nuevo', $todoxxxx['pestpara'][0]) }}">13. TIPO DE POBLACIÓN</a></li>
             @endcanany
             @canany(['ficontacto-leer', 'ficontacto-crear', 'ficontacto-editar', 'ficontacto-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='ficontacto') ?' active' : '' }} text-sm" href="{{ route('ficontacto.nuevo', $todoxxxx['pestpara'][0]) }}">14. AUTORIZACION DE VINCULACIÒN</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='ficontacto') ?' active' : '' }} text-sm" href="{{ route('ficontacto.nuevo', $todoxxxx['pestpara'][0]) }}">14. AUTORIZACION DE VINCULACIÓN</a></li>
             @endcanany
             @canany(['fibienvenida-leer', 'fibienvenida-crear', 'fibienvenida-editar', 'fibienvenida-borrar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fibienvenida') ?' active' : '' }} text-sm" href="{{ route('fibienvenida.nuevo', $todoxxxx['pestpara'][0]) }}">15. BIENVENIDA</a></li>

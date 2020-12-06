@@ -19,7 +19,7 @@ class CsdBasicoEditarRequest extends FormRequest
             'prm_sexo_id.required' => 'Seleccione el sexo',
             'prm_identidad_genero_id.required' => 'Indique la identidad de género',
             'prm_orientacion_sexual_id.required' => 'Seleccione la orientación sexual',
-            'nacimiento.required' => 'Selecione una fecha de nacimiento o ingres la edad',
+            'nacimiento.required' => 'Seleccione una fecha de nacimiento o ingres la edad',
             'municipio_id.required' => 'Seleccione el municipio de nacimiento',
             'prm_tipodocu_id.required' => 'Seleccione un tipo de documento',
             'prm_doc_fisico_id.required' => 'Indique si tiene documento físico',

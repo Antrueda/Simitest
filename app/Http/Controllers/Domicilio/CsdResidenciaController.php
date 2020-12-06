@@ -110,7 +110,7 @@ class CsdResidenciaController extends Controller
             $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
             $vercrear = true;
             if ($dataxxxx['modeloxx']->i_prm_zona_direccion_id == 289) {
-                $this->opciones['dircondi'] = [1269 => 'NO APLICA'];
+                $this->opciones['dircondi'] = Parametro::find(235)->Combo;
                 $this->opciones['cuadrant'] = [1 => 'NO APLICA'];
                 $this->opciones['alfabeto'] = [1 => 'NO APLICA'];
                 $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
@@ -126,7 +126,7 @@ class CsdResidenciaController extends Controller
 
 
 
-        
+
 
         $this->opciones['tablasxx'] = [
             [

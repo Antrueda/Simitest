@@ -12,7 +12,7 @@ class SisPaisSeeder extends Seeder
    */
   public function run()
   {
-    SisPai::create(['s_iso' => 'NA', 's_pais' => 'NO APLICA']);
+    SisPai::create(['s_iso' => 'N/A', 's_pais' => 'N/A']);
     SisPai::create(['s_iso' => 'CO', 's_pais' => 'COLOMBIA']);
     SisPai::create(['s_iso' => 'AF', 's_pais' => 'Afganistán']);
     SisPai::create(['s_iso' => 'AX', 's_pais' => 'Islas Gland']);
@@ -252,6 +252,6 @@ class SisPaisSeeder extends Seeder
     SisPai::create(['s_iso' => 'YE', 's_pais' => 'Yemen']);
     SisPai::create(['s_iso' => 'DJ', 's_pais' => 'Yibuti']);
     SisPai::create(['s_iso' => 'ZM', 's_pais' => 'Zambia']);
-    SisPai::create(['s_iso' => 'ZW', 's_pais' => 'Zimbabue']);    
+    SisPai::create(['s_iso' => 'ZW', 's_pais' => 'Zimbabue']);
   }
 }

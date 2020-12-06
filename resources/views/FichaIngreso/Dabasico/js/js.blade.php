@@ -128,7 +128,7 @@
             if (valuexxx != '') {
                 if (valuexxx != 2 && !localida) {
                     $("#" + departam + ",#" + municipi).empty();
-                    $("#" + departam + ",#" + municipi).append('<option value="1">NO APLICA</>')
+                    $("#" + departam + ",#" + municipi).append('<option value="235">N/A</>')
                     return false;
                 }
                 f_ajax(dataxxxx, selected);
@@ -165,7 +165,6 @@
         }
         var f_documento_fisico = function(valuexxx, selected) {
             $("#prm_ayuda_id").empty();
-            $("#prm_ayuda_id").append('<option value="">Seleccione</>')
             dataxxxx = {
                 url: "{{ route('ajaxx.ayuda') }}",
                 data: {
@@ -200,7 +199,6 @@
     });
         var f_cuenta_documento = function(valuexxx, pselecte) {
             $("#prm_doc_fisico_id").empty();
-            $("#prm_doc_fisico_id").append('<option value="">Seleccione</>')
 
             if (valuexxx != '') {
                 $.ajax({
@@ -232,13 +230,12 @@
         }
         var f_situacion_militar = function(valuexxx) {
             $("#prm_situacion_militar_id,#prm_clase_libreta_id").empty();
-            $("#prm_situacion_militar_id,#prm_clase_libreta_id").append('<option value="">Seleccione</option>');
+
 
             if (valuexxx != '') {
                 var fechaxxx = '';
                 if ($('#d_nacimiento').val() == '') {
                     $("#prm_sexo_id").empty();
-                    $("#prm_sexo_id").append('<option value="">Seleccione</>')
                     alert('Por favor seleccione una fecha')
                     return false;
                 }
@@ -389,7 +386,6 @@
                     success: function(json) {
                         if (valuexxx != 145) {
                             $("#prm_ayuda_id").empty();
-                            $("#prm_ayuda_id").append('<option value="">Seleccione</>')
                             $("#s_documento").val('');
                             $("#s_documento").prop('readonly', false)
                             $("#prm_doc_fisico_id option[value='']").attr("selected", true);
@@ -401,9 +397,6 @@
                             f_cuenta_documento(valuexxx, '');
                         }
                         $("#sis_paiexp_id,#sis_departamentoexp_id,#sis_municipioexp_id").empty();
-                        if (valuexxx != 145) {
-                            $("#sis_paiexp_id,#sis_departamentoexp_id,#sis_municipioexp_id").append('<option value="">Seleccione</option>')
-                        }
                         $.each(json.paisxxxx, function(i, d) {
                             $("#sis_paiexp_id").append('<option value="' + d.valuexxx + '">' + d.optionxx + '</option>')
                         });
@@ -420,7 +413,7 @@
                 });
             } else {
                 $("#prm_ayuda_id").empty();
-                $("#prm_ayuda_id").append('<option value="">Seleccione</>')
+
                 $("#s_documento").val('');
                 $("#s_documento").prop('readonly', false)
                 $("#prm_doc_fisico_id option[value='']").attr("selected", true);
@@ -441,7 +434,6 @@
 
         var clase_libreta = function(valuexxx, pselecte) {
             $("#prm_clase_libreta_id").empty();
-            $("#prm_clase_libreta_id").append('<option value="">Seleccione</>')
             if (valuexxx != '') {
                 $.ajax({
                     url: "{{ route('ajaxx.claselibreta') }}",

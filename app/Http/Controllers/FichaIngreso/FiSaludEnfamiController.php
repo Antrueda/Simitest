@@ -27,11 +27,10 @@ class FiSaludEnfamiController extends Controller
         $this->opciones['carpetax'] = 'Salud';
         $this->opciones['slotxxxx'] = 'fisalud';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "SALUD";
+        $this->opciones['tituloxx'] = "DIAGNÓSTICO INTEGRANTE FAMILIAR";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';
-
 
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
@@ -62,6 +61,7 @@ class FiSaludEnfamiController extends Controller
 
     private function view($dataxxxx)
     {
+        $this->opciones['condnoap'] = Tema::combo(25, true, false);
         $this->opciones['disabled']='disabled';
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */

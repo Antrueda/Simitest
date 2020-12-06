@@ -103,7 +103,7 @@ class TemasTableSeeder extends Seeder
             21 => $camposmagicos,
             22 => $camposmagicos,
         ]);
-        $tema = Tema::create(['id' => 12, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'Género']);
+        $tema = Tema::create(['id' => 12, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'IDENTIDADE DE GÉNERO']);
         $tema->parametros()->sync([
             23 => $camposmagicos,
             24 => $camposmagicos,
@@ -372,6 +372,8 @@ class TemasTableSeeder extends Seeder
             243 => $camposmagicos,
             244 => $camposmagicos,
             245 => $camposmagicos,
+            2478 => $camposmagicos,
+            2479 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 28, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'Número Comidas']);
         $tema->parametros()->sync([
@@ -760,8 +762,8 @@ class TemasTableSeeder extends Seeder
         $this->getR([
             'nombrexx' => 'CONVENCION B, PARENTESCO O PERSONA',
             'parametr' => [
-                235, 600,770,771,776,777,778,779,780,781,782,783,784,785,786,787,788,789,790,791,792,793,794,
-                795,796,797,798,799,800,801,802,803,805,808,809,810,1479,1480,
+                235, 600, 770, 771, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794,
+                795, 796, 797, 798, 799, 800, 801, 802, 803, 805, 808, 809, 810, 1479, 1480,
             ]
         ]); //66
         $tema = Tema::create(['id' => 67, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'CSD - RÉGIMEN ESPECIAL EN SALUD']);
@@ -862,10 +864,8 @@ class TemasTableSeeder extends Seeder
             1590 => $camposmagicos,
             1591 => $camposmagicos,
             1592 => $camposmagicos,
-            1593 => $camposmagicos,
             2337 => $camposmagicos,
             2354 => $camposmagicos,
-            1372 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 78, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'RELIGION QUE PROFESA']);
         $tema->parametros()->sync([
@@ -1046,8 +1046,8 @@ class TemasTableSeeder extends Seeder
             466 => $camposmagicos,
             468 => $camposmagicos,
             470 => $camposmagicos,
-            334=> $camposmagicos,
-            2473=> $camposmagicos,
+            334 => $camposmagicos,
+            2473 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 98, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPOLOGIA FAMILIAR']);
         $tema->parametros()->sync([
@@ -1057,7 +1057,7 @@ class TemasTableSeeder extends Seeder
             520 => $camposmagicos,
             534 => $camposmagicos,
             546 => $camposmagicos,
-            ]);
+        ]);
         $tema = Tema::create(['id' => 99, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPOLOGIA DE HOGAR']);
         $tema->parametros()->sync([
             552 => $camposmagicos,
@@ -1212,9 +1212,9 @@ class TemasTableSeeder extends Seeder
             637 => $camposmagicos,
             2168 => $camposmagicos,
             639 => $camposmagicos,
-
+            640 => $camposmagicos,
             641 => $camposmagicos,
-            346 => $camposmagicos,
+            2486 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 117, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPO RELACION LABORAL']);
         $tema->parametros()->sync([
@@ -2776,10 +2776,10 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 289, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'ESTADO TABLAS']);
 
-        $tema = Tema::create(['id' => 290, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'IDENTIDAD DE GÉNERO']);
+        $tema = Tema::create(['id' => 290, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPO DE VESTIMENTA']);
         $tema->parametros()->sync([
-            2482 => $camposmagicos,
-            2483 => $camposmagicos,
+            2484 => $camposmagicos,
+            2485 => $camposmagicos,
         ]);
 
         $tema = Tema::create(['id' => 291, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'ESPACIO DONDE PARCHA']);
@@ -3237,8 +3237,8 @@ class TemasTableSeeder extends Seeder
             2327 => $camposmagicos,
             2328 => $camposmagicos,
             2351 => $camposmagicos,
-            2480 => $camposmagicos,
-            2481 => $camposmagicos,
+            2482 => $camposmagicos,
+            2483 => $camposmagicos,
         ]);
 
         $tema = Tema::create(['id' => 341, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL',]);
@@ -3263,12 +3263,14 @@ class TemasTableSeeder extends Seeder
 
         $this->getR([
             'nombrexx' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?',
-            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 2337, 2354]
+            'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 2354]
         ]); //343
+
+
 
         $this->getR([
             'nombrexx' => '¿POR LAS ACCIONES EN LAS CUALES PRESUNTAMENTE ESTA EN CONFLICTO CON LA LEY HA ACTUADO EN?',
-            'parametr' => [2338, 2339, 2340, 2341, 2342, 2343,1726]
+            'parametr' => [2338, 2339, 2340, 2341, 2342, 2343, 1726]
         ]); //344
         $this->getR([
             'nombrexx' => '12.1 ¿Presenta algún tipo de violencia?',
@@ -3330,21 +3332,21 @@ class TemasTableSeeder extends Seeder
         $this->getR([
             'nombrexx' => 'PARENTESCO FI',
             'parametr' => [
-                235, 600,770,771,776,777,778,779,780,781,782,783,784,785,786,787,788,789,790,791,792,793,794,
-                795,796,797,798,799,800,801,802,803,805,808,809,810,1479,1480,1594,
+                235, 600, 770, 771, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794,
+                795, 796, 797, 798, 799, 800, 801, 802, 803, 805, 808, 809, 810, 1479, 1480, 1594,
             ]
         ]); //358
         $this->getR([
             'nombrexx' => 'TIPO POBLACION CSD',
             'parametr' => [
-                650,651,1269
+                650, 651, 1269
             ]
         ]);
 
         $this->getR([
             'nombrexx' => 'PROBLEMA CSD',
             'parametr' => [
-                567 ,568 ,569 ,561 ,572 ,573 ,574 ,575 ,576 ,579 ,581 ,583 ,582 ,577 ,571 ,655 ,578 ,580//  2322,
+                567, 568, 569, 561, 572, 573, 574, 575, 576, 579, 581, 583, 582, 577, 571, 655, 578, 580 //  2322,
             ]
         ]); //360
 
@@ -3352,7 +3354,7 @@ class TemasTableSeeder extends Seeder
         $this->getR([
             'nombrexx' => 'TIPO DE DOCUMENTO CSD',
             'parametr' => [
-                    19,142 ,143 ,144 ,145//  2322,
+                19, 142, 143, 144, 145 //  2322,
             ]
         ]); //361
 

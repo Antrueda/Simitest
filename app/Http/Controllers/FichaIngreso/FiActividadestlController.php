@@ -34,9 +34,9 @@ class FiActividadestlController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
 
-        $this->opciones['reliprac'] = ['' => 'Seleccione'];
+
         $this->opciones['reliprac'] = Tema::combo(78, true, false);
-        $this->opciones['sacramen'] = Tema::combo(79, false, false);
+
         $this->opciones['acciones'] = Tema::combo(344, false, false);
     }
 
@@ -50,7 +50,8 @@ class FiActividadestlController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
-        $this->opciones['activlib'] = Tema::combo(($dataxxxx['padrexxx']->prm_estrateg_id == 2323) ? 343 : 77, false, false);
+
+        $this->opciones['activlib'] = Tema::combo(($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) ? 343 : 77, false, false);
 
 
         $this->opciones['activida'] = FiActividadestl::actividad($dataxxxx['padrexxx']->sis_nnaj_id);
@@ -59,7 +60,7 @@ class FiActividadestlController extends Controller
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         $this->opciones['estadoxx'] = 'ACTIVO';
-
+        $this->opciones['sacramen'] =[''=>'Seleccione'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
@@ -67,12 +68,13 @@ class FiActividadestlController extends Controller
                 $this->opciones['readnomb'] = 'readonly';
             }
             if ($dataxxxx['modeloxx']->i_prm_religion_practica_id != 494) {
-                $this->opciones['sacramen'] = [1 => 'NO APLICA'];
-                $this->opciones['reliprac'] = [1 => 'NO APLICA'];
+                $this->opciones['sacramen'] = [235 => 'N/A'];
+                // $this->opciones['reliprac'] = [235 => 'N/A'];
             } else {
+                $this->opciones['sacramen'] = Tema::combo(79, false, false);
                 $this->opciones['reliprac'] = Tema::combo(78, true, false);
             }
-
+// ddd($this->opciones['reliprac'] );
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }

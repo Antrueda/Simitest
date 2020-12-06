@@ -30,13 +30,13 @@ class SisBarrio extends Model
         $comboxxx = [];
         if (!$esajaxxx)
             $comboxxx = ['' => 'Seleccione'];
+        else
+            $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
         $barrioxx = SisUpzbarri::where(function ($dataxxxx) use ($idpadrex) {
             $dataxxxx->where('sis_localupz_id', $idpadrex);
         })
             // ->orderBY('s_barrio', 'asc')
             ->get();
-
-
         foreach ($barrioxx as $registro) {
             if ($esajaxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->sis_barrio->s_barrio];
@@ -44,7 +44,6 @@ class SisBarrio extends Model
                 $comboxxx[$registro->id] = $registro->sis_barrio->s_barrio;
             }
         }
-
         return $comboxxx;
     }
 }

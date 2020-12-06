@@ -7,6 +7,7 @@ use App\Http\Requests\FichaIngreso\FiSaludCrearRequest;
 use App\Http\Requests\FichaIngreso\FiSaludUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiSalud;
+use App\Models\Parametro;
 use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
@@ -25,7 +26,7 @@ class FiSaludController extends Controller
         $this->opciones['carpetax'] = 'Salud';
         $this->opciones['slotxxxx'] = 'fisalud';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "DIAGNOSTICO INTEGRANTE FAMILIAR";
+        $this->opciones['tituloxx'] = "SALUD";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';
@@ -42,6 +43,7 @@ class FiSaludController extends Controller
         $this->opciones['tipodisc'] = Tema::combo(24, true, false);
         $this->opciones['condnoap'] = Tema::combo(25, true, false);
         $this->opciones['noapdisc'] = Tema::combo(25, true, false);
+        $this->opciones['usameant'] = Tema::combo(25, true, false);
         $this->opciones['noapanti'] = Tema::combo(25, true, false);
         $this->opciones['apsisben'] = Tema::combo(26, true, false);
         $this->opciones['metantic'] = Tema::combo(27, true, false);
@@ -97,24 +99,38 @@ class FiSaludController extends Controller
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->i_prm_tentidad_id, true, false);
             $this->opciones['puedexxx'] = '';
             if ($dataxxxx['modeloxx']->i_prm_tiene_discapacidad_id == 228) {
-                $this->opciones['noapdisc'] = [1269 => 'NO APLICA'];
-                $this->opciones['tipodisc'] = [1269 => 'NO APLICA'];
-                $this->opciones['discausa'] = [1269=>'NO APLICA'];
+                // $this->opciones['noapdisc'] = Parametro::find(235)->Combo;
+                $this->opciones['tipodisc'] = Parametro::find(235)->Combo;
+                $this->opciones['discausa'] = Parametro::find(235)->Combo;
 
             }
+
+
             if ($dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 228 || $dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 235) {
-                $this->opciones['noapdisc'] = [1269 => 'NO APLICA'];
-                $this->opciones['metantic'] = [1269 => 'NO APLICA'];
+                $this->opciones['noapdisc'] = Parametro::find(235)->Combo;
+                $this->opciones['metantic'] = Parametro::find(235)->Combo;
+                $this->opciones['usameant'] = Parametro::find(235)->Combo;
+
             }
+
+            if ($dataxxxx['modeloxx']->i_prm_usa_metodos_id == 228 || $dataxxxx['modeloxx']->i_prm_usa_metodos_id == 235) {
+
+                $this->opciones['metantic'] = Parametro::find(235)->Combo;
+                $this->opciones['noapdisc'] = Parametro::find(235)->Combo;
+
+            }
+
+
+
             if ($dataxxxx['modeloxx']->i_prm_regimen_salud_id == 168) {
-                $this->opciones['entid_id'] = [1269 => 'NO APLICA'];
+                $this->opciones['entid_id'] = Parametro::find(235)->Combo;
             }
             if ($dataxxxx['modeloxx']->i_comidas_diarias > 4) {
-                $this->opciones['motcomdi'] = [1269 => 'NO APLICA'];
+                $this->opciones['motcomdi'] = Parametro::find(235)->Combo;
             }
-            if ($dataxxxx['padrexxx']->nnaj_sexo->prm_sexo_id==20) {
-                $this->opciones['condnoap']=  [1269 => 'NO APLICA'];
-            }
+            // if ($dataxxxx['padrexxx']->nnaj_sexo->prm_sexo_id==20) {
+            //     $this->opciones['condnoap']=  Parametro::find(235)->Combo;
+            // }
             if ($dataxxxx['modeloxx']->i_prm_esta_gestando_id == 228 || $dataxxxx['modeloxx']->i_prm_esta_gestando_id == 235) {
                 $this->opciones['readgest'] = 'readonly';
             }
@@ -126,13 +142,13 @@ class FiSaludController extends Controller
                 $this->opciones['readhijo'] = 'readonly';
             }
             if ($dataxxxx['modeloxx']->i_prm_tiene_problema_salud_id == 228) {
-                $this->opciones['probsalu'] = [1269 => 'NO APLICA'];
+                $this->opciones['probsalu'] = Parametro::find(235)->Combo;
             }
             if ($dataxxxx['modeloxx']->i_prm_consume_medicamentos_id == 228) {
                 $this->opciones['cualmedi'] = 'readonly';
             }
             if ($dataxxxx['modeloxx']->d_puntaje_sisben != '') {//
-                $this->opciones['apsisben'] = [1269 => 'NO APLICA'];
+                $this->opciones['apsisben'] = Parametro::find(235)->Combo;
             }
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

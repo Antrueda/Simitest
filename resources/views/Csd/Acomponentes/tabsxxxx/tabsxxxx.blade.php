@@ -21,7 +21,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 1]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdatbas') ?' active' : '' }}
-            text-sm" href="{{ $respuest['rutaxxxx'] }}">1. Datos B&aacute;sicos
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">1. DATOS B&Aacute;SICOS
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                 </a>
             </li>
@@ -31,7 +31,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 2]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdviolencia') ?' active' : '' }}
-            text-sm" href="{{ $respuest['rutaxxxx'] }}">2. Violencias y condición especial
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">2. VIOLENCIA Y CONDICI&Oacute;N ESPECIAL
             <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                 </a></li>
             @endcanany
@@ -40,7 +40,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 3]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdsituacionespecial') ?' active' : '' }}
-            text-sm" href="{{ $respuest['rutaxxxx'] }}">3. Situaciones especiales
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">3. SITUACIONES ESPECIALES
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                </a></li>
             @endcanany
@@ -49,7 +49,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 4]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdjusticia') ?' active' : '' }}
-            text-sm" href="{{ $respuest['rutaxxxx'] }}">4. Justicia restaurativa
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">4. JUSTICIA RESTAURATIVA
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                </a></li>
             @endcanany
@@ -58,7 +58,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 5]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdresidencia') ?' active' : '' }}
-            text-sm" href="{{ $respuest['rutaxxxx'] }}">5. Residencia
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">5. RESIDENCIA
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                </a></li>
             @endcanany
@@ -67,7 +67,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 6]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csddinfamiliar') ?' active' : '' }}
-            text-sm" href="{{ $respuest['rutaxxxx'] }}">6. Dinámica familiar
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">6. DIN&Aacute;MICA FAMILIAR
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                </a></li>
             @endcanany
@@ -77,7 +77,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 7]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdcomfamirobserva') ?' active' : '' }}
-            text-sm" href="{{ $respuest['rutaxxxx'] }}">7. Composición Familiar
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">7. COMPOSICI&Oacute;N FAMILIAR
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                </a></li>
             @endcanany
@@ -86,7 +86,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 8]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdbienvenida') ?' active' : '' }}
-            text-sm" href="{{ $respuest['rutaxxxx'] }}">8. Motivos de vinculación y bienvenida
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">8. MOTIVOS DE VINCULACI&Oacute;N Y BIENVENIDA
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                </a></li>
             @endcanany
@@ -95,7 +95,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 9]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdalimentacion') ?' active' : '' }}
-            text-sm" href="{{ $respuest['rutaxxxx'] }}">9. Alimentación de la familia
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">9. ALIMENTACI&Oacute;N DE LA FAMILIA
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                </a></li>
             @endcanany
@@ -104,7 +104,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 10]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdgeningresos') ?' active' : '' }}
-            text-sm" href="{{ $respuest['rutaxxxx'] }}">10. Generación de Ingresos
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">10. GENERACI&Oacute;N DE INGRESOS
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                </a></li>
             @endcanany
@@ -113,7 +113,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 11]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdredesapoyo') ?' active' : '' }}
-            text-sm" href="{{ route('csdredesapoyo', $todoxxxx['pestpara'][0]) }}">11. Redes Sociales de Apoyo
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">11. REDES SOCIALES DE APOYO
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                </a></li>
             @endcanany
@@ -122,7 +122,7 @@
 
             <?php $respuest = PCsd::getRDb(['padrexxx' => $todoxxxx['csdxxxxx'], 'pestania' => 12]); ?>
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='csdconclusiones') ?' active' : '' }}
-            text-sm" href="{{ $respuest['rutaxxxx'] }}">12. Conclusiones
+            text-sm" href="{{ $respuest['rutaxxxx'] }}">12. CONCLUSIONES
                     <span class="{{$respuest['classxxx']}}" aria-hidden="true"></span>
                </a></li>
             @endcanany

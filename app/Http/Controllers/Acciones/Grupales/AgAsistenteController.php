@@ -69,6 +69,7 @@ class AgAsistenteController extends Controller
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar']]
         );
     }
+
     public function activar(Request $request, AgAsistente $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);

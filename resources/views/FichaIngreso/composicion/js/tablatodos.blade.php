@@ -81,8 +81,10 @@ $(document).ready(function() {
 
         if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');
+            $('#tablaselect').val('NO');
         }
         else {
+            $('#tablaselect').val('SI');
             {{ $tablasxx["tablaxxx"] }}.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
             var d = {{$tablasxx["tablaxxx"]}}.row(this).data();

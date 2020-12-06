@@ -54,9 +54,8 @@ class CsdRedApoyoActualController extends Controller
 
     public function getActuales(Request $request, CsdSisNnaj $padrexxx)
     {
-        $padrexxx=$padrexxx->csd;
         if ($request->ajax()) {
-            $request->padrexxx = $padrexxx->id;
+            $request->padrexxx = $padrexxx->csd_id;
             $request->datobasi = $padrexxx->id;
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .

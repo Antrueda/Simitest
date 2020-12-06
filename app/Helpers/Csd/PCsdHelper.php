@@ -28,7 +28,7 @@ class PCsdHelper
 
         } else {
             $respuest['rutaxxxx'] = route($dataxxxx['permisox']  . '.ver', [$dataxxxx['padrexxx']->id, $dataxxxx['modeloxx']->id]);
-            
+
         }
         return $respuest;
     }
@@ -202,8 +202,10 @@ class PCsdHelper
      */
     public static function getRedes($dataxxxx)
     {
+
         //$dataxxxx['modeloxx'] = '';
-        $respuest = ['rutaxxxx' =>route('csdredesapoyo' , $dataxxxx['padrexxx']->csd_id), 'classxxx' => 'fas fa-times text-danger'];
+        $respuest = ['rutaxxxx' =>route('csdredesapoyo' , $dataxxxx['padrexxx']->id), 'classxxx' => 'fas fa-times text-danger'];
+
         if (count($dataxxxx['padrexxx']->csd->CsdRedsocPasado)>0 || count($dataxxxx['padrexxx']->csd->CsdRedsocActual)>0) {
             $respuest['classxxx'] = 'fas fa-check text-success';
         }

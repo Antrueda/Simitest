@@ -132,7 +132,9 @@
     }
 
     $('#i_prm_parentesco_id').change(function(){
+      if($('#tablaselect').val()=='NO'){
         f_nadocume({dataxxxx:{padrexxx:$(this).val(),tipoxxxx:1},selected:''});
+      }
     });
     $('#prm_tipodocu_id').change(function(){
         f_nadocume({dataxxxx:{padrexxx:$(this).val(),tipoxxxx:2},selected:''});

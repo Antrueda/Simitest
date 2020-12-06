@@ -98,7 +98,7 @@ class SisLocalidadsSeeder extends Seeder
         ]);
         SisLocalidad::create([
             'id'=>22,
-            's_localidad' => 'NO APLICA',
+            's_localidad' => 'N/A',
         ]);
 
         SisLocalidad::create([

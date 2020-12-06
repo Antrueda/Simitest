@@ -18,6 +18,7 @@ use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
+use App\Models\Parametro;
 
 class FiController extends Controller
 {
@@ -185,7 +186,6 @@ class FiController extends Controller
         $this->opciones['maxdatex'] = "-0y +0m +0d";
 
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
-        $this->opciones['barrioxx'] = ['' => 'Seleccione'];
         $this->opciones['poblindi'] = ['' => 'Seleccione'];
         $this->opciones['neciayud'] = ['' => 'Seleccione'];
         $this->opciones['readfisi'] = '';
@@ -289,18 +289,18 @@ class FiController extends Controller
             }
             $this->opciones['poblindi'] = Tema::combo(61, true, false);
             if ($this->opciones['modeloxx']->nnaj_fi_csd->prm_etnia_id != 157) {
-                $this->opciones['poblindi'] =  [1269 => 'NO APLICA'];
+                $this->opciones['poblindi'] =  Parametro::find(235)->Combo;
             }
 
 
             if ($this->opciones['aniosxxx'] < 15) {
-                $this->opciones['generoxx'] =  [1269 => 'NO APLICA'];
-                $this->opciones['orientac'] =  [1269 => 'NO APLICA'];
+                $this->opciones['generoxx'] =  Parametro::find(235)->Combo;
+                $this->opciones['orientac'] =  Parametro::find(235)->Combo;
             }
 
             if ($this->opciones['aniosxxx'] < 18 || $dataxxxx['modeloxx']->prm_sexo_id == 21) {
-                $this->opciones['tiplibre'] = [1269 => 'NO APLICA'];
-                $this->opciones['situmili'] = [1269 => 'NO APLICA'];
+                $this->opciones['tiplibre'] = Parametro::find(235)->Combo;
+                $this->opciones['situmili'] = Parametro::find(235)->Combo;
             }
             if ($dataxxxx['modeloxx']->prm_tipodocu_id == 145) {
                 $this->opciones['readfisi'] = 'readonly';
@@ -310,25 +310,24 @@ class FiController extends Controller
                 $this->opciones['neciayud'] = Tema::combo(286, true, false);
             } else {
 
-                $this->opciones['neciayud'] = [1269 => 'NO APLICA'];
+                $this->opciones['neciayud'] = Parametro::find(235)->Combo;
             }
 
             if ($dataxxxx['modeloxx']->prm_situacion_militar_id == 228) {
-                $this->opciones['tiplibre'] = [1269 => 'NO APLICA'];
+                $this->opciones['tiplibre'] = Parametro::find(235)->Combo;
             }
             // $this->opciones['poblindi'] = Tema::combo(61, true, false);
         }
         // ddd( $this->opciones['neciayud']);
-        $this->opciones['dependen'] = User::getUpiUsuario(false, false);
-        $this->opciones['upzxxxxx']  = SisUpz::combo(false, false);
-        $this->opciones['barrioxx'] = SisBarrio::combo(false, false);
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['upzxxxxx'] = SisUpz::combo($localida, false);
+        $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
+        $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
+        $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
 
-        $this->opciones['municipi'] = SisMunicipio::combo(false, false);
-        $this->opciones['departam'] = SisDepartamento::combo(false, false);
 
-
-        $this->opciones['municexp'] = SisMunicipio::combo(false, false);
-        $this->opciones['deparexp'] = SisDepartamento::combo(false, false);
+        $this->opciones['municexp'] = SisMunicipio::combo($depaexpe, false);
+        $this->opciones['deparexp'] = SisDepartamento::combo($paisexpe, false);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -449,10 +448,10 @@ class FiController extends Controller
     public function getFechaNacimiento(Request $request)
     {
         if ($request->ajax()) {
-            $respuest = ['fechaxxx'=>'', 'edadxxxx'=>''];
-            if (is_numeric($request->padrexxx)&& $request->padrexxx>=6) {
+            $respuest = ['fechaxxx' => '', 'edadxxxx' => ''];
+            if (is_numeric($request->padrexxx) && $request->padrexxx >= 6) {
                 $fechaxxx = explode('-', date('Y-m-d'));
-                $respuest = ['fechaxxx'=>($fechaxxx[0] - $request->padrexxx) . '-' . $fechaxxx[1] . '-' . $fechaxxx[2], 'edadxxxx'=>$request->padrexxx];
+                $respuest = ['fechaxxx' => ($fechaxxx[0] - $request->padrexxx) . '-' . $fechaxxx[1] . '-' . $fechaxxx[2], 'edadxxxx' => $request->padrexxx];
             }
             return response()->json($respuest);
         }

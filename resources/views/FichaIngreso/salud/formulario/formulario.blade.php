@@ -77,11 +77,11 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_conoce_metodos_id', '6.13 ¿Tiene conocimiento sobre métodos anticonceptivos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_conoce_metodos_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_conoce_metodos_id', $todoxxxx["condnoap"], null, ['class' => 'form-control form-control-sm usameanti']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_usa_metodos_id', '6.14 ¿Usa métodos anticonceptivos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_usa_metodos_id', $todoxxxx["noapdisc"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_usa_metodos_id', $todoxxxx["usameant"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_cual_metodo_id', '6.15 ¿Cuál método?', ['class' => 'control-label col-form-label-sm']) }}

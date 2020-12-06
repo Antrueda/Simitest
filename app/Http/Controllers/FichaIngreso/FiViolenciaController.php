@@ -24,7 +24,7 @@ class FiViolenciaController extends Controller
         $this->opciones['carpetax'] = 'Violencia';
         $this->opciones['slotxxxx'] = 'fiviolencia';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "VIOLENCAS Y CONDICIÒN ESPECIAL";
+        $this->opciones['tituloxx'] = "VIOLENCIAS Y CONDICIÓN ESPECIAL";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';
@@ -51,7 +51,7 @@ class FiViolenciaController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],            
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
         ];
         $condespe = 57;
         if ($dataxxxx['padrexxx']->prm_estrateg_id == 2323) {
@@ -61,7 +61,6 @@ class FiViolenciaController extends Controller
         $this->opciones['cabefami'] = Tema::combo(352, true, false);
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
-        $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['departam'] = ['' => 'Seleccione'];
         $this->opciones['municipi'] = ['' => 'Seleccione'];
         $this->opciones['deparexp'] = ['' => 'Seleccione'];
@@ -75,15 +74,14 @@ class FiViolenciaController extends Controller
 
             $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->i_prm_depto_certifica_id, false);
             $this->opciones['deparexp'] = SisDepartamento::combo(2, false);
-            $this->opciones['departam'][1]=$this->opciones['deparexp'][1]='NO APLICA';
+            $this->opciones['departam'][1]=$this->opciones['deparexp'][1]='N/A';
             if ($dataxxxx['modeloxx']->i_prm_condicion_presenta_id == 853 || $dataxxxx['modeloxx']->i_prm_condicion_presenta_id == 455) {
-                $this->opciones['condiesp'] = [1 => 'NO APLICA'];
+                $this->opciones['condiesp'] = [235 => 'N/A'];
             }
             if ($dataxxxx['modeloxx']->i_prm_presenta_violencia_id != 227) {
-                $this->opciones['conditab'] = [1 => 'NO APLICA'];
+                $this->opciones['conditab'] = [235 => 'N/A'];
             }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
         $this->setModelo((isset($this->opciones['modeloxx'])) ? $this->opciones['modeloxx'] : false);
         $this->opciones['tablasxx'][] =

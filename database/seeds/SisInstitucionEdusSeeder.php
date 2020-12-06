@@ -14,7 +14,7 @@ class SisInstitucionEdusSeeder extends Seeder
     {
         SisInstitucionEdu::create([
             'id' => 1,
-            's_nombre' => 'NO APLICA COLEGIO',
+            's_nombre' => 'N/A COLEGIO',
             's_telefono' => '4815340 / 2315307',
             's_email' => 'colegio@colegio.com',
             'sis_municipio_id' => 1,

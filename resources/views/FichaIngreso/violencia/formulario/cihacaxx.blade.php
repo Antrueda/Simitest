@@ -11,7 +11,15 @@
         </div>
         @endif
     </div>
-
+    <div class="form-group col-md-4">
+        {{ Form::label('prm_lesicome_id', '12.1.B Que tipo de presuntas lesiones ha cometido durante la actividad?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_lesicome_id[]', $todoxxxx["lesicome"], null, ['class' => 'form-control form-control-sm select2','multiple']) }}
+        @if($errors->has('prm_lesicome_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('prm_lesicome_id') }}
+        </div>
+        @endif
+    </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_condicion_presenta_id', '12.3 ¿Qué condición especial presenta?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_condicion_presenta_id', $todoxxxx["condespe"], null, ['class' => 'form-control form-control-sm select2']) }}

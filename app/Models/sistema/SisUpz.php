@@ -18,6 +18,8 @@ class SisUpz extends Model
         $comboxxx = [];
         if (!$esajaxxx)
             $comboxxx = ['' => 'Seleccione'];
+        else
+            $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
         $upzxxxxx = SisLocalupz::where(function ($dataxxxx) use ($idpadrex) {
             if ($idpadrex != '') {
                 $dataxxxx->where('sis_localidad_id', $idpadrex);
@@ -25,9 +27,9 @@ class SisUpz extends Model
         })->get();
         foreach ($upzxxxxx as $registro) {
             if ($esajaxxx) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->sis_upz->s_codigo.' - '.$registro->sis_upz->s_upz];
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->sis_upz->s_codigo . ' - ' . $registro->sis_upz->s_upz];
             } else {
-                $comboxxx[$registro->id] = $registro->sis_upz->s_codigo.' - '.$registro->sis_upz->s_upz;
+                $comboxxx[$registro->id] = $registro->sis_upz->s_codigo . ' - ' . $registro->sis_upz->s_upz;
             }
         }
         return $comboxxx;
