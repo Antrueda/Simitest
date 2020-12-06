@@ -15,7 +15,8 @@
               ['td' => 'FECHA'],
               ['td' => 'UPI'],
               ['td' => 'NOMBRE DEL RESPONSABLE'],
-              ['td' => 'ESTADO'],
+              ['td' => 'NOMBRE DEL SEGUNDO RESPONSABLE'],
+              
           ];
 
           $todoxxxx['columnsx'] = [
@@ -25,7 +26,8 @@
               ['data' => 'd_fecha_diligencia', 'name' => 'd_fecha_diligencia'],
               ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
               ['data' => 'name', 'name' => 'users.name'],
-              ['data' => 'sis_esta_id', 'name' => 'is_datos_basicos.sis_esta_id'],
+              ['data' => 'segundo', 'name' => 'segundo.name as segundo'],
+              
           ];
           $todoxxxx['tablname'] = 'tbintervenciones';
           $todoxxxx['urlxxxxx'] = route('is.intervencion.intlista',[$todoxxxx['nnajregi']]);
