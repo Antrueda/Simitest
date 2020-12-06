@@ -1,6 +1,6 @@
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Datos básicos</h6>
+    <h6>DATOS BÁSICOS</h6>
   </div>
 </div>
 <hr>
@@ -110,7 +110,7 @@
 </div>
 <div class="row">
   <div class="col-md-4">
-    {{ Form::label('lugar_evasion', ' UPI/Lugar/Espacio de donde se evadió el NNAJ', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('lugar_evasion', ' UPI/Lugar/Espacio de donde se evadió el NNA', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::text('lugar_evasion', null, ['class' => $errors->first('lugar_evasion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Dirección', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     @if($errors->has('lugar_evasion'))
       <div class="invalid-feedback d-block">
@@ -326,6 +326,7 @@
   <div class="col-md-12">
     {{ Form::label('observaciones_fam', 'Observaciones', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('observaciones_fam', null, ['class' => $errors->first('observaciones_fam') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre de persona y parentesco a quién se informó, representante legal, Defensor de Familia, datos del agente que recibió la llamada', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadorobservaciones">0/4000</p>
     @if($errors->has('observaciones_fam'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('observaciones_fam') }}
@@ -335,7 +336,7 @@
 </div>
 <div class="row">
   <div class="col-md-4">
-    {{ Form::label('prm_reporta_id', 'Se realiza llamada a línea de ateción', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('prm_reporta_id', 'Se realiza llamada a línea de atención', ['class' => 'control-label col-form-label-sm']) }}
     <div class="row">
       <div class="col-md-6">
         {{ Form::select('prm_reporta_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_reporta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc3(this.value)']) }}
@@ -357,7 +358,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('radicado', 'Nº de Radicado', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('radicado', null, ['class' => $errors->first('radicado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Radicado', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::number('radicado', null, ['class' => $errors->first('radicado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Radicado', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     @if($errors->has('radicado'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('radicado') }}

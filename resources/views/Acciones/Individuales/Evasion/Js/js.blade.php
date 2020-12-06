@@ -137,28 +137,12 @@
       document.getElementById("radicado").value='';
       document.getElementById("recibe_denuncia").hidden=true;
       document.getElementById("recibe_denuncia").value='';
-      document.getElementById("institución").hidden=true;
-      document.getElementById("institución").value='';
-      document.getElementById("nombre_recibe").hidden=true;
-      document.getElementById("nombre_recibe").value='';
-      document.getElementById("cargo_recibe").hidden=true;
-      document.getElementById("cargo_recibe").value='';
-      document.getElementById("placa_recibe").hidden=true;
-      document.getElementById("placa_recibe").value='';
-      document.getElementById("fecha_denuncia").hidden=true;
-      document.getElementById("fecha_denuncia").value='';
-      document.getElementById("hora_denuncia").hidden=true;
-      document.getElementById("hora_denuncia").value='';
+    
 } else {
       document.getElementById("prm_llamada_id").hidden=false;
       document.getElementById("radicado").hidden=false;
       document.getElementById("recibe_denuncia").hidden=false;
-      document.getElementById("institución").hidden=false;
-      document.getElementById("nombre_recibe").hidden=false;
-      document.getElementById("cargo_recibe").hidden=false;
-      document.getElementById("placa_recibe").hidden=false;
-      document.getElementById("fecha_denuncia").hidden=false;
-      document.getElementById("hora_denuncia").hidden=false;
+
       
     }
   }
@@ -184,6 +168,7 @@
 
 init_contadorTa("senias", "contadorsenias", 4000);
 init_contadorTa("circunstancias", "contadorcircunstancias", 4000);
+init_contadorTa("observaciones_fam", "contadorobservaciones", 4000);
 
 
 

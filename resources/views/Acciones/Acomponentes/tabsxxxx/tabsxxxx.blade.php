@@ -23,6 +23,14 @@
             @endcanany
             @endif
 
+            @if($todoxxxx['pestpadr']==1 || $todoxxxx['pestpadr']==2|| $todoxxxx['pestpadr']==3)
+            @canany(['aievasion-leer', 'aievasion-crear', 'aievasion-editar', 'aievasion-borrar'])
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='aievasion') ?' active' : '' }}
+
+        text-sm" href="{{ route('aievasion',$todoxxxx['usuariox']->sis_nnaj_id) }}">IR A REPORTE DE EVASIÓN</a></li>
+            @endcanany
+            @endif
+
             
 
          

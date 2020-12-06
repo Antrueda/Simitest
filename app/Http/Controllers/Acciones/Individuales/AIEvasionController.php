@@ -104,8 +104,9 @@ class AIEvasionController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'ai_reporte_evasions.id'],
-                    ['data' => 'tiempo', 'name' => 'ai_reporte_evasions.fecha_evasion'],
+                    ['data' => 'fecha_evasion', 'name' => 'ai_reporte_evasions.fecha_evasion'],
                     ['data' => 'upi', 'name' => 'upi.nombre as upi'],
+                    ['data' => 'hora_evasion', 'name' => 'ai_reporte_evasions.hora_evasion'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
