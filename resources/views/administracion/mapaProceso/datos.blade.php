@@ -39,12 +39,12 @@
                                         <td class='text-center'>
                                             @can('mapaProceso-editar')
                                                 <a class="btn btn-sm btn-primary" title="Editar" href="{{ route('mapaProceso.editar', $d->id) }}">
-                                                    Editar
+                                                    EDITAR
                                                 </a>
                                             @endcan
                                             @can('mapaProceso-leer')
                                                 <a class="btn btn-sm btn-primary" title="Ver" href="{{ route('mapaProceso.ver', $d->id) }}">
-                                                    Ver
+                                                    VER
                                                 </a>
                                             @endcan
                                         </td>

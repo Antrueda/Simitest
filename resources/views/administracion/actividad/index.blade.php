@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="content-header">
-	<h1>Actividades</h1>
+	<h1>ACTIVIDADES</h1>
 	<hr>
 </div>
 @if(!isset($accion))

@@ -39,12 +39,12 @@
                                         <td class='text-center'>
                                             @can('tema-editar')
                                                 <a class="btn btn-sm btn-primary" title="Editar" href="{{ route('tema.editar', $d->id) }}">
-                                                    Editar
+                                                    EDITAR
                                                 </a>
                                             @endcan
                                             @can('tema-leer')
                                                 <a class="btn btn-sm btn-primary" title="Ver" href="{{ route('tema.ver', $d->id) }}">
-                                                    Ver
+                                                    VER
                                                 </a>
                                             @endcan
                                         </td>

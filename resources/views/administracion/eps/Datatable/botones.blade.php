@@ -1,2 +1,2 @@
-<a class="btn btn-sm btn-primary" href="{{ route('re.respuesta.editar', $id) }}">Asignar Respuestas</a>
+<a class="btn btn-sm btn-primary" href="{{ route('re.respuesta.editar', $id) }}">ASIGNAR RESPUESTAS</a>
  

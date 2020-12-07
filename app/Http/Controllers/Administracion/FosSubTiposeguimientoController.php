@@ -23,7 +23,7 @@ class FosSubTiposeguimientoController extends Controller
             'permisox' => 'fossubtipo',
             'parametr' => [],
             'rutacarp' => 'FichaObservacion.Admin.SubTipoSeguimiento.',
-            'tituloxx' => 'Sub Tipo Seguimiento',
+            'tituloxx' => 'SUB TIPO SEGUIMIENTO',
         ];
 
 

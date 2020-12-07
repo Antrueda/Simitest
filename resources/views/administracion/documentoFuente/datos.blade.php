@@ -36,12 +36,12 @@
                                         <td class='text-center'>
                                             @can('documentoFuente-editar')
                                                 <a class="btn btn-sm btn-primary" title="Editar" href="{{ route('documentoFuente.editar', $d->id) }}">
-                                                    Editar
+                                                    EDITAR
                                                 </a>
                                             @endcan
                                             @can('documentoFuente-leer')
                                                 <a class="btn btn-sm btn-primary" title="Ver" href="{{ route('documentoFuente.ver', $d->id) }}">
-                                                    Ver
+                                                    VER
                                                 </a>
                                             @endcan
                                         </td>

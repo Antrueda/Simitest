@@ -45,7 +45,7 @@
                             @if($cuerpoxy['td']==1)
                             <div class="dropdown">
                                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Seleccione
+                                    SELECCIONE
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     @foreach($cuerpoxy['botonesx'] as $botonesx)

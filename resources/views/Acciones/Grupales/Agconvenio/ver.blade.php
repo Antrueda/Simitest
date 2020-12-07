@@ -7,9 +7,9 @@
     @can('indicador-borrar')
       {!! Form::open(['route' => ['ag.conv.convenio.borrar', $todoxxxx["modeloxx"]->id], 'method' => 'DELETE']) !!}
         @if($todoxxxx["modeloxx"]->sis_esta_id == 1)
-          <button class="btn btn-danger">Inactivar</button>
+          <button class="btn btn-danger">INACTIVAR</button>
         @else
-          <button class="btn btn-success">Activar</button>
+          <button class="btn btn-success">ACTIVAR</button>
         @endif
       {!! Form::close() !!}
     @endcan

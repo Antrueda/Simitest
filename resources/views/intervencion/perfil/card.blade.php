@@ -43,7 +43,7 @@
 
 
 <div class="card" >
-
+<hr>
   <div class="card-body">
       <div class="form-row align-items-end">
           {{ Form::hidden('sis_nnaj_id', $todoxxxx['nnajregi']) }}
@@ -75,29 +75,39 @@
           {{ Form::text('s_tema', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Tema', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
         </div>
       </div>
-
+      <hr>
       <div class="form-row align-items-end">
+        <hr>
         <div class="form-group col-md-12">
           {{ Form::label('s_objetivo_sesion', 'OBJETIVO DE LA SESIÓN', ['class' => 'control-label']) }}
           {{ Form::textarea('s_objetivo_sesion', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_objetivo_sesion', 'class' => 'md-textarea form-control', 'title' => 'Objetivo de la sesión', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
           <p id="contadorobjetivo">0/4000</p>
         </div>
+        <hr>
+        <hr>
         <div class="form-group col-md-12">
+          <hr>
           {{ Form::label('s_desarrollo_sesion', 'DESARROLLO DE LA SESIÓN', ['class' => 'control-label']) }}
           {{ Form::textarea('s_desarrollo_sesion', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_desarrollo_sesion', 'class' => 'md-textarea form-control', 'title' => 'Desarrollo de la sesión', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
           <p id="contadordesarrollo">0/4000</p>
         </div>
+        <hr>
         <div class="form-group col-md-12">
+          <hr>
           {{ Form::label('s_conclusiones_sesion', 'CONCLUSIONES DE LA SESIÓN', ['class' => 'control-label']) }}
           {{ Form::textarea('s_conclusiones_sesion', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_conclusiones_sesion', 'class' => 'md-textarea form-control', 'title' => 'Conclusiones de la sesión', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
           <p id="contadorconclusiones">0/4000</p>
         </div>
+        <hr>
         <div class="form-group col-md-12">
+          <hr>
           {{ Form::label('s_tareas', 'TAREAS', ['class' => 'control-label']) }}
           {{ Form::textarea('s_tareas', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_tareas', 'class' => 'md-textarea form-control', 'title' => 'Tareas', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
           <p id="contadortareas">0/4000</p>
         </div>
+        <hr>
       </div>
+      <hr>
 
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -171,10 +181,10 @@
           </div>
         </div>
       </div>
-
+      <hr>
 
       <div class="panel panel-default">
-              {{ Form::label('i_prm_area_emocional_id', 'Novedad de la sesión', ['class' => 'control-label']) }}
+              {{ Form::label('i_prm_area_emocional_id', 'NOVEDAD DE LA SESIÓN', ['class' => 'control-label']) }}
           <div class="panel-body">
               <div class="form-row align-items-end">
                   <div class="form-group col-md-4">
@@ -212,6 +222,7 @@
           <p id="contadorobservaciones">0/4000</p>
         </div>
       </div>
+      <hr>
       <div class="form-row align-items-end">
         <div class="form-group col-md-6">
           {{ Form::label('d_fecha_proxima', 'Fecha Próxima Sesión', ['class' => 'control-label']) }}

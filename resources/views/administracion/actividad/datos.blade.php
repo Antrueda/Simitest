@@ -37,12 +37,12 @@
                                         <td class='text-center'>
                                             @can('actividad-editar')
                                                 <a class="btn btn-sm btn-primary" title="Editar" href="{{ route('actividad.editar', $d->id) }}">
-                                                    Editar
+                                                    EDITAR
                                                 </a>
                                             @endcan
                                             @can('actividad-leer')
                                                 <a class="btn btn-sm btn-primary" title="Ver" href="{{ route('actividad.ver', $d->id) }}">
-                                                    Ver
+                                                    VER
                                                 </a>
                                             @endcan
                                         </td>

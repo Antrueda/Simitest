@@ -37,12 +37,12 @@
                                         <td class='text-center'>
                                             @can('parametro-editar')
                                                 <a class="btn btn-sm btn-primary" title="Editar" href="{{ route('parametro.editar', $d->id) }}">
-                                                    Editar
+                                                    EDITAR
                                                 </a>
                                             @endcan
                                             @can('parametro-leer')
                                                 <a class="btn btn-sm btn-primary" title="Ver" href="{{ route('parametro.ver', $d->id) }}">
-                                                    Ver
+                                                    VER
                                                 </a>
                                             @endcan
                                         </td>

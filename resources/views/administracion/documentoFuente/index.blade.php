@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="content-header">
-	<h1>Documentos fuente</h1>
+	<h1>DOCUMENTOS FUENTES</h1>
 	<hr>
 </div>
 @if(!isset($accion))
