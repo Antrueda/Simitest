@@ -82,7 +82,7 @@ class AjaxxController extends Controller
     {
         if ($request->ajax()) {
             $edadxxxx = $this->getEdad($request->all());
-            $noaplica = Parametro::find(1269)->ComboAjaxUno;
+            $noaplica = Parametro::find(235)->ComboAjaxUno;
             $respuest = [[
                 'edadxxxx' => $this->getEdad($request->all()),
                 'generoxx' => ($edadxxxx < 15) ? $noaplica : Tema::combo(12, false, true),

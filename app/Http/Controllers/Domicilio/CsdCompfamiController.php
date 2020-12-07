@@ -192,7 +192,7 @@ class CsdCompfamiController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             //ddd($dataxxxx['modeloxx']->csd->CsdComFamiliarObservaciones);
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
-                $this->opciones['poblindi'] = Parametro::find(1269)->Combo;
+                $this->opciones['poblindi'] = Parametro::find(235)->Combo;
             }
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->Edad;
@@ -280,7 +280,7 @@ class CsdCompfamiController extends Controller
     {
 
         $dataxxxx['requestx']->request->add(['tipoacci' => 4]);
-        $dataxxxx['requestx']->request->add(['prm_peso_dos_id' => 1269]);
+        $dataxxxx['requestx']->request->add(['prm_peso_dos_id' => 235]);
         $usuariox = $this->getTransaccion($dataxxxx);
         return redirect()->route('csdcomfamiliar.editar', [
             $dataxxxx['padrexxx']->id,

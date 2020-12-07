@@ -7,6 +7,7 @@ use App\Http\Requests\Intervencion\IsDatosBasicoCrearRequest;
 use App\Http\Requests\Intervencion\IsDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\intervencion\IsDatosBasico;
+use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
 use App\Models\User;
 use App\Models\Tema;
@@ -302,14 +303,14 @@ class IsDatoBasicoController extends Controller
                     'subareax' => Tema::combo(165, $cabecera, $ajaxxxxx),
                 ];
                 break;
-            case 1269: //Académica
+            case 235: //Académica
                 if ($ajaxxxxx) {
                     $respuest = [
-                        'subareax' => Parametro::find(235)->Combo,
+                        'subareax' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
                     ];
                 } else {
                     $respuest = [
-                        'subareax' => Parametro::find(235)->Combo,
+                        'subareax' => [235 => 'N/A']
                     ];
                 }
 
@@ -376,11 +377,11 @@ class IsDatoBasicoController extends Controller
             case 1067: //Académica
                 if ($ajaxxxxx) {
                     $respuest = [
-                        'areajust' => Parametro::find(235)->Combo,
+                        'areajust' => [['valuexxx' => 235, 'optionxx' => 'N/A']],
                     ];
                 } else {
                     $respuest = [
-                        'areajust' => Parametro::find(235)->Combo,
+                        'areajust' => [235 => 'N/A']
                     ];
                 }
 

@@ -72,8 +72,8 @@ class IsDatosBasicoUpdateRequest extends FormRequest
             $this->_reglasx['i_segundo_responsable']='required';
         }
         if ($dataxxxx['i_prm_tipo_atencion_id'] == '1067'){
-            $this->request->add(['i_prm_area_ajuste_id'=>1269]);
-            $this->request->add(['i_prm_subarea_ajuste_id'=>1269]);
+            $this->request->add(['i_prm_area_ajuste_id'=>235]);
+            $this->request->add(['i_prm_subarea_ajuste_id'=>235]);
         }
   
         if ($dataxxxx['i_prm_subarea_emocional_id'] > '0'){

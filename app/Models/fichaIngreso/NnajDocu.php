@@ -78,12 +78,12 @@ class NnajDocu extends Model
                 $objetoxx->update($dataxxxx);
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $dataxxxx['prm_tipoblaci_id'] = 1269;
-                $dataxxxx['prm_estrateg_id'] = 1269;
+                $dataxxxx['prm_tipoblaci_id'] = 235;
+                $dataxxxx['prm_estrateg_id'] = 235;
                 $dataxxxx['sis_docfuen_id'] = 2;
                 $dataxxxx['sis_esta_id'] = 1;
-                $dataxxxx['prm_ayuda_id'] = 1269;
-                $dataxxxx['prm_doc_fisico_id'] = 1269;
+                $dataxxxx['prm_ayuda_id'] = 235;
+                $dataxxxx['prm_doc_fisico_id'] = 235;
                 $datosbas = FiDatosBasico::getDbcomfamiliar($dataxxxx, '');
                 $dataxxxx['fi_datos_basico_id'] = $datosbas->id;
                 $objetoxx = NnajDocu::create($dataxxxx);

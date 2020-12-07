@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Individuales\AISalidaMenoresRequest;
+use App\Http\Requests\Acciones\Individuales\AISalidaMenorRequest;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\consulta\Csd;
 use App\Models\fichaIngreso\FiCompfami;
@@ -276,7 +276,7 @@ class AISalidaMenoresController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
-    public function store(AISalidaMenoresRequest $request, SisNnaj $padrexxx)
+    public function store(AISalidaMenorRequest $request, SisNnaj $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
@@ -319,7 +319,7 @@ class AISalidaMenoresController extends Controller
      * @param  \App\Models\FiDatosBasico $padrexxx
      * @return \Illuminate\Http\Response
      */
-    public function update(AISalidaMenoresRequest $request, SisNnaj $padrexxx,  AiSalidaMenores $modeloxx)
+    public function update(AISalidaMenorRequest $request, SisNnaj $padrexxx,  AiSalidaMenores $modeloxx)
     {
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida actualizada con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }

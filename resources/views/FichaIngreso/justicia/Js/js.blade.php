@@ -462,5 +462,29 @@
        });
 
    });
+   function doc(valor){
+        if(valor == 227){
+            document.getElementById("prm_situacion_div").hidden=false;
+            
+        } else {
+            document.getElementById("prm_situacion_div").hidden=true;
+            document.getElementById("prm_situacion_id").value=[];
+        }
+    }
+
+    function doc1(valor){
+        if(valor == 227){
+            document.getElementById("prm_riesgo_div").hidden=false;
+        } else {
+            document.getElementById("prm_riesgo_div").hidden=true;
+            document.getElementById("prm_riesgo_id").value=[];
+        }
+    }
+
+    function carga() {
+	doc(document.getElementById('i_prm_vinculado_violencia_id').value);
+    doc1(document.getElementById('i_prm_riesgo_participar_id').value);
+}
+window.onload=carga;
 
 </script>

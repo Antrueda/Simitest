@@ -75,7 +75,7 @@ class VsiPersonaSeeder extends Seeder
         VsiPersona::create(['vsi_datos_vincula_id' => 61, 'parametro_id' => 770, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 62, 'parametro_id' => 235, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 63, 'parametro_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
-        VsiPersona::create(['vsi_datos_vincula_id' => 64, 'parametro_id' => 1269, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
+        VsiPersona::create(['vsi_datos_vincula_id' => 64, 'parametro_id' => 235, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 65, 'parametro_id' => 805, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 66, 'parametro_id' => 235, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 67, 'parametro_id' => 805, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
@@ -224,7 +224,7 @@ class VsiPersonaSeeder extends Seeder
         VsiPersona::create(['vsi_datos_vincula_id' => 210, 'parametro_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 211, 'parametro_id' => 235, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 212, 'parametro_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
-        VsiPersona::create(['vsi_datos_vincula_id' => 213, 'parametro_id' => 1269, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
+        VsiPersona::create(['vsi_datos_vincula_id' => 213, 'parametro_id' => 235, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 214, 'parametro_id' => 805, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 215, 'parametro_id' => 810, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 216, 'parametro_id' => 805, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
@@ -267,7 +267,7 @@ class VsiPersonaSeeder extends Seeder
         VsiPersona::create(['vsi_datos_vincula_id' => 253, 'parametro_id' => 785, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 254, 'parametro_id' => 805, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 255, 'parametro_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
-        VsiPersona::create(['vsi_datos_vincula_id' => 256, 'parametro_id' => 1269, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
+        VsiPersona::create(['vsi_datos_vincula_id' => 256, 'parametro_id' => 235, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 257, 'parametro_id' => 805, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 258, 'parametro_id' => 805, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);
         VsiPersona::create(['vsi_datos_vincula_id' => 259, 'parametro_id' => 2316, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, ]);

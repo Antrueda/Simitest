@@ -1,1 +1,1 @@
-<a class="btn btn-sm btn-primary" href="{{ route('fos.fichaobservacion.editar', [$sis_nnaj_id,$id]) }}">Seleccionar</a>
+<a class="btn btn-sm btn-primary" href="{{ route('fos.fichaobservacion.editar', [$sis_nnaj_id,$id]) }}">SELECCIONAR</a>

@@ -26,8 +26,8 @@ class VsiDinfamAusenciaSeeder extends Seeder
         VsiDinfamAusencia::create(['parametro_id' => 335, 'vsi_dinfamiliar_id' => 146, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
         VsiDinfamAusencia::create(['parametro_id' => 335, 'vsi_dinfamiliar_id' => 263, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
         VsiDinfamAusencia::create(['parametro_id' => 807, 'vsi_dinfamiliar_id' => 70, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
-        VsiDinfamAusencia::create(['parametro_id' => 1269, 'vsi_dinfamiliar_id' => 49, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
-        VsiDinfamAusencia::create(['parametro_id' => 1269, 'vsi_dinfamiliar_id' => 197, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
+        VsiDinfamAusencia::create(['parametro_id' => 235, 'vsi_dinfamiliar_id' => 49, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
+        VsiDinfamAusencia::create(['parametro_id' => 235, 'vsi_dinfamiliar_id' => 197, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
         VsiDinfamAusencia::create(['parametro_id' => 1798, 'vsi_dinfamiliar_id' => 316, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
         VsiDinfamAusencia::create(['parametro_id' => 1799, 'vsi_dinfamiliar_id' => 12, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);
         VsiDinfamAusencia::create(['parametro_id' => 1799, 'vsi_dinfamiliar_id' => 37, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1,]);

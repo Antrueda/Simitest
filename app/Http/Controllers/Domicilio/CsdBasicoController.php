@@ -104,10 +104,10 @@ class CsdBasicoController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
 
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
-                $this->opciones['grupindi'] = Parametro::find(1269)->Combo;
+                $this->opciones['grupindi'] = Parametro::find(235)->Combo;
             }
             if ($dataxxxx['modeloxx']->prm_doc_fisico_id == 227) {
-                $this->opciones['sindocum'] = Parametro::find(1269)->Combo;
+                $this->opciones['sindocum'] = Parametro::find(235)->Combo;
             }
 
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;

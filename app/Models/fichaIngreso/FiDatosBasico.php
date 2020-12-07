@@ -247,7 +247,7 @@ class FiDatosBasico extends Model
                 $objetoxx->update($dataxxxx);
             } else {
                 /** Es un registro nuevo */
-                $dataxxxx['prm_estrateg_id']=1269;
+                $dataxxxx['prm_estrateg_id']=235;
                 $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'prm_escomfam_id' => 227])->id;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = FiDatosBasico::create($dataxxxx);
@@ -255,7 +255,7 @@ class FiDatosBasico extends Model
                  * agregar el nnaj a la composocion familiar
                  */
                 $dataxxxx['sis_nnajnnaj_id'] = $dataxxxx['sis_nnaj_id'];
-                $dataxxxx['i_prm_ocupacion_id'] = 1269;
+                $dataxxxx['i_prm_ocupacion_id'] = 235;
                 $dataxxxx['i_prm_parentesco_id'] = 282;
                 $dataxxxx['i_prm_vinculado_idipron_id'] = 228;
                 $dataxxxx['i_prm_convive_nnaj_id'] = 228;
@@ -319,7 +319,7 @@ class FiDatosBasico extends Model
                  * agregar el nnaj a la composocion familiar
                  */
                 $dataxxxx['sis_nnajnnaj_id'] = $dataxxxx['sis_nnaj_id'];
-                $dataxxxx['i_prm_ocupacion_id'] = 1269;
+                $dataxxxx['i_prm_ocupacion_id'] = 235;
                 $dataxxxx['i_prm_parentesco_id'] = 805;
                 $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
                 $dataxxxx['i_prm_convive_nnaj_id'] = 227;

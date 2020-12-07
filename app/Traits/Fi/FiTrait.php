@@ -29,7 +29,7 @@ trait FiTrait
     {
         $opciones = [
             'personas' => [235, 66],
-            'prm_discausa_id' => [1269, 341],
+            'prm_discausa_id' => [235, 341],
             'prm_victataq_id' => [853, 342],
             'i_prm_condicion_amb_id' => [168, 42],
         ];
@@ -61,7 +61,7 @@ trait FiTrait
             switch ($request->padrexxx) {
                 case 829:
                     $respuest = [
-                        ['campoxxx' => '#i_prm_ultimo_grado_aprobado_id', 'valuexxx' => 1269],
+                        ['campoxxx' => '#i_prm_ultimo_grado_aprobado_id', 'valuexxx' => 235],
                         ['campoxxx' => '#i_prm_certificado_ultimo_nivel_id', 'valuexxx' => 228],
                     ];
                     break;
@@ -93,7 +93,7 @@ trait FiTrait
                     break;
                 case 2:
                     if ($request->discapac == 228) {
-                        $parametr = Parametro::find(1269)->ComboAjaxUno;
+                        $parametr = Parametro::find(235)->ComboAjaxUno;
                         $parametr[0]['selected'] = 'selected';
                         $respuest = ['selectxx' => 'prm_discausa_id', 'comboxxx' => $parametr, 'nigunaxx' => true];
                     } else {

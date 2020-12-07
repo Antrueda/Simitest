@@ -26,7 +26,7 @@ trait VsiAjaxTrait
             'libertades' => [235, 66],
             'consumo' => [235, 66],
             'salud' => [235, 66],
-            'ausencia' => [1269, 292],
+            'ausencia' => [235, 292],
             'quienes' => [235, 66],
             'adecuados' => [931, 195], //12.6 vsi
             'dificultades' => [931, 195], //12.8 vsi
@@ -34,7 +34,7 @@ trait VsiAjaxTrait
             'expectativas' => [689, 181],
             'labores' => [853, 114],
             'dificultadex' => [689, 168],
-            'violbasa'=> [1269, 349],
+            'violbasa'=> [235, 349],
             'especiales'=> [168, 89],
             'ambientes'=> [168, 42],
             'comparte'=> [235, 66],
@@ -96,7 +96,7 @@ trait VsiAjaxTrait
                     'comboxxx' => $this->combo(['cabecera' => true, 'ajaxxxxx' => true, 'temaxxxx' => 4, 'selected' => is_array($request->selected) ? $request->selected : [$request->selected]])
             ];
             if ($request->padrexxx != 711) {
-                $respuest['comboxxx'] = Parametro::find(1269)->ComboAjaxUno;
+                $respuest['comboxxx'] = Parametro::find(235)->ComboAjaxUno;
                 $respuest['readonly'] = true;
             }
 

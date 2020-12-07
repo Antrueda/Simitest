@@ -61,7 +61,7 @@ trait CsdTrait
             switch ($request->padrexxx) {
                 case 829:
                     $respuest = [
-                        ['campoxxx' => '#i_prm_ultimo_grado_aprobado_id', 'valuexxx' => 1269],
+                        ['campoxxx' => '#i_prm_ultimo_grado_aprobado_id', 'valuexxx' => 235],
                         ['campoxxx' => '#i_prm_certificado_ultimo_nivel_id', 'valuexxx' => 228],
                     ];
                     break;

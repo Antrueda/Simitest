@@ -83,12 +83,12 @@ class VsiGenIngresosController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
             if($dataxxxx['modeloxx']->prm_actividad_id==853){
-                $this->opciones['jorgener']=Parametro::find(1269)->Combo;
+                $this->opciones['jorgener']=Parametro::find(235)->Combo;
             }
 
             if($dataxxxx['modeloxx']->prm_no_id!=711){
                 $this->opciones['cuantoxx']='readonly';
-                $this->opciones['tiempoxx']=Parametro::find(1269)->Combo;
+                $this->opciones['tiempoxx']=Parametro::find(235)->Combo;
             }
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
@@ -220,7 +220,7 @@ class VsiGenIngresosController extends Controller
         if ($request->ajax()) {
             $respuest=Tema::combo(123, true, true);
             if($request->padrexxx==853){
-            $respuest=[['valuexxx'=>1269,'optionxx'=>'NO APLICA']];
+            $respuest=[['valuexxx'=>235,'optionxx'=>'NO APLICA']];
             }
             return response()->json($respuest);
         }

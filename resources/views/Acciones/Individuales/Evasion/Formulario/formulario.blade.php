@@ -399,7 +399,7 @@
     <span><strong>Firma secundaria, obligatoria para el cargue en SIMI</strong></span><br>
     {{ Form::label('user_doc2_id', 'FUNCIONARIO(A)/CONTRATISTA', ['class' => 'control-label col-form-label-sm']) }}
     <span>Profesional del equipo psicosocial</span>
-    {{ Form::select('user_doc2_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_doc2_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
+    {{ Form::select('user_doc2_id', $todoxxxx['usuarios'], null, ['class' => $errors->first('user_doc2_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
     @if($errors->has('user_doc2_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('user_doc2_id') }}
@@ -420,7 +420,7 @@
 </div>
 <div class="row mt-3">
   <div class="col-md-12">
-    <h6>Información de quién recibe la denuncia</h6>
+    <h6>INFORMACIÓN DE QUIÉN RECIBE LA DENUNCIA</h6>
   </div>
 </div>
 <hr>

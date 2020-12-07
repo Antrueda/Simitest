@@ -1276,7 +1276,7 @@ class TemasTableSeeder extends Seeder
             612 => $camposmagicos,
             613 => $camposmagicos,
             614 => $camposmagicos,
-            1269 => $camposmagicos,
+            235 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 126, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'VICTIMA ESCNNA']);
         $tema->parametros()->sync([
@@ -1562,7 +1562,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 154, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'GRADO APROBADO']);
         $tema->parametros()->sync([
-            1269 => $camposmagicos,
+            235 => $camposmagicos,
             2260 => $camposmagicos,
             246 => $camposmagicos,
             247 => $camposmagicos,
@@ -1594,7 +1594,7 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 156, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'OCUPACIÓN']);
         $tema->parametros()->sync([
-            1269 => $camposmagicos,
+            235 => $camposmagicos,
             1262 => $camposmagicos,
             647 => $camposmagicos,
             1534 => $camposmagicos,
@@ -2114,7 +2114,7 @@ class TemasTableSeeder extends Seeder
             525 => $camposmagicos,
             1058 => $camposmagicos,
             1059 => $camposmagicos,
-            1269 => $camposmagicos,
+            235 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 213, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO']);
         $tema->parametros()->sync([
@@ -2414,7 +2414,7 @@ class TemasTableSeeder extends Seeder
             1266 => $camposmagicos,
             1267 => $camposmagicos,
             1268 => $camposmagicos,
-            1269 => $camposmagicos,
+            235 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 249, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'CALIFICACIÓN AUTOCUIDADO']);
         $tema->parametros()->sync([
@@ -2826,7 +2826,7 @@ class TemasTableSeeder extends Seeder
             268 => $camposmagicos,
             335 => $camposmagicos,
             476 => $camposmagicos,
-            1269 => $camposmagicos,
+            235 => $camposmagicos,
             1799 => $camposmagicos,
         ]);
 
@@ -2857,7 +2857,7 @@ class TemasTableSeeder extends Seeder
             804  => $camposmagicos,
             806  => $camposmagicos,
             863  => $camposmagicos,
-            1269 => $camposmagicos,
+            235 => $camposmagicos,
             1545 => $camposmagicos,
             1553 => $camposmagicos,
             1561 => $camposmagicos,
@@ -3244,7 +3244,7 @@ class TemasTableSeeder extends Seeder
         $tema = Tema::create(['id' => 341, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL',]);
         $tema->parametros()->sync([
             27 => $camposmagicos,
-            1269 => $camposmagicos,
+            235 => $camposmagicos,
             2329 => $camposmagicos,
             2330 => $camposmagicos,
             2331 => $camposmagicos,
@@ -3293,7 +3293,7 @@ class TemasTableSeeder extends Seeder
 
         $this->getR([
             'nombrexx' => '12.2 El tipo de violencia referenciado corresponde a violencia basada en',
-            'parametr' => [1269, 2344, 2345, 2346]
+            'parametr' => [235, 2344, 2345, 2346]
         ]); //349
 
         $this->getR([
@@ -3319,7 +3319,7 @@ class TemasTableSeeder extends Seeder
         ]); //354
         $this->getR([
             'nombrexx' => 'SIN ESTRATEGIA',
-            'parametr' => [1269]
+            'parametr' => [235]
         ]); //355
         $this->getR([
             'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL',
@@ -3339,7 +3339,7 @@ class TemasTableSeeder extends Seeder
         $this->getR([
             'nombrexx' => 'TIPO POBLACION CSD',
             'parametr' => [
-                650, 651, 1269
+                650, 651, 235
             ]
         ]);
 

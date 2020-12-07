@@ -78,22 +78,22 @@ trait DatosBasicosTrait
                 $dt = new DateTime($dataxxxx['requestx']->d_nacimiento);
                 $dataxxxx['requestx']->request->add(['d_nacimiento' => $dt->format('Y-m-d')]);
                 $dataxxxx['requestx']->request->add(['prm_ocupacion_id' => 1]);
-                $dataxxxx['requestx']->request->add(['prm_parentezco_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_convive_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_visitado_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_vin_actual_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_vin_pasado_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_regimen_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_sisben_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_discapacidad_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_peso_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_peso_dos_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_leer_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_escribir_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_operaciones_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_parentezco_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_convive_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_visitado_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_vin_actual_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_vin_pasado_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_regimen_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_sisben_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_discapacidad_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_peso_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_peso_dos_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_leer_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_escribir_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_operaciones_id' => 235]);
 
-                $dataxxxx['requestx']->request->add(['prm_educacion_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_estudia_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_educacion_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_estudia_id' => 235]);
                 $dataxxxx['user_edita_id'] = Auth::user()->id;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['objetoxx'] = CsdComFamiliar::create($dataxxxx['requestx']->all());
@@ -136,26 +136,26 @@ trait DatosBasicosTrait
                     'prm_orientacion_sexual_id' => $document->nnaj_sexo->prm_orientacion_sexual_id,
                     'prm_etnia_id' => $document->nnaj_fi_csd->prm_etnia_id,
                     'prm_poblacion_etnia_id' => $document->nnaj_fi_csd->prm_poblacion_etnia_id,
-                    'prm_ocupacion_id' => 1269,
+                    'prm_ocupacion_id' => 235,
                     'prm_parentezco_id' => 805,
-                    'prm_convive_id' => 1269,
-                    'prm_visitado_id' => 1269,
+                    'prm_convive_id' => 235,
+                    'prm_visitado_id' => 235,
                     'prm_vin_actual_id' => 227,
-                    'prm_vin_pasado_id' => 1269,
-                    'prm_regimen_id' => 1269,
-                    'prm_cualeps_id' => 1269,
+                    'prm_vin_pasado_id' => 235,
+                    'prm_regimen_id' => 235,
+                    'prm_cualeps_id' => 235,
                     // 'sisben',
-                    'prm_sisben_id' => 1269,
-                    'prm_discapacidad_id' => 1269,
-                    'prm_cual_id' => 1269,
-                    'prm_peso_id' => 1269,
-                    'prm_peso_dos_id' => 1269,
-                    'prm_leer_id' => 1269,
-                    'prm_escribir_id'=> 1269,
-                    'prm_operaciones_id' => 1269,
-                    'prm_aprobado_id' => 1269,
-                    'prm_educacion_id' => 1269,
-                    'prm_estudia_id' => 1269,
+                    'prm_sisben_id' => 235,
+                    'prm_discapacidad_id' => 235,
+                    'prm_cual_id' => 235,
+                    'prm_peso_id' => 235,
+                    'prm_peso_dos_id' => 235,
+                    'prm_leer_id' => 235,
+                    'prm_escribir_id'=> 235,
+                    'prm_operaciones_id' => 235,
+                    'prm_aprobado_id' => 235,
+                    'prm_educacion_id' => 235,
+                    'prm_estudia_id' => 235,
                     'prm_tipofuen_id' => $dataxxxx['requestx']->prm_tipofuen_id
                 ];
                 $dataxxxx['objetoxx'] = CsdComFamiliar::create($compfami);
@@ -188,20 +188,20 @@ trait DatosBasicosTrait
 
             if ($respuest['respuest']) {
                 $dataxxxx['objetoxx'] = '';
-                $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 235]);
                 $dataxxxx['requestx']->request->add(['prm_escomfam_id' => 228]);
                 $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 4]);
                 $dataxxxx['requestx']->request->add(['sis_depen_id' => 28]);
                 $dataxxxx['requestx']->request->add(['sis_servicio_id' => 1]);
-                $dataxxxx['requestx']->request->add(['prm_tipoblaci_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_orientacion_sexual_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_tipoblaci_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_orientacion_sexual_id' => 235]);
                 $dataxxxx['requestx']->request->add(['sis_municipio_id' => 1]);
-                $dataxxxx['requestx']->request->add(['prm_doc_fisico_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_ayuda_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_situacion_militar_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_clase_libreta_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_gsanguino_id' => 1269]);
-                $dataxxxx['requestx']->request->add(['prm_factor_rh_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_doc_fisico_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_ayuda_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_situacion_militar_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_clase_libreta_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_gsanguino_id' => 235]);
+                $dataxxxx['requestx']->request->add(['prm_factor_rh_id' => 235]);
                 $respuesx = $this->setNnaj($dataxxxx);
                 $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'], 'compfami' => $respuesx['compfami']];
             }
@@ -220,7 +220,7 @@ trait DatosBasicosTrait
     public function setComposionFamiliarFi($dataxxxx)
     {
         $dataxxxx['sis_nnajnnaj_id'] = $dataxxxx['objetoxx']->sis_nnaj_id;
-        $dataxxxx['i_prm_ocupacion_id'] = 1269;
+        $dataxxxx['i_prm_ocupacion_id'] = 235;
         $dataxxxx['i_prm_parentesco_id'] = 805;
         $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
         $dataxxxx['i_prm_convive_nnaj_id'] = 227;
@@ -317,7 +317,7 @@ trait DatosBasicosTrait
 
             if ($respuest['respuest']) {
                 $dataxxxx['objetoxx'] = '';
-                $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 1269]);
+                $dataxxxx['requestx']->request->add(['prm_estrateg_id' => 235]);
                 $dataxxxx['requestx']->request->add(['prm_escomfam_id' => 228]);
                 $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 4]);
                 $dataxxxx['requestx']->request->add(['sis_depen_id' => 28]);

@@ -1,1 +1,1 @@
-<a class="btn btn-sm btn-primary" href="{{ route('fos.fichaobservacion.lista', $id) }}">Seleccionar</a>
+<a class="btn btn-sm btn-primary" href="{{ route('fos.fichaobservacion.lista', $id) }}">SELECCIONAR</a>

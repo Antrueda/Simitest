@@ -90,7 +90,7 @@
                                 if (data.valuexxx == dataxxxx.selected){
                                 selected = 'selected';
                                 }
-                                if(data.valuexxx==1269){
+                                if(data.valuexxx==235){
                                         $('#i_prm_subarea_ajuste_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')  
                                 }else{
                                         $('#i_prm_subarea_ajuste_id').append('<option  value="">Seleccione</option>')  

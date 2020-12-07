@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Acciones\Individuales\AIEvasionRequest;
+use App\Http\Requests\Acciones\Individuales\AIEvasionesRequest;
 use App\Http\Requests\Csd\CsdCrearRequest;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
@@ -64,11 +64,7 @@ class AIEvasionController extends Controller
         $this->opciones['parentez'] = Tema::combo(66,true, false);
         $this->opciones['atencion'] = Tema::combo(306, false, false);
         
-        
-        
-
-
-
+      
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
         $this->opciones['tituloxx'] = "REPORTE DE EVASIÓN";
@@ -85,7 +81,7 @@ class AIEvasionController extends Controller
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'REGISTRAR NUEVA EVASIÓN',
+                'titunuev' => 'REGISTRAR NUEVO REPORTE DE EVASIÓN',
                 'titulist' => 'LISTA DE EVASIONES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
@@ -96,6 +92,7 @@ class AIEvasionController extends Controller
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'FECHA DE EVASION', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'HORA DE EVASIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'LUGAR DE EVASIÓN', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
@@ -105,8 +102,9 @@ class AIEvasionController extends Controller
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'id', 'name' => 'ai_reporte_evasions.id'],
                     ['data' => 'fecha_evasion', 'name' => 'ai_reporte_evasions.fecha_evasion'],
-                    ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                     ['data' => 'hora_evasion', 'name' => 'ai_reporte_evasions.hora_evasion'],
+                    ['data' => 'lugar_evasion', 'name' => 'ai_reporte_evasions.lugar_evasion'],
+                    ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -175,6 +173,7 @@ class AIEvasionController extends Controller
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
+        $this->opciones['usuarios'] = User::getUsuario(false, false);
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
         $departam=0;
         
@@ -252,7 +251,7 @@ class AIEvasionController extends Controller
                 'titulist' => 'LISTA DE FAMILIARES',
                 'pregunta' => 'DATOS FAMILIARES (De acuerdo a ficha de ingreso)',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
-                'vercrear' => ($vercrear && count($familiar) == 1 )? true : false,
+                'vercrear' => ($vercrear && count($familiar) <= 1 )? true : false,
                 'urlxxxxx' => route('evasionpar.listaxxx', [$parametr]),
                 'cabecera' => [
                     [
@@ -302,7 +301,7 @@ class AIEvasionController extends Controller
             ];
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
-    public function store(AIEvasionRequest $request, SisNnaj $padrexxx)
+    public function store(AIEvasionesRequest $request, SisNnaj $padrexxx)
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
@@ -345,7 +344,7 @@ class AIEvasionController extends Controller
      * @param  \App\Models\FiDatosBasico $padrexxx
      * @return \Illuminate\Http\Response
      */
-    public function update(AIEvasionRequest $request, SisNnaj $padrexxx,  AiReporteEvasion $modeloxx)
+    public function update(AIEvasionesRequest $request, SisNnaj $padrexxx,  AiReporteEvasion $modeloxx)
     {
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida actualizada con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }

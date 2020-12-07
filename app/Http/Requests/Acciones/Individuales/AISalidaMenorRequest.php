@@ -4,27 +4,38 @@ namespace App\Http\Requests\Acciones\Individuales;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AISalidaMenoresRequest extends FormRequest
+class AISalidaMenorRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
+    private $_mensaje;
+    private $_reglasx;
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
+    public function __construct()
     {
+        $this->_mensaje = [
+            'prm_upi_id.required' => 'Seleccione la UPI',
+            'fecha.required' => 'Indique fecha de diligenciamiento',
+            'hora_salida.required' => 'Indique la hora de salida',
+            'prm_doc_id.required' => 'Indique el tipo de documento',
+            'prm_parentezco_id.required' => 'Indique el parentesco',
+            'prm_autorizado_id.required' => 'Indique si cuenta con autorización del defensor de familia',
+            'descripcion.required' => 'Digite una descripción ',
+            'objetos.required' => 'Digite si sale con algun objeto',
+            'prm_upi2_id.required' => 'Seleccione la UPI',
+            'tiempo.required' => 'Indique cuantos días',
+            'dir_salida.required' => 'Indique la dirección donde se llevará a cabo la salida',
+            'tel_contacto.required' => 'Digite un numero de contacto',
+            'nombres_recoge.required' => 'Digite el nombre de quien recoge al NNA',
+            'objetivo.required' => 'Indique el objetivo de la salida',
+            'prm_condicion_id.required' => 'Indique si se encuentra en condiciones físicas óptimas',
+            'prm_orientado_id.required' => 'Indique si se encuentra orientado en sus tres esferas',
+            'prm_enfermerd_id.required' => 'Indique si presenta alguna enfermedad general',
+            'prm_brotes_id.required' => 'Indique si presenta algun brote',
+            'prm_laceracio_id.required' => 'Indique si presenta alguna laceración o hematoma',
 
-        return [
+
+
+            ];
+        $this->_reglasx = [
             'prm_upi_id'        => 'required|exists:sis_depens,id',
             'fecha'             => 'required|date',
             'hora_salida'    => 'required',
@@ -50,7 +61,6 @@ class AISalidaMenoresRequest extends FormRequest
             'objetos'           => 'required|string|max:4000',
             'prm_upi2_id'       => 'required|exists:parametros,id',
             'tiempo'            => 'required|integer',
-
             'dir_salida'        => 'required|string|max:120',
             'tel_contacto'      => 'required|integer',
             'causa'             => 'nullable|string|max:4000',
@@ -64,6 +74,34 @@ class AISalidaMenoresRequest extends FormRequest
             'prm_enfermerd_id'       => 'required',
             'prm_brotes_id'       => 'required',
             'prm_laceracio_id'       => 'required',
-        ];
+            ];
+    }
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+    public function messages()
+    {
+        return $this->_mensaje;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        $this->validar();
+        return $this->_reglasx;
+    }
+    public function validar()
+    {
+
     }
 }

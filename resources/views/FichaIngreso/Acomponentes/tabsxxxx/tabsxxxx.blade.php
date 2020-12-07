@@ -44,7 +44,7 @@
             @endcanany
             @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651)
             @canany(['fijusticia-leer', 'fijusticia-crear', 'fijusticia-editar', 'fijusticia-borrar'])
-            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fijusticia') ?' active' : '' }} text-sm" href="{{ route('fijusticia.nuevo', $todoxxxx['pestpara'][0]) }}">10. JUSTICIA RECREATIVA</a></li>
+            <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fijusticia') ?' active' : '' }} text-sm" href="{{ route('fijusticia.nuevo', $todoxxxx['pestpara'][0]) }}">10. JUSTICIA RESTAURATIVA</a></li>
             @endcanany
             @endif
             @canany(['ficonsumo-leer', 'ficonsumo-crear', 'ficonsumo-editar', 'ficonsumo-borrar'])

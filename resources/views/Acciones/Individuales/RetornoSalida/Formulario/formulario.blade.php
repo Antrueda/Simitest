@@ -1,10 +1,10 @@
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>Información básica del NNA</h5>
+    <h5>INFORMACIÓN BÁSICA DEL NNA</h5>
   </div>
 </div>
 
-
+<hr>
 <div class="container-fluid">
   <div class="form-row align-items-end">
       <div class="form-group col-md-3">
@@ -40,6 +40,7 @@
       </div>
     </div>
 </div>
+<hr>
 
 
 
@@ -78,13 +79,14 @@
 
   </div>
 </div>
+<hr>
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>Datos del regreso del NNA</h5>
+    <h5>DATOS DEL REGRESO DEL NNA</h5>
     <span>Condiciones de salud en las cuales regresa el niño, niña o adolescente.</span>
   </div>
 </div>
-<hr>
+
 <div class="row">
   <div class="col-md-6">
     <div class="row mt-2">
@@ -185,12 +187,12 @@
     @endif
   </div>
 </div>
+<hr>
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>Firma</h5>
+    <h5>FIRMA</h5>
   </div>
 </div>
-<hr>
 <span><strong>Representante legal o persona autorizada con quien retorna el NNA</strong></span>
 <div class="row">
   <div class="col-md-3">
@@ -243,7 +245,7 @@
 </div>
 <div class="row">
   <div class="col-md">
-    {{ Form::label('user_doc1_id', 'Persona quien recibe al NNA', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('user_doc1_id', 'Funcionario(A)/Contratista quien entrega al NNA', ['class' => 'control-label col-form-label-sm']) }}
     <span> (psicosocial, tutor de vivienda, tutor de convivencia, enfermero y/o facilitador).</span>
     {{ Form::select('user_doc1_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_doc1_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
     @if($errors->has('user_doc1_id'))

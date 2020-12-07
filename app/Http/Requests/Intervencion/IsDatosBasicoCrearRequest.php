@@ -15,7 +15,7 @@ class IsDatosBasicoCrearRequest extends FormRequest
         $this->_mensaje = [
             'sis_depen_id.required' => 'Seleccione Unidad de atención integral',
             'd_fecha_diligencia.required' => 'Seleccione Fecha de diligenciamiento',
-            'i_primer_responsable.required' => 'Escriba el primer del responsable',
+            'i_primer_responsable.required' => 'Seleccione el primer del responsable',
             'i_prm_tipo_atencion_id.required' => 'Seleccione Tipo de atención',
             'i_prm_area_ajuste_id.required' => 'Seleccione Área de ajuste',
             'i_prm_subarea_ajuste_id.required' => 'Seleccione Subárea de ajuste',
@@ -31,10 +31,10 @@ class IsDatosBasicoCrearRequest extends FormRequest
             'i_prm_tipo_atencion_id' => ['Required'],
             'i_prm_area_ajuste_id' => ['Required'],
             'i_prm_subarea_ajuste_id' => ['Required'],
-            's_tema' => ['Required'],
-            's_objetivo_sesion' => ['Required'],
-            's_desarrollo_sesion' => ['Required'],
-            's_conclusiones_sesion' => ['Required'],
+            's_tema' => 'required|string|max:200',
+            's_objetivo_sesion' => 'required|string|max:4000',
+            's_desarrollo_sesion' => 'required|string|max:4000',
+            's_conclusiones_sesion' => 'required|string|max:4000',
             'i_prm_area_proxima_id' => ['nullable'],
         ];
     }
@@ -73,8 +73,8 @@ class IsDatosBasicoCrearRequest extends FormRequest
         }
 
         if ($dataxxxx['i_prm_tipo_atencion_id'] == '1067'){
-            $this->request->add(['i_prm_area_ajuste_id'=>1269]);
-            $this->request->add(['i_prm_subarea_ajuste_id'=>1269]);
+            $this->request->add(['i_prm_area_ajuste_id'=>235]);
+            $this->request->add(['i_prm_subarea_ajuste_id'=>235]);
         }
         if ($dataxxxx['i_prm_subarea_emocional_id'] > '0'){
             $this->_mensaje['i_prm_avance_emocional_id.required'] ='Seleccione el avance en subárea emocional';

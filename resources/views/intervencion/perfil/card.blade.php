@@ -49,30 +49,60 @@
           {{ Form::hidden('sis_nnaj_id', $todoxxxx['nnajregi']) }}
         <div class="form-group col-md-4">
           {{ Form::label('sis_depen_id', '"UPI/ÁREA/CONTEXTO"', ['class' => 'control-label']) }}
-		      {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => 'form-control form-control-sm']) }}
+          {{ Form::select('sis_depen_id', $todoxxxx['dependen'], null, ['class' => $errors->first('sis_depen_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm']) }}
+          @if($errors->has('sis_depen_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('sis_depen_id') }}
+          </div>
+          @endif
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('d_fecha_diligencia', 'Fecha Diligenciamiento', ['class' => 'control-label']) }}
-          {{ Form::date('d_fecha_diligencia',  null, ['class' => 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
+          {{ Form::date('d_fecha_diligencia',  null, ['class' => $errors->first('d_fecha_diligencia') ? 'form-control form-control is-invalid' : 'form-control form-control-sm','max' => $todoxxxx['hoyxxxxx']]) }}
+          @if($errors->has('d_fecha_diligencia'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('d_fecha_diligencia') }}
+          </div>
+          @endif
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('i_prm_tipo_atencion_id', 'Tipo de Atención', ['class' => 'control-label']) }}
-          {{ Form::select('i_prm_tipo_atencion_id', $todoxxxx['tipatenc'], null, ['class' => 'form-control form-control-sm']) }}
+          {{ Form::select('i_prm_tipo_atencion_id', $todoxxxx['tipatenc'], null, ['class' => $errors->first('i_prm_tipo_atencion_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm']) }}
+          @if($errors->has('i_prm_tipo_atencion_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('i_prm_tipo_atencion_id') }}
+          </div>
+          @endif
         </div>
       </div>
 
       <div class="form-row align-items-end">
         <div class="form-group col-md-4">
           {{ Form::label('i_prm_area_ajuste_id', 'Áreas de ajuste', ['class' => 'control-label']) }}
-          {{ Form::select('i_prm_area_ajuste_id', $todoxxxx['areajust'], null, ['class' => 'form-control form-control-sm']) }}
+          {{ Form::select('i_prm_area_ajuste_id', $todoxxxx['areajust'], null, ['class' => $errors->first('i_prm_area_ajuste_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm']) }}
+          @if($errors->has('i_prm_area_ajuste_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('i_prm_area_ajuste_id') }}
+          </div>
+          @endif
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('i_prm_subarea_ajuste_id', 'Sub-área(s) de ajuste', ['class' => 'control-label']) }}
-          {{ Form::select('i_prm_subarea_ajuste_id', $todoxxxx['subareas']['subareax'], null, ['class' => 'form-control form-control-sm']) }}
+          {{ Form::select('i_prm_subarea_ajuste_id', $todoxxxx['subareas']['subareax'], null, ['class' => $errors->first('i_prm_subarea_ajuste_id') ? 'form-control form-control is-invalid' : 'form-control form-control-sm']) }}
+          @if($errors->has('i_prm_subarea_ajuste_id'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('i_prm_subarea_ajuste_id') }}
+          </div>
+          @endif
         </div>
         <div class="form-group col-md-4">
           {{ Form::label('s_tema', 'Tema', ['class' => 'control-label']) }}
-          {{ Form::text('s_tema', null, ['class' => 'form-control form-control-sm', 'placeholder' => 'Tema', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
+          {{ Form::text('s_tema', null, ['class' => $errors->first('s_tema') ? 'form-control form-control is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Tema', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
+          @if($errors->has('s_tema'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('s_tema') }}
+          </div>
+          @endif
         </div>
       </div>
       <hr>
@@ -80,30 +110,50 @@
         <hr>
         <div class="form-group col-md-12">
           {{ Form::label('s_objetivo_sesion', 'OBJETIVO DE LA SESIÓN', ['class' => 'control-label']) }}
-          {{ Form::textarea('s_objetivo_sesion', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_objetivo_sesion', 'class' => 'md-textarea form-control', 'title' => 'Objetivo de la sesión', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
+          {{ Form::textarea('s_objetivo_sesion', null, ['class' => $errors->first('s_objetivo_sesion') ? 'form-control form-control is-invalid' : 'form-control form-control-sm','rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_objetivo_sesion', 'class' => 'md-textarea form-control', 'title' => 'Objetivo de la sesión', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
           <p id="contadorobjetivo">0/4000</p>
+          @if($errors->has('s_objetivo_sesion'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('s_objetivo_sesion') }}
+          </div>
+          @endif
         </div>
         <hr>
         <hr>
         <div class="form-group col-md-12">
           <hr>
           {{ Form::label('s_desarrollo_sesion', 'DESARROLLO DE LA SESIÓN', ['class' => 'control-label']) }}
-          {{ Form::textarea('s_desarrollo_sesion', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_desarrollo_sesion', 'class' => 'md-textarea form-control', 'title' => 'Desarrollo de la sesión', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
+          {{ Form::textarea('s_desarrollo_sesion', null, ['class' => $errors->first('s_desarrollo_sesion') ? 'form-control form-control is-invalid' : 'form-control form-control-sm','rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_desarrollo_sesion', 'class' => 'md-textarea form-control', 'title' => 'Desarrollo de la sesión', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
           <p id="contadordesarrollo">0/4000</p>
+          @if($errors->has('s_desarrollo_sesion'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('s_desarrollo_sesion') }}
+          </div>
+          @endif
         </div>
         <hr>
         <div class="form-group col-md-12">
           <hr>
           {{ Form::label('s_conclusiones_sesion', 'CONCLUSIONES DE LA SESIÓN', ['class' => 'control-label']) }}
-          {{ Form::textarea('s_conclusiones_sesion', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_conclusiones_sesion', 'class' => 'md-textarea form-control', 'title' => 'Conclusiones de la sesión', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
+          {{ Form::textarea('s_conclusiones_sesion', null, ['class' => $errors->first('s_conclusiones_sesion') ? 'form-control form-control is-invalid' : 'form-control form-control-sm','rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_conclusiones_sesion', 'class' => 'md-textarea form-control', 'title' => 'Conclusiones de la sesión', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
           <p id="contadorconclusiones">0/4000</p>
+          @if($errors->has('s_conclusiones_sesion'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('s_conclusiones_sesion') }}
+          </div>
+          @endif
         </div>
         <hr>
         <div class="form-group col-md-12">
           <hr>
           {{ Form::label('s_tareas', 'TAREAS', ['class' => 'control-label']) }}
-          {{ Form::textarea('s_tareas', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_tareas', 'class' => 'md-textarea form-control', 'title' => 'Tareas', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
+          {{ Form::textarea('s_tareas', null, ['class' => $errors->first('s_tareas') ? 'form-control form-control is-invalid' : 'form-control form-control-sm','rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_tareas', 'class' => 'md-textarea form-control', 'title' => 'Tareas', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
           <p id="contadortareas">0/4000</p>
+          @if($errors->has('s_tareas'))
+          <div class="invalid-feedback d-block">
+            {{ $errors->first('s_tareas') }}
+          </div>
+          @endif
         </div>
         <hr>
       </div>

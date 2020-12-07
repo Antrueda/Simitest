@@ -5,6 +5,7 @@ namespace App\Http\Controllers\FichaIngreso;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiJrFamiliarCrearRequest;
 use App\Http\Requests\FichaIngreso\FiJrFamiliarEditarRequest;
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\FichaIngreso\FiJrFamiliar;
 use App\Models\fichaIngreso\FiJustrest;
 use App\Models\Tema;
@@ -62,7 +63,7 @@ class FiJrFamiliarController extends Controller
         ];
 
         $this->opciones['vigentex'] = Tema::combo(23, true, false);
-        $this->opciones['compfami'] = FiJrFamiliar::combo($dataxxxx['padrexxx'], true, false);
+        $this->opciones['compfami'] = FiCompfami::combo($dataxxxx['padrexxx'], true, false);
         $this->opciones['motivoxx'] = Tema::combo(66, true, false);
         $this->opciones['tiempoxx'] = Tema::combo(44, true, false);
         $this->opciones['estadoxx'] = 'ACTIVO';

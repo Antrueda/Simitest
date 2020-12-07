@@ -434,7 +434,7 @@ class SisNnajsSeeder extends Seeder
                 // 'sis_nnaj_id' => '1',
                 'prm_vestimenta_id' => 1,
                 'prm_tipoblaci_id' => $faker->randomElement(['650', '651', '2323']),
-                'prm_estrateg_id' => $faker->randomElement(['651', '1269', '2323']),
+                'prm_estrateg_id' => $faker->randomElement(['651', '235', '2323']),
                 'sis_esta_id' => '1',
                 'user_crea_id' => '1',
                 'user_edita_id' => '1',

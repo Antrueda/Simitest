@@ -69,7 +69,7 @@ trait SalidaTrait
             switch ($request->padrexxx) {
                 case 829:
                     $respuest = [
-                        ['campoxxx' => '#i_prm_ultimo_grado_aprobado_id', 'valuexxx' => 1269],
+                        ['campoxxx' => '#i_prm_ultimo_grado_aprobado_id', 'valuexxx' => 235],
                         ['campoxxx' => '#i_prm_certificado_ultimo_nivel_id', 'valuexxx' => 228],
                     ];
                     break;
@@ -424,6 +424,7 @@ trait SalidaTrait
             'ai_reporte_evasions.fecha_evasion',
             'upi.nombre as upi',
             'ai_reporte_evasions.hora_evasion',
+            'ai_reporte_evasions.lugar_evasion',
             'ai_reporte_evasions.sis_esta_id',
             'ai_reporte_evasions.sis_nnaj_id',
             'ai_reporte_evasions.created_at',
@@ -444,10 +445,8 @@ trait SalidaTrait
             'ai_retorno_salidas.hora_retorno',
             'ai_retorno_salidas.sis_esta_id',
             'ai_retorno_salidas.sis_nnaj_id',
-            'users.s_primer_nombre',
-            'users.s_segundo_nombre',
-            'users.s_primer_apellido',
-            'users.s_segundo_apellido',
+            'ai_retorno_salidas.observaciones',
+            'users.name',
             'ai_retorno_salidas.created_at',
         ])
             ->join('sis_depens as upi', 'ai_retorno_salidas.prm_upi_id', '=', 'upi.id')

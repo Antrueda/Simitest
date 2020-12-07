@@ -1,8 +1,9 @@
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>Información básica del NNA</h5>
+    <h5>INFORMACIÓN BÁSICA DEL NNA</h5>
   </div>
 </div>
+<hr>
 <hr style="border:3px;">
 <div class="form-row align-items-end">
   <div class="form-group col-md-3">
@@ -37,7 +38,7 @@
     {{ Form::text('nodocumento',  $todoxxxx['usuariox']->nnaj_docu->s_documento, ['class' => $errors->first('tipodocumento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
   </div>
 </div>
-
+<hr>
 
 <hr style="border:3px;">
 
@@ -90,7 +91,7 @@
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>Información básica del representante legal</h5>
+    <h5>INFORMACIÓN BÁSICA DEL REPRESENTANTE LEGAL</h5>
   </div>
 </div>
 <hr style="border:3px;">
@@ -144,7 +145,7 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('documento', 'Número de documento', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('documento', 'No. de documento', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::number('documento', null, ['class' => $errors->first('documento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'min' => '0', 'maxlength' => '10']) }}
     @if($errors->has('documento'))
     <div class="invalid-feedback d-block">
@@ -174,10 +175,11 @@
     @endif
   </div>
 </div>
+<hr>
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>Persona autorizada por el Representante Legal que recoja al NNA</h5>
+    <h5>PERSONA AUTORIZADA POR EL REPRESENTANTE LEGAL QUE RECOJA AL NNA</h5>
     <span>(Solo aplica para casos que no salga con el representante legal)</span>
   </div>
 </div>
@@ -231,7 +233,7 @@
     @endif
   </div>
   <div class="col-md-3">
-    {{ Form::label('doc_autorizado', 'Número de documento', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('doc_autorizado', 'No. de documento', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::number('doc_autorizado', null, ['class' => $errors->first('doc_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'min' => '0', 'maxlength' => '10']) }}
     @if($errors->has('doc_autorizado'))
     <div class="invalid-feedback d-block">
@@ -249,7 +251,7 @@
     @endif
   </div>
 </div>
-<span>En caso de que salga con una persona autorizada por el representante legal</span><br>
+<span>EN CASO DE QUE SALGA CON UNA PERSONA AUTORIZADA POR EL REPRESENTANTE LEGAL</span><br>
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_carta_id', 'Carta de autorización firmada', ['class' => 'control-label col-form-label-sm']) }}
@@ -279,11 +281,12 @@
     @endif
   </div>
 </div>
+<hr>
 <hr style="border:3px;">
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>Datos de salida del NNA</h5>
-    <span>Condiciones de salud en las cuales sale el niño, niña o adolescente.</span>
+    <h5>DATOS DE SALIDA DEL NNA</h5>
+    <span>Condiciones de salud en las cuales sale el Niño, Niña o Adolescente.</span>
   </div>
 </div>
 <hr style="border:3px;">
@@ -387,13 +390,13 @@
     @endif
   </div>
 </div>
-<hr style="border:3px;">
+<hr>
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>Información de la salida</h5>
+    <h5>INFORMACIÓN DE LA SALIDA</h5>
   </div>
 </div>
-<hr style="border:3px;">
+
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_upi2_id', 'UPI/AREA/DEPENDENCIA', ['class' => 'control-label col-form-label-sm']) }}
@@ -456,9 +459,10 @@
     @endif
   </div>
 </div>
+<hr>
 <div class="row mt-3">
   <div class="col-md-12">
-    <h5>Información de quien aprueba la salida</h5>
+    <h5>INFORMACIÓN DE QUIEN APRUEBA LA SALIDA</h5>
   </div>
 </div>
 <hr style="border:3px;">
@@ -496,7 +500,7 @@
 </div>
 <div class="row">
   <div class="col-md">
-    {{ Form::label('user_doc1_id', 'Persona quien entrega al NNA', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('user_doc1_id', 'Funcionario(A)/Contratista quien entrega al NNA', ['class' => 'control-label col-form-label-sm']) }}
     <span> (psicosocial, tutor de vivienda, tutor de convivencia, enfermero y/o facilitador).</span>
     {{ Form::select('user_doc1_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_doc1_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
     @if($errors->has('user_doc1_id'))

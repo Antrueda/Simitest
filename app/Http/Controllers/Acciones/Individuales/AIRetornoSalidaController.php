@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Acciones\Individuales;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\AIRetornoSalidaRequest;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
+use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Sistema\SisDepen;
 use Carbon\Carbon;
@@ -76,16 +77,14 @@ class AIRetornoSalidaController extends Controller
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'FECHA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'HORA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'FUNCIONARIO/CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 4],
+                        ['td' => '', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'OBSERVACIÓN', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
                     ],[
 
-                        ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                    ]
+                        ['td' => 'FUNCIONARIO(A) / CONTRATISTA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                       ]
 
                 ],
                 'columnsx' => [
@@ -93,10 +92,8 @@ class AIRetornoSalidaController extends Controller
                     ['data' => 'id', 'name' => 'ai_retorno_salidas.id'],
                     ['data' => 'fecha', 'name' => 'ai_retorno_salidas.fecha'],
                     ['data' => 'hora_retorno', 'name' => 'ai_retorno_salidas.hora_retorno'],
-                    ['data' => 's_primer_nombre', 'name' => 'users.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'users.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'users.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'users.s_segundo_apellido'],
+                    ['data' => 'name', 'name' => 'users.name'],
+                    ['data' => 'observaciones', 'name' => 'ai_retorno_salidas.observaciones'],
                     ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
@@ -150,6 +147,14 @@ class AIRetornoSalidaController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
         ];
 
+        $salidax = AiSalidaMenores::select('sis_nnaj_id')->where('sis_nnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->first();
+        if ($salidax==null) {
+            return redirect()
+                ->route('aisalidamenores', [$dataxxxx['padrexxx']->sis_nnaj_id])
+                ->with('info', 'No hay ninguna salida registrada');
+        }
+
+        $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['dependen'] = SisDepen::combo(true, false);
