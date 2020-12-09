@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
-		<h6>11.1. Salud mental</h6>
+		<h6>11.1. SALUD MENTAL</h6>
 		<hr>
 	</div>
 </div>
@@ -67,7 +67,7 @@
 </div>
 <div class="row pt-3">
 	<div class="col-md-12">
-		<h6>11.2. Salud sexual y reproductiva</h6>
+		<h6>11.2. SALUD SEXUAL Y REPRODUCTIVA</h6>
 		<hr>
 	</div>
 </div>

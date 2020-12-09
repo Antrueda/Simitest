@@ -22,7 +22,7 @@ class VsiBasicoController extends Controller
             'permisox' => 'vsidabas',
             'parametr' => [],
             'rutacarp' => 'Sicosocial.',
-            'tituloxx' => 'DATOS BASICOS',
+            'tituloxx' => 'DATOS BÁSICOS',
             'carpetax' => 'Dbasicos',
             'slotxxxx' => 'vsidabas',
             'tablaxxx' => 'datatable',

@@ -63,16 +63,12 @@ function doc2(valor){
 function doc3(valor) {
     if (valor == 227) {
         document.getElementById("ideacion").hidden=false;
-        document.getElementById("prm_amenaza_id").value=[];
-        document.getElementById("prm_intento_id").value=[];
         document.getElementById("motivos").value=[];
         document.getElementById("prm_riesgo_id").hidden=false;
         document.getElementById("motivos_div").hidden=false;
     } else {
         document.getElementById("ideacion").hidden=true;
         document.getElementById("ideacion").value=null;
-        document.getElementById("prm_amenaza_id").value=228;
-        document.getElementById("prm_intento_id").value=228;
         document.getElementById("prm_riesgo_id").hidden=true;
         document.getElementById("motivos_div").hidden=true;
     }
@@ -81,6 +77,7 @@ function doc4(valor) {
     if (valor == 227) {
         document.getElementById("amenaza").hidden=false;
         document.getElementById("prm_riesgo_id").hidden=false;
+        document.getElementById("motivos").value=[];
         document.getElementById("motivos_div").hidden=false;
     } else {
         document.getElementById("amenaza").hidden=true;
@@ -96,6 +93,7 @@ function doc5(valor) {
         document.getElementById("mes_ultimo").hidden=false;
         document.getElementById("ano_ultimo").hidden=false;
         document.getElementById("prm_riesgo_id").hidden=false;
+        document.getElementById("motivos").value=[];
         document.getElementById("motivos_div").hidden=false;
         
     } else {

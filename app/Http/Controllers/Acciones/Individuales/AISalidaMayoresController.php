@@ -31,7 +31,7 @@ class AISalidaMayoresController extends Controller
 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'Salidas de Jóvenes Mayores de Edad ';
+        $this->opciones['tituhead'] = 'SALIDA DE JÓVENES MAYORES DE EDAD ';
         $this->opciones['routxxxx'] = 'aisalidamayores';
         $this->opciones['slotxxxx'] = 'aisalidamayores';
         $this->opciones['perfilxx'] = 'conperfi';
@@ -47,7 +47,7 @@ class AISalidaMayoresController extends Controller
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['condixxx'] = Tema::combo(272, false, false);
         
-        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['tituloxx'] = "SALIDA DE JÓVENES MAYORES DE EDAD";
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
