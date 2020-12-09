@@ -196,6 +196,7 @@
     <div class="col-md">
         {{ Form::label('expectativa', '9.12. Describa las expectativas de el/la Joven a nivel laboral y/o económico:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('expectativa', null, ['class' => $errors->first('expectativa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id' => 'expectativa', 'placeholder' => 'Expectativas', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadordescripcion">0/4000</p>
         @if($errors->has('expectativa'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('expectativa') }}
@@ -221,6 +222,7 @@
     <div class="col-md">
         {{ Form::label('descripcion', '9.15. Descripción:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'id' => 'descripcion','placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadorexpectativa">0/4000</p>
         @if($errors->has('descripcion'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('descripcion') }}

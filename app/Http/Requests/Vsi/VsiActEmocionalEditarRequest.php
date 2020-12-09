@@ -12,7 +12,11 @@ class VsiActEmocionalEditarRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'descripcion.required' => 'Ingrese una descripción',
+            'descripcion.required_if' => 'Ingrese una descripción',
+            'conductual.required_if' => 'Ingrese una descripción de activación conductual',
+            'cognitiva.required_if' => 'Ingrese una descripción de activación cognitiva',
+            'fisiologicas.required_if' => 'Seleccione que activaciones fisiologicas genera',
+            'prm_activa_id.required' => 'Seleccione alguna actividad',
         ];
         $this->_reglasx = [
             'prm_activa_id' => 'required|exists:parametros,id',

@@ -150,4 +150,38 @@ function carga() {
     doc7(document.getElementById('prm_alimenticio_id').value);
 }
 window.onload=carga;
+
+
+init_contadorTa("descripcion_siente", "contadordescripcion0", 4000);
+init_contadorTa("descripcion_reacciona", "contadordescripcion1", 4000);
+init_contadorTa("descripcion_adecuado", "contadordescripcion2", 4000);
+init_contadorTa("descripcion_dificulta", "contadordescripcion3", 4000);
+init_contadorTa("descripcion_estresante", "contadordescripcion4", 4000);
+init_contadorTa("descripcion_motivo", "contadordescripcion5", 4000);
+init_contadorTa("descripcion_lesiva", "contadordescripcion6", 4000);
+init_contadorTa("descripcion_sueno", "contadordescripcion7", 4000);
+init_contadorTa("descripcion_alimenticio", "contadordescripcion8", 4000);
+
+  
+
+    function init_contadorTa(idtextarea, idcontador, max) {
+    $("#" + idtextarea).keyup(function() {
+        updateContadorTa(idtextarea, idcontador, max);
+    });
+    $("#" + idtextarea).change(function() {
+        updateContadorTa(idtextarea, idcontador, max);
+    });
+}
+
+function updateContadorTa(idtextarea, idcontador, max) {
+    var contador = $("#" + idcontador);
+    var ta = $("#" + idtextarea);
+    contador.html("0/" + max);
+    contador.html(ta.val().length + "/" + max);
+    if (parseInt(ta.val().length) > max) {
+        ta.val(ta.val().substring(0, max - 1));
+        contador.html(max + "/" + max);
+    }
+
+}
 </script>

@@ -75,6 +75,7 @@ if (isset($todoxxxx['rowscols'])) {
     <div class="col-md-8">
         {{ Form::label('lugar', '5.6 Descripción (Lugar donde los cuidan, entre otras)', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('lugar', null, ['class' => $errors->first('lugar') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción del lugar', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadorlugar">0/4000</p>
         @if($errors->has('lugar'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('lugar') }}
@@ -159,6 +160,7 @@ if (isset($todoxxxx['rowscols'])) {
 <div class="row">
     {{ Form::label('descripcion', '5.9 Descripción: (Interpretación de la composición familiar. Motivos de separaciones, fallecimientos, tipo de relaciones, impacto en el NNAJ)', ['class' => 'control-label col-form-label-sm']) }}
     {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    <p id="contadorindescripcion">0/4000</p>
     @if($errors->has('descripcion'))
     <div class="invalid-feedback d-block">
         {{ $errors->first('descripcion') }}

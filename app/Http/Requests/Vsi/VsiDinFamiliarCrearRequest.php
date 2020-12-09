@@ -14,15 +14,15 @@ class VsiDinFamiliarCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'prm_familiar_id.required' => 'Seleccione un motivo',
-            'prm_hogar_id.required' => 'Seleccione un motivo',
+            'prm_familiar_id.required_without' => 'Seleccione un motivo',
+            'prm_hogar_id.required_without' => 'Seleccione un motivo',
             's_doc_adjunto_ar.required'=>'Debe adjuntar el genograma',
             's_doc_adjunto_ar.mimes'=>'El archivo debe ser imagen o pdf',
+            'descripcion.required'=>'Digite la descripción',
         ];
         $this->_reglasx = [
             'prm_familiar_id' => 'required_without:prm_hogar_id',
             'prm_hogar_id' => 'required_without:prm_familiar_id',
-
             'descripcion' => 'required|string|max:4000',
             'calles' => 'nullable|array',
             'delitos' => 'nullable|array',

@@ -6,7 +6,7 @@
     ACCIONES INDIVIDUALES
     @if(@isset($accion))
       <a class="btn btn-sm btn-primary ml-2" title="Regresar" href="{{ route('ai') }}">
-        Regresar
+        REGRESAR
       </a>
     @endif
   </h1>

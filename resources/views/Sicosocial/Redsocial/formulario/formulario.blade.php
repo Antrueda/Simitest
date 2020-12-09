@@ -110,6 +110,8 @@ if (isset($todoxxxx['rowscols'])) {
         @endif
     </div>
 </div>
+<hr>
+<br>
 <div class="row">
     <div class="col-md-12">
         <h6><b>7.1.10 REDES ACTUALES</b></h6>

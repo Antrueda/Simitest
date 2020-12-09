@@ -31,7 +31,7 @@ class EpsController extends Controller
             'parametr' => [],
             'urlxxxxx' => 'api/sis/eps',
             'routnuev' => 'eps',
-            'nuevoxxx' => 'Nuevo Registro',
+            'nuevoxxx' => 'NUEVO REGISTRO',
         ];
 
         $this->middleware(['permission:'
@@ -45,7 +45,7 @@ class EpsController extends Controller
         ];
         $this->opciones['columnsx'] = [
             ['data' => 'btns', 'name' => 'btns'],
-            ['data' => 's_eps', 'name' => 'sis_ep.s_eps'],
+            ['data' => 's_enprsa', 'name' => 'sis_enprsas.s_enprsa'],
             ['data' => 'i_prm_teps_id', 'name' => 'parametros.nombre as i_prm_teps_id'],
 
         ];
@@ -93,7 +93,7 @@ class EpsController extends Controller
      */
     public function create()
     {
-        return $this->view('', '', 'Crear', 'crear');
+        return $this->view('', '', 'CREAR', 'crear');
     }
 
 

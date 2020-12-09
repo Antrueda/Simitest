@@ -5,7 +5,7 @@
             Mitigación
             @if(@isset($accion))
                 <a class="btn btn-sm btn-primary ml-2" title="Regresar" href="{{ route('mitigacion') }}">
-                    Regresar
+                    REGRESAR
                 </a>
             @endif
         </h1>

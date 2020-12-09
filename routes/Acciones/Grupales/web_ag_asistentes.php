@@ -18,6 +18,10 @@ Route::group(['prefix' => '{padrexxx}/agsisitentes'], function () use ($controll
         'uses' => $controll . 'Controller@getNnajs',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listnnaj');
+    Route::get('quitar', [
+        'uses' => $controll . 'Controller@getQuitarNnaj',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.quitar');
 });
 Route::group(['prefix' => 'agsisitente'], function () use ($controll, $routxxxx) {
 

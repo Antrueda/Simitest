@@ -6,10 +6,10 @@
                 <tr class="text-center">
                     @if($accion=='Editar')
                         @canany(['tema-editar','tema-borrar'])
-                            <th>Acciones</th>
+                            <th>ACCIONES</th>
                         @endcan
                     @endif
-                    <th>Nombre</th> 
+                    <th>NOMBRE</th> 
                 </tr>
             </thead>
             <tbody>

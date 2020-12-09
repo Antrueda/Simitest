@@ -26,6 +26,7 @@
 	<div class="col-md">
 		{{ Form::label('descripcion_siente', '12.3 Descripción', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion_siente', null, ['class' => $errors->first('descripcion_siente') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion0">0/4000</p>
 		@if($errors->has('descripcion_siente'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion_siente') }}
@@ -46,6 +47,7 @@
 	<div class="col-md">
 		{{ Form::label('descripcion_reacciona', '12.5 Descripción', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion_reacciona', null, ['class' => $errors->first('descripcion_reacciona') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion1">0/4000</p>
 		@if($errors->has('descripcion_reacciona'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion_reacciona') }}
@@ -66,6 +68,7 @@
 	<div class="col-md">
 		{{ Form::label('descripcion_adecuado', '12.7 Descripción', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion_adecuado', null, ['class' => $errors->first('descripcion_adecuado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion2">0/4000</p>
 		@if($errors->has('descripcion_adecuado'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion_adecuado') }}
@@ -86,6 +89,7 @@
 	<div class="col-md">
 		{{ Form::label('descripcion_dificulta', '12.9 Descripción', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion_dificulta', null, ['class' => $errors->first('descripcion_dificulta') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion3">0/4000</p>
 		@if($errors->has('descripcion_dificulta'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion_dificulta') }}
@@ -115,6 +119,7 @@
 	<div class="col-md">
 		{{ Form::label('descripcion_estresante', '12.11 Descríbalo', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion_estresante', null, ['class' => $errors->first('descripcion_estresante') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion4">0/4000</p>
 		@if($errors->has('descripcion_estresante'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion_estresante') }}
@@ -285,6 +290,7 @@
 	<div class="col-md">
 		{{ Form::label('descripcion_motivo', '12.21 Descripción', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion_motivo', null, ['class' => $errors->first('descripcion_motivo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion5">0/4000</p>
 		@if($errors->has('descripcion_motivo'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion_motivo') }}
@@ -320,6 +326,7 @@
 	<div class="col-md">
 		{{ Form::label('descripcion_lesiva', '12.24 Descripción', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion_lesiva', null, ['class' => $errors->first('descripcion_lesiva') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion6">0/4000</p>
 		@if($errors->has('descripcion_lesiva'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion_lesiva') }}
@@ -376,6 +383,7 @@
 	<div class="col-md">
 		{{ Form::label('descripcion_sueno', '12.27 Descripción', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion_sueno', null, ['class' => $errors->first('descripcion_sueno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion7">0/4000</p>
 		@if($errors->has('descripcion_sueno'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion_sueno') }}
@@ -432,6 +440,7 @@
 	<div class="col-md">
 		{{ Form::label('descripcion_alimenticio', '12.30 Descripción', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion_alimenticio', null, ['class' => $errors->first('descripcion_alimenticio') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion8">0/4000</p>
 		@if($errors->has('descripcion_alimenticio'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion_alimenticio') }}

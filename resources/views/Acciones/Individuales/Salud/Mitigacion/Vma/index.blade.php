@@ -30,7 +30,7 @@
                                 @can('vma-editar')
                                 <a class="btn btn-sm btn-primary" title="Editar"
                                     href="{{ route('mitigacion.vma.editar', [$dato->id, $d->id]) }}">
-                                    Editar
+                                    EDITAR
                                 </a>
                                 @endcan
                             </td>

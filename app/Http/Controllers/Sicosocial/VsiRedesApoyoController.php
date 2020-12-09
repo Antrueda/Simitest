@@ -122,7 +122,7 @@ class VsiRedesApoyoController extends Controller
                 'titunuev' => 'CREAR ANTECEDENTE INSTITUCIONAL',
                 'titulist' => 'LISTA DE ANTECEDENTES INSTITUCIONALES',
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
-                'relacion' => '7.2. Antecedentes Institucionales',
+                'relacion' => '7.2. ANTECEDENTES INSTITUCIONALES',
                 'accitabl' => true,
                 'vercrear' => isset($dataxxxx['modeloxx']->id)? true : false,
                 'urlxxxxx' => route('vsiredpa', $this->opciones['parametr']),

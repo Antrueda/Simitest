@@ -4,7 +4,7 @@
         {{ Form::select('prm_documento_id',$todoxxxx['prm_documento_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('s_documento','Número de Documento') }}
+        {{ Form::label('s_documento','No. de Documento') }}
         {{ Form::text('s_documento', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
     </div>
     <div class="form-group col-md-4">

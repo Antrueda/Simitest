@@ -13,7 +13,14 @@ class VsiRedSocialCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             'prm_presenta_id.required' => 'Seleccione un motivo',
-            4
+            'prm_dificultad_id.required' => 'Seleccione una dificultad',
+            'prm_quien_id.required_if' => 'Seleccione quien',
+            'prm_ruptura_genero_id.required' => 'Indique si existe la ruptura de redes de apoyo por exteorización de su identidad de género',
+            'prm_ruptura_sexual_id.required' => 'Indique si existe la ruptura de redes de apoyo por exteorización de su orientación sexual',
+            'prm_acceso_id.required' => 'Indique si ha existido restricción para el acceso a espacios, servicios o redes de apoyo',
+            'prm_servicio_id.required' => 'Indique si recibio servicios de alguna red',
+            'motivos.required_if' => 'Ingrese los motivos',
+            'accesos.required_if' => 'Ingrese los motivos de restricción de acceso',
         ];
         $this->_reglasx = [
             'prm_presenta_id' => 'required|exists:parametros,id',
@@ -62,3 +69,5 @@ class VsiRedSocialCrearRequest extends FormRequest
         }
     }
 }
+
+

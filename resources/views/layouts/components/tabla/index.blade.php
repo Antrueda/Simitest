@@ -2,10 +2,10 @@
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <h3 class="card-title">
-            Datos
+            DATOS
             @can($opciones['rutaxxxx'].'-crear')
                 <a class="btn btn-sm btn-primary ml-2" title="Nuevo" href="{{ route($opciones['rutaxxxx'].'.nuevo') }}">
-                    Nuevo
+                    NUEVO
                 </a>
             @endcan
         </h3>
@@ -16,7 +16,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" name="buscar" value="{{ $buscarxx }}" placeholder="Texto a buscar">
                 </div>
-                <button type="submit" class="btn btn-primary ml-2" title="Buscar">Buscar</button>
+                <button type="submit" class="btn btn-primary ml-2" title="Buscar">BUSCAR</button>
             </form>
             @if(count($collection)>0)
                 <div class="table-responsive">
@@ -24,7 +24,7 @@
                         <thead>
                             <tr class="text-center">
                                 @canany([$opciones['rutaxxxx'].'-editar',$opciones['rutaxxxx'].'-borrar'])
-                                    <th>Acciones</th>
+                                    <th>ACCIONES</th>
                                 @endcan
                                   @foreach( $cabeceras as $cabecera )
                                     <th>{{  $cabecera['td'] }}</th>
@@ -38,12 +38,12 @@
                                         <td class='text-center'>
                                             @can($opciones['rutaxxxx'].'-editar')
                                                 <a class="btn btn-sm btn-primary" title="Editar" href="{{ route($opciones['rutaxxxx'].'.editar', $d['id']) }}">
-                                                    Editar
+                                                    EDITAR
                                                 </a>
                                             @endcan
                                             @can($opciones['rutaxxxx'].'-leer')
                                                 <a class="btn btn-sm btn-primary" title="Ver" href="{{ route($opciones['rutaxxxx'].'.ver', $d['id']) }}">
-                                                    Ver
+                                                    VER
                                                 </a>
                                             @endcan
                                         </td>

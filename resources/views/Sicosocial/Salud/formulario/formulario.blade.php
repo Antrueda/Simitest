@@ -57,6 +57,7 @@
 	<div class="col-md-9">
 		{{ Form::label('descripcion', '11.1.6 Descripción', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion">0/4000</p>
 		@if($errors->has('descripcion'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('descripcion') }}

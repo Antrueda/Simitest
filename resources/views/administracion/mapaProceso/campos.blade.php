@@ -76,5 +76,5 @@
         	{!! Form::close() !!}
 		@endcan
 	@endif
-    <a class="btn btn-primary ml-2" href="{{ route('mapaProceso') }}">Regresar</a>
+    <a class="btn btn-primary ml-2" href="{{ route('mapaProceso') }}">REGRESAR</a>
 </div>

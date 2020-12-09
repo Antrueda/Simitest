@@ -5,7 +5,7 @@
     @include($todoxxxx["rutacarp"].'formulario.formulario')
     @if($todoxxxx["accionxx"] == 'Ver')
     @can('indicador-borrar')
-      {!! Form::open(['route' => ['ag.recu.recurso.borrar', $todoxxxx["modeloxx"]->id], 'method' => 'DELETE']) !!}
+      {!! Form::open(['route' => ['agrecurso.borrar', $todoxxxx["modeloxx"]->id], 'method' => 'DELETE']) !!}
         @if($todoxxxx["modeloxx"]->sis_esta_id == 1)
           <button class="btn btn-danger">INACTIVAR</button>
         @else

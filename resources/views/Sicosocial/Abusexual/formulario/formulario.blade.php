@@ -204,6 +204,7 @@
     <div class="col-md-8">
         {{ Form::label('informacion', '14.17 información relevante que se adicional:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('informacion', null, ['class' => $errors->first('informacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Información relevante que sea adicional', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadorinformacion">0/4000</p>
         @if($errors->has('informacion'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('informacion') }}

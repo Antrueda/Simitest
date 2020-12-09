@@ -9,6 +9,6 @@
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('nombre', 'Nombre Soporte', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('nombre', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+    {{ Form::text('nombre', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"],'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
   </div>
 </div>

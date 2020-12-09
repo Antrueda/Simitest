@@ -22,7 +22,7 @@ class SisCargoController extends Controller
             'rutaxxxx' => 'sis.cargo',
             'rutacarp' => 'administracion.cargo.',
             'accionxx' => '',
-            'volverax' => 'Cargos',
+            'volverax' => 'CARGOS',
             'readonly' => '', // esta opcion es para cundo está por la parte de ver
             'carpetax' => 'cargo',
             'modeloxx' => '',
@@ -32,7 +32,7 @@ class SisCargoController extends Controller
             'parametr' => [],
             'urlxxxxx' => 'api/sis/cargo',
             'routnuev' => 'sis.cargo',
-            'nuevoxxx' => 'Nuevo Registro',
+            'nuevoxxx' => 'NUEVO REGISTRO',
             'fechcrea' => '',
             'fechedit' => '',
             'usercrea' => '',
@@ -109,7 +109,7 @@ class SisCargoController extends Controller
      */
     public function create()
     {
-        return $this->view(true, '', 'Crear', $this->opciones['rutacarp'] . 'crear');
+        return $this->view(true, '', 'CREAR', $this->opciones['rutacarp'] . 'crear');
     }
 
 

@@ -15,10 +15,11 @@ Route::get('sis/eps', function (Request $request) {
     return datatables()
         ->eloquent(SisEntidadSalud::select([
             'sis_entidad_saluds.id',
-            'sis_entidad_saluds.s_nombre_entidad as s_eps',
+            'sis_enprsas.s_enprsa',
             'parametros.nombre as i_prm_teps_id',])
             ->join('parametros','sis_entidad_saluds.i_prm_tentidad_id','=','parametros.id')
-            ->where('sis_entidad_saluds.estado', 1))
+            ->join('sis_enprsas','sis_entidad_saluds.sis_enprsa_id','=','sis_enprsas.id')
+            ->where('sis_entidad_saluds.sis_esta_id', 1))
         ->addColumn('btns', 'administracion/eps/botones/botonesapi')
         ->rawColumns(['btns'])
         ->toJson();

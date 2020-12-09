@@ -12,7 +12,7 @@
         <table id="{{ $tableName }}" class="table table-bordered table-striped table-hover table-sm">
             <thead>
                 <tr class="text-center">
-                    <th width="150">Acciones</th>
+                    <th width="150">ACCIONES</th>
                     @foreach( $todoxxxx['cabecera'] as $cabecera )
                         <th>{{  $cabecera['td'] }}</th>
                     @endforeach
@@ -39,7 +39,7 @@
                     <table id="{{ $tableName }}" class="table table-bordered table-striped table-hover table-sm">
                         <thead>
                             <tr class="text-center">
-                                <th width="150">Acciones</th>
+                                <th width="150">ACCIONES</th>
                                 @foreach( $todoxxxx['cabeceag'] as $cabecera )
                                     <th>{{  $cabecera['td'] }}</th>
                                 @endforeach
@@ -75,7 +75,7 @@
                     <table id="asistentes" class="table table-bordered table-striped table-hover table-sm">
                         <thead>
                             <tr class="text-center">
-                                <th width="150">Acciones</th>
+                                <th width="150">ACCIONES</th>
                                 @foreach( $todoxxxx['cabeceas'] as $cabecera )
                                     <th>{{  $cabecera['td'] }}</th>
                                 @endforeach
@@ -114,7 +114,7 @@
                     <table id="relacion" class="table table-bordered table-striped table-hover table-sm">
                         <thead>
                             <tr class="text-center">
-                                <th width="150">Acciones</th>
+                                <th width="150">ACCIONES</th>
                                 @foreach( $todoxxxx['cabecere'] as $cabecera )
                                     <th>{{  $cabecera['td'] }}</th>
                                 @endforeach

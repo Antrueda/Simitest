@@ -29,16 +29,16 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="buscar" value="{{ $buscar }}" placeholder="Texto a buscar">
                     </div>
-                    <button type="submit" class="btn btn-primary ml-2" title="Buscar">Buscar</button>
+                    <button type="submit" class="btn btn-primary ml-2" title="Buscar">BUSCAR</button>
                 </form>
                 @if(count($parametros)>0)
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-hover table-sm">
                             <thead>
                                 <tr class="text-center">
-                                    <th>Acciones</th>
-                                    <th>Nombre</th> 
-                                    <th>Estado</th> 
+                                    <th>ACCIONES</th>
+                                    <th>NOMBRE</th> 
+                                    <th>ESTADO</th> 
                                 </tr>
                             </thead>
                             <tbody>

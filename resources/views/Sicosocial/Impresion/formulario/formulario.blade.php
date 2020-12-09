@@ -2,6 +2,7 @@
 	<div class="col-md">
 		{{ Form::label('concepto', 'Concepto:', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('concepto', null, ['class' => $errors->first('concepto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Concepto', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;', 'autofocus']) }}
+		<p id="contadorconcepto">0/4000</p>
 		@if($errors->has('concepto'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('concepto') }}
@@ -26,7 +27,8 @@
 		{{ Form::label('porque', '¿Por qué?', ['class' => 'control-label col-form-label-sm']) }}
 		@if ($todoxxxx['usuariox']->edad<18)
 			{{ Form::textarea('porque', null, ['class' => $errors->first('porque') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '¿Por qué?', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-		@endif
+			<p id="contadorporque">0/4000</p>
+			@endif
 		@if($errors->has('porque'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('porque') }}

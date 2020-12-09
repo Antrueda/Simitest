@@ -13,6 +13,18 @@ class VsiAbuSexualCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             'prm_evento_id.required' => 'Seleccione un evento',
+            'prm_momento_id.required_if' => 'En que momento se presento el evento',
+            'prm_terapia_id.required_if' => 'Indique si ha recibido apoyo terapéutico',
+            'prm_estado_id.required_if' => 'Indique en que estado se encuentrao el proceso terapéutico',
+            'prm_momento_ult_id.required_if' => 'En que momento se presento el evento',
+            'prm_persona_ult_id.required_if' => 'Que persona se encuentra involucrada',
+            'prm_tipo_id.required' => '¿Cual fue el tipo de evento?',
+            'prm_tipo_ult_id.required_if' => '¿Cual fue el tipo de evento?',
+            'prm_convive_id.required_unless' => 'Indique si actualmente convive con el agresor',
+            'prm_presencia_id.required_unless' => '¿Hay presencia o cercanía en la vivienda con el agresor?',
+            'prm_reconoce_id.required_unless' => '¿Existe reconocimiento de la situacion por parte de la familia?',
+            'prm_apoyo_id.required_unless' => '¿Existe apoyo de la situacion por parte de familia?',
+            'prm_denuncia_id.required_unless' => 'Indique si se ha presentado denuncia',
         ];
         $this->_reglasx = [
             'prm_evento_id' => 'required|exists:parametros,id',

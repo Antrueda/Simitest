@@ -4,7 +4,7 @@
 		@if($accion == 'Ver')
 			{{ Form::text('nombre', $dato->nombre, ['class' => 'form-control-plaintext']) }}
 		@else
-			{{ Form::text('nombre', null, ['class' => $errors->first('nombre') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'nombre del proceso', 'maxlength' => '120', 'autofocus']) }}
+			{{ Form::text('nombre', null, ['class' => $errors->first('nombre') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'nombre del proceso', 'maxlength' => '120', 'autofocus','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
 		@endif
 	</div>
 	@if($errors->has('nombre'))
@@ -82,5 +82,5 @@
         	{!! Form::close() !!}
 		@endcan
 	@endif
-    <a class="btn btn-primary ml-2" href="{{ route('proceso') }}">Regresar</a>
+    <a class="btn btn-primary ml-2" href="{{ route('proceso') }}">REGRESAR</a>
 </div>

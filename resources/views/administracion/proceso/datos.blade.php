@@ -15,7 +15,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" name="buscar" value="{{ $buscar }}" placeholder="Texto a buscar">
                 </div>
-                <button type="submit" class="btn btn-primary ml-2" title="Buscar">Buscar</button>
+                <button type="submit" class="btn btn-primary ml-2" title="Buscar">BUSCAR</button>
             </form>
             @if(count($datos)>0)
                 <div class="table-responsive">
@@ -23,9 +23,9 @@
                         <thead>
                             <tr class="text-center">
                                 @canany(['proceso-editar','proceso-borrar'])
-                                    <th>Acciones</th>
+                                    <th>ACCIONES</th>
                                 @endcan
-                                <th>Nombre</th> 
+                                <th>NOMBRE</th> 
                                 <th>Proceso</th> 
                                 <th>Mapa de proceso</th> 
                                 <th>Tipo de proceso</th> 

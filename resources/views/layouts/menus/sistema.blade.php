@@ -76,15 +76,7 @@
          <li class="nav-item">
              <a href="{{ route('actividad') }}" class="nav-link">
                  <i class="fas fa-angle-double-right nav-icon"></i>
-                 <p>Actividad</p>
-             </a>
-         </li>
-         @endcan
-         @can('documentoFuente-leer')
-         <li class="nav-item">
-             <a href="{{ route('documentoFuente')}}" class="nav-link">
-                 <i class="far fa-file-alt nav-icon"></i>
-                 <p>Documentos Fuentes</p>
+                 <p>Actividades</p>
              </a>
          </li>
          @endcan

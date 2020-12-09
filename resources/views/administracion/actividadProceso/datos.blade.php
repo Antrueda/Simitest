@@ -1,10 +1,10 @@
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <h3 class="card-title">
-            Datos
+            DATOS
             @can('actividadProceso-crear')
                 <a class="btn btn-sm btn-primary ml-2" title="Nuevo" href="{{ route('actividadproceso.nuevo') }}">
-                    Nuevo
+                    NUEVO
                 </a>
             @endcan
         </h3>
@@ -15,7 +15,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" name="buscar" value="{{ $buscar }}" placeholder="Texto a buscar">
                 </div>
-                <button type="submit" class="btn btn-primary ml-2" title="Buscar">Buscar</button>
+                <button type="submit" class="btn btn-primary ml-2" title="Buscar">BUSCAR</button>
             </form>
             @if(count($datos)>0)
                 <div class="table-responsive">
@@ -23,11 +23,11 @@
                         <thead>
                             <tr class="text-center">
                                 @canany(['actividadProceso-editar','actividadProceso-borrar'])
-                                    <th>Acciones</th>
+                                    <th>ACCIONES</th>
                                 @endcan
-                                <th>Actividad</th> 
-                                <th>Proceso</th> 
-                                <th>Tiempo</th> 
+                                <th>ACTIVIDAD</th> 
+                                <th>PROCESO</th> 
+                                <th>TIEMPO</th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -37,12 +37,12 @@
                                         <td class='text-center'>
                                             @can('actividadProceso-editar')
                                                 <a class="btn btn-sm btn-primary" title="Editar" href="{{ route('actividadproceso.editar', $d->id) }}">
-                                                    Editar
+                                                    EDITAR
                                                 </a>
                                             @endcan
                                             @can('actividadProceso-leer')
                                                 <a class="btn btn-sm btn-primary" title="Ver" href="{{ route('actividadproceso.ver', $d->id) }}">
-                                                    Ver
+                                                    VER
                                                 </a>
                                             @endcan
                                         </td>

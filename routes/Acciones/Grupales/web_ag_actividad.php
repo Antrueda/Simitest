@@ -20,6 +20,11 @@ Route::group(['prefix' => 'agactividad'], function () use($controll,$routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agasiste');
 
+    Route::get('{padrexxx}/recurso', [
+        'uses' => $controll . 'Controller@ListarRecursos',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.agrecurso');
+
 	Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
 	    'middleware' => ['permission:'.$routxxxx.'-crear']

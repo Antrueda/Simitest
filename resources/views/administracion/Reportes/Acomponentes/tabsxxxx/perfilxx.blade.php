@@ -46,6 +46,14 @@
         <b>TIPO DE POBLACIÓN</b>
         <a class="float-right">{{ $todoxxxx['usuariox']->prmTipoPobla->nombre }}</a>
       </li>
+      <li class="list-group-item">
+        <b>UPI</b>
+        <a class="float-right">{{ $todoxxxx['usuariox']->sis_nnaj->UpiPrincipal->nombre }}</a>
+      </li>
+      <li class="list-group-item">
+        <b>SERVICIO</b>
+        <a class="float-right">{{ $todoxxxx['usuariox']->sis_nnaj->ServicioPrincipal }}</a>
+      </li>
     </ul>
   </div>
 </div>

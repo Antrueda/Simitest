@@ -15,6 +15,8 @@ class VsiRedsocPasadoEditarRequest extends FormRequest
         $this->_mensaje = [
             'ano_prestacion.required' => 'Seleccione el año de prestación del servicio',
             'nombre.required' => 'ingrese el nombre',
+            'servicio.required' => 'Ingrese el servicio',
+            
         ];
         $this->_reglasx = [
             'nombre' => 'required|string|max:120',

@@ -56,5 +56,5 @@
     @canany(['aisalidamayores-crear', 'aisalidamayores-editar'])
         {{ Form::submit('Guardar', ['class' => 'btn btn-primary']) }}
     @endcanany
-    <a class="btn btn-primary ml-2" href="{{ route('ai.salidamayores', $dato->id) }}">Regresar</a>
+    <a class="btn btn-primary ml-2" href="{{ route('ai.salidamayores', $dato->id) }}">REGRESAR</a>
 </div>

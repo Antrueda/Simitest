@@ -35,5 +35,5 @@
         	{!! Form::close() !!}
 		@endcan
 	@endif
-    <a class="btn btn-primary ml-2" href="{{ route('tema') }}">Regresar</a>
+    <a class="btn btn-primary ml-2" href="{{ route('tema') }}">REGRESAR</a>
 </div>

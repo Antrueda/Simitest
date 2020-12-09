@@ -1,6 +1,6 @@
 <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        
+        SELECCIONE
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         @if(auth()->user()->can( $requestx->routexxx[0].'-editar'))
@@ -8,11 +8,7 @@
             <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editar', $queryxxx->id) }}">EDITAR</a>
         </div>
         @endif
-        @if(auth()->user()->can( $requestx->routexxx[0].'-leer'))
-        <div class="dropdown-item">
-            <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[0].'.ver', $queryxxx->id) }}">VER</a>
-        </div>
-        @endif
+       
         @if($queryxxx->sis_esta_id==1)
         @if(auth()->user()->can($requestx->routexxx[0] . '-borrar'))
         <div class="dropdown-item">
@@ -29,7 +25,7 @@
         @endif
 
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-primary" href="{{asset($queryxxx->s_ruta)}}" target="_blank">Ver Adjunto</a>
+            <a class="btn btn-sm btn-primary" href="{{asset($queryxxx->s_ruta)}}" target="_blank">VER ADJUNTO</a>
         </div>
     </div>
 </div>

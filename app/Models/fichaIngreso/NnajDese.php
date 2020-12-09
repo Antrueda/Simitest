@@ -5,6 +5,7 @@ namespace App\Models\fichaIngreso;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDepeServ;
 use App\Models\Sistema\SisNnaj;
+use App\Models\Sistema\SisServicio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -37,6 +38,11 @@ class NnajDese extends Model
     public function sis_depser()
     {
         return $this->belongsTo(SisDepeServ::class);
+    }
+
+    public function sis_servicio()
+    {
+        return $this->belongsTo(SisServicio::class);
     }
     public function nnaj_upi()
     {

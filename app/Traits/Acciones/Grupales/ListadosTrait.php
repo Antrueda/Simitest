@@ -4,6 +4,8 @@ namespace App\Traits\Acciones\Grupales;
 
 use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\AgAsistente;
+use App\Models\Acciones\Grupales\AgRecurso;
+use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Traits\DatatableTrait;
@@ -76,6 +78,33 @@ trait ListadosTrait
             return $this->getDt($dataxxxx, $request);
         }
     }
+
+
+    
+    public function ListarRecursos(Request $request, AgActividad $padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = ['agrespon', 'fosubtse'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =   AgRelacion::select([
+                'ag_relacions.i_cantidad as cantidad',
+                'ag_recursos.s_recurso as recursox',
+                'parametros.nombre as trecurso',
+                'parametros.nombre as umedidax',
+                'ag_actividads.id',
+            ])
+            ->join('ag_actividads', 'ag_relacions.ag_actividad_id', '=', 'ag_actividads.id')
+            ->join('ag_recursos', 'ag_relacions.ag_recurso_id', '=', 'ag_recursos.id')
+            ->join('parametros', 'ag_recursos.i_prm_trecurso_id', '=', 'parametros.id')
+            ->where('ag_relacions.sis_esta_id', 1)
+            ->where('ag_relacions.ag_actividad_id', $padrexxx->id);
+                
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
     public function getNnajs(Request $request, AgActividad $padrexxx)
     {
         if ($request->ajax()) {
@@ -110,7 +139,7 @@ trait ListadosTrait
         if ($request->ajax()) {
             $request->routexxx = ['agasiste'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
+                $this->opciones['carpetax'] . '.Botones.botonelim';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx = AgAsistente::select([
                 'ag_asistentes.id',
@@ -141,4 +170,47 @@ trait ListadosTrait
             return response()->json($respuest);
         }
     }
+
+    public function getQuitarNnaj(Request $request, AgActividad $padrexxx)
+    {
+        if ($request->ajax()) {
+            $respuest = [];
+            $dataxxxx = $request->all();
+            $dataxxxx['ag_actividad_id'] = $padrexxx->id;
+            $dataxxxx['sis_esta_id'] = 0;
+            AgAsistente::transaccion($dataxxxx, '');
+            return response()->json($respuest);
+        }
+    }
+
+    public function getEliminarNnajs(Request $request, AgActividad $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = ['agasiste'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.quitarnnaj';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $responsa = AgAsistente::select(['fi_dato_basico_id'])
+                ->where('ag_actividad_id', $padrexxx->id)
+                ->get();
+            $dataxxxx = FiDatosBasico::select([
+                'fi_datos_basicos.id',
+                'nnaj_docus.s_documento',
+                'fi_datos_basicos.sis_esta_id',
+                'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'sis_estas.s_estado',
+            ])
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->where('sis_nnajs.prm_escomfam_id',  227)
+                ->whereNotIn('fi_datos_basicos.id',  $responsa);
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    
 }

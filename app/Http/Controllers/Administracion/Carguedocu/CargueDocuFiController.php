@@ -57,7 +57,7 @@ class CargueDocuFiController extends Controller
         return $this->setFiDocumentosAnexa([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Documenteo creados con exito',
+            'infoxxxx' =>       'Documento creado con exito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

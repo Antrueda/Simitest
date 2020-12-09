@@ -411,5 +411,5 @@
     @canany(['vspa-crear', 'vspa-editar'])
         {{ Form::submit('Guardar', ['class' => 'btn btn-primary']) }}
     @endcanany
-    <a class="btn btn-primary ml-2" href="{{ route('ai.ver', $dato->id) }}">Regresar</a>
+    <a class="btn btn-primary ml-2" href="{{ route('ai.ver', $dato->id) }}">REGRESAR</a>
 </div>

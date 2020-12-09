@@ -12,7 +12,9 @@ class VsiSitEspecialCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'prm_victima_id.required_if' => 'Seleccione si es víctima',
+            'prm_victima_id.required_if' => 'Indique si existe reconocimiento por parte del NNA como víctima',
+            'victimas.required' => 'Indique si es víctima',
+            'riesgos.required_if' => 'Indique si se encuentra en riesgo',
         ];
         $this->_reglasx = [
             'victimas'       => 'required|array',

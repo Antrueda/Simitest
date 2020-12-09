@@ -16,20 +16,20 @@ class AgRecursoController extends Controller
     {
         $this->opciones = [
             'tituloxx' => 'Recurso',
-            'rutaxxxx' => 'ag.recu.recurso',
+            'rutaxxxx' => 'agrecurso',
             'accionxx' => '',
             'rutacarp'=>'Acciones.Grupales.Agrecurso.',
-            'volverax' => 'Volver a recursos',
+            'volverax' => 'VOLVER A RECURSO',
             'readonly' => '', // esta opcion es para cundo está por la parte de ver
             'carpetax' => 'Agrecurso',
             'modeloxx' => '',
             'permisox' => 'agrecurso',
-            'routxxxx' => 'ag.recu.recurso',
-            'routinde' => 'ag.recu',
+            'routxxxx' => 'agrecurso',
+            'routinde' => 'agrecurso',
             'parametr' => [],
             'urlxxxxx' => 'api/ag/recursos',
-            'routnuev' => 'ag.recu.recurso',
-            'nuevoxxx' => 'Nuevo Registro'
+            'routnuev' => 'agrecurso',
+            'nuevoxxx' => 'NUEVO RECURSO'
         ];
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
@@ -89,7 +89,7 @@ class AgRecursoController extends Controller
      */
     public function create()
     {
-        return $this->view('', '', 'Crear', 'crear');
+        return $this->view('', '', 'CREAR', 'crear');
     }
 
 
@@ -97,7 +97,7 @@ class AgRecursoController extends Controller
     {
 
         return redirect()
-            ->route('ag.recu.recurso.editar', [AgRecurso::transaccion($dataxxxx, $objectx)->id])
+            ->route('agrecurso.editar', [AgRecurso::transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);
     }
     /**
@@ -121,7 +121,7 @@ class AgRecursoController extends Controller
     public function show(AgRecurso $objetoxx)
     {
         $this->opciones['readonly'] = 'readonly';
-        return $this->view($objetoxx,  'modeloxx', 'Ver', 'ver');
+        return $this->view($objetoxx,  'modeloxx', 'VER', 'ver');
     }
 
     /**
@@ -132,7 +132,7 @@ class AgRecursoController extends Controller
      */
     public function edit(AgRecurso $objetoxx)
     {
-        return $this->view($objetoxx,  'modeloxx', 'Editar', 'editar');
+        return $this->view($objetoxx,  'modeloxx', 'EDITAR', 'editar');
     }
 
     public function update(AgRecursoEditarRequest $request, AgRecurso $objetoxx)

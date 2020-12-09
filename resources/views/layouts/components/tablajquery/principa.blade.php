@@ -23,7 +23,7 @@
                     <thead>
                         <tr class="text-center">
                             @if ($todoxxxx['accitabl'])
-                                <th width="200">Acciones</th>
+                                <th width="200">ACCIONES</th>
                             @endif
 
 
@@ -37,7 +37,7 @@
                     <tfoot>
                         <tr class="text-center">
                             @if ($todoxxxx['accitabl'])
-                                <th width="150">Acciones</th>
+                                <th width="150">ACCIONES</th>
                             @endif
 
 

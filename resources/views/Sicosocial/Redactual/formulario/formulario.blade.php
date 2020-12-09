@@ -18,6 +18,7 @@
     <div class="col-md">
         {{ Form::label('servicio', '7.1.12 Servicios o beneficios', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textArea('servicio', null, ['class' => $errors->first('servicio') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadorservicio">0/4000</p>
         @if($errors->has('servicio'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('servicio') }}

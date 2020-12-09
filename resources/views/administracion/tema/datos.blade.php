@@ -1,10 +1,10 @@
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <h3 class="card-title">
-            Datos
+            DATOS
             @can('tema-crear')
                 <a class="btn btn-sm btn-primary ml-2" title="Nuevo" href="{{ route('tema.nuevo') }}">
-                    Nuevo
+                    NUEVO
                 </a>
             @endcan
         </h3>
@@ -15,7 +15,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" name="buscar" value="{{ $buscar }}" placeholder="Texto a buscar">
                 </div>
-                <button type="submit" class="btn btn-primary ml-2" title="Buscar">Buscar</button>
+                <button type="submit" class="btn btn-primary ml-2" title="Buscar">BUSCAR</button>
             </form>
             @if(count($datos)>0)
                 <div class="table-responsive">
@@ -23,12 +23,12 @@
                         <thead>
                             <tr class="text-center">                                
                                 @canany(['tema-editar','tema-borrar'])
-                                    <th>Acciones</th>
+                                    <th>ACCIONES</th>
                                 @endcan
                                 <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Parámetros</th>
-                                <th>Estado</th> 
+                                <th>NOMBRE</th>
+                                <th>PARAMETROS</th>
+                                <th>ESTADO</th> 
                             </tr>
                         </thead>
                         <tbody>

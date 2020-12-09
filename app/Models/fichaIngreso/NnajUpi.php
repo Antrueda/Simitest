@@ -71,6 +71,9 @@ class NnajUpi extends Model
         }
         return $comboxxx;
     }
+
+
+   
     /** asingar upi al nnaj cuando se está creando datos basicos */
     public static function setUpiDatosBasicos($dataxxxx,  $datobasi) // $objetoxx=datos basicos
     {

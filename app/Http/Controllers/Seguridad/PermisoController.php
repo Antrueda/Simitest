@@ -38,9 +38,9 @@ class PermisoController extends Controller
         $rolesxxx = $this->datos($request->all());
         $buscar = ($request->buscar) ? $request->buscar : '';
         $cabecera = [
-            ['td' => 'Id'],
-            ['td' => 'Nombre Permiso'],
-            ['td' => 'Estado'],
+            ['td' => 'ID'],
+            ['td' => 'NOMBRE  PERMISO'],
+            ['td' => 'ESTADO'],
         ];
         $regitabl = [];
         foreach ($rolesxxx as $rolexxxx) {

@@ -16,10 +16,10 @@
                 <table class="table table-bordered table-striped table-hover table-sm">
                     <thead>
                         <tr class="text-center">
-                            <th width="70">Acciones</th>
-                            <th>Fecha</th>
+                            <th width="70">ACCIONES</th>
+                            <th>FECHA</th>
                             <th>UPI</th>
-                            <th>Razones</th>
+                            <th>RAZONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,7 +30,7 @@
                                         @can('vspa-editar')
                                             <a class="btn btn-sm btn-primary" title="Editar"
                                                 href="{{ route('mitigacion.vspa.editar', [$dato->id, $d->id]) }}">
-                                                Editar
+                                                EDITAR
                                             </a>
                                         @endcan
                                     </td>

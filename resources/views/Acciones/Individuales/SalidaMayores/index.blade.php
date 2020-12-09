@@ -29,7 +29,7 @@
                                     <td>
                                         @can('aisalidamayores-editar')
                                             <a class="btn btn-sm btn-primary" title="Editar" href="{{ route('ai.salidamayores.editar', [$dato->id, $d->id]) }}">
-                                                Editar
+                                                EDITAR
                                             </a>
                                         @endcan
                                     </td>

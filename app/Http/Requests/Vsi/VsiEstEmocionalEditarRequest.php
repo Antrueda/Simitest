@@ -13,7 +13,29 @@ class VsiEstEmocionalEditarRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'descripcion_siente.required_if' => 'Ingrese una descripción',
+            'descripcion_siente.required' => 'Digite una descripción',
+            'prm_siente_id.required' => 'Indique como se siente la mayor parte del tiempo',
+            'contexto.required' => 'Indique en que contexto predomina su estado de animo',
+            'descripcion_siente.required' => 'Digite una descripción de como se siente',
+            'descripcion_reacciona.required' => 'Digite una descripción de como reacciona',
+            'descripcion_adecuado.required' => 'Digite una descripción de como se expresa adecuadamente ',
+            'descripcion_dificulta.required' => 'Digite una descripción de como se le dificulta expresarse',
+            'dificultades.required' => 'Indique cuáles sentimientos y/o emociones se le dificulta expresar adecuadamente',
+            'adecuados.required' => 'Indique cuáles sentimientos y/o emociones logra expresar adecuadamente',
+            'prm_morir_id.required' => 'Indique si ha tenido pensamientos relacionados con morirse',
+            'prm_pensamiento_id.required_if' => 'Indique si ha tenido pensamientos con quitarse la vida',
+            'prm_amenaza_id.required_if' => 'Indique si ha tenido amenzas relacionados con quitarse la vida',
+            'prm_intento_id.required_if' => 'Indique si ha tenido intentos con quitarse la vida',
+            'descripcion_sueno.required_if' => 'Digite una descripción de las dificultades que ha tenido para conciliar el sueño',
+            'prm_sueno_id.required' => 'Indique si ha dificultades para conciliar el sueño',
+            'descripcion_alimenticio.required_if' => 'Digite una descripción de las variciones en su habitos alimenticios',
+            'prm_alimenticio_id.required' => 'Indique si ha tenido variación en sus habitos alimenticios',
+            'motivos.required_if' => 'Seleccione los motivos o situaciones por el cual ha tenido pensamientos, amenzas e intentos de quitarse la vida',
+            'lesivas.required_if' => 'Seleccione que conducta auto lesivas tiene',
+            'prm_estresante_id.required' => 'Indique si ha ocurrido en su vida algún acontecimiento estresante o traumático que le haya generado afectaciones emocionales',
+            'descripcion_estresante.required_if' => 'Digite una descripción de las variciones en su habitos alimenticios',
+            'descripcion_motivo.required_if' => 'Digite una descripción de los motivos',
+            'descripcion_lesiva.required_if' => 'Digite una descripción de las conductas auto lesivas',
         ];
         $this->_reglasx = [
             'prm_siente_id' => 'required|exists:parametros,id',

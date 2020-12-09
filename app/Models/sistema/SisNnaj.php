@@ -158,6 +158,26 @@ class SisNnaj extends Model
     {
         return $this->getUpiNnaj($this->nnaj_upis);
     }
+
+    public function getServicioNnaj($dataxxxx)
+    {
+        $principa = '';
+        $servicio= '';
+        foreach ($dataxxxx as $value) {
+            if ($value->prm_principa_id == 227) {
+                $principa = $value->nnaj_deses;
+                foreach ($principa as $d) {
+                    $servicio=$d->sis_servicio->s_servicio;
+            }
+            }
+        }
+        return  $servicio;
+    }
+    public function getServicioPrincipalAttribute()
+    {
+        return $this->getServicioNnaj($this->nnaj_upis);
+    }
+
     public function getResponsableAttribute()
     {
         $principa = '';

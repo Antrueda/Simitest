@@ -12,7 +12,19 @@ class VsiConsumoEditarRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'prm_consumo_id.required_if' => 'Seleccione si consume',
+            'prm_consumo_id.required' => 'Seleccione si consume',
+            'cantidad.required_if' => 'Indique la cantidad',
+            'inicio.required_if' => 'En que edad inicio el consumo',
+            'prm_contexto_ini_id.required_if' => 'Seleccione en que contexto se dio inicio al consumo',
+            'prm_consume_id.required_if' => '¿Consume SPA?',
+            'prm_contexto_man_id.required_if' => 'Indique en que contexto mantiene el consumo',
+            'prm_problema_id.required_if' => 'Indique si considera problematico el consumo de sustancias',
+            'porque.required_if' => 'Digete el por qué',
+            'prm_motivo_id.required_if' => 'Seleccione el motivo por el cual considera el consumo de SPA',
+            'expectativas.required_if' => '¿Que expectativas tiene frente al consumo de SPA?',
+            'prm_familia_id.required' => 'Indique si algún miembro de su familia consume SPA',
+            'descripcion.required_if' => 'Digite una descripción',
+            'quienes.required_if' => 'Indique quienes consumen SPA',
         ];
         $this->_reglasx = [
             'prm_consumo_id' => 'required|exists:parametros,id',

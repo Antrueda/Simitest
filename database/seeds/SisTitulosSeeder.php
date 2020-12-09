@@ -46,7 +46,7 @@ class SisTitulosSeeder extends Seeder
         SisTitulo::create(['id' => 32, 's_titulo' => 'listado de dependencias', 's_tooltip' => 'listado de dependencias', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 33, 's_titulo' => 'seleccionar todo', 's_tooltip' => 'seleccionar todo', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 34, 's_titulo' => 'LISTADO LUGARES', 's_tooltip' => 'LISTADO LUGARES', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
-        SisTitulo::create(['id' => 35, 's_titulo' => 'OBSERVACION DEL REGIRSTRO', 's_tooltip' => 'OBSERVACION DEL REGIRSTRO', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
+        SisTitulo::create(['id' => 35, 's_titulo' => 'OBSERVACIÓN DEL REGISTRO', 's_tooltip' => 'OBSERVACION DEL REGIRSTRO', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 36, 's_titulo' => 'FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER ', 's_tooltip' => 'RESPONSABLE', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 37, 's_titulo' => 'ACCIONES GRUPALES', 's_tooltip' => 'ACCIONES GRUPALES', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 38, 's_titulo' => 'NUEVO RESPONSABLE', 's_tooltip' => 'NUEVO RESPONSABLE', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);

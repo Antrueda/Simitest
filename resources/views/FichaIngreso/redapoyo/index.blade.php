@@ -40,7 +40,7 @@
                 <table id="tbantecedentes" class="table table-bordered table-striped table-hover table-sm">
                     <thead>
                         <tr class="text-center">
-                            <th width="70">Acciones</th>
+                            <th width="70">ACCIONES</th>
                            @foreach( $todoxxxx['cabecera'] as $cabecera )
                                 <th>{{  $cabecera['td'] }}</th>
                             @endforeach
@@ -80,7 +80,7 @@
                 <table id="tbactuales" class="table table-bordered table-striped table-hover table-sm">
                     <thead>
                         <tr class="text-center">
-                            <th width="70">Acciones</th>
+                            <th width="70">ACCIONES</th>
                             @foreach( $todoxxxx['cabecera'] as $cabecera )
                                 <th>{{  $cabecera['td'] }}</th>
                             @endforeach

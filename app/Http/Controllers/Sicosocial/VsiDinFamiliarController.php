@@ -89,50 +89,9 @@ class VsiDinFamiliarController extends Controller
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR RELACIÓN',
-                'titulist' => 'LISTA DE RELACIONES DEL PROGENITOR',
-                'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
-                'relacion' => '5.2.1 Relaciones de la progenitora (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
-                'accitabl' => true,
-                'vercrear' => $vercrear,
-                'urlxxxxx' => route('vsidfpad', $this->opciones['parametr'] ),
-                'cabecera' => [
-                    [
-                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'CONVIVIERON', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'TIEMPO DE CONVIVENCIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
-                        ['td' => '# HIJOS(AS)', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'MOTIVO DE SEPARACION', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
-                    ],
-                    [
-                        ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'AÑO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                    ]
-
-                ],
-                'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'vsi_dinfam_padres.id'],
-                    ['data' => 'convive', 'name' => 'convive.nombre as convive'],
-                    ['data' => 'dia', 'name' => 'vsi_dinfam_padres.dia'],
-                    ['data' => 'mes', 'name' => 'vsi_dinfam_padres.mes'],
-                    ['data' => 'ano', 'name' => 'vsi_dinfam_padres.ano'],
-                    ['data' => 'hijo', 'name' => 'vsi_dinfam_padres.hijo'],
-                    ['data' => 'separado', 'name' => 'separado.nombre as separado'],
-                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                ],
-                'tablaxxx' => 'datatablepadre',
-                'permisox' => 'vsidfpad',
-                'routxxxx' => 'vsidfpad',
-                'parametr' => $this->opciones['parametr'] ,
-            ],
-            [
-                'titunuev' => 'CREAR RELACIÓN',
                 'titulist' => 'LISTA DE RELACIONES DE LA PROGENITORA',
                 'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
-                'relacion' => '5.2.2 Relaciones del progenitor (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
+                'relacion' => '5.2.1 Relaciones del progenitora (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
                 'accitabl' => true,
                 'vercrear' => $vercrear,
                 'urlxxxxx' => route('vsidfmad', $this->opciones['parametr'] ),
@@ -168,8 +127,49 @@ class VsiDinFamiliarController extends Controller
                 'permisox' => 'vsidfmad',
                 'routxxxx' => 'vsidfmad',
                 'parametr' => $this->opciones['parametr'] ,
-            ]
+            ],
+            [
+                'titunuev' => 'CREAR RELACIÓN',
+                'titulist' => 'LISTA DE RELACIONES DEL PROGENITOR',
+                'dataxxxx' => ['campoxxx' => 'padrexxx', 'dataxxxx' => $this->opciones['vsixxxxx']->id],
+                'relacion' => '5.2.2 Relaciones de la progenitor (Cuando el vinculado se NNA) o relaciones del joven vinculado al IDIPRON',
+                'accitabl' => true,
+                'vercrear' => $vercrear,
+                'urlxxxxx' => route('vsidfpad', $this->opciones['parametr'] ),
+                'cabecera' => [
+                    [
+                        ['td' => 'Acciones', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'CONVIVIERON', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'TIEMPO DE CONVIVENCIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 3],
+                        ['td' => '# HIJOS(AS)', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'MOTIVO DE SEPARACION', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 2, 'colspanx' => 1],
+                    ],
+                    [
+                        ['td' => 'DIA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'MES', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'AÑO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ]
 
+                ],
+                'columnsx' => [
+                    ['data' => 'botonexx', 'name' => 'botonexx'],
+                    ['data' => 'id', 'name' => 'vsi_dinfam_padres.id'],
+                    ['data' => 'convive', 'name' => 'convive.nombre as convive'],
+                    ['data' => 'dia', 'name' => 'vsi_dinfam_padres.dia'],
+                    ['data' => 'mes', 'name' => 'vsi_dinfam_padres.mes'],
+                    ['data' => 'ano', 'name' => 'vsi_dinfam_padres.ano'],
+                    ['data' => 'hijo', 'name' => 'vsi_dinfam_padres.hijo'],
+                    ['data' => 'separado', 'name' => 'separado.nombre as separado'],
+                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                ],
+                'tablaxxx' => 'datatablepadre',
+                'permisox' => 'vsidfpad',
+                'routxxxx' => 'vsidfpad',
+                'parametr' => $this->opciones['parametr'] ,
+            ]
+         
         ];
 
 

@@ -9,7 +9,7 @@
             @if (isset($todoxxxx['titulist']))
             {{ $todoxxxx['titulist'] }}
             @else
-            Datos
+            DATOS
             @endif
             @if(!isset($todoxxxx['vercrear']))
             @can($todoxxxx['permisox'].'-crear')
@@ -17,7 +17,7 @@
                 @if (isset($todoxxxx['titunuev']))
                 {{ $todoxxxx['titunuev'] }}
                 @else
-                Nuevo
+                NUEVO
                 @endif
             </a>
             @endcan
@@ -30,7 +30,7 @@
             <table id="{{ $tableName }}" class="table table-bordered   table-sm">
                 <thead>
                     <tr class="text-center">
-                        <th width="250">Acciones</th>
+                        <th width="250">ACCIONES</th>
                         @foreach( $todoxxxx['cabecera'] as $cabecera )
                         <th> {{ $cabecera['td']   }}</th>
                         @endforeach

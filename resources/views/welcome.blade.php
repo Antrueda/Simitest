@@ -5,7 +5,7 @@
   <h1 class="display-4">SIMI</h1>
   <p class="lead">IDIPRON</p>
   <hr class="my-4">
-  <p>Sistema misional</p>
+  <p>SISTEMA MISIONAL</p>
   <img src="{{ asset('img/login_r2_c7_s1.png') }}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
   <img src="{{ asset('img/login_r4_c7_s1.png') }}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
  

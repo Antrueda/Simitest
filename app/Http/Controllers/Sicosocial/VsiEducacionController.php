@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Sicosocial;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Vsi\VsiEducacionCrearRequest;
+use App\Http\Requests\Vsi\VsiEducacionEditarRequest;
 use App\Models\sicosocial\VsiEducacion;
 use App\Models\Sistema\SisEsta;
 use App\Traits\Vsi\VsiTrait;
@@ -107,7 +109,7 @@ class VsiEducacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $padrexxx)
+    public function store(VsiEducacionCrearRequest $request, $padrexxx)
     {
         $request->request->add(['vsi_id' => $padrexxx]);
         $request->request->add(['sis_esta_id'=> 1]);
@@ -141,7 +143,7 @@ class VsiEducacionController extends Controller
 
     private function grabar($dataxxxx)
     {
-        $this->validator($dataxxxx['requestx']->all())->validate();
+        
         $registro = VsiEducacion::transaccion($dataxxxx);
 
         return redirect()
@@ -156,7 +158,7 @@ class VsiEducacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vsi $objetoxx)
+    public function update(VsiEducacionEditarRequest $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,

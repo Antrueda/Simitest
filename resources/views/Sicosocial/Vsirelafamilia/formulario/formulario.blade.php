@@ -11,6 +11,7 @@
 	<div class="col-md-9">
 		{{ Form::label('representativa', '3.2 ¿Por qué es la más representativa?', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('representativa', null, ['class' => $errors->first('representativa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Por qué es la más representativa', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toCase();", 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadorrepresentativa">0/4000</p>
 		@if($errors->has('representativa'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('representativa') }}
@@ -62,6 +63,7 @@
 	<div class="col-md-12">
 		{{ Form::label('porque', '3.7 ¿Por qué?:', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('porque', null, ['class' => $errors->first('porque') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '¿Por qué?', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadorporque">0/4000</p>
 		@if($errors->has('porque'))
 		<div class="invalid-feedback d-block">
 				{{ $errors->first('porque') }}
@@ -124,6 +126,7 @@
 	<div class="col-md-12">
 		{{ Form::label('descripcion', '3.12 Descripción:', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción de relaciones familiares', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion">0/4000</p>
 		@if($errors->has('descripcion'))
 		<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion') }}
@@ -196,6 +199,7 @@
 	<div class="col-md">
 		{{ Form::label('descripcion1', '3.17 Descripción:', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion1', null, ['class' => $errors->first('descripcion1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción de relaciones de pareja', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toUpperCase();", 'style' => 'text-transform:uppercase;']) }}
+		<p id="contadordescripcion1">0/4000</p>
 		@if($errors->has('descripcion1'))
 		<div class="invalid-feedback d-block">
 				{{ $errors->first('descripcion1') }}

@@ -1,32 +1,50 @@
 <?php
-Route::group(['prefix' => 'agrecurso'], function () {
-    Route::get('', [
-	    'uses' => 'Acciones\Grupales\AgRecursoController@index',
-	    'middleware' => ['permission:agrecurso-leer|agrecurso-crear|agrecurso-editar|agrecurso-borrar']
-	])->name('ag.recu');
-	Route::get('nuevo', [
-	    'uses' => 'Acciones\Grupales\AgRecursoController@create',
-	    'middleware' => ['permission:agrecurso-crear']
-	])->name('ag.recu.recurso.nuevo');
-	Route::post('nuevo', [
-	    'uses' => 'Acciones\Grupales\AgRecursoController@store',
-	    'middleware' => ['permission:agrecurso-crear']
-	])->name('ag.recu.recurso.crear');
+$controll = 'Acciones\Grupales\AgRecurso';
+$routxxxx = 'agrecurso';
+Route::group(['prefix' => 'agrecurso'], function () use($controll,$routxxxx) {
 
+	Route::get('nuevo', [
+	    'uses' => $controll.'Controller@create',
+	    'middleware' => ['permission:'.$routxxxx.'-crear']
+	])->name($routxxxx.'.nuevo');
+	Route::post('nuevo', [
+	    'uses' => $controll.'Controller@store',
+	    'middleware' => ['permission:'.$routxxxx.'-crear']
+    ])->name($routxxxx.'.crear');
+	Route::get('', [
+	    'uses' => $controll.'Controller@index',
+	    'middleware' => ['permission:'.$routxxxx.'-crear']
+	])->name($routxxxx);
 	Route::get('editar/{objetoxx}', [
-	    'uses' => 'Acciones\Grupales\AgRecursoController@edit',
-	    'middleware' => ['permission:agrecurso-editar']
-	])->name('ag.recu.recurso.editar');
+	    'uses' => $controll.'Controller@edit',
+	    'middleware' => ['permission:'.$routxxxx.'-editar']
+	])->name($routxxxx.'.editar');
 	Route::put('editar/{objetoxx}', [
-	    'uses' => 'Acciones\Grupales\AgRecursoController@update',
-	    'middleware' => ['permission:agrecurso-editar']
-	])->name('ag.recu.recurso.editar');
+	    'uses' => $controll.'Controller@update',
+	    'middleware' => ['permission:'.$routxxxx.'-editar']
+	])->name($routxxxx.'.editar');
+
 	Route::get('ver/{objetoxx}', [
-	    'uses' => 'Acciones\Grupales\AgRecursoController@show',
-	    'middleware' => ['permission:agrecurso-leer']
-	])->name('ag.recu.recurso.ver');
-	Route::delete('ver/{objetoxx}', [
-	    'uses' => 'Acciones\Grupales\AgRecursoController@destroy',
-	    'middleware' => ['permission:agrecurso-borrar']
-	])->name('ag.recu.recurso.borrar');
+	    'uses' => $controll.'Controller@show',
+	    'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx.'.ver');
+	Route::get('borrar/{objetoxx}', [
+        'uses' => $controll . 'Controller@inactivate',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.borrar');
+
+    Route::put('borrar/{objetoxx}', [
+        'uses' => $controll . 'Controller@destroy',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.borrar');
+
+    Route::get('activate/{objetoxx}', [
+        'uses' => $controll . 'Controller@activate',
+        'middleware' => ['permission:' . $routxxxx . '-activarx']
+    ])->name($routxxxx . '.activarx');
+
+    Route::put('activate/{objetoxx}', [
+        'uses' => $controll . 'Controller@activar',
+        'middleware' => ['permission:' . $routxxxx . '-activarx']
+    ])->name($routxxxx . '.activarx');
 });

@@ -10,15 +10,15 @@
       <table id="tabla" class="table table-bordered table-striped table-hover table-sm">
         <thead>
           <tr class="text-center">
-            <th width="70">Acciones</th>
+            <th width="70">ACCIONES</th>
             <th>ID</th>
-            <th>Documentos</th>
-            <th>Primer nombre</th>
-            <th>Segundo nombre</th>
-            <th>Primer apellido</th>
-            <th>Segundo apellido</th>
-            <th>Apodo</th>
-            <th>Identitario</th>
+            <th>DOCUMENTOS</th>
+            <th>PRIMER NOMBRE</th>
+            <th>SEGUNDO NOMBRE</th>
+            <th>PRIMEMR APELLIDO</th>
+            <th>SEGUNDO APELLIDO</th>
+            <th>APODO</th>
+            <th>IDENTITARIO</th>
           </tr>
         </thead>
       </table>

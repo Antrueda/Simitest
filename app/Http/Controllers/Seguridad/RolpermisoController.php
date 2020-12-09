@@ -89,7 +89,7 @@ class RolpermisoController extends Controller
             'urlxxxxx' => route($this->opciones['permisox'] . '.quitar', $this->opciones['parametr']),
             'cabecera' => [
                 [
-                    ['td' => 'Acciones', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'ACCIONES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'PERMISO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'MENU', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
@@ -121,7 +121,7 @@ class RolpermisoController extends Controller
             'urlxxxxx' => route($this->opciones['permisox'] . '.agregar', $this->opciones['parametr']),
             'cabecera' => [
                 [
-                    ['td' => 'Acciones', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'ACCIONES', 'widthxxx' => 50, 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'PERMISO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     // ['td' => 'MENU', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],

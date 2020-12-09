@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Sicosocial;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiGenIngresoCrearRequest;
 use App\Http\Requests\Vsi\VsiGenIngresoEditarRequest;
+use App\Http\Requests\Vsi\VsiGenIngresosCrearRequest;
+use App\Http\Requests\Vsi\VsiGenIngresosEditarRequest;
 use App\Models\Parametro;
 use App\Models\sicosocial\VsiGenIngreso;
 use App\Models\Sistema\SisEsta;
@@ -121,7 +123,7 @@ class VsiGenIngresosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $padrexxx)
+    public function store(VsiGenIngresosCrearRequest $request, $padrexxx)
     {
        $request->request->add(['vsi_id' => $padrexxx]);
        $request->request->add(['sis_esta_id'=> 1]);
@@ -167,7 +169,7 @@ class VsiGenIngresosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vsi $objetoxx)
+    public function update(VsiGenIngresosEditarRequest $request, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,

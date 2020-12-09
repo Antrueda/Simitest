@@ -16,7 +16,7 @@
                 <input type="text" class="form-control" name="buscar" value="{{ $buscar }}"
                     placeholder="Texto a buscar">
             </div>
-            <button type="submit" class="btn btn-primary ml-2" title="Buscar">Buscar</button>
+            <button type="submit" class="btn btn-primary ml-2" title="Buscar">BUSCAR</button>
         </form>
         @if(count($datos)>0)
         <div class="table-responsive">
@@ -24,10 +24,10 @@
                 <thead>
                     <tr class="text-center">
                         @canany(['fosarea-editar','fosarea-borrar'])
-                        <th>Acciones</th>
+                        <th>ACCIONES</th>
                         @endcan
-                        <th>Nombre</th>
-                        <th>Estado</th>
+                        <th>NOMBRE</th>
+                        <th>ESTADO</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,12 +37,12 @@
                         <td class='text-center'>
                             @can('fosarea-editar')
                             <a class="btn btn-sm btn-primary" title="Editar" href="{{ route('fosarea.editar', $d->id) }}">
-                                Editar
+                                EDITAR
                             </a>
                             @endcan
                             @can('fosarea-leer')
                             <a class="btn btn-sm btn-primary" title="Ver" href="{{ route('fosarea.ver', $d->id) }}">
-                                Ver
+                                VER
                             </a>
                             @endcan
                         </td>

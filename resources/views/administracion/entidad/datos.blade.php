@@ -1,10 +1,10 @@
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <h3 class="card-title">
-            Datos
+            DATOS
             @can('entidad-crear')
                 <a class="btn btn-sm btn-primary ml-2" title="Nuevo" href="{{ route('entidad.nuevo') }}">
-                    Nuevo
+                    NUEVO
                 </a>
             @endcan
         </h3>
@@ -15,7 +15,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" name="buscar" value="{{ $buscar }}" placeholder="Texto a buscar">
                 </div>
-                <button type="submit" class="btn btn-primary ml-2" title="Buscar">Buscar</button>
+                <button type="submit" class="btn btn-primary ml-2" title="Buscar">BUSCAR</button>
             </form>
             @if(count($datos)>0)
                 <div class="table-responsive">
@@ -23,10 +23,10 @@
                         <thead>
                             <tr class="text-center">
                                 @canany(['entidad-editar','entidad-borrar'])
-                                    <th>Acciones</th>
+                                    <th>ACCIONES</th>
                                 @endcan
-                                <th>Nombre</th> 
-                                <th>Estado</th> 
+                                <th>NOMBRE</th> 
+                                <th>ESTADO</th> 
                             </tr>
                         </thead>
                         <tbody>
@@ -36,12 +36,12 @@
                                         <td class='text-center'>
                                             @can('entidad-editar')
                                                 <a class="btn btn-sm btn-primary" title="Editar" href="{{ route('entidad.editar', $d->id) }}">
-                                                    Editar
+                                                    EDITAR
                                                 </a>
                                             @endcan
                                             @can('entidad-leer')
                                                 <a class="btn btn-sm btn-primary" title="Ver" href="{{ route('entidad.ver', $d->id) }}">
-                                                    Ver
+                                                    VER
                                                 </a>
                                             @endcan
                                         </td>

@@ -45,6 +45,14 @@
           <b>TELÉFONO</b>
           <a class="float-right">{{ count($todoxxxx['datobasi']->SisNnaj->FiResidencia)>0 ? $todoxxxx['datobasi']->SisNnaj->FiResidencia->where('sis_esta_id', 1)->sortByDesc('id')->first()->telefonos : '' }}</a>
         </li>
+        <li class="list-group-item">
+          <b>UPI</b>
+          <a class="float-right">{{ $todoxxxx['datobasi']->sis_nnaj->UpiPrincipal->nombre }}</a>
+        </li>
+        <li class="list-group-item">
+          <b>SERVICIO</b>
+          <a class="float-right">{{ $todoxxxx['datobasi']->sis_nnaj->ServicioPrincipal }}</a>
+        </li>
 
       </li>
     </ul>

@@ -1,7 +1,7 @@
 <div class="form-group row">
     <div class="form-group col-md-4">
         {{ Form::label('nombre', 'Nombre', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('nombre', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+        {{ Form::text('nombre', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"],'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_cvital_id', 'Ciclo Vital', ['class' => 'control-label col-form-label-sm']) }}
@@ -17,7 +17,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_direccion', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_direccion', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+        {{ Form::text('s_direccion', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"],'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_departamento_id', 'Departamento', ['class' => 'control-label col-form-label-sm']) }}
@@ -41,7 +41,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_telefono', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
+        {{ Form::number('s_telefono', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_correo', 'Correo electrónico', ['class' => 'control-label col-form-label-sm']) }}

@@ -71,7 +71,7 @@ class ServicioDepController extends Controller
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'SERVICIO',
-                'titulist' => 'Lista de Sevicios',
+                'titulist' => 'LISTA DE SERVICIOS',
                 'dataxxxx' => [
                     ['campoxxx' => 'botonesx', 'dataxxxx' =>
                     $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],

@@ -15,7 +15,7 @@ class FiRazoneArchivoCrearRequest extends FormRequest
         $this->_mensaje = [
             'i_prm_documento_id.required' => 'Seleccione seleccione el docuemnto que va anexar',
             's_doc_adjunto_ar.required' => 'Seleccione un documento',
-            's_doc_adjunto_ar.max' => 'El máximo del documento es de 2 Gb',
+            's_doc_adjunto_ar.max' => 'El máximo del documento es de 2 mb',
         ];
         $this->_reglasx = [
             'i_prm_documento_id' => ['Required'],

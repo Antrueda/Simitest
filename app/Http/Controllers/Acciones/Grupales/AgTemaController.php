@@ -16,11 +16,11 @@ class AgTemaController extends Controller
     {
 
         $this->opciones = [
-            'tituloxx' => 'Tema',
+            'tituloxx' => 'TEMA',
             'rutacarp' => 'Acciones.Grupales.Agtema.',
             'rutaxxxx' => 'ag.tema.tema',
             'accionxx' => '',
-            'volverax' => 'Volver a Temas',
+            'volverax' => 'VOLVER A TEMAS',
             'readonly' => '', // esta opcion es para cundo está por la parte de ver
             'carpetax' => 'Agtema',
             'modeloxx' => '',
@@ -30,7 +30,7 @@ class AgTemaController extends Controller
             'parametr' => [],
             'urlxxxxx' => 'api/agr/temas',
             'routnuev' => 'ag.tema.tema',
-            'nuevoxxx' => 'Nuevo Registro'
+            'nuevoxxx' => 'NUEVO TEMA'
         ];
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
@@ -90,7 +90,7 @@ class AgTemaController extends Controller
      */
     public function create()
     {
-        return $this->view('', '', 'Crear', 'crear');
+        return $this->view('', '', 'CREAR', 'crear');
     }
 
 
@@ -134,7 +134,7 @@ class AgTemaController extends Controller
      */
     public function edit(AgTema $objetoxx)
     {
-        return $this->view($objetoxx,  'modeloxx', 'Editar', 'editar');
+        return $this->view($objetoxx,  'modeloxx', 'EDITAR', 'editar');
     }
 
     public function update(AgTemaEditarRequest $request, AgTema $objetoxx)

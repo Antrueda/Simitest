@@ -13,7 +13,7 @@
     {{ Form::close() }}
   </div>
   <div class="card-footer text-muted">
-    <a href="#" class="btn btn-primary">Guardar</a>
+    <a href="#" class="btn btn-primary">GUARDAR</a>
   </div>
 </div>
 

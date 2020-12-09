@@ -13,7 +13,8 @@ class VsiViolenciaCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             'prm_tip_vio_id.required' => 'Seleccione un motivo',
-            'prm_fam_fis_id.required' => 'Seleccione un motivo',
+            'prm_fam_fis_id.required_if' => 'Seleccione un motivo',
+            
         ];
         $this->_reglasx = [
             'prm_tip_vio_id'    => 'required|exists:parametros,id',

@@ -72,7 +72,7 @@ class DependenciaController extends Controller
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVA DEPENDENCIA',
-                'titulist' => 'Lista de Dependencias',
+                'titulist' => 'LISTA DE DEPENDENCIAS',
                 'dataxxxx' => [
                     ['campoxxx' => 'botonesx', 'dataxxxx' =>
                     $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],
