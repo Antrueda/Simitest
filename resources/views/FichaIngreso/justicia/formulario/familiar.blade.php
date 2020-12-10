@@ -7,7 +7,7 @@
   <div class="form-row align-items-end">
     <div class="form-group col-md-9">
       {{ Form::label('s_proceso', 'Proceso', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('s_proceso', null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::text('s_proceso', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
     </div>
     <div class="form-group col-md-3">
       {{ Form::label('i_prm_vigente_id', 'Vigente', ['class' => 'control-label col-form-label-sm']) }}

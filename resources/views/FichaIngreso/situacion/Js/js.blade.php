@@ -6,6 +6,16 @@
         $('.select2').select2({
             language: "es"
         });
+        $('#i_prm_situacion_vulnera_id').change(function() {
+                f_comboSimple({
+                    dataxxxx: {
+                        padrexxx: $(this).val() == '' ? 0 : $(this).val(),
+                        selectxx: $(this).prop('id'),
+                    },
+                    urlxxxxx: "{{ route('ajaxx.nomasxxxx') }}",
+                    msnxxxxx:"Disculpe, existió un problema al armar el combo"
+              });
+             });
         var getEscnna=function(dataxxxx){
 
             $("#i_prm_victima_escnna_id").empty();

@@ -4,7 +4,7 @@
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_situacion_vulnera_id', '13.1 Situaciones de vulneraciones', ['class' => 'control-label']) }}
         {{ Form::select('i_prm_situacion_vulnera_id[]', $todoxxxx['situavul'], null, ['class' => $errors->first('i_prm_situacion_vulnera_id') ?
-    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple',
+    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple','id'=>'i_prm_situacion_vulnera_id',
     'data-placeholder' => 'Seleccione las actividades que realiza']) }}
         @if($errors->has('i_prm_situacion_vulnera_id'))
         <div class="invalid-feedback d-block">

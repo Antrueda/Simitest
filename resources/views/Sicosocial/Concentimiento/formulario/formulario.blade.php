@@ -1,6 +1,6 @@
-<h6 class="mt-3">22. Firmas</h6>
+<h6 class="mt-3">22. FIRMAS</h6>
 <hr>
-{{ Form::label(null, 'Funcionario(a)/Contratista', ['class' => 'control-label col-form-label-sm']) }}
+{{ Form::label(null, 'FUNCIONARIO(A)/CONTRATISTA', ['class' => 'control-label col-form-label-sm']) }}
 <div class="row">
 	<div class="col-md">
 		{{ Form::label('user_doc1_id', '22.1 Número de Documento - Nombres y apellidos - Cargo', ['class' => 'control-label col-form-label-sm']) }}
@@ -12,7 +12,7 @@
 		@endif
 	</div>
 </div>
-{{ Form::label(null, 'Funcionario(a)/Contratista', ['class' => 'control-label col-form-label-sm']) }}
+{{ Form::label(null, 'FUNCIONARIO(A)/CONTRATISTA', ['class' => 'control-label col-form-label-sm']) }}
 <div class="row">
 	<div class="col-md">
 		{{ Form::label('user_doc2_id', '22.2 Número de Documento - Nombres y apellidos - Cargo', ['class' => 'control-label col-form-label-sm']) }}

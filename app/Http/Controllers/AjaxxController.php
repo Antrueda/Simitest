@@ -266,13 +266,13 @@ class AjaxxController extends Controller
 
                 ],
                 'combosxx' => [
-                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_trabajo_informal_id', 'selected' => 'selected'],
-                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_otra_actividad_id', 'selected' => 'selected'],
+                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_trabajo_informal_id', 'selected' => ''],
+                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_otra_actividad_id', 'selected' => ''],
                     ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_razon_no_genera_ingreso_id', 'selected' => ''],
-                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_tipo_relacion_laboral_id', 'selected' => 'selected'],
-                    ['comboxxx' => Tema::combo(123, true, true), 'nombrexx' => '#i_prm_jornada_genera_ingreso_id', 'selected' => 'selected'],
+                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_tipo_relacion_laboral_id', 'selected' => ''],
+                    ['comboxxx' => Tema::combo(123, true, true), 'nombrexx' => '#i_prm_jornada_genera_ingreso_id', 'selected' => ''],
                     ['comboxxx' => Tema::combo(124, false, true), 'nombrexx' => '#i_prm_dia_genera_id', 'selected' => ''],
-                    ['comboxxx' => Tema::combo(125, true, true), 'nombrexx' => '#i_prm_frec_ingreso_id', 'selected' => 'selected'],
+                    ['comboxxx' => Tema::combo(125, true, true), 'nombrexx' => '#i_prm_frec_ingreso_id', 'selected' => ''],
 
                 ],
             ];

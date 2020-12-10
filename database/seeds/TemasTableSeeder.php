@@ -673,7 +673,6 @@ class TemasTableSeeder extends Seeder
             452 => $camposmagicos,
             853 => $camposmagicos,
             454 => $camposmagicos,
-            455 => $camposmagicos,
             936 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 58, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'RIESGO ESCNNA']);
@@ -3358,6 +3357,10 @@ class TemasTableSeeder extends Seeder
             ]
         ]); //361
 
+        $this->getR([
+            'nombrexx' => 'motivo vinculacion',
+            'parametr' => [346, 347, 348, 349, 350, 360, 352, 351,2480,2481]
+        ]); //362
 
 
         //359

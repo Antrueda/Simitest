@@ -78,6 +78,16 @@ class FiResidenciaController extends Controller
 
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
+        if ($this->opciones['usuariox']->prm_tipoblaci_id == 650) {
+            $this->opciones['readchcx'] = 'readonly';
+            $this->opciones['residees'] = [235 => 'N/A'];
+            $this->opciones['localida'] = [22 => 'N/A'];
+            $this->opciones['upzxxxxx'] = [134 => 'N/A'];
+            $this->opciones['barrioxx'] = [1 => 'N/A'];
+            $this->opciones['tiporesi'] = Tema::combo(145, true, false);
+        } else {
+            $this->opciones['tiporesi'] = Tema::combo(34, true, false);
+        }
         // indica si se esta actualizando o viendo
 
         $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente(0);
@@ -99,16 +109,6 @@ class FiResidenciaController extends Controller
                 $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente($dataxxxx['modeloxx']->id);
             }
 
-            if ($this->opciones['usuariox']->prm_tipoblaci_id == 650) {
-                $this->opciones['readchcx'] = 'readonly';
-                $this->opciones['residees'] = [235 => 'N/A'];
-                $this->opciones['localida'] = [22 => 'N/A'];
-                $this->opciones['upzxxxxx'] = [134 => 'N/A'];
-                $this->opciones['barrioxx'] = [1 => 'N/A'];
-                $this->opciones['tiporesi'] = Tema::combo(145, true, false);
-            } else {
-                $this->opciones['tiporesi'] = Tema::combo(34, true, false);
-            }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
