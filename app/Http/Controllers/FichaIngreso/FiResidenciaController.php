@@ -8,6 +8,7 @@ use App\Http\Requests\FichaIngreso\FiResidenciaUpdateRequest;
 use App\Models\fichaIngreso\FiCondicionAmbiente;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiResidencia;
+use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
@@ -75,7 +76,7 @@ class FiResidenciaController extends Controller
         $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
         $this->opciones['readchcx'] = '';
 
-
+        //ddd(Parametro::find(235)->combo);
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         if ($this->opciones['usuariox']->prm_tipoblaci_id == 650) {

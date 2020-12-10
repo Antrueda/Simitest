@@ -126,8 +126,8 @@ class AjaxxController extends Controller
             switch ($dataxxxx['padrexxx']) {
                 case 227:
                     $respuest = [[
-                        'jornadax' => Tema::combo(151, false, true),
-                        'naturale' => Tema::combo(130, false, true),
+                        'jornadax' => Tema::combo(151, true, true),
+                        'naturale' => Tema::combo(130, true, true),
                         'instituc' => SisInstitucionEdu::combo(false, true),
                         'dianoest' => true,
                         'mesnoest' => true,
@@ -415,7 +415,7 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $respuest = [
-                'prosalud' => $dataxxxx['padrexxx'] == 228 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(301, true, true),
+                'prosalud' => $dataxxxx['padrexxx'] == 228 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(301, false, true),
             ];
             return response()->json($respuest);
         }
@@ -676,30 +676,30 @@ class AjaxxController extends Controller
                     break;
                 case 288:
                     $respuest = [[
-                        'tipoviax' => Parametro::find(235)->Combo,
+                        'tipoviax' => Parametro::find(235)->ComboAjaxUno,
                         'nomviapr' => true,
-                        'alfviapr' => Parametro::find(235)->Combo,
-                        'tienebis' => Parametro::find(235)->Combo,
-                        'letrabis' => Parametro::find(235)->Combo,
-                        'cuadravp' => Parametro::find(235)->Combo,
+                        'alfviapr' => Parametro::find(235)->ComboAjaxUno,
+                        'tienebis' => Parametro::find(235)->ComboAjaxUno,
+                        'letrabis' => Parametro::find(235)->ComboAjaxUno,
+                        'cuadravp' => Parametro::find(235)->ComboAjaxUno,
                         'numerovg' => true,
-                        'alfabevg' => Parametro::find(235)->Combo,
+                        'alfabevg' => Parametro::find(235)->ComboAjaxUno,
                         'placavgx' => true,
-                        'cuadravg' => Parametro::find(235)->Combo,
+                        'cuadravg' => Parametro::find(235)->ComboAjaxUno,
                     ]];
                     break;
                 case 289:
                     $respuest = [[
-                        'tipoviax' => Parametro::find(235)->Combo,
+                        'tipoviax' => Parametro::find(235)->ComboAjaxUno,
                         'nomviapr' => true,
-                        'alfviapr' => Parametro::find(235)->Combo,
-                        'tienebis' => Parametro::find(235)->Combo,
-                        'letrabis' => Parametro::find(235)->Combo,
-                        'cuadravp' => Parametro::find(235)->Combo,
+                        'alfviapr' => Parametro::find(235)->ComboAjaxUno,
+                        'tienebis' => Parametro::find(235)->ComboAjaxUno,
+                        'letrabis' => Parametro::find(235)->ComboAjaxUno,
+                        'cuadravp' => Parametro::find(235)->ComboAjaxUno,
                         'numerovg' => true,
-                        'alfabevg' => Parametro::find(235)->Combo,
+                        'alfabevg' => Parametro::find(235)->ComboAjaxUno,
                         'placavgx' => true,
-                        'cuadravg' => Parametro::find(235)->Combo,
+                        'cuadravg' => Parametro::find(235)->ComboAjaxUno,
 
                     ]];
                     break;

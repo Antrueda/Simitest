@@ -37,7 +37,7 @@
   <div class="form-row align-items-end">
     <div class="form-group col-md-4">
       {{ Form::label('s_lugar_abierto_pard', '10.1D Lugar donde tiene abierto el PARD', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('s_lugar_abierto_pard', null, ['class' => 'form-control form-control-sm', $todoxxxx['readluga']]) }}
+      {{ Form::text('s_lugar_abierto_pard', null, ['class' => 'form-control form-control-sm', $todoxxxx['readluga'], "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
     </div>
   </div>
 

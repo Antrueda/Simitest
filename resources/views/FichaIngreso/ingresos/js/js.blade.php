@@ -5,8 +5,8 @@
             language: "es"
         });
         var f_generar_ingresos = function(dataxxxx){
-           $('#i_total_ingreso_mensual,#i_prm_frec_ingreso_id,#i_prm_jornada_genera_ingreso_id,#s_hora_inicial,#s_hora_final').val('')
-            $("#i_prm_trabajo_informal_id, #i_prm_otra_actividad_id, #i_prm_razon_no_genera_ingreso_id, #i_prm_tipo_relacion_laboral_id, #i_prm_jornada_genera_ingreso_id, #i_prm_dia_genera_id").empty();
+           $('#i_total_ingreso_mensual,#i_prm_frec_ingreso_id,#i_prm_jornada_genera_ingreso_id,#s_hora_inicial,#s_hora_final,#i_prm_dia_genera_id').val('')
+            $("#i_prm_trabajo_informal_id, #i_prm_otra_actividad_id, #i_prm_razon_no_genera_ingreso_id, #i_prm_tipo_relacion_laboral_id, #i_prm_jornada_genera_ingreso_id, #i_prm_dia_genera_id,#i_prm_frec_ingreso_id").empty();
             if(dataxxxx.valuexxx!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.trabajogenera') }}",
@@ -64,11 +64,14 @@
             travalue:{{ isset($todoxxxx['modeloxx']->i_prm_otra_actividad_id)? $todoxxxx['modeloxx']->i_prm_otra_actividad_id: (old('i_prm_otra_actividad_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}},
             noivalue:{{ isset($todoxxxx['modeloxx']->i_prm_razon_no_genera_ingreso_id)? $todoxxxx['modeloxx']->i_prm_razon_no_genera_ingreso_id: (old('i_prm_razon_no_genera_ingreso_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}},
             relvalue:{{ isset($todoxxxx['modeloxx']->i_prm_tipo_relacion_laboral_id)? $todoxxxx['modeloxx']->i_prm_tipo_relacion_laboral_id: (old('i_prm_tipo_relacion_laboral_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}}
+            relvalue:{{ isset($todoxxxx['modeloxx']->i_prm_frec_ingreso_id)? $todoxxxx['modeloxx']->i_prm_frec_ingreso_id: (old('i_prm_frec_ingreso_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}}
+            relvalue:{{ isset($todoxxxx['modeloxx']->i_prm_dia_genera_id)? $todoxxxx['modeloxx']->i_prm_dia_genera_id: (old('i_prm_dia_genera_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}}
         }
 );
         @endif
         $("#i_prm_actividad_genera_ingreso_id").change(function(){
             f_generar_ingresos({valuexxx:$(this).val(), trivalue:'', travalue:'', noivalue:'', relvalue:'', limpiaxx:true});
+            f_limpiar($(this).val(),'');
             if($(this).val()!=853){
               f_limpiar($(this).val(),'');
             }

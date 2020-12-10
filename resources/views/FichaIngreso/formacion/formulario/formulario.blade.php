@@ -30,14 +30,14 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_jornada_estudio_id', '4.5 ¿En qué jornada estudia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_jornada_estudio_id', $todoxxxx["jornestu"], null, ['class' => 'form-control form-control-sm','data-placeholder' => 'Seleccione']) }}
+        {{ Form::select('i_prm_jornada_estudio_id', $todoxxxx["jornestu"], null, ['class' => 'form-control form-control-sm']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_jornada_estudio_id') }}
         </div>
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_naturaleza_entidad_id', '4.6 ¿Naturaleza de la entidad en la que estudia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_naturaleza_entidad_id', $todoxxxx["natuenti"], null, ['class' => 'form-control form-control-sm','data-placeholder' => 'Seleccione']) }}
+        {{ Form::select('i_prm_naturaleza_entidad_id', $todoxxxx["natuenti"], null, ['class' => 'form-control form-control-sm']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_naturaleza_entidad_id') }}
         </div>

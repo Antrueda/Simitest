@@ -3358,7 +3358,7 @@ class TemasTableSeeder extends Seeder
         ]); //361
 
         $this->getR([
-            'nombrexx' => 'motivo vinculacion',
+            'nombrexx' => 'motivo vinculacion justicia',
             'parametr' => [346, 347, 348, 349, 350, 360, 352, 351,2480,2481]
         ]); //362
 

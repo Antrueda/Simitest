@@ -6,7 +6,6 @@
         });
         var f_estudia = function(valuexxx){
             $("#i_prm_jornada_estudio_id, #i_prm_naturaleza_entidad_id, #sis_institucion_edu_id").empty();
-            $("#i_prm_jornada_estudio_id, #i_prm_naturaleza_entidad_id, #sis_institucion_edu_id").append('<option value="">Seleccione</>')
             
             if(valuexxx != ''){
                 $.ajax({
