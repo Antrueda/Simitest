@@ -12,7 +12,7 @@
         }
        var f_ocultapard = function(dataxxxx){
            $(dataxxxx.camposxx).empty();
-           $(dataxxxx.camposxx).append('<option value="">Seleccione</>')
+           
            if(dataxxxx.valuexxx != ''){
                $.ajax({
                    url : "{{ route('ajaxx.ocultapard') }}",
@@ -129,7 +129,7 @@
         @endif
        var f_ocultasrpa = function(dataxxxx){
             $(dataxxxx.camposxx).empty();
-            $(dataxxxx.camposxx).append('<option value="">Seleccione</>')
+            
             if(dataxxxx.valuexxx != ''){
                $.ajax({
                    url : "{{ route('ajaxx.ocultasrpa') }}",
@@ -251,7 +251,6 @@
     //     };
         var f_ocultaspoa = function(dataxxxx){
             $(dataxxxx.camposxx).empty();
-            $(dataxxxx.camposxx).append('<option value="">Seleccione</>')
             if(dataxxxx.valuexxx != ''){
                 $.ajax({
                     url : "{{ route('ajaxx.ocultaspoa') }}",
@@ -392,7 +391,6 @@
        //VINCULADO VIOLENCIA
        var f_vincviolencia = function(valuexxx){
            $("#prm_situacion_id").empty();
-           $("#prm_situacion_id").append('<option value="">Seleccione</>')
            if(valuexxx != ''){
                $.ajax({
                    url : "{{ route('ajaxx.vinviolencia') }}",
@@ -428,7 +426,6 @@
        //RIESGO VIOLENCIA
        var f_riesviolencia = function(valuexxx){
            $("#prm_riesgo_id").empty();
-           $("#prm_riesgo_id").append('<option value="">Seleccione</>')
            if(valuexxx != ''){
                $.ajax({
                    url : "{{ route('ajaxx.rieviolencia') }}",

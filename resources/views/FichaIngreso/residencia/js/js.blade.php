@@ -198,7 +198,6 @@ $("#i_prm_condicion_amb_id").change(function(){
         $("#i_prm_zona_direccion_id").change(function() {
             $('#s_nombre_via,#s_nombre_via,#i_via_generadora,#i_placa_vg').val('');
             $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").empty();
-            $("#i_prm_tipo_via_id, #i_prm_alfabeto_via_id, #i_prm_tiene_bis_id, #i_prm_bis_alfabeto_id, #i_prm_cuadrante_vp_id, #i_prm_alfabetico_vg_id, #i_prm_cuadrante_vg_id").append('<option value="">Seleccione</>')
             f_tipozona($(this).val());
         });
 

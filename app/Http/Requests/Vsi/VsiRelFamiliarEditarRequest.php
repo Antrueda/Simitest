@@ -23,17 +23,17 @@ class VsiRelFamiliarEditarRequest extends FormRequest
             'prm_familia_id.required' => 'Seleccione un familiar',
             'famDificultades.required' => 'Seleccione una dificultad',
             'acciones.required' => 'Seleccione una acción',
-            'prm_denuncia_id.required' => 'Seleccione una denuncia',
-            'prm_denunante_id.required' => 'Seleccione una entidad',
-            'descripcion.required' => 'Ingrese una descripción',
+            'prm_denuncia_id.required_if' => 'Seleccione una denuncia',
+            'prm_denunante_id.required_if' => 'Seleccione una entidad',
+            'descripcion.required_if' => 'Ingrese una descripción',
             'prm_pareja_id.required' => 'Seleccione una pareja',
             'prm_dificultad_id.required' => 'Seleccione una dificultad',
-
+            'prm_mala_id.required' => 'Mencione los motivos por la que no tiene buenas relaciones',
             'dia.required' => 'Ingrese un día',
             'mes.required' => 'Ingrese un mes',
             'ano.required' => 'Ingrese un año',
-            'prm_responde_id.required' => 'Selecciones quien responde',
-            'descripcion1.required' => 'Ingrese una descripción',
+            'prm_responde_id.required_if' => 'Selecciones quien responde',
+            'descripcion1.required_if' => 'Ingrese una descripción',
         ];
         $this->_reglasx = [
             'prm_representativa_id' => 'required|exists:parametros,id',

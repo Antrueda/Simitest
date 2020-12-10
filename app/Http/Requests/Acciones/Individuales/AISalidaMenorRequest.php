@@ -31,6 +31,9 @@ class AISalidaMenorRequest extends FormRequest
             'prm_enfermerd_id.required' => 'Indique si presenta alguna enfermedad general',
             'prm_brotes_id.required' => 'Indique si presenta algun brote',
             'prm_laceracio_id.required' => 'Indique si presenta alguna laceración o hematoma',
+            'prm_carta_id.required'      => 'Campo obligatorio',
+            'prm_copiaDoc_id.required'   => 'Campo obligatorio',
+            'prm_copiaDoc2_id.required'  => 'Campo obligatorio',
 
 
 
@@ -54,9 +57,9 @@ class AISalidaMenorRequest extends FormRequest
             'prm_doc2_id'       => 'nullable|exists:parametros,id',
             'doc_autorizado'    => 'nullable',
             'prm_parentezco2_id'=> 'nullable|exists:parametros,id',
-            'prm_carta_id'      => 'nullable|exists:parametros,id',
-            'prm_copiaDoc_id'   => 'nullable|exists:parametros,id',
-            'prm_copiaDoc2_id'  => 'nullable|exists:parametros,id',
+            'prm_carta_id'      => 'required|exists:parametros,id',
+            'prm_copiaDoc_id'   => 'required|exists:parametros,id',
+            'prm_copiaDoc2_id'  => 'required|exists:parametros,id',
             'descripcion'       => 'required|string|max:4000',
             'objetos'           => 'required|string|max:4000',
             'prm_upi2_id'       => 'required|exists:parametros,id',

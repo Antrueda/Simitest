@@ -3,7 +3,6 @@
     $(function(){ 
         var f_tipo_contacto = function(dataxxxx){
             $("#i_prm_contacto_opcion_id, #i_prm_motivo_contacto_id").empty();
-            $("#i_prm_contacto_opcion_id, #i_prm_motivo_contacto_id").append('<option value="">Seleccione</>')
             if(dataxxxx.valuexxx!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.tipocontacto') }}",

@@ -63,39 +63,31 @@ function doc2(valor){
 function doc3(valor) {
     if (valor == 227) {
         document.getElementById("ideacion").hidden=false;
-        document.getElementById("motivos").value=[];
-        document.getElementById("prm_riesgo_id").hidden=false;
-        document.getElementById("motivos_div").hidden=false;
-    } else {
+        } else {
         document.getElementById("ideacion").hidden=true;
         document.getElementById("ideacion").value=null;
-        document.getElementById("prm_riesgo_id").hidden=true;
-        document.getElementById("motivos_div").hidden=true;
+
     }
 }
 function doc4(valor) {
     if (valor == 227) {
         document.getElementById("amenaza").hidden=false;
-        document.getElementById("prm_riesgo_id").hidden=false;
-        document.getElementById("motivos").value=[];
-        document.getElementById("motivos_div").hidden=false;
+
     } else {
         document.getElementById("amenaza").hidden=true;
         document.getElementById("amenaza").value=null;
-        document.getElementById("prm_riesgo_id").hidden=true;
-        document.getElementById("motivos_div").hidden=true;
-    }
+
 }
+}
+
+
+
 function doc5(valor) {
     if (valor == 227) {
         document.getElementById("intento").hidden=false;
         document.getElementById("dia_ultimo").hidden=false;
         document.getElementById("mes_ultimo").hidden=false;
         document.getElementById("ano_ultimo").hidden=false;
-        document.getElementById("prm_riesgo_id").hidden=false;
-        document.getElementById("motivos").value=[];
-        document.getElementById("motivos_div").hidden=false;
-        
     } else {
         document.getElementById("intento").hidden=true;
         document.getElementById("intento").value = null;
@@ -105,6 +97,14 @@ function doc5(valor) {
         document.getElementById("mes_ultimo").value = null;
         document.getElementById("ano_ultimo").hidden=true;
         document.getElementById("ano_ultimo").value = null;
+    }
+}
+function motivos(valor) {
+    if(document.getElementById('prm_pensamiento_id').value == 227 && document.getElementById('prm_amenaza_id').value == 227 && document.getElementById('prm_intento_id').value == 227){
+        document.getElementById("prm_riesgo_id").hidden=false;
+        document.getElementById("motivos").value=[];
+        document.getElementById("motivos_div").hidden=false;
+    } else {
         document.getElementById("prm_riesgo_id").hidden=true;
         document.getElementById("motivos_div").hidden=true;
     }

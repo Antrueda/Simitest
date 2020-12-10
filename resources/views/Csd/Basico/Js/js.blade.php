@@ -120,7 +120,7 @@
         }
         var f_documento_fisico = function(valuexxx, selected) {
             $("#prm_ayuda_id").empty();
-            $("#prm_ayuda_id").append('<option value="">Seleccione</>')
+            
             dataxxxx = {
                 url: "{{ route('ajaxx.ayuda') }}",
                 data: {
@@ -155,8 +155,7 @@
     });
         var f_cuenta_documento = function(valuexxx, pselecte) {
             $("#prm_doc_fisico_id").empty();
-            $("#prm_doc_fisico_id").append('<option value="">Seleccione</>')
-
+            
             if (valuexxx != '') {
                 $.ajax({
                     url: "{{ route('ajaxx.cuentadocumento') }}",
@@ -187,7 +186,7 @@
         }
         var f_situacion_militar = function(valuexxx) {
             $("#prm_situacion_militar_id,#prm_clase_libreta_id").empty();
-            $("#prm_situacion_militar_id,#prm_clase_libreta_id").append('<option value="">Seleccione</option>');
+
 
             if (valuexxx != '') {
                 var fechaxxx = '';
@@ -310,7 +309,7 @@
                     success: function(json) {
                         if (valuexxx != 145) {
                             $("#prm_ayuda_id").empty();
-                            $("#prm_ayuda_id").append('<option value="">Seleccione</>')
+                            
                             $("#s_documento").val('');
                             $("#s_documento").prop('readonly', false)
                             $("#prm_doc_fisico_id option[value='']").attr("selected", true);
@@ -341,7 +340,6 @@
                 });
             } else {
                 $("#prm_ayuda_id").empty();
-                $("#prm_ayuda_id").append('<option value="">Seleccione</>')
                 $("#s_documento").val('');
                 $("#s_documento").prop('readonly', false)
                 $("#prm_doc_fisico_id option[value='']").attr("selected", true);
@@ -362,7 +360,6 @@
 
         var clase_libreta = function(valuexxx, pselecte) {
             $("#prm_clase_libreta_id").empty();
-            $("#prm_clase_libreta_id").append('<option value="">Seleccione</>')
             if (valuexxx != '') {
                 $.ajax({
                     url: "{{ route('ajaxx.claselibreta') }}",

@@ -28,14 +28,17 @@ class VsiEstEmocionalEditarRequest extends FormRequest
             'prm_intento_id.required_if' => 'Indique si ha tenido intentos con quitarse la vida',
             'descripcion_sueno.required_if' => 'Digite una descripción de las dificultades que ha tenido para conciliar el sueño',
             'prm_sueno_id.required' => 'Indique si ha dificultades para conciliar el sueño',
+            'prm_riesgo_id.required' => 'Indique el nivel de riesgo',
+            'prm_lesiva_id.required_if' => 'Indique si tiene conductas auto lesivas',
             'descripcion_alimenticio.required_if' => 'Digite una descripción de las variciones en su habitos alimenticios',
             'prm_alimenticio_id.required' => 'Indique si ha tenido variación en sus habitos alimenticios',
-            'motivos.required_if' => 'Seleccione los motivos o situaciones por el cual ha tenido pensamientos, amenzas e intentos de quitarse la vida',
-            'lesivas.required_if' => 'Seleccione que conducta auto lesivas tiene',
+            'motivos.required' => 'Seleccione los motivos o situaciones por el cual ha tenido pensamientos, amenzas e intentos de quitarse la vida',
+            'estresantes.required_if' => 'Indicar el tipo de acontencimiento y/o situación',
             'prm_estresante_id.required' => 'Indique si ha ocurrido en su vida algún acontecimiento estresante o traumático que le haya generado afectaciones emocionales',
             'descripcion_estresante.required_if' => 'Digite una descripción de las variciones en su habitos alimenticios',
             'descripcion_motivo.required_if' => 'Digite una descripción de los motivos',
             'descripcion_lesiva.required_if' => 'Digite una descripción de las conductas auto lesivas',
+            
         ];
         $this->_reglasx = [
             'prm_siente_id' => 'required|exists:parametros,id',
@@ -56,7 +59,7 @@ class VsiEstEmocionalEditarRequest extends FormRequest
             'ideacion' => 'required_if:prm_pensamiento_id,227|min:0|max:99',
             'amenaza' => 'required_if:prm_amenaza_id,227|min:0|max:99',
             'intento' => 'required_if:prm_intento_id,227|min:0|max:99',
-            'prm_riesgo_id' => 'required_if:prm_morir_id,227',
+            'prm_riesgo_id' => 'required',
             'dia_ultimo' => 'nullable|min:0|max:99',
             'mes_ultimo' => 'nullable|min:0|max:99',
             'ano_ultimo' => 'nullable|min:0|max:99',
@@ -76,7 +79,7 @@ class VsiEstEmocionalEditarRequest extends FormRequest
             'adecuados' => 'required|array',
             'dificultades' => 'required|array',
             'estresantes' => 'required_if:prm_estresante_id,227|array',
-            'motivos' => 'required_if:prm_morir_id,227|array',
+            'motivos' => 'required|array',
             'lesivas' => 'required_if:prm_lesiva_id,227|array',
             'contexto' => 'required|array',
         ];

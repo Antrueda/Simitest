@@ -1,5 +1,15 @@
 <script>
   $(document).ready(function(){
+    $('#victimas,#riesgos').change(function() {
+        f_comboSimple({
+            dataxxxx: {
+                padrexxx: $(this).val() == '' ? 0 : $(this).val(),
+                selectxx: $(this).prop('id'),
+            },
+            urlxxxxx: "{{ route('ajaxx.nomasxxxx') }}",
+            msnxxxxx:"Disculpe, existió un problema al armar el combo"
+        });
+    });
     $('#victimas').select2({
       language: "es"
     });
@@ -7,6 +17,8 @@
       dropdownParent: $('#riesgos_div'),
       language: "es"
     });
+
+  
   });
   function doc(valor) {
     if (valor != 853) {
@@ -16,8 +28,7 @@
     } else {
       document.getElementById("riesgos_div").hidden=false;
       document.getElementById("prm_victima_id").hidden=true;
-      document.getElementById("prm_victima_id").value = [];
-    }
+      }
   }
 
   function doc1(valor) {
@@ -31,8 +42,7 @@
 
   function carga() {
     doc(document.getElementById('victimas').value);
-    doc(document.getElementById('riesgos').value);
-    doc(document.getElementById('prm_victima_id').value);
+    doc1(document.getElementById('riesgos').value);
   }
   window.onload = carga;
 </script>

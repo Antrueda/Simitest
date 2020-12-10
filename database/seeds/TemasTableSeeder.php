@@ -580,10 +580,11 @@ class TemasTableSeeder extends Seeder
         ]);
         $tema = Tema::create(['id' => 49, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'sanciones SPOA']);
         $tema->parametros()->sync([
-            361 => $camposmagicos,
             362 => $camposmagicos,
-            363 => $camposmagicos,
             364 => $camposmagicos,
+            2475=> $camposmagicos,
+            2474=> $camposmagicos,
+
         ]);
         $tema = Tema::create(['id' => 50, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'CAUSAS VINCUALCIÓN DELINCUENCIA']);
         // $tema->parametros()->sync([

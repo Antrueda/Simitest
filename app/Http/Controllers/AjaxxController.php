@@ -263,7 +263,6 @@ class AjaxxController extends Controller
                     ['nombrexx' => '#s_hora_inicial', 'propieda' => 'readonly', 'valorxxx' => false],
                     ['nombrexx' => '#s_hora_final', 'propieda' => 'readonly', 'valorxxx' => false],
                     ['nombrexx' => '#i_total_ingreso_mensual', 'propieda' => 'readonly', 'valorxxx' => false],
-
                 ],
                 'combosxx' => [
                     ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_trabajo_informal_id', 'selected' => ''],
@@ -304,6 +303,9 @@ class AjaxxController extends Controller
             return response()->json($respuest);
         }
     }
+
+
+    
 
     function jornadagenera(Request $request)
     {
@@ -515,9 +517,9 @@ class AjaxxController extends Controller
                 case 227:
                     $respuest = [[
                         'tiempard' => false,
-                        'titipard' => Tema::combo(152, false, true),
-                        'motipard' => Tema::combo(45, false, true),
-                        'actupard' => Tema::combo(25, false, true),
+                        'titipard' => Tema::combo(152, true, true),
+                        'motipard' => Tema::combo(45, true, true),
+                        'actupard' => Tema::combo(25, true, true),
                         'nomdefen' => false,
                         'teldefen' => false,
                         'lugapard' => false,
@@ -548,10 +550,10 @@ class AjaxxController extends Controller
                 case 227:
                     $respuest = [[
                         'tiemsrpa' => false,
-                        'actusrpa' => Tema::combo(25, false, true),
-                        'titisrpa' => Tema::combo(152, false, true),
-                        'motisrpa' => Tema::combo(46, false, true),
-                        'sancsrpa' => Tema::combo(47, false, true),
+                        'actusrpa' => Tema::combo(25, true, true),
+                        'titisrpa' => Tema::combo(152, true, true),
+                        'motisrpa' => Tema::combo(46, true, true),
+                        'sancsrpa' => Tema::combo(47, true, true),
 
                     ]];
                     break;
@@ -578,11 +580,11 @@ class AjaxxController extends Controller
                 case 227:
                     $respuest = [[
                         'tiemspoa' => false,
-                        'actuspoa' => Tema::combo(25, false, true),
-                        'titispoa' => Tema::combo(152, false, true),
-                        'motispoa' => Tema::combo(357, false, true),
-                        'cumppena' => Tema::combo(49, false, true),
-                        'estapres' => Tema::combo(25, false, true),
+                        'actuspoa' => Tema::combo(25, true, true),
+                        'titispoa' => Tema::combo(152, true, true),
+                        'motispoa' => Tema::combo(357, true, true),
+                        'cumppena' => Tema::combo(49, true, true),
+                        'estapres' => Tema::combo(25, true, true),
                     ]];
                     break;
                 default:
@@ -662,16 +664,16 @@ class AjaxxController extends Controller
             switch ($dataxxxx['padrexxx']) {
                 case 287:
                     $respuest = [[
-                        'tipoviax' => Tema::combo(62, false, true),
+                        'tipoviax' => Tema::combo(62, true, true),
                         'nomviapr' => false,
-                        'alfviapr' => Tema::combo(39, false, true),
-                        'tienebis' => Tema::combo(23, false, true),
-                        'letrabis' => Tema::combo(39, false, true),
-                        'cuadravp' => Tema::combo(38, false, true),
+                        'alfviapr' => Tema::combo(39, true, true),
+                        'tienebis' => Tema::combo(23, true, true),
+                        'letrabis' => Tema::combo(39, true, true),
+                        'cuadravp' => Tema::combo(38, true, true),
                         'numerovg' => false,
-                        'alfabevg' => Tema::combo(39, false, true),
+                        'alfabevg' => Tema::combo(39, true, true),
                         'placavgx' => false,
-                        'cuadravg' => Tema::combo(38, false, true),
+                        'cuadravg' => Tema::combo(38, true, true),
                     ]];
                     break;
                 case 288:

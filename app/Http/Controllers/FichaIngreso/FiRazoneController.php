@@ -63,8 +63,7 @@ class FiRazoneController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'],
-        ];
+            ];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
 
@@ -95,36 +94,7 @@ class FiRazoneController extends Controller
 
         }
 
-        $this->opciones['tablasxx'] = [
-            [
-                'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'titunuev' => 'CREAR DOCUMENTO',
-                'titulist' => 'LISTA DE DOCUMENTOS',
-                'dataxxxx' => [],
-                'vercrear' => $vercrear,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$parametr]),
-                'cabecera' => [
-                    [
-                        ['td' => 'ACCIONES', 'widthxxx' => 250, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ID', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1,],
-                        ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'ESTADO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                    ],
-                ],
-                'columnsx' => [
-                    ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'fi_documentos_anexas.id'],
-                    ['data' => 'nombre', 'name' => 'parametros.nombre'],
-                    ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
-                ],
-                'tablaxxx' => 'datatablearchivos',
-                'permisox' => 'fiarchiv',
-                'routxxxx' => 'fiarchiv',
-                'parametr' => [$parametr],
-            ],
-        ];
 
-        $this->opciones['docuanex'] = FiRazone::getDocumento($dataxxxx['modeloxx']);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

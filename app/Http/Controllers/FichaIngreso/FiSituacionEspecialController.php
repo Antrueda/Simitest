@@ -19,7 +19,7 @@ class FiSituacionEspecialController extends Controller
         $this->opciones['permisox'] = 'fisituacion';
         $this->opciones['routxxxx'] = 'fisituacion';
         $this->opciones['rutacarp'] = 'FichaIngreso.';
-        $this->opciones['carpetax'] = 'Situacion';
+        $this->opciones['carpetax'] = 'Poblacion';
         $this->opciones['slotxxxx'] = 'fisituacion';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['tituloxx'] = "TIPO DE POBLACIÓN";

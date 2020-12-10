@@ -5,10 +5,10 @@
       language: "es"
     });
     var f_generar_ingresos = function(dataxxxx){
-           $('#prm_frecuencia_id').val('')
+           $("#i_prm_trabajo_informal_id, #i_prm_otra_actividad_id, #i_prm_razon_no_genera_ingreso_id, #i_prm_tipo_relacion_laboral_id").empty();
             $("#prm_informal_id, #prm_otra_id, #prm_laboral_id").empty();
             $("#prm_informal_id, #prm_otra_id, #prm_laboral_id").append('<option value="">Seleccione</>')
-            if(dataxxxx.valuexxx!=''){
+                if(dataxxxx.valuexxx!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.trabajogenera') }}",
                 data : {
@@ -18,46 +18,16 @@
                 type : 'POST',
                 dataType : 'json',
                 success : function(json) {
-
-                    if(dataxxxx.limpiaxx==true){
-                        $('#trabaja').val(json[0].valuexxx)
-                    }
-                    if(json[0].trabinfo[0].valuexxx==1){
-                        $("#prm_informal_id").empty();
-                    }
-                    if(json[0].otractiv[0].valuexxx==1){
-                        $("#prm_otra_id").empty();
-                    }
-                    if(json[0].tiporela[0].valuexxx==1){
-                        $("#prm_laboral_id").empty();
-                    }
-                    $('#trabaja').prop('readonly',json[0].trabform)
-              
-
-                    $.each(json[0].trabinfo,function(i,data){
-                        var selected = '';
-                        if(dataxxxx.trivalue==data.valuexxx) {
-                            selected = 'selected';
-                        }
-                        $('#prm_informal_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                    $.each(json.readonly,function(i,data){
+                        $(data.nombrexx).prop(data.propieda,data.valorxxx)
                     });
 
+                    $.each(json.combosxx,function(j,dataxxxx){
+                        $.each(dataxxxx.comboxxx,function(i,data){
+                          $(dataxxxx.nombrexx).append('<option '+dataxxxx.selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                       });
+                    })
 
-
-                    $.each(json[0].otractiv,function(i,data){
-                        var selected = '';
-                        if(dataxxxx.travalue==data.valuexxx) {
-                            selected = 'selected';
-                        }
-                        $('#prm_otra_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
-                    $.each(json[0].tiporela,function(i,data){
-                        var selected = '';
-                        if(dataxxxx.relvalue==data.valuexxx) {
-                            selected = 'selected';
-                        }
-                        $('#prm_laboral_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                    });
                    },
                 error : function(xhr, status) {
                     alert('Disculpe, existió un problema');

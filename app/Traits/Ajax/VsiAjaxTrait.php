@@ -43,6 +43,8 @@ trait VsiAjaxTrait
             'normas'=> [235, 66],
             'dificultadez'=> [689, 168],
             'i_prm_situacion_vulnera_id'=> [168, 89],
+            'victimas'=> [853, 126],
+            'riesgos'=> [853, 58],
             
 
         ];

@@ -5,7 +5,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_contacto_condicion', 'Por condición', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_contacto_condicion', null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::text('s_contacto_condicion', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_contacto_opcion_id', 'Por opción', ['class' => 'control-label col-form-label-sm']) }}
@@ -13,7 +13,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_entidad_remite', 'Por Protección, entidad que remitió', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_entidad_remite', null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::text('s_entidad_remite', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('d_fecha_remite_id', 'Fecha de remisión', ['class' => 'control-label col-form-label-sm']) }}
