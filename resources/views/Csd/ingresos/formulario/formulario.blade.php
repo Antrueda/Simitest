@@ -11,7 +11,7 @@
         @endif
     </div>
 </div>
-<h6 class="col-form-label-sm">Datos de quién brinda la información</h6>
+<h6 class="col-form-label-sm">DATOS DE QUIÉN BRINDA LA INFORMACIÓN</h6>
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_actividad_id', '10.9 ¿Qué actividades realiza para generar ingresos?', ['class' => 'control-label col-form-label-sm']) }}

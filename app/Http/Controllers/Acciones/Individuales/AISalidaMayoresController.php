@@ -109,7 +109,7 @@ class AISalidaMayoresController extends Controller
             $request->razonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.razonesx';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            return $this->getSalidas($request);
+            return $this->getSalidasMayores($request);
         }
     }
 
