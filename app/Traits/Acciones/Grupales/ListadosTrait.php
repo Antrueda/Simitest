@@ -139,7 +139,7 @@ trait ListadosTrait
         if ($request->ajax()) {
             $request->routexxx = ['agasiste'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonelim';
+                $this->opciones['carpetax'] . '.Botones.elimasis';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx = AgAsistente::select([
                 'ag_asistentes.id',
@@ -147,6 +147,7 @@ trait ListadosTrait
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
+                'ag_asistentes.sis_esta_id',
                 'nnaj_docus.s_documento',
 
             ])

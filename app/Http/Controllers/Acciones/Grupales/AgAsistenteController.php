@@ -33,7 +33,7 @@ class AgAsistenteController extends Controller
         $this->opciones['padrexxx'] =$padrexxx;
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->opciones['botoform']=[];
+        $this->getBotones(['editar', ['agactividad.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
     }
 
@@ -43,19 +43,16 @@ class AgAsistenteController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $this->opciones['padrexxx']->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['agactividad.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
-        return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR RESPOSABLE', 'btn btn-sm btn-primary']),
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy']]
-        );
-    }
+        //return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],$this->getBotones(['borrar', [], 1, 'INACTIVAR ASISTENTE', 'btn btn-sm btn-primary']),
+        return $this->destroy($modeloxx);
+            }
 
 
-    public function destroy(Request $request, AgAsistente $modeloxx)
+    public function destroy(AgAsistente $modeloxx)
     {
-        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        return redirect()
-            ->route('agactividad.editar', [$modeloxx->ag_actividad_id])
-            ->with('info', 'Asistente inactivado correctamente');
+        $modeloxx->delete();
+        return redirect()->back()
+            ->with('info', 'Asistente eliminado correctamente');
     }
 
     public function activate(AgAsistente $modeloxx)

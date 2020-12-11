@@ -73,7 +73,6 @@ class AISalidaMayoresController extends Controller
                         ['td' => 'FECHA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'RAZONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'TIEMPO(DÍAS)', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
@@ -83,7 +82,7 @@ class AISalidaMayoresController extends Controller
                     ['data' => 'fecha', 'name' => 'ai_salida_mayores.fecha'],
                     ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                     ['data' => 'razonesx', 'name' => 'razonesx'],
-                    ['data' => 'tiempo', 'name' => 'ai_salida_mayores.tiempo'],
+                    
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

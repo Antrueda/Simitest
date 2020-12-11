@@ -101,7 +101,7 @@ class VsiController extends Controller
                 'urlxxxxx' => route($this->opciones['routxxxx'].'.vsisxxxx',$this->opciones['parametr']),
                 'cabecera' => [
                     ['td' => 'ID'],
-                    ['td' => 'DEPENDENCIA'],
+                    ['td' => 'UPI'],
                     ['td' => 'FECHA DILIGENCIAMIENTO'],
                     ['td' => 'ESTADO'],
                 ],

@@ -34,9 +34,10 @@
         <strong>{{ $todoxxxx['usuariox']->nnaj_docu->s_documento }} </strong>
         <span class="input-group-addon" style="width:auto;">de</span>
         <strong>{{ $todoxxxx['usuariox']->nnaj_docu->sis_municipio->s_municipio }} </strong>
-        <span class="input-group-addon">, manifiesto voluntariamente mi deseo de salir de la Unidad en un horario diferente al establecido, por las siguientes razones</span>
+        <span class="input-group-addon">, manifiesto voluntariamente mi deseo de salir de la Unidad en un horario diferente al establecido, por las siguientes razones:</span>
+        
         <div class="col-md-4">
-            {{ Form::label('razones', '', ['class' => 'control-label col-form-label-sm']) }}
+            
             {{ Form::select('razones[]', $todoxxxx['condixxx'], null, ['class' => $errors->first('razones') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'razones', 'multiple']) }}
             @if($errors->has('razones'))
                 <div class="invalid-feedback d-block">
@@ -50,7 +51,7 @@
 <hr>
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-10">
 		{{ Form::label('descripcion', 'Descripción / Razón', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
 		@if($errors->has('descripcion'))
@@ -66,7 +67,7 @@
 
 {{ Form::label(null, 'Funcionario(a)/Contratista', ['class' => 'control-label col-form-label-sm']) }}
 <div class="row">
-	<div class="col-md">
+	<div class="col-md-10">
 		{{ Form::label('user_doc1_id', 'Número de Documento - Nombres y apellidos - Cargo', ['class' => 'control-label col-form-label-sm']) }}
 		{{ Form::select('user_doc1_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_doc1_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
 		@if($errors->has('user_doc1_id'))

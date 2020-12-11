@@ -36,6 +36,23 @@ $(document).ready(function() {
                 },
                 dataType: 'json',
                 success: function(json) {
+                    toastr.success('Asistente agregado con éxito');
+                        {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
+                        {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.ajax.reload();
+
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, al agregar el asitente');
+                }
+            });
+            $.ajax({
+                url: "{{ route($todoxxxx['permisox'].'.quitar',$todoxxxx['parametr'])}}",
+                type: 'GET',
+                data: {
+                    'fi_dato_basico_id': valuexxx,
+                },
+                dataType: 'json',
+                success: function(json) {
                     toastr.success('Permiso asigndo con éxito');
                         {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.ajax.reload();
                         {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.ajax.reload();

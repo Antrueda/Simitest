@@ -36,6 +36,10 @@ class AgAsistente extends Model
   {
     return $this->belongsTo(User::class, 'user_edita_id');
   }
+  public function ag_actividad()
+  {
+    return $this->belongsTo(AgActividad::class);
+  }
 
   public static function transaccion($dataxxxx,  $objetoxx)
   {

@@ -142,6 +142,9 @@
     "onkeyup" => "javascript:this.value=this.value.toUpperCase()", 'style' => 'text-transform:uppercase' ]) }}
         <p id="ags_observaccontador">0/6000</p>
     </div>
+    @if(isset($todoxxxx["modeloxx"]->id))
+    
+
     <div class="form-row align-items-end" style="margin-bottom: 40px">
         @component('layouts.components.archivos.upload')
         @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto',
@@ -149,5 +152,5 @@
         'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf','clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
         @endcomponent
     </div>
-
+    @endif
 </div>

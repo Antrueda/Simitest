@@ -24,6 +24,7 @@ class CsdDinfamiliarCrearRequest extends FormRequest
             'prm_problema_id.required' => 'Indique a quién acude cuando hay problemas en casa',
             'prm_destaca_id.required' => 'Indique si los miembros de la familia se destacan',
             'prm_positivo_id.required' => 'Indique Cómo actúa la familia cuando hay sucesos positivos',
+            'porque.required_if'=>'Escriba el por qué',
             
             
         ];

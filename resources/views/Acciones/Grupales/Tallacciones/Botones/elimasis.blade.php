@@ -1,1 +1,4 @@
-<a href="{{ route('agasiste.borrar',[$ag_actividad_id,$id])}}" class="btn btn-sm btn-danger" role="button">Eliminar</a>
+
+
+    <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', [$queryxxx->id]) }}">ELIMINAR</a>
+
