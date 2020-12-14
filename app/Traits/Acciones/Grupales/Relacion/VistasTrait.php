@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Responsable;
+namespace App\Traits\Acciones\Grupales\Relacion;
 
+use App\Models\Acciones\Grupales\AgRecurso;
+use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Sistema\SisObse;
 use App\Models\Tema;
@@ -15,11 +17,11 @@ trait VistasTrait
 {
 
     use CombosTrait;
-    public function getResponsables($dataxxxx)
+    public function getRecursos($dataxxxx)
     {
-        $dataxxxx['notinxxx'] = AgResponsable::select(['user_id'])
+        $dataxxxx['notinxxx'] = AgRelacion::select(['ag_recurso_id'])
             ->where('ag_actividad_id', $dataxxxx['padrexxx']->id)
-            ->whereNotIn('user_id', [$dataxxxx['selected']])
+            ->whereNotIn('ag_recurso_id', [$dataxxxx['selected']])
             ->get();
         return User::userCombo($dataxxxx);
     }
@@ -37,7 +39,10 @@ trait VistasTrait
     public function view($opciones, $dataxxxx)
     {
         $opciones['observac'] = SisObse::combo(['cabecera' => true, 'esajaxxx' => false]);
-        $opciones['condicio'] = Tema::combo(338, true, false);
+        $opciones['umedidax'] = Tema::combo(288, true, false);
+        $opciones['trecurso'] = AgRecurso::comb(true,false);
+        
+        $opciones['readonly'] = 'readonly';
 
         $opciones['parametr'][] = $dataxxxx['padrexxx']->id;
         $opciones = $this->getVista($opciones, $dataxxxx);
@@ -52,7 +57,7 @@ trait VistasTrait
         }
         $dataxxxx['cabecera'] = true;
         $dataxxxx['ajaxxxxx'] = false;
-        $opciones['responsa'] = $this->getResponsables($dataxxxx);
+        $opciones['responsa'] = $this->getRecursos($dataxxxx);
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
     }

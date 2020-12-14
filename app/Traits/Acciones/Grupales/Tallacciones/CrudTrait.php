@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Tallacciones;
 
+use App\Helpers\Archivos\Archivos;
 use App\Models\Acciones\Grupales\AgActividad;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +21,12 @@ trait CrudTrait
     public function setAgActividad($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
+            $rutaxxxx = Archivos::getRuta(['requestx'=>$dataxxxx['requestx'],
+            'nombarch'=>'s_doc_adjunto_ar',
+            'rutaxxxx'=>'agactividad/adjunto','nomguard'=>'documento']);
+            if($rutaxxxx!=false){
+               $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
+            }
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());

@@ -32,7 +32,7 @@ class MensajeController extends Controller
 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'Mensajes';
+        $this->opciones['tituhead'] = 'MENSAJES';
         $this->opciones['routxxxx'] = 'mensajes';
         $this->opciones['slotxxxx'] = 'mensajes';
         $this->opciones['perfilxx'] = 'sinperfi';

@@ -22,7 +22,6 @@ class AgActividadEditarRequest extends FormRequest
             'ag_taller_id.required' => 'Seleccione un taller',
             'ag_sttema_id.required' => 'Seleccione un subtema',
             'i_prm_dirig_id.required' => 'Seleccione a quién va dirigido',
-            'i_prm_espac_id.required' => 'Seleccione el lugar donde se llevó a cabo',
             's_entidad.required' => 'Seleccione una entidad',
             's_introduc.required' => 'Ingrese la introducción',
             's_justific.required' => 'Ingrese la justificación',
@@ -34,6 +33,8 @@ class AgActividadEditarRequest extends FormRequest
             's_resultad.required' => 'Ingrese el resultado',
             's_evaluaci.required' => 'Ingrese una evaluación',
             's_observac.required' => 'Ingrese una observación',
+            's_doc_adjunto_ar.required'=>'Debe adjuntar el soporte',
+            's_doc_adjunto_ar.mimes'=>'El archivo debe ser imagen o pdf',
         ];
         $this->_reglasx = [
             'd_registro' =>['required'],
@@ -46,8 +47,8 @@ class AgActividadEditarRequest extends FormRequest
             'ag_taller_id' =>['required'],
             'ag_sttema_id' =>['required'],
             'i_prm_dirig_id' =>['required'],
-            'i_prm_espac_id' =>['required'],
             'sis_entidad_id' =>['required'],
+            's_doc_adjunto_ar' => 'nullable|file|mimes:pdf,jpg,jpeg|max:1024',
             's_introduc' =>['required'],
             's_justific' =>['required'],
             's_objetivo' =>['required'],
@@ -88,9 +89,12 @@ class AgActividadEditarRequest extends FormRequest
 
     public function validar()
     {
+        
         if($this->sis_depdestino_id==1){
             $this->_reglasx['s_prm_espac']='required';
-            $this->_mensaje['s_prm_espac.required'] = 'Seleccione el lugar donde se llevó a cabo';
+            $this->_mensaje['s_prm_espac.required'] = 'oooooooo';
         }
+        
     }
+
 }

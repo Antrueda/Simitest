@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Responsable;
+namespace App\Traits\Acciones\Grupales\Relacion;
 
 use App\Helpers\Traductor\Traductor;
 
@@ -41,14 +41,14 @@ trait ParametrizarTrait
         $this->opciones['rutacarp'] = 'Acciones.Grupales.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Responsable';
+        $this->opciones['carpetax'] = 'Relacion';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = Traductor::getTitulo(36, 1);
+        $this->opciones['tituloxx'] = 'RECURSOS';
     }
 
     public function getBotones($dataxxxx)

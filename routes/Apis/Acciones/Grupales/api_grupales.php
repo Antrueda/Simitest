@@ -150,7 +150,7 @@ Route::get('ag/formativas', function (Request $request) {
             case 'ag_taller_id':
                 $agtaller = AgTaller::combo_subtemas(['cabecera' => true, 'ajaxxxxx' => true, 'agtaller' => $request->valuexxx]);
                 if (count($agtaller) == 1) {
-                    $agtaller[0] = ['valuexxx' => 1, 'optionxx' => 'NO APLICA'];
+                    $agtaller[0] = ['valuexxx' => 1, 'optionxx' => 'N/A'];
                 }
                 $respusta['dataxxxx'] = $agtaller;
                 $respusta['comboxxx'] = 'ag_sttema_id';
@@ -226,7 +226,7 @@ Route::get('agr/dependencias', function (Request $request) {
 Route::get('ag/espacios', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     $respusta = [
-        'dataxxxx' => [['valuexxx' => 1, 'optionxx' => 'NO APLICA']],
+        'dataxxxx' => [['valuexxx' => 1, 'optionxx' => 'N/A']],
         'readonly' => true, 'campoxxx' => 's_prm_espac', 'comboxxx' => 'i_prm_lugar_id'
     ];
 
@@ -236,7 +236,7 @@ Route::get('ag/espacios', function (Request $request) {
 
         $cantidad=count($respusta['dataxxxx']);
         if($cantidad==1){
-            $respusta['dataxxxx']=[['valuexxx' => 1, 'optionxx' => 'NO APLICA']];
+            $respusta['dataxxxx']=[['valuexxx' => 1, 'optionxx' => 'N/A']];
         }
 
     if ($request->padrexxx == 1) {

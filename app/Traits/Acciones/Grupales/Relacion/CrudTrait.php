@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Acciones\Grupales\Responsable;
+namespace App\Traits\Acciones\Grupales\Relacion;
 
 use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
@@ -18,7 +18,7 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setAgResponsable($dataxxxx)
+    public function setAgRecurso($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);

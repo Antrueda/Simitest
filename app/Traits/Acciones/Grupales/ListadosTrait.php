@@ -85,21 +85,24 @@ trait ListadosTrait
     {
 
         if ($request->ajax()) {
-            $request->routexxx = ['agrespon', 'fosubtse'];
+            $request->routexxx = ['agrelacion', 'fosubtse'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =   AgRelacion::select([
+                'ag_relacions.id',
                 'ag_relacions.i_cantidad as cantidad',
                 'ag_recursos.s_recurso as recursox',
-                'parametros.nombre as trecurso',
-                'parametros.nombre as umedidax',
-                'ag_actividads.id',
-            ])
+                'trecurso.nombre as trecurso',
+                'umedidax.nombre as umedidax',
+                'ag_relacions.sis_esta_id',
+                'sis_estas.s_estado',
+                ])
             ->join('ag_actividads', 'ag_relacions.ag_actividad_id', '=', 'ag_actividads.id')
             ->join('ag_recursos', 'ag_relacions.ag_recurso_id', '=', 'ag_recursos.id')
-            ->join('parametros', 'ag_recursos.i_prm_trecurso_id', '=', 'parametros.id')
-            ->where('ag_relacions.sis_esta_id', 1)
+            ->join('sis_estas', 'ag_relacions.sis_esta_id', '=', 'sis_estas.id')
+            ->join('parametros as trecurso', 'ag_recursos.i_prm_trecurso_id', '=', 'trecurso.id')
+            ->join('parametros as umedidax', 'ag_recursos.i_prm_umedida_id', '=', 'umedidax.id')
             ->where('ag_relacions.ag_actividad_id', $padrexxx->id);
                 
             return $this->getDt($dataxxxx, $request);

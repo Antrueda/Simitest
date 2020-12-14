@@ -103,6 +103,7 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 'airetornosalida-leer', 'airetornosalida-crear', 'airetornosalida-editar', 'airetornosalida-borrar',
                 'evasionves-leer', 'evasionves-crear', 'evasionves-editar', 'evasionves-borrar',
                 'evasionpar-leer', 'evasionpar-crear', 'evasionpar-editar', 'evasionpar-borrar',
+                'agrelacion-leer', 'agrelacion-crear', 'agrelacion-editar', 'agrelacion-borrar',
                 
 
             ]);

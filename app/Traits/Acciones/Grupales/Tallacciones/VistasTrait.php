@@ -43,11 +43,15 @@ trait VistasTrait
         $opciones['tallerxx'] = ['' => 'Seleccione'];
         $opciones['subtemax'] = Parametro::find(235)->combo;
         $opciones['lugarxxx'] =  Parametro::find(235)->combo;
+        $opciones['archivox']='';
         $opciones['dirigido'] = Tema::combo(285, true, false);
         $opciones = $this->getVista($opciones, $dataxxxx);
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
+            foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
+                $opciones['archivox'] = $value;
+            }
             $opciones['padrexxx']=[$dataxxxx['modeloxx']->id];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];

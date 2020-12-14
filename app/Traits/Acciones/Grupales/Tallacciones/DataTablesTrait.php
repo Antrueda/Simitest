@@ -156,7 +156,7 @@ trait DataTablesTrait
                      'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                      'titupreg' => 'Relación de recursos a emplear:',
                      'vercrear' => true,
-                     'urlxxxxx' => route($dataxxxx['routxxxx'] . '.agrecurso', $dataxxxx['modeloxx']->id),//  $this->opciones['urlxxxre'] = 'api/ag/relaciones';
+                     'urlxxxxx' => route('agrelacion.agrecurso', $dataxxxx['modeloxx']->id),//  $this->opciones['urlxxxre'] = 'api/ag/relaciones';
                      'permtabl' => [
                          $dataxxxx['permisox'] . '-leer',
                          $dataxxxx['permisox'] . '-crear',
@@ -184,7 +184,7 @@ trait DataTablesTrait
                      ],
                      'tablaxxx' => 'datatablerecursos',
                      'permisox' => $dataxxxx['permisox'],
-                     'routxxxx' => 'agrecurso',
+                     'routxxxx' => 'agrelacion',
                      'parametr' => [$dataxxxx['modeloxx']->id],
                  ];
         }

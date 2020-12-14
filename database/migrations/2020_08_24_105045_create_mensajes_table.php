@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateMensajesTable extends Migration
@@ -28,6 +29,7 @@ class CreateMensajesTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS MENSAJES PUBLICADOS EN EL SISTEMA'");
     }
 
     /**

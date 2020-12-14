@@ -34,6 +34,7 @@ class AgActividad extends Model
     'user_crea_id',
     'user_edita_id',
     'sis_esta_id',
+    's_doc_adjunto'
   ];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
     public function creador()
