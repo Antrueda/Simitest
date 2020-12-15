@@ -16,16 +16,15 @@ class CreateRedesApoyosTable extends Migration
   public function up()
   {
     Schema::create($this->tablaxxx, function (Blueprint $table) {
-      $table->bigIncrements('id');
-
-      $table->bigInteger('entidadAtiende_id')->unsigned();
-      $table->bigInteger('ServPrestados_id')->unsigned();
-      $table->integer('tiempoBeneficio');
-      $table->bigInteger('duracion_id')->unsigned();
-      $table->bigInteger('tiempoPrestacion_id')->unsigned();
-      $table->bigInteger('tipoRed_id')->unsigned();
-      $table->bigInteger('tipoRedPersona_id')->unsigned();
-      $table->string('nombrePersona');
+      $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->bigInteger('entidadAtiende_id')->unsigned()->comment('CAMPO ID DE LA ENTIDAD QUE ATIENDE');
+      $table->bigInteger('ServPrestados_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->integer('tiempoBeneficio')->comment('CAMPO DE TIEMPO');
+      $table->bigInteger('duracion_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->bigInteger('tiempoPrestacion_id')->unsigned()->comment('CAMPO DE PARAMETRO DE TIEMPO');
+      $table->bigInteger('tipoRed_id')->unsigned()->comment('CAMPO DE PARAMETRO DE TIPO DE RED');
+      $table->bigInteger('tipoRedPersona_id')->unsigned()->comment('CAMPO DE PARAMETRO TIPO DE PERSONA');
+      $table->string('nombrePersona')->comment('CAMPO NOMBRE DE LA PERSONA');
       $table->bigInteger('servBenePersona_id')->unsigned();
       $table->bigInteger('entidadAtiendeActual_id')->unsigned();
       $table->bigInteger('durTiempoBen_id')->unsigned();

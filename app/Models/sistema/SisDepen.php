@@ -138,6 +138,23 @@ class SisDepen extends Model
         $respuest = [$responsa, $cargoxxx, $dependen];
         return  $respuest;
     }
+
+
+    public function getResponsableUpiAttribute()
+    {
+        $responsa = [['valuexxx' => '', 'optionxx' => 'Sin responsable']];
+        $cargoxxx = '';
+        $dependen = [['valuexxx' => '', 'optionxx' => 'Sin dependencias']];
+        foreach ($this->getDepeUsua as $value) {
+            if ($value->i_prm_responsable_id == 227) {
+                $dependen = $value->user->Dependencias;
+                $responsa = [['valuexxx'=>$value->user->id,'optionxx'=>$value->user->DocNombreCompletoAjax]];
+                $cargoxxx = [['valuexxx'=>$value->user->sis_cargo->id,'optionxx'=>$value->user->sis_cargo->s_cargo]];
+            }
+        }
+        $respuest = [$responsa, $cargoxxx, $dependen];
+        return  $respuest;
+    }
     /** encontrar el responsabe de la unidad en formato ajax */
     public function getResponsableAjaxAttribute()
     {

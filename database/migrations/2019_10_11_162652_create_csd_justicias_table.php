@@ -20,9 +20,9 @@ class CreateCsdJusticiasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('proposito', 200);
-            $table->date('fecha');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('proposito', 200)->comment('CAMPO PROPOSITO');
+            $table->date('fecha')->comment('CAMPO FECHA DE DILIGENCIAMIENTO');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_nnaj_id')->unsigned();
@@ -38,10 +38,10 @@ class CreateCsdJusticiasTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS CONSULTAS EN DOMICILIO ASOCIADAS A UNA PERSONA ENTREVISTADA, CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('csd_id')->unsigned();
-            $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->bigInteger('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
+            $table->bigInteger('prm_tipofuen_id')->unsigned()->comment('CAMPO PARAMETRO TIPO FUENTE');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
@@ -51,14 +51,14 @@ class CreateCsdJusticiasTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL NUMERO CONSECUTIVO DEL DILIGENCIAMIENTO DE UNA CONSULTA SOCIAL EN DOMICILIO Y SERVIRA PARA AGRUPAR A LAS 12 SECCIONES DE ESTE FORMATO, CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('csd_id')->unsigned();
-            $table->bigInteger('prm_vinculado_id')->unsigned();
-            $table->bigInteger('prm_vin_causa_id')->unsigned()->nullable();
-            $table->bigInteger('prm_riesgo_id')->unsigned();
-            $table->bigInteger('prm_rie_causa_id')->unsigned()->nullable();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->bigInteger('prm_vinculado_id')->unsigned()->comment('CAMPO PARAMETRO VINCULADO');
+            $table->bigInteger('prm_vin_causa_id')->unsigned()->nullable()->comment('CAMPO CAUSA DE VINCULACION');
+            $table->bigInteger('prm_riesgo_id')->unsigned()->comment('CAMPO RIESGO DE PARTICIPAR EN ACTOS DELICTIVOS');
+            $table->bigInteger('prm_rie_causa_id')->unsigned()->nullable()->comment('CAMPO INDICAR RIESGO');
 
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->bigInteger('prm_tipofuen_id')->unsigned()->comment('CAMPO PARAMETRO TIPO FUENTE');
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_vinculado_id')->references('id')->on('parametros');
             $table->foreign('prm_vin_causa_id')->references('id')->on('parametros');
@@ -70,10 +70,10 @@ class CreateCsdJusticiasTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA JUSTICIA RESTAURATIVA DE LA PERSONA ENTEVISTADA, SECCION 4 JUSTICIA RESTAURATIVA DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO SITUACION ESPECIAL');
+            $table->bigInteger('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->bigInteger('prm_tipofuen_id')->unsigned()->comment('CAMPO PARAMETRO TIPO FUENTE');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_id')->references('id')->on('csds');

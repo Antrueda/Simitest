@@ -17,11 +17,11 @@ class CreateNnajFiCsdsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table = CamposMagicos::getForeign($table, 'fi_datos_basico');
             $table = CamposMagicos::getForeign($table, 'prm_etnia_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_poblacion_etnia_id', 'parametros');
-            $table->string('s_apodo')->nullable();
+            $table->string('s_apodo')->nullable()->comment('CAMPO DE APODO');
             $table = CamposMagicos::getForeign($table, 'prm_gsanguino_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_factor_rh_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_estado_civil_id', 'parametros');

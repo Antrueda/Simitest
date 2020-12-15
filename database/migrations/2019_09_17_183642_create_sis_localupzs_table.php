@@ -15,9 +15,9 @@ class CreateSisLocalupzsTable extends Migration
     public function up()
     {
         Schema::create('sis_localupzs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('sis_localidad_id')->unsigned();
-            $table->bigInteger('sis_upz_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('sis_localidad_id')->unsigned()->comment('CAMPO ID DE LA LOCALIDAD');
+            $table->bigInteger('sis_upz_id')->unsigned()->comment('CAMPO ID DE LA UPZ');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

@@ -76,7 +76,7 @@ class FiGeneracionIngresoController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-
+            
             if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id == 626) {
                 $this->opciones['trabinfo'] = Parametro::find(235)->Combo;
                 $this->opciones['otractiv'] = Parametro::find(235)->Combo;

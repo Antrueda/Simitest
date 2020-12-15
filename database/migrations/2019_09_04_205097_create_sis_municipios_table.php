@@ -16,9 +16,9 @@ class CreateSisMunicipiosTable extends Migration
     {
         Schema::create('sis_municipios', function (Blueprint $table) {
 
-            $table->bigIncrements('id');
-            $table->bigInteger('sis_departamento_id')->unsigned();
-            $table->string('s_municipio');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('sis_departamento_id')->unsigned()->comment('CAMPO DE ID DEL DEPARTAMENTO');
+            $table->string('s_municipio')->comment('CAMPO NOMBRE DEL MUNICIPIO');
             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
             $table->bigInteger('sis_esta_id')->unsigned();

@@ -19,11 +19,11 @@ class CreateVsiRelSocialesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->string('descripcion', 4000);
-            $table->bigInteger('prm_dificultad_id')->nullable()->unsigned();
-            $table->string('completa', 4000)->nullable();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
+            $table->string('descripcion', 4000)->comment('CAMPO DESCRIPCION');
+            $table->bigInteger('prm_dificultad_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DIFICULTAD');
+            $table->string('completa', 4000)->nullable()->comment('CAMPO ABIERTO DESCRIPCION COMPLETA DE SI MISMO');
 
        
 
@@ -36,9 +36,9 @@ class CreateVsiRelSocialesTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RELACIONES FAMILIARES DE LA PERSONA ENTREVISTADA, SECCION 6 RELACIONES SOCIALES DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_relsocial_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE FACTORES QUE FACILITAN INTERACTUAR');
+            $table->bigInteger('vsi_relsocial_id')->unsigned()->comment('CAMPO ID RELACION SOCIAL');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relsocial_id')->references('id')->on('vsi_rel_sociales');
@@ -48,9 +48,9 @@ class CreateVsiRelSocialesTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS FACTORES QUE FACILITAN INTERACTUAR CON OTRAS PERSONAS, PREGUNTA 6.1 SECCION 6 RELACIONES SOCIALES DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_relsocial_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE FACTORES QUE DIFICULTAN INTERACTUAR');
+            $table->bigInteger('vsi_relsocial_id')->unsigned()->comment('CAMPO ID RELACION SOCIAL');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relsocial_id')->references('id')->on('vsi_rel_sociales');

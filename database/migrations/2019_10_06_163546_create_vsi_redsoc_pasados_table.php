@@ -16,14 +16,14 @@ class CreateVsiRedsocPasadosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->string('nombre');
-            $table->string('servicio');
-            $table->integer('dia')->nullable();
-            $table->integer('mes')->nullable();
-            $table->integer('ano')->nullable();
-            $table->integer('ano_prestacion');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->string('nombre')->comment('CAMPO NOMBRE');
+            $table->string('servicio')->comment('CAMPO SERVICIO');
+            $table->integer('dia')->nullable()->comment('CAMPO DIA');
+            $table->integer('mes')->nullable()->comment('CAMPO MES');
+            $table->integer('ano')->nullable()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('ano_prestacion')->comment('CAMPO AÑO DE PRESTACION DE SERVICIO');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

@@ -16,11 +16,11 @@ class CreateSisMapaProcsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('version')->unsigned();
-            $table->bigInteger('sis_entidad_id')->unsigned();
-            $table->date('vigencia');
-            $table->date('cierre');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('version')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE ENTIDAD');
+            $table->date('vigencia')->comment('CAMPO FECHA DE VIGENCIA');
+            $table->date('cierre')->comment('CAMPO DE FECHA DE CIERRE');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

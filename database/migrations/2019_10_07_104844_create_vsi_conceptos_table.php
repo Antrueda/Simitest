@@ -18,12 +18,12 @@ class CreateVsiConceptosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->string('concepto', 4000);
-            $table->bigInteger('prm_ingreso_id')->unsigned()->nullable();
-            $table->string('porque', 4000)->nullable();
-            $table->string('cual', 120)->nullable();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->string('concepto', 4000)->comment('CAMPO ABIERTO CONCEPTO');
+            $table->bigInteger('prm_ingreso_id')->unsigned()->nullable()->comment('CAMPO CONSIDERA PERTINENTE EL INGRESO AL IDIPRON');
+            $table->string('porque', 4000)->nullable()->comment('CAMPO ABIERTO DE POR QUE');
+            $table->string('cual', 120)->nullable()->comment('CAMPO CUALES REDES INTERINSTITUCIONAL');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_ingreso_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
@@ -31,9 +31,9 @@ class CreateVsiConceptosTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA IMPRESIÓN DIAGNÓSTICA Y EL ANÁLISIS SOCIAL DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_concepto_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACE LA RED INSTITUCIONAL');
+            $table->bigInteger('vsi_concepto_id')->unsigned()->comment('CAMPO ID DE CONCEPTO');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_concepto_id')->references('id')->on('vsi_conceptos');
             $table->unique(['parametro_id', 'vsi_concepto_id']);

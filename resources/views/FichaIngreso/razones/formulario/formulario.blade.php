@@ -18,16 +18,16 @@
     @endif
   </div>
   <div class="form-group col-md-3">
-    {{ Form::label('s_cargo_contrato', 'Cargo / No. de contrato', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_cargo_diligencia', 'Cargo / No. de contrato', ['class' => 'control-label col-form-label-sm']) }}
     <div id="s_cargo_diligencia" class="form-control form-control-sm">
       {{$todoxxxx['cargodil']}}
     </div>
   </div>
   <div class="form-group col-md-3">
-    {{ Form::label('sis_depend_id', 'Àrea o equipo', ['class' => 'control-label']) }}
+    {{ Form::label('sis_depend_id', 'Área o equipo', ['class' => 'control-label']) }}
     {{ Form::select('sis_depend_id', $todoxxxx['depedile'], null, ['class' => $errors->first('sis_depend_id') ?
     'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm',
-    'data-placeholder' => 'Digite el responsable']) }}
+    'data-placeholder' => 'Digite el Area']) }}
     @if($errors->has('sis_depend_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('sis_depend_id') }}
@@ -37,11 +37,8 @@
 </div>
 <div class="form-row align-items-end">
 
-
-
-
   <div class="form-group col-md-6">
-    {{ Form::label('userr_id', '17.4 Persona Resposable / Encargado', ['class' => 'control-label']) }}
+    {{ Form::label('userr_id', '17.4 Persona Responsable / Encargado', ['class' => 'control-label']) }}
     {{ Form::select('userr_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('userr_id') ?
     'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos',
     'data-placeholder' => 'Digite el responsable']) }}
@@ -51,19 +48,17 @@
     </div>
     @endif
   </div>
-
-
-
+  
   <div class="form-group col-md-3">
-    {{ Form::label('s_cargo_contrato_reponsable', 'Cargo / No. de contrato', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::label('s_cargo_responsable', 'Cargo / No. de contrato', ['class' => 'control-label col-form-label-sm']) }}
     <div id="s_cargo_responsable" class="form-control form-control-sm"> {{$todoxxxx['cargores']}}</div>
   </div>
 
   <div class="form-group col-md-3">
-    {{ Form::label('sis_depenr_id', 'Àrea o equipo', ['class' => 'control-label']) }}
+    {{ Form::label('sis_depenr_id', 'Área o equipo', ['class' => 'control-label']) }}
     {{ Form::select('sis_depenr_id', $todoxxxx['deperesp'], null, ['class' => $errors->first('sis_depenr_id') ?
     'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm',
-    'data-placeholder' => 'Digite el responsable']) }}
+    'data-placeholder' => 'Digite el Área']) }}
     @if($errors->has('sis_depenr_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('sis_depenr_id') }}

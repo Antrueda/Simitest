@@ -17,8 +17,8 @@ class CreateEstusuariosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
-            $table->string('estado', 150);
+            $table->id()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('estado', 150)->comment('CAMPO NOMBRE DEL ESTADO');
             $table->bigInteger('prm_formular_id')->unsigned()->comment('FORMULARIO AL QUE SE LE VA ASIGNAR EL MOTIVO DEL ESTADO');
 
             $table->integer('user_crea_id')->unsigned()->default(1);

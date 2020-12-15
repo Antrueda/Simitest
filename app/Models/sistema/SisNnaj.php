@@ -181,10 +181,11 @@ class SisNnaj extends Model
     public function getResponsableAttribute()
     {
         $principa = '';
-
+        $dependen ='';
         foreach ($this->getUpiNnaj($this->nnaj_upis)->getDepeUsua as $value) {
             if ($value->i_prm_responsable_id == 227) {
                 $principa = $value->user;
+                $dependen=$value;
             }
         }
         if($principa==''){
@@ -196,14 +197,19 @@ class SisNnaj extends Model
             $principa->s_segundo_nombre . ' ' .
             $principa->s_primer_apellido . ' ' .
             $principa->s_segundo_apellido;
+            
         $respuest = [
             [$principa->id => $principa->s_documento . ' - ' . $nombrexx . ' - ' . $cargoxxx->s_cargo],
+            [['valuexxx'=>$dependen->id, 'optionxx'=>  $dependen->nombre]],
+            $cargoxxx->s_cargo,
         ];
         }   
        
 
         return $respuest;
     }
+    
+
     public function nnaj_depes()
     {
         return $this->hasMany(NnajUpi::class);

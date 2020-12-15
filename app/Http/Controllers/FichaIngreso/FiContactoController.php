@@ -8,6 +8,7 @@ use App\Http\Requests\FichaIngreso\FiContactoUpdateRequest;
 use App\Models\fichaIngreso\FiContacto;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Tema;
+use Carbon\Carbon;
 
 class FiContactoController extends Controller
 {
@@ -44,6 +45,7 @@ class FiContactoController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
+        $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [

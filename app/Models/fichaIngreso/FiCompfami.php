@@ -119,6 +119,28 @@ class FiCompfami extends Model
         return $comboxxx;
     }
 
+    
+    public static function comboNoNNaj($padrexxx, $cabecera, $ajaxxxxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            $comboxxx = ['' => 'Seleccione'];
+        }
+        foreach (FiCompfami::where('sis_nnajnnaj_id', $padrexxx->sis_nnaj_id)->whereNotIn('sis_nnaj_id',[$padrexxx->sis_nnaj_id ])->get() as $registro) {
+            $nombrexx = $registro->sis_nnaj->fi_datos_basico->s_primer_nombre . ' ' . $registro->sis_nnaj->fi_datos_basico->s_segundo_nombre . ' ' .
+                $registro->sis_nnaj->fi_datos_basico->s_primer_apellido . ' ' . $registro->sis_nnaj->fi_datos_basico->s_segundo_apellido;
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => $registro->id,
+                    'optionxx' =>  $nombrexx
+                ];
+            } else {
+                $comboxxx[$registro->id] =  $nombrexx;
+            }
+        }
+        return $comboxxx;
+    }
+
     /**
      * Este método comprueba si existe un componte familiar mayor de edad para que sea el responsable del NNAJ
      */

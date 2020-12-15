@@ -23,38 +23,38 @@ class CreateCsdResidenciasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('csd_id')->unsigned();
-            $table->bigInteger('prm_tipo_id')->unsigned();
-            $table->bigInteger('prm_es_id')->unsigned();
-            $table->bigInteger('prm_dir_tipo_id')->unsigned();
-            $table->bigInteger('prm_dir_zona_id')->unsigned();
-            $table->bigInteger('prm_dir_via_id')->unsigned()->nullable();
-            $table->string('dir_nombre')->nullable();
-            $table->bigInteger('prm_dir_alfavp_id')->unsigned()->nullable();
-            $table->bigInteger('prm_dir_bis_id')->unsigned()->nullable();
-            $table->bigInteger('prm_dir_alfabis_id')->unsigned()->nullable();
-            $table->bigInteger('prm_dir_cuadrantevp_id')->unsigned()->nullable();
-            $table->integer('dir_generadora')->nullable();
-            $table->bigInteger('prm_dir_alfavg_id')->unsigned()->nullable();
-            $table->integer('dir_placa')->nullable();
-            $table->bigInteger('prm_dir_cuadrantevg_id')->unsigned()->nullable();
-            $table->bigInteger('prm_estrato_id')->unsigned()->nullable();
-            $table->string('dir_complemento', 300)->nullable();
-            $table->bigInteger('sis_upzbarri_id')->unsigned()->nullable();
-            $table->string('telefono_uno', 10)->nullable();
-            $table->string('telefono_dos', 10)->nullable();
-            $table->string('telefono_tres', 10)->nullable();
-            $table->string('email')->nullable();
-            $table->bigInteger('prm_piso_id')->unsigned();
-            $table->bigInteger('prm_muro_id')->unsigned();
-            $table->bigInteger('prm_higiene_id')->unsigned();
-            $table->bigInteger('prm_ventilacion_id')->unsigned();
-            $table->bigInteger('prm_iluminacion_id')->unsigned();
-            $table->bigInteger('prm_orden_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
-            $table->bigInteger('numerocamas')->nullable();
-            $table->bigInteger('prm_hacinam_id')->nullable()->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->bigInteger('prm_tipo_id')->unsigned()->comment('CAMPO TIPO DE RESIDENCIA');
+            $table->bigInteger('prm_es_id')->unsigned()->comment('CAMPO LA RESIDENCIA ES');
+            $table->bigInteger('prm_dir_tipo_id')->unsigned()->comment('CAMPO TIPO DE DIRECCION');
+            $table->bigInteger('prm_dir_zona_id')->unsigned()->comment('CAMPO TIPO DE ZONA');
+            $table->bigInteger('prm_dir_via_id')->unsigned()->nullable()->comment('CAMPO TIPO DE VIA PRINCIPAL');
+            $table->string('dir_nombre')->nullable()->comment('CAMPO NOMBRE DE LA VIA');
+            $table->bigInteger('prm_dir_alfavp_id')->unsigned()->nullable()->comment('ALDABETICO VIA PRINCIPAL');
+            $table->bigInteger('prm_dir_bis_id')->unsigned()->nullable()->comment('CAMPO BIS');
+            $table->bigInteger('prm_dir_alfabis_id')->unsigned()->nullable()->comment('LETRA BIS');
+            $table->bigInteger('prm_dir_cuadrantevp_id')->unsigned()->nullable()->comment('CUADRANTE VIA PRINCIPAL');
+            $table->integer('dir_generadora')->nullable()->comment('CAMPO NUMERO VIA GENERADORA');
+            $table->bigInteger('prm_dir_alfavg_id')->unsigned()->nullable()->comment('ALDABETICO VIA GENERADORA');
+            $table->integer('dir_placa')->nullable()->comment('CAMPO PLACA');
+            $table->bigInteger('prm_dir_cuadrantevg_id')->unsigned()->nullable()->comment('CAMPO CUADRANTE VIA GENERADORA');
+            $table->bigInteger('prm_estrato_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO ESTRATO');
+            $table->string('dir_complemento', 300)->nullable()->comment('CAMPO COMPLEMENTO');
+            $table->bigInteger('sis_upzbarri_id')->unsigned()->nullable()->comment('CAMPO ID BARRIO');
+            $table->string('telefono_uno', 10)->nullable()->comment('CAMPO TELEFONO UNO');
+            $table->string('telefono_dos', 10)->nullable()->comment('CAMPO TELEFONO DOS');
+            $table->string('telefono_tres', 10)->nullable()->comment('CAMPO TELEFONO TRES');
+            $table->string('email')->nullable()->comment('CAMPO CORREO ELECTRONICO');
+            $table->bigInteger('prm_piso_id')->unsigned()->comment('CAMPO TIPO DE PISO');
+            $table->bigInteger('prm_muro_id')->unsigned()->comment('CAMPO TIPO DE MURO');
+            $table->bigInteger('prm_higiene_id')->unsigned()->comment('CAMPO TIPO DE HIGIENE');
+            $table->bigInteger('prm_ventilacion_id')->unsigned()->comment('CAMPO TIPO DE VENTILACION');
+            $table->bigInteger('prm_iluminacion_id')->unsigned()->comment('CAMPO TIPO DE ILUMINACION');
+            $table->bigInteger('prm_orden_id')->unsigned()->comment('CAMPO TIPO DE ORDEN');
+            $table->bigInteger('prm_tipofuen_id')->unsigned()->comment('CAMPO TIPO DE FUENTE');
+            $table->bigInteger('numerocamas')->nullable()->comment('CAMPO NUMERO DE CAMAS');
+            $table->bigInteger('prm_hacinam_id')->nullable()->unsigned()->comment('CAMPO HACINAMIENTO');
             $table->foreign('prm_hacinam_id')->references('id')->on('parametros');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('csd_id')->references('id')->on('csds');
@@ -82,9 +82,9 @@ class CreateCsdResidenciasTable extends Migration
         Db::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA UBICACION Y CONTACTO DE LA PERSONA ENTREVISTADA, SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_residencia_id')->unsigned();
+            $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -95,58 +95,58 @@ class CreateCsdResidenciasTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
         
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('prm_servicio_id')->unsigned();
-            $table->bigInteger('prm_legalxxx_id')->unsigned();
-            $table->bigInteger('csd_residencia_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('prm_servicio_id')->unsigned()->comment('CAMPO PARAMETRO DE TIPO DE SERVICIO');
+            $table->bigInteger('prm_legalxxx_id')->unsigned()->comment('CAMPO PARAMETRO SI ES LEGAL');
+            $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
             $table->foreign('prm_servicio_id')->references('id')->on('parametros');
             $table->foreign('prm_legalxxx_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SERVICIOS Y ESTADO, PREGUNTA 5.18 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('prm_espacio_id')->unsigned();
-            $table->bigInteger('espaciocant')->nullable();
-            $table->bigInteger('csd_residencia_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('prm_espacio_id')->unsigned()->comment('CAMPO TIPO DE ESPACIO O AMBIENTE');
+            $table->bigInteger('espaciocant')->nullable()->comment('CAMPO CANTIDAD DE ESPACIO O AMBIENTE');
+            $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
             $table->foreign('prm_espacio_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE ESPACIOS QUE DISPONE EL HOGAR, PREGUNTA 5.19'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('prm_comparte_id')->unsigned();
-            $table->bigInteger('csd_residencia_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('prm_comparte_id')->unsigned()->comment('CAMPO PARAMETRO SI COMPARTE CAMAS');
+            $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
             $table->foreign('prm_comparte_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA SI COMPARTE CAMAS '");
      
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('csd_residencia_id')->unsigned();
-            $table->longText('observaciones', 4000);
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
+            $table->longText('observaciones', 4000)->comment('CAMPO OBSERVACIONES');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LAS OBSERVACIONES REALIZADAS POR EL FUNCIONARIO A LA RESIDENCIA'");
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('prm_espacio_id')->unsigned();
-            $table->bigInteger('prm_otrafamilia_id')->unsigned();
-            $table->bigInteger('csd_residencia_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('prm_espacio_id')->unsigned()->comment('CAMPO ESPACIO');
+            $table->bigInteger('prm_otrafamilia_id')->unsigned()->comment('CAMPO SI COMPARTE EL ESPACIO');
+            $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
             $table->foreign('prm_espacio_id')->references('id')->on('parametros');
             $table->foreign('prm_otrafamilia_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA EL SI COMPARTE LOS ESPACIO CON OTRA FAMILIA, PREGUNTA 5.20 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
 
     }
 

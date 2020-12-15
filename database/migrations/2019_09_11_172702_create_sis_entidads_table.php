@@ -18,8 +18,8 @@ class CreateSisEntidadsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nombre')->unique();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DE LA ENTIDAD');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
@@ -32,11 +32,10 @@ class CreateSisEntidadsTable extends Migration
 
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('s_servicio')->unique();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('s_servicio')->unique()->comment('CAMPO DE NOMBRE DEL SERVICIO');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
-
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
@@ -46,8 +45,8 @@ class CreateSisEntidadsTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS SERVICIOS INSTITUCIONALES'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigInteger('sis_entidad_id')->unsigned();
-            $table->bigInteger('sis_servicio_id')->unsigned();
+            $table->bigInteger('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD');
+            $table->bigInteger('sis_servicio_id')->unsigned()->comment('CAMPO DE ID DEL SERVICIO');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');

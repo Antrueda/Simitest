@@ -70,7 +70,7 @@ trait DataTablesTrait
                     'titulist' => 'LISTA DE RESPONSABLES',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => 'Funcionarios y/o contratistas que realizan la actividada/taller:',
-                    'vercrear' => (count($responsa) <= 3 ? true : false),
+                    'vercrear' => (count($responsa) <= 2 ? true : false),
                     'urlxxxxx' => route($dataxxxx['routxxxx'] . '.responsa', $dataxxxx['modeloxx']->id),
                     'permtabl' => [
                         $dataxxxx['permisox'] . '-leer',

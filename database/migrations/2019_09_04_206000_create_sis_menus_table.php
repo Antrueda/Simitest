@@ -17,10 +17,10 @@ class CreateSisMenusTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('sis_menu_id')->unsigned()->nullable();
-            $table->string('s_menu');
-            $table->string('s_icono');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('sis_menu_id')->unsigned()->nullable()->comment('CAMPO DEL ID DEL MENU');
+            $table->string('s_menu')->comment('CAMPO NOMBRE DEL MENU');
+            $table->string('s_icono')->comment('CAMPO NOMBRE DEL ICONO');
             $table->bigInteger('sis_docfuen_id')->unsigned()->nullable();
             $table->foreign('sis_menu_id')->references('id')->on('sis_menus');
             $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');

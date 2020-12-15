@@ -17,17 +17,17 @@ class CreateSisDepensTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nombre')->unique();
-            $table->bigInteger('i_prm_cvital_id')->unsigned();
-            $table->bigInteger('i_prm_tdependen_id')->unsigned();
-            $table->bigInteger('i_prm_sexo_id')->unsigned();
-            $table->string('s_direccion');
-            $table->bigInteger('sis_departamento_id')->unsigned();
-            $table->bigInteger('sis_municipio_id')->unsigned();
-            $table->bigInteger('sis_upzbarri_id')->unsigned();
-            $table->string('s_telefono');
-            $table->string('s_correo');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('nombre')->unique()->comment('CAMPO NOMBRE DE LA DEPENDENCIA');
+            $table->bigInteger('i_prm_cvital_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('i_prm_tdependen_id')->unsigned()->comment('CAMPO TIPO DE DEPENDENCIA');
+            $table->bigInteger('i_prm_sexo_id')->unsigned()->comment('CAMPO DE SEXO');
+            $table->string('s_direccion')->comment('CAMPO DE DIRECCION DE LA DEPENDENCIA');
+            $table->bigInteger('sis_departamento_id')->unsigned()->comment('CAMPO DE ID DEL DEPARTAMENTO');
+            $table->bigInteger('sis_municipio_id')->unsigned()->comment('CAMPO DE ID DEL MUNICIPIO');
+            $table->bigInteger('sis_upzbarri_id')->unsigned()->comment('CAMPO ID DEL BARRIO ');
+            $table->string('s_telefono')->comment('CAMPO TELEFONO DE DEPENDENCIA');
+            $table->string('s_correo')->comment('CAMPO CORREO DE LA DEPENDENCIA');
             $table->Integer('itiestan')->default(0)->comment('TIEMPO STANDAR PARA EL CARGUE DE INFORMACION');
             $table->Integer('itiegabe')->default(0)->comment('TIEMPO GABELA PARA EL CARGUE DE INFORMACION');
             $table->Integer('itigafin')->default(0)->comment('TIEMPO GABELA FIN DE MES PARA EL CARGE DE INFORMACION');

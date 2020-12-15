@@ -72,7 +72,10 @@ class AgResponsableController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR RESPONSABLE', 'btn btn-sm btn-primary']);
+        $responsa = AgResponsable::where('ag_actividad_id',$padrexxx->id)->get();
+        if(  count($responsa)<=2){
         $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'CREAR RESPONSABLE', 'btn btn-sm btn-primary']);
+        }
         return $this->view(
             $this->opciones,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]

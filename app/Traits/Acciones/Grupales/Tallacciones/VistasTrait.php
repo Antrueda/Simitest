@@ -2,6 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Tallacciones;
 
+use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Indicadores\Area;
@@ -41,8 +42,8 @@ trait VistasTrait
         $opciones['upidepen'] = SisDepen::combo(true, false);
         $opciones['agtemaxx'] = ['' => 'Seleccione'];
         $opciones['tallerxx'] = ['' => 'Seleccione'];
-        $opciones['subtemax'] = Parametro::find(235)->combo;
         $opciones['lugarxxx'] =  Parametro::find(235)->combo;
+        $opciones['subtemax'] = [1=>'N/A'];
         $opciones['archivox']='';
         $opciones['dirigido'] = Tema::combo(285, true, false);
         $opciones = $this->getVista($opciones, $dataxxxx);
@@ -62,7 +63,7 @@ trait VistasTrait
             $opciones['tallerxx'] = AgTema::combo_talleres(['cabecera' => true, 'ajaxxxxx' => false, 'agtemaid' => $dataxxxx['modeloxx']->ag_tema_id]);
             $agtaller = AgTaller::combo_subtemas(['cabecera' => true, 'ajaxxxxx' => false, 'agtaller' => $dataxxxx['modeloxx']->ag_taller_id]);
             if (count($agtaller) == 1) {
-                $opciones['subtemax'] = Parametro::find(235)->combo;;
+                $opciones['subtemax'] = [1=>'N/A'];
             }
             if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
                 $opciones['lugarxxx'] = Tema::combo(336, true, false);

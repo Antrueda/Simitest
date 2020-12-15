@@ -27,19 +27,19 @@
                 }
             });
         }
-
-        @if(old('userr_id') != null)
+        @if(old('userd_id') != null)
             f_cargos({
                 dataxxxx: {
-                    valuexxx: "{{old('userr_id')}}",
-                    campoxxx: 'userr_id',
-                    selected: '{{old("sis_depenr_id")}}'
+                    valuexxx: "{{old('userd_id')}}",
+                    campoxxx: 'userd_id',
+                    selected: '{{old("sis_depend_id")}}'
             }});
         @endif
-        $('.cargos').change(function() {
+       $('.cargos').change(function() {
             f_cargos({
                 dataxxxx: {
                     valuexxx: $(this).val(),
+                    nnajidxx: "{{$todoxxxx['usuariox']->id}}",
                     campoxxx: $(this).prop('id')
                 },
                 selected: ''

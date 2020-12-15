@@ -15,8 +15,8 @@ class CreateSisBarriosTable extends Migration
     public function up()
     {
         Schema::create('sis_barrios', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('s_barrio')->unique();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('s_barrio')->unique()->comment('CAMPO NOMBRE DEL BARRIO');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

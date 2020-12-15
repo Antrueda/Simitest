@@ -24,43 +24,43 @@ class CreateVsiEstEmocionalsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('prm_siente_id')->unsigned();
-            $table->binary('descripcion_siente');
-            $table->bigInteger('prm_reacciona_id')->unsigned()->nullable();
-            $table->binary('descripcion_reacciona');
-            $table->binary('descripcion_adecuado')->nullable();
-            $table->binary('descripcion_dificulta')->nullable();
-            $table->bigInteger('prm_estresante_id')->unsigned();
-            $table->binary('descripcion_estresante')->nullable();
-            $table->bigInteger('prm_morir_id')->unsigned();
-            $table->integer('dia_morir')->unsigned()->nullable();
-            $table->integer('mes_morir')->unsigned()->nullable();
-            $table->integer('ano_morir')->unsigned()->nullable();
-            $table->bigInteger('prm_pensamiento_id')->unsigned()->nullable();
-            $table->bigInteger('prm_amenaza_id')->unsigned()->nullable();
-            $table->bigInteger('prm_intento_id')->unsigned()->nullable();
-            $table->integer('ideacion')->unsigned()->nullable();
-            $table->integer('amenaza')->unsigned()->nullable();
-            $table->integer('intento')->unsigned()->nullable();
-            $table->bigInteger('prm_riesgo_id')->unsigned()->nullable();
-            $table->integer('dia_ultimo')->unsigned()->nullable();
-            $table->integer('mes_ultimo')->unsigned()->nullable();
-            $table->integer('ano_ultimo')->unsigned()->nullable();
-            $table->binary('descripcion_motivo')->nullable();
-            $table->bigInteger('prm_lesiva_id')->unsigned()->nullable();
-            $table->binary('descripcion_lesiva')->nullable();
-            $table->bigInteger('prm_sueno_id')->unsigned();
-            $table->integer('dia_sueno')->unsigned()->nullable();
-            $table->integer('mes_sueno')->unsigned()->nullable();
-            $table->integer('ano_sueno')->unsigned()->nullable();
-            $table->binary('descripcion_sueno')->nullable();
-            $table->bigInteger('prm_alimenticio_id')->unsigned();
-            $table->integer('dia_alimenticio')->unsigned()->nullable();
-            $table->integer('mes_alimenticio')->unsigned()->nullable();
-            $table->integer('ano_alimenticio')->unsigned()->nullable();
-            $table->binary('descripcion_alimenticio')->nullable();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->bigInteger('prm_siente_id')->unsigned()->comment('CAMPO PARAMETRO DE COMO SE SIENTE');
+            $table->binary('descripcion_siente')->comment('CAMPO DESCRIPCION DE COMO SE SIENTE');
+            $table->bigInteger('prm_reacciona_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DE COMO REACCIONA');
+            $table->binary('descripcion_reacciona')->comment('CAMPO DESCRIPCION DE COMO REACCIONA');
+            $table->binary('descripcion_adecuado')->nullable()->comment('CAMPO DESCRIPCION COMO REACCIONA ADECUADAMENTE');
+            $table->binary('descripcion_dificulta')->nullable()->comment('CAMPO DESCRIPCION DE QUE SE LE DIFICULTA');
+            $table->bigInteger('prm_estresante_id')->unsigned()->comment('CAMPO PARAMETRO SI SE LE HA PRESENTADO ALGUN ACONTECIMIENTO ESTRESANTE');
+            $table->binary('descripcion_estresante')->nullable()->comment('CAMPO DESCRIPCION EL ACONTECIMIENTO ESTRESANTE');
+            $table->bigInteger('prm_morir_id')->unsigned()->comment('CAMPO SI HA TENIDO PENSAMIENTOS CON MORIRSE');
+            $table->integer('dia_morir')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS DIAS');
+            $table->integer('mes_morir')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS MESES');
+            $table->integer('ano_morir')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS AÑOS');
+            $table->bigInteger('prm_pensamiento_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO PENSAMIENTOS DE QUITARSE LA VIDA');
+            $table->bigInteger('prm_amenaza_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO AMENAZAS CON QUITARSE LA VIDA');
+            $table->bigInteger('prm_intento_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO INTENTOS DE QUITARSE LA VIDA');
+            $table->integer('ideacion')->unsigned()->nullable()->comment('CAMPO POR IDEACION');
+            $table->integer('amenaza')->unsigned()->nullable()->comment('CAMPO POR AMENAZA');
+            $table->integer('intento')->unsigned()->nullable()->comment('CAMPO POR INTENTO');
+            $table->bigInteger('prm_riesgo_id')->unsigned()->nullable()->comment('CAMPO NIVEL DE RIESGO');
+            $table->integer('dia_ultimo')->unsigned()->nullable()->comment('CAMPO ULTIMO DIA QUE INTENTO QUITARSE LA VIDA');
+            $table->integer('mes_ultimo')->unsigned()->nullable()->comment('CAMPO ULTIMO MES QUE INTENTO QUITARSE LA VIDA');
+            $table->integer('ano_ultimo')->unsigned()->nullable()->comment('CAMPO ULTIMO AÑO QUE INTENTO QUITARSE LA VIDA');
+            $table->binary('descripcion_motivo')->nullable()->comment('CAMPO DESCRIPCION DEL MOTIVO QUE INTENTO QUITARSE LA VIDA');
+            $table->bigInteger('prm_lesiva_id')->unsigned()->nullable()->comment('CAMPO CONDUCTAS AUTO LESIVA');
+            $table->binary('descripcion_lesiva')->nullable()->comment('CAMPO DESCRIPCION DE CONDUCTAS AUTO LESIVAS');
+            $table->bigInteger('prm_sueno_id')->unsigned()->comment('CAMPO PROBLEMAS DE SUEÑO');
+            $table->integer('dia_sueno')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS DIAS TIENE PROBLEMAS DE SUEÑO');
+            $table->integer('mes_sueno')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS MESES TIENE PROBLEMAS DE SUEÑO');
+            $table->integer('ano_sueno')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS AÑOS TIENE PROBLEMAS DE SUEÑO');
+            $table->binary('descripcion_sueno')->nullable()->comment('CAMPO DESCRIPCION DEL PROBLEMA DE SUEÑO');
+            $table->bigInteger('prm_alimenticio_id')->unsigned()->comment('CAMPO VARIACION EN HABITOS ALIMENTICIOS ALIMENTICIOS');
+            $table->integer('dia_alimenticio')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS DIAS TIENE VARIACION EN HABITOS ALIMENTICIOS');
+            $table->integer('mes_alimenticio')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS MESES TIENE VARIACION EN HABITOS ALIMENTICIOS');
+            $table->integer('ano_alimenticio')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS AÑOS TIENE VARIACION EN HABITOS ALIMENTICIOS');
+            $table->binary('descripcion_alimenticio')->nullable()->comment('CAMPO DESCRIPCION DE VARIACION DE HABITOS ALIMENTICIOS');
 
 
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -81,10 +81,9 @@ class CreateVsiEstEmocionalsTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL ESTADO EMOCIONAL EN LA PERSONA ENTREVISTADA, SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_estemocional_id')->unsigned();
-
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO SENTIMIENTOS QUE LOGRA EXPRESAR ADECUADAMENTE');
+            $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
@@ -93,9 +92,9 @@ class CreateVsiEstEmocionalsTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE SENTIMIENTOS QUE LOGRA EXPRESAR ADECUADAMENTE EN LA PERSONA ENTREVISTADA, PREGUNTA 12.6 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_estemocional_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO SENTIMIENTOS QUE SE LE DIFICULTA EXPRESAR ADECUADAMENTE');
+            $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
@@ -104,9 +103,9 @@ class CreateVsiEstEmocionalsTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SENTIMIENTOS QUE SE LE DIFICULTA EXPRESAR ADECUADAMENTE EN LA PERSONA ENTREVISTADA, PREGUNTA 12.8 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_estemocional_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO ACONTECIMIENTOS ESTRESANTES');
+            $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
             $table->unique(['parametro_id', 'vsi_estemocional_id']);
@@ -115,9 +114,9 @@ class CreateVsiEstEmocionalsTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE ACONTECIMIENTOS ESTRESANTES EN LA PERSONA ENTREVISTADA, PREGUNTA 12.10 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_estemocional_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO PENSAMIENTOS RELACIONADOS CON SUICIDIO');
+            $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
@@ -127,9 +126,9 @@ class CreateVsiEstEmocionalsTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE PENSAMIENTOS RELACIONADOS CON EL SUICIDIO EN LA PERSONA ENTREVISTADA, PREGUNTA 12.20 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_estemocional_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO CONDUCTAS AUTO LESIVAS');
+            $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');
@@ -139,9 +138,9 @@ class CreateVsiEstEmocionalsTable extends Migration
         DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDUCTAS AUTO LESIVAS EN LA PERSONA ENTREVISTADA, PREGUNTA 12.23 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_estemocional_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO CONTEXTO');
+            $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_estemocional_id')->references('id')->on('vsi_est_emocionals');

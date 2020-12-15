@@ -17,9 +17,9 @@ class CreateNnajNacimisTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->id()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table = CamposMagicos::getForeign($table, 'fi_datos_basico');
-            $table->date('d_nacimiento');
+            $table->date('d_nacimiento')->comment('CAMPO DE FECHA DE NACIMIENTO');
             $table = CamposMagicos::getForeign($table, 'sis_municipio');
             $table = CamposMagicos::getForeign($table, 'sis_docfuen');
             $table = CamposMagicos::magicos($table);

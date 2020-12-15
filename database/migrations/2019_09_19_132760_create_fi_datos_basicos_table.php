@@ -18,12 +18,12 @@ class CreateFiDatosBasicosTable extends Migration
     {
 
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('s_primer_nombre');
-            $table->string('s_segundo_nombre')->nullable();
-            $table->string('s_primer_apellido');
-            $table->string('s_segundo_apellido')->nullable();
-            $table->string('s_apodo')->nullable();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('s_primer_nombre')->comment('CAMPO DE PRIMER NOMBRE');
+            $table->string('s_segundo_nombre')->nullable()->comment('CAMPO DE SEGUNDO NOMBRE');
+            $table->string('s_primer_apellido')->comment('CAMPO DE LLAVE PRIMER APELLIDO');
+            $table->string('s_segundo_apellido')->nullable()->comment('CAMPO DE SEGUNDO APELLIDO');
+            $table->string('s_apodo')->nullable()->comment('CAMPO DE APODO');
             $table = CamposMagicos::getForeign($table, 'sis_nnaj');
             $table->bigInteger('prm_tipoblaci_id')->unsigned()->comment('TIPO DE POBLACION LA QUE PERTENECE EL NNAJ');
             $table->foreign('prm_tipoblaci_id')->references('id')->on('parametros');

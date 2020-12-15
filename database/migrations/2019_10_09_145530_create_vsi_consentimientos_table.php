@@ -16,12 +16,12 @@ class CreateVsiConsentimientosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('user_doc1_id')->unsigned();
-            $table->string('cargo1');
-            $table->bigInteger('user_doc2_id')->unsigned();
-            $table->string('cargo2');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->bigInteger('user_doc1_id')->unsigned()->comment('CAMPO PRIMER RESPONSABLE');
+            $table->string('cargo1')->comment('CAMPO CARGO DEL PRIMER RESPONSABLE');
+            $table->bigInteger('user_doc2_id')->unsigned()->comment('CAMPO SEGUNDO RESPONSABLE O RESPONSABLE DE LA UPI');
+            $table->string('cargo2')->comment('CAMPO DEL RESPONSABLE DE LA UPI');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

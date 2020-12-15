@@ -15,9 +15,9 @@ class CreateSisUpzsTable extends Migration
     public function up()
     {
         Schema::create('sis_upzs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('s_upz')->unique();
-            $table->string('s_codigo', 3);
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('s_upz')->unique()->comment('CAMPO DE NOMBRE DE LA UPZ');
+            $table->string('s_codigo', 3)->comment('CAMPO DE CODIGO DE LA UPZ');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

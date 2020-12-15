@@ -15,8 +15,8 @@ class CreateSisPestaniasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('s_pestania');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('s_pestania')->comment('CAMPO NOMBRE DE PESTAÑA');
             $table->bigInteger('sis_menu_id')->unsigned();
             $table->foreign('sis_menu_id')->references('id')->on('sis_menus');
             $table->timestamps();

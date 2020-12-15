@@ -16,8 +16,8 @@ class CreatePasswordResetsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
+            $table->string('email')->index()->comment('CAMPO DE CORREO PARA EL INGRESO DEL USUARIO');
+            $table->string('token')->comment('CAMPO PARA EL TOKEN CORRESPONDIENTE AL CAMBIO DE CONTRASEÑA');
             $table->timestamp('created_at')->nullable();
             
         });

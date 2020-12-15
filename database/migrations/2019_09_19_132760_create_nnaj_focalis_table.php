@@ -17,10 +17,10 @@ class CreateNnajFocalisTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->id()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table = CamposMagicos::getForeign($table, 'fi_datos_basico');
-            $table->string('s_nombre_focalizacion');
-            $table->string('s_lugar_focalizacion');
+            $table->string('s_nombre_focalizacion')->comment('CAMPO DE NOMBRE DE FOCALIZACION');
+            $table->string('s_lugar_focalizacion')->comment('CAMPO DE LUGAR DE FOCALIZACION');
             $table = CamposMagicos::getForeign($table, 'sis_upzbarri');
             $table = CamposMagicos::getForeign($table, 'sis_docfuen');
             $table = CamposMagicos::magicos($table);

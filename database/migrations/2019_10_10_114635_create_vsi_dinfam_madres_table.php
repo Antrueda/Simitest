@@ -16,14 +16,14 @@ class CreateVsiDinfamMadresTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('prm_convive_id')->unsigned();
-            $table->integer('dia')->unsigned()->nullable();;
-            $table->integer('mes')->unsigned()->nullable();;
-            $table->integer('ano')->unsigned()->nullable();;
-            $table->integer('hijo')->unsigned();
-            $table->bigInteger('prm_separa_id')->unsigned()->nullable();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->bigInteger('prm_convive_id')->unsigned()->comment('CAMPO SI CONVIVIO CON EL NNAJ');
+            $table->integer('dia')->unsigned()->nullable()->comment('CAMPO DIA');
+            $table->integer('mes')->unsigned()->nullable()->comment('CAMPO MES');
+            $table->integer('ano')->unsigned()->nullable()->comment('CAMPO AÑO');
+            $table->integer('hijo')->unsigned()->comment('CAMPO CUANTOS HIJOS');
+            $table->bigInteger('prm_separa_id')->unsigned()->nullable()->comment('CAMPO MOTIVO DE SEPARACION');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

@@ -17,11 +17,11 @@ class CreatePermissionTables extends Migration
     $columnNames = config('permission.column_names');
 
     Schema::create($tableNames['permissions'], function (Blueprint $table) {
-      $table->increments('id');
-      $table->string('name');
-      $table->string('descripcion')->nullable();
-      $table->string('guard_name');
-      $table->bigInteger('sis_pestania_id')->unsigned();
+      $table->increments('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->string('name')->comment('CAMPO DE NOMBRE PERMISO');
+      $table->string('descripcion')->nullable()->comment('CAMPO DE DESCRIPCION DEL PERMISO');
+      $table->string('guard_name')->comment('N');
+      $table->bigInteger('sis_pestania_id')->unsigned()->comment('CAMPO DE ID DE LA PESTAÑA');
       $table->bigInteger('user_crea_id')->unsigned();
       $table->bigInteger('user_edita_id')->unsigned();
       $table->bigInteger('sis_esta_id')->unsigned()->default(1);

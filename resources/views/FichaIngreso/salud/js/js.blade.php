@@ -126,7 +126,6 @@ $(function(){
 
        $("#i_comidas_diarias").keyup(function(){
            $("#i_prm_razon_no_cinco_comidas_id").empty();
-           $("#i_prm_razon_no_cinco_comidas_id").append('<option value="">Seleccione</>')
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.comidasdiarias') }}",
@@ -237,7 +236,6 @@ $(function(){
 
        $("#i_prm_tiene_problema_salud_id").change(function(){
            $("#i_prm_problema_salud_id").empty();
-           $("#i_prm_problema_salud_id").append('<option value="">Seleccione</>')
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.tieneprobsalud') }}",
@@ -311,7 +309,6 @@ $(function(){
        @endif
        $("#d_puntaje_sisben").keyup(function(){
            $("#i_prm_tiene_sisben_id").empty();
-           $("#i_prm_tiene_sisben_id").append('<option value="">Seleccione</>')
            f_sisben($(this).val(),'');
        });
 

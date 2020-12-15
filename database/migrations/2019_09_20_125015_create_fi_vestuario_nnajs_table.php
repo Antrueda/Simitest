@@ -16,15 +16,15 @@ class CreateFiVestuarioNnajsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
 
-            $table->bigInteger('prm_t_pantalon_id')->unsigned();
-            $table->bigInteger('prm_t_camisa_id')->unsigned();
-            $table->bigInteger('prm_t_zapato_id')->unsigned();
-            $table->bigInteger('prm_sexo_etario_id')->unsigned();
-            $table->bigInteger('sis_nnaj_id')->unsigned();
+            $table->bigInteger('prm_t_pantalon_id')->unsigned()->comment('CAMPO TIPO DE PANTALON');
+            $table->bigInteger('prm_t_camisa_id')->unsigned()->comment('CAMPO TIPO DE CAMISA');
+            $table->bigInteger('prm_t_zapato_id')->unsigned()->comment('CAMPO TIPO DE ZAPATO');
+            $table->bigInteger('prm_sexo_etario_id')->unsigned()->comment('CAMPO TALLA DE ROPA');
+            $table->bigInteger('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID DE NNAJ');
 
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');

@@ -16,8 +16,8 @@ class CreateSisLocalidadsTable extends Migration
     {
         Schema::create('sis_localidads', function (Blueprint $table) {
 
-            $table->bigIncrements('id');
-            $table->string('s_localidad')->unique();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('s_localidad')->unique()->comment('CAMPO NOMBRE DE LA LOCALIDAD');
             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
             $table->bigInteger('sis_esta_id')->unsigned();

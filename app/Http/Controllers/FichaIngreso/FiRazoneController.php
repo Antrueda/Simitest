@@ -204,15 +204,7 @@ class FiRazoneController extends Controller
                     $respuest['comboxxx'] = $usuariox->dependencias;
                     $respuest['cargoxxx'] = $usuariox->sis_cargo->s_cargo;
                     break;
-                case 'userr_id':
-                    $respuest['campcarg'] = '#s_cargo_responsable';
-                    $respuest['campoxxx'] = '#sis_depend_id';
-                    $dependen=SisDepen::find($dataxxxx['valuexxx']);
-                    $usuariox =$dependen->NnajUpi;
-                    $respuest['comboxxx'] = $usuariox[0];
-                    $respuest['cargoxxx'] = $usuariox[1];
-                    break;
-                    
+               
             }
         
             return response()->json($respuest);

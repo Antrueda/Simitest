@@ -78,7 +78,7 @@ class FiSaludEnfamiController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
-        $this->opciones['compfami'] = FiCompfami::combo($dataxxxx['padrexxx'], true, false);
+        $this->opciones['compfami'] = FiCompfami::comboNoNNaj($dataxxxx['padrexxx'], true, false);
         $this->opciones['servicio'] = ['' => 'seleccione'];
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];

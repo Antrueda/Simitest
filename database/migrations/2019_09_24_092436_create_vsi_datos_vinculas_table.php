@@ -20,12 +20,12 @@ class CreateVsiDatosVinculasTable extends Migration
   public function up()
   {
     Schema::create($this->tablaxxx, function (Blueprint $table) {
-      $table->bigIncrements('id');
-      $table->bigInteger('vsi_id')->unsigned();
-      $table->bigInteger('prm_razon_id')->unsigned();
-      $table->Integer('dia')->unsigned()->nullable();
-      $table->Integer('mes')->unsigned()->nullable();
-      $table->Integer('ano')->unsigned()->nullable();
+      $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO DE ID DE VALORACION');
+      $table->bigInteger('prm_razon_id')->unsigned()->comment('CAMPO PARAMETRO RAZON');
+      $table->Integer('dia')->unsigned()->nullable()->comment('CAMPO DIA');
+      $table->Integer('mes')->unsigned()->nullable()->comment('CAMPO MES');
+      $table->Integer('ano')->unsigned()->nullable()->comment('CAMPO ANO');
       $table->foreign('vsi_id')->references('id')->on('vsis');
       $table->foreign('prm_razon_id')->references('id')->on('parametros');
       
@@ -34,10 +34,9 @@ class CreateVsiDatosVinculasTable extends Migration
     DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RAZONES DE VINCULACIÓN AL IDIPRON DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.11 A 1.13'");
 
     Schema::create($this->tablaxxx2, function (Blueprint $table) {
-      $table->bigIncrements('id');
-      $table->bigInteger('parametro_id')->unsigned();
-      $table->bigInteger('vsi_datos_vincula_id')->unsigned();
-
+      $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE SITUACIONES');
+      $table->bigInteger('vsi_datos_vincula_id')->unsigned()->comment('CAMPO ID DE DATOS VINCULA');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
       $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
@@ -46,10 +45,9 @@ class CreateVsiDatosVinculasTable extends Migration
     DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LAS SITUACIONES, CONDICIONES O ACTIVIDADES QUE PARACEN PRODUCIR O EMPEORAR LAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.14'");
 
     Schema::create($this->tablaxxx3, function (Blueprint $table) {
-      $table->bigIncrements('id');
-      $table->bigInteger('parametro_id')->unsigned();
-      $table->bigInteger('vsi_datos_vincula_id')->unsigned();
-
+      $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO EMOCIONES');
+      $table->bigInteger('vsi_datos_vincula_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
       $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
@@ -59,8 +57,8 @@ class CreateVsiDatosVinculasTable extends Migration
 
 
     Schema::create($this->tablaxxx4, function (Blueprint $table) {
-      $table->bigIncrements('id');
-      $table->bigInteger('parametro_id')->unsigned();
+      $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DIFICULTADES');
       $table->bigInteger('vsi_datos_vincula_id')->unsigned();
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');

@@ -245,7 +245,7 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $respuest = [[
-                'nocomida' => $dataxxxx['padrexxx'] > 4 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(29, false, true),
+                'nocomida' => $dataxxxx['padrexxx'] > 4 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(29, true, true),
             ]];
             return response()->json($respuest);
         }
@@ -263,6 +263,7 @@ class AjaxxController extends Controller
                     ['nombrexx' => '#s_hora_inicial', 'propieda' => 'readonly', 'valorxxx' => false],
                     ['nombrexx' => '#s_hora_final', 'propieda' => 'readonly', 'valorxxx' => false],
                     ['nombrexx' => '#i_total_ingreso_mensual', 'propieda' => 'readonly', 'valorxxx' => false],
+                    ['nombrexx' => '#s_trabajo_formal', 'propieda' => 'readonly', 'valorxxx' => true],
                 ],
                 'combosxx' => [
                     ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_trabajo_informal_id', 'selected' => ''],
@@ -279,6 +280,7 @@ class AjaxxController extends Controller
             switch ($dataxxxx['padrexxx']) {
                 case 626:
                     $respuest['combosxx'][3]['comboxxx'] = Tema::combo(117, true, true);
+                    $respuest['readonly'][3]['valorxxx'] = false;
                     break;
                 case 627:
                     $respuest['combosxx'][0]['comboxxx'] = Tema::combo(115, true, true);
@@ -417,7 +419,7 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $respuest = [
-                'prosalud' => $dataxxxx['padrexxx'] == 228 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(301, false, true),
+                'prosalud' => $dataxxxx['padrexxx'] == 228 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(301, true, true),
             ];
             return response()->json($respuest);
         }

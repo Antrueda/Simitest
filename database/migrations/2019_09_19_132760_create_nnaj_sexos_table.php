@@ -17,9 +17,9 @@ class CreateNnajSexosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id();
+            $table->id()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table = CamposMagicos::getForeign($table, 'fi_datos_basico');
-            $table->string('s_nombre_identitario');
+            $table->string('s_nombre_identitario')->comment('CAMPO DE NOMBRE IDENTITARIO');
             $table = CamposMagicos::getForeign($table, 'prm_sexo_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_identidad_genero_id', 'parametros');
             $table = CamposMagicos::getForeign($table, 'prm_orientacion_sexual_id', 'parametros');

@@ -17,13 +17,13 @@ class CreateFiAutorizacionsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('i_prm_autorizo_id')->unsigned();
-            $table->bigInteger('fi_compfami_id')->unsigned();
-            $table->bigInteger('i_prm_parentesco_id')->unsigned();
-            $table->date('d_autorizacion');
-            $table->bigInteger('i_prm_tipo_diligencia_id')->unsigned();
-            $table->bigInteger('sis_nnaj_id')->unsigned();
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->bigInteger('i_prm_autorizo_id')->unsigned()->comment('CAMPO PARAMETRO AUTORIZO');
+            $table->bigInteger('fi_compfami_id')->unsigned()->comment('CAMPO DE ID DEL COMPONENTE FAMILIAR');
+            $table->bigInteger('i_prm_parentesco_id')->unsigned()->comment('CAMPO PARENTESCO');
+            $table->date('d_autorizacion')->comment('CAMPO FECHA DE AUTORIZACION');
+            $table->bigInteger('i_prm_tipo_diligencia_id')->unsigned()->comment('CAMPO TIPO DE DILIGENCIA');
+            $table->bigInteger('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

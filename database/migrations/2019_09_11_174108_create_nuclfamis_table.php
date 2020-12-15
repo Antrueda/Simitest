@@ -17,7 +17,7 @@ class CreateNuclfamisTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->boolean('en_uso');
             $table = CamposMagicos::magicos($table);
         });
