@@ -61,7 +61,6 @@ $("#i_prm_condicion_amb_id").change(function(){
             var routexxx = "{{ route('ajaxx.upz') }}";
 
             $("#" + departam + ",#" + municipi).empty();
-            $("#" + departam + ",#" + municipi).append('<option value="">Seleccione</option>')
             dataxxxx = {
                 url: routexxx,
                 data: {
@@ -82,7 +81,6 @@ $("#i_prm_condicion_amb_id").change(function(){
             var routexxx = "{{ route('ajaxx.barrio') }}"
 
             $("#" + municipi).empty();
-            $("#" + municipi).append('<option value="">Seleccione</>')
             dataxxxx = {
                 url: routexxx,
                 data: {

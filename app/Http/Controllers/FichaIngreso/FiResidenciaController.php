@@ -39,7 +39,6 @@ class FiResidenciaController extends Controller
 
 
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-
         $this->opciones['residees'] = Tema::combo(35, true, false);
         $this->opciones['tipodire'] = Tema::combo(36, true, false);
         $this->opciones['zonadire'] = Tema::combo(37, true, false);
@@ -83,8 +82,8 @@ class FiResidenciaController extends Controller
             $this->opciones['readchcx'] = 'readonly';
             $this->opciones['residees'] = [235 => 'N/A'];
             $this->opciones['localida'] = [22 => 'N/A'];
-            $this->opciones['upzxxxxx'] = [134 => 'N/A'];
-            $this->opciones['barrioxx'] = [1 => 'N/A'];
+            $this->opciones['upzxxxxx'] = [119 => 'N/A'];
+            $this->opciones['barrioxx'] = [1653 => 'N/A'];
             $this->opciones['tiporesi'] = Tema::combo(145, true, false);
         } else {
             $this->opciones['tiporesi'] = Tema::combo(34, true, false);
