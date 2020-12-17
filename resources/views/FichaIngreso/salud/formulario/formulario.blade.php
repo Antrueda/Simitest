@@ -124,7 +124,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('i_comidas_diarias', '6.18 ¿Cuántas comidas en promedio consume al día?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('i_comidas_diarias', null, ['class' => 'form-control form-control-sm', "maxlength" => 1, "onkeypress" => "return soloNumeros(event); return numeros(event);"]) }}
+        {{ Form::text('i_comidas_diarias', null, ['class' => 'form-control form-control-sm', "maxlength" => 1, "onkeypress" => "return soloNumeros(event); return numeros(event);",'max'=>'5']) }}
 
     </div>
     <div class="form-group col-md-4">

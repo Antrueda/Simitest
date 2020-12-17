@@ -48,7 +48,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_documento', 'No. de Documento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_documento', null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::text('s_documento', null, ['class' => 'form-control form-control-sm','minlength' => '6', 'maxlength' => '11']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_pai_id', 'País de Expedición', ['class' => 'control-label']) }}

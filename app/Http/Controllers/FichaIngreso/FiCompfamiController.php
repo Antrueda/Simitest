@@ -405,7 +405,7 @@ class FiCompfamiController extends Controller
                 $fechaxxx = str_replace([" ", '-', ':'], "", date('Y-m-d H:m:s'));
                 $respuest['comboxxx'] = [['valuexxx' => 145, 'optionxx' => 'SIN IDENTIFICACION']];
                 $respuest['readonly'] = true;
-                $respuest['paisxxxx'][1] = [['valuexxx' => 1, 'optionxx' => 'NO APLICA']];
+                $respuest['paisxxxx'][1] = [['valuexxx' => 1, 'optionxx' => 'N/A']];
                 $respuest['departam'][1] = $respuest['paisxxxx'][1];
                 $respuest['municipi'][1] = $respuest['paisxxxx'][1];
                 $respuest['cedulaxx'] = $fechaxxx;

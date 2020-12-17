@@ -146,7 +146,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('documento', 'No. de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('documento', null, ['class' => $errors->first('documento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'min' => '0', 'maxlength' => '10']) }}
+    {{ Form::number('documento', null, ['class' => $errors->first('documento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'minlength' => '6', 'maxlength' => '11']) }}
     @if($errors->has('documento'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('documento') }}

@@ -84,6 +84,7 @@ class FiResidenciaController extends Controller
             $this->opciones['localida'] = [22 => 'N/A'];
             $this->opciones['upzxxxxx'] = [119 => 'N/A'];
             $this->opciones['barrioxx'] = [1653 => 'N/A'];
+            $this->opciones['estratox'] = [27 => 'NS/NR'];;
             $this->opciones['tiporesi'] = Tema::combo(145, true, false);
         } else {
             $this->opciones['tiporesi'] = Tema::combo(34, true, false);
