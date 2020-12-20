@@ -62,9 +62,10 @@ class AgActividadController extends Controller
 
     public function show(AgActividad $modeloxx)
     {
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj->id]], 2, 'CREAR TALLER', 'btn btn-sm btn-primary']);
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO TALLER', 'btn btn-sm btn-primary']);
         return $this->view($do,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj->id]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 

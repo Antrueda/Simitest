@@ -14,12 +14,10 @@ class AgResponsableCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'sis_obse_id.required' => 'Seleccione una observación para el registro',
             'i_prm_responsable_id.required' => 'Seleccione si es responsable o no',
             'user_id.required' => 'Seleccione un responsable',
         ];
         $this->_reglasx = [
-            'sis_obse_id' => ['required',],
             'i_prm_responsable_id' => ['required',],
             'user_id' => ['required',],
         ];

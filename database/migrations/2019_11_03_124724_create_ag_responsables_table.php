@@ -19,7 +19,7 @@ class CreateAgResponsablesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_responsable_id')->unsigned();
             $table->bigInteger('ag_actividad_id')->unsigned();
-            $table->bigInteger('sis_obse_id')->unsigned();
+            $table->bigInteger('sis_obse_id')->unsigned()->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned(); 
             $table->bigInteger('user_edita_id')->unsigned();

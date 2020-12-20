@@ -58,7 +58,7 @@
     @endcan
     @can('agcontexto-leer')
         <li class="nav-item">
-            <a href="{{ route('ag.cont') }}" class="nav-link">
+            <a href="{{ route('agcontexto') }}" class="nav-link">
             <i class="fas fa-check nav-icon"></i>
             <p>Contexto Pedagógico</p>
             </a>

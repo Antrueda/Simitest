@@ -21,15 +21,4 @@
     </div>
     @endif
   </div>
-  <div class="form-group col-md-4">
-    {{ Form::label('sis_obse_id', Tr::getTitulo(35,1).':', ['class' => 'control-label col-form-label-sm']) }}
-
-    {{ Form::select('sis_obse_id', $todoxxxx['observac'], null, ['class' => $errors->first('sis_obse_id') ?
-    'form-control is-invalid select2' : 'form-control select2','id'=>'sis_obse_id']) }}
-    @if($errors->has('sis_obse_id'))
-    <div class="invalid-feedback d-block">
-      {{ $errors->first('sis_obse_id') }}
-    </div>
-    @endif
-  </div>
 </div>

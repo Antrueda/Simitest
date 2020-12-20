@@ -16,13 +16,11 @@ class AgResponsableEditarRequest extends FormRequest
         $this->_mensaje = [
             'user_id.required' => 'Seleccione un responsable',
             'i_prm_responsable_id.required' => 'Seleccione si es responsable o no',
-            'sis_obse_id.required' => 'Seleccione una observación para el registro',
-        ];
+            ];
         $this->_reglasx = [
             'user_id' =>['required',],
             'i_prm_responsable_id' =>['required',],
-            'sis_obse_id' =>['required',],
-        ];
+            ];
     }
     /**
      * Determine if the user is authorized to make this request.

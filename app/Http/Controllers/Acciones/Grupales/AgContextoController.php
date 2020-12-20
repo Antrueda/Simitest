@@ -21,7 +21,7 @@ class AgContextoController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones = [
             'tituloxx' => 'Contexto',
-            'rutaxxxx' => 'ag.cont.contexto',
+            'rutaxxxx' => 'agcontexto',
 
             'accionxx' => '',
             'rutacarp'=>'Acciones.Grupales.Agcontexto.',
@@ -30,11 +30,11 @@ class AgContextoController extends Controller
             'carpetax' => 'Agcontexto',
             'modeloxx' => '',
             'permisox' => 'agcontexto',
-            'routxxxx' => 'ag.cont.contexto',
-            'routinde' => 'ag',
+            'routxxxx' => 'agcontexto',
+            'routinde' => 'agcontexto',
             'parametr' => [],
             'urlxxxxx' => 'api/ag/contextos',
-            'routnuev' => 'ag.cont.contexto',
+            'routnuev' => 'agcontexto',
             'nuevoxxx' => 'Nuevo Registro'
         ];
         $this->opciones['cabecera'] = [
@@ -67,8 +67,6 @@ class AgContextoController extends Controller
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
 
-
-
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
@@ -98,7 +96,7 @@ class AgContextoController extends Controller
     {
 
         return redirect()
-            ->route('ag.cont.contexto.editar', [AgContexto::transaccion($dataxxxx, $objectx)->id])
+            ->route('agcontexto.editar', [AgContexto::transaccion($dataxxxx, $objectx)->id])
             ->with('info', $infoxxxx);
     }
     /**

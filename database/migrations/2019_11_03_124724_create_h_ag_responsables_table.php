@@ -20,7 +20,7 @@ class CreateHAgResponsablesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('i_prm_responsable_id')->unsigned();
             $table->bigInteger('ag_actividad_id')->unsigned();
-            $table->bigInteger('sis_obse_id')->unsigned();
+            $table->bigInteger('sis_obse_id')->unsigned()->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });

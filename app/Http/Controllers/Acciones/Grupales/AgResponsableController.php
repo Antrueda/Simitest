@@ -40,7 +40,7 @@ class AgResponsableController extends Controller
     {
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['crear', [$padrexxx->id], 1, 'GUARDAR RESPOSABLE', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', [$padrexxx->id], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
     public function store(AgResponsableCrearRequest $request, AgActividad $padrexxx)
@@ -74,7 +74,7 @@ class AgResponsableController extends Controller
         $this->getBotones(['editar', [], 1, 'EDITAR RESPONSABLE', 'btn btn-sm btn-primary']);
         $responsa = AgResponsable::where('ag_actividad_id',$padrexxx->id)->get();
         if(  count($responsa)<=2){
-        $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'CREAR RESPONSABLE', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'CREAR', 'btn btn-sm btn-primary']);
         }
         return $this->view(
             $this->opciones,
@@ -99,7 +99,7 @@ class AgResponsableController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['agactividad.editar', [$modeloxx->ag_actividad_id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR RESPONSABLE', 'btn btn-sm btn-primary']),
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->ag_actividad]
         );
     }
@@ -119,7 +119,7 @@ class AgResponsableController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['agactividad.editar', [$modeloxx->ag_actividad_id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR RESPONSABLE', 'btn btn-sm btn-primary']),
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->ag_actividad]
         );
     }
