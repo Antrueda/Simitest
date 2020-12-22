@@ -71,7 +71,6 @@ trait DatosBasicosTrait
                 ->where('s_documento', $dataxxxx['requestx']->s_documento)
                 ->first();
 
-
             if ($compfami == null) {
 
                 $dataxxxx = $this->getAMayuculas($dataxxxx);
