@@ -43,6 +43,7 @@ class AgRelacionController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['crear', [$padrexxx->id], 1, 'AGREGAR RECURSO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', ['agrecurso.nuevo', [1]], 2, 'CREAR RECURSO', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
@@ -74,7 +75,7 @@ class AgRelacionController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR RESPONSABLE', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDITAR RECURSO', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'CREAR RESPONSABLE', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->opciones,
@@ -110,7 +111,7 @@ class AgRelacionController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route('agactividad.editar', [$modeloxx->ag_actividad_id])
-            ->with('info', 'Responsable inactivado correctamente');
+            ->with('info', 'Recurso inactivado correctamente');
     }
 
     public function activate(AgRelacion $modeloxx)
@@ -128,6 +129,6 @@ class AgRelacionController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route('agactividad.editar', [$modeloxx->ag_actividad_id])
-            ->with('info', 'Responsable activado correctamente');
+            ->with('info', 'Recurso activado correctamente');
     }
 }

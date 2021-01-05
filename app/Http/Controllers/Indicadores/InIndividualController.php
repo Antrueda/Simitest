@@ -25,6 +25,8 @@ class InIndividualController extends Controller
       'esjsxxxx' => '',
       'slotxxxx' => 'graficos',
       'tablname' => 'inindividual',
+      'indecrea' => false,
+      'accionxx' => '',
     ];
 
     $this->middleware(['permission:'
@@ -56,7 +58,7 @@ class InIndividualController extends Controller
    */
   public function index(Request $request)
   {
-
+    $this->opciones['accionxx']='index';
     $dataxxxx = [
       'sis_tabla_id' => 1,
       'user_crea_id' => 1,

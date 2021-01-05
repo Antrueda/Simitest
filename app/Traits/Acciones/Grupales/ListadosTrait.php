@@ -8,6 +8,7 @@ use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Sistema\SisDepeUsua;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
 
@@ -50,6 +51,7 @@ trait ListadosTrait
             return $this->getDt($dataxxxx, $request);
         }
     }
+
     public function listaResponsables(Request $request, AgActividad $padrexxx)
     {
 
@@ -118,6 +120,9 @@ trait ListadosTrait
             $responsa = AgAsistente::select(['fi_dato_basico_id'])
                 ->where('ag_actividad_id', $padrexxx->id)
                 ->get();
+            $depende =    AgActividad::select(['sis_deporigen_id'])
+            ->where('id', $padrexxx->id)
+            ->get();
             $dataxxxx = FiDatosBasico::select([
                 'fi_datos_basicos.id',
                 'nnaj_docus.s_documento',
@@ -131,11 +136,16 @@ trait ListadosTrait
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
                 ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
                 ->where('sis_nnajs.prm_escomfam_id',  227)
-                ->whereNotIn('fi_datos_basicos.id',  $responsa);
+                ->whereNotIn('fi_datos_basicos.id',  $responsa)
+                ->whereIn('nnaj_upis.sis_depen_id', $depende);
+                
             return $this->getDt($dataxxxx, $request);
         }
     }
+
+ 
 
     public function getAsistente(Request $request, AgActividad $padrexxx)
     {

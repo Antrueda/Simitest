@@ -148,10 +148,11 @@ trait DataTablesTrait
                     'permisox' => $dataxxxx['permisox'],
                     'routxxxx' => 'agasiste',
                     'parametr' => [$dataxxxx['modeloxx']->id],
-                ];
+                ];        
+         
              $dataxxxx['tablasxx'][] =
                  [
-                     'titunuev' => 'RECURSO',
+                     'titunuev' => 'AGREGAR RECURSO',
                      'titulist' => 'LISTA DE RECUSOS',
                      'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                      'titupreg' => 'Relación de recursos a emplear:',
