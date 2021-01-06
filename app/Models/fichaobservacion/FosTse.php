@@ -19,12 +19,15 @@ class FosTse extends Model
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
-    public function fos_area()
+    public function area()
     {
         return $this->belongsTo(Area::class);
     }
 
-
+    public function fos_seguimientos(){
+        return $this->hasMany(FosSeguimiento::class);
+    }
+    
 
 
     /**
@@ -52,6 +55,39 @@ class FosTse extends Model
         }
         $parametr = FosTse::select(['id as valuexxx', 'nombre as optionxx'])
             ->where('area_id', $areaxxx)
+            ->where('sis_esta_id', '1')
+            ->orderBy('id', 'asc')
+            ->get();
+        foreach ($parametr as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => $registro->valuexxx,
+                    'optionxx' => $registro->optionxx
+                ];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
+
+
+    public static function comboasignar($cabecera, $ajaxxxxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
+                $comboxxx = [
+                    '' => 'Seleccione'
+                ];
+            }
+        }
+        $parametr = FosTse::select(['id as valuexxx', 'nombre as optionxx'])
             ->where('sis_esta_id', '1')
             ->orderBy('id', 'asc')
             ->get();

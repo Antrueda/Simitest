@@ -63,12 +63,12 @@
 <div class="row">
 	@if($accion == 'Nuevo')
 		@can('proceso-crear')
-			{{ Form::submit('Guardar', ['class' => 'btn btn-primary']) }}
+			{{ Form::submit('Guardar', ['class' => 'btn btn-primary', 'style '=> "text-transform:uppercase;"]) }}
 		@endcan
 	@endif
 	@if($accion == 'Editar')
 		@can('proceso-editar')
-			{{ Form::submit('Modificar', ['class' => 'btn btn-primary']) }}
+			{{ Form::submit('Modificar', ['class' => 'btn btn-primary','style '=> "text-transform:uppercase;"]) }}
 		@endcan
 	@endif
 	@if($accion == 'Ver')

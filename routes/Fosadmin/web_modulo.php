@@ -9,4 +9,5 @@ Route::group(['prefix' => 'modulofos'], function () use($routexxx,$controll){
 });
 require_once('web_fosts.php');
 require_once('web_fossts.php');
+require_once('web_fosasignar.php');
 

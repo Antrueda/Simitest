@@ -27,13 +27,11 @@ trait VistasTrait
     {
 
         $opciones = $this->getVista($opciones, $dataxxxx);
-        $opciones['parametr'] = [$dataxxxx['padrexxx']->id];
+        
         $selected=0;
         $estadoid = 1;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->area_id=$dataxxxx['modeloxx']->fos_tse->area_id;
-            $selected=$dataxxxx['modeloxx']->area_id;
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;

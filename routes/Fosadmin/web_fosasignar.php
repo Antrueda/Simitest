@@ -1,33 +1,21 @@
 <?php
-$controll='Fosadmin\FTSeguimiento';
-$routxxxx='fostipse';
-Route::group(['prefix' => 'fostiposeg'], function () use($controll,$routxxxx){
+$controll='Fosadmin\FosAsignar';
+$routxxxx='fosasignar';
+Route::group(['prefix' => 'fosasignar'], function () use($controll,$routxxxx){
 	Route::get('', [
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
 	])->name($routxxxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'Controller@getListado',
+		'uses' => $controll.'Controller@listaFosasignar',
 		'middleware' => ['permission:'.$routxxxx.'-leer']
     ])->name($routxxxx.'.listaxxx');
-
-    Route::get('{padrexxx}/listafos', [
-		'uses' => $controll.'Controller@getListaFos',
-		'middleware' => ['permission:'.$routxxxx.'-leer']
-	])->name($routxxxx.'.listafos');
-
-
-	Route::get('{padrexxx}/fos', [
-		'uses' => $controll.'Controller@indexFos',
-		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
-    ])->name($routxxxx.'.indexfos');
-
-    Route::get('{padrexxx}/nuevo', [
+	Route::get('nuevo', [
 		'uses' => $controll.'Controller@create',
 		'middleware' => ['permission:'.$routxxxx.'-crear']
 	])->name($routxxxx.'.nuevo');
 
-	Route::post('{padrexxx}/crear', [
+	Route::post('crear', [
 		'uses' => $controll.'Controller@store',
 		'middleware' => ['permission:'.$routxxxx.'-crear']
     ])->name($routxxxx.'.crear');
@@ -55,11 +43,18 @@ Route::group(['prefix' => 'fostiposeg'], function () use($controll,$routxxxx){
     Route::put('borrar/{modeloxx}', [
 		'uses' => $controll . 'Controller@destroy',
 		'middleware' => ['permission:' . $routxxxx . '-borrar']
-	])->name($routxxxx . '.borrar');
-	Route::get('obtenerTipoSeguimientos', [
-		'uses' => $controll.'Controller@obtenerTipoSeguimientos',
-		'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
-	 ])->name($routxxxx.'.obtenerTipoSeguimientos');
+    ])->name($routxxxx . '.borrar');
+
+    Route::get('activate/{modeloxx}', [
+	    'uses' => $controll.'Controller@activate',
+	    'middleware' => ['permission:'.$routxxxx.'-activarx']
+    ])->name($routxxxx.'.activarx');
+
+    Route::put('activate/{modeloxx}', [
+		'uses' => $controll . 'Controller@activar',
+		'middleware' => ['permission:' . $routxxxx . '-activarx']
+    ])->name($routxxxx . '.activarx');
+
 
 });
 

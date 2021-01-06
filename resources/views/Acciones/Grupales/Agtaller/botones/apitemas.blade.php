@@ -1,1 +1,1 @@
-<a class="btn btn-sm btn-primary" href="{{ route('agrtaller', $id) }}">Ir a Talleres</a>
+<a class="btn btn-sm btn-primary" href="{{ route('agrtaller', $id) }}">IR A TALLERES</a>

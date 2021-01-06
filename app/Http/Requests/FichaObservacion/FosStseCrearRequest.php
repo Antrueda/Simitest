@@ -22,7 +22,7 @@ class FosStseCrearRequest extends FormRequest
             'nombre.max' => 'La descripción debe tener un máximo de 4000 caracteres',
         ];
         $this->_reglasx = [
-        'nombre' => ['Required','string','max:120','unique:fos_stses'],
+         'nombre' => ['Required','string','max:120','unique:fos_stses'],
             'descripcion' => ['nullable','max:4000'],
         ];
     }

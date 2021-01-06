@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class HFosStse extends Model
 {
     protected $fillable = [
-        'fos_tse_id',
         'codigo',
         'estusuario_id',
         'nombre',

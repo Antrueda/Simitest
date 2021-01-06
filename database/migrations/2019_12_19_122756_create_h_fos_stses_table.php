@@ -18,7 +18,6 @@ class CreateHFosStsesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fos_tse_id')->unsigned();
             $table->text('codigo', 6)->nullable();
             $table->string('nombre', 120);
             $table->string('descripcion', 4000)->nullable();

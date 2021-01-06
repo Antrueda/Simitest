@@ -18,11 +18,9 @@ class CreateFosStsesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('fos_tse_id')->unsigned();
             $table->text('codigo', 6)->nullable();
             $table->string('nombre', 120);
             $table->string('descripcion', 4000)->nullable();
-            $table->foreign('fos_tse_id')->references('id')->on('fos_tses');
             $table->bigInteger('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table = CamposMagicos::magicos($table);

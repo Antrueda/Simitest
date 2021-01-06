@@ -1,6 +1,6 @@
 <div class="card card-outline card-secondary">
     <div class="card-header">
-        <h3 class="card-title">{{ $accion }} tema</h3>
+        <h3 class="card-title" style = "text-transform:uppercase;">{{ $accion }} tema</h3>
     </div>
     <div class="card-body">
         @if($accion == 'Nuevo')
@@ -22,7 +22,7 @@
     @canany(['tema-crear','tema-editar'])
         <div class="card card-outline card-secondary">
             <div class="card-header">
-                <h3 class="card-title">Adicionar parámetro</h3>
+                <h3 class="card-title">ADICIONAR PARÁMETRO</h3>
             </div>
             <div class="card-body">
                 <form class="form-inline pb-3" action="{{ route('tema.editar', $dato->id) }}" method="get">

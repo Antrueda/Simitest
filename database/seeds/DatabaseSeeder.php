@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisActividadsSeeder::class);
         $this->call(SisMapaProcsSeeder::class);
         $this->call(SisProcesosSeeder::class);
+        
         $this->call(SisActividadProcesosSeeder::class);
         $this->call(SisNnajsSeeder::class);
         $this->call(NnajCaminandoSeeder::class);//nuevo
@@ -99,7 +100,8 @@ class DatabaseSeeder extends Seeder
         $this->call(InDocPreguntasSeeder::class);
         $this->call(SisFsoportesSeeder::class);
         $this->call(FosTsesSeeder::class);
-        $this->call(FosStsesSeeder::class);
+        //$this->call(FosStsesSeeder::class);
+        $this->call(FosStsesTestSeeder::class);
         $this->call(InRespuestasSeeder::class);
         $this->call(AgTemasSeeder::class);
         $this->call(AgTallersSeeder::class);

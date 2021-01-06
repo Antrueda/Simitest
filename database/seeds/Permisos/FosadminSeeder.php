@@ -51,6 +51,7 @@ class FosadminSeeder extends Seeder
         Role::find(1)->givePermissionTo([ 'fosadmin-modulo',
             'fostipse-leer', 'fostipse-crear', 'fostipse-editar', 'fostipse-borrar',  'fostipse-activarx',
             'fosubtse-leer', 'fosubtse-crear', 'fosubtse-editar', 'fosubtse-borrar',  'fosubtse-activarx',
+            'fosasignar-leer', 'fosasignar-crear', 'fosasignar-editar', 'fosasignar-borrar',  'fosasignar-activarx',
             ]);
 
 

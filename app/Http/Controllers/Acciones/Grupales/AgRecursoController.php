@@ -15,7 +15,7 @@ class AgRecursoController extends Controller
     public function __construct()
     {
         $this->opciones = [
-            'tituloxx' => 'Recurso',
+            'tituloxx' => 'RECURSOS',
             'rutaxxxx' => 'agrecurso',
             'accionxx' => '',
             'rutacarp'=>'Acciones.Grupales.Agrecurso.',

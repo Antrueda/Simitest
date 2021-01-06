@@ -2,8 +2,9 @@
 
 namespace App\Traits\Fosadmin;
 
-
+use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
+use App\Models\fichaobservacion\FosStsesTest;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Usuario\Estusuario;
 use App\Traits\DatatableTrait;
@@ -25,7 +26,7 @@ trait ListadosTrait
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'],'fosubtse'];
+            $request->routexxx = [$this->opciones['routxxxx'],'fosasignar'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -46,6 +47,36 @@ trait ListadosTrait
         }
     }
 
+    public function listaFosasignar(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'],'fosasignar'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx = FosSeguimiento::select(
+				[
+					'fos_seguimientos.id',
+                    'fos_tses.nombre as tipo',
+                    'fos_stses.nombre as subtipo',
+                    'fos_seguimientos.created_at',
+					'fos_seguimientos.sis_esta_id',
+					'sis_estas.s_estado'
+				]
+			)
+                ->join('fos_tses', 'fos_seguimientos.fos_tse_id', '=', 'fos_tses.id')
+                ->join('fos_stses', 'fos_seguimientos.fos_stses_id', '=', 'fos_stses.id')
+                ->join('sis_estas', 'fos_seguimientos.sis_esta_id', '=', 'sis_estas.id');
+                
+
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+
+
+
     public function listaFossts(Request $request,FosTse $padrexxx)
     {
 
@@ -59,16 +90,11 @@ trait ListadosTrait
 					'fos_stses.id',
                     'fos_stses.nombre',
                     'fos_stses.created_at',
-					'areas.nombre as s_area',
-					'fos_tses.nombre as s_seguimiento',
 					'fos_stses.sis_esta_id',
 					'sis_estas.s_estado'
 				]
 			)
-				->join('fos_tses', 'fos_stses.fos_tse_id', '=', 'fos_tses.id')
-				->join('areas', 'fos_tses.area_id', '=', 'areas.id')
-                ->join('sis_estas', 'fos_tses.sis_esta_id', '=', 'sis_estas.id')
-                ->where('fos_stses.fos_tse_id',$padrexxx->id)
+				->join('sis_estas', 'fos_stses.sis_esta_id', '=', 'sis_estas.id')
                 ;
 
             return $this->getDt($dataxxxx, $request);

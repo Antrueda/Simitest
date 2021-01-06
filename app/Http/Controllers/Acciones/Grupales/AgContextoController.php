@@ -20,12 +20,12 @@ class AgContextoController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones = [
-            'tituloxx' => 'Contexto',
+            'tituloxx' => 'CONTEXTO',
             'rutaxxxx' => 'agcontexto',
 
             'accionxx' => '',
             'rutacarp'=>'Acciones.Grupales.Agcontexto.',
-            'volverax' => 'Volver a Contextos',
+            'volverax' => 'VOLVER A CONTEXTO',
             'readonly' => '', // esta opcion es para cundo está por la parte de ver
             'carpetax' => 'Agcontexto',
             'modeloxx' => '',

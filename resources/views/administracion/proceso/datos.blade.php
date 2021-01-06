@@ -1,10 +1,10 @@
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <h3 class="card-title">
-            Datos
+            DATOS
             @can('proceso-crear')
                 <a class="btn btn-sm btn-primary ml-2" title="Nuevo" href="{{ route('proceso.nuevo') }}">
-                    Nuevo
+                    NUEVO
                 </a>
             @endcan
         </h3>

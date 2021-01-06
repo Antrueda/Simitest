@@ -22,7 +22,7 @@ class AgSubtemaController extends Controller
             'permisox' => 'agsubtema',
             'parametr' => [],
             'rutacarp' => 'Acciones.Grupales.Agsubtema.',
-            'tituloxx' => 'SubTema',
+            'tituloxx' => 'SUBTEMA',
         ];
 
         $this->middleware(['permission:'
@@ -45,8 +45,8 @@ class AgSubtemaController extends Controller
     public function index($agtaller)
     {
         $this->opciones['parametr'] = [$agtaller];
-        $this->opciones['titunuev'] = 'Nuevo Subtema';
-        $this->opciones['titulist'] = 'Lista de Subtemas';
+        $this->opciones['titunuev'] = 'NUEVO SUBTEMA';
+        $this->opciones['titulist'] = 'LISTA DE SUBTEMAS';
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'botonesx', 'dataxxxx' => 'Acciones.Grupales/Agsubtema/botones/botonesapi'],
             ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts/components/botones/estadoxx'],
@@ -123,7 +123,7 @@ class AgSubtemaController extends Controller
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], $this->opciones['parametr']],
-                'formhref' => 2, 'tituloxx' => 'Volver a Subtemas', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A SUBTEMAS', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
 

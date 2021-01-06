@@ -1,4 +1,4 @@
-@include('layouts.components.botones.index')
+@include('permiso.formulario.botones')
 <div class="form-row">
   <div class="form-group col-md-6">
     {{ Form::label('name','Nombre Permiso') }}

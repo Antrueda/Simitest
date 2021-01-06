@@ -39,8 +39,8 @@ class AgTallerController extends Controller
     public function index($agtemaid)
     {
         $this->opciones['parametr'] = [$agtemaid];
-        $this->opciones['titunuev'] = 'Nuevo Taller';
-        $this->opciones['titulist'] = 'Lista de Taller';
+        $this->opciones['titunuev'] = 'NUEVO TALLER';
+        $this->opciones['titulist'] = 'LISTA DE TALLER';
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'botonesx', 'dataxxxx' => 'Acciones.Grupales/Agtaller/botones/botonesapi'],
             ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components/botones/estadoxx'],
@@ -68,7 +68,7 @@ class AgTallerController extends Controller
     {
         $this->opciones['vercrear'] = '';
         $this->opciones['titunuev'] = 'Nuevo Sub Tipo de Segumineto';
-        $this->opciones['titulist'] = 'Lista de Temas';
+        $this->opciones['titulist'] = 'LISTA DE TEMAS';
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'botonesx', 'dataxxxx' => 'Acciones.Grupales/Agtaller/botones/apitemas'],
         ];
@@ -119,7 +119,7 @@ class AgTallerController extends Controller
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], $this->opciones['parametr']],
-                'formhref' => 2, 'tituloxx' => 'Volver a Talleres', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A TALLERES', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
 

@@ -6,17 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class FosStse extends Model{
     protected $fillable = [
-         'fos_tse_id','estusuario_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id','sis_esta_id',
+         'estusuario_id', 'nombre', 'descripcion', 'user_crea_id', 'user_edita_id','sis_esta_id',
     ];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
 
-    public function fos_tse(){
-        return $this->belongsTo(FosTse::class);
+    public function subtipo(){
+        return $this->belongsToMany(FosSeguimiento::class,'fos_seguimientos', 'fos_stses_id', 'id');
     }
 
 
+  
 
 
     /**
@@ -53,4 +54,29 @@ class FosStse extends Model{
         }
         return $comboxxx;
     }
+
+     public static function comboasignar($dataxxxx){
+    $comboxxx = [];
+    if($dataxxxx['cabecera']) {
+        if ($dataxxxx['ajaxxxxx']) {
+            $comboxxx[] = [
+                'valuexxx' => '',
+                'optionxx' => 'Seleccione'];
+        } else {
+            $comboxxx = ['' => 'Seleccione'];
+        }
+    }
+    $parametr = FosStse::select(['id as valuexxx', 'nombre as optionxx'])
+        ->where('sis_esta_id', 1)
+        ->orderBy('id', 'asc')
+        ->get();
+    foreach($parametr as $registro) {
+        if($dataxxxx['ajaxxxxx']) {
+            $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
+        }else {
+            $comboxxx[$registro->valuexxx] = $registro->optionxx;
+        }
+    }
+    return $comboxxx;
+}
 }

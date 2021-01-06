@@ -29,7 +29,7 @@
         @endif
         @if(auth()->user()->can( $requestx->routexxx[1].'-leer'))
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[1], $queryxxx->id) }}">Sub Tipo de Seguimiento</a>
+            <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[1], $queryxxx->id) }}">ASIGNAR TIPO DE SEGUIMIENTO</a>
         </div>
         @endif
 

@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaobservacion\FosDatosBasico;
+use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Sistema\SisDepen;
@@ -242,7 +243,7 @@ class FosController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['seguixxx'] = FosTse::combo($dataxxxx['modeloxx']->area_id, true, false);
-            $this->opciones['tipsegui'] = FosStse::combo([
+            $this->opciones['tipsegui'] = FosSeguimiento::combo([
                 'ajaxxxxx' => false,
                 'cabecera' => true,
                 'seguimie' => $dataxxxx['modeloxx']->fos_tse_id
@@ -411,7 +412,7 @@ class FosController extends Controller
                     break;
                 case 2:
                     $respuest = [
-                        'comboxxx' => FosStse::combo([
+                        'comboxxx' => FosSeguimiento::combo([
                             'ajaxxxxx' => true,
                             'cabecera' => true,
                             'areaxxxx' => $request->all()['valuexx1'],

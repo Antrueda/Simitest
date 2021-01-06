@@ -25,9 +25,9 @@
                                 @canany(['actividad-editar','actividad-borrar'])
                                     <th>ACCIONES</th>
                                 @endcan
-                                <th>Nombre</th> 
-                                <th>Documento fuente</th> 
-                                <th>Estado</th> 
+                                <th>NOMBRE</th> 
+                                <th>DOCUMENTO FUENTE</th> 
+                                <th>ESTADO</th> 
                             </tr>
                         </thead>
                         <tbody>

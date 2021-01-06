@@ -21,11 +21,11 @@ class AgConvenioController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones = [
-            'tituloxx' => 'Convenio',
+            'tituloxx' => 'CONVENIO',
             'rutaxxxx' => 'ag.conv.convenio',
             'accionxx' => '',
             'rutacarp'=>'Acciones.Grupales.Agconvenio.',
-            'volverax' => 'Volver a convenios',
+            'volverax' => 'VOLVER A CONVENIOS',
             'readonly' => '', // esta opcion es para cundo está por la parte de ver
             'carpetax' => 'Agconvenio',
             'modeloxx' => '',

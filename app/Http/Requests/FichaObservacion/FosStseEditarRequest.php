@@ -44,8 +44,7 @@ class FosStseEditarRequest extends FormRequest
         $this->validar();
         $this->_reglasx = [
             'nombre' => ['Required', 'string', 'max:120', 'unique:fos_tses,nombre,'. $this->segments()[2]],
-            'fos_tse_id' => ['Required'],
-        ];
+          ];
         return $this->_reglasx;
     }
 

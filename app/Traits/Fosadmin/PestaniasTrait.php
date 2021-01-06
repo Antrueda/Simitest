@@ -7,7 +7,8 @@ trait PestaniasTrait
 {
     public $pestanix = [
         'fostipse' => [true, []],
-        'fosubtse' => [false, []],
+        'fosubtse' => [true, []],
+        'fosasignar' => [true, []],
     ];
 
     private function getCanany($dataxxxx)
@@ -16,6 +17,7 @@ trait PestaniasTrait
 
             'fostipse' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
             'fosubtse' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'fosasignar' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -38,6 +40,15 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'SUB TIPO DE SEGUIMIENTO',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+
+        $pestania['fosasignar'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'ASIGNAR SUB TIPO DE SEGUIMIENTO',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

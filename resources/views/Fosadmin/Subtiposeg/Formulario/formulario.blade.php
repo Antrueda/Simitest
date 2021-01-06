@@ -10,18 +10,7 @@
     </div>
 
 
-    <div class="form-group col-md-6">
-        {{ Form::label('area_id', 'Area:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('area_id', $todoxxxx['fosareas'], null, ['class' => $errors->first('area_id') ? 'form-control is-invalid select2' : 'form-control select2','id'=>'area_id']) }}
-        @if($errors->has('area_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('area_id') }}
-        </div>
-        @endif
-    </div>
-   
-
-    <div class="form-group col-md-12">
+      <div class="form-group col-md-12">
         {{ Form::label('descripcion', 'Descripción:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid contarcaracteres' :
             'form-control form-control-sm contarcaracteres', 'placeholder' => 'Escriba una descripción para el sub tipo de seguimiento',

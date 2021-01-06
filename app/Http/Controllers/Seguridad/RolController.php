@@ -120,7 +120,7 @@ class RolController extends Controller
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['tituloxx']='ROL: '.$dataxxxx['modeloxx']->name;
+            $this->opciones['tituloxx']='ROL';
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 2;
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {

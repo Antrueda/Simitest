@@ -85,14 +85,14 @@ class PermisoController extends Controller
         $this->opciones['apermiso'] = Permissionext::get();
 
         // Se arma el titulo de acuerdo al array opciones
-        $this->opciones['tituloxx'] = $this->opciones['accionxx'] . ': ' . ucfirst($this->opciones['rutaxxxx']);
+     
 
         return view($this->opciones['rutaxxxx'] . '.' . strtolower($this->opciones['accionxx']), $this->opciones);
     }
 
     public function create()
     {
-
+        $this->opciones['tituloxx'] = 'CREAR';
         return $this->view(true, '', 'Crear');
     }
 
@@ -102,7 +102,7 @@ class PermisoController extends Controller
         $permisox = Permissionext::create(['name' => $request->all()['name']]);
 
         return redirect()->route($this->opciones['rutaxxxx'] . '.editar', $permisox->id)
-            ->with('info', 'Rol guardado con exito');
+            ->with('info', 'Permiso guardado con exito');
     }
 
     /**
@@ -125,7 +125,7 @@ class PermisoController extends Controller
      */
     public function edit(Permissionext $permiso)
     {
-
+        $this->opciones['tituloxx'] = 'EDITAR';
         return $this->view($permiso, 'modeloxx', 'Editar');
     }
 

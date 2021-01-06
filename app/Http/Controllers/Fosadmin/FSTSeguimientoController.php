@@ -35,27 +35,26 @@ class FSTSeguimientoController extends Controller
         $this->middleware($this->getMware());
     }
 
-    public function index(FosTse $padrexxx)
+    public function index()
     {
-        $this->pestanix['fosubtse']=[true,$padrexxx];
-        $this->opciones['ppadrexx']=$padrexxx;
+
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
     }
 
 
-    public function create(FosTse $padrexxx)
+    public function create()
     {
-        $this->pestanix['fosubtse']=[true,$padrexxx];
+   
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['crear', [$padrexxx], 1, 'GUARDAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$padrexxx]
+            $this->getBotones(['crear', [], 1, 'GUARDAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']),
+            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(FosStseCrearRequest $request,FosTse $padrexxx)
-    {
-        $request->request->add(['fos_tse_id'=>$padrexxx->id]);
+    public function store(FosStseCrearRequest $request)   
+     {
+
         return $this->setFosSubTiposeg([
             'requestx' => $request,
             'modeloxx' => '',
@@ -73,27 +72,26 @@ class FSTSeguimientoController extends Controller
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
 
         return $this->view($do,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->fos_tse]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]
         );
     }
 
 
     public function edit(FosStse $modeloxx)
     {
-        $this->pestanix['fosubtse']=[true,$modeloxx->fos_tse_id];
+        
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->fos_tse_id]], 2, 'VOLVER A SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], []], 2, 'VOLVER A SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->fos_tse_id]], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary'])
             ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->fos_tse]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],]
         );
     }
 
 
     public function update(FosStseEditarRequest $request,  FosStse $modeloxx)
     {
-        $request->request->add(['fos_tse_id' => $modeloxx->id]);
         return $this->setFosSubTiposeg([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
@@ -104,7 +102,6 @@ class FSTSeguimientoController extends Controller
 
     public function inactivate(FosStse $modeloxx)
     {
-        $this->pestanix['fosubtse']=[true,$modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary'])            ,
@@ -124,7 +121,6 @@ class FSTSeguimientoController extends Controller
 
     public function activate(FosStse $modeloxx)
     {
-        $this->pestanix['fosubtse']=[true,$modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary'])            ,

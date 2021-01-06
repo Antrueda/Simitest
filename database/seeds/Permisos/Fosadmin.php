@@ -34,3 +34,16 @@ $this->getPermisos([
     'compleme' => 'FOS sub tipo de seguimiento',
     'pestania' => 1
 ]);
+
+$this->getPermisos([
+    'permisox' => 'fosasignar',
+    'permisos' => [
+        'leer',
+        'crear',
+        'editar',
+        'borrar',
+        'activarx'
+    ],
+    'compleme' => 'FOS sub tipo de seguimiento',
+    'pestania' => 1
+]);

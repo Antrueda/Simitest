@@ -74,7 +74,7 @@ class RolpermisoController extends Controller
     }
     public function index(Roleext $padrexxx)
     {
-        $this->opciones['tituhead'] = 'ROL: ' . $padrexxx->name;
+        $this->opciones['tituhead'] = 'ROL';
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['padrexxx'] = '';
         $this->opciones['indecrea'] = false;

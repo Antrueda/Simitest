@@ -1,7 +1,7 @@
 <?php
 $controll = 'Fosadmin\FSTSeguimiento';
 $routxxxx = 'fosubtse';
-Route::group(['prefix' => '{padrexxx}/fossubtiposegs'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'fossubtiposegs'], function () use ($controll, $routxxxx) {
     Route::get('', [
         'uses' => $controll . 'Controller@index',
         'middleware' => ['permission:' . $routxxxx . '-leer|' . $routxxxx . '-crear|' . $routxxxx . '-editar|' . $routxxxx . '-borrar']
@@ -19,9 +19,6 @@ Route::group(['prefix' => '{padrexxx}/fossubtiposegs'], function () use ($contro
         'uses' => $controll . 'Controller@store',
         'middleware' => ['permission:' . $routxxxx . '-crear']
     ])->name($routxxxx . '.crear');
-});
-
-Route::group(['prefix' => 'fossubtiposeg'], function () use ($controll, $routxxxx) {
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'Controller@edit',
         'middleware' => ['permission:' . $routxxxx . '-editar']
