@@ -11,7 +11,6 @@ use App\Models\fichaIngreso\FiViolencia;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
-use App\Traits\Fi\VcontviolTrait;
 use Illuminate\Http\Request;
 
 /**
@@ -82,7 +81,6 @@ class FiVcontviolController extends Controller
         $this->opciones['botoform'][0]['routingx'][1]=[$this->opciones['usuariox']->id,$dataxxxx['padrexxx']->id];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             // $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
@@ -130,7 +128,7 @@ class FiVcontviolController extends Controller
 
     public function store(FiVcontviolCrearRequest $request, $padrexxx, $temaxxxx)
     {
-
+        $request->request->add(['sis_esta_id'=>1]);
         $request->request->add(['tema_id'=>$temaxxxx]);
         $request->request->add(['fi_violencia_id'=>$padrexxx]);
         return $this->grabar(['requestx'=>$request,'modeloxx'=>'','infoxxxx'=>'Violencia y condición especial creada con exito'] );

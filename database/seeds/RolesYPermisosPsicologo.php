@@ -62,7 +62,7 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 'csdreshogar-leer', 'csdreshogar-crear', 'csdreshogar-editar', 'csdreshogar-borrar',
                 'csdrescomparte-leer', 'csdrescomparte-crear', 'csdrescomparte-editar', 'csdrescomparte-borrar',
                 'csdcomfamirobserva-leer', 'csdcomfamirobserva-crear', 'csdcomfamirobserva-editar', 'csdcomfamirobserva-borrar',
-                
+
                 // ficha de ingreso
                 'ficonvio-leer', 'ficonvio-crear', 'ficonvio-editar', 'ficonvio-borrar',
                 'fivestuario-leer', 'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar',
@@ -104,8 +104,15 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 'evasionves-leer', 'evasionves-crear', 'evasionves-editar', 'evasionves-borrar',
                 'evasionpar-leer', 'evasionpar-crear', 'evasionpar-editar', 'evasionpar-borrar',
                 'agrelacion-leer', 'agrelacion-crear', 'agrelacion-editar', 'agrelacion-borrar',
-                
-
+                'taccform-modulo','agtaller-leer', 'agtaller-crear', 'agtaller-editar', 'agtaller-borrar',
+                'agrespon-leer', 'agrespon-crear', 'agrespon-editar', 'agrespon-borrar','agrespon-activarx',
+                'agasiste-leer', 'agasiste-crear', 'agasiste-editar', 'agasiste-borrar','agasiste-activarx',
+                'agrecurs-leer', 'agrecurs-crear', 'agrecurs-editar', 'agrecurs-borrar','agrecurs-activarx',
+                /**
+                 * cargue de documentos
+                 */
+                'cargdocu-modulo',
+                'cardocfi-leer', 'cardocfi-crear', 'cardocfi-editar', 'cardocfi-borrar','cardocfi-activarx',
             ]);
 
 

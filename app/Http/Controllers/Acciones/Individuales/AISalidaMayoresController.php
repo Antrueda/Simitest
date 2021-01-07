@@ -46,7 +46,7 @@ class AISalidaMayoresController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['condixxx'] = Tema::combo(272, false, false);
-        
+
         $this->opciones['tituloxx'] = "SALIDA DE JÓVENES MAYORES DE EDAD";
         $this->opciones['botoform'] = [
             [
@@ -82,7 +82,7 @@ class AISalidaMayoresController extends Controller
                     ['data' => 'fecha', 'name' => 'ai_salida_mayores.fecha'],
                     ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                     ['data' => 'razonesx', 'name' => 'razonesx'],
-                    
+
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
@@ -139,7 +139,7 @@ class AISalidaMayoresController extends Controller
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
-        $this->opciones['dependen'] = SisDepen::combo(true, false);
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['vercrear'] = false;
         $parametr = 0;
@@ -162,7 +162,7 @@ class AISalidaMayoresController extends Controller
                     ];
             }
 
-       
+
         }
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

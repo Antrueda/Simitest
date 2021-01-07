@@ -8,7 +8,6 @@ use App\Http\Requests\FichaIngreso\FiResidenciaUpdateRequest;
 use App\Models\fichaIngreso\FiCondicionAmbiente;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiResidencia;
-use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
@@ -39,6 +38,7 @@ class FiResidenciaController extends Controller
 
 
         $this->opciones['condicio'] = Tema::combo(23, true, false);
+
         $this->opciones['residees'] = Tema::combo(35, true, false);
         $this->opciones['tipodire'] = Tema::combo(36, true, false);
         $this->opciones['zonadire'] = Tema::combo(37, true, false);
@@ -75,20 +75,7 @@ class FiResidenciaController extends Controller
         $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
         $this->opciones['readchcx'] = '';
 
-        //ddd(Parametro::find(235)->combo);
-        $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
-        if ($this->opciones['usuariox']->prm_tipoblaci_id == 650) {
-            $this->opciones['readchcx'] = 'readonly';
-            $this->opciones['residees'] = [235 => 'N/A'];
-            $this->opciones['localida'] = [22 => 'N/A'];
-            $this->opciones['upzxxxxx'] = [119 => 'N/A'];
-            $this->opciones['barrioxx'] = [1653 => 'N/A'];
-            $this->opciones['estratox'] = [27 => 'NS/NR'];;
-            $this->opciones['tiporesi'] = Tema::combo(145, true, false);
-        } else {
-            $this->opciones['tiporesi'] = Tema::combo(34, true, false);
-        }
         // indica si se esta actualizando o viendo
 
         $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente(0);
@@ -101,7 +88,6 @@ class FiResidenciaController extends Controller
                 $this->opciones['tpviapal'] = [235 => 'N/A'];
             }
 
-            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             if ($dataxxxx['padrexxx']->prm_tipoblaci_id != 650) {
                 $dataxxxx['modeloxx']->sis_localidad_id=$dataxxxx['modeloxx']->sis_barrio->sis_localupz->sis_localidad_id;
                 $this->opciones['upzxxxxx'] = SisUpz::combo($dataxxxx['modeloxx']->sis_localidad_id, false);
@@ -110,6 +96,16 @@ class FiResidenciaController extends Controller
                 $this->opciones['condsele'] = FiCondicionAmbiente::getCondicionAbiente($dataxxxx['modeloxx']->id);
             }
 
+            if ($this->opciones['usuariox']->prm_tipoblaci_id == 650) {
+                $this->opciones['readchcx'] = 'readonly';
+                $this->opciones['residees'] = [235 => 'N/A'];
+                $this->opciones['localida'] = [22 => 'N/A'];
+                $this->opciones['upzxxxxx'] = [134 => 'N/A'];
+                $this->opciones['barrioxx'] = [1 => 'N/A'];
+                $this->opciones['tiporesi'] = Tema::combo(145, true, false);
+            } else {
+                $this->opciones['tiporesi'] = Tema::combo(34, true, false);
+            }
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -136,7 +132,6 @@ class FiResidenciaController extends Controller
     }
     private function grabar($dataxxxx, $objetoxx, $infoxxxx)
     {
-        // ddd($dataxxxx);
         $modeloxx = FiResidencia::transaccion($dataxxxx,  $objetoxx);
         return redirect()
             ->route('fi.residencia.editar', [$modeloxx->sis_nnaj->fi_datos_basico->id,  $modeloxx->id])

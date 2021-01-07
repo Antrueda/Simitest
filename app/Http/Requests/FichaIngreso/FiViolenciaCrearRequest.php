@@ -66,8 +66,8 @@ class FiViolenciaCrearRequest extends FormRequest
     {
         $datosbas=FiDatosBasico::find($this->segments()[1]);
         if($datosbas->prm_estrateg_id!=2323){
-            $this->_mensaje['i_prm_violencia_genero_id.required']= 'Seleccione el tipo de violencia referenciado corresponde a violencia basada en género/identidad de género';
-            $this->_reglasx['i_prm_violencia_genero_id']= ['Required'];
+            $this->_mensaje['prm_violbasa_id.required']= 'Seleccione el tipo de violencia referenciado corresponde a violencia basada en género/identidad de género';
+            $this->_reglasx['prm_violbasa_id']= ['Required'];
         }
         if($datosbas->prm_estrateg_id==2323){
             $this->_mensaje['prm_violbasa_id.required']= 'Seleccione el tipo de violencia referenciado corresponde a violencia basada en:';

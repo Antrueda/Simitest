@@ -37,8 +37,6 @@ class FiSustanciaConsumidaController extends Controller
 
         $this->opciones['sustanci'] = Tema::combo(53, true, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => ['ficonsumo.nuevo', []],
             'formhref' => 2, 'tituloxx' => "VOLVER A CONSUMO SPA", 'clasexxx' => 'btn btn-sm btn-primary'
@@ -140,6 +138,7 @@ class FiSustanciaConsumidaController extends Controller
     public function store(FiSustanciaConsumidaCrearRequest $request, FiDatosBasico $padrexxx)
     {
         $dataxxxx = $request->all();
+        $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
         return $this->grabar($dataxxxx, '', 'Sustancia creada con exito', $padrexxx);
     }

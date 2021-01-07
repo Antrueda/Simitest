@@ -100,6 +100,11 @@ Role::create(['name' => 'TRABAJADOR(A) SOCIAL', 'user_crea_id' => 1, 'user_edita
                 'aievasion-leer', 'aievasion-crear', 'aievasion-editar', 'aievasion-borrar',
                 'aisalidamenores-leer', 'aisalidamenores-crear', 'aisalidamenores-editar', 'aisalidamenores-borrar',
                 'airetornosalida-leer', 'airetornosalida-crear', 'airetornosalida-editar', 'airetornosalida-borrar',
-
+                'taccform-modulo','agtaller-leer', 'agtaller-crear', 'agtaller-editar', 'agtaller-borrar',
+                'agrespon-leer', 'agrespon-crear', 'agrespon-editar', 'agrespon-borrar','agrespon-activarx',
+                'agasiste-leer', 'agasiste-crear', 'agasiste-editar', 'agasiste-borrar','agasiste-activarx',
+                'agrecurs-leer', 'agrecurs-crear', 'agrecurs-editar', 'agrecurs-borrar','agrecurs-activarx',
+                'cargdocu-modulo',
+                'cardocfi-leer', 'cardocfi-crear', 'cardocfi-editar', 'cardocfi-borrar','cardocfi-activarx',
             ]);
 

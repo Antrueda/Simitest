@@ -126,6 +126,12 @@ trait FiTrait
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id');
         return $this->getDtAcciones($dataxxxx, $request);
     }
+
+    /**
+     * encontrar las dependencias asisgnadas al usuario conectado
+     *
+     * @return void
+     */
     public function getNotInt()
     {
         $userxxxx = Auth::user();

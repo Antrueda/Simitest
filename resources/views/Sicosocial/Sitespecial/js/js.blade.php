@@ -18,7 +18,7 @@
       language: "es"
     });
 
-  
+
   });
   function doc(valor) {
     if (valor != 853) {
@@ -34,7 +34,7 @@
   function doc1(valor) {
     if (valor != 853) {
       document.getElementById("prm_victima_id").hidden=true;
-      
+
     } else {
       document.getElementById("prm_victima_id").hidden=false;
     }

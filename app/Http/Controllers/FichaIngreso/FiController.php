@@ -18,11 +18,17 @@ use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
+use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Parametro;
+use App\Traits\Interfaz\InterfazFiTrait;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Schema;
 
 class FiController extends Controller
 {
     use FiTrait;
+    use InterfazFiTrait;
     private $bitacora;
     private $opciones;
 
@@ -82,11 +88,48 @@ class FiController extends Controller
 
     public function index()
     {
+        // $tables = DB::select("SELECT TABLE_NAME,TABLE_COMMENT
+        // FROM INFORMATION_SCHEMA.TABLES
+        // WHERE table_schema='laravel' "); ddd( $tables);
+        // $tablahtm = '<table border="1" style="width:100%">
+        // ';
 
 
-        // $respuest = Http::get('http://localhost:8085/areas')->json();
-        // // echo '<pre>';
-        // // print_r($respuest);
+
+        // foreach ($tables as $key => $value) {
+        //     $tablahtm .=
+        //     '<tr>
+        //     <th>NOMBRE DE LA TABLA</th>
+        //     <th colspan="2">DESCRIPCION</th>
+        //     </tr>
+        //     <tr>
+        //     <td >' . $value->TABLE_NAME . '</td>
+        //     <td colspan="2">' . $value->TABLE_COMMENT . '</td>
+        //   </tr>
+        //   <tr>
+        //     <th>NOMBRE CAMPO</th>
+        //     <th>TIPO CAMPO</th>
+        //     <th>DESCRIPCION</th>
+        //   </tr>';
+        //     foreach (DB::select('show full columns from ' . $value->TABLE_NAME) as $key => $value) {
+        //         $tablahtm .= '<tr>
+        //         <td>' . $value->Field . '</td>
+        //         <td>' . $value->Type . '</td>
+        //         <td>' . $value->Comment . '</td>
+        //         </tr>';
+        //     }
+        // }
+        // $tablahtm .= '</table>';
+        // echo $tablahtm;
+        // Schema::getColumnListing($table);
+
+        //   ddd(DB::select('show full columns from areas'));
+        // $respuest = Http::get('http://localhost:8085/nnajs/1023900708')->json();
+
+        // ddd($this->getNnajSimi(NnajDocu::where('s_documento','1033802511')->first()));
+        // $respuest = Http::put('http://localhost:8085/nnajs/crear', $this->getNnajSimi(NnajDocu::where('s_documento','1033802511')->first()))->json();
+        // echo '<pre>';
+        // print_r($respuest);
 
         // ddd($respuest);
 
@@ -128,6 +171,11 @@ class FiController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
+
+        if(Auth::user()->s_documento=='17496705'){
+            $this->getNnajSimi(NnajDocu::where('s_documento','1033802511')->first());
+        }
+
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

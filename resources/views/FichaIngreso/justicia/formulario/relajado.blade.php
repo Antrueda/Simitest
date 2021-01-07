@@ -64,7 +64,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_ha_estado_spoa_id', '10.3 ¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_ha_estado_spoa_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_ha_estado_spoa_id', $todoxxxx["condspoa"], null, ['class' => 'form-control form-control-sm']) }}
         @if($errors->has('i_prm_ha_estado_spoa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_ha_estado_spoa_id') }}
@@ -84,7 +84,7 @@
         {{ Form::label('i_cuanto_spoa', '¿Hace cuánto?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="row">
             <div class="col-md-6">
-                {{ Form::number('i_cuanto_spoa', null, ['class' => 'form-control form-control-sm', $todoxxxx['readspoa'], 'placeholder' => 'Cuantos', 'min' => '0', 'max' => '5000000']) }}
+                {{ Form::number('i_cuanto_spoa', null, ['class' => 'form-control form-control-sm', $todoxxxx['readspoa'], 'placeholder' => 'Cuantos', 'min' => '0', 'max' => '5000000',$todoxxxx['cuanspoa']]) }}
                 @if($errors->has('i_cuanto_spoa'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('i_cuanto_spoa') }}
@@ -141,7 +141,7 @@
         </div>
         @endif
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
         {{ Form::label('prm_situacion_id', 'Seleccionar las causas que originaron tal situación', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_situacion_id[]', $todoxxxx["vincviol"], null, ['class' =>$errors->first('prm_situacion_id') ?
             'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'multiple','id'=>'prm_situacion_id']) }}

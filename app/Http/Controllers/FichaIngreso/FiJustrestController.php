@@ -10,6 +10,7 @@ use App\Models\fichaIngreso\FiJustrest;
 use App\Models\fichaIngreso\FiProcesoPard;
 use App\Models\fichaIngreso\FiProcesoSpoa;
 use App\Models\fichaIngreso\FiProcesoSrpa;
+use App\Models\Parametro;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
@@ -43,6 +44,7 @@ class FiJustrestController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
+        $this->opciones['condspoa'] = Tema::combo(23, true, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['condnoap'] = Tema::combo(23, true, false);
         $this->opciones['actupard'] = Tema::combo(25, true, false);
@@ -66,6 +68,7 @@ class FiJustrestController extends Controller
 
     private function view($dataxxxx)
     {
+
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -75,7 +78,6 @@ class FiJustrestController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'],
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.' . $dataxxxx['accionxx'][2]]
         ];
-        $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['justicia'] = FiJustrest::justicia($dataxxxx['padrexxx']->sis_nnaj_id);
         // Inicializa composrtamiento de campos abiertos
         $this->opciones['readpard'] = '';
@@ -87,28 +89,28 @@ class FiJustrestController extends Controller
 
         // Si es CHC
         if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) {
-            $this->opciones['condicio'] = [1 => 'NO APLICA'];
-            $this->opciones['condnoap'] = [1 => 'NO APLICA'];
-            $this->opciones['actupard'] = [1 => 'NO APLICA'];
-            $this->opciones['actusrpa'] = [1 => 'NO APLICA'];
-            $this->opciones['actuspoa'] = [1 => 'NO APLICA'];
-            $this->opciones['titipard'] = [1 => 'NO APLICA'];
-            $this->opciones['motipard'] = [1 => 'NO APLICA'];
+            $this->opciones['condicio'] = Parametro::find(235)->Combo;
+            $this->opciones['condnoap'] = Parametro::find(235)->Combo;
+            $this->opciones['actupard'] = Parametro::find(235)->Combo;
+            $this->opciones['actusrpa'] = Parametro::find(235)->Combo;
+            $this->opciones['actuspoa'] = Parametro::find(235)->Combo;
+            $this->opciones['titipard'] = Parametro::find(235)->Combo;
+            $this->opciones['motipard'] = Parametro::find(235)->Combo;
             $this->opciones['readpard'] = 'readonly';
             $this->opciones['readnomd'] = 'readonly';
             $this->opciones['readteld'] = 'readonly';
             $this->opciones['readluga'] = 'readonly';
-            $this->opciones['titisrpa'] = [1 => 'NO APLICA'];
-            $this->opciones['motisrpa'] = [1 => 'NO APLICA'];
+            $this->opciones['titisrpa'] = Parametro::find(235)->Combo;
+            $this->opciones['motisrpa'] = Parametro::find(235)->Combo;
             $this->opciones['readsrpa'] = 'readonly';
-            $this->opciones['sancsrpa'] = [1 => 'NO APLICA'];
-            $this->opciones['titispoa'] = [1 => 'NO APLICA'];
-            $this->opciones['motispoa'] = [1 => 'NO APLICA'];
+            $this->opciones['sancsrpa'] = Parametro::find(235)->Combo;
+            $this->opciones['titispoa'] = Parametro::find(235)->Combo;
+            $this->opciones['motispoa'] = Parametro::find(235)->Combo;
             $this->opciones['readspoa'] = 'readonly';
-            $this->opciones['sancspoa'] = [1 => 'NO APLICA'];
-            $this->opciones['condspoa'] = [1 => 'NO APLICA'];
-            $this->opciones['vincviol'] = [1 => 'NO APLICA'];
-            $this->opciones['riesviol'] = [1 => 'NO APLICA'];
+            $this->opciones['sancspoa'] = Parametro::find(235)->Combo;
+            $this->opciones['condspoa'] = Parametro::find(235)->Combo;
+            $this->opciones['vincviol'] = Parametro::find(235)->Combo;
+            $this->opciones['riesviol'] = Parametro::find(235)->Combo;
         }
 
         // indica si se esta actualizando o viendo
@@ -118,10 +120,10 @@ class FiJustrestController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['puedexxx'] = '';
             if ($dataxxxx['modeloxx']->i_prm_vinculado_violencia_id == 228) {
-                $this->opciones['vincviol'] = [1 => 'NO APLICA'];
+                $this->opciones['vincviol'] = Parametro::find(235)->Combo;
             }
             if ($dataxxxx['modeloxx']->i_prm_riesgo_participar_id == 228) {
-                $this->opciones['riesviol'] = [1 => 'NO APLICA'];
+                $this->opciones['riesviol'] = Parametro::find(235)->Combo;
             }
 
 
@@ -154,9 +156,9 @@ class FiJustrestController extends Controller
             $dataxxxx['modeloxx']->i_prm_ha_estado_preso_id = $spoaxxxx->i_prm_ha_estado_preso_id;
 
             if ($dataxxxx['modeloxx']->i_prm_ha_estado_pard_id != 227) {
-                $this->opciones['actupard'] = [1 => 'NO APLICA'];
-                $this->opciones['titipard'] = [1 => 'NO APLICA'];
-                $this->opciones['motipard'] = [1 => 'NO APLICA'];
+                $this->opciones['actupard'] = Parametro::find(235)->Combo;
+                $this->opciones['titipard'] = Parametro::find(235)->Combo;
+                $this->opciones['motipard'] = Parametro::find(235)->Combo;
                 $this->opciones['readpard'] = 'readonly';
                 $this->opciones['readnomd'] = 'readonly';
                 $this->opciones['readteld'] = 'readonly';
@@ -165,55 +167,38 @@ class FiJustrestController extends Controller
 
 
             if ($dataxxxx['modeloxx']->i_prm_actualmente_pard_id != 227) {
-                $this->opciones['titipard'] = [1 => 'NO APLICA'];
-                $this->opciones['motipard'] = [1 => 'NO APLICA'];
+                $this->opciones['titipard'] = Parametro::find(235)->Combo;
+                $this->opciones['motipard'] = Parametro::find(235)->Combo;
                 $this->opciones['readpard'] = 'readonly';
                 $this->opciones['readnomd'] = 'readonly';
                 $this->opciones['readteld'] = 'readonly';
                 $this->opciones['readluga'] = 'readonly';
             }
-/*
-            if ($dataxxxx['modeloxx']->i_prm_ha_estado_srpa_id != 227) {
-                $this->opciones['actusrpa'] = [1 => 'NO APLICA'];
-                $this->opciones['titisrpa'] = [1 => 'NO APLICA'];
-                $this->opciones['motisrpa'] = [1 => 'NO APLICA'];
-                $this->opciones['readsrpa'] = 'readonly';
-                $this->opciones['sancsrpa'] = [1 => 'NO APLICA'];
-            }
 
-
-            if ($dataxxxx['modeloxx']->i_prm_actualmente_pard_id != 227) {
-                $this->opciones['titisrpa'] = [1 => 'NO APLICA'];
-                $this->opciones['motisrpa'] = [1 => 'NO APLICA'];
-                $this->opciones['readsrpa'] = 'readonly';
-                $this->opciones['sancsrpa'] = [1 => 'NO APLICA'];
-            }
-            */
             if ($dataxxxx['modeloxx']->i_prm_ha_estado_spoa_id != 227) {
-                $this->opciones['actuspoa'] = [1 => 'NO APLICA'];
-                $this->opciones['titispoa'] = [1 => 'NO APLICA'];
-                $this->opciones['motispoa'] = [1 => 'NO APLICA'];
+                $this->opciones['actuspoa'] = Parametro::find(235)->Combo;
+                $this->opciones['titispoa'] = Parametro::find(235)->Combo;
+                $this->opciones['motispoa'] = Parametro::find(235)->Combo;
                 $this->opciones['readspoa'] = 'readonly';
-                $this->opciones['sancspoa'] = [1 => 'NO APLICA'];
-                $this->opciones['condspoa'] = [1 => 'NO APLICA'];
+                $this->opciones['sancspoa'] = Parametro::find(235)->Combo;
+                $this->opciones['condspoa'] = Parametro::find(235)->Combo;
             }
 
             if ($dataxxxx['modeloxx']->i_prm_actualmente_spoa_id != 227) {
 
-                $this->opciones['titispoa'] = [1 => 'NO APLICA'];
-                $this->opciones['motispoa'] = [1 => 'NO APLICA'];
+                $this->opciones['titispoa'] = Parametro::find(235)->Combo;
+                $this->opciones['motispoa'] = Parametro::find(235)->Combo;
                 $this->opciones['readspoa'] = 'readonly';
-                $this->opciones['sancspoa'] = [1 => 'NO APLICA'];
-                $this->opciones['condspoa'] = [1 => 'NO APLICA'];
+                $this->opciones['sancspoa'] = Parametro::find(235)->Combo;
+                $this->opciones['condspoa'] = Parametro::find(235)->Combo;
             }
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
         $this->opciones['tablasxx'] = [
             [
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.justicia',
-                'titunuev' => 'CREAR JUSTICIA RESTAURATIVA',
+                'titunuev' => 'CREAR COMPONENTE FAMILIAR CON PROCESOS LEGALES',
                 'titulist' => 'LISTA DE COMPONENTES FAMILIARES CON PROCESOS LEGALES',
                 'dataxxxx' => [],
                 'titupreg' => '10.6 ¿Qué personas de su familia han estado o se encuentran en procesos legales, o han estado en la cárcel o fiscalía?',
@@ -251,6 +236,18 @@ class FiJustrestController extends Controller
                 'parametr' => [isset($this->opciones['modeloxx']->id) ? $this->opciones['modeloxx']->id : ''],
             ],
         ];
+        $this->opciones['cuanspoa']='';
+        if ($this->opciones['usuariox']->nnaj_nacimi->Edad < 18) {
+            $this->opciones['cuanspoa']='readonly';
+            $this->opciones['sancspoa'] =
+            $this->opciones['actuspoa'] =
+            $this->opciones['titispoa'] =
+            $this->opciones['motispoa'] =
+            $this->opciones['condspoa'] =
+            $this->opciones['motispoa'] = Parametro::find(235)->Combo;
+        }
+
+        //
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
