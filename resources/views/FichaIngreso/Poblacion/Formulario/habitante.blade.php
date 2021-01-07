@@ -38,7 +38,7 @@
         </select>
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('i_tiempo', '12.4 ¿Hace cuánto tiempo duerme en la calle?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('i_tiempo', '13.4 ¿Hace cuánto tiempo duerme en la calle?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="form-group col-md-6" style="float: left">
 
             {{ Form::number('i_tiempo', null, ['class' => 'form-control form-control-sm', 'style'=>'height:38px']) }}
@@ -49,7 +49,7 @@
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('i_prm_iniciado_id', '12.5¿Cuáles fueron las razones para haber INICIADO la habitanza en calle? (opción múltiple)', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('i_prm_iniciado_id', '13.5¿Cuáles fueron las razones para haber INICIADO la habitanza en calle? (opción múltiple)', ['class' => 'control-label col-form-label-sm']) }}
         <select id="i_prm_iniciado_id" name="i_prm_iniciado_id[]" class="form-control form-control-sm select2" multiple="multiple">
             @foreach ($todoxxxx["iniciado"] as $valuexxx => $optionxx)
             <?php $victimas = '' ?>
@@ -72,7 +72,7 @@
         </select>
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('i_prm_continua_id', '12.6¿Razones por las cuales CONTINUA la habitanza en calle (opción múltiple)', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('i_prm_continua_id', '13.6¿Razones por las cuales CONTINUA la habitanza en calle (opción múltiple)', ['class' => 'control-label col-form-label-sm']) }}
         <select id="i_prm_continua_id" name="i_prm_continua_id[]" class="form-control form-control-sm select2" multiple="multiple">
             @foreach ($todoxxxx["continua"] as $valuexxx => $optionxx)
             <?php $victimas = '' ?>

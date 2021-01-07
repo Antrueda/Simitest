@@ -20,7 +20,7 @@
     </div>
     <div class="form-group col-sm-4">
       {{ Form::label('s_direccion', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('s_direccion', null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::text('s_direccion', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase()"]) }}
     </div>
   </div>
   @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')

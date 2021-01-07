@@ -424,7 +424,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 403, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'BEBIDAS ALCOHÓLICAS']);
         Parametro::create(['id' => 404, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MARIHUANA']);
         Parametro::create(['id' => 405, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'COCAINA, CRACK Y/O PACO']);
-        Parametro::create(['id' => 406, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INHALABLES']);
+        Parametro::create(['id' => 406, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INHALANTES']);
         Parametro::create(['id' => 407, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'NOCHE']);
         Parametro::create(['id' => 408, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LÁMINAS DE ZINC']);
         Parametro::create(['id' => 409, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MATERIAL NO CONVENCIONAL (POLISOMBRA, CARTÓN, PLÁSTICO, MATERIAL DE RECICLAJE)']);
