@@ -53,8 +53,8 @@ class AgTallertemaController extends Controller
      */
     public function index()
     {
-        $this->opciones['titunuev'] = 'Nuevo Taller-Tema';
-        $this->opciones['titulist'] = 'Lista de Talleres-Temas';
+        $this->opciones['titunuev'] = 'NUEVO TALLER TEMA';
+        $this->opciones['titulist'] = 'LISTA DE TALLERES-TEMA';
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'botonesx', 'dataxxxx' => 'Acciones/Grupales/Agttema/botones/botonesapi'],
         ];

@@ -90,7 +90,7 @@ class AlertaController extends Controller
                 'cabecera' => [
                     ['td' => 'ID'],
                     ['td' => 'TITULO'], /////
-                    ['td' => 'DESCRIPCION'],////
+                    ['td' => 'DESCRIPCIÓN'],////
                     ['td' => 'ESTADO'],
                 ],
                 'columnsx' => [

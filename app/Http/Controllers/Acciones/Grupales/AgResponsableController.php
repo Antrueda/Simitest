@@ -74,7 +74,7 @@ class AgResponsableController extends Controller
         $this->getBotones(['editar', [], 1, 'EDITAR RESPONSABLE', 'btn btn-sm btn-primary']);
         $responsa = AgResponsable::where('ag_actividad_id',$padrexxx->id)->get();
         if(  count($responsa)<=2){
-        $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'CREAR', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'AGREGAR NUEVO RESPONSABLE', 'btn btn-sm btn-primary']);
         }
         return $this->view(
             $this->opciones,
@@ -98,19 +98,15 @@ class AgResponsableController extends Controller
         $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->ag_actividad_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['agactividad.editar', [$modeloxx->ag_actividad_id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
-        return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR', 'btn btn-sm btn-primary']),
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->ag_actividad]
-        );
+        return $this->destroy($modeloxx);
     }
 
 
-    public function destroy(Request $request, AgResponsable $modeloxx)
+    public function destroy(AgResponsable $modeloxx)
     {
-        $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
-        return redirect()
-            ->route('agactividad.editar', [$modeloxx->ag_actividad_id])
-            ->with('info', 'Responsable inactivado correctamente');
+        $modeloxx->delete();
+        return redirect()->back()
+            ->with('info', 'Responsable eliminado correctamente');
     }
 
     public function activate(AgResponsable $modeloxx)

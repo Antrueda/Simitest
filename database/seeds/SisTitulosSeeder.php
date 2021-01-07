@@ -33,7 +33,7 @@ class SisTitulosSeeder extends Seeder
         SisTitulo::create(['id' => 19, 's_titulo' => 'JUSTIFICACIÓN', 's_tooltip' => 'Justificación', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 20, 's_titulo' => 'Objetivo', 's_tooltip' => 'Objetivo', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 21, 's_titulo' => 'METODOLOGÍA', 's_tooltip' => 'Metodología', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
-        SisTitulo::create(['id' => 22, 's_titulo' => 'CATEGORÍA', 's_tooltip' => 'Categosría', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
+        SisTitulo::create(['id' => 22, 's_titulo' => 'CATEGORÍA(Si aplica)', 's_tooltip' => 'Categosría', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 23, 's_titulo' => 'CONTENIDO TEMÁTICO', 's_tooltip' => 'Contenido temático', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 24, 's_titulo' => 'Estrategia de convocatoria (si aplica)', 's_tooltip' => 'Estrategia de convocatoria (si aplica)', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);
         SisTitulo::create(['id' => 25, 's_titulo' => 'Resultado y/o productos', 's_tooltip' => 'Resultado y/o productos', "sis_esta_id" => 1, "user_crea_id" => 1, "user_edita_id" => 1]);

@@ -14,7 +14,7 @@
 
   <div class="form-group col-md-4">
     {{ Form::label('i_prm_responsable_id', Tr::getTitulo(14,1).':', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('i_prm_responsable_id', $todoxxxx['condicio'], null, ['class' => $errors->first('i_prm_responsable_id') ? 'form-control is-invalid select2' : 'form-control select2','id'=>'i_prm_responsable_id']) }}
+    {{ Form::select('i_prm_responsable_id', $todoxxxx['condicio'], null, ['class' => $errors->first('i_prm_responsable_id') ? 'form-control is-invalid ' : 'form-control ','id'=>'i_prm_responsable_id']) }}
     @if($errors->has('i_prm_responsable_id'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('i_prm_responsable_id') }}

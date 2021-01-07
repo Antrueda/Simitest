@@ -40,7 +40,7 @@ class AgContextoController extends Controller
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'CONTEXTO'],
-            ['td' => 'DESCRIPCION'],
+            ['td' => 'DESCRIPCIÓN'],
 
             ['td' => 'ESTADO'],
         ];

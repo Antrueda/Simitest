@@ -53,11 +53,10 @@ class AgResponsableCrearRequest extends FormRequest
         /**
          * indentificar si ya tiene un responsable
          */
-        $responsa = AgResponsable::where('ag_actividad_id', $this->segments()[1])
+        $responsa = AgResponsable::where('ag_actividad_id', $this->segments()[0])
             ->where('i_prm_responsable_id', 1770)
             ->first();
-        if (isset($responsa->id)) {
-
+            if (isset($responsa->id)) {
             if ($this->i_prm_responsable_id == $responsa->i_prm_responsable_id) {
                 $this->_mensaje['yarespon.required'] = 'La actividad ya cuenta con un responsable';
                 $this->_reglasx['yarespon'] = 'required';

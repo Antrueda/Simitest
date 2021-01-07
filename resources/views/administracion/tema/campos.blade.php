@@ -4,7 +4,7 @@
 		@if($accion == 'Ver')
 			{{ Form::text('nombre', $dato->nombre, ['class' => 'form-control-plaintext']) }}
 		@else
-			{{ Form::text('nombre', null, ['class' => $errors->first('nombre') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'nombre del tema', 'maxlength' => '120', 'autofocus']) }}
+			{{ Form::text('nombre', null, ['class' => $errors->first('nombre') ? 'form-control is-invalid' : 'form-control', 'placeholder' => 'nombre del tema', 'maxlength' => '120', 'autofocus','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
 		@endif
 	</div>
 	@if($errors->has('nombre'))

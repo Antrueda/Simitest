@@ -58,7 +58,7 @@ trait ListadosTrait
         if ($request->ajax()) {
             $request->routexxx = ['agrespon', 'fosubtse'];
             $request->botonesx = $this->opciones['rutacarp'] .
-                $this->opciones['carpetax'] . '.Botones.botonesapi';
+                $this->opciones['carpetax'] . '.Botones.botonesapires';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =   AgResponsable::select([
                 'ag_responsables.id',

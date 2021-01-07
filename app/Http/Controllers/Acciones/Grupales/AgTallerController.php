@@ -18,7 +18,7 @@ class AgTallerController extends Controller
             'permisox' => 'agtaller',
             'parametr' => [],
             'rutacarp' => 'Acciones.Grupales.Agtaller.',
-            'tituloxx' => 'Taller',
+            'tituloxx' => 'TALLER',
         ];
 
         $this->middleware(['permission:'
@@ -50,7 +50,7 @@ class AgTallerController extends Controller
         $this->opciones['cabecera'] = [
             ['td' => 'ID'],
             ['td' => 'TALLER'],
-            ['td' => 'DESCRIPCION'],
+            ['td' => 'DESCRIPCIÓN'],
             ['td' => 'ESTADO'],
         ];
         $this->opciones['columnsx'] = [

@@ -95,7 +95,7 @@ class RolpermisoController extends Controller
                     ['td' => 'MENU', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     ['td' => 'PESTAÑA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                    ['td' => 'DESCRIPCION', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'DESCRIPCIÓN', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                 ],
             ],
             'columnsx' => [
@@ -127,7 +127,7 @@ class RolpermisoController extends Controller
                     // ['td' => 'MENU', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     // ['td' => 'DOCUMENTO', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                     // ['td' => 'PESTAÑA', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
-                    ['td' => 'DESCRIPCION', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
+                    ['td' => 'DESCRIPCIÓN', 'widthxxx' => '', 'rowspanx' => 1, 'colspanx' => 1],
                 ],
             ],
             'columnsx' => [

@@ -9,7 +9,7 @@
     @foreach ($todoxxxx['lugaresx'] as $lugaresx)
         <div class="form-group col-md-3">
             <div class="form-check-inline">
-                <label class="form-check-label">
+                <label class="form-check-label" style = "text-transform:uppercase;">
                     <?php $checkedx=false; 
                     foreach($todoxxxx['modeloxx']->lugaresx as $selected){
                         if ($lugaresx->id== $selected) {

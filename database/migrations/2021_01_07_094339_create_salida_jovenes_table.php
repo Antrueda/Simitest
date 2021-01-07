@@ -6,14 +6,14 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFosStsesTestsTable extends Migration
+class CreateSalidaJovenesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    private $tablaxxx = 'fos_stses_tests';
+    private $tablaxxx = 'salida_jovenes';
     /**
      * Run the migrations.
      *
@@ -23,14 +23,14 @@ class CreateFosStsesTestsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('codigo', 6)->nullable();
-            $table->string('nombre', 120);
-            $table->string('descripcion', 4000)->nullable();
-            $table->bigInteger('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
-            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
+            $table->bigInteger('fi_dato_basico_id')->unsigned();
+            $table->bigInteger('ai_salmay_id')->unsigned();
+            $table->foreign('ai_salmay_id')->references('id')->on('ai_salida_mayores');
+            $table->foreign('fi_dato_basico_id')->references('id')->on('fi_datos_basicos');
             $table = CamposMagicos::magicos($table);
+            ;
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DEL SUBTIPO DE SEGUIMIENTO REALIZADO DE LA PERSONA ENTREVISTADA, FICHA DE OBSERVACION'");
+        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA QUIENES ASISTEN A LAS ACTIVIDADES ASOCIADOS A LOS TALLERES DENTRO DE LAS ACCIONES GRUPALES'");
     }
 
     /**
