@@ -33,24 +33,20 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_lugar_id', Tr::getTitulo(9,1), ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_lugar_id', $todoxxxx["lugarxxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px']) }}
+
+        {{ Form::text('s_prm_espac', null, ['class' => 'form-control form-control-sm','style'=>'height:38px','readonly','id'=>'s_prm_espac', "onkeyup" => "javascript:this.value=this.value.toUpperCase()", 'style' => 'text-transform:uppercase']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_prm_espac', Tr::getTitulo(10,1), ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_prm_espac', null, ['class' => 'form-control form-control-sm','style'=>'height:38px','readonly']) }}
+        {{ Form::select('i_prm_lugar_id', $todoxxxx["lugarxxx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px']) }}
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-12">
         {{ Form::label('i_prm_dirig_id', Tr::getTitulo(11,1), ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_prm_dirig_id', $todoxxxx["dirigido"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px']) }}
     </div>
-    <div class="form-group col-md-6">
-        {{ Form::label('sis_entidad_id', Tr::getTitulo(12,1), ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_entidad_id', $todoxxxx["entidadx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px']) }}
-    </div>
+
 </div>
-@if(isset($todoxxxx["modeloxx"]->id))
-    @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
-@endif
+
 <div class="form-group row">
     <div class="form-group col-md-6">
         {{ Form::label('s_introduc', Tr::getTitulo(18,1), ['class' => 'control-label col-form-label-sm']) }}
@@ -142,7 +138,9 @@
     "onkeyup" => "javascript:this.value=this.value.toUpperCase()", 'style' => 'text-transform:uppercase' ]) }}
         <p id="ags_observaccontador">0/6000</p>
     </div>
-
+    @if(isset($todoxxxx["modeloxx"]->id))
+    @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+@endif
 
     @if(isset($todoxxxx["modeloxx"]->id))
     <div class="form-row align-items-end form-group col-md-12" style="margin-bottom: 40px">
@@ -151,7 +149,7 @@
         @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto_ar','descripc'=>'Seleccione un archivo','idlabelx'=>'s_doc_adjunto_ar_label',
         'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf','clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
         @endcomponent
-    
+
     </div>
     @endif
 </div>

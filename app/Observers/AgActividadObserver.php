@@ -23,7 +23,7 @@ class AgActividadObserver
         $log['ag_sttema_id'] = $modeloxx->ag_sttema_id;
         $log['i_prm_dirig_id'] = $modeloxx->i_prm_dirig_id;
         $log['s_prm_espac'] = $modeloxx->s_prm_espac;
-        $log['sis_entidad_id'] = $modeloxx->sis_entidad_id;
+
         $log['s_introduc'] = $modeloxx->s_introduc;
         $log['s_justific'] = $modeloxx->s_justific;
         $log['s_objetivo'] = $modeloxx->s_objetivo;

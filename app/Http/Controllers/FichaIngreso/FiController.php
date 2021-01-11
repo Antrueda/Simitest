@@ -126,7 +126,7 @@ class FiController extends Controller
         //   ddd(DB::select('show full columns from areas'));
         // $respuest = Http::get('http://localhost:8085/nnajs/1023900708')->json();
 
-        // ddd($this->getNnajSimi(NnajDocu::where('s_documento','1033802511')->first()));
+        // $this->getBuscarNnaj();
         // $respuest = Http::put('http://localhost:8085/nnajs/crear', $this->getNnajSimi(NnajDocu::where('s_documento','1033802511')->first()))->json();
         // echo '<pre>';
         // print_r($respuest);
@@ -172,9 +172,9 @@ class FiController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
 
-        if(Auth::user()->s_documento=='17496705'){
-            $this->getNnajSimi(NnajDocu::where('s_documento','1033802511')->first());
-        }
+        // if(Auth::user()->s_documento=='17496705'){
+        //     $this->getNnajSimi(NnajDocu::where('s_documento','1033802511')->first());
+        // }
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -182,7 +182,7 @@ class FiController extends Controller
     public function getListado(Request $request)
     {
         if ($request->ajax()) {
-
+// print_r($request->columns[0]['search']);
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';

@@ -2,7 +2,7 @@
 
 namespace App\Traits\Acciones\Grupales\Asistente;
 
-
+use App\Models\Tema;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -12,7 +12,7 @@ trait VistasTrait
     use DataTablesTrait;
     public function getVista($dataxxxx)
     {
-        
+
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
@@ -21,6 +21,7 @@ trait VistasTrait
     }
     public function view($dataxxxx)
     {
+
         $this->opciones['parametr'][] = $this->opciones['padrexxx']->id;
         $this->getVista($dataxxxx);
         $this->getTablas($dataxxxx);

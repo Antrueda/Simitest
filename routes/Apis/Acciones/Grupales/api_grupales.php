@@ -234,13 +234,13 @@ Route::get('ag/espacios', function (Request $request) {
        $respusta['dataxxxx'] = SisDepen::getLugares(['cabecera'=>true,'esajaxxx'=>true,
         'padrexxx'=>$request->padrexxx]);
 
-        $cantidad=count($respusta['dataxxxx']);
-        if($cantidad==1){
-            $respusta['dataxxxx']=[['valuexxx' => 1, 'optionxx' => 'N/A']];
-        }
+        // $cantidad=count($respusta['dataxxxx']);
+        // if($cantidad==1){
+
+        // }
 
     if ($request->padrexxx == 1) {
-
+        $respusta['dataxxxx']=[['valuexxx' => 1, 'optionxx' => 'N/A']];
         $respusta['readonly'] = false;
     }
     return response()->json($respusta);

@@ -104,6 +104,9 @@ Role::create(['name' => 'TRABAJADOR(A) SOCIAL', 'user_crea_id' => 1, 'user_edita
                 'agrespon-leer', 'agrespon-crear', 'agrespon-editar', 'agrespon-borrar','agrespon-activarx',
                 'agasiste-leer', 'agasiste-crear', 'agasiste-editar', 'agasiste-borrar','agasiste-activarx',
                 'agrecurs-leer', 'agrecurs-crear', 'agrecurs-editar', 'agrecurs-borrar','agrecurs-activarx',
+                /**
+                 * cargue de documentos
+                 */
                 'cargdocu-modulo',
                 'cardocfi-leer', 'cardocfi-crear', 'cardocfi-editar', 'cardocfi-borrar','cardocfi-activarx',
             ]);

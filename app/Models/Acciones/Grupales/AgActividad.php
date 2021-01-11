@@ -20,7 +20,7 @@ class AgActividad extends Model
     'ag_sttema_id',
     'i_prm_dirig_id',
     's_prm_espac',
-    'sis_entidad_id',
+
     's_introduc',
     's_justific',
     's_objetivo',

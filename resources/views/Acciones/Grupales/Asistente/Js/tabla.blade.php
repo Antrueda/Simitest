@@ -50,24 +50,24 @@ $(document).ready(function() {
 
         @can('agasiste-editar')
 
-            // $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
-            //     var id= {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data();
+            $('#{{ $todoxxxx["tablasxx"][0]["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
+                var id= {{$todoxxxx["tablasxx"][0]["tablaxxx"]}}.row( this ).data();
 
-            //     if ( !$(this).hasClass('btn-danger') &&  id!=undefined) {
-            //         $(this).addClass('btn-danger');
-            //         // f_ajax(id.id,0);
-            //     }
-
-            // //console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
-            // } );
-
-            $('#{{ $todoxxxx["tablasxx"][1]["tablaxxx"] }} tbody').on( 'click', 'tr', function () {
-                var id= {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.row( this ).data();
-                if ( !$(this).hasClass('btn-primary' &&  id!=undefined) ) {
+                if ( !$(this).hasClass('btn-primary') &&  id!=undefined) {
                     $(this).addClass('btn-primary');
                     f_ajax(id.id);
                 }
+
+            console.log( {{ $todoxxxx["tablasxx"][0]["tablaxxx"] }}.row( this ).data() );
             } );
+
+            // $('#{{ $todoxxxx["tablasxx"][1]["tablaxxx"] }} tbody').on( 'click', 'tr', function () { alert(44)
+            //     var id= {{ $todoxxxx["tablasxx"][1]["tablaxxx"] }}.row( this ).data();
+            //     if ( !$(this).hasClass('btn-primary' &&  id!=undefined) ) {
+            //         $(this).addClass('btn-primary');
+            //         f_ajax(id.id);
+            //     }
+            // } );
         @endcan
 
 

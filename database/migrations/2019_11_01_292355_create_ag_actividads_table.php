@@ -29,15 +29,14 @@ class CreateAgActividadsTable extends Migration
             $table->bigInteger('ag_sttema_id')->unsigned();
             $table->bigInteger('i_prm_dirig_id')->unsigned();
             $table->text('s_prm_espac', 120)->nullable();
-            $table->bigInteger('sis_entidad_id')->unsigned();
             $table->string('s_doc_adjunto', 200)->nullable();
             $table->text('s_introduc',4000);
             $table->text('s_justific',4000);
             $table->text('s_objetivo',4000);
             $table->text('s_metodolo',4000);
-            $table->text('s_categori',4000);
+            $table->text('s_categori',4000)->nullable();
             $table->text('s_contenid',4000);
-            $table->text('s_estrateg',4000);
+            $table->text('s_estrateg',4000)->nullable();
             $table->text('s_resultad',4000);
             $table->text('s_evaluaci',4000);
             $table->text('s_observac',4000);
@@ -49,7 +48,6 @@ class CreateAgActividadsTable extends Migration
             $table->foreign('ag_taller_id')->references('id')->on('ag_tallers');
             $table->foreign('ag_sttema_id')->references('id')->on('ag_subtemas');
             $table->foreign('i_prm_dirig_id')->references('id')->on('parametros');
-            $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE RELACIONA LOS DETALLES DE LAS ACTIVIDADES REALIZADAS CON DEPENDENCIA, TEMA, LUGAR, TALER Y OBJETIVO  PERTECECIENTES A LAS ACTIVIDADES GRUPALES'");
@@ -67,14 +65,14 @@ class CreateAgActividadsTable extends Migration
             $table->integer('i_prm_dirig_id');
             $table->text('s_prm_espac', 120)->nullable();
             $table->string('s_doc_adjunto', 200)->nullable();
-            $table->integer('sis_entidad_id');
+
             $table->text('s_introduc',4000);
             $table->text('s_justific',4000);
             $table->text('s_objetivo',4000);
             $table->text('s_metodolo',4000);
-            $table->text('s_categori',4000);
+            $table->text('s_categori',4000)->nullable();
             $table->text('s_contenid',4000);
-            $table->text('s_estrateg',4000);
+            $table->text('s_estrateg',4000)->nullable();
             $table->text('s_resultad',4000);
             $table->text('s_evaluaci',4000);
             $table->text('s_observac',4000);

@@ -8,7 +8,6 @@ use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Sistema\SisDepeUsua;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
 
@@ -82,7 +81,7 @@ trait ListadosTrait
     }
 
 
-    
+
     public function ListarRecursos(Request $request, AgActividad $padrexxx)
     {
 
@@ -99,14 +98,14 @@ trait ListadosTrait
                 'umedidax.nombre as umedidax',
                 'ag_relacions.sis_esta_id',
                 'sis_estas.s_estado',
-                ])
-            ->join('ag_actividads', 'ag_relacions.ag_actividad_id', '=', 'ag_actividads.id')
-            ->join('ag_recursos', 'ag_relacions.ag_recurso_id', '=', 'ag_recursos.id')
-            ->join('sis_estas', 'ag_relacions.sis_esta_id', '=', 'sis_estas.id')
-            ->join('parametros as trecurso', 'ag_recursos.i_prm_trecurso_id', '=', 'trecurso.id')
-            ->join('parametros as umedidax', 'ag_recursos.i_prm_umedida_id', '=', 'umedidax.id')
-            ->where('ag_relacions.ag_actividad_id', $padrexxx->id);
-                
+            ])
+                ->join('ag_actividads', 'ag_relacions.ag_actividad_id', '=', 'ag_actividads.id')
+                ->join('ag_recursos', 'ag_relacions.ag_recurso_id', '=', 'ag_recursos.id')
+                ->join('sis_estas', 'ag_relacions.sis_esta_id', '=', 'sis_estas.id')
+                ->join('parametros as trecurso', 'ag_recursos.i_prm_trecurso_id', '=', 'trecurso.id')
+                ->join('parametros as umedidax', 'ag_recursos.i_prm_umedida_id', '=', 'umedidax.id')
+                ->where('ag_relacions.ag_actividad_id', $padrexxx->id);
+
             return $this->getDt($dataxxxx, $request);
         }
     }
@@ -121,8 +120,8 @@ trait ListadosTrait
                 ->where('ag_actividad_id', $padrexxx->id)
                 ->get();
             $depende =    AgActividad::select(['sis_deporigen_id'])
-            ->where('id', $padrexxx->id)
-            ->get();
+                ->where('id', $padrexxx->id)
+                ->get();
             $dataxxxx = FiDatosBasico::select([
                 'fi_datos_basicos.id',
                 'nnaj_docus.s_documento',
@@ -132,20 +131,23 @@ trait ListadosTrait
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
                 'sis_estas.s_estado',
+                'sis_depens.nombre'
             ])
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
                 ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
                 ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
                 ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
+                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
                 ->where('sis_nnajs.prm_escomfam_id',  227)
+                ->where('nnaj_upis.prm_principa_id',  227)
                 ->whereNotIn('fi_datos_basicos.id',  $responsa)
                 ->whereIn('nnaj_upis.sis_depen_id', $depende);
-                
+
             return $this->getDt($dataxxxx, $request);
         }
     }
 
- 
+
 
     public function getAsistente(Request $request, AgActividad $padrexxx)
     {
@@ -162,12 +164,17 @@ trait ListadosTrait
                 'fi_datos_basicos.s_segundo_apellido',
                 'ag_asistentes.sis_esta_id',
                 'nnaj_docus.s_documento',
-
+                'sis_depens.nombre',
+                'sis_estas.s_estado',
             ])
                 ->join('ag_actividads', 'ag_asistentes.ag_actividad_id', '=', 'ag_actividads.id')
+                ->join('sis_estas', 'ag_actividads.sis_esta_id', '=', 'sis_estas.id')
                 ->join('fi_datos_basicos', 'ag_asistentes.fi_dato_basico_id', '=', 'fi_datos_basicos.id')
                 ->join('nnaj_docus', 'ag_asistentes.fi_dato_basico_id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
+                ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
                 ->where('ag_asistentes.sis_esta_id', 1)
+                ->where('nnaj_upis.prm_principa_id',  227)
                 ->where('ag_asistentes.ag_actividad_id', $padrexxx->id);
             return $this->getDtGok($dataxxxx, $request);
         }
@@ -226,5 +233,5 @@ trait ListadosTrait
         }
     }
 
-    
+
 }

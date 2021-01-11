@@ -318,10 +318,10 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'agrecurso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Recursos Acciones Grupales', 'pestania' => 1]);
 
         $this->getPermisos(['permisox' => 'agconvenio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Convenios Acciones Grupales', 'pestania' => 1]);
-        
+
         $this->getPermisos(['permisox' => 'agrelacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Convenios Acciones Grupales', 'pestania' => 1]);
 
-        
+
 
         $this->getPermisos(['permisox' => 'taccform', 'permisos' => ['modulo'], 'compleme' => 'Módulo de talleres y acciones formativas', 'pestania' => 1]);
 
@@ -429,6 +429,7 @@ class RolesYPermisosSeeder extends Seeder
         Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(Permission::all());
 
         require_once('RolesYPermisosAdmin.php');
+        require_once('Permisos/Carguedocu.php');
         require_once('RolesYPermisosPsicologo.php');
         require_once('RolesYPermisosSocial.php');
         require_once('RolesYPermisosCRelajado.php');

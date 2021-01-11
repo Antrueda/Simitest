@@ -27,9 +27,9 @@ class AgActividadEditarRequest extends FormRequest
             's_justific.required' => 'Ingrese la justificación',
             's_objetivo.required' => 'Ingrese los objetivos',
             's_metodolo.required' => 'Ingrese la metodología',
-            's_categori.required' => 'Ingrese la categoría',
+
             's_contenid.required' => 'Ingrese el contenido',
-            's_estrateg.required' => 'Ingrese la estrategia',
+
             's_resultad.required' => 'Ingrese el resultado',
             's_evaluaci.required' => 'Ingrese una evaluación',
             's_observac.required' => 'Ingrese una observación',
@@ -47,7 +47,7 @@ class AgActividadEditarRequest extends FormRequest
             'ag_taller_id' =>['required'],
             'ag_sttema_id' =>['required'],
             'i_prm_dirig_id' =>['required'],
-            'sis_entidad_id' =>['required'],
+
             's_doc_adjunto_ar' => 'nullable|file|mimes:pdf,jpg,jpeg|max:1024',
             's_introduc' =>['required'],
             's_justific' =>['required'],
@@ -89,12 +89,12 @@ class AgActividadEditarRequest extends FormRequest
 
     public function validar()
     {
-        
+
         if($this->sis_depdestino_id==1){
             $this->_reglasx['s_prm_espac']='required';
             $this->_mensaje['s_prm_espac.required'] = 'oooooooo';
         }
-        
+
     }
 
 }

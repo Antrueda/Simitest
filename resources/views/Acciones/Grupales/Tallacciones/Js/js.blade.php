@@ -33,7 +33,7 @@
                 },
             });
         }
-        var f_tooltip=function(dataxxxx){  
+        var f_tooltip=function(dataxxxx){
         var propieda=dataxxxx.thisxxxx.attr('propiedad');
         var elemento=$("#"+propieda+' option:selected').val();
         $.ajax({
@@ -49,9 +49,9 @@
                 alert('Disculpe, existió un problema');
             },
         });
-        
-        
-       
+
+
+
     }
 
     $(".mouseover").hover(function () {
@@ -62,6 +62,7 @@
         f_campos({valuexxx:"{{old('sis_depdestino_id')}}",psalecte:"{{old('i_prm_lugar_id')}}"});
         @endif
         $('#sis_depdestino_id').change(function(){
+            $('#s_prm_espac').val('');
             f_campos({valuexxx:$(this).val(),psalecte:''});
         });
 

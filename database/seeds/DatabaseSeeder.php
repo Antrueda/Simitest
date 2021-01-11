@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisPestaniasSeeder::class);
         $this->call(RolesYPermisosSeeder::class);
         $this->call(RolesYPermisosUbicacionSeeder::class);
-        $this->call(CarguedocuSeeder::class);
+        // $this->call(CarguedocuSeeder::class);
         $this->call(FosadminSeeder::class);
         $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosSeeder::class);
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisActividadsSeeder::class);
         $this->call(SisMapaProcsSeeder::class);
         $this->call(SisProcesosSeeder::class);
-        
+
         $this->call(SisActividadProcesosSeeder::class);
         $this->call(SisNnajsSeeder::class);
         $this->call(NnajCaminandoSeeder::class);//nuevo

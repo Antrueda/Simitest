@@ -15,7 +15,7 @@ class CarguedocuSeeder extends Seeder
             'crear' => 'Permiso que permite crear registro para: ',
             'editar' => 'Permiso que permite editar registro para: ',
             'borrar' => 'Permiso que permite inactivar registro para: ',
-            'descarga'=>'Permiso que permite la descarga de archivos para: ',
+            'descarga' => 'Permiso que permite la descarga de archivos para: ',
             'factorxx' => 'Permioso que permite ver los: ',
             'metaxxxx' => 'Permioso que permite ver las: ',
             'psicologo' => 'Permioso que permite ver contenido de psicologo: ',
@@ -46,12 +46,11 @@ class CarguedocuSeeder extends Seeder
         // Restablecer roles y permisos en caché
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        require_once('Carguedocu.php');// cargue de ducumentos: fi
+        require_once('Carguedocu.php'); // cargue de ducumentos: fi
 
-        Role::find(1)->givePermissionTo([ 'cargdocu-modulo',
+        Role::find(1)->givePermissionTo([
+            'cargdocu-modulo',
             'cardocfi-leer', 'cardocfi-crear', 'cardocfi-editar', 'cardocfi-borrar',  'cardocfi-activarx',
-            ]);
-
-
+        ]);
     }
 }

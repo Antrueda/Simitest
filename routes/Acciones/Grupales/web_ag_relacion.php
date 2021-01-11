@@ -14,6 +14,11 @@ Route::group(['prefix' => '{padrexxx}/agrelacion'], function () use($controll,$r
         'uses' => $controll . 'Controller@ListarRecursos',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agrecurso');
+
+    Route::get('reculist', [
+	    'uses' => $controll.'Controller@getRecursosLista',
+	    'middleware' => ['permission:' . $routxxxx . '-leer|' . $routxxxx . '-crear|' . $routxxxx . '-editar|' . $routxxxx . '-borrar']
+	])->name($routxxxx . '.reculist');
 });
 Route::group(['prefix' => 'agrelacion'], function () use($controll,$routxxxx) {
 

@@ -30,6 +30,7 @@ trait CrudTrait
             }
             return $dataxxxx['modeloxx'];
         }, 5);
+
         return redirect()
             ->route($dataxxxx['routxxxx'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);

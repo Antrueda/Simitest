@@ -1,41 +1,45 @@
 <script>
-   $(function(){
-        var f_campos=function(valuexxx,psalecte,optionxx){
-            if(valuexxx!=''){
-                $.ajax({
-                    url : "{{ route('ajaxx.indicadores') }}",
-                    data : { 
-                        _token: $("input[name='_token']").val(),
-                        padrexxx:valuexxx,
-                        optionxx:optionxx,
-                    },
-                    type : 'POST',
-                    dataType : 'json',
-                    success : function(json) {
-                        $.each(json.indicado,function(i,d){
-                            var selected='';
-                            if(psalecte==d.valuexxx){
-                                selected='selected';
-                            }
-                            $('#in_indicador_id').append('<option '+selected+' value="'+d.valuexxx+'">'+d.optionxx+'</option>');
+    $(function() {
+        var f_campos = function(dataxxxx) {
+            $.ajax({
+                url: "{{ route($todoxxxx['routxxxx'].'.reculist',$todoxxxx['parametr'][0]) }}",
+                data: dataxxxx,
+                type: 'GET',
+                dataType: 'json',
+                success: function(json) {
+                    if (dataxxxx.campoxxx == 'i_prm_trecurso_id') {
+                        $(json.campoxxx).empty();
+                        $.each(json.comboxxx, function(i, d) {
+                            $(json.campoxxx).append('<option ' + d.selected + ' value="' + d.valuexxx + '">' + d.optionxx + '</option>');
                         });
-                    },
-                    error : function(xhr, status) {
-                        alert('Disculpe, existió un problema');
-                    },
-                });
-            }
-            
+                    }else{
+                        $(json.campoxxx).text(json.dataxxxx);
+                    }
+
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existió un problema al cargar los recursos');
+                },
+            });
         }
 
-        @if(old('area_id')!=null)
-        f_campos({{ old('area_id') }},{{ old('in_indicador_id')  }},1);
+        @if(old('area_id') != null)
+        f_campos({
+            {
+                old('area_id')
+            }
+        }, {
+            {
+                old('in_indicador_id')
+            }
+        }, 1);
         @endif
-        $('#area_id').change(function(){
-            $('#in_indicador_id').empty();
-            $('#in_indicador_id').append('<option value="">Seleccione</option>');
-            f_campos($(this).val(),'',1);
-
+        $('.recursos').change(function() {
+            f_campos({
+                padrexxx: $(this).val(),
+                selected: [0],
+                campoxxx: $(this).prop('id')
+            });
         });
     });
-</script>   
+</script>

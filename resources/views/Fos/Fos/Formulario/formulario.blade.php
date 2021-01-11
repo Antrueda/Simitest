@@ -35,6 +35,10 @@
         {{ Form::select('fi_compfami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-6">
+        {{ Form::label('sis_entidad_id', Tr::getTitulo(12,1), ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('sis_entidad_id', $todoxxxx["entidadx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px']) }}
+    </div>
+    <div class="form-group col-md-6">
         {{ Form::label('i_responsable', 'Funcionario(a) y/o contratista que realiza el seguimiento:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_responsable', $todoxxxx['usuarios'], null, ['class' => 'form-control form-control-sm']) }}
     </div>
