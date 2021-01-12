@@ -29,10 +29,12 @@ class CreateFosDatosBasicosTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->bigInteger('user_crea_id')->unsigned();
+            $table->bigInteger('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD')->nullable();
+
             $table->bigInteger('user_edita_id')->unsigned();
             
             $table->timestamps();
-
+            $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table->foreign('area_id')->references('id')->on('areas');

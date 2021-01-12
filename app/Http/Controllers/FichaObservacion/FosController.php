@@ -18,6 +18,7 @@ use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\Fos\FosTrait;
@@ -214,6 +215,7 @@ class FosController extends Controller
     {
         $this->opciones['slotxxxx'] = 'fosxxxxx';
         $this->opciones['pestpadr'] = 2;
+        $this->opciones['entidadx'] = SisEntidad::combo(true, false);
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];

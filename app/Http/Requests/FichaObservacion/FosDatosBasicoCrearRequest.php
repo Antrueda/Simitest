@@ -14,7 +14,7 @@ class FosDatosBasicoCrearRequest extends FormRequest
         $this->_mensaje = [
             'sis_depen_id.required' => 'Seleccione la unidad de atención integral',
             'd_fecha_diligencia.required' => 'Seleccione la fecha de diligenciamiento',
-            'fos_sub_tipo_id.required' => 'Seleccione el sub tipo de seguimiento',
+            'fos_stse_id.required' => 'Seleccione el sub tipo de seguimiento',
             's_observacion.required' => 'Escriba la observación',
             //'fi_compfami_id.required' => 'Escriba el acudiente',
         ];
@@ -23,7 +23,7 @@ class FosDatosBasicoCrearRequest extends FormRequest
             'd_fecha_diligencia' => ['Required'],
             'fos_stse_id' => ['Required'],
             's_observacion' => ['Required'],
-            //'fi_compfami_id' => ['Required'],
+            
         ];
     }
     /**

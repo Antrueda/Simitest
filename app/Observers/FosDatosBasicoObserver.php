@@ -18,6 +18,7 @@ class FosDatosBasicoObserver
         $log['d_fecha_diligencia'] = $modeloxx->d_fecha_diligencia;
         $log['area_id'] = $modeloxx->area_id;
         $log['fos_tse_id'] = $modeloxx->fos_tse_id;
+        $log['sis_entidad_id'] = $modeloxx->sis_entidad_id;
         $log['fos_stse_id'] = $modeloxx->fos_stse_id;
         $log['s_observacion'] = $modeloxx->s_observacion;
         $log['fi_compfami_id'] = $modeloxx->fi_compfami_id;

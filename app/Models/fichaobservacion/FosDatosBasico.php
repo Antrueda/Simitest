@@ -22,7 +22,8 @@ class FosDatosBasico extends Model{
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',
-        'i_responsable'
+        'i_responsable',
+        'sis_entidad_id'
     ];
 
     public function creador(){
