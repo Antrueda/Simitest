@@ -94,7 +94,15 @@ class AgActividadEditarRequest extends FormRequest
             $this->_reglasx['s_prm_espac']='required';
             $this->_mensaje['s_prm_espac.required'] = 'oooooooo';
         }
-
+        /*
+        $responsa = AgResponsable::where('ag_actividad_id', $this->segments()[2])->get();
+        $asistente = AgAsistente::where('ag_actividad_id', $this->segments()[2])->get();
+        $recursos = AgRelacion::where('ag_actividad_id', $this->segments()[2])->get();
+        if ($responsa==null|| $asistente==null||$recursos) {
+            $this->_mensaje['responsa.required'] = 'Falta agregar responsable, asistentes o recursos';
+            $this->_reglasx['responsa'] = 'required';
+        }
+*/
     }
 
 }

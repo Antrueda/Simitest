@@ -10,7 +10,7 @@ Route::group(['prefix' => 'ai'], function () {
     'uses' => 'Acciones\Individuales\AIController@show',
     'middleware' => ['permission:aiindex-leer|aiindex-crear|aiindex-editar|aibasico-borrar']
   ])->name('ai.ver');
-  require_once('Individuales/web_salidamayores.php');
+  //require_once('Individuales/web_salidamayores.php');
   require_once('Individuales/web_evasion.php');
   require_once('Individuales/web_salidamenores.php');
   require_once('Individuales/web_retornosalida.php');

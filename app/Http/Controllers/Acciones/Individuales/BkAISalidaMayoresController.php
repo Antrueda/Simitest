@@ -15,7 +15,7 @@ use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Acciones\SalidaTrait;
 
-class AISalidaMayoresController extends Controller
+class BkAISalidaMayoresController extends Controller
 {
     use SalidaTrait;
     private $opciones;

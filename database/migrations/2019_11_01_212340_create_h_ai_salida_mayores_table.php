@@ -19,7 +19,7 @@ class CreateHAiSalidaMayoresTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('sis_nnaj_id')->unsigned();
+            //$table->bigInteger('sis_nnaj_id')->unsigned();
             $table->date('fecha');
             $table->bigInteger('prm_upi_id')->unsigned();
             $table->text('descripcion', 4000);

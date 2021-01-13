@@ -13,6 +13,7 @@
         {data: 's_segundo_apellido',name:'fi_datos_basicos.s_segundo_apellido'},
         {data: 's_apodo',name:'fi_datos_basicos.s_apodo'},
         {data: 's_nombre_identitario',name:'nnaj_sexos.s_nombre_identitario'},
+        {data: 'nombre',name:'sis_depens.nombre'},
       ],
       "language": {
         "url": "{{ url('/adminlte/plugins/datatables/Spanish.lang') }}"

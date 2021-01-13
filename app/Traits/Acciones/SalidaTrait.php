@@ -474,6 +474,21 @@ trait SalidaTrait
         return $this->getDtSalidas($dataxxxx, $request);
     }
 
+    public function getSalidasMayoresGrupales($request)
+    {
+        $dataxxxx =  AiSalidaMayores::select([
+            'ai_salida_mayores.id',
+            'ai_salida_mayores.fecha',
+            'upi.nombre as upi',
+            'ai_salida_mayores.sis_esta_id',
+            'ai_salida_mayores.sis_nnaj_id',
+            'ai_salida_mayores.created_at',
+        ])
+            ->join('sis_depens as upi', 'ai_salida_mayores.prm_upi_id', '=', 'upi.id')
+            ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id');
+            return $this->getDtSalidas($dataxxxx, $request);
+    }
+
     public function getFosDiligenciado(request $request)
     {
         $dataxxxx = FosDatosBasico::select(

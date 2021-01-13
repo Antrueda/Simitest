@@ -24,6 +24,15 @@
               </a>
             </li>
             @endcan
+            @can('aisalidamayores-leer')
+            <li class="nav-item">
+              <a href="{{ route('aisalidamayores')}}" class="nav-link">
+                <i class="fas fa-home nav-icon"></i>
+                <p>Salida Mayores</p>
+              </a>
+            </li>
+            @endcan
+            
 
 
     </ul>

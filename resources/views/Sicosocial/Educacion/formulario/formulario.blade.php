@@ -14,8 +14,8 @@
 		{{ Form::label(null, '10.2 ¿Cuánto tiempo lleva sin estudiar?', ['class' => 'control-label col-form-label-sm']) }}
 		<div class="row">
 			<div class="col-md-4">
-				{{ Form::label('dia', 'Día(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('dia', null, ['class' => $errors->first('dia') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
+				{{ Form::label('dia', 'Día(s)', ['class' => 'control-label col-form-label-sm']) }}
+				{{ Form::number('dia', null, ['class' => $errors->first('dia') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx','data-placeholder' =>'0', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
 				@if($errors->has('dia'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('dia') }}
@@ -23,8 +23,8 @@
 			    @endif
 			</div>
 			<div class="col-md-4">
-				{{ Form::label('mes', 'Mes(es)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('mes', null, ['class' => $errors->first('mes') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx', 'placeholder' => 'Mes(es)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
+				{{ Form::label('mes', 'Mes(es)', ['class' => 'control-label col-form-label-sm']) }}
+				{{ Form::number('mes', null, ['class' => $errors->first('mes') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx', 'data-placeholder' =>'0','placeholder' => 'Mes(es)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
 				@if($errors->has('mes'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('mes') }}
@@ -32,8 +32,8 @@
 			    @endif
 			</div>
 			<div class="col-md-4">
-				{{ Form::label('ano', 'Año(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-				{{ Form::number('ano', null, ['class' => $errors->first('ano') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
+				{{ Form::label('ano', 'Año(s)', ['class' => 'control-label col-form-label-sm']) }}
+				{{ Form::number('ano', null, ['class' => $errors->first('ano') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx','data-placeholder' =>'0', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
 				@if($errors->has('ano'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('ano') }}

@@ -18,7 +18,7 @@ class CreateAiSalidamayoresTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('sis_nnaj_id')->unsigned();
+            //$table->bigInteger('sis_nnaj_id')->unsigned();
             $table->date('fecha');
             $table->bigInteger('prm_upi_id')->unsigned();
             $table->text('descripcion', 4000);
@@ -28,7 +28,7 @@ class CreateAiSalidamayoresTable extends Migration
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
+           // $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
             $table->foreign('user_doc1_id')->references('id')->on('users');
             $table->foreign('user_crea_id')->references('id')->on('users');

@@ -267,7 +267,7 @@
 
       <div class="form-row align-items-end">
         <div class="form-group col-md-12">
-          {{ Form::label('s_observaciones', 'Observaciones', ['class' => 'control-label']) }}
+          {{ Form::label('s_observaciones', 'OBSERVACIONES', ['class' => 'control-label']) }}
           {{ Form::textarea('s_observaciones', null, ['rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_observaciones', 'class' => 'md-textarea form-control', 'title' => 'Observaciones', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
           <p id="contadorobservaciones">0/4000</p>
         </div>
@@ -305,7 +305,7 @@
 
         <div class="form-group col-md-6">
           {{ Form::label('i_segundo_responsable', 'Funcionario(A)/Contratista', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('i_segundo_responsable', $todoxxxx['usuarios'], null, ['class' => $errors->first('i_segundo_responsable') ? 'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione el segundo responsable','id' => 'i_segundo_responsable','autofocus']) }}
+            {{ Form::select('i_segundo_responsable', $todoxxxx['usuarios'], null, ['class' => $errors->first('i_segundo_responsable') ? 'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm', 'id' => 'i_segundo_responsable','autofocus']) }}
             @if($errors->has('i_segundo_responsable'))
             <div class="invalid-feedback d-block">
               {{ $errors->first('i_segundo_responsable') }}

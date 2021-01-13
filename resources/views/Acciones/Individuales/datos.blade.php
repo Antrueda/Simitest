@@ -19,6 +19,7 @@
             <th>SEGUNDO APELLIDO</th>
             <th>APODO</th>
             <th>IDENTITARIO</th>
+            <th>UPI</th>
           </tr>
         </thead>
       </table>

@@ -9,3 +9,4 @@ include_once('web_ag_taller.php');
 include_once('web_ag_tema.php');
 include_once('web_ag_taller_ag_tema.php');
 include_once('web_modulo.php');
+include_once('web_salidamayores.php');

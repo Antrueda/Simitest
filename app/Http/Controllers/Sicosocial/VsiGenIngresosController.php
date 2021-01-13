@@ -222,7 +222,7 @@ class VsiGenIngresosController extends Controller
         if ($request->ajax()) {
             $respuest=Tema::combo(123, true, true);
             if($request->padrexxx==853){
-            $respuest=[['valuexxx'=>235,'optionxx'=>'NO APLICA']];
+            $respuest=[['valuexxx'=>235,'optionxx'=>'N/A']];
             }
             return response()->json($respuest);
         }

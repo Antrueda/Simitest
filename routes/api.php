@@ -82,12 +82,15 @@ Route::get('ai/nnajs', function (Request $request) {
             'fi_datos_basicos.s_segundo_apellido',
             'fi_datos_basicos.s_apodo',
             'nnaj_sexos.s_nombre_identitario',
+            'sis_depens.nombre',
             'fi_datos_basicos.id',
             'fi_datos_basicos.sis_nnaj_id',
             'fi_datos_basicos.sis_esta_id'
         )
             ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
+            ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->where('sis_nnajs.prm_escomfam_id',227)
 

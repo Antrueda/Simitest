@@ -55,6 +55,7 @@ $(document).ready(function() {
 
 
          $("#i_primer_responsable").change(function() {
+             
             $.ajax({
                 url: "{{ route('is.intervencion.responsable',$todoxxxx['usuariox'])}}",
                 type: 'GET',
@@ -66,6 +67,7 @@ $(document).ready(function() {
                 success: function(json) {
                     $(json.comboxxx).empty();
                     $.each(json.dataxxxx, function(id, data) {
+                         
                         $(json.comboxxx).append('<option value="' + data.valuexxx + '">' + data.optionxx + '</option>');
                     });
                 },

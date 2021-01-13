@@ -506,12 +506,16 @@ trait CsdTrait
             'fi_datos_basicos.sis_esta_id',
             'fi_datos_basicos.created_at',
             'sis_estas.s_estado',
+            'sis_depens.nombre',
             'fi_datos_basicos.user_crea_id',
         ])
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
+            ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
+            ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->whereNotIn('fi_datos_basicos.sis_nnaj_id', $notinxxx)
+            ->where('nnaj_upis.prm_principa_id', 227)
             ->where('sis_nnajs.prm_escomfam_id', 227);
 
         return $this->getDtAcciones($dataxxxx, $request);
