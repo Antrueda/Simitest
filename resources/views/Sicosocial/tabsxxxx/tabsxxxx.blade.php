@@ -22,143 +22,166 @@
             @endcanany
             @canany(['vsidabas-editar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsidabas') ?' active' : '' }}
-        text-sm" href="{{ route('vsidabas.editar',$todoxxxx['parametr']) }}">DATOS BÁSICOS</a></li>
+        text-sm" href="{{ route('vsidabas.editar',$todoxxxx['parametr']) }}">DATOS BÁSICOS
+                    <span class="fas fa-check text-success" aria-hidden="true"></span>
+                </a></li>
             @endcanany
 
             <?php
-            $pestania='2. MOTIVOS DE VINCULACIÓN Y BIENVENIDA';
-            $permisox='vsibienv';
-           $checkxxx=$todoxxxx['vsixxxxx']->VsiBienvenida;
-            ?>
-                 @include('Sicosocial.tabsxxxx.pestaniascheck')
-
-            <?php
-            $pestania='3. RELACIONES FAMILIARES';
-            $permisox='vsirefam';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiRelFamiliar;
+            $pestania = '2. MOTIVOS DE VINCULACIÓN Y BIENVENIDA';
+            $permisox = 'vsibienv';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiBienvenida;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='4. VIOLENCIAS Y CONDICIÓN ESPECIAL';
-            $permisox='vsiviole';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiViolencia;
+            $pestania = '3. RELACIONES FAMILIARES';
+            $permisox = 'vsirefam';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiRelFamiliar;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='5. DINÁMICA FAMILIAR';
-            $permisox='vsidinam';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiDinFamiliar;
-            ?>
-            @include('Sicosocial.tabsxxxx.pestaniascheck')
-            <?php
-            $pestania='6. RELACIONES SOCIALES';
-            $permisox='vsirelac';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiRelSociale;
+            $pestania = '4. VIOLENCIAS Y CONDICIÓN ESPECIAL';
+            $permisox = 'vsiviole';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiViolencia;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='7. REDES SOCIALES DE APOYO';
-            $permisox='vsiredes';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiRedSocial;
+            $pestania = '5. DINÁMICA FAMILIAR';
+            $permisox = 'vsidinam';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiDinFamiliar;
+            ?>
+            @include('Sicosocial.tabsxxxx.pestaniascheck')
+            <?php
+            $pestania = '6. RELACIONES SOCIALES';
+            $permisox = 'vsirelac';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiRelSociale;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='8. ANTECEDENTES';
-            $permisox='vsiantec';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiAntecedente;
+            $pestania = '7. REDES SOCIALES DE APOYO';
+            $permisox = 'vsiredes';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiRedSocial;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='9. GENERACIÓN DE INGRESOS';
-            $permisox='vsigener';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiGenIngreso;
+            $pestania = '8. ANTECEDENTES';
+            $permisox = 'vsiantec';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiAntecedente;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='10. EDUCACIÓN';
-            $permisox='vsieduca';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiEducacion;
+            $pestania = '9. GENERACIÓN DE INGRESOS';
+            $permisox = 'vsigener';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiGenIngreso;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='11. ANTECEDENTES DE SALUD';
-            $permisox='vsisalud';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiSalud;
+            $pestania = '10. EDUCACIÓN';
+            $permisox = 'vsieduca';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiEducacion;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='12. ESTADO EMOCIONAL';
-            $permisox='vsiemoci';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiEstEmocional;
+            $pestania = '11. ANTECEDENTES DE SALUD';
+            $permisox = 'vsisalud';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiSalud;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='13. ACTIVACIÓN EMOCIONAL';
-            $permisox='vsiactiv';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiActEmocional;
+            $pestania = '12. ESTADO EMOCIONAL';
+            $permisox = 'vsiemoci';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiEstEmocional;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='14. PRESUNTO ABUSO SEXUAL';
-            $permisox='vsiabuso';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiAbuSexual;
+            $pestania = '13. ACTIVACIÓN EMOCIONAL';
+            $permisox = 'vsiactiv';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiActEmocional;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='15. SITUACIÓN ESPECIAL Y ESCNNA';
-            $permisox='vsisitua';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiSitEspecial;
+            $pestania = '14. PRESUNTO ABUSO SEXUAL';
+            $permisox = 'vsiabuso';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiAbuSexual;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='16. CONSUMO DE SUSTANCIAS PSICOACTIVAS';
-            $permisox='vsiconsu';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiConsumo;
+            $pestania = '15. SITUACIÓN ESPECIAL Y ESCNNA';
+            $permisox = 'vsisitua';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiSitEspecial;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
+            <?php
+            $pestania = '16. CONSUMO DE SUSTANCIAS PSICOACTIVAS';
+            $permisox = 'vsiconsu';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiConsumo;
+            ?>
+            @include('Sicosocial.tabsxxxx.pestaniascheck')
+            <?php
+            $checkxx1 = $todoxxxx['vsixxxxx']->VsiFacProtectorUno;
+            $checkxx2 = $todoxxxx['vsixxxxx']->VsiFacRiesgoUno;
+            ?>
             @canany(['vsifacto-factorxx'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsifacto') ?' active' : '' }}
-        text-sm" href="{{ route('vsifacto.factorxx',$todoxxxx['parametr']) }}">17. FACTORES</a></li>
-            @endcanany
+        text-sm" href="{{ route('vsifacto.factorxx',$todoxxxx['parametr']) }}">17. FACTORES
+                    @if(isset($checkxx1->id) && isset($checkxx2->id))
+                    <span class="fas fa-check text-success" aria-hidden="true"></span>
+                    @else
+                    <span class="fas fa-times text-danger" aria-hidden="true"></span>
+                    @endif
+                </a>
 
+
+            </li>
+            @endcanany
+            <?php
+            $checkxx1 = $todoxxxx['vsixxxxx']->VsiMetaUno;
+            $checkxx2 = $todoxxxx['vsixxxxx']->VsiPotencialidadUno;
+            ?>
             @canany(['vsimetas-metaxxxx'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsimetas') ?' active' : '' }}
-        text-sm" href="{{ route('vsimetas.metaxxxx',$todoxxxx['parametr']) }}">18. POTENCIALIDADES Y METAS</a></li>
+        text-sm" href="{{ route('vsimetas.metaxxxx',$todoxxxx['parametr']) }}">18. POTENCIALIDADES Y METAS
+                    @if(isset($checkxx1->id) && isset($checkxx2->id))
+                    <span class="fas fa-check text-success" aria-hidden="true"></span>
+                    @else
+                    <span class="fas fa-times text-danger" aria-hidden="true"></span>
+                    @endif
+                </a></li>
             @endcanany
 
 
             <?php
-            $pestania='19. ÁREAS DE AJUSTE SICOSOCIAL';
-            $permisox='vsiareas';
-            $checkxxx=$todoxxxx['vsixxxxx']->Areajuste;
+            $pestania = '19. ÁREAS DE AJUSTE SICOSOCIAL';
+            $permisox = 'vsiareas';
+            $checkxxx = $todoxxxx['vsixxxxx']->Areajuste;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheckarea')
 
             <?php
 
-            $pestania='20. IMPRESIÓN DIAGNÓSTICA Y ANÁLISIS SOCIAL';
-            $permisox='vsisocia';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiConcepto;
+            $pestania = '20. IMPRESIÓN DIAGNÓSTICA Y ANÁLISIS SOCIAL';
+            $permisox = 'vsisocia';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiConcepto;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 
             <?php
-            $pestania='21. CONSENTIMIENTO INFORMADO';
-            $permisox='vsiconse';
-            $checkxxx=$todoxxxx['vsixxxxx']->VsiConsentimiento;
+            $pestania = '21. CONSENTIMIENTO INFORMADO';
+            $permisox = 'vsiconse';
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiConsentimiento;
             ?>
             @include('Sicosocial.tabsxxxx.pestaniascheck')
 

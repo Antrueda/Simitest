@@ -60,19 +60,27 @@ class Vsi extends Model{
     public function VsiActEmocional(){
         return $this->hasOne(VsiActEmocional::class, 'vsi_id');
     }
-
+    public function VsiFacProtectorUno(){
+        return $this->hasOne(VsiFacProtector::class, 'vsi_id');
+    }
     public function VsiFacProtector(){
         return $this->hasMany(VsiFacProtector::class, 'vsi_id');
     }
-
+    public function VsiFacRiesgoUno(){
+        return $this->hasOne(VsiFacRiesgo::class, 'vsi_id');
+    }
     public function VsiFacRiesgo(){
         return $this->hasMany(VsiFacRiesgo::class, 'vsi_id');
     }
-
+    public function VsiPotencialidadUno(){
+        return $this->hasOne(VsiPotencialidad::class, 'vsi_id');
+    }
     public function VsiPotencialidad(){
         return $this->hasMany(VsiPotencialidad::class, 'vsi_id');
     }
-
+    public function VsiMetaUno(){
+        return $this->hasOne(VsiMeta::class, 'vsi_id');
+    }
     public function VsiMeta(){
         return $this->hasMany(VsiMeta::class, 'vsi_id');
     }

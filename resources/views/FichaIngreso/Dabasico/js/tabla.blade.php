@@ -2,10 +2,15 @@
    var table ='';
 $(document).ready(function() {
     @foreach ($todoxxxx['tablasxx'] as $tablasxx)
-
-    $('#{{ $tablasxx["tablaxxx"] }} #buscarxx th').each( function () {
+var campos=[0,0,"document","primnomb","segunomb","primapel","seguapel",0];
+    $('#{{ $tablasxx["tablaxxx"] }} #buscarxx th').each( function (i) {
         var title = $(this).text();
-        $(this).html( '<input type="text" class="autocomplete" placeholder="'+title+'" />' );
+var id='';
+if(campos[i]!=0){
+    id='id="'+campos[i]+'"';
+}
+
+        $(this).html( '<input '+id+' type="text" class="autocomplete" placeholder="'+title+'" />' );
     } );
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
         "serverSide": true,
@@ -46,22 +51,43 @@ $(document).ready(function() {
   @endforeach
 
   $( "#datatable" ).on("keydown.autocomplete",".autocomplete",function(e){
+      var idcampox=$(this).prop('id');
     $(this).autocomplete({
-      source: function( request, response ) {
-        // $.ajax( {
-        //   url: "search.php",
-        //   dataType: "jsonp",
-        //   data: {
-        //     term: request.term
-        //   },
-        //   success: function( data ) {
-        //     response( data );
-        //   }
-        // } );
+      source:
+
+      function( request, response ) {
+        $.ajax( {
+          url: "{{ route('fidatbas.buscnnaj') }}",
+          dataType: "json",
+          data: {
+              document:document.getElementById("document").value,
+              primnomb:document.getElementById("primnomb").value,
+              segunomb:document.getElementById("segunomb").value,
+              primapel:document.getElementById("primapel").value,
+              seguapel:document.getElementById("seguapel").value,
+              idcampox:idcampox
+          },
+          success: function( data ) {
+            response( data );
+          }
+        } );
       },
       minLength: 1,
       select: function( event, ui ) {
-        log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+        ui.item.value=ui.item.defectox;
+        document.getElementById("document").value=ui.item.document;
+        document.getElementById("primnomb").value=ui.item.primnomb;
+        document.getElementById("segunomb").value=ui.item.segunomb;
+        document.getElementById("primapel").value=ui.item.primapel;
+        document.getElementById("seguapel").value=ui.item.seguapel;
+
+        {{ $tablasxx["tablaxxx"] }}.ajax.reload();
+        {{ $tablasxx["tablaxxx"] }}.ajax.reload();
+            // $(this).val( ui.item.document);
+//             setInterval( function () {
+//                 {{ $tablasxx["tablaxxx"] }}.ajax.reload();
+// }, 300 );
+        console.log(  ui.item );
       }
     } );
 

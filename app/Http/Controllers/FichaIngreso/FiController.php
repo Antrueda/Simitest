@@ -182,7 +182,7 @@ class FiController extends Controller
     public function getListado(Request $request)
     {
         if ($request->ajax()) {
-// print_r($request->columns[0]['search']);
+            // print_r($request->columns[0]['search']);
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';

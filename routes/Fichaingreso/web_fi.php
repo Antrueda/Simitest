@@ -63,6 +63,11 @@ Route::group(['prefix' => 'fi'], function () use($routexxx,$controll){
         'uses' => $controll . 'Controller@getServicio',
     ])->name($routexxx . '.nnajupse');
 
+    Route::get('buscnnaj', [
+        'uses' => $controll . 'Controller@getBuscarNnaj',
+    ])->name($routexxx . '.buscnnaj');
+
+
 	include_once('web_fi_actividadestl.php');
 	include_once('web_fi_autorizacion.php');
 	include_once('web_fi_bienvenida.php');

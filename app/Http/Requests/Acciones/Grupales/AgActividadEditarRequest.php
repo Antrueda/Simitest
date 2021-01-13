@@ -53,9 +53,9 @@ class AgActividadEditarRequest extends FormRequest
             's_justific' =>['required'],
             's_objetivo' =>['required'],
             's_metodolo' =>['required'],
-            's_categori' =>['required'],
+
             's_contenid' =>['required'],
-            's_estrateg' =>['required'],
+
             's_resultad' =>['required'],
             's_evaluaci' =>['required'],
             's_observac' =>['required'],
