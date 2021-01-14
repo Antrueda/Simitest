@@ -6,21 +6,14 @@ Route::group(['prefix' => 'salidamayores'], function () use ($controll, $routxxx
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
-    Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@listaActividades',
+    Route::get('{padrexxx}/jovenes', [
+        'uses' => $controll . 'Controller@getJovenPermiso',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.salidajovenes');
+	Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@getSalidasMayoresGrupales',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
-    Route::get('{padrexxx}/responsable', [
-        'uses' => $controll . 'Controller@listaResponsables',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.responsa');
-
-    Route::get('{padrexxx}/asistentes', [
-        'uses' => $controll . 'Controller@getAsistente',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.agasiste');
-
-
 
 	Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',

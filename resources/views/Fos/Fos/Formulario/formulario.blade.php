@@ -25,6 +25,10 @@
         <a href="#" propiedad="fos_stse_id" class="mouseover" title=""><i class="far fa-question-circle"></i></a>
         {{ Form::select('fos_stse_id', $todoxxxx["tipsegui"], null, ['class' => $errors->first('fos_stse_id') ? 'form-control select2 form-control-sm is-invalid mouseover1' : 'form-control select2 form-control-sm mouseover1']) }}
     </div>
+        <div class="form-group col-md-6">
+        {{ Form::label('sis_entidad_id', Tr::getTitulo(12,1), ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('sis_entidad_id', $todoxxxx["entidadx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px']) }}
+    </div>
     <div class="form-group col-md-12">
         {{ Form::label('s_observacion', 'Observación y/o Seguimiento:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('s_observacion', null, ['class' => $errors->first('s_observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'rows' => 4, 'cols' => 80, 'style' => 'resize:none', 'id' => 's_observacion', 'maxlength' => '4000',"onkeyup" => "javascript:this.value=this.value.toUpperCase()", 'style' => 'text-transform:uppercase' ]) }}
@@ -34,10 +38,7 @@
         {{ Form::label('fi_compfami_id', 'Acudiente:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('fi_compfami_id', $todoxxxx["compfami"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
-    <div class="form-group col-md-6">
-        {{ Form::label('sis_entidad_id', Tr::getTitulo(12,1), ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_entidad_id', $todoxxxx["entidadx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px']) }}
-    </div>
+
     <div class="form-group col-md-6">
         {{ Form::label('i_responsable', 'Funcionario(a) y/o contratista que realiza el seguimiento:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('i_responsable', $todoxxxx['usuarios'], null, ['class' => 'form-control form-control-sm']) }}

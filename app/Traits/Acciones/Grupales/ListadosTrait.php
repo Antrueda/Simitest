@@ -8,6 +8,7 @@ use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
+use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
@@ -80,8 +81,6 @@ trait ListadosTrait
             return $this->getDt($dataxxxx, $request);
         }
     }
-
-
 
     public function ListarRecursos(Request $request, AgActividad $padrexxx)
     {
@@ -233,21 +232,110 @@ trait ListadosTrait
             return $this->getDt($dataxxxx, $request);
         }
     }
-    public function getSalidasMayoresGrupales($request)
+    public function getSalidasMayoresGrupales(Request $request)
     {
-        $dataxxxx =  AiSalidaMayores::select([
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'fosubtse'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $request->razonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.razonesx';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  AiSalidaMayores::select([
             'ai_salida_mayores.id',
             'ai_salida_mayores.fecha',
             'upi.nombre as upi',
             'ai_salida_mayores.sis_esta_id',
-            'ai_salida_mayores.sis_nnaj_id',
             'ai_salida_mayores.created_at',
         ])
             ->join('sis_depens as upi', 'ai_salida_mayores.prm_upi_id', '=', 'upi.id')
             ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDtSalidas($dataxxxx, $request);
+    
+        }
+}
+
+public function getJovenes(Request $request, AiSalidaMayores $padrexxx)
+{
+    if ($request->ajax()) {
+        $request->routexxx = ['salidajovenes'];
+        $request->botonesx = $this->opciones['rutacarp'] .
+            $this->opciones['carpetax'] . '.Botones.agregarnnaj';
+        $request->estadoxx = 'layouts.components.botones.estadosx';
+        $responsa = SalidaJovene::select(['fi_dato_basico_id'])
+            ->where('ai_salmay_id', $padrexxx->id)
+            ->get();
+        $depende =    AiSalidaMayores::select(['prm_upi_id'])
+            ->where('id', $padrexxx->id)
+            ->get();
+        $dataxxxx = FiDatosBasico::select([
+            'fi_datos_basicos.id',
+            'nnaj_docus.s_documento',
+            'fi_datos_basicos.sis_esta_id',
+            'fi_datos_basicos.s_primer_nombre',
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
+            'sis_estas.s_estado',
+            'sis_depens.nombre'
+        ])
+            ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+            ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
+            ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
+            ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+            ->where('sis_nnajs.prm_escomfam_id',  227)
+            ->where('nnaj_upis.prm_principa_id',  227)
+            ->whereNotIn('fi_datos_basicos.id',  $responsa)
+            ->whereIn('nnaj_upis.sis_depen_id', $depende);
+
+        return $this->getDt($dataxxxx, $request);
     }
+}
 
 
+
+public function getJovenPermiso(Request $request, AiSalidaMayores $padrexxx)
+{
+    if ($request->ajax()) {
+        $request->routexxx = ['salidajovenes'];
+        $request->botonesx = $this->opciones['rutacarp'] .
+            $this->opciones['carpetax'] . '.Botones.elimasis';
+        $request->estadoxx = 'layouts.components.botones.estadosx';
+        $dataxxxx = SalidaJovene::select([
+            'salida_jovenes.id',
+            'fi_datos_basicos.s_primer_nombre',
+            'fi_datos_basicos.s_segundo_nombre',
+            'fi_datos_basicos.s_primer_apellido',
+            'fi_datos_basicos.s_segundo_apellido',
+            'salida_jovenes.sis_esta_id',
+            'nnaj_docus.s_documento',
+            'sis_depens.nombre',
+            'sis_estas.s_estado',
+        ])
+            ->join('ai_salida_mayores', 'salida_jovenes.ai_salmay_id', '=', 'ai_salida_mayores.id')
+            ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id')
+            ->join('fi_datos_basicos', 'salida_jovenes.fi_dato_basico_id', '=', 'fi_datos_basicos.id')
+            ->join('nnaj_docus', 'salida_jovenes.fi_dato_basico_id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
+            ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+            ->where('salida_jovenes.sis_esta_id', 1)
+            ->where('nnaj_upis.prm_principa_id',  227)
+            ->where('salida_jovenes.ai_salmay_id', $padrexxx->id);
+        return $this->getDtGok($dataxxxx, $request);
+    }
+}
+function getAgregarjoven(Request $request, AiSalidaMayores $padrexxx)
+{
+    if ($request->ajax()) {
+        $respuest = [];
+        $dataxxxx = $request->all();
+        $dataxxxx['ai_salmay_id'] = $padrexxx->id;
+        $dataxxxx['sis_esta_id'] = 1;
+        SalidaJovene::transaccion($dataxxxx, '');
+        return response()->json($respuest);
+    }
+}
 
 }

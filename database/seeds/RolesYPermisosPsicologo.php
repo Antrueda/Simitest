@@ -98,6 +98,7 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 // Asignación de permisos Acciones Individuales
                 'aiindex-leer', 'aiindex-crear', 'aiindex-editar', 'aiindex-borrar',
                 'aisalidamayores-leer', 'aisalidamayores-crear', 'aisalidamayores-editar', 'aisalidamayores-borrar',
+                'salidajovenes-leer', 'salidajovenes-crear', 'salidajovenes-editar', 'salidajovenes-borrar',
                 'aievasion-leer', 'aievasion-crear', 'aievasion-editar', 'aievasion-borrar',
                 'aisalidamenores-leer', 'aisalidamenores-crear', 'aisalidamenores-editar', 'aisalidamenores-borrar',
                 'airetornosalida-leer', 'airetornosalida-crear', 'airetornosalida-editar', 'airetornosalida-borrar',

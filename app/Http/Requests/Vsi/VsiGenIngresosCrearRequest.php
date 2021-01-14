@@ -22,7 +22,7 @@ class VsiGenIngresosCrearRequest extends FormRequest
             'prm_no_id.required_if'=>'Indique por qué no genera ingresos ',
             'cuanto.required_if'=>'Hace cuanto no genera ingresos ',
             'prm_periodo_id.required_if'=>'En que periodo de tiempo ',
-            'prm_jornada_genera_ingreso_id.required'=>'En que jornada genera ingresos',
+            'prm_jornada_id.required_if'=>'En que jornada genera ingresos',
             'jornada_entre.required_unless'=>'¿De?',
             'prm_jor_entre_id.required_unless'=>'¿AM/PM?',
             'jornada_a.required_unless'=>'¿Hasta?',

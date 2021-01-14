@@ -13,7 +13,6 @@ class AiSalidaMayoresObserver
         $log = [];
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo 
-        $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         $log['fecha'] = $modeloxx->fecha;
         $log['prm_upi_id'] = $modeloxx->prm_upi_id;
         $log['descripcion'] = $modeloxx->descripcion;

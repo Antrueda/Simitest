@@ -53,7 +53,7 @@
         {{ Form::label('prm_periodo_id', 'tiempo', ['class' => 'control-label col-form-label-sm d-none']) }}
         <div class="row">
             <div class="col-md">
-                {{ Form::number('cuanto', null, ['class' => $errors->first('cuanto') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '99',$todoxxxx['cuantoxx']]) }}
+                {{ Form::number('cuanto', null, ['class' => $errors->first('cuanto') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0', 'max' => '99',$todoxxxx['cuantoxx']]) }}
             </div>
             <div class="col-md">
                 {{ Form::select('prm_periodo_id', $todoxxxx['tiempoxx'], null, ['class' => $errors->first('prm_periodo_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
@@ -82,7 +82,7 @@
                 {{ Form::label('prm_jor_entre_id', 'De', ['class' => 'control-label col-md-8 col-form-label-sm']) }}
             </div>
             <div class="col-md">
-                {{ Form::number('jornada_entre', null, ['class' => $errors->first('jornada_entre') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '12']) }}
+                {{ Form::number('jornada_entre', null, ['class' => $errors->first('jornada_entre') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0', 'max' => '12']) }}
             </div>
             <div class="col-md">
                 {{ Form::select('prm_jor_entre_id', $todoxxxx['ampmxxxx'], null, ['class' => $errors->first('prm_jor_entre_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
@@ -94,7 +94,7 @@
                 {{ Form::label('prm_jor_a_id', 'A', ['class' => 'control-label col-md-8 col-form-label-sm d-none']) }}
             </div>
             <div class="col-md">
-                {{ Form::number('jornada_a', null, ['class' => $errors->first('jornada_a') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '12']) }}
+                {{ Form::number('jornada_a', null, ['class' => $errors->first('jornada_a') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0', 'max' => '12']) }}
             </div>
             <div class="col-md">
                 {{ Form::select('prm_jor_a_id', $todoxxxx['ampmxxxx'], null, ['class' => $errors->first('prm_jor_a_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}

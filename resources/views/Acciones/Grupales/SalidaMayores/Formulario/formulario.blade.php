@@ -20,6 +20,16 @@
     </div>
     
 </div>
+  <div class="col-md-4">
+             {{ Form::label('razones', 'Razones', ['class' => 'control-label col-form-label-sm']) }}
+            {{ Form::select('razones[]', $todoxxxx['condixxx'], null, ['class' => $errors->first('razones') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'razones', 'multiple']) }}
+            @if($errors->has('razones'))
+                <div class="invalid-feedback d-block">
+                    {{ $errors->first('razones') }}
+                </div>
+            @endif
+        </div>
+        </div>
 <br>
     <hr>
 
@@ -52,4 +62,10 @@
 		@endif
 	</div>
 </div>
+
+   @if(isset($todoxxxx["modeloxx"]->id))
+   <h6 class="mt-3">JOVENES</h6>
+    @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+@endif
+
 

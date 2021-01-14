@@ -4,6 +4,7 @@ namespace App\Traits\Acciones\Grupales\Salidamayores;
 
 use App\Helpers\Archivos\Archivos;
 use App\Models\Acciones\Grupales\AgActividad;
+use App\Models\Acciones\Individuales\AiSalidaMayores;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -18,21 +19,23 @@ trait CrudTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setAgActividad($dataxxxx)
+    public function setAgSalidaMayores($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
-            $rutaxxxx = Archivos::getRuta(['requestx'=>$dataxxxx['requestx'],
-            'nombarch'=>'s_doc_adjunto_ar',
-            'rutaxxxx'=>'agactividad/adjunto','nomguard'=>'documento']);
-            if($rutaxxxx!=false){
-               $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
-            }
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            if (isset($dataxxxx['modeloxx']->id)) {
+            
+            if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = AgActividad::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = AiSalidaMayores::create($dataxxxx['requestx']->all());
+            }
+            
+            $dataxxxx['modeloxx']->razones()->detach();
+            if($dataxxxx['requestx']->razones){
+              foreach ( $dataxxxx['requestx']->razones as $d) {
+                    $dataxxxx['modeloxx']->razones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
             }
             return $dataxxxx['modeloxx'];
         }, 5);

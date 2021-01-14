@@ -50,7 +50,6 @@ trait DataTablesTrait
                         ['data' => 'fecha', 'name' => 'ai_salida_mayores.fecha'],
                         ['data' => 'upi', 'name' => 'upi.nombre as upi'],
                         ['data' => 'razonesx', 'name' => 'razonesx'],
-    
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatable',
@@ -59,15 +58,16 @@ trait DataTablesTrait
                     'parametr' => [],
                 ]
             ];
-        } else {
+        }else {
+          
             $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'AGREGAR ASISTENTES',
-                    'titulist' => 'LISTA DE ASISTENTES',
+                    'titunuev' => 'AGREGAR JOVENES',
+                    'titulist' => 'LISTA DE JOVENES',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'titupreg' => 'Participantes de la actividad y/o taller:',
+                    'titupreg' => 'Jovenes con permiso de salida:',
                     'vercrear' => true,
-                    'urlxxxxx' => route($dataxxxx['routxxxx'] . '.agasiste', $dataxxxx['modeloxx']->id), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
+                    'urlxxxxx' => route($dataxxxx['routxxxx'] . '.salidajovenes', $dataxxxx['modeloxx']->id), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
                     'permtabl' => [
                         $dataxxxx['permisox'] . '-leer',
                         $dataxxxx['permisox'] . '-crear',
@@ -95,11 +95,12 @@ trait DataTablesTrait
                         ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
-                    'tablaxxx' => 'datatableasistentes',
+                    'tablaxxx' => 'datatablejovenes',
                     'permisox' => $dataxxxx['permisox'],
-                    'routxxxx' => 'agasiste',
+                    'routxxxx' => 'salidajovenes',
                     'parametr' => [$dataxxxx['modeloxx']->id],
                 ];        
+         } 
         $dataxxxx['ruarchjs'][] =
             ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tabla'];
         return $dataxxxx;

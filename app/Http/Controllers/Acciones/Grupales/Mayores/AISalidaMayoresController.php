@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Acciones\Grupales\Mayores;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\AgActividadCrearRequest;
 use App\Http\Requests\Acciones\Grupales\AgActividadEditarRequest;
+use App\Http\Requests\Acciones\Individuales\AISalidaMayoresRequest;
 use App\Models\Acciones\Grupales\AgActividad;
+use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Traits\Acciones\Grupales\Salidamayores\CrudTrait;
 use App\Traits\Acciones\Grupales\Salidamayores\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Salidamayores\VistasTrait;
@@ -48,10 +50,10 @@ class AISalidaMayoresController extends Controller
             ['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]
         );
     }
-    public function store(AgActividadCrearRequest $request)
+    public function store(AISalidaMayoresRequest $request)
     {
-
-        return $this->setAgActividad([
+        $request->request->add(['sis_esta_id'=> 1]);
+        return $this->setAgSalidaMayores([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' =>       'Salida creado con exito',
@@ -60,31 +62,31 @@ class AISalidaMayoresController extends Controller
     }
 
 
-    public function show(AgActividad $modeloxx)
+    public function show(AiSalidaMayores $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO TALLER', 'btn btn-sm btn-primary']);
+        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVA SALIDA', 'btn btn-sm btn-primary']);
         return $this->view($do,
             ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 
 
-    public function edit(AgActividad $modeloxx)
+    public function edit(AiSalidaMayores $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A TALLER', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A SALIDAS', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR TALLER', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR TALLER', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR SALIDA', 'btn btn-sm btn-primary'])
             ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj]
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
     }
 
 
-    public function update(AgActividadEditarRequest $request,  AgActividad $modeloxx)
+    public function update(AISalidaMayoresRequest $request,  AiSalidaMayores $modeloxx)
     {
-        return $this->setAgActividad([
+        return $this->setAgSalidaMayores([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => 'Taller editado con exito',
@@ -92,7 +94,7 @@ class AISalidaMayoresController extends Controller
         ]);
     }
 
-    public function inactivate(AgActividad $modeloxx)
+    public function inactivate(AiSalidaMayores $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -102,7 +104,7 @@ class AISalidaMayoresController extends Controller
     }
 
 
-    public function destroy(Request $request, AgActividad $modeloxx)
+    public function destroy(Request $request, AiSalidaMayores $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -111,7 +113,7 @@ class AISalidaMayoresController extends Controller
             ->with('info', 'Taller inactivado correctamente');
     }
 
-    public function activate(AgActividad $modeloxx)
+    public function activate(AiSalidaMayores $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
@@ -120,7 +122,7 @@ class AISalidaMayoresController extends Controller
         );
 
     }
-    public function activar(Request $request, AgActividad $modeloxx)
+    public function activar(Request $request, AiSalidaMayores $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

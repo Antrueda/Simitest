@@ -74,7 +74,7 @@ class VsiEducacionEditarRequest extends FormRequest
             $this->_mensaje['dificultadesa.required'] = 'Indique que tipo de  dificultades';
         }
         if($this->prm_estudia_id == 228 && $this->dia=='' ||$this->dia==0&& $this->mes=='' || $this->mes==0&&$this->ano=='' || $this->ano==0 ){
-            $this->_reglasx['dia'] = 'required|min:0|max:99';
+            $this->_reglasx['dia'] = 'nullable|min:0|max:99';
             $this->_reglasx['mes'] = 'nullable|min:0|max:99';
             $this->_reglasx['ano'] = 'nullable|min:0|max:99';
         }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class HAiSalidaMayores extends Model
 {
     protected $fillable = [
-        'sis_nnaj_id',
+        
         'fecha',
         'prm_upi_id',
         'descripcion',

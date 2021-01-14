@@ -336,8 +336,12 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'aiindex', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Acciones grupales', 'pestania' => 1]);
 
         // Permisos para AI Salida Mayores
-        $this->getPermisos(['permisox' => 'aisalidamayores', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'salida de mayores acciones individuales(AI)', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'aisalidamayores', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'salida de mayores acciones Grupales(AI)', 'pestania' => 1]);
+          // Permisos para AI Salida Mayores
+          $this->getPermisos(['permisox' => 'salidajovenes', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Jovenes Salida acciones grupales(AI)', 'pestania' => 1]);
 
+
+        
         // Permisos para AI Evasión
         $this->getPermisos(['permisox' => 'aievasion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Evasión acciones individuales(AI)', 'pestania' => 1]);
 

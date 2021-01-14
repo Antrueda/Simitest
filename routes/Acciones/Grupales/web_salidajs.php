@@ -1,7 +1,7 @@
 <?php
-$controll = 'Acciones\Grupales\AgAsistente';
-$routxxxx = 'agasiste';
-Route::group(['prefix' => '{padrexxx}/agsisitentes'], function () use ($controll, $routxxxx) {
+$controll = 'Acciones\Grupales\Mayores\SalidaJoven';
+$routxxxx = 'salidajovenes';
+Route::group(['prefix' => '{padrexxx}/jovenes'], function () use ($controll, $routxxxx) {
     Route::get('nuevo', [
         'uses' => $controll . 'Controller@create',
         'middleware' => ['permission:' . $routxxxx . '-crear']
@@ -11,11 +11,11 @@ Route::group(['prefix' => '{padrexxx}/agsisitentes'], function () use ($controll
         'middleware' => ['permission:' . $routxxxx . '-crear']
     ])->name($routxxxx . '.crear');
     Route::get('agregar', [
-        'uses' => $controll . 'Controller@getAgregarNnaj',
+        'uses' => $controll . 'Controller@getAgregarjoven',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agregar');
     Route::get('listannajs', [
-        'uses' => $controll . 'Controller@getNnajs',
+        'uses' => $controll . 'Controller@getJovenes',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listnnaj');
     Route::get('quitar', [
@@ -23,7 +23,7 @@ Route::group(['prefix' => '{padrexxx}/agsisitentes'], function () use ($controll
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.quitar');
 });
-Route::group(['prefix' => 'agsisitente'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'salidajovenes'], function () use ($controll, $routxxxx) {
 
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'Controller@edit',

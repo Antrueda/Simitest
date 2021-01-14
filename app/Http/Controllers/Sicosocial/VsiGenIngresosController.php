@@ -125,8 +125,10 @@ class VsiGenIngresosController extends Controller
      */
     public function store(VsiGenIngresosCrearRequest $request, $padrexxx)
     {
+       
        $request->request->add(['vsi_id' => $padrexxx]);
        $request->request->add(['sis_esta_id'=> 1]);
+ 
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => '',
@@ -171,6 +173,7 @@ class VsiGenIngresosController extends Controller
      */
     public function update(VsiGenIngresosEditarRequest $request, Vsi $objetoxx)
     {
+       
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => $objetoxx->VsiGenIngreso,
