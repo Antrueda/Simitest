@@ -197,8 +197,7 @@ Route::get('agr/espaluga', function (Request $request) {
             ])
 
                 ->join('sis_estas', 'sis_eslugs.sis_esta_id', '=', 'sis_estas.id')
-                ->whereNotIn('sis_eslugs.id',[1])
-        )
+                )
         ->addColumn('s_estado', $request->estadoxx)
         ->addColumn('btns', $request->botonesx)
         ->rawColumns(['btns', 's_estado'])

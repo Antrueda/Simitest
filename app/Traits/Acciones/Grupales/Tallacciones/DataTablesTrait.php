@@ -114,7 +114,7 @@ trait DataTablesTrait
                     'titunuev' => 'AGREGAR ASISTENTES',
                     'titulist' => 'LISTA DE ASISTENTES',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'titupreg' => 'Participantes de la actividad y/o taller:',
+                    'titupreg' => 'LISTA DE PARTICIPANTES AL TALLER Y/O ACCIONES FORMATIVAS:',
                     'vercrear' => true,
                     'urlxxxxx' => route($dataxxxx['routxxxx'] . '.agasiste', $dataxxxx['modeloxx']->id), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
                     'permtabl' => [

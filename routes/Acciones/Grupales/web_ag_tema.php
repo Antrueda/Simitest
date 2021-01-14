@@ -29,4 +29,8 @@ Route::group(['prefix' => 'agtema'], function () {
 	    'uses' => 'Acciones\Grupales\AgTemaController@destroy',
 	    'middleware' => ['permission:agtema-borrar']
 	])->name('ag.tema.tema.borrar');
+	Route::get('motivos', [
+	    'uses' =>'Acciones\Grupales\AgTemaController@getMotivos',
+	    'middleware' => ['permission:agtema-leer']
+    ])->name('agtema.motivosx');
 });

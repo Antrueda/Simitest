@@ -12,7 +12,7 @@ use App\Traits\Acciones\Grupales\Salidamayores\CrudTrait;
 use App\Traits\Acciones\Grupales\Salidamayores\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Salidamayores\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
-use App\Traits\Acciones\Grupales\PestaniasTrait;
+use App\Traits\Acciones\Grupales\Salidamayores\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,8 +56,8 @@ class AISalidaMayoresController extends Controller
         return $this->setAgSalidaMayores([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Salida creado con exito',
-            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
+            'infoxxxx' =>       'Salida creado con exito, por favor asignar jovenes con permiso',
+            'routxxxx' => 'salidajovenes.nuevo'
         ]);
     }
 
@@ -77,7 +77,7 @@ class AISalidaMayoresController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A SALIDAS', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR TALLER', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR SALIDA', 'btn btn-sm btn-primary'])
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'CREAR NUEVA SALIDA', 'btn btn-sm btn-primary'])
             ,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->id]
         );
@@ -89,6 +89,7 @@ class AISalidaMayoresController extends Controller
         return $this->setAgSalidaMayores([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
+            'padrexxx' => $modeloxx,
             'infoxxxx' => 'Taller editado con exito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);

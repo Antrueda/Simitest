@@ -28,6 +28,7 @@ class SalidaJovenController extends Controller
         $this->opciones['routxxxx'] = 'salidajovenes';
         $this->getOpciones();
         $this->middleware($this->getMware());
+        
     }
 
     public function create(AiSalidaMayores $padrexxx)
@@ -73,7 +74,7 @@ class SalidaJovenController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route('agactividad.editar', [$modeloxx->ai_salmay_id])
+            ->route('aisalidamayores.editar', [$modeloxx->ai_salmay_id])
             ->with('info', 'Asistente activado correctamente');
     }
 }

@@ -12,6 +12,7 @@ class AgTema extends Model
   protected $fillable = [
     's_tema',
     'area_id',
+    'estusuario_id',
     's_descripcion',
     'i_prm_categoria_id',
     'user_crea_id',

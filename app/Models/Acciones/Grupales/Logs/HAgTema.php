@@ -12,6 +12,7 @@ class HAgTema extends Model
         's_descripcion',
         'user_crea_id',
         'user_edita_id',
+        'estusuario_id',
         'sis_esta_id',
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
