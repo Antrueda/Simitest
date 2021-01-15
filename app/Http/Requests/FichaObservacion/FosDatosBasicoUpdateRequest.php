@@ -12,17 +12,19 @@ class FosDatosBasicoUpdateRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'sis_depen_id.required' => 'Seleccione la unidad de atención integral',
+            'sis_depen_id.required' => 'Seleccione la UPI/Dependencia',
             'd_fecha_diligencia.required' => 'Seleccione la fecha de diligenciamiento',
             'fos_stse_id.required' => 'Seleccione el sub tipo de seguimiento',
             's_observacion.required' => 'Escriba la observación',
             //'fi_compfami_id.required' => 'Escriba el acudiente',
+            'sis_entidad_id.required' => 'Seleccione una entidad',
         ];
         $this->_reglasx = [
             'sis_depen_id' => ['Required'],
             'd_fecha_diligencia' => ['Required'],
             'fos_stse_id' => ['Required'],
             's_observacion' => ['Required'],
+            'sis_entidad_id'=> ['Required'],
             //'fi_compfami_id' => ['Required'],
         ];
     }

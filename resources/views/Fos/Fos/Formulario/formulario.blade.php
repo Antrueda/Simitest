@@ -20,7 +20,7 @@
         {{ Form::select('fos_tse_id', $todoxxxx["seguixxx"], null, ['class' => $errors->first('fos_tse_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
     </div>
 
-    <div class="form-group col-md-12">
+    <div class="form-group col-md-6">
         {{ Form::label('fos_stse_id', 'Sub-Tipo de Seguimiento:', ['class' => 'control-label col-form-label-sm']) }}
         <a href="#" propiedad="fos_stse_id" class="mouseover" title=""><i class="far fa-question-circle"></i></a>
         {{ Form::select('fos_stse_id', $todoxxxx["tipsegui"], null, ['class' => $errors->first('fos_stse_id') ? 'form-control select2 form-control-sm is-invalid mouseover1' : 'form-control select2 form-control-sm mouseover1']) }}

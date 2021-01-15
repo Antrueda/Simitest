@@ -10,9 +10,6 @@ trait PestaniasTrait
             'permisox' => 'agactividad',  'routexxx' => '','dataxxxx' => [true, []],
         ],
         [
-            'permisox' => 'aisalidamayores', 'routexxx' => '', 'dataxxxx' => [true, []],
-        ],
-        [
             'permisox' => 'agrespon', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
         ],
         [
@@ -47,14 +44,7 @@ trait PestaniasTrait
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];
-        $pestania['aisalidamayores'] = [
-            'routexxx' => '',
-            'activexx' => '',
-            'tituloxx' => 'SALIDA A MAYORES',
-            'tablaxxx' => 'sis_pais',
-            'datablex' => [],
-            'cananyxx' => $this->getCanany($dataxxxx),
-        ];
+      
 
         $pestania['agrespon'] = [
             'routexxx' => '',
