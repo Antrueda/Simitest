@@ -6,7 +6,11 @@ Route::group(['prefix' => 'salidamayores'], function () use ($controll, $routxxx
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
-    Route::get('{padrexxx}/jovenes', [
+    Route::get('jovenes', [
+        'uses' => $controll . 'Controller@getJovenPermiso',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.salidajovenez');
+	Route::get('{padrexxx}/jovenes', [
         'uses' => $controll . 'Controller@getJovenPermiso',
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.salidajovenes');

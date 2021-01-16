@@ -37,7 +37,7 @@ class SalidaJovenController extends Controller
         $this->opciones['padrexxx'] =$padrexxx;
         $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['aisalidamayores.editar', [$padrexxx->id]], 2, 'VOLVER A SALIDA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['aisalidamayores.editar', [$padrexxx->id]], 2, 'VOLVER A PERMISOS', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$padrexxx->id], 1, 'AGREGAR', 'btn btn-sm btn-primary']);
         return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
         
@@ -50,7 +50,7 @@ class SalidaJovenController extends Controller
         return $this->setAgJovenes([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Joven creados con exito',
+            'infoxxxx' =>       'AJ agregado con exito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -61,7 +61,7 @@ class SalidaJovenController extends Controller
         return $this->setAgJovenes([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Joven editado con exito',
+            'infoxxxx' => 'AJ editado con exito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -72,7 +72,7 @@ class SalidaJovenController extends Controller
         $this->opciones['padrexxx'] =$modeloxx->ai_salmay;
         $this->pestanix[1]['dataxxxx'] = [true, $this->opciones['padrexxx']->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['aisalidamayores.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A SALIDA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['aisalidamayores.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A PERMISOS', 'btn btn-sm btn-primary']);
         //return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],$this->getBotones(['borrar', [], 1, 'INACTIVAR ASISTENTE', 'btn btn-sm btn-primary']),
         return $this->destroy($modeloxx);
             }
@@ -90,7 +90,7 @@ class SalidaJovenController extends Controller
         $padrexxx = $modeloxx->ai_salmay;
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['aisalidamayores.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['aisalidamayores.editar', [$padrexxx->id]], 2, 'VOLVER PERMISOS', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
          return $this->view(
             $this->opciones,
@@ -103,7 +103,7 @@ class SalidaJovenController extends Controller
         $this->opciones['padrexxx'] =$modeloxx->ai_salmay;
         $this->pestanix[1]['dataxxxx'] = [true, $this->opciones['padrexxx']->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['aisalidamayores.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A SALIDA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', ['aisalidamayores.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A PERMISOS', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar']]
@@ -115,6 +115,6 @@ class SalidaJovenController extends Controller
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route('aisalidamayores.editar', [$modeloxx->ai_salmay_id])
-            ->with('info', 'Asistente activado correctamente');
+            ->with('info', 'AJ activado correctamente');
     }
 }

@@ -15,16 +15,15 @@ class SalidajovenesRequest extends FormRequest
 
         $this->_mensaje = [
             'hora_salida.required'=>'Indique la hora de salida',
-            
             'autoriza_id.required'=>'Seleccione Autorización de salida',
             'retorna_id.required'=>'Ingrese el primer apellido',
             'fecharetorno.required_if'=>'Indique la fecha de retorno',
             'horaretorno.required_if'=>'Indique la hora de retorno',
             'razones.required'=>'Ingrese la dirección',
+            
             ];
         $this->_reglasx = [
             'hora_salida' => 'required|exists:parametros,id',
-            
             'autoriza_id' => 'required',
             'retorna_id' => 'required',
             'fecharetorno' => 'required_if:retorna_id,227',
@@ -62,4 +61,5 @@ class SalidajovenesRequest extends FormRequest
          
         }
 }
+
 

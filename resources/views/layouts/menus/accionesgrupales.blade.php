@@ -28,7 +28,7 @@
             <li class="nav-item">
               <a href="{{ route('aisalidamayores')}}" class="nav-link">
                 <i class="fas fa-home nav-icon"></i>
-                <p>Salida Mayores</p>
+                <p>Registro De Permisos De Adolescentes Y/O Jóvenes</p>
               </a>
             </li>
             @endcan

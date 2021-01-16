@@ -95,7 +95,7 @@ trait VistasTrait
         $opciones['condixxx'] = Tema::combo(272, false, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
-        $opciones['responsa'] = User::combo(false, false);
+        $opciones['responsa'] = ['' => 'Seleccione'];
         $opciones['dependen'] = User::getDependenciasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['upidepen'] = SisDepen::combo(true, false);
         $opciones['agtemaxx'] = ['' => 'Seleccione'];

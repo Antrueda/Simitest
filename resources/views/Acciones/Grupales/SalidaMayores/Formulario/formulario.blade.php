@@ -24,8 +24,6 @@
 <h6 class="mt-3">BENEFICIARIOS ASOCIADOS</h6>
  @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 
-
-
 <h6 class="mt-3">DATOS FUNCIONARIO Y/O CONTRATISTA</h6>
 
 <div class="row">
@@ -43,7 +41,7 @@
 <div class="row">
 	<div class="col-md-12">
 		{{ Form::label('user_doc2_id', 'Responsable de UPI', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('user_doc2_id', $todoxxxx['responsa'], null, ['class' => $errors->first('user_doc2_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'responsable','readonly']) }}
+		{{ Form::select('user_doc2_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_doc2_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'responsable','readonly']) }}
 		@if($errors->has('user_doc2_id'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('user_doc2_id') }}

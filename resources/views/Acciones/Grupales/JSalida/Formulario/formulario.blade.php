@@ -1,36 +1,37 @@
-<input type="hidden" id="sis_nnaj_id" name="sis_nnaj_id">
 
   
 @if(!isset($todoxxxx["modeloxx"]->id))
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
 @endif
+<div style="display: none">
+{{ Form::number('sis_nnaj_id', null, ['class' => 'form-control form-control-sm','id'=>'sis_nnaj_id',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);",'readonly']) }}
+</div>
   <div class="form-row align-items-end">
         <div class="form-group col-md-4">
-            {{ Form::label('s_primer_apellido', '7.1 1er. Apellido', ['class' => 'control-label']) }}
-            {{ Form::text('s_primer_apellido', null, ['class' => 'form-control form-control-sm',
-        "onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);"]) }}
+            {{ Form::label('s_primer_apellido', '1er. Apellido', ['class' => 'control-label']) }}
+            {{ Form::text('s_primer_apellido', null, ['class' => 'form-control form-control-sm',"onkeyup" => "javascript:this.value=this.value.toUpperCase();", "onkeypress" => "return soloLetras(event);",'readonly']) }}
         </div>
         <div class="form-group col-md-4">
-            {{ Form::label('s_segundo_apellido', '7.2 2do. Apellido', ['class' => 'control-label']) }}
+            {{ Form::label('s_segundo_apellido', '2do. Apellido', ['class' => 'control-label']) }}
             {{ Form::text('s_segundo_apellido', null, ['class' => 'form-control form-control-sm' ,
-        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) }}
+        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);",'readonly']) }}
         </div>
         <div class="form-group col-md-4">
-            {{ Form::label('s_primer_nombre', '7.3 1er. Nombre', ['class' => 'control-label']) }}
+            {{ Form::label('s_primer_nombre', '1er. Nombre', ['class' => 'control-label']) }}
             {{ Form::text('s_primer_nombre', null, ['class' => 'form-control form-control-sm',
-        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) }}
+        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);",'readonly']) }}
         </div>
         <div class="form-group col-md-4">
-            {{ Form::label('s_segundo_nombre', '7.4 2do. Nombre', ['class' => 'control-label']) }}
+            {{ Form::label('s_segundo_nombre', '2do. Nombre', ['class' => 'control-label']) }}
             {{ Form::text('s_segundo_nombre', null, ['class' => 'form-control form-control-sm',
-        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) }}
+        "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);",'readonly']) }}
         </div>
       <div class="form-group col-md-4">
-        {{ Form::label('s_documento', '7.7 Número del documento', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('s_documento', 'Número del documento', ['class' => 'control-label col-form-label-sm','readonly']) }}
         {{ Form::text('s_documento', null, ['class' => 'form-control form-control-sm']) }}
       </div>
       <div class="form-group col-md-4">
-      {{ Form::label('d_nacimiento', '7.8 Fecha de Nacimiento', ['class' => 'control-label']) }}
+      {{ Form::label('d_nacimiento', 'Fecha de Nacimiento', ['class' => 'control-label']) }}
       {{ Form::text('d_nacimiento', null, ['class' => 'form-control form-control-sm','readonly']) }}
       </div>
       

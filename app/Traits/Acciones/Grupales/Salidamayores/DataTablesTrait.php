@@ -3,6 +3,8 @@
 namespace App\Traits\Acciones\Grupales\Salidamayores;
 
 use App\Models\Acciones\Grupales\AgResponsable;
+use App\Models\Acciones\Individuales\AiSalidaMayores;
+use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -21,8 +23,8 @@ trait DataTablesTrait
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
-                    'titunuev' => 'REGISTRAR NUEVA SALIDA',
-                    'titulist' => 'LISTA DE SALIDAS',
+                    'titunuev' => 'REGISTRAR NUEVO PERMISO',
+                    'titulist' => 'LISTA DE PERMISOS',
                     'titupreg'=> '',
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'vercrear' => true,
@@ -60,20 +62,22 @@ trait DataTablesTrait
             ];
         }else {
             $vercrear=false;
-            $parametr=0;
+            $parametr=AiSalidaMayores::count('id')+1;
+            $rutaxxxx='salidajovenez';
             if($dataxxxy['dataxxxx']['modeloxx']!=null){
                 $vercrear=true;
                 $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
+                $rutaxxxx='salidajovenes';
             }
             
             $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'AGREGAR JOVENES',
+                    'titunuev' => 'ASIGNAR AJ',
                     'titulist' => 'BENEFICIARIOS ASOCIADOS',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => '',
                     'vercrear' => $vercrear,
-                    'urlxxxxx' => route($dataxxxx['routxxxx'] . '.salidajovenes',$parametr ), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
+                    'urlxxxxx' => route($dataxxxx['routxxxx'] . '.'.$rutaxxxx,$parametr ), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
                     'permtabl' => [
                         $dataxxxx['permisox'] . '-leer',
                         $dataxxxx['permisox'] . '-crear',
@@ -90,6 +94,7 @@ trait DataTablesTrait
                             ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'EDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'TELEFONO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'HORA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'REPRESENTANTE LEGAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'AUTORIZACIÓN REPRESENTANTE LEGAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -108,6 +113,7 @@ trait DataTablesTrait
                         ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                         ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
                         ['data' => 'edadxxxx', 'name' => 'edadxxxx'],
+                        ['data' => 's_nombre_identitario', 'name' => 'fi_datos_basicos.s_nombre_identitario'],
                         ['data' => 'hora_salida', 'name' => 'salida_jovenes.hora_salida'],
                         ['data' => 'responsx', 'name' => 'responsx'],
                         ['data' => 'autoriza', 'name' => 'autoriza.nombre as autoriza'],

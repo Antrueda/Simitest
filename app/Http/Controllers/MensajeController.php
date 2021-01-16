@@ -254,7 +254,7 @@ class MensajeController extends Controller
         $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Sucursal inactivada correctamente');
+            ->with('info', 'Mensaje inactivada correctamente');
     }
 
    
