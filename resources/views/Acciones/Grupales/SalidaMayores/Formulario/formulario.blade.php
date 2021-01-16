@@ -18,43 +18,20 @@
             </div>
         @endif
     </div>
-    
 </div>
-  <div class="col-md-4">
-             {{ Form::label('razones', 'Razones', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('razones[]', $todoxxxx['condixxx'], null, ['class' => $errors->first('razones') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'razones', 'multiple']) }}
-            @if($errors->has('razones'))
-                <div class="invalid-feedback d-block">
-                    {{ $errors->first('razones') }}
-                </div>
-            @endif
-        </div>
-        </div>
-<br>
-    <hr>
 
+
+<h6 class="mt-3">BENEFICIARIOS ASOCIADOS</h6>
+ @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+
+
+
+<h6 class="mt-3">DATOS FUNCIONARIO Y/O CONTRATISTA</h6>
 
 <div class="row">
-    <div class="col-md-10">
-		{{ Form::label('descripcion', 'Descripción / Razón', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        <p id="contadordescripcion">0/4000</p>
-        @if($errors->has('descripcion'))
-			<div class="invalid-feedback d-block">
-	        	{{ $errors->first('descripcion') }}
-	      	</div>
-	    @endif
-    </div>
-</div>
-<br>
-
-<h6 class="mt-3">FIRMA</h6>
-
-{{ Form::label(null, 'FUNCIONARIO(A)/CONTRATISTA', ['class' => 'control-label col-form-label-sm']) }}
-<div class="row">
-	<div class="col-md-10">
-		{{ Form::label('user_doc1_id', 'Número de Documento - Nombres y apellidos - Cargo', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('user_doc1_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_doc1_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Digite el número de documento']) }}
+	<div class="col-md-12">
+		{{ Form::label('user_doc1_id', 'Responsable registro en SIMI', ['class' => 'control-label col-form-label-sm']) }}
+		{{ Form::select('user_doc1_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('user_doc1_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
 		@if($errors->has('user_doc1_id'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('user_doc1_id') }}
@@ -63,9 +40,17 @@
 	</div>
 </div>
 
-   @if(isset($todoxxxx["modeloxx"]->id))
-   <h6 class="mt-3">JOVENES</h6>
-    @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
-@endif
+<div class="row">
+	<div class="col-md-12">
+		{{ Form::label('user_doc2_id', 'Responsable de UPI', ['class' => 'control-label col-form-label-sm']) }}
+		{{ Form::select('user_doc2_id', $todoxxxx['responsa'], null, ['class' => $errors->first('user_doc2_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'responsable','readonly']) }}
+		@if($errors->has('user_doc2_id'))
+			<div class="invalid-feedback d-block">
+				{{ $errors->first('user_doc2_id') }}
+			</div>
+		@endif
+	</div>
+</div>
+
 
 

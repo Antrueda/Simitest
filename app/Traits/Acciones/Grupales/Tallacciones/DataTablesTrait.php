@@ -67,9 +67,9 @@ trait DataTablesTrait
             $dataxxxx['tablasxx'][] =
                 [
                     'titunuev' => 'AGREGAR RESPONSABLE',
-                    'titulist' => 'LISTA DE RESPONSABLES',
+                    'titulist' => 'LISTA DE RESPONSABLES Y ACOMPAÑANTES',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'titupreg' => 'Funcionarios y/o contratistas que realizan la actividada/taller:',
+                    'titupreg' => 'FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER:',
                     'vercrear' => (count($responsa) <= 2 ? true : false),
                     'urlxxxxx' => route($dataxxxx['routxxxx'] . '.responsa', $dataxxxx['modeloxx']->id),
                     'permtabl' => [
@@ -111,8 +111,8 @@ trait DataTablesTrait
 
             $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'AGREGAR ASISTENTES',
-                    'titulist' => 'LISTA DE ASISTENTES',
+                    'titunuev' => 'AGREGAR PARTICIPANTES',
+                    'titulist' => 'LISTA DE PARTICIPANTES',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => 'LISTA DE PARTICIPANTES AL TALLER Y/O ACCIONES FORMATIVAS:',
                     'vercrear' => true,
@@ -155,7 +155,7 @@ trait DataTablesTrait
                      'titunuev' => 'AGREGAR RECURSO',
                      'titulist' => 'LISTA DE RECUSOS',
                      'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-                     'titupreg' => 'Relación de recursos a emplear:',
+                     'titupreg' => 'RELACIÓN DE RECURSOS A EMPLEAR:',
                      'vercrear' => true,
                      'urlxxxxx' => route('agrelacion.agrecurso', $dataxxxx['modeloxx']->id),//  $this->opciones['urlxxxre'] = 'api/ag/relaciones';
                      'permtabl' => [

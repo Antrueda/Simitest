@@ -20,6 +20,7 @@ class CreateHAgContextosTable extends Migration
             $table->bigIncrements('id');
             $table->String('s_contexto');
             $table->String('s_descripcion');
+            $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

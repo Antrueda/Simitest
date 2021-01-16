@@ -27,8 +27,7 @@ class AISalidaMayoresRequest extends FormRequest
         return [
             'fecha'       => 'required|date',
             'prm_upi_id'  => 'required|exists:sis_depens,id',
-            'razones'     => 'required|array',
-            'descripcion' => 'required|string|max:4000'
+            'user_doc2_id'  => 'required',
         ];
     }
 }

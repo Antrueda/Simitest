@@ -2654,6 +2654,9 @@ class TemasTableSeeder extends Seeder
             1436 => $camposmagicos,
             1437 => $camposmagicos,
             1438 => $camposmagicos,
+            2491=> $camposmagicos,
+            2492=> $camposmagicos,
+            2493=> $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 273, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'CONTEXTURA']);
         $tema->parametros()->sync([
@@ -3362,6 +3365,11 @@ class TemasTableSeeder extends Seeder
             'nombrexx' => 'motivo vinculacion justicia',
             'parametr' => [346, 347, 348, 349, 350, 360, 352, 351,2480,2481]
         ]); //362
+
+        $this->getR([
+            'nombrexx' => 'Autorización de respuesta',
+            'parametr' => [2487,2488,2489,2490]
+        ]); //363
 
 
         //359

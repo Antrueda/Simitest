@@ -1452,8 +1452,8 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 1431, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VPH 1 DOSIS']);
         Parametro::create(['id' => 1432, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VPH 2 DOSIS']);
         Parametro::create(['id' => 1433, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VPH 3 DOSIS']);
-        Parametro::create(['id' => 1434, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TEMAS DE SALUD']);
-        Parametro::create(['id' => 1435, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'DOCUMENTACIÓN']);
+        Parametro::create(['id' => 1434, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRAMITES DE SALUD']);
+        Parametro::create(['id' => 1435, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRAMITES DE DOCUMENTACIÓN ']);
         Parametro::create(['id' => 1436, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRÁMITES O DILIGENCIAS JUDICIALES (ASESORÍAS, ACOMPAÑAMIENTOS)']);
         Parametro::create(['id' => 1437, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SITUACIÓN FAMILIAR']);
         Parametro::create(['id' => 1438, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'SITUACIÓN LABORAL']);
@@ -2524,6 +2524,13 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'ADECUADA']);//2484
         $this->getR(['nombrexx' => 'INADECUADA']);//2485
         $this->getR(['nombrexx' => 'TOMASERA']);//2486
-
+        $this->getR(['nombrexx' => 'CORREO ELECTRÓNICO']);//2487
+        $this->getR(['nombrexx' => 'MEDIO ESCRITO']);//2488
+        $this->getR(['nombrexx' => 'TELEFÓNICO']);//2489
+        $this->getR(['nombrexx' => 'PRESENCIAL']);//2490
+        $this->getR(['nombrexx' => 'TRAMITES ACADÉMICOS']);//2491
+        $this->getR(['nombrexx' => 'TRAMITES LIBRETA MILITAR']);//2492
+        $this->getR(['nombrexx' => 'LICENCIA DE MATERNIDAD']);//2493
     }
 }
+

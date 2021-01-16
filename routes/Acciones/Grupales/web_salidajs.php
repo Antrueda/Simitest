@@ -22,8 +22,12 @@ Route::group(['prefix' => '{padrexxx}/jovenes'], function () use ($controll, $ro
         'uses' => $controll . 'Controller@getQuitarNnaj',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.quitar');
+    Route::get('nnajsele', [
+		'uses' => $controll . 'Controller@getNnajsele',
+		'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.nnajsele');
 });
-Route::group(['prefix' => 'salidajovenes'], function () use ($controll, $routxxxx) {
+Route::group(['prefix' => 'jovenex'], function () use ($controll, $routxxxx) {
 
     Route::get('editar/{modeloxx}', [
         'uses' => $controll . 'Controller@edit',
@@ -33,7 +37,10 @@ Route::group(['prefix' => 'salidajovenes'], function () use ($controll, $routxxx
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routxxxx . '-editar']
     ])->name($routxxxx . '.editar');
-
+    Route::get('representa', [
+		'uses' => $controll . 'Controller@getRepresenta',
+	//	'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.representa');
 
 
     Route::get('ver/{modeloxx}', [

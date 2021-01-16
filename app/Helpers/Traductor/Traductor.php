@@ -4,7 +4,12 @@ namespace App\Helpers\Traductor;
 
 use App\Models\Acciones\Individuales\Pivotes\AiSalidaMayoresRazones;
 use App\Models\Acciones\Individuales\Pivotes\AiSalidaMenoresObj;
+use App\Models\Acciones\Individuales\Pivotes\JovenesMotivo;
+use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use App\Models\consulta\pivotes\CsdGeningDia;
+use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\sicosocial\Pivotes\VsiEmocionVincula;
 use App\Models\sicosocial\Pivotes\VsiPersona;
 use App\Models\sicosocial\Pivotes\VsiSituacionVincula;
@@ -97,9 +102,36 @@ class Traductor {
 
     public static function getRazones($dataxxxx)
     {
-        return AiSalidaMayoresRazones::select(['parametros.nombre'])
-        ->join('parametros','ai_salida_mayores_razones.parametro_id','=','parametros.id')
-        ->where('ai_salmay_id',$dataxxxx['padrexxx'])->get();
+        return JovenesMotivo::select(['parametros.nombre'])
+        ->join('parametros','jovenes_motivos.parametro_id','=','parametros.id')
+        ->where('salida_jovenes_id',$dataxxxx['padrexxx'])->get();
     }
+
+    public static function getJovenes($dataxxxx)
+    {
+        $contador=SalidaJovene::where('ai_salmay_id',$dataxxxx['padrexxx'])->count('id');
+
+        return $contador;
+        
+    }
+
+    public static function getRepresenta($dataxxxx)
+    {
+        $responsx=null;
+        if($dataxxxx){;
+        $responsx=FiCompfami::find($dataxxxx)->sis_nnaj->fi_datos_basico->NombreCompleto;
+        }
+        return $responsx;
+        
+    }
+
+    public static function getEdad($dataxxxx)
+    {
+        $edadxxxx=NnajNacimi::where('fi_datos_basico_id',$dataxxxx)->first()->Edad;
+
+        return $edadxxxx;
+        
+    }
+
 }
 

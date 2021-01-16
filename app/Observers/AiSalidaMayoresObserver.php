@@ -15,7 +15,7 @@ class AiSalidaMayoresObserver
         // campos nuevos traidos desde $fillable -> modelo 
         $log['fecha'] = $modeloxx->fecha;
         $log['prm_upi_id'] = $modeloxx->prm_upi_id;
-        $log['descripcion'] = $modeloxx->descripcion;
+        $log['user_doc2_id'] = $modeloxx->user_doc1_id;
         $log['user_doc1_id'] = $modeloxx->user_doc1_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;

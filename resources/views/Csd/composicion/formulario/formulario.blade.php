@@ -22,11 +22,6 @@
      "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) }}
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('s_nombre_identitario', '7.5 Nombre Identitario', ['class' => 'control-label']) }}
-        {{ Form::text('s_nombre_identitario', null, ['class' => 'form-control form-control-sm',
-     "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"]) }}
-    </div>
-    <div class="form-group col-md-4">
       {{ Form::label('prm_tipodocu_id', '7.6 Tipo de Documento', ['class' => 'control-label col-form-label-sm']) }}
       {{ Form::select('prm_tipodocu_id', $todoxxxx["tipodocu"], null, ['class' => 'form-control form-control-sm']) }}
   </div>

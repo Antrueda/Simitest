@@ -15,9 +15,9 @@ trait DataTablesTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function getTablas($dataxxxx)
+    public function getTablas($dataxxxy)
     {
-
+        $dataxxxx=$dataxxxy['opciones'];
         if ($dataxxxx['tablinde']) {
             $dataxxxx['tablasxx'] = [
                 [
@@ -40,7 +40,7 @@ trait DataTablesTrait
                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'FECHA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'UPI', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                            ['td' => 'RAZONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'BENEFICIARIOS', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -49,7 +49,7 @@ trait DataTablesTrait
                         ['data' => 'id', 'name' => 'ai_salida_mayores.id'],
                         ['data' => 'fecha', 'name' => 'ai_salida_mayores.fecha'],
                         ['data' => 'upi', 'name' => 'upi.nombre as upi'],
-                        ['data' => 'razonesx', 'name' => 'razonesx'],
+                        ['data' => 'contado', 'name' => 'contado'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatable',
@@ -59,15 +59,21 @@ trait DataTablesTrait
                 ]
             ];
         }else {
-          
+            $vercrear=false;
+            $parametr=0;
+            if($dataxxxy['dataxxxx']['modeloxx']!=null){
+                $vercrear=true;
+                $parametr=$dataxxxy['dataxxxx']['modeloxx']->id;
+            }
+            
             $dataxxxx['tablasxx'][] =
                 [
                     'titunuev' => 'AGREGAR JOVENES',
-                    'titulist' => 'LISTA DE JOVENES',
+                    'titulist' => 'BENEFICIARIOS ASOCIADOS',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'titupreg' => 'Jovenes con permiso de salida:',
-                    'vercrear' => true,
-                    'urlxxxxx' => route($dataxxxx['routxxxx'] . '.salidajovenes', $dataxxxx['modeloxx']->id), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
+                    'titupreg' => '',
+                    'vercrear' => $vercrear,
+                    'urlxxxxx' => route($dataxxxx['routxxxx'] . '.salidajovenes',$parametr ), // $this->opciones["urlxxxas"] = 'api/ag/asistentes';
                     'permtabl' => [
                         $dataxxxx['permisox'] . '-leer',
                         $dataxxxx['permisox'] . '-crear',
@@ -83,6 +89,14 @@ trait DataTablesTrait
                             ['td' => 'PRIMER NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'EDAD', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'HORA DE SALIDA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'REPRESENTANTE LEGAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'AUTORIZACIÓN REPRESENTANTE LEGAL', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'FECHA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'HORA DE RETORNO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'OBSERVACIONES', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                            ['td' => 'MOTIVO DE PERMISO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ]
                     ],
@@ -93,12 +107,20 @@ trait DataTablesTrait
                         ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
                         ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                         ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+                        ['data' => 'edadxxxx', 'name' => 'edadxxxx'],
+                        ['data' => 'hora_salida', 'name' => 'salida_jovenes.hora_salida'],
+                        ['data' => 'responsx', 'name' => 'responsx'],
+                        ['data' => 'autoriza', 'name' => 'autoriza.nombre as autoriza'],
+                        ['data' => 'fecharetorno', 'name' => 'salida_jovenes.fecharetorno'],
+                        ['data' => 'horaretorno', 'name' => 'salida_jovenes.horaretorno'],
+                        ['data' => 'observacion', 'name' => 'salida_jovenes.observacion'],
+                        ['data' => 'razonesx', 'name' => 'razonesx'],
                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                     ],
                     'tablaxxx' => 'datatablejovenes',
                     'permisox' => $dataxxxx['permisox'],
                     'routxxxx' => 'salidajovenes',
-                    'parametr' => [$dataxxxx['modeloxx']->id],
+                    'parametr' => [$parametr],
                 ];        
          } 
         $dataxxxx['ruarchjs'][] =

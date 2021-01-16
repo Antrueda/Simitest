@@ -22,6 +22,8 @@ class CreateAgSubtemasTable extends Migration
             $table->string('s_subtema');
             $table->text('s_descripcion');
             $table->foreign('ag_taller_id')->references('id')->on('ag_tallers');
+            $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
+            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS SUBTEMAS ASOCIADOS A UN TEMA EXISTENTE DENTRO DE UN TALLER ASOCIADO A LAS ACCIONES GRUPALES'");

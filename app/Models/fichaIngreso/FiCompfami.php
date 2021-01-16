@@ -250,6 +250,61 @@ class FiCompfami extends Model
         }
         return  $comboxxx;
     }
+
+    public static function getResponsableSalida($padrexxx, $cabecera, $ajaxxxxx)
+    {
+        $compofam = FiCompfami::where(function ($consulta) use ($padrexxx) {
+            $consulta->where('sis_nnajnnaj_id', $padrexxx)->where('prm_reprlega_id',227);
+            return $consulta;
+        })->get();
+
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'Seleccione'
+                ];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        foreach ($compofam as $registro) {
+            $nombrexx = $registro->sis_nnaj->fi_datos_basico;
+            $edad = $nombrexx->nnaj_nacimi->Edad;
+            if ($edad >= 18) {
+
+                $nombrexx = $nombrexx->s_primer_nombre . ' ' . $nombrexx->s_segundo_nombre . ' ' .
+                    $nombrexx->s_primer_apellido . ' ' . $nombrexx->s_segundo_apellido;
+                if ($ajaxxxxx) {
+                    $comboxxx[] = [
+                        'valuexxx' => $registro->id,
+                        'optionxx' => $nombrexx
+                    ];
+                } else {
+                    $comboxxx[$registro->id] = $nombrexx;
+                }
+            }
+        }
+
+        if (count($comboxxx) == 0) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = [
+                    'valuexxx' => '',
+                    'optionxx' => 'NO HAY REPRESENTANTE LEGAL'
+                ];
+            } else {
+                $comboxxx[''] = 'NO HAY REPRESENTANTE LEGAL';
+            }
+        }
+        return  $comboxxx;
+    }
+
+
+
+
+
     public function sis_pai()
     {
         return $this->belongsTo(SisPai::class);

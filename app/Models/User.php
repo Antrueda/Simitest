@@ -427,9 +427,9 @@ class User extends Authenticatable
 
 
             if ($ajaxxxxx) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->name];
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->getDocNombreCompletoAttribute()];
             } else {
-                $comboxxx[$registro->id] = $registro->name;
+                $comboxxx[$registro->id] = $registro->getDocNombreCompletoAttribute();
             }
         }
         return $comboxxx;

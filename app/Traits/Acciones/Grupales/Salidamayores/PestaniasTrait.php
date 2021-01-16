@@ -6,12 +6,11 @@ namespace App\Traits\Acciones\Grupales\Salidamayores;
 trait PestaniasTrait
 {
     public $pestanix = [
-      
         [
             'permisox' => 'aisalidamayores', 'routexxx' => '', 'dataxxxx' => [true, []],
         ],
         [
-            'permisox' => 'salidajovenes', 'routexxx' => '', 'dataxxxx' => [false, []],
+            'permisox' => 'salidajovenes', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
         ],
      
     ];
@@ -44,7 +43,7 @@ trait PestaniasTrait
         $pestania['salidajovenes'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'SALIDA A MAYORES',
+            'tituloxx' => 'JOVENES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -61,6 +60,7 @@ trait PestaniasTrait
     {
         $pestania = [];
         foreach ($this->pestanix as $key => $value) {
+            
             if ($value['dataxxxx'][0]) {
                 $dataxxxx['cananyxx'] = $value['permisox'];
                 $dotosxxx = $this->setPestanias($dataxxxx);

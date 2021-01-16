@@ -3,6 +3,10 @@
 namespace App\Models\Acciones\Individuales\Pivotes;
 
 use App\Models\Acciones\Individuales\AiSalidaMayores;
+use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\Parametro;
+use App\Models\Sistema\SisNnaj;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -10,8 +14,15 @@ use Illuminate\Support\Facades\DB;
 class SalidaJovene extends Model
 {
     protected $fillable = [
-        'fi_dato_basico_id',
+        'sis_nnaj_id',
         'ai_salmay_id',
+        'hora_salida',
+        'autoriza_id',
+        'retorna_id',
+        'fecharetorno',
+        'horaretorno',
+        'observacion',
+        'responsable_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id'
@@ -31,6 +42,20 @@ class SalidaJovene extends Model
     {
       return $this->belongsTo(AiSalidaMayores::class);
     }
+
+    public function sis_nnaj()
+    {
+      return $this->belongsTo(SisNnaj::class);
+    }
+
+    public function ficompis()
+    {
+      return $this->belongsTo(FiCompfami::class,'responsable_id');
+    }
+
+    public function razones(){
+      return $this->belongsToMany(Parametro::class,'jovenes_motivos', 'salida_jovenes_id', 'parametro_id');
+  }
   
     public static function transaccion($dataxxxx,  $objetoxx)
     {
@@ -47,3 +72,4 @@ class SalidaJovene extends Model
       return $usuariox;
     }
 }
+

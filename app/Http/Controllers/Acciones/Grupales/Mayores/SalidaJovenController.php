@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Acciones\Grupales\Mayores;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Acciones\Individuales\SalidajovenesRequest;
 use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\AgAsistente;
 use App\Models\Acciones\Individuales\AiSalidaMayores;
@@ -11,7 +12,7 @@ use App\Traits\Acciones\Grupales\SalidaJoven\CrudTrait;
 use App\Traits\Acciones\Grupales\SalidaJoven\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\SalidaJoven\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
-use App\Traits\Acciones\Grupales\PestaniasTrait;
+use App\Traits\Acciones\Grupales\Salidamayores\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,11 +35,37 @@ class SalidaJovenController extends Controller
     public function create(AiSalidaMayores $padrexxx)
     {
         $this->opciones['padrexxx'] =$padrexxx;
-        $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[0]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['aisalidamayores.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A SALIDA', 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
+        $this->getBotones(['editar', ['aisalidamayores.editar', [$padrexxx->id]], 2, 'VOLVER A SALIDA', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', [$padrexxx->id], 1, 'AGREGAR', 'btn btn-sm btn-primary']);
+        return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
+        
     }
+
+    public function store(SalidajovenesRequest $request, AiSalidaMayores $padrexxx)
+    {
+        
+        $request->request->add(['ai_salmay_id' => $padrexxx->id, 'sis_esta_id' => 1]);
+        return $this->setAgJovenes([
+            'requestx' => $request,
+            'modeloxx' => '',
+            'infoxxxx' =>       'Joven creados con exito',
+            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
+        ]);
+    }
+
+    public function update(SalidajovenesRequest $request,  SalidaJovene $modeloxx)
+    {
+        $request->request->add(['sis_nnaj_id' => $modeloxx->sis_nnaj_id]);
+        return $this->setAgJovenes([
+            'requestx' => $request,
+            'modeloxx' => $modeloxx,
+            'infoxxxx' => 'Joven editado con exito',
+            'routxxxx' => $this->opciones['routxxxx'] . '.editar'
+        ]);
+    }
+
 
     public function inactivate(SalidaJovene $modeloxx)
     {
@@ -50,12 +77,25 @@ class SalidaJovenController extends Controller
         return $this->destroy($modeloxx);
             }
 
-
     public function destroy(SalidaJovene $modeloxx)
     {
         $modeloxx->delete();
         return redirect()->back()
             ->with('info', 'Joven eliminado correctamente');
+    }
+
+    public function edit(SalidaJovene $modeloxx)
+    {
+        $this->opciones['padrexxx'] =$modeloxx->ai_salmay;
+        $padrexxx = $modeloxx->ai_salmay;
+        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->getBotones(['editar', ['aisalidamayores.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
+         return $this->view(
+            $this->opciones,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]
+        );
     }
 
     public function activate(SalidaJovene $modeloxx)
@@ -65,7 +105,7 @@ class SalidaJovenController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['aisalidamayores.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A SALIDA', 'btn btn-sm btn-primary']);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR RESPOSABLE', 'btn btn-sm btn-primary']),
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar']]
         );
     }
