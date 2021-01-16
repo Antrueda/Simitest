@@ -8,6 +8,8 @@ use App\Http\Requests\Acciones\Grupales\AgSubtemaEditarRequest;
 use App\Models\Acciones\Grupales\AgSubtema;
 use App\Models\Acciones\Grupales\AgTaller;
 use App\Models\Acciones\Grupales\AgTema;
+use App\Models\Sistema\SisEsta;
+use App\Models\Usuario\Estusuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -103,11 +105,18 @@ class AgSubtemaController extends Controller
         $this->opciones['accionxx'] = $accionxx;
         // indica si se esta actualizando o viendo
         $this->opciones['nivelxxx'] = '';
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['tiposegu'] = [];
         if ($nombobje != '') {
             $this->opciones[$nombobje] = $objetoxx;
         }
-
+        $estadoid = 0;
+        $this->opciones['motivoxx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2328
+        ]);
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
         return view($vistaxxx, ['todoxxxx' => $this->opciones]);

@@ -31,6 +31,25 @@
             });
 
         }
+        $('#sis_esta_id').change(function() {
+            f_motivos({
+                dataxxxx: {
+                    estadoid: $(this).val(),
+                },
+                selected: '',
+                routexxx: "{{ route('agtema.motivosx')}}"
+            })
+        });
+
+        @if(old('sis_esta_id') !== null)
+        f_motivos({
+            dataxxxx: {
+                estadoid: $('#sis_esta_id').val(),
+            },
+            selected: "{{old('estusuario_id')}}",
+            routexxx: "{{ route('agtema.motivosx')}}"
+        })
+        @endif
 
         @if(old('area_id')!=null)
           f_campos({valuexxx:{{ old('area_id') }},selected:{{old('fos_tse_id')}}});

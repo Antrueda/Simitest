@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\AgTallerCrearRequest;
 use App\Http\Requests\Acciones\Grupales\AgTallerEditarRequest;
 use App\Models\Acciones\Grupales\AgTaller;
+use App\Models\Sistema\SisEsta;
+use App\Models\Usuario\Estusuario;
 use Illuminate\Http\Request;
 
 class AgTallerController extends Controller
@@ -96,13 +98,19 @@ class AgTallerController extends Controller
 
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['accionxx'] = $accionxx;
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
-
+        $estadoid = 0;
         if ($nombobje != '') {
-            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
+          //  $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
         }
-
+        $this->opciones['motivoxx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2328
+        ]);
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
         return view($this->opciones['rutacarp'].$vistaxxx, ['todoxxxx' => $this->opciones]);

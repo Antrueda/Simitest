@@ -70,13 +70,14 @@ class AgTemaController extends Controller
         $this->opciones['areasxxx'] = Area::combo_tema('', true, false);
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $accionxx;
+        $this->opciones['motivoxx']= ['' => 'Seleccione'];
       
         // indica si se esta actualizando o viendo
         $estadoid = 0;
         if ($nombobje != '') {
 
             $this->opciones['indicado'] = Area::combo_tema($objetoxx->area_id, true, false);
-            $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
+          //  $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
 
             $this->opciones[$nombobje] = $objetoxx;
         }
