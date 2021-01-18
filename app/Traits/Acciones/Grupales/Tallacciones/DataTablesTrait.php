@@ -66,7 +66,7 @@ trait DataTablesTrait
             $responsa = AgResponsable::where('ag_actividad_id', $dataxxxx['modeloxx']->id)->get();
             $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'AGREGAR RESPONSABLE',
+                    'titunuev' => 'AGREGAR RESPONSABLE Y ACOMPAÑANTES',
                     'titulist' => 'LISTA DE RESPONSABLES Y ACOMPAÑANTES',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => 'FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER:',

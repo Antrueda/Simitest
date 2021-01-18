@@ -90,7 +90,7 @@
 
 <div class="col-md-4">
   {{ Form::label('fecharetorno', 'Posible fecha de retorno', ['class' => 'control-label col-form-label-sm']) }}
- {{ Form::date('fecharetorno',  null, ['class' => $errors->first('fecharetorno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'fecharetorno','max' => $todoxxxx['proxxxxx'],'min'=>$todoxxxx['hoyxxxxx']]) }}
+ {{ Form::date('fecharetorno',  null, ['class' => $errors->first('fecharetorno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'fecharetorno','min'=>$todoxxxx['hoyxxxxx']]) }}
  @if($errors->has('fecharetorno'))
      <div class="invalid-feedback d-block">
          {{ $errors->first('fecharetorno') }}

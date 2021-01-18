@@ -72,7 +72,7 @@ trait DataTablesTrait
             
             $dataxxxx['tablasxx'][] =
                 [
-                    'titunuev' => 'ASIGNAR AJ',
+                    'titunuev' => 'AGREGAR ADOLESCENTES Y/O JÓVENES',
                     'titulist' => 'BENEFICIARIOS ASOCIADOS',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                     'titupreg' => '',

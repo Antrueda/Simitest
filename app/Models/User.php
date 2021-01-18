@@ -435,6 +435,31 @@ class User extends Authenticatable
         return $comboxxx;
     }
 
+    public static function getRes($cabecera, $ajaxxxxx,$nonexxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $upixxxxx = User::where('users.id', $nonexxx)
+            ->get();
+        foreach ($upixxxxx as $registro) {
+
+
+            if ($ajaxxxxx) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->getDocNombreCompletoAttribute()];
+            } else {
+                $comboxxx[$registro->id] = $registro->getDocNombreCompletoAttribute();
+            }
+        }
+        return $comboxxx;
+    }
+
 
 
 

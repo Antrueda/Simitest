@@ -15,6 +15,12 @@ trait PestaniasTrait
         [
             'permisox' => 'agasiste', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
         ],
+
+        [
+            'permisox' => 'agrelacion', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
+        ],
+
+        
         
     ];
 
@@ -26,6 +32,8 @@ trait PestaniasTrait
             'aisalidamayores' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
             'agrespon' => ['crear', 'editar', 'borrar', 'activar'],
             'agasiste' => ['crear', 'borrar', 'activar'],
+            'agrelacion' => ['crear', 'borrar', 'activar'],
+            
         ];
         $cananyxx = [];
         foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
@@ -58,6 +66,15 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'ASISTENTES',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+
+        $pestania['agrelacion'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'RECURSOS',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

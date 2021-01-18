@@ -26,8 +26,8 @@
         {{ Form::select('fos_stse_id', $todoxxxx["tipsegui"], null, ['class' => $errors->first('fos_stse_id') ? 'form-control select2 form-control-sm is-invalid mouseover1' : 'form-control select2 form-control-sm mouseover1']) }}
     </div>
         <div class="form-group col-md-6">
-        {{ Form::label('sis_entidad_id', Tr::getTitulo(12,1), ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_entidad_id', $todoxxxx["entidadx"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px']) }}
+        {{ Form::label('sis_entidad_id', 'Entidad', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('sis_entidad_id', $todoxxxx["entidadx"], null, ['class' => $errors->first('sis_entidad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','style'=>'height:38px']) }}
     </div>
     <div class="form-group col-md-12">
         {{ Form::label('s_observacion', 'Observación y/o Seguimiento:', ['class' => 'control-label col-form-label-sm']) }}

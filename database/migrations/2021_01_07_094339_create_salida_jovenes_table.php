@@ -27,7 +27,7 @@ class CreateSalidaJovenesTable extends Migration
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('responsable_id')->unsigned()->nullable();
             $table->bigInteger('ai_salmay_id')->unsigned();
-            $table->bigInteger('autoriza_id')->unsigned();
+            $table->bigInteger('autoriza_id')->unsigned()->nullable();
             $table->time('hora_salida');
             $table->bigInteger('retorna_id')->unsigned()->nullable();
             $table->dateTime('fecharetorno')->nullable();

@@ -29,8 +29,8 @@
         @if(old('prm_upi_id') != null)
              f_repsable({
                 dataxxxx: {
-                    valuexxx: "{{old('user_doc2_id')}}",
-                    campoxxx: 'user_doc2_id',
+                    valuexxx: "{{old('responsable')}}",
+                    campoxxx: 'responsable',
                     selected: '{{old("prm_upi_id")}}'
             }});
         @endif

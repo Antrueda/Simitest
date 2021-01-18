@@ -95,6 +95,7 @@ trait VistasTrait
         $opciones['condixxx'] = Tema::combo(272, false, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
+        $opciones['usuariox'] = User::getRes(false, false,0);
         $opciones['responsa'] = ['' => 'Seleccione'];
         $opciones['dependen'] = User::getDependenciasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['upidepen'] = SisDepen::combo(true, false);
@@ -116,8 +117,7 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-
-            $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false, 'areasele' => $dataxxxx['modeloxx']->area_id]);
+            $opciones['usuariox'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc2_id);
            
             if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
                 $opciones['lugarxxx'] = Tema::combo(336, true, false);

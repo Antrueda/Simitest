@@ -19,7 +19,7 @@ trait DataTablesTrait
         $this->opciones['tablasxx'][] =
             [
                 'titunuev' => 'NUEVO RESPONSABLE',
-                'titulist' => 'LISTA DE AJ',
+                'titulist' => 'LISTA DE ADOLESCENTES Y/O JÓVENES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'titupreg' => '',
                 'vercrear' => FALSE,

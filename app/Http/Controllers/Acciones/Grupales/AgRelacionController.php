@@ -41,7 +41,7 @@ class AgRelacionController extends Controller
     public function create(AgActividad $padrexxx)
     {
 
-        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['crear', [$padrexxx->id], 1, 'AGREGAR RECURSO', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
@@ -63,7 +63,7 @@ class AgRelacionController extends Controller
     public function show(AgRelacion $modeloxx)
     {
         $padrexxx = $modeloxx->ag_actividad;
-        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         return $this->view($this->opciones,['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $padrexxx]);
@@ -72,11 +72,11 @@ class AgRelacionController extends Controller
     public function edit(AgRelacion $modeloxx)
     {
         $padrexxx = $modeloxx->ag_actividad;
-        $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
+        $this->pestanix[3]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR RECURSO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'CREAR RESPONSABLE', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'AGREGAR RECURSO', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->opciones,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]
