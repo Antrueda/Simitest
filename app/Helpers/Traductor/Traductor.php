@@ -9,11 +9,12 @@ use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use App\Models\consulta\pivotes\CsdGeningDia;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\FiResidencia;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\sicosocial\Pivotes\VsiEmocionVincula;
 use App\Models\sicosocial\Pivotes\VsiPersona;
 use App\Models\sicosocial\Pivotes\VsiSituacionVincula;
-
+use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisTitulo;
 
 
@@ -130,6 +131,18 @@ class Traductor {
         $edadxxxx=NnajNacimi::where('fi_datos_basico_id',$dataxxxx)->first()->Edad;
 
         return $edadxxxx;
+        
+    }
+
+    public static function getTelefono($dataxxxx)
+    {
+        $telefono=FiResidencia::where('sis_nnaj_id',$dataxxxx)->get();
+        $telefonos='';
+        foreach($telefono as $value){
+            $telefonos=$value->s_telefono_uno . ' - ' . $value->s_telefono_dos . ' - ' . $value->s_telefono_tres;
+        }
+        
+        return   $telefonos;
         
     }
 

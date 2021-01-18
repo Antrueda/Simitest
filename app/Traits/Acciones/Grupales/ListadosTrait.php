@@ -313,7 +313,7 @@ public function getJovenPermiso(Request $request, AiSalidaMayores $padrexxx)
         $request->routexxx = ['salidajovenes'];
         $hoyxxxx = Carbon::today()->isoFormat('YYYY-MM-DD');
         $mayores = explode('-',$hoyxxxx);
-        $mayorex = $mayores[0] - 18;
+        $mayorex = $mayores[0] - 14;
         $mayorex = $mayorex .'-'.$mayores[1] .'-'.$mayores[2];
         $request->botonesx = $this->opciones['rutacarp'] .
             $this->opciones['carpetax'] . '.Botones.elimasis';
@@ -323,16 +323,18 @@ public function getJovenPermiso(Request $request, AiSalidaMayores $padrexxx)
             $this->opciones['carpetax'] . '.Botones.responsx';
         $request->edadxxxx = $this->opciones['rutacarp'] .
             $this->opciones['carpetax'] . '.Botones.edadxxxx';
+        $request->telefono = $this->opciones['rutacarp'] .
+            $this->opciones['carpetax'] . '.Botones.telefono';
         $request->estadoxx = 'layouts.components.botones.estadosx';
         $dataxxxx = SalidaJovene::select([
             'salida_jovenes.id',
+            'salida_jovenes.sis_nnaj_id',
             'fi_datos_basicos.s_primer_nombre',
             'fi_datos_basicos.id as fidatosbasicos',
             'fi_datos_basicos.s_segundo_nombre',
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
-            'fi_datos_basicos.s_nombre_identitario',
-            
+            'nnaj_sexos.s_nombre_identitario',
             'salida_jovenes.hora_salida',
             'autoriza.nombre as autoriza',
             'salida_jovenes.responsable_id',
@@ -350,7 +352,7 @@ public function getJovenPermiso(Request $request, AiSalidaMayores $padrexxx)
             ->join('ai_salida_mayores', 'salida_jovenes.ai_salmay_id', '=', 'ai_salida_mayores.id')
             ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id')
             ->join('nnaj_docus', 'salida_jovenes.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
-            ->join('nnaj_sexo', 'salida_jovenes.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('nnaj_sexos', 'salida_jovenes.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
             
             ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')

@@ -288,6 +288,16 @@ trait DatatableTrait
 
             )
             ->addColumn(
+                'telefono',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->telefono, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+            ->addColumn(
                 'edadxxxx',
                 function ($queryxxx) use ($requestx) {
                     return  view($requestx->edadxxxx, [

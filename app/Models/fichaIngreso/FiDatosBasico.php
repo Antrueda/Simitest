@@ -58,6 +58,7 @@ class FiDatosBasico extends Model
 
     public function nnaj_sexo()
     {
+        
         return $this->hasOne(NnajSexo::class);
     }
 
