@@ -11,7 +11,7 @@
     <div class="col-md-4">
         {{ Form::label('descripcion', 'Descripción', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::textarea('descripcion', null, ['class' => $errors->first('descripcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', "onkeyup" => "javascript:this.value=this.value.toCase();", 'style' => 'text-transform:uppercase;']) }}
-        <p id="contadorobservacion">0/4000</p>
+        <p id="contadordescripcion">0/4000</p>
 		@if($errors->has('descripcion'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('descripcion') }}

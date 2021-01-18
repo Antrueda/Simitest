@@ -8,7 +8,11 @@
             //theme: 'bootstrap4',
         });
         // Máscara documento
-init_contadorTa("descripcion", "contadorobservacion", 4000);
+
+
+});
+
+init_contadorTa("descripcion", "contadordescripcion", 4000);
 
 function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {
@@ -28,6 +32,5 @@ function updateContadorTa(idtextarea, idcontador, max) {
         ta.val(ta.val().substring(0, max - 1));
         contador.html(max + "/" + max);
     }
-
 }
 </script>
