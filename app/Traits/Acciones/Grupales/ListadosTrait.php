@@ -244,16 +244,21 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $request->razonesx = $this->opciones['rutacarp'] .
+            $request->contado = $this->opciones['rutacarp'] .
             $this->opciones['carpetax'] . '.Botones.contado';
+            $request->razonesg = $this->opciones['rutacarp'] .
+            $this->opciones['carpetax'] . '.Botones.razonesg';
             $dataxxxx =  AiSalidaMayores::select([
             'ai_salida_mayores.id',
             'ai_salida_mayores.fecha',
             'upi.nombre as upi',
+            'users.name',
             'ai_salida_mayores.sis_esta_id',
             'ai_salida_mayores.created_at',
         ])
             ->join('sis_depens as upi', 'ai_salida_mayores.prm_upi_id', '=', 'upi.id')
+            ->join('users', 'ai_salida_mayores.user_doc1_id', '=', 'users.id')
+            
             ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDtSalidaz($dataxxxx, $request);
             

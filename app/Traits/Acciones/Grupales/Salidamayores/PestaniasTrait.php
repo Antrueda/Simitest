@@ -34,7 +34,7 @@ trait PestaniasTrait
         $pestania['aisalidamayores'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'REGISTRO DE  PERMISOS  DE ADOLESCENTES Y/O JOVENES',
+            'tituloxx' => 'REGISTRO DE  PERMISOS  DE ADOLESCENTES Y/O JÓVENES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

@@ -377,13 +377,24 @@ trait DatatableTrait
             ->addColumn(
                 'contado',
                 function ($queryxxx) use ($requestx) {
-                    return  view($requestx->razonesx, [
+                    return  view($requestx->contado, [
                         'queryxxx' => $queryxxx,
                         'requestx' => $requestx,
                     ]);
                 }
 
             )
+            ->addColumn(
+                'razonesg',
+                function ($queryxxx) use ($requestx) {
+                    return  view($requestx->razonesg, [
+                        'queryxxx' => $queryxxx,
+                        'requestx' => $requestx,
+                    ]);
+                }
+
+            )
+          
           
             ->rawColumns(['botonexx', 's_estado'])
             ->toJson();

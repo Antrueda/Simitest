@@ -40,7 +40,7 @@ trait VistasTrait
         }
         $dataxxxx['tablasxx'][] =
             [
-                'titunuev' => 'AGREGAR JOVENES',
+                'titunuev' => 'AGREGAR JÓVENES',
                 'titulist' => 'BENEFICIARIOS ASOCIADOS',
                 'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'titupreg' => '',
