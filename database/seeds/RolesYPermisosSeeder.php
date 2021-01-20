@@ -341,7 +341,7 @@ class RolesYPermisosSeeder extends Seeder
           $this->getPermisos(['permisox' => 'salidajovenes', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Jovenes Salida acciones grupales(AI)', 'pestania' => 1]);
 
 
-        
+
         // Permisos para AI Evasión
         $this->getPermisos(['permisox' => 'aievasion', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Evasión acciones individuales(AI)', 'pestania' => 1]);
 
@@ -429,8 +429,6 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'fossubtipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
 
 
-        // crear roles y asignar los permisos
-        Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(Permission::all());
 
         require_once('RolesYPermisosAdmin.php');
         require_once('Permisos/Carguedocu.php');
@@ -438,6 +436,10 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosSocial.php');
         require_once('RolesYPermisosCRelajado.php');
         require_once('RolesYPermisosEnfermeria.php');
+
+         // crear roles y asignar los permisos
+         Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(Permission::all());
+
         Role::create(['name' => 'PSICÓLOGO(A) CLÍNICO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
             ->givePermissionTo(['intervención sicosocial especializada']);
 

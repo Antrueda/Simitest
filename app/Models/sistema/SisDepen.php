@@ -20,7 +20,7 @@ class SisDepen extends Model
         'sis_departamento_id',
         'sis_municipio_id',
         'estusuario_id',
-        // 'sis_barrio_id',
+        'simianti_id',
         'sis_upzbarri_id',
         's_telefono',
         's_correo',
@@ -148,8 +148,8 @@ class SisDepen extends Model
         foreach ($this->getDepeUsua as $value) {
             if ($value->i_prm_responsable_id == 227) {
                 $dependen = $value->user->Dependencias;
-                $responsa = [['valuexxx'=>$value->user->id,'optionxx'=>$value->user->DocNombreCompletoAjax]];
-                $cargoxxx = [['valuexxx'=>$value->user->sis_cargo->id,'optionxx'=>$value->user->sis_cargo->s_cargo]];
+                $responsa = [['valuexxx' => $value->user->id, 'optionxx' => $value->user->DocNombreCompletoAjax]];
+                $cargoxxx = [['valuexxx' => $value->user->sis_cargo->id, 'optionxx' => $value->user->sis_cargo->s_cargo]];
             }
         }
         $respuest = [$responsa, $cargoxxx, $dependen];

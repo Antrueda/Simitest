@@ -25,7 +25,7 @@ class CreateInBaseFuentesTable extends Migration
             $table->unique(['in_fuente_id', 'sis_docfuen_id']);
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA AL RELACION ENTRE LA LINEA DE BASE DE CON EL SOPORTE DOCUMENTAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA AL RELACION ENTRE LA LINEA DE BASE DE CON EL SOPORTE DOCUMENTAL'");
     }
 
     /**

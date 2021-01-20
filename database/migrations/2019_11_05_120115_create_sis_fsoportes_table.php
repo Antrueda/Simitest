@@ -24,7 +24,7 @@ class CreateSisFsoportesTable extends Migration
             $table->unique(['nombre', 'sis_actividad_id']);
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LOS FORMATOS DE LAS ACTIVIDADES REGISTRADAS'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LOS FORMATOS DE LAS ACTIVIDADES REGISTRADAS'");
     }
 
     /**

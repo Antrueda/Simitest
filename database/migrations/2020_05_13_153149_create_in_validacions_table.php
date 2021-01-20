@@ -37,7 +37,7 @@ class CreateInValidacionsTable extends Migration
 
             $table->unique(['in_fuente_id', 'in_pregunta_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RESTRICCIONES A LAS PREGUNTAS Y TAMBIEN RELACIONA LAS TABLAS Y LOS CAMPOS DONDE SERA ALMACENADOS LOS DATOS'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RESTRICCIONES A LAS PREGUNTAS Y TAMBIEN RELACIONA LAS TABLAS Y LOS CAMPOS DONDE SERA ALMACENADOS LOS DATOS'");
     }
 
     /**

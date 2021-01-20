@@ -22,7 +22,7 @@ class CreateSisActividadSisDocumentoFuenteTable extends Migration
             $table->bigInteger('sis_docfuen_id')->unsigned();
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LAS ACTIVIDADES Y LOS FORMATOS REGISTRADOS EN EL SISTEMA'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LAS ACTIVIDADES Y LOS FORMATOS REGISTRADOS EN EL SISTEMA'");
     }
 
     /**

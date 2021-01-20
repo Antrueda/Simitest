@@ -18,6 +18,7 @@ class CreateSisPaissTable extends Migration
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_iso')->comment('CAMPO DE LAS SIGLAS DEL PAIS');
             $table->string('s_pais')->comment('CAMPO DE NOMBRE DEL PAIS');
+            $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
             $table->bigInteger('sis_esta_id')->unsigned();
@@ -29,6 +30,8 @@ class CreateSisPaissTable extends Migration
             $table->bigIncrements('id');
             $table->string('s_iso');
             $table->string('s_pais');
+            $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
+
             $table = CamposMagicos::h_magicos($table);
         });
     }

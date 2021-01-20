@@ -80,7 +80,7 @@ class CreateCsdDatosBasicosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BÁSICOS DE UNA PERSONA ENTREVISTADA, SECCION 1 DATOS BASICOS DE CONSULTA SOCIAL EN DOMICILIO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BÁSICOS DE UNA PERSONA ENTREVISTADA, SECCION 1 DATOS BASICOS DE CONSULTA SOCIAL EN DOMICILIO'");
     }
 
     /**

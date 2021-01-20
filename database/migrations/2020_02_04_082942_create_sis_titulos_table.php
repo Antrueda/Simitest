@@ -24,7 +24,7 @@ class CreateSisTitulosTable extends Migration
             $table->foreign('i_prm_tletra_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TITULOS DINAMICOS USADOS EN ALGUNOS FORMULARIOS'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TITULOS DINAMICOS USADOS EN ALGUNOS FORMULARIOS'");
     }
 
     /**

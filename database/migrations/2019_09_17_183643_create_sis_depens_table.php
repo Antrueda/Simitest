@@ -32,6 +32,9 @@ class CreateSisDepensTable extends Migration
             $table->Integer('itiegabe')->default(0)->comment('TIEMPO GABELA PARA EL CARGUE DE INFORMACION');
             $table->Integer('itigafin')->default(0)->comment('TIEMPO GABELA FIN DE MES PARA EL CARGE DE INFORMACION');
             $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
+            $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
+
+
             $table->foreign('i_prm_cvital_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tdependen_id')->references('id')->on('parametros');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
@@ -42,7 +45,7 @@ class CreateSisDepensTable extends Migration
             $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS DEPENDENCIAS DEL IDIPRON CONTENIENDO LOS DATOS DE UBICACIÓN Y DE CONTACTO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS DEPENDENCIAS DEL IDIPRON CONTENIENDO LOS DATOS DE UBICACIÓN Y DE CONTACTO'");
     }
 
     /**

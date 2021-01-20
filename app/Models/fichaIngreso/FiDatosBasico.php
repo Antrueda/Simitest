@@ -3,6 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Models\fichaIngreso\NnajNacimi;
+use App\Models\oracle\GeNnaj;
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDocfuen;
@@ -14,9 +15,10 @@ use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use App\Traits\Interfaz\InterfazFiTrait;
 class FiDatosBasico extends Model
 {
+    use InterfazFiTrait;
     protected $fillable = [
         's_primer_nombre',
         's_segundo_nombre',
@@ -333,6 +335,7 @@ class FiDatosBasico extends Model
 
            NnajUpi::setUpiDatosBasicos($dataxxxx, $objetoxx);
            FiDiligenc::transaccion($dataxxxx, $objetoxx);
+           $this->getInsertarDatosBasicos($dataxxxx, $objetoxx);
             return $objetoxx;
         }, 5);
 

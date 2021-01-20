@@ -88,50 +88,6 @@ class FiController extends Controller
 
     public function index()
     {
-        // $tables = DB::select("SELECT TABLE_NAME,TABLE_COMMENT
-        // FROM INFORMATION_SCHEMA.TABLES
-        // WHERE table_schema='laravel' "); ddd( $tables);
-        // $tablahtm = '<table border="1" style="width:100%">
-        // ';
-
-
-
-        // foreach ($tables as $key => $value) {
-        //     $tablahtm .=
-        //     '<tr>
-        //     <th>NOMBRE DE LA TABLA</th>
-        //     <th colspan="2">DESCRIPCION</th>
-        //     </tr>
-        //     <tr>
-        //     <td >' . $value->TABLE_NAME . '</td>
-        //     <td colspan="2">' . $value->TABLE_COMMENT . '</td>
-        //   </tr>
-        //   <tr>
-        //     <th>NOMBRE CAMPO</th>
-        //     <th>TIPO CAMPO</th>
-        //     <th>DESCRIPCION</th>
-        //   </tr>';
-        //     foreach (DB::select('show full columns from ' . $value->TABLE_NAME) as $key => $value) {
-        //         $tablahtm .= '<tr>
-        //         <td>' . $value->Field . '</td>
-        //         <td>' . $value->Type . '</td>
-        //         <td>' . $value->Comment . '</td>
-        //         </tr>';
-        //     }
-        // }
-        // $tablahtm .= '</table>';
-        // echo $tablahtm;
-        // Schema::getColumnListing($table);
-
-        //   ddd(DB::select('show full columns from areas'));
-        // $respuest = Http::get('http://localhost:8085/nnajs/1023900708')->json();
-
-        // $this->getBuscarNnaj();
-        // $respuest = Http::put('http://localhost:8085/nnajs/crear', $this->getNnajSimi(NnajDocu::where('s_documento','1033802511')->first()))->json();
-        // echo '<pre>';
-        // print_r($respuest);
-
-        // ddd($respuest);
 
         $this->opciones['tablasxx'] = [
             [
@@ -182,7 +138,6 @@ class FiController extends Controller
     public function getListado(Request $request)
     {
         if ($request->ajax()) {
-            // print_r($request->columns[0]['search']);
             $request->routexxx = [$this->opciones['routxxxx']];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
@@ -262,7 +217,6 @@ class FiController extends Controller
                 }
             }
             $dataxxxx['modeloxx']->sis_servicio_id = $dependen->sis_servicio_id;
-
 
             switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
                 case 650:
@@ -380,6 +334,91 @@ class FiController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
+    private function viewagregar($dataxxxx)
+    {
+        $fechaxxx = explode('-', date('Y-m-d'));
+
+        if ($fechaxxx[1] < 12) {
+            $fechaxxx[1] = (int) $fechaxxx[1] + 1;
+        }
+
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
+        ];
+
+        $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
+        $this->opciones['generoxx'] = Tema::combo(12, true, false);
+        $this->opciones['orientac'] = Tema::combo(13, true, false);
+        $this->opciones['estacivi'] = Tema::combo(19, true, false);
+        //
+
+
+        // $this->opciones['tiplibre'] = Parametro::find(235)->Combo;
+        $this->opciones['estadoxx'] = 'ACTIVO';
+
+
+        $this->opciones['mindatex'] = "-29y +0m +1d";
+        $this->opciones['maxdatex'] = "-0y +0m +0d";
+
+        $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
+
+        $this->opciones['neciayud'] = ['' => 'Seleccione'];
+        $this->opciones['readfisi'] = '';
+
+        $localida = 0;
+        $upzxxxxx = $localida;
+        $paisxxxx = $localida;
+
+        $departam = $localida;
+
+        $this->opciones['servicio'] = ['' => 'Seleccione'];
+        // indica si se esta actualizando o viendo
+        $this->opciones['aniosxxx'] = '';
+        $this->opciones['pestpara'] = [];
+        if ($dataxxxx['modeloxx'] != '') {
+
+
+
+
+            $this->opciones['perfilxx'] = 'sinperfi';
+            $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
+            $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
+
+
+            /** documento de identidad */
+// ddd($dataxxxx['modeloxx']->nnaj_nacimi);
+            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+
+            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+                $this->opciones['botoform'][] =
+                    [
+                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', $this->opciones['parametr']],
+                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                    ];
+            }
+            $this->opciones['poblindi'] = Tema::combo(61, true, false);
+
+
+            // $this->opciones['poblindi'] = Tema::combo(61, true, false);
+        }
+        if($dataxxxx['modeloxx']->prm_etnia_id==164){
+            $this->opciones['poblindi'] =  Parametro::find(235)->Combo;
+        }
+
+        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['upzxxxxx'] = SisUpz::combo($localida, false);
+        $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
+        $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
+        $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
+
+
+        $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamentoexp_id, false);
+        $this->opciones['deparexp'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_paiexp_id, false);
+        // Se arma el titulo de acuerdo al array opciones
+        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
+    }
     public function create()
     {
         $this->opciones['botoform'][] =
@@ -389,6 +428,20 @@ class FiController extends Controller
             ];
 
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
+    }
+    public function agregar(Request $request)
+    {
+        // $nnajxxxx = $this->getBuscarNnajAgregar($request);
+        $nnajxxxx =$this->getTraerData();
+        ddd($nnajxxxx);
+
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+        return $this->viewagregar(['modeloxx' => $nnajxxxx, 'accionxx' => ['adicionar', 'formulario']]);
     }
     public function store(FiDatosBasicoCrearRequest $request)
     {

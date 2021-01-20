@@ -1,6 +1,27 @@
+<form method = "POST" id="agregarx" target="_blank" action= "{{route('fidatbas.agregar', $todoxxxx['parametr'])}}"
+    enctype="multipart/form-data">
+      @csrf
+        <input type="hidden" id="docuagre" name="docuagre">
+    {!!Form::close()!!}
+  </div>
+
 <div class="card card-outline card-secondary">
     <div class="card-header">
-        <h3 class="card-title">
+        <h3 class="card-title"><style>
+  .ui-autocomplete {
+    max-height: 100px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+  }
+  /* IE 6 doesn't support max-height
+   * we use height instead, but this forces the menu to always be this tall
+   */
+  * html .ui-autocomplete {
+    height: 100px;
+  }
+  </style>
+
             {{ $todoxxxx['titulist'] }}
             @if($todoxxxx['vercrear'])
             @can($todoxxxx['permisox'].'-crear')

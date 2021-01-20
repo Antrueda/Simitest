@@ -21,7 +21,7 @@ class CreateNuclfamisTable extends Migration
             $table->boolean('en_uso');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS CONSECUTIVOS DE O LOS NUCLEOS FAMILIARES A LOS QUE PERTENECE EL NNAJ'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS CONSECUTIVOS DE O LOS NUCLEOS FAMILIARES A LOS QUE PERTENECE EL NNAJ'");
     }
 
     /**

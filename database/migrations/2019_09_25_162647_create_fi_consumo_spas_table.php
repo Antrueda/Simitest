@@ -30,7 +30,7 @@ class CreateFiConsumoSpasTable extends Migration
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('i_prm_consume_spa_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA SI LA PERSONA ENTREVISTADA ACTUALMENTE CONSUME SPA, SECCION 11 CONSUMO SPA DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA SI LA PERSONA ENTREVISTADA ACTUALMENTE CONSUME SPA, SECCION 11 CONSUMO SPA DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -49,7 +49,7 @@ class CreateFiConsumoSpasTable extends Migration
             $table->foreign('fi_consumo_spa_id')->references('id')->on('fi_consumo_spas');
             $table->foreign('i_prm_consume_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE TIENE EL LISTADO DE LAS SUSTANCIAS SPA CONSUMIDAS POR LA PERSONA ENTREVISTADA, SECCION 11 CONSUMO SPA DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE TIENE EL LISTADO DE LAS SUSTANCIAS SPA CONSUMIDAS POR LA PERSONA ENTREVISTADA, SECCION 11 CONSUMO SPA DE LA FICHA DE INGRESO'");
     }
 
     /**

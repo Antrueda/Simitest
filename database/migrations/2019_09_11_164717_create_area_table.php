@@ -26,7 +26,7 @@ class CreateAreaTable extends Migration
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LAS AREAS DE DERECHO DEL IDIPRON'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LAS AREAS DE DERECHO DEL IDIPRON'");
     }
 
     /**

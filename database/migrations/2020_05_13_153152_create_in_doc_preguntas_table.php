@@ -25,7 +25,7 @@ class CreateInDocPreguntasTable extends Migration
             $table->unique(['in_ligru_id', 'sis_tcampo_id']);
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS PREGUNTAS DE CADA CAMPO EXISTENTE EN LOS FORMATOS DE IDENTIFICACION Y CARACTERIZACION DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS PREGUNTAS DE CADA CAMPO EXISTENTE EN LOS FORMATOS DE IDENTIFICACION Y CARACTERIZACION DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON'");
     }
 
     /**

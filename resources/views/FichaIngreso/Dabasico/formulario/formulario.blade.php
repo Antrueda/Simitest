@@ -1,8 +1,5 @@
 <div class="form-row">
-<div class="ui-widget">
-  <label for="birds">Birds: </label>
-  <input id="birds">
-</div>
+
     <div class="form-group col-md-4">
         {{ Form::label('diligenc', 'Fecha de Diligenciamiento (AAAA-MM-DD)', ['class' => 'control-label']) }}
         {{ Form::text('diligenc', null, ['class' => $errors->first('diligenc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','autocomplete'=>"off"]) }}

@@ -27,7 +27,7 @@ class CreateHInAccionGestionsTable extends Migration
             $table->decimal('i_porcentaje', 5, 2);
             $table = CamposMagicos::h_magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -35,7 +35,7 @@ class CreateHInAccionGestionsTable extends Migration
             $table->bigInteger('sis_fsoporte_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
     }
 
     /**

@@ -44,7 +44,7 @@ class CreateFiViolenciasTable extends Migration
             $table->foreign('prm_cabefami_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES SOBRE LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA.'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES SOBRE LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA.'");
     }
 
     /**

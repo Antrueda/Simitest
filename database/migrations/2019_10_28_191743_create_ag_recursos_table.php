@@ -23,7 +23,7 @@ class CreateAgRecursosTable extends Migration
             $table->bigInteger('i_prm_umedida_id');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS RECURSOS USADOS DENTRO DE LAS ACIONES GRUPALES'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS RECURSOS USADOS DENTRO DE LAS ACIONES GRUPALES'");
     }
 
     /**

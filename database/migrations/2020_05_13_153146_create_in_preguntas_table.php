@@ -21,7 +21,7 @@ class CreateInPreguntasTable extends Migration
             $table->string('s_pregunta')->unique();
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA REDAQCCION DE LAS PREGUNTAS EXISTENTES EN LOS FORMATOS DE IDENTIFICACION Y CARACTERIZACION DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA REDAQCCION DE LAS PREGUNTAS EXISTENTES EN LOS FORMATOS DE IDENTIFICACION Y CARACTERIZACION DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON'");
     }
 
     /**

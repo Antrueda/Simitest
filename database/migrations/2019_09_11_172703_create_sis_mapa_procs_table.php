@@ -31,7 +31,7 @@ class CreateSisMapaProcsTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL MAPA DE PROCESOS DEL SISTEMA.'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL MAPA DE PROCESOS DEL SISTEMA.'");
     }
 
     /**

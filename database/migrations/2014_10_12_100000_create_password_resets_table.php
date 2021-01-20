@@ -19,9 +19,9 @@ class CreatePasswordResetsTable extends Migration
             $table->string('email')->index()->comment('CAMPO DE CORREO PARA EL INGRESO DEL USUARIO');
             $table->string('token')->comment('CAMPO PARA EL TOKEN CORRESPONDIENTE AL CAMBIO DE CONTRASEÑA');
             $table->timestamp('created_at')->nullable();
-            
+
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS REINICIOS DE CLAVE DE ACCESO DE LOS USUARIOS DEL SISTEMA'");
+      DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS REINICIOS DE CLAVE DE ACCESO DE LOS USUARIOS DEL SISTEMA'");
     }
 
     /**

@@ -25,7 +25,7 @@ class CreateEvasionVestuariosTable extends Migration
             $table->foreign('reporte_evasion_id')->references('id')->on('ai_reporte_evasions');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL VESTUARIO EN EVASION'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL VESTUARIO EN EVASION'");
     }
 
     /**

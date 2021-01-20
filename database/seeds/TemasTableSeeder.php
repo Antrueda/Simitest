@@ -46,6 +46,10 @@ class TemasTableSeeder extends Seeder
             13 => $camposmagicos,
             14 => $camposmagicos,
             15 => $camposmagicos,
+            2494 => $camposmagicos,
+            2495 => $camposmagicos,
+            2496=> $camposmagicos,
+
         ]);
         $tema = Tema::create(['id' => 3, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'Tipo de Documento']);
         $tema->parametros()->sync([

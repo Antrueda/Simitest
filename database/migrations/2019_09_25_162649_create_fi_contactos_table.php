@@ -39,7 +39,7 @@ class CreateFiContactosTable extends Migration
             $table->foreign('i_prm_motivo_contacto_id')->references('id')->on('parametros');
             $table->foreign('i_prm_aut_tratamiento_id')->references('id')->on('parametros');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE CONTACTO DE LAS PERSONAS QUE SE PUEDEN CONTACTAR CON LOS NNAJ'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE CONTACTO DE LAS PERSONAS QUE SE PUEDEN CONTACTAR CON LOS NNAJ'");
     }
 
     /**

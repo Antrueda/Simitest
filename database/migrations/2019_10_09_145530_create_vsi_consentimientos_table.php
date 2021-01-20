@@ -33,7 +33,7 @@ class CreateVsiConsentimientosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA QUIENES FIRMAN EL CONSENTIMIENTO DE TRATAMIENTO DE LOS DATOS, PREGUNTAS 22.1 Y 22.2 SECCION 22 CONSENTIMIENTO INFORMADO DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA QUIENES FIRMAN EL CONSENTIMIENTO DE TRATAMIENTO DE LOS DATOS, PREGUNTAS 22.1 Y 22.2 SECCION 22 CONSENTIMIENTO INFORMADO DE LA FICHA SICOSOCIAL'");
     }
 
     /**

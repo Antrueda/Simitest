@@ -24,14 +24,14 @@ class CreateFiDiligencsTable extends Migration
             $table->date('diligenc')->comment('FECHA DE DILIGENCIAMIENTO DE LA FICHA DE INGRESO');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA FECHA DE DILIGENCIAMIENTO DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA FECHA DE DILIGENCIAMIENTO DE LA FICHA DE INGRESO'");
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->id();
             $table->bigInteger('fi_datos_basico_id')->unsigned()->comment('FICHA DE INGRESO A LA QUE CORRESPONDE LA FECHA DE DILIGENCIAMIENTO');
             $table->date('diligenc')->comment('FECHA DE DILIGENCIAMIENTO DE LA FICHA DE INGRESO');
             $table = CamposMagicos::h_magicos($table);
         });
-        DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**

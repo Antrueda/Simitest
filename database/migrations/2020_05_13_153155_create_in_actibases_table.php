@@ -24,7 +24,7 @@ class CreateInActibasesTable extends Migration
             $table->foreign('i_prm_tiempo_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES RELACIONADOS CON EL TIEMPO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES RELACIONADOS CON EL TIEMPO'");
     }
 
     /**

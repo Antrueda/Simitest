@@ -22,7 +22,7 @@ class CreateSisNnajsTable extends Migration
             $table->foreign('prm_escomfam_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS NNAJ REGISTRADOS EN EL SISTEMA.'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS NNAJ REGISTRADOS EN EL SISTEMA.'");
     }
 
     /**

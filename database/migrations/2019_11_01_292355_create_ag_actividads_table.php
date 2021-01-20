@@ -50,7 +50,7 @@ class CreateAgActividadsTable extends Migration
             $table->foreign('i_prm_dirig_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE RELACIONA LOS DETALLES DE LAS ACTIVIDADES REALIZADAS CON DEPENDENCIA, TEMA, LUGAR, TALER Y OBJETIVO  PERTECECIENTES A LAS ACTIVIDADES GRUPALES'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE RELACIONA LOS DETALLES DE LAS ACTIVIDADES REALIZADAS CON DEPENDENCIA, TEMA, LUGAR, TALER Y OBJETIVO  PERTECECIENTES A LAS ACTIVIDADES GRUPALES'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -78,7 +78,7 @@ class CreateAgActividadsTable extends Migration
             $table->text('s_observac',4000);
             $table = CamposMagicos::h_magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
     }
 
     /**

@@ -34,7 +34,7 @@ class CreateFiRazonesTable extends Migration
             $table->foreign('i_prm_estado_ingreso_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA LAS RAZONES DE INGRESO AL IDIPRON, SECCION 15 BIENVENIDA DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA LAS RAZONES DE INGRESO AL IDIPRON, SECCION 15 BIENVENIDA DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -46,7 +46,7 @@ class CreateFiRazonesTable extends Migration
             $table->foreign('i_prm_documento_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE REGISTRA LOS DOCUMENTOS ANEXOS ASOCIADOS AL NNAJ'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE REGISTRA LOS DOCUMENTOS ANEXOS ASOCIADOS AL NNAJ'");
     }
 
     /**

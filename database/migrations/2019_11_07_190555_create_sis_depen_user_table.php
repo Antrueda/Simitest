@@ -27,7 +27,7 @@ class CreateSisDepenUserTable extends Migration
             $table->unique(['user_id', 'sis_depen_id']);
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LOS USUARIOS Y LAS DEPENDENCIAS'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LOS USUARIOS Y LAS DEPENDENCIAS'");
     }
 
     /**

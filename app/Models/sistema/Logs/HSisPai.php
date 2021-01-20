@@ -9,6 +9,7 @@ class HSisPai extends Model
     protected $fillable = [
         's_iso',
         's_pais',
+        'simianti_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id',

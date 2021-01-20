@@ -24,7 +24,7 @@ class CreateParametrosTable extends Migration
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
     });
-    DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS PARAMETROS DEL SISTEMA'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS PARAMETROS DEL SISTEMA'");
   }
 
   /**

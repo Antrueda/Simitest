@@ -22,6 +22,7 @@ class SisDepenObserver
         $log['sis_municipio_id'] = $modeloxx->sis_municipio_id;
         $log['sis_upzbarri_id'] = $modeloxx->sis_upzbarri_id;
         $log['s_telefono'] = $modeloxx->s_telefono;
+        $log['simianti_id'] = $modeloxx->simianti_id;
         $log['s_correo'] = $modeloxx->s_correo;
         $log['itiestan'] = $modeloxx->itiestan;
         $log['itiegabe'] = $modeloxx->itiegabe;

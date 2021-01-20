@@ -80,9 +80,11 @@ if(campos[i]!=0){
         document.getElementById("segunomb").value=ui.item.segunomb;
         document.getElementById("primapel").value=ui.item.primapel;
         document.getElementById("seguapel").value=ui.item.seguapel;
+        $('#docuagre').val(ui.item.document)
+        $('#agregarx').submit()
 
-        {{ $tablasxx["tablaxxx"] }}.ajax.reload();
-        {{ $tablasxx["tablaxxx"] }}.ajax.reload();
+        // {{ $tablasxx["tablaxxx"] }}.ajax.reload();
+        // {{ $tablasxx["tablaxxx"] }}.ajax.reload();
             // $(this).val( ui.item.document);
 //             setInterval( function () {
 //                 {{ $tablasxx["tablaxxx"] }}.ajax.reload();

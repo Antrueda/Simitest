@@ -31,7 +31,7 @@ class CreateVsiDatosVinculasTable extends Migration
       
       $table = CamposMagicos::magicos($table);
     });
-    DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RAZONES DE VINCULACIÓN AL IDIPRON DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.11 A 1.13'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RAZONES DE VINCULACIÓN AL IDIPRON DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.11 A 1.13'");
 
     Schema::create($this->tablaxxx2, function (Blueprint $table) {
       $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -42,7 +42,7 @@ class CreateVsiDatosVinculasTable extends Migration
       $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
       $table = CamposMagicos::magicos($table);
     });
-    DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LAS SITUACIONES, CONDICIONES O ACTIVIDADES QUE PARACEN PRODUCIR O EMPEORAR LAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.14'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LAS SITUACIONES, CONDICIONES O ACTIVIDADES QUE PARACEN PRODUCIR O EMPEORAR LAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.14'");
 
     Schema::create($this->tablaxxx3, function (Blueprint $table) {
       $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -53,7 +53,7 @@ class CreateVsiDatosVinculasTable extends Migration
       $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
       $table = CamposMagicos::magicos($table);
     });
-    DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LAS EMOCIONES QUE LE GENERAN ESTAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.15'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LAS EMOCIONES QUE LE GENERAN ESTAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.15'");
 
 
     Schema::create($this->tablaxxx4, function (Blueprint $table) {
@@ -65,7 +65,7 @@ class CreateVsiDatosVinculasTable extends Migration
       $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
       $table = CamposMagicos::magicos($table);
     });
-    DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LAS PERSONAS QUE LE GENERAN ESTAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.15'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LAS PERSONAS QUE LE GENERAN ESTAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.15'");
   }
 
   /**

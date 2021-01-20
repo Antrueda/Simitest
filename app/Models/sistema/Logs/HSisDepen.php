@@ -10,7 +10,7 @@ class HSisDepen extends Model
         'nombre',
         'i_prm_cvital_id',
         'i_prm_tdependen_id',
-
+'simianti_id',
         'i_prm_sexo_id',
         's_direccion',
         'sis_departamento_id',

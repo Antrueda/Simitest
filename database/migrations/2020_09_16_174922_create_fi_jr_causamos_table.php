@@ -25,7 +25,7 @@ class CreateFiJrCausamosTable extends Migration
             
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA DE CAUSAS RIESGO DE FICHA DE INGRESO JUSTICIA RESTAURATIVA'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA DE CAUSAS RIESGO DE FICHA DE INGRESO JUSTICIA RESTAURATIVA'");
     
     }
 

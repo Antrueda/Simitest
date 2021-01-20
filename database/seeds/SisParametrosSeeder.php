@@ -2531,6 +2531,11 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'TRAMITES ACADÉMICOS']);//2491
         $this->getR(['nombrexx' => 'TRAMITES LIBRETA MILITAR']);//2492
         $this->getR(['nombrexx' => 'LICENCIA DE MATERNIDAD']);//2493
+        $this->getR(['nombrexx' => 'TARJETA DE EXTRANJERIA']);//2494
+        $this->getR(['nombrexx' => 'CAE/CERTIFICADO DE VIGENCIA CEDULA']);//2495
+        $this->getR(['nombrexx' => 'PASAPORTE']);//2496
+        $this->getR(['nombrexx' => 'CAE/NE']);//2497
+
     }
 }
 

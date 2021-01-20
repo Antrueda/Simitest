@@ -41,7 +41,7 @@ class CreateVsiRedSocialsTable extends Migration
             $table->foreign('prm_servicio_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES LAS REDES SOCIALES DE APOYO DE LA PERSONA ENTREVISTADA, SECCIÓN 7 DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES LAS REDES SOCIALES DE APOYO DE LA PERSONA ENTREVISTADA, SECCIÓN 7 DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -53,7 +53,7 @@ class CreateVsiRedSocialsTable extends Migration
             $table->unique(['parametro_id', 'vsi_redsocial_id']);
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE MOTIVOS DE LAS RESTRICCIONES DE LA PERSONA ENTREVISTADA, PREGUNTA 7.1.4 SECCIÓN 7 DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE MOTIVOS DE LAS RESTRICCIONES DE LA PERSONA ENTREVISTADA, PREGUNTA 7.1.4 SECCIÓN 7 DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -65,7 +65,7 @@ class CreateVsiRedSocialsTable extends Migration
             $table->unique(['parametro_id', 'vsi_redsocial_id']);
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE MOTIVOS DE RESTRICCION DE ACCESO DE REDES SOCIALES DE APOYO DE LA PERSONA ENTREVISTADA, PREGUNTA 7.1.8 SECCIÓN 7 DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE MOTIVOS DE RESTRICCION DE ACCESO DE REDES SOCIALES DE APOYO DE LA PERSONA ENTREVISTADA, PREGUNTA 7.1.8 SECCIÓN 7 DE LA FICHA SICOSOCIAL'");
     }
 
     /**

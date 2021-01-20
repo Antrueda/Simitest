@@ -45,7 +45,7 @@ class CreateVsiEducacionsTable extends Migration
             $table->foreign('prm_escribir_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA EDUCACIÓN DE LA PERSONA ENTREVISTADA, SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA EDUCACIÓN DE LA PERSONA ENTREVISTADA, SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -56,7 +56,7 @@ class CreateVsiEducacionsTable extends Migration
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
             $table->unique(['parametro_id', 'vsi_educacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CAUSAS DE LA DESERCION DE LA PERSONA ENTREVISTADA, PREGUNTA 10.4 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CAUSAS DE LA DESERCION DE LA PERSONA ENTREVISTADA, PREGUNTA 10.4 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -67,7 +67,7 @@ class CreateVsiEducacionsTable extends Migration
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
             $table->unique(['parametro_id', 'vsi_educacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE FORTALEZAS DE LA PERSONA ENTREVISTADA, PREGUNTA 10.6 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE FORTALEZAS DE LA PERSONA ENTREVISTADA, PREGUNTA 10.6 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -78,7 +78,7 @@ class CreateVsiEducacionsTable extends Migration
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
             $table->unique(['parametro_id', 'vsi_educacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE DIFICULTADES DE LA PERSONA ENTREVISTADA, PREGUNTA 10.7 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE DIFICULTADES DE LA PERSONA ENTREVISTADA, PREGUNTA 10.7 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -89,7 +89,7 @@ class CreateVsiEducacionsTable extends Migration
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
             $table->unique(['parametro_id', 'vsi_educacion_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE DIFICULTADES EXPERIMENTADAS DE LA PERSONA ENTREVISTADA, PREGUNTA 10.9 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE DIFICULTADES EXPERIMENTADAS DE LA PERSONA ENTREVISTADA, PREGUNTA 10.9 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -101,7 +101,7 @@ class CreateVsiEducacionsTable extends Migration
             $table->unique(['parametro_id', 'vsi_educacion_id']);
 
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE TIPOS DE DIFICULTADES DE LA PERSONA ENTREVISTADA, PREGUNTA 10.10 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE TIPOS DE DIFICULTADES DE LA PERSONA ENTREVISTADA, PREGUNTA 10.10 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
     }
 
     /**

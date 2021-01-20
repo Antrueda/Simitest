@@ -15,6 +15,23 @@ Route::group(['prefix' => 'fi'], function () use($routexxx,$controll){
 	    'uses' => $controll.'Controller@create',
 	    'middleware' => ['permission:'.$routexxx.'-crear']
     ])->name($routexxx.'.nuevo');
+
+    Route::post('agregar', [
+	    'uses' => $controll.'Controller@agregar',
+	    'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.agregar');
+
+
+    Route::get('prueba', [
+	    'uses' => $controll.'Controller@agregar',
+	    'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.prueba');
+
+    Route::post('adicionar', [
+	    'uses' => $controll.'Controller@adicionar',
+	    'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.adicionar');
+
     Route::post('crear', [
 	    'uses' => $controll.'Controller@store',
 	    'middleware' => ['permission:'.$routexxx.'-crear']

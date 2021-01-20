@@ -26,7 +26,7 @@ class CreateAgTallersTable extends Migration
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CLASIFICACIÓN DE TALLERES BRINDADOS A LOS BENEFICIARIOS DEL IDIPRON PERTECECIENTES A LAS ACTIVIDADES GRUPALES'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CLASIFICACIÓN DE TALLERES BRINDADOS A LOS BENEFICIARIOS DEL IDIPRON PERTECECIENTES A LAS ACTIVIDADES GRUPALES'");
     }
 
     /**

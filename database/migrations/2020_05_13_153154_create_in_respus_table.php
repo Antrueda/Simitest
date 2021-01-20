@@ -25,7 +25,7 @@ class CreateInRespusTable extends Migration
             $table->unique(['prm_respuesta_id', 'in_doc_pregunta_id']);
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RESPUESTAS BRINDADAS A LAS PREGUNTAS ESTABLECIDAS EN EL SISTEMA'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RESPUESTAS BRINDADAS A LAS PREGUNTAS ESTABLECIDAS EN EL SISTEMA'");
     }
 
     /**

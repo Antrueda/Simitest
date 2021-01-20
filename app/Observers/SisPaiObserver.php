@@ -15,6 +15,7 @@ class SisPaiObserver
         // campos nuevos traidos desde $fillable -> modelo 
         $log['s_iso'] = $modeloxx->s_iso;
         $log['s_pais'] = $modeloxx->s_pais;
+        $log['simianti_id'] = $modeloxx->simianti_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

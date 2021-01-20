@@ -26,7 +26,7 @@ class CreateFiCsdVsiRedesActualesTable extends Migration
             $table->foreign('prm_tipo_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS REDES DE APOYO ACTUALES DEL NNAJ PARA FI CSD Y VSI'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS REDES DE APOYO ACTUALES DEL NNAJ PARA FI CSD Y VSI'");
 
     }
 
