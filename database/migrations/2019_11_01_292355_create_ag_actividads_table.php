@@ -30,6 +30,7 @@ class CreateAgActividadsTable extends Migration
             $table->bigInteger('i_prm_dirig_id')->unsigned();
             $table->text('s_prm_espac', 120)->nullable();
             $table->string('s_doc_adjunto', 200)->nullable();
+            $table->boolean('incompleto')->default(1);
             $table->text('s_introduc',4000);
             $table->text('s_justific',4000);
             $table->text('s_objetivo',4000);
@@ -65,7 +66,7 @@ class CreateAgActividadsTable extends Migration
             $table->integer('i_prm_dirig_id');
             $table->text('s_prm_espac', 120)->nullable();
             $table->string('s_doc_adjunto', 200)->nullable();
-
+            $table->boolean('incompleto');
             $table->text('s_introduc',4000);
             $table->text('s_justific',4000);
             $table->text('s_objetivo',4000);

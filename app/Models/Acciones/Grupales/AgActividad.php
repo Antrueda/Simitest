@@ -10,32 +10,32 @@ use Illuminate\Support\Facades\DB;
 class AgActividad extends Model
 {
     protected $fillable = [
-    'd_registro',
-    'area_id',
-    'sis_deporigen_id',
-    'sis_depdestino_id',
-    'ag_tema_id',
-    'i_prm_lugar_id',
-    'ag_taller_id',
-    'ag_sttema_id',
-    'i_prm_dirig_id',
-    's_prm_espac',
-
-    's_introduc',
-    's_justific',
-    's_objetivo',
-    's_metodolo',
-    's_categori',
-    's_contenid',
-    's_estrateg',
-    's_resultad',
-    's_evaluaci',
-    's_observac',
-    'user_crea_id',
-    'user_edita_id',
-    'sis_esta_id',
-    's_doc_adjunto'
-  ];
+        'd_registro',
+        'area_id',
+        'sis_deporigen_id',
+        'sis_depdestino_id',
+        'ag_tema_id',
+        'i_prm_lugar_id',
+        'ag_taller_id',
+        'ag_sttema_id',
+        'i_prm_dirig_id',
+        's_prm_espac',
+        'incompleto',
+        's_introduc',
+        's_justific',
+        's_objetivo',
+        's_metodolo',
+        's_categori',
+        's_contenid',
+        's_estrateg',
+        's_resultad',
+        's_evaluaci',
+        's_observac',
+        'user_crea_id',
+        'user_edita_id',
+        'sis_esta_id',
+        's_doc_adjunto'
+    ];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
     public function creador()
     {
@@ -54,7 +54,9 @@ class AgActividad extends Model
             if ($objetoxx != '') {
                 $objetoxx->update($dataxxxx);
             } else {
+              
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
+               
                 $objetoxx = AgActividad::create($dataxxxx);
             }
             return $objetoxx;

@@ -35,13 +35,21 @@ class AgActividadController extends Controller
      */
     public function index()
     {
-        $this->opciones['tablinde']=true;
+        $this->opciones['tablinde'] = true;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
     }
 
     public function create()
     {
+
+        $activida = AgActividad::where('user_crea_id', Auth::user()->id)->where('incompleto', 1)->first();
+        if(isset( $activida->id)){
+            return redirect()
+            ->route($this->opciones['routxxxx'] . '.editar', [$activida->id])
+            ->with('info', 'Tiene un taller por terminar, por favor complételo para que pueda crear uno nuevo');
+        }
+
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['crear', [], 1, 'GUARDAR TALLER', 'btn btn-sm btn-primary']),
@@ -63,9 +71,10 @@ class AgActividadController extends Controller
     public function show(AgActividad $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO TALLER', 'btn btn-sm btn-primary']);
-        return $this->view($do,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->id]
+        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx]], 2, 'CREAR NUEVO TALLER', 'btn btn-sm btn-primary']);
+        return $this->view(
+            $do,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->id]
         );
     }
 
@@ -75,9 +84,9 @@ class AgActividadController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A TALLER', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR TALLER', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR TALLER', 'btn btn-sm btn-primary'])
-            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->sis_nnaj]
+        return $this->view(
+            $this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR TALLER', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
     }
 
@@ -96,8 +105,8 @@ class AgActividadController extends Controller
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR TALLER', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR TALLER', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
     }
 
@@ -115,10 +124,9 @@ class AgActividadController extends Controller
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR TALLER', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->sis_nnaj]
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR TALLER', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->sis_nnaj]
         );
-
     }
     public function activar(Request $request, AgActividad $modeloxx)
     {

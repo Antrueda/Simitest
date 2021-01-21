@@ -3,6 +3,7 @@
 namespace App\Traits\Acciones\Grupales\Asistente;
 
 use App\Models\Acciones\Grupales\AgAsistente;
+use App\Traits\Acciones\Grupales\Tallacciones\ActivarTallerTrait;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\DB;
  */
 trait CrudTrait
 {
+    use ActivarTallerTrait;
     /**
      * grabar o actualizar registros para paises
      *
@@ -26,6 +28,7 @@ trait CrudTrait
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = AgAsistente::create($dataxxxx['requestx']->all());
+                $this->getActivar($dataxxxx['modeloxx']->ag_actividad_id);
             }
             return $dataxxxx['modeloxx'];
         }, 5);

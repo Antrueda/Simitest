@@ -58,7 +58,7 @@ class FiRazoneArchivoCrearRequest extends FormRequest
         $mimexxxx = 'mimes:pdf';
         $extensio = 'pdf';
         if ($this->i_prm_documento_id == 2468) {
-            $mimexxxx = 'mimes:jpg';
+            $mimexxxx = 'mimes:jpeg';
             $extensio = 'jpg';
         }
         $this->_mensaje['s_doc_adjunto_ar.mimes'] = 'El archivo debe tener extensión: ' . $extensio;

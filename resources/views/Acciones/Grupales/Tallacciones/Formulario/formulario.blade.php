@@ -138,10 +138,11 @@
     "onkeyup" => "javascript:this.value=this.value.toUpperCase()", 'style' => 'text-transform:uppercase' ]) }}
         <p id="ags_observaccontador">0/6000</p>
     </div>
-    @if(isset($todoxxxx["modeloxx"]->id))
-    @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
-@endif
-
+    <div class="form-group col-md-12">
+        @if(isset($todoxxxx["modeloxx"]->id))
+            @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
+        @endif
+    </div>
     @if(isset($todoxxxx["modeloxx"]->id))
     <div class="form-row align-items-end form-group col-md-12" style="margin-bottom: 40px">
         {{ Form::label('s_doc_adjunto_ar', 'Cargar Documento', ['class' => 'control-label col-form-label-sm']) }}

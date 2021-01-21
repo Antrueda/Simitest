@@ -31,6 +31,7 @@ trait CrudTrait
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
+                $dataxxxx['requestx']->request->add(['incompleto' => 1]);
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = AgActividad::create($dataxxxx['requestx']->all());
             }
