@@ -57,6 +57,8 @@ $(document).ready(function() {
             $('#s_segundo_apellido').val('');
             $('#s_segundo_nombre').val('');
             $('#s_documento').val('');
+            $('#s_nombre_identitario').val('');
+
         if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');
         }
@@ -71,6 +73,7 @@ $(document).ready(function() {
             $('#s_segundo_nombre').val(d.s_segundo_nombre);
             $('#s_documento').val(d.s_documento);
             $('#d_nacimiento').val(d.d_nacimiento);
+            $('#s_nombre_identitario').val(d.s_nombre_identitario);
             f_ajaxresp({nnajxxxx:d.id},'');
 
                 

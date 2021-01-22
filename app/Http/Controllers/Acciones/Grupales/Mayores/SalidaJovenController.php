@@ -57,6 +57,7 @@ class SalidaJovenController extends Controller
 
     public function update(SalidajovenesRequest $request,  SalidaJovene $modeloxx)
     {
+        
         $request->request->add(['sis_nnaj_id' => $modeloxx->sis_nnaj_id]);
         return $this->setAgJovenes([
             'requestx' => $request,
@@ -86,6 +87,7 @@ class SalidaJovenController extends Controller
 
     public function edit(SalidaJovene $modeloxx)
     {
+    
         $this->opciones['padrexxx'] =$modeloxx->ai_salmay;
         $padrexxx = $modeloxx->ai_salmay;
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];

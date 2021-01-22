@@ -293,11 +293,13 @@ public function getJovenes(Request $request, AiSalidaMayores $padrexxx)
                 'sis_nnajs.sis_esta_id',
                 'sis_depens.nombre',
                 'nnaj_nacimis.d_nacimiento',
+                'nnaj_sexos.s_nombre_identitario',
                 'sis_nnajs.created_at',
                 'sis_estas.s_estado',
                 ])
                 ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
                 ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
                 ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
                 ->join('nnaj_upis', 'sis_nnajs.id', '=', 'nnaj_upis.sis_nnaj_id')
                 ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
@@ -341,6 +343,7 @@ public function getJovenPermiso(Request $request, AiSalidaMayores $padrexxx)
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
             'nnaj_sexos.s_nombre_identitario',
+            'salida_jovenes.telefono',
             'salida_jovenes.hora_salida',
             'autoriza.nombre as autoriza',
             'salida_jovenes.responsable_id',

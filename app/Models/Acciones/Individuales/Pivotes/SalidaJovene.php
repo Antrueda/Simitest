@@ -23,6 +23,7 @@ class SalidaJovene extends Model
         'horaretorno',
         'observacion',
         'responsable_id',
+        'telefono',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id'

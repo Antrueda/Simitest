@@ -18,6 +18,7 @@ class SalidajovenesRequest extends FormRequest
             'hora_salida.required'=>'Indique la hora de salida',
             
             'retorna_id.required'=>'Ingrese el primer apellido',
+            'telefono.required'=>'Ingrese el primer apellido',
             'fecharetorno.required_if'=>'Indique la fecha de retorno',
             'horaretorno.required_if'=>'Indique la hora de retorno',
             'razones.required'=>'Ingrese la dirección',
@@ -26,6 +27,7 @@ class SalidajovenesRequest extends FormRequest
         $this->_reglasx = [
             'hora_salida' => 'required|exists:parametros,id',
             'retorna_id' => 'required',
+            'telefono' => 'required',
             'fecharetorno' => 'required_if:retorna_id,227',
             'horaretorno' => 'required_if:retorna_id,227',
             'razones' => 'required',
@@ -68,5 +70,6 @@ class SalidajovenesRequest extends FormRequest
             }
         }
 }
+
 
 

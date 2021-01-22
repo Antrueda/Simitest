@@ -34,10 +34,23 @@
       {{ Form::label('d_nacimiento', 'Fecha de Nacimiento', ['class' => 'control-label']) }}
       {{ Form::text('d_nacimiento', null, ['class' => 'form-control form-control-sm','readonly']) }}
       </div>
-      
+      <div class="form-group col-md-3">
+        {{ Form::label('s_nombre_identitario', 'Nombre Identitario', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('s_nombre_identitario', null, ['class' => $errors->first('s_nombre_identitario') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','readonly']) }}
+      </div>
+     
 </div>
 
 <div class="form-row align-items-end">
+    <div class="col-md-4">
+        {{ Form::label('telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
+       {{ Form::number('telefono',  null, ['class' => $errors->first('telefono') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+       @if($errors->has('telefono'))
+           <div class="invalid-feedback d-block">
+               {{ $errors->first('telefono') }}
+           </div>
+       @endif
+      </div>
 <div class="col-md-4">
   {{ Form::label('hora_salida', 'Hora de Salida', ['class' => 'control-label col-form-label-sm']) }}
  {{ Form::time('hora_salida',  null, ['class' => $errors->first('hora_salida') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'data-placeholder' => 'Seleccione...', 'id' => 'hora_salida']) }}
@@ -47,6 +60,7 @@
      </div>
  @endif
 </div>
+
 
 <div class="col-md-4">
   {{ Form::label('razones', 'Motivos de Permiso', ['class' => 'control-label col-form-label-sm']) }}

@@ -45,6 +45,7 @@ trait VistasTrait
             $dataxxxx['modeloxx']->s_segundo_nombre=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->s_segundo_nombre;
             $dataxxxx['modeloxx']->s_documento=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_docu->s_documento;
             $dataxxxx['modeloxx']->d_nacimiento=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_nacimi->d_nacimiento;
+            $dataxxxx['modeloxx']->s_nombre_identitario=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_sexo->s_nombre_identitario;
             $dataxxxx['modeloxx']->aniosxxx=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->nnaj_nacimi->Edad;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -54,4 +55,5 @@ trait VistasTrait
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 }
+
 
