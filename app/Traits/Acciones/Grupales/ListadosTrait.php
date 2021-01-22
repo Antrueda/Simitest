@@ -258,6 +258,8 @@ trait ListadosTrait
             'ai_salida_mayores.created_at',
         ])
             ->join('sis_depens as upi', 'ai_salida_mayores.prm_upi_id', '=', 'upi.id')
+
+            ///motivos
             ->join('users', 'ai_salida_mayores.user_doc1_id', '=', 'users.id')
             
             ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id');

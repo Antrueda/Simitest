@@ -18,37 +18,39 @@ use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisTitulo;
 
 
-class Traductor {
+class Traductor
+{
     /**
      * @param int $user_id User-id
      *
      * @return string
      */
-    public static function getOpciones($textoxxx,$tletraid){
-        switch($tletraid){
+    public static function getOpciones($textoxxx, $tletraid)
+    {
+        switch ($tletraid) {
             case 1760:
-                $tituloxx=strtoupper (  $textoxxx );
-            break;
+                $tituloxx = strtoupper($textoxxx);
+                break;
             case 1761:
-                $tituloxx=strtolower (  $textoxxx );
-            break;
+                $tituloxx = strtolower($textoxxx);
+                break;
             case 1763:
-                $tituloxx=ucwords (  $textoxxx );
-            break;
+                $tituloxx = ucwords($textoxxx);
+                break;
         }
     }
-    public static function getTitulo($tituloid,$opcionxx) {
+    public static function getTitulo($tituloid, $opcionxx)
+    {
 
-        $encontra=SisTitulo::where('id',$tituloid)->first();
-        $tituloxx='';
-        switch($opcionxx){
+        $encontra = SisTitulo::where('id', $tituloid)->first();
+        $tituloxx = '';
+        switch ($opcionxx) {
             case 1:
-                $tituloxx=strtoupper (  $encontra->s_titulo );
-            break;
+                $tituloxx = strtoupper($encontra->s_titulo);
+                break;
             case 2:
-                $tituloxx=strtolower (  $encontra->s_tooltip );
-            break;
-
+                $tituloxx = strtolower($encontra->s_tooltip);
+                break;
         }
 
         return $tituloxx;
@@ -63,19 +65,19 @@ class Traductor {
     {
 
         return VsiSituacionVincula::select(['parametros.nombre'])
-        ->join('parametros','vsi_situacion_vincula.parametro_id','=','parametros.id')
-        ->where('vsi_datos_vincula_id',$dataxxxx['vsiidxxx'])->get();
+            ->join('parametros', 'vsi_situacion_vincula.parametro_id', '=', 'parametros.id')
+            ->where('vsi_datos_vincula_id', $dataxxxx['vsiidxxx'])->get();
     }
 
     public static function getPersonas($dataxxxx)
     {
 
         return VsiPersona::select(['parametros.nombre'])
-        ->join('parametros','vsi_personas.parametro_id','=','parametros.id')
-        ->where('vsi_datos_vincula_id',$dataxxxx['vsiidxxx'])->get();
+            ->join('parametros', 'vsi_personas.parametro_id', '=', 'parametros.id')
+            ->where('vsi_datos_vincula_id', $dataxxxx['vsiidxxx'])->get();
     }
 
-     /**
+    /**
      * 1.15 ¿Qué emociones le generan estas dificultades?
      *
      * @return void
@@ -83,76 +85,85 @@ class Traductor {
     public static function getEmociones($dataxxxx)
     {
         return VsiEmocionVincula::select(['parametros.nombre'])
-        ->join('parametros','vsi_emocion_vincula.parametro_id','=','parametros.id')
-        ->where('vsi_datos_vincula_id',$dataxxxx['vsiidxxx'])->get();
+            ->join('parametros', 'vsi_emocion_vincula.parametro_id', '=', 'parametros.id')
+            ->where('vsi_datos_vincula_id', $dataxxxx['vsiidxxx'])->get();
     }
 
     public static function getDias($dataxxxx)
     {
         return CsdGeningDia::select(['parametros.nombre'])
-        ->join('parametros','csd_gening_dias.parametro_id','=','parametros.id')
-        ->where('csd_geningreso_id',$dataxxxx['padrexxx'])->get();
+            ->join('parametros', 'csd_gening_dias.parametro_id', '=', 'parametros.id')
+            ->where('csd_geningreso_id', $dataxxxx['padrexxx'])->get();
     }
 
     public static function getObjetivo($dataxxxx)
     {
         return AiSalidaMenoresObj::select(['parametros.nombre'])
-        ->join('parametros','ai_salida_menores_obj.parametro_id','=','parametros.id')
-        ->where('ai_salida_menores_id',$dataxxxx['padrexxx'])->get();
+            ->join('parametros', 'ai_salida_menores_obj.parametro_id', '=', 'parametros.id')
+            ->where('ai_salida_menores_id', $dataxxxx['padrexxx'])->get();
     }
 
     public static function getRazones($dataxxxx)
     {
         return JovenesMotivo::select(['parametros.nombre'])
-        ->join('parametros','jovenes_motivos.parametro_id','=','parametros.id')
-        ->where('salida_jovenes_id',$dataxxxx['padrexxx'])->get();
+            ->join('parametros', 'jovenes_motivos.parametro_id', '=', 'parametros.id')
+            ->where('salida_jovenes_id', $dataxxxx['padrexxx'])->get();
     }
 
     public static function getJovenes($dataxxxx)
     {
-        $contador=SalidaJovene::where('ai_salmay_id',$dataxxxx['padrexxx'])->count('id');
+        $contador = SalidaJovene::where('ai_salmay_id', $dataxxxx['padrexxx'])->count('id');
 
         return $contador;
-        
     }
 
     public static function getRepresenta($dataxxxx)
     {
-        $responsx=null;
-        if($dataxxxx){;
-        $responsx=FiCompfami::find($dataxxxx)->sis_nnaj->fi_datos_basico->NombreCompleto;
+        $responsx = null;
+        if ($dataxxxx) {;
+            $responsx = FiCompfami::find($dataxxxx)->sis_nnaj->fi_datos_basico->NombreCompleto;
         }
         return $responsx;
-        
     }
 
     public static function getEdad($dataxxxx)
     {
-        $edadxxxx=NnajNacimi::where('fi_datos_basico_id',$dataxxxx)->first()->Edad;
+        $edadxxxx = NnajNacimi::where('fi_datos_basico_id', $dataxxxx)->first()->Edad;
 
         return $edadxxxx;
-        
     }
 
     public static function getTelefono($dataxxxx)
     {
-        $telefono=FiResidencia::where('sis_nnaj_id',$dataxxxx)->get();
-        $telefonos='';
-        foreach($telefono as $value){
-            $telefonos=$value->s_telefono_uno . ' - ' . $value->s_telefono_dos . ' - ' . $value->s_telefono_tres;
+        $telefono = FiResidencia::where('sis_nnaj_id', $dataxxxx)->get();
+        $telefonos = '';
+        foreach ($telefono as $value) {
+            $telefonos = $value->s_telefono_uno . ' - ' . $value->s_telefono_dos . ' - ' . $value->s_telefono_tres;
         }
-        
+
         return   $telefonos;
-        
     }
 
     public static function getRazonesGrupales($dataxxxx)
     {
-        return JovenesMotivo::select(['parametros.nombre'])
-        ->join('parametros','jovenes_motivos.parametro_id','=','parametros.id')
-        ->join('salida_jovenes','jovenes_motivos.salida_jovenes_id','=','salida_jovenes.id')
-        ->where('salida_jovenes.ai_salmay_id',$dataxxxx['padrexxx'])->groupBy('parametros.nombre')->get();
+
+       // motivos
+        $motivosy = [];
+
+        $motivosx = JovenesMotivo::select(['parametros.nombre', 'jovenes_motivos.parametro_id'])
+            ->join('parametros', 'jovenes_motivos.parametro_id', '=', 'parametros.id')
+            ->join('salida_jovenes', 'jovenes_motivos.salida_jovenes_id', '=', 'salida_jovenes.id')
+            ->where('salida_jovenes.ai_salmay_id', $dataxxxx['padrexxx'])->groupBy('parametros.nombre')->get();
+
+        foreach ($motivosx as $key => $value) {
+            $contador = JovenesMotivo::join('salida_jovenes', 'jovenes_motivos.salida_jovenes_id', '=', 'salida_jovenes.id')
+                ->where('salida_jovenes.ai_salmay_id', $dataxxxx['padrexxx'])->where('jovenes_motivos.parametro_id',$value->parametro_id)
+                ->count('jovenes_motivos.salida_jovenes_id');
+            $motivosy[] = [$value->nombre,$contador];
+        }
+
+
+
+        return $motivosy;
     }
-
 }
-
