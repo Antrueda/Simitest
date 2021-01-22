@@ -1,4 +1,9 @@
 @foreach ($todoxxxx['tablasxx'] as $tablasxx)
-{{$tablasxx["archdttb"]}}
-
+  @component($tablasxx["archdttb"], ['todoxxxx'=>$tablasxx])
+    @slot('tableName')
+    {{$tablasxx['tablaxxx'] }}
+    @endslot
+    @slot('class')
+    @endslot
+  @endcomponent
 @endforeach
