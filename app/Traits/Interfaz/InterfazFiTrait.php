@@ -33,7 +33,7 @@ trait InterfazFiTrait
     private $etniaxxx = ['PALQ' => 160, 'NEGR' => 163, 'RSAN' => 162, 'ROM' => 158,  'INDG' => 157,  'BLNC' => 161, 'N/A' => 164, 'MEST' => 159];
     private $estacivi = [1 => 152, 2 => 153, 3 => 154, 4 => 155];
     private $tipodocu = ['CE' => 142, 'NU' => 17, 'RC' => 16, 'TI' => 18, 'SD' => 145, 'CC' => 19, 6 => 2496, 8 => 2494, 'CAEC' => 2495];
-    private $_urlxxxx = "http://localhost:8090/simiapi/";
+
 
     // private $_urlxxxx = "http://localhost:8090/simiapi-0.0.2-SNAPSHOT/"; // en pruebas
     private $upisxxxx = [
@@ -49,7 +49,10 @@ trait InterfazFiTrait
     private $cuendocu = [1 => 227, 2 => 228];
     private $situmili = [1 => 227, 2 => 228, 3 => 235];
     private $tipoblac = [1 => 650, 2 => 651];
-
+    public function getUrl()
+    {
+        return url('') == 'http://localhost/simi' ? "http://localhost:8090/simiapi/" : 'http://localhost:8090/simiapi-0.0.2-SNAPSHOT/';
+    }
     public function getBuscarNnaj(Request $request)
     {
         // if ($request->ajax()) {
@@ -89,9 +92,7 @@ trait InterfazFiTrait
         $dataxxxx = [];
         if ($this->buscarxx['casoxxxx'] > 0) {
 
-            $filtroxx = Http::post($this->_urlxxxx . 'nnajs/buscar', $this->buscarxx)->json();
-            print_r($filtroxx);
-            exit;
+            $filtroxx = Http::post($this->getUrl() . 'nnajs/buscar', $this->buscarxx)->json();
             foreach ($filtroxx as $key => $value) {
                 $nnajxxxx = $value['gennajxx'];
                 $nnajxxxx['defectox'] = $value['defectox'];
@@ -114,7 +115,7 @@ trait InterfazFiTrait
         // $request->docuagre = 1071631394;
         $this->buscarxx['casoxxxx'] = 1;
         $this->buscarxx['document'] = $request->docuagre;
-        $todoxxxx = Http::post($this->_urlxxxx . 'nnajs/buscar', $this->buscarxx)->json();
+        $todoxxxx = Http::post($this->getUrl() . 'nnajs/buscar', $this->buscarxx)->json();
         //  ddd($todoxxxx);
         $filtroxx = $todoxxxx[0]['gennajxx'];
 
@@ -137,16 +138,16 @@ trait InterfazFiTrait
         $objetoxx->prm_orientacion_sexual_id = $this->oriesexu[$filtroxx['oriesexo']];
 
 
-if($filtroxx['rhxxxxxx']!=null){
+        if ($filtroxx['rhxxxxxx'] != null) {
 
-    $objetoxx->prm_gsanguino_id = Parametro::where('nombre', explode('+', $filtroxx['rhxxxxxx'])[0])->first()->id;
+            $objetoxx->prm_gsanguino_id = Parametro::where('nombre', explode('+', $filtroxx['rhxxxxxx'])[0])->first()->id;
 
 
-    $objetoxx->prm_factor_rh_id = Parametro::where(
-        'nombre',
-        str_replace(str_replace("+", "", $filtroxx['rhxxxxxx']), "", $filtroxx['rhxxxxxx'])
-    )->first()->id;
-}
+            $objetoxx->prm_factor_rh_id = Parametro::where(
+                'nombre',
+                str_replace(str_replace("+", "", $filtroxx['rhxxxxxx']), "", $filtroxx['rhxxxxxx'])
+            )->first()->id;
+        }
 
         $objetoxx->prm_tipodocu_id = $this->tipodocu[$filtroxx['tipodocu']];
 
@@ -283,23 +284,23 @@ if($filtroxx['rhxxxxxx']!=null){
     {
         $nnajxxxx = $this->getData($dataxxxx);
         // grabar ge_nnaj
-        $filtroxx = Http::post($this->_urlxxxx . 'nnajs/nuevo', $nnajxxxx)->json();
+        $filtroxx = Http::post($this->getUrl() . 'nnajs/nuevo', $nnajxxxx)->json();
         $nnajxxxx['idxxxxxx'] = $filtroxx;
         $nnajxxxx['idmunici'] = $dataxxxx['sis_municipioexp_id'];
-        $filtroxx = Http::post($this->_urlxxxx . 'documentonnaj/nuevo', $this->getDocumento($nnajxxxx))->json();
+        $filtroxx = Http::post($this->getUrl() . 'documentonnaj/nuevo', $this->getDocumento($nnajxxxx))->json();
         $nnajxxxx['idupixxx'] = $dataxxxx['sis_depen_id'];
-        $filtroxx = Http::post($this->_urlxxxx . 'upinnaj/nuevo', $this->getUpiNnaj($nnajxxxx))->json();
+        $filtroxx = Http::post($this->getUrl() . 'upinnaj/nuevo', $this->getUpiNnaj($nnajxxxx))->json();
 
         // $this->buscarxx['document'] = $dataxxxx['s_documento'];
-        // $filtroxx = Http::get($this->_urlxxxx . 'nnajs/'.$dataxxxx['s_documento'], $this->buscarxx)->json();
-        // $filtroxx = Http::post($this->_urlxxxx . 'nnajs/buscar', $this->buscarxx)->json();
+        // $filtroxx = Http::get($this->getUrl() . 'nnajs/'.$dataxxxx['s_documento'], $this->buscarxx)->json();
+        // $filtroxx = Http::post($this->getUrl() . 'nnajs/buscar', $this->buscarxx)->json();
         // ddd($this->buscarxx);
 
     }
 
     public function getTraerData()
     {
-        // $filtroxx = Http::post($this->_urlxxxx . 'nnajs/traer')->json();
+        // $filtroxx = Http::post($this->getUrl() . 'nnajs/traer')->json();
 
         // foreach ($filtroxx as $key => $value) {
         //     $paisxxxx=SisPai::where('s_pais',$value['nombrexx'])->first();

@@ -1,3 +1,4 @@
+
 @if(isset($todoxxxx['forminde']))
 <form method = "POST" id="agregarx" target="_blank" action= "{{route('fidatbas.agregar', $todoxxxx['parametr'])}}"
     enctype="multipart/form-data">

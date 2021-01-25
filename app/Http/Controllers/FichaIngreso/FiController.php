@@ -89,9 +89,9 @@ class FiController extends Controller
 
     public function index()
     {
-        $this->opciones['forminde']='';
         $this->opciones['tablasxx'] = [
             [
+                'forminde'=>'',
                 'titunuev' => 'NUEVO NNAJ',
                 'titulist' => 'LISTA DE NNAJ',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
