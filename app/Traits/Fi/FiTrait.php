@@ -174,7 +174,7 @@ trait FiTrait
                 'fi_datos_basicos.user_crea_id',
             ]);
 
-        return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtAccionesUpi($dataxxxx, $request);
     }
     public function getNnajsFi2user($request)
     {

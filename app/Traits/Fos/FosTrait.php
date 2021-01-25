@@ -55,7 +55,7 @@ trait FosTrait
                 'sis_estas.s_estado',
                 'fi_datos_basicos.user_crea_id',
             ]);
-        return $this->getDtAcciones($dataxxxx, $request);
+        return $this->getDtAccionesUpi($dataxxxx, $request);
     }
 
     public function getFosDiligenciado(request $request)

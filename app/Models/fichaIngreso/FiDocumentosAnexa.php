@@ -114,13 +114,13 @@ class FiDocumentosAnexa extends Model
         $temaxxxy = Tema::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
             ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
             ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
-            ->whereNotIn(
+       /*     ->whereNotIn(
                 'parametros.id',
                 FiDocumentosAnexa::select('i_prm_documento_id')
                     ->where('sis_nnaj_id', $dataxxxx['nnajxxxx'])
                     ->whereNotIn('i_prm_documento_id', $dataxxxx['selected'])
                     ->get()
-            )
+            )*/
             ->where('temas.id', $dataxxxx['temaxxxx'])
             ->get();
         foreach ($temaxxxy as $registro) {

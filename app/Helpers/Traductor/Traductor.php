@@ -10,7 +10,9 @@ use App\Models\consulta\pivotes\CsdGeningDia;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiResidencia;
+use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajNacimi;
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\sicosocial\Pivotes\VsiEmocionVincula;
 use App\Models\sicosocial\Pivotes\VsiPersona;
 use App\Models\sicosocial\Pivotes\VsiSituacionVincula;
@@ -166,4 +168,33 @@ class Traductor
 
         return $motivosy;
     }
+
+    public static function getUpi($dataxxxx)
+    {
+
+       // motivos
+        $upixxxxy = [];
+
+        $upixxxxx = NnajUpi::select(['sis_depens.nombre', 'nnaj_upis.id'])
+            ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+            ->join('sis_nnajs', 'nnaj_upis.sis_nnaj_id', '=', 'sis_nnajs.id')
+            ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['padrexxx'])->get();
+
+        foreach ($upixxxxx as $key => $value) {
+            $servicio = NnajDese::select(['sis_servicios.s_servicio'])
+                ->join('sis_servicios', 'nnaj_deses.sis_servicio_id', '=', 'sis_servicios.id')
+                ->where('nnaj_deses.nnaj_upi_id',$value->id)->get();
+                if($servicio==null){
+                    $upixxxxy[] = [$value->nombre,$servicio];
+                }else{
+                $upixxxxy[] = [$value->nombre,'No tiene asignado ningún servicio'];
+        }
+    }
+    return $upixxxxy;
+    }
+
+    
+
+
+
 }

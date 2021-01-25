@@ -15,7 +15,7 @@
 <div class="jumbotron text-center">
   <table class="table table-bordered table-striped table-hover table-sm" border="1px solid black" >    
     <thead bgcolor="orange">
-      <th>Numero</th>
+      <th>Número</th>
       <th>Mensaje</th>
     </thead>
     <tbody>

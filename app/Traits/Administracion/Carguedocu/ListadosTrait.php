@@ -28,6 +28,8 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
+            $request->upiservicio = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.upiservicio';
             $dataxxxx =  FiDatosBasico::select([
                 'fi_datos_basicos.id',
                 'fi_datos_basicos.s_primer_nombre',
@@ -47,7 +49,7 @@ trait ListadosTrait
                 ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
                 ->where('sis_nnajs.prm_escomfam_id', 227);
 
-            return $this->getDt($dataxxxx, $request);
+            return $this->getDtUpi($dataxxxx, $request);
         }
     }
 
