@@ -38,7 +38,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_servicio_id', 'Servicio', ['class' => 'control-label']) }}
-        {{ Form::select('sis_servicio_id', $todoxxxx['servicio'], null, ['class' => $errors->first('sis_servicio_id') ? 'form-control form-control-sm is-invalid ' : 'form-control form-control-sm ','id'=>'sis_servicio_id','placeholder'=>'Selecione']) }}
+        {{ Form::select('sis_servicio_id', $todoxxxx['servicio'], null, ['class' => $errors->first('sis_servicio_id') ? 'form-control form-control-sm is-invalid ' : 'form-control form-control-sm ','id'=>'sis_servicio_id']) }}
         @if($errors->has('sis_servicio_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_servicio_id') }}

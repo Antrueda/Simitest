@@ -154,7 +154,7 @@ class VsiBasicoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Vsi $objetoxx)
-    {
+    { 
         $this->opciones['vsixxxxx'] = $objetoxx;
         $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];

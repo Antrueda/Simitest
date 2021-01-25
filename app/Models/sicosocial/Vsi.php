@@ -24,6 +24,9 @@ class Vsi extends Model{
     public function sis_depen(){
         return $this->belongsTo(SisDepen::class);
     }
+    public function VsiDatosVinculaUno(){
+        return $this->hasOne(VsiDatosVincula::class, 'vsi_id');
+    }
 
     public function VsiDatosVincula(){
         return $this->hasMany(VsiDatosVincula::class, 'vsi_id');

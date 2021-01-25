@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Parametro;
+use App\Models\Sistema\SisDepen;
 use App\Traits\Interfaz\InterfazFiTrait;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -88,7 +89,7 @@ class FiController extends Controller
 
     public function index()
     {
-
+        $this->opciones['forminde']='';
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO NNAJ',
@@ -128,9 +129,6 @@ class FiController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
 
-        // if(Auth::user()->s_documento=='17496705'){
-        //     $this->getNnajSimi(NnajDocu::where('s_documento','1033802511')->first());
-        // }
 
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -373,15 +371,10 @@ class FiController extends Controller
 
         $departam = $localida;
 
-        $this->opciones['servicio'] = ['' => 'Seleccione'];
+
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         $this->opciones['pestpara'] = [];
-        if ($dataxxxx['modeloxx'] != '') {
-
-
-
-
             $this->opciones['perfilxx'] = 'sinperfi';
             $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
@@ -399,23 +392,33 @@ class FiController extends Controller
                     ];
             }
             $this->opciones['poblindi'] = Tema::combo(61, true, false);
-
+            switch ($dataxxxx['modeloxx']->prm_tipoblaci_id) {
+                case 650:
+                    $this->opciones['estrateg'] =  Parametro::find(235)->Combo;
+                    break;
+                case 651:
+                    $this->opciones['estrateg'] =  Parametro::find(651)->Combo;
+                    break;
+            }
 
             // $this->opciones['poblindi'] = Tema::combo(61, true, false);
-        }
         if($dataxxxx['modeloxx']->prm_etnia_id==164){
             $this->opciones['poblindi'] =  Parametro::find(235)->Combo;
         }
 
         $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['dependen'][$dataxxxx['modeloxx']->sis_depen_id]=SisDepen::find($dataxxxx['modeloxx']->sis_depen_id)->nombre;
+        $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' => $dataxxxx['modeloxx']->sis_depen_id]);
         $this->opciones['upzxxxxx'] = SisUpz::combo($localida, false);
         $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
         $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
 
-
         $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamentoexp_id, false);
         $this->opciones['deparexp'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_paiexp_id, false);
+
+
+
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -431,9 +434,10 @@ class FiController extends Controller
     }
     public function agregar(Request $request)
     {
-        // $nnajxxxx = $this->getBuscarNnajAgregar($request);
-        $nnajxxxx =$this->getTraerData();
-        ddd($nnajxxxx);
+
+         $nnajxxxx = $this->getBuscarNnajAgregar($request);
+        // $nnajxxxx =$this->getTraerData();
+        // ddd($nnajxxxx);
 
         $this->opciones['botoform'][] =
             [
@@ -448,6 +452,10 @@ class FiController extends Controller
         return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
     }
 
+    public function adicionar(FiDatosBasicoCrearRequest $request)
+    {
+        return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
+    }
     /**
      * Display the specified resource.
      *

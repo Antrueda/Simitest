@@ -20,12 +20,29 @@
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsixxxxx') ?' active' : '' }}
         text-sm" href="{{ route('vsixxxxx',$todoxxxx['usuariox']) }}">VALORACIÓN SICOSOCIAL</a></li>
             @endcanany
+          
+
+
+            <?php
+            $checkxxx = $todoxxxx['vsixxxxx']->VsiDatosVinculaUno;
+            ?>
             @canany(['vsidabas-editar'])
             <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='vsidabas') ?' active' : '' }}
         text-sm" href="{{ route('vsidabas.editar',$todoxxxx['parametr']) }}">DATOS BÁSICOS
+                    @if(isset($checkxxx->id))
                     <span class="fas fa-check text-success" aria-hidden="true"></span>
-                </a></li>
+                    @else
+                    <span class="fas fa-times text-danger" aria-hidden="true"></span>
+                    @endif
+                </a>
+
+
+            </li>
             @endcanany
+
+
+
+
 
             <?php
             $pestania = '2. MOTIVOS DE VINCULACIÓN Y BIENVENIDA';

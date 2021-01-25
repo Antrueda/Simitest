@@ -1,10 +1,11 @@
+@if(isset($todoxxxx['forminde']))
 <form method = "POST" id="agregarx" target="_blank" action= "{{route('fidatbas.agregar', $todoxxxx['parametr'])}}"
     enctype="multipart/form-data">
       @csrf
         <input type="hidden" id="docuagre" name="docuagre">
     {!!Form::close()!!}
   </div>
-
+@endif
 <div class="card card-outline card-secondary">
     <div class="card-header">
         <h3 class="card-title"><style>
