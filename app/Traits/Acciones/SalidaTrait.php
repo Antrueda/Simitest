@@ -414,7 +414,7 @@ trait SalidaTrait
             ->join('users', 'ai_salida_menores.user_doc1_id', '=', 'users.id')
             ->join('sis_estas', 'ai_salida_menores.sis_esta_id', '=', 'sis_estas.id')
             ->where('ai_salida_menores.sis_nnaj_id', $request->padrexxx);
-        return $this->getDtSalidas($dataxxxx, $request);
+        return $this->getDtSalidasIndividuales($dataxxxx, $request);
     }
 
     
