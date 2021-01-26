@@ -1,0 +1,1 @@
+<a class="btn btn-sm btn-primary " href="{{ route('ai.ver', $queryxxx->id) }}">SELECCIONAR</a>

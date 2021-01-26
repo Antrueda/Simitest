@@ -34,6 +34,7 @@ class CargueDocuFiController extends Controller
 
     public function index(SisNnaj $padrexxx)
     {
+        
         $this->pestanix['cardocfi']=[true,$padrexxx];
         $this->opciones['ppadrexx']=$padrexxx;
         $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;

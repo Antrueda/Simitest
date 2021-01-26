@@ -98,7 +98,7 @@ Route::get('ai/nnajs', function (Request $request) {
 
         ->addColumn('botones', 'Acciones/Individuales/botones')
         ->addColumn('upiservicio', 'Acciones/Individuales/upiservicio')
-        ->rawColumns(['botones'])
+        ->rawColumns(['botones','upiservicio'])
         ->toJson();
 });
 

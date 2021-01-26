@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Administracion\Carguedocu;
 
 use App\Http\Controllers\Controller;
+use App\Models\fichaIngreso\NnajDese;
+use App\Models\fichaIngreso\NnajUpi;
 use App\Traits\Administracion\Carguedocu\ListadosTrait;
 use App\Traits\Administracion\Carguedocu\Modulo\DataTablesModuloTrait;
 use App\Traits\Administracion\Carguedocu\Modulo\ParametrizarModuloTrait;
@@ -26,8 +28,10 @@ class ModuloController extends Controller
     }
 
     public function index()
-    {
+    { 
+//       
+
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
+         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->getTablas($this->opciones)]);
     }
 }

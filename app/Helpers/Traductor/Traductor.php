@@ -149,7 +149,7 @@ class Traductor
     public static function getRazonesGrupales($dataxxxx)
     {
 
-       // motivos
+        // motivos
         $motivosy = [];
 
         $motivosx = JovenesMotivo::select(['parametros.nombre', 'jovenes_motivos.parametro_id'])
@@ -159,9 +159,9 @@ class Traductor
 
         foreach ($motivosx as $key => $value) {
             $contador = JovenesMotivo::join('salida_jovenes', 'jovenes_motivos.salida_jovenes_id', '=', 'salida_jovenes.id')
-                ->where('salida_jovenes.ai_salmay_id', $dataxxxx['padrexxx'])->where('jovenes_motivos.parametro_id',$value->parametro_id)
+                ->where('salida_jovenes.ai_salmay_id', $dataxxxx['padrexxx'])->where('jovenes_motivos.parametro_id', $value->parametro_id)
                 ->count('jovenes_motivos.salida_jovenes_id');
-            $motivosy[] = [$value->nombre,$contador];
+            $motivosy[] = [$value->nombre, $contador];
         }
 
 
@@ -171,30 +171,30 @@ class Traductor
 
     public static function getUpi($dataxxxx)
     {
-
-       // motivos
-        $upixxxxy = [];
-
-        $upixxxxx = NnajUpi::select(['sis_depens.nombre', 'nnaj_upis.id'])
+        $upixxxxy=[];
+        $upixxxxx = NnajUpi::select(['sis_depens.nombre', 'nnaj_upis.id','parametros.nombre as principal'])
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
+            ->join('parametros', 'nnaj_upis.prm_principa_id', '=', 'parametros.id')
             ->join('sis_nnajs', 'nnaj_upis.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['padrexxx'])->get();
-
+        /**
+         * upis que tiene el nnaj
+         */
         foreach ($upixxxxx as $key => $value) {
-            $servicio = NnajDese::select(['sis_servicios.s_servicio'])
+
+
+            $servicio = NnajDese::select('sis_servicios.s_servicio')
                 ->join('sis_servicios', 'nnaj_deses.sis_servicio_id', '=', 'sis_servicios.id')
-                ->where('nnaj_deses.nnaj_upi_id',$value->id)->get();
-                if($servicio==null){
-                    $upixxxxy[] = [$value->nombre,$servicio];
-                }else{
-                $upixxxxy[] = [$value->nombre,'No tiene asignado ningún servicio'];
+                ->where('nnaj_deses.nnaj_upi_id', $value->id)->get();
+            /**
+             * servicios que tiene la upi
+             */
+            $serviciy = [];
+            foreach ($servicio as $key => $servicix) {
+                $serviciy[] = $servicix;
+            }
+            $upixxxxy[] = ['upixxxxx' => $value, 'servicio' => $serviciy];
         }
+        return $upixxxxy; // done lo llama
     }
-    return $upixxxxy;
-    }
-
-    
-
-
-
 }
