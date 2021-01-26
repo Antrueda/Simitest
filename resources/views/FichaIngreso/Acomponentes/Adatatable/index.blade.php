@@ -47,13 +47,15 @@
                         @endforeach
                     </tr>
                     @endforeach
-                    @foreach( $todoxxxx['cabecera'] as $cabecera )
-                    <tr class="text-center" id="buscarxx">
-                        @foreach( $cabecera as $cabecerx)
-                        <th width="{{$cabecerx['widthxxx']}}" rowspan="{{$cabecerx['rowspanx']}}" colspan="{{$cabecerx['colspanx']}}"> {{ $cabecerx['td']   }}</th>
+                    @if(isset($todoxxxx['forminde']))
+                        @foreach( $todoxxxx['cabecera'] as $cabecera )
+                        <tr class="text-center" id="buscarxx">
+                            @foreach( $cabecera as $cabecerx)
+                            <th width="{{$cabecerx['widthxxx']}}" rowspan="{{$cabecerx['rowspanx']}}" colspan="{{$cabecerx['colspanx']}}"> {{ $cabecerx['td']   }}</th>
+                            @endforeach
+                        </tr>
                         @endforeach
-                    </tr>
-                    @endforeach
+                    @endif
                 </thead>
                 <tfoot>
 

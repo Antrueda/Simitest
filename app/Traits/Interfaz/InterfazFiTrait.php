@@ -152,8 +152,9 @@ trait InterfazFiTrait
         $objetoxx->prm_tipodocu_id = $this->tipodocu[$filtroxx['tipodocu']];
 
         $objetoxx->prm_doc_fisico_id = $this->cuendocu[$filtroxx['cuentdoc']];
-        $objetoxx->prm_situacion_militar_id = $this->situmili[$filtroxx['situmili']];
-
+        if ($filtroxx['situmili'] != null) {
+            $objetoxx->prm_situacion_militar_id = $this->situmili[$filtroxx['situmili']];
+        }
         //
         // prm_clase_libreta_id
 
