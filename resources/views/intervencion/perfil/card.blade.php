@@ -276,7 +276,7 @@
       <div class="form-row align-items-end">
         <div class="form-group col-md-6">
           {{ Form::label('d_fecha_proxima', 'Fecha Próxima Sesión', ['class' => 'control-label']) }}
-          {{ Form::date('d_fecha_proxima',  null, ['class' => 'form-control form-control-sm', $todoxxxx["readonly"],'max' => $todoxxxx['proxxxxx'],'min'=>$todoxxxx['hoyxxxxx']]) }}
+          {{ Form::date('d_fecha_proxima',  null, ['class' => 'form-control form-control-sm', $todoxxxx["readonly"],'min'=>$todoxxxx['hoyxxxxx']]) }}
         </div>
         <div class="form-group col-md-6">
           {{ Form::label('i_prm_area_proxima_id', 'Área de ajuste a trabajar en la próxima sesión', ['class' => 'control-label col-form-label-sm']) }}
@@ -295,7 +295,7 @@
           {{ Form::label('i_primer_responsable', 'Funcionario(A)/Contratista', ['class' => 'control-label col-form-label-sm']) }}
             {{ Form::select('i_primer_responsable', $todoxxxx['usuarios'], null, ['class' => $errors->first('i_primer_responsable') ?
                 'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm',
-                'data-placeholder' => 'Seleccione el Responsable de la actividad','id' => 'i_primer_responsable','autofocus']) }}
+                'id' => 'i_primer_responsable','autofocus']) }}
             @if($errors->has('i_primer_responsable'))
             <div class="invalid-feedback d-block">
               {{ $errors->first('i_primer_responsable') }}

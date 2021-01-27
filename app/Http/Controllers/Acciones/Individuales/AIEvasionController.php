@@ -62,7 +62,7 @@ class AIEvasionController extends Controller
         $this->opciones['tamanoxx'] = Tema::combo(281,true, false);
         $this->opciones['prendaxx'] = Tema::combo(304,true, false);
         $this->opciones['parentez'] = Tema::combo(66,true, false);
-        $this->opciones['atencion'] = Tema::combo(306, false, false);
+        $this->opciones['atencion'] = Tema::combo(306, true, false);
         
       
         $this->opciones['estrateg'] = ['' => 'Seleccione'];

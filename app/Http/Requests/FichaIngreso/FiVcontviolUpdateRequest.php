@@ -12,7 +12,7 @@ class FiVcontviolUpdateRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'prm_violenci_id.required' => 'Seleccione seleccione un tipo de violencia',
+            'prm_violenci_id.required' => 'Seleccione un tipo de violencia',
             'prm_contexto_id.required' => 'Seleccione un contexto',
             'prm_respuest_id.required' => 'Seleccione una respuesta',
         ];

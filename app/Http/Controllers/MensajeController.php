@@ -231,7 +231,7 @@ class MensajeController extends Controller
 
     public function update(AlertasEditarRequest $request, Mensajes $objetoxx)
     {
-        return $this->grabar(['requestx'=>$request,'modeloxx'=> $objetoxx,'infoxxxx'=>'Mensaje actualizado con exito'] );
+        return $this->grabar(['requestx'=>$request,'modeloxx'=> $objetoxx,'menssage'=>'Mensaje actualizado con exito'] );
     }
 
     public function inactivate(Mensajes $objetoxx)
@@ -254,7 +254,7 @@ class MensajeController extends Controller
         $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Mensaje inactivada correctamente');
+            ->with('info', 'Mensaje inactivado');
     }
 
    

@@ -80,7 +80,7 @@ class IsDatoBasicoController extends Controller
 
         $this->opciones['cabecera'] = [
             ['td' => 'Id'],
-            ['td' => 'PRIMER NOMBRErr'],
+            ['td' => 'PRIMER NOMBRER'],
             ['td' => 'SEGUNDO NOMBRE'],
             ['td' => 'DOCUMENTO'],
             ['td' => 'ESTADO'],

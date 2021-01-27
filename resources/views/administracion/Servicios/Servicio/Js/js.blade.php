@@ -105,7 +105,7 @@
             if(valuexxx!='' ){
                 if(valuexxx!=2 && !localida){
                     $("#"+departam+",#"+municipi).empty();
-                    $("#"+departam+",#"+municipi).append('<option value="1">NO APLICA</>')
+                    $("#"+departam+",#"+municipi).append('<option value="1">N/A</>')
                     return false;
                 }
                 f_ajax(dataxxxx,selected);

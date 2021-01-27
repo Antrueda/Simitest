@@ -13,7 +13,7 @@ class FiRazoneArchivoCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'i_prm_documento_id.required' => 'Seleccione seleccione el docuemnto que va anexar',
+            'i_prm_documento_id.required' => 'Seleccione  el docuemnto que va anexar',
             's_doc_adjunto_ar.required' => 'Seleccione un documento',
             's_doc_adjunto_ar.max' => 'El máximo del documento es de 2 mb',
         ];
@@ -56,7 +56,7 @@ class FiRazoneArchivoCrearRequest extends FormRequest
     public function validar()
     {
         $mimexxxx = 'mimes:pdf';
-        $extensio = 'pdf';
+        $extensio = 'PDF';
         if ($this->i_prm_documento_id == 2468) {
             $mimexxxx = 'mimes:jpeg';
             $extensio = 'jpg';

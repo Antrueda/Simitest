@@ -33,7 +33,7 @@ class CsdCompfamiCrearRequest extends FormRequest
             'prm_cualeps_id.required'=>'Seleccione la eps',
             'sisben.required'=>'Ingree puntaje sisben',
             'prm_sisben_id.required'=>'Seleccione sisben',
-            'prm_discapacidad_id.required'=>'Seleccione seleccione la discapacidad',
+            'prm_discapacidad_id.required'=>'Seleccione la discapacidad',
             'prm_cual_id.required'=>'Seleccione cual',
             'prm_peso_id.required'=>'Seleccione el peso',
             

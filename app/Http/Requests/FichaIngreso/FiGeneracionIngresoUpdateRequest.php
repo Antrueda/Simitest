@@ -13,8 +13,8 @@ class FiGeneracionIngresoUpdateRequest extends FormRequest
     {
         $this->_mensaje = [
             'i_prm_actividad_genera_ingreso_id.required' => 'Seleccione actividad realiza generar ingreso',
-            'i_prm_trabajo_informal_id.required' => 'Seleccione seleccione trabajo informal',
-            'i_prm_otra_actividad_id.required' => 'Seleccione seleccione otra actividad',
+            'i_prm_trabajo_informal_id.required' => 'Seleccione trabajo informal',
+            'i_prm_otra_actividad_id.required' => 'Seleccione otra actividad',
             'i_prm_razon_no_genera_ingreso_id.required' => 'Seleccione porque no genera ingresos',
             'i_prm_jornada_genera_ingreso_id.required' => 'Seleccione en que jornada genera ingreso',
             'i_prm_frec_ingreso_id.required' => 'Seleccione frecuencia recibe ingreso',

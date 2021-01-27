@@ -12,7 +12,7 @@
     </div>
     <div class="form-group col-md-6">
         {{ Form::label('area_id', 'Area:', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('area_id', $todoxxxx['fosareas'], null, ['class' => 'form-control select2 form-control-sm']) }}
+        {{ Form::select('area_id', $todoxxxx['fosareas'], null, ['class' => 'form-control select2 form-control-sm','date-placeholder' => 'Seleccione']) }}
         @if($errors->has('area_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('area_id') }}

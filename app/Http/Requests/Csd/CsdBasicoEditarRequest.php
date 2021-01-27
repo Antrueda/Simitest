@@ -25,7 +25,7 @@ class CsdBasicoEditarRequest extends FormRequest
             'prm_doc_fisico_id.required' => 'Indique si tiene documento físico',
             'prm_ayuda_id.required' => 'Seleccione un motivo por que no tiene documento',
             's_documento.required' => 'Ingrese un documento',
-            'sis_municipioexp_id.required' => 'Seleccione seleccione el municipio de expedición del documento',
+            'sis_municipioexp_id.required' => 'Seleccione el municipio de expedición del documento',
             'prm_gsanguino_id.required' => 'Seleccione el grupo sanguíneo',
             'prm_factor_rh_id.required' => 'Seleccione el factor rh',
             'prm_situacion_militar_id.required' => 'Indique si tiene la situacion militar definida',

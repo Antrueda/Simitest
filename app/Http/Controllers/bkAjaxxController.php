@@ -1087,7 +1087,7 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = [];
             if ($request->all()['padrexxx'] == 228) {
-                $dataxxxx[] = ['valuexxx' => 1, 'optionxx' => 'NO APLICA', 'selected' => 'selected'];
+                $dataxxxx[] = ['valuexxx' => 1, 'optionxx' => 'N/A', 'selected' => 'selected'];
                 $dataxxxx = [$dataxxxx, 'i_prm_depto_certifica_id', $dataxxxx, 'i_prm_municipio_certifica_id'];
             } else {
                 $dataxxxx = SisDepartamento::select(['id as valuexxx', 's_departamento as optionxx'])->where('sis_pai_id', 2)->get();
