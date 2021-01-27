@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Mensajes;
+use App\Models\Sistema\SisEsta;
+use App\Models\Usuario\Estusuario;
 use App\Traits\Alertas\AlertasTrait;
 
 class MensajeController extends Controller
@@ -133,9 +135,10 @@ class MensajeController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.js.js']
         ];
 
-        $this->opciones['estadoxx'] = 'ACTIVO';
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['servicio'] = ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
+        $estadoid = 0;
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
         
@@ -160,6 +163,12 @@ class MensajeController extends Controller
             }
           
         }
+        $this->opciones['motivoxx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2328
+        ]);
         
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

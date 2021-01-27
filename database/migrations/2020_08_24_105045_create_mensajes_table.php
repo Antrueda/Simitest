@@ -27,6 +27,8 @@ class CreateMensajesTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('user_edita_id')->references('id')->on('users');
+            $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
+            $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table->timestamps();
         });
        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS MENSAJES PUBLICADOS EN EL SISTEMA'");
