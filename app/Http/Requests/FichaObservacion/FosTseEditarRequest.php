@@ -17,7 +17,8 @@ class FosTseEditarRequest extends FormRequest
             'nombre.unique' => 'El nombre ya existe',
             'nombre.max' => 'El nombre debe tener un máximo de 120 caracteres',
             'nombre.max' => 'La descripción debe tener un máximo de 4000 caracteres',
-        ];
+            'estusuario_id.required'=> 'Seleccione la justificación de estado',
+            ];
         
         
     }
@@ -47,6 +48,7 @@ class FosTseEditarRequest extends FormRequest
         $this->_reglasx = [
             'nombre' => ['Required','string','max:120','unique:fos_stses,nombre,'. $this->segments()[2]],
                 'area_id' => ['Required'],
+                'estusuario_id' => ['Required'],
                 'descripcion' => ['nullable','max:4000'],
             ];
         return $this->_reglasx;
@@ -57,3 +59,4 @@ class FosTseEditarRequest extends FormRequest
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
     }
 }
+

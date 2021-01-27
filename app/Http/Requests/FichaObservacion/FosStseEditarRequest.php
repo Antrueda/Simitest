@@ -13,10 +13,11 @@ class FosStseEditarRequest extends FormRequest
     {
         $this->_mensaje = [
             'nombre.required' => 'El nombre es requerido',
-            
             'nombre.unique' => 'El nombre ya existe',
             'nombre.max' => 'El nombre un máximo de 120 caracteres',
+            'estusuario_id.required'=> 'Seleccione la justificación de estado',
         ];
+
         
     }
     /**
@@ -44,6 +45,7 @@ class FosStseEditarRequest extends FormRequest
         $this->validar();
         $this->_reglasx = [
             'nombre' => ['Required', 'string', 'max:120', 'unique:fos_tses,nombre,'. $this->segments()[2]],
+            'estusuario_id' => ['Required'],
           ];
         return $this->_reglasx;
     }

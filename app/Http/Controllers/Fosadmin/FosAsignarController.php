@@ -85,11 +85,10 @@ class FosAsignarController extends Controller
         $this->pestanix['fosasignar']=[true,$modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->fos_tse_id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
-        $this->getBotones(['editar', [], 1, 'EDITAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
         $do=$this->getBotones(['crear', [$this->opciones['routxxxx'].'.nuevo', [$modeloxx->id]], 2, 'NUEVA ASIGNACION', 'btn btn-sm btn-primary']);
         
-        return $this->view($do,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]
+        return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario']]
         );
     }
 

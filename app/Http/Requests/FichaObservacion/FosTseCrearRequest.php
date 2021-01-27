@@ -16,10 +16,12 @@ class FosTseCrearRequest extends FormRequest
             'area_id.required' => 'Seleccione una área',
             'nombre.unique' => 'El nombre ya existe',
             'nombre.max' => 'El nombre un máximo de 120 caracteres',
+            'estusuario_id.required'=> 'Seleccione la justificación de estado',
         ];
         $this->_reglasx = [
         'nombre' => ['Required','string','max:120','unique:fos_tses'],
             'area_id' => ['Required'],
+            'estusuario_id' => ['Required'],
         ];
     }
     /**
