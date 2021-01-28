@@ -290,6 +290,19 @@ class MensajeController extends Controller
             ->with('info', 'Mensaje activado');
     }
 
+    public function getMotivos(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2498])
+            );
+        }
+    }
+
 }
 
 

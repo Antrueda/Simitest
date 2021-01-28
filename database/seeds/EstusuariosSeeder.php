@@ -72,6 +72,10 @@ class EstusuariosSeeder extends Seeder
             ['NUEVO REGISTRO', 2481]
         ); //15
 
+        $this->getReg(
+            ['NUEVO REGISTRO', 2498]
+        ); //1
+
 
 
 

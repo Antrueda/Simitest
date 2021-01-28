@@ -2535,6 +2535,7 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'CAE/CERTIFICADO DE VIGENCIA CEDULA']);//2495
         $this->getR(['nombrexx' => 'PASAPORTE']);//2496
         $this->getR(['nombrexx' => 'CAE/NE']);//2497
+        $this->getR(['nombrexx' => 'PANTALLA INICIAL']);//2498
 
     }
 }

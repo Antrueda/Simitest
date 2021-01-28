@@ -47,5 +47,11 @@ Route::group(['prefix' => 'mensaje'], function ()use($routexxx,$controll){
     Route::put('activate/{modeloxx}', [
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routexxx . '-activarx']
-    ])->name($routexxx . '.activarx');
+	])->name($routexxx . '.activarx');
+	
+	Route::get('motivos', [
+		'uses' => $controll . 'Controller@getMotivos',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.motivosx');
+    
 });
