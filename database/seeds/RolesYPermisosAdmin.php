@@ -142,5 +142,6 @@ Role::create(['name' => 'administrador', 'user_crea_id' => 1, 'user_edita_id' =>
 
 
     'alertas-leer', 'alertas-crear', 'alertas-editar', 'alertas-borrar',
-    'mensajes-leer', 'mensajes-crear', 'mensajes-editar', 'mensajes-borrar',
+    'mensajes-leer', 'mensajes-crear', 'mensajes-editar', 'mensajes-borrar','mensajes-activarx',
+    
 ]);

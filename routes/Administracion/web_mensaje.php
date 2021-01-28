@@ -38,4 +38,14 @@ Route::group(['prefix' => 'mensaje'], function ()use($routexxx,$controll){
 		'uses' => $controll.'Controller@inactivate',
 		'middleware' => ['permission:'.$routexxx.'-borrar']
 	])->name($routexxx.'.borrar');
+
+    Route::get('activate/{modeloxx}', [
+        'uses' => $controll . 'Controller@activate',
+        'middleware' => ['permission:' . $routexxx . '-activarx']
+    ])->name($routexxx . '.activarx');
+
+    Route::put('activate/{modeloxx}', [
+        'uses' => $controll . 'Controller@activar',
+        'middleware' => ['permission:' . $routexxx . '-activarx']
+    ])->name($routexxx . '.activarx');
 });

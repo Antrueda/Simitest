@@ -232,8 +232,8 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'alertas', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Alertas', 'pestania' => 1]);
 
           //permisos para las Mensajes
-          $this->getPermisos(['permisox' => 'mensajes', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Mensajes', 'pestania' => 1]);
-
+          $this->getPermisos(['permisox' => 'mensajes', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Mensajes', 'pestania' => 1]);
+          
 
         //Crear areas para VSI Potencialidades y metas
         $this->getPermisos(['permisox' => 'vsimetas', 'permisos' => ['metaxxxx'], 'compleme' => 'Pencialidades y Metas VSI', 'pestania' => 1]);

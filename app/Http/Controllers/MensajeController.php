@@ -267,6 +267,29 @@ class MensajeController extends Controller
     }
 
    
+    public function activate(Mensajes $modeloxx)
+    {
+        $this->opciones['parametr'] = [$modeloxx->id];
+        if (auth()->user()->can($this->opciones['permisox'] . '-activarx')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'] . '.activarx', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['activar','activar'],'padrexxx'=>$modeloxx]);
+    }
+
+
+    public function activar(Request $request, Mensajes $modeloxx)
+    {
+
+        $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+            ->route($this->opciones['permisox'], [])
+            ->with('info', 'Mensaje activado');
+    }
+
 }
 
 
