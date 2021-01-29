@@ -41,8 +41,7 @@ class EstusuarioEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        $this->_reglasx['estado']= ['required',
-            'estado,' . $this->segments()[2]];
+        
         return $this->_reglasx;
     }
 

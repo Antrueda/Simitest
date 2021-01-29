@@ -42,7 +42,7 @@ trait VistasTrait
             'cabecera' => true,
             'esajaxxx' => false,
             'estadoid' => $estadoid ,
-            'formular' => 2481
+            'formular' => 2483
         ]);
         $opciones['tiposegu'] =FosTse::combo($selected, true, false);
         // Se arma el titulo de acuerdo al array opciones
