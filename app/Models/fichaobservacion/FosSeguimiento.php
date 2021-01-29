@@ -29,7 +29,7 @@ public function fos_stses(){
             $comboxxx = ['' => 'Seleccione'];
         }
     }
-    $parametr = FosSeguimiento::select(['fos_seguimientos.id as valuexxx', 'fos_stses.nombre as optionxx'])
+    $parametr = FosSeguimiento::select(['fos_stses.id as valuexxx', 'fos_stses.nombre as optionxx'])
         ->join('fos_tses', 'fos_seguimientos.fos_tse_id', '=', 'fos_tses.id')
         ->join('fos_stses', 'fos_seguimientos.fos_stses_id', '=', 'fos_stses.id')
         ->where('fos_seguimientos.fos_tse_id', $dataxxxx['seguimie'])

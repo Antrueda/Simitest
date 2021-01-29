@@ -226,7 +226,7 @@ class FosController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
             ];
-        
+
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -275,7 +275,7 @@ class FosController extends Controller
 
     public function store(FosDatosBasicoCrearRequest $request,SisNnaj $padrexxx)
     {
-     
+
         $dataxxxx = $request->all();
         $dataxxxx['sis_esta_id']=1;
        return $this->grabar($dataxxxx, '', 'FOS creada con exito', $padrexxx);

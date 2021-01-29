@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Fosadmin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosAsignarCrearRequest;
 use App\Http\Requests\FichaObservacion\FosAsignarEditarRequest;
-use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
-use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
 use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
@@ -18,6 +16,7 @@ use App\Traits\Fosadmin\ListadosTrait;
 use App\Traits\Fosadmin\PestaniasTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 /**
  * FOS Tipo de seguimiento
  */
@@ -47,12 +46,12 @@ class FosAsignarController extends Controller
 
     public function create(FosTse $padrexxx)
     {
-        $this->pestanix['fosasignar']=[true,$padrexxx];
-        $this->opciones['padrexxx']=$padrexxx;
+        $this->pestanix['fosasignar'] = [true, $padrexxx];
+        $this->opciones['padrexxx'] = $padrexxx;
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['crear', [$padrexxx], 1, 'GUARDAR', 'btn btn-sm btn-primary']),
-            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$padrexxx]
+            ['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]
         );
     }
     public function store(FosAsignarCrearRequest $request)
@@ -69,27 +68,25 @@ class FosAsignarController extends Controller
     public function show(FosSeguimiento $modeloxx)
     {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
-         $this->getBotones(['editar', [], 1, 'EDITAR DOCUMENTO', 'btn btn-sm btn-primary']);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
+        $this->getBotones(['editar', [], 1, 'EDITAR DOCUMENTO', 'btn btn-sm btn-primary']);
+        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'], []], 2, 'CREAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']);
 
-        return $this->view($do,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->fos_tse]
+        return $this->view(
+            $do,
+            ['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $modeloxx->fos_tse]
         );
     }
 
 
     public function edit(FosSeguimiento $modeloxx)
     {
-       
-        $this->pestanix['fosasignar']=[true,$modeloxx->fos_tse_id];
+        $this->pestanix['fosasignar'] = [true, $modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->fos_tse_id]], 2, 'VOLVER A ASIGNACIÓN', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR', 'btn btn-sm btn-primary']);
-        $do=$this->getBotones(['crear', [$this->opciones['routxxxx'].'.nuevo', [$modeloxx->id]], 2, 'NUEVA ASIGNACION', 'btn btn-sm btn-primary']);
-        
-        return $this->view($do,['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario']]
-        );
+        $do = $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$modeloxx->id]], 2, 'NUEVA ASIGNACION', 'btn btn-sm btn-primary']);
+        return $this->view($do, ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario']]);
     }
 
 
@@ -106,11 +103,11 @@ class FosAsignarController extends Controller
 
     public function inactivate(FosSeguimiento $modeloxx)
     {
-        $this->pestanix['fosasignar']=[true,$modeloxx->fos_tse_id];
+        $this->pestanix['fosasignar'] = [true, $modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['borrar', [], 1, 'INACTIVAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->fos_tse]
+            $this->getBotones(['borrar', [], 1, 'INACTIVAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->fos_tse]
         );
     }
 
@@ -126,13 +123,12 @@ class FosAsignarController extends Controller
 
     public function activate(FosSeguimiento $modeloxx)
     {
-        $this->pestanix['fosasignar']=[true,$modeloxx->fos_tse_id];
+        $this->pestanix['fosasignar'] = [true, $modeloxx->fos_tse_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
-            $this->getBotones(['activarx', [], 1, 'ACTIVAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary'])            ,
-            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->fos_tse]
+            $this->getBotones(['activarx', [], 1, 'ACTIVAR SUB TIPO DE SEGUIMIENTO', 'btn btn-sm btn-primary']),
+            ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'], 'padrexxx' => $modeloxx->fos_tse]
         );
-
     }
     public function activar(Request $request, FosStse $modeloxx)
     {
