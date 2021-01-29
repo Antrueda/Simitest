@@ -19,18 +19,16 @@ use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
-use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
 use App\Traits\Interfaz\InterfazFiTrait;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Schema;
+use App\Traits\Puede\PuedeTrait;
 
 class FiController extends Controller
 {
     use FiTrait;
     use InterfazFiTrait;
+    use PuedeTrait;
     private $bitacora;
     private $opciones;
 
@@ -90,10 +88,9 @@ class FiController extends Controller
 
     public function index()
     {
-        Traductor::getPuedeCargar(['nnajxxxx'=>1]);
         $this->opciones['tablasxx'] = [
             [
-                'forminde'=>'',
+                'forminde' => '',
                 'titunuev' => 'NUEVO NNAJ',
                 'titulist' => 'LISTA DE NNAJ',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
@@ -381,39 +378,39 @@ class FiController extends Controller
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         $this->opciones['pestpara'] = [];
-            $this->opciones['perfilxx'] = 'sinperfi';
-            $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
-            $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
+        $this->opciones['perfilxx'] = 'sinperfi';
+        $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
+        $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
 
 
-            /** documento de identidad */
-// ddd($dataxxxx['modeloxx']->nnaj_nacimi);
-            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+        /** documento de identidad */
+        // ddd($dataxxxx['modeloxx']->nnaj_nacimi);
+        $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
 
-            if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
-                $this->opciones['botoform'][] =
-                    [
-                        'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', $this->opciones['parametr']],
-                        'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
-                    ];
-            }
-            $this->opciones['poblindi'] = Tema::combo(61, true, false);
-            switch ($dataxxxx['modeloxx']->prm_tipoblaci_id) {
-                case 650:
-                    $this->opciones['estrateg'] =  Parametro::find(235)->Combo;
-                    break;
-                case 651:
-                    $this->opciones['estrateg'] =  Parametro::find(651)->Combo;
-                    break;
-            }
+        if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', $this->opciones['parametr']],
+                    'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        $this->opciones['poblindi'] = Tema::combo(61, true, false);
+        switch ($dataxxxx['modeloxx']->prm_tipoblaci_id) {
+            case 650:
+                $this->opciones['estrateg'] =  Parametro::find(235)->Combo;
+                break;
+            case 651:
+                $this->opciones['estrateg'] =  Parametro::find(651)->Combo;
+                break;
+        }
 
-            // $this->opciones['poblindi'] = Tema::combo(61, true, false);
-        if($dataxxxx['modeloxx']->prm_etnia_id==164){
+        // $this->opciones['poblindi'] = Tema::combo(61, true, false);
+        if ($dataxxxx['modeloxx']->prm_etnia_id == 164) {
             $this->opciones['poblindi'] =  Parametro::find(235)->Combo;
         }
 
         $this->opciones['dependen'] = User::getUpiUsuario(true, false);
-        $this->opciones['dependen'][$dataxxxx['modeloxx']->sis_depen_id]=SisDepen::find($dataxxxx['modeloxx']->sis_depen_id)->nombre;
+        $this->opciones['dependen'][$dataxxxx['modeloxx']->sis_depen_id] = SisDepen::find($dataxxxx['modeloxx']->sis_depen_id)->nombre;
         $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' => $dataxxxx['modeloxx']->sis_depen_id]);
         $this->opciones['upzxxxxx'] = SisUpz::combo($localida, false);
         $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
@@ -441,7 +438,7 @@ class FiController extends Controller
     public function agregar(Request $request)
     {
 
-         $nnajxxxx = $this->getBuscarNnajAgregar($request);
+        $nnajxxxx = $this->getBuscarNnajAgregar($request);
         // $nnajxxxx =$this->getTraerData();
         // ddd($nnajxxxx);
 
@@ -481,7 +478,12 @@ class FiController extends Controller
      */
     public function edit(FiDatosBasico $objetoxx)
     {
-        if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$objetoxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
+        // if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

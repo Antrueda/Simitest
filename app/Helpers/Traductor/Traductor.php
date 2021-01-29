@@ -195,20 +195,21 @@ class Traductor
         }
         return $upixxxxy; // done lo llama
     }
-
+    /**
+     *
+     */
     public static function getPuedeCargar($dataxxxx)
     {
         $puedcarg = false;
-        $dependen = User::select(['users.id','nnaj_upis.sis_depen_id'])->where('users.id', Auth::user()->id)
+        $dependen = User::select(['users.id', 'nnaj_upis.sis_depen_id'])->where('users.id', Auth::user()->id)
             ->join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
-            ->join('nnaj_upis','sis_depen_user.sis_depen_id','=','nnaj_upis.sis_depen_id')
-           ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajxxxx'])
-           ->where('sis_depen_user.sis_esta_id', 1)
+            ->join('nnaj_upis', 'sis_depen_user.sis_depen_id', '=', 'nnaj_upis.sis_depen_id')
+            ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajxxxx'])
+            ->where('sis_depen_user.sis_esta_id', 1)
             ->first();
         if (isset($dependen->id)) {
             $puedcarg = true;
         }
-
         return $puedcarg;
     }
 }
