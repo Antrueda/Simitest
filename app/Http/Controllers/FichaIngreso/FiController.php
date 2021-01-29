@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\FichaIngreso;
 
+use App\Helpers\Traductor\Traductor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
@@ -89,6 +90,7 @@ class FiController extends Controller
 
     public function index()
     {
+        Traductor::getPuedeCargar(['nnajxxxx'=>1]);
         $this->opciones['tablasxx'] = [
             [
                 'forminde'=>'',

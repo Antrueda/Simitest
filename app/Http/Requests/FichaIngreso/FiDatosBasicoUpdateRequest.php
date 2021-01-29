@@ -87,6 +87,13 @@ class FiDatosBasicoUpdateRequest extends FormRequest
 
     public function messages()
     {
+        $puedexxx = $this->getPuedeCargar([
+            'estoyenx' => 1,
+            'usuariox' => auth()->user(),
+            // 'fechregi' => explode(' ',$queryxxx->created_at)[0]
+        ]);
+
+        // ddd($puedexxx);
         return $this->_mensaje;
     }
 

@@ -162,7 +162,8 @@ trait FiTrait
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->where('sis_nnajs.prm_escomfam_id', 227)
-            ->whereIn('nnaj_upis.sis_depen_id', $this->getNotInt())->groupBy([
+            // ->whereIn('nnaj_upis.sis_depen_id', $this->getNotInt())
+            ->groupBy([
                 'fi_datos_basicos.sis_nnaj_id', 'fi_datos_basicos.id', 'fi_datos_basicos.s_primer_nombre',
                 'nnaj_docus.s_documento',
                 'fi_datos_basicos.s_segundo_nombre',

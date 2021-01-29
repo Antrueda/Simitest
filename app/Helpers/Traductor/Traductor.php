@@ -2,13 +2,11 @@
 //app/Helpers/Envato/User.php
 namespace App\Helpers\Traductor;
 
-use App\Models\Acciones\Individuales\Pivotes\AiSalidaMayoresRazones;
 use App\Models\Acciones\Individuales\Pivotes\AiSalidaMenoresObj;
 use App\Models\Acciones\Individuales\Pivotes\JovenesMotivo;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use App\Models\consulta\pivotes\CsdGeningDia;
 use App\Models\fichaIngreso\FiCompfami;
-use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiResidencia;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajNacimi;
@@ -16,9 +14,9 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\sicosocial\Pivotes\VsiEmocionVincula;
 use App\Models\sicosocial\Pivotes\VsiPersona;
 use App\Models\sicosocial\Pivotes\VsiSituacionVincula;
-use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisTitulo;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class Traductor
 {
@@ -171,8 +169,8 @@ class Traductor
 
     public static function getUpi($dataxxxx)
     {
-        $upixxxxy=[];
-        $upixxxxx = NnajUpi::select(['sis_depens.nombre', 'nnaj_upis.id','parametros.nombre as principal'])
+        $upixxxxy = [];
+        $upixxxxx = NnajUpi::select(['sis_depens.nombre', 'nnaj_upis.id', 'parametros.nombre as principal'])
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
             ->join('parametros', 'nnaj_upis.prm_principa_id', '=', 'parametros.id')
             ->join('sis_nnajs', 'nnaj_upis.sis_nnaj_id', '=', 'sis_nnajs.id')
@@ -196,5 +194,21 @@ class Traductor
             $upixxxxy[] = ['upixxxxx' => $value, 'servicio' => $serviciy];
         }
         return $upixxxxy; // done lo llama
+    }
+
+    public static function getPuedeCargar($dataxxxx)
+    {
+        $puedcarg = false;
+        $dependen = User::select(['users.id','nnaj_upis.sis_depen_id'])->where('users.id', Auth::user()->id)
+            ->join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
+            ->join('nnaj_upis','sis_depen_user.sis_depen_id','=','nnaj_upis.sis_depen_id')
+           ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajxxxx'])
+           ->where('sis_depen_user.sis_esta_id', 1)
+            ->first();
+        if (isset($dependen->id)) {
+            $puedcarg = true;
+        }
+
+        return $puedcarg;
     }
 }
