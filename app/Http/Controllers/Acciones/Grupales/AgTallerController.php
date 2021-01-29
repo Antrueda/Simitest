@@ -109,7 +109,7 @@ class AgTallerController extends Controller
             'cabecera' => true,
             'esajaxxx' => false,
             'estadoid' => $estadoid,
-            'formular' => 2328
+            'formular' => 2499
         ]);
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['tituloxx'];

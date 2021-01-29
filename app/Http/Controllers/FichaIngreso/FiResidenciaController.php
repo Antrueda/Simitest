@@ -13,9 +13,13 @@ use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
+use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Puede\PuedeTrait;
 
 class FiResidenciaController extends Controller
 {
+    use InterfazFiTrait;
+    use PuedeTrait;
     private $opciones;
 
     public function __construct()
@@ -177,6 +181,11 @@ class FiResidenciaController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx,  FiResidencia $modeloxx)
     {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -184,6 +193,7 @@ class FiResidenciaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
+     }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
     }
 

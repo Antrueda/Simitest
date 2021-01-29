@@ -14,6 +14,10 @@ class SisMunicipio extends Model {
     return $this->belongsTo(SisDepartamento::class);
   }
 
+  public function getComboAjaxUnoAttribute()
+  {
+      return [['valuexxx' => $this->id, 'optionxx' => $this->s_municipio, 'selected'=>'selected']];
+  }
   public static function combo($departam, $ajaxxxxx) {
     $comboxxx = [];
     if ($ajaxxxxx != '') {

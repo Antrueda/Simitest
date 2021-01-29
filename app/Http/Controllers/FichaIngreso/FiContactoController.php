@@ -8,11 +8,15 @@ use App\Http\Requests\FichaIngreso\FiContactoUpdateRequest;
 use App\Models\fichaIngreso\FiContacto;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Tema;
+use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Puede\PuedeTrait;
 use Carbon\Carbon;
 
 class FiContactoController extends Controller
 {
     private $opciones;
+    use InterfazFiTrait;
+    use PuedeTrait;
     public function __construct()
     {
 
@@ -129,11 +133,17 @@ class FiContactoController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx,  FiContacto $modeloxx)
     {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
+         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
 
     }

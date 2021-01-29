@@ -477,11 +477,11 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $respuest = [[
-                'dptcondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(1)->ComboAjaxUno : SisDepartamento::combo(2, true),
-                'muncondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(1)->ComboAjaxUno : [['valuexxx' => '', 'optionxx' => 'Seleccione']],
+                'dptcondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? SisDepartamento::find(1)->ComboAjaxUno : SisDepartamento::combo(2, true),
+                'muncondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? SisMunicipio::find(1)->ComboAjaxUno : [['valuexxx' => '', 'optionxx' => 'Seleccione']],
                 'tiecerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(235)->ComboAjaxUno : Tema::combo(23, true, true),
-                'dptcerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(1)->ComboAjaxUno : SisDepartamento::combo(2, true),
-                'muncerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(1)->ComboAjaxUno : [['valuexxx' => '', 'optionxx' => 'Seleccione']],
+                'dptcerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? SisDepartamento::find(1)->ComboAjaxUno : SisDepartamento::combo(2, true),
+                'muncerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? SisMunicipio::find(1)->ComboAjaxUno : [['valuexxx' => '', 'optionxx' => 'Seleccione']],
             ]];
             return response()->json($respuest);
         }

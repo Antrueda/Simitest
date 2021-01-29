@@ -85,7 +85,7 @@ class AgTemaController extends Controller
             'cabecera' => true,
             'esajaxxx' => false,
             'estadoid' => $estadoid,
-            'formular' => 2328
+            'formular' => 2499
         ]);
 
         // Se arma el titulo de acuerdo al array opciones
@@ -175,7 +175,7 @@ class AgTemaController extends Controller
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2480])
+                    'formular' => 2499])
             );
         }
     }

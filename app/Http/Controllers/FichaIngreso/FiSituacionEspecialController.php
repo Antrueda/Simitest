@@ -8,11 +8,15 @@ use App\Http\Requests\FichaIngreso\FiSituacionEspecialUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiSituacionEspecial;
 use App\Models\Tema;
+use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
 
 class FiSituacionEspecialController extends Controller
 {
     private $opciones;
+    use InterfazFiTrait;
+    use PuedeTrait;
     public function __construct()
     {
 

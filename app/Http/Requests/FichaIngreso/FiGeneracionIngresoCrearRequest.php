@@ -75,6 +75,8 @@ class FiGeneracionIngresoCrearRequest extends FormRequest
                 $this->_reglasx['s_hora_final'] = 'nullable';
                 $this->_reglasx['i_prm_frec_ingreso_id'] = 'nullable';
                 $this->_reglasx['i_total_ingreso_mensual'] = 'nullable';
+                $this->_reglasx['i_prm_tipo_relacion_laboral_id'] = 'nullable';
+
                 break;
         }
 

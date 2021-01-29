@@ -11,12 +11,16 @@ use App\Models\Parametro;
 use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
+use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
 
 class FiSaludController extends Controller
 {
     private $opciones;
     use FiTrait;
+    use InterfazFiTrait;
+    use PuedeTrait;
     public function __construct()
     {
 
@@ -274,11 +278,17 @@ class FiSaludController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx,  FiSalud $modeloxx)
     {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
+         }
         $this->opciones['tablread'] = '';
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $padrexxx->prm_estrateg_id == 2323 ? 'caminando' : 'formulario'], 'padrexxx' => $padrexxx]);
     }

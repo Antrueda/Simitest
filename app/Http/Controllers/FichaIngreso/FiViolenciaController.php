@@ -11,10 +11,14 @@ use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Traits\Fi\VcontviolTrait;
+use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Puede\PuedeTrait;
 
 class FiViolenciaController extends Controller
 {
     use VcontviolTrait;
+    use InterfazFiTrait;
+    use PuedeTrait;
     private $opciones;
     public function __construct()
     {
@@ -200,12 +204,17 @@ class FiViolenciaController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx, FiViolencia $modeloxx)
     {
-
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
+         }
         $poblacio = $padrexxx->prm_estrateg_id;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }

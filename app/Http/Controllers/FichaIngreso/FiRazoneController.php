@@ -11,11 +11,15 @@ use App\Models\Sistema\SisDepen;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Fi\FiTrait;
+use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
 
 class FiRazoneController extends Controller
 {
     use FiTrait;
+    use InterfazFiTrait;
+    use PuedeTrait;
     private $opciones;
 
     public function __construct()
@@ -163,11 +167,17 @@ class FiRazoneController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx, FiRazone $modeloxx)
     {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
+         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

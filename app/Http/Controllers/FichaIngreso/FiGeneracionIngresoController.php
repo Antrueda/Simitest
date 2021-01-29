@@ -10,11 +10,14 @@ use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\Parametro;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
-
+use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Puede\PuedeTrait;
 
 class FiGeneracionIngresoController extends Controller
 {
     use FiTrait;
+    use InterfazFiTrait;
+    use PuedeTrait;
     private $opciones;
     public function __construct()
     {
@@ -68,6 +71,7 @@ class FiGeneracionIngresoController extends Controller
 
         if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) {
             $this->opciones['acgening'] = Tema::combo(296, true, false);
+            $this->opciones['raznogen'] = Parametro::find(235)->ComboAjaxUno;
         } else {
             $this->opciones['padrexxx'] = Tema::combo(114, true, false);
         }
@@ -114,6 +118,7 @@ class FiGeneracionIngresoController extends Controller
      */
     public function create(FiDatosBasico $padrexxx)
     {
+        
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -168,12 +173,17 @@ class FiGeneracionIngresoController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx,  FiGeneracionIngreso $modeloxx)
     {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-
+         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $padrexxx->prm_tipoblaci_id == 650 ? 'chcxxxxx' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

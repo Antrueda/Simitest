@@ -8,9 +8,13 @@ use App\Http\Requests\FichaIngreso\FiActividadestlUpdateRequest;
 use App\Models\fichaIngreso\FiActividadestl;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Tema;
+use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Puede\PuedeTrait;
 
 class FiActividadestlController extends Controller
 {
+    use InterfazFiTrait;
+    use PuedeTrait;
     private $opciones;
 
     public function __construct()
@@ -182,11 +186,17 @@ class FiActividadestlController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx,  FiActividadestl $modeloxx)
     {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
+         }
         return $this->view([
             'modeloxx' => $modeloxx,
             'accionxx' => $this->getArchivo(['padrexxx' => $padrexxx, 'archivox' => 1]),
