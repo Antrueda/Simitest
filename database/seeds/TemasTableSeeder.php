@@ -3247,7 +3247,6 @@ class TemasTableSeeder extends Seeder
             2482 => $camposmagicos,
             2483 => $camposmagicos,
             2498 => $camposmagicos,
-            2499 => $camposmagicos,
         ]);
 
         $tema = Tema::create(['id' => 341, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL',]);

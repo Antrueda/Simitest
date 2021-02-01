@@ -6,8 +6,10 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
+use App\Models\Sistema\SisUpz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -116,25 +118,17 @@ trait InterfazFiTrait
         $this->buscarxx['casoxxxx'] = 1;
         $this->buscarxx['document'] = $request->docuagre;
         $todoxxxx = Http::post($this->getUrl() . 'nnajs/buscar', $this->buscarxx)->json();
-        //  ddd($todoxxxx);
         $filtroxx = $todoxxxx[0]['gennajxx'];
 
-
-
-
-
-        // ddd(1);
-
-
+        $fiaceing = Http::get($this->getUrl() . 'fiaceing/' . $todoxxxx[0]['gennajxx']['idxxxxxx'])->json();
         $objetoxx = new FiDatosBasico;
         $dependen = SisDepen::where('simianti_id')->first()->id;
         $objetoxx->sis_depen_id = $dependen == 30 ? 3 : $dependen;
         $sexoxxxx = ['F' => 21, 'M' => 20, 'IN' => 22];
         $objetoxx->prm_sexo_id = $sexoxxxx[$filtroxx['generoxx']];
+        $objetoxx->diligenc = explode('T', $fiaceing)[0];
 
         $objetoxx->prm_identidad_genero_id = $this->idengene[$filtroxx['geneiden']];
-
-
         $objetoxx->prm_orientacion_sexual_id = $this->oriesexu[$filtroxx['oriesexo']];
 
 
@@ -152,11 +146,11 @@ trait InterfazFiTrait
         $objetoxx->prm_tipodocu_id = $this->tipodocu[$filtroxx['tipodocu']];
 
         $objetoxx->prm_doc_fisico_id = $this->cuendocu[$filtroxx['cuentdoc']];
+
         if ($filtroxx['situmili'] != null) {
             $objetoxx->prm_situacion_militar_id = $this->situmili[$filtroxx['situmili']];
         }
-        //
-        // prm_clase_libreta_id
+
 
         $objetoxx->prm_estado_civil_id = $this->estacivi[$filtroxx['estacivi']];
 
@@ -172,6 +166,7 @@ trait InterfazFiTrait
 
         // ddd($objetoxx->prm_doc_fisico_id);
         $objetoxx->s_documento = $request->docuagre;
+        // ddd($todoxxxx[0]);
         $objetoxx->s_primer_nombre = $filtroxx['primnomb'];
         $objetoxx->s_segundo_nombre = $filtroxx['segunomb'];
         $objetoxx->s_primer_apellido = $filtroxx['primapel'];
@@ -179,21 +174,40 @@ trait InterfazFiTrait
         $objetoxx->s_apodo = $filtroxx['apodoxxx'];
         $objetoxx->prm_tipoblaci_id = $this->tipoblac[$filtroxx['tipoblac']];
         $objetoxx->prm_vestimenta_id = $this->vestimen[$filtroxx['condvest']];
-        if ($todoxxxx[0]['muniexpe']['nombmuni'] == 'BOGOTA') {
-            $todoxxxx[0]['muniexpe']['nombmuni'] = 'BOGOTÁ DC';
-        }
-        $municipi = SisMunicipio::where('s_municipio', 'LIKE', $todoxxxx[0]['muniexpe']['nombmuni'])->first();
+
+        $municipi = SisMunicipio::where('simianti_id',  $todoxxxx[0]['muniexpe']['codimuni'])->first();
         $objetoxx->sis_municipioexp_id = $municipi->id;
         $objetoxx->sis_departamentoexp_id = $municipi->sis_departamento_id;
         $objetoxx->sis_paiexp_id = $municipi->sis_departamento->sis_pai_id;
         /**
          * datos de nacimiento
          */
+
+        $municipi = SisMunicipio::where('simianti_id',  $todoxxxx[0]['gennajxx']['idnacimi'])->first();
+        $objetoxx->sis_municipio_id = $municipi->id;
+        $objetoxx->sis_departamento_id = $municipi->sis_departamento_id;
+        $objetoxx->sis_pai_id = $municipi->sis_departamento->sis_pai_id;
+
+
         $objetoxx->sis_pai_id = SisPai::where('s_pais', $todoxxxx[0]['paisnaci']['nombrexx'])->first()->id;
         // $objetoxx->nnaj_nacimi->sis_municipio_id=1;
         $objetoxx->nnaj_nacimi = new NnajNacimi;
         $objetoxx->d_nacimiento = $objetoxx->nnaj_nacimi->d_nacimiento = explode('T', $filtroxx['fechnaci'])[0];
-        // ddd($objetoxx->nnaj_nacimi);
+        $fiaceing = Http::get($this->getUrl() . 'fiaceing/barrioxx/' . $todoxxxx[0]['gennajxx']['idxxxxxx'])->json();
+
+         $barrioxx=Http::get($this->getUrl() . 'territorios/barrioxx/'.$fiaceing)->json();
+
+         $upzxxxxx=SisUpz::select(['sis_upzbarris.id','sis_upzbarris.sis_localupz_id','sis_localupzs.sis_localidad_id'])
+         ->join('sis_localupzs','sis_upzs.id','=','sis_localupzs.sis_upz_id')
+         ->join('sis_upzbarris','sis_localupzs.id','=','sis_upzbarris.sis_localupz_id')
+         ->join('sis_barrios','sis_upzbarris.sis_barrio_id','=','sis_barrios.id')
+         ->where('sis_upzs.simianti_id', $barrioxx['idpadrex'])
+         ->where('sis_barrios.simianti_id', $fiaceing)
+         ->first();
+         $objetoxx->sis_localidad_id=$upzxxxxx->sis_localidad_id;
+         $objetoxx->sis_upz_id=$upzxxxxx->sis_localupz_id;
+         $objetoxx->sis_upzbarri_id=$upzxxxxx->id;
+
 
         return $objetoxx;
     }
@@ -299,8 +313,11 @@ trait InterfazFiTrait
 
     }
 
-    public function getTraerData()
+    public function getTraerData($departam,$upzxxxxx)
     {
+
+        return  Http::get($this->getUrl() . 'territorios/' . $departam.'/'.$upzxxxxx)->json();
+
         // $filtroxx = Http::post($this->getUrl() . 'nnajs/traer')->json();
 
         // foreach ($filtroxx as $key => $value) {
@@ -310,11 +327,11 @@ trait InterfazFiTrait
         //     }
         // }
 
-        foreach (SisPai::get() as $key => $value) {
+        //         foreach (SisPai::get() as $key => $value) {
 
-            echo "SisPai::create(['s_pais'=>'{$value->s_pais}', 's_iso'=>'{$value->s_iso}','simianti_id'=>'{$value->simianti_id}', 'sis_esta_id'=>'{$value->sis_esta_id}', 'user_crea_id'=>'{$value->user_crea_id}', 'user_edita_id'=>'{$value->user_edita_id}']
-   );<br>";
-        }
+        //             echo "SisPai::create(['s_pais'=>'{$value->s_pais}', 's_iso'=>'{$value->s_iso}','simianti_id'=>'{$value->simianti_id}', 'sis_esta_id'=>'{$value->sis_esta_id}', 'user_crea_id'=>'{$value->user_crea_id}', 'user_edita_id'=>'{$value->user_edita_id}']
+        //    );<br>";
+        //         }
         // return $filtroxx ;
     }
 }

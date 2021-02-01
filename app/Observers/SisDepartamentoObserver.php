@@ -15,6 +15,8 @@ class SisDepartamentoObserver
         // campos nuevos traidos desde $fillable -> modelo
         $log['sis_pai_id'] = $modeloxx->sis_pai_id;
         $log['s_departamento'] = $modeloxx->s_departamento;
+        $log['simianti_id'] = $modeloxx->simianti_id;
+
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

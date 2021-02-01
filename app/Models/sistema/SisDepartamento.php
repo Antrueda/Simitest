@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisDepartamento extends Model
 {
-    protected $fillable = ['s_departamento', 'sis_pai_id', 's_iso', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['s_departamento', 'sis_pai_id', 's_iso','simianti_id', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
     public function sis_pai()
@@ -18,19 +18,7 @@ class SisDepartamento extends Model
     {
         return $this->hasMany(SisMunicipio::class);
     }
-    public function getComboAjaxUnoAttribute()
-    {
-        return [['valuexxx' => $this->id, 'optionxx' => $this->s_departamento, 'selected'=>'selected']];
-    }
-    public function getComboAjaxRegistroAttribute()
-    {
-        return ['valuexxx' => $this->id, 'optionxx' => $this->s_departamento];
-    }
 
-    public function getComboAttribute()
-    {
-        return [$this->id => $this->s_departamento];
-    }
     public static function combo($idpadrex, $esajaxxx)
     {
         $comboxxx = [];

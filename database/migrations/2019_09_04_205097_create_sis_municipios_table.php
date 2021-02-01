@@ -22,6 +22,7 @@ class CreateSisMunicipiosTable extends Migration
             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
             $table->bigInteger('sis_esta_id')->unsigned();
+            $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
@@ -30,6 +31,7 @@ class CreateSisMunicipiosTable extends Migration
         Schema::create('h_sis_municipios', function (Blueprint $table) {
 
             $table->bigIncrements('id');
+            $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table->bigInteger('sis_departamento_id')->unsigned();
             $table->string('s_municipio');
             $table = CamposMagicos::h_magicos($table);

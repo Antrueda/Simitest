@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisBarrio extends Model
 {
-    protected $fillable = ['s_barrio',  'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['s_barrio','simianti_id',  'sis_esta_id', 'user_crea_id', 'user_edita_id'];
     public function sis_upzbarris()
     {
         return $this->hasMany(SisUpzbarri::class);

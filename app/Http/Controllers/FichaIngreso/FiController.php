@@ -23,6 +23,7 @@ use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
+use PhpParser\Node\Stmt\Else_;
 
 class FiController extends Controller
 {
@@ -369,10 +370,8 @@ class FiController extends Controller
         $this->opciones['readfisi'] = '';
 
         $localida = 0;
-        $upzxxxxx = $localida;
-        $paisxxxx = $localida;
 
-        $departam = $localida;
+
 
 
         // indica si se esta actualizando o viendo
@@ -409,18 +408,37 @@ class FiController extends Controller
             $this->opciones['poblindi'] =  Parametro::find(235)->Combo;
         }
 
+        if ($dataxxxx['modeloxx']->prm_doc_fisico_id == 228) {
+
+            $this->opciones['neciayud'] = Tema::combo(286, true, false);
+        } else {
+
+            $this->opciones['neciayud'] = Parametro::find(235)->Combo;
+        }
+
+        if ($dataxxxx['modeloxx']->prm_situacion_militar_id == 228 || $dataxxxx['modeloxx']->prm_situacion_militar_id == 235) {
+            $this->opciones['tiplibre'] = Parametro::find(235)->Combo;
+
+            if ($dataxxxx['modeloxx']->prm_situacion_militar_id == 235) {
+                $this->opciones['situmili'] = Parametro::find(235)->Combo;
+            }
+        }
+
+        if ($this->opciones['modeloxx']->prm_etnia_id != 157) {
+            $this->opciones['poblindi'] =  Parametro::find(235)->Combo;
+        }
         $this->opciones['dependen'] = User::getUpiUsuario(true, false);
         $this->opciones['dependen'][$dataxxxx['modeloxx']->sis_depen_id] = SisDepen::find($dataxxxx['modeloxx']->sis_depen_id)->nombre;
         $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' => $dataxxxx['modeloxx']->sis_depen_id]);
-        $this->opciones['upzxxxxx'] = SisUpz::combo($localida, false);
-        $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
-        $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
-        $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
+
+        $this->opciones['upzxxxxx'] = SisUpz::combo($dataxxxx['modeloxx']->sis_localidad_id, false);
+
+         $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
+        $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamento_id, false);
+        $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
 
         $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamentoexp_id, false);
         $this->opciones['deparexp'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_paiexp_id, false);
-
-
 
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -478,12 +496,12 @@ class FiController extends Controller
      */
     public function edit(FiDatosBasico $objetoxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$objetoxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
+        $respuest = $this->getPuedeTPuede([
+            'casoxxxx' => 1,
+            'nnajxxxx' => $objetoxx->sis_nnaj_id,
+            'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
-        if ($respuest) {
-        // if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+        if ($respuest) { // if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -571,6 +589,39 @@ class FiController extends Controller
                 $respuest = ['fechaxxx' => ($fechaxxx[0] - $request->padrexxx) . '-' . $fechaxxx[1] . '-' . $fechaxxx[2], 'edadxxxx' => $request->padrexxx];
             }
             return response()->json($respuest);
+        }
+    }
+
+    public function prueba($departam,$upzxxxxx)
+    {
+
+
+
+
+        // $departax='';
+        $buesqued = $this->getTraerData($departam,$upzxxxxx);
+        // foreach (SisUpz::get() as $key => $value) {
+        //    echo "SisUpz::create(['id'=>{$value->id},'s_upz' => '{$value->s_upz}', 's_codigo' => {$value->s_codigo},'simianti_id'=>{$value->simianti_id}]);{$value->simiante_id}//".($key+1)."<br>";
+        // }
+
+        //  ddd($buesqued);
+        $i=1;
+        foreach ($buesqued as $key => $value) {
+$sisupzxx=SisUpz::where('simianti_id',$value['idpadrex'])->first();
+
+            $departam=SisBarrio::where('s_barrio', $value['nombrexx'])->first();
+
+
+            if (!isset($departam->id)) {
+                // echo '<pre>';
+                // print_r($value);
+                 echo $i++.' ==> '.$value['idxxxxxx'] . ' ==> ' . $value['nombrexx'] . '<br>';
+                //  SisBarrio::create(['s_barrio'=>$value['nombrexx'],'simianti_id'=>$value['idxxxxxx'],  'sis_esta_id'=>1, 'user_crea_id'=>1, 'user_edita_id'=>1]);
+            } else { //echo $key.'<br>';
+
+
+                //  $departam->update(['simianti_id'=>$value['idxxxxxx']]);
+            }
         }
     }
 }

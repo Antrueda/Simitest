@@ -10,8 +10,8 @@ class HSisLocalidad extends Model
         's_localidad',
         'user_crea_id',
         'user_edita_id',
-        'sis_esta_id',
-                
+        'sis_esta_id','simianti_id',
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

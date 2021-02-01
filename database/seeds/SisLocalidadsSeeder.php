@@ -12,90 +12,27 @@ class SisLocalidadsSeeder extends Seeder
      */
     public function run()
     {
-        SisLocalidad::create([
-            'id'=>1,
-            's_localidad' => 'USAQUÉN',
-        ]);//1
-        SisLocalidad::create([
-            'id'=>2,
-            's_localidad' => 'CHAPINERO',
-        ]);//2
-        SisLocalidad::create([
-            'id'=>3,
-            's_localidad' => 'SANTA FE',
-        ]);//3
-        SisLocalidad::create([
-            'id'=>4,
-            's_localidad' => 'SAN CRISTÓBAL',
-        ]);//4
-        SisLocalidad::create([
-            'id'=>5,
-            's_localidad' => 'USME',
-        ]);//5
-        SisLocalidad::create([
-            'id'=>6,
-            's_localidad' => 'TUNJUELITO',
-        ]);//6
-        SisLocalidad::create([
-            'id'=>7,
-            's_localidad' => 'BOSA',
-        ]);
-        SisLocalidad::create([
-            'id'=>8,
-            's_localidad' => 'KENNEDY',
-        ]);
-        SisLocalidad::create([
-            'id'=>9,
-            's_localidad' => 'FONTIBÓN',
-        ]);
-        SisLocalidad::create([
-            'id'=>10,
-            's_localidad' => 'ENGATIVÁ',
-        ]);
-        SisLocalidad::create([
-            'id'=>11,
-            's_localidad' => 'SUBA',
-        ]);
-        SisLocalidad::create([
-            'id'=>12,
-            's_localidad' => 'BARRIOS UNIDOS',
-        ]);
-        SisLocalidad::create([
-            'id'=>13,
-            's_localidad' => 'TEUSAQUILLO',
-        ]);
-        SisLocalidad::create([
-            'id'=>14,
-            's_localidad' => 'LOS MÁRTIRES',
-        ]);
-        SisLocalidad::create([
-            'id'=>15,
-            's_localidad' => 'ANTONIO NARIÑO',
-        ]);
-        SisLocalidad::create([
-            'id'=>16,
-            's_localidad' => 'PUENTE ARANDA',
-        ]);
-        SisLocalidad::create([
-            'id'=>17,
-            's_localidad' => 'LA CANDELARIA',
-        ]);
-        SisLocalidad::create([
-            'id'=>18,
-            's_localidad' => 'RAFAEL URIBE',
-        ]);
-        SisLocalidad::create([
-            'id'=>19,
-            's_localidad' => 'CIUDAD BOLÍVAR',
-        ]);
-        SisLocalidad::create([
-            'id'=>20,
-            's_localidad' => 'SOACHA',
-        ]);
-        SisLocalidad::create([
-            'id'=>21,
-            's_localidad' => 'SUMAPAZ',
-        ]);
+        SisLocalidad::create(['s_localidad' => '01 USAQUÉN','simianti_id'=>1000]);
+SisLocalidad::create(['s_localidad' => '02 CHAPINERO','simianti_id'=>2000]);
+SisLocalidad::create(['s_localidad' => '03 SANTA FE','simianti_id'=>3000]);
+SisLocalidad::create(['s_localidad' => '04 SAN CRISTÓBAL','simianti_id'=>4000]);
+SisLocalidad::create(['s_localidad' => '05 USME','simianti_id'=>5000]);
+SisLocalidad::create(['s_localidad' => '06 TUNJUELITO','simianti_id'=>6000]);
+SisLocalidad::create(['s_localidad' => '07 BOSA','simianti_id'=>7000]);
+SisLocalidad::create(['s_localidad' => '08 KENNEDY','simianti_id'=>8000]);
+SisLocalidad::create(['s_localidad' => '09 FONTIBÓN','simianti_id'=>9000]);
+SisLocalidad::create(['s_localidad' => '10 ENGATIVÁ','simianti_id'=>10000]);
+SisLocalidad::create(['s_localidad' => '11 SUBA','simianti_id'=>11000]);
+SisLocalidad::create(['s_localidad' => '12 BARRIOS UNIDOS','simianti_id'=>12000]);
+SisLocalidad::create(['s_localidad' => '13 TEUSAQUILLO','simianti_id'=>13000]);
+SisLocalidad::create(['s_localidad' => '14 LOS MÁRTIRES','simianti_id'=>14000]);
+SisLocalidad::create(['s_localidad' => '15 ANTONIO NARIÑO','simianti_id'=>15000]);
+SisLocalidad::create(['s_localidad' => '16 PUENTE ARANDA','simianti_id'=>16000]);
+SisLocalidad::create(['s_localidad' => '17 LA CANDELARIA','simianti_id'=>17000]);
+SisLocalidad::create(['s_localidad' => '18 RAFAEL URIBE','simianti_id'=>18000]);
+SisLocalidad::create(['s_localidad' => '19 CIUDAD BOLÍVAR','simianti_id'=>19000]);
+SisLocalidad::create(['s_localidad' => '20 SOACHA','simianti_id'=>208205]);
+SisLocalidad::create(['s_localidad' => '21 SUMAPAZ','simianti_id'=>20000]);
         SisLocalidad::create([
             'id'=>22,
             's_localidad' => 'N/A',
