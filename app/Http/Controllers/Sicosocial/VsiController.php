@@ -16,11 +16,13 @@ use App\Models\sicosocial\Vsi;
 use App\Models\Sistema\SisDepen;
 use App\Models\User;
 use App\Traits\GestionTiempos\ManageTimeTrait;
+use App\Traits\Puede\PuedeTrait;
 
 class VsiController extends Controller
 {
     use VsiTrait;
     use ManageTimeTrait;
+    use PuedeTrait;
     private $opciones;
 
     public function __construct()
@@ -220,7 +222,11 @@ class VsiController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$objetoxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['vsixxxxx'] = $objetoxx;
         $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];
@@ -230,6 +236,7 @@ class VsiController extends Controller
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
+            }
         }
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->nnaj->fi_datos_basico]);
     }

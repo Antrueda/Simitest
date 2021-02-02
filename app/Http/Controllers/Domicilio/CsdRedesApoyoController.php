@@ -12,12 +12,14 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Tema;
 use App\Traits\Csd\CsdTrait;
+use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CsdRedesApoyoController extends Controller
 {
     use CsdTrait;
+    use PuedeTrait;
     private $opciones;
     public function __construct()
     {
@@ -282,12 +284,18 @@ class CsdRedesApoyoController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,  CsdRedsocPasado $modeloxx)
     {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$padrexxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
+        }
             return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar','formulario'], 'padrexxx' => $padrexxx]);
     }
 

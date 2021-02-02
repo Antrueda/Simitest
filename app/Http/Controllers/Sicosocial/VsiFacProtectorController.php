@@ -10,11 +10,13 @@ use App\Models\sicosocial\VsiFacProtector;
 use App\Traits\Vsi\VsiTrait;
 use Illuminate\Http\Request;
 use App\Models\sicosocial\Vsi;
+use App\Traits\Puede\PuedeTrait;
 use Illuminate\Support\Facades\Auth;
 
 class VsiFacProtectorController extends Controller
 {
     use VsiTrait;
+    use PuedeTrait;
     private $opciones;
 
     public function __construct()
@@ -150,6 +152,11 @@ class VsiFacProtectorController extends Controller
      */
     public function edit(VsiFacProtector $objetoxx)
     {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$objetoxx->vsi->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['parametr'] = [$objetoxx->vsi->id];
         $this->opciones['padrexxx'] = $objetoxx->id;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -158,6 +165,7 @@ class VsiFacProtectorController extends Controller
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
+            }
         }
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
     }

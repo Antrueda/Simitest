@@ -11,11 +11,13 @@ use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiConsentimiento;
 use App\Models\User;
+use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
 
 class VsiConsentimientoController extends Controller
 {
     use VsiTrait;
+    use PuedeTrait;
     private $opciones;
 
     public function __construct()
@@ -118,13 +120,18 @@ class VsiConsentimientoController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$objetoxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
+            }
         }
         return $this->view(['modeloxx' => $objetoxx->VsiConsentimiento, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }

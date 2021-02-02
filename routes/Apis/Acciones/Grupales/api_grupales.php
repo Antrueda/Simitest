@@ -34,12 +34,14 @@ Route::get('agr/talleres', function (Request $request) {
 Route::get('agr/temas', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     return datatables()
-        ->eloquent(AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre'])
+        ->eloquent(AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre','sis_estas.s_estado'])
             ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
+            ->join('sis_estas', 'ag_temas.sis_esta_id', '=', 'sis_estas.id')
             ->where('ag_temas.sis_esta_id', 1))
 
         ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi',2)
-        ->rawColumns(['btns'])
+        ->addColumn('s_estado', $request->estadoxx)
+        ->rawColumns(['btns', 's_estado'])
         ->toJson();
 });
 

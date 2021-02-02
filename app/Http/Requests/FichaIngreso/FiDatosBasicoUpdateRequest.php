@@ -5,6 +5,7 @@ namespace App\Http\Requests\FichaIngreso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Rules\FechaCorrecta;
 use App\Rules\FechaMenor;
+use App\Traits\Puede\PuedeTrait;
 use DateTime;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -12,7 +13,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
-
+    use PuedeTrait;
     public function __construct()
     {
         $this->_mensaje = [
@@ -87,12 +88,13 @@ class FiDatosBasicoUpdateRequest extends FormRequest
 
     public function messages()
     {
+        /*
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1,
             'usuariox' => auth()->user(),
             // 'fechregi' => explode(' ',$queryxxx->created_at)[0]
         ]);
-
+*/
         // ddd($puedexxx);
         return $this->_mensaje;
     }

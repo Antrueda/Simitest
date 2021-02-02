@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Acciones\Grupales;
 use App\Http\Controllers\Controller;
 use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\AgAsistente;
+use App\Models\Acciones\Grupales\AgResponsable;
 use App\Traits\Acciones\Grupales\Asistente\CrudTrait;
 use App\Traits\Acciones\Grupales\Asistente\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Asistente\VistasTrait;
@@ -33,6 +34,10 @@ class AgAsistenteController extends Controller
         $this->opciones['padrexxx'] =$padrexxx;
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $responsa = AgResponsable::where('ag_actividad_id',$padrexxx->id)->get();
+        if(  count($responsa)<=2){
+        $this->getBotones(['crear', ['agrespon.nuevo', [$padrexxx->id]], 2, 'AGREGAR RESPONSABLE', 'btn btn-sm btn-primary']);
+        }
         $this->getBotones(['editar', ['agactividad.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
     }
@@ -60,6 +65,7 @@ class AgAsistenteController extends Controller
         $this->opciones['padrexxx'] =$modeloxx->ag_actividad;
         $this->pestanix[1]['dataxxxx'] = [true, $this->opciones['padrexxx']->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+
         $this->getBotones(['editar', ['agactividad.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR RESPOSABLE', 'btn btn-sm btn-primary']),

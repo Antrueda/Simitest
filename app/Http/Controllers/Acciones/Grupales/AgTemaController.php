@@ -45,12 +45,15 @@ class AgTemaController extends Controller
             ['td' => 'NOMBRE'],
             ['td' => 'ESTADO'],
         ];
+        $this->opciones['dataxxxx'] = [
+            ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components/botones/estadoxx'],
+        ];
         $this->opciones['columnsx'] = [
             ['data' => 'btns', 'name' => 'btns'],
             ['data' => 'id', 'name' => 'ag_temas.id'],
             ['data' => 'nombre', 'name' => 'areas.nombre'],
             ['data' => 's_tema', 'name' => 'ag_temas.s_tema'],
-            ['data' => 'sis_esta_id', 'name' => 'ag_temas.sis_esta_id'],
+            ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
 
         ];
     }

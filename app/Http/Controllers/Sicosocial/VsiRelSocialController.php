@@ -11,10 +11,12 @@ use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\sicosocial\VsiRelSociales;
 use App\Models\Tema;
+use App\Traits\Puede\PuedeTrait;
 
 class VsiRelSocialController extends Controller
 {
     use VsiTrait;
+    use PuedeTrait;
     private $opciones;
 
     public function __construct()
@@ -119,7 +121,11 @@ class VsiRelSocialController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$objetoxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -128,6 +134,7 @@ class VsiRelSocialController extends Controller
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
+            }
         }
         return $this->view(['modeloxx' => $objetoxx->VsiRelSociale, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }

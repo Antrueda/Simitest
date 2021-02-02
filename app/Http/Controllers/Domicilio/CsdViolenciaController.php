@@ -12,10 +12,12 @@ use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Traits\Fi\VcontviolTrait;
+use App\Traits\Puede\PuedeTrait;
 
 class CsdViolenciaController extends Controller
 {
     private $opciones;
+    use PuedeTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'csdviolencia';
@@ -141,6 +143,11 @@ class CsdViolenciaController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdViolencia $modeloxx)
     {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -148,6 +155,7 @@ class CsdViolenciaController extends Controller
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
+            }
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
     }

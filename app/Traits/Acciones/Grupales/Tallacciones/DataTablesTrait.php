@@ -69,7 +69,7 @@ trait DataTablesTrait
                     'titunuev' => 'AGREGAR RESPONSABLE Y ACOMPAÑANTES',
                     'titulist' => 'LISTA DE RESPONSABLES Y ACOMPAÑANTES',
                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'titupreg' => 'FUNCIONARIOS Y/O CONTRATISTAS QUE REALIZAN LA ACTIVIDAD/TALLER:',
+                    'titupreg' => 'RESPONSABLE Y ACOMPAÑANTES:',
                     'vercrear' => (count($responsa) <= 2 ? true : false),
                     'urlxxxxx' => route($dataxxxx['routxxxx'] . '.responsa', $dataxxxx['modeloxx']->id),
                     'permtabl' => [

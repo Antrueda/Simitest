@@ -23,7 +23,7 @@ trait VistasTrait
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     public function getVista($opciones, $dataxxxx)
     {
-        $opciones['fosareas'] = Area::comb(true, false);
+        $opciones['fosareas'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -38,7 +38,7 @@ trait VistasTrait
         $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['entidadx'] = SisEntidad::combo(true, false);
-        $opciones['dependen'] = User::getDependenciasUser(['cabecera' => true, 'esajaxxx' => false]);
+        $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['upidepen'] = SisDepen::combo(true, false);
         $opciones['agtemaxx'] = ['' => 'Seleccione'];
         $opciones['tallerxx'] = ['' => 'Seleccione'];

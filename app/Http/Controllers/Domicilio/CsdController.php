@@ -11,10 +11,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\Csd\CsdTrait;
+use App\Traits\Puede\PuedeTrait;
 
 class CsdController extends Controller
 {
     use CsdTrait;
+    use PuedeTrait;
     private $opciones;
 
     public function __construct()
@@ -247,7 +249,12 @@ class CsdController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(SisNnaj $padrexxx, Csd $modeloxx)
-    {
+    {      
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -255,6 +262,7 @@ class CsdController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
+    }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'csd'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 

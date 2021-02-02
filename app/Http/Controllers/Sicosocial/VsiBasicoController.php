@@ -9,11 +9,13 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisEsta;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
+use App\Traits\Puede\PuedeTrait;
 use Carbon\Carbon;
 
 class VsiBasicoController extends Controller
 {
     private $opciones;
+    use PuedeTrait;
 
     public function __construct()
     {
@@ -155,6 +157,11 @@ class VsiBasicoController extends Controller
      */
     public function edit(Vsi $objetoxx)
     { 
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$objetoxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['vsixxxxx'] = $objetoxx;
         $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];
@@ -164,6 +171,7 @@ class VsiBasicoController extends Controller
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
+            }
         }
 
         

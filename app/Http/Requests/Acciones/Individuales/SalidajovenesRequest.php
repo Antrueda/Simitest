@@ -20,7 +20,7 @@ class SalidajovenesRequest extends FormRequest
             'telefono.required'=>'Ingrese el teléfono',
             'fecharetorno.required_if'=>'Indique la fecha de retorno',
             'horaretorno.required_if'=>'Indique la hora de retorno',
-            'razones.required'=>'Ingrese la dirección',
+            'razones.required'=>'Ingrese al menos un motivo',
             ];
         $this->_reglasx = [
             'hora_salida' => 'required|exists:parametros,id',

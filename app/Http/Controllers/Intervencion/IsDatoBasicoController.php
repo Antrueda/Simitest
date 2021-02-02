@@ -11,13 +11,14 @@ use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
 use App\Models\User;
 use App\Models\Tema;
+use App\Traits\Puede\PuedeTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class IsDatoBasicoController extends Controller
 {
-
+    use PuedeTrait;
     private $bitacora;
     private $opciones;
 
@@ -233,6 +234,11 @@ class IsDatoBasicoController extends Controller
      */
     public function edit($nnajregi, IsDatosBasico $intervencion)
     {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$intervencion->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['botoform'][] =
         [
             'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -242,6 +248,7 @@ class IsDatoBasicoController extends Controller
         $this->opciones['dispform'] = "block";
         $this->opciones['nnajregi'] = $nnajregi;
         $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
+         }
         return $this->view($intervencion, 'modeloxx', 'Editar');
     }
 

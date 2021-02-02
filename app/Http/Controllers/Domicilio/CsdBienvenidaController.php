@@ -10,11 +10,13 @@ use App\Models\consulta\CsdBienvenida;
 use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Tema;
+use App\Traits\Puede\PuedeTrait;
 
 class CsdBienvenidaController extends Controller
 {
 
     private $opciones;
+    use PuedeTrait;
 
     public function __construct()
     {
@@ -140,6 +142,11 @@ class CsdBienvenidaController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,CsdBienvenida $modeloxx)
     {
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$padrexxx->sis_nnaj_id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['csdxxxxx']=$padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -147,6 +154,7 @@ class CsdBienvenidaController extends Controller
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
+           }
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar',  'formulario', 'js',], 'padrexxx' => $padrexxx]);
 
