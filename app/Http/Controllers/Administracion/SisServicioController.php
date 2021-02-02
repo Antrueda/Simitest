@@ -7,6 +7,7 @@ use App\Http\Requests\Sistema\SisServicioCrearRequest;
 use App\Http\Requests\Sistema\SisServicioEditarRequest;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisServicio;
+use App\Models\Usuario\Estusuario;
 use App\Traits\Administracion\SistemaTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,6 +43,7 @@ class SisServicioController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
 
         $this->opciones['tituloxx'] = "SERVICIOS";
+        $this->opciones['readonly'] = '';
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
@@ -118,9 +120,10 @@ class SisServicioController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
         ];
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
 
         // indica si se esta actualizando o viendo
+        $estadoid = 0;
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -132,8 +135,15 @@ class SisServicioController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
+
             $this->opciones['pestpadr'] = 2;
         }
+        $this->opciones['motivoxx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2500
+        ]);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -151,7 +161,7 @@ class SisServicioController extends Controller
     public function store(SisServicioCrearRequest $request)
     {
 
-        return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
+        return $this->grabar($request->all(), '', 'Servicio creado con exito');
     }
 
     /**
@@ -193,7 +203,7 @@ class SisServicioController extends Controller
     public function update(SisServicioEditarRequest $request,  SisServicio $objetoxx)
     {
 
-        return $this->grabar($request->all(), $objetoxx, 'Datos básicos actualizados con exito');
+        return $this->grabar($request->all(), $objetoxx, 'Servicio actualizado con exito');
     }
 
     public function inactivate(SisServicio $objetoxx)
@@ -216,6 +226,18 @@ class SisServicioController extends Controller
         $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Servicio inactivada correctamente');
+            ->with('info', 'Servicio inactivado correctamente');
+    }
+    public function getMotivos(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2500])
+            );
+        }
     }
 }

@@ -166,7 +166,7 @@ class AreadminController extends Controller
     }
     public function store(AreaCrearRequest $request)
     {
-        return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
+        return $this->grabar($request->all(), '', 'Área creada con exito');
     }
 
     /**
@@ -208,7 +208,7 @@ class AreadminController extends Controller
     public function update(AreaEditarRequest $request,  Area $objetoxx)
     {
 
-        return $this->grabar($request->all(), $objetoxx, 'Datos básicos actualizados con exito');
+        return $this->grabar($request->all(), $objetoxx, 'Área actualizada con exito');
     }
 
     public function inactivate(Area $objetoxx)
@@ -232,7 +232,7 @@ class AreadminController extends Controller
         $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Sucursal inactivada correctamente');
+            ->with('info', 'Área inactivada correctamente');
     }
     public function getMotivos(Request $request)
     {

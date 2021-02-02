@@ -23,7 +23,7 @@ class EstusuariosSeeder extends Seeder
     public function run()
     {
         $this->getReg(
-            ['CREACION USUARIO', 2325]
+            ['CREACION USUARIO NUEVO,PERMISOS SEGUN CARGO PROFESIONAL Y SE RESTAURA CLAVE', 2325]
         ); //1
         $this->getReg(
             ['TERMINACIÓN DE CONTRATO', 2325]
@@ -74,14 +74,31 @@ class EstusuariosSeeder extends Seeder
 
         $this->getReg(
             ['NUEVO REGISTRO', 2498]
-        ); //1
+        ); //16
         $this->getReg(
             ['NUEVO REGISTRO', 2499]
-        ); //1
+        ); //17
 
+        $this->getReg(
+            ['ADICIÓN CONTRATO Y SE RESTAURA LA CLAVE', 2325]
+        ); //18
+        $this->getReg(
+            ['SE DA PERMISO A OTRA UPI, DIFERENTE A LA DE ORIGEN PARA SUBIR REGISTRO DE ATENCIONES REALIZADAS Y/O JORNADA INGRESO', 2325]
+        ); //19
 
-
-
+        $this->getReg(
+            ['SE DA PERMISO UNA SEMANA MAS TERMINADO EL CONTRATO PARA QUEDAR A PAZ Y SALVO-SIMI SE MODIFICA INFORMACIÓN AL USUARIO Y/O SE RESTAURAR CLAVE', 2325]
+        ); //20
+        $this->getReg(
+            ['VERIFICACION DE INFORMACION-FORMATO 015 GESTION DE USUARIOS', 2325]
+        ); //20
+        $this->getReg(
+            ['PERMISO A REGISTRAR ACCIONES DIFERENTES A SU CARGO-APROBADO POR LIDER Y/O RESPONSABLE DE UPI/AREA', 2325]
+        ); //20
+        $this->getReg(
+            ['PERMISO A REGISTRAR ACCIONES DIFERENTES A SU CARGO-APROBADO POR LIDER Y/O RESPONSABLE DE UPI/AREA', 2325]
+        ); //20
+        
 
         // $this->getReg(
         //     ['',]

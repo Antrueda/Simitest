@@ -6,6 +6,10 @@ Route::group(['prefix' => 'servicios'], function ()use($routexxx,$controll){
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
 	])->name($routexxx);
+	Route::get('motivos', [
+		'uses' => $controll . 'Controller@getMotivos',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.motivosx');
     Route::get('listaxxx', [
 		'uses' => $controll.'Controller@getListado',
 		'middleware' => ['permission:'.$routexxx.'-leer']

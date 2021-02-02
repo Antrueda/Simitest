@@ -15,10 +15,15 @@ class AlertasCrearRequest extends FormRequest
         $this->_mensaje = [
             'titulo.required' => 'Ingrese un título',
             'descripcion.required' => 'Ingrese una descripcion',
+            'sis_esta_id.required' => 'Seleccione un estado',
+            'estusuario_id.required' => 'Seleccione una justificación de estado',
+            
         ];
         $this->_reglasx = [
             'titulo' => ['required'],
             'descripcion' => ['required'],
+            'sis_esta_id' => ['required'],
+            'estusuario_id' => ['required'],
         ];
     }
     /**
