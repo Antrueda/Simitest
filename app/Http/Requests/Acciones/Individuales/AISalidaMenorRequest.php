@@ -2,13 +2,16 @@
 
 namespace App\Http\Requests\Acciones\Individuales;
 
+use App\Rules\FechaMenor;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AISalidaMenorRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
-
+    use  ManageTimeTrait;
+    
     public function __construct()
     {
         $this->_mensaje = [
@@ -40,7 +43,7 @@ class AISalidaMenorRequest extends FormRequest
             ];
         $this->_reglasx = [
             'prm_upi_id'        => 'required|exists:sis_depens,id',
-            'fecha'             => 'required|date',
+            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],            
             'hora_salida'    => 'required',
             'primer_apellido'   => 'required|string|max:120',
             'segundo_apellido'  => 'nullable|string|max:120',
@@ -100,7 +103,19 @@ class AISalidaMenorRequest extends FormRequest
      */
     public function rules()
     {
+        if ($this->fecha != '') {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->fecha
+            ]);
+
+            if (!$puedexxx['tienperm']) {
+                $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $puedexxx['fechlimi'];
+                $this->_reglasx['sinpermi'] = 'required';
+            }
+        }
         $this->validar();
+
         return $this->_reglasx;
     }
     public function validar()

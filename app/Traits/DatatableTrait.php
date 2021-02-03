@@ -99,7 +99,6 @@ trait DatatableTrait
                 function ($queryxxx) use ($requestx) {
                     $puedexxx = $this->getPuedeCargar([
                         'estoyenx' => 1,
-                        'usuariox' => auth()->user(),
                         'fechregi' => explode(' ',$queryxxx->created_at)[0]
                     ]);
                     /**

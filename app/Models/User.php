@@ -52,6 +52,7 @@ class User extends Authenticatable
         'itigafin',
         'password_change_at',
         'password_reset_at',
+        'polidato_at'
     ];
 
     /**

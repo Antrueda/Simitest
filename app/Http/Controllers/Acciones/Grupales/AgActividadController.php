@@ -83,7 +83,8 @@ class AgActividadController extends Controller
 
 
     public function edit(AgActividad $modeloxx)
-    {  $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+    {  
+        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
         'nnajxxxx'=>$modeloxx->id,
         'permisox'=>$this->opciones['permisox'] . '-editar',
         ]);

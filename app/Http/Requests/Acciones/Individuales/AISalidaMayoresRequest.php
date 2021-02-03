@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Acciones\Individuales;
 
+use App\Rules\FechaMenor;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -9,6 +11,7 @@ class AISalidaMayoresRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
+    use  ManageTimeTrait;
 
     public function __construct()
     {
@@ -21,7 +24,7 @@ class AISalidaMayoresRequest extends FormRequest
             
             ];
         $this->_reglasx = [
-            'fecha'       => 'required|date',
+            'fecha' => ['required', 'date_format:Y-m-d', new FechaMenor()],     
             'prm_upi_id'  => 'required|exists:sis_depens,id',
             'user_doc2_id'  => 'required',
                         
@@ -48,9 +51,22 @@ class AISalidaMayoresRequest extends FormRequest
      */
     public function rules()
     {
+        if ($this->fecha != ''&& $this->prm_upi_id ) {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->fecha,
+                'upixxxxx' => $this->prm_upi_id,
+                'formular'=>3,
+                ]);
+                if (!$puedexxx['tienperm']) {
+                    $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
+                    $this->_reglasx['sinpermi'] = 'required';
+                }
+        }
         $this->validar();
-        return $this->_reglasx;    }
 
+        return $this->_reglasx;
+    }
         public function validar()
         {
          

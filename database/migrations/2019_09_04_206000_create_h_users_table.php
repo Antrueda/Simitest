@@ -41,8 +41,10 @@ class CreateHUsersTable extends Migration
             $table->integer('sis_municipio_id');
             $table->integer('estusuario_id')->unsigned()->nullable();
             $table->integer('prm_documento_id');
+            $table->timestamp('polidato_at')->nullable();
             $table->rememberToken();
             $table = CamposMagicos::h_magicos($table);
+            
         });
        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

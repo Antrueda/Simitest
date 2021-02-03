@@ -2,13 +2,15 @@
 
 namespace App\Http\Requests\Acciones\Grupales;
 
+use App\Rules\FechaMenor;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AgActividadCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
-
+    use  ManageTimeTrait;
     public function __construct()
     {
 
@@ -37,7 +39,7 @@ class AgActividadCrearRequest extends FormRequest
             's_observac.required' => 'Ingrese una observación',
         ];
         $this->_reglasx = [
-            'd_registro' =>['required'],
+            'd_registro' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'area_id' =>['required'],
             'sis_deporigen_id' =>['required'],
             'ag_tema_id' =>['required'],
@@ -82,7 +84,20 @@ class AgActividadCrearRequest extends FormRequest
      */
     public function rules()
     {
+        if ($this->d_registro != '') {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->d_registro,
+                'upixxxxx' => $this->sis_deporigen_id,
+                'formular'=>2,
+                ]);
+                if (!$puedexxx['tienperm']) {
+                    $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
+                    $this->_reglasx['sinpermi'] = 'required';
+                }
+        }
         $this->validar();
+
         return $this->_reglasx;
     }
 

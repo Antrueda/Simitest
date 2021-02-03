@@ -55,6 +55,7 @@ class CreateUsersTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
             $table->unique(['s_documento']);
+            $table->timestamp('polidato_at')->nullable();
         });
        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS USUARIOS REGISTRADOS EN EL SISTEMA'");
     }

@@ -120,7 +120,7 @@ class UsuDepenController extends Controller
 
     private function view($dataxxxx)
     {
-        $this->opciones['responsa'] = Tema::comboDesc(23, true, false);
+        $this->opciones['responsa'] = Tema::combo(23, true, false);
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
         $selectxx = 0;

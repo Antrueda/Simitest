@@ -2,12 +2,15 @@
 
 namespace App\Http\Requests\FichaObservacion;
 
+use App\Rules\FechaMenor;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FosDatosBasicoCrearRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
+    use  ManageTimeTrait;
 
     public function __construct()
     {
@@ -21,8 +24,8 @@ class FosDatosBasicoCrearRequest extends FormRequest
             //'fi_compfami_id.required' => 'Escriba el acudiente',
         ];
         $this->_reglasx = [
+            'd_fecha_diligencia' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'sis_depen_id' => ['Required'],
-            'd_fecha_diligencia' => ['Required'],
             'fos_stse_id' => ['Required'],
             's_observacion' => ['Required'],
             'sis_entidad_id'=> ['Required'],
@@ -51,7 +54,19 @@ class FosDatosBasicoCrearRequest extends FormRequest
      */
     public function rules()
     {
+        if ($this->d_fecha_diligencia != '') {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->d_fecha_diligencia
+            ]);
+
+            if (!$puedexxx['tienperm']) {
+                $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $puedexxx['fechlimi'];
+                $this->_reglasx['sinpermi'] = 'required';
+            }
+        }
         $this->validar();
+
         return $this->_reglasx;
     }
 

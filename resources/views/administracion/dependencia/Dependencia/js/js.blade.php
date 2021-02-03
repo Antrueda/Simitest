@@ -149,10 +149,17 @@
             if(data.valuexxx==pselecte){
               selected='selected';
             }
-            $('#sis_municipio_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-          });
+            if(departam==6){
+                $('#sis_municipio_id').append('<option '+selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+            }else{
+                $('#sis_municipio_id').empty();
+                $('#sis_municipio_id').append('<option  value="1">N/A</option>')
+            }
+                        
+            });
 
         },
+        
         error: function (xhr, status) {
           alert('Disculpe, existiÃ³ un problema');
         }

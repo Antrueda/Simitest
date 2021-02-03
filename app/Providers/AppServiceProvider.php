@@ -52,7 +52,7 @@ use App\Models\fichaobservacion\FosTse;
 use App\Models\intervencion\IsDatosBasico;
 use App\Models\intervencion\IsProximaAreaAjuste;
 
-use App\Models\Permissionext;
+
 use App\Models\Post;
 
 
@@ -182,7 +182,6 @@ use App\Observers\InValidacionObserver;
 
 use App\Observers\ParametroObserver;
 use App\Observers\ParametroTemaObserver;
-use App\Observers\PermissionextObserver;
 use App\Observers\PostObserver;
 use App\Observers\RoleextObserver;
 use App\Observers\RolUsuarioObserver;
@@ -324,7 +323,7 @@ class AppServiceProvider extends ServiceProvider
 
         // CARPETA RAIZ
         // Parametro::observe(ParametroObserver::class);
-        Permissionext::observe(PermissionextObserver::class);
+        
         Post::observe(PostObserver::class);
 
         Tema::observe(TemaObserver::class);
