@@ -2539,6 +2539,9 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'TALLERES EDUCATIVOS Y ACCIONES FORMATIVAS']);//2499
         $this->getR(['nombrexx' => 'SERVICIOS']);//2500
         $this->getR(['nombrexx' => 'ESTADO DE USUARIOS']);//2501
+        $this->getR(['nombrexx' => 'EL PARAMETRO NO EXISTE EN EL ACTUAL DESARROLLO O NO HA SIDO ASIGNADO']);//2502
+        $this->getR(['nombrexx' => 'PARAMETRO NO ASIGNADO EN EL ANTIGUO SIMI']);//2503
+
 
     }
 }

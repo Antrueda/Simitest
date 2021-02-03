@@ -18,6 +18,7 @@ class CreateSisUpzbarrisTable extends Migration
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('sis_localupz_id')->unsigned()->comment('CAMPO ID LOCALIDAD UPZ');
             $table->bigInteger('sis_barrio_id')->unsigned()->comment('CAMPO ID DEL BARRIO');
+            $table->Integer('simianti_id')->default(0)->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
@@ -33,9 +34,7 @@ class CreateSisUpzbarrisTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('sis_localupz_id')->unsigned();
             $table->bigInteger('sis_barrio_id')->unsigned();
-            $table->foreign('sis_localupz_id')->references('id')->on('sis_localupzs');
-            $table->foreign('sis_barrio_id')->references('id')->on('sis_barrios');
-            $table->unique(['sis_barrio_id','sis_localupz_id']);
+            $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table = CamposMagicos::h_magicos($table);
         });
     }

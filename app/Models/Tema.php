@@ -15,7 +15,7 @@ class Tema extends Model {
   }
 
   public function parametros() {
-    return $this->belongsToMany(Parametro::class);
+    return $this->belongsToMany(Parametro::class)->withPivot('simianti_id');
   }
 
   /**
@@ -47,8 +47,8 @@ class Tema extends Model {
       } else {
         $comboxxx[$registro->valuexxx] = $registro->optionxx;
       }
-    } 
-    return $comboxxx;    
+    }
+    return $comboxxx;
   }
 
   public static function comboDesc($temaxxxx, $cabecera, $ajaxxxxx) {

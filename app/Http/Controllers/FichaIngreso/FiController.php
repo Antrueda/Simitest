@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisUpzbarri;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
 use PhpParser\Node\Stmt\Else_;
@@ -433,7 +434,7 @@ class FiController extends Controller
 
         $this->opciones['upzxxxxx'] = SisUpz::combo($dataxxxx['modeloxx']->sis_localidad_id, false);
 
-         $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
+        $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
         $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamento_id, false);
         $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
 
@@ -592,36 +593,19 @@ class FiController extends Controller
         }
     }
 
-    public function prueba($departam,$upzxxxxx)
+    public function prueba($departam, Request $request)
     {
+        $puedexxx = $this->getPuedeCargar([
+            'estoyenx' => 1,
+            'usuariox' => auth()->user(),
+            'fechregi' => '1975-04-21'
+        ]);
 
 
 
-
-        // $departax='';
-        $buesqued = $this->getTraerData($departam,$upzxxxxx);
-        // foreach (SisUpz::get() as $key => $value) {
-        //    echo "SisUpz::create(['id'=>{$value->id},'s_upz' => '{$value->s_upz}', 's_codigo' => {$value->s_codigo},'simianti_id'=>{$value->simianti_id}]);{$value->simiante_id}//".($key+1)."<br>";
-        // }
-
-        //  ddd($buesqued);
-        $i=1;
-        foreach ($buesqued as $key => $value) {
-$sisupzxx=SisUpz::where('simianti_id',$value['idpadrex'])->first();
-
-            $departam=SisBarrio::where('s_barrio', $value['nombrexx'])->first();
+        ddd( $puedexxx);
+        // $buesqued = $this->getBuscarNnajAgregar($request);
 
 
-            if (!isset($departam->id)) {
-                // echo '<pre>';
-                // print_r($value);
-                 echo $i++.' ==> '.$value['idxxxxxx'] . ' ==> ' . $value['nombrexx'] . '<br>';
-                //  SisBarrio::create(['s_barrio'=>$value['nombrexx'],'simianti_id'=>$value['idxxxxxx'],  'sis_esta_id'=>1, 'user_crea_id'=>1, 'user_edita_id'=>1]);
-            } else { //echo $key.'<br>';
-
-
-                //  $departam->update(['simianti_id'=>$value['idxxxxxx']]);
-            }
-        }
     }
 }

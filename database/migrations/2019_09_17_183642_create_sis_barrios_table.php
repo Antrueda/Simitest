@@ -17,7 +17,7 @@ class CreateSisBarriosTable extends Migration
         Schema::create('sis_barrios', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_barrio')->unique()->comment('CAMPO NOMBRE DEL BARRIO');
-            $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
+
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
@@ -30,7 +30,6 @@ class CreateSisBarriosTable extends Migration
         Schema::create('h_sis_barrios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_barrio');
-            $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table = CamposMagicos::h_magicos($table);
         });
     }

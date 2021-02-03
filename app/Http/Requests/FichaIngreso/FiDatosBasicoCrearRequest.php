@@ -4,10 +4,10 @@ namespace App\Http\Requests\FichaIngreso;
 
 use App\Rules\FechaMenor;
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\Traits\GestionTiempos\ManageTimeTrait;
 class FiDatosBasicoCrearRequest extends FormRequest
 {
-
+    use  ManageTimeTrait;
     private $_mensaje;
     private $_reglasx;
 
@@ -93,6 +93,15 @@ class FiDatosBasicoCrearRequest extends FormRequest
      */
     public function rules()
     {
+        $puedexxx = $this->getPuedeCargar([
+            'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+            'usuariox' => auth()->user(),
+        ]);
+
+        if(!$puedexxx['tienperm']){
+            $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: '.$puedexxx['fechregi'];
+            $this->_reglasx['sinpermi'] = 'required';
+        }
         $this->validar();
         return $this->_reglasx;
     }
@@ -112,6 +121,9 @@ class FiDatosBasicoCrearRequest extends FormRequest
         }
         $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
         $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento';
+
+
+
 
     }
 }

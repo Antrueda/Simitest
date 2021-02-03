@@ -79,6 +79,7 @@ class SisDepensSeeder extends Seeder
 
         ]);
 
+
         SisDepen::create([
             'id' => 30,
             'simianti_id'=>11,
@@ -93,6 +94,21 @@ class SisDepensSeeder extends Seeder
             's_telefono' => '3100411',
             's_correo' => 'UELAFLORIDA@IDIPRON.GOV.CO',
             'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0,
+        ]);
+        SisDepen::create([
+            'id' => 31,
+
+            'nombre' => 'INFORMACION INCOMPLETA EN EL SIMI ANTIGUO',
+            'i_prm_cvital_id' => 1679,
+            'i_prm_tdependen_id' => 774,
+            'i_prm_sexo_id' => 2324,
+            's_direccion' => 'INFORMACION INCOMPLETA EN EL SIMI ANTIGUO',
+            'sis_departamento_id' => 6,
+            'sis_municipio_id' => 233,
+            'sis_upzbarri_id' => 1510,
+            's_telefono' => '',
+            's_correo' => '',
+            'sis_esta_id' => 1,'itiestan'=>0,'itiegabe'=>0,
         ]);
         $camposmagicos = ['user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1, 'i_prm_responsable_id' => 2316];
 

@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Http;
  */
 trait InterfazFiTrait
 {
+    use MigrarSimiANuevoTrait;
     private $buscarxx = [
         "primapel" => '',
         "seguapel" => '',
@@ -113,12 +114,14 @@ trait InterfazFiTrait
 
     public function getBuscarNnajAgregar($request)
     {
-        $this->buscarxx['solodato'] = true;
-        // $request->docuagre = 1071631394;
-        $this->buscarxx['casoxxxx'] = 1;
-        $this->buscarxx['document'] = $request->docuagre;
-        $todoxxxx = Http::post($this->getUrl() . 'nnajs/buscar', $this->buscarxx)->json();
-        $filtroxx = $todoxxxx[0]['gennajxx'];
+        $request->docuagre = 1006148207;
+        //treer el nnaj
+        $nnajxxxx = (object)Http::get($this->getUrl() . "nnajs/registro/{$request->docuagre}")->json();
+        // traer la upi asignada
+        $nnajupix = (object) Http::get($this->getUrl() . "upinnaj/registro/{$nnajxxxx->idxxxxxx}")->json();
+        // verificar existencia de la upi
+        $this->getUpiSimi(['idupixxx' => $nnajupix->idupixxx]);
+
 
         $fiaceing = Http::get($this->getUrl() . 'fiaceing/' . $todoxxxx[0]['gennajxx']['idxxxxxx'])->json();
         $objetoxx = new FiDatosBasico;
@@ -130,19 +133,13 @@ trait InterfazFiTrait
 
         $objetoxx->prm_identidad_genero_id = $this->idengene[$filtroxx['geneiden']];
         $objetoxx->prm_orientacion_sexual_id = $this->oriesexu[$filtroxx['oriesexo']];
-
-
         if ($filtroxx['rhxxxxxx'] != null) {
-
             $objetoxx->prm_gsanguino_id = Parametro::where('nombre', explode('+', $filtroxx['rhxxxxxx'])[0])->first()->id;
-
-
             $objetoxx->prm_factor_rh_id = Parametro::where(
                 'nombre',
                 str_replace(str_replace("+", "", $filtroxx['rhxxxxxx']), "", $filtroxx['rhxxxxxx'])
             )->first()->id;
         }
-
         $objetoxx->prm_tipodocu_id = $this->tipodocu[$filtroxx['tipodocu']];
 
         $objetoxx->prm_doc_fisico_id = $this->cuendocu[$filtroxx['cuentdoc']];
@@ -193,22 +190,12 @@ trait InterfazFiTrait
         // $objetoxx->nnaj_nacimi->sis_municipio_id=1;
         $objetoxx->nnaj_nacimi = new NnajNacimi;
         $objetoxx->d_nacimiento = $objetoxx->nnaj_nacimi->d_nacimiento = explode('T', $filtroxx['fechnaci'])[0];
-        $fiaceing = Http::get($this->getUrl() . 'fiaceing/barrioxx/' . $todoxxxx[0]['gennajxx']['idxxxxxx'])->json();
 
-         $barrioxx=Http::get($this->getUrl() . 'territorios/barrioxx/'.$fiaceing)->json();
+        $locupbari = $this->getBarrio($todoxxxx[0]['gennajxx']['idxxxxxx']);
 
-         $upzxxxxx=SisUpz::select(['sis_upzbarris.id','sis_upzbarris.sis_localupz_id','sis_localupzs.sis_localidad_id'])
-         ->join('sis_localupzs','sis_upzs.id','=','sis_localupzs.sis_upz_id')
-         ->join('sis_upzbarris','sis_localupzs.id','=','sis_upzbarris.sis_localupz_id')
-         ->join('sis_barrios','sis_upzbarris.sis_barrio_id','=','sis_barrios.id')
-         ->where('sis_upzs.simianti_id', $barrioxx['idpadrex'])
-         ->where('sis_barrios.simianti_id', $fiaceing)
-         ->first();
-         $objetoxx->sis_localidad_id=$upzxxxxx->sis_localidad_id;
-         $objetoxx->sis_upz_id=$upzxxxxx->sis_localupz_id;
-         $objetoxx->sis_upzbarri_id=$upzxxxxx->id;
-
-
+        $objetoxx->sis_localidad_id = $locupbari->sis_localupz->sis_localidad_id;
+        $objetoxx->sis_upz_id = $locupbari->sis_localupz->id;
+        $objetoxx->sis_upzbarri_id = $locupbari->id;
         return $objetoxx;
     }
     public function getData($dataxxxx)
@@ -313,10 +300,10 @@ trait InterfazFiTrait
 
     }
 
-    public function getTraerData($departam,$upzxxxxx)
+    public function getTraerData($departam, $upzxxxxx)
     {
 
-        return  Http::get($this->getUrl() . 'territorios/' . $departam.'/'.$upzxxxxx)->json();
+        return  Http::get($this->getUrl() . 'territorios/' . $departam . '/' . $upzxxxxx)->json();
 
         // $filtroxx = Http::post($this->getUrl() . 'nnajs/traer')->json();
 

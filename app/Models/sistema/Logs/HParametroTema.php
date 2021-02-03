@@ -10,8 +10,8 @@ class HParametroTema extends Model
         'parametro_id',
         'tema_id',
         'user_crea_id',
-        'user_edita_id',
-
+        'user_edita_id'
+        ,'simianti_id',
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

@@ -49,4 +49,9 @@ class SisUpz extends Model
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
+
+    public function sis_localupz()
+    {
+        return $this->hasOne(SisLocalupz::class);
+    }
 }

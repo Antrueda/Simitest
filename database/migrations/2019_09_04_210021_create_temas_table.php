@@ -30,6 +30,7 @@ class CreateTemasTable extends Migration
     Schema::create($this->tablaxxx2, function (Blueprint $table) {
       $table->bigInteger('parametro_id')->unsigned();
       $table->bigInteger('tema_id')->unsigned();
+      $table->string('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
       $table->bigInteger('user_crea_id')->unsigned();
       $table->bigInteger('user_edita_id')->unsigned();
       $table->foreign('parametro_id')->references('id')->on('parametros');

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisUpzbarri extends Model
 {
-    protected $fillable = ['sis_localupz_id', 'sis_barrio_id',  'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['sis_localupz_id', 'sis_barrio_id',  'simianti_id', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
     public static function combo( $idpadrex,$esajaxxx)
     {

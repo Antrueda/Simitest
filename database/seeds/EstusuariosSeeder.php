@@ -98,10 +98,14 @@ class EstusuariosSeeder extends Seeder
         $this->getReg(
             ['PERMISO A REGISTRAR ACCIONES DIFERENTES A SU CARGO-APROBADO POR LIDER Y/O RESPONSABLE DE UPI/AREA', 2325]
         ); //23
-        
+
         $this->getReg(
             ['NUEVO REGISTRO', 2501]
         ); //24
+        $this->getReg(
+            ['NUEVO REGISTRO', 2327]
+        ); //25
+
         // $this->getReg(
         //     ['',]
         // );//2

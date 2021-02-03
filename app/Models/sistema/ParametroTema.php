@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class ParametroTema extends Pivot
 {
-    protected $fillable = [ 'parametro_id','tama_id', 'sis_esta_id' ,'user_crea_id','user_edita_id'];
+    protected $fillable = [ 'parametro_id','tama_id','simianti_id', 'sis_esta_id' ,'user_crea_id','user_edita_id'];
     protected $attributes = ['sis_esta_id' => 1,'user_crea_id'=>1,'user_edita_id'=>1];
     public function creador()
     {

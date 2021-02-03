@@ -27,6 +27,7 @@ class CreateHTemasTable extends Migration
     Schema::create($this->tablaxxx2, function (Blueprint $table) {
       $table->bigInteger('parametro_id')->unsigned();
       $table->bigInteger('tema_id')->unsigned();
+      $table->string('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
       $table = CamposMagicos::h_magicos($table);
     });
    DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
