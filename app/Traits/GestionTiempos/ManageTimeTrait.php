@@ -2,6 +2,7 @@
 
 namespace App\Traits\GestionTiempos;
 
+use Illuminate\Support\Facades\Auth;
 
 /**
  * este trait permite gestionar permisos de acuerdo al tiempo asignado para el carge de informacion
@@ -51,9 +52,9 @@ trait ManageTimeTrait
      * @return void
      */
     public function getAcciones(array $dataxxxx)
-    {
-        $itieusua = $dataxxxx['usuariox']->itiestan + $dataxxxx['usuariox']->itiegabe;
-        $itiecarg = $dataxxxx['usuariox']->sis_cargo->itiestan + $dataxxxx['usuariox']->sis_cargo->itiegabe;
+    {    $userxxxx=Auth::user();
+        $itieusua = $userxxxx->itiestan + $userxxxx->itiegabe;
+        $itiecarg = $userxxxx->sis_cargo->itiestan + $userxxxx->sis_cargo->itiegabe;
         if ($itieusua > $itiecarg) {
             $dataxxxx['tiempoxx']=$itieusua;
             $dataxxxx = $this->getPersonal($dataxxxx);
@@ -61,8 +62,6 @@ trait ManageTimeTrait
             $dataxxxx['tiempoxx']=$itiecarg;
             $dataxxxx = $this->getCargo($dataxxxx);
         }
-
-
         return $dataxxxx;
     }
 

@@ -57,7 +57,6 @@ trait DatatableTrait
 
                     $puedexxx = $this->getPuedeCargar([
                         'estoyenx' => 1,
-                        'usuariox' => auth()->user(),
                         'fechregi' => explode(' ',$queryxxx->created_at)[0]
                     ]);
                     /**
@@ -98,7 +97,6 @@ trait DatatableTrait
             ->addColumn(
                 'botonexx',
                 function ($queryxxx) use ($requestx) {
-
                     $puedexxx = $this->getPuedeCargar([
                         'estoyenx' => 1,
                         'usuariox' => auth()->user(),
@@ -408,7 +406,7 @@ trait DatatableTrait
                 }
 
             )
-           
+
             ->rawColumns(['botonexx', 's_estado'])
             ->toJson();
     }
@@ -543,8 +541,8 @@ trait DatatableTrait
                 }
 
             )
-          
-          
+
+
             ->rawColumns(['botonexx', 's_estado'])
             ->toJson();
     }

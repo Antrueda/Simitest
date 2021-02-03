@@ -90,6 +90,7 @@ class FiController extends Controller
 
     public function index()
     {
+
         $this->opciones['tablasxx'] = [
             [
                 'forminde' => '',
@@ -597,7 +598,6 @@ class FiController extends Controller
     {
         $puedexxx = $this->getPuedeCargar([
             'estoyenx' => 1,
-            'usuariox' => auth()->user(),
             'fechregi' => '1975-04-21'
         ]);
 

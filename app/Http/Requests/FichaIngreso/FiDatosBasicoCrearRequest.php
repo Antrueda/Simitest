@@ -5,6 +5,7 @@ namespace App\Http\Requests\FichaIngreso;
 use App\Rules\FechaMenor;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Traits\GestionTiempos\ManageTimeTrait;
+
 class FiDatosBasicoCrearRequest extends FormRequest
 {
     use  ManageTimeTrait;
@@ -38,11 +39,13 @@ class FiDatosBasicoCrearRequest extends FormRequest
             's_lugar_focalizacion.required' => 'Indique el lugar de focalización',
             'sis_upzbarri_id.required' => 'Seleccione un barrio',
             's_documento.required' => 'Ingrese un documento de identificación',
-            'sis_servicio_id.required' =>'Seleccione un servicio',
-            'sis_depen_id.required' =>'Seleccione una UPI',
-            'diligenc.required' =>'Seleccione una fecha de diligenciamiento',
+            'sis_servicio_id.required' => 'Seleccione un servicio',
+            'sis_depen_id.required' => 'Seleccione una UPI',
+            'diligenc.required' => 'Seleccione una fecha de diligenciamiento',
         ];
         $this->_reglasx = [
+            'sinpermi'=>[],
+            'diligenc' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'prm_doc_fisico_id' => ['required'],
             'prm_tipoblaci_id' => ['required'],
             'prm_estrateg_id' => ['required'],
@@ -67,8 +70,8 @@ class FiDatosBasicoCrearRequest extends FormRequest
             's_lugar_focalizacion' => ['required'],
             'sis_upzbarri_id' => ['required'],
             'sis_servicio_id' => ['required'],
-            'sis_depen_id'=> ['required'],
-            'diligenc' => ['required','date_format:Y-m-d',new FechaMenor()],
+            'sis_depen_id' => ['required'],
+
         ];
     }
     /**
@@ -93,16 +96,19 @@ class FiDatosBasicoCrearRequest extends FormRequest
      */
     public function rules()
     {
-        $puedexxx = $this->getPuedeCargar([
-            'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
-            'usuariox' => auth()->user(),
-        ]);
+        if ($this->diligenc != '') {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->diligenc
+            ]);
 
-        if(!$puedexxx['tienperm']){
-            $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: '.$puedexxx['fechregi'];
-            $this->_reglasx['sinpermi'] = 'required';
+            if (!$puedexxx['tienperm']) {
+                $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $puedexxx['fechlimi'];
+                $this->_reglasx['sinpermi'] = 'required';
+            }
         }
         $this->validar();
+
         return $this->_reglasx;
     }
 
@@ -121,9 +127,5 @@ class FiDatosBasicoCrearRequest extends FormRequest
         }
         $this->_mensaje['s_documento.unique'] = 'El documento ya existe';
         $this->_reglasx['s_documento'][1] = 'unique:nnaj_docus,s_documento';
-
-
-
-
     }
 }

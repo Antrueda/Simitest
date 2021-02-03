@@ -4,6 +4,7 @@ namespace App\Traits\GestionTiempos;
 
 use App\Models\Sistema\SisDiaFestivo;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite realizar los calculos para encontrar cuantos días adicionales se le darán
@@ -19,9 +20,11 @@ trait ManageDateTrait
      */
     public function getDiferenciaDias($dataxxxx)
     {
-        $fechahoy = Carbon::createFromFormat('Y-m-d', $dataxxxx['fechahoy']);
+        $fechahoy = Carbon::createFromFormat('Y-m-d', date('Y-m-d'));
         $fechregi = Carbon::createFromFormat('Y-m-d', $dataxxxx['fechregi']);
-
+        $fechlimi=Carbon::createFromFormat('Y-m-d', date('Y-m-d'));
+        $fechlimi->subDays($dataxxxx['tiempoxx']);
+        $dataxxxx['fechlimi']=$fechlimi->toDateString();
         $dataxxxx['difedias'] = $fechahoy->diffInDays($fechregi);
         return $dataxxxx;
     }
@@ -68,7 +71,7 @@ trait ManageDateTrait
      */
     public function getDiasSumados($dataxxxx)
     {
-        $diaxxxxx = explode('-', $dataxxxx['fechahoy']);
+        $diaxxxxx = explode('-', date('Y-m-d', time()));
         for ($i = 1; $i <= $dataxxxx['conthabi']; $i++) {
             if ((int)$diaxxxxx[2] == $i) {
                 $dataxxxx['conthabi'] = $i;
@@ -84,27 +87,27 @@ trait ManageDateTrait
      */
     public function getGabelaFinMes($dataxxxx)
     {
+        $usuariox = Auth::user();
         $conthabi = 0; // contador días hábiles
         $dataxxxx['conthabi'] = 0; // contador días gablea
-        $dataxxxx['fechahoy'] = isset($dataxxxx['fechahoy']) ? $dataxxxx['fechahoy'] : date('Y-m-d', time());
         $dataxxxx = $this->getDiferenciaDias($dataxxxx);
-        $diasmesx = date('t', strtotime($dataxxxx['fechahoy'])); // saber los dia del mes
-        if ($dataxxxx['usuariox']->itigafin > 0) {
+        $diasmesx = date('t', strtotime(date('Y-m-d', time()))); // saber los dia del mes
+        if ($usuariox->itigafin > 0) {
             for ($i = 1; $i <= $diasmesx; $i++) {
 
-                if ($this->getDiaHabil(['fechaxxx' => substr($dataxxxx['fechahoy'], 0, 8) . $i])) {
+                if ($this->getDiaHabil(['fechaxxx' => substr(date('Y-m-d', time()), 0, 8) . $i])) {
                     $conthabi += 1;
                 }
                 $dataxxxx['conthabi'] += 1;
-                if ($dataxxxx['usuariox']->itigafin == $conthabi) {
+                if ($usuariox->itigafin == $conthabi) {
                     break;
                 }
             }
         }
 
-        $dataxxxx['tiemcalc'] = $dataxxxx['usuariox']->itiegabe + $dataxxxx['usuariox']->itiestan;
+        $dataxxxx['tiemcalc'] = $usuariox->itiegabe + $usuariox->itiestan;
         // saber si se le suma la gabela al tiempo standar
-        if ($dataxxxx['conthabi'] >= date('j', strtotime($dataxxxx['fechahoy']))) {
+        if ($dataxxxx['conthabi'] >= date('j', strtotime(date('Y-m-d', time())))) {
             $dataxxxx['tiemcalc'] += $dataxxxx['conthabi'];
         }
         /**
@@ -116,8 +119,8 @@ trait ManageDateTrait
             /**
              * se ha terminado el tiempo de gavela
              */
-            if ($dataxxxx['usuariox']->itiegabe > 0) {
-                $dataxxxx['usuariox']->update(['itiegabe' => 0]);
+            if ($usuariox->itiegabe > 0) {
+                $usuariox->update(['itiegabe' => 0]);
             }
         }
         return $dataxxxx;
