@@ -7,7 +7,7 @@ use App\Http\Requests\FichaIngreso\FiCompfamiCrearRequest;
 use App\Http\Requests\FichaIngreso\FiCompfamiUpdateRequest;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\NnajDocu;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Models\Sistema\SisDepartamento;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FiCompfamiController extends Controller
 {
-
+    use  ManageTimeTrait;
     private $opciones;
     use FiTrait;
     use InterfazFiTrait;
@@ -74,13 +74,22 @@ class FiCompfamiController extends Controller
         ];
         $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['pestpara'][0] = [$padrexxx->id];
+        $vercrear = false;
+        $puedexxx = $this->getPuedeCargar([
+            'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+            'fechregi' => $padrexxx->fi_diligenc->diligenc,
+        ]);
+
+        if ($puedexxx['tienperm']) {
+            $vercrear = true;
+        }
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'CREAR COMPONENTE FAMILIAR',
                 'titulist' => 'LISTA DE COMPONENTES FAMILIARES',
                 'dataxxxx' => [],
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' => true,
+                'vercrear' => $vercrear,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', $this->opciones['parametr']),
                 'cabecera' => [
                     [
@@ -144,7 +153,7 @@ class FiCompfamiController extends Controller
     {
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */
-        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0]; 
+        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         // ddd($this->opciones['rutarchi']);
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
@@ -183,7 +192,7 @@ class FiCompfamiController extends Controller
             }
 
 
- 
+
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
@@ -245,7 +254,7 @@ class FiCompfamiController extends Controller
      */
     public function create(FiDatosBasico $padrexxx)
     {
-        
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

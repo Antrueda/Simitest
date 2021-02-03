@@ -72,6 +72,7 @@ trait ManageTimeTrait
      */
     public function getAsistencias(array $dataxxxx)
     {
+        // contra la(s) upi(s) del nnaj
         $this->getUpi($dataxxxx);
     }
 
@@ -91,7 +92,8 @@ trait ManageTimeTrait
                 $respuest = $this->getAcciones($dataxxxx);
                 break;
             case 2: // cargue por asistencias
-                $respuest = $this->getAsistencias($dataxxxx);
+                $respuest=['tienperm'=>true];
+                // $respuest = $this->getAsistencias($dataxxxx);
                 break;
         }
         return $respuest;
