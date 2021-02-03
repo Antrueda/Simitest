@@ -91,15 +91,17 @@ class EstusuariosSeeder extends Seeder
         ); //20
         $this->getReg(
             ['VERIFICACION DE INFORMACION-FORMATO 015 GESTION DE USUARIOS', 2325]
-        ); //20
+        ); //21
         $this->getReg(
             ['PERMISO A REGISTRAR ACCIONES DIFERENTES A SU CARGO-APROBADO POR LIDER Y/O RESPONSABLE DE UPI/AREA', 2325]
-        ); //20
+        ); //22
         $this->getReg(
             ['PERMISO A REGISTRAR ACCIONES DIFERENTES A SU CARGO-APROBADO POR LIDER Y/O RESPONSABLE DE UPI/AREA', 2325]
-        ); //20
+        ); //23
         
-
+        $this->getReg(
+            ['NUEVO REGISTRO', 2501]
+        ); //24
         // $this->getReg(
         //     ['',]
         // );//2

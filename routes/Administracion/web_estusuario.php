@@ -34,7 +34,10 @@ Route::group(['prefix' => 'estados'], function () use($routexxx,$controll) {
 	    'uses' => $controll.'Controller@inactivate',
 	    'middleware' => ['permission:'.$routexxx.'-borrar']
     ])->name($routexxx.'.borrar');
-
+    Route::get('motivos', [
+	    'uses' => $controll.'Controller@getMotivos',
+	    'middleware' => ['permission:'.$routexxx.'-leer']
+    ])->name($routexxx.'.motivosx');
     Route::put('borrar/{objetoxx}', [
 		'uses' => $controll . 'Controller@destroy',
 		'middleware' => ['permission:' . $routexxx . '-borrar']

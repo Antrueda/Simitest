@@ -1,6 +1,6 @@
 <div class="form-group row">
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         {{ Form::label('estado', 'ESTADO USUARIO', ['class' => 'control-label col-form-label-sm']) }}
 
         {{ Form::text('estado', null, ['class' => $errors->first('estado') ? 'form-control  is-invalid' :
@@ -12,7 +12,7 @@
         @endif
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         {{ Form::label('prm_formular_id', 'FORMULARIO', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_formular_id', $todoxxxx['formular'], null, ['class' => $errors->first('prm_formular_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus']) }}
         @if($errors->has('prm_formular_id'))
@@ -22,12 +22,21 @@
         @endif
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         {{ Form::label('sis_esta_id', 'ESTADO', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('sis_esta_id', $todoxxxx['estadoxx'], null, ['class' => $errors->first('sis_esta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'autofocus']) }}
         @if($errors->has('sis_esta_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_esta_id') }}
+        </div>
+        @endif
+    </div>
+    <div class="col-md-3">
+        {{ Form::label('estusuario_id','Justificación Estado') }}
+        {{ Form::select('estusuario_id',$todoxxxx['motivoxx'], null,['class'=> $errors->first('estusuario_id') ? 'form-control is-invalid' :'form-control form-control-sm select2','autofocus']) }}
+        @if($errors->has('estusuario_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('estusuario_id') }}
         </div>
         @endif
     </div>

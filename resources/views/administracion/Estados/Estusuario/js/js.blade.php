@@ -25,6 +25,26 @@
                 }
             });
         }
+
+        $('#sis_esta_id').change(function() {
+            f_motivos({
+                dataxxxx: {
+                    estadoid: $(this).val(),
+                },
+                selected: '',
+                routexxx: "{{ route('estausua.motivosx')}}"
+            })
+        });
+
+        @if(old('sis_esta_id') !== null)
+        f_motivos({
+            dataxxxx: {
+                estadoid: $('#sis_esta_id').val(),
+            },
+            selected: "{{old('estusuario_id')}}",
+            routexxx: "{{ route('estausua.motivosx')}}"
+        })
+        @endif
         @if(old('sis_departamento_id') !== null)
         f_ajax({
             {

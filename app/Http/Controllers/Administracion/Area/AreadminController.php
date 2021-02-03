@@ -62,8 +62,8 @@ class AreadminController extends Controller
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVA ' . $this->opciones['vocalesx'][0] . 'REA',
-                'titulist' => 'LISTA DE ' . $this->opciones['vocalesx'][0] . 'REAS',
+                'titunuev' => 'NUEVA ÁREA',
+                'titulist' => 'LISTA DE ÁREAS',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
@@ -71,7 +71,7 @@ class AreadminController extends Controller
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => $this->opciones['vocalesx'][0] . 'REA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'ÁREA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],

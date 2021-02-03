@@ -2538,6 +2538,7 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['nombrexx' => 'PANTALLA INICIAL']);//2498
         $this->getR(['nombrexx' => 'TALLERES EDUCATIVOS Y ACCIONES FORMATIVAS']);//2499
         $this->getR(['nombrexx' => 'SERVICIOS']);//2500
+        $this->getR(['nombrexx' => 'ESTADO DE USUARIOS']);//2501
 
     }
 }
