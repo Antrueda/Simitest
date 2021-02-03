@@ -11,6 +11,7 @@ use App\Traits\Acciones\Grupales\Tallacciones\ParametrizarTrait;
 use App\Traits\Acciones\Grupales\Tallacciones\VistasTrait;
 use App\Traits\Acciones\Grupales\ListadosTrait;
 use App\Traits\Acciones\Grupales\PestaniasTrait;
+use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,6 +22,7 @@ class AgActividadController extends Controller
     use ParametrizarTrait; // trait donde se inicializan las opciones de configuracion
     use VistasTrait; // trait que arma la logica para lo metodos: crud
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
+    use PuedeTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'agactividad';
@@ -81,13 +83,18 @@ class AgActividadController extends Controller
 
 
     public function edit(AgActividad $modeloxx)
-    {
+    {  $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
+        'nnajxxxx'=>$modeloxx->id,
+        'permisox'=>$this->opciones['permisox'] . '-editar',
+        ]);
+        if ($respuest) {
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'VOLVER A TALLER', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR TALLER', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agrespon.nuevo',[$modeloxx->id]], 2, 'AGREGAR RESPONSABLE', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agasiste.nuevo',[$modeloxx->id]], 2, 'AGREGAR PARTICIPANTES', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agrelacion.nuevo',[$modeloxx->id]], 2, 'AGREGAR RECURSOS', 'btn btn-sm btn-primary']);
+         }
         return $this->view(
             $this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR TALLER', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $modeloxx->sis_nnaj]
