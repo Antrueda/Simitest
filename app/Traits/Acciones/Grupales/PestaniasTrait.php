@@ -65,7 +65,7 @@ trait PestaniasTrait
         $pestania['agasiste'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'ASISTENTES',
+            'tituloxx' => 'PARTICIPANTES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

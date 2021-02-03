@@ -34,11 +34,13 @@ class AgAsistenteController extends Controller
         $this->opciones['padrexxx'] =$padrexxx;
         $this->pestanix[2]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+
+        $this->getBotones(['editar', ['agactividad.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         $responsa = AgResponsable::where('ag_actividad_id',$padrexxx->id)->get();
         if(  count($responsa)<=2){
         $this->getBotones(['crear', ['agrespon.nuevo', [$padrexxx->id]], 2, 'AGREGAR RESPONSABLE', 'btn btn-sm btn-primary']);
         }
-        $this->getBotones(['editar', ['agactividad.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', ['agrelacion.nuevo',[$padrexxx->id]], 2, 'AGREGAR RECURSOS', 'btn btn-sm btn-primary']);
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
     }
 

@@ -21,6 +21,7 @@ class SalidajovenesRequest extends FormRequest
             'fecharetorno.required_if'=>'Indique la fecha de retorno',
             'horaretorno.required_if'=>'Indique la hora de retorno',
             'razones.required'=>'Ingrese al menos un motivo',
+            'sis_nnaj_id.required'=>'Seleccione un AJ',
             ];
         $this->_reglasx = [
             'hora_salida' => 'required|exists:parametros,id',
@@ -29,6 +30,7 @@ class SalidajovenesRequest extends FormRequest
             'fecharetorno' => 'required_if:retorna_id,227',
             'horaretorno' => 'required_if:retorna_id,227',
             'razones' => 'required',
+            'sis_nnaj_id' => 'required'
 
             ];
     }
@@ -60,11 +62,13 @@ class SalidajovenesRequest extends FormRequest
         {
             $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
             $nnajxxxx = FiDatosBasico::find($this->sis_nnaj_id);
+            if( $nnajxxxx!=null){
             $edad = $nnajxxxx->nnaj_nacimi->Edad;
-
+       
             if ($edad < 18) { //Mayor de edad
                 $this->_mensaje['autoriza_id.required'] = 'Seleccione Autorización de salida';
                 $this->_reglasx['autoriza_id'] = 'Required';
+            }
             }
         }
 }

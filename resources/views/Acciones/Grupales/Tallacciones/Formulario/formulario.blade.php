@@ -157,7 +157,8 @@
 @if($todoxxxx['archivox']!='')
 <div class="row">
     <div class="col-md-12">
-    <a href="{{asset($todoxxxx['modeloxx']->s_doc_adjunto)}}" target="_blank" >{{$todoxxxx['archivox']}}</a>
+    <a class="btn btn-outline-primary" href="{{asset($todoxxxx['modeloxx']->s_doc_adjunto)}}" target="_blank" >VER ADJUNTO</a>
     </div>
 </div>
 @endif
+

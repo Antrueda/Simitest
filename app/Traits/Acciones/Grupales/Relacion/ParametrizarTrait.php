@@ -34,7 +34,7 @@ trait ParametrizarTrait
     public function getOpciones()
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituhead'] = 'TALLERES Y ACCIONES FORMATIVAS';
+        $this->opciones['tituhead'] = 'TALLERES EDUCATIVOS Y ACCIONES FORMATIVAS';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
