@@ -597,8 +597,9 @@ class FiController extends Controller
     public function prueba($departam, Request $request)
     {
         $puedexxx = $this->getPuedeCargar([
-            'estoyenx' => 1,
-            'fechregi' => '1975-04-21'
+            'estoyenx' => 2,
+            'fechregi' => '1975-04-21',
+            'upixxxxx'=>2,
         ]);
 
 

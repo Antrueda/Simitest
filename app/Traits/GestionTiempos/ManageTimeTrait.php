@@ -2,6 +2,7 @@
 
 namespace App\Traits\GestionTiempos;
 
+use App\Models\Sistema\SisDepen;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -52,16 +53,18 @@ trait ManageTimeTrait
      * @return void
      */
     public function getAcciones(array $dataxxxx)
-    {    $userxxxx=Auth::user();
+    {
+        $userxxxx = $dataxxxx['usuariox'] = Auth::user();
         $itieusua = $userxxxx->itiestan + $userxxxx->itiegabe;
         $itiecarg = $userxxxx->sis_cargo->itiestan + $userxxxx->sis_cargo->itiegabe;
         if ($itieusua > $itiecarg) {
-            $dataxxxx['tiempoxx']=$itieusua;
+            $dataxxxx['tiempoxx'] = $itieusua;
             $dataxxxx = $this->getPersonal($dataxxxx);
         } else {
-            $dataxxxx['tiempoxx']=$itiecarg;
+            $dataxxxx['tiempoxx'] = $itiecarg;
             $dataxxxx = $this->getCargo($dataxxxx);
         }
+        $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
         return $dataxxxx;
     }
 
@@ -72,8 +75,12 @@ trait ManageTimeTrait
      */
     public function getAsistencias(array $dataxxxx)
     {
-        // contra la(s) upi(s) del nnaj
-        $this->getUpi($dataxxxx);
+        $upixxxxx = SisDepen::find($dataxxxx['upixxxxx']);
+        $dataxxxx['usuariox'] = $upixxxxx;
+        $dataxxxx['tiempoxx'] = $upixxxxx->itiestan + $upixxxxx->itiegabe;
+        $dataxxxx = $this->getUpi($dataxxxx);
+        $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
+        return $dataxxxx;
     }
 
     /**
@@ -92,8 +99,8 @@ trait ManageTimeTrait
                 $respuest = $this->getAcciones($dataxxxx);
                 break;
             case 2: // cargue por asistencias
-                $respuest=['tienperm'=>true];
-                // $respuest = $this->getAsistencias($dataxxxx);
+                // $respuest=['tienperm'=>true];
+                $respuest = $this->getAsistencias($dataxxxx);
                 break;
         }
         return $respuest;

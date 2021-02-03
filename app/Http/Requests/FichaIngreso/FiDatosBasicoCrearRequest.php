@@ -99,11 +99,11 @@ class FiDatosBasicoCrearRequest extends FormRequest
         if ($this->diligenc != '') {
             $puedexxx = $this->getPuedeCargar([
                 'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
-                'fechregi' => $this->diligenc
-
+                'fechregi' => $this->diligenc,
+                'formular'=>1,
             ]);
             if (!$puedexxx['tienperm']) {
-                $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $puedexxx['fechlimi'];
+                $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
                 $this->_reglasx['sinpermi'] = 'required';
             }
         }

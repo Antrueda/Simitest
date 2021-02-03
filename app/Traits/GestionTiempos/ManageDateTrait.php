@@ -87,7 +87,8 @@ trait ManageDateTrait
      */
     public function getGabelaFinMes($dataxxxx)
     {
-        $usuariox = Auth::user();
+
+        $usuariox =$dataxxxx['usuariox'];
         $conthabi = 0; // contador días hábiles
         $dataxxxx['conthabi'] = 0; // contador días gablea
         $dataxxxx = $this->getDiferenciaDias($dataxxxx);
