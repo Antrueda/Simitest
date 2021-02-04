@@ -27,7 +27,7 @@ class CreateSisUpzbarrisTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->unique(['sis_barrio_id','sis_localupz_id']);
+            $table->unique(['sis_barrio_id','sis_localupz_id'],'upzbar_un1');
             $table->timestamps();
         });
         Schema::create('h_sis_upzbarris', function (Blueprint $table) {

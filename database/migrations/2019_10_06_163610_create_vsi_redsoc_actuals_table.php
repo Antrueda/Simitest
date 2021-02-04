@@ -20,7 +20,7 @@ class CreateVsiRedsocActualsTable extends Migration
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->bigInteger('prm_tipo_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre')->comment('CAMPO NOMBRE DE RED');
-            $table->string('servicio', 4000)->comment('CAMPO SERVICIO DE LA RED');
+            $table->longText('servicio')->comment('CAMPO SERVICIO DE LA RED');
             $table->string('telefono')->nullable()->comment('CAMPO TELEFONO DE LA RED');
             $table->string('direccion')->nullable()->comment('CAMPO DIRECCION DE LA RED');
             $table->bigInteger('user_crea_id')->unsigned();

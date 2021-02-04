@@ -7,7 +7,7 @@ use App\Http\Requests\Csd\CsdBasicoCrearRequest;
 use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Parametro;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
@@ -117,15 +117,15 @@ class CsdBasicoController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $sispaisx=$dataxxxx['modeloxx']->sis_pai_id;
             $sispaexp=$dataxxxx['modeloxx']->sis_paiexp_id;
-            $departam=$dataxxxx['modeloxx']->sis_departamento_id;
-            $deparexp=$dataxxxx['modeloxx']->sis_departamentoexp_id;
+            $departam=$dataxxxx['modeloxx']->sis_departam_id;
+            $deparexp=$dataxxxx['modeloxx']->sis_departamexp_id;
 
         }
 
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
-            $this->opciones['departam'] = SisDepartamento::combo($sispaisx, false);
+            $this->opciones['departam'] = SisDepartam::combo($sispaisx, false);
             $this->opciones['municexp'] = SisMunicipio::combo($deparexp, false);
-            $this->opciones['deparexp'] = SisDepartamento::combo($sispaexp, false);
+            $this->opciones['deparexp'] = SisDepartam::combo($sispaexp, false);
 
 
         // Se arma el titulo de acuerdo al array opciones

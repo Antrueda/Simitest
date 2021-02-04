@@ -17,7 +17,7 @@ class SisDepen extends Model
 
         'i_prm_sexo_id',
         's_direccion',
-        'sis_departamento_id',
+        'sis_departam_id',
         'sis_municipio_id',
         'estusuario_id',
         'simianti_id',

@@ -26,17 +26,13 @@ class CreateSisLocalupzsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->unique(['sis_localidad_id','sis_upz_id']);
+            $table->unique(['sis_localidad_id','sis_upz_id'],'locupz_un1');
             $table->timestamps();
         });
         Schema::create('h_sis_localupzs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_localidad_id')->unsigned();
             $table->bigInteger('sis_upz_id')->unsigned();
-            $table->foreign('sis_localidad_id')->references('id')->on('sis_localidads');
-            $table->foreign('sis_upz_id')->references('id')->on('sis_upzs');
-
-            $table->unique(['sis_localidad_id','sis_upz_id']);
             $table = CamposMagicos::h_magicos($table);
         });
     }

@@ -21,7 +21,7 @@ class CreateHFosTsesTable extends Migration
             $table->integer('area_id');
             $table->text('codigo', 6)->nullable();
             $table->string('nombre', 120);
-            $table->string('descripcion', 4000)->nullable();
+            $table->longText('descripcion')->nullable();
             $table->bigInteger('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });

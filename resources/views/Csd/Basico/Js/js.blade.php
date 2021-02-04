@@ -58,10 +58,10 @@
             var localida = false;
             var routexxx = "{{ route('ajaxx.departamento') }}"
             var municipi = 'sis_municipioexp_id';
-            var departam = 'sis_departamentoexp_id';
+            var departam = 'sis_departamexp_id';
             if (campoxxx == 'sis_pai_id') {
                 municipi = 'sis_municipio_id';
-                departam = 'sis_departamento_id';
+                departam = 'sis_departam_id';
             } else if (campoxxx == 'sis_localidad_id') {
                 departam = 'sis_upz_id';
                 municipi = 'sis_upzbarri_id';
@@ -94,7 +94,7 @@
         var datamuni = function(campoxxx, valuexxx, selected) {
             var routexxx = "{{ route('fidatbas.municipio') }}"
             var municipi = 'sis_municipioexp_id';
-            if (campoxxx == 'sis_departamento_id') {
+            if (campoxxx == 'sis_departam_id') {
                 municipi = 'sis_municipio_id';
             } else if (campoxxx == 'sis_upz_id') {
                 municipi = 'sis_upzbarri_id';
@@ -120,7 +120,7 @@
         }
         var f_documento_fisico = function(valuexxx, selected) {
             $("#prm_ayuda_id").empty();
-            
+
             dataxxxx = {
                 url: "{{ route('ajaxx.ayuda') }}",
                 data: {
@@ -155,7 +155,7 @@
     });
         var f_cuenta_documento = function(valuexxx, pselecte) {
             $("#prm_doc_fisico_id").empty();
-            
+
             if (valuexxx != '') {
                 $.ajax({
                     url: "{{ route('ajaxx.cuentadocumento') }}",
@@ -221,17 +221,17 @@
             }
         }
         @if(old('sis_pai_id') !== null)
-        datadepa('sis_pai_id', "{{old('sis_pai_id')}}", "{{old('sis_departamento_id')}}");
+        datadepa('sis_pai_id', "{{old('sis_pai_id')}}", "{{old('sis_departam_id')}}");
 
-        @if(old('sis_departamento_id') !== null)
-        datamuni('sis_departamento_id', "{{old('sis_departamento_id')}}", "{{old('sis_municipio_id')}}");
+        @if(old('sis_departam_id') !== null)
+        datamuni('sis_departam_id', "{{old('sis_departam_id')}}", "{{old('sis_municipio_id')}}");
         @endif
         @endif
         @if(old('sis_paiexp_id') !== null)
-        datadepa('sis_paiexp_id', "{{old('sis_paiexp_id')}}", "{{old('sis_departamentoexp_id')}}");
+        datadepa('sis_paiexp_id', "{{old('sis_paiexp_id')}}", "{{old('sis_departamexp_id')}}");
 
-        @if(old('sis_departamentoexp_id') !== null)
-        datamuni('sis_departamentoexp_id', "{{old('sis_departamentoexp_id')}}", "{{old('sis_municipioexp_id')}}");
+        @if(old('sis_departamexp_id') !== null)
+        datamuni('sis_departamexp_id', "{{old('sis_departamexp_id')}}", "{{old('sis_municipioexp_id')}}");
         @endif
         @endif
         @if(old('sis_localidad_id') !== null)
@@ -291,7 +291,7 @@
         $("#sis_pai_id,#sis_paiexp_id").change(function() {
             datadepa($(this).prop('id'), $(this).val(), '');
         });
-        $("#sis_departamento_id,#sis_departamentoexp_id,#prm_etnia_id").change(function() {
+        $("#sis_departam_id,#sis_departamexp_id,#prm_etnia_id").change(function() {
             datamuni($(this).prop('id'), $(this).val(), '')
         });
 
@@ -309,7 +309,7 @@
                     success: function(json) {
                         if (valuexxx != 145) {
                             $("#prm_ayuda_id").empty();
-                            
+
                             $("#s_documento").val('');
                             $("#s_documento").prop('readonly', false)
                             $("#prm_doc_fisico_id option[value='']").attr("selected", true);
@@ -320,15 +320,15 @@
                             f_documento_fisico(228, '');
                             f_cuenta_documento(valuexxx, '');
                         }
-                        $("#sis_paiexp_id,#sis_departamentoexp_id,#sis_municipioexp_id").empty();
+                        $("#sis_paiexp_id,#sis_departamexp_id,#sis_municipioexp_id").empty();
                         if (valuexxx != 145) {
-                            $("#sis_paiexp_id,#sis_departamentoexp_id,#sis_municipioexp_id").append('<option value="">Seleccione</option>')
+                            $("#sis_paiexp_id,#sis_departamexp_id,#sis_municipioexp_id").append('<option value="">Seleccione</option>')
                         }
                         $.each(json.paisxxxx, function(i, d) {
                             $("#sis_paiexp_id").append('<option value="' + d.valuexxx + '">' + d.optionxx + '</option>')
                         });
                         $.each(json.departam, function(i, d) {
-                            $("#sis_departamentoexp_id").append('<option value="' + d.valuexxx + '">' + d.optionxx + '</option>')
+                            $("#sis_departamexp_id").append('<option value="' + d.valuexxx + '">' + d.optionxx + '</option>')
                         });
                         $.each(json.municipi, function(i, d) {
                             $("#sis_municipioexp_id").append('<option value="' + d.valuexxx + '">' + d.optionxx + '</option>')

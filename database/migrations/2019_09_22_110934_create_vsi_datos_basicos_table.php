@@ -43,7 +43,7 @@ class CreateVsiDatosBasicosTable extends Migration
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
-            $table->unique(['parametro_id', 'vsi_id']);
+            $table->unique(['parametro_id', 'vsi_id'],'vsnnem_un1');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA EMOCIONAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.1 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
@@ -55,8 +55,10 @@ class CreateVsiDatosBasicosTable extends Migration
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
-            $table->unique(['parametro_id', 'vsi_id']);
+            $table->unique(['parametro_id', 'vsi_id'],'vsnnase_un1');//
             $table = CamposMagicos::magicos($table);
+
+
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA SEXUAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.2 SECCION AREAS AJUSTES SICOSOCIAL  DE LA FICHA SICOSOCIAL'");
 
@@ -67,7 +69,7 @@ class CreateVsiDatosBasicosTable extends Migration
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
-            $table->unique(['parametro_id', 'vsi_id']);
+            $table->unique(['parametro_id', 'vsi_id'],'vsnnco_un1');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA COMPORTAMENTAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.3 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
@@ -78,7 +80,7 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
-            $table->unique(['parametro_id', 'vsi_id']);
+            $table->unique(['parametro_id', 'vsi_id'],'vsnnac_un1');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA ACADEMICA DE LA PERSONA ENTREVISTADA, PREGUNTA 19.4 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
@@ -89,7 +91,7 @@ class CreateVsiDatosBasicosTable extends Migration
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
-            $table->unique(['parametro_id', 'vsi_id']);
+            $table->unique(['parametro_id', 'vsi_id'],'vsnnso_un1');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA SOCIAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.5 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
@@ -101,8 +103,10 @@ class CreateVsiDatosBasicosTable extends Migration
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
-            $table->unique(['parametro_id', 'vsi_id']);
+            $table->unique(['parametro_id', 'vsi_id'],'vsnnfa_un1');
             $table = CamposMagicos::magicos($table);
+
+
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA FAMILIAR DE LA PERSONA ENTREVISTADA, PREGUNTA 19.6 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
     }

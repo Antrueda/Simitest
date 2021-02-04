@@ -18,7 +18,7 @@ class SisDepenObserver
         $log['i_prm_tdependen_id'] = $modeloxx->i_prm_tdependen_id;
         $log['i_prm_sexo_id'] = $modeloxx->i_prm_sexo_id;
         $log['s_direccion'] = $modeloxx->s_direccion;
-        $log['sis_departamento_id'] = $modeloxx->sis_departamento_id;
+        $log['sis_departam_id'] = $modeloxx->sis_departam_id;
         $log['sis_municipio_id'] = $modeloxx->sis_municipio_id;
         $log['sis_upzbarri_id'] = $modeloxx->sis_upzbarri_id;
         $log['s_telefono'] = $modeloxx->s_telefono;

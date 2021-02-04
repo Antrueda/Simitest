@@ -23,7 +23,7 @@ class CreateSisDepensTable extends Migration
             $table->bigInteger('i_prm_tdependen_id')->unsigned()->comment('CAMPO TIPO DE DEPENDENCIA');
             $table->bigInteger('i_prm_sexo_id')->unsigned()->comment('CAMPO DE SEXO');
             $table->string('s_direccion')->comment('CAMPO DE DIRECCION DE LA DEPENDENCIA');
-            $table->bigInteger('sis_departamento_id')->unsigned()->comment('CAMPO DE ID DEL DEPARTAMENTO');
+            $table->bigInteger('sis_departam_id')->unsigned()->comment('CAMPO DE ID DEL DEPARTAMENTO');
             $table->bigInteger('sis_municipio_id')->unsigned()->comment('CAMPO DE ID DEL MUNICIPIO');
             $table->bigInteger('sis_upzbarri_id')->unsigned()->comment('CAMPO ID DEL BARRIO ');
             $table->string('s_telefono')->comment('CAMPO TELEFONO DE DEPENDENCIA');
@@ -40,7 +40,7 @@ class CreateSisDepensTable extends Migration
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
 
             $table->foreign('i_prm_sexo_id')->references('id')->on('parametros');
-            $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
+            $table->foreign('sis_departam_id')->references('id')->on('sis_departams');
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
             $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
             $table = CamposMagicos::magicos($table);

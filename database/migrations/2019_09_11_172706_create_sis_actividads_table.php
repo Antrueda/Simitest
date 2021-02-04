@@ -28,7 +28,7 @@ class CreateSisActividadsTable extends Migration
       $table->foreign('user_crea_id')->references('id')->on('users');
       $table->foreign('user_edita_id')->references('id')->on('users');
       $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');
-      $table->unique(['nombre', 'sis_docfuen_id']);
+      $table->unique(['nombre', 'sis_docfuen_id'],'sisact_un1');
     });
    //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS ACTIVIDADES DEL SISTEMA.'");
   }

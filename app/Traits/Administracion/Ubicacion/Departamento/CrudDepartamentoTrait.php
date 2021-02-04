@@ -2,7 +2,7 @@
 
 namespace App\Traits\Administracion\Ubicacion\Departamento;
 
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -25,7 +25,7 @@ trait CrudDepartamentoTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = SisDepartamento::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = SisDepartam::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);

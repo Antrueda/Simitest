@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSisDepartamentosTable extends Migration
+class CreateSisDepartamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateSisDepartamentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sis_departamentos', function (Blueprint $table) {
+        Schema::create('sis_departams', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');;
             $table->bigInteger('sis_pai_id')->unsigned()->nullable()->comment('CAMPO DE ID DEL PAIS');
             $table->string('s_departamento')->comment('CAMPO DE NOMBRE DEL DEPARTAMENTO');
@@ -26,7 +26,7 @@ class CreateSisDepartamentosTable extends Migration
             $table->timestamps();
             $table->foreign('sis_pai_id')->references('id')->on('sis_pais');
         });
-        Schema::create('h_sis_departamentos', function (Blueprint $table) {
+        Schema::create('h_sis_departams', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('sis_pai_id')->unsigned()->nullable();
             $table->string('s_departamento');
@@ -42,7 +42,7 @@ class CreateSisDepartamentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('h_sis_departamentos');
-        Schema::dropIfExists('sis_departamentos');
+        Schema::dropIfExists('h_sis_departams');
+        Schema::dropIfExists('sis_departams');
     }
 }

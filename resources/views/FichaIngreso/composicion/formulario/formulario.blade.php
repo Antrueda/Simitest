@@ -60,11 +60,11 @@
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('sis_departamento_id', 'Departamento de Expedición', ['class' => 'control-label ']) }}
-        {{ Form::select('sis_departamento_id', $todoxxxx['departam'], null, ['class' => $errors->first('sis_departamento_id') ? 'form-control departam form-control-sm is-invalid listarxx' : 'form-control departam form-control-sm listarxx']) }}
-        @if($errors->has('sis_departamento_id'))
+        {{ Form::label('sis_departam_id', 'Departamento de Expedición', ['class' => 'control-label ']) }}
+        {{ Form::select('sis_departam_id', $todoxxxx['departam'], null, ['class' => $errors->first('sis_departam_id') ? 'form-control departam form-control-sm is-invalid listarxx' : 'form-control departam form-control-sm listarxx']) }}
+        @if($errors->has('sis_departam_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('sis_departamento_id') }}
+            {{ $errors->first('sis_departam_id') }}
         </div>
         @endif
     </div>

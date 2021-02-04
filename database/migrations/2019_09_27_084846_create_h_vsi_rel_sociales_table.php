@@ -21,9 +21,9 @@ class CreateHVsiRelSocialesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
-            $table->string('descripcion', 4000);
+            $table->longText('descripcion');
             $table->bigInteger('prm_dificultad_id')->nullable()->unsigned();
-            $table->string('completa', 4000)->nullable();
+            $table->longText('completa')->nullable();
 
             $table = CamposMagicos::h_magicos($table);
         });

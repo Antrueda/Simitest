@@ -11,7 +11,7 @@ use App\Models\Acciones\Individuales\AiSalidaMayores;
 use App\Models\Acciones\Individuales\Pivotes\SalidaJovene;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
 use App\Traits\DatatableTrait;
@@ -261,10 +261,10 @@ trait ListadosTrait
 
             ///motivos
             ->join('users', 'ai_salida_mayores.user_doc1_id', '=', 'users.id')
-            
+
             ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDtSalidaz($dataxxxx, $request);
-            
+
         }
 }
 
@@ -357,14 +357,14 @@ public function getJovenPermiso(Request $request, AiSalidaMayores $padrexxx)
             'sis_depens.nombre',
             'sis_estas.s_estado',
         ])
-            ->join('sis_nnajs', 'salida_jovenes.sis_nnaj_id', '=', 'sis_nnajs.id')    
-            ->join('parametros as autoriza', 'salida_jovenes.autoriza_id', '=', 'autoriza.id')    
+            ->join('sis_nnajs', 'salida_jovenes.sis_nnaj_id', '=', 'sis_nnajs.id')
+            ->join('parametros as autoriza', 'salida_jovenes.autoriza_id', '=', 'autoriza.id')
             ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
             ->join('ai_salida_mayores', 'salida_jovenes.ai_salmay_id', '=', 'ai_salida_mayores.id')
             ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id')
             ->join('nnaj_docus', 'salida_jovenes.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('nnaj_sexos', 'salida_jovenes.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
-            
+
             ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
             ->where('salida_jovenes.sis_esta_id', 1)
@@ -392,10 +392,10 @@ public function getNnajsele(Request $request)
 
             $dataxxxx = [
                 'tipodocu' => ['prm_doc_id', ''],
-                
+
                 'edadxxxx' => '',
                 'paisxxxx' => ['sis_pai_id', ''],
-                'departam' => ['sis_departamento_id', [], ''],
+                'departam' => ['sis_departam_id', [], ''],
                 'municipi' => ['sis_municipio_id', [], ''],
 
             ];
@@ -403,12 +403,12 @@ public function getNnajsele(Request $request)
             if (isset($document->id)) {
                 $expedici = $document->sis_municipio;
                 $dataxxxx['tipodocu'][1] = $document->prm_tipodocu_id;
-                $dataxxxx['paisxxxx'][1] = $expedici->sis_departamento->sis_pai_id;
-                $dataxxxx['departam'][1] = SisDepartamento::combo($dataxxxx['paisxxxx'][1], true);
-                $dataxxxx['departam'][2] = $expedici->sis_departamento_id;
+                $dataxxxx['paisxxxx'][1] = $expedici->sis_departam->sis_pai_id;
+                $dataxxxx['departam'][1] = SisDepartam::combo($dataxxxx['paisxxxx'][1], true);
+                $dataxxxx['departam'][2] = $expedici->sis_departam_id;
                 $dataxxxx['municipi'][1] = SisMunicipio::combo($dataxxxx['departam'][2], true);
                 $dataxxxx['municipi'][2] = $expedici->id;
-                
+
             }
 
             return response()->json($dataxxxx);

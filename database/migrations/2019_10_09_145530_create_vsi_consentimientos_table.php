@@ -29,7 +29,7 @@ class CreateVsiConsentimientosTable extends Migration
             $table->timestamps();
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('user_doc1_id')->references('id')->on('users');
-            $table->foreign('user_doc2_id')->references('id')->on('users');
+            // $table->foreign('user_doc2_id')->references('id')->on('users');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });

@@ -13,7 +13,7 @@ class HSisDepen extends Model
 'simianti_id',
         'i_prm_sexo_id',
         's_direccion',
-        'sis_departamento_id',
+        'sis_departam_id',
         'sis_municipio_id',
         'sis_upzbarri_id',
         's_telefono',

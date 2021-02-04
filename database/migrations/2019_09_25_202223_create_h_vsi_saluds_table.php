@@ -29,7 +29,7 @@ class CreateHVsiSaludsTable extends Migration
             $table->bigInteger('prm_hijo_id')->unsigned()->nullable();
             $table->bigInteger('prm_interrupcion_id')->unsigned()->nullable();
             $table->string('medicamento')->nullable();
-            $table->string('descripcion', 4000)->nullable();
+            $table->longText('descripcion')->nullable();
             $table->integer('edad')->unsigned()->nullable();
             $table->integer('embarazo')->unsigned()->nullable();
             $table->integer('hijo')->unsigned()->nullable();

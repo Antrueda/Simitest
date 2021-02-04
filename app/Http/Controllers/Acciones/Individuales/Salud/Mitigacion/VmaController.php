@@ -195,14 +195,14 @@ class VmaController extends Controller{
             $request['heroina_anio'] = null;
             $request['heroina_dejo'] = null;
         }
-        if($request->prm_2cb_sino_id == 228){
-            $request['2cb_edad'] = null;
-            $request['prm_2cb_frec_id'] = null;
-            $request['2cb_dosis'] = null;
-            $request['2cb_dia'] = null;
-            $request['2cb_mes'] = null;
-            $request['2cb_anio'] = null;
-            $request['2cb_dejo'] = null;
+        if($request->prm_doscb_sino_id == 228){
+            $request['doscb_edad'] = null;
+            $request['prm_doscb_frec_id'] = null;
+            $request['doscb_dosis'] = null;
+            $request['doscb_dia'] = null;
+            $request['doscb_mes'] = null;
+            $request['doscb_anio'] = null;
+            $request['doscb_dejo'] = null;
         }
         if($request->prm_acidos_sino_id == 228){
             $request['acidos_edad'] = null;
@@ -416,14 +416,14 @@ class VmaController extends Controller{
             'heroina_mes'       => 'required_if:prm_heroina_sino_id,227',
             'heroina_anio'      => 'required_if:prm_heroina_sino_id,227',
             'heroina_dejo'      => 'required_if:prm_heroina_sino_id,227',
-            'prm_2cb_sino_id'   => 'required|exists:parametros,id',
-            '2cb_edad'          => 'required_if:prm_2cb_sino_id,227',
-            'prm_2cb_frec_id'   => 'required_if:prm_2cb_sino_id,227',
-            '2cb_dosis'         => 'required_if:prm_2cb_sino_id,227',
-            '2cb_dia'           => 'required_if:prm_2cb_sino_id,227',
-            '2cb_mes'           => 'required_if:prm_2cb_sino_id,227',
-            '2cb_anio'          => 'required_if:prm_2cb_sino_id,227',
-            '2cb_dejo'          => 'required_if:prm_2cb_sino_id,227',
+            'prm_doscb_sino_id'   => 'required|exists:parametros,id',
+            'doscb_edad'          => 'required_if:prm_doscb_sino_id,227',
+            'prm_doscb_frec_id'   => 'required_if:prm_doscb_sino_id,227',
+            'doscb_dosis'         => 'required_if:prm_doscb_sino_id,227',
+            'doscb_dia'           => 'required_if:prm_doscb_sino_id,227',
+            'doscb_mes'           => 'required_if:prm_doscb_sino_id,227',
+            'doscb_anio'          => 'required_if:prm_doscb_sino_id,227',
+            'doscb_dejo'          => 'required_if:prm_doscb_sino_id,227',
             'prm_acidos_sino_id'=> 'required|exists:parametros,id',
             'acidos_edad'       => 'required_if:prm_acidos_sino_id,227',
             'prm_acidos_frec_id'=> 'required_if:prm_acidos_sino_id,227',

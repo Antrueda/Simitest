@@ -25,22 +25,21 @@ class CreateAiSalidamayoresTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
+            $table->foreign('sis_esta_id', 'aisama_pk1')->references('id')->on('sis_estas');
             $table->timestamps();
-           // $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
-            $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
-            $table->foreign('user_doc1_id')->references('id')->on('users');
-            $table->foreign('user_doc2_id')->references('id')->on('users');
-            $table->foreign('user_crea_id')->references('id')->on('users');
-            $table->foreign('user_edita_id')->references('id')->on('users');
+            $table->foreign('prm_upi_id', 'aisama_pk2')->references('id')->on('sis_depens');
+            $table->foreign('user_doc1_id', 'aisama_pk3')->references('id')->on('users');
+            $table->foreign('user_doc2_id', 'aisama_pk4')->references('id')->on('users');
+            $table->foreign('user_crea_id', 'aisama_pk5')->references('id')->on('users');
+            $table->foreign('user_edita_id', 'aisama_pk6')->references('id')->on('users');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA DESCRIPCIÓN DE LA SALIA DE UN BENEFICIARIO DE LOS SERVICIOS DE UNA UPI'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA DESCRIPCIÓN DE LA SALIA DE UN BENEFICIARIO DE LOS SERVICIOS DE UNA UPI'");
 
     }
 
     public function down()
     {
-        
+
         Schema::dropIfExists($this->tablaxxx);
     }
 }

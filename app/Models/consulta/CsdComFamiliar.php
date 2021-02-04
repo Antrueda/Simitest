@@ -235,7 +235,7 @@ class CsdComFamiliar extends Model{
               if ($objetoxx->observaciones != '') {
               $objetoxx->observaciones->update($dataxxxx);
                }else{
-                CsdComFamiliarObservaciones::create($dataxxxx);
+                CsdComfamob::create($dataxxxx);
                }
           } else {
               $datosbas=NnajDocu::setDBComposicionFamiliar($dataxxxx,'');
@@ -244,7 +244,7 @@ class CsdComFamiliar extends Model{
               $objetoxx = CsdComFamiliar::create($dataxxxx);
               $dataxxxx['csd_id'] = $objetoxx->csd_id;
               $dataxxxx['objetoxx']=$objetoxx;
-              CsdComFamiliarObservaciones::create($dataxxxx);
+              CsdComfamob::create($dataxxxx);
         }
           return $objetoxx;
       }, 5);

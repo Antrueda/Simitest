@@ -20,9 +20,9 @@ class CreateVsiConceptosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
-            $table->string('concepto', 4000)->comment('CAMPO ABIERTO CONCEPTO');
+            $table->longText('concepto')->comment('CAMPO ABIERTO CONCEPTO');
             $table->bigInteger('prm_ingreso_id')->unsigned()->nullable()->comment('CAMPO CONSIDERA PERTINENTE EL INGRESO AL IDIPRON');
-            $table->string('porque', 4000)->nullable()->comment('CAMPO ABIERTO DE POR QUE');
+            $table->longText('porque')->nullable()->comment('CAMPO ABIERTO DE POR QUE');
             $table->string('cual', 120)->nullable()->comment('CAMPO CUALES REDES INTERINSTITUCIONAL');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_ingreso_id')->references('id')->on('parametros');

@@ -174,16 +174,16 @@ trait InterfazFiTrait
 
         $municipi = SisMunicipio::where('simianti_id',  $todoxxxx[0]['muniexpe']['codimuni'])->first();
         $objetoxx->sis_municipioexp_id = $municipi->id;
-        $objetoxx->sis_departamentoexp_id = $municipi->sis_departamento_id;
-        $objetoxx->sis_paiexp_id = $municipi->sis_departamento->sis_pai_id;
+        $objetoxx->sis_departamexp_id = $municipi->sis_departam_id;
+        $objetoxx->sis_paiexp_id = $municipi->sis_departam->sis_pai_id;
         /**
          * datos de nacimiento
          */
 
         $municipi = SisMunicipio::where('simianti_id',  $todoxxxx[0]['gennajxx']['idnacimi'])->first();
         $objetoxx->sis_municipio_id = $municipi->id;
-        $objetoxx->sis_departamento_id = $municipi->sis_departamento_id;
-        $objetoxx->sis_pai_id = $municipi->sis_departamento->sis_pai_id;
+        $objetoxx->sis_departam_id = $municipi->sis_departam_id;
+        $objetoxx->sis_pai_id = $municipi->sis_departam->sis_pai_id;
 
 
         $objetoxx->sis_pai_id = SisPai::where('s_pais', $todoxxxx[0]['paisnaci']['nombrexx'])->first()->id;

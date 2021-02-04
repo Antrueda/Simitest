@@ -41,14 +41,14 @@ class CreateAiSalidaMenoresTable extends Migration
             $table->bigInteger('prm_carta_id')->unsigned()->nullable();
             $table->bigInteger('prm_copiaDoc_id')->unsigned()->nullable();
             $table->bigInteger('prm_copiaDoc2_id')->unsigned()->nullable();
-            $table->string('descripcion', 4000);
-            $table->string('objetos', 4000);
+            $table->longText('descripcion');
+            $table->longText('objetos');
             $table->bigInteger('prm_upi2_id')->unsigned();
             $table->Integer('tiempo');
             $table->string('novedad', 120)->nullable();
             $table->string('dir_salida', 120);
             $table->string('tel_contacto', 10);
-            $table->string('causa', 4000)->nullable();
+            $table->longText('causa')->nullable();
             $table->string('nombres_recoge', 120);
             $table->string('doc_recoge', 120);
             $table->bigInteger('responsable')->unsigned();
@@ -84,7 +84,7 @@ class CreateAiSalidaMenoresTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('ai_salida_menores_id')->references('id')->on('ai_salida_menores');
-            $table->unique(['parametro_id', 'ai_salida_menores_id']);
+            $table->unique(['parametro_id', 'ai_salida_menores_id'],'asameo_un1');
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE OBJETIVOS DE LA SALIDA DEL MENOR DE EDAD, ACCIONES INDIVIDUALES'");
 

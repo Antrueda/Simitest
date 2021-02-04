@@ -313,28 +313,28 @@
 
     function doc11(valor) {
         if(valor == 227){
-            document.getElementById("2cb_edad").hidden=false;
-            document.getElementById("prm_2cb_frec_id").hidden=false;
-            document.getElementById("2cb_dosis").hidden=false;
-            document.getElementById("2cb_dia").hidden=false;
-            document.getElementById("2cb_mes").hidden=false;
-            document.getElementById("2cb_anio").hidden=false;
-            document.getElementById("2cb_dejo").hidden=false;
+            document.getElementById("doscb_edad").hidden=false;
+            document.getElementById("prm_doscb_frec_id").hidden=false;
+            document.getElementById("doscb_dosis").hidden=false;
+            document.getElementById("doscb_dia").hidden=false;
+            document.getElementById("doscb_mes").hidden=false;
+            document.getElementById("doscb_anio").hidden=false;
+            document.getElementById("doscb_dejo").hidden=false;
         } else {
-            document.getElementById("2cb_edad").hidden=true;
-            document.getElementById("2cb_edad").value='';
-            document.getElementById("prm_2cb_frec_id").hidden=true;
-            document.getElementById("prm_2cb_frec_id").value='';
-            document.getElementById("2cb_dosis").hidden=true;
-            document.getElementById("2cb_dosis").value='';
-            document.getElementById("2cb_dia").hidden=true;
-            document.getElementById("2cb_dia").value='';
-            document.getElementById("2cb_mes").hidden=true;
-            document.getElementById("2cb_mes").value='';
-            document.getElementById("2cb_anio").hidden=true;
-            document.getElementById("2cb_anio").value='';
-            document.getElementById("2cb_dejo").hidden=true;
-            document.getElementById("2cb_dejo").value='';
+            document.getElementById("doscb_edad").hidden=true;
+            document.getElementById("doscb_edad").value='';
+            document.getElementById("prm_doscb_frec_id").hidden=true;
+            document.getElementById("prm_doscb_frec_id").value='';
+            document.getElementById("doscb_dosis").hidden=true;
+            document.getElementById("doscb_dosis").value='';
+            document.getElementById("doscb_dia").hidden=true;
+            document.getElementById("doscb_dia").value='';
+            document.getElementById("doscb_mes").hidden=true;
+            document.getElementById("doscb_mes").value='';
+            document.getElementById("doscb_anio").hidden=true;
+            document.getElementById("doscb_anio").value='';
+            document.getElementById("doscb_dejo").hidden=true;
+            document.getElementById("doscb_dejo").value='';
         }
     }
 
@@ -440,7 +440,7 @@
         doc8(document.getElementById('prm_basuco_sino_id').value);
         doc9(document.getElementById('prm_cocaina_sino_id').value);
         doc10(document.getElementById('prm_heroina_sino_id').value);
-        doc11(document.getElementById('prm_2cb_sino_id').value);
+        doc11(document.getElementById('prm_doscb_sino_id').value);
         doc12(document.getElementById('prm_acidos_sino_id').value);
         doc13(document.getElementById('prm_lsd_sino_id').value);
         doc14(document.getElementById('prm_trastorno_id').value);

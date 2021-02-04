@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateHCsdConclusionesTable extends Migration
+class CreateHCsdConclusioneTable extends Migration
 {
     private $tablaxxx = 'h_csd_conclusiones';
     /**
@@ -19,7 +19,7 @@ class CreateHCsdConclusionesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
-            $table->string('conclusiones', 6000);
+            $table->longText('conclusiones');
             $table->string('persona_nombre');
             $table->string('persona_doc');
             $table->bigInteger('persona_parent_id')->unsigned();

@@ -17,7 +17,7 @@ use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiJustrest;
 use App\Models\fichaIngreso\FiRazone;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
@@ -546,16 +546,16 @@ trait CsdTrait
                 'tipodocu' => ['prm_tipodocu_id', ''],
                 'edadxxxx' => '',
                 'paisxxxx' => ['sis_pai_id', ''],
-                'departam' => ['sis_departamento_id', [], ''],
+                'departam' => ['sis_departam_id', [], ''],
                 'municipi' => ['sis_municipio_id', [], ''],
             ];
             $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
             if (isset($document->id)) {
                 $expedici = $document->sis_municipio;
                 $dataxxxx['tipodocu'][1] = $document->prm_tipodocu_id;
-                $dataxxxx['paisxxxx'][1] = $expedici->sis_departamento->sis_pai_id;
-                $dataxxxx['departam'][1] = SisDepartamento::combo($dataxxxx['paisxxxx'][1], true);
-                $dataxxxx['departam'][2] = $expedici->sis_departamento_id;
+                $dataxxxx['paisxxxx'][1] = $expedici->sis_departam->sis_pai_id;
+                $dataxxxx['departam'][1] = SisDepartam::combo($dataxxxx['paisxxxx'][1], true);
+                $dataxxxx['departam'][2] = $expedici->sis_departam_id;
                 $dataxxxx['municipi'][1] = SisMunicipio::combo($dataxxxx['departam'][2], true);
                 $dataxxxx['municipi'][2] = $expedici->id;
             }

@@ -18,7 +18,7 @@ class SisInstitucionEdusSeeder extends Seeder
             's_telefono' => '4815340 / 2315307',
             's_email' => 'colegio@colegio.com',
             'sis_municipio_id' => 1,
-            'sis_departamento_id' => 11,
+            'sis_departam_id' => 11,
             'user_crea_id' => 1,
             'created_at' => '2019-10-09 06:41:26',
             'user_edita_id' => 1,

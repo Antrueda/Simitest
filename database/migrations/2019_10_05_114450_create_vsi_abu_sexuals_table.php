@@ -38,7 +38,7 @@ class CreateVsiAbuSexualsTable extends Migration
             $table->bigInteger('prm_denuncia_id')->unsigned()->nullable()->comment('CAMPO HA PRESENTADO ALGUNA DENUNCIA');
             $table->bigInteger('prm_terapia_id')->unsigned()->nullable()->comment('CAMPO HA RECIBIDO ALGUN TIPO DE APOYO TERAPEUTICO');
             $table->bigInteger('prm_estado_id')->unsigned()->nullable()->comment('CAMPO ESTADO DEL PROGRESO DEL APOYO TERAPEUTICO');
-            $table->string('informacion', 4000)->nullable()->comment('CAMPO INFORMACION RELEVANTE ADICIONAL');
+            $table->longText('informacion')->nullable()->comment('CAMPO INFORMACION RELEVANTE ADICIONAL');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

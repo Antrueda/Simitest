@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Sistema\Ubicacion;
 
 use Illuminate\Foundation\Http\FormRequest;
-class SisDepartamentoEditarRequest extends FormRequest
+class SisDepartamEditarRequest extends FormRequest
 {
 
     private $_mensaje;
@@ -46,7 +46,7 @@ class SisDepartamentoEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        $this->_reglasx['s_departamento'][1]='unique:sis_departamentos,s_departamento,'.$this->segments()[2];
+        $this->_reglasx['s_departamento'][1]='unique:sis_departams,s_departamento,'.$this->segments()[2];
         return $this->_reglasx;
     }
 

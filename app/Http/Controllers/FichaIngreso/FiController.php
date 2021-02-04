@@ -8,7 +8,7 @@ use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
@@ -255,8 +255,8 @@ class FiController extends Controller
 
             $dataxxxx['modeloxx']->d_nacimiento = $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento;
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->nnaj_nacimi->Edad;
-            $dataxxxx['modeloxx']->sis_pai_id = $paisxxxx = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departamento->sis_pai_id;
-            $dataxxxx['modeloxx']->sis_departamento_id = $departam = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departamento_id;
+            $dataxxxx['modeloxx']->sis_pai_id = $paisxxxx = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departam->sis_pai_id;
+            $dataxxxx['modeloxx']->sis_departam_id = $departam = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departam_id;
             $dataxxxx['modeloxx']->sis_municipio_id = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio_id;
 
             /** documento de identidad */
@@ -266,8 +266,8 @@ class FiController extends Controller
             $dataxxxx['modeloxx']->prm_tipodocu_id = $dataxxxx['modeloxx']->nnaj_docu->prm_tipodocu_id;
             $dataxxxx['modeloxx']->prm_doc_fisico_id = $dataxxxx['modeloxx']->nnaj_docu->prm_doc_fisico_id;
 
-            $dataxxxx['modeloxx']->sis_paiexp_id = $paisexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departamento->sis_pai_id;
-            $dataxxxx['modeloxx']->sis_departamentoexp_id = $depaexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departamento_id;
+            $dataxxxx['modeloxx']->sis_paiexp_id = $paisexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departam->sis_pai_id;
+            $dataxxxx['modeloxx']->sis_departamexp_id = $depaexpe = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio->sis_departam_id;
             $dataxxxx['modeloxx']->sis_municipioexp_id = $dataxxxx['modeloxx']->nnaj_docu->sis_municipio_id;
 
             /** situacion militar */
@@ -329,11 +329,11 @@ class FiController extends Controller
         $this->opciones['upzxxxxx'] = SisUpz::combo($localida, false);
         $this->opciones['barrioxx'] = SisBarrio::combo($upzxxxxx, false);
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
-        $this->opciones['departam'] = SisDepartamento::combo($paisxxxx, false);
+        $this->opciones['departam'] = SisDepartam::combo($paisxxxx, false);
 
 
         $this->opciones['municexp'] = SisMunicipio::combo($depaexpe, false);
-        $this->opciones['deparexp'] = SisDepartamento::combo($paisexpe, false);
+        $this->opciones['deparexp'] = SisDepartam::combo($paisexpe, false);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
@@ -436,11 +436,11 @@ class FiController extends Controller
         $this->opciones['upzxxxxx'] = SisUpz::combo($dataxxxx['modeloxx']->sis_localidad_id, false);
 
         $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
-        $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamento_id, false);
-        $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
+        $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departam_id, false);
+        $this->opciones['departam'] = SisDepartam::combo($dataxxxx['modeloxx']->sis_pai_id, false);
 
-        $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamentoexp_id, false);
-        $this->opciones['deparexp'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_paiexp_id, false);
+        $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamexp_id, false);
+        $this->opciones['deparexp'] = SisDepartam::combo($dataxxxx['modeloxx']->sis_paiexp_id, false);
 
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
@@ -609,12 +609,12 @@ class FiController extends Controller
 
 
         foreach (SisPai::all() as $keyx => $valuex) {
-            // ddd($valuex->sis_departamentos()->pivot);
-            // $departam=SisDepartamento::where('sis_pai_id',$valuex->id)->get();
-           foreach ($valuex->sis_departamentos() as $keyy => $valuey) {
+            // ddd($valuex->sis_departams()->pivot);
+            // $departam=SisDepartam::where('sis_pai_id',$valuex->id)->get();
+           foreach ($valuex->sis_departams() as $keyy => $valuey) {
 echo $valuey.'<br>';
 
-            // $valuex->sis_departamentos()->attach($valuey,[
+            // $valuex->sis_departams()->attach($valuey,[
             //     'simianti_id'=>0,
             //     'sis_esta_id'=>1,
             //     'user_crea_id'=>Auth::user()->id,

@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class CsdComFamiliarObservaciones extends Model{
+class CsdComfamob extends Model{
     protected $fillable = [
         'csd_id', 'observaciones', 'user_crea_id', 'user_edita_id', 'sis_esta_id','prm_tipofuen_id'
     ];
@@ -36,7 +36,7 @@ class CsdComFamiliarObservaciones extends Model{
             } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
 
-                $dataxxxx['modeloxx'] = CsdComFamiliarObservaciones::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = CsdComfamob::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);

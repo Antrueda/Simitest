@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateHFiCsdVsiGeneracioningresossesTable extends Migration
 {
 
-    private $tablaxxx = 'h_fi_csd_vsi_generacioningresosses';
+    private $tablaxxx = 'h_fi_csdvsigis';
     /**
      * Run the migrations.
      *

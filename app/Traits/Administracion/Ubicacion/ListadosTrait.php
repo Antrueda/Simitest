@@ -3,7 +3,7 @@
 namespace App\Traits\Administracion\Ubicacion;
 
 use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
@@ -52,14 +52,14 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  SisDepartamento::select([
-                'sis_departamentos.id',
-                'sis_departamentos.s_departamento',
-                'sis_departamentos.sis_esta_id',
+            $dataxxxx =  SisDepartam::select([
+                'sis_departams.id',
+                'sis_departams.s_departamento',
+                'sis_departams.sis_esta_id',
                 'sis_estas.s_estado',
             ])
 
-                ->join('sis_estas', 'sis_departamentos.sis_esta_id', '=', 'sis_estas.id')
+                ->join('sis_estas', 'sis_departams.sis_esta_id', '=', 'sis_estas.id')
                 ->where('sis_pai_id',$padrexxx);
                 ;
 
@@ -83,7 +83,7 @@ trait ListadosTrait
             ])
 
                 ->join('sis_estas', 'sis_municipios.sis_esta_id', '=', 'sis_estas.id')
-                ->where('sis_departamento_id',$padrexxx)
+                ->where('sis_departam_id',$padrexxx)
                 ;
 
             return $this->getDt($dataxxxx, $request);

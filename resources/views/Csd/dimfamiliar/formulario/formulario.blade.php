@@ -52,12 +52,12 @@ if (isset($todoxxxx['rowscols'])) {
         @endif
     </div>
     <div class="col-md">
-        {{ Form::label('descripcion_0', '6.5 Descripción (Interpretación de la composición familiar, motivos de separaciones, fallecimientos, tipo de relaciones, impacto en el NNAJ)', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::textarea('descripcion_0', null, ['class' => $errors->first('descripcion_0') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción de la composición familiar', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
-        <p id="contadordescripcion_0">0/4000</p>
-        @if($errors->has('descripcion_0'))
+        {{ Form::label('descripciona', '6.5 Descripción (Interpretación de la composición familiar, motivos de separaciones, fallecimientos, tipo de relaciones, impacto en el NNAJ)', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::textarea('descripciona', null, ['class' => $errors->first('descripciona') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción de la composición familiar', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+        <p id="contadordescripciona">0/4000</p>
+        @if($errors->has('descripciona'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('descripcion_0') }}
+                {{ $errors->first('descripciona') }}
             </div>
         @endif
     </div>
@@ -116,36 +116,36 @@ if (isset($todoxxxx['rowscols'])) {
   <div class="col-md">
       <div class="row">
           <div class="col-md-12">
-              {{ Form::label('jefe1', '6.10 ¿Quén o quiénes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm']) }}
-              {{ Form::text('jefe1', null, ['class' => $errors->first('jefe1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',  "onkeypress" => "return soloLetras(event);"]) }}
-              @if($errors->has('jefe1'))
+              {{ Form::label('jefea', '6.10 ¿Quén o quiénes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm']) }}
+              {{ Form::text('jefea', null, ['class' => $errors->first('jefea') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',  "onkeypress" => "return soloLetras(event);"]) }}
+              @if($errors->has('jefea'))
                   <div class="invalid-feedback d-block">
-                      {{ $errors->first('jefe1') }}
+                      {{ $errors->first('jefea') }}
                   </div>
               @endif
-              {{ Form::label('prm_jefe1_id', '6.10 ¿Quén o quiénes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm d-none']) }}
-              {{ Form::select('prm_jefe1_id', $todoxxxx["familiar"], null, ['class' => $errors->first('prm_jefe1_id') ? 'form-control form-control-sm select2 is-invalid' : 'form-control select2 form-control-sm']) }}
-              @if($errors->has('prm_jefe1_id'))
+              {{ Form::label('prm_jefea_id', '6.10 ¿Quén o quiénes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm d-none']) }}
+              {{ Form::select('prm_jefea_id', $todoxxxx["familiar"], null, ['class' => $errors->first('prm_jefea_id') ? 'form-control form-control-sm select2 is-invalid' : 'form-control select2 form-control-sm']) }}
+              @if($errors->has('prm_jefea_id'))
                   <div class="invalid-feedback d-block">
-                      {{ $errors->first('prm_jefe1_id') }}
+                      {{ $errors->first('prm_jefea_id') }}
                   </div>
               @endif
           </div>
       </div>
       <div class="row mt-2">
           <div class="col-md-12">
-              {{ Form::label('jefe2', '6.10 ¿Quén o quiénes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm d-none']) }}
-              {{ Form::text('jefe2', null, ['class' => $errors->first('jefe2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',  "onkeypress" => "return soloLetras(event);"]) }}
-              @if($errors->has('jefe2'))
+              {{ Form::label('jefeb', '6.10 ¿Quén o quiénes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm d-none']) }}
+              {{ Form::text('jefeb', null, ['class' => $errors->first('jefeb') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Nombre', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',  "onkeypress" => "return soloLetras(event);"]) }}
+              @if($errors->has('jefeb'))
                   <div class="invalid-feedback d-block">
-                      {{ $errors->first('jefe2') }}
+                      {{ $errors->first('jefeb') }}
                   </div>
               @endif
-              {{ Form::label('prm_jefe2_id', '6.10 ¿Quén o quiénes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm d-none']) }}
-              {{ Form::select('prm_jefe2_id', $todoxxxx["familiar"], null, ['class' => $errors->first('prm_jefe2_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
-              @if($errors->has('prm_jefe2_id'))
+              {{ Form::label('prm_jefeb_id', '6.10 ¿Quén o quiénes asumen la jefatura de este hogar?', ['class' => 'control-label col-form-label-sm d-none']) }}
+              {{ Form::select('prm_jefeb_id', $todoxxxx["familiar"], null, ['class' => $errors->first('prm_jefeb_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
+              @if($errors->has('prm_jefeb_id'))
                   <div class="invalid-feedback d-block">
-                      {{ $errors->first('prm_jefe2_id') }}
+                      {{ $errors->first('prm_jefeb_id') }}
                   </div>
               @endif
           </div>
@@ -154,12 +154,12 @@ if (isset($todoxxxx['rowscols'])) {
 </div>
 <div class="row">
   <div class="col-md">
-      {{ Form::label('descripcion_1', '6.11 Descripción de hechos relevantes en las etapas de desarrollo, potencialidades, habilidades, talentos del NNAJ', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::textarea('descripcion_1', null, ['class' => $errors->first('descripcion_1') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Percepción de quién recibe la consulta sobre el NNAJ', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      {{ Form::label('descripcionb', '6.11 Descripción de hechos relevantes en las etapas de desarrollo, potencialidades, habilidades, talentos del NNAJ', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::textarea('descripcionb', null, ['class' => $errors->first('descripcionb') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Percepción de quién recibe la consulta sobre el NNAJ', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
       <p id="contadordescripcion1">0/4000</p>
-      @if($errors->has('descripcion_1'))
+      @if($errors->has('descripcionb'))
           <div class="invalid-feedback d-block">
-              {{ $errors->first('descripcion_1') }}
+              {{ $errors->first('descripcionb') }}
           </div>
       @endif
   </div>
@@ -173,12 +173,12 @@ if (isset($todoxxxx['rowscols'])) {
       @endif
   </div>
   <div class="col-md">
-      {{ Form::label('descripcion_2', 'Descripción', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::textarea('descripcion_2', null, ['class' => $errors->first('descripcion_2') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Describir en qué lugar realiza el cuidado y si tiene algún costo, entre otras', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      {{ Form::label('descripcionc', 'Descripción', ['class' => 'control-label col-form-label-sm']) }}
+      {{ Form::textarea('descripcionc', null, ['class' => $errors->first('descripcionc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Describir en qué lugar realiza el cuidado y si tiene algún costo, entre otras', 'maxlength' => '4000', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
       <p id="contadordescripcion2">0/4000</p>
-      @if($errors->has('descripcion_2'))
+      @if($errors->has('descripcionc'))
           <div class="invalid-feedback d-block">
-              {{ $errors->first('descripcion_2') }}
+              {{ $errors->first('descripcionc') }}
           </div>
       @endif
   </div>

@@ -20,7 +20,7 @@ class CreateHFiCsdVsiRedesActualesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('prm_tipo_id')->unsigned();
             $table->string('nombre');
-            $table->string('servicio', 4000);
+            $table->longText('servicio');
             $table->string('telefono')->nullable();
             $table->string('direccion')->nullable();
             $table->foreign('prm_tipo_id')->references('id')->on('parametros');

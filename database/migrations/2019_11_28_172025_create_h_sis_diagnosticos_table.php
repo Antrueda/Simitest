@@ -20,7 +20,7 @@ class CreateHSisDiagnosticosTable extends Migration
             $table->bigIncrements('id');
             $table->string('codigo', 4);
             $table->char('simbolo')->nullable();
-            $table->text('descripcion', 4000);
+            $table->longText('descripcion');
             $table->char('sexo');
             $table = CamposMagicos::h_magicos($table);
         });

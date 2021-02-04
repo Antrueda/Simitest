@@ -2,10 +2,10 @@
 
 namespace App\Imports\Csd;
 
-use App\Models\consulta\CsdComFamiliarObservaciones;
+use App\Models\consulta\CsdComfamob;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class CsdComFamiliarObservacionesImport implements ToModel
+class CsdComfamobImport implements ToModel
 {
     /**
     * @param array $row
@@ -14,7 +14,7 @@ class CsdComFamiliarObservacionesImport implements ToModel
     */
     public function model(array $row)
     {
-        return new CsdComFamiliarObservaciones([
+        return new CsdComfamob([
             'csd_id'=> $row[0],
             'observaciones'=> $row[1],
             'user_crea_id'=> 1,

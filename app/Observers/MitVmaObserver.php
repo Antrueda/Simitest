@@ -12,7 +12,7 @@ class MitVmaObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         $log['prm_upi_id'] = $modeloxx->prm_upi_id;
         $log['fecha'] = $modeloxx->fecha;
@@ -103,15 +103,15 @@ class MitVmaObserver
         $log['heroina_mes'] = $modeloxx->heroina_mes;
         $log['heroina_anio'] = $modeloxx->heroina_anio;
         $log['heroina_dejo'] = $modeloxx->heroina_dejo;
-        $log['prm_2cb_sino_id'] = $modeloxx->prm_2cb_sino_id;
-        
-        // $log['2cb_edad'] = $modeloxx->2cb_edad;
-        // $log['prm_2cb_frec_id'] = $modeloxx->prm_2cb_frec_id;
-        // $log['2cb_dosis'] = $modeloxx->2cb_dosis;
-        // $log['2cb_dia'] = $modeloxx->2cb_dia;
-        // $log['2cb_mes'] = $modeloxx->2cb_mes;
-        // $log['2cb_anio'] = $modeloxx->2cb_anio;
-        // $log['2cb_dejo'] = $modeloxx->2cb_dejo;
+        $log['prm_doscb_sino_id'] = $modeloxx->prm_doscb_sino_id;
+
+        // $log['doscb_edad'] = $modeloxx->doscb_edad;
+        // $log['prm_doscb_frec_id'] = $modeloxx->prm_doscb_frec_id;
+        // $log['doscb_dosis'] = $modeloxx->doscb_dosis;
+        // $log['doscb_dia'] = $modeloxx->doscb_dia;
+        // $log['doscb_mes'] = $modeloxx->doscb_mes;
+        // $log['doscb_anio'] = $modeloxx->doscb_anio;
+        // $log['doscb_dejo'] = $modeloxx->doscb_dejo;
 
         $log['prm_acidos_sino_id'] = $modeloxx->prm_acidos_sino_id;
         $log['acidos_edad'] = $modeloxx->acidos_edad;

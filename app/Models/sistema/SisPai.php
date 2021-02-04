@@ -10,9 +10,9 @@ class SisPai extends Model
     protected $fillable = ['s_pais', 's_iso','simianti_id', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
-    public function sis_departamentos()
+    public function sis_departams()
     {
-        return $this->belongsToMany(SisDepartamento::class)->withTimestamps()->withPivot('simianti_id');
+        return $this->belongsToMany(SisDepartam::class)->withTimestamps()->withPivot('simianti_id');
     }
 
     public static function combo($cabecera, $ajaxxxxx)

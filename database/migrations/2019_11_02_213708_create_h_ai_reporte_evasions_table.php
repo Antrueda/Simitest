@@ -42,9 +42,9 @@ class CreateHAiReporteEvasionsTable extends Migration
             $table->bigInteger('prm_tienelunar_id')->unsigned();
             $table->Integer('cuantos')->nullable();
             $table->bigInteger('prm_tamlunar_id')->unsigned()->nullable();
-            $table->string('senias', 4000);
-            $table->string('circunstancias', 4000);
-            $table->string('observaciones_fam', 4000);
+            $table->longText('senias');
+            $table->longText('circunstancias');
+            $table->longText('observaciones_fam');
             $table->bigInteger('prm_reporta_id')->unsigned();
             $table->bigInteger('prm_llamada_id')->unsigned()->nullable();
             $table->string('radicado', 120)->nullable();
@@ -59,7 +59,7 @@ class CreateHAiReporteEvasionsTable extends Migration
             $table->date('fecha_denuncia')->nullable();
             $table->time('hora_denuncia')->nullable();
             $table->bigInteger('prm_hor_denuncia_id')->unsigned()->nullable();
-            $table = CamposMagicos::h_magicos($table);           
+            $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

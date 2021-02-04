@@ -22,7 +22,7 @@ class CreateFosTsesTable extends Migration
             $table->bigInteger('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table->string('nombre', 120);
-            $table->text('descripcion', 4000)->nullable();
+            $table->longText('descripcion')->nullable();
             $table->foreign('area_id')->references('id')->on('areas');
             $table = CamposMagicos::magicos($table);
         });

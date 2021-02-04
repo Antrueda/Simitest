@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class CreateAiRetornoSalidasTable extends Migration
 {
-    private $tablaxxx = 'ai_retorno_salidas';
-    private $tablaxxx2 = 'ai_retorno_salidas_condicion';
+    private $tablaxxx = 'ai_retosalis';
+    private $tablaxxx2 = 'ai_retsalcos';
     /**
      * Run the migrations.
      *
@@ -22,8 +22,8 @@ class CreateAiRetornoSalidasTable extends Migration
             $table->bigInteger('prm_upi_id')->unsigned();
             $table->date('fecha');
             $table->time('hora_retorno');
-            $table->string('descripcion', 4000)->nullable();
-            $table->string('observaciones', 4000)->nullable();
+            $table->longText('descripcion')->nullable();
+            $table->longText('observaciones')->nullable();
             $table->string('nombres_retorna', 120)->nullable();
             $table->bigInteger('prm_doc_id')->unsigned()->nullable();
             $table->string('doc_retorna', 10)->nullable();
@@ -64,7 +64,7 @@ class CreateAiRetornoSalidasTable extends Migration
             $table->foreign('prm_enfermerd_id')->references('id')->on('parametros');
             $table->foreign('prm_brotes_id')->references('id')->on('parametros');
             $table->foreign('prm_laceracio_id')->references('id')->on('parametros');
-            $table->foreign('ai_retorno_salida_id')->references('id')->on('ai_retorno_salidas');
+            $table->foreign('ai_retorno_salida_id')->references('id')->on('ai_retosalis');
             $table->timestamps();
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA DE FORMA PARAMETRIZADA LOS PORMENORESDE LA CONDICION DE LLEGADA DE UN BENEFICIARIO DE LOS SERVICIOS DE IDIPRON DE UNA UPI DENTRO DE LAS ACCIONES GRUPALES'");

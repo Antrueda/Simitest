@@ -62,9 +62,9 @@
         }
         $('#s_documento').mask('000000000000');
         @if(old('sis_pai_id')!=null)
-            f_combo({dataxxxx:{tipoxxxx:'sis_pai_id', padrexxx:{{ old('sis_pai_id') }}  } , selected:"{{ old('sis_departamento_id') }}"  });
-            @if(old('sis_departamento_id')!=null)
-                f_combo({dataxxxx:{tipoxxxx:'sis_departamento_id', padrexxx:{{ old('sis_departamento_id') }}  } , selected:"{{ old('sis_municipio_id') }}"  });
+            f_combo({dataxxxx:{tipoxxxx:'sis_pai_id', padrexxx:{{ old('sis_pai_id') }}  } , selected:"{{ old('sis_departam_id') }}"  });
+            @if(old('sis_departam_id')!=null)
+                f_combo({dataxxxx:{tipoxxxx:'sis_departam_id', padrexxx:{{ old('sis_departam_id') }}  } , selected:"{{ old('sis_municipio_id') }}"  });
             @endif
         @endif
         //MASCARA DOCUMENTOS
@@ -73,7 +73,7 @@
             var sispaisid=$(this).prop('id');
             if(sispaisid=='sis_pai_id' && $(this).val()!=2){
                 f_combo({dataxxxx:{tipoxxxx:'sis_pai_id',padrexxx:1},selected:''});
-                f_combo({dataxxxx:{tipoxxxx:'sis_departamento_id',padrexxx:1},selected:''});
+                f_combo({dataxxxx:{tipoxxxx:'sis_departam_id',padrexxx:1},selected:''});
                 f_combo({dataxxxx:{tipoxxxx:'sis_municipio_id',padrexxx:1},selected:''});
             }else{
                 f_combo({dataxxxx:{tipoxxxx:sispaisid,padrexxx:$(this).val()},selected:''});

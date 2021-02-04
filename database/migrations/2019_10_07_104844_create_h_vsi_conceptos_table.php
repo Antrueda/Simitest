@@ -20,9 +20,9 @@ class CreateHVsiConceptosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
-            $table->string('concepto', 4000);
+            $table->longText('concepto');
             $table->bigInteger('prm_ingreso_id')->unsigned()->nullable();
-            $table->string('porque', 4000)->nullable();
+            $table->longText('porque')->nullable();
             $table->string('cual', 120)->nullable();
             $table = CamposMagicos::h_magicos($table);
         });

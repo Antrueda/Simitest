@@ -27,7 +27,7 @@ class CreateSisDepenSisEslugTable extends Migration
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('sis_eslug_id')->references('id')->on('sis_eslugs');
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
-            $table->unique(['sis_depen_id', 'sis_eslug_id']);
+            $table->unique(['sis_depen_id', 'sis_eslug_id'],'sidese_un1');
             $table->timestamps();
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE DEPENDENCIAS DEL IDIPRON Y LOS ESPACIOS DONDE SON REALIZADAS ACTIVIDADES ORIENMTADAS A LOS BENEFICIARIOS DE LOS SERVICIOS INSTITUCIONALES'");

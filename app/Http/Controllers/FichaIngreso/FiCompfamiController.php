@@ -8,7 +8,7 @@ use App\Http\Requests\FichaIngreso\FiCompfamiUpdateRequest;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Traits\GestionTiempos\ManageTimeTrait;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
 use App\Models\Tema;
@@ -182,11 +182,11 @@ class FiCompfamiController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             // ddd($datosbas);
             $dataxxxx['modeloxx']->aniosxxx=$datosbas->nnaj_nacimi->Edad;
-            $dataxxxx['modeloxx']->sis_pai_id = $datosbas->nnaj_docu->sis_municipio->sis_departamento->sis_pai_id;
+            $dataxxxx['modeloxx']->sis_pai_id = $datosbas->nnaj_docu->sis_municipio->sis_departam->sis_pai_id;
 
-            $this->opciones['departam'] = SisDepartamento::combo($dataxxxx['modeloxx']->sis_pai_id, false);
-            $dataxxxx['modeloxx']->sis_departamento_id = $datosbas->nnaj_docu->sis_municipio->sis_departamento_id;
-            $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamento_id, false);
+            $this->opciones['departam'] = SisDepartam::combo($dataxxxx['modeloxx']->sis_pai_id, false);
+            $dataxxxx['modeloxx']->sis_departam_id = $datosbas->nnaj_docu->sis_municipio->sis_departam_id;
+            $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departam_id, false);
             if ($dataxxxx['modeloxx']->sis_pai_id != 2) {
                 $this->opciones['municipi'] = $this->opciones['departam'] = [1 => 'NO APLICA'];
             }
@@ -355,16 +355,16 @@ class FiCompfamiController extends Controller
                 'tipodocu' => ['prm_tipodocu_id', ''],
                 'edadxxxx' => '',
                 'paisxxxx' => ['sis_pai_id', ''],
-                'departam' => ['sis_departamento_id', [], ''],
+                'departam' => ['sis_departam_id', [], ''],
                 'municipi' => ['sis_municipio_id', [], ''],
             ];
             $document = FiDatosBasico::where('sis_nnaj_id', $request->padrexxx)->first()->nnaj_docu;
             if (isset($document->id)) {
                 $expedici = $document->sis_municipio;
                 $dataxxxx['tipodocu'][1] = $document->prm_tipodocu_id;
-                $dataxxxx['paisxxxx'][1] = $expedici->sis_departamento->sis_pai_id;
-                $dataxxxx['departam'][1] = SisDepartamento::combo($dataxxxx['paisxxxx'][1], true);
-                $dataxxxx['departam'][2] = $expedici->sis_departamento_id;
+                $dataxxxx['paisxxxx'][1] = $expedici->sis_departam->sis_pai_id;
+                $dataxxxx['departam'][1] = SisDepartam::combo($dataxxxx['paisxxxx'][1], true);
+                $dataxxxx['departam'][2] = $expedici->sis_departam_id;
                 $dataxxxx['municipi'][1] = SisMunicipio::combo($dataxxxx['departam'][2], true);
                 $dataxxxx['municipi'][2] = $expedici->id;
             }
@@ -379,7 +379,7 @@ class FiCompfamiController extends Controller
             $dataxxxx = $request->all();
             $respuest = [];
             switch ($dataxxxx['tipoxxxx']) {
-                case 'sis_departamento_id':
+                case 'sis_departam_id':
                     $comboxxx = SisMunicipio::combo($dataxxxx['padrexxx'], true);
                     if ($dataxxxx['padrexxx'] == 1 ) {
                         $comboxxx = [['valuexxx' => 1, 'optionxx' => 'N/A']];
@@ -389,9 +389,9 @@ class FiCompfamiController extends Controller
                 case 'sis_pai_id':
                     $comboxxx = [['valuexxx' => 1, 'optionxx' => 'N/A']];
                     if ($dataxxxx['padrexxx'] == 2) {
-                        $comboxxx = SisDepartamento::combo($dataxxxx['padrexxx'], true);
+                        $comboxxx = SisDepartam::combo($dataxxxx['padrexxx'], true);
                     }
-                    $respuest = ['comboxxx' => $comboxxx, 'campoxxx' => 'sis_departamento_id', 'limpiarx' => '#sis_departamento_id'];
+                    $respuest = ['comboxxx' => $comboxxx, 'campoxxx' => 'sis_departam_id', 'limpiarx' => '#sis_departam_id'];
                     break;
             }
             return response()->json($respuest);
@@ -419,7 +419,7 @@ class FiCompfamiController extends Controller
                 'document' => 's_documento',
                 'tipoxxxx' => $request->tipoxxxx == 1 ? true : false,
                 'paisxxxx' => ['sis_pai_id', SisPai::combo(true, true)],
-                'departam' => ['sis_departamento_id', [['valuexxx' => '', 'optionxx' => 'Seleccione']]],
+                'departam' => ['sis_departam_id', [['valuexxx' => '', 'optionxx' => 'Seleccione']]],
                 'municipi' => ['sis_municipio_id', [['valuexxx' => '', 'optionxx' => 'Seleccione']]],
             ];
             if ($request->padrexxx == 800 || $request->padrexxx == 1594 || $request->padrexxx == 145) {

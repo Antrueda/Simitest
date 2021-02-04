@@ -18,7 +18,7 @@ class HFiCsdComposicionfamis extends Model
         'd_nacimiento',
         'i_prm_ocupacion_id',
         'sis_pai_id',
-        'sis_departamento_id',
+        'sis_departam_id',
         'sis_municipio_id',
         'i_prm_vinculado_idipron_id',
         'i_prm_convive_nnaj_id',

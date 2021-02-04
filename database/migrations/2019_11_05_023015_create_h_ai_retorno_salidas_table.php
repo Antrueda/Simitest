@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class CreateHAiRetornoSalidasTable extends Migration
 {
-    private $tablaxxx = 'h_ai_retorno_salidas';
-    private $tablaxxx2 = 'h_ai_retorno_salidas_condicion';
+    private $tablaxxx = 'h_ai_retosalis';
+    private $tablaxxx2 = 'h_ai_retsalcos';
     /**
      * Run the migrations.
      *
@@ -23,8 +23,8 @@ class CreateHAiRetornoSalidasTable extends Migration
             $table->bigInteger('prm_upi_id')->unsigned();
             $table->date('fecha');
             $table->time('hora_retorno');
-            $table->string('descripcion', 4000)->nullable();
-            $table->string('observaciones', 4000)->nullable();
+            $table->longText('descripcion')->nullable();
+            $table->longText('observaciones')->nullable();
             $table->string('nombres_retorna', 120)->nullable();
             $table->bigInteger('prm_doc_id')->unsigned()->nullable();
             $table->string('doc_retorna', 10)->nullable();

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SisDepenCrearRequest;
 use App\Http\Requests\SisDepenEditarRequest;
 use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisLocalidad;
@@ -123,7 +123,7 @@ class DependenciaController extends Controller
         $this->opciones['i_prm_tdependen_id'] = Tema::combo(192, true, false);
         $this->opciones['i_prm_sexo_id'] = Tema::combo(339, true, false);
         $this->opciones['responsa'] = Tema::comboDesc(23, false, false);
-        $this->opciones['sis_departamento_id'] = SisDepartamento::combo(2, false);
+        $this->opciones['sis_departam_id'] = SisDepartam::combo(2, false);
         $this->opciones['sis_municipio_id'] = ['' => 'Seleccione'];
         $this->opciones['sis_localidad_id'] = SisLocalidad::combo(true, false);
         $this->opciones['sis_upz_id'] = ['' => 'Seleccione'];
@@ -139,7 +139,7 @@ class DependenciaController extends Controller
             $objetoxx->dtiegabe = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itiegabe days"));
             $objetoxx->dtigafin = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- $objetoxx->itigafin days"));
 
-           $this->opciones['sis_municipio_id'] = SisMunicipio::combo($objetoxx->sis_departamento_id, false);
+           $this->opciones['sis_municipio_id'] = SisMunicipio::combo($objetoxx->sis_departam_id, false);
 
             $barrioxx = $objetoxx->sis_upzbarri;
             $objetoxx->sis_localidad_id = $barrioxx->sis_localupz->sis_localidad_id;

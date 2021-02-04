@@ -23,7 +23,7 @@ class CreateHSisDepensTable extends Migration
             $table->bigInteger('i_prm_tdependen_id')->unsigned();
             $table->bigInteger('i_prm_sexo_id')->unsigned();
             $table->string('s_direccion');
-            $table->bigInteger('sis_departamento_id')->unsigned();
+            $table->bigInteger('sis_departam_id')->unsigned();
             $table->bigInteger('sis_municipio_id')->unsigned();
             $table->bigInteger('sis_upzbarri_id')->unsigned();
             $table->string('s_telefono');

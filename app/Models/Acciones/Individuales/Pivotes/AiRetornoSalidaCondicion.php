@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class AiRetornoSalidaCondicion extends Model
 {
-    protected $table = 'ai_retorno_salidas_condicion';
+    protected $table = 'ai_retsalcos';
 
     protected $fillable = ['prm_condicion_id','ai_retorno_salida_id', 'user_crea_id', 'user_edita_id',
     'prm_orientado_id','prm_enfermerd_id','prm_brotes_id','prm_laceracio_id'];

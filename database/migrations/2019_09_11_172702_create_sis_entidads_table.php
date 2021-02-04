@@ -53,7 +53,7 @@ class CreateSisEntidadsTable extends Migration
             $table->bigInteger('user_edita_id')->unsigned();
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
-            $table->unique(['sis_entidad_id', 'sis_servicio_id']);
+            $table->unique(['sis_entidad_id', 'sis_servicio_id'],'entser_pk1');
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE ENTIDADES Y SERVICIOS INSTITUCIONALES'");
     }

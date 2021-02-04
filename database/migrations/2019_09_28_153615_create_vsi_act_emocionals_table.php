@@ -21,9 +21,9 @@ class CreateVsiActEmocionalsTable extends Migration
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
             $table->bigInteger('prm_activa_id')->unsigned()->comment('CAMPO ACTIVIDAD EMOCIONAL');
-            $table->string('descripcion', 4000)->nullable()->comment('CAMPO ABIERTO DESCRIPCION');
-            $table->string('conductual', 4000)->nullable()->comment('CAMPO ABIERTO DESCRIPCION CONDUCTUAL');
-            $table->string('cognitiva', 4000)->nullable()->comment('CAMPO ABIERTO DESCRIPCION COGNITIVA');
+            $table->longText('descripcion')->nullable()->comment('CAMPO ABIERTO DESCRIPCION');
+            $table->longText('conductual')->nullable()->comment('CAMPO ABIERTO DESCRIPCION CONDUCTUAL');
+            $table->longText('cognitiva')->nullable()->comment('CAMPO ABIERTO DESCRIPCION COGNITIVA');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_activa_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);

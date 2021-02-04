@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class CreateSisActividadSisDocumentoFuenteTable extends Migration
 {
-    private $tablaxxx = 'sis_actividad_sis_documento_fuente';
+    private $tablaxxx = 'sis_activi_sis_docufuen';
     /**
      * Run the migrations.
      *

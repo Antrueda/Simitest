@@ -19,7 +19,7 @@ class CreateHVsiAntecedentesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
-            $table->string('descripcion', 4000);
+            $table->longText('descripcion');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

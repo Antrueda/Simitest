@@ -15,5 +15,8 @@ package-lock.json
 composer.lock
 *.lock
 composer.lock
+composer.json
 .DS_Store
 /app/Http/Controllers/Administracion/excelcontroller.php
+/config/app.php
+/config/database.php

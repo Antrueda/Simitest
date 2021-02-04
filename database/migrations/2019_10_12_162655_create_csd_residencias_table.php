@@ -67,16 +67,16 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('prm_dir_bis_id')->references('id')->on('parametros');
             $table->foreign('prm_dir_alfabis_id')->references('id')->on('parametros');
             $table->foreign('prm_dir_cuadrantevp_id')->references('id')->on('parametros');
-            $table->foreign('prm_dir_alfavg_id')->references('id')->on('parametros');
-            $table->foreign('prm_dir_cuadrantevg_id')->references('id')->on('parametros');
-            $table->foreign('prm_estrato_id')->references('id')->on('parametros');
-            $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
-            $table->foreign('prm_piso_id')->references('id')->on('parametros');
-            $table->foreign('prm_muro_id')->references('id')->on('parametros');
-            $table->foreign('prm_higiene_id')->references('id')->on('parametros');
-            $table->foreign('prm_ventilacion_id')->references('id')->on('parametros');
-            $table->foreign('prm_iluminacion_id')->references('id')->on('parametros');
-            $table->foreign('prm_orden_id')->references('id')->on('parametros');
+            $table->foreign('prm_dir_alfavg_id','csdres_pk1')->references('id')->on('parametros');
+            $table->foreign('prm_dir_cuadrantevg_id','csdres_pk2')->references('id')->on('parametros');
+            $table->foreign('prm_estrato_id','csdres_pk3')->references('id')->on('parametros');
+            $table->foreign('sis_upzbarri_id','csdres_pk4')->references('id')->on('sis_upzbarris');
+            $table->foreign('prm_piso_id','csdres_pk5')->references('id')->on('parametros');
+            $table->foreign('prm_muro_id','csdres_pk6')->references('id')->on('parametros');
+            $table->foreign('prm_higiene_id','csdres_pk7')->references('id')->on('parametros');
+            $table->foreign('prm_ventilacion_id','csdres_pk8')->references('id')->on('parametros');
+            $table->foreign('prm_iluminacion_id','csdres_pk9')->references('id')->on('parametros');
+            $table->foreign('prm_orden_id','csdres_pk10')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA UBICACION Y CONTACTO DE LA PERSONA ENTREVISTADA, SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
@@ -89,11 +89,11 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
-            $table->unique(['parametro_id', 'csd_residencia_id']);
+            $table->unique(['parametro_id', 'csd_residencia_id'],'creamb_pk1');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
-        
+
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('prm_servicio_id')->unsigned()->comment('CAMPO PARAMETRO DE TIPO DE SERVICIO');
@@ -126,11 +126,11 @@ class CreateCsdResidenciasTable extends Migration
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA SI COMPARTE CAMAS '");
-     
+
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
-            $table->longText('observaciones', 4000)->comment('CAMPO OBSERVACIONES');
+            $table->longText('observaciones')->comment('CAMPO OBSERVACIONES');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });
@@ -150,9 +150,9 @@ class CreateCsdResidenciasTable extends Migration
 
     }
 
-    
-    
-    
+
+
+
 
     /**
      * Reverse the migrations.

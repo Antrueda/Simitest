@@ -139,8 +139,8 @@ class PCsdHelper
     {
 
         $dataxxxx['modeloxx'] = '';
-        if ($dataxxxx['padrexxx']->csd->CsdComFamiliarObservaciones !=null) {
-            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdComFamiliarObservaciones;
+        if ($dataxxxx['padrexxx']->csd->CsdComfamob !=null) {
+            $dataxxxx['modeloxx'] = $dataxxxx['padrexxx']->csd->CsdComfamob;
         }
         $dataxxxx['permisox'] = 'csdcomfamirobserva';
         return PCsdHelper::getRoute($dataxxxx);

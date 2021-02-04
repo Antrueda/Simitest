@@ -34,18 +34,18 @@ class CreateVsiViolenciasTable extends Migration
             $table->bigInteger('prm_par_psi_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA PSICOLOGICA PAREJA');
             $table->bigInteger('prm_par_sex_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA SEXUAL PAREJA');
             $table->bigInteger('prm_par_eco_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA ECONOMICA PAREJA');
-            $table->bigInteger('prm_compar_fis_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA FISICA COMUNITARIO'); 
+            $table->bigInteger('prm_compar_fis_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA FISICA COMUNITARIO');
             $table->bigInteger('prm_compar_psi_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA PSICOLOGICA COMUNITARIO');
             $table->bigInteger('prm_compar_sex_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA SEXUAL COMUNITARIO');
             $table->bigInteger('prm_compar_eco_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA ECONOMICA COMUNITARIO');
-            $table->bigInteger('prm_ins_fis_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA FISICA INSTITUCIONAL'); 
-            $table->bigInteger('prm_ins_psi_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA PSICOLOGICA INSTITUCIONAL'); 
-            $table->bigInteger('prm_ins_sex_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA SEXUAL INSTITUCIONAL'); 
-            $table->bigInteger('prm_ins_eco_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA ECONOMICA INSTITUCIONAL'); 
-            $table->bigInteger('prm_lab_fis_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA FISICA LABORAL'); 
-            $table->bigInteger('prm_lab_psi_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA PSICOLOGICA LABORAL'); 
-            $table->bigInteger('prm_lab_sex_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA SEXUAL LABORAL'); 
-            $table->bigInteger('prm_lab_eco_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA ECONOMICA LABORAL'); 
+            $table->bigInteger('prm_ins_fis_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA FISICA INSTITUCIONAL');
+            $table->bigInteger('prm_ins_psi_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA PSICOLOGICA INSTITUCIONAL');
+            $table->bigInteger('prm_ins_sex_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA SEXUAL INSTITUCIONAL');
+            $table->bigInteger('prm_ins_eco_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA ECONOMICA INSTITUCIONAL');
+            $table->bigInteger('prm_lab_fis_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA FISICA LABORAL');
+            $table->bigInteger('prm_lab_psi_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA PSICOLOGICA LABORAL');
+            $table->bigInteger('prm_lab_sex_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA SEXUAL LABORAL');
+            $table->bigInteger('prm_lab_eco_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA ECONOMICA LABORAL');
             $table->bigInteger('prm_dis_gen_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DISCRIMINACION GENERO');
             $table->bigInteger('prm_dis_ori_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DISCRIMINACION ORIENTACION');
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -86,7 +86,7 @@ class CreateVsiViolenciasTable extends Migration
             $table->bigInteger('vsi_violencia_id')->unsigned()->comment('CAMPO DE ID VIOLENCIA');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');
-            $table->unique(['parametro_id', 'vsi_violencia_id']);
+            $table->unique(['parametro_id', 'vsi_violencia_id'],'vsvico_un1');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DEL CONTEXTO DE DISCRIMINACION DE LA PERSONA ENTREVISTADA, PREGUNTA 4.4 SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
@@ -98,7 +98,7 @@ class CreateVsiViolenciasTable extends Migration
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_violencia_id')->references('id')->on('vsi_violencias');
-            $table->unique(['parametro_id', 'vsi_violencia_id']);
+            $table->unique(['parametro_id', 'vsi_violencia_id'],'vsviti_un1');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DEL TIPO DE VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA, PREGUNTA 4.5 SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");

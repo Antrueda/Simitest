@@ -17,7 +17,7 @@ class CreateSisUpzsTable extends Migration
         Schema::create('sis_upzs', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_upz')->unique()->comment('CAMPO DE NOMBRE DE LA UPZ');
-            $table->string('s_codigo', 3)->comment('CAMPO DE CODIGO DE LA UPZ');
+            $table->string('s_codigo',6)->comment('CAMPO DE CODIGO DE LA UPZ');
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
@@ -30,7 +30,7 @@ class CreateSisUpzsTable extends Migration
         Schema::create('h_sis_upzs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_upz');
-            $table->string('s_codigo', 3);
+            $table->string('s_codigo', 6);
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table = CamposMagicos::h_magicos($table);
         });

@@ -81,11 +81,11 @@
         }
       });
     }
-    @if(old('sis_departamento_id')!==null)
-      f_ajax({{ old('sis_departamento_id') }},{{ old('sis_municipio_id') }});
+    @if(old('sis_departam_id')!==null)
+      f_ajax({{ old('sis_departam_id') }},{{ old('sis_municipio_id') }});
     @endif
 
-    $('#sis_departamento_id').change(function(){
+    $('#sis_departam_id').change(function(){
       $('#sis_municipio_id').empty();
       if($(this).val()!=''){
         f_ajax($(this).val(),'');

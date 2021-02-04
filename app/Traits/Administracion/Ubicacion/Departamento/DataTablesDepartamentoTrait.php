@@ -34,8 +34,8 @@ trait DataTablesDepartamentoTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'sis_departamentos.id'],
-                    ['data' => 's_departamento', 'name' => 'sis_departamentos.s_departamento'],
+                    ['data' => 'id', 'name' => 'sis_departams.id'],
+                    ['data' => 's_departamento', 'name' => 'sis_departams.s_departamento'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

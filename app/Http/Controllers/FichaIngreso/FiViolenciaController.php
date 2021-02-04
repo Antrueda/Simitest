@@ -7,7 +7,7 @@ use App\Http\Requests\FichaIngreso\FiViolenciaCrearRequest;
 use App\Http\Requests\FichaIngreso\FiViolenciaUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiViolencia;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Traits\Fi\VcontviolTrait;
@@ -74,10 +74,10 @@ class FiViolenciaController extends Controller
             $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->i_prm_depto_condicion_id, false);
-            $this->opciones['departam'] = SisDepartamento::combo(2, false);
+            $this->opciones['departam'] = SisDepartam::combo(2, false);
 
             $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->i_prm_depto_certifica_id, false);
-            $this->opciones['deparexp'] = SisDepartamento::combo(2, false);
+            $this->opciones['deparexp'] = SisDepartam::combo(2, false);
             $this->opciones['departam'][1]=$this->opciones['deparexp'][1]='N/A';
             if ($dataxxxx['modeloxx']->i_prm_condicion_presenta_id == 853 || $dataxxxx['modeloxx']->i_prm_condicion_presenta_id == 455) {
                 $this->opciones['condiesp'] = [235 => 'N/A'];

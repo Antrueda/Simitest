@@ -20,11 +20,11 @@ class CreateSisDiagnosticosTable extends Migration
             $table->bigIncrements('id');
             $table->string('codigo', 4);
             $table->char('simbolo')->nullable();
-            $table->text('descripcion', 4000);
+            $table->longText('descripcion');
             $table->char('sexo');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DIAGNOSTICOS'");      
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DIAGNOSTICOS'");
     }
 
     /**

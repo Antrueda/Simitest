@@ -34,10 +34,10 @@ class CreateCsdViolenciasTable extends Migration
 
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_condicion_id')->references('id')->on('parametros');
-            $table->foreign('departamento_cond_id')->references('id')->on('sis_departamentos');
+            $table->foreign('departamento_cond_id')->references('id')->on('sis_departams');
             $table->foreign('municipio_cond_id')->references('id')->on('sis_municipios');
             $table->foreign('prm_certificado_id')->references('id')->on('parametros');
-            $table->foreign('departamento_cert_id')->references('id')->on('sis_departamentos');
+            $table->foreign('departamento_cert_id')->references('id')->on('sis_departams');
             $table->foreign('municipio_cert_id')->references('id')->on('sis_municipios');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Administracion\Ubicacion;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Sistema\Ubicacion\SisDepartamentoCrearRequest;
-use App\Http\Requests\Sistema\Ubicacion\SisDepartamentoEditarRequest;
-use App\Models\Sistema\SisDepartamento;
+use App\Http\Requests\Sistema\Ubicacion\SisDepartamCrearRequest;
+use App\Http\Requests\Sistema\Ubicacion\SisDepartamEditarRequest;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisPai;
 use App\Traits\Administracion\Ubicacion\Departamento\CrudDepartamentoTrait;
 use App\Traits\Administracion\Ubicacion\Departamento\DataTablesDepartamentoTrait;
@@ -56,7 +56,7 @@ class DepartamentoController extends Controller
 
         );
     }
-    public function store(SisDepartamentoCrearRequest $request, $padrexxx)
+    public function store(SisDepartamCrearRequest $request, $padrexxx)
     {
         $request->request->add(['sis_pai_id' => $padrexxx]);
         return $this->setDepartamento([
@@ -68,7 +68,7 @@ class DepartamentoController extends Controller
     }
 
 
-    public function show(SisDepartamento $modeloxx)
+    public function show(SisDepartam $modeloxx)
     {
         $this->pestanix['departam'] = [true, $modeloxx->sis_pai];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -83,7 +83,7 @@ class DepartamentoController extends Controller
     }
 
 
-    public function edit(SisDepartamento $modeloxx)
+    public function edit(SisDepartam $modeloxx)
     {
         $this->pestanix['departam'] = [true, $modeloxx->sis_pai];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -100,7 +100,7 @@ class DepartamentoController extends Controller
     }
 
 
-    public function update(SisDepartamentoEditarRequest $request,  SisDepartamento $modeloxx)
+    public function update(SisDepartamEditarRequest $request,  SisDepartam $modeloxx)
     {
         return $this->setDepartamento([
             'requestx' => $request,
@@ -110,7 +110,7 @@ class DepartamentoController extends Controller
         ]);
     }
 
-    public function inactivate(SisDepartamento $modeloxx)
+    public function inactivate(SisDepartam $modeloxx)
     {
         $this->pestanix['departam'] = [true, $modeloxx->sis_pai];
 
@@ -125,7 +125,7 @@ class DepartamentoController extends Controller
     }
 
 
-    public function destroy(Request $request, SisDepartamento $modeloxx)
+    public function destroy(Request $request, SisDepartam $modeloxx)
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
@@ -134,7 +134,7 @@ class DepartamentoController extends Controller
             ->with('info', 'Departamento inactivado correctamente');
     }
 
-    public function activate(SisDepartamento $modeloxx)
+    public function activate(SisDepartam $modeloxx)
     {
         $this->pestanix['departam'] = [true, $modeloxx->sis_pai];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -146,7 +146,7 @@ class DepartamentoController extends Controller
             ]
         );
     }
-    public function activar(Request $request, SisDepartamento $modeloxx)
+    public function activar(Request $request, SisDepartam $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()

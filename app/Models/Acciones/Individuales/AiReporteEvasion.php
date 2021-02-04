@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Parametro;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AiReporteEvasion extends Model{
-    
+
     protected $fillable = [
         'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
         'departamento_id', 'municipio_id', 'fecha_diligenciamiento', 'prm_upi_id',
@@ -29,7 +29,7 @@ class AiReporteEvasion extends Model{
         'responsable', 'institución', 'nombre_recibe', 'cargo_recibe',
         'placa_recibe', 'fecha_denuncia', 'hora_denuncia', 'prm_hor_denuncia_id','s_doc_adjunto'
     ];
-    
+
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
     public function nnaj(){
@@ -37,13 +37,13 @@ class AiReporteEvasion extends Model{
     }
 
     public function departamento(){
-        return $this->belongsTo(SisDepartamento::class, 'departamento_id');
+        return $this->belongsTo(SisDepartam::class, 'departamento_id');
     }
 
     public function municipio(){
         return $this->belongsTo(SisMunicipio::class, 'municipio_id');
     }
-    
+
     public function upis(){
         return $this->belongsTo(SisDepen::class, 'prm_upi_id');
     }
@@ -122,21 +122,21 @@ class AiReporteEvasion extends Model{
                $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
             }
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-            
+
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
                 $dataxxxx['requestx']->request->add(['ai_salida_menores_id' => $dataxxxx['modeloxx']->id]);
                 $dataxxxx['objetoxx']=$dataxxxx['modeloxx'];
-          
+
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = AiReporteEvasion::create($dataxxxx['requestx']->all());
                 $dataxxxx['requestx']->request->add(['ai_salida_menores_id' => $dataxxxx['modeloxx']->id]);
                 $dataxxxx['objetoxx']=$dataxxxx['modeloxx'];
-              
+
             }
-            
-         
+
+
 
            return $dataxxxx['modeloxx'];
         }, 5);

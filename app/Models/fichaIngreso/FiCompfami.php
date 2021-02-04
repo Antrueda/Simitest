@@ -3,7 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Models\Parametro;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisPai;
@@ -119,7 +119,7 @@ class FiCompfami extends Model
         return $comboxxx;
     }
 
-    
+
     public static function comboNoNNaj($padrexxx, $cabecera, $ajaxxxxx)
     {
         $comboxxx = [];
@@ -309,9 +309,9 @@ class FiCompfami extends Model
     {
         return $this->belongsTo(SisPai::class);
     }
-    public function sis_departamento()
+    public function sis_departam()
     {
-        return $this->belongsTo(SisDepartamento::class);
+        return $this->belongsTo(SisDepartam::class);
     }
     public function sis_municipio()
     {

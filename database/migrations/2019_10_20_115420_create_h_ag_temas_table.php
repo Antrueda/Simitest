@@ -20,7 +20,7 @@ class CreateHAgTemasTable extends Migration
             $table->bigIncrements('id');
             $table->String('s_tema');
             $table->bigInteger('area_id')->unsigned();
-            $table->String('s_descripcion', 6000);
+            $table->longText('s_descripcion');
             $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });

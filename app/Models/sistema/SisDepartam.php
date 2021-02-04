@@ -5,7 +5,7 @@ namespace App\Models\Sistema;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
-class SisDepartamento extends Model
+class SisDepartam extends Model
 {
     protected $fillable = ['s_departamento', 'sis_pai_id', 's_iso','simianti_id', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
@@ -29,7 +29,7 @@ class SisDepartamento extends Model
             $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
         }
 
-        foreach (SisDepartamento::where(function ($dataxxxx) use ($idpadrex) {
+        foreach (SisDepartam::where(function ($dataxxxx) use ($idpadrex) {
 
                 $dataxxxx->where('sis_pai_id', $idpadrex);
 

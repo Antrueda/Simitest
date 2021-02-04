@@ -25,10 +25,10 @@ class CreateSisMenusTable extends Migration
             $table->foreign('sis_menu_id')->references('id')->on('sis_menus');
             $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');
             $table->timestamps();
-            $table->unique(['sis_menu_id','s_menu']);
+            $table->unique(['sis_menu_id','s_menu'],'sismen_un1');
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CONFIGURACION PARA LOS MENUS DEL PANEL LATERAL IZQUIERDA'");
-        
+
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('s_menu');

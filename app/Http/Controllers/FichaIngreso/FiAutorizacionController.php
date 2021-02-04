@@ -75,7 +75,7 @@ class FiAutorizacionController extends Controller
 
         //Esconder campos según la edad
 
-        
+
         $this->opciones['autoriza'] = $compofami[1];
         $this->opciones['sdocumen'] = '';
         $this->opciones['expedici'] = '';
@@ -86,7 +86,7 @@ class FiAutorizacionController extends Controller
         if ($edad >= 18) { // mayor de edad
             $expedici=$dataxxxx['padrexxx']->nnaj_docu->sis_municipio;
             $this->opciones['encalida'] = Parametro::where('id', 805)->first()->nombre;
-            $this->opciones['expedici'] =  $expedici->sis_departamento->sis_pai->s_pais . ' ' . $expedici->sis_departamento->s_departamento . ' ' . $expedici->s_municipio;
+            $this->opciones['expedici'] =  $expedici->sis_departam->sis_pai->s_pais . ' ' . $expedici->sis_departam->s_departamento . ' ' . $expedici->s_municipio;
             $this->opciones['sdocumen'] = $dataxxxx['padrexxx']->nnaj_docu->s_documento;
         } else { // menor de edad
             //$this->opciones['condicio'] = [1 => 'NO APLICA'];
@@ -201,7 +201,7 @@ class FiAutorizacionController extends Controller
             if ($dataxxxx['padrexxx'] != '') {
                 $compofam = FiCompfami::where('id', $dataxxxx['padrexxx'])->first();
                 $document=$compofam->sis_nnaj->fi_datos_basico->nnaj_docu;
-                $respuest = ['sdocumen' => $document->s_documento, 'expedici' => $document->sis_municipio->s_municipio . ' (' . $document->sis_municipio->sis_departamento->s_departamento . ')'];
+                $respuest = ['sdocumen' => $document->s_documento, 'expedici' => $document->sis_municipio->s_municipio . ' (' . $document->sis_municipio->sis_departam->s_departamento . ')'];
             }
             return response()->json($respuest);
         }

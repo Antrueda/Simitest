@@ -23,7 +23,7 @@ class CreateCsdRedsocPasadosTable extends Migration
             $table->integer('cantidad')->nullable();
             $table->bigInteger('prm_unidad_id')->unsigned();
             $table->integer('ano');
-            $table->string('retiro', 4000)->nullable();
+            $table->longText('retiro')->nullable();
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();
             $table->bigInteger('sis_esta_id')->unsigned()->default(1);

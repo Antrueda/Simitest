@@ -40,8 +40,8 @@ class CreateHVsiGenIngresosTable extends Migration
             $table->bigInteger('prm_aporta_id')->unsigned()->nullable();
             $table->string('porque')->nullable();
             $table->Integer('cuanto_aporta')->unsigned()->nullable();
-            $table->string('expectativa', 4000)->nullable();
-            $table->string('descripcion', 4000)->nullable();
+            $table->longText('expectativa')->nullable();
+            $table->longText('descripcion')->nullable();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

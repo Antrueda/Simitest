@@ -12,17 +12,17 @@ class HCsdDinFamiliar extends Model
         'relevantes',
         'prm_familiar_id',
         'prm_hogar_id',
-        'descripcion_0',
+        'descripciona',
         'prm_bogota_id',
         'prm_traslado_id',
-        'jefe1',
+        'jefea',
         's_doc_adjunto',
-        'prm_jefe1_id',
-        'jefe2',
-        'prm_jefe2_id',
-        'descripcion_1',
+        'prm_jefea_id',
+        'jefeb',
+        'prm_jefeb_id',
+        'descripcionb',
         'prm_cuidador_id',
-        'descripcion_2',
+        'descripcionc',
         'afronta',
         'prm_norma_id',
         'prm_conoce_id',
@@ -37,7 +37,7 @@ class HCsdDinFamiliar extends Model
         'user_edita_id',
         'sis_esta_id',
         'prm_tipofuen_id',
-        
+
         'id_old', 'metodoxx', 'rutaxxxx', 'ipxxxxxx'
     ];
 }

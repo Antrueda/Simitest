@@ -22,7 +22,7 @@ class CreateSisInstitucionEdusTable extends Migration
             $table->bigInteger('user_crea_id')->unsigned();
             $table->string('s_email')->comment('CAMPO CORREO ELECTRONICO DE LA INSTITUCION EDUCATIVA');
             $table->bigInteger('sis_municipio_id')->unsigned()->comment('CAMPO ID DE MUNICIPIO');
-            $table->bigInteger('sis_departamento_id')->unsigned()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->bigInteger('sis_departam_id')->unsigned()->comment('CAMPO ID DE DEPARTAMENTO');
             $table->bigInteger('i_prm_sector_id')->unsigned()->comment('CAMPO PARAMETRO DE SECTOR');
             $table->bigInteger('i_usr_rector_id')->unsigned()->comment('CAMPO PARAMETRO DE RECTOR');
             $table->bigInteger('i_usr_secretario_id')->unsigned()->comment('CAMPO PARAMETRO DE SECRETARIO');
@@ -36,7 +36,7 @@ class CreateSisInstitucionEdusTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
 
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
-            $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
+            $table->foreign('sis_departam_id')->references('id')->on('sis_departams');
             $table->foreign('i_prm_sector_id')->references('id')->on('parametros');
             $table->foreign('i_usr_rector_id')->references('id')->on('users');
             $table->foreign('i_usr_secretario_id')->references('id')->on('users');

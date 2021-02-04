@@ -8,7 +8,7 @@ use App\Http\Requests\Csd\CsdViolenciaEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdViolencia;
 use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use App\Traits\Fi\VcontviolTrait;
@@ -55,7 +55,7 @@ class CsdViolenciaController extends Controller
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = 'ACTIVO';
-        $this->opciones['departxx'] = SisDepartamento::orderBy('s_departamento')->get();
+        $this->opciones['departxx'] = SisDepartam::orderBy('s_departamento')->get();
         $this->opciones['departam'] = ['' => 'Seleccione'];
         $this->opciones['municipi'] = ['' => 'Seleccione'];
         $this->opciones['deparexp'] = ['' => 'Seleccione'];
@@ -65,10 +65,10 @@ class CsdViolenciaController extends Controller
             $this->opciones['pestpadr'] = 3;
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->departamento_cond_id, false);
-            $this->opciones['departam'] = SisDepartamento::combo(2, false);
+            $this->opciones['departam'] = SisDepartam::combo(2, false);
 
             $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->departamento_cert_id, false);
-            $this->opciones['deparexp'] = SisDepartamento::combo(2, false);
+            $this->opciones['deparexp'] = SisDepartam::combo(2, false);
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
 

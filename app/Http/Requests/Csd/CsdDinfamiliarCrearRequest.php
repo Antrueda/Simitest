@@ -25,24 +25,24 @@ class CsdDinfamiliarCrearRequest extends FormRequest
             'prm_destaca_id.required' => 'Indique si los miembros de la familia se destacan',
             'prm_positivo_id.required' => 'Indique Cómo actúa la familia cuando hay sucesos positivos',
             'porque.required_if'=>'Escriba el por qué',
-            
-            
+
+
         ];
         $this->_reglasx = [
             'descripcion' => 'nullable|string|max:4000',
             'relevantes' => 'required|string|max:4000',
             'prm_familiar_id' => 'required_without:prm_hogar_id',
             'prm_hogar_id' => 'required_without:prm_familiar_id',
-            'descripcion_0' => 'required|string|max:4000',
+            'descripciona' => 'required|string|max:4000',
             'prm_bogota_id' => 'required|exists:parametros,id',
             'prm_traslado_id' => 'required_if:prm_bogota_id,228',
-            'jefe1' => 'nullable|string|max:120',
-            'prm_jefe1_id' => 'nullable|exists:parametros,id',
-            'jefe2' => 'nullable|string|max:120',
-            'prm_jefe2_id' => 'nullable|exists:parametros,id',
-            'descripcion_1' => 'required|string|max:4000',
+            'jefea' => 'nullable|string|max:120',
+            'prm_jefea_id' => 'nullable|exists:parametros,id',
+            'jefeb' => 'nullable|string|max:120',
+            'prm_jefeb_id' => 'nullable|exists:parametros,id',
+            'descripcionb' => 'required|string|max:4000',
             'prm_cuidador_id' => 'nullable|exists:parametros,id',
-            'descripcion_2' => 'required|string|max:4000',
+            'descripcionc' => 'required|string|max:4000',
             'afronta' => 'required|string|max:4000',
             'prm_norma_id' => 'required|exists:parametros,id',
             'prm_conoce_id' => 'required_if:prm_norma_id,227',
@@ -90,7 +90,7 @@ class CsdDinfamiliarCrearRequest extends FormRequest
     public function validar()
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        
+
     }
 }
 

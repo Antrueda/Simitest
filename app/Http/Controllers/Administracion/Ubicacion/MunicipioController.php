@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Administracion\Ubicacion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Sistema\Ubicacion\SisMunicipioCrearRequest;
 use App\Http\Requests\Sistema\Ubicacion\SisMunicipioEditarRequest;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Traits\Administracion\Ubicacion\Municipio\CrudMunicipioTrait;
 use App\Traits\Administracion\Ubicacion\Municipio\DataTablesMunicipioTrait;
@@ -34,7 +34,7 @@ class MunicipioController extends Controller
         $this->middleware($this->getMware());
     }
 
-    public function index(SisDepartamento $padrexxx)
+    public function index(SisDepartam $padrexxx)
     {
         $this->pestanix['departam']=[true,$padrexxx->sis_pai];
         $this->pestanix['municipi']=[true,$padrexxx];
@@ -44,7 +44,7 @@ class MunicipioController extends Controller
     }
 
 
-    public function create(SisDepartamento $padrexxx)
+    public function create(SisDepartam $padrexxx)
     {
         $this->pestanix['departam']=[true,$padrexxx->sis_pai];
         $this->pestanix['municipi']=[true,$padrexxx];
@@ -59,7 +59,7 @@ class MunicipioController extends Controller
     }
     public function store(SisMunicipioCrearRequest $request,$padrexxx)
     {
-        $request->request->add(['sis_departamento_id'=>$padrexxx]);
+        $request->request->add(['sis_departam_id'=>$padrexxx]);
         return $this->setMunicipio([
             'requestx' => $request,
             'modeloxx' => '',
@@ -71,7 +71,7 @@ class MunicipioController extends Controller
 
     public function show(SisMunicipio $modeloxx)
     {
-        $padrexxx=$modeloxx->sis_departamento;
+        $padrexxx=$modeloxx->sis_departam;
         $this->pestanix['departam']=[true,$padrexxx->sis_pai];
         $this->pestanix['municipi']=[true,$padrexxx];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
@@ -85,16 +85,16 @@ class MunicipioController extends Controller
 
     public function edit(SisMunicipio $modeloxx)
     {
-        $padrexxx=$modeloxx->sis_departamento;
+        $padrexxx=$modeloxx->sis_departam;
         $this->pestanix['departam']=[true,$padrexxx->sis_pai];
         $this->pestanix['municipi']=[true,$padrexxx];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_departamento_id]], 2, 'VOLVER A MUNICIPIOS', 'btn btn-sm btn-primary']);
+        $this->getBotones(['leer', [$this->opciones['routxxxx'], [$modeloxx->sis_departam_id]], 2, 'VOLVER A MUNICIPIOS', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EIDTAR MUNICIPIO', 'btn btn-sm btn-primary']);
-        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_departamento_id]], 2, 'CREAR NUEVO MUNICIPIO', 'btn btn-sm btn-primary']),
+        return $this->view($this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_departam_id]], 2, 'CREAR NUEVO MUNICIPIO', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx,
             'accionxx' => ['editar', 'formulario'],
-            'padrexxx'=>$modeloxx->sis_departamento_id
+            'padrexxx'=>$modeloxx->sis_departam_id
             ]
         );
     }
@@ -112,7 +112,7 @@ class MunicipioController extends Controller
 
     public function inactivate(SisMunicipio $modeloxx)
     {
-        $padrexxx=$modeloxx->sis_departamento;
+        $padrexxx=$modeloxx->sis_departam;
         $this->pestanix['departam']=[true,$padrexxx->sis_pai];
         $this->pestanix['municipi']=[true,$padrexxx];
 
@@ -120,7 +120,7 @@ class MunicipioController extends Controller
         return $this->view(
             $this->getBotones(['borrar', [], 1, 'INACTIVAR MUNICIPIO', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],
-            'padrexxx'=>$modeloxx->sis_departamento_id]
+            'padrexxx'=>$modeloxx->sis_departam_id]
         );
     }
 
@@ -130,20 +130,20 @@ class MunicipioController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->sis_departamento_id])
+            ->route($this->opciones['permisox'], [$modeloxx->sis_departam_id])
             ->with('info', 'Municipio inactivado correctamente');
     }
 
     public function activate(SisMunicipio $modeloxx)
     {
-        $padrexxx=$modeloxx->sis_departamento;
+        $padrexxx=$modeloxx->sis_departam;
         $this->pestanix['departam']=[true,$padrexxx->sis_pai];
         $this->pestanix['municipi']=[true,$padrexxx];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         return $this->view(
             $this->getBotones(['activarx', [], 1, 'ACTIVAR MUNICIPIO', 'btn btn-sm btn-primary']),
             ['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],
-            'padrexxx'=>$modeloxx->sis_departamento_id
+            'padrexxx'=>$modeloxx->sis_departam_id
             ]
         );
 
@@ -152,7 +152,7 @@ class MunicipioController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->sis_departamento_id])
+            ->route($this->opciones['permisox'], [$modeloxx->sis_departam_id])
             ->with('info', 'Municipio activado correctamente');
     }
 }

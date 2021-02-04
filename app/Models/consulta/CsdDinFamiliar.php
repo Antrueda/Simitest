@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\DB;
 
 class CsdDinFamiliar extends Model{
     protected $fillable = ['csd_id', 'descripcion', 'relevantes', 'prm_familiar_id', 'prm_hogar_id',
-    'descripcion_0', 'prm_bogota_id', 'prm_traslado_id', 'jefe1', 'prm_jefe1_id', 'jefe2', 'prm_jefe2_id',
-    'descripcion_1', 'prm_cuidador_id', 'descripcion_2', 'afronta', 'prm_norma_id', 'prm_conoce_id',
+    'descripciona', 'prm_bogota_id', 'prm_traslado_id', 'jefea', 'prm_jefea_id', 'jefeb', 'prm_jefeb_id',
+    'descripcionb', 'prm_cuidador_id', 'descripcionc', 'afronta', 'prm_norma_id', 'prm_conoce_id',
     'observacion', 'prm_actuan_id', 'porque', 'prm_solucion_id', 'prm_problema_id', 'prm_destaca_id',
     's_doc_adjunto',
     'prm_positivo_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id','prm_tipofuen_id'];
@@ -40,12 +40,12 @@ class CsdDinFamiliar extends Model{
         return $this->belongsTo(Parametro::class, 'prm_traslado_id');
     }
 
-    public function jefe1(){
-        return $this->belongsTo(Parametro::class, 'prm_jefe1_id');
+    public function jefea(){
+        return $this->belongsTo(Parametro::class, 'prm_jefea_id');
     }
 
-    public function jefe2(){
-        return $this->belongsTo(Parametro::class, 'prm_jefe2_id');
+    public function jefeb(){
+        return $this->belongsTo(Parametro::class, 'prm_jefeb_id');
     }
 
     public function cuidador(){

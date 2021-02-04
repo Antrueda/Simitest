@@ -25,14 +25,14 @@ class CsdDatosBasicoObserver
         $log['prm_orientacion_sexual_id'] = $modeloxx->prm_orientacion_sexual_id;
         $log['d_nacimiento'] = $modeloxx->d_nacimiento;
         $log['sis_pai_id'] = $modeloxx->sis_pai_id;
-        $log['sis_departamento_id'] = $modeloxx->sis_departamento_id;
+        $log['sis_departam_id'] = $modeloxx->sis_departam_id;
         $log['sis_municipio_id'] = $modeloxx->sis_municipio_id;
         $log['prm_tipodocu_id'] = $modeloxx->prm_tipodocu_id;
         $log['prm_doc_fisico_id'] = $modeloxx->prm_doc_fisico_id;
         $log['prm_ayuda_id'] = $modeloxx->prm_ayuda_id;
         $log['s_documento'] = $modeloxx->s_documento;
         $log['sis_paiexp_id'] = $modeloxx->sis_paiexp_id;
-        $log['sis_departamentoexp_id'] = $modeloxx->sis_departamentoexp_id;
+        $log['sis_departamexp_id'] = $modeloxx->sis_departamexp_id;
         $log['sis_municipioexp_id'] = $modeloxx->sis_municipioexp_id;
         $log['prm_gsanguino_id'] = $modeloxx->prm_gsanguino_id;
         $log['prm_factor_rh_id'] = $modeloxx->prm_factor_rh_id;

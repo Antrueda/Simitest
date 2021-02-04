@@ -32,7 +32,7 @@ class CreateHVsiConsumosTable extends Migration
             $table->bigInteger('prm_motivo_id')->unsigned()->nullable();
             $table->bigInteger('prm_expectativa_id')->unsigned()->nullable();
             $table->bigInteger('prm_familia_id')->unsigned();
-            $table->string('descripcion', 4000)->nullable();
+            $table->longText('descripcion')->nullable();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

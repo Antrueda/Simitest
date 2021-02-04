@@ -21,7 +21,7 @@ class CreateHVsiRedsocActualsTable extends Migration
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('prm_tipo_id')->unsigned();
             $table->string('nombre');
-            $table->string('servicio', 4000);
+            $table->longText('servicio');
             $table->string('telefono')->nullable();
             $table->string('direccion')->nullable();
             $table = CamposMagicos::h_magicos($table);

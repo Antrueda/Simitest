@@ -11,7 +11,7 @@ class AIEvasionesRequest extends FormRequest
     private $_mensaje;
     private $_reglasx;
     use  ManageTimeTrait;
-    
+
     public function __construct()
     {
         $this->_mensaje = [
@@ -51,11 +51,11 @@ class AIEvasionesRequest extends FormRequest
             'placa_recibe.required_if' => 'Digite la placa de quien recibe la denuncia',
             'fecha_denuncia.required_if' => 'Indique la fecha de la denuncia',
             'hora_denuncia.required_if' => 'Indique la hora de la denuncia',
-            
+
 
             ];
         $this->_reglasx = [
-            'departamento_id' => 'required|exists:sis_departamentos,id',
+            'departamento_id' => 'required|exists:sis_departams,id',
             'municipio_id' => 'required|exists:sis_municipios,id',
             'fecha_diligenciamiento' => ['required', 'date_format:Y-m-d', new FechaMenor()],
             'prm_upi_id'    => 'required|exists:sis_depens,id',

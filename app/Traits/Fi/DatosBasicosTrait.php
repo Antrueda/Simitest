@@ -3,7 +3,7 @@
 namespace App\Traits\Fi;
 
 use App\Models\consulta\CsdComFamiliar;
-use App\Models\consulta\CsdComFamiliarObservaciones;
+use App\Models\consulta\CsdComfamob;
 use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiCompfami;
@@ -205,7 +205,7 @@ trait DatosBasicosTrait
                 $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'], 'compfami' => $respuesx['compfami']];
             }
             //
-            // CsdComFamiliarObservaciones::getTransaccion($dataxxxx);
+            // CsdComfamob::getTransaccion($dataxxxx);
             return $objetoxx;
         }, 5);
         return $objetoxx;

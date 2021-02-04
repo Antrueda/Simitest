@@ -33,7 +33,7 @@ class CreateSalidaJovenesTable extends Migration
             $table->bigInteger('retorna_id')->unsigned()->nullable();
             $table->date('fecharetorno')->nullable();
             $table->time('horaretorno')->nullable();
-            $table->text('observacion', 4000)->nullable();
+            $table->longText('observacion')->nullable();
             $table->foreign('ai_salmay_id')->references('id')->on('ai_salida_mayores');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('responsable_id')->references('id')->on('fi_compfamis');
@@ -43,7 +43,7 @@ class CreateSalidaJovenesTable extends Migration
             ;
         });
         //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA QUIENES ASISTEN A LAS ACTIVIDADES ASOCIADOS A LOS TALLERES DENTRO DE LAS ACCIONES GRUPALES'");
-        
+
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('salida_jovenes_id')->unsigned();

@@ -112,11 +112,11 @@
     </div>
     <div class="form-group col-md-4">
 
-        {{ Form::label('sis_departamento_id', '1.9(a) Departamento de nacimiento', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_departamento_id', $todoxxxx['departam'], null, ['id'=>'sis_departamento_id','class' => $errors->first('sis_departamento_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2']) }}
-        @if($errors->has('sis_departamento_id'))
+        {{ Form::label('sis_departam_id', '1.9(a) Departamento de nacimiento', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('sis_departam_id', $todoxxxx['departam'], null, ['id'=>'sis_departam_id','class' => $errors->first('sis_departam_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2']) }}
+        @if($errors->has('sis_departam_id'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('sis_departamento_id') }}
+                {{ $errors->first('sis_departam_id') }}
             </div>
         @endif
     </div>
@@ -176,11 +176,11 @@
     </div>
     <div class="form-group col-md-4">
 
-        {{ Form::label('sis_departamentoexp_id', '1.13(a) Departamento de expedición', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('sis_departamentoexp_id',$todoxxxx['deparexp'], null, ['class' => $errors->first('sis_departamentoexp_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'id' => 'sis_departamentoexp_id']) }}
-        @if($errors->has('sis_departamentoexp_id'))
+        {{ Form::label('sis_departamexp_id', '1.13(a) Departamento de expedición', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('sis_departamexp_id',$todoxxxx['deparexp'], null, ['class' => $errors->first('sis_departamexp_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'id' => 'sis_departamexp_id']) }}
+        @if($errors->has('sis_departamexp_id'))
             <div class="invalid-feedback d-block">
-                {{ $errors->first('sis_departamentoexp_id') }}
+                {{ $errors->first('sis_departamexp_id') }}
             </div>
         @endif
     </div>

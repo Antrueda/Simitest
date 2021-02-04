@@ -24,14 +24,14 @@ class CreateHFcvRedesPasadosTable extends Migration
             $table->integer('cantidad')->nullable();
             $table->bigInteger('prm_unidad_id')->unsigned();
             $table->integer('ano');
-            $table->string('retiro', 4000)->nullable();
+            $table->longText('retiro')->nullable();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
-        
-    
+
+
 
     /**
      * Reverse the migrations.

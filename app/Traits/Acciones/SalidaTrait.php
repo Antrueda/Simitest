@@ -24,7 +24,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiJustrest;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaobservacion\FosDatosBasico;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisMunicipio;
@@ -181,7 +181,7 @@ trait SalidaTrait
             'nnaj_nacimis.d_nacimiento',
             'sis_nnajs.created_at',
             'sis_estas.s_estado',
-            
+
         ])
             ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
@@ -190,7 +190,7 @@ trait SalidaTrait
             ->join('fi_compfamis', 'sis_nnajs.id', '=', 'fi_compfamis.sis_nnaj_id')
             ->where('fi_compfamis.prm_reprlega_id', 227)
             ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $request->padrexxx)->get());
-            
+
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -417,7 +417,7 @@ trait SalidaTrait
         return $this->getDtSalidasIndividuales($dataxxxx, $request);
     }
 
-    
+
 
     public function getEvasion($request)
     {
@@ -441,20 +441,20 @@ trait SalidaTrait
     public function getRetorno($request)
     {
         $dataxxxx =  AiRetornoSalida::select([
-            'ai_retorno_salidas.id',
-            'ai_retorno_salidas.fecha',
+            'ai_retosalis.id',
+            'ai_retosalis.fecha',
             'upi.nombre as upi',
-            'ai_retorno_salidas.hora_retorno',
-            'ai_retorno_salidas.sis_esta_id',
-            'ai_retorno_salidas.sis_nnaj_id',
-            'ai_retorno_salidas.observaciones',
+            'ai_retosalis.hora_retorno',
+            'ai_retosalis.sis_esta_id',
+            'ai_retosalis.sis_nnaj_id',
+            'ai_retosalis.observaciones',
             'users.name',
-            'ai_retorno_salidas.created_at',
+            'ai_retosalis.created_at',
         ])
-            ->join('sis_depens as upi', 'ai_retorno_salidas.prm_upi_id', '=', 'upi.id')
-            ->join('sis_estas', 'ai_retorno_salidas.sis_esta_id', '=', 'sis_estas.id')
-            ->join('users', 'ai_retorno_salidas.user_doc1_id', '=', 'users.id')
-            ->where('ai_retorno_salidas.sis_nnaj_id', $request->padrexxx);
+            ->join('sis_depens as upi', 'ai_retosalis.prm_upi_id', '=', 'upi.id')
+            ->join('sis_estas', 'ai_retosalis.sis_esta_id', '=', 'sis_estas.id')
+            ->join('users', 'ai_retosalis.user_doc1_id', '=', 'users.id')
+            ->where('ai_retosalis.sis_nnaj_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -579,7 +579,7 @@ trait SalidaTrait
                 'parentes' => ['prm_parentezco_id', ''],
                 'edadxxxx' => '',
                 'paisxxxx' => ['sis_pai_id', ''],
-                'departam' => ['sis_departamento_id', [], ''],
+                'departam' => ['sis_departam_id', [], ''],
                 'municipi' => ['sis_municipio_id', [], ''],
 
             ];
@@ -587,9 +587,9 @@ trait SalidaTrait
             if (isset($document->id)) {
                 $expedici = $document->sis_municipio;
                 $dataxxxx['tipodocu'][1] = $document->prm_tipodocu_id;
-                $dataxxxx['paisxxxx'][1] = $expedici->sis_departamento->sis_pai_id;
-                $dataxxxx['departam'][1] = SisDepartamento::combo($dataxxxx['paisxxxx'][1], true);
-                $dataxxxx['departam'][2] = $expedici->sis_departamento_id;
+                $dataxxxx['paisxxxx'][1] = $expedici->sis_departam->sis_pai_id;
+                $dataxxxx['departam'][1] = SisDepartam::combo($dataxxxx['paisxxxx'][1], true);
+                $dataxxxx['departam'][2] = $expedici->sis_departam_id;
                 $dataxxxx['municipi'][1] = SisMunicipio::combo($dataxxxx['departam'][2], true);
                 $dataxxxx['municipi'][2] = $expedici->id;
                 $dataxxxx['parentes'][1] = FiCompfami::where('sis_nnaj_id',$request->padrexxx)->first()->Parentesco;

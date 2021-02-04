@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Parametro;
 use App\Models\User;
 use App\Models\Sistema\SisMunicipio;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -28,7 +28,7 @@ class CsdViolencia extends Model{
     }
 
     public function departamentoCond(){
-        return $this->belongsTo(SisDepartamento::class, 'departamento_cond_id');
+        return $this->belongsTo(SisDepartam::class, 'departamento_cond_id');
     }
 
     public function municipioCond(){
@@ -40,7 +40,7 @@ class CsdViolencia extends Model{
     }
 
     public function departamentoCert(){
-        return $this->belongsTo(SisDepartamento::class, 'departamento_cert_id');
+        return $this->belongsTo(SisDepartam::class, 'departamento_cert_id');
     }
 
     public function municipioCert(){

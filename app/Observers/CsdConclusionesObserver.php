@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\consulta\CsdConclusiones;
-use App\Models\consulta\Logs\HCsdConclusiones;
+use App\Models\consulta\CsdConclusione;
+use App\Models\consulta\Logs\HCsdConclusione;
 
 class CsdConclusionesObserver
 {
@@ -12,7 +12,7 @@ class CsdConclusionesObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['csd_id'] = $modeloxx->csd_id;
         $log['conclusiones'] = $modeloxx->conclusiones;
         $log['persona_nombre'] = $modeloxx->persona_nombre;
@@ -31,52 +31,52 @@ class CsdConclusionesObserver
         return $log;
     }
 
-    public function created(CsdConclusiones $modeloxx)
+    public function created(CsdConclusione $modeloxx)
     {
-        HCsdConclusiones::create($this->getLog($modeloxx));
+        HCsdConclusione::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdConclusiones "updated" event.
+     * Handle the CsdConclusione "updated" event.
      *
-     * @param  \App\Models\consulta\CsdConclusiones  $modeloxx
+     * @param  \App\Models\consulta\CsdConclusione  $modeloxx
      * @return void
      */
-    public function updated(CsdConclusiones $modeloxx)
+    public function updated(CsdConclusione $modeloxx)
     {
-        HCsdConclusiones::create($this->getLog($modeloxx));
+        HCsdConclusione::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdConclusiones "deleted" event.
+     * Handle the CsdConclusione "deleted" event.
      *
-     * @param  \App\Models\consulta\CsdConclusiones  $modeloxx
+     * @param  \App\Models\consulta\CsdConclusione  $modeloxx
      * @return void
      */
-    public function deleted(CsdConclusiones $modeloxx)
+    public function deleted(CsdConclusione $modeloxx)
     {
-        HCsdConclusiones::create($this->getLog($modeloxx));
+        HCsdConclusione::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdConclusiones "restored" event.
+     * Handle the CsdConclusione "restored" event.
      *
-     * @param  \App\Models\consulta\CsdConclusiones  $modeloxx
+     * @param  \App\Models\consulta\CsdConclusione  $modeloxx
      * @return void
      */
-    public function restored(CsdConclusiones $modeloxx)
+    public function restored(CsdConclusione $modeloxx)
     {
-        HCsdConclusiones::create($this->getLog($modeloxx));
+        HCsdConclusione::create($this->getLog($modeloxx));
     }
 
     /**
-     * Handle the CsdConclusiones "force deleted" event.
+     * Handle the CsdConclusione "force deleted" event.
      *
-     * @param  \App\Models\consulta\CsdConclusiones  $modeloxx
+     * @param  \App\Models\consulta\CsdConclusione  $modeloxx
      * @return void
      */
-    public function forceDeleted(CsdConclusiones $modeloxx)
+    public function forceDeleted(CsdConclusione $modeloxx)
     {
-        HCsdConclusiones::create($this->getLog($modeloxx));
+        HCsdConclusione::create($this->getLog($modeloxx));
     }
 }

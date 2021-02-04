@@ -35,7 +35,7 @@ class CreateTemasTable extends Migration
       $table->bigInteger('user_edita_id')->unsigned();
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('tema_id')->references('id')->on('temas');
-      $table->unique(['parametro_id', 'tema_id']);
+      $table->unique(['parametro_id', 'tema_id'],'partem_un1');
     });
    //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS TEMAS REGISTRADOS EN EL SISTEMA'");
   }

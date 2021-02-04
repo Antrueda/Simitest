@@ -40,7 +40,7 @@ class CreateVsiEducacionsTable extends Migration
             $table->bigInteger('prm_dificultad_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO DE DIFICULTAD');
             $table->bigInteger('prm_leer_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO SI SABE LEER');
             $table->bigInteger('prm_escribir_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO SI SABE ESCRIBIR');
-            $table->string('descripcion', 4000)->nullable()->comment('CAMPO DE DESCRIPCION');
+            $table->longText('descripcion')->nullable()->comment('CAMPO DE DESCRIPCION');
 
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_estudia_id')->references('id')->on('parametros');

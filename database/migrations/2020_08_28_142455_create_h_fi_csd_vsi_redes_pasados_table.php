@@ -23,7 +23,7 @@ class CreateHFiCsdVsiRedesPasadosTable extends Migration
             $table->integer('cantidad')->nullable();
             $table->bigInteger('prm_unidad_id')->unsigned();
             $table->integer('ano');
-            $table->string('retiro', 4000)->nullable();
+            $table->longText('retiro')->nullable();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });

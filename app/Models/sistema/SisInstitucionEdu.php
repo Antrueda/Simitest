@@ -12,7 +12,7 @@ class SisInstitucionEdu extends Model
         's_telefono',
         's_email',
         'sis_municipio_id',
-        'sis_departamento_id',
+        'sis_departam_id',
         'user_crea_id',
         'created_at',
         'user_edita_id',

@@ -9,7 +9,7 @@ class SisParametrosSeeder extends Seeder
 
     public function getR($dataxxxx)
     {
-        Parametro::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => "{$dataxxxx['nombrexx']}"]);
+        Parametro::create(['id'=>$dataxxxx['id'],'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => "{$dataxxxx['nombrexx']}"]);
     }
     /**
      * Run the database seeds.
@@ -1814,7 +1814,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 1787, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PROBLEMAS DE SALUD']);
         Parametro::create(['id' => 1788, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'REMISIÓN ICBF']);
         Parametro::create(['id' => 1789, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CONFLICTO ARMADO']);
-        $this->getR(['nombrexx' => 'MIGRACÓN']); //1790
+        Parametro::create(['id' => 1790, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MIGRACIÓN']);
         Parametro::create(['id' => 1791, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ECONÓMICO-EMOCIONAL']);
         Parametro::create(['id' => 1792, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ECONÓMICOS-ALIMENTICIO']);
         Parametro::create(['id' => 1793, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AYUDA HUMANITARIA']);
@@ -2367,180 +2367,180 @@ class SisParametrosSeeder extends Seeder
 
 
 
-        $this->getR(['nombrexx' => 'PRESENTA ACTIVIDAD EN CONFLICTO CON LA LEY']); //2337
+        $this->getR(['id'=>2337,'nombrexx' => 'PRESENTA ACTIVIDAD EN CONFLICTO CON LA LEY']); //
 
-        $this->getR(['nombrexx' => 'GRUPO']); //2338
-        $this->getR(['nombrexx' => 'PANDILLA']); //2339
-        $this->getR(['nombrexx' => 'PARCHE']); //2340
-        $this->getR(['nombrexx' => 'BANDA']); //2341
-        $this->getR(['nombrexx' => 'DUO']); //2342
-        $this->getR(['nombrexx' => 'TRIO']); //2343
-        $this->getR(['nombrexx' => 'GÉNERO']); //2344
-        $this->getR(['nombrexx' => 'IDENTIDAD GÉNERO']); //2345
-        $this->getR(['nombrexx' => 'ORIENTACIÓN SEXUAL']); //2346
+        $this->getR(['id'=>2338,'nombrexx' => 'GRUPO']); //
+        $this->getR(['id'=>2339,'nombrexx' => 'PANDILLA']); //
+        $this->getR(['id'=>2340,'nombrexx' => 'PARCHE']); //
+        $this->getR(['id'=>2341,'nombrexx' => 'BANDA']); //
+        $this->getR(['id'=>2342,'nombrexx' => 'DUO']); //
+        $this->getR(['id'=>2343,'nombrexx' => 'TRIO']); //
+        $this->getR(['id'=>2344,'nombrexx' => 'GÉNERO']); //
+        $this->getR(['id'=>2345,'nombrexx' => 'IDENTIDAD GÉNERO']); //
+        $this->getR(['id'=>2346,'nombrexx' => 'ORIENTACIÓN SEXUAL']); //
 
-        $this->getR(['nombrexx' => 'GOLPES']); //2347
-        $this->getR(['nombrexx' => 'INTIMIDACIÓN']); //2348
-        $this->getR(['nombrexx' => 'LESIÓN CON ARMA DE FUEGO']); //2349
-        $this->getR(['nombrexx' => 'LESIÓN CON ARMA BLANCA']); //2350
-        $this->getR(['nombrexx' => 'ROL']); //2351
-        $this->getR(['nombrexx' => 'FINES DE SEMANA']); //2352
-        $this->getR(['nombrexx' => 'JORNADA COMPLETA']); //2353
-        $this->getR(['nombrexx' => 'GRAFFITI']); //2354
+        $this->getR(['id'=>2347,'nombrexx' => 'GOLPES']); //
+        $this->getR(['id'=>2348,'nombrexx' => 'INTIMIDACIÓN']); //
+        $this->getR(['id'=>2349,'nombrexx' => 'LESIÓN CON ARMA DE FUEGO']); //
+        $this->getR(['id'=>2350,'nombrexx' => 'LESIÓN CON ARMA BLANCA']); //
+        $this->getR(['id'=>2351,'nombrexx' => 'ROL']); //
+        $this->getR(['id'=>2352,'nombrexx' => 'FINES DE SEMANA']); //
+        $this->getR(['id'=>2353,'nombrexx' => 'JORNADA COMPLETA']); //
+        $this->getR(['id'=>2354,'nombrexx' => 'GRAFFITI']); //
 
 
 
-        $this->getR(['nombrexx' => 'Bora']);//2355
-        $this->getR(['nombrexx' => 'Kawiyari']);//2356
-        $this->getR(['nombrexx' => 'Yuri']);//2357
-        $this->getR(['nombrexx' => 'Carapana']);//2358
-        $this->getR(['nombrexx' => 'Karijona']);//2359
-        $this->getR(['nombrexx' => 'Chimila']);//2360
-        $this->getR(['nombrexx' => 'Chiricoa']);//2361
-        $this->getR(['nombrexx' => 'Cocama']);//2362
-        $this->getR(['nombrexx' => 'Coconuco']);//2363
-        $this->getR(['nombrexx' => 'Coreguaje']);//2364
-        $this->getR(['nombrexx' => 'Coyaima Natagaima']);//2365
-        $this->getR(['nombrexx' => 'Awa Kuaiker']);//2366
-        $this->getR(['nombrexx' => 'Kubeo']);//2367
-        $this->getR(['nombrexx' => 'Kuiba']);//2368
-        $this->getR(['nombrexx' => 'Tule']);//2369
-        $this->getR(['nombrexx' => 'Kurripako']);//2370
+        $this->getR(['id'=>2355,'nombrexx' => 'Bora']);//
+        $this->getR(['id'=>2356,'nombrexx' => 'Kawiyari']);//
+        $this->getR(['id'=>2357,'nombrexx' => 'Yuri']);//
+        $this->getR(['id'=>2358,'nombrexx' => 'Carapana']);//
+        $this->getR(['id'=>2359,'nombrexx' => 'Karijona']);//
+        $this->getR(['id'=>2360,'nombrexx' => 'Chimila']);//
+        $this->getR(['id'=>2361,'nombrexx' => 'Chiricoa']);//
+        $this->getR(['id'=>2362,'nombrexx' => 'Cocama']);//
+        $this->getR(['id'=>2363,'nombrexx' => 'Coconuco']);//
+        $this->getR(['id'=>2364,'nombrexx' => 'Coreguaje']);//
+        $this->getR(['id'=>2365,'nombrexx' => 'Coyaima Natagaima']);//
+        $this->getR(['id'=>2366,'nombrexx' => 'Awa Kuaiker']);//
+        $this->getR(['id'=>2367,'nombrexx' => 'Kubeo']);//
+        $this->getR(['id'=>2368,'nombrexx' => 'Kuiba']);//
+        $this->getR(['id'=>2369,'nombrexx' => 'Tule']);//
+        $this->getR(['id'=>2370,'nombrexx' => 'Kurripako']);//
 
-        $this->getR(['nombrexx' => 'Desano']);//2371
-        $this->getR(['nombrexx' => 'Dujos']);//2372
-        $this->getR(['nombrexx' => 'Embera']);//2373
-        $this->getR(['nombrexx' => 'Embera Katio']);//2374
-        $this->getR(['nombrexx' => 'Embera Chami']);//2375
-        $this->getR(['nombrexx' => 'Eperara Siapidara']);//2376
-        $this->getR(['nombrexx' => 'Guambiano']);//2377
-        $this->getR(['nombrexx' => 'Guanaca']);//2378
-        $this->getR(['nombrexx' => 'Wanano']);//2379
-        $this->getR(['nombrexx' => 'Guayabero']);//2380
-        $this->getR(['nombrexx' => 'Cañamomo']);//2381
-        $this->getR(['nombrexx' => 'Inga']);//2382
-        $this->getR(['nombrexx' => 'KamÃ«ntsa']);//2383
-        $this->getR(['nombrexx' => 'Kofan']);//2384
-        $this->getR(['nombrexx' => 'Kogui']);//2385
-        $this->getR(['nombrexx' => 'Letuama']);//2386
-        $this->getR(['nombrexx' => 'Makaguaje']);//2387
-        $this->getR(['nombrexx' => 'Hitnu']);//2388
-        $this->getR(['nombrexx' => 'Makuna']);//2389
-        $this->getR(['nombrexx' => 'Nukak']);//2390
-        $this->getR(['nombrexx' => 'Masiguare']);//2391
-        $this->getR(['nombrexx' => 'Matapi']);//2392
-        $this->getR(['nombrexx' => 'Miraña']);//2393
-        $this->getR(['nombrexx' => 'Muisca']);//2394
-        $this->getR(['nombrexx' => 'Nonuya']);//2395
-        $this->getR(['nombrexx' => 'Ocaina']);//2396
-        $this->getR(['nombrexx' => 'Nasa']);//2397
-        $this->getR(['nombrexx' => 'Tzase']);//2398
-        $this->getR(['nombrexx' => 'Piaroa']);//2399
-        $this->getR(['nombrexx' => 'Piratapuyo']);//2400
-        $this->getR(['nombrexx' => 'Pisamira']);//2401
-        $this->getR(['nombrexx' => 'Puinave']);//2402
-        $this->getR(['nombrexx' => 'Pasto']);//2403
-        $this->getR(['nombrexx' => 'Killacinga']);//2404
-        $this->getR(['nombrexx' => 'Saliba']);//2405
-        $this->getR(['nombrexx' => 'Sikuani']);//2406
-        $this->getR(['nombrexx' => 'Siona']);//2407
-        $this->getR(['nombrexx' => 'Siriano']);//2408
-        $this->getR(['nombrexx' => 'Taiwano']);//2409
-        $this->getR(['nombrexx' => 'Tanimuka']);//2410
-        $this->getR(['nombrexx' => 'Tariano']);//2411
-        $this->getR(['nombrexx' => 'Tatuyo']);//2412
-        $this->getR(['nombrexx' => 'Totoro']);//2413
-        $this->getR(['nombrexx' => 'Tikuna']);//2414
-        $this->getR(['nombrexx' => 'Tsiripu']);//2415
-        $this->getR(['nombrexx' => 'Tucano']);//2416
-        $this->getR(['nombrexx' => 'UWa']);//2417
-        $this->getR(['nombrexx' => 'Tuyuka']);//2418
-        $this->getR(['nombrexx' => 'Waunan']);//2419
-        $this->getR(['nombrexx' => 'Wayuu']);//2420
-        $this->getR(['nombrexx' => 'Uitoto']);//2421
-        $this->getR(['nombrexx' => 'Yagua']);//2422
-        $this->getR(['nombrexx' => 'Yanacona']);//2423
-        $this->getR(['nombrexx' => 'Yauna']);//2424
-        $this->getR(['nombrexx' => 'Yukuna']);//2425
-        $this->getR(['nombrexx' => 'Yuko']);//2426
-        $this->getR(['nombrexx' => 'Yuruti']);//2427
-        $this->getR(['nombrexx' => 'sinú (zenú)']);//2428
-        $this->getR(['nombrexx' => 'Guane']);//2429
-        $this->getR(['nombrexx' => 'Mokana']);//2430
-        $this->getR(['nombrexx' => 'Otavaleño']);//2431
-        $this->getR(['nombrexx' => 'Kichwa']);//2432
-        $this->getR(['nombrexx' => 'Kankuamo']);//2433
-        $this->getR(['nombrexx' => 'Tairona']);//2434
-        $this->getR(['nombrexx' => 'Chitarero']);//2435
-        $this->getR(['nombrexx' => 'Quimbaya']);//2436
-        $this->getR(['nombrexx' => 'Calima']);//2437
-        $this->getR(['nombrexx' => 'Panches']);//2438
-        $this->getR(['nombrexx' => 'Indígenas Ecuador']);//2439
-        $this->getR(['nombrexx' => 'Indígenas Perú']);//2440
-        $this->getR(['nombrexx' => 'Indígenas Venezuela']);//2441
-        $this->getR(['nombrexx' => 'Indígenas Mexico']);//2442
-        $this->getR(['nombrexx' => 'Indígenas Brasil']);//2443
-        $this->getR(['nombrexx' => 'Indígenas Panamá']);//2444
-        $this->getR(['nombrexx' => 'Indígenas Bolivia']);//2445
-        $this->getR(['nombrexx' => 'Indígena Sin Información']);//2446
-        $this->getR(['nombrexx' => 'Waupijiwi']);//2447
-        $this->getR(['nombrexx' => 'Yamalero']);//2448
+        $this->getR(['id'=>2371,'nombrexx' => 'Desano']);//
+        $this->getR(['id'=>2372,'nombrexx' => 'Dujos']);//
+        $this->getR(['id'=>2373,'nombrexx' => 'Embera']);//
+        $this->getR(['id'=>2374,'nombrexx' => 'Embera Katio']);//
+        $this->getR(['id'=>2375,'nombrexx' => 'Embera Chami']);//
+        $this->getR(['id'=>2376,'nombrexx' => 'Eperara Siapidara']);//
+        $this->getR(['id'=>2377,'nombrexx' => 'Guambiano']);//
+        $this->getR(['id'=>2378,'nombrexx' => 'Guanaca']);//
+        $this->getR(['id'=>2379,'nombrexx' => 'Wanano']);//
+        $this->getR(['id'=>2380,'nombrexx' => 'Guayabero']);//
+        $this->getR(['id'=>2381,'nombrexx' => 'Cañamomo']);//
+        $this->getR(['id'=>2382,'nombrexx' => 'Inga']);//
+        $this->getR(['id'=>2383,'nombrexx' => 'KamÃ«ntsa']);//
+        $this->getR(['id'=>2384,'nombrexx' => 'Kofan']);//
+        $this->getR(['id'=>2385,'nombrexx' => 'Kogui']);//
+        $this->getR(['id'=>2386,'nombrexx' => 'Letuama']);//
+        $this->getR(['id'=>2387,'nombrexx' => 'Makaguaje']);//
+        $this->getR(['id'=>2388,'nombrexx' => 'Hitnu']);//
+        $this->getR(['id'=>2389,'nombrexx' => 'Makuna']);//
+        $this->getR(['id'=>2390,'nombrexx' => 'Nukak']);//
+        $this->getR(['id'=>2391,'nombrexx' => 'Masiguare']);//
+        $this->getR(['id'=>2392,'nombrexx' => 'Matapi']);//
+        $this->getR(['id'=>2393,'nombrexx' => 'Miraña']);//
+        $this->getR(['id'=>2394,'nombrexx' => 'Muisca']);//2394
+        $this->getR(['id'=>2395,'nombrexx' => 'Nonuya']);//2395
+        $this->getR(['id'=>2396,'nombrexx' => 'Ocaina']);//2396
+        $this->getR(['id'=>2397,'nombrexx' => 'Nasa']);//2397
+        $this->getR(['id'=>2398,'nombrexx' => 'Tzase']);//2398
+        $this->getR(['id'=>2399,'nombrexx' => 'Piaroa']);//2399
+        $this->getR(['id'=>2400,'nombrexx' => 'Piratapuyo']);//2400
+        $this->getR(['id'=>2401,'nombrexx' => 'Pisamira']);//2401
+        $this->getR(['id'=>2402,'nombrexx' => 'Puinave']);//2402
+        $this->getR(['id'=>2403,'nombrexx' => 'Pasto']);//2403
+        $this->getR(['id'=>2404,'nombrexx' => 'Killacinga']);//2404
+        $this->getR(['id'=>2405,'nombrexx' => 'Saliba']);//2405
+        $this->getR(['id'=>2406,'nombrexx' => 'Sikuani']);//2406
+        $this->getR(['id'=>2407,'nombrexx' => 'Siona']);//2407
+        $this->getR(['id'=>2408,'nombrexx' => 'Siriano']);//2408
+        $this->getR(['id'=>2409,'nombrexx' => 'Taiwano']);//2409
+        $this->getR(['id'=>2410,'nombrexx' => 'Tanimuka']);//2410
+        $this->getR(['id'=>2411,'nombrexx' => 'Tariano']);//2411
+        $this->getR(['id'=>2412,'nombrexx' => 'Tatuyo']);//2412
+        $this->getR(['id'=>2413,'nombrexx' => 'Totoro']);//2413
+        $this->getR(['id'=>2414,'nombrexx' => 'Tikuna']);//2414
+        $this->getR(['id'=>2415,'nombrexx' => 'Tsiripu']);//2415
+        $this->getR(['id'=>2416,'nombrexx' => 'Tucano']);//2416
+        $this->getR(['id'=>2417,'nombrexx' => 'UWa']);//2417
+        $this->getR(['id'=>2418,'nombrexx' => 'Tuyuka']);//2418
+        $this->getR(['id'=>2419,'nombrexx' => 'Waunan']);//2419
+        $this->getR(['id'=>2420,'nombrexx' => 'Wayuu']);//2420
+        $this->getR(['id'=>2421,'nombrexx' => 'Uitoto']);//2421
+        $this->getR(['id'=>2422,'nombrexx' => 'Yagua']);//2422
+        $this->getR(['id'=>2423,'nombrexx' => 'Yanacona']);//2423
+        $this->getR(['id'=>2424,'nombrexx' => 'Yauna']);//2424
+        $this->getR(['id'=>2425,'nombrexx' => 'Yukuna']);//2425
+        $this->getR(['id'=>2426,'nombrexx' => 'Yuko']);//2426
+        $this->getR(['id'=>2427,'nombrexx' => 'Yuruti']);//2427
+        $this->getR(['id'=>2428,'nombrexx' => 'sinú (zenú)']);//2428
+        $this->getR(['id'=>2429,'nombrexx' => 'Guane']);//2429
+        $this->getR(['id'=>2430,'nombrexx' => 'Mokana']);//2430
+        $this->getR(['id'=>2431,'nombrexx' => 'Otavaleño']);//2431
+        $this->getR(['id'=>2432,'nombrexx' => 'Kichwa']);//2432
+        $this->getR(['id'=>2433,'nombrexx' => 'Kankuamo']);//2433
+        $this->getR(['id'=>2434,'nombrexx' => 'Tairona']);//2434
+        $this->getR(['id'=>2435,'nombrexx' => 'Chitarero']);//2435
+        $this->getR(['id'=>2436,'nombrexx' => 'Quimbaya']);//2436
+        $this->getR(['id'=>2437,'nombrexx' => 'Calima']);//2437
+        $this->getR(['id'=>2438,'nombrexx' => 'Panches']);//2438
+        $this->getR(['id'=>2439,'nombrexx' => 'Indígenas Ecuador']);//2439
+        $this->getR(['id'=>2440,'nombrexx' => 'Indígenas Perú']);//2440
+        $this->getR(['id'=>2441,'nombrexx' => 'Indígenas Venezuela']);//2441
+        $this->getR(['id'=>2442,'nombrexx' => 'Indígenas Mexico']);//2442
+        $this->getR(['id'=>2443,'nombrexx' => 'Indígenas Brasil']);//2443
+        $this->getR(['id'=>2444,'nombrexx' => 'Indígenas Panamá']);//2444
+        $this->getR(['id'=>2445,'nombrexx' => 'Indígenas Bolivia']);//2445
+        $this->getR(['id'=>2446,'nombrexx' => 'Indígena Sin Información']);//2446
+        $this->getR(['id'=>2447,'nombrexx' => 'Waupijiwi']);//2447
+        $this->getR(['id'=>2448,'nombrexx' => 'Yamalero']);//2448
 
-        $this->getR(['nombrexx' => '1995']); //2449
-        $this->getR(['nombrexx' => '1998']); //2450
-        $this->getR(['nombrexx' => '1999']); //2451
-        $this->getR(['nombrexx' => '2000']); //2452
-        $this->getR(['nombrexx' => '2001']); //2453
-        $this->getR(['nombrexx' => '2002']); //2454
-        $this->getR(['nombrexx' => '2003']); //2455
-        $this->getR(['nombrexx' => 'MISAK']); //2456
-        $this->getR(['nombrexx' => 'FAMILIA Y (YO)NNAJ']); //2457
-        $this->getR(['nombrexx' => 'MIGRACION']); //2458
-        $this->getR(['nombrexx' => 'TUSI']);//2459
-        $this->getR(['nombrexx' => 'CAMBIAR INHALANTES POR (DISOLVENTES COMBUSTBLES O PEGANTES INHALANTES)']);//2460
-        $this->getR(['nombrexx' => 'MARIHUANA CRIPI O CRIPA']);//2461
-        $this->getR(['nombrexx' => 'POPPER']);//2462
-        $this->getR(['nombrexx' => 'LCD (DIETALIMIDA DEL ÁCIDO LISÉRGICO)']);//2463
-        $this->getR(['nombrexx' => 'CLONAZEPAM']);//2464
-        $this->getR(['nombrexx' => 'DIC , LADYS O LEYDIS (CLORURO DE METILENO O DICHLOROMETANO)']);//2465
-        $this->getR(['nombrexx' => 'CONFLICTO ARMADO INTERNO']);//2466
-        $this->getR(['nombrexx' => 'CON MIEDO']);//2467
-        $this->getR(['nombrexx' => 'FOTO NNAJ']);//2468
-        $this->getR(['nombrexx' => 'A_CORRESPONSABILIDAD']);//2469
-        $this->getR(['nombrexx' => 'PRACTICANTES']);//2470
-        $this->getR(['nombrexx' => 'PROVISIONAL']);//2471
-        $this->getR(['nombrexx' => 'VOLUNTARIO']);//2472
-        $this->getR(['nombrexx' => 'VIOLENCIA DE GÉNERO ']);//2473
-        $this->getR(['nombrexx' => 'SUSPENSIÓN CONDICIONAL DE LA PENA ']);//2474
-        $this->getR(['nombrexx' => 'PRISIÓN DOMICILIARIA ']);//2475
-        $this->getR(['nombrexx' => 'HIJASTRO ']);//2476
-        $this->getR(['nombrexx' => 'HIJASTRA ']);//2477
-        $this->getR(['nombrexx' => 'LIGADURA TROMPAS ']);//2478
-        $this->getR(['nombrexx' => 'VASECTOMIA ']);//2479
-        $this->getR(['nombrexx' => 'FABRICACIÓN, TRÁFICO O PORTE DE ARMA DE FUEGO']);//2480
-        $this->getR(['nombrexx' => 'PORTE Y SUMINISTRO DE ESCOPOLAMINA(SUSTANCIAS SIMILARES)']);//2481
-        $this->getR(['nombrexx' => 'TIPO DE SEGUIMIENTO']);//2482
-        $this->getR(['nombrexx' => 'SUB TIPO DE SEGUIMIENTO']);//2483
-        $this->getR(['nombrexx' => 'ADECUADA']);//2484
-        $this->getR(['nombrexx' => 'INADECUADA']);//2485
-        $this->getR(['nombrexx' => 'TOMASERA']);//2486
-        $this->getR(['nombrexx' => 'CORREO ELECTRÓNICO']);//2487
-        $this->getR(['nombrexx' => 'MEDIO ESCRITO']);//2488
-        $this->getR(['nombrexx' => 'TELEFÓNICO']);//2489
-        $this->getR(['nombrexx' => 'PRESENCIAL']);//2490
-        $this->getR(['nombrexx' => 'TRAMITES ACADÉMICOS']);//2491
-        $this->getR(['nombrexx' => 'TRAMITES LIBRETA MILITAR']);//2492
-        $this->getR(['nombrexx' => 'LICENCIA DE MATERNIDAD']);//2493
-        $this->getR(['nombrexx' => 'TARJETA DE EXTRANJERIA']);//2494
-        $this->getR(['nombrexx' => 'CAE/CERTIFICADO DE VIGENCIA CEDULA']);//2495
-        $this->getR(['nombrexx' => 'PASAPORTE']);//2496
-        $this->getR(['nombrexx' => 'CAE/NE']);//2497
-        $this->getR(['nombrexx' => 'PANTALLA INICIAL']);//2498
-        $this->getR(['nombrexx' => 'TALLERES EDUCATIVOS Y ACCIONES FORMATIVAS']);//2499
-        $this->getR(['nombrexx' => 'SERVICIOS']);//2500
-        $this->getR(['nombrexx' => 'ESTADO DE USUARIOS']);//2501
-        $this->getR(['nombrexx' => 'EL PARAMETRO NO EXISTE EN EL ACTUAL DESARROLLO O NO HA SIDO ASIGNADO']);//2502
-        $this->getR(['nombrexx' => 'PARAMETRO NO ASIGNADO EN EL ANTIGUO SIMI']);//2503
+        $this->getR(['id'=>2449,'nombrexx' => '1995']); //2449
+        $this->getR(['id'=>2450,'nombrexx' => '1998']); //2450
+        $this->getR(['id'=>2451,'nombrexx' => '1999']); //2451
+        $this->getR(['id'=>2452,'nombrexx' => '2000']); //2452
+        $this->getR(['id'=>2453,'nombrexx' => '2001']); //2453
+        $this->getR(['id'=>2454,'nombrexx' => '2002']); //2454
+        $this->getR(['id'=>2455,'nombrexx' => '2003']); //2455
+        $this->getR(['id'=>2456,'nombrexx' => 'MISAK']); //2456
+        $this->getR(['id'=>2457,'nombrexx' => 'FAMILIA Y (YO)NNAJ']); //2457
+        $this->getR(['id'=>2458,'nombrexx' => 'MIGRACION']); //2458
+        $this->getR(['id'=>2459,'nombrexx' => 'TUSI']);//2459
+        $this->getR(['id'=>2460,'nombrexx' => 'CAMBIAR INHALANTES POR (DISOLVENTES COMBUSTBLES O PEGANTES INHALANTES)']);//2460
+        $this->getR(['id'=>2461,'nombrexx' => 'MARIHUANA CRIPI O CRIPA']);//2461
+        $this->getR(['id'=>2462,'nombrexx' => 'POPPER']);//2462
+        $this->getR(['id'=>2463,'nombrexx' => 'LCD (DIETALIMIDA DEL ÁCIDO LISÉRGICO)']);//2463
+        $this->getR(['id'=>2464,'nombrexx' => 'CLONAZEPAM']);//2464
+        $this->getR(['id'=>2465,'nombrexx' => 'DIC , LADYS O LEYDIS (CLORURO DE METILENO O DICHLOROMETANO)']);//2465
+        $this->getR(['id'=>2466,'nombrexx' => 'CONFLICTO ARMADO INTERNO']);//2466
+        $this->getR(['id'=>2467,'nombrexx' => 'CON MIEDO']);//2467
+        $this->getR(['id'=>2468,'nombrexx' => 'FOTO NNAJ']);//2468
+        $this->getR(['id'=>2469,'nombrexx' => 'A_CORRESPONSABILIDAD']);//2469
+        $this->getR(['id'=>2470,'nombrexx' => 'PRACTICANTES']);//2470
+        $this->getR(['id'=>2471,'nombrexx' => 'PROVISIONAL']);//2471
+        $this->getR(['id'=>2472,'nombrexx' => 'VOLUNTARIO']);//2472
+        $this->getR(['id'=>2473,'nombrexx' => 'VIOLENCIA DE GÉNERO ']);//2473
+        $this->getR(['id'=>2474,'nombrexx' => 'SUSPENSIÓN CONDICIONAL DE LA PENA ']);//2474
+        $this->getR(['id'=>2475,'nombrexx' => 'PRISIÓN DOMICILIARIA ']);//2475
+        $this->getR(['id'=>2476,'nombrexx' => 'HIJASTRO ']);//2476
+        $this->getR(['id'=>2477,'nombrexx' => 'HIJASTRA ']);//2477
+        $this->getR(['id'=>2478,'nombrexx' => 'LIGADURA TROMPAS ']);//2478
+        $this->getR(['id'=>2479,'nombrexx' => 'VASECTOMIA ']);//2479
+        $this->getR(['id'=>2480,'nombrexx' => 'FABRICACIÓN, TRÁFICO O PORTE DE ARMA DE FUEGO']);//2480
+        $this->getR(['id'=>2481,'nombrexx' => 'PORTE Y SUMINISTRO DE ESCOPOLAMINA(SUSTANCIAS SIMILARES)']);//2481
+        $this->getR(['id'=>2482,'nombrexx' => 'TIPO DE SEGUIMIENTO']);//2482
+        $this->getR(['id'=>2483,'nombrexx' => 'SUB TIPO DE SEGUIMIENTO']);//2483
+        $this->getR(['id'=>2484,'nombrexx' => 'ADECUADA']);//2484
+        $this->getR(['id'=>2485,'nombrexx' => 'INADECUADA']);//2485
+        $this->getR(['id'=>2486,'nombrexx' => 'TOMASERA']);//2486
+        $this->getR(['id'=>2487,'nombrexx' => 'CORREO ELECTRÓNICO']);//2487
+        $this->getR(['id'=>2488,'nombrexx' => 'MEDIO ESCRITO']);//2488
+        $this->getR(['id'=>2489,'nombrexx' => 'TELEFÓNICO']);//2489
+        $this->getR(['id'=>2490,'nombrexx' => 'PRESENCIAL']);//2490
+        $this->getR(['id'=>2491,'nombrexx' => 'TRAMITES ACADÉMICOS']);//2491
+        $this->getR(['id'=>2492,'nombrexx' => 'TRAMITES LIBRETA MILITAR']);//2492
+        $this->getR(['id'=>2493,'nombrexx' => 'LICENCIA DE MATERNIDAD']);//2493
+        $this->getR(['id'=>2494,'nombrexx' => 'TARJETA DE EXTRANJERIA']);//2494
+        $this->getR(['id'=>2495,'nombrexx' => 'CAE/CERTIFICADO DE VIGENCIA CEDULA']);//2495
+        $this->getR(['id'=>2496,'nombrexx' => 'PASAPORTE']);//2496
+        $this->getR(['id'=>2497,'nombrexx' => 'CAE/NE']);//2497
+        $this->getR(['id'=>2498,'nombrexx' => 'PANTALLA INICIAL']);//2498
+        $this->getR(['id'=>2499,'nombrexx' => 'TALLERES EDUCATIVOS Y ACCIONES FORMATIVAS']);//2499
+        $this->getR(['id'=>2500,'nombrexx' => 'SERVICIOS']);//2500
+        $this->getR(['id'=>2501,'nombrexx' => 'ESTADO DE USUARIOS']);//2501
+        $this->getR(['id'=>2502,'nombrexx' => 'EL PARAMETRO NO EXISTE EN EL ACTUAL DESARROLLO O NO HA SIDO ASIGNADO']);//2502
+        $this->getR(['id'=>2503,'nombrexx' => 'PARAMETRO NO ASIGNADO EN EL ANTIGUO SIMI']);//2503
 
 
     }

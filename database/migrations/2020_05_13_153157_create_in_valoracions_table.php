@@ -29,7 +29,7 @@ class CreateInValoracionsTable extends Migration
             $table->foreign('i_prm_cactual_id')->references('id')->on('parametros');
             $table->foreign('i_prm_avance_id')->references('id')->on('parametros');
             $table->foreign('i_prm_nivel_id')->references('id')->on('parametros');
-            $table->unique(['in_lineabase_nnaj_id', 'i_prm_cactual_id']);
+            $table->unique(['in_lineabase_nnaj_id', 'i_prm_cactual_id'],'invalo_un1');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CARACTERIZACION DE LA LINEA DE BASE DE NNAJ REGISTRADO EN EL SISTEMA Y SU NIVEL DE AVANCE'");

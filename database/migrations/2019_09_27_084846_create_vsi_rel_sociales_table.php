@@ -21,15 +21,15 @@ class CreateVsiRelSocialesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
-            $table->string('descripcion', 4000)->comment('CAMPO DESCRIPCION');
+            $table->longText('descripcion')->comment('CAMPO DESCRIPCION');
             $table->bigInteger('prm_dificultad_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DIFICULTAD');
-            $table->string('completa', 4000)->nullable()->comment('CAMPO ABIERTO DESCRIPCION COMPLETA DE SI MISMO');
+            $table->longText('completa')->nullable()->comment('CAMPO ABIERTO DESCRIPCION COMPLETA DE SI MISMO');
 
-       
+
 
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_dificultad_id')->references('id')->on('parametros');
-    
+
             $table = CamposMagicos::magicos($table);
 
         });

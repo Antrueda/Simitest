@@ -7,7 +7,7 @@ use App\Http\Requests\Csd\CsdCompfamiCrearRequest;
 use App\Http\Requests\Csd\CsdCompfamiEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\CsdComFamiliar;
-use App\Models\consulta\CsdComFamiliarObservaciones;
+use App\Models\consulta\CsdComfamob;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Parametro;
 use App\Models\Sistema\SisEntidadSalud;
@@ -192,7 +192,7 @@ class CsdCompfamiController extends Controller
         $this->opciones['poblindi'] = Tema::combo(61, true, false);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            //ddd($dataxxxx['modeloxx']->csd->CsdComFamiliarObservaciones);
+            //ddd($dataxxxx['modeloxx']->csd->CsdComfamob);
             if ($dataxxxx['modeloxx']->prm_etnia_id != 157) {
                 $this->opciones['poblindi'] = Parametro::find(235)->Combo;
             }
@@ -388,7 +388,7 @@ class CsdCompfamiController extends Controller
 
       private function grabarObservacion($dataxxxx)
       {
-          $usuariox = CsdComFamiliarObservaciones::getTransaccion($dataxxxx);
+          $usuariox = CsdComfamob::getTransaccion($dataxxxx);
           return redirect()
               ->route('csdcomfamiliar', [$dataxxxx['padrexxx']->id, $usuariox->id])
               ->with('info', $dataxxxx['infoxxxx']);

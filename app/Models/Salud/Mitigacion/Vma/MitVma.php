@@ -15,7 +15,7 @@ class MitVma extends Model{
 
     protected $fillable = [
         'sis_nnaj_id',          'user_crea_id',     'user_edita_id',        'sis_esta_id',
-        'prm_upi_id',           'fecha',            'prm_valoracion_id',    'sesion',           
+        'prm_upi_id',           'fecha',            'prm_valoracion_id',    'sesion',
         'prm_probado_id',       'prm_sustancia_id', 'edad', 'prm_calle_id', 'prm_ansiedad_id',
         'prm_mari_sino_id',     'mari_edad',        'prm_mari_frec_id',     'mari_dosis', 'mari_dia',
         'mari_mes', 'mari_anio','mari_dejo',        'prm_tabaco_sino_id',   'tabaco_edad',
@@ -36,8 +36,8 @@ class MitVma extends Model{
         'cocaina_dosis',        'cocaina_dia',      'cocaina_mes',          'cocaina_anio',
         'cocaina_dejo',         'prm_heroina_sino_id', 'heroina_edad',      'prm_heroina_frec_id',
         'heroina_dosis',        'heroina_dia',      'heroina_mes',          'heroina_anio',
-        'heroina_dejo',         'prm_2cb_sino_id',  '2cb_edad',             'prm_2cb_frec_id',
-        '2cb_dosis',            '2cb_dia',          '2cb_mes',              '2cb_anio', '2cb_dejo',
+        'heroina_dejo',         'prm_doscb_sino_id',  'doscb_edad',             'prm_doscb_frec_id',
+        'doscb_dosis',            'doscb_dia',          'doscb_mes',              'doscb_anio', 'doscb_dejo',
         'prm_acidos_sino_id',   'acidos_edad',      'prm_acidos_frec_id',   'acidos_dosis',
         'acidos_dia',           'acidos_mes',       'acidos_anio',          'acidos_dejo',
         'prm_lsd_sino_id',      'lsd_edad',         'prm_lsd_frec_id',      'lsd_dosis',
@@ -163,11 +163,11 @@ class MitVma extends Model{
     }
 
     public function tcb(){
-        return $this->belongsTo(Parametro::class, 'prm_2cb_sino_id');
+        return $this->belongsTo(Parametro::class, 'prm_doscb_sino_id');
     }
 
     public function tcbFrecuencia(){
-        return $this->belongsTo(Parametro::class, 'prm_2cb_frec_id');
+        return $this->belongsTo(Parametro::class, 'prm_doscb_frec_id');
     }
 
     public function acidos(){

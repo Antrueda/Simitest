@@ -11,7 +11,7 @@ use App\Models\Acciones\Individuales\Pivotes\EvasionParentesco;
 use App\Models\consulta\Csd;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiCompfami;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisMunicipio;
 use Carbon\Carbon;
@@ -63,8 +63,8 @@ class AIEvasionController extends Controller
         $this->opciones['prendaxx'] = Tema::combo(304,true, false);
         $this->opciones['parentez'] = Tema::combo(66,true, false);
         $this->opciones['atencion'] = Tema::combo(306, true, false);
-        
-      
+
+
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
         $this->opciones['tituloxx'] = "REPORTE DE EVASIÓN";
@@ -176,16 +176,16 @@ class AIEvasionController extends Controller
         $this->opciones['usuarios'] = User::getUsuario(false, false);
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
         $departam=0;
-        
+
         $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
         $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
         $this->opciones['depended'] = $upinnajx->id=$upinnajx->s_direccion;
         $this->opciones['dependet'] = $upinnajx->id=$upinnajx->s_telefono ;
         $this->opciones['dependex']= SisDepen::orderBy('nombre')->get();
-        
+
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
-        
+
 
         $this->opciones['vercrear'] = false;
         $this->opciones['archivox']='';
@@ -198,8 +198,8 @@ class AIEvasionController extends Controller
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
-           
-            $departam=$dataxxxx['modeloxx']->sis_departamento_id;
+
+            $departam=$dataxxxx['modeloxx']->sis_departam_id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
@@ -212,7 +212,7 @@ class AIEvasionController extends Controller
             }
             $parametr = $dataxxxx['modeloxx']->id;
             $vercrear = true;
-        }  
+        }
         $familiar = EvasionParentesco::where('reporte_evasion_id',$parametr)->get();
         $this->opciones['tablasxx'] = [
             [
@@ -246,7 +246,7 @@ class AIEvasionController extends Controller
                 'parametr' => [$parametr],
             ],
             [
-                
+
                 'titunuev' => 'AGREGAR FAMILIAR',
                 'titulist' => 'LISTA DE FAMILIARES',
                 'pregunta' => 'DATOS FAMILIARES (De acuerdo a ficha de ingreso)',
@@ -286,11 +286,11 @@ class AIEvasionController extends Controller
             ],
         ];
         $this->opciones['municipi'] = SisMunicipio::combo($departam, false);
-        $this->opciones['departam'] = SisDepartamento::combo(2, false);
+        $this->opciones['departam'] = SisDepartam::combo(2, false);
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
-   
+
     public function create(SisNnaj $padrexxx)
     {
         $this->opciones['rutaxxxx'] = route('aievasion.nuevo', $padrexxx->id);
@@ -365,12 +365,12 @@ class AIEvasionController extends Controller
 
     public function destroy(SisNnaj $padrexxx, AiReporteEvasion $modeloxx)
     {
-        
+
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
         ->route('aisalidamenores.nuevo', [$padrexxx->id])
         ->with('info', 'Red actual inactivada correctamente');
     }
 
-   
+
 }

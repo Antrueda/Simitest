@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class CsdConclusiones extends Model{
+class CsdConclusione extends Model{
 
   protected $fillable = [
     'csd_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
@@ -54,7 +54,7 @@ class CsdConclusiones extends Model{
             $objetoxx->update($dataxxxx);
         } else {
             $dataxxxx['user_crea_id'] = Auth::user()->id;
-            $objetoxx = CsdConclusiones::create($dataxxxx);
+            $objetoxx = CsdConclusione::create($dataxxxx);
         }
 
      return $objetoxx;

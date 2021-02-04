@@ -29,10 +29,10 @@ class CreateVsiDinFamiliarsTable extends Migration
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->bigInteger('prm_familiar_id')->nullable()->unsigned()->comment('TIPOLOGIA FAMILIAR');
             $table->bigInteger('prm_hogar_id')->nullable()->unsigned()->comment('TIPOLOGIA DEL HOGAR');
-            $table->string('lugar', 4000)->nullable()->comment('DESCRIPCION DEL LUGAR');
+            $table->longText('lugar')->nullable()->comment('DESCRIPCION DEL LUGAR');
             $table->bigInteger('prm_motivo_id')->unsigned()->nullable();
             $table->string('s_doc_adjunto', 150)->nullable()->comment('CAMPO DATO ADJUNTO, GENOGRAMA');
-            $table->string('descripcion', 4000)->comment('DESCRIPCION DE LA COMPOSICION FAMILIAR');
+            $table->longText('descripcion')->comment('DESCRIPCION DE LA COMPOSICION FAMILIAR');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_familiar_id')->references('id')->on('parametros');
             $table->foreign('prm_hogar_id')->references('id')->on('parametros');

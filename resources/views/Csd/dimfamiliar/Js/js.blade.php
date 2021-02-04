@@ -17,10 +17,10 @@
       $('#incumple').select2({
         language: "es"
       });
-      $('#prm_jefe1_id').select2({
+      $('#prm_jefea_id').select2({
         language: "es"
       });
-      $('#prm_jefe2_id').select2({
+      $('#prm_jefeb_id').select2({
         language: "es"
       });
       $('#prm_cuidador_id').select2({
@@ -42,7 +42,7 @@
         });
 
     });
-      
+
   });
     function doc(valor) {
       if(valor == 227){
@@ -51,7 +51,7 @@
             document.getElementById("prm_traslado_id").hidden=false;
         }
     }
-  
+
     function doc1(valor) {
       if (valor == 227) {
         document.getElementById("prm_conoce_id").hidden=false;
@@ -69,7 +69,7 @@
         document.getElementById("observacion").hidden=true;
       }
     }
-    
+
     function doc2(valor) {
       if(valor != '') {
           document.getElementById("prm_hogar_id").hidden=true;
@@ -86,13 +86,13 @@
           document.getElementById("prm_familiar_id").hidden=false;
       }
   }
-  
+
     function carga() {
       doc(document.getElementById('prm_bogota_id').value);
       doc1(document.getElementById('prm_norma_id').value);
       doc2(document.getElementById('prm_familiar_id').value);
       doc3(document.getElementById('prm_hogar_id').value);
-  
+
     }
 
     function soloLetras(e) {
@@ -113,15 +113,15 @@
         }
     }
 
-    init_contadorTa("descripcion_1", "contadordescripcion1", 4000);
-    init_contadorTa("descripcion_2", "contadordescripcion2", 4000);
+    init_contadorTa("descripcionb", "contadordescripcion1", 4000);
+    init_contadorTa("descripcionc", "contadordescripcion2", 4000);
     init_contadorTa("observacion", "contadorobservacion", 4000);
     init_contadorTa("porque", "contadorporque", 4000);
     init_contadorTa("descripcion", "contadordescripcion", 4000);
     init_contadorTa("relevantes", "contadorrelevantes", 4000);
-    init_contadorTa("descripcion_0", "contadordescripcion_0", 4000);
+    init_contadorTa("descripciona", "contadordescripciona", 4000);
     init_contadorTa("afronta", "contadorafronta", 4000);
-    
+
 
 function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {
@@ -143,7 +143,7 @@ function updateContadorTa(idtextarea, idcontador, max) {
     }
 
 }
-  
+
     window.onload = carga;
-  
+
   </script>

@@ -20,7 +20,7 @@ use App\Models\Parametro;
 use App\Models\Sistema\SisActividad;
 use App\Models\Sistema\SisFsoporte;
 use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEntidadSalud;
 use App\Models\Sistema\SisInstitucionEdu;
@@ -46,7 +46,7 @@ class AjaxxController extends Controller
     {
         if ($request->ajax()) {
             $dataxxxx = $request->all();
-            return response()->json(SisDepartamento::combo($dataxxxx['sispaisx'], true));
+            return response()->json(SisDepartam::combo($dataxxxx['sispaisx'], true));
         }
     }
     public function upzs(Request $request)
@@ -473,10 +473,10 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $respuest = [[
-                'dptcondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(235)->ComboAjaxUno : SisDepartamento::combo(2, true),
+                'dptcondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(235)->ComboAjaxUno : SisDepartam::combo(2, true),
                 'muncondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(235)->ComboAjaxUno : [['valuexxx' => '', 'optionxx' => 'Seleccione']],
                 'tiecerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(235)->ComboAjaxUno : Tema::combo(23, true, true),
-                'dptcerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(235)->ComboAjaxUno : SisDepartamento::combo(2, true),
+                'dptcerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(235)->ComboAjaxUno : SisDepartam::combo(2, true),
                 'muncerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(235)->ComboAjaxUno : [['valuexxx' => '', 'optionxx' => 'Seleccione']],
             ]];
             return response()->json($respuest);
@@ -1060,7 +1060,7 @@ class AjaxxController extends Controller
     {
         if ($request->ajax()) {
 
-            $dataxxxx = SisMunicipio::select(['id as valuexxx', 's_municipio as optionxx'])->where('sis_departamento_id', $request->all()['padrexxx'])->get();
+            $dataxxxx = SisMunicipio::select(['id as valuexxx', 's_municipio as optionxx'])->where('sis_departam_id', $request->all()['padrexxx'])->get();
             return response()->json([
                 $this->getCombos($dataxxxx, true, $request->all()['pselecte']),
                 $request->all()['campoxxx']
@@ -1073,7 +1073,7 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
 
             // solucioando
-            $dataxxxx = SisMunicipio::select(['id as valuexxx', 's_municipio as optionxx'])->where('sis_departamento_id', $request->all()['padrexxx'])->get();
+            $dataxxxx = SisMunicipio::select(['id as valuexxx', 's_municipio as optionxx'])->where('sis_departam_id', $request->all()['padrexxx'])->get();
             return response()->json([
                 $this->getCombos($dataxxxx, true, $request->all()['pselecte']),
                 $request->all()['campoxxx']
@@ -1090,7 +1090,7 @@ class AjaxxController extends Controller
                 $dataxxxx[] = ['valuexxx' => 1, 'optionxx' => 'N/A', 'selected' => 'selected'];
                 $dataxxxx = [$dataxxxx, 'i_prm_depto_certifica_id', $dataxxxx, 'i_prm_municipio_certifica_id'];
             } else {
-                $dataxxxx = SisDepartamento::select(['id as valuexxx', 's_departamento as optionxx'])->where('sis_pai_id', 2)->get();
+                $dataxxxx = SisDepartam::select(['id as valuexxx', 's_departamento as optionxx'])->where('sis_pai_id', 2)->get();
                 $dataxxxx = $this->getCombos($dataxxxx, true, $request->all()['pselecte']);
                 $dataxxxx = [$dataxxxx, 'i_prm_depto_certifica_id', [['valuexxx' => '', 'optionxx' => 'Seleccione', 'selected' => '']], 'i_prm_municipio_certifica_id'];
             }
@@ -1103,11 +1103,11 @@ class AjaxxController extends Controller
             $dataxxxx = $request->all();
             $respuest = [];
             switch ($dataxxxx['tipoxxxx']) {
-                case 'sis_departamento_id':
+                case 'sis_departam_id':
                     $respuest = ['comboxxx' => SisMunicipio::combo($dataxxxx['padrexxx'], true), 'campoxxx' => 'sis_municipio_id', 'limpiarx' => '#sis_municipio_id'];
                     break;
                 case 'sis_pai_id':
-                    $respuest = ['comboxxx' => SisDepartamento::combo($dataxxxx['padrexxx'], true), 'campoxxx' => 'sis_departamento_id', 'limpiarx' => '#sis_departamento_id,#sis_municipio_id'];
+                    $respuest = ['comboxxx' => SisDepartam::combo($dataxxxx['padrexxx'], true), 'campoxxx' => 'sis_departam_id', 'limpiarx' => '#sis_departam_id,#sis_municipio_id'];
                     break;
             }
             return response()->json($respuest);

@@ -8,7 +8,7 @@ use App\Http\Requests\Seguridad\UsuarioIdipronBorrarRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronCrearRequest;
 use App\Http\Requests\Seguridad\UsuarioIdipronEditarRequest;
 use App\Models\Sistema\SisCargo;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisMunicipio;
@@ -150,7 +150,7 @@ class UsuarioController extends Controller
         $this->opciones['prm_tvinculacion_id'] = Tema::combo(310, true, false);
         $this->opciones['prm_tdependencia_id'] = Tema::combo(3, true, false);
         $this->opciones['sis_depen_id'] = SisDepen::combo('', true, false);
-        $this->opciones['sis_departamento_id'] = SisDepartamento::combo(2, false);
+        $this->opciones['sis_departam_id'] = SisDepartam::combo(2, false);
         // indica si se esta actualizando o viendo
         $this->opciones['registro'] = [];
         $this->opciones['sis_municipio_id'] = ['' => 'Seleccione'];
@@ -162,8 +162,8 @@ class UsuarioController extends Controller
             $dataxxxx['modeloxx']->dtiestan = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- {$dataxxxx['modeloxx']->itiestan} days"));
             $dataxxxx['modeloxx']->dtiegabe = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- {$dataxxxx['modeloxx']->itiegabe} days"));
             $dataxxxx['modeloxx']->dtigafin = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- {$dataxxxx['modeloxx']->itigafin} days"));
-            $this->opciones['sis_municipio_id'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_municipio->sis_departamento_id, false);
-            $dataxxxx['modeloxx']->sis_departamento_id = $dataxxxx['modeloxx']->sis_municipio->sis_departamento_id;
+            $this->opciones['sis_municipio_id'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_municipio->sis_departam_id, false);
+            $dataxxxx['modeloxx']->sis_departam_id = $dataxxxx['modeloxx']->sis_municipio->sis_departam_id;
 
             $this->opciones['pestpadr'] = false;
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {

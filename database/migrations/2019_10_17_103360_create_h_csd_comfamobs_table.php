@@ -6,9 +6,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateHCsdComFamiliarsObservacionesTable extends Migration
+class CreateHCsdComFamObsTable extends Migration
 {
-    private $tablaxxx = 'h_csd_com_familiar_observaciones';
+    private $tablaxxx = 'h_csd_comfamobs';
     /**
      * Run the migrations.
      *
@@ -19,7 +19,7 @@ class CreateHCsdComFamiliarsObservacionesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('csd_id')->unsigned();
-            $table->longText('observaciones', 4000);
+            $table->longText('observaciones');
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });

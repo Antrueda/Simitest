@@ -47,7 +47,7 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'DEPARTAMENTOS',
-            'tablaxxx' => 'sis_departamentos',
+            'tablaxxx' => 'sis_departams',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
         ];

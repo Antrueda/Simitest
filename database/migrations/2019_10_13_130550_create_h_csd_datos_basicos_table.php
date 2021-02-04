@@ -31,7 +31,7 @@ class CreateHCsdDatosBasicosTable extends Migration
             $table->date('d_nacimiento');
 
             $table->bigInteger('sis_pai_id')->unsigned();
-            $table->bigInteger('sis_departamento_id')->unsigned();
+            $table->bigInteger('sis_departam_id')->unsigned();
             $table->bigInteger('sis_municipio_id')->unsigned();
             $table->bigInteger('prm_tipodocu_id')->unsigned();
             $table->bigInteger('prm_doc_fisico_id')->unsigned();
@@ -41,7 +41,7 @@ class CreateHCsdDatosBasicosTable extends Migration
 
 
             $table->bigInteger('sis_paiexp_id')->unsigned();
-            $table->bigInteger('sis_departamentoexp_id')->unsigned();
+            $table->bigInteger('sis_departamexp_id')->unsigned();
             $table->bigInteger('sis_municipioexp_id')->unsigned()->nullable();
             $table->bigInteger('prm_gsanguino_id')->unsigned();
             $table->bigInteger('prm_factor_rh_id')->unsigned();

@@ -8,7 +8,7 @@ class TemasTableSeeder extends Seeder
     public function getR($dataxxxx)
     {
         $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1];
-        $tema = Tema::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => strtoupper($dataxxxx['nombrexx'])]);
+        $tema = Tema::create(['id'=>$dataxxxx['id'],'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => strtoupper($dataxxxx['nombrexx'])]);
         $parametr = [];
         foreach ($dataxxxx['parametr'] as  $value) {
             $parametr[$value] = $camposmagicos;
@@ -442,6 +442,7 @@ class TemasTableSeeder extends Seeder
             283 => $camposmagicos,
         ]);
         $this->getR([
+            'id'=>36,
             'nombrexx' => 'Tipo Dirección',
             'parametr' => [235, 285, 286,]
         ]); //36
@@ -764,6 +765,7 @@ class TemasTableSeeder extends Seeder
         ]);
 
         $this->getR([
+            'id'=>66,
             'nombrexx' => 'CONVENCION B, PARENTESCO O PERSONA',
             'parametr' => [
                 235, 600, 770, 771, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794,
@@ -3273,6 +3275,7 @@ class TemasTableSeeder extends Seeder
         ]);
 
         $this->getR([
+            'id'=>343,
             'nombrexx' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?',
             'parametr' => [488, 489, 1581, 1582, 1583, 1584, 1585, 1586, 1587, 1588, 1589, 1590, 1591, 1592, 2354]
         ]); //343
@@ -3280,67 +3283,82 @@ class TemasTableSeeder extends Seeder
 
 
         $this->getR([
+            'id'=>344,
             'nombrexx' => '¿POR LAS ACCIONES EN LAS CUALES PRESUNTAMENTE ESTA EN CONFLICTO CON LA LEY HA ACTUADO EN?',
             'parametr' => [2338, 2339, 2340, 2341, 2342, 2343, 1726]
         ]); //344
         $this->getR([
+            'id'=>345,
             'nombrexx' => '12.1 ¿Presenta algún tipo de violencia?',
             'parametr' => [227, 228]
         ]); //345
         $this->getR([
+            'id'=>346,
             'nombrexx' => '12.1 A Ha ejercido algún tipo de presunta violencia durante la actividad en conflicto con la ley?',
             'parametr' => [227, 228]
         ]); //346
 
         $this->getR([
+            'id'=>347,
             'nombrexx' => 'COMBO VIOLENCIA PARA: (VIOLENCIAS Y CONDICION ESPECIAL)',
             'parametr' => [528, 524, 525, 526]
         ]); //347
 
         $this->getR([
+            'id'=>348,
             'nombrexx' => 'COMBO CONTEXTOS PARA: (VIOLENCIAS Y CONDICION ESPECIAL)',
             'parametr' => [282, 521, 522, 523]
         ]); //348
 
         $this->getR([
+            'id'=>349,
             'nombrexx' => '12.2 El tipo de violencia referenciado corresponde a violencia basada en',
             'parametr' => [235, 2344, 2345, 2346]
         ]); //349
 
         $this->getR([
+            'id'=>350,
             'nombrexx' => '12.1.B  Que tipo de presuntas lesiones ha cometido durante la actividad?',
             'parametr' => [337, 2347, 2348, 2349, 2350]
         ]); //350
         $this->getR([
+            'id'=>351,
             'nombrexx' => 'condiciones especiales  CR',
             'parametr' => [450, 451, 452, 454, 853, 936]
         ]); //351
         $this->getR([
+            'id'=>352,
             'nombrexx' => '¿Es cabeza de familia? cr',
             'parametr' => [227, 228, 235]
         ]); //352
         $this->getR([
+            'id'=>353,
             'nombrexx' => '¿Es usted Joven en presunto conflicto con la ley?',
             'parametr' => [227, 228, 235]
         ]); //353
 
         $this->getR([
+            'id'=>354,
             'nombrexx' => 'ESTRATEGIA',
             'parametr' => [651, 2323]
         ]); //354
         $this->getR([
+            'id'=>355,
             'nombrexx' => 'SIN ESTRATEGIA',
             'parametr' => [235]
         ]); //355
         $this->getR([
+            'id'=>356,
             'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL',
             'parametr' => [1062, 1063, 1064, 1065, 1067]
         ]); //356
         $this->getR([
+            'id'=>357,
             'nombrexx' => 'motivo vinculacion SPOA',
             'parametr' => [346, 347, 348, 349, 350, 360, 352, 351]
         ]); //357
         $this->getR([
+            'id'=>358,
             'nombrexx' => 'PARENTESCO FI',
             'parametr' => [
                 235, 600, 770, 771, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794,
@@ -3348,6 +3366,7 @@ class TemasTableSeeder extends Seeder
             ]
         ]); //358
         $this->getR([
+            'id'=>359,
             'nombrexx' => 'TIPO POBLACION CSD',
             'parametr' => [
                 650, 651, 235
@@ -3355,6 +3374,7 @@ class TemasTableSeeder extends Seeder
         ]);
 
         $this->getR([
+            'id'=>360,
             'nombrexx' => 'PROBLEMA CSD',
             'parametr' => [
                 567, 568, 569, 561, 572, 573, 574, 575, 576, 579, 581, 583, 582, 577, 571, 655, 578, 580 //  2322,
@@ -3363,6 +3383,7 @@ class TemasTableSeeder extends Seeder
 
 
         $this->getR([
+            'id'=>361,
             'nombrexx' => 'TIPO DE DOCUMENTO CSD',
             'parametr' => [
                 19, 142, 143, 144, 145 //  2322,
@@ -3370,11 +3391,13 @@ class TemasTableSeeder extends Seeder
         ]); //361
 
         $this->getR([
+            'id'=>362,
             'nombrexx' => 'motivo vinculacion justicia',
             'parametr' => [346, 347, 348, 349, 350, 360, 352, 351,2480,2481]
         ]); //362
 
         $this->getR([
+            'id'=>363,
             'nombrexx' => 'Autorización de respuesta',
             'parametr' => [2487,2488,2489,2490]
         ]); //363
@@ -3382,6 +3405,7 @@ class TemasTableSeeder extends Seeder
 
         //359
         // $this->getR([
+            // 'id'=>364,
         //     'nombrexx' => '',
         //     'parametr' => []
         // ]); //362

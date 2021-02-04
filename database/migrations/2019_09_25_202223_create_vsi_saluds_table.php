@@ -28,7 +28,7 @@ class CreateVsiSaludsTable extends Migration
             $table->bigInteger('prm_hijo_id')->unsigned()->nullable()->comment('CAMPO DE SI TIENE HIJOS');
             $table->bigInteger('prm_interrupcion_id')->unsigned()->nullable()->comment('CAMPO PRESENTADO INTERRUPCION EN EMBARAZO');
             $table->string('medicamento')->nullable()->comment('CAMPO ABIERTO MEDICAMENTO');
-            $table->string('descripcion', 4000)->nullable()->comment('CAMPO ABIERTO DESCRIPCION');
+            $table->longText('descripcion')->nullable()->comment('CAMPO ABIERTO DESCRIPCION');
             $table->integer('edad')->unsigned()->nullable()->comment('CAMPO EDAD QUE INICIO SU VIDA SEXUAL');
             $table->integer('embarazo')->unsigned()->nullable()->comment('CAMPO SEMANAS DE EMBARAZO');
             $table->integer('hijo')->unsigned()->nullable()->comment('CAMPO NUMERICO HIJOS');

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Sistema\Ubicacion;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SisDepartamentoCrearRequest extends FormRequest
+class SisDepartamCrearRequest extends FormRequest
 {
 
     private $_mensaje;
@@ -21,7 +21,7 @@ class SisDepartamentoCrearRequest extends FormRequest
             's_departamento' =>
             [
                 'required',
-                'unique:sis_departamentos,s_departamento',
+                'unique:sis_departams,s_departamento',
             ],
         ];
     }

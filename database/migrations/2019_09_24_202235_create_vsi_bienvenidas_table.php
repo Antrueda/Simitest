@@ -20,7 +20,7 @@ class CreateVsiBienvenidasTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table = CamposMagicos::getForeign($table, 'vsi');
-            $table->string('descripcion', 4000)->comment('CAMPO DE DESCRIPCION DE LA BIEVENIDA');
+            $table->longText('descripcion')->comment('CAMPO DE DESCRIPCION DE LA BIEVENIDA');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL MOTIVO DE INGRESO DE LA PERSONA REGISTRADA EN EL SISTEMA AL IDIPRON'");
@@ -29,7 +29,7 @@ class CreateVsiBienvenidasTable extends Migration
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table = CamposMagicos::getForeign($table, 'vsi_bienvenida');
             $table = CamposMagicos::getForeign($table, 'parametro_id','parametros');
-            $table->unique(['parametro_id', 'vsi_bienvenida_id']);
+            $table->unique(['parametro_id', 'vsi_bienvenida_id'],'vsbimo_un1');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LAS RAZONES DE INGRESO DE LA PERSONA REGISTRADA EN EL SISTEMA AL IDIPRON'");

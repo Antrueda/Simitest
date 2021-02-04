@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Domicilio;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdCompfamiObservacionCrearRequest;
 use App\Http\Requests\Csd\CsdCompfamiObservacionEditarRequest;
-use App\Models\consulta\CsdComFamiliarObservaciones;
+use App\Models\consulta\CsdComfamob;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Traits\Csd\CsdTrait;
 use App\Traits\Fi\DatosBasicosTrait;
@@ -110,7 +110,7 @@ class CsdCompfamiObservacionController extends Controller
      */
     public function create(CsdSisNnaj $padrexxx)
     {
-        $vestuari = CsdComFamiliarObservaciones::where('csd_id', $padrexxx->csd_id)->first();
+        $vestuari = CsdComfamob::where('csd_id', $padrexxx->csd_id)->first();
         if ($vestuari != null) {
             return redirect()
                 ->route('csdcomfamirobserva.editar', [$padrexxx->csd_id, $vestuari->id]);
@@ -129,7 +129,7 @@ class CsdCompfamiObservacionController extends Controller
     {
 
         return redirect()
-        ->route('csdcomfamirobserva.editar', [$dataxxxx['padrexxx']->id,CsdComFamiliarObservaciones::getTransaccion($dataxxxx)->id])
+        ->route('csdcomfamirobserva.editar', [$dataxxxx['padrexxx']->id,CsdComfamob::getTransaccion($dataxxxx)->id])
         ->with('info', $dataxxxx['menssage']);;
 
     }
@@ -154,7 +154,7 @@ class CsdCompfamiObservacionController extends Controller
      * @param  \App\Models\FiCompfami  $residencia
      * @return \Illuminate\Http\Response
      */
-    public function show(CsdSisNnaj $padrexxx, CsdComFamiliarObservaciones $modeloxx)
+    public function show(CsdSisNnaj $padrexxx, CsdComfamob $modeloxx)
     {
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'observacion'], 'padrexxx' => $padrexxx]);
     }
@@ -165,7 +165,7 @@ class CsdCompfamiObservacionController extends Controller
      * @param  \App\Models\FiCompfami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function edit(CsdSisNnaj $padrexxx,CsdComFamiliarObservaciones $modeloxx)
+    public function edit(CsdSisNnaj $padrexxx,CsdComfamob $modeloxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -185,7 +185,7 @@ class CsdCompfamiObservacionController extends Controller
      * @param  \App\Models\FiCompfami  $objetoxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdCompfamiObservacionEditarRequest $request, CsdSisNnaj $padrexxx, CsdComFamiliarObservaciones $modeloxx)
+    public function update(CsdCompfamiObservacionEditarRequest $request, CsdSisNnaj $padrexxx, CsdComfamob $modeloxx)
     {
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['sis_esta_id' => 1]);

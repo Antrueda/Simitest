@@ -12,23 +12,23 @@ class CsdDinFamiliarObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['csd_id'] = $modeloxx->csd_id;
         $log['descripcion'] = $modeloxx->descripcion;
         $log['relevantes'] = $modeloxx->relevantes;
-        $log['s_doc_adjunto'] = $modeloxx->s_doc_adjunto;        
+        $log['s_doc_adjunto'] = $modeloxx->s_doc_adjunto;
         $log['prm_familiar_id'] = $modeloxx->prm_familiar_id;
         $log['prm_hogar_id'] = $modeloxx->prm_hogar_id;
-        $log['descripcion_0'] = $modeloxx->descripcion_0;
+        $log['descripciona'] = $modeloxx->descripciona;
         $log['prm_bogota_id'] = $modeloxx->prm_bogota_id;
         $log['prm_traslado_id'] = $modeloxx->prm_traslado_id;
-        $log['jefe1'] = $modeloxx->jefe1;
-        $log['prm_jefe1_id'] = $modeloxx->prm_jefe1_id;
-        $log['jefe2'] = $modeloxx->jefe2;
-        $log['prm_jefe2_id'] = $modeloxx->prm_jefe2_id;
-        $log['descripcion_1'] = $modeloxx->descripcion_1;
+        $log['jefea'] = $modeloxx->jefea;
+        $log['prm_jefea_id'] = $modeloxx->prm_jefea_id;
+        $log['jefeb'] = $modeloxx->jefeb;
+        $log['prm_jefeb_id'] = $modeloxx->prm_jefeb_id;
+        $log['descripcionb'] = $modeloxx->descripcionb;
         $log['prm_cuidador_id'] = $modeloxx->prm_cuidador_id;
-        $log['descripcion_2'] = $modeloxx->descripcion_2;
+        $log['descripcionc'] = $modeloxx->descripcionc;
         $log['afronta'] = $modeloxx->afronta;
         $log['prm_norma_id'] = $modeloxx->prm_norma_id;
         $log['prm_conoce_id'] = $modeloxx->prm_conoce_id;

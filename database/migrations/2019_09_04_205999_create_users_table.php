@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable()->comment('CAMPO CON LA FECHA DE CUANDO FUE VERIFICADO EL CORREO');
             $table->date('password_change_at')->comment('FECHA PARA EL PROXIMO CAMBIO DE CONTRASEÑA');
             $table->date('password_reset_at')->nullable()->comment('FECHA EN QUE SE REALIZA EL RECETEO DE LA CONTRASEÑA');
-            $table->string('password')->comment('CAMPO DE LA CONTRASEÑA');
+            $table->String('password');//->comment('CAMPO DE LA CONTRASENIA');
             $table->rememberToken();
             $table->timestamps();
             $table->bigInteger('user_crea_id')->nullable()->unsigned();

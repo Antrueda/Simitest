@@ -12,12 +12,12 @@ class SisInstitucionEduObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['s_nombre'] = $modeloxx->s_nombre;
         $log['s_telefono'] = $modeloxx->s_telefono;
         $log['s_email'] = $modeloxx->s_email;
         $log['sis_municipio_id'] = $modeloxx->sis_municipio_id;
-        $log['sis_departamento_id'] = $modeloxx->sis_departamento_id;
+        $log['sis_departam_id'] = $modeloxx->sis_departam_id;
         $log['i_prm_sector_id'] = $modeloxx->i_prm_sector_id;
         $log['i_usr_rector_id'] = $modeloxx->i_usr_rector_id;
         $log['i_usr_secretario_id'] = $modeloxx->i_usr_secretario_id;

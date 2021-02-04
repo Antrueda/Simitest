@@ -4,7 +4,7 @@ namespace App\Traits\Interfaz;
 
 use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisUpz;
@@ -160,7 +160,7 @@ trait MigrarSimiANuevoTrait
     {
 
 
-        $variable=SisDepartamento::select('id','sis_pai_id')->get();
+        $variable=SisDepartam::select('id','sis_pai_id')->get();
         foreach ($variable as $key => $value) {
             # code...
         }
@@ -178,7 +178,7 @@ trait MigrarSimiANuevoTrait
                 'i_prm_tdependen_id' => $this->getParametrosSimi(['codigoxx' => $upisimix->tipodepe, 'temaxxxx' => 192])->id,
                 'i_prm_sexo_id' => $this->getParametrosSimiMultivalor(['tablaxxx' => 'SEXO_UPI', 'codigoxx' => $upisimix->sexoxxxx, 'temaxxxx' => 339])->id,
                 's_direccion' => $upisimix->direccio,
-                'sis_departamento_id' => '',
+                'sis_departam_id' => '',
                 'sis_municipio_id' => '',
                 'estusuario_id' => 25,
                 'simianti_id' => $upisimix->idxxxxxx,

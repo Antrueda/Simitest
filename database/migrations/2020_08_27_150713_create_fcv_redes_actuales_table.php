@@ -19,7 +19,7 @@ class CreateFcvRedesActualesTable extends Migration
             //$table->bigInteger('fi_csd_vsi_reda_id')->unsigned();
             $table->bigInteger('prm_tipo_id')->unsigned();
             $table->string('nombre');
-            $table->string('servicio', 4000);
+            $table->longText('servicio');
             $table->string('telefono')->nullable();
             $table->string('direccion')->nullable();
             $table->bigInteger('user_crea_id')->unsigned();

@@ -8,8 +8,8 @@
         {{ Form::text('s_documento', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('sis_departamento_id','Departamento Exp. Documento') }}
-        {{ Form::select('sis_departamento_id',$todoxxxx['sis_departamento_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+        {{ Form::label('sis_departam_id','Departamento Exp. Documento') }}
+        {{ Form::select('sis_departam_id',$todoxxxx['sis_departam_id'], null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_municipio_id','Municipio Exp. Documento') }}

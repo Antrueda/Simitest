@@ -21,9 +21,9 @@ class CreateHVsiActEmocionalsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('prm_activa_id')->unsigned();
-            $table->string('descripcion', 4000)->nullable();
-            $table->string('conductual', 4000)->nullable();
-            $table->string('cognitiva', 4000)->nullable();
+            $table->longText('descripcion')->nullable();
+            $table->longText('conductual')->nullable();
+            $table->longText('cognitiva')->nullable();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

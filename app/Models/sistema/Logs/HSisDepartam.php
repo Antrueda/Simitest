@@ -4,7 +4,7 @@ namespace App\Models\Sistema\Logs;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HSisDepartamento extends Model
+class HSisDepartam extends Model
 {
     protected $fillable = [
         'sis_pai_id',

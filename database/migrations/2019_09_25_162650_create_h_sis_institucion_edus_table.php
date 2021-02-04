@@ -22,7 +22,7 @@ class CreateHSisInstitucionEdusTable extends Migration
             $table->string('s_telefono');
             $table->string('s_email');
             $table->bigInteger('sis_municipio_id')->unsigned();
-            $table->bigInteger('sis_departamento_id')->unsigned();
+            $table->bigInteger('sis_departam_id')->unsigned();
             $table->bigInteger('i_prm_sector_id')->unsigned();
             $table->bigInteger('i_usr_rector_id')->unsigned();
             $table->bigInteger('i_usr_secretario_id')->unsigned();

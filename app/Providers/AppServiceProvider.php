@@ -21,8 +21,8 @@ use App\Models\consulta\Csd;
 use App\Models\consulta\CsdAlimentacion;
 use App\Models\consulta\CsdBienvenida;
 use App\Models\consulta\CsdComFamiliar;
-use App\Models\consulta\CsdComFamiliarObservaciones;
-use App\Models\consulta\CsdConclusiones;
+use App\Models\consulta\CsdComfamob;
+use App\Models\consulta\CsdConclusione;
 use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\CsdDinFamiliar;
 use App\Models\consulta\CsdDinfamMadre;
@@ -62,7 +62,7 @@ use App\Models\Sistema\SisActividad;
 use App\Models\Sistema\SisActividadProceso;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisCargo;
-use App\Models\Sistema\SisDepartamento;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDepeServ;
 use App\Models\Sistema\SisDepeUsua;
@@ -139,7 +139,7 @@ use App\Observers\CsdAlimentIngeObserver;
 use App\Observers\CsdAlimentPreparaObserver;
 use App\Observers\CsdBienvenidaMotivosObserver;
 use App\Observers\CsdBienvenidaObserver;
-use App\Observers\CsdComFamiliarObservacionesObserver;
+use App\Observers\CsdComfamobObserver;
 use App\Observers\CsdComFamiliarObserver;
 use App\Observers\CsdConclusionesObserver;
 use App\Observers\CsdDatosBasicoObserver;
@@ -190,7 +190,7 @@ use App\Observers\SisActividadProcesoObserver;
 use App\Observers\SisAreaUsuaObserver;
 use App\Observers\SisBarrioObserver;
 use App\Observers\SisCargoObserver;
-use App\Observers\SisDepartamentoObserver;
+use App\Observers\SisDepartamObserver;
 use App\Observers\SisDepenObserver;
 use App\Observers\SisDepeServObserver;
 use App\Observers\SisDepeUsuaObserver;
@@ -279,8 +279,8 @@ class AppServiceProvider extends ServiceProvider
         CsdAlimentacion::observe(CsdAlimentacionObserver::class);
         CsdBienvenida::observe(csdBienvenidaObserver::class);
         CsdComFamiliar::observe(CsdComFamiliarObserver::class);
-        CsdComFamiliarObservaciones::observe(CsdComFamiliarObservacionesObserver::class);
-        CsdConclusiones::observe(CsdConclusionesObserver::class);
+        CsdComfamob::observe(CsdComfamobObserver::class);
+        CsdConclusione::observe(CsdConclusionesObserver::class);
         CsdDatosBasico::observe(CsdDatosBasicoObserver::class);
         CsdDinFamiliar::observe(CsdDinFamiliarObserver::class);
         CsdDinfamMadre::observe(CsdDinfamMadreObserver::class);
@@ -323,7 +323,7 @@ class AppServiceProvider extends ServiceProvider
 
         // CARPETA RAIZ
         // Parametro::observe(ParametroObserver::class);
-        
+
         Post::observe(PostObserver::class);
 
         Tema::observe(TemaObserver::class);
@@ -336,7 +336,7 @@ class AppServiceProvider extends ServiceProvider
         SisActividadProceso::observe(SisActividadProcesoObserver::class);
         SisBarrio::observe(SisBarrioObserver::class);
         SisCargo::observe(SisCargoObserver::class);
-        SisDepartamento::observe(SisDepartamentoObserver::class);
+        SisDepartam::observe(SisDepartamObserver::class);
         SisDepen::observe(SisDepenObserver::class);
         SisDepeServ::observe(SisDepeServObserver::class);
         SisDepeUsua::observe(SisDepeUsuaObserver::class);

@@ -21,7 +21,7 @@ class CreateAreaTable extends Migration
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre', 120)->unique()->comment('CAMPO DE NOMBRE DEL AREA');
             $table->string('contexto', 2)->nullable()->comment('CAMPO DEL CONTEXTO DEL AREA');
-            $table->text('descripcion', 4000)->nullable()->comment('CAMPO DE LA DESCRIPCION DEL AREA');
+            $table->longText('descripcion')->nullable()->comment('CAMPO DE LA DESCRIPCION DEL AREA');
             $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table = CamposMagicos::magicos($table);

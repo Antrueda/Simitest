@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class SisDepartamentoSisPaiSeeder extends Seeder
+class SisDepartamSisPaiSeeder extends Seeder
 {
     /**
      * Run the database seeds.

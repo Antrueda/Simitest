@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisEstasSeeder::class);
         $this->call(SisParametrosSeeder::class);
         $this->call(SisPaisSeeder::class);
-        $this->call(SisDepartamentoSeeder::class);
+        $this->call(SisDepartamSeeder::class);
         $this->call(SisMunicipioSeeder::class);
         $this->call(SisCargosSeeder::class);
         $this->call(SisLocalidadsSeeder::class);
@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CsdRedsocActualSeeder::class);
         $this->call(CsdRedsocPasadoSeeder::class); // Jorge
         $this->call(CsdComFamiliarSeeder::class);
-        $this->call(CsdComFamiliarObservacionesSeeder::class); // Jorge
+        $this->call(CsdComfamobSeeder::class); // Jorge
         $this->call(CsdGenIngresoSeeder::class); // Jorge
         $this->call(CsdBienvenidaSeeder::class); // Jorge
         $this->call(CsdBienvenidaMotivosSeeder::class); // Jorge

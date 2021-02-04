@@ -20,7 +20,7 @@ class CreateHAreaTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre', 120);
             $table->string('contexto', 2)->nullable();
-            $table->text('descripcion', 4000)->nullable();
+            $table->longText('descripcion')->nullable();
             $table->Integer('estusuario_id')->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });

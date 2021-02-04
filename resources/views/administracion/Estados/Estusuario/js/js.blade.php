@@ -45,10 +45,10 @@
             routexxx: "{{ route('estausua.motivosx')}}"
         })
         @endif
-        @if(old('sis_departamento_id') !== null)
+        @if(old('sis_departam_id') !== null)
         f_ajax({
             {
-                old('sis_departamento_id')
+                old('sis_departam_id')
             }
         }, {
             {
@@ -57,7 +57,7 @@
         });
         @endif
 
-        $('#sis_departamento_id').change(function() {
+        $('#sis_departam_id').change(function() {
             $('#sis_municipio_id').empty();
             if ($(this).val() != '') {
                 f_ajax($(this).val(), '');
