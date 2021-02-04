@@ -224,7 +224,7 @@ class ExcelController extends Controller
             echo "FiFormacion::create([
                 'id' => {$registro->id},
                 'fi_formacion_id' => {$registro->fi_formacion_id},
-                'i_prm_motivo_vinc_id' => {$registro->i_prm_motivo_vinc_id},
+                'prm_motivinc_id' => {$registro->prm_motivinc_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 'sis_esta_id' => {$registro->sis_esta_id},

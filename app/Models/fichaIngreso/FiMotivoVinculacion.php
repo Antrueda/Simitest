@@ -11,7 +11,7 @@ class FiMotivoVinculacion extends Model
 {
     protected $fillable = [
         'fi_formacion_id',
-        'i_prm_motivo_vinc_id',
+        'prm_motivinc_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id'
@@ -49,8 +49,8 @@ class FiMotivoVinculacion extends Model
             ];
             // dd($dataxxxx);
             FiMotivoVinculacion::where('fi_formacion_id', $objetoxx->id)->delete();
-            foreach ($dataxxxx['i_prm_motivo_vinc_id'] as $diagener) {
-                $datosxxx['i_prm_motivo_vinc_id'] = $diagener;
+            foreach ($dataxxxx['prm_motivinc_id'] as $diagener) {
+                $datosxxx['prm_motivinc_id'] = $diagener;
                 FiMotivoVinculacion::create($datosxxx);
             }
             return $objetoxx;

@@ -5,7 +5,7 @@
             language: "es"
         });
         var f_estudia = function(valuexxx){
-            $("#i_prm_jornada_estudio_id, #i_prm_naturaleza_entidad_id, #sis_institucion_edu_id").empty();
+            $("#prm_jornestu_id, #prm_natuenti_id, #sis_institucion_edu_id").empty();
             
             if(valuexxx != ''){
                 $.ajax({
@@ -18,20 +18,20 @@
                 dataType : 'json',
                 success : function(json) {
 
-                    $('#i_dias_sin_estudio').prop('readonly',json[0].dianoest);
-                    $('#i_meses_sin_estudio').prop('readonly',json[0].mesnoest);
-                    $('#i_anos_sin_estudio').prop('readonly',json[0].anonoest);
+                    $('#diasines').prop('readonly',json[0].dianoest);
+                    $('#mesinest').prop('readonly',json[0].mesnoest);
+                    $('#anosines').prop('readonly',json[0].anonoest);
                     $('#s_institucion_edu').prop('readonly',json[0].institut);
 
-                    $('#i_dias_sin_estudio,#i_meses_sin_estudio,#i_anos_sin_estudio,#s_institucion_edu').val('');
+                    $('#diasines,#mesinest,#anosines,#s_institucion_edu').val('');
                     if(json[0].jornadax[0].valuexxx==1){
-                        $("#i_prm_jornada_estudio_id, #i_prm_naturaleza_entidad_id, #sis_institucion_edu_id").empty();
+                        $("#prm_jornestu_id, #prm_natuenti_id, #sis_institucion_edu_id").empty();
                     }
                     $.each(json[0].jornadax,function(i,data){
-                        $('#i_prm_jornada_estudio_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                        $('#prm_jornestu_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
                     $.each(json[0].naturale,function(i,data){
-                        $('#i_prm_naturaleza_entidad_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                        $('#prm_natuenti_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                     });
                     $.each(json[0].instituc,function(i,data){
                         $('#sis_institucion_edu_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
@@ -52,12 +52,12 @@
         });
 
         //MASCARA 2 DIGITOS
-        $('#i_dias_sin_estudio').mask('00');
-        $('#i_meses_sin_estudio').mask('00');
-        $('#i_anos_sin_estudio').mask('00');
+        $('#diasines').mask('00');
+        $('#mesinest').mask('00');
+        $('#anosines').mask('00');
 
 
-        $('#i_prm_ultimo_nivel_estudio_id').change(function(){
+        $('#prm_ultniest_id').change(function(){
             $.ajax({
                 url : "{{ route($todoxxxx['routxxxx'].'.ultinive',$todoxxxx['parametr']) }}",
                 data : {

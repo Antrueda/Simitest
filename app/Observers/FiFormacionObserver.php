@@ -15,17 +15,17 @@ class FiFormacionObserver
         // campos nuevos traidos desde $fillable -> modelo 
         $log['i_prm_lee_id'] = $modeloxx->i_prm_lee_id;
         $log['i_prm_escribe_id'] = $modeloxx->i_prm_escribe_id;
-        $log['i_prm_operaciones_id'] = $modeloxx->i_prm_operaciones_id;
+        $log['prm_operacio_id'] = $modeloxx->prm_operacio_id;
         $log['i_prm_estudia_id'] = $modeloxx->i_prm_estudia_id;
-        $log['i_prm_jornada_estudio_id'] = $modeloxx->i_prm_jornada_estudio_id;
-        $log['i_prm_naturaleza_entidad_id'] = $modeloxx->i_prm_naturaleza_entidad_id;
+        $log['prm_jornestu_id'] = $modeloxx->prm_jornestu_id;
+        $log['prm_natuenti_id'] = $modeloxx->prm_natuenti_id;
         $log['s_institucion_edu'] = $modeloxx->s_institucion_edu;
-        $log['i_dias_sin_estudio'] = $modeloxx->i_dias_sin_estudio;
-        $log['i_meses_sin_estudio'] = $modeloxx->i_meses_sin_estudio;
-        $log['i_anos_sin_estudio'] = $modeloxx->i_anos_sin_estudio;
-        $log['i_prm_ultimo_nivel_estudio_id'] = $modeloxx->i_prm_ultimo_nivel_estudio_id;
-        $log['i_prm_ultimo_grado_aprobado_id'] = $modeloxx->i_prm_ultimo_grado_aprobado_id;
-        $log['i_prm_certificado_ultimo_nivel_id'] = $modeloxx->i_prm_certificado_ultimo_nivel_id;
+        $log['diasines'] = $modeloxx->diasines;
+        $log['mesinest'] = $modeloxx->mesinest;
+        $log['anosines'] = $modeloxx->anosines;
+        $log['prm_ultniest_id'] = $modeloxx->prm_ultniest_id;
+        $log['prm_ultgrapr_id'] = $modeloxx->prm_ultgrapr_id;
+        $log['prm_cerulniv_id'] = $modeloxx->prm_cerulniv_id;
         $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;

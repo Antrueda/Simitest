@@ -14,7 +14,7 @@ class FiMotivoVinculacionObserver
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo 
         $log['fi_formacion_id'] = $modeloxx->fi_formacion_id;
-        $log['i_prm_motivo_vinc_id'] = $modeloxx->i_prm_motivo_vinc_id;
+        $log['prm_motivinc_id'] = $modeloxx->prm_motivinc_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
