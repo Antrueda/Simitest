@@ -15,6 +15,12 @@ class CreateVsiEducacionsTable extends Migration
     private $tablaxxx5 = 'vsi_edu_diftipo_a';
     private $tablaxxx6 = 'vsi_edu_diftipo_b';
 
+    private $pk1 = 'educau_pk1';
+    private $pk2 = 'edufor_pk1';
+    private $pk3 = 'edudif_pk1';
+    private $pk4 = 'eddift_pk1';
+    private $pk5 = 'edifti_pk1';
+
     /**
      * Run the migrations.
      *
@@ -54,7 +60,7 @@ class CreateVsiEducacionsTable extends Migration
             $table = CamposMagicos::magicos($table);
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
-            $table->unique(['parametro_id', 'vsi_educacion_id']);
+            $table->unique(['parametro_id', 'vsi_educacion_id'],$this->pk1);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CAUSAS DE LA DESERCION DE LA PERSONA ENTREVISTADA, PREGUNTA 10.4 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
 
@@ -65,7 +71,7 @@ class CreateVsiEducacionsTable extends Migration
             $table = CamposMagicos::magicos($table);
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
-            $table->unique(['parametro_id', 'vsi_educacion_id']);
+            $table->unique(['parametro_id', 'vsi_educacion_id'],$this->pk2);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE FORTALEZAS DE LA PERSONA ENTREVISTADA, PREGUNTA 10.6 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
 
@@ -76,7 +82,7 @@ class CreateVsiEducacionsTable extends Migration
             $table = CamposMagicos::magicos($table);
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
-            $table->unique(['parametro_id', 'vsi_educacion_id']);
+            $table->unique(['parametro_id', 'vsi_educacion_id'],$this->pk3);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE DIFICULTADES DE LA PERSONA ENTREVISTADA, PREGUNTA 10.7 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
 
@@ -87,7 +93,7 @@ class CreateVsiEducacionsTable extends Migration
             $table = CamposMagicos::magicos($table);
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
-            $table->unique(['parametro_id', 'vsi_educacion_id']);
+            $table->unique(['parametro_id', 'vsi_educacion_id'],$this->pk4);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE DIFICULTADES EXPERIMENTADAS DE LA PERSONA ENTREVISTADA, PREGUNTA 10.9 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");
 
@@ -98,7 +104,7 @@ class CreateVsiEducacionsTable extends Migration
             $table = CamposMagicos::magicos($table);
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_educacion_id')->references('id')->on('vsi_educacions');
-            $table->unique(['parametro_id', 'vsi_educacion_id']);
+            $table->unique(['parametro_id', 'vsi_educacion_id'],$this->pk5);
 
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE TIPOS DE DIFICULTADES DE LA PERSONA ENTREVISTADA, PREGUNTA 10.10 SECCIÓN 10 EDUCACION DE LA FICHA SICOSOCIAL'");

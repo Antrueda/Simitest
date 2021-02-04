@@ -34,7 +34,6 @@ class CreateHVsiDatosVinculasTable extends Migration
         $table->bigIncrements('id');
         $table->bigInteger('parametro_id')->unsigned();
         $table->bigInteger('vsi_datos_vincula_id')->unsigned();
-        $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
         $table = CamposMagicos::h_magicos($table);
       });
      //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
@@ -43,7 +42,6 @@ class CreateHVsiDatosVinculasTable extends Migration
         $table->bigIncrements('id');
         $table->bigInteger('parametro_id')->unsigned();
         $table->bigInteger('vsi_datos_vincula_id')->unsigned();
-        $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
         $table = CamposMagicos::h_magicos($table);
       });
      //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
@@ -52,7 +50,6 @@ class CreateHVsiDatosVinculasTable extends Migration
         $table->bigIncrements('id');
         $table->bigInteger('parametro_id')->unsigned();
         $table->bigInteger('vsi_datos_vincula_id')->unsigned();
-        $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
         $table = CamposMagicos::h_magicos($table);
       });
      //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");

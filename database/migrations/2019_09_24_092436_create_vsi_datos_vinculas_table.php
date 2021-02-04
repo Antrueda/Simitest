@@ -39,7 +39,7 @@ class CreateVsiDatosVinculasTable extends Migration
       $table->bigInteger('vsi_datos_vincula_id')->unsigned()->comment('CAMPO ID DE DATOS VINCULA');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
-      $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
+      $table->unique(['parametro_id', 'vsi_datos_vincula_id'],'sitvin_pk1');
       $table = CamposMagicos::magicos($table);
     });
    //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LAS SITUACIONES, CONDICIONES O ACTIVIDADES QUE PARACEN PRODUCIR O EMPEORAR LAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.14'");
@@ -50,7 +50,7 @@ class CreateVsiDatosVinculasTable extends Migration
       $table->bigInteger('vsi_datos_vincula_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
-      $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
+      $table->unique(['parametro_id', 'vsi_datos_vincula_id'],'emovin_pk1');
       $table = CamposMagicos::magicos($table);
     });
    //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LAS EMOCIONES QUE LE GENERAN ESTAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.15'");
@@ -62,7 +62,7 @@ class CreateVsiDatosVinculasTable extends Migration
       $table->bigInteger('vsi_datos_vincula_id')->unsigned();
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
-      $table->unique(['parametro_id', 'vsi_datos_vincula_id']);
+      $table->unique(['parametro_id', 'vsi_datos_vincula_id'],'person_pk1');
       $table = CamposMagicos::magicos($table);
     });
    //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LAS PERSONAS QUE LE GENERAN ESTAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.15'");
