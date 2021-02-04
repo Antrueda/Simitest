@@ -596,15 +596,33 @@ class FiController extends Controller
 
     public function prueba($departam, Request $request)
     {
-        $puedexxx = $this->getPuedeCargar([
-            'estoyenx' => 2,
-            'fechregi' => '1975-04-21',
-            'upixxxxx'=>2,
-        ]);
+        // $puedexxx = $this->getPuedeCargar([
+        //     'estoyenx' => 2,
+        //     'fechregi' => '1975-04-21',
+        //     'upixxxxx'=>2,
+        // ]);
 
 
 
-        ddd( $puedexxx);
+        // ddd( $puedexxx);
+
+
+
+        foreach (SisPai::all() as $keyx => $valuex) {
+            // ddd($valuex->sis_departamentos()->pivot);
+            // $departam=SisDepartamento::where('sis_pai_id',$valuex->id)->get();
+           foreach ($valuex->sis_departamentos() as $keyy => $valuey) {
+echo $valuey.'<br>';
+
+            // $valuex->sis_departamentos()->attach($valuey,[
+            //     'simianti_id'=>0,
+            //     'sis_esta_id'=>1,
+            //     'user_crea_id'=>Auth::user()->id,
+            //     'user_edita_id'=>Auth::user()->id,]);
+           }
+
+
+        }
         // $buesqued = $this->getBuscarNnajAgregar($request);
 
 

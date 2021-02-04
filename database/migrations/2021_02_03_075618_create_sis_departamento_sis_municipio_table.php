@@ -20,10 +20,10 @@ class CreateSisDepartamentoSisMunicipioTable extends Migration
             $table->id();
             $table->bigInteger('sis_departamento_id')->unsigned();
             $table->bigInteger('sis_municipio_id')->unsigned();
+            $table->string('simianti_id')->nullable();
             $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
             $table->foreign('sis_municipio_id')->references('id')->on('sis_municipios');
-            // $table->unique(['sis_departamento_id','sis_municipio_id']);
-            // $table->foreignId('dm_pk1'); // UNSIGNED BIG INT
+            $table->unique(['sis_departamento_id','sis_municipio_id'],'dm_pk1');
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RALACION DE LOS DEPARTAMENTOS CON LOS MUNICIPIOS'");

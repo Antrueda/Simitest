@@ -20,11 +20,10 @@ class CreateSisDepartamentoSisPaiTable extends Migration
             $table->id();
             $table->bigInteger('sis_departamento_id')->unsigned();
             $table->bigInteger('sis_pai_id')->unsigned();
+            $table->string('simianti_id')->nullable();
             $table->foreign('sis_departamento_id')->references('id')->on('sis_departamentos');
             $table->foreign('sis_pai_id')->references('id')->on('sis_pais');
-            $table->unique(['sis_departamento_id','sis_pai_id']);
-            $table->foreignId('pd_pk1') // UNSIGNED BIG INT
-            ;
+            $table->unique(['sis_departamento_id','sis_pai_id'],'pd_pk1');
             $table = CamposMagicos::magicos($table);
         });
         DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RALACION DE LOS PAISES CON LOS DEPARTAMENTOS'");

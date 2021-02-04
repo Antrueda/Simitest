@@ -12,8 +12,9 @@ class SisPai extends Model
 
     public function sis_departamentos()
     {
-        return $this->belongsToMany(SisDepartamento::class);
+        return $this->belongsToMany(SisDepartamento::class)->withTimestamps()->withPivot('simianti_id');
     }
+
     public static function combo($cabecera, $ajaxxxxx)
     {
         $comboxxx = [];
