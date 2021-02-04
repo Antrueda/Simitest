@@ -30,7 +30,7 @@ class CreateInAccionGestionsTable extends Migration
             $table->foreign('i_prm_ttiempo_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE LOS NNAJ, ACTIVIDADES, TIEMPO, SOPORTES DOCUMENTALES QUE SERVIRA DE EVIDENCIA SOBRE LAS ACTUALCIONES REALIZADAS EN LOS NNAJ'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE LOS NNAJ, ACTIVIDADES, TIEMPO, SOPORTES DOCUMENTALES QUE SERVIRA DE EVIDENCIA SOBRE LAS ACTUALCIONES REALIZADAS EN LOS NNAJ'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -41,7 +41,7 @@ class CreateInAccionGestionsTable extends Migration
             $table->unique(['in_accion_gestion_id', 'sis_fsoporte_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS SOPORTES DOCUMENTALES DE LA TABLA in_accion_gestions'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS SOPORTES DOCUMENTALES DE LA TABLA in_accion_gestions'");
     }
 
     /**

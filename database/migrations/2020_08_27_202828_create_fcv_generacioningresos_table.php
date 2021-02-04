@@ -43,7 +43,7 @@ class CreateFcvGeneracioningresosTable extends Migration
             $table->foreign('i_prm_frec_ingreso_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_relacion_laboral_id')->references('id')->on('parametros');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA GENERACION DE LOS INGRESOS POR PARTE LA PERSONA ENTREVISTADA, SECCION 7 GENERACION DE INGRESOS DE LA FICHA DE INGRESO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA GENERACION DE LOS INGRESOS POR PARTE LA PERSONA ENTREVISTADA, SECCION 7 GENERACION DE INGRESOS DE LA FICHA DE INGRESO'");
 
     }
 

@@ -26,7 +26,7 @@ class CreateSisDepartamentoSisPaiTable extends Migration
             $table->unique(['sis_departamento_id','sis_pai_id'],'pd_pk1');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RALACION DE LOS PAISES CON LOS DEPARTAMENTOS'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RALACION DE LOS PAISES CON LOS DEPARTAMENTOS'");
 
     }
 

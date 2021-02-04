@@ -30,7 +30,7 @@ class CreateSisDepenSisEslugTable extends Migration
             $table->unique(['sis_depen_id', 'sis_eslug_id']);
             $table->timestamps();
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE DEPENDENCIAS DEL IDIPRON Y LOS ESPACIOS DONDE SON REALIZADAS ACTIVIDADES ORIENMTADAS A LOS BENEFICIARIOS DE LOS SERVICIOS INSTITUCIONALES'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE DEPENDENCIAS DEL IDIPRON Y LOS ESPACIOS DONDE SON REALIZADAS ACTIVIDADES ORIENMTADAS A LOS BENEFICIARIOS DE LOS SERVICIOS INSTITUCIONALES'");
     }
 
     /**

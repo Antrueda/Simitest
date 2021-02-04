@@ -37,7 +37,7 @@ class CreateCsdRedsocPasadosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ANTECEDENTES INSTITUCIONALES DE LAS REDES DE APOYO QUE TUVO LA PERSONA ENTREVISTADA, PREGUNTA 11.1 REDES DE APOYO ACTUALES SECCION 11 REDES SOCIALES DE APOYO DE LA CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ANTECEDENTES INSTITUCIONALES DE LAS REDES DE APOYO QUE TUVO LA PERSONA ENTREVISTADA, PREGUNTA 11.1 REDES DE APOYO ACTUALES SECCION 11 REDES SOCIALES DE APOYO DE LA CONSULTA SOCIAL EN DOMICILIO'");
     }
 
     public function down()

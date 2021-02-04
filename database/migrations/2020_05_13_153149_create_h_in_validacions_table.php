@@ -24,7 +24,7 @@ class CreateHInValidacionsTable extends Migration
             $table->bigInteger('sis_tcampo_id')->unsigned()->unique();
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

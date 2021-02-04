@@ -37,7 +37,7 @@ class CreateFiVestuarioNnajsTable extends Migration
             $table->foreign('prm_sexo_etario_id')->references('id')->on('parametros');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL VESTUARIO BRINDADO A LAS PERSONAS REGISTRADAS EN EL SISTEMA'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL VESTUARIO BRINDADO A LAS PERSONAS REGISTRADAS EN EL SISTEMA'");
     }
 
     /**

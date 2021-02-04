@@ -34,7 +34,7 @@ class CreateFiJrFamiliarsTable extends Migration
             $table->unique(['fi_compfami_id','fi_justrest_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS FAMILIARES QUE TIENEN PROBLEMAS JUDICIALES'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS FAMILIARES QUE TIENEN PROBLEMAS JUDICIALES'");
     }
 
     /**

@@ -35,7 +35,7 @@ class CreateVsiDinfamMadresTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-     DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA SEPARACIÓN DE LA PERSONA ENTREVISTADA CON LA PROGENITORA, PREGUNTA 5.2.1 SECCION 5 DINÁMICA FAMILIAR DE LA FICHA SICOSOCIAL'");
+     //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA SEPARACIÓN DE LA PERSONA ENTREVISTADA CON LA PROGENITORA, PREGUNTA 5.2.1 SECCION 5 DINÁMICA FAMILIAR DE LA FICHA SICOSOCIAL'");
     }
 
     /**

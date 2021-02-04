@@ -31,7 +31,7 @@ class CreateEstusuariosTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ESTADOS PARA LOS USUARIOS'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ESTADOS PARA LOS USUARIOS'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->id();
@@ -40,7 +40,7 @@ class CreateEstusuariosTable extends Migration
             $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('CAMPO DE CAMBIO DE ESTADO');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**

@@ -25,7 +25,7 @@ class CreateTemasTable extends Migration
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
     });
-   DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS REGISTRADOS EN EL SISTEMA'");
+   //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS REGISTRADOS EN EL SISTEMA'");
 
     Schema::create($this->tablaxxx2, function (Blueprint $table) {
       $table->bigInteger('parametro_id')->unsigned();
@@ -37,7 +37,7 @@ class CreateTemasTable extends Migration
       $table->foreign('tema_id')->references('id')->on('temas');
       $table->unique(['parametro_id', 'tema_id']);
     });
-   DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS TEMAS REGISTRADOS EN EL SISTEMA'");
+   //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS TEMAS REGISTRADOS EN EL SISTEMA'");
   }
 
   /**

@@ -26,7 +26,7 @@ class CreateFiCsdVsiRedesPasadosTable extends Migration
             $table->bigInteger('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ANTECECENTES INSTITUCIONES DEL NNAJ PARA FI CSD Y VSI'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ANTECECENTES INSTITUCIONES DEL NNAJ PARA FI CSD Y VSI'");
 
     }
 

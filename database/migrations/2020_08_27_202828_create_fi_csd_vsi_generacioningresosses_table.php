@@ -38,7 +38,7 @@ class CreateFiCsdVsiGeneracioningresossesTable extends Migration
             $table->foreign('i_prm_tipo_relacion_laboral_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA GENERACION DE LOS
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA GENERACION DE LOS
         //INGRESOS POR PARTE LA PERSONA ENTREVISTADA PARA FI, CSD Y VSI'");
 
     }

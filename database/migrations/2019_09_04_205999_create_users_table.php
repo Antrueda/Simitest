@@ -57,7 +57,7 @@ class CreateUsersTable extends Migration
             $table->unique(['s_documento']);
             $table->timestamp('polidato_at')->nullable();
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS USUARIOS REGISTRADOS EN EL SISTEMA'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS USUARIOS REGISTRADOS EN EL SISTEMA'");
     }
 
     /**

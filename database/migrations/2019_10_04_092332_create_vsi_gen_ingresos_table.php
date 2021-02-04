@@ -57,7 +57,7 @@ class CreateVsiGenIngresosTable extends Migration
             $table->foreign('prm_aporta_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA GENERACION DE LOS INGRESOS DE LA PERSONA ENTREVISTADA, SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA GENERACION DE LOS INGRESOS DE LA PERSONA ENTREVISTADA, SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -68,7 +68,7 @@ class CreateVsiGenIngresosTable extends Migration
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DIAS EN QUE SON GENERADOS LOS INGRESOS DE LA PERSONA ENTREVISTADA, PREGUNTA 9.7 SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DIAS EN QUE SON GENERADOS LOS INGRESOS DE LA PERSONA ENTREVISTADA, PREGUNTA 9.7 SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -79,7 +79,7 @@ class CreateVsiGenIngresosTable extends Migration
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA QUIEN GENERA LOS INGRESOS DE LA PERSONA ENTREVISTADA, PREGUNTA 9.13 SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA QUIEN GENERA LOS INGRESOS DE LA PERSONA ENTREVISTADA, PREGUNTA 9.13 SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -90,7 +90,7 @@ class CreateVsiGenIngresosTable extends Migration
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LA LABOR DESEMPEÑADA EN LA GENERACION DE LOS INGRESOS DE LA PERSONA ENTREVISTADA, PREGUNTA 9.14 SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LA LABOR DESEMPEÑADA EN LA GENERACION DE LOS INGRESOS DE LA PERSONA ENTREVISTADA, PREGUNTA 9.14 SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
     }
 
     /**

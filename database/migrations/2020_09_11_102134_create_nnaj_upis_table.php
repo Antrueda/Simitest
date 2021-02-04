@@ -28,7 +28,7 @@ class CreateNnajUpisTable extends Migration
 
 
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA UPI DEL NNAJ.'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA UPI DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -37,7 +37,7 @@ class CreateNnajUpisTable extends Migration
             $table->bigInteger('prm_principa_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
 

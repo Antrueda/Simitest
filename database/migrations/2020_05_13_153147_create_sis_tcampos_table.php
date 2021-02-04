@@ -29,7 +29,7 @@ class CreateSisTcamposTable extends Migration
             $table->unique(['sis_tabla_id', 'in_pregunta_id', 'tema_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES ASOCIADOS A CADA PREGUNTA Y SU UBICACIÓN EN LAS DIFERENTES TABLAS DE LA BASE DE DATOS'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES ASOCIADOS A CADA PREGUNTA Y SU UBICACIÓN EN LAS DIFERENTES TABLAS DE LA BASE DE DATOS'");
     }
 
     /**

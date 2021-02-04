@@ -67,7 +67,7 @@ class CreateFiResidenciasTable extends Migration
             $table->foreign('i_prm_espacio_parcha_id')->references('id')->on('parametros');
             $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE UBICACION Y DE CONTACTO DE LA PERSONA ENTREVISTADA, SECCION 3 RESIDENCIA DE LA FICHA DE INGRESO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE UBICACION Y DE CONTACTO DE LA PERSONA ENTREVISTADA, SECCION 3 RESIDENCIA DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -82,7 +82,7 @@ class CreateFiResidenciasTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_residencia_id')->references('id')->on('fi_residencias');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES DEL AMBIENTE Y DE RIESGO CERCA DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 3.16 SECCION 3 RESIDENCIA DE LA FICHA DE INGRESO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES DEL AMBIENTE Y DE RIESGO CERCA DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 3.16 SECCION 3 RESIDENCIA DE LA FICHA DE INGRESO'");
     }
 
     /**

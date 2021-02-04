@@ -28,7 +28,7 @@ class CreateNnajDocusTable extends Migration
             $table = CamposMagicos::magicos($table);
             $table->unique(['s_documento']);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA IDENTIFICACION DEL NNAJ.'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA IDENTIFICACION DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -41,7 +41,7 @@ class CreateNnajDocusTable extends Migration
             $table->Integer('sis_docfuen_id');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**

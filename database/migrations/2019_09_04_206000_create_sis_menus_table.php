@@ -27,7 +27,7 @@ class CreateSisMenusTable extends Migration
             $table->timestamps();
             $table->unique(['sis_menu_id','s_menu']);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CONFIGURACION PARA LOS MENUS DEL PANEL LATERAL IZQUIERDA'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CONFIGURACION PARA LOS MENUS DEL PANEL LATERAL IZQUIERDA'");
         
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -37,7 +37,7 @@ class CreateSisMenusTable extends Migration
             $table->bigInteger('sis_menu_id')->nullable();
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA h_{$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA h_{$this->tablaxxx}'");
     }
 
     /**

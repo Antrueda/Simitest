@@ -42,7 +42,7 @@ class CreateSisInstitucionEdusTable extends Migration
             $table->foreign('i_usr_secretario_id')->references('id')->on('users');
             $table->foreign('i_usr_coord_academico_id')->references('id')->on('users');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DE IDENTIFICACIÓN, UBICACIÓN Y DE CONTACTO DE CENTROS EDUCATIVOS'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DE IDENTIFICACIÓN, UBICACIÓN Y DE CONTACTO DE CENTROS EDUCATIVOS'");
     }
 
     /**

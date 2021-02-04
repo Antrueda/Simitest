@@ -68,7 +68,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->foreign('prm_positivo_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA DINAMICA FAMILIAR DE LA PERSONA ENTREVISTADA, SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA DINAMICA FAMILIAR DE LA PERSONA ENTREVISTADA, SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -81,7 +81,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS ANTECEDENTES DE PROBLEMAS SOCIALES ASOCIADOS CON LA FAMILIA ACTUAL, PREGUNTA 6.1 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS ANTECEDENTES DE PROBLEMAS SOCIALES ASOCIADOS CON LA FAMILIA ACTUAL, PREGUNTA 6.1 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -94,7 +94,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS PRINCIPALES PROBLEMATICAS ASOCIADAS CON LA FAMILIA ACTUAL DE LA PERSONA ENTREVISTADA, PREGUNTA 6.13 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS PRINCIPALES PROBLEMATICAS ASOCIADAS CON LA FAMILIA ACTUAL DE LA PERSONA ENTREVISTADA, PREGUNTA 6.13 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -107,7 +107,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS ACTUACIONES DE LOS MIEMBROS DE LA FAMILIA FRENTE A LAS NORMAS DE LA PERSONA ENTREVISTADA, PREGUNTA 6.20 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS ACTUACIONES DE LOS MIEMBROS DE LA FAMILIA FRENTE A LAS NORMAS DE LA PERSONA ENTREVISTADA, PREGUNTA 6.20 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -120,7 +120,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE PERSONAS QUE ESTABLECEN LAS NORMAS EN EL HOGAR DE LA PERSONA ENTREVISTADA, PREGUNTA 6.17 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE PERSONAS QUE ESTABLECEN LAS NORMAS EN EL HOGAR DE LA PERSONA ENTREVISTADA, PREGUNTA 6.17 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -133,7 +133,7 @@ class CreateCsdDinFamiliarsTable extends Migration
             $table->unique(['parametro_id', 'csd_dinfamiliar_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS ACTUACIONES CUANDO NO SE CUMPLEN LAS REGLAS EN LA FAMILIA DE LA PERSONA ENTREVISTADA, PREGUNTA 6.23 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS ACTUACIONES CUANDO NO SE CUMPLEN LAS REGLAS EN LA FAMILIA DE LA PERSONA ENTREVISTADA, PREGUNTA 6.23 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
     }
 
     /**

@@ -24,7 +24,7 @@ class CreateSisDiagnosticosTable extends Migration
             $table->char('sexo');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DIAGNOSTICOS'");      
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DIAGNOSTICOS'");      
     }
 
     /**

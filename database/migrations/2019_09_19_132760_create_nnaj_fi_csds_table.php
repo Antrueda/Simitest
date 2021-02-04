@@ -28,7 +28,7 @@ class CreateNnajFiCsdsTable extends Migration
             $table = CamposMagicos::getForeign($table, 'sis_docfuen');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DEL NNAJ, YA SEA QUE VENGAN DE LA FICHA DE INGRESO O CONSULTA SOCIAL EN DOMICILIO.'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DEL NNAJ, YA SEA QUE VENGAN DE LA FICHA DE INGRESO O CONSULTA SOCIAL EN DOMICILIO.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -42,7 +42,7 @@ class CreateNnajFiCsdsTable extends Migration
             $table->Integer('sis_docfuen_id');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**

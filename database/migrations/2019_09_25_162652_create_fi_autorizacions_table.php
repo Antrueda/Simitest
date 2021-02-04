@@ -37,7 +37,7 @@ class CreateFiAutorizacionsTable extends Migration
             $table->foreign('i_prm_tipo_diligencia_id')->references('id')->on('parametros');
             $table->foreign('fi_compfami_id')->references('id')->on('fi_compfamis');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS PERSONAS AUTORIZADAS PERTENECIENTES AL NUCLEO FAMILIAR, SECCION 16 AUTORIZACION DE LA FICHA DE INGRESO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS PERSONAS AUTORIZADAS PERTENECIENTES AL NUCLEO FAMILIAR, SECCION 16 AUTORIZACION DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -53,7 +53,7 @@ class CreateFiAutorizacionsTable extends Migration
             $table->foreign('fi_autorizacion_id')->references('id')->on('fi_autorizacions');
             $table->foreign('i_prm_modalidad_id')->references('id')->on('parametros');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE MODALIDADES DE AUTORIZACION, SECCION 16 AUTORIZACION DE LA FICHA DE INGRESO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE MODALIDADES DE AUTORIZACION, SECCION 16 AUTORIZACION DE LA FICHA DE INGRESO'");
     }
 
     /**

@@ -45,7 +45,7 @@ class CreateFosDatosBasicosTable extends Migration
             $table->foreign('i_responsable')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DE UN SEGUIMIENTO, FICHA DE OBSERVACION'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BASICOS DE UN SEGUIMIENTO, FICHA DE OBSERVACION'");
     }
 
     /**
