@@ -261,8 +261,8 @@ trait FiTrait
             'tratamiento.nombre as tratamiento'
         )
             ->join('fi_enfermedades_familias', 'fi_saluds.id', '=', 'fi_enfermedades_familias.fi_salud_id')
-            ->join('parametros as medicina', 'fi_enfermedades_familias.i_prm_recibe_medicina_id', '=', 'medicina.id')
-            ->join('parametros as tratamiento', 'fi_enfermedades_familias.i_prm_rec_tratamiento_id', '=', 'tratamiento.id')
+            ->join('parametros as medicina', 'fi_enfermedades_familias.prm_recimedi_id', '=', 'medicina.id')
+            ->join('parametros as tratamiento', 'fi_enfermedades_familias.prm_rectrata_id', '=', 'tratamiento.id')
             ->join('fi_compfamis', 'fi_enfermedades_familias.fi_compfami_id', '=', 'fi_compfamis.id')
             ->join('fi_datos_basicos', 'fi_compfamis.sis_nnaj_id', '=', 'fi_datos_basicos.sis_nnaj_id')
             ->join('sis_estas', 'fi_enfermedades_familias.sis_esta_id', '=', 'sis_estas.id')

@@ -102,7 +102,7 @@ class FiSaludController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['entid_id'] = SisEntidadSalud::combo($dataxxxx['modeloxx']->i_prm_tentidad_id, true, false);
             $this->opciones['puedexxx'] = '';
-            if ($dataxxxx['modeloxx']->i_prm_tiene_discapacidad_id == 228) {
+            if ($dataxxxx['modeloxx']->prm_tiendisc_id == 228) {
                 // $this->opciones['noapdisc'] = Parametro::find(235)->Combo;
                 $this->opciones['tipodisc'] = Parametro::find(235)->Combo;
                 $this->opciones['discausa'] = Parametro::find(235)->Combo;
@@ -110,14 +110,14 @@ class FiSaludController extends Controller
             }
 
 
-            if ($dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 228 || $dataxxxx['modeloxx']->i_prm_conoce_metodos_id == 235) {
+            if ($dataxxxx['modeloxx']->prm_conometo_id == 228 || $dataxxxx['modeloxx']->prm_conometo_id == 235) {
                 $this->opciones['noapdisc'] = Parametro::find(235)->Combo;
                 $this->opciones['metantic'] = Parametro::find(235)->Combo;
                 $this->opciones['usameant'] = Parametro::find(235)->Combo;
 
             }
 
-            if ($dataxxxx['modeloxx']->i_prm_usa_metodos_id == 228 || $dataxxxx['modeloxx']->i_prm_usa_metodos_id == 235) {
+            if ($dataxxxx['modeloxx']->prm_usametod_id == 228 || $dataxxxx['modeloxx']->prm_usametod_id == 235) {
 
                 $this->opciones['metantic'] = Parametro::find(235)->Combo;
                 $this->opciones['noapdisc'] = Parametro::find(235)->Combo;
@@ -126,7 +126,7 @@ class FiSaludController extends Controller
 
 
 
-            if ($dataxxxx['modeloxx']->i_prm_regimen_salud_id == 168) {
+            if ($dataxxxx['modeloxx']->prm_regisalu_id == 168) {
                 $this->opciones['entid_id'] = Parametro::find(235)->Combo;
             }
             if ($dataxxxx['modeloxx']->i_comidas_diarias > 4) {
@@ -135,20 +135,20 @@ class FiSaludController extends Controller
             // if ($dataxxxx['padrexxx']->nnaj_sexo->prm_sexo_id==20) {
             //     $this->opciones['condnoap']=  Parametro::find(235)->Combo;
             // }
-            if ($dataxxxx['modeloxx']->i_prm_esta_gestando_id == 228 || $dataxxxx['modeloxx']->i_prm_esta_gestando_id == 235) {
+            if ($dataxxxx['modeloxx']->prm_estagest_id == 228 || $dataxxxx['modeloxx']->prm_estagest_id == 235) {
                 $this->opciones['readgest'] = 'readonly';
             }
-            if ($dataxxxx['modeloxx']->i_prm_esta_lactando_id == 228 || $dataxxxx['modeloxx']->i_prm_esta_lactando_id == 235) {
+            if ($dataxxxx['modeloxx']->prm_estalact_id == 228 || $dataxxxx['modeloxx']->prm_estalact_id == 235) {
                 $this->opciones['readlact'] = 'readonly';
             }
 
-            if ($dataxxxx['modeloxx']->i_prm_tiene_hijos_id == 228) {
+            if ($dataxxxx['modeloxx']->prm_tienhijo_id == 228) {
                 $this->opciones['readhijo'] = 'readonly';
             }
-            if ($dataxxxx['modeloxx']->i_prm_tiene_problema_salud_id == 228) {
+            if ($dataxxxx['modeloxx']->prm_tieprsal_id == 228) {
                 $this->opciones['probsalu'] = Parametro::find(235)->Combo;
             }
-            if ($dataxxxx['modeloxx']->i_prm_consume_medicamentos_id == 228) {
+            if ($dataxxxx['modeloxx']->prm_consmedi_id == 228) {
                 $this->opciones['cualmedi'] = 'readonly';
             }
             if ($dataxxxx['modeloxx']->d_puntaje_sisben != '') {//

@@ -16,9 +16,9 @@ class FiEnfermedadesFamiliaObserver
         $log['fi_salud_id'] = $modeloxx->fi_salud_id;
         $log['fi_compfami_id'] = $modeloxx->fi_compfami_id;
         $log['s_tipo_enfermedad'] = $modeloxx->s_tipo_enfermedad;
-        $log['i_prm_recibe_medicina_id'] = $modeloxx->i_prm_recibe_medicina_id;
+        $log['prm_recimedi_id'] = $modeloxx->prm_recimedi_id;
         $log['s_medicamento'] = $modeloxx->s_medicamento;
-        $log['i_prm_rec_tratamiento_id'] = $modeloxx->i_prm_rec_tratamiento_id;
+        $log['prm_rectrata_id'] = $modeloxx->prm_rectrata_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

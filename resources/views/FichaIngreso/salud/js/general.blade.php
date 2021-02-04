@@ -2,7 +2,7 @@
 <script>
     var table = '';
     $(document).ready(function() {
-        $('#i_prm_recibe_medicina_id').change(function() {
+        $('#prm_recimedi_id').change(function() {
             $('#s_medicamento').val('')
             $('#s_medicamento').attr("disabled", $(this).val() == 227 ? false : true)
         });
@@ -32,11 +32,11 @@
                 },
             });
         }
-        var prmresal = "{{old('i_prm_regimen_salud_id')}}";
+        var prmresal = "{{old('prm_regisalu_id')}}";
         if (prmresal != '') {
             regisalu(prmresal, "{{old('sis_entidad_salud_id')}}");
         }
-        $("#i_prm_regimen_salud_id").change(function() {
+        $("#prm_regisalu_id").change(function() {
             regisalu($(this).val(), '');
         });
 
@@ -50,7 +50,7 @@
             });
         }
         var f_discapacidad = function(valuexxx, discapac, certific, independ) {
-            $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").empty();
+            $("#prm_tipodisca_id, #prm_tiecedis_id, #prm_dispeind_id").empty();
             if (valuexxx != '') {
                 $.ajax({
                     url: "{{ route('ajaxx.discapacitado') }}",
@@ -62,11 +62,11 @@
                     dataType: 'json',
                     success: function(json) {
                         if (json[0].discapac[0].valuexxx == 1) {
-                            $("#i_prm_tipo_discapacidad_id, #i_prm_tiene_cert_discapacidad_id, #i_prm_disc_perm_independencia_id").empty();
+                            $("#prm_tipodisca_id, #prm_tiecedis_id, #prm_dispeind_id").empty();
                         }
-                        f_dataxxx('i_prm_tipo_discapacidad_id', json[0].discapac, discapac);
-                        f_dataxxx('i_prm_tiene_cert_discapacidad_id', json[0].certific, certific);
-                        f_dataxxx('i_prm_disc_perm_independencia_id', json[0].independ, independ);
+                        f_dataxxx('prm_tipodisca_id', json[0].discapac, discapac);
+                        f_dataxxx('prm_tiecedis_id', json[0].certific, certific);
+                        f_dataxxx('prm_dispeind_id', json[0].independ, independ);
                         $("#prm_discausa_id option[value=1269]").attr("selected",true);
                     },
                     error: function(xhr, status) {
@@ -75,11 +75,11 @@
                 });
             }
         }
-        var tiedisca = "{{old('i_prm_tiene_discapacidad_id')}}";
+        var tiedisca = "{{old('prm_tiendisc_id')}}";
         if (tiedisca != '') {
-            f_discapacidad(tiedisca, "{{old('i_prm_tipo_discapacidad_id')}}", "{{old('i_prm_tiene_cert_discapacidad_id')}}", "{{old('i_prm_disc_perm_independencia_id')}}");
+            f_discapacidad(tiedisca, "{{old('prm_tipodisca_id')}}", "{{old('prm_tiecedis_id')}}", "{{old('prm_dispeind_id')}}");
         }
-        $("#i_prm_tiene_discapacidad_id").change(function() {
+        $("#prm_tiendisc_id").change(function() {
             f_discapacidad($(this).val(), '', '', '');
         });
     });

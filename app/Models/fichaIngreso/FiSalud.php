@@ -12,32 +12,32 @@ use Illuminate\Support\Facades\DB;
 
 class FiSalud extends Model{
   protected $fillable = [
-    'i_prm_regimen_salud_id',
+    'prm_regisalu_id',
     'sis_entidad_salud_id',
-    'i_prm_tiene_sisben_id',
+    'prm_tiensisb_id',
     'd_puntaje_sisben',
-    'i_prm_tiene_discapacidad_id',
-    'i_prm_tipo_discapacidad_id',
-    'i_prm_tiene_cert_discapacidad_id',
-    'i_prm_disc_perm_independencia_id',
-    'i_prm_esta_gestando_id',
+    'prm_tiendisc_id',
+    'prm_tipodisca_id',
+    'prm_tiecedis_id',
+    'prm_dispeind_id',
+    'prm_estagest_id',
     'i_numero_semanas',
-    'i_prm_esta_lactando_id',
+    'prm_estalact_id',
     'i_numero_meses',
-    'i_prm_tiene_problema_salud_id',
-    'i_prm_problema_salud_id',
-    'i_prm_consume_medicamentos_id',
+    'prm_tieprsal_id',
+    'prm_probsalu_id',
+    'prm_consmedi_id',
     's_cual_medicamento',
-    'i_prm_tiene_hijos_id',
+    'prm_tienhijo_id',
     'i_numero_hijos',
     'i_numero_hijos',
     's_evento_medico',
-    'i_prm_conoce_metodos_id',
-    'i_prm_usa_metodos_id',
-    'i_prm_cual_metodo_id',
-    'i_prm_uso_voluntario_id',
+    'prm_conometo_id',
+    'prm_usametod_id',
+    'prm_cualmeto_id',
+    'prm_usovolun_id',
     'i_comidas_diarias',
-    'i_prm_razon_no_cinco_comidas_id',
+    'prm_razcicom_id',
     'sis_nnaj_id',
     'user_crea_id',
     'user_edita_id',
@@ -75,8 +75,8 @@ class FiSalud extends Model{
       'sis_esta_id'=>1,
     ];
     FiEventosMedico::where('fi_salud_id', $evenmedic->id)->delete();
-    foreach($dataxxxx['i_prm_evento_medico_id'] as $evmedico){
-      $datosxxx['i_prm_evento_medico_id']=$evmedico;
+    foreach($dataxxxx['prm_evenmedi_id'] as $evmedico){
+      $datosxxx['prm_evenmedi_id']=$evmedico;
       FiEventosMedico::create($datosxxx);
     }
   }
@@ -121,7 +121,7 @@ class FiSalud extends Model{
         $objetoxx = FiSalud::create($dataxxxx);
       }
 
-      if(isset($dataxxxx['i_prm_evento_medico_id'])){
+      if(isset($dataxxxx['prm_evenmedi_id'])){
         FiSalud::grabarEventoMedico($objetoxx,$dataxxxx);
       }
       if(isset($dataxxxx['prm_discausa_id'])){
@@ -134,9 +134,9 @@ class FiSalud extends Model{
     }, 5);
     return $usuariox;
   }
-  public function i_prm_evento_medico_id()
+  public function prm_evenmedi_id()
   {
-      return $this->belongsToMany(Parametro::class,'fi_eventos_medicos','fi_salud_id','i_prm_evento_medico_id');
+      return $this->belongsToMany(Parametro::class,'fi_eventos_medicos','fi_salud_id','prm_evenmedi_id');
   }
   public function prm_discausa_id()
   {

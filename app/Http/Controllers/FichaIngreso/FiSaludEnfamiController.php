@@ -84,7 +84,7 @@ class FiSaludEnfamiController extends Controller
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['disabled']=$dataxxxx['modeloxx']->i_prm_recibe_medicina_id==227?'':'disabled';
+            $this->opciones['disabled']=$dataxxxx['modeloxx']->prm_recimedi_id==227?'':'disabled';
             $this->opciones['parametr'][1]=$dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';

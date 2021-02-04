@@ -58,8 +58,8 @@ $(function(){
     });
 
 
-    $("#i_prm_conoce_metodos_id").change(function(){
-           $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id,#i_prm_usa_metodos_id").empty();
+    $("#prm_conometo_id").change(function(){
+           $("#prm_cualmeto_id, #prm_usovolun_id,#prm_usametod_id").empty();
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.anticonceptivo') }}",
@@ -71,16 +71,16 @@ $(function(){
                dataType : 'json',
                success : function(json) {
                    if(json[0].cuametod[0].valuexxx==1){
-                       $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id,#i_prm_usa_metodos_id").empty();
+                       $("#prm_cualmeto_id, #prm_usovolun_id,#prm_usametod_id").empty();
                    }
                    $.each(json[0].cuametod,function(i,data){
-                           $('#i_prm_cual_metodo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                           $('#prm_cualmeto_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                    $.each(json[0].usavolun,function(i,data){
-                           $('#i_prm_uso_voluntario_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                           $('#prm_usovolun_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                    $.each(json[0].usameant,function(i,data){
-                           $('#i_prm_usa_metodos_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                           $('#prm_usametod_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                },
                error : function(xhr, status) {
@@ -90,8 +90,8 @@ $(function(){
            }
        });
 
-       $("#i_prm_usa_metodos_id").change(function(){
-           $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id").empty();
+       $("#prm_usametod_id").change(function(){
+           $("#prm_cualmeto_id, #prm_usovolun_id").empty();
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.anticonceptivo') }}",
@@ -103,16 +103,16 @@ $(function(){
                dataType : 'json',
                success : function(json) {
                    if(json[0].cuametod[0].valuexxx==1){
-                       $("#i_prm_cual_metodo_id, #i_prm_uso_voluntario_id").empty();
+                       $("#prm_cualmeto_id, #prm_usovolun_id").empty();
                    }
                    $.each(json[0].cuametod,function(i,data){
-                           $('#i_prm_cual_metodo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                           $('#prm_cualmeto_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                    $.each(json[0].usavolun,function(i,data){
-                           $('#i_prm_uso_voluntario_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                           $('#prm_usovolun_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                    $.each(json[0].usameant,function(i,data){
-                           $('#i_prm_usa_metodos_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                           $('#prm_usametod_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                },
                error : function(xhr, status) {
@@ -125,7 +125,7 @@ $(function(){
 
 
        $("#i_comidas_diarias").keyup(function(){
-           $("#i_prm_razon_no_cinco_comidas_id").empty();
+           $("#prm_razcicom_id").empty();
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.comidasdiarias') }}",
@@ -137,10 +137,10 @@ $(function(){
                dataType : 'json',
                success : function(json) {
                    if(json[0].nocomida[0].valuexxx==1){
-                       $("#i_prm_razon_no_cinco_comidas_id").empty();
+                       $("#prm_razcicom_id").empty();
                    }
                    $.each(json[0].nocomida,function(i,data){
-                       $('#i_prm_razon_no_cinco_comidas_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                       $('#prm_razcicom_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                },
                error : function(xhr, status) {
@@ -150,7 +150,7 @@ $(function(){
            }
        });
 
-       $("#i_prm_esta_gestando_id").change(function(){
+       $("#prm_estagest_id").change(function(){
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.estagestando') }}",
@@ -171,7 +171,7 @@ $(function(){
            }
        });
 
-       $("#i_prm_esta_lactando_id").change(function(){
+       $("#prm_estalact_id").change(function(){
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.estalactando') }}",
@@ -192,7 +192,7 @@ $(function(){
            }
        });
 
-       $("#i_prm_esta_lactando_id").change(function(){
+       $("#prm_estalact_id").change(function(){
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.estalactando') }}",
@@ -213,7 +213,7 @@ $(function(){
            }
        });
 
-       $("#i_prm_tiene_hijos_id").change(function(){
+       $("#prm_tienhijo_id").change(function(){
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.tienehijos') }}",
@@ -234,8 +234,8 @@ $(function(){
            }
        });
 
-       $("#i_prm_tiene_problema_salud_id").change(function(){
-           $("#i_prm_problema_salud_id").empty();
+       $("#prm_tieprsal_id").change(function(){
+           $("#prm_probsalu_id").empty();
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.tieneprobsalud') }}",
@@ -247,10 +247,10 @@ $(function(){
                dataType : 'json',
                success : function(json) {
                    if(json.prosalud[0].valuexxx==1){
-                       $("#i_prm_problema_salud_id").empty();
+                       $("#prm_probsalu_id").empty();
                    }
                    $.each(json.prosalud,function(i,data){
-                       $('#i_prm_problema_salud_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                       $('#prm_probsalu_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                },
                error : function(xhr, status) {
@@ -260,7 +260,7 @@ $(function(){
            }
        });
 
-       $("#i_prm_consume_medicamentos_id").change(function(){
+       $("#prm_consmedi_id").change(function(){
            if($(this).val()!=''){
                $.ajax({
                url : "{{ route('ajaxx.consumedicamen') }}",
@@ -292,10 +292,10 @@ $(function(){
                dataType : 'json',
                success : function(json) {
                    if(json[0].pusisben[0].valuexxx==1){
-                       $("#i_prm_tiene_sisben_id").empty();
+                       $("#prm_tiensisb_id").empty();
                    }
                    $.each(json[0].pusisben,function(i,data){
-                       $('#i_prm_tiene_sisben_id').append('<option value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                       $('#prm_tiensisb_id').append('<option value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                    });
                },
                error : function(xhr, status) {
@@ -305,10 +305,10 @@ $(function(){
            // }
        }
        @if(old('d_puntaje_sisben')!=null)
-       f_sisben({{ old('d_puntaje_sisben') }},{{ old('i_prm_tiene_sisben_id')  }});
+       f_sisben({{ old('d_puntaje_sisben') }},{{ old('prm_tiensisb_id')  }});
        @endif
        $("#d_puntaje_sisben").keyup(function(){
-           $("#i_prm_tiene_sisben_id").empty();
+           $("#prm_tiensisb_id").empty();
            f_sisben($(this).val(),'');
        });
 
