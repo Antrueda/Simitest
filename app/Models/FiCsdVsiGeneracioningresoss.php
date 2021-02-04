@@ -10,28 +10,28 @@ use Illuminate\Support\Facades\DB;
 class FiCsdVsiGeneracioningresoss extends Model
 {
     protected $fillable = [
-        'i_prm_actividad_genera_ingreso_id',
+        'prm_actgeing_id',
         's_trabajo_formal',
-        'i_prm_trabajo_informal_id',
-        'i_prm_otra_actividad_id',
-        'i_prm_razon_no_genera_ingreso_id',
-        'i_dias_buscando_empleo',
-        'i_meses_buscando_empleo',
-        'i_anos_buscando_empleo',
-        'i_prm_jornada_genera_ingreso_id',
+        'prm_trabinfo_id',
+        'prm_otractiv_id',
+        'prm_razgeing_id',
+        'diabuemp',
+        'mesbuemp',
+        'anobuemp',
+        'prm_jorgeing_id',
         's_hora_inicial',
         's_hora_final',
-        'i_prm_frec_ingreso_id',
-        'i_total_ingreso_mensual',
-        'i_prm_tipo_relacion_laboral_id',
+        'prm_frecingr_id',
+        'totinmen',
+        'prm_tiprelab_id',
         'sis_nnaj_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id'
       ];
     
-      protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'i_dias_buscando_empleo' => 0,
-      'i_meses_buscando_empleo' => 0, 'i_anos_buscando_empleo' => 0, 's_trabajo_formal' => ' ',];
+      protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'diabuemp' => 0,
+      'mesbuemp' => 0, 'anobuemp' => 0, 's_trabajo_formal' => ' ',];
       public function creador()
       {
         return $this->belongsTo(User::class, 'user_crea_id');
@@ -64,7 +64,7 @@ class FiCsdVsiGeneracioningresoss extends Model
             $dataxxxx['user_crea_id'] = Auth::user()->id;
             $objetoxx = FiCsdVsiGeneracioningresoss::create($dataxxxx);
           }
-          if(isset($dataxxxx['i_prm_dia_genera_id'])){
+          if(isset($dataxxxx['prm_diagener_id'])){
             FiCsdVsiGeneracioningresoss::grabarDiaGenera($objetoxx,$dataxxxx);
           }
     

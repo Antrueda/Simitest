@@ -5,8 +5,8 @@
             language: "es"
         });
         var f_generar_ingresos = function(dataxxxx){
-           $('#i_total_ingreso_mensual,#i_prm_frec_ingreso_id,#i_prm_jornada_genera_ingreso_id,#s_hora_inicial,#s_hora_final,#i_prm_dia_genera_id').val('')
-            $("#i_prm_trabajo_informal_id, #i_prm_otra_actividad_id, #i_prm_razon_no_genera_ingreso_id, #i_prm_tipo_relacion_laboral_id, #i_prm_jornada_genera_ingreso_id, #i_prm_dia_genera_id,#i_prm_frec_ingreso_id").empty();
+           $('#totinmen,#prm_frecingr_id,#prm_jorgeing_id,#s_hora_inicial,#s_hora_final,#prm_diagener_id').val('')
+            $("#prm_trabinfo_id, #prm_otractiv_id, #prm_razgeing_id, #prm_tiprelab_id, #prm_jorgeing_id, #prm_diagener_id,#prm_frecingr_id").empty();
             if(dataxxxx.valuexxx!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.trabajogenera') }}",
@@ -36,7 +36,7 @@
         }
 
         var f_limpiar = function(valuexxx,psalecte) {
-            $("#i_prm_dia_genera_id").empty();
+            $("#prm_diagener_id").empty();
                 $.ajax({
                     url : "{{ route('ajaxx.limpiardias') }}",
                     data: {
@@ -46,7 +46,7 @@
                     dataType: 'json',
                     success: function(json) {
                         $.each(json[0].diaseman, function(i, data) {
-                            $('#i_prm_dia_genera_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                            $('#prm_diagener_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
                      },
                     error: function(xhr, status) {
@@ -56,20 +56,20 @@
         }
 
 
-        @if(old('i_prm_actividad_genera_ingreso_id')!=null)
+        @if(old('prm_actgeing_id')!=null)
             f_generar_ingresos({
                 limpiaxx:false,
-            valuexxx:{{ isset($todoxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id)? $todoxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id: (old('i_prm_actividad_genera_ingreso_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}},
-            trivalue:{{ isset($todoxxxx['modeloxx']->i_prm_trabajo_informal_id)? $todoxxxx['modeloxx']->i_prm_trabajo_informal_id: (old('i_prm_trabajo_informal_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}},
-            travalue:{{ isset($todoxxxx['modeloxx']->i_prm_otra_actividad_id)? $todoxxxx['modeloxx']->i_prm_otra_actividad_id: (old('i_prm_otra_actividad_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}},
-            noivalue:{{ isset($todoxxxx['modeloxx']->i_prm_razon_no_genera_ingreso_id)? $todoxxxx['modeloxx']->i_prm_razon_no_genera_ingreso_id: (old('i_prm_razon_no_genera_ingreso_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}},
-            relvalue:{{ isset($todoxxxx['modeloxx']->i_prm_tipo_relacion_laboral_id)? $todoxxxx['modeloxx']->i_prm_tipo_relacion_laboral_id: (old('i_prm_tipo_relacion_laboral_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}}
-            relvalue:{{ isset($todoxxxx['modeloxx']->i_prm_frec_ingreso_id)? $todoxxxx['modeloxx']->i_prm_frec_ingreso_id: (old('i_prm_frec_ingreso_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}}
-            relvalue:{{ isset($todoxxxx['modeloxx']->i_prm_dia_genera_id)? $todoxxxx['modeloxx']->i_prm_dia_genera_id: (old('i_prm_dia_genera_id') !=null ? old('i_prm_actividad_genera_ingreso_id'):0)}}
+            valuexxx:{{ isset($todoxxxx['modeloxx']->prm_actgeing_id)? $todoxxxx['modeloxx']->prm_actgeing_id: (old('prm_actgeing_id') !=null ? old('prm_actgeing_id'):0)}},
+            trivalue:{{ isset($todoxxxx['modeloxx']->prm_trabinfo_id)? $todoxxxx['modeloxx']->prm_trabinfo_id: (old('prm_trabinfo_id') !=null ? old('prm_actgeing_id'):0)}},
+            travalue:{{ isset($todoxxxx['modeloxx']->prm_otractiv_id)? $todoxxxx['modeloxx']->prm_otractiv_id: (old('prm_otractiv_id') !=null ? old('prm_actgeing_id'):0)}},
+            noivalue:{{ isset($todoxxxx['modeloxx']->prm_razgeing_id)? $todoxxxx['modeloxx']->prm_razgeing_id: (old('prm_razgeing_id') !=null ? old('prm_actgeing_id'):0)}},
+            relvalue:{{ isset($todoxxxx['modeloxx']->prm_tiprelab_id)? $todoxxxx['modeloxx']->prm_tiprelab_id: (old('prm_tiprelab_id') !=null ? old('prm_actgeing_id'):0)}}
+            relvalue:{{ isset($todoxxxx['modeloxx']->prm_frecingr_id)? $todoxxxx['modeloxx']->prm_frecingr_id: (old('prm_frecingr_id') !=null ? old('prm_actgeing_id'):0)}}
+            relvalue:{{ isset($todoxxxx['modeloxx']->prm_diagener_id)? $todoxxxx['modeloxx']->prm_diagener_id: (old('prm_diagener_id') !=null ? old('prm_actgeing_id'):0)}}
         }
 );
         @endif
-        $("#i_prm_actividad_genera_ingreso_id").change(function(){
+        $("#prm_actgeing_id").change(function(){
             f_generar_ingresos({valuexxx:$(this).val(), trivalue:'', travalue:'', noivalue:'', relvalue:'', limpiaxx:true});
             f_limpiar($(this).val(),'');
             if($(this).val()!=853){
@@ -77,7 +77,7 @@
             }
         });
 
-        $("#i_prm_jornada_genera_ingreso_id").change(function(){
+        $("#prm_jorgeing_id").change(function(){
             if($(this).val()!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.jornadagenera') }}",
@@ -100,7 +100,7 @@
             }
         });
 
-        $("#i_prm_razon_no_genera_ingreso_id").change(function(){
+        $("#prm_razgeing_id").change(function(){
                 $.ajax({
                 url : "{{ route($todoxxxx['routxxxx'].'.pgeningr') }}",
                 data : {

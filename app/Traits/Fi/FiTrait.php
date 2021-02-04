@@ -401,9 +401,9 @@ trait FiTrait
         if ($request->ajax()) {
             $readonly = $request->padrexxx == 711 ? false : true;
             $respuest = [
-                ['campoxxx' => '#i_dias_buscando_empleo', 'valorxxx' => $readonly, 'propieda' => 'readonly'],
-                ['campoxxx' => '#i_meses_buscando_empleo', 'valorxxx' => $readonly, 'propieda' => 'readonly'],
-                ['campoxxx' => '#i_anos_buscando_empleo', 'valorxxx' => $readonly, 'propieda' => 'readonly'],
+                ['campoxxx' => '#diabuemp', 'valorxxx' => $readonly, 'propieda' => 'readonly'],
+                ['campoxxx' => '#mesbuemp', 'valorxxx' => $readonly, 'propieda' => 'readonly'],
+                ['campoxxx' => '#anobuemp', 'valorxxx' => $readonly, 'propieda' => 'readonly'],
 
             ];
             return response()->json($respuest);

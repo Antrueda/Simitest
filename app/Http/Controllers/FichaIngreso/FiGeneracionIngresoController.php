@@ -81,24 +81,24 @@ class FiGeneracionIngresoController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             
-            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id == 626) {
+            if ($dataxxxx['modeloxx']->prm_actgeing_id == 626) {
                 $this->opciones['trabinfo'] = Parametro::find(235)->Combo;
                 $this->opciones['otractiv'] = Parametro::find(235)->Combo;
                 $this->opciones['raznogen'] = Parametro::find(235)->Combo;
             }
-            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id == 627) {
+            if ($dataxxxx['modeloxx']->prm_actgeing_id == 627) {
                 $this->opciones['otractiv'] = Parametro::find(235)->Combo;
                 $this->opciones['formalxx'] = 'readonly';
                 $this->opciones['raznogen'] = Parametro::find(235)->Combo;
                 $this->opciones['tiporela'] = Parametro::find(235)->Combo;
             }
-            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id == 628) {
+            if ($dataxxxx['modeloxx']->prm_actgeing_id == 628) {
                 $this->opciones['trabinfo'] = Parametro::find(235)->Combo;
                 $this->opciones['formalxx'] = 'readonly';
                 $this->opciones['raznogen'] = Parametro::find(235)->Combo;
                 $this->opciones['tiporela'] = Parametro::find(235)->Combo;
             }
-            if ($dataxxxx['modeloxx']->i_prm_actividad_genera_ingreso_id == 853) {
+            if ($dataxxxx['modeloxx']->prm_actgeing_id == 853) {
                 $this->opciones['trabinfo'] = Parametro::find(235)->Combo;
                 $this->opciones['otractiv'] = Parametro::find(235)->Combo;
                 $this->opciones['formalxx'] = 'readonly';

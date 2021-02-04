@@ -262,17 +262,17 @@ class AjaxxController extends Controller
                 'readonly' => [
                     ['nombrexx' => '#s_hora_inicial', 'propieda' => 'readonly', 'valorxxx' => false],
                     ['nombrexx' => '#s_hora_final', 'propieda' => 'readonly', 'valorxxx' => false],
-                    ['nombrexx' => '#i_total_ingreso_mensual', 'propieda' => 'readonly', 'valorxxx' => false],
+                    ['nombrexx' => '#totinmen', 'propieda' => 'readonly', 'valorxxx' => false],
                     ['nombrexx' => '#s_trabajo_formal', 'propieda' => 'readonly', 'valorxxx' => true],
                 ],
                 'combosxx' => [
-                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_trabajo_informal_id', 'selected' => ''],
-                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_otra_actividad_id', 'selected' => ''],
-                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_razon_no_genera_ingreso_id', 'selected' => ''],
-                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#i_prm_tipo_relacion_laboral_id', 'selected' => ''],
-                    ['comboxxx' => Tema::combo(123, true, true), 'nombrexx' => '#i_prm_jornada_genera_ingreso_id', 'selected' => ''],
-                    ['comboxxx' => Tema::combo(124, false, true), 'nombrexx' => '#i_prm_dia_genera_id', 'selected' => ''],
-                    ['comboxxx' => Tema::combo(125, true, true), 'nombrexx' => '#i_prm_frec_ingreso_id', 'selected' => ''],
+                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#prm_trabinfo_id', 'selected' => ''],
+                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#prm_otractiv_id', 'selected' => ''],
+                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#prm_razgeing_id', 'selected' => ''],
+                    ['comboxxx' => Parametro::find(235)->ComboAjaxUno, 'nombrexx' => '#prm_tiprelab_id', 'selected' => ''],
+                    ['comboxxx' => Tema::combo(123, true, true), 'nombrexx' => '#prm_jorgeing_id', 'selected' => ''],
+                    ['comboxxx' => Tema::combo(124, false, true), 'nombrexx' => '#prm_diagener_id', 'selected' => ''],
+                    ['comboxxx' => Tema::combo(125, true, true), 'nombrexx' => '#prm_frecingr_id', 'selected' => ''],
 
                 ],
             ];
@@ -292,7 +292,7 @@ class AjaxxController extends Controller
                     $respuest['readonly'] = [
                         ['nombrexx' => '#s_hora_inicial', 'propieda' => 'readonly', 'valorxxx' => true],
                         ['nombrexx' => '#s_hora_final', 'propieda' => 'readonly', 'valorxxx' => true],
-                        ['nombrexx' => '#i_total_ingreso_mensual', 'propieda' => 'readonly', 'valorxxx' => true],
+                        ['nombrexx' => '#totinmen', 'propieda' => 'readonly', 'valorxxx' => true],
                     ];
                     $respuest['combosxx'][2]['comboxxx'] = Tema::combo(122, true, true);
                     $respuest['combosxx'][6]['comboxxx'] =

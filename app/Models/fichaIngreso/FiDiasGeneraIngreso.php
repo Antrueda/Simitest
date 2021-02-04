@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FiDiasGeneraIngreso extends Model
 {
     protected $fillable = [
-        'i_prm_dia_genera_id',
+        'prm_diagener_id',
         'fi_generacion_ingreso_id', 
         'user_crea_id', 
         'user_edita_id',

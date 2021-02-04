@@ -33,7 +33,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_informal_id', '10.9.2 Seleccione', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_informal_id', $todoxxxx["trabinfo"], null, ['class' => $errors->first('prm_informal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'i_prm_trabajo_informal_id']) }}
+        {{ Form::select('prm_informal_id', $todoxxxx["trabinfo"], null, ['class' => $errors->first('prm_informal_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'prm_trabinfo_id']) }}
         @if($errors->has('prm_informal_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_informal_id') }}
@@ -44,7 +44,7 @@
 <div class="row">
     <div class="col-md">
         {{ Form::label('prm_otra_id', '10.9.3 Seleccione', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_otra_id',  $todoxxxx["otractiv"], null, ['class' => $errors->first('prm_otra_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'i_prm_otra_actividad_id']) }}
+        {{ Form::select('prm_otra_id',  $todoxxxx["otractiv"], null, ['class' => $errors->first('prm_otra_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'prm_otractiv_id']) }}
         @if($errors->has('prm_otra_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_otra_id') }}
@@ -53,7 +53,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('prm_laboral_id', '10.10 ¿Tipo de relación laboral?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_laboral_id', $todoxxxx["tiporela"], null, ['class' => $errors->first('prm_laboral_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'i_prm_tipo_relacion_laboral_id']) }}
+        {{ Form::select('prm_laboral_id', $todoxxxx["tiporela"], null, ['class' => $errors->first('prm_laboral_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'prm_tiprelab_id']) }}
         @if($errors->has('prm_laboral_id'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('prm_laboral_id') }}

@@ -11,28 +11,28 @@ use Illuminate\Support\Facades\DB;
 
 class FiGeneracionIngreso extends Model{
   protected $fillable = [
-    'i_prm_actividad_genera_ingreso_id',
+    'prm_actgeing_id',
     's_trabajo_formal',
-    'i_prm_trabajo_informal_id',
-    'i_prm_otra_actividad_id',
-    'i_prm_razon_no_genera_ingreso_id',
-    'i_dias_buscando_empleo',
-    'i_meses_buscando_empleo',
-    'i_anos_buscando_empleo',
-    'i_prm_jornada_genera_ingreso_id',
+    'prm_trabinfo_id',
+    'prm_otractiv_id',
+    'prm_razgeing_id',
+    'diabuemp',
+    'mesbuemp',
+    'anobuemp',
+    'prm_jorgeing_id',
     's_hora_inicial',
     's_hora_final',
-    'i_prm_frec_ingreso_id',
-    'i_total_ingreso_mensual',
-    'i_prm_tipo_relacion_laboral_id',
+    'prm_frecingr_id',
+    'totinmen',
+    'prm_tiprelab_id',
     'sis_nnaj_id',
     'user_crea_id',
     'user_edita_id',
     'sis_esta_id'
   ];
 
-  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'i_dias_buscando_empleo' => 0,
-  'i_meses_buscando_empleo' => 0, 'i_anos_buscando_empleo' => 0, 's_trabajo_formal' => ' ',];
+  protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'diabuemp' => 0,
+  'mesbuemp' => 0, 'anobuemp' => 0, 's_trabajo_formal' => ' ',];
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');
@@ -53,8 +53,8 @@ class FiGeneracionIngreso extends Model{
     }
     return $vestuari;
   }
-  public function i_prm_dia_genera_id(){
-    return $this->belongsToMany(Parametro::class,'fi_dias_genera_ingresos','fi_generacion_ingreso_id','i_prm_dia_genera_id');
+  public function prm_diagener_id(){
+    return $this->belongsToMany(Parametro::class,'fi_dias_genera_ingresos','fi_generacion_ingreso_id','prm_diagener_id');
   }
   private static function grabarDiaGenera($digenera,$dataxxxx){
     $datosxxx=[
@@ -64,8 +64,8 @@ class FiGeneracionIngreso extends Model{
       'sis_esta_id'=>1,
     ];
     
-    foreach($dataxxxx['i_prm_dia_genera_id'] as $diagener){
-      $datosxxx['i_prm_dia_genera_id']=$diagener;
+    foreach($dataxxxx['prm_diagener_id'] as $diagener){
+      $datosxxx['prm_diagener_id']=$diagener;
       FiDiasGeneraIngreso::create($datosxxx);
     }
   }
@@ -81,7 +81,7 @@ class FiGeneracionIngreso extends Model{
         $objetoxx = FiGeneracionIngreso::create($dataxxxx);
       }
       FiDiasGeneraIngreso::where('fi_generacion_ingreso_id', $objetoxx->id)->delete();
-      if(isset($dataxxxx['i_prm_dia_genera_id'])){
+      if(isset($dataxxxx['prm_diagener_id'])){
         FiGeneracionIngreso::grabarDiaGenera($objetoxx,$dataxxxx);
       }
       return $objetoxx;

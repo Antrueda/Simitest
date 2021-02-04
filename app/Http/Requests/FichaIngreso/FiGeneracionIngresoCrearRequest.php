@@ -13,25 +13,25 @@ class FiGeneracionIngresoCrearRequest extends FormRequest
     public function __construct()
     {
         $this->_mensaje = [
-            'i_prm_actividad_genera_ingreso_id.required' => 'Seleccione actividad realiza generar ingreso',
-            'i_prm_trabajo_informal_id.required' => 'Seleccione trabajo informal',
-            'i_prm_otra_actividad_id.required' => 'Seleccione otra actividad',
-            'i_prm_razon_no_genera_ingreso_id.required' => 'Seleccione porque no genera ingresos',
-            'i_prm_jornada_genera_ingreso_id.required' => 'Seleccione en que jornada genera ingreso',
-            'i_prm_frec_ingreso_id.required' => 'Seleccione frecuencia recibe ingreso',
-            'i_total_ingreso_mensual.required' => 'Seleccione total ingreso',
-            'i_prm_tipo_relacion_laboral_id.required' => 'Seleccione tipo relacion laboral',
+            'prm_actgeing_id.required' => 'Seleccione actividad realiza generar ingreso',
+            'prm_trabinfo_id.required' => 'Seleccione trabajo informal',
+            'prm_otractiv_id.required' => 'Seleccione otra actividad',
+            'prm_razgeing_id.required' => 'Seleccione porque no genera ingresos',
+            'prm_jorgeing_id.required' => 'Seleccione en que jornada genera ingreso',
+            'prm_frecingr_id.required' => 'Seleccione frecuencia recibe ingreso',
+            'totinmen.required' => 'Seleccione total ingreso',
+            'prm_tiprelab_id.required' => 'Seleccione tipo relacion laboral',
         ];
 
         $this->_reglasx = [
-            'i_prm_actividad_genera_ingreso_id' => ['Required'],
-            'i_prm_trabajo_informal_id' => ['Required'],
-            'i_prm_otra_actividad_id' => ['Required'],
-            'i_prm_razon_no_genera_ingreso_id' => ['Required'],
-            'i_prm_jornada_genera_ingreso_id' => ['Required'],
-            'i_prm_frec_ingreso_id' => ['Required'],
-            'i_total_ingreso_mensual' => ['Required'],
-            'i_prm_tipo_relacion_laboral_id' => ['Required'],
+            'prm_actgeing_id' => ['Required'],
+            'prm_trabinfo_id' => ['Required'],
+            'prm_otractiv_id' => ['Required'],
+            'prm_razgeing_id' => ['Required'],
+            'prm_jorgeing_id' => ['Required'],
+            'prm_frecingr_id' => ['Required'],
+            'totinmen' => ['Required'],
+            'prm_tiprelab_id' => ['Required'],
         ];
     }
     /**
@@ -64,22 +64,22 @@ class FiGeneracionIngresoCrearRequest extends FormRequest
     {
         $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
         // dd($dataxxxx);
-        switch ($dataxxxx['i_prm_actividad_genera_ingreso_id']) {
+        switch ($dataxxxx['prm_actgeing_id']) {
             case 626:
                 $this->_mensaje['s_trabajo_formal.required'] = 'Seleccione mencione trabajo formal';
                 $this->_reglasx['s_trabajo_formal'] = 'required';
                 break;
             case 853:
-                $this->_reglasx['i_prm_jornada_genera_ingreso_id'] = 'nullable';
+                $this->_reglasx['prm_jorgeing_id'] = 'nullable';
                 $this->_reglasx['s_hora_inicial'] = 'nullable';
                 $this->_reglasx['s_hora_final'] = 'nullable';
-                $this->_reglasx['i_prm_frec_ingreso_id'] = 'nullable';
-                $this->_reglasx['i_total_ingreso_mensual'] = 'nullable';
+                $this->_reglasx['prm_frecingr_id'] = 'nullable';
+                $this->_reglasx['totinmen'] = 'nullable';
                 break;
         }
 
-        if ($this->i_dias_buscando_empleo == '' && $this->i_meses_buscando_empleo == '' && $this->i_anos_buscando_empleo == '') {
-            if ($this->i_prm_razon_no_genera_ingreso_id == 711) {
+        if ($this->diabuemp == '' && $this->mesbuemp == '' && $this->anobuemp == '') {
+            if ($this->prm_razgeing_id == 711) {
                 $this->_mensaje['i_prm_dias_buscando_empleo_id.required'] = 'Indique cuanto tiempo lleva buscando empleo';
                 $this->_reglasx['i_prm_dias_buscando_empleo_id'] = ['Required'];
                 }

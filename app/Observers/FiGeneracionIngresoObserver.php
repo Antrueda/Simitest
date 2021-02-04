@@ -13,20 +13,20 @@ class FiGeneracionIngresoObserver
         $log = [];
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo 
-        $log['i_prm_actividad_genera_ingreso_id'] = $modeloxx->i_prm_actividad_genera_ingreso_id;
+        $log['prm_actgeing_id'] = $modeloxx->prm_actgeing_id;
         $log['s_trabajo_formal'] = $modeloxx->s_trabajo_formal;
-        $log['i_prm_trabajo_informal_id'] = $modeloxx->i_prm_trabajo_informal_id;
-        $log['i_prm_otra_actividad_id'] = $modeloxx->i_prm_otra_actividad_id;
-        $log['i_prm_razon_no_genera_ingreso_id'] = $modeloxx->i_prm_razon_no_genera_ingreso_id;
-        $log['i_dias_buscando_empleo'] = $modeloxx->i_dias_buscando_empleo;
-        $log['i_meses_buscando_empleo'] = $modeloxx->i_meses_buscando_empleo;
-        $log['i_anos_buscando_empleo'] = $modeloxx->i_anos_buscando_empleo;
-        $log['i_prm_jornada_genera_ingreso_id'] = $modeloxx->i_prm_jornada_genera_ingreso_id;
+        $log['prm_trabinfo_id'] = $modeloxx->prm_trabinfo_id;
+        $log['prm_otractiv_id'] = $modeloxx->prm_otractiv_id;
+        $log['prm_razgeing_id'] = $modeloxx->prm_razgeing_id;
+        $log['diabuemp'] = $modeloxx->diabuemp;
+        $log['mesbuemp'] = $modeloxx->mesbuemp;
+        $log['anobuemp'] = $modeloxx->anobuemp;
+        $log['prm_jorgeing_id'] = $modeloxx->prm_jorgeing_id;
         $log['s_hora_inicial'] = $modeloxx->s_hora_inicial;
         $log['s_hora_final'] = $modeloxx->s_hora_final;
-        $log['i_prm_frec_ingreso_id'] = $modeloxx->i_prm_frec_ingreso_id;
-        $log['i_total_ingreso_mensual'] = $modeloxx->i_total_ingreso_mensual;
-        $log['i_prm_tipo_relacion_laboral_id'] = $modeloxx->i_prm_tipo_relacion_laboral_id;
+        $log['prm_frecingr_id'] = $modeloxx->prm_frecingr_id;
+        $log['totinmen'] = $modeloxx->totinmen;
+        $log['prm_tiprelab_id'] = $modeloxx->prm_tiprelab_id;
         $log['sis_nnaj_id'] = $modeloxx->sis_nnaj_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;

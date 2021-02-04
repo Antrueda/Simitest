@@ -5,7 +5,7 @@
       language: "es"
     });
     var f_generar_ingresos = function(dataxxxx){
-           $("#i_prm_trabajo_informal_id, #i_prm_otra_actividad_id, #i_prm_razon_no_genera_ingreso_id, #i_prm_tipo_relacion_laboral_id").empty();
+           $("#prm_trabinfo_id, #prm_otractiv_id, #prm_razgeing_id, #prm_tiprelab_id").empty();
             $("#prm_informal_id, #prm_otra_id, #prm_laboral_id").empty();
             $("#prm_informal_id, #prm_otra_id, #prm_laboral_id").append('<option value="">Seleccione</>')
                 if(dataxxxx.valuexxx!=''){

@@ -14,7 +14,7 @@ class FiDiasGeneraIngresoObserver
         $log['id_old'] = $modeloxx->id;
         // campos nuevos traidos desde $fillable -> modelo 
         $log['fi_generacion_ingreso_id'] = $modeloxx->fi_generacion_ingreso_id;
-        $log['i_prm_dia_genera_id'] = $modeloxx->i_prm_dia_genera_id;
+        $log['prm_diagener_id'] = $modeloxx->prm_diagener_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
