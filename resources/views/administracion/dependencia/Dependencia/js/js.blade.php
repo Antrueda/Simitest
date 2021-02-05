@@ -189,7 +189,7 @@
            typexxxx:'POST'
         };
         $('#sis_upz_id,#sis_upzbarri_id').empty();
-        $('#sis_upz_id,#sis_upzbarri_id').append('<option value="">Seleccione</option>');
+      //  $('#sis_upz_id,#sis_upzbarri_id').append('<option value="">Seleccione</option>');
         if($(this).val()!=''){
             f_combos(dataxxxy);
         }
@@ -207,7 +207,7 @@
            typexxxx:'POST'
         };
         $('#sis_upzbarri_id').empty();
-        $('#sis_upzbarri_id').append('<option value="">Seleccione</option>');
+     //   $('#sis_upzbarri_id').append('<option value="">Seleccione</option>');
         if($(this).val()!=''){
             f_combos(dataxxxy);
         }

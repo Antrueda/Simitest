@@ -1,5 +1,6 @@
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
   <!-- Left navbar links -->
+  
   @include('layouts.nav-bar.left.index')
   <!-- End Left navbar links -->
 

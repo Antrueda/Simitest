@@ -46,24 +46,25 @@ class NnajUpi extends Model
     {
         return $this->belongsTo(SisDepen::class);
     }
-    public static function getDependenciasNnaj($dataxxxx)
+    public static function getDependenciasNnaj($cabecera, $ajaxxxxx,$padrexxx)
     {
         $comboxxx = [];
-        if ($dataxxxx['cabecera']) {
-            if ($dataxxxx['ajaxxxxx']) {
+        if ($cabecera) {
+            if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
             } else {
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
 
-        $notinxxx = SisDepen::whereNotIn('id', NnajUpi::whereNotIn('sis_depen_id', [$dataxxxx['selectxx']])
-            ->where('fi_datos_basico_id', $dataxxxx['padrexxx'])
-            ->get(['sis_depen_id']))
-            ->get();
+        
+        $notinxxx = SisDepen::select(['sis_depens.id', 'sis_depens.nombre'])->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
+        ->where('nnaj_upis.sis_nnaj_id', $padrexxx)
+        ->where('nnaj_upis.sis_esta_id', 1)
+        ->get();
 
         foreach ($notinxxx as $registro) {
-            if ($dataxxxx['ajaxxxxx']) {
+            if ($ajaxxxxx) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
             } else {
                 $comboxxx[$registro->id] = $registro->nombre;

@@ -127,20 +127,14 @@ class SisLocalupzSeeder extends Seeder
 
         SisLocalupz::create(['id' => 113, 'sis_upz_id' => 118, 'sis_localidad_id' => 23, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
         SisLocalupz::create(['id' => 114, 'sis_upz_id' => 118, 'sis_localidad_id' => 7, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
-        SisLocalupz::create(['id' => 115, 'sis_upz_id' => 118, 'sis_localidad_id' => 19, 'user_crea_id' => 1, 'user_edita_id' => 1,
-        'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
-        SisLocalupz::create(['id' => 116, 'sis_upz_id' => 118, 'sis_localidad_id' => 3, 'user_crea_id' => 1, 'user_edita_id' => 1,
-        'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
-        SisLocalupz::create(['id' => 117, 'sis_upz_id' => 118, 'sis_localidad_id' => 11, 'user_crea_id' => 1, 'user_edita_id' => 1,
-        'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
-        SisLocalupz::create(['id' => 118, 'sis_upz_id' => 118, 'sis_localidad_id' => 18, 'user_crea_id' => 1, 'user_edita_id' => 1,
-        'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
-        SisLocalupz::create(['id' => 119, 'sis_upz_id' => 118, 'sis_localidad_id' => 5, 'user_crea_id' => 1, 'user_edita_id' => 1,
-        'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
-        SisLocalupz::create(['id' => 120, 'sis_upz_id' => 119, 'sis_localidad_id' => 21, 'user_crea_id' => 1, 'user_edita_id' => 1,
-        'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
-        SisLocalupz::create(['id' => 121, 'sis_upz_id' => 119, 'sis_localidad_id' => 20, 'user_crea_id' => 1, 'user_edita_id' => 1,
-        'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
+        SisLocalupz::create(['id' => 115, 'sis_upz_id' => 118, 'sis_localidad_id' => 19, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
+        SisLocalupz::create(['id' => 116, 'sis_upz_id' => 118, 'sis_localidad_id' => 3, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
+        SisLocalupz::create(['id' => 117, 'sis_upz_id' => 118, 'sis_localidad_id' => 11, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
+        SisLocalupz::create(['id' => 118, 'sis_upz_id' => 118, 'sis_localidad_id' => 18, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
+        SisLocalupz::create(['id' => 119, 'sis_upz_id' => 118, 'sis_localidad_id' => 5, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
+        SisLocalupz::create(['id' => 120, 'sis_upz_id' => 119, 'sis_localidad_id' => 21, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
+        SisLocalupz::create(['id' => 121, 'sis_upz_id' => 119, 'sis_localidad_id' => 20, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
+        SisLocalupz::create(['id' => 122, 'sis_upz_id' => 119, 'sis_localidad_id' => 22, 'user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id' => 1, 'created_at' => '2020-07-18 18:11:32', 'updated_at' => '2020-07-18 18:11:32',]);
 
 
     }

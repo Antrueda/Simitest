@@ -13,6 +13,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
@@ -241,8 +242,10 @@ class FosController extends Controller
 
         $this->opciones['compfami'] = FiCompfami::getResponsableFos($dataxxxx['padrexxx']->fi_datos_basico, true, false);
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
-        $upinnajx=$dataxxxx['padrexxx']->UpiPrincipal;
-        $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
+        //$upinnajx=$dataxxxx['padrexxx']->UpiPrincipal;
+      //  $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
+   
+        $this->opciones['dependen'] = NnajUpi::getDependenciasNnaj(true,false,$dataxxxx['padrexxx']->id);
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo

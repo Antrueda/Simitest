@@ -14,7 +14,7 @@ return [
       |
      */
 
-    'default' => env('DB_CONNECTIONO', 'oracle'),
+    'default' => env('DB_CONNECTION', 'mysql'),
     /*
       |--------------------------------------------------------------------------
       | Database Connections

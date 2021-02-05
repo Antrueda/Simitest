@@ -81,7 +81,7 @@ class AgTemaController extends Controller
 
             $this->opciones['indicado'] = Area::combo_tema($objetoxx->area_id, true, false);
           //  $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
-
+             $estadoid= $objetoxx->sis_esta_id;
             $this->opciones[$nombobje] = $objetoxx;
         }
         $this->opciones['motivoxx'] = Estusuario::combo([

@@ -140,6 +140,7 @@ class EstusuarioController extends Controller
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
+            $estadoid = $dataxxxx['modeloxx']->sis_esta_id;
         }
         $this->opciones['motivoxx'] = Estusuario::combo([
             'cabecera' => true,

@@ -2495,7 +2495,7 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['id'=>2455,'nombrexx' => '2003']); //2455
         $this->getR(['id'=>2456,'nombrexx' => 'MISAK']); //2456
         $this->getR(['id'=>2457,'nombrexx' => 'FAMILIA Y (YO)NNAJ']); //2457
-        $this->getR(['id'=>2458,'nombrexx' => 'MIGRACION']); //2458
+        $this->getR(['id'=>2458,'nombrexx' => 'MIGRACIONN']); //2458
         $this->getR(['id'=>2459,'nombrexx' => 'TUSI']);//2459
         $this->getR(['id'=>2460,'nombrexx' => 'CAMBIAR INHALANTES POR (DISOLVENTES COMBUSTBLES O PEGANTES INHALANTES)']);//2460
         $this->getR(['id'=>2461,'nombrexx' => 'MARIHUANA CRIPI O CRIPA']);//2461

@@ -137,17 +137,18 @@ class MensajeController extends Controller
 
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['servicio'] = ['' => 'Seleccione'];
+        $this->opciones['motivoxx']=  ['' => 'Seleccione'];
         // indica si se esta actualizando o viendo
         $estadoid = 0;
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
-        
-
+            // estado mensajes
             $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
             $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
-
+            $this->opciones['motivoxx']=  [$dataxxxx['modeloxx']->estusuario_id => $dataxxxx['modeloxx']->estusuario->estado];
+            //$dataxxxx['modeloxx']->estusuario_id = 
             $this->opciones['perfilxx'] = 'sinperfi';
             $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
@@ -163,12 +164,7 @@ class MensajeController extends Controller
             }
           
         }
-        $this->opciones['motivoxx'] = Estusuario::combo([
-            'cabecera' => true,
-            'esajaxxx' => false,
-            'estadoid' => $estadoid,
-            'formular' => 2498
-        ]);
+    
         
         // Se arma el titulo de acuerdo al array opciones
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

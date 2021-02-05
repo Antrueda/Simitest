@@ -33,14 +33,7 @@ SisLocalidad::create(['s_localidad' => '18 RAFAEL URIBE','simianti_id'=>18000]);
 SisLocalidad::create(['s_localidad' => '19 CIUDAD BOLÍVAR','simianti_id'=>19000]);
 SisLocalidad::create(['s_localidad' => '20 SOACHA','simianti_id'=>208205]);
 SisLocalidad::create(['s_localidad' => '21 SUMAPAZ','simianti_id'=>20000]);
-        SisLocalidad::create([
-            'id'=>22,
-            's_localidad' => 'N/A',
-        ]);
-
-        SisLocalidad::create([
-            'id'=>23,
-            's_localidad' => 'LOCALIDA INCORRECTA EN LA BASE PLANA',
-        ]);
+SisLocalidad::create(['id'=>22,'s_localidad' => 'N/A',]);
+SisLocalidad::create(['id'=>23,'s_localidad' => 'LOCALIDA INCORRECTA EN LA BASE PLANA',]);
     }
 }

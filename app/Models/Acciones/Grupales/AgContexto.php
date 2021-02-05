@@ -16,7 +16,8 @@ class AgContexto extends Model
     's_contexto',
     'user_crea_id',
     'user_edita_id',
-    'sis_esta_id'
+    'sis_esta_id',
+    'estusuario_id'
   ];
   public function ag_indicador()
   {
@@ -30,6 +31,10 @@ class AgContexto extends Model
   public function creador()
   {
     return $this->belongsTo(User::class, 'user_crea_id');
+  }
+  public function estusuario()
+  {
+      return $this->belongsTo(Estusuario::class);
   }
 
   public function editor()

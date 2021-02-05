@@ -23,7 +23,7 @@ class AreaUserController extends Controller
             'permisox' => 'areausua',
             'parametr' => [],
             'rutacarp' => 'administracion.Usuario.',
-            'tituloxx' => 'AREAS',
+            'tituloxx' => 'ÁREAS',
             'carpetax' => 'AreaUser',
             'slotxxxx' => 'areausua',
             'tablaxxx' => 'areasusuario',
@@ -78,8 +78,8 @@ class AreaUserController extends Controller
         $this->opciones['esindexx'] = true;
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'AREA',
-                'titulist' => 'LISTA DE AREAS',
+                'titunuev' => 'ÁREA',
+                'titulist' => 'LISTA DE ÁREAS',
                 'dataxxxx' => [
                     ['campoxxx' => 'botonesx', 'dataxxxx' =>
                     $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.botones.botonesapi'],
@@ -96,7 +96,7 @@ class AreaUserController extends Controller
                 'urlxxxxx' => 'api/sis/areauser',
                 'cabecera' => [
                     ['td' => 'ID'],
-                    ['td' => 'AREA'],
+                    ['td' => 'ÁREA'],
                     ['td' => 'ESTADO'],
                 ],
                 'columnsx' => [

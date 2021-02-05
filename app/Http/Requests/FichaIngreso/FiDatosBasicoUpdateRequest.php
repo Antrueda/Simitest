@@ -5,6 +5,7 @@ namespace App\Http\Requests\FichaIngreso;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Rules\FechaCorrecta;
 use App\Rules\FechaMenor;
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
 use DateTime;
 use Illuminate\Foundation\Http\FormRequest;
@@ -14,6 +15,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
     private $_mensaje;
     private $_reglasx;
     use PuedeTrait;
+    use  ManageTimeTrait;
     public function __construct()
     {
         $this->_mensaje = [
@@ -106,8 +108,18 @@ class FiDatosBasicoUpdateRequest extends FormRequest
      */
     public function rules()
     {
+        if ($this->diligenc != '') {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->diligenc,
+                'formular'=>1,
+            ]);
+            if (!$puedexxx['tienperm']) {
+                $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
+                $this->_reglasx['sinpermi'] = 'required';
+            }
+        }
         $this->validar();
-
 
         return $this->_reglasx;
     }

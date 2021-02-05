@@ -14,6 +14,7 @@ class Estusuario extends Model
         'user_crea_id',
         'prm_formular_id',
         'user_edita_id',
+        'estusuario_id',
         'sis_esta_id'
     ];
     public static function transaccion($dataxxxx)

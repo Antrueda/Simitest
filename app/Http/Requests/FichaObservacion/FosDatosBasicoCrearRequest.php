@@ -56,14 +56,15 @@ class FosDatosBasicoCrearRequest extends FormRequest
     {
         if ($this->d_fecha_diligencia != '') {
             $puedexxx = $this->getPuedeCargar([
-                'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
-                'fechregi' => $this->d_fecha_diligencia
-            ]);
-
-            if (!$puedexxx['tienperm']) {
-                $this->_mensaje['sinpermi.required'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $puedexxx['fechlimi'];
-                $this->_reglasx['sinpermi'] = 'required';
-            }
+                'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->d_fecha_diligencia,
+                'upixxxxx' => $this->sis_depen_id,
+                'formular'=>2,
+                ]);
+                if (!$puedexxx['tienperm']) {
+                    $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
+                    $this->_reglasx['sinpermi'] = 'required';
+                }
         }
         $this->validar();
 

@@ -18,7 +18,7 @@
             })
         });
 
-        @if(old('sis_esta_id') !== null)
+        @if(old('sis_esta_id') != null)
         f_motivos({
             dataxxxx: {
                 estadoid: $('#sis_esta_id').val(),

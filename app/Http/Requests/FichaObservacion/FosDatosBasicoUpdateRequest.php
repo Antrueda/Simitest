@@ -2,12 +2,14 @@
 
 namespace App\Http\Requests\FichaObservacion;
 
+use App\Traits\GestionTiempos\ManageTimeTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FosDatosBasicoUpdateRequest extends FormRequest
 {
     private $_mensaje;
     private $_reglasx;
+    use  ManageTimeTrait;
 
     public function __construct()
     {
@@ -50,7 +52,20 @@ class FosDatosBasicoUpdateRequest extends FormRequest
      */
     public function rules()
     {
+        if ($this->d_fecha_diligencia != '') {
+            $puedexxx = $this->getPuedeCargar([
+                'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
+                'fechregi' => $this->d_fecha_diligencia,
+                'upixxxxx' => $this->sis_depen_id,
+                'formular'=>2,
+                ]);
+                if (!$puedexxx['tienperm']) {
+                    $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
+                    $this->_reglasx['sinpermi'] = 'required';
+                }
+        }
         $this->validar();
+
         return $this->_reglasx;
     }
 

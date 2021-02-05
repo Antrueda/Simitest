@@ -107,10 +107,12 @@ class AgSubtemaController extends Controller
         $this->opciones['nivelxxx'] = '';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['tiposegu'] = [];
+        $estadoid = 0;
         if ($nombobje != '') {
             $this->opciones[$nombobje] = $objetoxx;
+            $estadoid= $objetoxx->sis_esta_id;
         }
-        $estadoid = 0;
+   
         $this->opciones['motivoxx'] = Estusuario::combo([
             'cabecera' => true,
             'esajaxxx' => false,

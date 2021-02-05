@@ -77,6 +77,7 @@ class AgContextoController extends Controller
         if ($nombobje != '') {
            // $this->opciones['estadoxx'] = $objetoxx->sis_esta_id == 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones[$nombobje] = $objetoxx;
+            $estadoid= $objetoxx->sis_esta_id;
         }
         $this->opciones['motivoxx'] = Estusuario::combo([
             'cabecera' => true,

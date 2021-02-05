@@ -17,7 +17,7 @@ trait VistasTrait
     public function getVista($opciones, $dataxxxx)
     {
         $opciones['fosareas'] = Area::orderBy('nombre')->where('sis_esta_id', '1')->pluck('nombre', 'id');
-        $opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $opciones['ruarchjs'] = [
@@ -29,7 +29,6 @@ trait VistasTrait
     {
 
         $opciones = $this->getVista($opciones, $dataxxxx);
-        $selected = 0;
         $estadoid=1;
         $opciones['seguixxx'] = ['' => 'Seleccione'];
     
