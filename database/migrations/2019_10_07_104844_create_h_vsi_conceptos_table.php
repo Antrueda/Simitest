@@ -18,7 +18,7 @@ class CreateHVsiConceptosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('vsi_id')->unsigned();
             $table->longText('concepto');
             $table->bigInteger('prm_ingreso_id')->unsigned()->nullable();
@@ -29,7 +29,7 @@ class CreateHVsiConceptosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_concepto_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);

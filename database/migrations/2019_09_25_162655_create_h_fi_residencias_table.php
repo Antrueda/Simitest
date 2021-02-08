@@ -18,7 +18,7 @@ class CreateHFiResidenciasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('i_prm_tiene_dormir_id')->unsigned()->comment('FI 3.1 TIENE LUGAR DONDE DORMIR');
             $table->bigInteger('i_prm_tipo_duerme_id')->unsigned()->comment('FI 3.2 TIPO DE RESIDENCIA O LUGAR DONDE DUERME');
             $table->bigInteger('i_prm_tipo_tenencia_id')->unsigned()->comment('FI 3.3 LA RESIDENCIA ES');
@@ -49,7 +49,7 @@ class CreateHFiResidenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_residencia_id')->unsigned()->comment('REGISTRO RESIDENCIA AL QUE SE LE ASIGNA LA CONDICION DEL AMBIENTE');
             $table->bigInteger('i_prm_condicion_amb_id')->unsigned()->comment('FI 3.16 CONDICIONES DEL AMBIENTE');
             $table = CamposMagicos::h_magicos($table);

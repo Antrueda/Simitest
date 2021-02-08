@@ -18,7 +18,7 @@ class CreateInAccionGestionsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_actividad_id')->unsigned();
             $table->bigInteger('i_prm_ttiempo_id')->unsigned();
             $table->bigInteger('in_lineabase_nnaj_id')->unsigned();
@@ -33,7 +33,7 @@ class CreateInAccionGestionsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE LOS NNAJ, ACTIVIDADES, TIEMPO, SOPORTES DOCUMENTALES QUE SERVIRA DE EVIDENCIA SOBRE LAS ACTUALCIONES REALIZADAS EN LOS NNAJ'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('in_accion_gestion_id')->unsigned();
             $table->bigInteger('sis_fsoporte_id')->unsigned();
             $table->foreign('in_accion_gestion_id')->references('id')->on('in_accion_gestions');

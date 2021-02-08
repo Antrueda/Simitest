@@ -17,7 +17,7 @@ class CreateFiCompfamisTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('i_prm_parentesco_id')->unsigned()->comment('PARAMETRO PARENTESCO');
             $table->string('s_telefono')->nullable()->comment('CAMPO DE TELEFONO');
             $table->date('d_nacimiento')->comment('CAMPO FECHA DE NACIMIENTO');

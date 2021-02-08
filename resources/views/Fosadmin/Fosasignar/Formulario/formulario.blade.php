@@ -1,7 +1,7 @@
 <div>
 <div class="form-group row">
     <div class="form-group col-md-3">
-        {{ Form::label('area_id', 'Area:', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('area_id', 'Área:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('area_id', $todoxxxx['fosareas'], null, ['class' => 'form-control select2 form-control-sm','placeholder'=>'Seleccione']) }}
         @if($errors->has('area_id'))
         <div class="invalid-feedback d-block">

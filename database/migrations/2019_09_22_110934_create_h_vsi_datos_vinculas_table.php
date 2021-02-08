@@ -20,7 +20,7 @@ class CreateHVsiDatosVinculasTable extends Migration
     public function up()
     {
       Schema::create($this->tablaxxx, function (Blueprint $table) {
-        $table->bigIncrements('id');
+        $table->increments('id')->start(1)->nocache();
         $table->bigInteger('vsi_id')->unsigned();
         $table->bigInteger('prm_razon_id')->unsigned();
         $table->Integer('dia')->unsigned()->nullable();
@@ -31,7 +31,7 @@ class CreateHVsiDatosVinculasTable extends Migration
      //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
       Schema::create($this->tablaxxx2, function (Blueprint $table) {
-        $table->bigIncrements('id');
+        $table->increments('id')->start(1)->nocache();
         $table->bigInteger('parametro_id')->unsigned();
         $table->bigInteger('vsi_datos_vincula_id')->unsigned();
         $table = CamposMagicos::h_magicos($table);
@@ -39,7 +39,7 @@ class CreateHVsiDatosVinculasTable extends Migration
      //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
       Schema::create($this->tablaxxx3, function (Blueprint $table) {
-        $table->bigIncrements('id');
+        $table->increments('id')->start(1)->nocache();
         $table->bigInteger('parametro_id')->unsigned();
         $table->bigInteger('vsi_datos_vincula_id')->unsigned();
         $table = CamposMagicos::h_magicos($table);
@@ -47,7 +47,7 @@ class CreateHVsiDatosVinculasTable extends Migration
      //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
       
       Schema::create($this->tablaxxx4, function (Blueprint $table) {
-        $table->bigIncrements('id');
+        $table->increments('id')->start(1)->nocache();
         $table->bigInteger('parametro_id')->unsigned();
         $table->bigInteger('vsi_datos_vincula_id')->unsigned();
         $table = CamposMagicos::h_magicos($table);

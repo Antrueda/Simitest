@@ -18,7 +18,7 @@ class CreateHFiGeneracionIngresosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('prm_actgeing_id')->unsigned()->comment('FI 7.1 ACTIVIDAD REALIZA GENERAR INGRESO');
             $table->string('s_trabajo_formal')->nullable()->comment('FI A.1 MENCIONE TRABAJO FORMAL');
             $table->bigInteger('prm_trabinfo_id')->unsigned()->comment('FI B.1SELECCIONE TRABAJO INFORMAL');
@@ -39,7 +39,7 @@ class CreateHFiGeneracionIngresosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_generacion_ingreso_id')->unsigned()->comment('REGISTRO GENINGRESO AL QUE SE LE ASIGNA EL DÍA');
             $table->bigIntegeR('prm_diagener_id')->unsigned()->comment('FI 7.3 DIA GENERA INGRESO');
             $table = CamposMagicos::h_magicos($table);

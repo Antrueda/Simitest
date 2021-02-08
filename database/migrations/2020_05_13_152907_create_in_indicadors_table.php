@@ -16,7 +16,7 @@ class CreateInIndicadorsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('s_indicador')->unique();
             $table->bigInteger('area_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();

@@ -24,7 +24,7 @@ class CreateVsiEstEmocionalsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->bigInteger('prm_siente_id')->unsigned()->comment('CAMPO PARAMETRO DE COMO SE SIENTE');
             $table->longText('descripcion_siente')->comment('CAMPO DESCRIPCION DE COMO SE SIENTE');
@@ -81,7 +81,7 @@ class CreateVsiEstEmocionalsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL ESTADO EMOCIONAL EN LA PERSONA ENTREVISTADA, SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO SENTIMIENTOS QUE LOGRA EXPRESAR ADECUADAMENTE');
             $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -92,7 +92,7 @@ class CreateVsiEstEmocionalsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE SENTIMIENTOS QUE LOGRA EXPRESAR ADECUADAMENTE EN LA PERSONA ENTREVISTADA, PREGUNTA 12.6 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO SENTIMIENTOS QUE SE LE DIFICULTA EXPRESAR ADECUADAMENTE');
             $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -103,7 +103,7 @@ class CreateVsiEstEmocionalsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SENTIMIENTOS QUE SE LE DIFICULTA EXPRESAR ADECUADAMENTE EN LA PERSONA ENTREVISTADA, PREGUNTA 12.8 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO ACONTECIMIENTOS ESTRESANTES');
             $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -114,7 +114,7 @@ class CreateVsiEstEmocionalsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE ACONTECIMIENTOS ESTRESANTES EN LA PERSONA ENTREVISTADA, PREGUNTA 12.10 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO PENSAMIENTOS RELACIONADOS CON SUICIDIO');
             $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
 
@@ -126,7 +126,7 @@ class CreateVsiEstEmocionalsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE PENSAMIENTOS RELACIONADOS CON EL SUICIDIO EN LA PERSONA ENTREVISTADA, PREGUNTA 12.20 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO CONDUCTAS AUTO LESIVAS');
             $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
 
@@ -138,7 +138,7 @@ class CreateVsiEstEmocionalsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDUCTAS AUTO LESIVAS EN LA PERSONA ENTREVISTADA, PREGUNTA 12.23 SECCIÓN 12 ESTADO EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO CONTEXTO');
             $table->bigInteger('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
 

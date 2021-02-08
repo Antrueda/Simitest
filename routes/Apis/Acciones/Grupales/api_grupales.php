@@ -24,7 +24,9 @@ Route::get('agr/talleres', function (Request $request) {
             'ag_tallers.sis_esta_id', 'ag_tallers.ag_tema_id', 'sis_estas.s_estado'
         ])
             ->join('ag_temas', 'ag_tallers.ag_tema_id', '=', 'ag_temas.id')
-            ->join('sis_estas', 'ag_tallers.sis_esta_id', '=', 'sis_estas.id'))
+            ->join('sis_estas', 'ag_tallers.sis_esta_id', '=', 'sis_estas.id')
+            ->where('ag_tallers.ag_tema_id',$request->padrexxx)
+            )
         ->addColumn('btns', 'Acciones/Grupales/Agtaller/botones/botonesapi')
         ->addColumn('s_estado', $request->estadoxx)
         ->rawColumns(['btns', 's_estado'])

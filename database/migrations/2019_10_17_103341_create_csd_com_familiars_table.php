@@ -16,7 +16,7 @@ class CreateCsdComFamiliarsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('csd_id')->unsigned();
             $table->string('s_primer_apellido');
             $table->string('s_segundo_apellido')->nullable();

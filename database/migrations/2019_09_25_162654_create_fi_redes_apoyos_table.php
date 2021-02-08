@@ -17,7 +17,7 @@ class CreateFiRedesApoyosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('i_tiempo')->comment('CAMPO TIEMPO');
             $table->bigInteger('sis_entidad_id')->unsigned()->comment('CAMPO ID DE ENTIDAD');
             $table->string('s_servicio')->comment('CAMPO TEXTO DE SERVICIO');
@@ -39,7 +39,7 @@ class CreateFiRedesApoyosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS ANTECEDENTES INSTITUCIONALES DE LOS SERVICIOS RECIBIDOS POR LA PERSONA ENTREVISTADA, SECCION 9 REDES DE APOYO DE FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');

@@ -18,7 +18,7 @@ class CreateHVsiActEmocionalsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('prm_activa_id')->unsigned();
             $table->longText('descripcion')->nullable();
@@ -29,7 +29,7 @@ class CreateHVsiActEmocionalsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_actemocional_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_actemocional_id']);

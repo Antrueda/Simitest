@@ -16,7 +16,7 @@ class CreateEvasionVestuariosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('prm_vestuario_id')->unsigned();
             $table->string('material', 120);
             $table->string('color', 120);

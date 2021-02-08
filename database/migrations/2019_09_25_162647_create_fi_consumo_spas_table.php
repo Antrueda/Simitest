@@ -17,7 +17,7 @@ class CreateFiConsumoSpasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('i_prm_consume_spa_id')->unsigned()->comment('CAMPO SI CONSUME SPA');
             $table->bigInteger('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID DE NNAJ');
             $table->bigInteger('user_crea_id')->unsigned(); 
@@ -33,7 +33,7 @@ class CreateFiConsumoSpasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA SI LA PERSONA ENTREVISTADA ACTUALMENTE CONSUME SPA, SECCION 11 CONSUMO SPA DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('fi_consumo_spa_id')->unsigned()->comment('REGISTRO CONSUMO SPA AL QUE SE LE ASIGNA LA SUSTANCIA');
             $table->bigInteger('i_prm_sustancia_id')->nullable()->unsigned()->comment('REGISTRO TIPO DE SUSTANCIA');
             $table->bigIntegeR('i_edad_uso')->nullable()->unsigned()->comment('REGISTRO EDAD DE CUANDO INICIO A CONSUMIR');

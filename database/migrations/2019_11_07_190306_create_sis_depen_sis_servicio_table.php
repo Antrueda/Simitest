@@ -17,7 +17,7 @@ class CreateSisDepenSisServicioTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->unique(['sis_depen_id', 'sis_servicio_id']);
             $table = CamposMagicos::getForeign($table, 'sis_depen');
             $table = CamposMagicos::getForeign($table, 'sis_servicio');

@@ -17,7 +17,7 @@ class CreateAgRecursosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->String('s_recurso');
             $table->bigInteger('i_prm_trecurso_id');
             $table->bigInteger('i_prm_umedida_id');

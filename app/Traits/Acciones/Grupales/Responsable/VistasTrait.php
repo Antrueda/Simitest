@@ -52,6 +52,7 @@ trait VistasTrait
         }
         $dataxxxx['cabecera'] = true;
         $dataxxxx['ajaxxxxx'] = false;
+        $dataxxxx['depeorig']=$dataxxxx['padrexxx']->sis_deporigen_id;
         $opciones['responsa'] = $this->getResponsables($dataxxxx);
         // Se arma el titulo de acuerdo al array opciones
         return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);

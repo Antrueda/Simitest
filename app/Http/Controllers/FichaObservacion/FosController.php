@@ -251,7 +251,9 @@ class FosController extends Controller
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
+            $dataxxxx['modeloxx']->d_fecha_diligencia=explode(' ',$dataxxxx['modeloxx']->d_fecha_diligencia)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+            
             $this->opciones['seguixxx'] = FosTse::combo($dataxxxx['modeloxx']->area_id, true, false);
             $this->opciones['tipsegui'] = FosSeguimiento::combo([
                 'ajaxxxxx' => false,

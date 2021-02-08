@@ -17,7 +17,7 @@ class CreateHSisTitulosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('s_titulo');
             $table->text('s_tooltip');
             $table->bigInteger('i_prm_tletra_id')->unsigned();

@@ -17,7 +17,7 @@ class CreateHSisEslusTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('s_espaluga')->comment('ESPACIO/LUGAR DONDE SE REALIZA LA ACTIVIDAD');
             $table = CamposMagicos::h_magicos($table);
         });

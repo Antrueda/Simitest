@@ -17,7 +17,7 @@ class CreateHFiVestuarioNnajsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('prm_t_pantalon_id')->unsigned();
             $table->bigInteger('prm_t_camisa_id')->unsigned();
             $table->bigInteger('prm_t_zapato_id')->unsigned();

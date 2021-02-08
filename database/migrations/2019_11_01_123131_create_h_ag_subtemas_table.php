@@ -17,7 +17,7 @@ class CreateHAgSubtemasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('ag_taller_id')->unsigned()->nullable();
             $table->string('s_subtema');
             $table->text('s_descripcion');

@@ -18,7 +18,7 @@ class CreateFosSeguimientosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fos_tse_id')->unsigned();
             $table->bigInteger('fos_stses_id')->unsigned();
             $table->foreign('fos_tse_id')->references('id')->on('fos_tses');

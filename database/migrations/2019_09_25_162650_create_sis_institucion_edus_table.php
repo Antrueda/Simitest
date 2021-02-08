@@ -16,7 +16,7 @@ class CreateSisInstitucionEdusTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_nombre')->comment('CAMPO DE NOMBRE DE LA INSTITUCION EDUCATIVA');
             $table->string('s_telefono')->comment('CAMPO DE TELEFONO DE LA INSTITUCION EDUCATIVA');
             $table->bigInteger('user_crea_id')->unsigned();

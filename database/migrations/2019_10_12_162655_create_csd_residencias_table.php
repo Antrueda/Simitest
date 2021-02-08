@@ -23,7 +23,7 @@ class CreateCsdResidenciasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
             $table->bigInteger('prm_tipo_id')->unsigned()->comment('CAMPO TIPO DE RESIDENCIA');
             $table->bigInteger('prm_es_id')->unsigned()->comment('CAMPO LA RESIDENCIA ES');
@@ -82,7 +82,7 @@ class CreateCsdResidenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA UBICACION Y CONTACTO DE LA PERSONA ENTREVISTADA, SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
             $table->bigInteger('prm_tipofuen_id')->unsigned();
@@ -95,7 +95,7 @@ class CreateCsdResidenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('prm_servicio_id')->unsigned()->comment('CAMPO PARAMETRO DE TIPO DE SERVICIO');
             $table->bigInteger('prm_legalxxx_id')->unsigned()->comment('CAMPO PARAMETRO SI ES LEGAL');
             $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
@@ -107,7 +107,7 @@ class CreateCsdResidenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SERVICIOS Y ESTADO, PREGUNTA 5.18 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('prm_espacio_id')->unsigned()->comment('CAMPO TIPO DE ESPACIO O AMBIENTE');
             $table->bigInteger('espaciocant')->nullable()->comment('CAMPO CANTIDAD DE ESPACIO O AMBIENTE');
             $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
@@ -118,7 +118,7 @@ class CreateCsdResidenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE ESPACIOS QUE DISPONE EL HOGAR, PREGUNTA 5.19'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('prm_comparte_id')->unsigned()->comment('CAMPO PARAMETRO SI COMPARTE CAMAS');
             $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
             $table->foreign('prm_comparte_id')->references('id')->on('parametros');
@@ -128,7 +128,7 @@ class CreateCsdResidenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA SI COMPARTE CAMAS '");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
             $table->longText('observaciones')->comment('CAMPO OBSERVACIONES');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
@@ -137,7 +137,7 @@ class CreateCsdResidenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LAS OBSERVACIONES REALIZADAS POR EL FUNCIONARIO A LA RESIDENCIA'");
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('prm_espacio_id')->unsigned()->comment('CAMPO ESPACIO');
             $table->bigInteger('prm_otrafamilia_id')->unsigned()->comment('CAMPO SI COMPARTE EL ESPACIO');
             $table->bigInteger('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');

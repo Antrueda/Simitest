@@ -49,7 +49,10 @@ if(campos[i]!=0){
         }
     });
   @endforeach
-
+$("#datatable").on('click','.actuanti',function(){
+    $('#docuagre').val($(this).prop('id'))
+        $('#agregarx').submit()
+});
   $( "#datatable" ).on("keydown.autocomplete",".autocomplete",function(e){
       var idcampox=$(this).prop('id');
     $(this).autocomplete({

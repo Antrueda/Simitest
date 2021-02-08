@@ -16,7 +16,7 @@ class CreateHSisEstasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('s_estado');
             $table->Integer('i_estado');
             $table->bigInteger('id_old');    // campo nuevo

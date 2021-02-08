@@ -46,6 +46,7 @@ class AgTallerController extends Controller
         $this->opciones['dataxxxx'] = [
             ['campoxxx' => 'botonesx', 'dataxxxx' => 'Acciones.Grupales/Agtaller/botones/botonesapi'],
             ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components/botones/estadoxx'],
+            ['campoxxx' => 'padrexxx', 'dataxxxx' => $agtemaid],
         ];
 
         $this->opciones['urlxxxxx'] = 'api/agr/talleres';

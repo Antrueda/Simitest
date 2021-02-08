@@ -3,7 +3,9 @@
 namespace App\Traits;
 
 use App\Traits\GestionTiempos\ManageTimeTrait;
+use App\Transformers\FiDatosBasicoTransformer;
 use Spatie\Permission\Models\Role;
+use Yajra\DataTables\Facades\DataTables;
 
 trait DatatableTrait
 {
@@ -49,6 +51,7 @@ trait DatatableTrait
 
     public  function getDtAcciones($queryxxx, $requestx)
     {
+
         return datatables()
             ->of($queryxxx)
             ->addColumn(
@@ -92,55 +95,65 @@ trait DatatableTrait
     }
     public  function getDtAccionesUpi($queryxxx, $requestx)
     {
-        return datatables()
-            ->of($queryxxx)
-            ->addColumn(
-                'botonexx',
-                function ($queryxxx) use ($requestx) {
-                    $puedexxx = $this->getPuedeCargar([
-                        'estoyenx' => 1,
-                        'fechregi' => explode(' ',$queryxxx->created_at)[0]
-                    ]);
-                    /**
-                     * validaciones para los permisos
-                     */
-                    $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
-                    $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
-                    if ($requestx->pueditar == false || $puedexxx['tienperm'] == false) {
-                        $requestx->pueditar = false;
-                    }
-                    $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
-                    if ($requestx->puedinac == false || $puedexxx['tienperm'] == false) {
-                        $requestx->puedinac = false;
-                    }
-                    return  view($requestx->botonesx, [
-                        'queryxxx' => $queryxxx,
-                        'requestx' => $requestx,
-                    ]);
-                }
-            )
-            ->addColumn(
-                's_estado',
-                function ($queryxxx) use ($requestx) {
-                    return  view($requestx->estadoxx, [
-                        'queryxxx' => $queryxxx,
-                        'requestx' => $requestx,
-                    ]);
-                }
 
-            )
-            ->addColumn(
-                'upiservicio',
-                function ($queryxxx) use ($requestx) {
-                    return  view($requestx->upiservicio, [
-                        'queryxxx' => $queryxxx,
-                        'requestx' => $requestx,
-                    ]);
+        $datatabl=DataTables::eloquent($queryxxx);
+        $datatabl->setRowId(function ($user) {
+            return $user->s_documento;
+        });
+        $datatabl->setRowClass(function ($user) use($requestx) {
+            return !$requestx->actuanti ? 'actuanti' : 'otracosa';
+        });
+        $datatabl->addColumn(
+            'botonexx',
+            function ($queryxxx) use ($requestx) {
+                $puedexxx = $this->getPuedeCargar([
+                    'estoyenx' => 1,
+                    'fechregi' => explode(' ',$queryxxx->created_at)[0]
+                ]);
+                /**
+                 * validaciones para los permisos
+                 */
+                $requestx->puedever = auth()->user()->can($requestx->routexxx[0] . '-leer');
+                $requestx->pueditar = auth()->user()->can($requestx->routexxx[0] . '-editar');
+                if ($requestx->pueditar == false || $puedexxx['tienperm'] == false) {
+                    $requestx->pueditar = false;
                 }
+                $requestx->puedinac = auth()->user()->can($requestx->routexxx[0] . '-borrar');
+                if ($requestx->puedinac == false || $puedexxx['tienperm'] == false) {
+                    $requestx->puedinac = false;
+                }
+                return  view($requestx->botonesx, [
+                    'queryxxx' => $queryxxx,
+                    'requestx' => $requestx,
+                ]);
+            }
+        );
 
-            )
-            ->rawColumns(['botonexx', 's_estado'])
-            ->toJson();
+        $datatabl->addColumn(
+            's_estado',
+            function ($queryxxx) use ($requestx) {
+                return  view($requestx->estadoxx, [
+                    'queryxxx' => $queryxxx,
+                    'requestx' => $requestx,
+                ]);
+            }
+
+        );
+
+        $datatabl->addColumn(
+            'upiservicio',
+            function ($queryxxx) use ($requestx) {
+                return  view($requestx->upiservicio, [
+                    'queryxxx' => $queryxxx,
+                    'requestx' => $requestx,
+                ]);
+            }
+
+        );
+
+        $datatabl->rawColumns(['botonexx', 's_estado']);
+        return $datatabl->toJson();
+
     }
 
     public  function getDtAsistencias($queryxxx, $requestx)

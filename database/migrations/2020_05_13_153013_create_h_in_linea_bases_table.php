@@ -17,7 +17,7 @@ class CreateHInLineaBasesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('s_linea_base', 300)->unique();
             $table = CamposMagicos::h_magicos($table);
         });

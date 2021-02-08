@@ -33,7 +33,7 @@ trait ParametrizarModuloTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'TALLERES Y ACCIONES FORMATIVAS';
+        $this->opciones['tituhead'] = 'TALLERES EDUCATIVOS Y/O ACCIONES FORMATIVAS';
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';

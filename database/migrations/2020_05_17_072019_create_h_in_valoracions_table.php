@@ -17,7 +17,7 @@ class CreateHInValoracionsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('i_prm_categoria_id')->unsigned();
             $table->bigInteger('i_prm_cactual_id')->unsigned();
             $table->bigInteger('i_prm_avance_id')->unsigned();

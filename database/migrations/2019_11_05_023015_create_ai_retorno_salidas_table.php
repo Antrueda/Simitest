@@ -17,7 +17,7 @@ class CreateAiRetornoSalidasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('prm_upi_id')->unsigned();
             $table->date('fecha');
@@ -47,7 +47,7 @@ class CreateAiRetornoSalidasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DEL RETORNO DE UN ESCAPE DE UN BENEFICIARIO DE LOS SERVICIOS DE IDIPRON DE UNA UPI DENTRO DE LAS ACCIONES GRUPALES'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('prm_condicion_id')->unsigned();
             $table->bigInteger('prm_orientado_id')->unsigned();
             $table->bigInteger('prm_enfermerd_id')->unsigned();

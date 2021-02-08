@@ -22,7 +22,7 @@ class CreateHFiSituacionEspecialsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('i_prm_tipo_id')->nullable()->unsigned();
             $table->bigInteger('i_tiempo')->nullable();
@@ -34,7 +34,7 @@ class CreateHFiSituacionEspecialsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_situacion_especial_id')->unsigned();
             $table->bigInteger('i_prm_situacion_vulnera_id')->unsigned();
            $table = CamposMagicos::h_magicos($table);
@@ -42,7 +42,7 @@ class CreateHFiSituacionEspecialsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_situacion_especial_id')->unsigned();
             $table->bigInteger('i_prm_victima_escnna_id')->unsigned();
             
@@ -51,7 +51,7 @@ class CreateHFiSituacionEspecialsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_situacion_especial_id')->unsigned();
             $table->bigInteger('i_prm_riesgo_escnna_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
@@ -59,7 +59,7 @@ class CreateHFiSituacionEspecialsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_situacion_especial_id')->unsigned();
             $table->bigInteger('i_prm_iniciado_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
@@ -67,7 +67,7 @@ class CreateHFiSituacionEspecialsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_situacion_especial_id')->unsigned();
             $table->bigInteger('i_prm_continua_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);

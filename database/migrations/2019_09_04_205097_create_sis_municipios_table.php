@@ -16,7 +16,7 @@ class CreateSisMunicipiosTable extends Migration
     {
         Schema::create('sis_municipios', function (Blueprint $table) {
 
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('sis_departam_id')->unsigned()->comment('CAMPO DE ID DEL DEPARTAMENTO');
             $table->string('s_municipio')->comment('CAMPO NOMBRE DEL MUNICIPIO');
             $table->Integer('user_crea_id');
@@ -30,7 +30,7 @@ class CreateSisMunicipiosTable extends Migration
 
         Schema::create('h_sis_municipios', function (Blueprint $table) {
 
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table->bigInteger('sis_departam_id')->unsigned();
             $table->string('s_municipio');

@@ -17,7 +17,7 @@ class CreateSisDepensTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre')->unique()->comment('CAMPO NOMBRE DE LA DEPENDENCIA');
             $table->bigInteger('i_prm_cvital_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('i_prm_tdependen_id')->unsigned()->comment('CAMPO TIPO DE DEPENDENCIA');

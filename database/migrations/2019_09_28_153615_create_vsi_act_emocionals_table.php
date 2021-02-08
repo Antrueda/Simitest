@@ -18,7 +18,7 @@ class CreateVsiActEmocionalsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
             $table->bigInteger('prm_activa_id')->unsigned()->comment('CAMPO ACTIVIDAD EMOCIONAL');
             $table->longText('descripcion')->nullable()->comment('CAMPO ABIERTO DESCRIPCION');
@@ -31,7 +31,7 @@ class CreateVsiActEmocionalsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS DESCRIPCIONES DE SITUACIÓN, LUGAR, OBJETO O PERSONA QUE GENERA MALESTAR INTENSO EN LA PERSONA ENTREVISTADA, SECCIÓN 13 ACTIVIDAD EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_actemocional_id')->unsigned()->comment('CAMPO ID ACTIVIDAD EMOCIONAL');
             $table->foreign('parametro_id')->references('id')->on('parametros');

@@ -21,7 +21,7 @@ class CreateHMitVspaTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('prm_upi_id')->unsigned()->nullable();
             $table->date('fecha');
@@ -63,7 +63,7 @@ class CreateHMitVspaTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('mit_vspa_id')->unsigned();
 
             $table->bigInteger('prm_droga_ini_id')->unsigned()->nullable();
@@ -142,7 +142,7 @@ class CreateHMitVspaTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('mit_vspa_id')->unsigned();
             $table->bigInteger('prm_cuatro_uno_id')->unsigned()->nullable();
             $table->bigInteger('prm_cuatro_dos_id')->unsigned()->nullable();
@@ -161,7 +161,7 @@ class CreateHMitVspaTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('mit_vspa_id')->unsigned();
             $table->bigInteger('prm_cinco_uno_id')->unsigned()->nullable();
             $table->bigInteger('prm_cinco_dos_id')->unsigned()->nullable();
@@ -180,7 +180,7 @@ class CreateHMitVspaTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('mit_vspa_id')->unsigned();
             $table->bigInteger('prm_seis_uno_id')->unsigned()->nullable();
             $table->bigInteger('prm_seis_dos_id')->unsigned()->nullable();

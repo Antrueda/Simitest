@@ -5,6 +5,9 @@ namespace App\Traits\Interfaz;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
+use App\Models\Simianti\Ba\BaTerritorio;
+use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
+use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
@@ -114,88 +117,104 @@ trait InterfazFiTrait
 
     public function getBuscarNnajAgregar($request)
     {
+
         $request->docuagre = 1006148207;
-        //treer el nnaj
-        $nnajxxxx = (object)Http::get($this->getUrl() . "nnajs/registro/{$request->docuagre}")->json();
-        // traer la upi asignada
-        $nnajupix = (object) Http::get($this->getUrl() . "upinnaj/registro/{$nnajxxxx->idxxxxxx}")->json();
-        // verificar existencia de la upi
-        $this->getUpiSimi(['idupixxx' => $nnajupix->idupixxx]);
+        // ddd(GeNnaj::where('numero_documento',$request->docuagre)->first());
+        $dataxxxx = GeNnajDocumento::select([
+            'ficha_acercamiento_ingreso.fecha_apertura',
+            'ge_nnaj.tipo_poblacion',
+            'ge_upi_nnaj.id_upi',
+            'ge_nnaj.primer_nombre',
+            'ge_nnaj.segundo_nombre',
+            'ge_nnaj.primer_apellido',
+            'ge_nnaj.segundo_apellido',
+            'ge_nnaj.nombre_identitario',
+            'ge_nnaj.apodo',
+            'ge_nnaj.fecha_nacimiento',
+            'ge_nnaj.id_nacimiento',
+            'ge_nnaj.genero',
+            'ge_nnaj.genero_identifica',
+            'ge_nnaj.sexo_orienta',
+            'ge_nnaj.rh',
+            'ge_nnaj_documento.tipo_documento',
+            'ge_nnaj_documento.numero_documento',
+            'ge_nnaj_documento.id_lugar_expedicion',
+            'ge_nnaj.situacion_mil',
+            'ge_nnaj.clase_libreta_militar',
+            'ge_nnaj.estado_civil',
+            'ge_nnaj.etnia',
+            'ge_nnaj.condicion_vestido',
+            'ficha_acercamiento_ingreso.id_barrio',
 
 
-        $fiaceing = Http::get($this->getUrl() . 'fiaceing/' . $todoxxxx[0]['gennajxx']['idxxxxxx'])->json();
+        ])->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
+            ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
+            ->join('ficha_acercamiento_ingreso', 'ge_nnaj.id_nnaj', '=', 'ficha_acercamiento_ingreso.id_nnaj')
+            ->where('ge_nnaj_documento.numero_documento', $request->docuagre)->first();
         $objetoxx = new FiDatosBasico;
-        $dependen = SisDepen::where('simianti_id')->first()->id;
-        $objetoxx->sis_depen_id = $dependen == 30 ? 3 : $dependen;
-        $sexoxxxx = ['F' => 21, 'M' => 20, 'IN' => 22];
-        $objetoxx->prm_sexo_id = $sexoxxxx[$filtroxx['generoxx']];
-        $objetoxx->diligenc = explode('T', $fiaceing)[0];
+        $objetoxx->prm_tipoblaci_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_poblacion, 'tablaxxx' => 'TIPOPOB', 'temaxxxx' => 119])->id;
+        $objetoxx->sis_depen_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->id_upi])->id;
+        $objetoxx->s_primer_nombre = $dataxxxx->primer_nombre;
+        $objetoxx->s_segundo_nombre = $dataxxxx->segundo_nombre;
+        $objetoxx->s_primer_apellido = $dataxxxx->primer_apellido;
+        $objetoxx->s_segundo_apellido = $dataxxxx->segundo_apellido;
+        $objetoxx->s_nombre_identitario = $dataxxxx->nombre_identitario;
+        $objetoxx->s_apodo = $dataxxxx->apodo;
+        /* datos de nacimiento */
+        $objetoxx->nnaj_nacimi = new NnajNacimi;
+        $objetoxx->d_nacimiento = $objetoxx->nnaj_nacimi->d_nacimiento = explode(' ', $dataxxxx->fecha_nacimiento)[0];
 
-        $objetoxx->prm_identidad_genero_id = $this->idengene[$filtroxx['geneiden']];
-        $objetoxx->prm_orientacion_sexual_id = $this->oriesexu[$filtroxx['oriesexo']];
-        if ($filtroxx['rhxxxxxx'] != null) {
-            $objetoxx->prm_gsanguino_id = Parametro::where('nombre', explode('+', $filtroxx['rhxxxxxx'])[0])->first()->id;
-            $objetoxx->prm_factor_rh_id = Parametro::where(
-                'nombre',
-                str_replace(str_replace("+", "", $filtroxx['rhxxxxxx']), "", $filtroxx['rhxxxxxx'])
-            )->first()->id;
-        }
-        $objetoxx->prm_tipodocu_id = $this->tipodocu[$filtroxx['tipodocu']];
-
-        $objetoxx->prm_doc_fisico_id = $this->cuendocu[$filtroxx['cuentdoc']];
-
-        if ($filtroxx['situmili'] != null) {
-            $objetoxx->prm_situacion_militar_id = $this->situmili[$filtroxx['situmili']];
-        }
-
-
-        $objetoxx->prm_estado_civil_id = $this->estacivi[$filtroxx['estacivi']];
-
-
-        $objetoxx->prm_etnia_id = $this->etniaxxx[$filtroxx['etniaxxx']];
-        //
-        // s_lugar_focalizacion
-        // s_nombre_focalizacion
-        // sis_localidad_id
-        // sis_upz_id
-        // sis_upzbarri_id
-        // ddd(array_search(142, $tipodocu));
-
-        // ddd($objetoxx->prm_doc_fisico_id);
-        $objetoxx->s_documento = $request->docuagre;
-        // ddd($todoxxxx[0]);
-        $objetoxx->s_primer_nombre = $filtroxx['primnomb'];
-        $objetoxx->s_segundo_nombre = $filtroxx['segunomb'];
-        $objetoxx->s_primer_apellido = $filtroxx['primapel'];
-        $objetoxx->s_segundo_apellido = $filtroxx['seguapel'];
-        $objetoxx->s_apodo = $filtroxx['apodoxxx'];
-        $objetoxx->prm_tipoblaci_id = $this->tipoblac[$filtroxx['tipoblac']];
-        $objetoxx->prm_vestimenta_id = $this->vestimen[$filtroxx['condvest']];
-
-        $municipi = SisMunicipio::where('simianti_id',  $todoxxxx[0]['muniexpe']['codimuni'])->first();
-        $objetoxx->sis_municipioexp_id = $municipi->id;
-        $objetoxx->sis_departamexp_id = $municipi->sis_departam_id;
-        $objetoxx->sis_paiexp_id = $municipi->sis_departam->sis_pai_id;
-        /**
-         * datos de nacimiento
-         */
-
-        $municipi = SisMunicipio::where('simianti_id',  $todoxxxx[0]['gennajxx']['idnacimi'])->first();
+        $municipi = $this->getMunicipoSimi(['idmunici' => $dataxxxx->id_nacimiento]);
         $objetoxx->sis_municipio_id = $municipi->id;
         $objetoxx->sis_departam_id = $municipi->sis_departam_id;
         $objetoxx->sis_pai_id = $municipi->sis_departam->sis_pai_id;
+        $objetoxx->prm_sexo_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->genero, 'tablaxxx' => 'GENERO', 'temaxxxx' => 11])->id;
+        $objetoxx->prm_identidad_genero_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->genero_identifica, 'tablaxxx' => 'IDENTIDADG', 'temaxxxx' => 12])->id;
+        $objetoxx->prm_orientacion_sexual_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->sexo_orienta, 'tablaxxx' => 'ORIENTACIONS', 'temaxxxx' => 13])->id;
+        if ($dataxxxx->rh != null) {
+            $objetoxx->prm_gsanguino_id = Parametro::where('nombre', explode('+', $dataxxxx->rh)[0])->first()->id;
+            $objetoxx->prm_factor_rh_id = Parametro::where(
+                'nombre',
+                str_replace(str_replace("+", "", $dataxxxx->rh), "", $dataxxxx->rh)
+            )->first()->id;
+        }
+
+        $objetoxx->prm_tipodocu_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_documento, 'tablaxxx' => 'TIPO_DOCUMENTO', 'temaxxxx' => 3])->id;
+        // $objetoxx->prm_doc_fisico_id = $this->getParametrosSimiMultivalor(['codigoxx'=>$dataxxxx->cuenta_doc,'tablaxxx'=>'DICOTOMIA','temaxxxx'=>23])->id;
+        $objetoxx->s_documento = $dataxxxx->numero_documento;
+        $municipi = $this->getMunicipoSimi(['idmunici' => $dataxxxx->id_lugar_expedicion]);
+        $objetoxx->sis_municipioexp_id = $municipi->id;
+        $objetoxx->sis_departamexp_id = $municipi->sis_departam_id;
+        $objetoxx->sis_paiexp_id = $municipi->sis_departam->sis_pai_id;
+
+        if ($dataxxxx->situacion_mil != null) {
+            $objetoxx->prm_situacion_militar_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->situacion_mil, 'tablaxxx' => 'DICOTOMIA', 'temaxxxx' => 23])->id;
+        } else {
+            $objetoxx->prm_situacion_militar_id = 235;
+        }
+        if ($dataxxxx->clase_libreta_militar != null) {
+            $objetoxx->prm_clase_libreta_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->clase_libreta_militar, 'tablaxxx' => 'CLASE_LIBRETA', 'temaxxxx' => 33])->id;
+        } else {
+            $objetoxx->prm_clase_libreta_id = 235;
+        }
+        $objetoxx->prm_estado_civil_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->estado_civil, 'tablaxxx' => 'ESTADOC', 'temaxxxx' => 19])->id;
+        $objetoxx->prm_etnia_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->etnia, 'tablaxxx' => 'ETNIA', 'temaxxxx' => 20])->id;
+        $objetoxx->prm_vestimenta_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->condicion_vestido, 'tablaxxx' => 'DICOTOMIAS', 'temaxxxx' => 290])->id;
+        $locabari = $this->getBarrio(['idbarrio' => $dataxxxx->id_barrio]);
+// ddd($locabari);
+        $objetoxx->sis_localidad_id = $locabari->sis_localupz->sis_localidad_id;
+        $objetoxx->sis_upz_id = $locabari->sis_localupz->id;
+        $objetoxx->sis_upzbarri_id = $locabari->id;
+        // ddd($dataxxxx->toArray());
 
 
-        $objetoxx->sis_pai_id = SisPai::where('s_pais', $todoxxxx[0]['paisnaci']['nombrexx'])->first()->id;
-        // $objetoxx->nnaj_nacimi->sis_municipio_id=1;
-        $objetoxx->nnaj_nacimi = new NnajNacimi;
-        $objetoxx->d_nacimiento = $objetoxx->nnaj_nacimi->d_nacimiento = explode('T', $filtroxx['fechnaci'])[0];
+        // ddd($objetoxx->toArray());
 
-        $locupbari = $this->getBarrio($todoxxxx[0]['gennajxx']['idxxxxxx']);
 
-        $objetoxx->sis_localidad_id = $locupbari->sis_localupz->sis_localidad_id;
-        $objetoxx->sis_upz_id = $locupbari->sis_localupz->id;
-        $objetoxx->sis_upzbarri_id = $locupbari->id;
+
+
+
+
         return $objetoxx;
     }
     public function getData($dataxxxx)

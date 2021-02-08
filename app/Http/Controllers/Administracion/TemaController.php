@@ -21,7 +21,7 @@ class TemaController extends Controller{
 
     }
 
-    public function index(Request $request){
+    public function index(Request $request){ 
         $datos = $this->datos($request->all());
         $buscar = ($request->buscar) ? $request->buscar : '';
         return view('administracion.tema.index', compact('datos', 'buscar'));
@@ -78,11 +78,12 @@ class TemaController extends Controller{
         return redirect()->route('tema.editar', $id)->with('info', 'Registro Eliminado con éxito');
     }
 
-    protected function datos(array $request){
+    protected function datos(array $request){ 
         return Tema::select('id', 'nombre', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
+                $buscar=strtoupper ( $buscar);
                 return $q->orWhere('nombre', 'like', '%'.$buscar.'%')
-                ->orWhere('id', $buscar);
+                ->orWhere('id','LIKE', '%'.$buscar.'%');
             })
             ->orderBy('nombre')->paginate(10);
     }
@@ -90,6 +91,7 @@ class TemaController extends Controller{
     protected function datosParametros(array $request){
         return Parametro::select('id', 'nombre', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
+                $buscar=strtoupper ( $buscar);
                 return $q->where('nombre', 'like', '%'.$buscar.'%');
             })
             ->orderBy('nombre')->paginate(10);

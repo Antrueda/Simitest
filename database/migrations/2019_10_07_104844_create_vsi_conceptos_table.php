@@ -18,7 +18,7 @@ class CreateVsiConceptosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->longText('concepto')->comment('CAMPO ABIERTO CONCEPTO');
             $table->bigInteger('prm_ingreso_id')->unsigned()->nullable()->comment('CAMPO CONSIDERA PERTINENTE EL INGRESO AL IDIPRON');
@@ -31,7 +31,7 @@ class CreateVsiConceptosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA IMPRESIÓN DIAGNÓSTICA Y EL ANÁLISIS SOCIAL DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACE LA RED INSTITUCIONAL');
             $table->bigInteger('vsi_concepto_id')->unsigned()->comment('CAMPO ID DE CONCEPTO');
             $table->foreign('parametro_id')->references('id')->on('parametros');

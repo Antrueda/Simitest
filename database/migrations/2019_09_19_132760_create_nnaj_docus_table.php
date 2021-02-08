@@ -31,7 +31,7 @@ class CreateNnajDocusTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA IDENTIFICACION DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('s_documento');
             $table->Integer('fi_datos_basico_id');
             $table->Integer('prm_tipodocu_id');

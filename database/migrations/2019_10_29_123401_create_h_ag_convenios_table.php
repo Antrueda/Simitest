@@ -17,7 +17,7 @@ class CreateHAgConveniosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('s_convenio');
             $table->bigInteger('i_prm_tconvenio_id')->unsigned();
             $table->bigInteger('i_prm_entidad_id')->unsigned();

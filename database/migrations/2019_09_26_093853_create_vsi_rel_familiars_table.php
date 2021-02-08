@@ -20,7 +20,7 @@ class CreateVsiRelFamiliarsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('prm_representativa_id')->unsigned();
             $table->longText('representativa');
@@ -55,7 +55,7 @@ class CreateVsiRelFamiliarsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LAS RELACIONES FAMILIARES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, SECCIÓN 3'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO MOTIVOS POR LA QUE NO EXISTEN BUENAS RELACIONES');
             $table->bigInteger('vsi_relfamiliar_id')->unsigned()->comment('CAMPO DE ID RELACION FAMILIAR');
 
@@ -67,7 +67,7 @@ class CreateVsiRelFamiliarsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL O LOS MOTIVOS POR LO QUE NO EXISTEN BUENAS RELACIONES FAMILIARES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 3.4'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO DETALLES DE LAS DIFICULTADES EN LAS RELACIONES FAMILIARES');
             $table->bigInteger('vsi_relfamiliar_id')->unsigned();
 
@@ -79,7 +79,7 @@ class CreateVsiRelFamiliarsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LAS DIFICULTADES EN LAS RELACIONES FAMILIARES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 3.9'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO ACCIONES REALIZADAS ANTE LOS CASO DE VIOLENCIA');
             $table->bigInteger('vsi_relfamiliar_id')->unsigned();
 

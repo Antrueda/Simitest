@@ -22,7 +22,7 @@ class CreateCsdDinFamiliarsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('csd_id')->unsigned();
             $table->longText('descripcion')->nullable();
             $table->longText('relevantes');
@@ -71,7 +71,7 @@ class CreateCsdDinFamiliarsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA DINAMICA FAMILIAR DE LA PERSONA ENTREVISTADA, SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
@@ -84,7 +84,7 @@ class CreateCsdDinFamiliarsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS ANTECEDENTES DE PROBLEMAS SOCIALES ASOCIADOS CON LA FAMILIA ACTUAL, PREGUNTA 6.1 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
@@ -97,7 +97,7 @@ class CreateCsdDinFamiliarsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS PRINCIPALES PROBLEMATICAS ASOCIADAS CON LA FAMILIA ACTUAL DE LA PERSONA ENTREVISTADA, PREGUNTA 6.13 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
@@ -110,7 +110,7 @@ class CreateCsdDinFamiliarsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS ACTUACIONES DE LOS MIEMBROS DE LA FAMILIA FRENTE A LAS NORMAS DE LA PERSONA ENTREVISTADA, PREGUNTA 6.20 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();
@@ -123,7 +123,7 @@ class CreateCsdDinFamiliarsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE PERSONAS QUE ESTABLECEN LAS NORMAS EN EL HOGAR DE LA PERSONA ENTREVISTADA, PREGUNTA 6.17 SECCION 6 DINAMICA FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_dinfamiliar_id')->unsigned();
             $table->bigInteger('prm_tipofuen_id')->unsigned();

@@ -17,7 +17,7 @@ class CreateIsDatosBasicosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID NNAJ');
             $table->bigInteger('sis_depen_id')->unsigned()->comment('CAMPO DE ID DEPENDENCIA');
             $table->date('d_fecha_diligencia')->comment('CAMPO DE FECHA DE DILIGENCIAMIENTO');

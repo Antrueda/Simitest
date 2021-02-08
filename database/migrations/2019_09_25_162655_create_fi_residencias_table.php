@@ -17,7 +17,7 @@ class CreateFiResidenciasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('i_prm_tiene_dormir_id')->unsigned()->comment('FI 3.1 TIENE LUGAR DONDE DORMIR');
             $table->bigInteger('i_prm_tipo_duerme_id')->unsigned()->comment('FI 3.2 TIPO DE RESIDENCIA O LUGAR DONDE DUERME');
             $table->bigInteger('i_prm_tipo_tenencia_id')->unsigned()->comment('FI 3.3 LA RESIDENCIA ES');
@@ -70,7 +70,7 @@ class CreateFiResidenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE UBICACION Y DE CONTACTO DE LA PERSONA ENTREVISTADA, SECCION 3 RESIDENCIA DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('fi_residencia_id')->unsigned()->comment('REGISTRO RESIDENCIA AL QUE SE LE ASIGNA LA CONDICION DEL NTE');
             $table->bigInteger('i_prm_condicion_amb_id')->unsigned()->comment('FI 3.16 CONDICIONES DEL AMBIENTE');
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');

@@ -127,5 +127,6 @@ class SisUpzsSeeder extends Seeder
         SisUpz::create(['id' => 118, 's_upz' => 'UPZ INCORRECTA EN LA BASE PLANA', 's_codigo' => 118, 'simianti_id' => 118]); //113
         SisUpz::create(['id' => 119, 's_upz' => 'N/A', 's_codigo' => 119, 'simianti_id' => 119]); //114
         SisUpz::create(['id' => 120, 's_upz' => 'SOACHA', 's_codigo' => 208206, 'simianti_id' => 208206]); //114
+        SisUpz::create(['id' => 121, 's_upz' => 'UPZ NO IDENTIFICADA EN EL NUEVO DESARROLLO', 's_codigo' => 208206, 'simianti_id' => 208206]); //115
     }
 }

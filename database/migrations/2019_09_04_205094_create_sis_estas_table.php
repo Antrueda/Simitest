@@ -16,10 +16,10 @@ class CreateSisEstasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('LLAVE UNICA');;
+            $table->increments('id')->start(1)->nocache()->comment('LLAVE UNICA');;
             $table->string('s_estado')->comment('CAMPO DE TEXTO DEL NOMBRE DEL ESTADO');
             $table->Integer('i_estado')->comment('CAMPO DE NUMERICO DEL ESTADO');
-            $table->Integer('user_crea_id')->comment('USUARIO QUE CREA EL REGISTRO'); 
+            $table->Integer('user_crea_id')->comment('USUARIO QUE CREA EL REGISTRO');
             $table->Integer('user_edita_id')->comment('USUARIO QUE EDITA EL REGISTRO');
             $table->timestamps();
         });

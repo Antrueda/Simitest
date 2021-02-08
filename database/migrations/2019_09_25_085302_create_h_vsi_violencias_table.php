@@ -19,7 +19,7 @@ class CreateHVsiViolenciasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('prm_tip_vio_id')->unsigned();
             $table->bigInteger('prm_fam_fis_id')->unsigned()->nullable();
@@ -53,7 +53,7 @@ class CreateHVsiViolenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_violencia_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_violencia_id']);
@@ -62,7 +62,7 @@ class CreateHVsiViolenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_violencia_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_violencia_id']);

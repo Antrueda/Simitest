@@ -15,7 +15,7 @@ class CreateSisPaissTable extends Migration
     public function up()
     {
         Schema::create('sis_pais', function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_iso')->comment('CAMPO DE LAS SIGLAS DEL PAIS');
             $table->string('s_pais')->comment('CAMPO DE NOMBRE DEL PAIS');
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
@@ -27,7 +27,7 @@ class CreateSisPaissTable extends Migration
         });
 
         Schema::create('h_sis_pais', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('s_iso');
             $table->string('s_pais');
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');

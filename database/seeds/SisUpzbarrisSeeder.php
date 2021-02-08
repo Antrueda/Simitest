@@ -1942,6 +1942,7 @@ class SisUpzbarrisSeeder extends Seeder
         SisUpzbarri::create(['simianti_id'=>0,'id' => 1925, 'sis_localupz_id' => 121, 'sis_barrio_id' => 1653, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisUpzbarri::create(['simianti_id'=>0,'id' => 1926, 'sis_localupz_id' => 81, 'sis_barrio_id' => 1654, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisUpzbarri::create(['simianti_id'=>0,'id' => 1927, 'sis_localupz_id' => 122, 'sis_barrio_id' => 1653, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
+        SisUpzbarri::create(['simianti_id'=>0,'id' => 1928, 'sis_localupz_id' => 123, 'sis_barrio_id' => 1655, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
 
 
     }

@@ -21,7 +21,7 @@ class CreateMitVspaTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('prm_upi_id')->unsigned()->nullable();
             $table->date('fecha');
@@ -84,7 +84,7 @@ class CreateMitVspaTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES SOBRE EL CONSUMO DE ESTUPERFACCIONES, MITIGACION'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('mit_vspa_id')->unsigned();
 
             $table->bigInteger('prm_droga_ini_id')->unsigned()->nullable();
@@ -214,7 +214,7 @@ class CreateMitVspaTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA SEGUIMIENTO DEL SONCUMO DE DROGAS, MITIGACION'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('mit_vspa_id')->unsigned();
             $table->bigInteger('prm_cuatro_uno_id')->unsigned()->nullable();
             $table->bigInteger('prm_cuatro_dos_id')->unsigned()->nullable();
@@ -247,7 +247,7 @@ class CreateMitVspaTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE RELACIONA LOS DETALLES DEL CONSUMO DE ESTUPERFACIENTES CON LOS SEGUIMIENTOS, MITIGACION'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('mit_vspa_id')->unsigned();
             $table->bigInteger('prm_cinco_uno_id')->unsigned()->nullable();
             $table->bigInteger('prm_cinco_dos_id')->unsigned()->nullable();
@@ -280,7 +280,7 @@ class CreateMitVspaTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE RELACIONA LOS DETALLES DEL CONSUMO DE ESTUPERFACIENTES CON LOS SEGUIMIENTOS, MITIGACION'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('mit_vspa_id')->unsigned();
             $table->bigInteger('prm_seis_uno_id')->unsigned()->nullable();
             $table->bigInteger('prm_seis_dos_id')->unsigned()->nullable();

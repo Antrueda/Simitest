@@ -19,7 +19,7 @@ class CreateVsiViolenciasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
             $table->bigInteger('prm_tip_vio_id')->unsigned()->comment('CAMPO DE PARAMETRO TIPO DE VIOLENCIA');
             $table->bigInteger('prm_fam_fis_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO VIOLENCIA FISICA FAMILIAR');
@@ -81,7 +81,7 @@ class CreateVsiViolenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE DETALLES DE LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA, SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DEL CONTEXTO');
             $table->bigInteger('vsi_violencia_id')->unsigned()->comment('CAMPO DE ID VIOLENCIA');
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -92,7 +92,7 @@ class CreateVsiViolenciasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DEL CONTEXTO DE DISCRIMINACION DE LA PERSONA ENTREVISTADA, PREGUNTA 4.4 SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DEL CONTEXTO');
             $table->bigInteger('vsi_violencia_id')->unsigned()->comment('CAMPO DE ID VIOLENCIA');
 

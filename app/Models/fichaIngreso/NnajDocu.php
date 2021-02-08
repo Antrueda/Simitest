@@ -3,6 +3,7 @@
 namespace App\Models\fichaIngreso;
 
 use App\Models\Parametro;
+use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisDocfuen;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisMunicipio;
@@ -114,5 +115,10 @@ class NnajDocu extends Model
     public function sis_docfuen()
     {
         return $this->belongsTo(SisDocfuen::class);
+    }
+
+    public function docsimianti()
+    {
+       return $this->belongsTo(GeNnajDocumento::class,'numero_documento');
     }
 }

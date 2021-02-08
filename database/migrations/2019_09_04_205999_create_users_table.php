@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('name')->comment('CAMPO NOMBRE COMPLETO');
             $table->string('s_primer_nombre')->comment('CAMPO PRIMER NOMBRE');
             $table->string('s_segundo_nombre')->nullable()->comment('CAMPO SEGUNDO NOMBRE');

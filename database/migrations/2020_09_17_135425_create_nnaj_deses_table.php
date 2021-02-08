@@ -17,7 +17,7 @@ class CreateNnajDesesTable extends Migration
     public function up()
     {
         Schema::create( $this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_servicio_id')->unsigned();
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
             $table->bigInteger('nnaj_upi_id')->unsigned();
@@ -30,7 +30,7 @@ class CreateNnajDesesTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL SERVICIO DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->Integer('sis_servicio_id');
             $table->bigInteger('nnaj_upi_id')->unsigned();
             $table->bigInteger('prm_principa_id')->unsigned();

@@ -18,7 +18,7 @@ class CreateHFiRazonesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->text('s_porque_ingresar');
             $table->bigInteger('userd_id')->unsigned();
             $table->bigInteger('sis_depend_id')->unsigned();
@@ -31,7 +31,7 @@ class CreateHFiRazonesTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_nnaj_id')->unsigned();
 
             $table->bigInteger('i_prm_documento_id')->unsigned();

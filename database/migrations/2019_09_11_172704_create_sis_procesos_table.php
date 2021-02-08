@@ -16,7 +16,7 @@ class CreateSisProcesosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('sis_proceso_id')->unsigned()->nullable()->comment('CAMPO DE ID DE PROCESO');
             $table->bigInteger('sis_mapa_proc_id')->unsigned()->comment('CAMPO DE ID MAPA DE PROCESO');
             $table->bigInteger('prm_proceso_id')->unsigned()->comment('N');

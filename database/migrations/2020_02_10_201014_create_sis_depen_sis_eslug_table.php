@@ -16,7 +16,7 @@ class CreateSisDepenSisEslugTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_eslug_id')->unsigned();
             $table->bigInteger('sis_depen_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();

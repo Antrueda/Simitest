@@ -18,7 +18,7 @@ class CreateFiRazonesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->text('s_porque_ingresar');
             $table->bigInteger('userd_id')->unsigned();
             $table->bigInteger('sis_depend_id')->unsigned();
@@ -37,7 +37,7 @@ class CreateFiRazonesTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA LAS RAZONES DE INGRESO AL IDIPRON, SECCION 15 BIENVENIDA DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('i_prm_documento_id')->unsigned();
 

@@ -17,7 +17,7 @@ class CreateHFiCsdVsiRedesPasadosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('nombre');
             $table->string('servicios', 120);
             $table->integer('cantidad')->nullable();

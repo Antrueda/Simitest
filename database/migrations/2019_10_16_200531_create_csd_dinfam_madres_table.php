@@ -16,7 +16,7 @@ class CreateCsdDinfamMadresTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('prm_convive_id')->unsigned();
             $table->integer('dia')->unsigned()->nullable();

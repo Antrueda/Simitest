@@ -16,7 +16,7 @@ class CreateCsdViolenciasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
             $table->bigInteger('prm_condicion_id')->unsigned()->comment('CAMPO ID SI PRESENTA CONDICION DE VIOLENCIA');
             $table->bigInteger('departamento_cond_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');

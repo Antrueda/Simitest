@@ -18,7 +18,7 @@ class CreateCsdGenIngresosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('csd_id')->unsigned();
             $table->longText('observacion')->nullable();
             $table->bigInteger('prm_actividad_id')->unsigned();
@@ -50,7 +50,7 @@ class CreateCsdGenIngresosTable extends Migration
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA GENERACION DE INGRESOS AL INTERIOR DEL NUCLEO FAMILIAR DE LA PERSONA PERSONA ENTREVISTADA, SECCION 10 GENERACION DE INGRESOS DE CONSULTA SOCIAL EN DOMICILIO'");
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('csd_gen_ingresos_id')->unsigned()->comment('REGISTRO GENINGRESO AL QUE SE LE ASIGNA EL DÍA');
             $table->bigIntegeR('prm_dia_genera_id')->unsigned()->comment('FI 7.3 DIA GENERA INGRESO');
             $table->foreign('csd_gen_ingresos_id')->references('id')->on('csd_gen_ingresos');

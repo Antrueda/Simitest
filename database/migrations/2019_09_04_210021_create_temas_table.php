@@ -17,7 +17,7 @@ class CreateTemasTable extends Migration
   public function up()
   {
     Schema::create($this->tablaxxx, function (Blueprint $table) {
-      $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
       $table->bigInteger('user_crea_id')->unsigned();
       $table->bigInteger('user_edita_id')->unsigned();

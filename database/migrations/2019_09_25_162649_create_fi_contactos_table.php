@@ -16,7 +16,7 @@ class CreateFiContactosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('i_prm_tipo_contacto_id')->unsigned()->comment('CAMPO TIPO DE CONTACTO');
             $table->string('s_contacto_condicion')->nullable()->comment('CAMPO ABIERTO CONTACTO POR CONDICION');
             $table->bigInteger('i_prm_contacto_opcion_id')->nullable()->unsigned()->comment('CAMPO CONTACTO POR OPCION ');

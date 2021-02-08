@@ -60,9 +60,10 @@ class ParametroController extends Controller{
         return redirect()->route('parametro')->with('info', 'Registro '.$activado.' con éxito');
     }
 
-    protected function datos(array $request){
+    protected function datos(array $request){ 
         return Parametro::select('id', 'nombre', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
+                $buscar=strtoupper ( $buscar);
                 return $q->orWhere('nombre', 'like', '%'.$buscar.'%')->orWhere('id','like','%'.$buscar.'%');
             })
             ->orderBy('nombre')->paginate(10);

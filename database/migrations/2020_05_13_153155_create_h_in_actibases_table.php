@@ -17,7 +17,7 @@ class CreateHInActibasesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('i_tiempo');
             $table->bigInteger('i_porcentaje');
             $table->bigInteger('i_prm_tiempo_id')->unsigned();

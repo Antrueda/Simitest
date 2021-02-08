@@ -17,7 +17,7 @@ class CreateFiViolenciasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('i_prm_presenta_violencia_id')->unsigned()->comment('FI 12.1 PRESENTA ALGÚN TIPO DE VIOLENCIA');
             $table->bigInteger('prm_ejerviol_id')->unsigned()->nullable()->comment('FI 12.1 A HA EJERCIDO ALGUN TIPO DE PRESUNTA VIOLENCIA DURANTE LA ACTIVIDAD EN CONFLICTO CON LA LEY');
             

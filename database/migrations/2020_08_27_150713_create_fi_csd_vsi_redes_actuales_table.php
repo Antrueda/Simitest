@@ -17,7 +17,7 @@ class CreateFiCsdVsiRedesActualesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('prm_tipo_id')->unsigned();
             $table->string('nombre');
             $table->longText('servicio');

@@ -64,7 +64,7 @@ trait ManageTimeTrait
             $dataxxxx['tiempoxx'] = $itiecarg;
             $dataxxxx = $this->getCargo($dataxxxx);
         }
-        $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
+        $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
         return $dataxxxx;
     }
 
@@ -79,7 +79,7 @@ trait ManageTimeTrait
         $dataxxxx['usuariox'] = $upixxxxx;
         $dataxxxx['tiempoxx'] = $upixxxxx->itiestan + $upixxxxx->itiegabe;
         $dataxxxx = $this->getUpi($dataxxxx);
-        $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACION INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
+        $dataxxxx['msnxxxxx'] = 'NO TIENE PREMISOS PARA REGISTRAR INFORMACIÓN INFERIOR A LA FECHA: ' . $dataxxxx['fechlimi'];
         return $dataxxxx;
     }
 

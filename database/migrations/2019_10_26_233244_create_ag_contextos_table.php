@@ -16,7 +16,7 @@ class CreateAgContextosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->String('s_contexto');
             $table->String('s_descripcion');
             $table->bigInteger('user_crea_id')->unsigned();

@@ -16,7 +16,7 @@ class CreateFiBienvenidasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('i_prm_quiere_entrar_id')->unsigned()->comment('CAMPO PARAMETRO DE ENTRAR AL IDIPRON');
                         
             $table->text('s_porque_quiere_entrar')->comment('CAMPO POR QUE QUIERE ENTRAR AL IDIPRON');

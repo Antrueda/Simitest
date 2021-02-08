@@ -21,7 +21,7 @@ class CreateHFiJustrestsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('i_prm_vinculado_violencia_id')->unsigned(); //->comment('FI 10.4.1 ESTA VINCULADO A DELINCUENCIA O VIOLENCIA');
           
             $table->bigInteger('i_prm_riesgo_participar_id')->unsigned(); //->comment('FI 10.5.1 ESTA EN RIESGO DE PARTICIPAR ACTOS DELICTIVOS');
@@ -32,7 +32,7 @@ class CreateHFiJustrestsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL PARD');
             $table->bigInteger('i_prm_ha_estado_pard_id')->unsigned()->comment('FI 10.1.1 HA ESTADO EN PARD');
             $table->bigInteger('i_prm_actualmente_pard_id')->unsigned()->comment('FI 10.1.2 ACTUALMENTE ESTÁ EN PARD');
@@ -47,7 +47,7 @@ class CreateHFiJustrestsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SRPA');
             $table->bigInteger('i_prm_ha_estado_srpa_id')->unsigned()->comment('FI 10.2.1 HA ESTADO EN SRPA');
             $table->bigInteger('i_prm_actualmente_srpa_id')->unsigned()->comment('FI 10.2.2 ACTUALMENTE ESTÁ EN SRPA');
@@ -60,7 +60,7 @@ class CreateHFiJustrestsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL SPOA');
             $table->bigInteger('i_prm_ha_estado_spoa_id')->unsigned()->comment('FI 10.3.1 HA ESTADO EN SPOA');
             $table->bigInteger('i_prm_actualmente_spoa_id')->unsigned()->comment('FI 10.3.2 ACTUALMENTE ESTÁ EN SPOA');
@@ -74,7 +74,7 @@ class CreateHFiJustrestsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA EL PROCESO DE LA FAMILIA');
             $table->bigInteger('fi_compfami_id')->unsigned()->comment('MIEMBRO DE LA FAMILIA');
             $table->string('s_proceso')->comment('PROCESO');

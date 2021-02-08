@@ -20,11 +20,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
+use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisUpzbarri;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
 use PhpParser\Node\Stmt\Else_;
+use Yajra\DataTables\Facades\DataTables;
 
 class FiController extends Controller
 {
@@ -596,33 +598,53 @@ class FiController extends Controller
 
     public function prueba($departam, Request $request)
     {
+        $this->getBuscarNnajAgregar($request);
+
+        // $request->routexxx = [$this->opciones['routxxxx']];
+        // $request->botonesx = $this->opciones['rutacarp'] .
+        //     $this->opciones['carpetax'] . '.Botones.botonesapi';
+        // $request->upiservicio = $this->opciones['rutacarp'] .
+        //     $this->opciones['carpetax'] . '.Botones.upiservicio';
+        // $request->estadoxx = 'layouts.components.botones.estadosx';
+
+
+        // return $this->getNnajsFi2depen($request);
+
+
         // $puedexxx = $this->getPuedeCargar([
         //     'estoyenx' => 2,
         //     'fechregi' => '1975-04-21',
         //     'upixxxxx'=>2,
         // ]);
 
+//         $model = User::query()->whereIn('id',[1]);
+// $datatabl=DataTables::eloquent($model);
+//         ddd($datatabl->toArray());
+
+//         //  ddd( GeUpi::first()->);
+//         $tablaxxx='protected $fillable =[';
+// foreach (GeUpi::first()->toArray() as $key => $value) {
+//     $tablaxxx.="'{$key}',<br>";
+// }
+// $tablaxxx.="];";
+// echo $tablaxxx;
+
+// ddd(GeUpi::first());
+//         foreach (SisPai::all() as $keyx => $valuex) {
+//             // ddd($valuex->sis_departams()->pivot);
+//             // $departam=SisDepartam::where('sis_pai_id',$valuex->id)->get();
+//            foreach ($valuex->sis_departams() as $keyy => $valuey) {
+// echo $valuey.'<br>';
+
+//             // $valuex->sis_departams()->attach($valuey,[
+//             //     'simianti_id'=>0,
+//             //     'sis_esta_id'=>1,
+//             //     'user_crea_id'=>Auth::user()->id,
+//             //     'user_edita_id'=>Auth::user()->id,]);
+//            }
 
 
-        // ddd( $puedexxx);
-
-
-
-        foreach (SisPai::all() as $keyx => $valuex) {
-            // ddd($valuex->sis_departams()->pivot);
-            // $departam=SisDepartam::where('sis_pai_id',$valuex->id)->get();
-           foreach ($valuex->sis_departams() as $keyy => $valuey) {
-echo $valuey.'<br>';
-
-            // $valuex->sis_departams()->attach($valuey,[
-            //     'simianti_id'=>0,
-            //     'sis_esta_id'=>1,
-            //     'user_crea_id'=>Auth::user()->id,
-            //     'user_edita_id'=>Auth::user()->id,]);
-           }
-
-
-        }
+//         }
         // $buesqued = $this->getBuscarNnajAgregar($request);
 
 

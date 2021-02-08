@@ -38,6 +38,7 @@ class AgResponsableController extends Controller
 
     public function create(AgActividad $padrexxx)
     {
+        
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['crear', [$padrexxx->id], 1, 'GUARDAR', 'btn btn-sm btn-primary']);

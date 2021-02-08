@@ -17,7 +17,7 @@ class CreateFiAutorizacionsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('i_prm_autorizo_id')->unsigned()->comment('CAMPO PARAMETRO AUTORIZO');
             $table->bigInteger('fi_compfami_id')->unsigned()->comment('CAMPO DE ID DEL COMPONENTE FAMILIAR');
             $table->bigInteger('i_prm_parentesco_id')->unsigned()->comment('CAMPO PARENTESCO');
@@ -40,7 +40,7 @@ class CreateFiAutorizacionsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS PERSONAS AUTORIZADAS PERTENECIENTES AL NUCLEO FAMILIAR, SECCION 16 AUTORIZACION DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_autorizacion_id')->unsigned();
             $table->bigIntegeR('i_prm_modalidad_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();

@@ -17,7 +17,7 @@ class CreateHCsdViolenciasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('prm_condicion_id')->unsigned();
             $table->bigInteger('departamento_cond_id')->unsigned()->nullable();

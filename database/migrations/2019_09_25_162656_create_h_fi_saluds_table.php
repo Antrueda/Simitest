@@ -19,7 +19,7 @@ class CreateHFiSaludsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('prm_regisalu_id')->unsigned()->comment('FI 6.1 REGIMEN SALUD');
             $table->bigInteger('sis_entidad_salud_id')->unsigned()->comment('FI 6.2 ENTIDAD  / REGIMEN');// OTRA TABLA
             $table->bigInteger('prm_tiensisb_id')->nullable()->unsigned()->comment('FI 6.3.1 TIENE SISBEN');
@@ -50,7 +50,7 @@ class CreateHFiSaludsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_salud_id')->unsigned()->comment('REGISTRO SALUD AL QUE SE LE ASIGNA LA ENFERMEDAD FAMILIA');
             $table->bigIntegeR('fi_compfami_id')->unsigned()->comment('FI 6.17 MIEMBRO FAMILIA');
             $table->string('s_tipo_enfermedad')->comment('FI TIPO ENFERMEDAD');
@@ -62,7 +62,7 @@ class CreateHFiSaludsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_salud_id')->unsigned()->comment('REGISTRO SALUD AL QUE SE LE ASIGNA EL EVENTO MEDICO');
             $table->bigIntegeR('prm_evenmedi_id')->unsigned()->comment('FI 6.15 EVENTOS MÉDICOS');
             $table = CamposMagicos::h_magicos($table);

@@ -17,7 +17,7 @@ class CreateHFiJrFamiliarsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->String('s_proceso');
             $table->bigInteger('i_tiempo');
             $table->bigInteger('i_veces');

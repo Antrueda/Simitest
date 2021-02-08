@@ -15,7 +15,7 @@ class CreateSisLocalupzsTable extends Migration
     public function up()
     {
         Schema::create('sis_localupzs', function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(124)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('sis_localidad_id')->unsigned()->comment('CAMPO ID DE LA LOCALIDAD');
             $table->bigInteger('sis_upz_id')->unsigned()->comment('CAMPO ID DE LA UPZ');
             $table->bigInteger('user_crea_id')->unsigned();
@@ -30,7 +30,7 @@ class CreateSisLocalupzsTable extends Migration
             $table->timestamps();
         });
         Schema::create('h_sis_localupzs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(124)->nocache();
             $table->bigInteger('sis_localidad_id')->unsigned();
             $table->bigInteger('sis_upz_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);

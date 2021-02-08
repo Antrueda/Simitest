@@ -18,7 +18,7 @@ class CreateHAiSalidaMayoresTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             //$table->bigInteger('sis_nnaj_id')->unsigned();
             $table->date('fecha');
             $table->bigInteger('prm_upi_id')->unsigned();

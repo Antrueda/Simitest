@@ -17,7 +17,7 @@ class CreateHFiJrCausamosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('prm_riesgo_id')->unsigned();
             $table->bigInteger('fi_justrest_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);

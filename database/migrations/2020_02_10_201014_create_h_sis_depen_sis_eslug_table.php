@@ -17,7 +17,7 @@ class CreateHSisDepenSisEslugTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->integer('sis_eslug_id');
             $table->integer('sis_depen_id');
             $table = CamposMagicos::h_magicos($table);

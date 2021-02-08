@@ -17,7 +17,7 @@ class CreateHVsiSaludsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('vsi_id')->unsigned();
             $table->bigInteger('prm_atencion_id')->unsigned();
             $table->bigInteger('prm_condicion_id')->unsigned()->nullable();

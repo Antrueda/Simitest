@@ -1,3 +1,4 @@
+@if( $requestx->actuanti)
 @if($requestx->pueditar && Tr::getPuedeCargar(['nnajxxxx'=>$queryxxx->id,'redirect'=>false]))
 <a class="btn btn-sm btn-warning " href="{{ route($requestx->routexxx[0].'.editar', $queryxxx->id) }}">EDITAR</a>
 @endif
@@ -6,4 +7,7 @@
 @endif
 @if($requestx->puedinac && Tr::getPuedeCargar(['nnajxxxx'=>$queryxxx->id,'redirect'=>false]))
 <a class="btn btn-sm btn-danger " href="{{ route($requestx->routexxx[0].'.borrar', $queryxxx->id) }}">INACTIVAR</a>
+@endif
+@else
+<button class="btn btn-sm btn-primary " type="button" >SELECCIONE</button>
 @endif

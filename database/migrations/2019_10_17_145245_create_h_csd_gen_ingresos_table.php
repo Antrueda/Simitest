@@ -17,7 +17,7 @@ class CreateHCsdGenIngresosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('csd_id')->unsigned();
             $table->longText('observacion');
             $table->bigInteger('prm_actividad_id')->unsigned();

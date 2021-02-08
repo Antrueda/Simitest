@@ -15,7 +15,7 @@ class CreateSisUpzsTable extends Migration
     public function up()
     {
         Schema::create('sis_upzs', function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_upz')->unique()->comment('CAMPO DE NOMBRE DE LA UPZ');
             $table->string('s_codigo',6)->comment('CAMPO DE CODIGO DE LA UPZ');
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
@@ -28,7 +28,7 @@ class CreateSisUpzsTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
         Schema::create('h_sis_upzs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('s_upz');
             $table->string('s_codigo', 6);
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');

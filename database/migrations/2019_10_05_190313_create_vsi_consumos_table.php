@@ -19,7 +19,7 @@ class CreateVsiConsumosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->bigInteger('prm_consumo_id')->unsigned()->comment('CAMPO PARAMETRO CONSUMO');
             $table->Integer('cantidad')->unsigned()->nullable()->comment('CAMPO CUANTAS SUSTANCIAS');
@@ -48,7 +48,7 @@ class CreateVsiConsumosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DEL CONSUMO DE SUSTANCIAS PSICOACTIVAS DE LA PERSONA ENTREVISTADA, SECCIÓN 16 CONSUMO DE SUSTANCIAS PSICOACTIVAS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DE FAMILIARES QUE CONSUMEN SPA');
             $table->bigInteger('vsi_consumo_id')->unsigned()->comment('CAMPO ID CONSUMO');
             $table = CamposMagicos::magicos($table);
@@ -59,7 +59,7 @@ class CreateVsiConsumosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE LAS PERSONAS PERTENECIENTES EN EL NUCLEO FAMILIAR QUE CONSUMEN SUSTANCIAS PSICOACTIVAS DE LA PERSONA ENTREVISTADA, SECCIÓN 16 CONSUMO DE SUSTANCIAS PSICOACTIVAS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO EXPECTATIVAS DE L CONSUMO DE SUSTANCIAS PSICOACTIVAS');
             $table->bigInteger('vsi_consumo_id')->unsigned()->comment('CAMPO ID CONSUMO');
             $table = CamposMagicos::magicos($table);

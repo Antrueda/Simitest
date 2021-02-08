@@ -16,7 +16,7 @@ class CreateVsiConsentimientosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->bigInteger('user_doc1_id')->unsigned()->comment('CAMPO PRIMER RESPONSABLE');
             $table->string('cargo1')->comment('CAMPO CARGO DEL PRIMER RESPONSABLE');

@@ -18,7 +18,7 @@ class CreateAiSalidaMenoresTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('prm_upi_id')->unsigned();
             $table->date('fecha');
@@ -89,7 +89,7 @@ class CreateAiSalidaMenoresTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE OBJETIVOS DE LA SALIDA DEL MENOR DE EDAD, ACCIONES INDIVIDUALES'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('prm_condicion_id')->unsigned();
             $table->bigInteger('prm_orientado_id')->unsigned();
             $table->bigInteger('prm_enfermerd_id')->unsigned();

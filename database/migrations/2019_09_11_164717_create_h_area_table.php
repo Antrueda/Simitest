@@ -17,7 +17,7 @@ class CreateHAreaTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('nombre', 120);
             $table->string('contexto', 2)->nullable();
             $table->longText('descripcion')->nullable();

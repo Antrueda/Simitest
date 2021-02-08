@@ -18,7 +18,7 @@ class CreateFiSaludsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('prm_regisalu_id')->unsigned()->comment('FI 6.1 REGIMEN SALUD');
             $table->bigInteger('sis_entidad_salud_id')->unsigned()->comment('FI 6.2 ENTIDAD  / REGIMEN'); //OTRA TABLA
             $table->bigInteger('prm_tiensisb_id')->nullable()->unsigned()->comment('FI 6.3.1 TIENE SISBEN');
@@ -73,7 +73,7 @@ class CreateFiSaludsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DEL REGIMEN AL QUE ESTA AFILIADO, DISCAPACIDAD, ENTRE OTROS DE LA PERSONA ENTREVISTADA, SECCION 6 SALUD DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('fi_salud_id')->unsigned()->comment('REGISTRO SALUD AL QUE SE LE ASIGNA LA ENFERMEDAD FAMILIA');
             $table->bigIntegeR('fi_compfami_id')->unsigned()->comment('FI 6.17 MIEMBRO FAMILIA');
             $table->string('s_tipo_enfermedad')->comment('FI TIPO ENFERMEDAD');
@@ -95,7 +95,7 @@ class CreateFiSaludsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE MEDICAMENTOS Y ENFERMEDADES DE LOS MIEMBROS DE LA FAMILIA DE LA PERSONA ENTREVISTADA, SECCION 6 SALUD DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('fi_salud_id')->unsigned()->comment('REGISTRO SALUD AL QUE SE LE ASIGNA EL EVENTO MEDICO');
             $table->bigIntegeR('prm_evenmedi_id')->unsigned()->comment('FI 6.15 EVENTOS MÉDICOS');
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');

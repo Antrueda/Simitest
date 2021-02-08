@@ -17,7 +17,7 @@ class CreateSisFsoportesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('nombre');
             $table->bigInteger('sis_actividad_id')->unsigned();
             $table->foreign('sis_actividad_id')->references('id')->on('sis_actividads');

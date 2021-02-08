@@ -17,7 +17,7 @@ class CreateEvasionParentescosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('prm_parentezco_id')->unsigned();
             $table->string('primer_apellido', 120);
             $table->string('segundo_apellido', 120)->nullable();;

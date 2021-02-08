@@ -16,7 +16,7 @@ class CreateVsiSaludsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO DE ID VALORACION');
             $table->bigInteger('prm_atencion_id')->unsigned()->comment('CAMPO DE TIPO DE ATENCION');
             $table->bigInteger('prm_condicion_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO CONDICION');

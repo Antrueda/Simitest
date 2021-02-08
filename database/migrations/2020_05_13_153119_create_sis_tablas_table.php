@@ -17,7 +17,7 @@ class CreateSisTablasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('s_tabla')->nullable();
             $table->string('s_descripcion')->nullable();
             $table->bigInteger('sis_docfuen_id')->unsigned();

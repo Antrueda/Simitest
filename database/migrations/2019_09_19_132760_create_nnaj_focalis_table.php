@@ -28,7 +28,7 @@ class CreateNnajFocalisTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA INFORMACION DE FOCALIZACION DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->Integer('fi_datos_basico_id');
             $table->string('s_nombre_focalizacion');
             $table->string('s_lugar_focalizacion');

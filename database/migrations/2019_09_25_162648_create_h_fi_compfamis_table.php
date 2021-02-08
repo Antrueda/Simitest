@@ -17,7 +17,7 @@ class CreateHFiCompfamisTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('i_prm_parentesco_id')->unsigned();
             $table->string('s_nombre_identitario')->nullable();
             $table->string('s_telefono')->nullable();

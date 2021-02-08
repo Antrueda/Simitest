@@ -233,12 +233,20 @@ class User extends Authenticatable
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $userxxxx = User::where(function ($queryxxx) use ($dataxxxx) {
+
+        $userxxxx = User::select(['users.id','s_primer_nombre','s_documento','s_primer_apellido','s_segundo_apellido','s_segundo_nombre'])->where(function ($queryxxx) use ($dataxxxx) {
             if ($dataxxxx['notinxxx'] != false) {
-                $queryxxx->whereNotIn('id', $dataxxxx['notinxxx']);
+                $queryxxx->whereNotIn('users.id', $dataxxxx['notinxxx']);
             }
-            $queryxxx->where('sis_esta_id', 1);
+
+            $queryxxx->where('users.sis_esta_id', 1)
+            
+           
+           
+            ;
         })
+        ->where('sis_depen_user.sis_depen_id', 2)
+        ->join('sis_depen_user','users.id','=','sis_depen_user.user_id')
             ->orderBy('s_primer_nombre')
             ->orderBy('s_primer_apellido')
             ->get();

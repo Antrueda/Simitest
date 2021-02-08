@@ -16,7 +16,7 @@ class CreateSisActividadsTable extends Migration
   public function up()
   {
     Schema::create($this->tablaxxx, function (Blueprint $table) {
-      $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->string('nombre')->comment('CAMPO DE NOMBRE');
       $table->bigInteger('sis_docfuen_id')->unsigned()->comment('CAMPO DE ID DOCUMENTO FUENTE');
       $table->bigInteger('user_crea_id')->unsigned();

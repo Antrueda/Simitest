@@ -16,7 +16,7 @@ class CreateAgAsistentesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('ag_actividad_id')->unsigned();
             $table->bigInteger('fi_dato_basico_id')->unsigned();
             $table->bigInteger('user_crea_id')->unsigned();

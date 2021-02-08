@@ -18,7 +18,7 @@ class CreateAgActividadsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->date('d_registro');
             $table->bigInteger('area_id')->unsigned();
             $table->bigInteger('sis_deporigen_id')->unsigned();
@@ -54,7 +54,7 @@ class CreateAgActividadsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE RELACIONA LOS DETALLES DE LAS ACTIVIDADES REALIZADAS CON DEPENDENCIA, TEMA, LUGAR, TALER Y OBJETIVO  PERTECECIENTES A LAS ACTIVIDADES GRUPALES'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->date('d_registro');
             $table->integer('area_id');
             $table->integer('sis_deporigen_id');

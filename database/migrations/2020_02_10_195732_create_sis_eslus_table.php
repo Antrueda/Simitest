@@ -17,7 +17,7 @@ class CreateSisEslusTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->string('s_espaluga')->comment('ESPACIO/LUGAR DONDE SE REALIZA LA ACTIVIDAD');
             $table->bigInteger('user_crea_id')->unsigned();
             $table->bigInteger('user_edita_id')->unsigned();

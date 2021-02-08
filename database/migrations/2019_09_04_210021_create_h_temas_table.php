@@ -18,7 +18,7 @@ class CreateHTemasTable extends Migration
   public function up()
   {
     Schema::create($this->tablaxxx, function (Blueprint $table) {
-      $table->bigIncrements('id');
+      $table->increments('id')->start(1)->nocache();
       $table->string('nombre');
       $table = CamposMagicos::h_magicos($table);
     });

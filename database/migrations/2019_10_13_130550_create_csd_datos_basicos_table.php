@@ -18,7 +18,7 @@ class CreateCsdDatosBasicosTable extends Migration
 
 
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('csd_id')->unsigned();
             $table->string('s_primer_nombre');
             $table->string('s_segundo_nombre')->nullable();

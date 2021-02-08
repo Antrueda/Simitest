@@ -16,7 +16,7 @@ class CreateSisDocumentoFuentesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre')->unique()->comment('CAMPO NOMBRE DEL DOCUMENTO FUENTE');
             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');

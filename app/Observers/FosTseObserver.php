@@ -9,6 +9,7 @@ class FosTseObserver
 {
     private function getLog($modeloxx)
     {
+        
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;

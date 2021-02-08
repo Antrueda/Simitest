@@ -23,7 +23,7 @@ class CreateSalidaJovenesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('responsable_id')->unsigned()->nullable();
             $table->bigInteger('ai_salmay_id')->unsigned();

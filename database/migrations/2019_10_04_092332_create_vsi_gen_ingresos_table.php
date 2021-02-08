@@ -20,7 +20,7 @@ class CreateVsiGenIngresosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->bigInteger('prm_actividad_id')->unsigned()->comment('CAMPO TIPO DE ACTIVIDAD GENERADORA DE INGRESOS');
             $table->string('trabaja')->nullable()->comment('CAMPO TRABAJO FORMAL');
@@ -60,7 +60,7 @@ class CreateVsiGenIngresosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA GENERACION DE LOS INGRESOS DE LA PERSONA ENTREVISTADA, SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DIAS QUE REALIZA ACTIVIDAD');
             $table->bigInteger('vsi_geningreso_id')->unsigned()->comment('CAMPO ID GENERACION DE INGRESO');
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -71,7 +71,7 @@ class CreateVsiGenIngresosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DIAS EN QUE SON GENERADOS LOS INGRESOS DE LA PERSONA ENTREVISTADA, PREGUNTA 9.7 SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO DE QUIEN GENERA APORTES');
             $table->bigInteger('vsi_geningreso_id')->unsigned()->comment('CAMPO ID GENERACION DE INGRESO');
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -82,7 +82,7 @@ class CreateVsiGenIngresosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA QUIEN GENERA LOS INGRESOS DE LA PERSONA ENTREVISTADA, PREGUNTA 9.13 SECCION 9 GENERACION DE INGRESOS DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO LABOR QUE DESEMPEÑA');
             $table->bigInteger('vsi_geningreso_id')->unsigned()->comment('CAMPO ID GENERACION DE INGRESO');
             $table->foreign('parametro_id')->references('id')->on('parametros');

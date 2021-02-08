@@ -18,7 +18,7 @@ class CreateHCsdGeningAportasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('csd_id')->unsigned();
             $table->bigInteger('prm_aporta_id')->unsigned();
             $table->integer('mensual');
@@ -33,7 +33,7 @@ class CreateHCsdGeningAportasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('csd_geningreso_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);

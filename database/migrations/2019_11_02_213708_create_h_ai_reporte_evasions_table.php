@@ -17,7 +17,7 @@ class CreateHAiReporteEvasionsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_nnaj_id')->unsigned();
             $table->bigInteger('departamento_id')->unsigned();
             $table->bigInteger('municipio_id')->unsigned();

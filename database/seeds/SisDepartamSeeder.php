@@ -47,5 +47,6 @@ class SisDepartamSeeder extends Seeder
         SisDepartam::create(["sis_pai_id" => 2,'simianti_id'=>76, "s_departamento" => "VALLE DEL CAUCA"]);
         SisDepartam::create(["sis_pai_id" => 2,'simianti_id'=>97, "s_departamento" => "VAUPÉS"]);
         SisDepartam::create(["sis_pai_id" => 2,'simianti_id'=>99, "s_departamento" => "VICHADA"]);
+        SisDepartam::create(["sis_pai_id" => 247,'simianti_id'=>0, "s_departamento" => "DEPARTAMENTO NO IDENTIFICADO EN EL NUEVO DESARROLLO"]);
     }
 }

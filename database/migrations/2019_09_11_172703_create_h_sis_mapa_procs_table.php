@@ -17,7 +17,7 @@ class CreateHSisMapaProcsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->integer('version')->unsigned();
             $table->bigInteger('sis_entidad_id')->unsigned();
             $table->date('vigencia');

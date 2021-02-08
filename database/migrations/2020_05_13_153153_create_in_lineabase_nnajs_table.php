@@ -16,7 +16,7 @@ class CreateInLineabaseNnajsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('in_fuente_id')->unsigned();
             $table->bigInteger('i_prm_categoria_id')->unsigned()->default(246);
             $table->bigInteger('sis_nnaj_id')->unsigned();

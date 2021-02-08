@@ -25,7 +25,20 @@ trait CrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = FosTse::create($dataxxxx['requestx']->all());
+                $dataxxxy = $dataxxxx['requestx']->all();
+                $arrayxx =
+                    [
+                        "nombre" => $dataxxxy['nombre'],
+                        "area_id" => $dataxxxy['area_id'],
+                        "descripcion" =>  $dataxxxy['descripcion'],
+                        "sis_esta_id" =>  $dataxxxy['sis_esta_id'],
+                        "estusuario_id" =>  $dataxxxy['estusuario_id'],
+                        "user_edita_id" =>  $dataxxxy['user_edita_id'],
+                        "user_crea_id" =>  $dataxxxy['user_crea_id']
+                    ];
+
+
+                $dataxxxx['modeloxx'] = FosTse::create($arrayxx);
             }
             return $dataxxxx['modeloxx'];
         }, 5);

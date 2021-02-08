@@ -18,7 +18,7 @@ class CreateHVsiBienvenidasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->integer('vsi_id');
             $table->longText('descripcion');
             $table = CamposMagicos::h_magicos($table);
@@ -26,7 +26,7 @@ class CreateHVsiBienvenidasTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->integer('parametro_id');
             $table->integer('vsi_bienvenida_id');
             $table = CamposMagicos::h_magicos($table);

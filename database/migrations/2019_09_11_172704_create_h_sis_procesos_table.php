@@ -17,7 +17,7 @@ class CreateHSisProcesosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('sis_proceso_id')->unsigned()->nullable();
             $table->bigInteger('sis_mapa_proc_id')->unsigned();
             $table->bigInteger('prm_proceso_id')->unsigned();

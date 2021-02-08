@@ -17,7 +17,7 @@ class CreateHFiContactosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('i_prm_tipo_contacto_id')->unsigned();
             $table->string('s_contacto_condicion')->nullable();
             $table->bigInteger('i_prm_contacto_opcion_id')->nullable()->unsigned();

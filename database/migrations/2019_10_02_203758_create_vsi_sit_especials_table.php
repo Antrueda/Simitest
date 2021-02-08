@@ -19,7 +19,7 @@ class CreateVsiSitEspecialsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->bigInteger('prm_victima_id')->unsigned()->nullable();
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -29,7 +29,7 @@ class CreateVsiSitEspecialsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA PERSONA VICTIMA DE ESCCNA, SECCIÓN 15 SITUACION ESPECIAL Y ESCNNA DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO OPCIONES VICTIMA DE ESCNA');
             $table->bigInteger('vsi_sitespecial_id')->unsigned()->comment('CAMPO DE ID SITUACION ESPECIAL');
 
@@ -41,7 +41,7 @@ class CreateVsiSitEspecialsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE LISTADO DE LAS OPCIONES DE VICTIMA DE ESCCNA, PREGUNTA 15.1 SECCIÓN 15 SITUACION ESPECIAL Y ESCNNA DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO OPCIONES RIESGO DE ESCNA');
             $table->bigInteger('vsi_sitespecial_id')->unsigned()->comment('CAMPO DE ID SITUACION ESPECIAL');
 

@@ -11,6 +11,7 @@ use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\Parametro;
+use App\Models\Simianti\Ge\GeNnaj;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
@@ -142,9 +143,9 @@ trait FiTrait
 
         return $userxxxx;
     }
-    public function getNnajsFi2depen($request)
-    {
 
+    public function getFiDatosBasico()
+    {
         $dataxxxx =  FiDatosBasico::select([
             'fi_datos_basicos.id',
             'fi_datos_basicos.s_primer_nombre',
@@ -160,22 +161,138 @@ trait FiTrait
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
-            ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
-            ->where('sis_nnajs.prm_escomfam_id', 227)
-            // ->whereIn('nnaj_upis.sis_depen_id', $this->getNotInt())
-            ->groupBy([
-                'fi_datos_basicos.sis_nnaj_id', 'fi_datos_basicos.id', 'fi_datos_basicos.s_primer_nombre',
-                'nnaj_docus.s_documento',
-                'fi_datos_basicos.s_segundo_nombre',
-                'fi_datos_basicos.s_primer_apellido',
-                'fi_datos_basicos.s_segundo_apellido',
-                'fi_datos_basicos.sis_esta_id',
-                'fi_datos_basicos.created_at',
-                'sis_estas.s_estado',
-                'fi_datos_basicos.user_crea_id',
-            ]);
+            ->where('sis_nnajs.prm_escomfam_id', 227);
+        return $dataxxxx;
+    }
 
-        return $this->getDtAccionesUpi($dataxxxx, $request);
+
+    public function getGeNnaj()
+    {
+        $dataxxxx = GeNnaj::query()->select([
+            'ge_nnaj.id_nnaj as id',
+            'ge_nnaj_documento.numero_documento as s_documento',
+            'ge_nnaj.primer_nombre as s_primer_nombre',
+            'ge_nnaj.segundo_nombre as s_segundo_nombre',
+            'ge_nnaj.primer_apellido as s_primer_apellido',
+            'ge_nnaj.segundo_apellido as s_segundo_apellido',
+            'ge_nnaj.estado',
+            'ge_nnaj.fecha_insercion as created_at',
+        ])
+           ->join('ge_nnaj_documento','ge_nnaj.id_nnaj','=','ge_nnaj_documento.id_nnaj')
+        ;
+        return  $dataxxxx;
+    }
+    public function getMerge()
+    {
+        $columnsx = [
+
+            [
+                'data' => 'botonexx',
+                'name' => 'botonexx',
+                'searchable' => true,
+                'orderable' => true,
+                'search' =>
+                [
+                    'value' => '',
+                    'regex' => false
+                ]
+            ],
+            [
+                'data' => 'id_nnaj',
+                'name' => 'ge_nnaj.id_nnaj',
+                'searchable' => true,
+                'orderable' => true,
+                'search' =>
+                [
+                    'value' => '',
+                    'regex' => false
+                ]
+            ],
+            [
+                'data' => 'numero_documento',
+                'name' => 'ge_nnaj_documento.numero_documento',
+                'searchable' => true,
+                'orderable' => true,
+                'search' =>
+                [
+                    'value' => '',
+                    'regex' => false
+                ]
+            ],
+            [
+                'data' => 'primer_nombre',
+                'name' => 'ge_nnaj.primer_nombre',
+                'searchable' => true,
+                'orderable' => true,
+                'search' =>
+                [
+                    'value' => '',
+                    'regex' => false
+                ]
+            ],
+            [
+                'data' => 'segundo_nombre',
+                'name' => 'ge_nnaj.segundo_nombre',
+                'searchable' => true,
+                'orderable' => true,
+                'search' =>
+                [
+                    'value' => '',
+                    'regex' => false
+                ]
+            ],
+            [
+                'data' => 'primer_apellido',
+                'name' => 'ge_nnaj.primer_apellido',
+                'searchable' => true,
+                'orderable' => true,
+                'search' =>
+                [
+                    'value' => '',
+                    'regex' => false
+                ]
+            ],
+            [
+                'data' => 'segundo_apellido',
+                'name' => 'ge_nnaj.segundo_apellido',
+                'searchable' => true,
+                'orderable' => true,
+                'search' =>
+                [
+                    'value' => '',
+                    'regex' => false
+                ]
+            ],
+            [
+                'data' => 'estado',
+                'name' => 'ge_nnaj.estado',
+                'searchable' => true,
+                'orderable' => true,
+                'search' =>
+                [
+                    'value' => '',
+                    'regex' => false
+                ]
+            ],
+        ];
+        return $columnsx;
+    }
+    public function getNnajsFi2depen($request)
+    {
+        $request->actuanti=true;
+        $respuest = $this->getFiDatosBasico();
+        if ($request->search['value'] != '') {
+            $request->merge(['columns' => $this->getMerge()]);
+            $request->actuanti=false;
+
+
+            // print_r($request->all());
+            $respuest = $this->getGeNnaj();
+        }
+
+
+
+        return $this->getDtAccionesUpi($respuest, $request);
     }
     public function getNnajsFi2user($request)
     {

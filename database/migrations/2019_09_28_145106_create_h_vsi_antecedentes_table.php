@@ -17,7 +17,7 @@ class CreateHVsiAntecedentesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('vsi_id')->unsigned();
             $table->longText('descripcion');
             $table = CamposMagicos::h_magicos($table);

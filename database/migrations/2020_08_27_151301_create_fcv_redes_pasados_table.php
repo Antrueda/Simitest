@@ -15,7 +15,7 @@ class CreateFcvRedesPasadosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_csd_vsi_redp_id')->unsigned();
             $table->string('nombre');
             $table->string('servicios', 120);

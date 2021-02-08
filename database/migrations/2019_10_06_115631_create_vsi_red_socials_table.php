@@ -19,7 +19,7 @@ class CreateVsiRedSocialsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->bigInteger('prm_presenta_id')->unsigned()->comment('CAMPO PRESENTA ALGUNA RED DE APOYO');
             $table->bigInteger('prm_protector_id')->unsigned()->nullable()->comment('CAMPO RED DE APOYO CON FACTOR PROTECTOR');
@@ -44,7 +44,7 @@ class CreateVsiRedSocialsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES LAS REDES SOCIALES DE APOYO DE LA PERSONA ENTREVISTADA, SECCIÓN 7 DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO MOTIVOS DE RESTRICCIONES ');
             $table->bigInteger('vsi_redsocial_id')->unsigned()->comment('CAMPO DE ID REDES SOCIALES');
 
@@ -56,7 +56,7 @@ class CreateVsiRedSocialsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE MOTIVOS DE LAS RESTRICCIONES DE LA PERSONA ENTREVISTADA, PREGUNTA 7.1.4 SECCIÓN 7 DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO MOTIVOS DE RESTRICCION A REDES SOCIALES DE APOYO');
             $table->bigInteger('vsi_redsocial_id')->unsigned()->comment('CAMPO DE ID REDES SOCIALES');
 

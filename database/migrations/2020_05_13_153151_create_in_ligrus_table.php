@@ -17,7 +17,7 @@ class CreateInLigrusTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('in_base_fuente_id')->unsigned();
             $table->foreign('in_base_fuente_id')->references('id')->on('in_base_fuentes');
             $table = CamposMagicos::magicos($table);

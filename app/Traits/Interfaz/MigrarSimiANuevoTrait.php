@@ -3,10 +3,17 @@
 namespace App\Traits\Interfaz;
 
 use App\Models\Parametro;
+use App\Models\Simianti\Ba\BaTerritorio;
+use App\Models\Simianti\Ge\GeUpi;
+use App\Models\Simianti\Sis\Municipio;
+use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisLocalidad;
+use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
+use App\Models\Sistema\SisPai;
 use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\Tema;
@@ -18,34 +25,84 @@ use Illuminate\Support\Facades\Http;
  */
 trait MigrarSimiANuevoTrait
 {
-    public function getBarrio($idxxxxxx)
+    public function setBarrioUpz($localupz, $barrioxy)
     {
-        // concer el barrio asignado al nnaj en el antiguo simi
-        $fiaceing = Http::get($this->getUrl() . 'fiaceing/barrioxx/' . $idxxxxxx)->json();
-        // conocer datos del barrio en el antiguo simi
-        $barrioxx = Http::get($this->getUrl() . 'territorios/barrioxx/' . $fiaceing)->json();
-        // conocer la upz en el nuevo desarrollo
-        $sisupzxx = SisUpz::where('simianti_id', $barrioxx['idpadrex'])->first();
-        // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
-        $departam = SisBarrio::where('s_barrio', $barrioxx['nombrexx'])->first();
-        $respuest = [];
-        // se crea el barrio
-        if (!isset($departam->id)) {
-            // se crea el barrio en el nuevo desarrollo
-            $barrioxy = SisBarrio::create(['s_barrio' => $barrioxx['nombrexx'],  'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1]);
-            // se asocia el barrio con la upz
-            $respuest = SisUpzbarri::create(['sis_localupz_id' => $sisupzxx->sis_localupz->id, 'sis_barrio_id' => $barrioxy->id,  'simianti_id' => $barrioxx['idxxxxxx'], 'sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
-        } else {
-            // saber si el barrio y la upz ya se encuentran asociados
-            $respuest = SisUpzbarri::where('sis_localupz_id', $sisupzxx->sis_localupz->id)->where('sis_barrio_id', $departam->id)->first();
-            // se crea la union del barrio con la upz
-            if (!isset($respuest->id)) {
-                SisUpzbarri::create(['sis_localupz_id' => $sisupzxx->sis_localupz->id, 'sis_barrio_id' => $departam->id,  'simianti_id' => $barrioxx['idxxxxxx'], 'sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
-                // el barrio y la upz se encuentran asociados pero no tienen el id del simi antiguo
-            } else if ($respuest->simianti_id == 0) {
-                $respuest->update(['simianti_id' => $barrioxx['idxxxxxx']]);
-            }
+        $respuest = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', $barrioxy->id)->first();
+        if (!isset($respuest->id)) {
+            $respuest = SisUpzbarri::create([
+                'sis_localupz_id' => $localupz->id,
+                'sis_barrio_id' => $barrioxy->id,
+                'simianti_id' => 0,
+                'sis_esta_id' => 1,
+                'user_crea_id' => Auth::user()->id,
+                'user_edita_id' => Auth::user()->id,
+            ]);
         }
+        return $respuest;
+    }
+
+    public function setLocalidadUpz($upzxxxxy, $localidy)
+    {
+        if (!isset($upzxxxxy->id)) {
+            $upzxxxxy =  SisLocalupz::create([
+                'sis_upz_id' => $upzxxxxy->id,
+                'sis_localidad_id' => $localidy->id,
+                'sis_esta_id' => 1,
+                'user_crea_id' => Auth::user()->id,
+                'user_edita_id' => Auth::user()->id,
+            ]);
+        }
+
+        return $upzxxxxy;
+    }
+    public function getUpzInterfaz($upzxxxxy, $localidy, $barrioxy)
+    {
+        $respuest = [];
+        if (!isset($upzxxxxy->id)) {
+            $upzxxxxy = SisUpz::find(121);
+            // si la localidad no existe        
+            if (!isset($localidy->id)) {
+                $respuest = SisUpzbarri::find(1928);
+            } else {
+                $localupz = SisLocalupz::where('sis_upz_id', $upzxxxxy->id)->where('sis_localidad_id', $localidy->id)->first();
+                // si la unios de la upz y la localidad no existen
+                // ddd($localupz);
+                if (!isset($localupz->id)) {
+                    $localupz = $this->setLocalidadUpz($upzxxxxy, $localidy);
+                    $respuest = $this->setBarrioUpz($localupz, $barrioxy);
+                } else {
+                    $respuest = $this->setBarrioUpz($localupz, $barrioxy);
+                }
+            }
+        } else {
+            $localupz = SisLocalupz::where('sis_upz_id', $upzxxxxy->id)->where('sis_localidad_id', $localidy->id)->first();
+            $respuest = $this->setBarrioUpz($localupz, $barrioxy);
+        }
+    
+        return $respuest;
+    }
+    public function getBarrio($dataxxxx)
+    {
+        // conocer datos del barrio en el antiguo simi
+        $barrioxx = BaTerritorio::find($dataxxxx['idbarrio']);
+        $upzxxxxx = BaTerritorio::where('id', $barrioxx->id_padre)->first();
+        // conocer la upz en el nuevo desarrollo
+        $upzxxxxy = SisUpz::where('s_upz', $upzxxxxx->nombre)->first();
+        $localidx = BaTerritorio::where('id', $upzxxxxx->id_padre)->first();
+        $localidy = SisLocalidad::where('s_localidad', $localidx->nombre)->first();
+        // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
+        $barrioxy = SisBarrio::where('s_barrio', $barrioxx->nombre)->first();
+        $respuest = [];
+        // si el barrio no existe
+        if (!isset($barrioxy->id)) {
+            $barrioxy = SisBarrio::find(1655);
+            // si la upz no exites
+            $respuest = $this->getUpzInterfaz($upzxxxxy, $localidy, $barrioxy);
+        } else {
+            // si la upz no exites
+            $respuest = $this->getUpzInterfaz($upzxxxxy, $localidy, $barrioxy);
+        }
+
         return $respuest;
     }
     /**
@@ -91,7 +148,7 @@ trait MigrarSimiANuevoTrait
         $temapara = $temaxxxx->parametros()->where('parametro_id', $parametr->id)->first();
         // no está asociado el parametro con el tema
         if (!isset($temapara->pivot->parametro_id)) {
-            $parametr =  Parametro::find($parametr);
+            $parametr =  Parametro::find($parametr->id);
             $this->getAsociarParametro($temaxxxx, $parametr, 0);
         }
         // se actualiza el id del simi antiguo
@@ -122,12 +179,15 @@ trait MigrarSimiANuevoTrait
             } else { // no está creado el parametro en el actual desarollo
                 $parametr =  Parametro::find(2502);
             }
+
             $asociarx = $temaxxxx->parametros()->where('parametro_id', $parametr->id)->first();
+
             // asocia el parametro
             if (!isset($asociarx->pivot->parametro_id)) {
                 $this->getAsociarParametro($temaxxxx, $parametr, $parasimi);
             }
         } else {
+
             $this->getActualizarParametroTema($temaxxxx, $parametr, $parasimi, $actualiz,);
         }
         return $parametr;
@@ -140,75 +200,110 @@ trait MigrarSimiANuevoTrait
      */
     public function getParametrosSimiMultivalor($dataxxxx)
     {
+
+
         $parametr = [];
         $parasimi = ['codigoxx' => 0];
         if ($dataxxxx['codigoxx'] != '') {
             // buscar el parametro en el antiguo desarrollo
-            $parasimi = Http::get($this->getUrl() . "multivalores/registro/{$dataxxxx['tablaxxx']}/{$dataxxxx['codigoxx']}")->json();
+            $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
+            switch ($dataxxxx['temaxxxx']) {
+                case 3:
+                    $posiciox = substr($dataxxxx['codigoxx'], 0, 1);
+                    $posicioy = substr($dataxxxx['codigoxx'], 1);
+                    $multival->descripcion = $posiciox . '.' . $posicioy . '.';
+                    break;
+
+                case 20:
+                    if ($multival->descripcion == 'BLANCO') {
+                        $multival->descripcion = $multival->descripcion . '(A)';
+                    }
+                    break;
+
+                case 290:
+                    $multival->descripcion = substr(explode('(', $multival->descripcion)[0], 0, -1) . 'A';
+                    break;
+            }
+
+            // if ($dataxxxx['temaxxxx'] == 290) {
+            //     ddd($parametr);
+            // }
             // buscar el parametro en el nuevo desarrollo
-            $parametr = Parametro::where('nombre', $parasimi['descripc'])->first();
+            $parametr = Parametro::where('nombre', $multival->descripcion)->first();
         }
+        // if ($dataxxxx['temaxxxx'] == 290) {
+        //     ddd($parametr);
+        // }
+
         // se crea el parametro y se asocia con el tema
         $parametr = $this->getValidarParametro($parametr, $dataxxxx, true, $parasimi['codigoxx']);
         return $parametr;
     }
     public function getMunicipoSimi($dataxxxx)
     {
-        $parasimi = Http::get($this->getUrl() . "multivalores/registro/{$dataxxxx['tablaxxx']}/{$dataxxxx['codigoxx']}")->json();
+
+        $munianti = Municipio::find($dataxxxx['idmunici']);
+        if ($dataxxxx['idmunici'] == 11001) {
+            $muninuev = SisMunicipio::find(321);
+        } else {
+            $muninuev = SisMunicipio::where('s_municipio', $munianti->nombre_municipio)->first();
+        }
+
+        if (!isset($muninuev->id)) {
+            $muninuev = SisMunicipio::find(1121);
+        }
+        return $muninuev;
     }
     public function getUpiSimi($dataxxxx)
     {
 
 
-        $variable=SisDepartam::select('id','sis_pai_id')->get();
-        foreach ($variable as $key => $value) {
-            # code...
-        }
+
         // buscar la upi en el antiguo desarrollo
-        $upisimix = (object)Http::get($this->getUrl() . "upisxxxx/registro/{$dataxxxx['idupixxx']}")->json();
+        $upisimix = GeUpi::find($dataxxxx['idupixxx']);
         // buscar la upi en el nuevo desarrollo
-        $upinuevo = SisDepen::where('nombre', 'upi ejercicio')->first();
+        $upinuevo = SisDepen::where('nombre', $upisimix->nombre)->first();
         // $upinuevo = SisDepen::where('nombre', $upisimix->nombrexx)->first();
 
         // se crea la upi y se asocia con el tema
         if (!isset($upinuevo->id)) {
-            $dataupix = [
-                'nombre' => $upisimix->nombrexx,
-                'i_prm_cvital_id' => $this->getParametrosSimiMultivalor(['tablaxxx' => 'CICLO_VITAL', 'codigoxx' => $upisimix->ciclvita, 'temaxxxx' => 311])->id,
-                'i_prm_tdependen_id' => $this->getParametrosSimi(['codigoxx' => $upisimix->tipodepe, 'temaxxxx' => 192])->id,
-                'i_prm_sexo_id' => $this->getParametrosSimiMultivalor(['tablaxxx' => 'SEXO_UPI', 'codigoxx' => $upisimix->sexoxxxx, 'temaxxxx' => 339])->id,
-                's_direccion' => $upisimix->direccio,
-                'sis_departam_id' => '',
-                'sis_municipio_id' => '',
-                'estusuario_id' => 25,
-                'simianti_id' => $upisimix->idxxxxxx,
-                'sis_upzbarri_id' => '',
-                's_telefono' => $upisimix->telefono,
-                's_correo' => $upisimix->emailxxx,
-                'itiestan' => 10,
-                'itiegabe' => 0,
-                'itigafin' => 0,
-                'sis_esta_id' => 1,
-                'user_crea_id' => Auth::user()->id,
-                'user_edita_id' => Auth::user()->id,
-            ];
-            ddd($dataupix);
-            $upinuevo = SisDepen::create($dataupix);
-        }
-        //else{
-        //     $temapara = $temaxxxx->parametros()->where('parametro_id',$parametr->id)->first();
-        //     // se asocia el tema con la upi
-        //     if(!isset($temapara->parametro_id)){
-        //         $temaxxxx->parametros()->attach($parametr,['user_crea_id' => 1, 'user_edita_id' => 1,'simianti'=>$parasimi['codigoxx']]);
-        //     }else
-        //     // se le actualiza la upi del antiguo desarrollo
-        //     if ($temapara->simianti_id==0) {
-        //         $temaxxxx->parametros()->detach($parametr);
-        //         $temaxxxx->parametros()->attach($parametr,['user_crea_id' => 1, 'user_edita_id' => 1,'simianti'=>$parasimi['codigoxx']]);
-        //     }
-        // }
-        // return $parametr;
+            $upinuevo = SisDepen::find(31);
 
+            // $dataupix = [
+            //     'nombre' => $upisimix->nombrexx,
+            //     'i_prm_cvital_id' => $this->getParametrosSimiMultivalor(['tablaxxx' => 'CICLO_VITAL', 'codigoxx' => $upisimix->ciclvita, 'temaxxxx' => 311])->id,
+            //     'i_prm_tdependen_id' => $this->getParametrosSimi(['codigoxx' => $upisimix->tipodepe, 'temaxxxx' => 192])->id,
+            //     'i_prm_sexo_id' => $this->getParametrosSimiMultivalor(['tablaxxx' => 'SEXO_UPI', 'codigoxx' => $upisimix->sexoxxxx, 'temaxxxx' => 339])->id,
+            //     's_direccion' => $upisimix->direccio,
+            //     'sis_departam_id' => '',
+            //     'sis_municipio_id' => '',
+            //     'estusuario_id' => 25,
+            //     'simianti_id' => $upisimix->idxxxxxx,
+            //     'sis_upzbarri_id' => '',
+            //     's_telefono' => $upisimix->telefono,
+            //     's_correo' => $upisimix->emailxxx,
+            //     'itiestan' => 10,
+            //     'itiegabe' => 0,
+            //     'itigafin' => 0,
+            //     'sis_esta_id' => 1,
+            //     'user_crea_id' => Auth::user()->id,
+            //     'user_edita_id' => Auth::user()->id,
+            // ];
+
+            // $upinuevo = SisDepen::create($dataupix);
+        } else {
+            // $temapara = $temaxxxx->parametros()->where('parametro_id',$parametr->id)->first();
+            //     // se asocia el tema con la upi
+            //     if(!isset($temapara->parametro_id)){
+            //         $temaxxxx->parametros()->attach($parametr,['user_crea_id' => 1, 'user_edita_id' => 1,'simianti'=>$parasimi['codigoxx']]);
+            //     }else
+            //     // se le actualiza la upi del antiguo desarrollo
+            //     if ($temapara->simianti_id==0) {
+            //         $temaxxxx->parametros()->detach($parametr);
+            //         $temaxxxx->parametros()->attach($parametr,['user_crea_id' => 1, 'user_edita_id' => 1,'simianti'=>$parasimi['codigoxx']]);
+            //     }
+        }
+        return $upinuevo;
     }
     public function getServiciosUpi($dataxxxx)
     {

@@ -40,6 +40,7 @@ class AgActividadCrearRequest extends FormRequest
         ];
         $this->_reglasx = [
             'd_registro' => ['required', 'date_format:Y-m-d', new FechaMenor()],
+            'sinpermi'=>[],
             'area_id' =>['required'],
             'sis_deporigen_id' =>['required'],
             'ag_tema_id' =>['required'],
@@ -84,7 +85,7 @@ class AgActividadCrearRequest extends FormRequest
      */
     public function rules()
     {
-        if ($this->d_registro != '') {
+        if ($this->d_registro != '' && $this->sis_deporigen_id) {
             $puedexxx = $this->getPuedeCargar([
                 'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
                 'fechregi' => $this->d_registro,

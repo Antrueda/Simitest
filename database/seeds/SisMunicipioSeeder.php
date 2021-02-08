@@ -1132,5 +1132,6 @@ class SisMunicipioSeeder extends Seeder
         SisMunicipio::create(['sis_departam_id' => 30, 's_municipio' => 'COVEÑAS', 'simianti_id' => 70221]);
         SisMunicipio::create(['sis_departam_id' => 31, 's_municipio' => 'PLANADAS', 'simianti_id' => 73555]);
         SisMunicipio::create(['sis_departam_id' => 32, 's_municipio' => 'GUACARÍ', 'simianti_id' => 76318]);
+        SisMunicipio::create(['sis_departam_id' => 35, 's_municipio' => 'MUNICIPIO NO IDENTIFICADO EN EL NUEVO DESARROLLO', 'simianti_id' =>0]);
     }
 }

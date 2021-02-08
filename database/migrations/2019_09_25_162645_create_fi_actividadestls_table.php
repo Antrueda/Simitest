@@ -18,7 +18,7 @@ class CreateFiActividadestlsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('i_horas_permanencia_calle')->unsigned()->nullable()->comment('CAMPO HORA DE PERMANECIA EN CALLE');
             $table->bigInteger('i_dias_permanencia_calle')->unsigned()->nullable()->comment('CAMPO DIAS DE PERMANENCIA EN CALLE');
             $table->bigInteger('i_prm_pertenece_parche_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO PERTENCE A PARCHE');
@@ -43,7 +43,7 @@ class CreateFiActividadestlsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE ALGUNOS DETALLES DE LAS ACTIVIDADES REALIZADAS POR LA PERSONA ENTREVISTADA EN SU TIEMPO LIBRE, SECCION 8 DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('fi_actividadestl_id')->unsigned()->comment('REGISTRO ACTIVIDAD DE TIEMPO LIBRE AL QUE SE LE ASIGNA LA ACTIVIDAD');
             $table->bigIntegeR('i_prm_actividad_tl_id')->unsigned()->comment('FI 8.3 ACTIVIDADES TIEMPO LIBRE');
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
@@ -59,7 +59,7 @@ class CreateFiActividadestlsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE LAS ACTIVIDADES REALIZADAS POR LA PERSONA ENTREVISTADA EN SU TIEMPO LIBRE, PREGUNTA 8.3 SECCION 8 DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('fi_actividadestl_id')->unsigned()->comment('REGISTRO ACTIVIDAD DE TIEMPO LIBRE AL QUE SE LE ASIGNA EL SACRAMENTO');
             $table->bigInteger('i_prm_sacramentos_hechos_id')->unsigned()->comment('FI 8.8 SACRAMENTOS HECHOS');
             $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');

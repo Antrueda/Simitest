@@ -16,7 +16,7 @@ class CreateRedesApoyosTable extends Migration
   public function up()
   {
     Schema::create($this->tablaxxx, function (Blueprint $table) {
-      $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->bigInteger('entidadAtiende_id')->unsigned()->comment('CAMPO ID DE LA ENTIDAD QUE ATIENDE');
       $table->bigInteger('ServPrestados_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->integer('tiempoBeneficio')->comment('CAMPO DE TIEMPO');

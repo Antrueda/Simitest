@@ -18,7 +18,7 @@ class CreateHFiAutorizacionsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('i_prm_autorizo_id')->unsigned();
             $table->bigInteger('fi_compfami_id')->unsigned();
             $table->bigInteger('i_prm_parentesco_id')->unsigned();
@@ -30,7 +30,7 @@ class CreateHFiAutorizacionsTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('fi_autorizacion_id')->unsigned();
             $table->bigIntegeR('i_prm_modalidad_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);

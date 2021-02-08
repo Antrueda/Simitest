@@ -178,7 +178,7 @@ class AgTemaController extends Controller
                     'cabecera' => true,
                     'esajaxxx' => true,
                     'estadoid' => $request->estadoid,
-                    'formular' => 2499])
+                    'formular' => 2504])
             );
         }
     }

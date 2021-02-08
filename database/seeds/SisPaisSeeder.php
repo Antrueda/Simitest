@@ -258,5 +258,7 @@ class SisPaisSeeder extends Seeder
         SisPai::create(['s_pais' => 'Islas Marianas del Norte', 's_iso' => 'MP', 'simianti_id' => '243', 'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1']);
         SisPai::create(['s_pais' => 'Zambia', 's_iso' => 'ZM', 'simianti_id' => '244', 'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1']);
         SisPai::create(['s_pais' => 'Zimbabue', 's_iso' => 'ZW', 'simianti_id' => '245', 'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1']);
+        SisPai::create(['s_pais' => 'PAIS NO IDENTIFIADO EN EL NUEVO DESARROLLO', 's_iso' => 'PI', 'simianti_id' => '0', 'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1']);
+    
     }
 }

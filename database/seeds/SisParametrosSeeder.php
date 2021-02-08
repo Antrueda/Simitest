@@ -669,7 +669,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 648, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Amorua']);
         Parametro::create(['id' => 649, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Yaruro']);
         Parametro::create(['id' => 650, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'CIUDADANO(A) HABITANTE DE CALLE']);
-        Parametro::create(['id' => 651, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN RIESGO DE HABITABILIDAD DE CALLE']);
+        Parametro::create(['id' => 651, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'EN RIESGO DE HABITABILIDAD EN CALLE']);
         Parametro::create(['id' => 652, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Andoke']);
         Parametro::create(['id' => 653, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Arhuaco']);
         Parametro::create(['id' => 654, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Arzario']);

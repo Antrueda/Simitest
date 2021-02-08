@@ -17,7 +17,7 @@ class CreateAgTallersTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->String('s_taller');
             $table->text('s_descripcion');
             $table->bigInteger('ag_tema_id')->unsigned();

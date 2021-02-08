@@ -17,7 +17,7 @@ class CreateSisEntidadSaludsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->bigInteger('sis_enprsa_id')->unsigned()->comment('CAMPO ID DE EPS');
             $table->foreign('sis_enprsa_id')->references('id')->on('sis_enprsas');
             $table->bigInteger('i_prm_tentidad_id')->unsigned()->comment('CAMPO DE ID TIPO DE ENTIDAD');

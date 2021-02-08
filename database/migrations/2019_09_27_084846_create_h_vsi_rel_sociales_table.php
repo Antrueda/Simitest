@@ -19,7 +19,7 @@ class CreateHVsiRelSocialesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('vsi_id')->unsigned();
             $table->longText('descripcion');
             $table->bigInteger('prm_dificultad_id')->nullable()->unsigned();
@@ -30,7 +30,7 @@ class CreateHVsiRelSocialesTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relsocial_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_relsocial_id']);
@@ -39,7 +39,7 @@ class CreateHVsiRelSocialesTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->start(1)->nocache();
             $table->bigInteger('parametro_id')->unsigned();
             $table->bigInteger('vsi_relsocial_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_relsocial_id']);
