@@ -19,10 +19,10 @@ class CreateAgTemasTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->String('s_tema');
-            $table->bigInteger('area_id')->unsigned();
+            $table->integer('area_id')->unsigned();
             $table->longText('s_descripcion');
             $table->foreign('area_id')->references('id')->on('areas');
-            $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
+            $table->integer('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table = CamposMagicos::magicos($table);
         });

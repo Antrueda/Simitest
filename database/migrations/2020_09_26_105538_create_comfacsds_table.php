@@ -18,9 +18,9 @@ class CreateComfacsdsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('fi_compfami_id')->unsigned()->comment('COMPONENTE FAMILIAR QUE RESPONDE LA CSD');
+            $table->integer('fi_compfami_id')->unsigned()->comment('COMPONENTE FAMILIAR QUE RESPONDE LA CSD');
             $table->foreign('fi_compfami_id')->references('id')->on('fi_compfamis');
-            $table->bigInteger('csd_id')->unsigned()->comment('ID Cconsulta social en domicilio');
+            $table->integer('csd_id')->unsigned()->comment('ID Cconsulta social en domicilio');
             $table->foreign('csd_id')->references('id')->on('csds');
             $table = CamposMagicos::magicos($table);
         });
@@ -29,8 +29,8 @@ class CreateComfacsdsTable extends Migration
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('fi_compfami_id')->unsigned()->comment('COMPONENTE FAMILIAR QUE RESPONDE LA CSD');
-            $table->bigInteger('csd_id')->unsigned()->comment('ID Cconsulta social en domicilio');
+            $table->integer('fi_compfami_id')->unsigned()->comment('COMPONENTE FAMILIAR QUE RESPONDE LA CSD');
+            $table->integer('csd_id')->unsigned()->comment('ID Cconsulta social en domicilio');
             $table = CamposMagicos::magicos($table);
 
         });

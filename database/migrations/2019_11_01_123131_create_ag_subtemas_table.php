@@ -18,11 +18,11 @@ class CreateAgSubtemasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('ag_taller_id')->unsigned()->nullable();
+            $table->integer('ag_taller_id')->unsigned()->nullable();
             $table->string('s_subtema');
             $table->text('s_descripcion');
             $table->foreign('ag_taller_id')->references('id')->on('ag_tallers');
-            $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
+            $table->integer('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table = CamposMagicos::magicos($table);
         });

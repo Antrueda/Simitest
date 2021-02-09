@@ -115,13 +115,13 @@ class UsuarioDepController extends Controller
 
     private function view($dataxxxx)
     {
-        $this->opciones['responsa'] = Tema::comboDesc(23, false, false);
+        $this->opciones['responsa'] = Tema::comboDesc(23, true, false);
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nombre;
         $selectxx = 0;
         $this->opciones['dependen'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->nombre];
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {

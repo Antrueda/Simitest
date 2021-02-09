@@ -24,13 +24,13 @@ class CreateSalidaJovenesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('responsable_id')->unsigned()->nullable();
-            $table->bigInteger('ai_salmay_id')->unsigned();
-            $table->bigInteger('autoriza_id')->unsigned()->nullable();
+            $table->integer('sis_nnaj_id')->unsigned();
+            $table->integer('responsable_id')->unsigned()->nullable();
+            $table->integer('ai_salmay_id')->unsigned();
+            $table->integer('autoriza_id')->unsigned()->nullable();
             $table->time('hora_salida');
-            $table->bigInteger('telefono');
-            $table->bigInteger('retorna_id')->unsigned()->nullable();
+            $table->integer('telefono');
+            $table->integer('retorna_id')->unsigned()->nullable();
             $table->date('fecharetorno')->nullable();
             $table->time('horaretorno')->nullable();
             $table->longText('observacion')->nullable();
@@ -45,10 +45,10 @@ class CreateSalidaJovenesTable extends Migration
         //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA QUIENES ASISTEN A LAS ACTIVIDADES ASOCIADOS A LOS TALLERES DENTRO DE LAS ACCIONES GRUPALES'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('salida_jovenes_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('salida_jovenes_id')->unsigned();
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('salida_jovenes_id')->references('id')->on('salida_jovenes');
             $table->unique(['parametro_id', 'salida_jovenes_id']);

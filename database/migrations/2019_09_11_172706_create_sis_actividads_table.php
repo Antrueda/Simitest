@@ -18,10 +18,10 @@ class CreateSisActividadsTable extends Migration
     Schema::create($this->tablaxxx, function (Blueprint $table) {
       $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->string('nombre')->comment('CAMPO DE NOMBRE');
-      $table->bigInteger('sis_docfuen_id')->unsigned()->comment('CAMPO DE ID DOCUMENTO FUENTE');
-      $table->bigInteger('user_crea_id')->unsigned();
-      $table->bigInteger('user_edita_id')->unsigned();
-      $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->integer('sis_docfuen_id')->unsigned()->comment('CAMPO DE ID DOCUMENTO FUENTE');
+      $table->integer('user_crea_id')->unsigned();
+      $table->integer('user_edita_id')->unsigned();
+      $table->integer('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
 

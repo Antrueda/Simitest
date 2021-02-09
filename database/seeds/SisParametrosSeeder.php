@@ -2536,12 +2536,17 @@ class SisParametrosSeeder extends Seeder
         $this->getR(['id'=>2496,'nombrexx' => 'PASAPORTE']);//2496
         $this->getR(['id'=>2497,'nombrexx' => 'CAE/NE']);//2497
         $this->getR(['id'=>2498,'nombrexx' => 'PANTALLA INICIAL']);//2498
-        $this->getR(['id'=>2499,'nombrexx' => 'TALLERES EDUCATIVOS Y ACCIONES FORMATIVAS']);//2499
+        $this->getR(['id'=>2499,'nombrexx' => 'TALLER']);//2499
         $this->getR(['id'=>2500,'nombrexx' => 'SERVICIOS']);//2500
         $this->getR(['id'=>2501,'nombrexx' => 'ESTADO DE USUARIOS']);//2501
         $this->getR(['id'=>2502,'nombrexx' => 'EL PARAMETRO NO EXISTE EN EL ACTUAL DESARROLLO O NO HA SIDO ASIGNADO']);//2502
         $this->getR(['id'=>2503,'nombrexx' => 'PARAMETRO NO ASIGNADO EN EL ANTIGUO SIMI']);//2503
-
+        $this->getR(['id'=>2504,'nombrexx' => 'TEMA']);//2504
+        $this->getR(['id'=>2505,'nombrexx' => 'SUBTEMA']);//2505
+        $this->getR(['id'=>2506,'nombrexx' => 'ASISTENCIA TALLERES CON PADRES']);//2506
+        $this->getR(['id'=>2507,'nombrexx' => 'LISTADO DE ASISTENCIA NNAJ-PROFESIONAL']);//2507
+        $this->getR(['id'=>2508,'nombrexx' => 'REGISTRO ASISTENCIA A-GDH-FT-010']);//2508
+        $this->getR(['id'=>2509,'nombrexx' => 'ESPACIO/LUGAR']);//2509
 
     }
 }

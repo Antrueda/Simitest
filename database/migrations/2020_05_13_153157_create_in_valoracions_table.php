@@ -18,11 +18,11 @@ class CreateInValoracionsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('in_lineabase_nnaj_id')->unsigned();
-            $table->bigInteger('i_prm_categoria_id')->unsigned();
-            $table->bigInteger('i_prm_cactual_id')->unsigned();
-            $table->bigInteger('i_prm_avance_id')->unsigned();
-            $table->bigInteger('i_prm_nivel_id')->unsigned();
+            $table->integer('in_lineabase_nnaj_id')->unsigned();
+            $table->integer('i_prm_categoria_id')->unsigned();
+            $table->integer('i_prm_cactual_id')->unsigned();
+            $table->integer('i_prm_avance_id')->unsigned();
+            $table->integer('i_prm_nivel_id')->unsigned();
             $table->string('s_valoracion', 255);
             $table->foreign('in_lineabase_nnaj_id')->references('id')->on('in_lineabase_nnajs');
             $table->foreign('i_prm_categoria_id')->references('id')->on('parametros');

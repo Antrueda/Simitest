@@ -18,7 +18,7 @@ class CreateFiCsdVsiRedesActualesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('prm_tipo_id')->unsigned();
+            $table->integer('prm_tipo_id')->unsigned();
             $table->string('nombre');
             $table->longText('servicio');
             $table->string('telefono')->nullable();

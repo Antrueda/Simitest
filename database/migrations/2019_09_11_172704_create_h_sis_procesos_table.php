@@ -18,9 +18,9 @@ class CreateHSisProcesosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('sis_proceso_id')->unsigned()->nullable();
-            $table->bigInteger('sis_mapa_proc_id')->unsigned();
-            $table->bigInteger('prm_proceso_id')->unsigned();
+            $table->integer('sis_proceso_id')->unsigned()->nullable();
+            $table->integer('sis_mapa_proc_id')->unsigned();
+            $table->integer('prm_proceso_id')->unsigned();
             $table->string('nombre');
             $table = CamposMagicos::h_magicos($table);
         });

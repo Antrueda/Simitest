@@ -18,7 +18,7 @@ class CreateEvasionParentescosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('prm_parentezco_id')->unsigned();
+            $table->integer('prm_parentezco_id')->unsigned();
             $table->string('primer_apellido', 120);
             $table->string('segundo_apellido', 120)->nullable();;
             $table->string('primer_nombre', 120);
@@ -26,7 +26,7 @@ class CreateEvasionParentescosTable extends Migration
             $table->string('direccion_familiar', 120);
             $table->string('s_telefono', 10);
             $table->foreign('prm_parentezco_id')->references('id')->on('parametros');
-            $table->bigInteger('reporte_evasion_id')->unsigned();
+            $table->integer('reporte_evasion_id')->unsigned();
             $table->foreign('reporte_evasion_id')->references('id')->on('ai_reporte_evasions');
             $table = CamposMagicos::magicos($table);
         });

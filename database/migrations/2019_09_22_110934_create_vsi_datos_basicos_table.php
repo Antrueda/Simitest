@@ -25,8 +25,8 @@ class CreateVsiDatosBasicosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
-            $table->bigInteger('sis_depen_id')->unsigned()->comment('CAMPO ID DEPENDENCIA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
+            $table->integer('sis_depen_id')->unsigned()->comment('CAMPO ID DEPENDENCIA');
             $table->date('fecha')->comment('CAMPO DE FECHA DE DILIGENCIAMIENTO');
 
 
@@ -38,8 +38,8 @@ class CreateVsiDatosBasicosTable extends Migration
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO ESTADO EMOCIONAL');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO ESTADO EMOCIONAL');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -50,8 +50,8 @@ class CreateVsiDatosBasicosTable extends Migration
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA SEXUAL');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA SEXUAL');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -64,8 +64,8 @@ class CreateVsiDatosBasicosTable extends Migration
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA COMPORTAMENTAL');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA COMPORTAMENTAL');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -76,8 +76,8 @@ class CreateVsiDatosBasicosTable extends Migration
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA ACADEMICA');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA ACADEMICA');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id'],'vsnnac_un1');
@@ -87,8 +87,8 @@ class CreateVsiDatosBasicosTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA SOCIAL');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA SOCIAL');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->unique(['parametro_id', 'vsi_id'],'vsnnso_un1');
@@ -98,8 +98,8 @@ class CreateVsiDatosBasicosTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA FAMILIAR');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA FAMILIAR');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_id')->references('id')->on('vsis');

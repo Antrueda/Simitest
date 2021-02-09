@@ -23,9 +23,9 @@ class CreateSisCargosTable extends Migration
             $table->Integer('itigafin')->default(0)->comment('TIEMPO GABELA FIN DE MES PARA EL CARGE DE INFORMACION');
             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->bigInteger('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
+            $table->integer('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table->timestamps();
         });

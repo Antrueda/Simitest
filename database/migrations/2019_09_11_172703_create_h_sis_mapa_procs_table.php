@@ -19,7 +19,7 @@ class CreateHSisMapaProcsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('version')->unsigned();
-            $table->bigInteger('sis_entidad_id')->unsigned();
+            $table->integer('sis_entidad_id')->unsigned();
             $table->date('vigencia');
             $table->date('cierre');
             $table = CamposMagicos::h_magicos($table);

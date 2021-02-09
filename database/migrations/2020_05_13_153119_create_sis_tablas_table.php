@@ -20,7 +20,7 @@ class CreateSisTablasTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->string('s_tabla')->nullable();
             $table->string('s_descripcion')->nullable();
-            $table->bigInteger('sis_docfuen_id')->unsigned();
+            $table->integer('sis_docfuen_id')->unsigned();
             $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');
             $table = CamposMagicos::magicos($table);
         });

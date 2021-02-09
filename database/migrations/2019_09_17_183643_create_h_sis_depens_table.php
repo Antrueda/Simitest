@@ -19,13 +19,13 @@ class CreateHSisDepensTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre');
-            $table->bigInteger('i_prm_cvital_id')->unsigned();
-            $table->bigInteger('i_prm_tdependen_id')->unsigned();
-            $table->bigInteger('i_prm_sexo_id')->unsigned();
+            $table->integer('i_prm_cvital_id')->unsigned();
+            $table->integer('i_prm_tdependen_id')->unsigned();
+            $table->integer('i_prm_sexo_id')->unsigned();
             $table->string('s_direccion');
-            $table->bigInteger('sis_departam_id')->unsigned();
-            $table->bigInteger('sis_municipio_id')->unsigned();
-            $table->bigInteger('sis_upzbarri_id')->unsigned();
+            $table->integer('sis_departam_id')->unsigned();
+            $table->integer('sis_municipio_id')->unsigned();
+            $table->integer('sis_upzbarri_id')->unsigned();
             $table->string('s_telefono');
             $table->string('s_correo');
             $table->Integer('itiestan')->nullable()->comment('TIEMPO STANDAR PARA EL CARGUE DE INFORMACION');

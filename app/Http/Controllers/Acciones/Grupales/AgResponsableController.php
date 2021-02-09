@@ -41,9 +41,13 @@ class AgResponsableController extends Controller
         
         $this->pestanix[1]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['crear', [$padrexxx->id], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
+        $responsa = AgResponsable::where('ag_actividad_id',$padrexxx->id)->get();
+        if(  count($responsa)<=2){
+            $this->getBotones(['crear', [$padrexxx->id], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
+        }
         $this->getBotones(['crear', ['agasiste.nuevo',[$padrexxx->id]], 2, 'AGREGAR PARTICIPANTES', 'btn btn-sm btn-primary']);
-        $this->getBotones(['crear', ['agrelacion.nuevo',[$padrexxx->id]], 2, 'AGREGAR RECURSOS', 'btn btn-sm btn-primary']);
+       
+        $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
     public function store(AgResponsableCrearRequest $request, AgActividad $padrexxx)
@@ -76,7 +80,6 @@ class AgResponsableController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agasiste.nuevo',[$padrexxx->id]], 2, 'AGREGAR PARTICIPANTES', 'btn btn-sm btn-primary']);
-        $this->getBotones(['crear', ['agrelacion.nuevo',[$padrexxx->id]], 2, 'AGREGAR RECURSOS', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR RESPONSABLE', 'btn btn-sm btn-primary']);
         $responsa = AgResponsable::where('ag_actividad_id',$padrexxx->id)->get();
         if(  count($responsa)<=2){

@@ -18,18 +18,18 @@ class CreateHCsdGenIngresosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
             $table->longText('observacion');
-            $table->bigInteger('prm_actividad_id')->unsigned();
+            $table->integer('prm_actividad_id')->unsigned();
             $table->string('trabaja')->nullable();
-            $table->bigInteger('prm_informal_id')->unsigned()->nullable();
-            $table->bigInteger('prm_otra_id')->unsigned()->nullable();
-            $table->bigInteger('prm_laboral_id')->unsigned()->nullable();
-            $table->bigInteger('prm_frecuencia_id')->unsigned()->nullable();
+            $table->integer('prm_informal_id')->unsigned()->nullable();
+            $table->integer('prm_otra_id')->unsigned()->nullable();
+            $table->integer('prm_laboral_id')->unsigned()->nullable();
+            $table->integer('prm_frecuencia_id')->unsigned()->nullable();
             $table->integer('intensidad')->unsigned()->nullable();
-            $table->bigInteger('prm_dificultad_id')->unsigned();
+            $table->integer('prm_dificultad_id')->unsigned();
             $table->longText('razon')->nullable();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

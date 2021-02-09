@@ -7,8 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Sistema\SisEslugCrearRequest;
 use App\Http\Requests\Sistema\SisEslugEditarRequest;
 use App\Models\Sistema\SisEslug;
+use App\Models\Sistema\SisEsta;
+use App\Models\Usuario\Estusuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class SiseslugController extends Controller
 {
@@ -73,10 +76,20 @@ class SiseslugController extends Controller
     {
 
         $this->opciones['accionxx'] = $accionxx;
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
+        $estadoid = 0;
         if ($nombobje != '') {
             $this->opciones[$nombobje] = $objetoxx;
+            $estadoid= $objetoxx->sis_esta_id;
         }
+
+        $this->opciones['motivoxx'] = Estusuario::combo([
+            'cabecera' => true,
+            'esajaxxx' => false,
+            'estadoid' => $estadoid,
+            'formular' => 2509
+        ]);
 
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
@@ -192,5 +205,17 @@ class SiseslugController extends Controller
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
 
         return redirect()->route($this->opciones['routxxxx'])->with('info', 'Registro ' . $activado . ' con éxito');
+    }
+    public function getMotivos(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2509])
+            );
+        }
     }
 }

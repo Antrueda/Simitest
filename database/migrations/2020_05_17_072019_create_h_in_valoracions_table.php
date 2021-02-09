@@ -18,10 +18,10 @@ class CreateHInValoracionsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('i_prm_categoria_id')->unsigned();
-            $table->bigInteger('i_prm_cactual_id')->unsigned();
-            $table->bigInteger('i_prm_avance_id')->unsigned();
-            $table->bigInteger('i_prm_nivel_id')->unsigned();
+            $table->integer('i_prm_categoria_id')->unsigned();
+            $table->integer('i_prm_cactual_id')->unsigned();
+            $table->integer('i_prm_avance_id')->unsigned();
+            $table->integer('i_prm_nivel_id')->unsigned();
             $table->string('s_valoracion', 255);
             $table = CamposMagicos::h_magicos($table);
         });

@@ -18,10 +18,10 @@ class CreateNnajDesesTable extends Migration
     {
         Schema::create( $this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('sis_servicio_id')->unsigned();
+            $table->integer('sis_servicio_id')->unsigned();
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
-            $table->bigInteger('nnaj_upi_id')->unsigned();
-            $table->bigInteger('prm_principa_id')->unsigned();
+            $table->integer('nnaj_upi_id')->unsigned();
+            $table->integer('prm_principa_id')->unsigned();
             $table->foreign('prm_principa_id')->references('id')->on('parametros');
             $table->foreign('nnaj_upi_id')->references('id')->on('nnaj_upis');
             $table = CamposMagicos::magicos($table);
@@ -32,8 +32,8 @@ class CreateNnajDesesTable extends Migration
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->Integer('sis_servicio_id');
-            $table->bigInteger('nnaj_upi_id')->unsigned();
-            $table->bigInteger('prm_principa_id')->unsigned();
+            $table->integer('nnaj_upi_id')->unsigned();
+            $table->integer('prm_principa_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");

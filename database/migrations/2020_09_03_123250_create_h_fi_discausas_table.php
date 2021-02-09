@@ -18,8 +18,8 @@ class CreateHFiDiscausasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('fi_salud_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
-            $table->bigInteger('prm_discausa_id')->unsigned()->comment('FI 6.4.b LA DISCAPACIDAD FUE PRODUCIDA EN LA COMISION DE ALGUN ACTO ILEGAL?');
+            $table->integer('fi_salud_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
+            $table->integer('prm_discausa_id')->unsigned()->comment('FI 6.4.b LA DISCAPACIDAD FUE PRODUCIDA EN LA COMISION DE ALGUN ACTO ILEGAL?');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

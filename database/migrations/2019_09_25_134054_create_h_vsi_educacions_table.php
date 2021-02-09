@@ -24,16 +24,16 @@ class CreateHVsiEducacionsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('prm_estudia_id')->unsigned();
+            $table->integer('vsi_id')->unsigned();
+            $table->integer('prm_estudia_id')->unsigned();
             $table->Integer('dia')->unsigned()->nullable();
             $table->Integer('mes')->unsigned()->nullable();
             $table->Integer('ano')->unsigned()->nullable();
-            $table->bigInteger('prm_motivo_id')->unsigned()->nullable();
-            $table->bigInteger('prm_rendimiento_id')->unsigned()->nullable();
-            $table->bigInteger('prm_dificultad_id')->unsigned()->nullable();
-            $table->bigInteger('prm_leer_id')->unsigned()->nullable();
-            $table->bigInteger('prm_escribir_id')->unsigned()->nullable();
+            $table->integer('prm_motivo_id')->unsigned()->nullable();
+            $table->integer('prm_rendimiento_id')->unsigned()->nullable();
+            $table->integer('prm_dificultad_id')->unsigned()->nullable();
+            $table->integer('prm_leer_id')->unsigned()->nullable();
+            $table->integer('prm_escribir_id')->unsigned()->nullable();
             $table->longText('descripcion')->nullable();
             $table = CamposMagicos::h_magicos($table);
         });
@@ -41,40 +41,40 @@ class CreateHVsiEducacionsTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_educacion_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_educacion_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_educacion_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_educacion_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_educacion_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_educacion_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_educacion_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_educacion_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_educacion_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_educacion_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");

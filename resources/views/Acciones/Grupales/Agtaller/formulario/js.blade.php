@@ -37,7 +37,7 @@
                     estadoid: $(this).val(),
                 },
                 selected: '',
-                routexxx: "{{ route('agtema.motivosx')}}"
+                routexxx: "{{ route('agrtaller.motivosx')}}"
             })
         });
 
@@ -47,7 +47,7 @@
                 estadoid: $('#sis_esta_id').val(),
             },
             selected: "{{old('estusuario_id')}}",
-            routexxx: "{{ route('agtema.motivosx')}}"
+            routexxx: "{{ route('agrtaller.motivosx')}}"
         })
         @endif
 

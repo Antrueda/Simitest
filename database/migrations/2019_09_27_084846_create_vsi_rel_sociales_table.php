@@ -20,9 +20,9 @@ class CreateVsiRelSocialesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
             $table->longText('descripcion')->comment('CAMPO DESCRIPCION');
-            $table->bigInteger('prm_dificultad_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DIFICULTAD');
+            $table->integer('prm_dificultad_id')->nullable()->unsigned()->comment('CAMPO PARAMETRO DIFICULTAD');
             $table->longText('completa')->nullable()->comment('CAMPO ABIERTO DESCRIPCION COMPLETA DE SI MISMO');
 
 
@@ -37,8 +37,8 @@ class CreateVsiRelSocialesTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE FACTORES QUE FACILITAN INTERACTUAR');
-            $table->bigInteger('vsi_relsocial_id')->unsigned()->comment('CAMPO ID RELACION SOCIAL');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO DE FACTORES QUE FACILITAN INTERACTUAR');
+            $table->integer('vsi_relsocial_id')->unsigned()->comment('CAMPO ID RELACION SOCIAL');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relsocial_id')->references('id')->on('vsi_rel_sociales');
@@ -49,8 +49,8 @@ class CreateVsiRelSocialesTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE FACTORES QUE DIFICULTAN INTERACTUAR');
-            $table->bigInteger('vsi_relsocial_id')->unsigned()->comment('CAMPO ID RELACION SOCIAL');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO DE FACTORES QUE DIFICULTAN INTERACTUAR');
+            $table->integer('vsi_relsocial_id')->unsigned()->comment('CAMPO ID RELACION SOCIAL');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relsocial_id')->references('id')->on('vsi_rel_sociales');

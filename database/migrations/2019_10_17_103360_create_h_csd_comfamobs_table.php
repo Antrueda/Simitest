@@ -18,9 +18,9 @@ class CreateHCsdComFamObsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
             $table->longText('observaciones');
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

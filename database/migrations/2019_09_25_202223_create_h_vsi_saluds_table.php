@@ -18,16 +18,16 @@ class CreateHVsiSaludsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('prm_atencion_id')->unsigned();
-            $table->bigInteger('prm_condicion_id')->unsigned()->nullable();
-            $table->bigInteger('prm_medicamento_id')->unsigned();
-            $table->bigInteger('prm_prescripcion_id')->unsigned()->nullable();
-            $table->bigInteger('prm_sexual_id')->unsigned();
-            $table->bigInteger('prm_activa_id')->unsigned()->nullable();
-            $table->bigInteger('prm_embarazo_id')->unsigned()->nullable();
-            $table->bigInteger('prm_hijo_id')->unsigned()->nullable();
-            $table->bigInteger('prm_interrupcion_id')->unsigned()->nullable();
+            $table->integer('vsi_id')->unsigned();
+            $table->integer('prm_atencion_id')->unsigned();
+            $table->integer('prm_condicion_id')->unsigned()->nullable();
+            $table->integer('prm_medicamento_id')->unsigned();
+            $table->integer('prm_prescripcion_id')->unsigned()->nullable();
+            $table->integer('prm_sexual_id')->unsigned();
+            $table->integer('prm_activa_id')->unsigned()->nullable();
+            $table->integer('prm_embarazo_id')->unsigned()->nullable();
+            $table->integer('prm_hijo_id')->unsigned()->nullable();
+            $table->integer('prm_interrupcion_id')->unsigned()->nullable();
             $table->string('medicamento')->nullable();
             $table->longText('descripcion')->nullable();
             $table->integer('edad')->unsigned()->nullable();

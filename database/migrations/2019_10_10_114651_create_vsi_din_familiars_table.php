@@ -26,11 +26,11 @@ class CreateVsiDinFamiliarsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
-            $table->bigInteger('prm_familiar_id')->nullable()->unsigned()->comment('TIPOLOGIA FAMILIAR');
-            $table->bigInteger('prm_hogar_id')->nullable()->unsigned()->comment('TIPOLOGIA DEL HOGAR');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->integer('prm_familiar_id')->nullable()->unsigned()->comment('TIPOLOGIA FAMILIAR');
+            $table->integer('prm_hogar_id')->nullable()->unsigned()->comment('TIPOLOGIA DEL HOGAR');
             $table->longText('lugar')->nullable()->comment('DESCRIPCION DEL LUGAR');
-            $table->bigInteger('prm_motivo_id')->unsigned()->nullable();
+            $table->integer('prm_motivo_id')->unsigned()->nullable();
             $table->string('s_doc_adjunto', 150)->nullable()->comment('CAMPO DATO ADJUNTO, GENOGRAMA');
             $table->longText('descripcion')->comment('DESCRIPCION DE LA COMPOSICION FAMILIAR');
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -43,8 +43,8 @@ class CreateVsiDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN HABITABILIDAD EN CALLE');
-            $table->bigInteger('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN HABITABILIDAD EN CALLE');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
@@ -54,8 +54,8 @@ class CreateVsiDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN CONDUCTAS DELICTIVAS');
-            $table->bigInteger('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN CONDUCTAS DELICTIVAS');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
@@ -65,8 +65,8 @@ class CreateVsiDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN PROSTITUCION');
-            $table->bigInteger('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN PROSTITUCION');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
@@ -76,8 +76,8 @@ class CreateVsiDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN PRIVACION DE LA LIBERTAD');
-            $table->bigInteger('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN PRIVACION DE LA LIBERTAD');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
@@ -88,8 +88,8 @@ class CreateVsiDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN CONSUMO DE SPA');
-            $table->bigInteger('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN CONSUMO DE SPA');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
@@ -100,8 +100,8 @@ class CreateVsiDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN SALUD MENTAL');
-            $table->bigInteger('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN SALUD MENTAL');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
@@ -112,8 +112,8 @@ class CreateVsiDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx8, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES QUE ASUMEN CUIDADO DE MENORES DE 18 AÑOS');
-            $table->bigInteger('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES QUE ASUMEN CUIDADO DE MENORES DE 18 AÑOS');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);
@@ -123,8 +123,8 @@ class CreateVsiDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx9, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA MOTIVOS DE LA AUSENCIA DE REPRESENTANTES LEGALES');
-            $table->bigInteger('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA MOTIVOS DE LA AUSENCIA DE REPRESENTANTES LEGALES');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_dinfamiliar_id')->references('id')->on('vsi_din_familiars');
             $table->unique(['parametro_id', 'vsi_dinfamiliar_id']);

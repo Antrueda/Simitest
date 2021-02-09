@@ -19,9 +19,9 @@ class CreateFiDiscausasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('fi_salud_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
+            $table->integer('fi_salud_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
             $table->foreign('fi_salud_id')->references('id')->on('fi_saluds');
-            $table->bigInteger('prm_discausa_id')->unsigned()->comment($this->commentx);
+            $table->integer('prm_discausa_id')->unsigned()->comment($this->commentx);
             $table->foreign('prm_discausa_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });

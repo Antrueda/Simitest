@@ -114,6 +114,7 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                  */
                 'cargdocu-modulo',
                 'cardocfi-leer', 'cardocfi-crear', 'cardocfi-editar', 'cardocfi-borrar','cardocfi-activarx',
+                'agcargdoc-leer', 'agcargdoc-crear', 'agcargdoc-editar', 'agcargdoc-borrar',
             ]);
 
 

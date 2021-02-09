@@ -14,7 +14,7 @@ return [
       |
      */
 
-    'default' => env('DB_CONNECTIONO', 'oracle'),
+    'default' => env('DB_CONNECTION', 'mysql'),
     /*
       |--------------------------------------------------------------------------
       | Database Connections
@@ -91,16 +91,6 @@ return [
             'database' => env('DB_DATABASEO', 'forge'),
             'username' => env('DB_USERNAMEO', 'forge'),
             'password' => env('DB_PASSWORDO', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-        ],
-        'simiantiguo' => [
-            'driver' => 'oracle',
-            'host' => env('DB_HOSTANTIGUO', 'localhost'),
-            'port' => env('DB_PORTANTIGUO', '1433'),
-            'database' => env('DB_DATABASEANTIGUO', 'forge'),
-            'username' => env('DB_USERNAMEANTIGUO', 'forge'),
-            'password' => env('DB_PASSWORDANTIGUO', ''),
             'charset' => 'utf8',
             'prefix' => '',
         ],

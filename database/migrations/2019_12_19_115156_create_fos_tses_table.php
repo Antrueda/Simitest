@@ -18,8 +18,8 @@ class CreateFosTsesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(167)->nocache();
-            $table->bigInteger('area_id')->unsigned();
-            $table->bigInteger('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
+            $table->integer('area_id')->unsigned();
+            $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table->string('nombre', 120);
             $table->longText('descripcion')->nullable();

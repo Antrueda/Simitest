@@ -10,7 +10,7 @@
         @endif
     </div>
     <div class="col-md-4">
-        {{ Form::label('prm_upi_id', 'UPI', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::label('prm_upi_id', 'UPI/DEPENDENCIA', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_upi_id', $todoxxxx['dependen'], null, ['class' => $errors->first('prm_upi_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione la UPI']) }}
         @if($errors->has('prm_upi_id'))
             <div class="invalid-feedback d-block">

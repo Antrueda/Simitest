@@ -176,12 +176,12 @@ class AgTallerController extends Controller
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'.temas', []],
-                'formhref' => 2, 'tituloxx' => 'Volver a Temas', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A TEMAS', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], [$agtemaid]],
-                'formhref' => 2, 'tituloxx' => 'Volver a Talleres', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A TALLERES', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         $this->opciones['botoform'][] =
             [
@@ -237,5 +237,17 @@ class AgTallerController extends Controller
         $objetoxx->save();
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
         return redirect()->route($this->opciones['routxxxx'],[$agtemaid])->with('info', 'Registro ' . $activado . ' con éxito');
+    }
+    public function getMotivos(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2499])
+            );
+        }
     }
 }

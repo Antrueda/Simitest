@@ -103,7 +103,16 @@ class EstusuariosSeeder extends Seeder
             ['NUEVO REGISTRO', 2501]
         ); //24
         $this->getReg(
-            ['NUEVO REGISTRO', 2327]
+            ['NUEVO REGISTRO', 2500]
+        ); //25
+        $this->getReg(
+            ['NUEVO REGISTRO', 2505]
+        ); //25
+        $this->getReg(
+            ['NUEVO REGISTRO', 2504]
+        ); //25
+        $this->getReg(
+            ['NUEVO REGISTRO', 2509]
         ); //25
 
         // $this->getReg(
@@ -111,3 +120,4 @@ class EstusuariosSeeder extends Seeder
         // );//2
     }
 }
+

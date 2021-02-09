@@ -15,13 +15,12 @@ class CreateSisLocalidadsTable extends Migration
     public function up()
     {
         Schema::create('sis_localidads', function (Blueprint $table) {
-
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_localidad')->unique()->comment('CAMPO NOMBRE DE LA LOCALIDAD');
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
-            $table->bigInteger('sis_esta_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned();
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
         });

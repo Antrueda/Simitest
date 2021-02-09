@@ -17,14 +17,14 @@ class CreateAiSalidamayoresTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            //$table->bigInteger('sis_nnaj_id')->unsigned();
+            //$table->integer('sis_nnaj_id')->unsigned();
             $table->date('fecha');
-            $table->bigInteger('prm_upi_id')->unsigned();
-            $table->bigInteger('user_doc1_id')->unsigned();
-            $table->bigInteger('user_doc2_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('prm_upi_id')->unsigned();
+            $table->integer('user_doc1_id')->unsigned();
+            $table->integer('user_doc2_id')->unsigned();
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id', 'aisama_pk1')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('prm_upi_id', 'aisama_pk2')->references('id')->on('sis_depens');

@@ -20,16 +20,15 @@ class CreateAgActividadsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->date('d_registro');
-            $table->bigInteger('area_id')->unsigned();
-            $table->bigInteger('sis_deporigen_id')->unsigned();
-            $table->bigInteger('sis_depdestino_id')->unsigned();
-            $table->bigInteger('ag_tema_id')->unsigned();
-            $table->bigInteger('i_prm_lugar_id')->unsigned();
-            $table->bigInteger('ag_taller_id')->unsigned();
-            $table->bigInteger('ag_sttema_id')->unsigned();
-            $table->bigInteger('i_prm_dirig_id')->unsigned();
+            $table->integer('area_id')->unsigned();
+            $table->integer('sis_deporigen_id')->unsigned();
+            $table->integer('sis_depdestino_id')->unsigned();
+            $table->integer('ag_tema_id')->unsigned();
+            $table->integer('i_prm_lugar_id')->unsigned();
+            $table->integer('ag_taller_id')->unsigned();
+            $table->integer('ag_sttema_id')->unsigned();
+            $table->integer('i_prm_dirig_id')->unsigned();
             $table->text('s_prm_espac', 120)->nullable();
-            $table->string('s_doc_adjunto', 200)->nullable();
             $table->boolean('incompleto')->default(1);
             $table->longText('s_introduc');
             $table->longText('s_justific');

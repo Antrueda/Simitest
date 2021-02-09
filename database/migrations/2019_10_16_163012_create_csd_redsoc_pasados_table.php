@@ -17,17 +17,17 @@ class CreateCsdRedsocPasadosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
             $table->string('nombre');
             $table->string('servicios', 120);
             $table->integer('cantidad')->nullable();
-            $table->bigInteger('prm_unidad_id')->unsigned();
+            $table->integer('prm_unidad_id')->unsigned();
             $table->integer('ano');
             $table->longText('retiro')->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();

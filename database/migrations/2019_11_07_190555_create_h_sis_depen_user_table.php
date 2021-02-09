@@ -18,9 +18,9 @@ class CreateHSisDepenUserTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('sis_depen_id')->unsigned();
-            $table->bigInteger('i_prm_responsable_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->integer('sis_depen_id')->unsigned();
+            $table->integer('i_prm_responsable_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

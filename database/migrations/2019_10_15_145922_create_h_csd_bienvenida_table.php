@@ -19,18 +19,18 @@ class CreateHCsdBienvenidaTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
-            $table->bigInteger('prm_persona_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
+            $table->integer('prm_persona_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_bienvenida_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_bienvenida_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

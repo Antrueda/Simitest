@@ -246,6 +246,7 @@ class User extends Authenticatable
             ;
         })
         ->where('sis_depen_user.sis_depen_id', 2)
+        ->where('sis_depen_user.sis_esta_id', 1)
         ->join('sis_depen_user','users.id','=','sis_depen_user.user_id')
             ->orderBy('s_primer_nombre')
             ->orderBy('s_primer_apellido')
@@ -259,6 +260,48 @@ class User extends Authenticatable
         }
         return $comboxxx;
     }
+
+    public static function userComboResponsable($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $userxxxx = User::select(['users.id','s_primer_nombre','s_documento','s_primer_apellido','s_segundo_apellido','s_segundo_nombre'])->where(function ($queryxxx) use ($dataxxxx) {
+            if ($dataxxxx['notinxxx'] != false) {
+                $queryxxx->whereNotIn('users.id', $dataxxxx['notinxxx']);
+            }
+
+            $queryxxx->where('users.sis_esta_id', 1)
+            
+           
+           
+            ;
+        })
+        ->where('sis_depen_user.sis_depen_id', 2)
+        ->where('sis_depen_user.sis_esta_id', 1)
+        ->join('sis_depen_user','users.id','=','sis_depen_user.user_id')
+            ->orderBy('s_primer_nombre')
+            ->orderBy('s_primer_apellido')
+            ->get();
+        foreach ($userxxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->getDocNombreCompletoAttribute()];
+            } else {
+                $comboxxx[$registro->id] = $registro->getDocNombreCompletoAttribute();
+            }
+        }
+        return $comboxxx;
+    }
+
+
+
+
 
     private static function userComboCargo($dataxxxx)
     {
@@ -624,7 +667,7 @@ class User extends Authenticatable
             }
         }
 
-        $notinxxx = User::whereNotIn('id', SisDepeUsua::whereNotIn('user_id', [$dataxxxx['selectxx']])
+        $notinxxx = User::where('sis_esta_id',1)->whereNotIn('id', SisDepeUsua::whereNotIn('user_id', [$dataxxxx['selectxx']])
             ->where('sis_depen_id', $dataxxxx['dependen'])
             ->get(['user_id']))
             ->get();

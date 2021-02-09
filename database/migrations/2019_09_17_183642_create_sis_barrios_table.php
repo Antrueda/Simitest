@@ -18,9 +18,9 @@ class CreateSisBarriosTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_barrio')->unique()->comment('CAMPO NOMBRE DEL BARRIO');
 
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');

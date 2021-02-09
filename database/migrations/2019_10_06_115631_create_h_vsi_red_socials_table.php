@@ -20,31 +20,31 @@ class CreateHVsiRedSocialsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('prm_presenta_id')->unsigned();
-            $table->bigInteger('prm_protector_id')->unsigned()->nullable();
-            $table->bigInteger('prm_dificultad_id')->unsigned();
-            $table->bigInteger('prm_quien_id')->unsigned()->nullable();
-            $table->bigInteger('prm_ruptura_genero_id')->unsigned();
-            $table->bigInteger('prm_ruptura_sexual_id')->unsigned();
-            $table->bigInteger('prm_acceso_id')->unsigned();
-            $table->bigInteger('prm_servicio_id')->unsigned();
+            $table->integer('vsi_id')->unsigned();
+            $table->integer('prm_presenta_id')->unsigned();
+            $table->integer('prm_protector_id')->unsigned()->nullable();
+            $table->integer('prm_dificultad_id')->unsigned();
+            $table->integer('prm_quien_id')->unsigned()->nullable();
+            $table->integer('prm_ruptura_genero_id')->unsigned();
+            $table->integer('prm_ruptura_sexual_id')->unsigned();
+            $table->integer('prm_acceso_id')->unsigned();
+            $table->integer('prm_servicio_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_redsocial_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_redsocial_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_redsocial_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_redsocial_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");

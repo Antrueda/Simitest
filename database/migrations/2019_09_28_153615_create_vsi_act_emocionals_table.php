@@ -19,8 +19,8 @@ class CreateVsiActEmocionalsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
-            $table->bigInteger('prm_activa_id')->unsigned()->comment('CAMPO ACTIVIDAD EMOCIONAL');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
+            $table->integer('prm_activa_id')->unsigned()->comment('CAMPO ACTIVIDAD EMOCIONAL');
             $table->longText('descripcion')->nullable()->comment('CAMPO ABIERTO DESCRIPCION');
             $table->longText('conductual')->nullable()->comment('CAMPO ABIERTO DESCRIPCION CONDUCTUAL');
             $table->longText('cognitiva')->nullable()->comment('CAMPO ABIERTO DESCRIPCION COGNITIVA');
@@ -32,8 +32,8 @@ class CreateVsiActEmocionalsTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_actemocional_id')->unsigned()->comment('CAMPO ID ACTIVIDAD EMOCIONAL');
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_actemocional_id')->unsigned()->comment('CAMPO ID ACTIVIDAD EMOCIONAL');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_actemocional_id')->references('id')->on('vsi_act_emocionals');
             $table->unique(['parametro_id', 'vsi_actemocional_id']);

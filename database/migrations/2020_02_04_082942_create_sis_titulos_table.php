@@ -20,7 +20,7 @@ class CreateSisTitulosTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->string('s_titulo')->unique();
             $table->text('s_tooltip');
-            $table->bigInteger('i_prm_tletra_id')->unsigned();
+            $table->integer('i_prm_tletra_id')->unsigned();
             $table->foreign('i_prm_tletra_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });

@@ -18,8 +18,8 @@ class CreateHInDocPreguntasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('in_ligru_id')->unsigned();
-            $table->bigInteger('sis_tcampo_id')->unsigned();
+            $table->integer('in_ligru_id')->unsigned();
+            $table->integer('sis_tcampo_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

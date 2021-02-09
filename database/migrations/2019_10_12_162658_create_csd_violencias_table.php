@@ -17,17 +17,17 @@ class CreateCsdViolenciasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
-            $table->bigInteger('prm_condicion_id')->unsigned()->comment('CAMPO ID SI PRESENTA CONDICION DE VIOLENCIA');
-            $table->bigInteger('departamento_cond_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
-            $table->bigInteger('municipio_cond_id')->unsigned()->nullable()->comment('CAMPO ID DE MUNICIPIO');
-            $table->bigInteger('prm_certificado_id')->unsigned()->nullable()->comment('CAMPO ID SI TIENE CERTIFICADO');
-            $table->bigInteger('departamento_cert_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO DE CERTIFICADO');
-            $table->bigInteger('municipio_cert_id')->unsigned()->nullable()->comment('CAMPO ID DE DE MUNICIPIO DE CERTIFICADO');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->integer('prm_condicion_id')->unsigned()->comment('CAMPO ID SI PRESENTA CONDICION DE VIOLENCIA');
+            $table->integer('departamento_cond_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO');
+            $table->integer('municipio_cond_id')->unsigned()->nullable()->comment('CAMPO ID DE MUNICIPIO');
+            $table->integer('prm_certificado_id')->unsigned()->nullable()->comment('CAMPO ID SI TIENE CERTIFICADO');
+            $table->integer('departamento_cert_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO DE CERTIFICADO');
+            $table->integer('municipio_cert_id')->unsigned()->nullable()->comment('CAMPO ID DE DE MUNICIPIO DE CERTIFICADO');
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();

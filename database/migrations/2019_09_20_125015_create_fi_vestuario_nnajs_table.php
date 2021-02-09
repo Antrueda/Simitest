@@ -17,16 +17,16 @@ class CreateFiVestuarioNnajsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
 
-            $table->bigInteger('prm_t_pantalon_id')->unsigned()->comment('CAMPO TIPO DE PANTALON');
-            $table->bigInteger('prm_t_camisa_id')->unsigned()->comment('CAMPO TIPO DE CAMISA');
-            $table->bigInteger('prm_t_zapato_id')->unsigned()->comment('CAMPO TIPO DE ZAPATO');
-            $table->bigInteger('prm_sexo_etario_id')->unsigned()->comment('CAMPO TALLA DE ROPA');
-            $table->bigInteger('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID DE NNAJ');
+            $table->integer('prm_t_pantalon_id')->unsigned()->comment('CAMPO TIPO DE PANTALON');
+            $table->integer('prm_t_camisa_id')->unsigned()->comment('CAMPO TIPO DE CAMISA');
+            $table->integer('prm_t_zapato_id')->unsigned()->comment('CAMPO TIPO DE ZAPATO');
+            $table->integer('prm_sexo_etario_id')->unsigned()->comment('CAMPO TALLA DE ROPA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID DE NNAJ');
 
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');

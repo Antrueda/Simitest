@@ -20,12 +20,12 @@ class CreateFiRazonesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->text('s_porque_ingresar');
-            $table->bigInteger('userd_id')->unsigned();
-            $table->bigInteger('sis_depend_id')->unsigned();
-            $table->bigInteger('userr_id')->unsigned();
-            $table->bigInteger('sis_depenr_id')->unsigned();
-            $table->bigInteger('i_prm_estado_ingreso_id')->unsigned();
-            $table->bigInteger('sis_nnaj_id')->unsigned();
+            $table->integer('userd_id')->unsigned();
+            $table->integer('sis_depend_id')->unsigned();
+            $table->integer('userr_id')->unsigned();
+            $table->integer('sis_depenr_id')->unsigned();
+            $table->integer('i_prm_estado_ingreso_id')->unsigned();
+            $table->integer('sis_nnaj_id')->unsigned();
             $table->foreign('userd_id')->references('id')->on('users');
             $table->foreign('userr_id')->references('id')->on('users');
             $table->foreign('sis_depend_id')->references('id')->on('sis_depens');
@@ -38,8 +38,8 @@ class CreateFiRazonesTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('i_prm_documento_id')->unsigned();
+            $table->integer('sis_nnaj_id')->unsigned();
+            $table->integer('i_prm_documento_id')->unsigned();
 
             $table->text('s_ruta');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');

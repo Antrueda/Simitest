@@ -240,15 +240,15 @@ class RolController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Destroy', 'padrexxx' => $objetoxx->vsi]);
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Destroy']);
     }
 
 
-    public function destroy(RolBorrarRequest $request, VsiDinfamMadre $objetoxx)
+    public function destroy(Roleext $objetoxx)
     {
         $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'].'.editar', [$objetoxx->vsi_id])
+            ->route('rolesxxx')
             ->with('info', 'Razón inactivada correctamente');
     }
 

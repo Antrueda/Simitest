@@ -19,9 +19,9 @@ class CreateFiAccionesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('fi_actividadestl_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
+            $table->integer('fi_actividadestl_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
             $table->foreign('fi_actividadestl_id')->references('id')->on('fi_actividadestls');
-            $table->bigInteger('prm_accione_id')->unsigned()->comment($this->commentx);
+            $table->integer('prm_accione_id')->unsigned()->comment($this->commentx);
             $table->foreign('prm_accione_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });

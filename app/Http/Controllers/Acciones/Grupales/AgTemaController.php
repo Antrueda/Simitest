@@ -88,7 +88,7 @@ class AgTemaController extends Controller
             'cabecera' => true,
             'esajaxxx' => false,
             'estadoid' => $estadoid,
-            'formular' => 2499
+            'formular' => 2504
         ]);
 
         // Se arma el titulo de acuerdo al array opciones

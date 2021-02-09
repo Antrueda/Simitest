@@ -18,14 +18,14 @@ class CreateHCsdConclusioneTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
             $table->longText('conclusiones');
             $table->string('persona_nombre');
             $table->string('persona_doc');
-            $table->bigInteger('persona_parent_id')->unsigned();
-            $table->bigInteger('user_doc1_id')->unsigned();
-            $table->bigInteger('user_doc2_id')->unsigned()->nullable();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('persona_parent_id')->unsigned();
+            $table->integer('user_doc1_id')->unsigned();
+            $table->integer('user_doc2_id')->unsigned()->nullable();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

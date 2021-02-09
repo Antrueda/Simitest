@@ -148,9 +148,9 @@ trait DataTablesTrait
                     'permisox' => $dataxxxx['permisox'],
                     'routxxxx' => 'agasiste',
                     'parametr' => [$dataxxxx['modeloxx']->id],
-                ];        
-         
-             $dataxxxx['tablasxx'][] =
+                ];  
+    
+         $dataxxxx['tablasxx'][] =
                  [
                      'titunuev' => 'AGREGAR RECURSO',
                      'titulist' => 'LISTA DE RECUSOS',
@@ -188,6 +188,41 @@ trait DataTablesTrait
                      'routxxxx' => 'agrelacion',
                      'parametr' => [$dataxxxx['modeloxx']->id],
                  ];
+                 $dataxxxx['tablasxx'][] =
+                 [
+                     'titunuev' => 'NUEVO DOCUMENTO',
+                     'titulist' => 'LISTA DE DOCUMENTOS',
+                     'titupreg' => 'LISTA DE DOCUMENTOS DE LA ACTIVIDAD',
+                     'archdttb' => $dataxxxx['rutacarp'] . 'Acomponentes.Adatatable.index',
+                     'vercrear' => true,
+                     'urlxxxxx' => route($dataxxxx['routxxxx'] . '.agcargdoc', $dataxxxx['modeloxx']->id), 
+                     'permtabl' => [
+                         $dataxxxx['permisox'] . '-leer',
+                         $dataxxxx['permisox'] . '-crear',
+                         $dataxxxx['permisox'] . '-editar',
+                         $dataxxxx['permisox'] . '-borrar',
+                         $dataxxxx['permisox'] . '-activar',
+                     ],
+                     'cabecera' => [
+                         [
+                             ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                             ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                             ['td' => 'DOCUMENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                             ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                         ]
+                     ],
+                     'columnsx' => [
+                         ['data' => 'botonexx', 'name' => 'botonexx'],
+                         ['data' => 'id', 'name' => 'fi_documentos_anexas.id'],
+                         ['data' => 'nombre', 'name' => 'parametros.nombre'],
+                         ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+                     ],
+                     'tablaxxx' => 'datatabledoc',
+                     'permisox' => $dataxxxx['permisox'],
+                     'routxxxx' => 'agcargdoc',
+                     'parametr' => [$dataxxxx['modeloxx']->id],
+                 ];    
+                 
         }
         $dataxxxx['ruarchjs'][] =
             ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tabla'];

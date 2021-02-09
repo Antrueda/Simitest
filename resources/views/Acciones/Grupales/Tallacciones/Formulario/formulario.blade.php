@@ -143,22 +143,5 @@
             @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
         @endif
     </div>
-    @if(isset($todoxxxx["modeloxx"]->id))
-    <div class="form-row align-items-end form-group col-md-12" style="margin-bottom: 40px">
-        {{ Form::label('s_doc_adjunto_ar', 'Cargar Documento', ['class' => 'control-label col-form-label-sm']) }}
-        @component('layouts.components.archivos.upload')
-        @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto_ar','descripc'=>'Seleccione un archivo','idlabelx'=>'s_doc_adjunto_ar_label',
-        'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf','clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
-        @endcomponent
-
-    </div>
-    @endif
-</div>
-@if($todoxxxx['archivox']!='')
-<div class="row">
-    <div class="col-md-12">
-    <a class="btn btn-outline-primary" href="{{asset($todoxxxx['modeloxx']->s_doc_adjunto)}}" target="_blank" >VER ADJUNTO</a>
-    </div>
-</div>
-@endif
+  
 

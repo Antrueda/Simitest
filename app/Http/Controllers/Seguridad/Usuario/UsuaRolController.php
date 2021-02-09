@@ -122,7 +122,7 @@ class UsuaRolController extends Controller
         $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id];
-        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
+        $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {

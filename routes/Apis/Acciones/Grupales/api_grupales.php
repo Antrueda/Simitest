@@ -71,11 +71,14 @@ Route::get('ag/contextos', function (Request $request) {
 Route::get('ag/recursos', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     return datatables()
-        ->eloquent(AgRecurso::select(['ag_recursos.id', 'ag_recursos.s_recurso', 'ag_recursos.sis_esta_id', 'parametros.nombre as trecurso', 'parametros.nombre as umedidax'])
+        ->eloquent(AgRecurso::select(['ag_recursos.id', 'ag_recursos.s_recurso', 'ag_recursos.sis_esta_id',
+         'parametros.nombre as trecurso', 'parametros.nombre as umedidax','sis_estas.s_estado'])
             ->join('parametros', 'ag_recursos.i_prm_trecurso_id', '=', 'parametros.id')
+            ->join('sis_estas', 'ag_recursos.sis_esta_id', '=', 'sis_estas.id')
             ->where('ag_recursos.sis_esta_id', 1))
         ->addColumn('btns', 'Acciones/Grupales/Agrecurso/botones/botonesapi')
-        ->rawColumns(['btns'])
+        ->addColumn('s_estado', $request->estadoxx)
+        ->rawColumns(['btns', 's_estado'])
         ->toJson();
 });
 

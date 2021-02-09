@@ -19,10 +19,10 @@ class CreateInAccionGestionsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('sis_actividad_id')->unsigned();
-            $table->bigInteger('i_prm_ttiempo_id')->unsigned();
-            $table->bigInteger('in_lineabase_nnaj_id')->unsigned();
-            $table->bigInteger('sis_docfuen_id')->unsigned(); //cambiar por in_linea_fuente en un futuro
+            $table->integer('sis_actividad_id')->unsigned();
+            $table->integer('i_prm_ttiempo_id')->unsigned();
+            $table->integer('in_lineabase_nnaj_id')->unsigned();
+            $table->integer('sis_docfuen_id')->unsigned(); //cambiar por in_linea_fuente en un futuro
             $table->integer('i_tiempo');
             $table->decimal('i_porcentaje', 5, 2);
             $table->foreign('in_lineabase_nnaj_id')->references('id')->on('in_lineabase_nnajs');
@@ -34,8 +34,8 @@ class CreateInAccionGestionsTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('in_accion_gestion_id')->unsigned();
-            $table->bigInteger('sis_fsoporte_id')->unsigned();
+            $table->integer('in_accion_gestion_id')->unsigned();
+            $table->integer('sis_fsoporte_id')->unsigned();
             $table->foreign('in_accion_gestion_id')->references('id')->on('in_accion_gestions');
             $table->foreign('sis_fsoporte_id')->references('id')->on('sis_fsoportes');
             $table->unique(['in_accion_gestion_id', 'sis_fsoporte_id']);

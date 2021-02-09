@@ -18,8 +18,8 @@ class CreateHInRespusTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('in_doc_pregunta_id')->unsigned();
-            $table->bigInteger('prm_respuesta_id')->unsigned();
+            $table->integer('in_doc_pregunta_id')->unsigned();
+            $table->integer('prm_respuesta_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

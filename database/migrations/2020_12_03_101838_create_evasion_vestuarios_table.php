@@ -17,11 +17,11 @@ class CreateEvasionVestuariosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('prm_vestuario_id')->unsigned();
+            $table->integer('prm_vestuario_id')->unsigned();
             $table->string('material', 120);
             $table->string('color', 120);
             $table->foreign('prm_vestuario_id')->references('id')->on('parametros');
-            $table->bigInteger('reporte_evasion_id')->unsigned();
+            $table->integer('reporte_evasion_id')->unsigned();
             $table->foreign('reporte_evasion_id')->references('id')->on('ai_reporte_evasions');
             $table = CamposMagicos::magicos($table);
         });

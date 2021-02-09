@@ -18,8 +18,8 @@ class CreateInRespusTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('in_doc_pregunta_id')->unsigned();
-            $table->bigInteger('prm_respuesta_id')->unsigned();
+            $table->integer('in_doc_pregunta_id')->unsigned();
+            $table->integer('prm_respuesta_id')->unsigned();
             $table->foreign('prm_respuesta_id')->references('id')->on('parametros');
             $table->foreign('in_doc_pregunta_id')->references('id')->on('in_doc_preguntas');
             $table->unique(['prm_respuesta_id', 'in_doc_pregunta_id']);

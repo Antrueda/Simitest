@@ -18,10 +18,10 @@ class CreateHAgResponsablesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('i_prm_responsable_id')->unsigned();
-            $table->bigInteger('ag_actividad_id')->unsigned();
-            $table->bigInteger('sis_obse_id')->unsigned()->nullable();
-            $table->bigInteger('user_id')->unsigned();
+            $table->integer('i_prm_responsable_id')->unsigned();
+            $table->integer('ag_actividad_id')->unsigned();
+            $table->integer('sis_obse_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

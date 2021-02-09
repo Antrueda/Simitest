@@ -11,6 +11,7 @@ class SisEslug extends Model
         's_espaluga',
         'sis_esta_id',
         'user_crea_id',
+        'estusuario_id',
         'user_edita_id',];
 
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];

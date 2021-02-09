@@ -19,9 +19,9 @@ class CreateFiViolbasasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('fi_violencia_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
+            $table->integer('fi_violencia_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
             $table->foreign('fi_violencia_id')->references('id')->on('fi_violencias');
-            $table->bigInteger('prm_violbasa_id')->unsigned()->comment(strtoupper($this->commentx));
+            $table->integer('prm_violbasa_id')->unsigned()->comment(strtoupper($this->commentx));
             $table->foreign('prm_violbasa_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
@@ -29,8 +29,8 @@ class CreateFiViolbasasTable extends Migration
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('fi_violencia_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
-            $table->bigInteger('prm_violbasa_id')->unsigned()->comment(strtoupper($this->commentx));
+            $table->integer('fi_violencia_id')->unsigned()->comment("PADRE DE LA RESPUESTA");
+            $table->integer('prm_violbasa_id')->unsigned()->comment(strtoupper($this->commentx));
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

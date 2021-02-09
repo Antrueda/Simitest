@@ -117,7 +117,7 @@ class AgSubtemaController extends Controller
             'cabecera' => true,
             'esajaxxx' => false,
             'estadoid' => $estadoid,
-            'formular' => 2499
+            'formular' => 2505
         ]);
         // Se arma el titulo de acuerdo al array opciones
         $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
@@ -196,12 +196,12 @@ class AgSubtemaController extends Controller
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'.talleres', [$agtaller]],
-                'formhref' => 2, 'tituloxx' => 'Volver a Talleres', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A TALLERES', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], [$agtaller]],
-                'formhref' => 2, 'tituloxx' => 'Volver a Subtemas', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A SUBTEMAS', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         $this->opciones['botoform'][] =
             [
@@ -261,5 +261,17 @@ class AgSubtemaController extends Controller
         $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
 
         return redirect()->route($this->opciones['routxxxx'],[$agtaller])->with('info', 'Registro ' . $activado . ' con éxito');
+    }
+    public function getMotivos(Request $request)
+    {
+        if ($request->ajax()) {
+            return response()->json(
+                Estusuario::combo([
+                    'cabecera' => true,
+                    'esajaxxx' => true,
+                    'estadoid' => $request->estadoid,
+                    'formular' => 2505])
+            );
+        }
     }
 }

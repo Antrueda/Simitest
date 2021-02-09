@@ -21,23 +21,23 @@ class CreateHVsiGenIngresosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('prm_actividad_id')->unsigned();
+            $table->integer('vsi_id')->unsigned();
+            $table->integer('prm_actividad_id')->unsigned();
             $table->string('trabaja')->nullable();
-            $table->bigInteger('prm_informal_id')->unsigned()->nullable();
-            $table->bigInteger('prm_otra_id')->unsigned()->nullable();
-            $table->bigInteger('prm_no_id')->unsigned()->nullable();
+            $table->integer('prm_informal_id')->unsigned()->nullable();
+            $table->integer('prm_otra_id')->unsigned()->nullable();
+            $table->integer('prm_no_id')->unsigned()->nullable();
             $table->Integer('cuanto')->unsigned()->nullable();
-            $table->bigInteger('prm_periodo_id')->unsigned()->nullable();
-            $table->bigInteger('prm_jornada_id')->unsigned()->nullable();
+            $table->integer('prm_periodo_id')->unsigned()->nullable();
+            $table->integer('prm_jornada_id')->unsigned()->nullable();
             $table->Integer('jornada_entre')->unsigned()->nullable();
-            $table->bigInteger('prm_jor_entre_id')->unsigned()->nullable();
+            $table->integer('prm_jor_entre_id')->unsigned()->nullable();
             $table->Integer('jornada_a')->unsigned()->nullable();
-            $table->bigInteger('prm_jor_a_id')->unsigned()->nullable();
-            $table->bigInteger('prm_frecuencia_id')->unsigned()->nullable();
+            $table->integer('prm_jor_a_id')->unsigned()->nullable();
+            $table->integer('prm_frecuencia_id')->unsigned()->nullable();
             $table->Integer('aporte')->unsigned()->nullable();
-            $table->bigInteger('prm_laboral_id')->unsigned()->nullable();
-            $table->bigInteger('prm_aporta_id')->unsigned()->nullable();
+            $table->integer('prm_laboral_id')->unsigned()->nullable();
+            $table->integer('prm_aporta_id')->unsigned()->nullable();
             $table->string('porque')->nullable();
             $table->Integer('cuanto_aporta')->unsigned()->nullable();
             $table->longText('expectativa')->nullable();
@@ -48,8 +48,8 @@ class CreateHVsiGenIngresosTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_geningreso_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_geningreso_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
             $table = CamposMagicos::h_magicos($table);
         });
@@ -57,8 +57,8 @@ class CreateHVsiGenIngresosTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_geningreso_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_geningreso_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
             $table = CamposMagicos::h_magicos($table);
         });
@@ -66,8 +66,8 @@ class CreateHVsiGenIngresosTable extends Migration
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_geningreso_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_geningreso_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
             $table = CamposMagicos::h_magicos($table);
         });

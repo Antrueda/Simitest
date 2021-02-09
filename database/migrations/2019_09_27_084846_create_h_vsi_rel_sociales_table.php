@@ -20,9 +20,9 @@ class CreateHVsiRelSocialesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('vsi_id')->unsigned();
+            $table->integer('vsi_id')->unsigned();
             $table->longText('descripcion');
-            $table->bigInteger('prm_dificultad_id')->nullable()->unsigned();
+            $table->integer('prm_dificultad_id')->nullable()->unsigned();
             $table->longText('completa')->nullable();
 
             $table = CamposMagicos::h_magicos($table);
@@ -31,8 +31,8 @@ class CreateHVsiRelSocialesTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_relsocial_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_relsocial_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_relsocial_id']);
             $table = CamposMagicos::h_magicos($table);
         });
@@ -40,8 +40,8 @@ class CreateHVsiRelSocialesTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_relsocial_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_relsocial_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_relsocial_id']);
             $table = CamposMagicos::h_magicos($table);
         });

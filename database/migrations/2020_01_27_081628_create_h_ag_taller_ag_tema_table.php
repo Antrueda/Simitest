@@ -18,8 +18,8 @@ class CreateHAgTallerAgTemaTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('ag_taller_id')->unsigned();
-            $table->bigInteger('ag_tema_id')->unsigned();
+            $table->integer('ag_taller_id')->unsigned();
+            $table->integer('ag_tema_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

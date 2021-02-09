@@ -19,23 +19,23 @@ class CreateCsdGenIngresosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
             $table->longText('observacion')->nullable();
-            $table->bigInteger('prm_actividad_id')->unsigned();
+            $table->integer('prm_actividad_id')->unsigned();
             $table->string('trabaja')->nullable();
-            $table->bigInteger('prm_informal_id')->unsigned()->nullable();
-            $table->bigInteger('prm_otra_id')->unsigned()->nullable();
-            $table->bigInteger('prm_laboral_id')->unsigned()->nullable();
-            $table->bigInteger('prm_frecuencia_id')->unsigned()->nullable();
+            $table->integer('prm_informal_id')->unsigned()->nullable();
+            $table->integer('prm_otra_id')->unsigned()->nullable();
+            $table->integer('prm_laboral_id')->unsigned()->nullable();
+            $table->integer('prm_frecuencia_id')->unsigned()->nullable();
             $table->integer('intensidad')->unsigned()->nullable();
-            $table->bigInteger('prm_dificultad_id')->unsigned();
+            $table->integer('prm_dificultad_id')->unsigned();
             $table->longText('razon')->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
 
             $table->foreign('csd_id')->references('id')->on('csds');
@@ -51,8 +51,8 @@ class CreateCsdGenIngresosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA GENERACION DE INGRESOS AL INTERIOR DEL NUCLEO FAMILIAR DE LA PERSONA PERSONA ENTREVISTADA, SECCION 10 GENERACION DE INGRESOS DE CONSULTA SOCIAL EN DOMICILIO'");
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_gen_ingresos_id')->unsigned()->comment('REGISTRO GENINGRESO AL QUE SE LE ASIGNA EL DÍA');
-            $table->bigIntegeR('prm_dia_genera_id')->unsigned()->comment('FI 7.3 DIA GENERA INGRESO');
+            $table->integer('csd_gen_ingresos_id')->unsigned()->comment('REGISTRO GENINGRESO AL QUE SE LE ASIGNA EL DÍA');
+            $table->integer('prm_dia_genera_id')->unsigned()->comment('FI 7.3 DIA GENERA INGRESO');
             $table->foreign('csd_gen_ingresos_id')->references('id')->on('csd_gen_ingresos');
             $table->foreign('prm_dia_genera_id')->references('id')->on('parametros');
             CamposMagicos::magicos($table);

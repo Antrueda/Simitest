@@ -19,8 +19,8 @@ class CreateHVsiActEmocionalsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('prm_activa_id')->unsigned();
+            $table->integer('vsi_id')->unsigned();
+            $table->integer('prm_activa_id')->unsigned();
             $table->longText('descripcion')->nullable();
             $table->longText('conductual')->nullable();
             $table->longText('cognitiva')->nullable();
@@ -30,8 +30,8 @@ class CreateHVsiActEmocionalsTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_actemocional_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_actemocional_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_actemocional_id']);
             $table = CamposMagicos::h_magicos($table);
         });

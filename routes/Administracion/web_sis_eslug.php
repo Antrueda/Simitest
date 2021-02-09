@@ -28,5 +28,9 @@ Route::group(['prefix' => 'lugar'], function () {
 	    'uses' => 'Administracion\SiseslugController@destroy',
 	    'middleware' => ['permission:siseslug-borrar']
 	])->name('siseslug.borrar');
+	Route::get('motivos', [
+		'uses' => 'Administracion\SiseslugController@getMotivos',
+	    'middleware' => ['permission:siseslug-leer']
+    ])->name('siseslug.motivosx');
 	
 });

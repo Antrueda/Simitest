@@ -19,9 +19,9 @@ class CreateNnajUpisTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('sis_depen_id')->unsigned();
+            $table->integer('sis_depen_id')->unsigned();
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
-            $table->bigInteger('prm_principa_id')->unsigned();
+            $table->integer('prm_principa_id')->unsigned();
             $table->foreign('prm_principa_id')->references('id')->on('parametros');
             $table = CamposMagicos::getForeign($table, 'sis_nnaj');
             $table = CamposMagicos::magicos($table);
@@ -34,7 +34,7 @@ class CreateNnajUpisTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->Integer('sis_depen_id');
             $table->Integer('sis_nnaj_id');
-            $table->bigInteger('prm_principa_id')->unsigned();
+            $table->integer('prm_principa_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");

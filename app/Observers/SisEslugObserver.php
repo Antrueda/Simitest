@@ -16,10 +16,12 @@ class SisEslugObserver
         $log['s_espaluga'] = $modeloxx->s_espaluga;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
+        $log['estusuario_id'] = $modeloxx->estusuario_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
         $log['metodoxx'] = request()->method();
         $log['user_edita_id'] = $modeloxx->user_edita_id;
         $log['rutaxxxx'] = request()->fullUrl();
+        
         $log['ipxxxxxx'] = request()->ip();
         return $log;
     }

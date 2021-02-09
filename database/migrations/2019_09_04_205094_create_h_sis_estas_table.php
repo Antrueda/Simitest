@@ -19,7 +19,7 @@ class CreateHSisEstasTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->string('s_estado');
             $table->Integer('i_estado');
-            $table->bigInteger('id_old');    // campo nuevo
+            $table->integer('id_old');    // campo nuevo
             $table->integer('user_crea_id');
             $table->integer('user_edita_id');
             $table->string('metodoxx');     // campo nuevo

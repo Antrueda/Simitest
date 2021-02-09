@@ -4,6 +4,10 @@ Route::group(['prefix' => 'subtema'], function () {
 		'uses' => 'Acciones\Grupales\AgSubtemaController@talleres',
 		'middleware' => ['permission:agsubtema-leer|agsubtema-crear|agsubtema-editar|agsubtema-borrar']
 	])->name('agsubt.talleres');
+	Route::get('motivos', [
+		'uses' =>'Acciones\Grupales\AgSubtemaController@getMotivos',
+		'middleware' => ['permission:agsubtema-leer']
+	])->name('agsubt.motivosx');
 
 	Route::group(['prefix' => '{agtaller}'], function () {
 
@@ -37,5 +41,6 @@ Route::group(['prefix' => 'subtema'], function () {
 			'uses' => 'Acciones\Grupales\AgSubtemaController@destroy',
 			'middleware' => ['permission:agsubtema-borrar']
 		])->name('agsubt.borrar');
+
 	});
 });

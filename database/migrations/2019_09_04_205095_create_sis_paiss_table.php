@@ -21,7 +21,7 @@ class CreateSisPaissTable extends Migration
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table->Integer('user_crea_id');
             $table->integer('user_edita_id');
-            $table->bigInteger('sis_esta_id')->unsigned();
+            $table->Integer('sis_esta_id')->unsigned();
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
         });

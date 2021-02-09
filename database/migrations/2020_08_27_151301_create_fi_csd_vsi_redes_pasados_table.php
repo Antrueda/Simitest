@@ -20,10 +20,10 @@ class CreateFiCsdVsiRedesPasadosTable extends Migration
             $table->string('nombre');
             $table->string('servicios', 120);
             $table->integer('cantidad')->nullable();
-            $table->bigInteger('prm_unidad_id')->unsigned();
+            $table->integer('prm_unidad_id')->unsigned();
             $table->integer('ano');
             $table->longText('retiro')->nullable();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ANTECECENTES INSTITUCIONES DEL NNAJ PARA FI CSD Y VSI'");

@@ -20,7 +20,7 @@ class CreateHSisTitulosTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->string('s_titulo');
             $table->text('s_tooltip');
-            $table->bigInteger('i_prm_tletra_id')->unsigned();
+            $table->integer('i_prm_tletra_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

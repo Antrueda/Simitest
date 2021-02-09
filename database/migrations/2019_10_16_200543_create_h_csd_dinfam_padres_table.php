@@ -18,14 +18,14 @@ class CreateHCsdDinfamPadresTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
-            $table->bigInteger('prm_convive_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
+            $table->integer('prm_convive_id')->unsigned();
             $table->integer('dia')->unsigned()->nullable();
             $table->integer('mes')->unsigned()->nullable();
             $table->integer('ano')->unsigned()->nullable();
             $table->integer('hijo')->unsigned()->nullable();
-            $table->bigInteger('prm_separa_id')->unsigned()->nullable();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_separa_id')->unsigned()->nullable();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

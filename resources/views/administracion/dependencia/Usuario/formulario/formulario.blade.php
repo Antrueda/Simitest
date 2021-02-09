@@ -8,7 +8,7 @@
         {{ Form::select('user_id', $todoxxxx["usuariox"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
     <div class="form-group col-md-6">
-                {{ Form::label('i_prm_responsable_id', 'Responsable de la unidad?', ['class' => 'control-label col-form-label-sm']) }}
+                {{ Form::label('i_prm_responsable_id', '¿Responsable de la unidad?', ['class' => 'control-label col-form-label-sm']) }}
                 {{ Form::select('i_prm_responsable_id', $todoxxxx["responsa"], null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
             </div>
     <div class="form-group col-md-6">

@@ -142,13 +142,14 @@ class EstusuarioController extends Controller
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
             $estadoid = $dataxxxx['modeloxx']->sis_esta_id;
         }
+        /*
         $this->opciones['motivoxx'] = Estusuario::combo([
             'cabecera' => true,
             'esajaxxx' => false,
             'estadoid' => $estadoid,
             'formular' => 2501
         ]);
-
+*/
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
     /**

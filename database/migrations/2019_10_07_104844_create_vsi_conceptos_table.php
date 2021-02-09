@@ -19,9 +19,9 @@ class CreateVsiConceptosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
             $table->longText('concepto')->comment('CAMPO ABIERTO CONCEPTO');
-            $table->bigInteger('prm_ingreso_id')->unsigned()->nullable()->comment('CAMPO CONSIDERA PERTINENTE EL INGRESO AL IDIPRON');
+            $table->integer('prm_ingreso_id')->unsigned()->nullable()->comment('CAMPO CONSIDERA PERTINENTE EL INGRESO AL IDIPRON');
             $table->longText('porque')->nullable()->comment('CAMPO ABIERTO DE POR QUE');
             $table->string('cual', 120)->nullable()->comment('CAMPO CUALES REDES INTERINSTITUCIONAL');
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -32,8 +32,8 @@ class CreateVsiConceptosTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACE LA RED INSTITUCIONAL');
-            $table->bigInteger('vsi_concepto_id')->unsigned()->comment('CAMPO ID DE CONCEPTO');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACE LA RED INSTITUCIONAL');
+            $table->integer('vsi_concepto_id')->unsigned()->comment('CAMPO ID DE CONCEPTO');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_concepto_id')->references('id')->on('vsi_conceptos');
             $table->unique(['parametro_id', 'vsi_concepto_id']);

@@ -18,10 +18,10 @@ class CreateHVsiConsentimientosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('user_doc1_id')->unsigned();
+            $table->integer('vsi_id')->unsigned();
+            $table->integer('user_doc1_id')->unsigned();
             $table->string('cargo1');
-            $table->bigInteger('user_doc2_id')->unsigned();
+            $table->integer('user_doc2_id')->unsigned();
             $table->string('cargo2');
             $table = CamposMagicos::h_magicos($table);
         });

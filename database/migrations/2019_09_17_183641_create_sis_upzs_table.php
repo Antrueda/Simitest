@@ -19,9 +19,9 @@ class CreateSisUpzsTable extends Migration
             $table->string('s_upz')->unique()->comment('CAMPO DE NOMBRE DE LA UPZ');
             $table->string('s_codigo',6)->comment('CAMPO DE CODIGO DE LA UPZ');
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');

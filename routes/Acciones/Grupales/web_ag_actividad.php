@@ -20,6 +20,10 @@ Route::group(['prefix' => 'agactividad'], function () use($controll,$routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.agasiste');
 
+    Route::get('{padrexxx}/documento', [
+        'uses' => $controll . 'Controller@listaDocumentos',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+    ])->name($routxxxx . '.agcargdoc');
 
 
 	Route::get('nuevo', [
@@ -67,3 +71,6 @@ Route::group(['prefix' => 'agactividad'], function () use($controll,$routxxxx) {
 require_once('web_ag_responsable.php');
 require_once('web_ag_asistentes.php');
 require_once('web_ag_relacion.php');
+require_once('web_agcargdoc.php');
+
+

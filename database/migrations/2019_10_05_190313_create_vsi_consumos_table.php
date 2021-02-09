@@ -20,18 +20,18 @@ class CreateVsiConsumosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
-            $table->bigInteger('prm_consumo_id')->unsigned()->comment('CAMPO PARAMETRO CONSUMO');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->integer('prm_consumo_id')->unsigned()->comment('CAMPO PARAMETRO CONSUMO');
             $table->Integer('cantidad')->unsigned()->nullable()->comment('CAMPO CUANTAS SUSTANCIAS');
             $table->Integer('inicio')->unsigned()->nullable()->comment('CAMPO EDAD QUE INICIO EL CONSUME');
-            $table->bigInteger('prm_contexto_ini_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO QUE CONTEXTO INICIO EL CONSUMO');
-            $table->bigInteger('prm_consume_id')->unsigned()->nullable()->comment('CAMPO ACTUALMENTE CONSUME SPA');
-            $table->bigInteger('prm_contexto_man_id')->unsigned()->nullable()->comment('CAMPO CONTEXTO MANTIENE EL CONSUMO DE SPA');
-            $table->bigInteger('prm_problema_id')->unsigned()->nullable()->comment('CAMPO CONSIDERA UN PROBLEMA EL CONSUMO DE SPA');
+            $table->integer('prm_contexto_ini_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO QUE CONTEXTO INICIO EL CONSUMO');
+            $table->integer('prm_consume_id')->unsigned()->nullable()->comment('CAMPO ACTUALMENTE CONSUME SPA');
+            $table->integer('prm_contexto_man_id')->unsigned()->nullable()->comment('CAMPO CONTEXTO MANTIENE EL CONSUMO DE SPA');
+            $table->integer('prm_problema_id')->unsigned()->nullable()->comment('CAMPO CONSIDERA UN PROBLEMA EL CONSUMO DE SPA');
             $table->string('porque')->nullable()->comment('CAMPO POR QUE CONSIDERA PROBLEMA EL CONSUMO DE SPA');
-            $table->bigInteger('prm_motivo_id')->unsigned()->nullable()->comment('CAMPO MOTIVO PARA EL CONSUMO DE SPA');
-            $table->bigInteger('prm_expectativa_id')->unsigned()->nullable()->comment('CAMPO MOTIVO PARA EL CONSUMO DE SPA');
-            $table->bigInteger('prm_familia_id')->unsigned()->comment('CAMPO ALGUN MIEMBRO DE LA FAMILIAR CONSUME SPA');
+            $table->integer('prm_motivo_id')->unsigned()->nullable()->comment('CAMPO MOTIVO PARA EL CONSUMO DE SPA');
+            $table->integer('prm_expectativa_id')->unsigned()->nullable()->comment('CAMPO MOTIVO PARA EL CONSUMO DE SPA');
+            $table->integer('prm_familia_id')->unsigned()->comment('CAMPO ALGUN MIEMBRO DE LA FAMILIAR CONSUME SPA');
             $table->longText('descripcion')->nullable()->comment('CAMPO DESCRIPCION');
 
             $table->foreign('vsi_id')->references('id')->on('vsis');
@@ -49,8 +49,8 @@ class CreateVsiConsumosTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DE FAMILIARES QUE CONSUMEN SPA');
-            $table->bigInteger('vsi_consumo_id')->unsigned()->comment('CAMPO ID CONSUMO');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DE FAMILIARES QUE CONSUMEN SPA');
+            $table->integer('vsi_consumo_id')->unsigned()->comment('CAMPO ID CONSUMO');
             $table = CamposMagicos::magicos($table);
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_consumo_id')->references('id')->on('vsi_consumos');
@@ -60,8 +60,8 @@ class CreateVsiConsumosTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO EXPECTATIVAS DE L CONSUMO DE SUSTANCIAS PSICOACTIVAS');
-            $table->bigInteger('vsi_consumo_id')->unsigned()->comment('CAMPO ID CONSUMO');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO EXPECTATIVAS DE L CONSUMO DE SUSTANCIAS PSICOACTIVAS');
+            $table->integer('vsi_consumo_id')->unsigned()->comment('CAMPO ID CONSUMO');
             $table = CamposMagicos::magicos($table);
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_consumo_id')->references('id')->on('vsi_consumos');

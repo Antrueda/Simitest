@@ -3252,6 +3252,9 @@ class TemasTableSeeder extends Seeder
             2499 => $camposmagicos,
             2500 => $camposmagicos,
             2501 => $camposmagicos,
+            2505 => $camposmagicos,
+            2504 => $camposmagicos,
+            2509 => $camposmagicos,
         ]);
 
         $tema = Tema::create(['id' => 341, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL',]);
@@ -3402,6 +3405,12 @@ class TemasTableSeeder extends Seeder
             'parametr' => [2487,2488,2489,2490]
         ]); //363
 
+        $this->getR([
+            'id'=>364,
+            'nombrexx' => 'Documentos talleres',
+            'parametr' => [2506,2507,2508]
+        ]); //363
+
 
         //359
         // $this->getR([
@@ -3411,4 +3420,5 @@ class TemasTableSeeder extends Seeder
         // ]); //362
     }
 }
+
 

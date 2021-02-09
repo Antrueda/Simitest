@@ -17,21 +17,21 @@ class CreateFosDatosBasicosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('sis_depen_id')->unsigned();
+            $table->integer('sis_nnaj_id')->unsigned();
+            $table->integer('sis_depen_id')->unsigned();
             $table->date('d_fecha_diligencia');
-            $table->bigInteger('area_id')->unsigned();
-            $table->bigInteger('fos_tse_id')->unsigned();
-            $table->bigInteger('fos_stse_id')->unsigned();
+            $table->integer('area_id')->unsigned();
+            $table->integer('fos_tse_id')->unsigned();
+            $table->integer('fos_stse_id')->unsigned();
             $table->text('s_observacion');
-            $table->bigInteger('fi_compfami_id')->unsigned()->nullable();
-            $table->bigInteger('i_responsable')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('fi_compfami_id')->unsigned()->nullable();
+            $table->integer('i_responsable')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD')->nullable();
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD')->nullable();
 
-            $table->bigInteger('user_edita_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
             
             $table->timestamps();
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');

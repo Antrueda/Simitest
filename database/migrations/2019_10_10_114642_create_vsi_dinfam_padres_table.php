@@ -17,16 +17,16 @@ class CreateVsiDinfamPadresTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
-            $table->bigInteger('prm_convive_id')->unsigned()->comment('CAMPO SI CONVIVIO CON EL NNAJ');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->integer('prm_convive_id')->unsigned()->comment('CAMPO SI CONVIVIO CON EL NNAJ');
             $table->integer('dia')->unsigned()->nullable()->comment('CAMPO DIA');
             $table->integer('mes')->unsigned()->nullable()->comment('CAMPO MES');
             $table->integer('ano')->unsigned()->nullable()->comment('CAMPO AÑO');
             $table->integer('hijo')->unsigned()->comment('CAMPO CUANTOS HIJOS');
-            $table->bigInteger('prm_separa_id')->unsigned()->nullable()->comment('CAMPO MOTIVO DE SEPARACION');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('prm_separa_id')->unsigned()->nullable()->comment('CAMPO MOTIVO DE SEPARACION');
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 

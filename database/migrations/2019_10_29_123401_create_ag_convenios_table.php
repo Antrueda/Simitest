@@ -18,15 +18,15 @@ class CreateAgConveniosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('s_convenio');
-            $table->bigInteger('i_prm_tconvenio_id')->unsigned();
-            $table->bigInteger('i_prm_entidad_id')->unsigned();
+            $table->integer('i_prm_tconvenio_id')->unsigned();
+            $table->integer('i_prm_entidad_id')->unsigned();
             $table->string('s_descripcion');
-            $table->bigInteger('i_nconvenio');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
+            $table->integer('i_nconvenio');
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
             $table->dateTime('d_subscrip');
             $table->dateTime('d_terminac');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 

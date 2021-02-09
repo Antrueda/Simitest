@@ -18,7 +18,7 @@ class CreateHVsiFacRiesgosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('vsi_id')->unsigned();
+            $table->integer('vsi_id')->unsigned();
             $table->string('riesgo');
             $table = CamposMagicos::h_magicos($table);
         });

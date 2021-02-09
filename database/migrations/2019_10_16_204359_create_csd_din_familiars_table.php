@@ -23,33 +23,33 @@ class CreateCsdDinFamiliarsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
             $table->longText('descripcion')->nullable();
             $table->longText('relevantes');
             $table->string('s_doc_adjunto', 150)->nullable();
-            $table->bigInteger('prm_familiar_id')->nullable()->unsigned();
-            $table->bigInteger('prm_hogar_id')->nullable()->unsigned();
+            $table->integer('prm_familiar_id')->nullable()->unsigned();
+            $table->integer('prm_hogar_id')->nullable()->unsigned();
             $table->longText('descripciona');
-            $table->bigInteger('prm_bogota_id')->unsigned();
-            $table->bigInteger('prm_traslado_id')->unsigned()->nullable();
+            $table->integer('prm_bogota_id')->unsigned();
+            $table->integer('prm_traslado_id')->unsigned()->nullable();
             $table->string('jefea')->nullable();
-            $table->bigInteger('prm_jefea_id')->unsigned()->nullable();
+            $table->integer('prm_jefea_id')->unsigned()->nullable();
             $table->string('jefeb')->nullable();
-            $table->bigInteger('prm_jefeb_id')->unsigned()->nullable();
+            $table->integer('prm_jefeb_id')->unsigned()->nullable();
             $table->longText('descripcionb');
-            $table->bigInteger('prm_cuidador_id')->unsigned()->nullable();
+            $table->integer('prm_cuidador_id')->unsigned()->nullable();
             $table->longText('descripcionc');
             $table->longText('afronta');
-            $table->bigInteger('prm_norma_id')->unsigned();
-            $table->bigInteger('prm_conoce_id')->unsigned()->nullable();
+            $table->integer('prm_norma_id')->unsigned();
+            $table->integer('prm_conoce_id')->unsigned()->nullable();
             $table->longText('observacion')->nullable();;
-            $table->bigInteger('prm_actuan_id')->unsigned()->nullable();
+            $table->integer('prm_actuan_id')->unsigned()->nullable();
             $table->longText('porque')->nullable();
-            $table->bigInteger('prm_solucion_id')->unsigned();
-            $table->bigInteger('prm_problema_id')->unsigned();
-            $table->bigInteger('prm_destaca_id')->unsigned();
-            $table->bigInteger('prm_positivo_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_solucion_id')->unsigned();
+            $table->integer('prm_problema_id')->unsigned();
+            $table->integer('prm_destaca_id')->unsigned();
+            $table->integer('prm_positivo_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id','csdifa_pk1')->references('id')->on('parametros');
             $table->foreign('csd_id','csdifa_pk2')->references('id')->on('csds');
             $table->foreign('prm_familiar_id','csdifa_pk3')->references('id')->on('parametros');
@@ -72,9 +72,9 @@ class CreateCsdDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_dinfamiliar_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_dinfamiliar_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
@@ -85,9 +85,9 @@ class CreateCsdDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_dinfamiliar_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_dinfamiliar_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
@@ -98,9 +98,9 @@ class CreateCsdDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_dinfamiliar_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_dinfamiliar_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
@@ -111,9 +111,9 @@ class CreateCsdDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_dinfamiliar_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_dinfamiliar_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');
@@ -124,9 +124,9 @@ class CreateCsdDinFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_dinfamiliar_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_dinfamiliar_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_dinfamiliar_id')->references('id')->on('csd_din_familiars');

@@ -18,15 +18,15 @@ class CreateFiAutorizacionsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('i_prm_autorizo_id')->unsigned()->comment('CAMPO PARAMETRO AUTORIZO');
-            $table->bigInteger('fi_compfami_id')->unsigned()->comment('CAMPO DE ID DEL COMPONENTE FAMILIAR');
-            $table->bigInteger('i_prm_parentesco_id')->unsigned()->comment('CAMPO PARENTESCO');
+            $table->integer('i_prm_autorizo_id')->unsigned()->comment('CAMPO PARAMETRO AUTORIZO');
+            $table->integer('fi_compfami_id')->unsigned()->comment('CAMPO DE ID DEL COMPONENTE FAMILIAR');
+            $table->integer('i_prm_parentesco_id')->unsigned()->comment('CAMPO PARENTESCO');
             $table->date('d_autorizacion')->comment('CAMPO FECHA DE AUTORIZACION');
-            $table->bigInteger('i_prm_tipo_diligencia_id')->unsigned()->comment('CAMPO TIPO DE DILIGENCIA');
-            $table->bigInteger('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('i_prm_tipo_diligencia_id')->unsigned()->comment('CAMPO TIPO DE DILIGENCIA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -41,11 +41,11 @@ class CreateFiAutorizacionsTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('fi_autorizacion_id')->unsigned();
-            $table->bigIntegeR('i_prm_modalidad_id')->unsigned();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('fi_autorizacion_id')->unsigned();
+            $table->integer('i_prm_modalidad_id')->unsigned();
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');

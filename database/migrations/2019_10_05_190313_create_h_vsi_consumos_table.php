@@ -20,18 +20,18 @@ class CreateHVsiConsumosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('prm_consumo_id')->unsigned();
+            $table->integer('vsi_id')->unsigned();
+            $table->integer('prm_consumo_id')->unsigned();
             $table->Integer('cantidad')->unsigned()->nullable();
             $table->Integer('inicio')->unsigned()->nullable();
-            $table->bigInteger('prm_contexto_ini_id')->unsigned()->nullable();
-            $table->bigInteger('prm_consume_id')->unsigned()->nullable();
-            $table->bigInteger('prm_contexto_man_id')->unsigned()->nullable();
-            $table->bigInteger('prm_problema_id')->unsigned()->nullable();
+            $table->integer('prm_contexto_ini_id')->unsigned()->nullable();
+            $table->integer('prm_consume_id')->unsigned()->nullable();
+            $table->integer('prm_contexto_man_id')->unsigned()->nullable();
+            $table->integer('prm_problema_id')->unsigned()->nullable();
             $table->string('porque')->nullable();
-            $table->bigInteger('prm_motivo_id')->unsigned()->nullable();
-            $table->bigInteger('prm_expectativa_id')->unsigned()->nullable();
-            $table->bigInteger('prm_familia_id')->unsigned();
+            $table->integer('prm_motivo_id')->unsigned()->nullable();
+            $table->integer('prm_expectativa_id')->unsigned()->nullable();
+            $table->integer('prm_familia_id')->unsigned();
             $table->longText('descripcion')->nullable();
             $table = CamposMagicos::h_magicos($table);
         });
@@ -39,16 +39,16 @@ class CreateHVsiConsumosTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_consumo_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_consumo_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_consumo_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_consumo_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");

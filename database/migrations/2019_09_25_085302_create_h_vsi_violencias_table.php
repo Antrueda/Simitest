@@ -20,42 +20,42 @@ class CreateHVsiViolenciasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('prm_tip_vio_id')->unsigned();
-            $table->bigInteger('prm_fam_fis_id')->unsigned()->nullable();
-            $table->bigInteger('prm_fam_psi_id')->unsigned()->nullable();
-            $table->bigInteger('prm_fam_sex_id')->unsigned()->nullable();
-            $table->bigInteger('prm_fam_eco_id')->unsigned()->nullable();
-            $table->bigInteger('prm_amicol_fis_id')->unsigned()->nullable();
-            $table->bigInteger('prm_amicol_psi_id')->unsigned()->nullable();
-            $table->bigInteger('prm_amicol_sex_id')->unsigned()->nullable();
-            $table->bigInteger('prm_amicol_eco_id')->unsigned()->nullable();
-            $table->bigInteger('prm_par_fis_id')->unsigned()->nullable();
-            $table->bigInteger('prm_par_psi_id')->unsigned()->nullable();
-            $table->bigInteger('prm_par_sex_id')->unsigned()->nullable();
-            $table->bigInteger('prm_par_eco_id')->unsigned()->nullable();
-            $table->bigInteger('prm_compar_fis_id')->unsigned()->nullable();
-            $table->bigInteger('prm_compar_psi_id')->unsigned()->nullable();
-            $table->bigInteger('prm_compar_sex_id')->unsigned()->nullable();
-            $table->bigInteger('prm_compar_eco_id')->unsigned()->nullable();
-            $table->bigInteger('prm_ins_fis_id')->unsigned()->nullable();
-            $table->bigInteger('prm_ins_psi_id')->unsigned()->nullable();
-            $table->bigInteger('prm_ins_sex_id')->unsigned()->nullable();
-            $table->bigInteger('prm_ins_eco_id')->unsigned()->nullable();
-            $table->bigInteger('prm_lab_fis_id')->unsigned()->nullable();
-            $table->bigInteger('prm_lab_psi_id')->unsigned()->nullable();
-            $table->bigInteger('prm_lab_sex_id')->unsigned()->nullable();
-            $table->bigInteger('prm_lab_eco_id')->unsigned()->nullable();
-            $table->bigInteger('prm_dis_gen_id')->unsigned()->nullable();
-            $table->bigInteger('prm_dis_ori_id')->unsigned()->nullable();
+            $table->integer('vsi_id')->unsigned();
+            $table->integer('prm_tip_vio_id')->unsigned();
+            $table->integer('prm_fam_fis_id')->unsigned()->nullable();
+            $table->integer('prm_fam_psi_id')->unsigned()->nullable();
+            $table->integer('prm_fam_sex_id')->unsigned()->nullable();
+            $table->integer('prm_fam_eco_id')->unsigned()->nullable();
+            $table->integer('prm_amicol_fis_id')->unsigned()->nullable();
+            $table->integer('prm_amicol_psi_id')->unsigned()->nullable();
+            $table->integer('prm_amicol_sex_id')->unsigned()->nullable();
+            $table->integer('prm_amicol_eco_id')->unsigned()->nullable();
+            $table->integer('prm_par_fis_id')->unsigned()->nullable();
+            $table->integer('prm_par_psi_id')->unsigned()->nullable();
+            $table->integer('prm_par_sex_id')->unsigned()->nullable();
+            $table->integer('prm_par_eco_id')->unsigned()->nullable();
+            $table->integer('prm_compar_fis_id')->unsigned()->nullable();
+            $table->integer('prm_compar_psi_id')->unsigned()->nullable();
+            $table->integer('prm_compar_sex_id')->unsigned()->nullable();
+            $table->integer('prm_compar_eco_id')->unsigned()->nullable();
+            $table->integer('prm_ins_fis_id')->unsigned()->nullable();
+            $table->integer('prm_ins_psi_id')->unsigned()->nullable();
+            $table->integer('prm_ins_sex_id')->unsigned()->nullable();
+            $table->integer('prm_ins_eco_id')->unsigned()->nullable();
+            $table->integer('prm_lab_fis_id')->unsigned()->nullable();
+            $table->integer('prm_lab_psi_id')->unsigned()->nullable();
+            $table->integer('prm_lab_sex_id')->unsigned()->nullable();
+            $table->integer('prm_lab_eco_id')->unsigned()->nullable();
+            $table->integer('prm_dis_gen_id')->unsigned()->nullable();
+            $table->integer('prm_dis_ori_id')->unsigned()->nullable();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_violencia_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_violencia_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_violencia_id']);
             $table = CamposMagicos::h_magicos($table);
         });
@@ -63,8 +63,8 @@ class CreateHVsiViolenciasTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_violencia_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_violencia_id')->unsigned();
             $table->unique(['parametro_id', 'vsi_violencia_id']);
             $table = CamposMagicos::h_magicos($table);
         });

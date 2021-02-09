@@ -21,8 +21,8 @@ class CreateHVsiDatosVinculasTable extends Migration
     {
       Schema::create($this->tablaxxx, function (Blueprint $table) {
         $table->increments('id')->start(1)->nocache();
-        $table->bigInteger('vsi_id')->unsigned();
-        $table->bigInteger('prm_razon_id')->unsigned();
+        $table->integer('vsi_id')->unsigned();
+        $table->integer('prm_razon_id')->unsigned();
         $table->Integer('dia')->unsigned()->nullable();
         $table->Integer('mes')->unsigned()->nullable();
         $table->Integer('ano')->unsigned()->nullable();
@@ -32,24 +32,24 @@ class CreateHVsiDatosVinculasTable extends Migration
 
       Schema::create($this->tablaxxx2, function (Blueprint $table) {
         $table->increments('id')->start(1)->nocache();
-        $table->bigInteger('parametro_id')->unsigned();
-        $table->bigInteger('vsi_datos_vincula_id')->unsigned();
+        $table->integer('parametro_id')->unsigned();
+        $table->integer('vsi_datos_vincula_id')->unsigned();
         $table = CamposMagicos::h_magicos($table);
       });
      //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
       Schema::create($this->tablaxxx3, function (Blueprint $table) {
         $table->increments('id')->start(1)->nocache();
-        $table->bigInteger('parametro_id')->unsigned();
-        $table->bigInteger('vsi_datos_vincula_id')->unsigned();
+        $table->integer('parametro_id')->unsigned();
+        $table->integer('vsi_datos_vincula_id')->unsigned();
         $table = CamposMagicos::h_magicos($table);
       });
      //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
       
       Schema::create($this->tablaxxx4, function (Blueprint $table) {
         $table->increments('id')->start(1)->nocache();
-        $table->bigInteger('parametro_id')->unsigned();
-        $table->bigInteger('vsi_datos_vincula_id')->unsigned();
+        $table->integer('parametro_id')->unsigned();
+        $table->integer('vsi_datos_vincula_id')->unsigned();
         $table = CamposMagicos::h_magicos($table);
       });
      //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");

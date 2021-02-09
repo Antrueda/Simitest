@@ -21,23 +21,23 @@ class CreateVsiRelFamiliarsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('vsi_id')->unsigned();
-            $table->bigInteger('prm_representativa_id')->unsigned();
+            $table->integer('vsi_id')->unsigned();
+            $table->integer('prm_representativa_id')->unsigned();
             $table->longText('representativa');
-            $table->bigInteger('prm_mala_id')->unsigned();
-            $table->bigInteger('prm_relacion_id')->unsigned();
-            $table->bigInteger('prm_gusto_id')->unsigned();
+            $table->integer('prm_mala_id')->unsigned();
+            $table->integer('prm_relacion_id')->unsigned();
+            $table->integer('prm_gusto_id')->unsigned();
             $table->longText('porque')->nullable();
-            $table->bigInteger('prm_familia_id')->unsigned();
-            $table->bigInteger('prm_denuncia_id')->unsigned()->nullable();
-            $table->bigInteger('prm_denunante_id')->unsigned()->nullable();
+            $table->integer('prm_familia_id')->unsigned();
+            $table->integer('prm_denuncia_id')->unsigned()->nullable();
+            $table->integer('prm_denunante_id')->unsigned()->nullable();
             $table->longText('descripcion')->nullable();
-            $table->bigInteger('prm_pareja_id')->unsigned();
-            $table->bigInteger('prm_dificultad_id')->unsigned()->nullable();
+            $table->integer('prm_pareja_id')->unsigned();
+            $table->integer('prm_dificultad_id')->unsigned()->nullable();
             $table->Integer('dia')->unsigned()->nullable();
             $table->Integer('mes')->unsigned()->nullable();
             $table->Integer('ano')->unsigned()->nullable();
-            $table->bigInteger('prm_responde_id')->unsigned()->nullable();
+            $table->integer('prm_responde_id')->unsigned()->nullable();
             $table->longText('descripcion1')->nullable();
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_representativa_id')->references('id')->on('parametros');
@@ -56,8 +56,8 @@ class CreateVsiRelFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO MOTIVOS POR LA QUE NO EXISTEN BUENAS RELACIONES');
-            $table->bigInteger('vsi_relfamiliar_id')->unsigned()->comment('CAMPO DE ID RELACION FAMILIAR');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO MOTIVOS POR LA QUE NO EXISTEN BUENAS RELACIONES');
+            $table->integer('vsi_relfamiliar_id')->unsigned()->comment('CAMPO DE ID RELACION FAMILIAR');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');
@@ -68,8 +68,8 @@ class CreateVsiRelFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO DETALLES DE LAS DIFICULTADES EN LAS RELACIONES FAMILIARES');
-            $table->bigInteger('vsi_relfamiliar_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO DETALLES DE LAS DIFICULTADES EN LAS RELACIONES FAMILIARES');
+            $table->integer('vsi_relfamiliar_id')->unsigned();
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');
@@ -80,8 +80,8 @@ class CreateVsiRelFamiliarsTable extends Migration
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO ACCIONES REALIZADAS ANTE LOS CASO DE VIOLENCIA');
-            $table->bigInteger('vsi_relfamiliar_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO ACCIONES REALIZADAS ANTE LOS CASO DE VIOLENCIA');
+            $table->integer('vsi_relfamiliar_id')->unsigned();
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_relfamiliar_id')->references('id')->on('vsi_rel_familiars');

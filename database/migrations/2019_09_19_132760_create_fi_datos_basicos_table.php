@@ -25,12 +25,12 @@ class CreateFiDatosBasicosTable extends Migration
             $table->string('s_segundo_apellido')->nullable()->comment('CAMPO DE SEGUNDO APELLIDO');
             $table->string('s_apodo')->nullable()->comment('CAMPO DE APODO');
             $table = CamposMagicos::getForeign($table, 'sis_nnaj');
-            $table->bigInteger('prm_tipoblaci_id')->unsigned()->comment('TIPO DE POBLACION LA QUE PERTENECE EL NNAJ');
+            $table->integer('prm_tipoblaci_id')->unsigned()->comment('TIPO DE POBLACION LA QUE PERTENECE EL NNAJ');
             $table->foreign('prm_tipoblaci_id')->references('id')->on('parametros');
-            $table->bigInteger('prm_estrateg_id')->unsigned()->comment('ESTRTATEGIA A LA QUE APLICA EL NNAJ');
+            $table->integer('prm_estrateg_id')->unsigned()->comment('ESTRTATEGIA A LA QUE APLICA EL NNAJ');
             $table->foreign('prm_estrateg_id')->references('id')->on('parametros');
 
-            $table->bigInteger('prm_vestimenta_id')->unsigned()->comment('ESTADO DE LA VESTIMENTA DEL NNAJ')->nullable();
+            $table->integer('prm_vestimenta_id')->unsigned()->comment('ESTADO DE LA VESTIMENTA DEL NNAJ')->nullable();
             $table->foreign('prm_vestimenta_id')->references('id')->on('parametros');
             $table = CamposMagicos::getForeign($table, 'sis_docfuen');
 
@@ -46,9 +46,9 @@ class CreateFiDatosBasicosTable extends Migration
             $table->string('s_segundo_apellido')->nullable();
             $table->string('s_apodo')->nullable();
             $table->Integer('sis_nnaj_id');
-            $table->bigInteger('prm_tipoblaci_id')->unsigned()->comment('TIPO DE POBLACION LA QUE PERTENECE EL NNAJ');
-            $table->bigInteger('prm_estrateg_id')->unsigned()->comment('ESTRTATEGIA A LA QUE APLICA EL NNAJ');
-            $table->bigInteger('prm_vestimenta_id')->unsigned()->comment('ESTADO DE LA VESTIMENTA DEL NNAJ')->nullable();
+            $table->integer('prm_tipoblaci_id')->unsigned()->comment('TIPO DE POBLACION LA QUE PERTENECE EL NNAJ');
+            $table->integer('prm_estrateg_id')->unsigned()->comment('ESTRTATEGIA A LA QUE APLICA EL NNAJ');
+            $table->integer('prm_vestimenta_id')->unsigned()->comment('ESTADO DE LA VESTIMENTA DEL NNAJ')->nullable();
             
             // $table->Integer('sis_nnaj_id');
             $table->Integer('sis_docfuen_id');

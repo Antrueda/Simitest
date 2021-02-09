@@ -17,6 +17,7 @@ class AgTaller extends Model
     'ag_tema_id',
     'user_crea_id',
     'user_edita_id',
+    'estusuario_id',
     'sis_esta_id'
   ];
   public function in_indicador()

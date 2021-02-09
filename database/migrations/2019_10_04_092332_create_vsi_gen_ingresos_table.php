@@ -21,23 +21,23 @@ class CreateVsiGenIngresosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
-            $table->bigInteger('prm_actividad_id')->unsigned()->comment('CAMPO TIPO DE ACTIVIDAD GENERADORA DE INGRESOS');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->integer('prm_actividad_id')->unsigned()->comment('CAMPO TIPO DE ACTIVIDAD GENERADORA DE INGRESOS');
             $table->string('trabaja')->nullable()->comment('CAMPO TRABAJO FORMAL');
-            $table->bigInteger('prm_informal_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO TRABAJO INFORMAL');
-            $table->bigInteger('prm_otra_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO OTRAS ACTIVIDADES');
-            $table->bigInteger('prm_no_id')->unsigned()->nullable()->comment('CAMPO POR QUE NO GENERA INGRESOS');
+            $table->integer('prm_informal_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO TRABAJO INFORMAL');
+            $table->integer('prm_otra_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO OTRAS ACTIVIDADES');
+            $table->integer('prm_no_id')->unsigned()->nullable()->comment('CAMPO POR QUE NO GENERA INGRESOS');
             $table->Integer('cuanto')->unsigned()->nullable()->comment('CAMPO HACE CUANTO NO GENERA INGRESOS ');
-            $table->bigInteger('prm_periodo_id')->unsigned()->nullable()->comment('CAMPO PERIODO QUE GENERA INGRESOS ');
-            $table->bigInteger('prm_jornada_id')->unsigned()->nullable()->comment('CAMPO JORNADA QUE GENERA INGRESOS ');
+            $table->integer('prm_periodo_id')->unsigned()->nullable()->comment('CAMPO PERIODO QUE GENERA INGRESOS ');
+            $table->integer('prm_jornada_id')->unsigned()->nullable()->comment('CAMPO JORNADA QUE GENERA INGRESOS ');
             $table->Integer('jornada_entre')->unsigned()->nullable()->comment('CAMPO NUMERO JORNADA ENTRE ');
-            $table->bigInteger('prm_jor_entre_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO JORNADA ENTRE ');
+            $table->integer('prm_jor_entre_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO JORNADA ENTRE ');
             $table->Integer('jornada_a')->unsigned()->nullable()->comment('CAMPO NUMERO JORNADA HASTA ');
-            $table->bigInteger('prm_jor_a_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO JORNADA A ');
-            $table->bigInteger('prm_frecuencia_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO FRECUENCIA DE INGRESO ');
+            $table->integer('prm_jor_a_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO JORNADA A ');
+            $table->integer('prm_frecuencia_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO FRECUENCIA DE INGRESO ');
             $table->Integer('aporte')->unsigned()->nullable()->comment('CAMPO APORTE ');
-            $table->bigInteger('prm_laboral_id')->unsigned()->nullable()->comment('CAMPO RELACION LABORAL ');
-            $table->bigInteger('prm_aporta_id')->unsigned()->nullable()->comment('CAMPO SI REALIZA UN APORTE ');
+            $table->integer('prm_laboral_id')->unsigned()->nullable()->comment('CAMPO RELACION LABORAL ');
+            $table->integer('prm_aporta_id')->unsigned()->nullable()->comment('CAMPO SI REALIZA UN APORTE ');
             $table->string('porque')->nullable()->comment('CAMPO POR QUE REALIZA UN APORTE ');
             $table->Integer('cuanto_aporta')->unsigned()->nullable()->comment('CAMPO CUANTO APORTA ');
             $table->longText('expectativa')->nullable()->comment('CAMPO ABIERTO EXPECTATIVA ');
@@ -61,8 +61,8 @@ class CreateVsiGenIngresosTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DIAS QUE REALIZA ACTIVIDAD');
-            $table->bigInteger('vsi_geningreso_id')->unsigned()->comment('CAMPO ID GENERACION DE INGRESO');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO DIAS QUE REALIZA ACTIVIDAD');
+            $table->integer('vsi_geningreso_id')->unsigned()->comment('CAMPO ID GENERACION DE INGRESO');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_geningreso_id')->references('id')->on('vsi_gen_ingresos');
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
@@ -72,8 +72,8 @@ class CreateVsiGenIngresosTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO DE QUIEN GENERA APORTES');
-            $table->bigInteger('vsi_geningreso_id')->unsigned()->comment('CAMPO ID GENERACION DE INGRESO');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO DE QUIEN GENERA APORTES');
+            $table->integer('vsi_geningreso_id')->unsigned()->comment('CAMPO ID GENERACION DE INGRESO');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_geningreso_id')->references('id')->on('vsi_gen_ingresos');
             $table->unique(['parametro_id', 'vsi_geningreso_id']);
@@ -83,8 +83,8 @@ class CreateVsiGenIngresosTable extends Migration
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO LABOR QUE DESEMPEÑA');
-            $table->bigInteger('vsi_geningreso_id')->unsigned()->comment('CAMPO ID GENERACION DE INGRESO');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO LABOR QUE DESEMPEÑA');
+            $table->integer('vsi_geningreso_id')->unsigned()->comment('CAMPO ID GENERACION DE INGRESO');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_geningreso_id')->references('id')->on('vsi_gen_ingresos');
             $table->unique(['parametro_id', 'vsi_geningreso_id']);

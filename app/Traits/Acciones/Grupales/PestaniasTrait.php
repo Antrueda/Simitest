@@ -20,6 +20,10 @@ trait PestaniasTrait
             'permisox' => 'agrelacion', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
         ],
 
+        [
+            'permisox' => 'agcargdoc', 'routexxx' => '.nuevo', 'dataxxxx' => [false, []],
+        ],
+
         
         
     ];
@@ -33,6 +37,8 @@ trait PestaniasTrait
             'agrespon' => ['crear', 'editar', 'borrar', 'activar'],
             'agasiste' => ['crear', 'borrar', 'activar'],
             'agrelacion' => ['crear', 'borrar', 'activar'],
+            'agcargdoc' => ['crear', 'borrar', 'activar'],
+
             
         ];
         $cananyxx = [];
@@ -57,7 +63,7 @@ trait PestaniasTrait
         $pestania['agrespon'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'RESPONSABLES',
+            'tituloxx' => 'RESPONSABLE Y ACOMPAÑANTES',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),
@@ -75,6 +81,14 @@ trait PestaniasTrait
             'routexxx' => '',
             'activexx' => '',
             'tituloxx' => 'RECURSOS',
+            'tablaxxx' => 'sis_pais',
+            'datablex' => [],
+            'cananyxx' => $this->getCanany($dataxxxx),
+        ];
+        $pestania['agcargdoc'] = [
+            'routexxx' => '',
+            'activexx' => '',
+            'tituloxx' => 'CARGUE DE DOCUMENTOS',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

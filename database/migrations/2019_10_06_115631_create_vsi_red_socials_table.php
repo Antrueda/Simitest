@@ -20,15 +20,15 @@ class CreateVsiRedSocialsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
-            $table->bigInteger('prm_presenta_id')->unsigned()->comment('CAMPO PRESENTA ALGUNA RED DE APOYO');
-            $table->bigInteger('prm_protector_id')->unsigned()->nullable()->comment('CAMPO RED DE APOYO CON FACTOR PROTECTOR');
-            $table->bigInteger('prm_dificultad_id')->unsigned()->comment('CAMPO PRESENTA DIFICULTADES PARA ACCEDER A UNA RED DE APOYO');
-            $table->bigInteger('prm_quien_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO QUIEN');
-            $table->bigInteger('prm_ruptura_genero_id')->unsigned()->comment('CAMPO EXISTE RUPTURA EN REDES DE APOYO POR GENERO ');
-            $table->bigInteger('prm_ruptura_sexual_id')->unsigned()->comment('CAMPO EXISTE RUPTURA EN REDES DE APOYO POR ORIENTACION SEXUAL ');
-            $table->bigInteger('prm_acceso_id')->unsigned()->comment('CAMPO HA TENIDO RESTRICCION DE ACCESO A LAS REDES DE APOYO');
-            $table->bigInteger('prm_servicio_id')->unsigned()->comment('CAMPO RECIBIO SERVICIOS DE ALGUNA RED DE APOYO');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->integer('prm_presenta_id')->unsigned()->comment('CAMPO PRESENTA ALGUNA RED DE APOYO');
+            $table->integer('prm_protector_id')->unsigned()->nullable()->comment('CAMPO RED DE APOYO CON FACTOR PROTECTOR');
+            $table->integer('prm_dificultad_id')->unsigned()->comment('CAMPO PRESENTA DIFICULTADES PARA ACCEDER A UNA RED DE APOYO');
+            $table->integer('prm_quien_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO QUIEN');
+            $table->integer('prm_ruptura_genero_id')->unsigned()->comment('CAMPO EXISTE RUPTURA EN REDES DE APOYO POR GENERO ');
+            $table->integer('prm_ruptura_sexual_id')->unsigned()->comment('CAMPO EXISTE RUPTURA EN REDES DE APOYO POR ORIENTACION SEXUAL ');
+            $table->integer('prm_acceso_id')->unsigned()->comment('CAMPO HA TENIDO RESTRICCION DE ACCESO A LAS REDES DE APOYO');
+            $table->integer('prm_servicio_id')->unsigned()->comment('CAMPO RECIBIO SERVICIOS DE ALGUNA RED DE APOYO');
 
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_presenta_id')->references('id')->on('parametros');
@@ -45,8 +45,8 @@ class CreateVsiRedSocialsTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO MOTIVOS DE RESTRICCIONES ');
-            $table->bigInteger('vsi_redsocial_id')->unsigned()->comment('CAMPO DE ID REDES SOCIALES');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO MOTIVOS DE RESTRICCIONES ');
+            $table->integer('vsi_redsocial_id')->unsigned()->comment('CAMPO DE ID REDES SOCIALES');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_redsocial_id')->references('id')->on('vsi_red_socials');
@@ -57,8 +57,8 @@ class CreateVsiRedSocialsTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO MOTIVOS DE RESTRICCION A REDES SOCIALES DE APOYO');
-            $table->bigInteger('vsi_redsocial_id')->unsigned()->comment('CAMPO DE ID REDES SOCIALES');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO MOTIVOS DE RESTRICCION A REDES SOCIALES DE APOYO');
+            $table->integer('vsi_redsocial_id')->unsigned()->comment('CAMPO DE ID REDES SOCIALES');
 
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('vsi_redsocial_id')->references('id')->on('vsi_red_socials');

@@ -21,10 +21,10 @@ class CreatePermissionTables extends Migration
       $table->string('name')->comment('CAMPO DE NOMBRE PERMISO');
       $table->string('descripcion')->nullable()->comment('CAMPO DE DESCRIPCION DEL PERMISO');
       $table->string('guard_name')->comment('N');
-      $table->bigInteger('sis_pestania_id')->unsigned()->comment('CAMPO DE ID DE LA PESTAÑA');
-      $table->bigInteger('user_crea_id')->unsigned();
-      $table->bigInteger('user_edita_id')->unsigned();
-      $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+      $table->integer('sis_pestania_id')->unsigned()->comment('CAMPO DE ID DE LA PESTAÑA');
+      $table->integer('user_crea_id')->unsigned();
+      $table->integer('user_edita_id')->unsigned();
+      $table->integer('sis_esta_id')->unsigned()->default(1);
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->foreign('sis_pestania_id')->references('id')->on('sis_pestanias');
       $table->timestamps();
@@ -34,10 +34,10 @@ class CreatePermissionTables extends Migration
       $table->increments('id');
       $table->string('name');
       $table->string('guard_name');
-      $table->bigInteger('user_crea_id')->unsigned();
-      $table->bigInteger('user_edita_id')->unsigned();
-      $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-      $table->bigInteger('estusuario_id')->unsigned()->nullable();
+      $table->integer('user_crea_id')->unsigned();
+      $table->integer('user_edita_id')->unsigned();
+      $table->integer('sis_esta_id')->unsigned()->default(1);
+      $table->integer('estusuario_id')->unsigned()->nullable();
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->foreign('estusuario_id')->references('id')->on('estusuarios');
       $table->timestamps();
@@ -47,7 +47,7 @@ class CreatePermissionTables extends Migration
       $table->unsignedInteger('permission_id');
 
       $table->string('model_type');
-      $table->unsignedBigInteger($columnNames['model_morph_key']);
+      $table->unsignedinteger($columnNames['model_morph_key']);
       $table->index([$columnNames['model_morph_key'], 'model_type',], 'model_permiso_fk1');
 
       $table->foreign('permission_id')
@@ -65,7 +65,7 @@ class CreatePermissionTables extends Migration
       $table->unsignedInteger('role_id');
 
       $table->string('model_type');
-      $table->unsignedBigInteger($columnNames['model_morph_key']);
+      $table->unsignedinteger($columnNames['model_morph_key']);
       $table->index([$columnNames['model_morph_key'], 'model_type',], 'model_rol_fk1');
 
       $table->foreign('role_id')

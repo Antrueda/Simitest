@@ -21,8 +21,8 @@ class CreateVsiDatosVinculasTable extends Migration
   {
     Schema::create($this->tablaxxx, function (Blueprint $table) {
       $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-      $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO DE ID DE VALORACION');
-      $table->bigInteger('prm_razon_id')->unsigned()->comment('CAMPO PARAMETRO RAZON');
+      $table->integer('vsi_id')->unsigned()->comment('CAMPO DE ID DE VALORACION');
+      $table->integer('prm_razon_id')->unsigned()->comment('CAMPO PARAMETRO RAZON');
       $table->Integer('dia')->unsigned()->nullable()->comment('CAMPO DIA');
       $table->Integer('mes')->unsigned()->nullable()->comment('CAMPO MES');
       $table->Integer('ano')->unsigned()->nullable()->comment('CAMPO ANO');
@@ -35,8 +35,8 @@ class CreateVsiDatosVinculasTable extends Migration
 
     Schema::create($this->tablaxxx2, function (Blueprint $table) {
       $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-      $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE SITUACIONES');
-      $table->bigInteger('vsi_datos_vincula_id')->unsigned()->comment('CAMPO ID DE DATOS VINCULA');
+      $table->integer('parametro_id')->unsigned()->comment('CAMPO DE SITUACIONES');
+      $table->integer('vsi_datos_vincula_id')->unsigned()->comment('CAMPO ID DE DATOS VINCULA');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
       $table->unique(['parametro_id', 'vsi_datos_vincula_id'],'sitvin_pk1');
@@ -46,8 +46,8 @@ class CreateVsiDatosVinculasTable extends Migration
 
     Schema::create($this->tablaxxx3, function (Blueprint $table) {
       $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-      $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO PARAMETRO EMOCIONES');
-      $table->bigInteger('vsi_datos_vincula_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO EMOCIONES');
+      $table->integer('vsi_datos_vincula_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
       $table->unique(['parametro_id', 'vsi_datos_vincula_id'],'emovin_pk1');
@@ -58,8 +58,8 @@ class CreateVsiDatosVinculasTable extends Migration
 
     Schema::create($this->tablaxxx4, function (Blueprint $table) {
       $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-      $table->bigInteger('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DIFICULTADES');
-      $table->bigInteger('vsi_datos_vincula_id')->unsigned();
+      $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DIFICULTADES');
+      $table->integer('vsi_datos_vincula_id')->unsigned();
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
       $table->unique(['parametro_id', 'vsi_datos_vincula_id'],'person_pk1');

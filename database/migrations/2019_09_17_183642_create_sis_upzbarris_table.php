@@ -16,12 +16,12 @@ class CreateSisUpzbarrisTable extends Migration
     {
         Schema::create('sis_upzbarris', function (Blueprint $table) {
             $table->increments('id')->start(1929)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('sis_localupz_id')->unsigned()->comment('CAMPO ID LOCALIDAD UPZ');
-            $table->bigInteger('sis_barrio_id')->unsigned()->comment('CAMPO ID DEL BARRIO');
+            $table->integer('sis_localupz_id')->unsigned()->comment('CAMPO ID LOCALIDAD UPZ');
+            $table->integer('sis_barrio_id')->unsigned()->comment('CAMPO ID DEL BARRIO');
             $table->Integer('simianti_id')->default(0)->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_localupz_id')->references('id')->on('sis_localupzs');
             $table->foreign('sis_barrio_id')->references('id')->on('sis_barrios');
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -32,8 +32,8 @@ class CreateSisUpzbarrisTable extends Migration
         });
         Schema::create('h_sis_upzbarris', function (Blueprint $table) {
             $table->increments('id')->start(1929)->nocache();
-            $table->bigInteger('sis_localupz_id')->unsigned();
-            $table->bigInteger('sis_barrio_id')->unsigned();
+            $table->integer('sis_localupz_id')->unsigned();
+            $table->integer('sis_barrio_id')->unsigned();
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table = CamposMagicos::h_magicos($table);
         });

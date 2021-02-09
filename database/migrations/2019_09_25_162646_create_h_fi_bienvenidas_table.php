@@ -18,12 +18,12 @@ class CreateHFiBienvenidasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('i_prm_quiere_entrar_id')->unsigned();
+            $table->integer('i_prm_quiere_entrar_id')->unsigned();
             
             
             $table->text('s_porque_quiere_entrar');
             $table->text('s_que_gustaria_hacer');
-            $table->bigInteger('sis_nnaj_id')->unsigned();
+            $table->integer('sis_nnaj_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

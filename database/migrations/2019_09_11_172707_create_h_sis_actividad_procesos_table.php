@@ -18,8 +18,8 @@ class CreateHSisActividadProcesosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('sis_actividad_id')->unsigned();
-            $table->bigInteger('sis_proceso_id')->unsigned();
+            $table->integer('sis_actividad_id')->unsigned();
+            $table->integer('sis_proceso_id')->unsigned();
             $table->integer('tiempo'); 
             $table = CamposMagicos::h_magicos($table);
         });

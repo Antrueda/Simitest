@@ -18,8 +18,8 @@ class CreateHAgAsistentesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('ag_actividad_id')->unsigned();
-            $table->bigInteger('fi_dato_basico_id')->unsigned();
+            $table->integer('ag_actividad_id')->unsigned();
+            $table->integer('fi_dato_basico_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

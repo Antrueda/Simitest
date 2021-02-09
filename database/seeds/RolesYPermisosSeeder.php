@@ -321,6 +321,9 @@ class RolesYPermisosSeeder extends Seeder
 
         $this->getPermisos(['permisox' => 'agrelacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Convenios Acciones Grupales', 'pestania' => 1]);
 
+        $this->getPermisos(['permisox' => 'agcargdoc', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Documentos adjuntos', 'pestania' => 1]);
+
+        
 
 
         $this->getPermisos(['permisox' => 'taccform', 'permisos' => ['modulo'], 'compleme' => 'Módulo de talleres y acciones formativas', 'pestania' => 1]);

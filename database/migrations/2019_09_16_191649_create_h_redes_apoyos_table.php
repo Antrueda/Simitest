@@ -18,18 +18,18 @@ class CreateHRedesApoyosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('entidadAtiende_id')->unsigned();
-            $table->bigInteger('ServPrestados_id')->unsigned();
+            $table->integer('entidadAtiende_id')->unsigned();
+            $table->integer('ServPrestados_id')->unsigned();
             $table->integer('tiempoBeneficio');
-            $table->bigInteger('duracion_id')->unsigned();
-            $table->bigInteger('tiempoPrestacion_id')->unsigned();
-            $table->bigInteger('tipoRed_id')->unsigned();
-            $table->bigInteger('tipoRedPersona_id')->unsigned();
+            $table->integer('duracion_id')->unsigned();
+            $table->integer('tiempoPrestacion_id')->unsigned();
+            $table->integer('tipoRed_id')->unsigned();
+            $table->integer('tipoRedPersona_id')->unsigned();
             $table->string('nombrePersona');
-            $table->bigInteger('servBenePersona_id')->unsigned();
-            $table->bigInteger('entidadAtiendeActual_id')->unsigned();
-            $table->bigInteger('durTiempoBen_id')->unsigned();
-            $table->bigInteger('anioPrestServicio_id')->unsigned();
+            $table->integer('servBenePersona_id')->unsigned();
+            $table->integer('entidadAtiendeActual_id')->unsigned();
+            $table->integer('durTiempoBen_id')->unsigned();
+            $table->integer('anioPrestServicio_id')->unsigned();
             $table->string('telApoyo');
             $table->string('dirApoyo');
             $table = CamposMagicos::h_magicos($table);

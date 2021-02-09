@@ -18,8 +18,8 @@ class CreateHFiJrCausassisTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('prm_situacion_id')->unsigned();
-            $table->bigInteger('fi_justrest_id')->unsigned();
+            $table->integer('prm_situacion_id')->unsigned();
+            $table->integer('fi_justrest_id')->unsigned();
 
             $table = CamposMagicos::h_magicos($table);
         });

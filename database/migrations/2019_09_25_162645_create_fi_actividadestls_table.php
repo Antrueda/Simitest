@@ -19,17 +19,17 @@ class CreateFiActividadestlsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('i_horas_permanencia_calle')->unsigned()->nullable()->comment('CAMPO HORA DE PERMANECIA EN CALLE');
-            $table->bigInteger('i_dias_permanencia_calle')->unsigned()->nullable()->comment('CAMPO DIAS DE PERMANENCIA EN CALLE');
-            $table->bigInteger('i_prm_pertenece_parche_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO PERTENCE A PARCHE');
+            $table->integer('i_horas_permanencia_calle')->unsigned()->nullable()->comment('CAMPO HORA DE PERMANECIA EN CALLE');
+            $table->integer('i_dias_permanencia_calle')->unsigned()->nullable()->comment('CAMPO DIAS DE PERMANENCIA EN CALLE');
+            $table->integer('i_prm_pertenece_parche_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO PERTENCE A PARCHE');
             $table->string('s_nombre_parche')->nullable()->comment('CAMPO NOMBRE DE PARCHE');
-            $table->bigInteger('i_prm_acceso_recreacion_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DE RECREACCION');
-            $table->bigInteger('i_prm_practica_religiosa_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO PRACTICA RELIGIOSA');
-            $table->bigInteger('i_prm_religion_practica_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO RELIGION QUE PRACTICA');
-            $table->bigInteger('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID NNAJ');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('i_prm_acceso_recreacion_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DE RECREACCION');
+            $table->integer('i_prm_practica_religiosa_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO PRACTICA RELIGIOSA');
+            $table->integer('i_prm_religion_practica_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO RELIGION QUE PRACTICA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID NNAJ');
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -44,11 +44,11 @@ class CreateFiActividadestlsTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('fi_actividadestl_id')->unsigned()->comment('REGISTRO ACTIVIDAD DE TIEMPO LIBRE AL QUE SE LE ASIGNA LA ACTIVIDAD');
-            $table->bigIntegeR('i_prm_actividad_tl_id')->unsigned()->comment('FI 8.3 ACTIVIDADES TIEMPO LIBRE');
-            $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('fi_actividadestl_id')->unsigned()->comment('REGISTRO ACTIVIDAD DE TIEMPO LIBRE AL QUE SE LE ASIGNA LA ACTIVIDAD');
+            $table->integer('i_prm_actividad_tl_id')->unsigned()->comment('FI 8.3 ACTIVIDADES TIEMPO LIBRE');
+            $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -60,11 +60,11 @@ class CreateFiActividadestlsTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('fi_actividadestl_id')->unsigned()->comment('REGISTRO ACTIVIDAD DE TIEMPO LIBRE AL QUE SE LE ASIGNA EL SACRAMENTO');
-            $table->bigInteger('i_prm_sacramentos_hechos_id')->unsigned()->comment('FI 8.8 SACRAMENTOS HECHOS');
-            $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('fi_actividadestl_id')->unsigned()->comment('REGISTRO ACTIVIDAD DE TIEMPO LIBRE AL QUE SE LE ASIGNA EL SACRAMENTO');
+            $table->integer('i_prm_sacramentos_hechos_id')->unsigned()->comment('FI 8.8 SACRAMENTOS HECHOS');
+            $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');

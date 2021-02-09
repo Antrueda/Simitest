@@ -17,12 +17,12 @@ class CreateCsdComFamObsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
              $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
             $table->longText('observaciones');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id','cofaob_pk1')->references('id')->on('parametros');
             $table->foreign('sis_esta_id','cofaob_pk2')->references('id')->on('sis_estas');
             $table->timestamps();

@@ -19,11 +19,11 @@ class CreateCsdBienvenidaTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
-            $table->bigInteger('prm_persona_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
+            $table->integer('prm_persona_id')->unsigned();
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_persona_id')->references('id')->on('parametros');
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
@@ -31,12 +31,12 @@ class CreateCsdBienvenidaTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_bienvenida_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_bienvenida_id')->unsigned();
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_bienvenida_id')->references('id')->on('csd_bienvenidas');
             $table->unique(['parametro_id', 'csd_bienvenida_id']);
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });

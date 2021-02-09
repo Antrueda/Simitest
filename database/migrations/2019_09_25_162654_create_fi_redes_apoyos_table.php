@@ -19,14 +19,14 @@ class CreateFiRedesApoyosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('i_tiempo')->comment('CAMPO TIEMPO');
-            $table->bigInteger('sis_entidad_id')->unsigned()->comment('CAMPO ID DE ENTIDAD');
+            $table->integer('sis_entidad_id')->unsigned()->comment('CAMPO ID DE ENTIDAD');
             $table->string('s_servicio')->comment('CAMPO TEXTO DE SERVICIO');
-            $table->bigInteger('i_prm_tiempo_id')->unsigned()->comment('CAMPO PARAMETRO TIEMPO');
-            $table->bigInteger('i_prm_anio_prestacion_id')->unsigned();
-            $table->bigInteger('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
-            $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('i_prm_tiempo_id')->unsigned()->comment('CAMPO PARAMETRO TIEMPO');
+            $table->integer('i_prm_anio_prestacion_id')->unsigned();
+            $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
+            $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas')->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('sis_entidad_id')->references('id')->on('sis_entidads');
@@ -40,13 +40,13 @@ class CreateFiRedesApoyosTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
-            $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
+            $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas')->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
-            $table->bigInteger('i_prm_tipo_red_id')->unsigned();
+            $table->integer('i_prm_tipo_red_id')->unsigned();
             $table->string('s_nombre_persona');
             $table->string('s_servicio');
             $table->string('s_telefono')->nullable();

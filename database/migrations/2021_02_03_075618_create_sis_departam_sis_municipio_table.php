@@ -18,8 +18,8 @@ class CreateSisDepartamSisMunicipioTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('sis_departam_id')->unsigned();
-            $table->bigInteger('sis_municipio_id')->unsigned();
+            $table->integer('sis_departam_id')->unsigned();
+            $table->integer('sis_municipio_id')->unsigned();
             $table->string('simianti_id')->nullable();
             $table->foreign('sis_departam_id','depmun_pk1')->references('id')->on('sis_departams');
             $table->foreign('sis_municipio_id','depmun_pk2')->references('id')->on('sis_municipios');

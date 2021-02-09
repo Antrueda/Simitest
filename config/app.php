@@ -200,8 +200,8 @@ return [
         /**
          * conectar con oracle
          */
-        Yajra\Oci8\Oci8ServiceProvider::class,
-        Yajra\DataTables\FractalServiceProvider::class,
+        
+
 
         /**
          * helpers personalizados

@@ -19,7 +19,7 @@ class CreateSisFsoportesTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre');
-            $table->bigInteger('sis_actividad_id')->unsigned();
+            $table->integer('sis_actividad_id')->unsigned();
             $table->foreign('sis_actividad_id')->references('id')->on('sis_actividads');
             $table->unique(['nombre', 'sis_actividad_id']);
             $table = CamposMagicos::magicos($table);

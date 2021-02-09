@@ -18,8 +18,8 @@ class CreateFiJrCausamosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE RIESGO');
-            $table->bigInteger('prm_riesgo_id')->unsigned();
+            $table->integer('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE RIESGO');
+            $table->integer('prm_riesgo_id')->unsigned();
             $table->foreign('fi_justrest_id')->references('id')->on('fi_justrests');
             $table->foreign('prm_riesgo_id')->references('id')->on('parametros');
             

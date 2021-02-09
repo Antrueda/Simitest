@@ -17,14 +17,14 @@ class CreateVsiConsentimientosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
-            $table->bigInteger('user_doc1_id')->unsigned()->comment('CAMPO PRIMER RESPONSABLE');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->integer('user_doc1_id')->unsigned()->comment('CAMPO PRIMER RESPONSABLE');
             $table->string('cargo1')->comment('CAMPO CARGO DEL PRIMER RESPONSABLE');
-            $table->bigInteger('user_doc2_id')->unsigned()->comment('CAMPO SEGUNDO RESPONSABLE O RESPONSABLE DE LA UPI');
+            $table->integer('user_doc2_id')->unsigned()->comment('CAMPO SEGUNDO RESPONSABLE O RESPONSABLE DE LA UPI');
             $table->string('cargo2')->comment('CAMPO DEL RESPONSABLE DE LA UPI');
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('vsi_id')->references('id')->on('vsis');

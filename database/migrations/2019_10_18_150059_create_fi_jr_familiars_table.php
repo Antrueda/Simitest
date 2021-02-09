@@ -19,13 +19,13 @@ class CreateFiJrFamiliarsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->String('s_proceso');
-            $table->bigInteger('i_tiempo');
-            $table->bigInteger('i_veces');
-            $table->bigInteger('fi_compfami_id')->unsigned();
-            $table->bigInteger('i_prm_vigente_id')->unsigned();
-            $table->bigInteger('i_prm_motivo_id')->unsigned();
-            $table->bigInteger('i_prm_tiempo_id')->unsigned();
-            $table->bigInteger('fi_justrest_id')->unsigned();
+            $table->integer('i_tiempo');
+            $table->integer('i_veces');
+            $table->integer('fi_compfami_id')->unsigned();
+            $table->integer('i_prm_vigente_id')->unsigned();
+            $table->integer('i_prm_motivo_id')->unsigned();
+            $table->integer('i_prm_tiempo_id')->unsigned();
+            $table->integer('fi_justrest_id')->unsigned();
             $table->foreign('fi_justrest_id')->references('id')->on('fi_justrests');
             $table->foreign('i_prm_vigente_id')->references('id')->on('parametros');
             $table->foreign('i_prm_motivo_id')->references('id')->on('parametros');

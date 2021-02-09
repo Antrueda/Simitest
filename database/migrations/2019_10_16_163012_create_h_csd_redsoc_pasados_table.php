@@ -18,14 +18,14 @@ class CreateHCsdRedsocPasadosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
             $table->string('nombre');
             $table->string('servicios', 120);
             $table->integer('cantidad')->nullable();
-            $table->bigInteger('prm_unidad_id')->unsigned();
+            $table->integer('prm_unidad_id')->unsigned();
             $table->integer('ano');
             $table->longText('retiro')->nullable();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

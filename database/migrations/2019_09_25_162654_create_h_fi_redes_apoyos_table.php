@@ -20,19 +20,19 @@ class CreateHFiRedesApoyosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('i_tiempo');
-            $table->bigInteger('sis_entidad_id')->unsigned();
+            $table->integer('sis_entidad_id')->unsigned();
             $table->string('s_servicio');
-            $table->bigInteger('i_prm_tiempo_id')->unsigned();
-            $table->bigInteger('i_prm_anio_prestacion_id')->unsigned();
-            $table->bigInteger('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
+            $table->integer('i_prm_tiempo_id')->unsigned();
+            $table->integer('i_prm_anio_prestacion_id')->unsigned();
+            $table->integer('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
-            $table->bigInteger('i_prm_tipo_red_id')->unsigned();
+            $table->integer('sis_nnaj_id')->unsigned(); //->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
+            $table->integer('i_prm_tipo_red_id')->unsigned();
             $table->string('s_nombre_persona');
             $table->string('s_servicio');
             $table->string('s_telefono')->nullable();

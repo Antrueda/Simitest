@@ -19,9 +19,9 @@ class CreateHVsiConceptosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('vsi_id')->unsigned();
+            $table->integer('vsi_id')->unsigned();
             $table->longText('concepto');
-            $table->bigInteger('prm_ingreso_id')->unsigned()->nullable();
+            $table->integer('prm_ingreso_id')->unsigned()->nullable();
             $table->longText('porque')->nullable();
             $table->string('cual', 120)->nullable();
             $table = CamposMagicos::h_magicos($table);
@@ -30,8 +30,8 @@ class CreateHVsiConceptosTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('vsi_concepto_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('vsi_concepto_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

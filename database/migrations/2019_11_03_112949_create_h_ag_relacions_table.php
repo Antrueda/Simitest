@@ -18,8 +18,8 @@ class CreateHAgRelacionsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('ag_actividad_id')->unsigned();
-            $table->bigInteger('ag_recurso_id')->unsigned();
+            $table->integer('ag_actividad_id')->unsigned();
+            $table->integer('ag_recurso_id')->unsigned();
             $table->integer('i_cantidad');
             $table = CamposMagicos::h_magicos($table);
         });

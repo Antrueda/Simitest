@@ -17,12 +17,12 @@ class CreateSisActividadProcesosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('sis_actividad_id')->unsigned()->comment('CAMPO ID DE ACTIVIDAD');
-            $table->bigInteger('sis_proceso_id')->unsigned()->comment('CAMPO DE ID DE PROCESO');
+            $table->integer('sis_actividad_id')->unsigned()->comment('CAMPO ID DE ACTIVIDAD');
+            $table->integer('sis_proceso_id')->unsigned()->comment('CAMPO DE ID DE PROCESO');
             $table->integer('tiempo')->comment('CAMPO DE Tiempo actualiza');//Tiempo actualiza
-            $table->bigInteger('user_crea_id')->unsigned(); 
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned(); 
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 

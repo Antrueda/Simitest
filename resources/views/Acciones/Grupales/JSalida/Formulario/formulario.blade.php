@@ -126,7 +126,7 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-  {{ Form::label('observacion', 'Observacion', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::label('observacion', 'Observación', ['class' => 'control-label col-form-label-sm']) }}
   {{ Form::textarea('observacion', null, ['class' => $errors->first('observacion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Descripción', 'maxlength' => '4000', 'autofocus', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
       <p id="contadorobservacion">0/4000</p>
       @if($errors->has('observacion'))

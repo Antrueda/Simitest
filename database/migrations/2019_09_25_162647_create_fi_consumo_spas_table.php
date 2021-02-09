@@ -18,11 +18,11 @@ class CreateFiConsumoSpasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('i_prm_consume_spa_id')->unsigned()->comment('CAMPO SI CONSUME SPA');
-            $table->bigInteger('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID DE NNAJ');
-            $table->bigInteger('user_crea_id')->unsigned(); 
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('i_prm_consume_spa_id')->unsigned()->comment('CAMPO SI CONSUME SPA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID DE NNAJ');
+            $table->integer('user_crea_id')->unsigned(); 
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -34,13 +34,13 @@ class CreateFiConsumoSpasTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->bigInteger('fi_consumo_spa_id')->unsigned()->comment('REGISTRO CONSUMO SPA AL QUE SE LE ASIGNA LA SUSTANCIA');
-            $table->bigInteger('i_prm_sustancia_id')->nullable()->unsigned()->comment('REGISTRO TIPO DE SUSTANCIA');
-            $table->bigIntegeR('i_edad_uso')->nullable()->unsigned()->comment('REGISTRO EDAD DE CUANDO INICIO A CONSUMIR');
-            $table->bigInteger('i_prm_consume_id')->nullable()->unsigned()->comment('REGISTRO SI CONTINUA CONSUMIENDO');
-            $table->bigInteger('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
-            $table->bigInteger('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
+            $table->integer('fi_consumo_spa_id')->unsigned()->comment('REGISTRO CONSUMO SPA AL QUE SE LE ASIGNA LA SUSTANCIA');
+            $table->integer('i_prm_sustancia_id')->nullable()->unsigned()->comment('REGISTRO TIPO DE SUSTANCIA');
+            $table->integer('i_edad_uso')->nullable()->unsigned()->comment('REGISTRO EDAD DE CUANDO INICIO A CONSUMIR');
+            $table->integer('i_prm_consume_id')->nullable()->unsigned()->comment('REGISTRO SI CONTINUA CONSUMIENDO');
+            $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
+            $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
+            $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');

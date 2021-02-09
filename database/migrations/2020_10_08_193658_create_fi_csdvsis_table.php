@@ -18,19 +18,19 @@ class CreateFiCsdvsisTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('vsi_id')
+            $table->integer('vsi_id')
             ->unsigned()->nullable()
             ->comment('VALORACION SICOSOCIAL INICIAL QUE ACTUALIZA LOS DATOS BASICOS DE LA FICHA DE INGRESO');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->timestamp('created_vsi')->comment('FECHA CREACION DE LA VSI');
             $table->timestamp('updated_vsi')->comment('FECHA ACTUALIZACION DE LA VSI');
-            $table->bigInteger('csd_id')
+            $table->integer('csd_id')
             ->unsigned()->nullable()
             ->comment('CONSULTA SOCIAL EN DOMICILIO QUE ACTUALIZA LOS DATOS BASICOS DE LA FICHA DE INGRESO');
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->timestamp('created_csd')->comment('FECHA CREACION DE LA CSD');
             $table->timestamp('updated_csd')->comment('FECHA ACTUALIZACION DE LA CSD');
-            $table->bigInteger('fi_datos_basico_id')
+            $table->integer('fi_datos_basico_id')
             ->unsigned()
             ->comment('FICHA DE INGRESO A LA QUE PERTENECE LA ACTUALIZACION');
             $table->foreign('fi_datos_basico_id')->references('id')->on('fi_datos_basicos');
@@ -41,17 +41,17 @@ class CreateFiCsdvsisTable extends Migration
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('vsi_id')
+            $table->integer('vsi_id')
             ->unsigned()->nullable()
             ->comment('VALORACION SICOSOCIAL INICIAL QUE ACTUALIZA LOS DATOS BASICOS DE LA FICHA DE INGRESO');
             $table->timestamp('created_vsi')->comment('FECHA CREACION DE LA VSI');
             $table->timestamp('updated_vsi')->comment('FECHA ACTUALIZACION DE LA VSI');
-            $table->bigInteger('csd_id')
+            $table->integer('csd_id')
             ->unsigned()->nullable()
             ->comment('CONSULTA SOCIAL EN DOMICILIO QUE ACTUALIZA LOS DATOS BASICOS DE LA FICHA DE INGRESO');
             $table->timestamp('created_csd')->comment('FECHA CREACION DE LA CSD');
             $table->timestamp('updated_csd')->comment('FECHA ACTUALIZACION DE LA CSD');
-            $table->bigInteger('fi_datos_basico_id')
+            $table->integer('fi_datos_basico_id')
             ->unsigned()
             ->comment('FICHA DE INGRESO A LA QUE PERTENECE LA ACTUALIZACION');
             $table = CamposMagicos::h_magicos($table);

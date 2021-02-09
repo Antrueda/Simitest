@@ -18,8 +18,8 @@ class CreateSisDepartamSisPaiTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('sis_departam_id')->unsigned();
-            $table->bigInteger('sis_pai_id')->unsigned();
+            $table->integer('sis_departam_id')->unsigned();
+            $table->integer('sis_pai_id')->unsigned();
             $table->string('simianti_id')->nullable();
             $table->foreign('sis_departam_id')->references('id')->on('sis_departams');
             $table->foreign('sis_pai_id')->references('id')->on('sis_pais');

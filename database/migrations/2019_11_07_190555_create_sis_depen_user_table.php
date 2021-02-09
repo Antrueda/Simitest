@@ -18,9 +18,9 @@ class CreateSisDepenUserTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('user_id')->unsigned();
-            $table->bigInteger('sis_depen_id')->unsigned();
-            $table->bigInteger('i_prm_responsable_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->integer('sis_depen_id')->unsigned();
+            $table->integer('i_prm_responsable_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
             $table->foreign('i_prm_responsable_id')->references('id')->on('parametros');

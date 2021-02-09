@@ -23,38 +23,38 @@ class CreateHCsdJusticiasTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->string('proposito', 200);
             $table->date('fecha');
-            $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('sis_nnaj_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
-            $table->bigInteger('sis_nnaj_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
+            $table->integer('sis_nnaj_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
-            $table->bigInteger('prm_vinculado_id')->unsigned();
-            $table->bigInteger('prm_vin_causa_id')->unsigned()->nullable();
-            $table->bigInteger('prm_riesgo_id')->unsigned();
-            $table->bigInteger('prm_rie_causa_id')->unsigned()->nullable();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
+            $table->integer('prm_vinculado_id')->unsigned();
+            $table->integer('prm_vin_causa_id')->unsigned()->nullable();
+            $table->integer('prm_riesgo_id')->unsigned();
+            $table->integer('prm_rie_causa_id')->unsigned()->nullable();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");

@@ -26,7 +26,7 @@ class CreateCsdAlimentacionTable extends Migration
             $table = CamposMagicos::getForeign($table, 'csd');
             $table = CamposMagicos::getForeign($table, 'prm_horario_id','parametros');
             $table = CamposMagicos::getForeign($table, 'prm_apoyo_id','parametros');
-            $table->bigInteger('prm_entidad_id')->unsigned()->nullable();
+            $table->integer('prm_entidad_id')->unsigned()->nullable();
             $table->foreign('prm_entidad_id')->references('id')->on('parametros');
             $table = CamposMagicos::getForeign($table, 'prm_tipofuen_id','parametros');
             $table = CamposMagicos::magicos($table);
@@ -35,9 +35,9 @@ class CreateCsdAlimentacionTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_alimentacion_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_alimentacion_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -48,9 +48,9 @@ class CreateCsdAlimentacionTable extends Migration
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_alimentacion_id')->unsigned();
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_alimentacion_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -61,10 +61,10 @@ class CreateCsdAlimentacionTable extends Migration
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_alimentacion_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_alimentacion_id')->unsigned();
 
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
 
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
@@ -76,10 +76,10 @@ class CreateCsdAlimentacionTable extends Migration
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('parametro_id')->unsigned();
-            $table->bigInteger('csd_alimentacion_id')->unsigned();
+            $table->integer('parametro_id')->unsigned();
+            $table->integer('csd_alimentacion_id')->unsigned();
             $table = CamposMagicos::magicos($table);
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('csd_alimentacion_id')->references('id')->on('csd_alimentacions');
             $table->foreign('parametro_id')->references('id')->on('parametros');

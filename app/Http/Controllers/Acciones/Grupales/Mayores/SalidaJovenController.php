@@ -70,19 +70,19 @@ class SalidaJovenController extends Controller
 
     public function inactivate(SalidaJovene $modeloxx)
     {
-        $this->opciones['padrexxx'] =$modeloxx->ai_salmay;
-        $this->pestanix[1]['dataxxxx'] = [true, $this->opciones['padrexxx']->id];
+        $this->pestanix[1]['dataxxxx'] = [true, $modeloxx->ai_salmay_id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
-        $this->getBotones(['editar', ['aisalidamayores.editar', [$this->opciones['padrexxx']->id]], 2, 'VOLVER A PERMISOS', 'btn btn-sm btn-primary']);
-        //return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],$this->getBotones(['borrar', [], 1, 'INACTIVAR ASISTENTE', 'btn btn-sm btn-primary']),
+        $this->getBotones(['editar', ['aisalidamayores.editar', [$modeloxx->ai_salmay_id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         return $this->destroy($modeloxx);
-            }
+    }
+
 
     public function destroy(SalidaJovene $modeloxx)
     {
+        $modeloxx->razones()->detach();
         $modeloxx->delete();
         return redirect()->back()
-            ->with('info', 'Joven eliminado correctamente');
+            ->with('info', 'AJ eliminado correctamente');
     }
 
     public function edit(SalidaJovene $modeloxx)

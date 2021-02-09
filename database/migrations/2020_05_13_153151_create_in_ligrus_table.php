@@ -18,7 +18,7 @@ class CreateInLigrusTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('in_base_fuente_id')->unsigned();
+            $table->integer('in_base_fuente_id')->unsigned();
             $table->foreign('in_base_fuente_id')->references('id')->on('in_base_fuentes');
             $table = CamposMagicos::magicos($table);
         });

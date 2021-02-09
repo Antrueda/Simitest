@@ -4,6 +4,10 @@ Route::group(['prefix' => 'taller'], function () {
 		'uses' => 'Acciones\Grupales\AgTallerController@temas',
 		'middleware' => ['permission:agtaller-leer|agtaller-crear|agtaller-editar|agtaller-borrar']
 	])->name('agrtaller.temas');
+	Route::get('motivos', [
+		'uses' =>'Acciones\Grupales\AgTallerController@getMotivos',
+		'middleware' => ['permission:agtaller-leer']
+	])->name('agrtaller.motivosx');
 	Route::group(['prefix' => '{agtemaid}'], function () {
 		Route::get('', [
 			'uses' => 'Acciones\Grupales\AgTallerController@index',
@@ -34,5 +38,6 @@ Route::group(['prefix' => 'taller'], function () {
 			'uses' => 'Acciones\Grupales\AgTallerController@destroy',
 			'middleware' => ['permission:agtaller-borrar']
 		])->name('agrtaller.borrar');
+
 	});
 });

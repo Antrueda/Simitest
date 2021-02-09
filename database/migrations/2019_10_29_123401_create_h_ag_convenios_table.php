@@ -19,10 +19,10 @@ class CreateHAgConveniosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('s_convenio');
-            $table->bigInteger('i_prm_tconvenio_id')->unsigned();
-            $table->bigInteger('i_prm_entidad_id')->unsigned();
+            $table->integer('i_prm_tconvenio_id')->unsigned();
+            $table->integer('i_prm_entidad_id')->unsigned();
             $table->string('s_descripcion');
-            $table->bigInteger('i_nconvenio');
+            $table->integer('i_nconvenio');
             $table->dateTime('d_subscrip');
             $table->dateTime('d_terminac');
             $table = CamposMagicos::h_magicos($table);

@@ -18,14 +18,14 @@ class CreateHFiContactosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('i_prm_tipo_contacto_id')->unsigned();
+            $table->integer('i_prm_tipo_contacto_id')->unsigned();
             $table->string('s_contacto_condicion')->nullable();
-            $table->bigInteger('i_prm_contacto_opcion_id')->nullable()->unsigned();
+            $table->integer('i_prm_contacto_opcion_id')->nullable()->unsigned();
             $table->string('s_entidad_remite')->nullable();
             $table->date('d_fecha_remite_id')->nullable();
-            $table->bigInteger('i_prm_motivo_contacto_id')->nullable()->unsigned();
-            $table->bigInteger('i_prm_aut_tratamiento_id')->unsigned();
-            $table->bigInteger('sis_nnaj_id')->unsigned();
+            $table->integer('i_prm_motivo_contacto_id')->nullable()->unsigned();
+            $table->integer('i_prm_aut_tratamiento_id')->unsigned();
+            $table->integer('sis_nnaj_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

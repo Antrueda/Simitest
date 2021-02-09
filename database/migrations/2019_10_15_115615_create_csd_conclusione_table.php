@@ -17,17 +17,17 @@ class CreateCsdConclusioneTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->bigInteger('csd_id')->unsigned();
+            $table->integer('csd_id')->unsigned();
             $table->longText('conclusiones');
             $table->string('persona_nombre');
             $table->string('persona_doc');
-            $table->bigInteger('persona_parent_id')->unsigned();
-            $table->bigInteger('user_doc1_id')->unsigned();
-            $table->bigInteger('user_doc2_id')->unsigned()->nullable();
-            $table->bigInteger('user_crea_id')->unsigned();
-            $table->bigInteger('user_edita_id')->unsigned();
-            $table->bigInteger('sis_esta_id')->unsigned()->default(1);
-            $table->bigInteger('prm_tipofuen_id')->unsigned();
+            $table->integer('persona_parent_id')->unsigned();
+            $table->integer('user_doc1_id')->unsigned();
+            $table->integer('user_doc2_id')->unsigned()->nullable();
+            $table->integer('user_crea_id')->unsigned();
+            $table->integer('user_edita_id')->unsigned();
+            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('prm_tipofuen_id')->unsigned();
             $table->foreign('prm_tipofuen_id','csdcon_pk1')->references('id')->on('parametros');
             $table->foreign('sis_esta_id','csdcon_pk2')->references('id')->on('sis_estas');
             $table->timestamps();

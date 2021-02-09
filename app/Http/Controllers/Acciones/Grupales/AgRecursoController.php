@@ -43,13 +43,18 @@ class AgRecursoController extends Controller
             ['td' => 'TIPO RECURSO'],
             ['td' => 'ESTADO'],
         ];
+        $this->opciones['dataxxxx'] = [
+            ['campoxxx' => 'botonesx', 'dataxxxx' => 'Acciones.Grupales/Agtaller/botones/botonesapi'],
+            ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts.components/botones/estadoxx'],
+            ];
+
         $this->opciones['columnsx'] = [
             ['data' => 'btns', 'name' => 'btns'],
             ['data' => 'id', 'name' => 'ag_recursos.id'],
             ['data' => 's_recurso', 'name' => 'ag_recursos.s_recurso'],
             ['data' => 'umedidax', 'name' => 'parametros.nombre as umedidax'],
             ['data' => 'trecurso', 'name' => 'parametros.nombre as trecurso'],
-            ['data' => 'sis_esta_id', 'name' => 'ag_recursos.sis_esta_id'],
+            ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
 
         ];
     }

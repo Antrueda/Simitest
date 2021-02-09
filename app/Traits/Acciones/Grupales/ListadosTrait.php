@@ -4,6 +4,7 @@ namespace App\Traits\Acciones\Grupales;
 
 use App\Models\Acciones\Grupales\AgActividad;
 use App\Models\Acciones\Grupales\AgAsistente;
+use App\Models\Acciones\Grupales\AgCarguedoc;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
@@ -422,6 +423,30 @@ public function getNnajsele(Request $request)
             $dataxxxx=FiCompfami::getResponsableSalida($request->nnajxxxx, false, true);
             return response()->json($dataxxxx);
   //     }
+    }
+    public function listaDocumentos(Request $request, AgActividad $padrexxx)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = ['agcargdoc', 'fosubtse'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesdoc';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  AgCarguedoc::select([
+                'ag_carguedocs.id',
+                'parametros.nombre',
+                'ag_carguedocs.s_ruta',
+                'ag_carguedocs.created_at',
+                'ag_carguedocs.sis_esta_id',
+                'sis_estas.s_estado',
+
+            ])
+                ->join('parametros', 'ag_carguedocs.i_prm_documento_id', '=', 'parametros.id')
+                ->join('sis_estas', 'ag_carguedocs.sis_esta_id', '=', 'sis_estas.id')
+                ->where('ag_carguedocs.ag_actividad_id',$padrexxx->id);
+
+            return $this->getDt($dataxxxx, $request);
+        }
     }
 
 

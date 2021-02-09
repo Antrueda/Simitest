@@ -19,8 +19,8 @@ class CreateAgRecursosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->String('s_recurso');
-            $table->bigInteger('i_prm_trecurso_id');
-            $table->bigInteger('i_prm_umedida_id');
+            $table->integer('i_prm_trecurso_id');
+            $table->integer('i_prm_umedida_id');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS RECURSOS USADOS DENTRO DE LAS ACIONES GRUPALES'");

@@ -17,7 +17,7 @@ class CreateSisPestaniasTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('s_pestania')->comment('CAMPO NOMBRE DE PESTAÑA');
-            $table->bigInteger('sis_menu_id')->unsigned();
+            $table->integer('sis_menu_id')->unsigned();
             $table->foreign('sis_menu_id')->references('id')->on('sis_menus');
             $table->timestamps();
         });

@@ -20,7 +20,7 @@ class CreateHPostsTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('descripcion');
-            $table->bigInteger('user_id')->unsigned()->default(1);
+            $table->integer('user_id')->unsigned()->default(1);
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
