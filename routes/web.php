@@ -52,6 +52,18 @@ Route::group(['middleware' => ['auth', 'ChangePasswor']], function () {
         'uses' => 'Auth\LoginController@getCambio'
     ]);
 
+    Route::group(['middleware' => ['auth']], function () {
+        Route::group(['middleware' => ['acuerdo']], function () {
+            Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+    
+            //include_once('webs/awebs.php');
+        });
+        Route::get('usuario/acuerdo/{objetoxx}', [
+            'uses' => 'Seguridad\Usuario\AcuerdoController@edit',
+            'middleware' => 'acuerdo'
+        ])->name('acuerdo.cambiar');
+    });
+
     include_once('Seguridad/web_rol.php');
     include_once('Seguridad/web_usuario.php');
     include_once('Administracion/web_admin.php');

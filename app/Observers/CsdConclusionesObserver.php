@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\consulta\CsdConclusione;
-use App\Models\consulta\Logs\HCsdConclusione;
+use App\Models\consulta\CsdConclusiones;
+use App\Models\consulta\Logs\HCsdConclusiones;
 
 class CsdConclusionesObserver
 {
@@ -31,9 +31,9 @@ class CsdConclusionesObserver
         return $log;
     }
 
-    public function created(CsdConclusione $modeloxx)
+    public function created(CsdConclusiones $modeloxx)
     {
-        HCsdConclusione::create($this->getLog($modeloxx));
+        HCsdConclusiones::create($this->getLog($modeloxx));
     }
 
     /**
@@ -42,9 +42,9 @@ class CsdConclusionesObserver
      * @param  \App\Models\consulta\CsdConclusione  $modeloxx
      * @return void
      */
-    public function updated(CsdConclusione $modeloxx)
+    public function updated(CsdConclusiones $modeloxx)
     {
-        HCsdConclusione::create($this->getLog($modeloxx));
+        HCsdConclusiones::create($this->getLog($modeloxx));
     }
 
     /**
@@ -53,9 +53,9 @@ class CsdConclusionesObserver
      * @param  \App\Models\consulta\CsdConclusione  $modeloxx
      * @return void
      */
-    public function deleted(CsdConclusione $modeloxx)
+    public function deleted(CsdConclusiones $modeloxx)
     {
-        HCsdConclusione::create($this->getLog($modeloxx));
+        HCsdConclusiones::create($this->getLog($modeloxx));
     }
 
     /**
@@ -64,9 +64,9 @@ class CsdConclusionesObserver
      * @param  \App\Models\consulta\CsdConclusione  $modeloxx
      * @return void
      */
-    public function restored(CsdConclusione $modeloxx)
+    public function restored(CsdConclusiones $modeloxx)
     {
-        HCsdConclusione::create($this->getLog($modeloxx));
+        HCsdConclusiones::create($this->getLog($modeloxx));
     }
 
     /**
@@ -75,8 +75,8 @@ class CsdConclusionesObserver
      * @param  \App\Models\consulta\CsdConclusione  $modeloxx
      * @return void
      */
-    public function forceDeleted(CsdConclusione $modeloxx)
+    public function forceDeleted(CsdConclusiones $modeloxx)
     {
-        HCsdConclusione::create($this->getLog($modeloxx));
+        HCsdConclusiones::create($this->getLog($modeloxx));
     }
 }

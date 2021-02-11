@@ -338,4 +338,32 @@ class UsuarioController extends Controller
             ->route($this->opciones['slotxxxx'], [])
             ->with('info', 'Contraseña restablecida correctamente');
     }
+
+    public function polidatoe(User $objetoxx)
+    {
+        $this->opciones['slotxxxx'] = 'polidato';
+        $this->opciones['botoform']=[];
+        if (auth()->user()->can($this->opciones['permisox'] . '-polidato')) {
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'ACEPTAR', 'routingx' => [$this->opciones['routxxxx'] . '.polidato', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['editar', 'polidatos']]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\FiDatosBasico $objetoxx
+     * @return \Illuminate\Http\Response
+     */
+    public function polidatou(Request $request,  User $objetoxx)
+    {
+       $dataxxxx= $request->all();
+       $dataxxxx['polidato_at']=date('Y-m-d H:m:s',time());
+        return $this->grabar($dataxxxx, $objetoxx, 'Políticas aceptadas con exito','polidato');
+    }
 }

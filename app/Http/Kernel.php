@@ -64,6 +64,10 @@ class Kernel extends HttpKernel
         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
         'ChangePasswor' => \App\Http\Middleware\ChangePasswor::class,
+                /**
+         * politicas de datos
+         */
+        'acuerdo'=>\App\Http\Middleware\PoliticaDatosMiddleware::class,
     ];
 
     /**

@@ -17,10 +17,10 @@ class PoliticaDatosMiddleware
     public function handle($request, Closure $next)
     {
         $usuario = Auth::user();
-        if (isset($request->segments()[1]) &&$request->segments()[1]== 'polidato' ) {
+        if (isset($request->segments()[1]) &&$request->segments()[1]== 'acuerdo' ) {
             return $next($request);
         } else if ($usuario->polidato_at == null) {
-            return  redirect()->route('acuerdo.edit', Auth::user()->id)
+            return  redirect()->route('acuerdo.cambiar', Auth::user()->id)
                 ->with('error', 'Para continuar por favor debe aceptar las políticas de datos');
         }
         return $next($request);

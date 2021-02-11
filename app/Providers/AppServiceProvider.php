@@ -22,7 +22,7 @@ use App\Models\consulta\CsdAlimentacion;
 use App\Models\consulta\CsdBienvenida;
 use App\Models\consulta\CsdComFamiliar;
 use App\Models\consulta\CsdComfamob;
-use App\Models\consulta\CsdConclusione;
+use App\Models\consulta\CsdConclusiones;
 use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\CsdDinFamiliar;
 use App\Models\consulta\CsdDinfamMadre;
@@ -280,7 +280,7 @@ class AppServiceProvider extends ServiceProvider
         CsdBienvenida::observe(csdBienvenidaObserver::class);
         CsdComFamiliar::observe(CsdComFamiliarObserver::class);
         CsdComfamob::observe(CsdComfamobObserver::class);
-        CsdConclusione::observe(CsdConclusionesObserver::class);
+        CsdConclusiones::observe(CsdConclusionesObserver::class);
         CsdDatosBasico::observe(CsdDatosBasicoObserver::class);
         CsdDinFamiliar::observe(CsdDinFamiliarObserver::class);
         CsdDinfamMadre::observe(CsdDinfamMadreObserver::class);
