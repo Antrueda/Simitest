@@ -70,6 +70,7 @@ class AgTemaController extends Controller
 
     private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
     {
+        
         $this->opciones['areasxxx'] = Area::combo_tema('', true, false);
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => true, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $accionxx;
@@ -147,6 +148,7 @@ class AgTemaController extends Controller
      */
     public function edit(AgTema $objetoxx)
     {
+        $this->opciones['tituloxx'] = $this->opciones['tituloxx'];
         return $this->view($objetoxx,  'modeloxx', 'EDITAR', 'editar');
     }
 
