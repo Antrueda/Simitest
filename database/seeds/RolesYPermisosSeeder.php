@@ -71,7 +71,7 @@ class RolesYPermisosSeeder extends Seeder
 
         $this->getPermisos(['permisox' => 'contrase', 'permisos' => ['editar'], 'compleme' => 'cambiar contraseña', 'pestania' => 1]);
 
-        /**
+        /**acuerdo-editar
          * acuerdo de confidencialidad
          */
         $this->getPermisos(['permisox' => 'acuerdo', 'permisos' => ['editar'], 'compleme' => 'Acuerdo de confidencialidad', 'pestania' => 1]);

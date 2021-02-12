@@ -4,7 +4,7 @@ use Spatie\Permission\Models\Role;
 
 Role::create(['name' => 'FICHA DE INGRESO', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
             ->givePermissionTo([
-
+                'acuerdo-editar',
                 'territorio-modulo','contrase-editar',
                 // ficha de ingreso
                 'fivestuario-leer', 'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar',

@@ -28,6 +28,7 @@ Role::create(['name' => 'TRABAJADOR(A) SOCIAL', 'user_crea_id' => 1, 'user_edita
                 'vsidatbi-leer', 'vsidatbi-crear', 'vsidatbi-editar',
                 'vsisitua-leer', 'vsisitua-crear', 'vsisitua-editar',
                 'vsifacto-factorxx',
+                'acuerdo-editar',
                 'vsifacpr-leer', 'vsifacpr-crear', 'vsifacpr-editar', 'vsifacpr-borrar',
                 'vsifacri-leer', 'vsifacri-crear', 'vsifacri-editar', 'vsifacri-borrar',
                 'vsimetas-metaxxxx',

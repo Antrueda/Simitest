@@ -16,7 +16,7 @@ Role::create(['name' => 'REFERENTE LOCAL', 'user_crea_id' => 1, 'user_edita_id' 
                 // permisos para agregar componenete familiar a justicia restaurativa
                 'fijrfamiliar-leer',
                 // Intervencion Sicosocial
-                
+                'acuerdo-editar',
 
             ]);
 

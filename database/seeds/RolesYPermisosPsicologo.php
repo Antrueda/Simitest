@@ -28,6 +28,7 @@ Role::create(['name' => 'PSICÓLOGO(A)', 'user_crea_id' => 1, 'user_edita_id' =>
                 'vsidatbi-leer', 'vsidatbi-crear', 'vsidatbi-editar',
                 'vsisitua-leer', 'vsisitua-crear', 'vsisitua-editar',
                 'vsifacto-factorxx',
+                'acuerdo-editar',
                 'vsifacpr-leer', 'vsifacpr-crear', 'vsifacpr-editar', 'vsifacpr-borrar',
                 'vsifacri-leer', 'vsifacri-crear', 'vsifacri-editar', 'vsifacri-borrar',
                 'vsimetas-metaxxxx',

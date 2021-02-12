@@ -60,5 +60,6 @@ Role::create(['name' => 'AUXILIAR DE ENFERMERÍA', 'user_crea_id' => 1, 'user_ed
                 'indiadmi-modulo',
                 'fosadmin-modulo',
                 'motaller-modulo',
+                'acuerdo-editar',
             ]);
 

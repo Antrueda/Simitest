@@ -14,7 +14,7 @@ Role::create(['name' => 'administrador', 'user_crea_id' => 1, 'user_edita_id' =>
     'persona-leer', 'persona-crear', 'persona-editar', 'persona-borrar',
     'parametro-leer', 'parametro-crear', 'parametro-editar', 'parametro-borrar',
     'tema-leer', 'tema-crear', 'tema-editar', 'tema-borrar',
-
+    'acuerdo-editar',
     'dependencia-leer', 'dependencia-crear', 'dependencia-editar', 'dependencia-borrar',
     'eps-leer', 'eps-crear', 'eps-editar', 'eps-borrar',
     'fsoporte-leer', 'fsoporte-crear', 'fsoporte-editar', 'fsoporte-borrar',

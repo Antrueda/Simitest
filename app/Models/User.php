@@ -114,6 +114,17 @@ class User extends Authenticatable
         return $usuariox;
     }
 
+    public static function polidato($dataxxxx, $objetoxx)
+    {
+        $usuariox = DB::transaction(function () use ($dataxxxx,  $objetoxx) {
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            $dataxxxx['polidato_at'] = date("Y-m-d", strtotime(date('Y-m-d')));
+            $objetoxx->update($dataxxxx);
+            return $objetoxx;
+        }, 5);
+        return $usuariox;
+    }
+
 
     public static function transaccion($dataxxxx, $objetoxx)
     {

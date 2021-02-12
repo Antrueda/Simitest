@@ -93,8 +93,9 @@ class AcuerdoController extends Controller
 
     private function grabar($dataxxxx)
     {
-        User::cambiarcontasenia($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id;
-        return redirect('login')->with(Auth::logout());
+
+        User::polidato($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id;
+        return redirect()->route($this->opciones['routxxxx'] . '.editar', $dataxxxx['modeloxx']->id);
     }
 
     /**
