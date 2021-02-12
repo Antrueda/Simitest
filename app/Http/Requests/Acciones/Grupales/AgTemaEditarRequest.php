@@ -13,13 +13,16 @@ class AgTemaEditarRequest extends FormRequest
     public function __construct()
     {
 
+
         $this->_mensaje = [
-            's_tema.required' => 'Ingrese el nombre del rol',
-            'area_id.required' => 'Ingrese el nombre del rol',            
+            's_tema.required' => 'Ingrese el nombre del tema',
+            'area_id.required' => 'Seleccione un area',            
+            'estusuario_id.required' => 'Ingrese una justificación de estado',            
         ];
         $this->_reglasx = [
             's_tema' =>['required'],
             'area_id' =>['required'],
+            'estusuario_id' =>['required'],
         ];
     }
     /**

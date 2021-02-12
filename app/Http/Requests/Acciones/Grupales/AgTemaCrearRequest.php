@@ -16,10 +16,12 @@ class AgTemaCrearRequest extends FormRequest
         $this->_mensaje = [
             's_tema.required' => 'Ingrese el nombre del rol',
             'area_id.required' => 'Ingrese el nombre del rol',            
+            'estusuario_id.required' => 'Ingrese el nombre del rol',            
         ];
         $this->_reglasx = [
             's_tema' =>['required'],
             'area_id' =>['required'],
+            'estusuario_id' =>['required'],
         ];
     }
     /**
