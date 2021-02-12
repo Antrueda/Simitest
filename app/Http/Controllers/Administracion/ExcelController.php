@@ -74,7 +74,7 @@ class ExcelController extends Controller
             'volverax' => '',
             'rutacarp' => 'Administracion.Excel.',
             'tituloxx' => 'Subir: excel',
-            'slotxxxx' => 'excel',
+            'slotxxxx' => 'excel4',
             'carpetax' => 'Excel',
             'indecrea' => false,
             'esindexx' => false
@@ -100,7 +100,6 @@ class ExcelController extends Controller
      */
     public function index()
     {
-
         $this->opciones['tablasxx'][] =
             [
 
@@ -172,7 +171,7 @@ class ExcelController extends Controller
                 'sis_esta_id' => {$registro->sis_esta_id},
                 'created_at' => '{$registro->created_at}',
                 'updated_at' => '{$registro->updated_at}',
-                                
+
             ]); <br />";;
         }
     }
@@ -215,7 +214,7 @@ class ExcelController extends Controller
                 'sis_esta_id' => {$registro->sis_esta_id},
                 'created_at' => '{$registro->created_at}',
                 'updated_at' => '{$registro->updated_at}',
-                
+
             ]); <br />";;
 
 
@@ -230,7 +229,7 @@ class ExcelController extends Controller
                 'sis_esta_id' => {$registro->sis_esta_id},
                 'created_at' => '{$registro->created_at}',
                 'updated_at' => '{$registro->updated_at}',
-                
+
             ]); <br />";;
         }
     }

@@ -2,9 +2,13 @@
   <div class="card-header p-2">
     <ul class="nav nav-tabs">
       @canany(['excel-leer', 'excel-crear', 'excel-editar', 'excel-borrar'])
-      <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='excel') ?' active' : '' }} 
-        text-sm" href="{{ route('excel', $todoxxxx['padrexxx']) }}">Excel</a></li>
-      @endcanany     
+      <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='excel') ?' active' : '' }}
+        text-sm" href="{{ route('excel', $todoxxxx['padrexxx']) }}">PROYECTO 7720</a></li>
+      @endcanany
+      @canany(['excel-leer', 'excel-crear', 'excel-editar', 'excel-borrar'])
+      <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='excel') ?' active' : '' }}
+        text-sm" href="{{ route('excel', $todoxxxx['padrexxx']) }}">PROYECTO 7722</a></li>
+      @endcanany
     </ul>
   </div>
   <div class="card-body">

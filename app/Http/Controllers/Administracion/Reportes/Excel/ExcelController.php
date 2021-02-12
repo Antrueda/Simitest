@@ -22,13 +22,13 @@ class ExcelController extends Controller
 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'REPORTES EXCEL';
+        $this->opciones['tituhead'] = 'REPORTES';
         $this->opciones['routxxxx'] = 'excel';
         $this->opciones['slotxxxx'] = 'excel';
         $this->opciones['perfilxx'] = 'sinperfi';
         $this->opciones['rutacarp'] = 'administracion.Reportes.';
         $this->opciones['parametr'] = [];
-        $this->opciones['carpetax'] = 'Excel';
+        $this->opciones['carpetax'] = 'Proyectos';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
@@ -38,12 +38,12 @@ class ExcelController extends Controller
 
 
 
-        $this->opciones['tituloxx'] = "INFORMACI{$this->opciones['vocalesx'][3]}N";
+        $this->opciones['tituloxx'] = "REPORTES PROYECTO 7720";
         $this->opciones['botoform'] = [
-            [
-                'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJ', 'clasexxx' => 'btn btn-sm btn-primary'
-            ],
+            // [
+            //     'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
+            //     'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJ', 'clasexxx' => 'btn btn-sm btn-primary'
+            // ],
         ];
     }
 
@@ -110,8 +110,14 @@ class ExcelController extends Controller
 
     private function view($dataxxxx)
     {
-
-
+        $this->opciones['aniosxxx']  = [];
+        for ($i = 2021; $i <= date('Y'); $i++) {
+            $this->opciones['aniosxxx'] [$i] = $i;
+        }
+        $this->opciones['mesesxxx'] = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $this->opciones['mesesxxx'][$i] = $i;
+        }
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
@@ -143,9 +149,10 @@ class ExcelController extends Controller
     }
     public function getExcel()
     {
+
         $this->opciones['botoform'][] =
             [
-                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 

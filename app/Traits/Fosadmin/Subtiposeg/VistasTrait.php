@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Fosadmin\SubTiposeg;
+namespace app\Traits\Fosadmin\SubTiposeg;
 
 use App\Models\fichaobservacion\FosTse;
 use App\Models\Indicadores\Area;
@@ -27,7 +27,7 @@ trait VistasTrait
     {
 
         $opciones = $this->getVista($opciones, $dataxxxx);
-        
+
         $selected=0;
         $estadoid = 1;
         // indica si se esta actualizando o viendo

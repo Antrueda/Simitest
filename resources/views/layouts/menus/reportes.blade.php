@@ -11,7 +11,7 @@
             <li class="nav-item">
                 <a href="{{ route('excel') }}" class="nav-link">
                 <i class="fas fa-check nav-icon"></i>
-                <p>Excel</p>
+                <p>Reportes</p>
                 </a>
             </li>
         @endcan

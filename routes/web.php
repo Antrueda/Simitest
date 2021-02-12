@@ -44,7 +44,7 @@ Route::get('markAsRead', function () {
 Route::post('/mark-as-read', 'AlertaController@markNotification')->name('markNotification');
 
 
-Route::group(['middleware' => ['auth', 'ChangePasswor']], function () {
+Route::group(['middleware' => ['auth', 'ChangePasswor','acuerdo']], function () {
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
     Route::get('cambio', [
@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth', 'ChangePasswor']], function () {
     ]);
 
     Route::group(['middleware' => ['auth','PoliticaDatosMiddleware']], function () {
-        
+
         Route::get('usuario/acuerdo/{objetoxx}', [
             'uses' => 'Seguridad\Usuario\AcuerdoController@edit',
             'middleware' => 'PoliticaDatosMiddleware'

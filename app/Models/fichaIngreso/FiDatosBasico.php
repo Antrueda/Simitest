@@ -60,7 +60,7 @@ class FiDatosBasico extends Model
 
     public function nnaj_sexo()
     {
-        
+
         return $this->hasOne(NnajSexo::class);
     }
 
@@ -335,7 +335,7 @@ class FiDatosBasico extends Model
 
            NnajUpi::setUpiDatosBasicos($dataxxxx, $objetoxx);
            FiDiligenc::transaccion($dataxxxx, $objetoxx);
-           $this->getInsertarDatosBasicos($dataxxxx, $objetoxx);
+        //    $this->getInsertarDatosBasicos($dataxxxx, $objetoxx);
             return $objetoxx;
         }, 5);
 

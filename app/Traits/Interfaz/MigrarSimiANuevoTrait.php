@@ -14,6 +14,7 @@ use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
+use App\Models\Sistema\SisServicio;
 use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\Tema;
@@ -60,7 +61,7 @@ trait MigrarSimiANuevoTrait
         $respuest = [];
         if (!isset($upzxxxxy->id)) {
             $upzxxxxy = SisUpz::find(121);
-            // si la localidad no existe        
+            // si la localidad no existe
             if (!isset($localidy->id)) {
                 $respuest = SisUpzbarri::find(1928);
             } else {
@@ -78,7 +79,7 @@ trait MigrarSimiANuevoTrait
             $localupz = SisLocalupz::where('sis_upz_id', $upzxxxxy->id)->where('sis_localidad_id', $localidy->id)->first();
             $respuest = $this->setBarrioUpz($localupz, $barrioxy);
         }
-    
+
         return $respuest;
     }
     public function getBarrio($dataxxxx)
@@ -307,5 +308,17 @@ trait MigrarSimiANuevoTrait
     }
     public function getServiciosUpi($dataxxxx)
     {
+        $servicio=[];
+        if ($dataxxxx['codigoxx'] != '') {
+            // buscar el servicio en el antiguo desarrollo
+            $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
+            $servicio=SisServicio::where('s_servicio',$multival->descripcion)->first();
+            if(!isset($servicio)){
+
+            }
+        }else {
+            $servicio=SisServicio::find(7);
+        }
+        return $servicio;
     }
 }

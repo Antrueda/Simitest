@@ -117,13 +117,14 @@ trait InterfazFiTrait
 
     public function getBuscarNnajAgregar($request)
     {
-
         $request->docuagre = 1006148207;
-        // ddd(GeNnaj::where('numero_documento',$request->docuagre)->first());
-        $dataxxxx = GeNnajDocumento::select([
+        $dataxxxx = GeNnajDocumento::
+        select([
             'ficha_acercamiento_ingreso.fecha_apertura',
             'ge_nnaj.tipo_poblacion',
             'ge_upi_nnaj.id_upi',
+            'ge_upi_nnaj.modalidad',
+            'ge_upi_nnaj.servicio',
             'ge_nnaj.primer_nombre',
             'ge_nnaj.segundo_nombre',
             'ge_nnaj.primer_apellido',
@@ -145,15 +146,18 @@ trait InterfazFiTrait
             'ge_nnaj.etnia',
             'ge_nnaj.condicion_vestido',
             'ficha_acercamiento_ingreso.id_barrio',
+        ])->
 
 
-        ])->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
+        join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
             ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
             ->join('ficha_acercamiento_ingreso', 'ge_nnaj.id_nnaj', '=', 'ficha_acercamiento_ingreso.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $request->docuagre)->first();
         $objetoxx = new FiDatosBasico;
+        $objetoxx-> diligenc=explode(' ',$dataxxxx->fecha_apertura)[0];
         $objetoxx->prm_tipoblaci_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_poblacion, 'tablaxxx' => 'TIPOPOB', 'temaxxxx' => 119])->id;
         $objetoxx->sis_depen_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->id_upi])->id;
+        $objetoxx->sis_depen_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad, 'tablaxxx' => 'MODALIDAD_UPI'])->id;
         $objetoxx->s_primer_nombre = $dataxxxx->primer_nombre;
         $objetoxx->s_segundo_nombre = $dataxxxx->segundo_nombre;
         $objetoxx->s_primer_apellido = $dataxxxx->primer_apellido;
@@ -180,7 +184,6 @@ trait InterfazFiTrait
         }
 
         $objetoxx->prm_tipodocu_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_documento, 'tablaxxx' => 'TIPO_DOCUMENTO', 'temaxxxx' => 3])->id;
-        // $objetoxx->prm_doc_fisico_id = $this->getParametrosSimiMultivalor(['codigoxx'=>$dataxxxx->cuenta_doc,'tablaxxx'=>'DICOTOMIA','temaxxxx'=>23])->id;
         $objetoxx->s_documento = $dataxxxx->numero_documento;
         $municipi = $this->getMunicipoSimi(['idmunici' => $dataxxxx->id_lugar_expedicion]);
         $objetoxx->sis_municipioexp_id = $municipi->id;
@@ -201,20 +204,10 @@ trait InterfazFiTrait
         $objetoxx->prm_etnia_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->etnia, 'tablaxxx' => 'ETNIA', 'temaxxxx' => 20])->id;
         $objetoxx->prm_vestimenta_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->condicion_vestido, 'tablaxxx' => 'DICOTOMIAS', 'temaxxxx' => 290])->id;
         $locabari = $this->getBarrio(['idbarrio' => $dataxxxx->id_barrio]);
-// ddd($locabari);
+
         $objetoxx->sis_localidad_id = $locabari->sis_localupz->sis_localidad_id;
         $objetoxx->sis_upz_id = $locabari->sis_localupz->id;
         $objetoxx->sis_upzbarri_id = $locabari->id;
-        // ddd($dataxxxx->toArray());
-
-
-        // ddd($objetoxx->toArray());
-
-
-
-
-
-
         return $objetoxx;
     }
     public function getData($dataxxxx)

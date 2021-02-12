@@ -15,13 +15,13 @@ class ChangePasswor
         $cambioxx = strtotime($usuario->password_change_at);
         if ($usuario->password_reset_at != null) { //la contraseña ha sido resetiada
             return  redirect()->route('contrase.cambiar', Auth::user()->id)
-            ->with('error', 'Para continuar por favor debe actualizar su contraseña');
+                ->with('error', 'Para continuar por favor debe actualizar su contraseña');
         } else
 
         if ($actualxx > $cambioxx) {
             return  redirect()->route('contrase.cambiar', Auth::user()->id)
-            ->with('error', 'Para continuar por favor debe actualizar su contraseña');
-        } else { 
+                ->with('error', 'Para continuar por favor debe actualizar su contraseña');
+        } else {
             return $next($request);
         }
     }
@@ -35,7 +35,7 @@ class ChangePasswor
     public function handle($request, Closure $next)
     {
         if (isset($request->segments()[1])) {
-            if ($request->segments()[1] == 'cambiocontra') {   
+            if ($request->segments()[1] == 'cambiocontra') {
                 return $next($request);
             } else {
                 return $this->getValidar($request, $next);;
@@ -43,8 +43,5 @@ class ChangePasswor
         } else {
             return $this->getValidar($request, $next);;
         }
-
-        //return redirect()->action('Seguridad\Usuario\UsuarioController@index');
-        // 
     }
 }

@@ -17,9 +17,11 @@ class PoliticaDatosMiddleware
     public function handle($request, Closure $next)
     {
         $usuario = Auth::user();
-        if ($usuario->polidato_at == null) {
+        if (isset($request->segments()[1])&& $request->segments()[1]=='acuerdo') {
+            return $next($request);
+        }else if($usuario->polidato_at == null){
             return  redirect()->route('acuerdo.cambiar', $usuario->id);
-            }
+        }
         return $next($request);
     }
 }
@@ -27,7 +29,7 @@ class PoliticaDatosMiddleware
     public function handle($request, Closure $next)
     {
         if (isset($request->segments()[1])) {
-            if ($request->segments()[1] == 'cambiocontra') {   
+            if ($request->segments()[1] == 'cambiocontra') {
                 return $next($request);
             } else {
                 return $this->getValidar($request, $next);;
@@ -37,6 +39,6 @@ class PoliticaDatosMiddleware
         }
 
         //return redirect()->action('Seguridad\Usuario\UsuarioController@index');
-        // 
+        //
     }
 }

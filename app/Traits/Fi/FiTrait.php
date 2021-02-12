@@ -282,12 +282,12 @@ trait FiTrait
         $request->actuanti=true;
         $respuest = $this->getFiDatosBasico();
         if ($request->search['value'] != '') {
-            $request->merge(['columns' => $this->getMerge()]);
-            $request->actuanti=false;
+            // $request->merge(['columns' => $this->getMerge()]);
+            // $request->actuanti=false;
 
 
-            // print_r($request->all());
-            $respuest = $this->getGeNnaj();
+            // // print_r($request->all());
+            // $respuest = $this->getGeNnaj();
         }
 
 

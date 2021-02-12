@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Fosadmin\SubTiposeg;
+namespace app\Traits\Fosadmin\SubTiposeg;
 
 use App\Models\fichaobservacion\FosStse;
 use Illuminate\Support\Facades\Auth;
