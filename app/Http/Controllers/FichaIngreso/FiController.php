@@ -538,8 +538,8 @@ class FiController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view($objetoxx,  'modeloxx', 'Destroy');
-    }
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $objetoxx]);
+        }
 
 
     public function destroy(Request $request, FiDatosBasico $objetoxx)
@@ -548,7 +548,7 @@ class FiController extends Controller
         $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', 'Sucursal inactivada correctamente');
+            ->with('info', 'NNAJ inactivado correctamente');
     }
 
     public function municipioajax(Request $request)

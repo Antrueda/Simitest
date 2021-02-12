@@ -170,7 +170,8 @@
   </div>
   <div class="col-md">
       {{ Form::label('sis_upz_id', '5.7 Nº UPZ - 5.8 Nombre de UPZ', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('sis_upz_id', $todoxxxx["upzxxxxx"], null, ['class' => $errors->first('sis_upz_id') ? 'form-control departam form-control-sm is-invalid' : 'form-control departam form-control-sm']) }}
+      {{ Form::select('sis_upz_id', $todoxxxx["upzxxxxx"], null, ['class' => $errors->first('sis_upz_id') ? 'form-control departam form-control-sm is-invalid' : 'form-control departam form-control-sm','style' => 'text-transform:uppercase;',
+      "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
       @if($errors->has('sis_upz_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('sis_upz_id') }}
