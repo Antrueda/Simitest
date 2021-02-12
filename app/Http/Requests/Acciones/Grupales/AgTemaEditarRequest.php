@@ -13,7 +13,6 @@ class AgTemaEditarRequest extends FormRequest
     public function __construct()
     {
 
-
         $this->_mensaje = [
             's_tema.required' => 'Ingrese el nombre del tema',
             'area_id.required' => 'Seleccione un area',            
