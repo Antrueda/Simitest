@@ -16,6 +16,7 @@ class AgTallerCrearRequest extends FormRequest
         $this->_mensaje = [
             's_taller.required' => 'Ingrese el nombre del Taller',
             's_descripcion.required' => 'Ingrese la descripción del taller',
+            'estusuario_id.required' => 'Ingrese una justificación de estado',      
         ];
         $this->_reglasx = [
             's_taller' =>
@@ -28,6 +29,7 @@ class AgTallerCrearRequest extends FormRequest
                 'required', //y todos las validaciones a que haya lugar separadas por coma
                 
             ],
+            'estusuario_id' =>['required'],
         ];
     }
     /**

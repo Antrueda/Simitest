@@ -45,8 +45,7 @@ class AgResponsableController extends Controller
         if(  count($responsa)<=2){
             $this->getBotones(['crear', [$padrexxx->id], 1, 'GUARDAR', 'btn btn-sm btn-primary']);
         }
-        $this->getBotones(['crear', ['agasiste.nuevo',[$padrexxx->id]], 2, 'AGREGAR PARTICIPANTES', 'btn btn-sm btn-primary']);
-       
+        
         $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }

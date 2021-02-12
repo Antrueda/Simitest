@@ -45,6 +45,7 @@ class AgSubtemaEditarRequest extends FormRequest
         $this->_reglasx = [
             's_subtema' =>['required','unique:ag_subtemas,s_subtema,'.$this->segments()[3]],
             's_descripcion' =>['required'],
+            'estusuario_id' =>['required'],
         ];
         return $this->_reglasx;
     }

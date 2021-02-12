@@ -91,6 +91,7 @@ class AgActividadController extends Controller
         $this->getBotones(['crear', ['agrespon.nuevo',[$modeloxx->id]], 2, 'AGREGAR RESPONSABLE', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agasiste.nuevo',[$modeloxx->id]], 2, 'AGREGAR PARTICIPANTES', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', ['agrelacion.nuevo',[$modeloxx->id]], 2, 'AGREGAR RECURSOS', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', ['agcargdoc.nuevo',[$modeloxx->id]], 2, 'AGREGAR DOCUMENTOS', 'btn btn-sm btn-primary']);
          
         return $this->view(
             $this->getBotones(['crear', [$this->opciones['routxxxx'], [$modeloxx->sis_nnaj]], 2, 'CREAR TALLER', 'btn btn-sm btn-primary']),

@@ -203,12 +203,12 @@ class AgTallerController extends Controller
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'].'.temas', []],
-                'formhref' => 2, 'tituloxx' => 'Volver a Temas', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A TEMAS', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], [$agtemaid]],
-                'formhref' => 2, 'tituloxx' => 'Volver a Talleres', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A TALLERES', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         $this->opciones['botoform'][] =
             [

@@ -81,6 +81,7 @@ class AgRelacionController extends Controller
         $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR RECURSO', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'AGREGAR RECURSO', 'btn btn-sm btn-primary']);
+        $this->getBotones(['crear', ['agcargdoc.nuevo',[$padrexxx->id]], 2, 'AGREGAR DOCUMENTOS', 'btn btn-sm btn-primary']);
         $responsa = AgResponsable::where('ag_actividad_id',$padrexxx->id)->get();
         if(  count($responsa)<=2){
         $this->getBotones(['crear', ['agrespon.nuevo', [$padrexxx->id]], 2, 'AGREGAR RESPONSABLE', 'btn btn-sm btn-primary']);

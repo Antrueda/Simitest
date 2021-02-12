@@ -72,6 +72,7 @@ class AgCargueDocController extends Controller
         $padrexxx = $modeloxx->ag_actividad;
         $this->pestanix[4]['dataxxxx'] = [true, $padrexxx->id];
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
+        $this->getBotones(['crear', ['agcargdoc.nuevo',[$padrexxx->id]], 2, 'AGREGAR OTRO DOCUMENTO', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
          return $this->view($this->opciones,['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]
         );
