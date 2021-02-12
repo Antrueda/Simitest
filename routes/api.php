@@ -93,6 +93,7 @@ Route::get('ai/nnajs', function (Request $request) {
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->where('sis_nnajs.prm_escomfam_id',227)
+            //->where('fi_datos_basicos.sis_nnaj_id',1)
 
             )
 
