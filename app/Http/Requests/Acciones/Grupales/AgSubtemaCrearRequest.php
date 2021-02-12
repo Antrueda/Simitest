@@ -17,10 +17,13 @@ class AgSubtemaCrearRequest extends FormRequest
             's_subtema.required' => 'Ingrese el nombre del subtema',
             's_subtema.unique' => 'Ese subtema ya se encuentra en uso',
             'estusuario_id.required' => 'Ingrese una justificación de estado', 
+            'sis_esta_id.required' => 'Seleccione un estado',      
         ];
         $this->_reglasx = [
             's_subtema' =>['required','unique:ag_subtemas'],
             's_descripcion' =>['required'],
+            'sis_esta_id' =>['required'],
+            'estusuario_id' =>['required'],
         ];
     }
     /**

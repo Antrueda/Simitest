@@ -16,6 +16,8 @@ class AgTallerEditarRequest extends FormRequest
             's_taller.required' => 'Ingrese el nombre del Taller',
             's_descripcion.required' => 'Ingrese la descripción del taller',
             'estusuario_id.required' => 'Ingrese una justificación de estado',      
+            'sis_esta_id.required' => 'Seleccione un estado',      
+            
         ];
         
     }
@@ -53,6 +55,7 @@ class AgTallerEditarRequest extends FormRequest
                 'required', //y todos las validaciones a que haya lugar separadas por coma 
             ],
             'estusuario_id' =>['required'],
+            'sis_esta_id' =>['required'],
         ];
         return $this->_reglasx;
     }

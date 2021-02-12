@@ -16,12 +16,14 @@ class AgTemaCrearRequest extends FormRequest
         $this->_mensaje = [
             's_tema.required' => 'Ingrese el nombre del tema',
             'area_id.required' => 'Seleccione un area',            
-            'estusuario_id.required' => 'Ingrese una justificación de estado',            
+            'estusuario_id.required' => 'Ingrese una justificación de estado', 
+            'sis_esta_id.required' => 'Seleccione un estado',                 
         ];
         $this->_reglasx = [
             's_tema' =>['required'],
             'area_id' =>['required'],
             'estusuario_id' =>['required'],
+            'sis_esta_id' =>['required'],
         ];
     }
     /**

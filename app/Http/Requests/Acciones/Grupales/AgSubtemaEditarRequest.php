@@ -16,6 +16,8 @@ class AgSubtemaEditarRequest extends FormRequest
             's_descripcion.required' => 'Ingrese la descripcion',
             's_subtema.required' => 'Ingrese el nombre del subtema',
             's_subtema.unique' => 'el subtema ya se encuentra en uso',
+            'estusuario_id.required' => 'Ingrese una justificación de estado', 
+            'sis_esta_id.required' => 'Seleccione un estado',    
         ];
         
     }
@@ -46,6 +48,8 @@ class AgSubtemaEditarRequest extends FormRequest
             's_subtema' =>['required','unique:ag_subtemas,s_subtema,'.$this->segments()[3]],
             's_descripcion' =>['required'],
             'estusuario_id' =>['required'],
+            'sis_esta_id' =>['required'],
+            
         ];
         return $this->_reglasx;
     }

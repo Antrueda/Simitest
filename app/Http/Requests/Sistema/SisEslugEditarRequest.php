@@ -16,6 +16,8 @@ class SisEslugEditarRequest extends FormRequest
         $this->_mensaje = [
             's_espaluga.required' => 'Ingrese el nombre del rol',
             's_espaluga.unique' => 'el rol ya se encuentra en uso',
+            'estusuario_id.required' => 'Ingrese una justificación de estado',      
+            'sis_esta_id.required' => 'Seleccione un estado',  
         ];
     }
     /**
@@ -41,9 +43,18 @@ class SisEslugEditarRequest extends FormRequest
     public function rules()
     {
         $this->validar();
-        $this->_reglasx['s_espaluga']= ['required',
-            'unique:sis_eslugs,s_espaluga,' . $this->segments()[2]];
-        return $this->_reglasx;
+        $this->_reglasx = [
+            's_espaluga' => ['required','unique:sis_eslugs,s_espaluga,' . $this->segments()[2]],
+            'estusuario_id' =>
+            [
+                'required',
+            ],
+            'sis_esta_id'=>
+            [
+                'required',
+            ],
+        ];
+      
     }
 
     public function validar()

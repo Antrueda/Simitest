@@ -16,12 +16,21 @@ class SisEslugCrearRequest extends FormRequest
         $this->_mensaje = [
             's_espaluga.required' => 'Ingrese el nombre del espacio/lugar',
             's_espaluga.unique' => 'el espacio/lugar ya se encuentra en uso',
+            'estusuario_id.required' => 'Ingrese una justificación de estado',      
+            'sis_esta_id.required' => 'Seleccione un estado',  
         ];
         $this->_reglasx = [
-            's_espaluga' =>
-            [
+            's_espaluga' =>[
                 'required', //y todos las validaciones a que haya lugar separadas por coma
                 'unique:sis_eslugs,s_espaluga,'
+            ],
+            'estusuario_id' =>
+            [
+                'required',
+            ],
+            'sis_esta_id'=>
+            [
+                'required',
             ],
         ];
     }

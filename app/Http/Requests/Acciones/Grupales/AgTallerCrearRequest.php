@@ -17,6 +17,7 @@ class AgTallerCrearRequest extends FormRequest
             's_taller.required' => 'Ingrese el nombre del Taller',
             's_descripcion.required' => 'Ingrese la descripción del taller',
             'estusuario_id.required' => 'Ingrese una justificación de estado',      
+            'sis_esta_id.required' => 'Seleccione un estado',      
         ];
         $this->_reglasx = [
             's_taller' =>
@@ -30,6 +31,7 @@ class AgTallerCrearRequest extends FormRequest
                 
             ],
             'estusuario_id' =>['required'],
+            'sis_esta_id' =>['required'],
         ];
     }
     /**
