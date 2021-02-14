@@ -73,7 +73,7 @@ class SisDepeUsua extends Model
             }
         }
 
-        $notinxxx = SisDepen::whereNotIn('id', SisDepeUsua::whereNotIn('sis_depen_id', [$dataxxxx['selectxx']])
+        $notinxxx = SisDepen::orderBy('nombre', 'ASC')->whereNotIn('id', SisDepeUsua::whereNotIn('sis_depen_id', [$dataxxxx['selectxx']])
             ->where('user_id', $dataxxxx['padrexxx'])
             ->get(['sis_depen_id']))
             ->get();

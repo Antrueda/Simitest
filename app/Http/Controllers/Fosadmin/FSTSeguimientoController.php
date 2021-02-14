@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Fosadmin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosStseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosStseEditarRequest;
+use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
 use App\Traits\Fosadmin\Subtiposeg\CrudTrait;
@@ -114,6 +115,9 @@ class FSTSeguimientoController extends Controller
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        $seguimix=FosSeguimiento::where('fos_stses_id',$modeloxx->id);
+        $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        //ddd( $seguimix);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
             ->with('info', 'Sub tipo de seguimiento inactivado correctamente');
@@ -131,6 +135,8 @@ class FSTSeguimientoController extends Controller
     public function activar(Request $request, FosStse $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        $seguimix=FosSeguimiento::where('fos_stses_id',$modeloxx->id);
+        $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
             ->with('info', 'Sub tipo de seguimiento activado correctamente');

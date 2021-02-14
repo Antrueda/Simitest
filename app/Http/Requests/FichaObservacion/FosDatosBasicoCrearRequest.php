@@ -56,7 +56,7 @@ class FosDatosBasicoCrearRequest extends FormRequest
     {
         if ($this->d_fecha_diligencia != '') {
             $puedexxx = $this->getPuedeCargar([
-                'estoyenx' => 2, // 1 para acciones individuale y 2 para acciones grupales
+                'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
                 'fechregi' => $this->d_fecha_diligencia,
                 'upixxxxx' => $this->sis_depen_id,
                 'formular'=>2,

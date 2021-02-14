@@ -29,7 +29,7 @@ trait VistasTrait
         $opciones = $this->getVista($opciones, $dataxxxx);
 
         $selected=0;
-        $estadoid = 1;
+        $estadoid = 0;
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];

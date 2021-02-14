@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Fosadmin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaObservacion\FosTseCrearRequest;
 use App\Http\Requests\FichaObservacion\FosTseEditarRequest;
+use App\Models\fichaobservacion\FosSeguimiento;
 use App\Models\fichaobservacion\FosTse;
 use App\Traits\Fosadmin\Tiposeguim\CrudTrait;
 use App\Traits\Fosadmin\Tiposeguim\DataTablesTrait;
@@ -111,9 +112,11 @@ class FTSeguimientoController extends Controller
     {
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        $seguimix=FosSeguimiento::where('fos_tse_id',$modeloxx->id);
+        $seguimix->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
-            ->with('info', 'Topo de segumiento inactivado correctamente');
+            ->with('info', 'Tipo de segumiento inactivado correctamente');
     }
 
     public function activate(FosTse $modeloxx)
@@ -128,6 +131,8 @@ class FTSeguimientoController extends Controller
     public function activar(Request $request, FosTse $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        $seguimix=FosSeguimiento::where('fos_tse_id',$modeloxx->id);
+        $seguimix->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj_id])
             ->with('info', 'Tipo de seguimiento activado correctamente');
