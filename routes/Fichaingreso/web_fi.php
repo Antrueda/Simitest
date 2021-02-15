@@ -16,16 +16,16 @@ Route::group(['prefix' => 'fi'], function () use($routexxx,$controll){
 	    'middleware' => ['permission:'.$routexxx.'-crear']
     ])->name($routexxx.'.nuevo');
 
-    Route::post('agregar', [
+    Route::get('agregar', [
 	    'uses' => $controll.'Controller@agregar',
 	    'middleware' => ['permission:'.$routexxx.'-crear']
     ])->name($routexxx.'.agregar');
 
 
-    Route::get('prueba', [
-	    'uses' => $controll.'Controller@agregar',
-	    'middleware' => ['permission:'.$routexxx.'-crear']
-    ])->name($routexxx.'.prueba');
+    // Route::get('prueba', [
+	//     'uses' => $controll.'Controller@agregar',
+	//     'middleware' => ['permission:'.$routexxx.'-crear']
+    // ])->name($routexxx.'.prueba');
 
     Route::post('adicionar', [
 	    'uses' => $controll.'Controller@adicionar',

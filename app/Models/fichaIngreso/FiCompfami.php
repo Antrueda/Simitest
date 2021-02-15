@@ -88,9 +88,13 @@ class FiCompfami extends Model
                 $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
                 $objetoxx->update($dataxxxx);
             } else {
+
                 $datosbas = NnajDocu::setDBComposicionFamiliar($dataxxxx, '');
+
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
+
+
                 $objetoxx = FiCompfami::create($dataxxxx);
             }
             return $objetoxx;

@@ -200,7 +200,7 @@ return [
         /**
          * conectar con oracle
          */
-        
+        // Yajra\Oci8\Oci8ServiceProvider::class,
 
 
         /**

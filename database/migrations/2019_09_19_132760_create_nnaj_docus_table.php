@@ -17,7 +17,7 @@ class CreateNnajDocusTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table = CamposMagicos::getForeign($table, 'fi_datos_basico');
             $table->string('s_documento')->comment('CAMPO NUMERO DE DOCUMENTO');
             $table = CamposMagicos::getForeign($table, 'prm_tipodocu_id', 'parametros');

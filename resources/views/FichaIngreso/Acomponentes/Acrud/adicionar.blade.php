@@ -7,7 +7,7 @@
      <!-- {{route($todoxxxx["routxxxx"].'.adicionar',$todoxxxx["parametr"])}} -->
      <form method="post" action='{{route($todoxxxx["routxxxx"].".adicionar",$todoxxxx["parametr"])}}'>
      @csrf
-      <!-- {{ Form::model($todoxxxx['modeloxx'],[route($todoxxxx["routxxxx"].'.adicionar',$todoxxxx["parametr"]),'method'=>'PUT','id'=>"formulario"
+      <!-- {{ Form::model($todoxxxx['modeloxx'],[route($todoxxxx["routxxxx"].'.adicionar',$todoxxxx["parametr"]),'method'=>'POST','id'=>"formulario"
       ,'enctype'=>"multipart/form-data"]) }} -->
         @include($todoxxxx["botonesx"])
         @include($todoxxxx["formular"])

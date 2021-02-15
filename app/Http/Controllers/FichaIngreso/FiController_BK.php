@@ -20,18 +20,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
-use App\Models\Simianti\Ge\IfComposicionFamiliar;
+use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Sistema\SisDepen;
-use App\Traits\Interfaz\ComposicionFamiliarTrait;
+use App\Models\Sistema\SisUpzbarri;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
+use PhpParser\Node\Stmt\Else_;
+use Yajra\DataTables\Facades\DataTables;
 
 class FiController extends Controller
 {
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
-    use ComposicionFamiliarTrait;
     private $bitacora;
     private $opciones;
 
@@ -339,114 +340,7 @@ class FiController extends Controller
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
-    private function viewagregar($dataxxxx)
-    {
-        $fechaxxx = explode('-', date('Y-m-d'));
 
-        if ($fechaxxx[1] < 12) {
-            $fechaxxx[1] = (int) $fechaxxx[1] + 1;
-        }
-
-        $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
-        ];
-
-        $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
-        $this->opciones['generoxx'] = Tema::combo(12, true, false);
-        $this->opciones['orientac'] = Tema::combo(13, true, false);
-        $this->opciones['estacivi'] = Tema::combo(19, true, false);
-        //
-
-
-        // $this->opciones['tiplibre'] = Parametro::find(235)->Combo;
-        $this->opciones['estadoxx'] = 'ACTIVO';
-
-
-        $this->opciones['mindatex'] = "-29y +0m +1d";
-        $this->opciones['maxdatex'] = "-0y +0m +0d";
-
-        $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
-
-        $this->opciones['neciayud'] = ['' => 'Seleccione'];
-        $this->opciones['readfisi'] = '';
-
-        $localida = 0;
-
-
-
-
-        // indica si se esta actualizando o viendo
-        $this->opciones['aniosxxx'] = '';
-        $this->opciones['pestpara'] = [];
-        $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['usuariox'] =  $dataxxxx['modeloxx'];
-        $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-
-
-        /** documento de identidad */
-        // ddd($dataxxxx['modeloxx']->nnaj_nacimi);
-        $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-
-        if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'] . '.nuevo', $this->opciones['parametr']],
-                    'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
-        }
-        $this->opciones['poblindi'] = Tema::combo(61, true, false);
-        switch ($dataxxxx['modeloxx']->prm_tipoblaci_id) {
-            case 650:
-                $this->opciones['estrateg'] =  Parametro::find(235)->Combo;
-                break;
-            case 651:
-                $this->opciones['estrateg'] =  Parametro::find(651)->Combo;
-                break;
-        }
-
-        // $this->opciones['poblindi'] = Tema::combo(61, true, false);
-        if ($dataxxxx['modeloxx']->prm_etnia_id == 164) {
-            $this->opciones['poblindi'] =  Parametro::find(235)->Combo;
-        }
-
-        if ($dataxxxx['modeloxx']->prm_doc_fisico_id == 228) {
-
-            $this->opciones['neciayud'] = Tema::combo(286, true, false);
-        } else {
-
-            $this->opciones['neciayud'] = Parametro::find(235)->Combo;
-        }
-
-
-        if ($dataxxxx['modeloxx']->prm_situacion_militar_id != 227) {
-            $this->opciones['tiplibre'] = Parametro::find(235)->Combo;
-
-            if ($dataxxxx['modeloxx']->prm_situacion_militar_id == 235) {
-                $this->opciones['situmili'] = Parametro::find(235)->Combo;
-            }
-        }
-
-        if ($this->opciones['modeloxx']->prm_etnia_id != 157) {
-            $this->opciones['poblindi'] =  Parametro::find(235)->Combo;
-        }
-        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
-        $this->opciones['dependen'][$dataxxxx['modeloxx']->sis_depen_id] = SisDepen::find($dataxxxx['modeloxx']->sis_depen_id)->nombre;
-        $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' => $dataxxxx['modeloxx']->sis_depen_id]);
-
-        $this->opciones['upzxxxxx'] = SisUpz::combo($dataxxxx['modeloxx']->sis_localidad_id, false);
-
-        $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
-        $this->opciones['municipi'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departam_id, false);
-        $this->opciones['departam'] = SisDepartam::combo($dataxxxx['modeloxx']->sis_pai_id, false);
-
-        $this->opciones['municexp'] = SisMunicipio::combo($dataxxxx['modeloxx']->sis_departamexp_id, false);
-        $this->opciones['deparexp'] = SisDepartam::combo($dataxxxx['modeloxx']->sis_paiexp_id, false);
-
-        // Se arma el titulo de acuerdo al array opciones
-        return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
-    }
     public function create()
     {
         $this->opciones['botoform'][] =
@@ -459,34 +353,10 @@ class FiController extends Controller
     }
     public function agregar(Request $request)
     {
-        // $nnajxxxx = $this->getArmaRequest($request);
-        $nnajxxxx = $this->getBuscarNnajAgregar($request);
-        // $nnajxxxx =$this->getTraerData();
-        // ddd($nnajxxxx);
-
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-
-        return $this->viewagregar(['modeloxx' => $nnajxxxx, 'accionxx' => ['adicionar', 'formulario']]);
+        $request = $this->getArmaRequest($request);
+        return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
     }
 
-    public function agregar_bk(Request $request)
-    {
-        $nnajxxxx = $this->getBuscarNnajAgregar($request);
-        // $nnajxxxx =$this->getTraerData();
-        // ddd($nnajxxxx);
-
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-
-        return $this->viewagregar(['modeloxx' => $nnajxxxx, 'accionxx' => ['adicionar', 'formulario']]);
-    }
     public function store(FiDatosBasicoCrearRequest $request)
     {
         return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
@@ -554,7 +424,7 @@ class FiController extends Controller
                 ];
         }
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $objetoxx]);
-    }
+        }
 
 
     public function destroy(Request $request, FiDatosBasico $objetoxx)
@@ -613,12 +483,11 @@ class FiController extends Controller
 
     public function prueba($departam, Request $request)
     {
-         $request->docuagre = 1006148207;
-$this->setCmposicionFamiliarCFT($request);
 
 
 
-        // $this->getBuscarNnajAgregar($request);
+
+        $this->getBuscarNnajAgregar($request);
 
         // $request->routexxx = [$this->opciones['routxxxx']];
         // $request->botonesx = $this->opciones['rutacarp'] .
@@ -637,19 +506,35 @@ $this->setCmposicionFamiliarCFT($request);
         //     'upixxxxx'=>2,
         // ]);
 
-        //         $model = User::query()->whereIn('id',[1]);
-        // $datatabl=DataTables::eloquent($model);
-        //         ddd($datatabl->toArray());
+//         $model = User::query()->whereIn('id',[1]);
+// $datatabl=DataTables::eloquent($model);
+//         ddd($datatabl->toArray());
+
+//         //  ddd( GeUpi::first()->);
+//         $tablaxxx='protected $fillable =[';
+// foreach (GeUpi::first()->toArray() as $key => $value) {
+//     $tablaxxx.="'{$key}',<br>";
+// }
+// $tablaxxx.="];";
+// echo $tablaxxx;
+
+// ddd(GeUpi::first());
+//         foreach (SisPai::all() as $keyx => $valuex) {
+//             // ddd($valuex->sis_departams()->pivot);
+//             // $departam=SisDepartam::where('sis_pai_id',$valuex->id)->get();
+//            foreach ($valuex->sis_departams() as $keyy => $valuey) {
+// echo $valuey.'<br>';
+
+//             // $valuex->sis_departams()->attach($valuey,[
+//             //     'simianti_id'=>0,
+//             //     'sis_esta_id'=>1,
+//             //     'user_crea_id'=>Auth::user()->id,
+//             //     'user_edita_id'=>Auth::user()->id,]);
+//            }
 
 
-        // $tablaxxx = 'protected $fillable =[';
-        // foreach (IfComposicionFamiliar::first()->toArray() as $key => $value) {
-        //     $tablaxxx .= "'{$key}',<br>";
-        // }
-        // $tablaxxx .= "];";
-        // echo $tablaxxx;
-
-
+//         }
+        // $buesqued = $this->getBuscarNnajAgregar($request);
 
 
     }

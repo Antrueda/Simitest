@@ -8,23 +8,21 @@ use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Simianti\Sis\Municipio;
 use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
-use App\Models\Sistema\SisPai;
 use App\Models\Sistema\SisServicio;
 use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\Tema;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
+
 
 /**
  * realizar migagraciones del simi anterior al nuevo desarrollo
  */
-trait MigrarSimiANuevoTrait
+trait HomologacionesTrait
 {
     public function setBarrioUpz($localupz, $barrioxy)
     {
@@ -149,7 +147,6 @@ trait MigrarSimiANuevoTrait
         $temapara = $temaxxxx->parametros()->where('parametro_id', $parametr->id)->first();
         // no está asociado el parametro con el tema
         if (!isset($temapara->pivot->parametro_id)) {
-            $parametr =  Parametro::find($parametr->id);
             $this->getAsociarParametro($temaxxxx, $parametr, 0);
         }
         // se actualiza el id del simi antiguo
@@ -159,6 +156,10 @@ trait MigrarSimiANuevoTrait
                 $temapara->pivot->update(['simianti_id' => $parasimi]);
             }
         }
+
+        //  if ($temaxxxx->id == 23) {
+        //         ddd($temapara->pivot);
+        //     }
         return $parametr;
     }
     /**
@@ -168,7 +169,7 @@ trait MigrarSimiANuevoTrait
      * @param array $dataxxxx información que permite realizar la validación para obtener el parámetro
      * @param boolean $actualiz axiliar que recibe el método getAsociarParametro
      * @param string $parasimi
-     * @return void
+     * @return $parametr
      */
     public function getValidarParametro($parametr, $dataxxxx, $actualiz, $parasimi)
     {
@@ -191,6 +192,9 @@ trait MigrarSimiANuevoTrait
 
             $this->getActualizarParametroTema($temaxxxx, $parametr, $parasimi, $actualiz,);
         }
+        // if ($dataxxxx['temaxxxx'] == 23) {
+        //         ddd($parametr);
+        //     }
         return $parametr;
     }
     /**
@@ -225,19 +229,18 @@ trait MigrarSimiANuevoTrait
                     $multival->descripcion = substr(explode('(', $multival->descripcion)[0], 0, -1) . 'A';
                     break;
             }
-
-            // if ($dataxxxx['temaxxxx'] == 290) {
-            //     ddd($parametr);
-            // }
+            if ($dataxxxx['testerxx']) {
+                ddd($dataxxxx['codigoxx']);
+            }
             // buscar el parametro en el nuevo desarrollo
             $parametr = Parametro::where('nombre', $multival->descripcion)->first();
         }
-        // if ($dataxxxx['temaxxxx'] == 290) {
-        //     ddd($parametr);
-        // }
 
         // se crea el parametro y se asocia con el tema
         $parametr = $this->getValidarParametro($parametr, $dataxxxx, true, $parasimi['codigoxx']);
+        if ($dataxxxx['testerxx']) {
+            ddd($parametr);
+        }
         return $parametr;
     }
     public function getMunicipoSimi($dataxxxx)
@@ -246,10 +249,12 @@ trait MigrarSimiANuevoTrait
         $munianti = Municipio::find($dataxxxx['idmunici']);
         if ($dataxxxx['idmunici'] == 11001) {
             $muninuev = SisMunicipio::find(321);
-        } else {
+        } elseif (!isset($munianti->id)) {
+            $muninuev = SisMunicipio::find(1121);
+        }
+        else {
             $muninuev = SisMunicipio::where('s_municipio', $munianti->nombre_municipio)->first();
         }
-
         if (!isset($muninuev->id)) {
             $muninuev = SisMunicipio::find(1121);
         }
@@ -306,19 +311,33 @@ trait MigrarSimiANuevoTrait
         }
         return $upinuevo;
     }
+    public function getAsignarServicio($dataxxxx)
+    {
+        $servicio = SisServicio::find(7);
+        $sisdepen = SisDepen::find($dataxxxx['sisdepen']);
+        if ($sisdepen != null) {
+            $servicix = $sisdepen->sis_servicios->find($servicio->id);
+            if ($servicix == null) {
+
+                $sisdepen->sis_servicios()->attach([$servicio->id=> ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'sis_esta_id' => 1,]]);
+            }
+        }
+        return $servicio;
+    }
     public function getServiciosUpi($dataxxxx)
     {
-        $servicio=[];
+        $servicio = [];
         if ($dataxxxx['codigoxx'] != '') {
             // buscar el servicio en el antiguo desarrollo
             $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
-            $servicio=SisServicio::where('s_servicio',$multival->descripcion)->first();
-            if(!isset($servicio)){
-
+            $servicio = SisServicio::where('s_servicio', $multival->descripcion)->first();
+            if (!isset($servicio)) {
+                $servicio =$this->getAsignarServicio($dataxxxx);
             }
-        }else {
-            $servicio=SisServicio::find(7);
+        } else {
+            $servicio =$this->getAsignarServicio($dataxxxx);
         }
+
         return $servicio;
     }
 }

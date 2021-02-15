@@ -306,6 +306,7 @@ class FiDatosBasico extends Model
                 $objetoxx->nnaj_fi_csd->update($dataxxxx);
 
             } else {
+
                 /** Es un registro nuevo */
                 $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'prm_escomfam_id' => 227])->id;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;

@@ -17,7 +17,7 @@ class CreateNnajSitMilsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->id()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table = CamposMagicos::getForeign($table, 'fi_datos_basico');
             $table = CamposMagicos::getForeign($table, 'prm_situacion_militar_id','parametros');
             $table = CamposMagicos::getForeign($table, 'prm_clase_libreta_id','parametros');

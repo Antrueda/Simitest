@@ -26,6 +26,6 @@ class GeNnajDocumento extends Model
     ];
     public function ge_nnaj()
     {
-        $this->belongsTo(GeNnaj::class);
+        $this->belongsTo(GeNnaj::class,'id_nnaj');
     }
 }

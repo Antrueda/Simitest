@@ -49,7 +49,7 @@ class CreateFiDatosBasicosTable extends Migration
             $table->integer('prm_tipoblaci_id')->unsigned()->comment('TIPO DE POBLACION LA QUE PERTENECE EL NNAJ');
             $table->integer('prm_estrateg_id')->unsigned()->comment('ESTRTATEGIA A LA QUE APLICA EL NNAJ');
             $table->integer('prm_vestimenta_id')->unsigned()->comment('ESTADO DE LA VESTIMENTA DEL NNAJ')->nullable();
-            
+
             // $table->Integer('sis_nnaj_id');
             $table->Integer('sis_docfuen_id');
 

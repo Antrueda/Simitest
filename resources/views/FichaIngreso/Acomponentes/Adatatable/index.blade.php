@@ -1,6 +1,6 @@
 
 @if(isset($todoxxxx['forminde']))
-<form method = "POST" id="agregarx" target="_blank" action= "{{route('fidatbas.agregar', $todoxxxx['parametr'])}}"
+<form method = "get" id="agregarx" target="_blank" action= "{{route('fidatbas.agregar', $todoxxxx['parametr'])}}"
     enctype="multipart/form-data">
       @csrf
         <input type="hidden" id="docuagre" name="docuagre">
@@ -47,7 +47,15 @@
                         @endforeach
                     </tr>
                     @endforeach
-                   
+                    @if(isset($todoxxxx['forminde']))
+                        @foreach( $todoxxxx['cabecera'] as $cabecera )
+                        <tr class="text-center" id="buscarxx">
+                            @foreach( $cabecera as $cabecerx)
+                            <th width="{{$cabecerx['widthxxx']}}" rowspan="{{$cabecerx['rowspanx']}}" colspan="{{$cabecerx['colspanx']}}"> {{ $cabecerx['td']   }}</th>
+                            @endforeach
+                        </tr>
+                        @endforeach
+                    @endif
                 </thead>
                 <tfoot>
 

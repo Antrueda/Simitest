@@ -17,6 +17,7 @@ use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\DatatableTrait;
+use App\Traits\Interfaz\InterfazDatatableTrait as indatr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,6 +26,7 @@ use Illuminate\Support\Facades\Auth;
  */
 trait FiTrait
 {
+    use indatr;
     use DatatableTrait;
     public function getCombo($dataxxxx)
     {
@@ -143,7 +145,6 @@ trait FiTrait
 
         return $userxxxx;
     }
-
     public function getFiDatosBasico()
     {
         $dataxxxx =  FiDatosBasico::select([
@@ -178,121 +179,143 @@ trait FiTrait
             'ge_nnaj.estado',
             'ge_nnaj.fecha_insercion as created_at',
         ])
-           ->join('ge_nnaj_documento','ge_nnaj.id_nnaj','=','ge_nnaj_documento.id_nnaj')
-        ;
+            ->join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj');
         return  $dataxxxx;
     }
-    public function getMerge()
+    /**
+     * identificar si se está haciendo una búsqueda
+     *
+     * @param object $requestx
+     * @return $nuevanti
+     */
+    public function getExisteNnajFT($requestx)
+    {
+        $nuevanti = false; // existe regisro en el actual simi
+        $unomucho = $this->getBuscarIDT($requestx); // saber si ha buscado por las columnas
+        if ($requestx->search['value'] != '' || $unomucho) {
+
+            $dataxxxx =  FiDatosBasico::select([
+                'fi_datos_basicos.id',
+                'fi_datos_basicos.s_primer_nombre',
+                'nnaj_docus.s_documento',
+                'fi_datos_basicos.s_segundo_nombre',
+                'fi_datos_basicos.s_primer_apellido',
+                'fi_datos_basicos.s_segundo_apellido',
+                'fi_datos_basicos.sis_esta_id',
+                'fi_datos_basicos.created_at',
+                'sis_estas.s_estado',
+                'fi_datos_basicos.user_crea_id',
+            ])
+                ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
+                ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+                ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
+                ->where(function ($queryxxx) use ($requestx, $unomucho) {
+                    $wherexxx = [
+                        'fi_datos_basicos.id'=>'fi_datos_basicos.id',
+                        'fi_datos_basicos.s_primer_nombre'=>'fi_datos_basicos.s_primer_nombre',
+                        'nnaj_docus.s_documento'=>'nnaj_docus.s_documento',
+                        'fi_datos_basicos.s_segundo_nombre'=>'fi_datos_basicos.s_segundo_nombre',
+                        'fi_datos_basicos.s_primer_apellido'=>'fi_datos_basicos.s_primer_apellido',
+                        'fi_datos_basicos.s_segundo_apellido'=>'fi_datos_basicos.s_segundo_apellido',
+                        'fi_datos_basicos.sis_esta_id'=>'fi_datos_basicos.sis_esta_id',
+                        'sis_estas.s_estado'=>'sis_estas.s_estado',
+                    ];
+                    $queryxxx = $this->getWhereIDT($requestx, $unomucho, $queryxxx,$wherexxx);
+                    $queryxxx->where('sis_nnajs.prm_escomfam_id', 227);
+                    return $queryxxx;
+                })
+                ->first();
+
+            if ($dataxxxx != null) {
+                $nuevanti = true;
+            }
+        }else{
+            // $nuevanti = true;
+        }
+        return $nuevanti;
+    }
+
+
+    /**
+     * aramar la cabecera y el select de la consulta en la otra DB
+     *
+     * @return $columnsx
+     */
+    public function getCabeceraDB()
     {
         $columnsx = [
-
+            //no borrar
             [
                 'data' => 'botonexx',
+                'escampox' => true,
                 'name' => 'botonexx',
-                'searchable' => true,
-                'orderable' => true,
-                'search' =>
-                [
-                    'value' => '',
-                    'regex' => false
-                ]
             ],
+            // cuerpo del array y varía de acuerdo a la tabla
+
             [
                 'data' => 'id_nnaj',
+                'escampox' => true,
                 'name' => 'ge_nnaj.id_nnaj',
-                'searchable' => true,
-                'orderable' => true,
-                'search' =>
-                [
-                    'value' => '',
-                    'regex' => false
-                ]
             ],
             [
                 'data' => 'numero_documento',
+                'escampox' => true,
                 'name' => 'ge_nnaj_documento.numero_documento',
-                'searchable' => true,
-                'orderable' => true,
-                'search' =>
-                [
-                    'value' => '',
-                    'regex' => false
-                ]
             ],
             [
                 'data' => 'primer_nombre',
+                'escampox' => true,
                 'name' => 'ge_nnaj.primer_nombre',
-                'searchable' => true,
-                'orderable' => true,
-                'search' =>
-                [
-                    'value' => '',
-                    'regex' => false
-                ]
             ],
             [
                 'data' => 'segundo_nombre',
+                'escampox' => true,
                 'name' => 'ge_nnaj.segundo_nombre',
-                'searchable' => true,
-                'orderable' => true,
-                'search' =>
-                [
-                    'value' => '',
-                    'regex' => false
-                ]
             ],
             [
                 'data' => 'primer_apellido',
+                'escampox' => true,
                 'name' => 'ge_nnaj.primer_apellido',
-                'searchable' => true,
-                'orderable' => true,
-                'search' =>
-                [
-                    'value' => '',
-                    'regex' => false
-                ]
             ],
             [
                 'data' => 'segundo_apellido',
+                'escampox' => true,
                 'name' => 'ge_nnaj.segundo_apellido',
-                'searchable' => true,
-                'orderable' => true,
-                'search' =>
-                [
-                    'value' => '',
-                    'regex' => false
-                ]
             ],
             [
+                'data' => 'upiservicio',
+                'escampox' => false,
+                'name' => 'upiservicio',
+
+            ],
+
+            // no tocar
+            [
                 'data' => 'estado',
+                'escampox' => true,
                 'name' => 'ge_nnaj.estado',
-                'searchable' => true,
-                'orderable' => true,
-                'search' =>
-                [
-                    'value' => '',
-                    'regex' => false
-                ]
             ],
         ];
         return $columnsx;
     }
+
+    /**
+     * consultar el listado de nnajs para la ficha de ingreso
+     *
+     * @param object $request
+     * @return $datatabl
+     */
     public function getNnajsFi2depen($request)
     {
-        $request->actuanti=true;
+        $request->actuanti = true;
         $respuest = $this->getFiDatosBasico();
-        if ($request->search['value'] != '') {
-            // $request->merge(['columns' => $this->getMerge()]);
-            // $request->actuanti=false;
-
-
-            // // print_r($request->all());
-            // $respuest = $this->getGeNnaj();
+        if (!$this->getExisteNnajFT($request)) {
+            $request->merge(['columns' => $this->getMergeIDT($request, $this->getCabeceraDB())]);
+            $request->actuanti = false;
+            $respuest = $this->getGeNnaj();
         }
-
-
-
-        return $this->getDtAccionesUpi($respuest, $request);
+        $datatabl = $this->getDtAccionesUpi($respuest, $request);
+        return $datatabl;
     }
     public function getNnajsFi2user($request)
     {

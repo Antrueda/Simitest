@@ -20,8 +20,11 @@ class CreateAgCarguedocsTable extends Migration
             $table->integer('ag_actividad_id')->unsigned();
             $table->integer('i_prm_documento_id')->unsigned();
             $table->text('s_ruta');
-            $table->foreign('ag_actividad_id')->references('id')->on('ag_actividads');
-            $table->foreign('i_prm_documento_id')->references('id')->on('parametros');
+            // $table->foreign('ag_actividad_id','agca_fk1')->references('id')->on('ag_actividads');
+            $table->foreign('i_prm_documento_id','agca_fk2')->references('id')->on('parametros');
+
+
+
             $table = CamposMagicos::magicos($table);
         });
     }
