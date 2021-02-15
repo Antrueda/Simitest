@@ -27,7 +27,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('telefono', '7.1.13 Datos de Contacto', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('telefono', null, ['class' => $errors->first('telefono') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfonos', 'maxlength' => '10']) }}
+        {{ Form::number('telefono', null, ['class' => $errors->first('telefono') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfonos', 'maxlength' => '10',"onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('telefono'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('telefono') }}

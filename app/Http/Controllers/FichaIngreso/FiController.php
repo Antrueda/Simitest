@@ -616,7 +616,7 @@ class FiController extends Controller
     public function prueba($departam, Request $request)
     {
          $request->docuagre = 1006148207;
- $this->setCmposicionFamiliarCFT($request);
+ //$this->setCmposicionFamiliarCFT($request);
 
 
 

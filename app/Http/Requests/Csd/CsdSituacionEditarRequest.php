@@ -14,10 +14,10 @@ class CsdSituacionEditarRequest extends FormRequest
     {
 
         $this->_mensaje = [
-          
+            'especiales.required'=>'Seleccione una situación',
           ];
         $this->_reglasx = [
-            'especiales' => 'nullable|array',
+            'especiales' => 'required|array',
            
         ];
     }

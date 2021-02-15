@@ -308,7 +308,6 @@ public function getJovenes(Request $request, AiSalidaMayores $padrexxx)
                 ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
                 ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
                 ->where('nnaj_nacimis.d_nacimiento',  '<=',$mayorex)
-                ->where('nnaj_upis.prm_principa_id',  227)
                 ->whereNotIn('sis_nnajs.id',  $responsa)
                 ->whereIn('nnaj_upis.sis_depen_id', $depende);
 

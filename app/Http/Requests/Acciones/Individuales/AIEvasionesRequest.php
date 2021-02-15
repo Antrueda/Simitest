@@ -81,7 +81,7 @@ class AIEvasionesRequest extends FormRequest
             'circunstancias'=> 'required|string|max:4000',
             'observaciones_fam'=> 'required|string|max:4000',
             'prm_reporta_id'   => 'required|exists:parametros,id',
-            'prm_llamada_id'   => 'required_if:prm_reporta_id,227|exists:parametros,id',
+            'prm_llamada_id'   => 'required_if:prm_reporta_id,227',
             'radicado'         => 'required_if:prm_reporta_id,227|max:120',
             'recibe_denuncia'  => 'required_if:prm_reporta_id,227|max:120',
             'user_doc1_id'     => 'required|exists:users,id',

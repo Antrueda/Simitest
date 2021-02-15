@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\Csd\CsdSituacionCrearRequest;
 use App\Http\Requests\Csd\CsdSituacionEditarRequest;
 use App\Models\consulta\Csd;
 use App\Models\consulta\pivotes\CsdSisNnaj;
@@ -94,7 +94,7 @@ class CsdSituacionEspecialController extends Controller
      */
 
 
-    public function store(Request $request, CsdSisNnaj $padrexxx)
+    public function store(CsdSituacionCrearRequest $request, CsdSisNnaj $padrexxx)
     {
         $this->validator($request->all())->validate();
         $request->request->add(['sis_esta_id' => 1]);

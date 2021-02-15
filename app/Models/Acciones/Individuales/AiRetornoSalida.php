@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AiRetornoSalida extends Model{
+    protected $table = 'ai_retosalis';
+    
+    
     protected $fillable = [
         'sis_nnaj_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
         'prm_upi_id', 'fecha', 'hora_retorno', 'prm_hor_ret_id',

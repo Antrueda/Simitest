@@ -54,7 +54,7 @@ class CsdConclusiones extends Model{
             $objetoxx->update($dataxxxx);
         } else {
             $dataxxxx['user_crea_id'] = Auth::user()->id;
-            $objetoxx = CsdConclusione::create($dataxxxx);
+            $objetoxx = CsdConclusiones::create($dataxxxx);
         }
 
      return $objetoxx;

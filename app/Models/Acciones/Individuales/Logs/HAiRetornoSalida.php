@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HAiRetornoSalida extends Model
 {
+    protected $table = 'h_ai_retosalis';
     protected $fillable = [
         'sis_nnaj_id',
         'prm_upi_id',
