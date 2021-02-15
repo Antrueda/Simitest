@@ -16,7 +16,7 @@
   <div class="form-row align-items-end">
     <div class="form-group col-sm-4">
       {{ Form::label('telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('telefono', null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::number('telefono', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
     </div>
     <div class="form-group col-sm-4">
       {{ Form::label('direccion', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}

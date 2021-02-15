@@ -20,6 +20,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
+use App\Models\Simianti\Ba\ActividadesGeneracionIngreso;
+use App\Models\Simianti\Ba\ActividadesGenerarIngreso;
 use App\Models\Simianti\Ge\IfComposicionFamiliar;
 use App\Models\Sistema\SisDepen;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
@@ -614,36 +616,12 @@ class FiController extends Controller
     public function prueba($departam, Request $request)
     {
          $request->docuagre = 1006148207;
-$this->setCmposicionFamiliarCFT($request);
+ $this->setCmposicionFamiliarCFT($request);
 
-
-
-        // $this->getBuscarNnajAgregar($request);
-
-        // $request->routexxx = [$this->opciones['routxxxx']];
-        // $request->botonesx = $this->opciones['rutacarp'] .
-        //     $this->opciones['carpetax'] . '.Botones.botonesapi';
-        // $request->upiservicio = $this->opciones['rutacarp'] .
-        //     $this->opciones['carpetax'] . '.Botones.upiservicio';
-        // $request->estadoxx = 'layouts.components.botones.estadosx';
-
-
-        // return $this->getNnajsFi2depen($request);
-
-
-        // $puedexxx = $this->getPuedeCargar([
-        //     'estoyenx' => 2,
-        //     'fechregi' => '1975-04-21',
-        //     'upixxxxx'=>2,
-        // ]);
-
-        //         $model = User::query()->whereIn('id',[1]);
-        // $datatabl=DataTables::eloquent($model);
-        //         ddd($datatabl->toArray());
 
 
         // $tablaxxx = 'protected $fillable =[';
-        // foreach (IfComposicionFamiliar::first()->toArray() as $key => $value) {
+        // foreach (ActividadesGenerarIngreso::first()->toArray() as $key => $value) {
         //     $tablaxxx .= "'{$key}',<br>";
         // }
         // $tablaxxx .= "];";

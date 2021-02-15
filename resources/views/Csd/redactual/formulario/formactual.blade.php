@@ -18,7 +18,7 @@ role="button">Volver a Redes de Apoyo</a>
   <div class="form-row align-items-end">
     <div class="form-group col-sm-4">
       {{ Form::label('s_telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('s_telefono', null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::text('s_telefono', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
     </div>
     <div class="form-group col-sm-4">
       {{ Form::label('s_direccion', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}

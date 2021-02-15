@@ -232,7 +232,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('s_documento', '1.13 No. de Documento', ['class' => 'control-label']) }}
-        {{ Form::number('s_documento', null, ['class' => $errors->first('s_documento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', $todoxxxx['readfisi'],'minlength' => '6', 'maxlength' => '11']) }}
+        {{ Form::number('s_documento', null, ['class' => $errors->first('s_documento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);", $todoxxxx['readfisi'],'minlength' => '6', 'maxlength' => '11']) }}
         @if($errors->has('s_documento'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('s_documento') }}

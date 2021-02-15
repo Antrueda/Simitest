@@ -57,10 +57,10 @@ trait InterfazFiTrait
             ->where('ge_nnaj_documento.numero_documento', $request->docuagre)
             ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
             ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
-            ->orderBy('ficha_acercamiento_ingreso.fecha_insercione', 'ASC')
+            ->orderBy('ficha_acercamiento_ingreso.fecha_insercion', 'ASC')
             ->first();
 
-        // ddd($dataxxxx->toArray());
+         ddd($dataxxxx->toArray());
         return $dataxxxx;
     }
     public function getBuscarNnajAgregar($request)

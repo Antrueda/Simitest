@@ -192,7 +192,7 @@
   </div>
   <div class="col-md-3">
       {{ Form::label('telefono_uno', '5.10 Teléfono fijo', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('telefono_uno', null, ['class' => $errors->first('telefono_uno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'min' => '0', 'maxlength' => '10']) }}
+      {{ Form::number('telefono_uno', null, ['class' => $errors->first('telefono_uno') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'min' => '0', 'maxlength' => '10',"onkeypress" => "return soloNumeros(event);"]) }}
       @if($errors->has('telefono_uno'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('telefono_uno') }}
@@ -205,7 +205,7 @@
 <div class="row">
   <div class="col-md">
       {{ Form::label('telefono_dos', '5.11 Celular 1', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('telefono_dos', null, ['class' => $errors->first('telefono_dos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Celular 1', 'min' => '0', 'maxlength' => '10']) }}
+      {{ Form::number('telefono_dos', null, ['class' => $errors->first('telefono_dos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Celular 1', 'min' => '0', 'maxlength' => '10',"onkeypress" => "return soloNumeros(event);"]) }}
       @if($errors->has('telefono_dos'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('telefono_dos') }}
@@ -214,7 +214,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('telefono_tres', '5.12 Celular 2', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('telefono_tres', null, ['class' => $errors->first('telefono_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Celular 2', 'min' => '0', 'maxlength' => '10']) }}
+      {{ Form::number('telefono_tres', null, ['class' => $errors->first('telefono_tres') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Celular 2', 'min' => '0', 'maxlength' => '10',"onkeypress" => "return soloNumeros(event);"]) }}
       @if($errors->has('telefono_tres'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('telefono_tres') }}

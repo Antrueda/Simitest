@@ -27,7 +27,7 @@
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('s_documento', '7.7 Número del documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('s_documento', null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::text('s_documento', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
 </div>
 <div class="form-group col-md-4">
   {{ Form::label('d_nacimiento', '7.8 Fecha de Nacimiento', ['class' => 'control-label']) }}

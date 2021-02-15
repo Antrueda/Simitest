@@ -83,7 +83,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('s_telefono', null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::number('s_telefono', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_convive_nnaj_id', '¿Convive con el NNAJ?', ['class' => 'control-label col-form-label-sm']) }}
