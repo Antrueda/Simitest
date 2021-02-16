@@ -4,11 +4,11 @@ namespace App\Models\Simianti\Ge;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GeDirecciones extends Model
+class GeDireccione extends Model
 {
     protected $connection = 'simiantiguo';
-    protected $table = 'ge_direcciones';
-    protected $primaryKey = 'id_nnaj';
+    // protected $table = 'ge_direcciones';
+    protected $primaryKey = 'id_direccion';
 
     protected $fillable =[
     'id_direccion',
@@ -46,7 +46,7 @@ class GeDirecciones extends Model
     'tipo_residencia',
     'tiene_residencia',
     ];
-    
+
     public function ge_nnaj()
     {
         $this->belongsTo(GeNnaj::class,'id_nnaj');

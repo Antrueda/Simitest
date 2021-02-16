@@ -20,8 +20,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
-use App\Models\Simianti\Ba\ActividadesGeneracionIngreso;
-use App\Models\Simianti\Ba\ActividadesGenerarIngreso;
 use App\Models\Simianti\Ge\IfComposicionFamiliar;
 use App\Models\Sistema\SisDepen;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
@@ -406,6 +404,9 @@ class FiController extends Controller
             case 651:
                 $this->opciones['estrateg'] =  Parametro::find(651)->Combo;
                 break;
+            case 2503:
+                $this->opciones['estrateg'] =  Parametro::find(2503)->Combo;
+                break;
         }
 
         // $this->opciones['poblindi'] = Tema::combo(61, true, false);
@@ -615,13 +616,20 @@ class FiController extends Controller
 
     public function prueba($departam, Request $request)
     {
-         $request->docuagre = 1006148207;
- //$this->setCmposicionFamiliarCFT($request);
+        $request->docuagre = 1000943210;
+
+        // $numbers = random_int(1000000000, 1999999999);
+        // echo $this->getCedulaAleatoria();
+        // ddd(date('Y-m-d H:m:s'));
+
+        $this->setCmposicionFamiliarCFT($request);
 
 
+
+        // $this->getBuscarNnajAgregar($request);
 
         // $tablaxxx = 'protected $fillable =[';
-        // foreach (ActividadesGenerarIngreso::first()->toArray() as $key => $value) {
+        // foreach (IfComposicionFamiliar::first()->toArray() as $key => $value) {
         //     $tablaxxx .= "'{$key}',<br>";
         // }
         // $tablaxxx .= "];";

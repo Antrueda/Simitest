@@ -2,6 +2,7 @@
 
 namespace App\Traits\Interfaz;
 
+use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Parametro;
 use App\Models\Simianti\Ba\BaTerritorio;
 use App\Models\Simianti\Ge\GeUpi;
@@ -24,6 +25,18 @@ use Illuminate\Support\Facades\Auth;
  */
 trait HomologacionesTrait
 {
+    public function getCedulaAleatoria()
+    {
+        $cedulaxx='';
+        $exiscela=false;
+        do {
+            $cedulaxx = random_int(1000000000, 1999999999);
+            if(!isset(NnajDocu::where('s_documento',$cedulaxx)->first()->id)){
+                $exiscela=true;
+            }
+        } while (!$exiscela);
+        return $cedulaxx;
+    }
     public function setBarrioUpz($localupz, $barrioxy)
     {
         $respuest = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', $barrioxy->id)->first();

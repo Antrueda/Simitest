@@ -179,7 +179,8 @@ trait FiTrait
             'ge_nnaj.estado',
             'ge_nnaj.fecha_insercion as created_at',
         ])
-            ->join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj');
+            ->join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
+            ->where('ge_nnaj_documento.estado', 'A');
         return  $dataxxxx;
     }
     /**
@@ -211,16 +212,16 @@ trait FiTrait
                 ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
                 ->where(function ($queryxxx) use ($requestx, $unomucho) {
                     $wherexxx = [
-                        'fi_datos_basicos.id'=>'fi_datos_basicos.id',
-                        'fi_datos_basicos.s_primer_nombre'=>'fi_datos_basicos.s_primer_nombre',
-                        'nnaj_docus.s_documento'=>'nnaj_docus.s_documento',
-                        'fi_datos_basicos.s_segundo_nombre'=>'fi_datos_basicos.s_segundo_nombre',
-                        'fi_datos_basicos.s_primer_apellido'=>'fi_datos_basicos.s_primer_apellido',
-                        'fi_datos_basicos.s_segundo_apellido'=>'fi_datos_basicos.s_segundo_apellido',
-                        'fi_datos_basicos.sis_esta_id'=>'fi_datos_basicos.sis_esta_id',
-                        'sis_estas.s_estado'=>'sis_estas.s_estado',
+                        'fi_datos_basicos.id' => 'fi_datos_basicos.id',
+                        'fi_datos_basicos.s_primer_nombre' => 'fi_datos_basicos.s_primer_nombre',
+                        'nnaj_docus.s_documento' => 'nnaj_docus.s_documento',
+                        'fi_datos_basicos.s_segundo_nombre' => 'fi_datos_basicos.s_segundo_nombre',
+                        'fi_datos_basicos.s_primer_apellido' => 'fi_datos_basicos.s_primer_apellido',
+                        'fi_datos_basicos.s_segundo_apellido' => 'fi_datos_basicos.s_segundo_apellido',
+                        'fi_datos_basicos.sis_esta_id' => 'fi_datos_basicos.sis_esta_id',
+                        'sis_estas.s_estado' => 'sis_estas.s_estado',
                     ];
-                    $queryxxx = $this->getWhereIDT($requestx, $unomucho, $queryxxx,$wherexxx);
+                    $queryxxx = $this->getWhereIDT($requestx, $unomucho, $queryxxx, $wherexxx);
                     $queryxxx->where('sis_nnajs.prm_escomfam_id', 227);
                     return $queryxxx;
                 })
@@ -229,7 +230,7 @@ trait FiTrait
             if ($dataxxxx != null) {
                 $nuevanti = true;
             }
-        }else{
+        } else {
             // $nuevanti = true;
         }
         return $nuevanti;
@@ -310,9 +311,9 @@ trait FiTrait
         $request->actuanti = true;
         $respuest = $this->getFiDatosBasico();
         if (!$this->getExisteNnajFT($request)) {
-            $request->merge(['columns' => $this->getMergeIDT($request, $this->getCabeceraDB())]);
-            $request->actuanti = false;
-            $respuest = $this->getGeNnaj();
+            // $request->merge(['columns' => $this->getMergeIDT($request, $this->getCabeceraDB())]);
+            // $request->actuanti = false;
+            // $respuest = $this->getGeNnaj();
         }
         $datatabl = $this->getDtAccionesUpi($respuest, $request);
         return $datatabl;

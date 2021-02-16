@@ -36,6 +36,7 @@ class CreateFiCompfamisTable extends Migration
             $table->foreign('i_prm_convive_nnaj_id')->references('id')->on('parametros');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('sis_nnajnnaj_id')->references('id')->on('sis_nnajs');
+            $table->unique(['sis_nnaj_id','sis_nnajnnaj_id'],'confam_un1');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS BÁSICOS DEL NUCLEO FAMILIAR DE LA PERSONA ENTREVISTADA, SECCION 5 DE LA FICHA DE INGRESO'");

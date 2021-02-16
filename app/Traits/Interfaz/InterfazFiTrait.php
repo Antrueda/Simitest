@@ -60,7 +60,7 @@ trait InterfazFiTrait
             ->orderBy('ficha_acercamiento_ingreso.fecha_insercion', 'ASC')
             ->first();
 
-         ddd($dataxxxx->toArray());
+        // ddd($dataxxxx->toArray());
         return $dataxxxx;
     }
     public function getBuscarNnajAgregar($request)

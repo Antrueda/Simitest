@@ -11,15 +11,15 @@ use App\Models\Sistema\SisDepen;
 use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Fi\FiTrait;
-use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Interfaz\RazonesIngresoIdipronTrait;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
 
 class FiRazoneController extends Controller
 {
     use FiTrait;
-    use InterfazFiTrait;
     use PuedeTrait;
+ use RazonesIngresoIdipronTrait;
     private $opciones;
 
     public function __construct()
@@ -93,7 +93,7 @@ class FiRazoneController extends Controller
             $dilegenc = User::comboDependencia($dataxxxx['modeloxx']->userd_id, false, false);
             $this->opciones['depedile'] = $dilegenc[0];
             $this->opciones['cargodil'] = $dilegenc[1];
-    
+
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
 
         }
@@ -109,7 +109,10 @@ class FiRazoneController extends Controller
      */
     public function create(FiDatosBasico $padrexxx)
     {
-
+        $compfami=FiRazone::where('sis_nnaj_id',$padrexxx->sis_nnaj_id)->first();
+        if(!isset($compfami->id)){
+            $this->setRazonesIngresoIdipronRT(['padrexxx'=>$padrexxx]);
+        }
         $vestuari = FiRazone::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
         if ($vestuari != null) {
             return redirect()
@@ -214,9 +217,9 @@ class FiRazoneController extends Controller
                     $respuest['comboxxx'] = $usuariox->dependencias;
                     $respuest['cargoxxx'] = $usuariox->sis_cargo->s_cargo;
                     break;
-               
+
             }
-        
+
             return response()->json($respuest);
         }
     }

@@ -13,10 +13,10 @@ use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
+use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class FiCompfamiController extends Controller
@@ -26,6 +26,7 @@ class FiCompfamiController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use ComposicionFamiliarTrait;
     public function __construct()
     {
         $this->opciones['permisox'] = 'ficomposicion';
@@ -64,6 +65,10 @@ class FiCompfamiController extends Controller
 
     public function index(FiDatosBasico $padrexxx)
     {
+        $compfami=FiCompfami::where('sis_nnajnnaj_id',$padrexxx->sis_nnaj_id)->whereNotIn('sis_nnaj_id',[$padrexxx->sis_nnaj_id])->first();
+        if(!isset($compfami->id)){
+            $this->setCmposicionFamiliarCFT(['padrexxx'=>$padrexxx]);
+        }
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
