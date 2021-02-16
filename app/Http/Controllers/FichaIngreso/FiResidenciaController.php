@@ -14,12 +14,14 @@ use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
 use App\Traits\Interfaz\InterfazFiTrait;
+use App\Traits\Interfaz\ResidenciaTrait;
 use App\Traits\Puede\PuedeTrait;
 
 class FiResidenciaController extends Controller
 {
     use InterfazFiTrait;
     use PuedeTrait;
+    use ResidenciaTrait;
     private $opciones;
 
     public function __construct()
@@ -126,6 +128,11 @@ class FiResidenciaController extends Controller
      */
     public function create(FiDatosBasico $padrexxx)
     {
+        $compfami=FiResidencia::where('sis_nnaj_id',$padrexxx->sis_nnaj_id)->first();
+        if(!isset($compfami->id)){
+            $this->setResidencia(['padrexxx'=>$padrexxx]);
+        }
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

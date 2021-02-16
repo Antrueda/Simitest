@@ -97,14 +97,25 @@ trait HomologacionesTrait
     {
         // conocer datos del barrio en el antiguo simi
         $barrioxx = BaTerritorio::find($dataxxxx['idbarrio']);
-        $upzxxxxx = BaTerritorio::where('id', $barrioxx->id_padre)->first();
-        // conocer la upz en el nuevo desarrollo
-        $upzxxxxy = SisUpz::where('s_upz', $upzxxxxx->nombre)->first();
-        $localidx = BaTerritorio::where('id', $upzxxxxx->id_padre)->first();
-        $localidy = SisLocalidad::where('s_localidad', $localidx->nombre)->first();
-        // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
-        $barrioxy = SisBarrio::where('s_barrio', $barrioxx->nombre)->first();
-        $respuest = [];
+       // ddd($barrioxx);
+        if ($barrioxx->tipo=='C') {
+            $barrioxy = SisUpzbarri::find(1929);
+
+            // conocer la upz en el nuevo desarrollo
+            $upzxxxxy = $barrioxy->sis_localupz->sis_upz_id;
+            $localidy = $barrioxy->sis_localupz->sis_localidad_id;
+            // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
+            }else{
+                $upzxxxxx = BaTerritorio::where('id', $barrioxx->id_padre)->first();
+                // conocer la upz en el nuevo desarrollo
+                $upzxxxxy = SisUpz::where('s_upz', $upzxxxxx->nombre)->first();
+                $localidx = BaTerritorio::where('id', $upzxxxxx->id_padre)->first();
+                $localidy = SisLocalidad::where('s_localidad', $localidx->nombre)->first();
+                // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
+                $barrioxy = SisBarrio::where('s_barrio', $barrioxx->nombre)->first();
+               
+            }
+            $respuest = [];
         // si el barrio no existe
         if (!isset($barrioxy->id)) {
             $barrioxy = SisBarrio::find(1655);
@@ -222,7 +233,7 @@ trait HomologacionesTrait
 
         $parametr = [];
         $parasimi = ['codigoxx' => 0];
-        if ($dataxxxx['codigoxx'] != '') {
+        if ($dataxxxx['codigoxx'] != ''&&$dataxxxx['codigoxx'] !=0) {
             // buscar el parametro en el antiguo desarrollo
             $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
             switch ($dataxxxx['temaxxxx']) {
