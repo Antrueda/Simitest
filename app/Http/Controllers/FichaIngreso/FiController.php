@@ -462,26 +462,7 @@ class FiController extends Controller
     }
     public function agregar(Request $request)
     {
-        // $nnajxxxx = $this->getArmaRequest($request);
         $nnajxxxx = $this->getBuscarNnajAgregar($request);
-        // $nnajxxxx =$this->getTraerData();
-        // ddd($nnajxxxx);
-
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-
-        return $this->viewagregar(['modeloxx' => $nnajxxxx, 'accionxx' => ['adicionar', 'formulario']]);
-    }
-
-    public function agregar_bk(Request $request)
-    {
-        $nnajxxxx = $this->getBuscarNnajAgregar($request);
-        // $nnajxxxx =$this->getTraerData();
-        // ddd($nnajxxxx);
-
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -492,11 +473,15 @@ class FiController extends Controller
     }
     public function store(FiDatosBasicoCrearRequest $request)
     {
+        $dataxxxx=$request->all();
+        $dataxxxx['pasaupis']=false;
         return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
     }
 
     public function adicionar(FiDatosBasicoCrearRequest $request)
     {
+        $dataxxxx=$request->all();
+        $dataxxxx['pasaupis']=true;
         return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
     }
     /**

@@ -332,6 +332,10 @@ class FiDatosBasico extends Model
                     $dataxxxx['prm_reprlega_id']=228;
                 }
                 FiCompfami::create($dataxxxx);
+                if($dataxxxx['pasaupis']){
+                    $this->getUpisNnajIFT(['objetoxx'=>$objetoxx]);
+                }
+
             }
 
            NnajUpi::setUpiDatosBasicos($dataxxxx, $objetoxx);

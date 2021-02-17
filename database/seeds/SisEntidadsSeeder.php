@@ -21,6 +21,7 @@ class SisEntidadsSeeder extends Seeder
         SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'ESTÍMULO DE CORRESPONSABILIDAD']);
         SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'DISTRITO JOVEN EXTERNADO']);
         SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'TERRITORIO']);
+        SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'DORMIDA TRANSITORIA']);
         SisServicio::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'SERVICIO NO IDENTIFICADO EN EL NUEVO DESARROLLO']);
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'N/A']);
         $entidadx->sis_servicios()->sync([
