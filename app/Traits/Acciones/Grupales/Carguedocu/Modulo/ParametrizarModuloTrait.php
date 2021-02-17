@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Administracion\Carguedocu\Modulo;
+namespace app\Traits\Administracion\Carguedocu\Modulo;
 
 
 

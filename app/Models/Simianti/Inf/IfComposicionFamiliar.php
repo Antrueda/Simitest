@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Simianti\Ge;
+namespace App\Models\Simianti\Inf;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +9,8 @@ class IfComposicionFamiliar extends Model
     protected $connection = 'simiantiguo';
     protected $table = 'if_composicion_familiar';
     protected $primaryKey = 'id_composicion_familiar';
-    protected $fillable = [
+    protected $fillable =
+    [
         'id_composicion_familiar',
         'primer_nombre',
         'parentesco',

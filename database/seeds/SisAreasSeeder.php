@@ -24,6 +24,7 @@ class SisAreasSeeder extends Seeder
         Area::create(['id' => 6, 'nombre' => 'SICOSOCIAL', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //6
         Area::create(['id' => 7, 'nombre' => 'SOCIOLEGAL', 'contexto' => 'SL', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //7
         Area::create(['id' => 8, 'nombre' => 'TRANSVERSALES', 'contexto' => 'BA', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //8
+        Area::create(['id' => 9, 'nombre' => 'AREA NO IDENTIFICADA', 'contexto' => 'ANI', 'descripcion' => '', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //8
 
         $super =User::where('id',1)->first();
         $super->areas()->sync([

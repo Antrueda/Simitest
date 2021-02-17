@@ -224,4 +224,9 @@ trait InterfazFiTrait
 
         return $requestx;
     }
+
+    public function getUpisIFT($dataxxxx)
+    {
+
+    }
 }

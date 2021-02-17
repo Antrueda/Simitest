@@ -3,12 +3,17 @@
 namespace App\Traits\Interfaz;
 
 use App\Models\fichaIngreso\NnajDocu;
+use App\Models\Indicadores\Area;
 use App\Models\Parametro;
 use App\Models\Simianti\Ba\BaTerritorio;
+use App\Models\Simianti\Ge\GeCargo;
+use App\Models\Simianti\Ge\GePersonalIdipron;
 use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Simianti\Sis\Municipio;
 use App\Models\Simianti\Sis\SisMultivalore;
+use App\Models\Sistema\AreaUser;
 use App\Models\Sistema\SisBarrio;
+use App\Models\Sistema\SisCargo;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
@@ -17,6 +22,7 @@ use App\Models\Sistema\SisServicio;
 use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\Tema;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -27,12 +33,12 @@ trait HomologacionesTrait
 {
     public function getCedulaAleatoria()
     {
-        $cedulaxx='';
-        $exiscela=false;
+        $cedulaxx = '';
+        $exiscela = false;
         do {
             $cedulaxx = random_int(1000000000, 1999999999);
-            if(!isset(NnajDocu::where('s_documento',$cedulaxx)->first()->id)){
-                $exiscela=true;
+            if (!isset(NnajDocu::where('s_documento', $cedulaxx)->first()->id)) {
+                $exiscela = true;
             }
         } while (!$exiscela);
         return $cedulaxx;
@@ -97,25 +103,22 @@ trait HomologacionesTrait
     {
         // conocer datos del barrio en el antiguo simi
         $barrioxx = BaTerritorio::find($dataxxxx['idbarrio']);
-       // ddd($barrioxx);
-        if ($barrioxx->tipo=='C') {
+        if ($barrioxx->tipo == 'C') {
             $barrioxy = SisUpzbarri::find(1929);
-
             // conocer la upz en el nuevo desarrollo
             $upzxxxxy = $barrioxy->sis_localupz->sis_upz_id;
             $localidy = $barrioxy->sis_localupz->sis_localidad_id;
             // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
-            }else{
-                $upzxxxxx = BaTerritorio::where('id', $barrioxx->id_padre)->first();
-                // conocer la upz en el nuevo desarrollo
-                $upzxxxxy = SisUpz::where('s_upz', $upzxxxxx->nombre)->first();
-                $localidx = BaTerritorio::where('id', $upzxxxxx->id_padre)->first();
-                $localidy = SisLocalidad::where('s_localidad', $localidx->nombre)->first();
-                // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
-                $barrioxy = SisBarrio::where('s_barrio', $barrioxx->nombre)->first();
-               
-            }
-            $respuest = [];
+        } else {
+            $upzxxxxx = BaTerritorio::where('id', $barrioxx->id_padre)->first();
+            // conocer la upz en el nuevo desarrollo
+            $upzxxxxy = SisUpz::where('s_upz', $upzxxxxx->nombre)->first();
+            $localidx = BaTerritorio::where('id', $upzxxxxx->id_padre)->first();
+            $localidy = SisLocalidad::where('s_localidad', $localidx->nombre)->first();
+            // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
+            $barrioxy = SisBarrio::where('s_barrio', $barrioxx->nombre)->first();
+        }
+        $respuest = [];
         // si el barrio no existe
         if (!isset($barrioxy->id)) {
             $barrioxy = SisBarrio::find(1655);
@@ -275,8 +278,7 @@ trait HomologacionesTrait
             $muninuev = SisMunicipio::find(321);
         } elseif (!isset($munianti->id)) {
             $muninuev = SisMunicipio::find(1121);
-        }
-        else {
+        } else {
             $muninuev = SisMunicipio::where('s_municipio', $munianti->nombre_municipio)->first();
         }
         if (!isset($muninuev->id)) {
@@ -286,9 +288,6 @@ trait HomologacionesTrait
     }
     public function getUpiSimi($dataxxxx)
     {
-
-
-
         // buscar la upi en el antiguo desarrollo
         $upisimix = GeUpi::find($dataxxxx['idupixxx']);
         // buscar la upi en el nuevo desarrollo
@@ -343,7 +342,7 @@ trait HomologacionesTrait
             $servicix = $sisdepen->sis_servicios->find($servicio->id);
             if ($servicix == null) {
 
-                $sisdepen->sis_servicios()->attach([$servicio->id=> ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'sis_esta_id' => 1,]]);
+                $sisdepen->sis_servicios()->attach([$servicio->id => ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'sis_esta_id' => 1,]]);
             }
         }
         return $servicio;
@@ -356,12 +355,86 @@ trait HomologacionesTrait
             $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
             $servicio = SisServicio::where('s_servicio', $multival->descripcion)->first();
             if (!isset($servicio)) {
-                $servicio =$this->getAsignarServicio($dataxxxx);
+                $servicio = $this->getAsignarServicio($dataxxxx);
             }
         } else {
-            $servicio =$this->getAsignarServicio($dataxxxx);
+            $servicio = $this->getAsignarServicio($dataxxxx);
         }
 
         return $servicio;
+    }
+    public function getCargoHT($dataxxxx)
+    {
+        $cargosxx = GeCargo::find($dataxxxx['cargoidx'])->first();
+        $cargosxy = SisCargo::where('s_cargo', $cargosxx->nombre_cargo)->first();
+        if (isset($cargosxy->id)) {
+            $cargosxy = SisCargo::find(58);
+        }
+        return $cargosxy;
+    }
+
+    public function getAreaUsuarioHT($dataxxxx)
+    {
+        $registro = Area::where('nombre', $dataxxxx['nombrexx'])->first();
+        if (!isset($registro->id)) {
+            $registro = Area::find(9);
+        }
+        $areaxxxx = $dataxxxx['usuariox']->areas->where('area_id', $registro->id)->first();
+        if (!isset($areaxxxx->id)) {
+            $areaxxxx = $dataxxxx['usuariox']->areas()->attach([
+                $registro->id => [
+                    'user_crea_id' => Auth::user()->id,
+                    'user_edita_id' => Auth::user()->id,
+                    'sis_esta_id' => 1
+                ]
+            ]);
+        }
+        return $registro;
+    }
+
+    public function getUsuarioHT($dataxxxx)
+    {
+        $personax = User::where('s_documento', $dataxxxx['cedulaxx'])->first();
+        if (!isset($personax->id)) {
+            $personay = GePersonalIdipron::select([
+                'area',
+                'tipo as prm_tvinculacion_id',
+                'tipo_documento as prm_documento_id',
+                'cargo as sis_cargo_id',
+                'codigo_municipio_exp as sis_municipio_id',
+                'primer_nombre as s_primer_nombre',
+                'segundo_nombre as s_segundo_nombre',
+                'primer_apellido as s_primer_apellido',
+                'segundo_apellido as s_segundo_apellido',
+                'id_documento as s_documento',
+                'correo_electronico as email',
+                'telefonos as s_telefono',
+                'fecha_limite_vinculacion as d_finvinculacion',
+                'tarjeta_matricula_profesional as s_matriculap',
+            ])
+                ->find($dataxxxx['cedulaxx']);
+            $personay->prm_tvinculacion_id = $this->getParametrosSimiMultivalor([
+                'codigoxx' => $personay->prm_tvinculacion_id,
+                'tablaxxx' => 'TIPO_VINCULACION',
+                'temaxxxx' => 310,
+                'testerxx' => false,
+            ])->id;
+            $personay->prm_documento_id = $this->getParametrosSimiMultivalor([
+                'codigoxx' => $personay->prm_documento_id,
+                'tablaxxx' => 'TIPO_DOCUMENTO',
+                'temaxxxx' => 3,
+                'testerxx' => false,
+            ])->id;
+            $personay->sis_cargo_id = $this->getCargoHT(['cargoidx' => $personay->sis_cargo_id])->id;
+            $personay->sis_municipio_id = $this->getMunicipoSimi(['idmunici' => $personay->sis_municipio_id])->id;
+            $personay->itiestan = 10;
+            $personay->itiegabe = 0;
+            $personay->itigafin = 0;
+            $personay->d_vinculacion = $personay->d_finvinculacion;
+            $personay->estusuario_id = 1;
+            $personax = User::transaccion($personay->toArray(), '');
+            $this->getAreaUsuarioHT(['nombrexx' => $personay->area, 'usuariox' => $personax]);
+        }
+        return $personax;
     }
 }

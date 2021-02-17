@@ -19,7 +19,7 @@ class FiRazoneController extends Controller
 {
     use FiTrait;
     use PuedeTrait;
- use RazonesIngresoIdipronTrait;
+    use RazonesIngresoIdipronTrait;
     private $opciones;
 
     public function __construct()
@@ -67,7 +67,7 @@ class FiRazoneController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
-            ];
+        ];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
 
@@ -77,7 +77,7 @@ class FiRazoneController extends Controller
 
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['depedile'] = [];
-        $dependen=SisDepen::find($dataxxxx['padrexxx']->sis_nnaj->NnajUpiPrincipal)->ResponsableNormal;
+        $dependen = SisDepen::find($dataxxxx['padrexxx']->sis_nnaj->NnajUpiPrincipal)->ResponsableNormal;
         $this->opciones['usuarioz'] = $dependen[0];
         $this->opciones['deperesp'] = $dependen[2];
         $this->opciones['cargodil'] = '';
@@ -95,7 +95,6 @@ class FiRazoneController extends Controller
             $this->opciones['cargodil'] = $dilegenc[1];
 
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-
         }
 
 
@@ -109,14 +108,10 @@ class FiRazoneController extends Controller
      */
     public function create(FiDatosBasico $padrexxx)
     {
-        $compfami=FiRazone::where('sis_nnaj_id',$padrexxx->sis_nnaj_id)->first();
-        if(!isset($compfami->id)){
-            $this->setRazonesIngresoIdipronRT(['padrexxx'=>$padrexxx]);
-        }
-        $vestuari = FiRazone::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
-        if ($vestuari != null) {
+        $respusta = $this->setRazonesIngresoIdipronRT(['padrexxx' => $padrexxx]);
+        if ($respusta != null) {
             return redirect()
-                ->route('firazones.editar', [$padrexxx->id, $vestuari->id]);
+                ->route('firazones.editar', [$padrexxx->id, $respusta->id]);
         }
         $this->opciones['botoform'][] =
             [
@@ -170,17 +165,18 @@ class FiRazoneController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx, FiRazone $modeloxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
+        $respuest = $this->getPuedeTPuede([
+            'casoxxxx' => 1,
+            'nnajxxxx' => $modeloxx->sis_nnaj_id,
+            'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-         }
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
@@ -217,7 +213,6 @@ class FiRazoneController extends Controller
                     $respuest['comboxxx'] = $usuariox->dependencias;
                     $respuest['cargoxxx'] = $usuariox->sis_cargo->s_cargo;
                     break;
-
             }
 
             return response()->json($respuest);

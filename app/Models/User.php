@@ -150,6 +150,8 @@ class User extends Authenticatable
                 $dataxxxx['password_reset_at'] = date('Y-m-d', time());
                 $dataxxxx['password'] = $dataxxxx['s_documento'];
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
+
+
                 $objetoxx = User::create($dataxxxx);
             }
             return $objetoxx;
@@ -251,9 +253,9 @@ class User extends Authenticatable
             }
 
             $queryxxx->where('users.sis_esta_id', 1)
-            
-           
-           
+
+
+
             ;
         })
         ->where('sis_depen_user.sis_depen_id', 2)
@@ -289,9 +291,9 @@ class User extends Authenticatable
             }
 
             $queryxxx->where('users.sis_esta_id', 1)
-            
-           
-           
+
+
+
             ;
         })
         ->where('sis_depen_user.sis_depen_id', 2)
@@ -354,7 +356,7 @@ class User extends Authenticatable
             }
         }
         $userxxxx = User::where(function ($queryxxx) use ($dataxxxx) {
-         
+
             $queryxxx->where('sis_esta_id', 1)->where('id',Auth::user()->id);
         })
             ->orderBy('s_primer_nombre')
@@ -371,7 +373,7 @@ class User extends Authenticatable
     }
 
 
-    
+
 
 
 
@@ -425,7 +427,7 @@ class User extends Authenticatable
 
 
 
-    
+
     public static function comboDependencia($padrexxx,$cabecera, $ajaxxxxx)
     {
         $comboxxx = [];

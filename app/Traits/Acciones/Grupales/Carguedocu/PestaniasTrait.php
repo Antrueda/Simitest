@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Administracion\Carguedocu;
+namespace app\Traits\Administracion\Carguedocu;
 
 
 trait PestaniasTrait
