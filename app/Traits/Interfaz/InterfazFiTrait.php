@@ -49,11 +49,12 @@ trait InterfazFiTrait
                 'ge_nnaj.estado_civil',
                 'ge_nnaj.etnia',
                 'ge_nnaj.condicion_vestido',
-                'ficha_acercamiento_ingreso.id_barrio',
+                'ge_direcciones.id_barrio',
                 'ficha_acercamiento_ingreso.fecha_insercion as fai',
             ])->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
             ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
             ->join('ficha_acercamiento_ingreso', 'ge_nnaj.id_nnaj', '=', 'ficha_acercamiento_ingreso.id_nnaj')
+            ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $request->docuagre)
             ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
             ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
