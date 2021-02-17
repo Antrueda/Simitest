@@ -124,6 +124,7 @@ trait FiTrait
             'fi_datos_basicos.sis_esta_id',
             'fi_datos_basicos.created_at',
             'sis_estas.s_estado'
+            
         ])
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id');
@@ -231,7 +232,7 @@ trait FiTrait
                 $nuevanti = true;
             }
         } else {
-            // $nuevanti = true;
+           //  $nuevanti = true;
         }
         return $nuevanti;
     }
@@ -311,9 +312,9 @@ trait FiTrait
         $request->actuanti = true;
         $respuest = $this->getFiDatosBasico();
         if (!$this->getExisteNnajFT($request)) {
-            // $request->merge(['columns' => $this->getMergeIDT($request, $this->getCabeceraDB())]);
-            // $request->actuanti = false;
-            // $respuest = $this->getGeNnaj();
+            $request->merge(['columns' => $this->getMergeIDT($request, $this->getCabeceraDB())]);
+            $request->actuanti = false;
+            $respuest = $this->getGeNnaj();
         }
         $datatabl = $this->getDtAccionesUpi($respuest, $request);
         return $datatabl;

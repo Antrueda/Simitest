@@ -103,6 +103,12 @@ trait HomologacionesTrait
     {
         // conocer datos del barrio en el antiguo simi
         $barrioxx = BaTerritorio::find($dataxxxx['idbarrio']);
+        if(!isset($barrioxx->id)){
+            $barrioxy = SisUpzbarri::find(1929);
+            // conocer la upz en el nuevo desarrollo
+            $upzxxxxy = $barrioxy->sis_localupz->sis_upz_id;
+            $localidy = $barrioxy->sis_localupz->sis_localidad_id;
+        } else {
         if ($barrioxx->tipo == 'C') {
             $barrioxy = SisUpzbarri::find(1929);
             // conocer la upz en el nuevo desarrollo
@@ -118,6 +124,7 @@ trait HomologacionesTrait
             // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
             $barrioxy = SisBarrio::where('s_barrio', $barrioxx->nombre)->first();
         }
+    }
         $respuest = [];
         // si el barrio no existe
         if (!isset($barrioxy->id)) {
@@ -128,7 +135,7 @@ trait HomologacionesTrait
             // si la upz no exites
             $respuest = $this->getUpzInterfaz($upzxxxxy, $localidy, $barrioxy);
         }
-
+         
         return $respuest;
     }
     /**
@@ -236,8 +243,10 @@ trait HomologacionesTrait
 
         $parametr = [];
         $parasimi = ['codigoxx' => 0];
-        if ($dataxxxx['codigoxx'] != ''&&$dataxxxx['codigoxx'] !=0) {
+
+        if ($dataxxxx['codigoxx'] != ''||$dataxxxx['codigoxx'] !=0) {
             // buscar el parametro en el antiguo desarrollo
+
             $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
             switch ($dataxxxx['temaxxxx']) {
                 case 3:
@@ -256,11 +265,18 @@ trait HomologacionesTrait
                     $multival->descripcion = substr(explode('(', $multival->descripcion)[0], 0, -1) . 'A';
                     break;
             }
+            
+                
+                if ($multival==null) {
+                    $parametr = Parametro::find(235);
+                }else{
+                    $parametr = Parametro::where('nombre', $multival->descripcion)->first();
+                }
+            // buscar el parametro en el nuevo desarrollo
+
             if ($dataxxxx['testerxx']) {
                 ddd($dataxxxx['codigoxx']);
             }
-            // buscar el parametro en el nuevo desarrollo
-            $parametr = Parametro::where('nombre', $multival->descripcion)->first();
         }
 
         // se crea el parametro y se asocia con el tema

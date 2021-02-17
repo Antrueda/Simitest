@@ -138,7 +138,7 @@ trait InterfazFiTrait
         $objetoxx->sis_upz_id = $locabari->sis_localupz->id;
         $objetoxx->sis_upzbarri_id = $locabari->id;
 
-
+        //ddd($dataxxxx->toArray());
         return $objetoxx;
     }
 
@@ -146,7 +146,7 @@ trait InterfazFiTrait
     {
         // $request->docuagre = 1006148207;
         $dataxxxx = $this->getArmarData($requestx);
-        ddd($dataxxxx->toArray());
+       // ddd($dataxxxx->toArray());
         // $objetoxx = new FiDatosBasico;
         $requestx->request->add(['diligenc' => explode(' ', $dataxxxx->fecha_apertura)[0]]);
         $requestx->request->add(['prm_tipoblaci_id' => $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_poblacion, 'tablaxxx' => 'TIPOPOB', 'temaxxxx' => 119, 'testerxx' => false])->id]);
