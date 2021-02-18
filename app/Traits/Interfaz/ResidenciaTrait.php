@@ -2,9 +2,12 @@
 
 namespace App\Traits\Interfaz;
 
+use App\Models\fichaIngreso\FiCondicionAmbiente;
 use App\Models\fichaIngreso\FiResidencia;
+use App\Models\Simianti\Ge\GeCondicionesAmbiente;
 use App\Models\Simianti\Ge\GeDirecciones;
 use App\Models\Simianti\Ge\GeNnajDocumento;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * realiza la comunicación entre las dos bases de datos=>'{$value->s_iso}'que se busca?
@@ -22,8 +25,8 @@ trait ResidenciaTrait
             //Direcciones
     
             'ge_direcciones.tipo_via_ppal as i_prm_tipo_via_id',
-            'ge_direcciones.numero_via_ppal as s_nombre_via ',
-            'ge_direcciones.letra_via_ppal as i_prm_alfabeto_via_id ',
+            'ge_direcciones.numero_via_ppal as s_nombre_via',
+            'ge_direcciones.letra_via_ppal as i_prm_alfabeto_via_id',
             'ge_direcciones.bis_via_ppal as i_prm_tiene_bis_id',
             'ge_direcciones.letra_bis_via as i_prm_bis_alfabeto_id',
             'ge_direcciones.cuad_via_ppal as i_prm_cuadrante_vp_id',
@@ -34,17 +37,18 @@ trait ResidenciaTrait
             'ge_direcciones.comple_text as s_complemento',
             'ge_direcciones.id_barrio as sis_upzbarri_id',
             'ge_direcciones.estrato_residencia as i_prm_estrato_id',
-            'ge_direcciones.zona as i_prm_zona_direccion_id ',
+            'ge_direcciones.zona as i_prm_zona_direccion_id',
             'ge_direcciones.telefonos as s_telefono_uno',
             'ge_direcciones.email as s_email_facebook',
             'ge_direcciones.tipo_residencia as i_prm_tipo_duerme_id',
             'ge_direcciones.tiene_residencia as i_prm_tiene_dormir_id',
             'ge_direcciones.fecha_insercion',
-            'ge_direcciones.tenencia as i_prm_tipo_tenencia_id ',
+            'ge_direcciones.tenencia as i_prm_tipo_tenencia_id',
             'ge_direcciones.id_tipo_dir as i_prm_tipo_direccion_id',
             'ge_direcciones.id_espacio_parcha as i_prm_espacio_parcha_id',
             'ge_direcciones.nombre_espacio as s_nombre_espacio_parcha',
-            'ba_territorios.nombre'
+            'ba_territorios.nombre',
+            'ge_direcciones.id_direccion'
             /*
                     'ge_direcciones.id_direccion ',
             'ge_direcciones.id_tipo_dir ',
@@ -100,8 +104,9 @@ trait ResidenciaTrait
     {
      
         $dataxxxx = $this->getDireccionesCFT($request);
+       // ddd($dataxxxx->toArray());
         if($dataxxxx!=null){
-        $dataxxxx->i_prm_tipo_via_id = $this->getParametrosSimiMultivalor(
+        $dataxxxx->i_prm_tipo_via_id = $this->getParametrosSimiMultivalortest(
             [
                 'codigoxx' => $dataxxxx->i_prm_tipo_via_id,
                 'tablaxxx' => 'TIPO_VIA_PPAL',
@@ -143,9 +148,10 @@ trait ResidenciaTrait
                 'testerxx' => false
             ]
         )->id;
-        $dataxxxx->i_prm_tiene_bis_id = $this->getParametrosSimi(['codigoxx' => $dataxxxx->i_prm_tiene_bis_id,'temaxxxx'=>23])->id;
+        
            
         $dataxxxx->i_prm_bis_alfabeto_id = $this->getParametrosSimi(['codigoxx' => $dataxxxx->i_prm_bis_alfabeto_id,'temaxxxx'=>39])->id;
+        
         $dataxxxx->i_prm_cuadrante_vp_id = $this->getParametrosSimiMultivalor(
             [
                 'codigoxx' => $dataxxxx->i_prm_cuadrante_vp_id,
@@ -164,7 +170,7 @@ trait ResidenciaTrait
                 'testerxx' => false
             ]
         )->id;
-        //ddd($dataxxxx->toArray());
+        
         $dataxxxx->i_prm_estrato_id = $this->getParametrosSimiMultivalor(
             [
                 'codigoxx' => $dataxxxx->i_prm_estrato_id,
@@ -173,8 +179,9 @@ trait ResidenciaTrait
                 'testerxx' => false
             ]
         )->id;
-
-        $dataxxxx->i_prm_zona_direccion_id = $this->getParametrosSimiMultivalor(
+    
+        
+        $dataxxxx->i_prm_zona_direccion_id = $this->getParametrosSimiMultivalortest(
             [
                 'codigoxx' => $dataxxxx->i_prm_zona_direccion_id,
                 'tablaxxx' => 'ZONA_VIVIENDA',
@@ -182,7 +189,7 @@ trait ResidenciaTrait
                 'testerxx' => false
             ]
         )->id;
-
+       // ddd($dataxxxx->toarray());
         $dataxxxx->i_prm_tipo_duerme_id = $this->getParametrosSimiMultivalor(
             [
                 'codigoxx' => $dataxxxx->i_prm_tipo_duerme_id,
@@ -191,16 +198,43 @@ trait ResidenciaTrait
                 'testerxx' => false
             ]
         )->id;
+      
+   
+        $dataxxxx->i_prm_tiene_bis_id = $this->getParametrosSimiMultivalor(
+            [
+                'codigoxx' => $dataxxxx->i_prm_tiene_bis_id,
+                'tablaxxx' => 'BIS',
+                'temaxxxx' => 23,
+                'checkbox'=>true,
+                'testerxx' => false
+            ]
+        )->id;
+        $dataxxxx->i_prm_tiene_dormir_id = $this->getParametrosSimiMultivalor(
+            [
+                'codigoxx' => $dataxxxx->i_prm_tiene_dormir_id,
+                'tablaxxx' => 'DORMIR',
+                'temaxxxx' => 23,
+                'checkbox'=>true,
+                'testerxx' => false
+            ]
+        )->id;
 
-        $dataxxxx->i_prm_tiene_dormir_id = $this->getParametrosSimi(['codigoxx' => $dataxxxx->i_prm_tiene_dormir_id,'temaxxxx'=>23])->id;
-    
+      
             $locabari = $this->getBarrio(['idbarrio' => $dataxxxx->sis_upzbarri_id]);
             $dataxxxx->sis_upzbarri_id = $locabari->id;
             $dataxxxx->sis_nnaj_id=$request['padrexxx']->sis_nnaj_id;    
-            $dataxxxx['i_prm_condicion_amb_id']=[235 => 'N/A'];;
+            //$dataxxxx['i_prm_condicion_amb_id']=[235 => 'N/A'];
+            $dataxxxx->sis_localidad_id = $locabari->sis_localupz->sis_localidad_id;
+            $dataxxxx->sis_upz_id = $locabari->sis_localupz->id;
+            
+            $ambiente=GeCondicionesAmbiente::select('id_tipo_condicion')->where('id_direccion', $dataxxxx->id_direccion)->get();
+            foreach ($ambiente as $registro) {
+                $registro=$this->getParametrosSimiMultivalor(['codigoxx' => $registro->id_tipo_condicion,'temaxxxx'=>42,'tablaxxx' => 'CONDICIONAMBIENTE', 'testerxx' => false])->id;
+                $dataxxxx['i_prm_condicion_amb_id']=[$registro];
+             }
 
-
-            FiResidencia::transaccion($dataxxxx->toArray(), '');
+           FiResidencia::transaccion($dataxxxx->toArray(), '');
+    
         }
     }
 }

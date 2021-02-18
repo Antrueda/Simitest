@@ -168,6 +168,29 @@ class FiResidencia extends Model
         return $usuariox;
     }
 
+    public static function transaccionInterfaz($dataxxxx,  $objetoxx)
+    {
+        $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
+            $dataxxxx['user_edita_id'] = Auth::user()->id;
+            if ($objetoxx != '') {
+                $objetoxx->update($dataxxxx);
+            } else {
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $objetoxx = FiResidencia::create($dataxxxx);
+            }
+          //  FiResidencia::grabarOpciones($objetoxx, $dataxxxx);
+
+            $dataxxxx['sis_tabla_id'] = 30;
+            IndicadorHelper::asignaLineaBase($dataxxxx);
+
+            $dataxxxx['sis_tabla_id'] = 6;
+            IndicadorHelper::asignaLineaBase($dataxxxx);
+
+            return $objetoxx;
+        }, 5);
+        return $usuariox;
+    }
+
     public function i_prm_condicion_amb_id()
     {
        return $this->belongsToMany(Parametro::class,'fi_condicion_ambientes','fi_residencia_id','i_prm_condicion_amb_id');

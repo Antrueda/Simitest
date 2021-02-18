@@ -510,4 +510,52 @@ trait HomologacionesTrait
             ]);
         }
     }
+    public function getParametrosSimiMultivalortest($dataxxxx)
+    {
+        $parametr = [];
+        $parasimi = ['codigoxx' => 0];
+
+        if ($dataxxxx['codigoxx'] != ''||$dataxxxx['codigoxx'] !=0) {
+            // buscar el parametro en el antiguo desarrollo
+
+            $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
+            switch ($dataxxxx['temaxxxx']) {
+                case 3:
+                    $posiciox = substr($dataxxxx['codigoxx'], 0, 1);
+                    $posicioy = substr($dataxxxx['codigoxx'], 1);
+                    $multival->descripcion = $posiciox . '.' . $posicioy . '.';
+                    break;
+
+                case 20:
+                    if ($multival->descripcion == 'BLANCO') {
+                        $multival->descripcion = $multival->descripcion . '(A)';
+                    }
+                    break;
+
+                case 290:
+                    $multival->descripcion = substr(explode('(', $multival->descripcion)[0], 0, -1) . 'A';
+                    break;
+            }
+            
+                
+                if ($multival==null) {
+                    $parametr = Parametro::find(235);
+                }else{
+                    $parametr = Parametro::where('nombre', $multival->descripcion)->first();
+                }
+            // buscar el parametro en el nuevo desarrollo
+
+            if ($dataxxxx['testerxx']) {
+                ddd($dataxxxx['codigoxx']);
+            }
+        }
+
+        // se crea el parametro y se asocia con el tema
+        $parametr = $this->getValidarParametro($parametr, $dataxxxx, true, $parasimi['codigoxx']);
+        if ($dataxxxx['testerxx']) {
+            ddd($parametr);
+        }
+        return $parametr;
+    }
+
 }

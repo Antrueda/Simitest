@@ -163,8 +163,10 @@ class FiResidenciaController extends Controller
 
     public function store(FiDatosBasico $padrexxx, FiResidenciaCrearRequest $request)
     {
+        
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
+        ddd($dataxxxx);
         return $this->grabar($dataxxxx, '', 'Residencia creada con exito');
     }
 
