@@ -56,6 +56,7 @@ trait InterfazFiTrait
             ->join('ficha_acercamiento_ingreso', 'ge_nnaj.id_nnaj', '=', 'ficha_acercamiento_ingreso.id_nnaj')
             ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $request->docuagre)
+            ->where('ge_upi_nnaj.modalidad', '!=',null)
 
             ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
             ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
@@ -133,10 +134,11 @@ trait InterfazFiTrait
     public function getUpisNnajIFT($dataxxxx)
     {
         $upissimi = GeNnajDocumento::join('ge_upi_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
-            ->where('numero_documento', $dataxxxx['objetoxx']->nnaj_docu->s_documento)
-            ->where('estado', 'A');
+            ->where('ge_nnaj_documento.numero_documento', $dataxxxx['objetoxx']->nnaj_docu->s_documento)
+            ->where('ge_upi_nnaj.estado', 'A')->get();
         foreach ($upissimi as $key => $value) {
-
+            $dataxxxx['idupixxx']=$value->id_upi; echo $value->id_upi.'<br>';
+            $this->getAsignarUpiNnaj($dataxxxx);
         }
     }
 }

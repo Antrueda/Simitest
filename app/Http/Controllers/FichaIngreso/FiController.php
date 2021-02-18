@@ -5,6 +5,7 @@ namespace App\Http\Controllers\FichaIngreso;
 use App\Helpers\Traductor\Traductor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
+use App\Http\Requests\FichaIngreso\FiDatosBasicoMigrarCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Sistema\SisBarrio;
@@ -155,6 +156,7 @@ class FiController extends Controller
     {
         $dataxxxx['sis_docfuen_id'] = 2;
         $dataxxxx['sis_esta_id'] = 1;
+
         $usuariox = $this->bitacora->grabar($dataxxxx, $objetoxx);
 
         return redirect()
@@ -475,14 +477,14 @@ class FiController extends Controller
     {
         $dataxxxx=$request->all();
         $dataxxxx['pasaupis']=false;
-        return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
+        return $this->grabar($dataxxxx, '', 'Datos básicos creados con exito');
     }
 
-    public function adicionar(FiDatosBasicoCrearRequest $request)
+    public function adicionar(FiDatosBasicoMigrarCrearRequest $request)
     {
         $dataxxxx=$request->all();
         $dataxxxx['pasaupis']=true;
-        return $this->grabar($request->all(), '', 'Datos básicos creados con exito');
+        return $this->grabar($dataxxxx, '', 'Datos básicos creados con exito');
     }
     /**
      * Display the specified resource.
@@ -508,13 +510,13 @@ class FiController extends Controller
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
-        if ($respuest) { // if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
+        // if ($respuest) { // if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
-        }
+        // }
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $objetoxx]);
     }
 

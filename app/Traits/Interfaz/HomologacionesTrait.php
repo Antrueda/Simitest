@@ -3,6 +3,7 @@
 namespace App\Traits\Interfaz;
 
 use App\Models\fichaIngreso\NnajDocu;
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Indicadores\Area;
 use App\Models\Parametro;
 use App\Models\Simianti\Ba\BaTerritorio;
@@ -255,6 +256,13 @@ trait HomologacionesTrait
                     $posicioy = substr($dataxxxx['codigoxx'], 1);
                     $multival->descripcion = $posiciox . '.' . $posicioy . '.';
                     break;
+                case 23:
+                    if($multival->descripcion=='S'|| $multival->descripcion=='N'){
+                        $valoresx = ['S' => 'SI', 'N' => 'NO'];
+                        $multival->descripcion = $valoresx[$multival->descripcion];
+                    }
+
+                    break;
                 case 20:
                     if ($multival->descripcion == 'BLANCO') {
                         $multival->descripcion = $multival->descripcion . '(A)';
@@ -376,6 +384,7 @@ trait HomologacionesTrait
 
     public function getUnirUpiServicio($sisdepen, $servicio, $dataxxxx)
     {
+
         $servicix = $sisdepen->sis_servicios->find($servicio->id);
         // servicio no asignado la upi
         if ($servicix == null) {
@@ -394,21 +403,22 @@ trait HomologacionesTrait
     public function getValidarUpiServicio($dataxxxx, $servicio)
     {
         // encontrar el servicio que se le asigna en datos basicos al nnaj
-        if($dataxxxx['datobasi']){
+        if ($dataxxxx['datobasi']) {
             $sisdepen = SisDepen::find($dataxxxx['sisdepen']);
-        }else { // asignar los servicios de la upi
+        } else { // asignar los servicios de la upi
             $sisdepen = GeUpi::find($dataxxxx['sisdepen']);
             $sisdepen = SisDepen::where('nombre', $sisdepen->nombre)->first();
         }
 
         // existe el servicio
         if (isset($servicio->id)) {
-            $sisdepen =$this->getValidarUpi($dataxxxx, $sisdepen);
+            $sisdepen = $this->getValidarUpi($dataxxxx, $sisdepen);
         } else {
-            $sisdepen =$this->getValidarUpi($dataxxxx, $sisdepen);
+            $sisdepen = $this->getValidarUpi($dataxxxx, $sisdepen);
             $servicio = SisServicio::find(8);
         }
         $servicio = $this->getUnirUpiServicio($sisdepen, $servicio, $dataxxxx);
+
         return $servicio;
     }
     public function getServiciosUpi($dataxxxx)
@@ -418,17 +428,20 @@ trait HomologacionesTrait
             // buscar el servicio en el antiguo desarrollo
             $multival = SisMultivalore::where('tabla', 'MODALIDAD_UPI')->where('codigo', $dataxxxx['codigoxx'])->first();
             $servicio = SisServicio::where('s_servicio', $multival->descripcion)->first();
+
             $servicio = $this->getValidarUpiServicio($dataxxxx, $servicio);
         } else {
             $servicio = $this->getValidarUpiServicio($dataxxxx, $servicio);
         }
+
+
         return $servicio;
     }
     public function getUpisModalidadHT($dataxxxx)
     {
         $upismoda = GeUpiNnaj::where('id_nnaj', $dataxxxx['idnnajxx'])->where('modalidad', '!=', null)->get();
         foreach ($upismoda as $key => $value) {
-            $this->getServiciosUpi(['codigoxx' => $value->modalidad, 'sisdepen' => $value->id_upi,'datobasi'=>false]);
+            $this->getServiciosUpi(['codigoxx' => $value->modalidad, 'sisdepen' => $value->id_upi, 'datobasi' => false]);
         }
     }
 
@@ -482,8 +495,19 @@ trait HomologacionesTrait
         return $upinuevo;
     }
 
-    public function get($dataxxxx)
+    public function getAsignarUpiNnaj($dataxxxx)
     {
-        # code...
+        $upinnajx = $this->getUpiSimi($dataxxxx);
+        $upinnajy = NnajUpi::where('sis_nnaj_id', $dataxxxx['objetoxx']->sis_nnaj_id)->where('sis_depen_id', $upinnajx->id)->first();
+        if (!isset($upinnajy->id)) {
+            NnajUpi::create([
+                'sis_nnaj_id' => $dataxxxx['objetoxx']->sis_nnaj_id,
+                'sis_depen_id' => $upinnajx->id,
+                'user_crea_id' => Auth::user()->id,
+                'prm_principa_id' => 228,
+                'user_edita_id' => Auth::user()->id,
+                'sis_esta_id' => 1,
+            ]);
+        }
     }
 }

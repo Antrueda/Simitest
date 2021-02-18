@@ -318,7 +318,6 @@ class FiDatosBasico extends Model
                 NnajSitMil::create($dataxxxx);
                 NnajFocali::create($dataxxxx);
                 NnajFiCsd::create($dataxxxx);
-
                 /**
                  * agregar el nnaj a la composocion familiar
                  */
@@ -332,10 +331,12 @@ class FiDatosBasico extends Model
                     $dataxxxx['prm_reprlega_id']=228;
                 }
                 FiCompfami::create($dataxxxx);
+                /**
+                 * agregar las upis cuando es un nnaj traido del antiguo simi
+                 */
                 if($dataxxxx['pasaupis']){
                     $this->getUpisNnajIFT(['objetoxx'=>$objetoxx]);
                 }
-
             }
 
            NnajUpi::setUpiDatosBasicos($dataxxxx, $objetoxx);
