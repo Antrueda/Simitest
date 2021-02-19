@@ -57,6 +57,7 @@ trait InterfazFiTrait
             ->join('ficha_acercamiento_ingreso', 'ge_nnaj.id_nnaj', '=', 'ficha_acercamiento_ingreso.id_nnaj')
             ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $request->docuagre)
+            ->where('ge_upi_nnaj.estado', 'A')
             ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
             ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
             ->orderBy('ficha_acercamiento_ingreso.fecha_insercion', 'ASC')
@@ -68,10 +69,12 @@ trait InterfazFiTrait
     public function getBuscarNnajAgregar($request)
     {
         $dataxxxx = $this->getArmarData($request);
+      //  ddd( $dataxxxx->toArray());
         $objetoxx = new FiDatosBasico;
         $objetoxx->diligenc = explode(' ', $dataxxxx->fecha_apertura)[0];
         $objetoxx->prm_tipoblaci_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_poblacion, 'tablaxxx' => 'TIPOPOB', 'temaxxxx' => 119, 'testerxx' => false])->id;
         $objetoxx->sis_depen_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->id_upi])->id;
+        
         if($dataxxxx->modalidad!=null){
             $objetoxx->sis_servicio_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad,  'sisdepen' => $objetoxx->sis_depen_id, 'datobasi' => true])->id;
         }
@@ -126,7 +129,9 @@ trait InterfazFiTrait
         $objetoxx->prm_estado_civil_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->estado_civil, 'tablaxxx' => 'ESTADOC', 'temaxxxx' => 19, 'testerxx' => false])->id;
         $objetoxx->prm_etnia_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->etnia, 'tablaxxx' => 'ETNIA', 'temaxxxx' => 20, 'testerxx' => false])->id;
         $objetoxx->prm_vestimenta_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->condicion_vestido, 'tablaxxx' => 'DICOTOMIAS', 'temaxxxx' => 290, 'testerxx' => false])->id;
+        
         $locabari = $this->getBarrio(['idbarrio' => $dataxxxx->id_barrio]);
+        //ddd( $locabari);
         $objetoxx->sis_localidad_id = $locabari->sis_localupz->sis_localidad_id;
         $objetoxx->sis_upz_id = $locabari->sis_localupz->id;
         $objetoxx->sis_upzbarri_id = $locabari->id;

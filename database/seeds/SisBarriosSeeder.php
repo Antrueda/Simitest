@@ -1568,7 +1568,7 @@ class SisBarriosSeeder extends Seeder
         SisBarrio::create(['id' => 1554, 's_barrio' => 'DIANA TURBAY', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisBarrio::create(['id' => 1555, 's_barrio' => 'LA ESPERANZA ALTA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisBarrio::create(['id' => 1556, 's_barrio' => 'LA PICOTA ORIENTAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
-        SisBarrio::create(['id' => 1557, 's_barrio' => 'PALERMO SUR (CON LAS SUBDIVISIONES CENTRAL, EL TRIÁNGULO, LAS BRISAS, OSWALDO GÓMEZ, SAN MARCOS Y SANTA FONSECA)', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
+        SisBarrio::create(['id' => 1557, 's_barrio' => 'PALERMO SUR', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisBarrio::create(['id' => 1558, 's_barrio' => 'LA LIRA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisBarrio::create(['id' => 1559, 's_barrio' => 'VILLA JACKY', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);
         SisBarrio::create(['id' => 1560, 's_barrio' => 'LAS MANAS', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,]);

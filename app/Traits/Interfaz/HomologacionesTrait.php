@@ -108,26 +108,31 @@ trait HomologacionesTrait
     {
         // conocer datos del barrio en el antiguo simi
         $barrioxx = BaTerritorio::find($dataxxxx['idbarrio']);
+        //ddd( $barrioxx);
         if (!isset($barrioxx->id)) {
+      
             $barrioxy = SisUpzbarri::find(1929);
             // conocer la upz en el nuevo desarrollo
             $upzxxxxy = $barrioxy->sis_localupz->sis_upz_id;
             $localidy = $barrioxy->sis_localupz->sis_localidad_id;
         } else {
             if ($barrioxx->tipo == 'C') {
+       
                 $barrioxy = SisUpzbarri::find(1929);
                 // conocer la upz en el nuevo desarrollo
                 $upzxxxxy = $barrioxy->sis_localupz->sis_upz_id;
                 $localidy = $barrioxy->sis_localupz->sis_localidad_id;
                 // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
             } else {
+                             
                 $upzxxxxx = BaTerritorio::where('id', $barrioxx->id_padre)->first();
                 // conocer la upz en el nuevo desarrollo
                 $upzxxxxy = SisUpz::where('s_upz', $upzxxxxx->nombre)->first();
                 $localidx = BaTerritorio::where('id', $upzxxxxx->id_padre)->first();
                 $localidy = SisLocalidad::where('s_localidad', $localidx->nombre)->first();
                 // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
-                $barrioxy = SisBarrio::where('s_barrio', $barrioxx->nombre)->first();
+                $barrioxy = SisBarrio::where('s_barrio', 'like','%'.$barrioxx->nombre.'%')->first();
+
             }
         }
         $respuest = [];
@@ -153,8 +158,8 @@ trait HomologacionesTrait
     {
         switch ($dataxxxx['temaxxxx']) {
             case 23:
-                if ($dataxxxx['codigoxx'] == 'S' || $dataxxxx['codigoxx'] == 'N') {
-                    $valoresx = ['S' => 'SI', 'N' => 'NO'];
+                if ($dataxxxx['codigoxx'] == 'S' || $dataxxxx['codigoxx'] == 'N'|| $dataxxxx['codigoxx']== 'ON') {
+                    $valoresx = ['S' => 'SI', 'N' => 'NO','ON' => 'SI'];
                     $dataxxxx['codigoxx'] = $valoresx[$dataxxxx['codigoxx']];
                 }
                 break;
@@ -399,13 +404,14 @@ trait HomologacionesTrait
             $personax->itiegabe = 0;
             $personax->itigafin = 0;
             $personax->d_vinculacion = $personax->d_finvinculacion;
+      
             $personax->estusuario_id = 1;
             $personax = User::transaccion($personax->toArray(), '');
             $this->getAreaUsuarioHT(['nombrexx' => $personax->area, 'usuariox' => $personax]);
         }
 
         $this->getAsignarUpiUsuario(['document' => $personax->s_documento, 'usuariox' => $personax]);
-
+        //ddd($personax);
         return $personax;
     }
 
@@ -568,9 +574,11 @@ trait HomologacionesTrait
     {
         $personal = GeUpiPersonal::where('id_personal', $dataxxxx['document'])->get();
         foreach ($personal as $key => $value) {
+           // ddd($value->id_upi);
             $dependen = $this->getUpiSimi(['idupixxx' => $value->id_upi]);
             $usuariox = $dataxxxx['usuariox']->sis_depens->find($dependen->id);
-            if ($usuariox == null) {
+          
+            if (!isset($usuariox->id)) {
                 $dicotomi = $this->getParametrosSimi(['temaxxxx' => 23, 'codigoxx' => $value->responsable])->id;
                 $relacion = [
                     $dependen->id => [
@@ -587,5 +595,6 @@ trait HomologacionesTrait
                 ]);
             }
         }
+        
     }
 }

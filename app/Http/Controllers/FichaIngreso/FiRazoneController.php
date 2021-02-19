@@ -73,11 +73,12 @@ class FiRazoneController extends Controller
 
 
 
-        $this->opciones['usuarios'] = User::combo(true, false);
+        
 
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['depedile'] = [];
         $dependen = SisDepen::find($dataxxxx['padrexxx']->sis_nnaj->NnajUpiPrincipal)->ResponsableNormal;
+        $this->opciones['usuarios'] = User::combo(true, false);
         $this->opciones['usuarioz'] = $dependen[0];
         $this->opciones['deperesp'] = $dependen[2];
         $this->opciones['cargodil'] = '';
@@ -162,19 +163,15 @@ class FiRazoneController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx, FiRazone $modeloxx)
     {
-        // $respusta = $this->setRazonesIngresoIdipronRT(['padrexxx' => $padrexxx]);
-        $respuest = $this->getPuedeTPuede([
-            'casoxxxx' => 1,
-            'nnajxxxx' => $modeloxx->sis_nnaj_id,
-            'permisox' => $this->opciones['permisox'] . '-editar',
-        ]);
-        if ($respuest) {
+        
+         $respusta = $this->setRazonesIngresoIdipronRT(['padrexxx' => $padrexxx]);
+
             $this->opciones['botoform'][] =
                 [
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
-        }
+        
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

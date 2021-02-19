@@ -37,6 +37,7 @@ trait RazonesIngresoIdipronTrait
     public function setRazonesIngresoIdipronRT($dataxxxy)
     {
             $objetoxx = FiRazone::where('sis_nnaj_id', $dataxxxy['padrexxx']->sis_nnaj_id)->first();
+            
             if (!isset($objetoxx->id)) {
                 $dataxxxx = $this->getRazonesIngresoIdipronRT($dataxxxy);
                 if ($dataxxxx != null) {
@@ -48,7 +49,8 @@ trait RazonesIngresoIdipronTrait
                     $dataxxxx->i_prm_estado_ingreso_id = 1636;
                     $objetoxx = FiRazone::transaccion($dataxxxx->toArray(), '');
                 }
-            }
+           // }
+            
             return $objetoxx;
     }
 }
