@@ -10,6 +10,7 @@ use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\FiRedApoyoActual;
 use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\fichaIngreso\FiSalud;
+use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnaj;
 use App\Models\Sistema\SisDepeUsua;
@@ -124,7 +125,7 @@ trait FiTrait
             'fi_datos_basicos.sis_esta_id',
             'fi_datos_basicos.created_at',
             'sis_estas.s_estado'
-            
+
         ])
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id');
@@ -181,7 +182,9 @@ trait FiTrait
             'ge_nnaj.fecha_insercion as created_at',
         ])
             ->join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
-            ->where('ge_nnaj_documento.estado', 'A');
+            ->where('ge_nnaj_documento.estado', 'A')
+            ->whereNotIn('ge_nnaj_documento.numero_documento', NnajDocu::select(['s_documento'])->get())
+            ;
         return  $dataxxxx;
     }
     /**
@@ -232,7 +235,7 @@ trait FiTrait
                 $nuevanti = true;
             }
         } else {
-           //  $nuevanti = true;
+            $nuevanti = true;
         }
         return $nuevanti;
     }

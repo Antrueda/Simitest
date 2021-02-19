@@ -5,6 +5,7 @@ namespace App\Traits\Interfaz;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GePersonalIdipron;
+use Illuminate\Support\Facades\DB;
 
 trait RazonesIngresoIdipronTrait
 {
@@ -35,19 +36,22 @@ trait RazonesIngresoIdipronTrait
 
     public function setRazonesIngresoIdipronRT($dataxxxy)
     {
-        $exisregi = FiRazone::where('sis_nnaj_id', $dataxxxy['padrexxx']->sis_nnaj_id)->first();
-        if (!isset($exisregi->id)) {
-            $dataxxxx = $this->getRazonesIngresoIdipronRT($dataxxxy);
-            if ($dataxxxx!=null) {
-                $dataxxxx->sis_depend_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depend_id])->id;
-                $dataxxxx->sis_depenr_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depenr_id])->id;
-                $dataxxxx->userd_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userd_id])->id;
-                $dataxxxx->userr_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userr_id])->id;
-                $dataxxxx->sis_nnaj_id = $dataxxxy['padrexxx']->sis_nnaj_id;
-                $dataxxxx->i_prm_estado_ingreso_id = 1636;
-                $exisregi = FiRazone::transaccion($dataxxxx->toArray(), '');
+        $objetoxx = DB::transaction(function () use ($dataxxxy) {
+            $exisregi = FiRazone::where('sis_nnaj_id', $dataxxxy['padrexxx']->sis_nnaj_id)->first();
+            ddd($exisregi);
+            if (!isset($exisregi->id)) {
+                $dataxxxx = $this->getRazonesIngresoIdipronRT($dataxxxy);
+                if ($dataxxxx != null) {
+                    $dataxxxx->sis_depend_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depend_id])->id;
+                    $dataxxxx->sis_depenr_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depenr_id])->id;
+                    $dataxxxx->userd_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userd_id])->id;
+                    $dataxxxx->userr_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userr_id])->id;
+                    $dataxxxx->sis_nnaj_id = $dataxxxy['padrexxx']->sis_nnaj_id;
+                    $dataxxxx->i_prm_estado_ingreso_id = 1636;
+                    $exisregi = FiRazone::transaccion($dataxxxx->toArray(), '');
+                }
             }
-        }
-        return  $exisregi;
+        });
+        return  $objetoxx;
     }
 }

@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Parametro;
-use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Sistema\SisUpzbarri;
 use App\Models\User;

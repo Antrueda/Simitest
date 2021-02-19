@@ -18,13 +18,11 @@ class CreateNnajDesesTable extends Migration
     {
         Schema::create( $this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('sis_servicio_id')->unsigned();
-            $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
-            $table->integer('nnaj_upi_id')->unsigned();
-            $table->integer('prm_principa_id')->unsigned();
-            $table->foreign('prm_principa_id')->references('id')->on('parametros');
-            $table->foreign('nnaj_upi_id')->references('id')->on('nnaj_upis');
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::getForeignPk($table, 'sis_servicio', 'nnds_pk1');
+            $table = CamposMagicos::getForeignPk($table, 'nnaj_upi', 'nnds_pk2');
+            $table = CamposMagicos::getForeignPk($table, 'prm_principa_id', 'nnds_pk3', 'parametros');
+            $table = CamposMagicos::magicosPk($table, ['nnds_pk', 4, 5, 6]);
+            $table->unique(['nnaj_upi_id', 'sis_servicio_id'], 'nnds_un1');
         });
 
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL SERVICIO DEL NNAJ.'");
@@ -39,7 +37,7 @@ class CreateNnajDesesTable extends Migration
        //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
-    
+
 
     /**
      * Reverse the migrations.

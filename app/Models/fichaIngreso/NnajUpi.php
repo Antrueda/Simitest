@@ -12,6 +12,7 @@ class NnajUpi extends Model
 {
 
     protected $fillable = [
+        'id',
         'sis_nnaj_id',
         'sis_depen_id',
         'user_crea_id',
@@ -57,7 +58,7 @@ class NnajUpi extends Model
             }
         }
 
-        
+
         $notinxxx = SisDepen::select(['sis_depens.id', 'sis_depens.nombre'])->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
         ->where('nnaj_upis.sis_nnaj_id', $padrexxx)
         ->where('nnaj_upis.sis_esta_id', 1)
@@ -74,7 +75,7 @@ class NnajUpi extends Model
     }
 
 
-   
+
     /** asingar upi al nnaj cuando se está creando datos basicos */
     public static function setUpiDatosBasicos($dataxxxx,  $datobasi) // $objetoxx=datos basicos
     {

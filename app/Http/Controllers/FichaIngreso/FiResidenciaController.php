@@ -8,7 +8,6 @@ use App\Http\Requests\FichaIngreso\FiResidenciaUpdateRequest;
 use App\Models\fichaIngreso\FiCondicionAmbiente;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiResidencia;
-use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
@@ -128,26 +127,20 @@ class FiResidenciaController extends Controller
      */
     public function create(FiDatosBasico $padrexxx)
     {
-        $compfami=FiResidencia::where('sis_nnaj_id',$padrexxx->sis_nnaj_id)->first();
-        if(!isset($compfami->id)){
-            $this->setResidencia(['padrexxx'=>$padrexxx]);
-        }
-
+        $respuest=$this->setResidencia(['padrexxx'=>$padrexxx]);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $vestuari = FiResidencia::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
-        if ($vestuari != null) {
+        if ($respuest != null) {
             return redirect()
-                ->route('fi.residencia.editar', [$padrexxx->id, $vestuari->id]);
+                ->route('fi.residencia.editar', [$padrexxx->id, $respuest->id]);
         }
         return $this->view(['modeloxx' => '', 'accionxx'=>['crear','formulario'], 'padrexxx' => $padrexxx]);
     }
     private function grabar($dataxxxx, $objetoxx, $infoxxxx)
     {
-        // ddd($dataxxxx);
         $modeloxx = FiResidencia::transaccion($dataxxxx,  $objetoxx);
         return redirect()
             ->route('fi.residencia.editar', [$modeloxx->sis_nnaj->fi_datos_basico->id,  $modeloxx->id])
@@ -163,10 +156,9 @@ class FiResidenciaController extends Controller
 
     public function store(FiDatosBasico $padrexxx, FiResidenciaCrearRequest $request)
     {
-        
+
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        ddd($dataxxxx);
         return $this->grabar($dataxxxx, '', 'Residencia creada con exito');
     }
 
@@ -190,6 +182,8 @@ class FiResidenciaController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx,  FiResidencia $modeloxx)
     {
+
+        // $this->setResidencia(['padrexxx'=>$padrexxx]);
         $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
         'nnajxxxx'=>$modeloxx->sis_nnaj_id,
         'permisox'=>$this->opciones['permisox'] . '-editar',

@@ -19,12 +19,12 @@ class CreateNnajUpisTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('sis_depen_id')->unsigned();
-            $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
-            $table->integer('prm_principa_id')->unsigned();
-            $table->foreign('prm_principa_id')->references('id')->on('parametros');
-            $table = CamposMagicos::getForeign($table, 'sis_nnaj');
-            $table = CamposMagicos::magicos($table);
+            $table = CamposMagicos::getForeignPk($table, 'sis_depen','nnup_pk1');
+            $table = CamposMagicos::getForeignPk($table, 'prm_principa_id','nnup_pk2','parametros');
+            $table = CamposMagicos::getForeignPk($table, 'sis_nnaj','nnup_pk3');
+
+            $table->unique(['sis_depen_id','sis_nnaj_id'],'nnup_un1');
+            $table = CamposMagicos::magicosPk($table,['nnup_pk',4,5,6]);
 
 
         });

@@ -4,6 +4,7 @@ namespace App\Traits\Interfaz;
 
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajNacimi;
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use PhpParser\Node\Stmt\Foreach_;
@@ -56,12 +57,11 @@ trait InterfazFiTrait
             ->join('ficha_acercamiento_ingreso', 'ge_nnaj.id_nnaj', '=', 'ficha_acercamiento_ingreso.id_nnaj')
             ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $request->docuagre)
-            ->where('ge_upi_nnaj.modalidad', '!=',null)
-
             ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
             ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
             ->orderBy('ficha_acercamiento_ingreso.fecha_insercion', 'ASC')
             ->first();
+            //   ddd($dataxxxx->toArray());
         $this->getUpisModalidadHT(['idnnajxx' => $dataxxxx->id_nnaj]);
         return $dataxxxx;
     }
@@ -72,7 +72,10 @@ trait InterfazFiTrait
         $objetoxx->diligenc = explode(' ', $dataxxxx->fecha_apertura)[0];
         $objetoxx->prm_tipoblaci_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_poblacion, 'tablaxxx' => 'TIPOPOB', 'temaxxxx' => 119, 'testerxx' => false])->id;
         $objetoxx->sis_depen_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->id_upi])->id;
-        $objetoxx->sis_servicio_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad,  'sisdepen' => $objetoxx->sis_depen_id, 'datobasi' => true])->id;
+        if($dataxxxx->modalidad!=null){
+            $objetoxx->sis_servicio_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad,  'sisdepen' => $objetoxx->sis_depen_id, 'datobasi' => true])->id;
+        }
+
         $objetoxx->s_primer_nombre = $dataxxxx->primer_nombre;
         $objetoxx->s_segundo_nombre = $dataxxxx->segundo_nombre;
         $objetoxx->s_primer_apellido = $dataxxxx->primer_apellido;
@@ -135,10 +138,19 @@ trait InterfazFiTrait
     {
         $upissimi = GeNnajDocumento::join('ge_upi_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $dataxxxx['objetoxx']->nnaj_docu->s_documento)
-            ->where('ge_upi_nnaj.estado', 'A')->get();
+            ->where('ge_upi_nnaj.estado', 'A')
+            ->where('ge_upi_nnaj.modalidad','!=', null)
+            ->get();
         foreach ($upissimi as $key => $value) {
-            $dataxxxx['idupixxx']=$value->id_upi; echo $value->id_upi.'<br>';
-            $this->getAsignarUpiNnaj($dataxxxx);
+            $dataxxxx['idupixxx'] =  $value->id_upi;
+            $upinnajx = $this->getUpiSimi($dataxxxx);
+            $upinnajy = NnajUpi::where('sis_nnaj_id', $dataxxxx['objetoxx']->sis_nnaj_id)->where('sis_depen_id', $upinnajx->id)->first();
+            $dataxxxx['idupixxx'] =  $upinnajx->id;
+            if (!isset($upinnajy->id)) {
+                $this->getAsignarUpiNnaj($dataxxxx);
+            }
+            $dataxxxx['codigoxx'] =  $value->modalidad;
+            $this->getAsignarServiciosNnaj($dataxxxx);
         }
     }
 }

@@ -4,13 +4,13 @@ namespace App\CamposMagicos;
 
 class CamposMagicos
 {
-
-    private static function armarCampo($tablaxxx,$campoxxx){
+    private static function armarCampo($tablaxxx, $campoxxx)
+    {
         if (!$tablaxxx) {
             $tablaxxx = $campoxxx . 's';
             $campoxxx = $campoxxx . '_id';
         }
-        return [$tablaxxx,$campoxxx];
+        return [$tablaxxx, $campoxxx];
     }
 
     /**
@@ -21,15 +21,23 @@ class CamposMagicos
      */
     public static function getForeign($table, $campoxxx, $tablaxxx = false)
     {
-        $c=CamposMagicos::armarCampo($tablaxxx,$campoxxx);
+        $c = CamposMagicos::armarCampo($tablaxxx, $campoxxx);
         $table->integer($c[1])->unsigned();
         $table->foreign($c[1])->references('id')->on($c[0]);
         return $table;
     }
 
-    public static function getForeigDefault($table, $campoxxx, $default,$tablaxxx = false)
+    public static function getForeignPk($table, $campoxxx, $pk,$tablaxxx = false)
     {
-        $c=CamposMagicos::armarCampo($tablaxxx,$campoxxx);
+        $c = CamposMagicos::armarCampo($tablaxxx, $campoxxx);
+        $table->integer($c[1])->unsigned();
+        $table->foreign($c[1],$pk)->references('id')->on($c[0]);
+        return $table;
+    }
+
+    public static function getForeigDefault($table, $campoxxx, $default, $tablaxxx = false)
+    {
+        $c = CamposMagicos::armarCampo($tablaxxx, $campoxxx);
         $table->integer($c[1])->default($default)->unsigned();
         $table->foreign($c[1])->references('id')->on($c[0]);
         return $table;
@@ -42,7 +50,7 @@ class CamposMagicos
      */
     public static function getForeignN($table, $campoxxx, $tablaxxx = false)
     {
-        $c=CamposMagicos::armarCampo($tablaxxx,$campoxxx);
+        $c = CamposMagicos::armarCampo($tablaxxx, $campoxxx);
         $table->integer($c[1])->unsigned()->nulleable();
         $table->foreign($c[1])->references('id')->on($c[0]);
         return $table;
@@ -61,6 +69,19 @@ class CamposMagicos
         return $table;
     }
 
+
+    public static function magicosPk($table,$pk)
+    {
+        $table->integer('user_crea_id')->unsigned()->default(1)->comment('USUARIO QUE CREAR EL REGISTRO');
+        $table->integer('user_edita_id')->unsigned()->default(1)->comment('USUARIO QUE EDITA EL REGISTRO');
+        $table->integer('sis_esta_id')->unsigned()->default(1)->comment('ESTADO DEL REGISTRO');
+        $table->foreign('sis_esta_id',$pk[0].$pk[1])->references('id')->on('sis_estas');
+        $table->foreign('user_crea_id',$pk[0].$pk[2])->references('id')->on('users');
+        $table->foreign('user_edita_id',$pk[0].$pk[3])->references('id')->on('users');
+        $table->timestamps();
+        $table->softDeletes();
+        return $table;
+    }
     /**
      *
      * Definición de los campos por defecto estaran en las tablas H y tendrán  la trazabilidad de los registros

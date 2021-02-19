@@ -2,6 +2,7 @@
 
 namespace App\Traits\Interfaz;
 
+use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Indicadores\Area;
@@ -11,12 +12,14 @@ use App\Models\Simianti\Ge\GeCargo;
 use App\Models\Simianti\Ge\GePersonalIdipron;
 use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Simianti\Ge\GeUpiNnaj;
+use App\Models\Simianti\Ge\GeUpiPersonal;
 use App\Models\Simianti\Sis\Municipio;
 use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Sistema\AreaUser;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisCargo;
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
@@ -148,7 +151,23 @@ trait HomologacionesTrait
      */
     public function getParametrosSimi($dataxxxx)
     {
+        switch ($dataxxxx['temaxxxx']) {
+            case 23:
+                if ($dataxxxx['codigoxx'] == 'S' || $dataxxxx['codigoxx'] == 'N') {
+                    $valoresx = ['S' => 'SI', 'N' => 'NO'];
+                    $dataxxxx['codigoxx'] = $valoresx[$dataxxxx['codigoxx']];
+                }
+                break;
+        }
         $parametr = Parametro::where('nombre', $dataxxxx['codigoxx'])->first();
+        if ($parametr == null) {
+            $parametr = Parametro::create([
+                'nombre' => $dataxxxx['codigoxx'],
+                'sis_esta_id' => Auth::user()->id,
+                'user_crea_id' => Auth::user()->id,
+                'user_edita_id' => 1,
+            ]);
+        }
         // se crea el parametro y se asocia con el tema
         $parametr = $this->getValidarParametro($parametr, $dataxxxx, false, 0);
         return $parametr;
@@ -217,15 +236,12 @@ trait HomologacionesTrait
             } else { // no está creado el parametro en el actual desarollo
                 $parametr =  Parametro::find(2502);
             }
-
             $asociarx = $temaxxxx->parametros()->where('parametro_id', $parametr->id)->first();
-
             // asocia el parametro
             if (!isset($asociarx->pivot->parametro_id)) {
                 $this->getAsociarParametro($temaxxxx, $parametr, $parasimi);
             }
         } else {
-
             $this->getActualizarParametroTema($temaxxxx, $parametr, $parasimi, $actualiz,);
         }
         // if ($dataxxxx['temaxxxx'] == 23) {
@@ -246,8 +262,11 @@ trait HomologacionesTrait
 
         $parametr = [];
         $parasimi = ['codigoxx' => 0];
+        if ($dataxxxx['codigoxx'] == 'null') {
+            $dataxxxx['codigoxx'] = '';
+        }
 
-        if ($dataxxxx['codigoxx'] != '' && $dataxxxx['codigoxx'] != 0) {
+        if ($dataxxxx['codigoxx'] != '' || $dataxxxx['codigoxx'] != 0) {
             // buscar el parametro en el antiguo desarrollo
             $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
             switch ($dataxxxx['temaxxxx']) {
@@ -257,7 +276,7 @@ trait HomologacionesTrait
                     $multival->descripcion = $posiciox . '.' . $posicioy . '.';
                     break;
                 case 23:
-                    if($multival->descripcion=='S'|| $multival->descripcion=='N'){
+                    if ($multival->descripcion == 'S' || $multival->descripcion == 'N') {
                         $valoresx = ['S' => 'SI', 'N' => 'NO'];
                         $multival->descripcion = $valoresx[$multival->descripcion];
                     }
@@ -274,6 +293,14 @@ trait HomologacionesTrait
             }
             // buscar el parametro en el nuevo desarrollo
             $parametr = Parametro::where('nombre', $multival->descripcion)->first();
+            if ($parametr == null) {
+                $parametr = Parametro::create([
+                    'nombre' => $multival->descripcion,
+                    'sis_esta_id' => Auth::user()->id,
+                    'user_crea_id' => Auth::user()->id,
+                    'user_edita_id' => 1,
+                ]);
+            }
         } else {
             switch ($dataxxxx['temaxxxx']) {
                 case 23: // tiene documento físico o tiene definida la situación militar
@@ -286,18 +313,15 @@ trait HomologacionesTrait
 
         // se crea el parametro y se asocia con el tema
         $parametr = $this->getValidarParametro($parametr, $dataxxxx, true, $parasimi['codigoxx']);
-        if ($dataxxxx['testerxx']) {
-            ddd($parametr);
-        }
+
         return $parametr;
     }
     public function getMunicipoSimi($dataxxxx)
     {
-
         $munianti = Municipio::find($dataxxxx['idmunici']);
         if ($dataxxxx['idmunici'] == 11001) {
-            $muninuev = SisMunicipio::find(321);
-        } elseif (!isset($munianti->id)) {
+            $muninuev = SisMunicipio::find(231);
+        } elseif (!isset($munianti->codigo_municipio)) {
             $muninuev = SisMunicipio::find(1121);
         } else {
             $muninuev = SisMunicipio::where('s_municipio', $munianti->nombre_municipio)->first();
@@ -378,7 +402,10 @@ trait HomologacionesTrait
             $personay->estusuario_id = 1;
             $personax = User::transaccion($personay->toArray(), '');
             $this->getAreaUsuarioHT(['nombrexx' => $personay->area, 'usuariox' => $personax]);
+            $this->getAsignarUpiUsuario(['document' => $personay->s_documento, 'usuariox' => $personax]);
         }
+
+
         return $personax;
     }
 
@@ -497,65 +524,66 @@ trait HomologacionesTrait
 
     public function getAsignarUpiNnaj($dataxxxx)
     {
-        $upinnajx = $this->getUpiSimi($dataxxxx);
-        $upinnajy = NnajUpi::where('sis_nnaj_id', $dataxxxx['objetoxx']->sis_nnaj_id)->where('sis_depen_id', $upinnajx->id)->first();
-        if (!isset($upinnajy->id)) {
-            NnajUpi::create([
-                'sis_nnaj_id' => $dataxxxx['objetoxx']->sis_nnaj_id,
-                'sis_depen_id' => $upinnajx->id,
-                'user_crea_id' => Auth::user()->id,
+        NnajUpi::create([
+            'sis_nnaj_id' => $dataxxxx['objetoxx']->sis_nnaj_id,
+            'sis_depen_id' => $dataxxxx['idupixxx'],
+            'user_crea_id' => Auth::user()->id,
+            'prm_principa_id' => 228,
+            'user_edita_id' => Auth::user()->id,
+            'sis_esta_id' => 1,
+        ]);
+    }
+    public function getAsignarServiciosNnaj($dataxxxx)
+    {
+        $servicio = SisMultivalore::where('tabla', 'MODALIDAD_UPI')->where('codigo', $dataxxxx['codigoxx'])->first();
+        $servicio = SisServicio::where('s_servicio', $servicio->descripcion)->first();
+        if ($servicio == null) {
+            $servicio = SisServicio::find(8);
+        }
+        $servnnaj = NnajDese::select(['nnaj_upis.id'])
+            ->join('nnaj_upis', 'nnaj_deses.nnaj_upi_id', '=', 'nnaj_upis.id')
+            ->where('nnaj_deses.sis_servicio_id', $servicio->id)
+            ->where('nnaj_upis.sis_depen_id', $dataxxxx['idupixxx'])
+            ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['objetoxx']->sis_nnaj_id)
+            ->first();
+        if ($servnnaj == null) {
+            $servnnaj = NnajUpi::where('sis_depen_id', $dataxxxx['idupixxx'])->first();
+            NnajDese::create([
+                'sis_servicio_id' => $servicio->id,
+                'nnaj_upi_id' => $servnnaj->id,
                 'prm_principa_id' => 228,
+                'user_crea_id' => Auth::user()->id,
                 'user_edita_id' => Auth::user()->id,
                 'sis_esta_id' => 1,
             ]);
         }
     }
-    public function getParametrosSimiMultivalortest($dataxxxx)
+    /**
+     * encontrar las upis del usuario en el antiguo simi y asignarlas en el nuevo desarrollo al usuario
+     *
+     * @param array $dataxxxx
+     * @return void
+     */
+    public function getAsignarUpiUsuario($dataxxxx)
     {
-        $parametr = [];
-        $parasimi = ['codigoxx' => 0];
-
-        if ($dataxxxx['codigoxx'] != ''||$dataxxxx['codigoxx'] !=0) {
-            // buscar el parametro en el antiguo desarrollo
-
-            $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
-            switch ($dataxxxx['temaxxxx']) {
-                case 3:
-                    $posiciox = substr($dataxxxx['codigoxx'], 0, 1);
-                    $posicioy = substr($dataxxxx['codigoxx'], 1);
-                    $multival->descripcion = $posiciox . '.' . $posicioy . '.';
-                    break;
-
-                case 20:
-                    if ($multival->descripcion == 'BLANCO') {
-                        $multival->descripcion = $multival->descripcion . '(A)';
-                    }
-                    break;
-
-                case 290:
-                    $multival->descripcion = substr(explode('(', $multival->descripcion)[0], 0, -1) . 'A';
-                    break;
+        $personal = GeUpiPersonal::where('id_personal', $dataxxxx['document'])->get();
+        foreach ($personal as $key => $value) {
+            $dependen = $this->getUpiSimi(['idupixxx' => $value->id_upi]);
+            $usuariox = $dataxxxx['usuariox']->sis_depens->find($dependen->id);
+            if ($usuariox == null) {
+                $usuariox = $dataxxxx['usuariox']->sis_depens->attach([
+                    'sis_depen_id'=>$dependen->id,
+                    'i_prm_responsable_id'=>$this->getParametrosSimi(['temaxxxx'=>23,'codigoxx'=>$value->responsable])->id,
+                    'user_crea_id'=>Auth::user()->id,
+                    'user_edita_id'=>Auth::user()->id,
+                    'sis_esta_id'=>1,
+                ]);
+            }else {
+               $usuariox->sis_depens()->updateExistingPivot($dependen->id, [
+                   'i_prm_responsable_id' => $this->getParametrosSimi(['temaxxxx'=>23,'codigoxx'=>$value->responsable])->id
+                   ]);
             }
-            
-                
-                if ($multival==null) {
-                    $parametr = Parametro::find(235);
-                }else{
-                    $parametr = Parametro::where('nombre', $multival->descripcion)->first();
-                }
-            // buscar el parametro en el nuevo desarrollo
 
-            if ($dataxxxx['testerxx']) {
-                ddd($dataxxxx['codigoxx']);
-            }
         }
-
-        // se crea el parametro y se asocia con el tema
-        $parametr = $this->getValidarParametro($parametr, $dataxxxx, true, $parasimi['codigoxx']);
-        if ($dataxxxx['testerxx']) {
-            ddd($parametr);
-        }
-        return $parametr;
     }
-
 }

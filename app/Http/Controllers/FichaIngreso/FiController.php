@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\FichaIngreso;
 
-use App\Helpers\Traductor\Traductor;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoMigrarCrearRequest;
@@ -64,22 +64,6 @@ class FiController extends Controller
 
 
         $this->bitacora = new FiDatosBasico();
-        $this->opciones['tipodocu'] = Tema::combo(3, true, false);
-        $this->opciones['grupsang'] = Tema::combo(17, true, false);
-        $this->opciones['factorrh'] = Tema::combo(18, true, false);
-        $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
-        $this->opciones['tipoblac'] = Tema::combo(119, true, false);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['situmili'] = Tema::combo(23, true, false);
-        $this->opciones['tiplibre'] = Tema::combo(33, true, false);
-        $this->opciones['estacivi'] = Tema::combo(19, true, false);
-        $this->opciones['grupetni'] = Tema::combo(20, true, false);
-        $this->opciones['vestimen'] = Tema::combo(290, true, false);
-        $this->opciones['generoxx'] = Tema::combo(12, true, false);
-        $this->opciones['orientac'] = Tema::combo(13, true, false);
-        $this->opciones['pais_idx'] = SisPai::combo(true, false);
-        $this->opciones['localida'] = SisLocalidad::combo();
-        $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
         $this->opciones['tituloxx'] = "FICHA DE INGRESO";
         $this->opciones['botoform'] = [
@@ -158,6 +142,9 @@ class FiController extends Controller
         $dataxxxx['sis_esta_id'] = 1;
 
         $usuariox = $this->bitacora->grabar($dataxxxx, $objetoxx);
+        if ($dataxxxx['pasaupis']) {
+            $this->getUpisNnajIFT(['objetoxx' => $usuariox]);
+        }
 
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$usuariox->id])
@@ -170,8 +157,29 @@ class FiController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+     public function combos()
+     {
+        $this->opciones['tipodocu'] = Tema::combo(3, true, false);
+        $this->opciones['grupsang'] = Tema::combo(17, true, false);
+        $this->opciones['factorrh'] = Tema::combo(18, true, false);
+        $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
+        $this->opciones['tipoblac'] = Tema::combo(119, true, false);
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['situmili'] = Tema::combo(23, true, false);
+        $this->opciones['tiplibre'] = Tema::combo(33, true, false);
+        $this->opciones['estacivi'] = Tema::combo(19, true, false);
+        $this->opciones['grupetni'] = Tema::combo(20, true, false);
+        $this->opciones['vestimen'] = Tema::combo(290, true, false);
+        $this->opciones['generoxx'] = Tema::combo(12, true, false);
+        $this->opciones['orientac'] = Tema::combo(13, true, false);
+        $this->opciones['pais_idx'] = SisPai::combo(true, false);
+        $this->opciones['localida'] = SisLocalidad::combo();
+        $this->opciones['estrateg'] = ['' => 'Seleccione'];
+
+     }
     private function view($dataxxxx)
     {
+        $this->combos();
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {
@@ -343,6 +351,7 @@ class FiController extends Controller
 
     private function viewagregar($dataxxxx)
     {
+        $this->combos();
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {
@@ -475,15 +484,15 @@ class FiController extends Controller
     }
     public function store(FiDatosBasicoCrearRequest $request)
     {
-        $dataxxxx=$request->all();
-        $dataxxxx['pasaupis']=false;
+        $dataxxxx = $request->all();
+        $dataxxxx['pasaupis'] = false;
         return $this->grabar($dataxxxx, '', 'Datos básicos creados con exito');
     }
 
     public function adicionar(FiDatosBasicoMigrarCrearRequest $request)
     {
-        $dataxxxx=$request->all();
-        $dataxxxx['pasaupis']=true;
+        $dataxxxx = $request->all();
+        $dataxxxx['pasaupis'] = true;
         return $this->grabar($dataxxxx, '', 'Datos básicos creados con exito');
     }
     /**
@@ -511,11 +520,11 @@ class FiController extends Controller
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
         // if ($respuest) { // if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
-            $this->opciones['botoform'][] =
-                [
-                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-                ];
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
         // }
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $objetoxx]);
     }

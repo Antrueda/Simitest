@@ -108,17 +108,17 @@ class FiDatosBasicoUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        if ($this->diligenc != '') {
-            $puedexxx = $this->getPuedeCargar([
-                'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
-                'fechregi' => $this->diligenc,
-                'formular'=>1,
-            ]);
-            if (!$puedexxx['tienperm']) {
-                $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
-                $this->_reglasx['sinpermi'] = 'required';
-            }
-        }
+        // if ($this->diligenc != '') {
+        //     $puedexxx = $this->getPuedeCargar([
+        //         'estoyenx' => 1, // 1 para acciones individuale y 2 para acciones grupales
+        //         'fechregi' => $this->diligenc,
+        //         'formular'=>1,
+        //     ]);
+        //     if (!$puedexxx['tienperm']) {
+        //         $this->_mensaje['sinpermi.required'] =  $puedexxx['msnxxxxx'];
+        //         $this->_reglasx['sinpermi'] = 'required';
+        //     }
+        // }
         $this->validar();
 
         return $this->_reglasx;

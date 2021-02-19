@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Traits\Interfaz\InterfazFiTrait;
+
 class FiDatosBasico extends Model
 {
     use InterfazFiTrait;
@@ -131,18 +132,20 @@ class FiDatosBasico extends Model
 
     public function getNombreCedulaAjaxAttribute()
     {
-        return [['valuexxx'=>$this->sis_nnaj_id,
-        'optionxx'=>$this->s_primer_nombre . ' ' .
-            $this->s_segundo_nombre . ' ' .
-            $this->s_primer_apellido . ' ' .
-            $this->s_segundo_apellido.' ('.$this->nnaj_docu->s_documento.')','selected'=>'selected']];
+        return [[
+            'valuexxx' => $this->sis_nnaj_id,
+            'optionxx' => $this->s_primer_nombre . ' ' .
+                $this->s_segundo_nombre . ' ' .
+                $this->s_primer_apellido . ' ' .
+                $this->s_segundo_apellido . ' (' . $this->nnaj_docu->s_documento . ')', 'selected' => 'selected'
+        ]];
     }
     public function getNombreCedulaAttribute()
     {
-        return [$this->sis_nnaj_id=>$this->s_primer_nombre . ' ' .
+        return [$this->sis_nnaj_id => $this->s_primer_nombre . ' ' .
             $this->s_segundo_nombre . ' ' .
             $this->s_primer_apellido . ' ' .
-            $this->s_segundo_apellido.' ('.$this->nnaj_docu->s_documento.')'];
+            $this->s_segundo_apellido . ' (' . $this->nnaj_docu->s_documento . ')'];
     }
 
     public function getNombreCompletoAttribute()
@@ -210,47 +213,47 @@ class FiDatosBasico extends Model
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = FiDatosBasico::create($dataxxxx);
             }
-            $dataxxxx['objetoxx']=$objetoxx;
-            $dataxxxx['fi_datos_basico_id']=$objetoxx->id;
+            $dataxxxx['objetoxx'] = $objetoxx;
+            $dataxxxx['fi_datos_basico_id'] = $objetoxx->id;
             NnajNacimi::getTransaccion($dataxxxx);
             return $objetoxx;
         }, 5);
 
         return $objetoxx;
     }
-   public static function getMayusculas($dataxxxx)
-   {
-    $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
-    $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
-    $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
-    $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['s_segundo_apellido']);
-    $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
-    $dataxxxx['s_apodo'] = strtoupper($dataxxxx['s_apodo']);
-    return $dataxxxx;
-   }
+    public static function getMayusculas($dataxxxx)
+    {
+        $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
+        $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
+        $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
+        $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['s_segundo_apellido']);
+        $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
+        $dataxxxx['s_apodo'] = strtoupper($dataxxxx['s_apodo']);
+        return $dataxxxx;
+    }
     public static function getTransactionCsd($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
-            $objetoxx=$dataxxxx['modeloxx'];
-            $dataxxxx=$dataxxxx['requestx']->all();
-            $dataxxxx=FiDatosBasico::getMayusculas($dataxxxx);
+            $objetoxx = $dataxxxx['modeloxx'];
+            $dataxxxx = $dataxxxx['requestx']->all();
+            $dataxxxx = FiDatosBasico::getMayusculas($dataxxxx);
             $dt = new DateTime($dataxxxx['d_nacimiento']);
             $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
             $dataxxxx['user_edita_id'] = Auth::user()->id;
             /**
              * verificar que la persona ya se encuentre registrada
              */
-            $dataxxxx['sis_docfuen_id']=4;
-            $objetver=NnajDocu::where('s_documento',$dataxxxx['s_documento'] )->first();
-            if ($objetoxx == ''&& isset($objetver->id)) {
-                $objetoxx=$objetver->fi_datos_basico;
+            $dataxxxx['sis_docfuen_id'] = 4;
+            $objetver = NnajDocu::where('s_documento', $dataxxxx['s_documento'])->first();
+            if ($objetoxx == '' && isset($objetver->id)) {
+                $objetoxx = $objetver->fi_datos_basico;
             }
             if ($objetoxx != '') {
                 /** Actualizar registro */
                 $objetoxx->update($dataxxxx);
             } else {
                 /** Es un registro nuevo */
-                $dataxxxx['prm_estrateg_id']=235;
+                $dataxxxx['prm_estrateg_id'] = 235;
                 $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'prm_escomfam_id' => 227])->id;
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $objetoxx = FiDatosBasico::create($dataxxxx);
@@ -262,11 +265,11 @@ class FiDatosBasico extends Model
                 $dataxxxx['i_prm_parentesco_id'] = 282;
                 $dataxxxx['i_prm_vinculado_idipron_id'] = 228;
                 $dataxxxx['i_prm_convive_nnaj_id'] = 228;
-                $dataxxxx['prm_reprlega_id']=228;
+                $dataxxxx['prm_reprlega_id'] = 228;
                 FiCompfami::create($dataxxxx);
             }
             $dataxxxx['fi_datos_basico_id'] = $objetoxx->id;
-            $dataxxxx['objetoxx']=$objetoxx;
+            $dataxxxx['objetoxx'] = $objetoxx;
             FiCsdvsi::getTransaccion($dataxxxx);
             NnajSexo::getTransaccion($dataxxxx);
             NnajNacimi::getTransaccion($dataxxxx);
@@ -304,7 +307,6 @@ class FiDatosBasico extends Model
                 $objetoxx->nnaj_sit_mil->update($dataxxxx);
                 $objetoxx->nnaj_focali->update($dataxxxx);
                 $objetoxx->nnaj_fi_csd->update($dataxxxx);
-
             } else {
 
                 /** Es un registro nuevo */
@@ -326,22 +328,22 @@ class FiDatosBasico extends Model
                 $dataxxxx['i_prm_parentesco_id'] = 805;
                 $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
                 $dataxxxx['i_prm_convive_nnaj_id'] = 227;
-                $dataxxxx['prm_reprlega_id']=227;
-                if($objetoxx->nnaj_nacimi->Edad<18){
-                    $dataxxxx['prm_reprlega_id']=228;
+                $dataxxxx['prm_reprlega_id'] = 227;
+                if ($objetoxx->nnaj_nacimi->Edad < 18) {
+                    $dataxxxx['prm_reprlega_id'] = 228;
                 }
                 FiCompfami::create($dataxxxx);
                 /**
                  * agregar las upis cuando es un nnaj traido del antiguo simi
                  */
-                if($dataxxxx['pasaupis']){
-                    $this->getUpisNnajIFT(['objetoxx'=>$objetoxx]);
-                }
+                // if($dataxxxx['pasaupis']){
+                //     $this->getUpisNnajIFT(['objetoxx'=>$objetoxx]);
+                // }
             }
 
-           NnajUpi::setUpiDatosBasicos($dataxxxx, $objetoxx);
-           FiDiligenc::transaccion($dataxxxx, $objetoxx);
-        //    $this->getInsertarDatosBasicos($dataxxxx, $objetoxx);
+            NnajUpi::setUpiDatosBasicos($dataxxxx, $objetoxx);
+            FiDiligenc::transaccion($dataxxxx, $objetoxx);
+            //    $this->getInsertarDatosBasicos($dataxxxx, $objetoxx);
             return $objetoxx;
         }, 5);
 
@@ -351,7 +353,8 @@ class FiDatosBasico extends Model
 
 
 
-    public static function setSisServ($dataxxxx, $objetoxx){
+    public static function setSisServ($dataxxxx, $objetoxx)
+    {
 
         $datosxxx = [
             'nnaj_upi_id' => $dataxxxx['sis_depen_id'],
