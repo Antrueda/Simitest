@@ -36,22 +36,19 @@ trait RazonesIngresoIdipronTrait
 
     public function setRazonesIngresoIdipronRT($dataxxxy)
     {
-        $objetoxx = DB::transaction(function () use ($dataxxxy) {
-            $exisregi = FiRazone::where('sis_nnaj_id', $dataxxxy['padrexxx']->sis_nnaj_id)->first();
-            ddd($exisregi);
-            if (!isset($exisregi->id)) {
+            $objetoxx = FiRazone::where('sis_nnaj_id', $dataxxxy['padrexxx']->sis_nnaj_id)->first();
+            if (!isset($objetoxx->id)) {
                 $dataxxxx = $this->getRazonesIngresoIdipronRT($dataxxxy);
                 if ($dataxxxx != null) {
                     $dataxxxx->sis_depend_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depend_id])->id;
                     $dataxxxx->sis_depenr_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depenr_id])->id;
-                    $dataxxxx->userd_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userd_id])->id;
-                    $dataxxxx->userr_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userr_id])->id;
+                    $dataxxxx->userd_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userd_id,'idupixxx'=> $dataxxxx->sis_depenr_id])->id;
+                    $dataxxxx->userr_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userr_id,'idupixxx'=> $dataxxxx->sis_depenr_id])->id;
                     $dataxxxx->sis_nnaj_id = $dataxxxy['padrexxx']->sis_nnaj_id;
                     $dataxxxx->i_prm_estado_ingreso_id = 1636;
-                    $exisregi = FiRazone::transaccion($dataxxxx->toArray(), '');
+                    $objetoxx = FiRazone::transaccion($dataxxxx->toArray(), '');
                 }
             }
-        });
-        return  $objetoxx;
+            return $objetoxx;
     }
 }

@@ -93,11 +93,8 @@ class FiRazoneController extends Controller
             $dilegenc = User::comboDependencia($dataxxxx['modeloxx']->userd_id, false, false);
             $this->opciones['depedile'] = $dilegenc[0];
             $this->opciones['cargodil'] = $dilegenc[1];
-
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
         }
-
-
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -165,6 +162,7 @@ class FiRazoneController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx, FiRazone $modeloxx)
     {
+        // $respusta = $this->setRazonesIngresoIdipronRT(['padrexxx' => $padrexxx]);
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $modeloxx->sis_nnaj_id,

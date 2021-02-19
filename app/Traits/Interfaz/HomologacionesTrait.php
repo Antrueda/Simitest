@@ -364,7 +364,7 @@ trait HomologacionesTrait
     {
         $personax = User::where('s_documento', $dataxxxx['cedulaxx'])->first();
         if (!isset($personax->id)) {
-            $personay = GePersonalIdipron::select([
+            $personax = GePersonalIdipron::select([
                 'area',
                 'tipo as prm_tvinculacion_id',
                 'tipo_documento as prm_documento_id',
@@ -381,30 +381,30 @@ trait HomologacionesTrait
                 'tarjeta_matricula_profesional as s_matriculap',
             ])
                 ->find($dataxxxx['cedulaxx']);
-            $personay->prm_tvinculacion_id = $this->getParametrosSimiMultivalor([
-                'codigoxx' => $personay->prm_tvinculacion_id,
+            $personax->prm_tvinculacion_id = $this->getParametrosSimiMultivalor([
+                'codigoxx' => $personax->prm_tvinculacion_id,
                 'tablaxxx' => 'TIPO_VINCULACION',
                 'temaxxxx' => 310,
                 'testerxx' => false,
             ])->id;
-            $personay->prm_documento_id = $this->getParametrosSimiMultivalor([
-                'codigoxx' => $personay->prm_documento_id,
+            $personax->prm_documento_id = $this->getParametrosSimiMultivalor([
+                'codigoxx' => $personax->prm_documento_id,
                 'tablaxxx' => 'TIPO_DOCUMENTO',
                 'temaxxxx' => 3,
                 'testerxx' => false,
             ])->id;
-            $personay->sis_cargo_id = $this->getCargoHT(['cargoidx' => $personay->sis_cargo_id])->id;
-            $personay->sis_municipio_id = $this->getMunicipoSimi(['idmunici' => $personay->sis_municipio_id])->id;
-            $personay->itiestan = 10;
-            $personay->itiegabe = 0;
-            $personay->itigafin = 0;
-            $personay->d_vinculacion = $personay->d_finvinculacion;
-            $personay->estusuario_id = 1;
-            $personax = User::transaccion($personay->toArray(), '');
-            $this->getAreaUsuarioHT(['nombrexx' => $personay->area, 'usuariox' => $personax]);
-            $this->getAsignarUpiUsuario(['document' => $personay->s_documento, 'usuariox' => $personax]);
+            $personax->sis_cargo_id = $this->getCargoHT(['cargoidx' => $personax->sis_cargo_id])->id;
+            $personax->sis_municipio_id = $this->getMunicipoSimi(['idmunici' => $personax->sis_municipio_id])->id;
+            $personax->itiestan = 10;
+            $personax->itiegabe = 0;
+            $personax->itigafin = 0;
+            $personax->d_vinculacion = $personax->d_finvinculacion;
+            $personax->estusuario_id = 1;
+            $personax = User::transaccion($personax->toArray(), '');
+            $this->getAreaUsuarioHT(['nombrexx' => $personax->area, 'usuariox' => $personax]);
         }
 
+        $this->getAsignarUpiUsuario(['document' => $personax->s_documento, 'usuariox' => $personax]);
 
         return $personax;
     }
@@ -571,19 +571,21 @@ trait HomologacionesTrait
             $dependen = $this->getUpiSimi(['idupixxx' => $value->id_upi]);
             $usuariox = $dataxxxx['usuariox']->sis_depens->find($dependen->id);
             if ($usuariox == null) {
-                $usuariox = $dataxxxx['usuariox']->sis_depens->attach([
-                    'sis_depen_id'=>$dependen->id,
-                    'i_prm_responsable_id'=>$this->getParametrosSimi(['temaxxxx'=>23,'codigoxx'=>$value->responsable])->id,
-                    'user_crea_id'=>Auth::user()->id,
-                    'user_edita_id'=>Auth::user()->id,
-                    'sis_esta_id'=>1,
+                $dicotomi = $this->getParametrosSimi(['temaxxxx' => 23, 'codigoxx' => $value->responsable])->id;
+                $relacion = [
+                    $dependen->id => [
+                        'i_prm_responsable_id' => $dicotomi,
+                        'user_crea_id' => Auth::user()->id,
+                        'user_edita_id' => Auth::user()->id,
+                        'sis_esta_id' => 1,
+                    ]
+                ];
+                $usuariox = $dataxxxx['usuariox']->sis_depens()->attach($relacion);
+            } else {
+                $dataxxxx['usuariox']->sis_depens()->updateExistingPivot($dependen->id, [
+                    'i_prm_responsable_id' => $this->getParametrosSimi(['temaxxxx' => 23, 'codigoxx' => $value->responsable])->id
                 ]);
-            }else {
-               $usuariox->sis_depens()->updateExistingPivot($dependen->id, [
-                   'i_prm_responsable_id' => $this->getParametrosSimi(['temaxxxx'=>23,'codigoxx'=>$value->responsable])->id
-                   ]);
             }
-
         }
     }
 }
