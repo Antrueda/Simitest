@@ -99,7 +99,11 @@ trait ResidenciaTrait
                         'testerxx' => false
                     ]
                 )->id;
-                $dataxxxx->i_prm_alfabeto_via_id = $this->getParametrosSimi(['codigoxx' => $dataxxxx->i_prm_alfabeto_via_id, 'temaxxxx' => 39])->id;
+               
+                if ($dataxxxx->i_prm_alfabeto_via_id != null) {
+                    $dataxxxx->i_prm_alfabeto_via_id = $this->getParametrosSimi(['codigoxx' => $dataxxxx->i_prm_alfabeto_via_id, 'temaxxxx' => 39])->id;
+                }
+            
                 if ($dataxxxx->i_prm_bis_alfabeto_id != null) {
                     $dataxxxx->i_prm_bis_alfabeto_id = $this->getParametrosSimi(['codigoxx' => $dataxxxx->i_prm_bis_alfabeto_id, 'temaxxxx' => 39])->id;
                 }
@@ -116,7 +120,8 @@ trait ResidenciaTrait
                 if ($dataxxxx->i_prm_alfabetico_vg_id != null) {
                     $dataxxxx->i_prm_alfabetico_vg_id = $this->getParametrosSimi(['codigoxx' => $dataxxxx->i_prm_alfabetico_vg_id, 'temaxxxx' => 39])->id;
                 }
-                if ($dataxxxx->i_prm_cuadrante_vp_id != null) {
+               
+             
                     $dataxxxx->i_prm_cuadrante_vg_id = $this->getParametrosSimiMultivalor(
                         [
                             'codigoxx' => $dataxxxx->i_prm_cuadrante_vg_id,
@@ -125,7 +130,7 @@ trait ResidenciaTrait
                             'testerxx' => false
                         ]
                     )->id;
-                }
+                
                 $dataxxxx->i_prm_estrato_id = $this->getParametrosSimiMultivalor(
                     [
                         'codigoxx' => $dataxxxx->i_prm_estrato_id,
@@ -150,8 +155,11 @@ trait ResidenciaTrait
                         'testerxx' => false
                     ]
                 )->id;
+             
                 $dataxxxx->i_prm_tiene_bis_id = $this->getParametrosSimi(['codigoxx' => $dataxxxx->i_prm_tiene_bis_id, 'temaxxxx' => 23])->id;
+               
                 $dataxxxx->i_prm_tiene_dormir_id = $this->getParametrosSimi(['codigoxx' => $dataxxxx->i_prm_tiene_dormir_id, 'temaxxxx' => 23])->id;
+                
                 $locabari = $this->getBarrio(['idbarrio' => $dataxxxx->sis_upzbarri_id]);
                 $dataxxxx->sis_upzbarri_id = $locabari->id;
                 $dataxxxx->sis_nnaj_id = $request['padrexxx']->sis_nnaj_id;
@@ -160,6 +168,7 @@ trait ResidenciaTrait
                 $compfami = $this->getTransaccionRT($dataxxxx, $compfami);
             }
         }
+       
         return $compfami;
     }
     public function getTransaccionRT($dataxxxx, $objetoxx)
@@ -184,6 +193,7 @@ trait ResidenciaTrait
                     ]);
                 }
             }
+            
             return $objetoxx;
         }, 5);
         return $objetoxx;

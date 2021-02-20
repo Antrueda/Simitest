@@ -40,7 +40,11 @@ trait RazonesIngresoIdipronTrait
             
             if (!isset($objetoxx->id)) {
                 $dataxxxx = $this->getRazonesIngresoIdipronRT($dataxxxy);
+                //ddd( $dataxxxx );
                 if ($dataxxxx != null) {
+                    if($dataxxxx->s_porque_ingresar==null){
+                        $dataxxxx->s_porque_ingresar='DATOS TRAIDO POR MEDIO DE LA INTERFAZ';
+                    }
                     $dataxxxx->sis_depend_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depend_id])->id;
                     $dataxxxx->sis_depenr_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depenr_id])->id;
                     $dataxxxx->userd_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userd_id,'idupixxx'=> $dataxxxx->sis_depenr_id])->id;
@@ -53,4 +57,6 @@ trait RazonesIngresoIdipronTrait
             
             return $objetoxx;
     }
+}
+
 }

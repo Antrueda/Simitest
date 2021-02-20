@@ -61,20 +61,24 @@ trait InterfazFiTrait
             ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
             ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
             ->orderBy('ficha_acercamiento_ingreso.fecha_insercion', 'ASC')
+            //->where('ficha_acercamiento_ingreso.estado', 'A')
             ->first();
-            //   ddd($dataxxxx->toArray());
+           
+              
+           
         $this->getUpisModalidadHT(['idnnajxx' => $dataxxxx->id_nnaj]);
         return $dataxxxx;
     }
     public function getBuscarNnajAgregar($request)
     {
+        // ya lo llamo
         $dataxxxx = $this->getArmarData($request);
-      //  ddd( $dataxxxx->toArray());
+        //ddd( $dataxxxx->toArray());
         $objetoxx = new FiDatosBasico;
         $objetoxx->diligenc = explode(' ', $dataxxxx->fecha_apertura)[0];
         $objetoxx->prm_tipoblaci_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_poblacion, 'tablaxxx' => 'TIPOPOB', 'temaxxxx' => 119, 'testerxx' => false])->id;
         $objetoxx->sis_depen_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->id_upi])->id;
-        
+      
         if($dataxxxx->modalidad!=null){
             $objetoxx->sis_servicio_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad,  'sisdepen' => $objetoxx->sis_depen_id, 'datobasi' => true])->id;
         }
