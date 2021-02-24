@@ -9,7 +9,7 @@
     ,
       "columns": [
         {data: 'botones',name:'botones'},
-        {data: 'tipodocumento',name:'parametros.nombre as tipodocumento'},
+        {data: 'tipodocumento',name:'tipodocumento.nombre as tipodocumento'},
         {data: 's_documento',name:'nnaj_docus.s_documento'},
         {data: 's_primer_nombre',name:'fi_datos_basicos.s_primer_nombre'},
         {data: 's_segundo_nombre',name:'fi_datos_basicos.s_segundo_nombre'},
