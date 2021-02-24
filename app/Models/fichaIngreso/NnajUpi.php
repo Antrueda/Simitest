@@ -47,6 +47,39 @@ class NnajUpi extends Model
     {
         return $this->belongsTo(SisDepen::class);
     }
+    public static function getDependenciasNnajUsuario($cabecera, $ajaxxxxx,$padrexxx)
+    {
+        $comboxxx = [];
+        if ($cabecera) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+
+        $notinxxy = SisDepen::select(['sis_depens.id'])->join('nnaj_upis', 'sis_depens.id', '=', 'nnaj_upis.sis_depen_id')
+        ->where('nnaj_upis.sis_nnaj_id', $padrexxx)
+        ->where('nnaj_upis.sis_esta_id', 1)
+        ->get();
+        
+        $notinxxx =SisDepen::select(['sis_depens.id', 'sis_depens.nombre'])->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+        ->where('sis_depen_user.user_id', Auth::user()->id)
+        ->wherein('sis_depen_user.sis_depen_id', $notinxxy->toArray())
+        ->where('sis_depen_user.sis_esta_id', 1)
+        ->get();
+
+        foreach ($notinxxx as $registro) {
+            if ($ajaxxxxx) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+            } else {
+                $comboxxx[$registro->id] = $registro->nombre;
+            }
+        }
+        return $comboxxx;
+    }
+
     public static function getDependenciasNnaj($cabecera, $ajaxxxxx,$padrexxx)
     {
         $comboxxx = [];

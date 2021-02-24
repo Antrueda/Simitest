@@ -88,7 +88,7 @@ trait PestaniasTrait
         $pestania['agcargdoc'] = [
             'routexxx' => '',
             'activexx' => '',
-            'tituloxx' => 'CARGUE DE DOCUMENTOS',
+            'tituloxx' => 'CARGUE DE DOCUMENTOS DEL TALLER EDUCATIVO Y/O ACCIÓN FORMATIVA',
             'tablaxxx' => 'sis_pais',
             'datablex' => [],
             'cananyxx' => $this->getCanany($dataxxxx),

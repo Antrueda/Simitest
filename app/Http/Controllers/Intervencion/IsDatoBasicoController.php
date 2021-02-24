@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Intervencion\IsDatosBasicoCrearRequest;
 use App\Http\Requests\Intervencion\IsDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\intervencion\IsDatosBasico;
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
@@ -182,7 +183,7 @@ class IsDatoBasicoController extends Controller
         }
 
         // Se arma el titulo de acuerdo al array opciones
-        $this->opciones['dependen'] = User::getUpiUsuario(true, false);
+        $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true,false,$this->opciones['nnajregi']);
         $this->opciones['areajusx'] = IsDatosBasico::getAreajuste($objetoxx);
 
         $rutaxxxx = 'intervencion.' . strtolower($this->opciones['accionxx']);

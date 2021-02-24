@@ -2,7 +2,7 @@
 
 
     <div class="form-group col-md-12">
-        {{ Form::label('i_prm_documento_id', 'Subir archivos de la Actividad', ['class' => 'control-label']) }}
+        {{ Form::label('i_prm_documento_id', 'Subir archivos del Taller Educativo y/o Acción Formativa', ['class' => 'control-label']) }}
         {{ Form::select('i_prm_documento_id', $todoxxxx['docanexa'], null, ['class' => $errors->first('i_prm_documento_id') ?
     'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos',
     'data-placeholder' => 'Indique el documento que se va anexar']) }}

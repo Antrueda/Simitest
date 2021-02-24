@@ -249,7 +249,7 @@ class FosController extends Controller
         //$upinnajx=$dataxxxx['padrexxx']->UpiPrincipal;
       //  $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
    
-        $this->opciones['dependen'] = NnajUpi::getDependenciasNnaj(true,false,$dataxxxx['padrexxx']->id);
+        $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true,false,$dataxxxx['padrexxx']->id);
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo

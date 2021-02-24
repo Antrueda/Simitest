@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Vsi\VsiCrearRequest;
 use App\Http\Requests\Vsi\VsiEditarRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Sistema\SisEsta;
 
 
@@ -140,7 +141,8 @@ class VsiController extends Controller
 
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
-        $this->opciones['dependen'] = User::getUpiUsuario(false, false);
+       // $this->opciones['dependen'] = User::getUpiUsuario(false, false);
+        $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(false,false,$dataxxxx['padrexxx']->id);
         $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
         $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
