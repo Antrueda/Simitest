@@ -59,7 +59,7 @@ class VsiConsentimientoController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         ;
 
-        $this->opciones['usuarios'] = User::comboCargo(true, false);
+        $this->opciones['usuarios'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[3]]);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
@@ -120,11 +120,7 @@ class VsiConsentimientoController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$objetoxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
-        ]);
-        if ($respuest) {
+ 
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -132,7 +128,7 @@ class VsiConsentimientoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        }
+        
         return $this->view(['modeloxx' => $objetoxx->VsiConsentimiento, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
@@ -166,7 +162,7 @@ class VsiConsentimientoController extends Controller
     {
         if ($request->ajax()) {
             $camposxx=['user_doc1_id'=>'#user_doc2_id','user_doc2_id'=>'#user_doc1_id'];
-            $usuarios = User::userCombo(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx] ]);
+            $usuarios = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx],'rolxxxxx'=>[2,3]]);
             return response()->json(['dataxxxx'=>$usuarios,'comboxxx'=>$camposxx[$request->comboxxx]]);
         }
     }

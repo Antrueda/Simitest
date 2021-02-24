@@ -44,7 +44,7 @@
 <div class="form-row align-items-end">
     <div class="col-md-4">
         {{ Form::label('telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-       {{ Form::number('telefono',  null, ['class' => $errors->first('telefono') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+       {{ Form::number('telefono',  null, ['class' => $errors->first('telefono') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
        @if($errors->has('telefono'))
            <div class="invalid-feedback d-block">
                {{ $errors->first('telefono') }}

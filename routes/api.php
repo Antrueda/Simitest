@@ -5,8 +5,10 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use Illuminate\Http\Request;
 
 use App\Models\fichaobservacion\FosDatosBasico;
+use App\Models\Sistema\SisDepeUsua;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
-
+use App\Traits\Fos\FosTrait;
 /*
   |--------------------------------------------------------------------------
   | API Routes
@@ -18,6 +20,7 @@ use Spatie\Permission\Models\Permission;
   |
  */
 
+ 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -71,17 +74,22 @@ Route::get('csd/nnajs', function (Request $request) {
 });
 
 Route::get('ai/nnajs', function (Request $request) {
+     
+    $userxxxy=SisDepeUsua::select('sis_depen_id')->where('user_id',$request->userxxxx)->where('sis_esta_id', 1)->get();
     if (!$request->ajax())
         return redirect('/');
-    return datatables()
+        return datatables()
         ->eloquent(FiDatosBasico::select(
+            'tipodocumento.nombre as tipodocumento',
             'nnaj_docus.s_documento',
             'fi_datos_basicos.s_primer_nombre',
             'fi_datos_basicos.s_segundo_nombre',
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
-            'fi_datos_basicos.s_apodo',
             'nnaj_sexos.s_nombre_identitario',
+            'nnaj_nacimis.d_nacimiento',
+            'sexos.nombre as sexos',
+            'fi_datos_basicos.s_apodo',
             'sis_depens.nombre',
             'fi_datos_basicos.id',
             'fi_datos_basicos.sis_nnaj_id',
@@ -89,10 +97,15 @@ Route::get('ai/nnajs', function (Request $request) {
         )
             ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+            ->join('parametros as tipodocumento', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocumento.id')
+            ->join('parametros as sexos', 'nnaj_sexos.prm_sexo_id', '=', 'sexos.id')
             ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->where('sis_nnajs.prm_escomfam_id',227)
+            ->whereIn('nnaj_upis.sis_depen_id',$userxxxy) 
+            
             //->where('fi_datos_basicos.sis_nnaj_id',1)
 
             )
@@ -102,6 +115,8 @@ Route::get('ai/nnajs', function (Request $request) {
         ->rawColumns(['botones','upiservicio'])
         ->toJson();
 });
+
+
 
 Route::get('mitigacion/nnajs', function (Request $request) {
     if (!$request->ajax())

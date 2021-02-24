@@ -79,7 +79,7 @@ class CsdConclusionesController extends Controller
         ];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
-        $this->opciones['usuarios'] = User::comboCargo(true, false);
+        $this->opciones['usuarios'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[3]]);
         $this->opciones['usuarioz'] = $this->opciones['usuarios'];
         $this->opciones['estadoxx'] = 'ACTIVO';
 
@@ -171,7 +171,7 @@ public function update(CsdConclusionesEditarRequest $request,  CsdSisNnaj $padre
     {
         if ($request->ajax()) {
             $camposxx=['user_doc1_id'=>'#user_doc2_id','user_doc2_id'=>'#user_doc1_id'];
-            $usuarios = User::userCombo(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx] ]);
+            $usuarios = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx],'rolxxxxx'=>[2,3]]);
             return response()->json(['dataxxxx'=>$usuarios,'comboxxx'=>$camposxx[$request->comboxxx]]);
         }
     }

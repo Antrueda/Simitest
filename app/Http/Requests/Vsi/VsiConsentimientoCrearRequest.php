@@ -13,6 +13,7 @@ class VsiConsentimientoCrearRequest extends FormRequest
     {
         $this->_mensaje = [
             'user_doc1_id.required'=> 'Seleccione el funcionario responsable',
+            'user_doc2_id.required'=> 'Seleccione el segundo funcionario responsable',
         ];
         $this->_reglasx = [
             'user_doc1_id' => 'required|exists:users,id',

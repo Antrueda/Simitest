@@ -305,7 +305,7 @@
 
         <div class="form-group col-md-6">
           {{ Form::label('i_segundo_responsable', 'Funcionario(A)/Contratista', ['class' => 'control-label col-form-label-sm']) }}
-            {{ Form::select('i_segundo_responsable', $todoxxxx['usuarios'], null, ['class' => $errors->first('i_segundo_responsable') ? 'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm', 'id' => 'i_segundo_responsable','autofocus']) }}
+            {{ Form::select('i_segundo_responsable', $todoxxxx['usuarioz'], null, ['class' => $errors->first('i_segundo_responsable') ? 'form-control select2 form-control is-invalid' : 'form-control select2 form-control-sm', 'id' => 'i_segundo_responsable','autofocus']) }}
             @if($errors->has('i_segundo_responsable'))
             <div class="invalid-feedback d-block">
               {{ $errors->first('i_segundo_responsable') }}

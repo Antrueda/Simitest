@@ -31,7 +31,6 @@ class NnajDocu extends Model
         return $this->belongsTo(FiDatosBasico::class);
     }
 
-
     public function creador()
     {
         return $this->belongsTo(User::class, 'user_crea_id');

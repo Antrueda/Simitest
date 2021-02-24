@@ -46,8 +46,8 @@ class VsiAbuSexualController extends Controller
             'rutaxxxx' => 'vsiabuso',
             'routnuev' => 'vsiabuso',
             'routxxxx' => 'vsiabuso',
+            
         ];
-
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar']);
@@ -71,7 +71,6 @@ class VsiAbuSexualController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-
 
             if($dataxxxx['modeloxx']->prm_evento_id==853){
                 $this->opciones['familiar']=Parametro::find(235)->Combo;
@@ -128,12 +127,7 @@ class VsiAbuSexualController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$objetoxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
-        ]);
-        if ($respuest) {
-
+     
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -141,7 +135,7 @@ class VsiAbuSexualController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        }
+        
         return $this->view(['modeloxx' => $objetoxx->VsiAbuSexual, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

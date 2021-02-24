@@ -131,11 +131,7 @@ class VsiSaludController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$objetoxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
-        ]);
-        if ($respuest) {
+    
         //$this->opciones['padrexxx'] = $objetoxx->id;
         //$this->opciones['parametr'] = [$objetoxx->vsi_id];
 
@@ -147,7 +143,7 @@ class VsiSaludController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        }
+        
         //ddd($objetoxx->VsiSalud);
         return $this->view(['modeloxx' => $objetoxx->VsiSalud, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }

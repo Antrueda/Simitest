@@ -150,19 +150,26 @@ trait FiTrait
     public function getFiDatosBasico()
     {
         $dataxxxx =  FiDatosBasico::select([
+            'tipodocumento.nombre as tipodocumento',
             'fi_datos_basicos.id',
             'fi_datos_basicos.s_primer_nombre',
             'nnaj_docus.s_documento',
             'fi_datos_basicos.s_segundo_nombre',
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
+            'nnaj_nacimis.d_nacimiento',
+            'sexos.nombre as sexos',
             'fi_datos_basicos.sis_esta_id',
             'fi_datos_basicos.created_at',
             'sis_estas.s_estado',
             'fi_datos_basicos.user_crea_id',
         ])
+            ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+            ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('parametros as tipodocumento', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocumento.id')
+            ->join('parametros as sexos', 'nnaj_sexos.prm_sexo_id', '=', 'sexos.id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->where('sis_nnajs.prm_escomfam_id', 227);
         return $dataxxxx;
@@ -173,11 +180,13 @@ trait FiTrait
     {
         $dataxxxx = GeNnaj::query()->select([
             'ge_nnaj.id_nnaj as id',
+            'ge_nnaj.tipo_documento as tipodocumento',
             'ge_nnaj_documento.numero_documento as s_documento',
             'ge_nnaj.primer_nombre as s_primer_nombre',
             'ge_nnaj.segundo_nombre as s_segundo_nombre',
             'ge_nnaj.primer_apellido as s_primer_apellido',
             'ge_nnaj.segundo_apellido as s_segundo_apellido',
+            //'ge_nnaj.fecha_nacimiento as d_nacimiento',
             'ge_nnaj.estado',
             'ge_nnaj.fecha_insercion as created_at',
         ])
@@ -329,20 +338,19 @@ trait FiTrait
             'fi_datos_basicos.id',
             'fi_datos_basicos.s_primer_nombre',
             'nnaj_docus.s_documento',
+            'nnaj_docus.prm_tipodocu_id',
             'fi_datos_basicos.s_segundo_nombre',
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
             'fi_datos_basicos.sis_esta_id',
             'fi_datos_basicos.created_at',
             'sis_estas.s_estado',
-            'fi_datos_basicos.user_crea_id'
-
+            'fi_datos_basicos.user_crea_id',
         ])
+            ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
-            ->join('users', 'fi_datos_basicos.user_crea_id', '=', 'users.id')
-            ->where('fi_datos_basicos.user_crea_id', '=', $userxxxx);
-        return $this->getDtAcciones($dataxxxx, $request);
+            ->where('sis_nnajs.prm_escomfam_id', 227);
     }
 
 

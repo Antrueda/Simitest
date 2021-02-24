@@ -222,14 +222,15 @@ class VsiController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
+        $this->opciones['vsixxxxx'] = $objetoxx;
+        $this->opciones['padrexxx'] = $objetoxx->id;
+        $this->opciones['parametr'] = [$objetoxx->id];
         $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
         'nnajxxxx'=>$objetoxx->sis_nnaj_id,
         'permisox'=>$this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-        $this->opciones['vsixxxxx'] = $objetoxx;
-        $this->opciones['padrexxx'] = $objetoxx->id;
-        $this->opciones['parametr'] = [$objetoxx->id];
+      
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [

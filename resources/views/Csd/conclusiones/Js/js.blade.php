@@ -56,11 +56,7 @@
         }); $('#s_documento').mask('000000000000'); $('#s_documento_responsable').mask('000000000000');
 
 
-        $("#s_doc_adjunto_ar").change(function() {
-            var fichero_seleccionado = $(this).val();
-            var nombre_fichero_seleccionado = fichero_seleccionado.replace(/.*[\/\\]/, ''); //Eliminamos el path hasta el fichero seleccionado
-            $("#docontacto").text(nombre_fichero_seleccionado);
-        });
+
         $("#user_doc1_id").change(function() {
             $.ajax({
                 url: "{{ route('csdconclusiones.responsa',$todoxxxx['csdxxxxx']->id)}}",

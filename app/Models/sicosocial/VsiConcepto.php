@@ -44,6 +44,12 @@ class VsiConcepto extends Model{
                 $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
                 $dataxxxx['modeloxx'] = VsiConcepto::create($dataxxxx['requestx']->all());
             }
+            $dataxxxx['modeloxx']->redes()->detach();
+            if($dataxxxx['requestx']->redes){
+                foreach ($dataxxxx['requestx']->redes as $d) {
+                    $dataxxxx['modeloxx']->redes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                }
+            }
 
             return $dataxxxx['modeloxx'];
         }, 5);

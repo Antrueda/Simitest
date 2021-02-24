@@ -10,9 +10,7 @@ function doc(valor) {
         document.getElementById("prm_momento_id").hidden=true;
         document.getElementById("prm_persona_id").hidden=true;
         document.getElementById("prm_tipo_id").hidden=true;
-        doc1(document.getElementById('prm_momento_id').value = 1013);
-        doc2(document.getElementById('prm_tipo_id').value = 338);
-        doc3(document.getElementById('prm_terapia_id').value = 228);
+  
     }
     else{
         document.getElementById("dia").hidden=false;
@@ -84,6 +82,7 @@ function carga() {
     doc1(document.getElementById('prm_momento_id').value);
     doc2(document.getElementById('prm_tipo_id').value);
     doc3(document.getElementById('prm_terapia_id').value);
+    
 }
 window.onload=carga;
 

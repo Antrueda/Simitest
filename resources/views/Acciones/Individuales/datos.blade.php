@@ -9,15 +9,17 @@
     <div class="table-responsive">
       <table id="tabla" class="table table-bordered table-striped table-hover table-sm">
         <thead>
+          
           <tr class="text-center">
             <td width="70">ACCIONES</td>
-            <td>ID</td>
+            <td>TIPO DOCUMENTO</td>
             <td>DOCUMENTOS</td>
             <td>PRIMER NOMBRE</td>
             <td>SEGUNDO NOMBRE</td>
             <td>PRIMER APELLIDO</td>
             <td>SEGUNDO APELLIDO</td>
-            <td>APODO</td>
+            <td>SEXO</td>
+            <td>FECHA DE NACIMIENTO</td>
             <td>IDENTITARIO</td>
             <td>UPI/SERVICIO</td>
           </tr>

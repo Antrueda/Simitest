@@ -29,10 +29,6 @@
   });
   });
 
-
-
-
-
   @if (isset($todoxxxx['nnajregi']))
           $(function(){
 
@@ -70,13 +66,36 @@
                   f_combo({valuexxx:{{ old('i_prm_area_ajuste_id') }}, selected:'{{ old("i_prm_subarea_ajuste_id") }}'})
                   @endif
 
-
+                  $("#i_primer_responsable").change(function() {
+            $.ajax({
+                url: "{{ route('is.intervencion.responsable',$todoxxxx['usuariox'])}}",
+                type: 'GET',
+                data: {
+                    comboxxx:$(this).prop('id'),
+                    usernotx:$(this).val()
+                },
+                dataType: 'json',
+                success: function(json) {
+                    $(json.comboxxx).empty();
+                    $.each(json.dataxxxx, function(id, data) {
+                        $(json.comboxxx).append('<option value="' + data.valuexxx + '">' + data.optionxx + '</option>');
+                    });
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existe un problema al seleccionar el responsable');
+                }
+            });
+        });
+        @if(old('i_primer_responsable')!=null)
+        f_cargos({{ old('i_primer_responsable') }},{{ old('i_segundo_responsable')  }},1);
+        @endif
+     
           });
 
           $(function(){
 
                 var f_combo2 = function(dataxxxx){
-                $('#i_prm_area_ajuste_id,#i_prm_subarea_ajuste_id').empty();
+                $('#i_prm_subarea_ajuste_id').empty();
                 $.ajax({
                 url: "{{ route('is.intervencion.area',$todoxxxx['nnajregi'])}}",
                         type: 'POST',
@@ -104,13 +123,18 @@
                 });
                 }
                 @if (old('i_prm_tipo_atencion_id'))
-                        f_combo2({valuexxx:{{ old('i_prm_tipo_atencion_id') }}, selected:'{{ old("i_prm_tipo_atencion_id") }}'})
+                        f_combo2({valuexxx:{{ old('i_prm_tipo_atencion_id') }}, selected:'{{ old("i_prm_area_ajuste_id") }}'})
                 @endif
                 
                 $('#i_prm_tipo_atencion_id').change(function(){
                         f_combo2({valuexxx:$(this).val(), selected:''})
                 });
-        });
+    
+            });
+        
+
+
+  
   function soloLetras(e) {
   key = e.keyCode || e.which;
   tecla = String.fromCharCode(key).toString();

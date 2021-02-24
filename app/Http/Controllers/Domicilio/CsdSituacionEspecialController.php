@@ -128,11 +128,7 @@ class CsdSituacionEspecialController extends Controller
      */
     public function edit(CsdSisNnaj $modeloxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
-        ]);
-        if ($respuest) {
+
         $this->opciones['csdxxxxx']=$modeloxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -140,7 +136,7 @@ class CsdSituacionEspecialController extends Controller
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
-            } 
+            
         }
         return $this->view(['modeloxx' => $modeloxx->csd, 'accionxx' => ['editar',  'formulario', 'js',], 'padrexxx' => $modeloxx]);
     }

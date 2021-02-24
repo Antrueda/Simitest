@@ -151,13 +151,14 @@ class VsiMetapotenController extends Controller
      */
     public function edit(VsiPotencialidad $objetoxx)
     {
+        $this->opciones['parametr'] = [$objetoxx->vsi->id];
+        $this->opciones['padrexxx'] = $objetoxx->id;
         $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
         'nnajxxxx'=>$objetoxx->vsi->sis_nnaj_id,
         'permisox'=>$this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-        $this->opciones['parametr'] = [$objetoxx->vsi->id];
-        $this->opciones['padrexxx'] = $objetoxx->id;
+
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [

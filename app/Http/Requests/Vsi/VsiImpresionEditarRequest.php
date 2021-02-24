@@ -51,7 +51,8 @@ class VsiImpresionEditarRequest extends FormRequest
 
     public function validar()
     {
-        $nnajxxxx = Vsi::find($this->segments()[1]);
+        $nnajxxxx = Vsi::find($this->segments()[2]);
+   
         $edad = $nnajxxxx->nnaj->fi_datos_basico->nnaj_nacimi->Edad;
 
         if ($edad < 18) { //Mayor de edad
@@ -64,4 +65,4 @@ class VsiImpresionEditarRequest extends FormRequest
     }
 
     }
-}
+

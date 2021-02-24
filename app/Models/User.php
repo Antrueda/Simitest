@@ -247,27 +247,64 @@ class User extends Authenticatable
             }
         }
 
-        $userxxxx = User::select(['users.id','s_primer_nombre','s_documento','s_primer_apellido','s_segundo_apellido','s_segundo_nombre'])->where(function ($queryxxx) use ($dataxxxx) {
+        $userxxxx = User::select(['users.id','s_primer_nombre','s_documento','s_primer_apellido','s_segundo_apellido','s_segundo_nombre','sis_cargo_id'])->where(function ($queryxxx) use ($dataxxxx) {
             if ($dataxxxx['notinxxx'] != false) {
                 $queryxxx->whereNotIn('users.id', $dataxxxx['notinxxx']);
             }
             // $queryxxx->where('users.sis_esta_id', 1);
         })
-        
-        ->where('sis_depen_user.sis_esta_id', 1)
         ->join('sis_depen_user','users.id','=','sis_depen_user.user_id')
+        ->where('sis_depen_user.sis_esta_id', 1)
+        ->groupBy('users.id')
+       
             ->orderBy('s_primer_nombre')
             ->orderBy('s_primer_apellido')
             ->get();
         foreach ($userxxxx as $registro) {
             if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->getDocNombreCompletoAttribute()];
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->getDocNombreCompletoCargoAttribute()];
             } else {
-                $comboxxx[$registro->id] = $registro->getDocNombreCompletoAttribute();
+                $comboxxx[$registro->id] = $registro->getDocNombreCompletoCargoAttribute();
             }
         }
         return $comboxxx;
     }
+
+    public static function userComboRol($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $userxxxx = User::select(['users.id','s_primer_nombre','s_documento','s_primer_apellido','s_segundo_apellido','s_segundo_nombre','sis_cargo_id'])->where(function ($queryxxx) use ($dataxxxx) {
+            if ($dataxxxx['notinxxx'] != false) {
+                $queryxxx->whereNotIn('users.id', $dataxxxx['notinxxx']);
+            }
+             $queryxxx->where('users.sis_esta_id', 1);
+        })
+        
+        ->join('model_has_roles','users.id','=','model_has_roles.model_id')
+        ->whereIn('model_has_roles.role_id', $dataxxxx['rolxxxxx'])
+        ->groupBy('users.id')
+        ->orderBy('s_primer_nombre')
+        ->orderBy('s_primer_apellido')
+        ->get();
+        foreach ($userxxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->getDocNombreCompletoCargoAttribute()];
+            } else {
+                $comboxxx[$registro->id] = $registro->getDocNombreCompletoCargoAttribute();
+            }
+        }
+        return $comboxxx;
+    }
+
+
 
     public static function userComboResponsable($dataxxxx)
     {
@@ -306,8 +343,6 @@ class User extends Authenticatable
         }
         return $comboxxx;
     }
-
-
 
 
 

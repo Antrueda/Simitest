@@ -1,6 +1,7 @@
 @extends('layouts.index')
 
 @section('content')
+
 <div class="content-header">
   <h1>
     ACCIONES INDIVIDUALES

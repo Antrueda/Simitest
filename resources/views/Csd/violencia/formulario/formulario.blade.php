@@ -40,7 +40,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('departamento_cert_id', 'Lugar de expedición 2.2(a) Departamento', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('departamento_cert_id',$todoxxxx["departam"], null, ['class' => 'form-control form-control-sm departam']) }}
+      {{ Form::select('departamento_cert_id',$todoxxxx["deparexp"], null, ['class' => 'form-control form-control-sm departam']) }}
       @if($errors->has('departamento_cert_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('departamento_cert_id') }}
@@ -49,7 +49,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('municipio_cert_id', '2.2(b) Municipio', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('municipio_cert_id', $todoxxxx["municipi"],null, ['class' => $errors->first('municipio_cert_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('municipio_cert_id', $todoxxxx["municexp"],null, ['class' => $errors->first('municipio_cert_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
       @if($errors->has('municipio_cert_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('municipio_cert_id') }}

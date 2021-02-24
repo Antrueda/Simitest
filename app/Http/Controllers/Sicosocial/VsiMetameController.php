@@ -151,11 +151,7 @@ class VsiMetameController extends Controller
      */
     public function edit(VsiMeta $objetoxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$objetoxx->vsi->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
-        ]);
-        if ($respuest) {
+   
         $this->opciones['parametr'] = [$objetoxx->vsi->id];
         $this->opciones['padrexxx'] = $objetoxx->id;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -165,7 +161,7 @@ class VsiMetameController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        }
+        
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
     }
 /**

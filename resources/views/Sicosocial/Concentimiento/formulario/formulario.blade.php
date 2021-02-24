@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md">
 		{{ Form::label('user_doc1_id', '22.1 Número de Documento - Nombres y apellidos - Cargo', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('user_doc1_id', $todoxxxx['usuarios'], null, ['class' => $errors->first('user_doc1_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'data-placeholder' => 'Seleccione...']) }}
+		{{ Form::select('user_doc1_id', $todoxxxx['usuarios'], null, ['class' => $errors->first('user_doc1_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm']) }}
 		@if($errors->has('user_doc1_id'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('user_doc1_id') }}
@@ -17,8 +17,7 @@
 	<div class="col-md">
 		{{ Form::label('user_doc2_id', '22.2 Número de Documento - Nombres y apellidos - Cargo', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('user_doc2_id', $todoxxxx['usuarios'], null, ['class' => $errors->first('user_doc2_id') ? 'form-control select2 form-control-sm is-invalid' :
-            'form-control select2 form-control-sm',
-            'data-placeholder' => 'Seleccione...']) }}
+            'form-control select2 form-control-sm']) }}
 		@if($errors->has('user_doc2_id'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('user_doc2_id') }}

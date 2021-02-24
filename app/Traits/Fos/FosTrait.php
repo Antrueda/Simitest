@@ -29,11 +29,14 @@ trait FosTrait
     {
         $dataxxxx =  FiDatosBasico::select([
             'fi_datos_basicos.id',
+            'tipodocumento.nombre as tipodocumento',
             'fi_datos_basicos.s_primer_nombre',
             'nnaj_docus.s_documento',
             'fi_datos_basicos.s_segundo_nombre',
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
+            'nnaj_nacimis.d_nacimiento',
+            'sexos.nombre as sexos',
             'fi_datos_basicos.sis_esta_id',
             'fi_datos_basicos.created_at',
             'sis_estas.s_estado',
@@ -41,6 +44,10 @@ trait FosTrait
         ])
             ->join('sis_nnajs', 'fi_datos_basicos.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
+            ->join('nnaj_nacimis', 'fi_datos_basicos.id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+            ->join('parametros as tipodocumento', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocumento.id')
+            ->join('parametros as sexos', 'nnaj_sexos.prm_sexo_id', '=', 'sexos.id')
             ->join('sis_estas', 'fi_datos_basicos.sis_esta_id', '=', 'sis_estas.id')
             ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->where('sis_nnajs.prm_escomfam_id', 227)

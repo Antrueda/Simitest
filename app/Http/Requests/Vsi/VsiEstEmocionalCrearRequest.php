@@ -27,7 +27,7 @@ class VsiEstEmocionalCrearRequest extends FormRequest
             'prm_intento_id.required_if' => 'Indique si ha tenido intentos con quitarse la vida',
             'descripcion_sueno.required_if' => 'Digite una descripción de las dificultades que ha tenido para conciliar el sueño',
             'prm_sueno_id.required' => 'Indique si ha dificultades para conciliar el sueño',
-            'prm_riesgo_id.required' => 'Indique el nivel de riesgo',
+            'prm_riesgo_id.required_if' => 'Indique el nivel de riesgo',
             'prm_lesiva_id.required_if' => 'Indique si tiene conductas auto lesivas',
             'descripcion_alimenticio.required_if' => 'Digite una descripción de las variciones en su habitos alimenticios',
             'prm_alimenticio_id.required' => 'Indique si ha tenido variación en sus habitos alimenticios',

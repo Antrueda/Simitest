@@ -199,7 +199,7 @@ class AIEvasionParentescoController extends Controller
     {   
         $request->request->add(['reporte_evasion_id' => $padrexxx->id]);
         $request->request->add(['sis_esta_id' =>1]);
-        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Espacio creado con exito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
+        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Familiar agregado con exito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
 
     }
 
@@ -267,7 +267,7 @@ class AIEvasionParentescoController extends Controller
         $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route('csdresidencia.nuevo', [$padrexxx->id])
-            ->with('info', 'Espacio inactivado correctamente');
+            ->route('evasionpar.editar', [$padrexxx->id])
+            ->with('info', 'Familiar inactivado correctamente');
     }
 }

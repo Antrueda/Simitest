@@ -50,7 +50,7 @@
 </div>
 <div class="form-group col-md-6">
     {{ Form::label('s_telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('s_telefono', null, ['class' => 'form-control form-control-sm','maxlength' => '120']) }}
+    {{ Form::number('s_telefono', null, ['class' => 'form-control form-control-sm','maxlength' => '120',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('s_telefono'))
     <div class="invalid-feedback d-block">
         {{ $errors->first('s_telefono') }}

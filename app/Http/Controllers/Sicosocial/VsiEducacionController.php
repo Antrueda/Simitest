@@ -131,11 +131,7 @@ class VsiEducacionController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$objetoxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
-        ]);
-        if ($respuest) {
+       
 
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -144,7 +140,7 @@ class VsiEducacionController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        }
+        
         return $this->view(['modeloxx' => $objetoxx->VsiEducacion, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

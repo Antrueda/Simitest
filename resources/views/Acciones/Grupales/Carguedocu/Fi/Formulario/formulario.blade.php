@@ -29,7 +29,7 @@
     @slot('dataxxxx',['classdiv'=>'custom-file mb-3','campoxxx'=>'s_doc_adjunto_ar',
     'descripc'=>'Seleccione un archivo','idlabelx'=>'docontacto',
     'claslabe'=>'custom-file-label','acceptxx'=>'image/jpeg,application/pdf',
-    'clasinpu'=>'custom-file-input','tipoarch'=>Tr::getTitulo(28,1)])
+    'clasinpu'=>'custom-file-input','tipoarch'=>'Seleccione archivo con extensión pdf'])
     @endcomponent
 
     @if($todoxxxx['archivox']!='')

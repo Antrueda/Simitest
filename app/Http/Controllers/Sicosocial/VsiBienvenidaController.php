@@ -120,11 +120,7 @@ class VsiBienvenidaController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$objetoxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
-        ]);
-        if ($respuest) {
+
         //$this->opciones['padrexxx'] = $objetoxx->id;
         //$this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -134,7 +130,7 @@ class VsiBienvenidaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        }
+        
         //ddd($objetoxx->VsiBienvenida);
         return $this->view(['modeloxx' => $objetoxx->VsiBienvenida, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }

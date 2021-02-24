@@ -108,7 +108,7 @@ class IsDatoBasicoController extends Controller
 
     public function store(IsDatosBasicoCrearRequest $request)
     {
-        return $this->grabar($request->all(), '', 'Intervención sicosocial creada con exito');
+              return $this->grabar($request->all(), '', 'Intervención sicosocial creada con exito');
     }
 
     /**
@@ -124,9 +124,6 @@ class IsDatoBasicoController extends Controller
     $areaxxxx=User::getAreasUser($userxxxx);
     ddd($areaxxxx);
     */
-
-
-
     $this->opciones['botoform'][0]['routingx'] [1][0]=   $this->opciones['nnajregi'];
     $this->opciones['usuariox'] = $this->opciones['nnajregi'];
         $fechaxxx = explode('-', date('Y-m-d'));
@@ -142,7 +139,8 @@ class IsDatoBasicoController extends Controller
             unset($this->opciones['tipatenc']['1066']);
         }
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
-        $this->opciones['usuarios'] = User::comboCargo(true, false);
+        $this->opciones['usuarios'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[3]]);
+        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[2,3]]);
         $this->opciones['tipatenc'] = [];
         $tipatenc = 0;
         if (auth()->user()->can('isintervencion-psicologo')) {
@@ -234,6 +232,10 @@ class IsDatoBasicoController extends Controller
      */
     public function edit($nnajregi, IsDatosBasico $intervencion)
     {
+        $this->opciones['disptabx'] = "none";
+        $this->opciones['dispform'] = "block";
+        $this->opciones['nnajregi'] = $nnajregi;
+        $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
         $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
         'nnajxxxx'=>$intervencion->sis_nnaj_id,
         'permisox'=>$this->opciones['permisox'] . '-editar',
@@ -244,10 +246,7 @@ class IsDatoBasicoController extends Controller
             'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
             'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
         ];
-        $this->opciones['disptabx'] = "none";
-        $this->opciones['dispform'] = "block";
-        $this->opciones['nnajregi'] = $nnajregi;
-        $this->opciones['datobasi'] = FiDatosBasico::where('sis_nnaj_id', $nnajregi)->first();
+
          }
         return $this->view($intervencion, 'modeloxx', 'Editar');
     }
@@ -426,7 +425,7 @@ class IsDatoBasicoController extends Controller
     {
         if ($request->ajax()) {
             $camposxx=['i_primer_responsable'=>'#i_segundo_responsable','i_segundo_responsable'=>'#i_primer_responsable'];
-            $usuarios = User::userCombo(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx] ]);
+            $usuarios = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx],'rolxxxxx'=>[2,3]]);
             return response()->json(['dataxxxx'=>$usuarios,'comboxxx'=>$camposxx[$request->comboxxx]]);
         }
     }
