@@ -63,10 +63,8 @@ trait VistasTrait
             $opciones['tallerxx'] = AgTema::combo_talleres(['cabecera' => true, 'ajaxxxxx' => false, 'agtemaid' => $dataxxxx['modeloxx']->ag_tema_id]);
             $agtaller = AgTaller::combo_subtemas(['cabecera' => true, 'ajaxxxxx' => false, 'agtaller' => $dataxxxx['modeloxx']->ag_taller_id]);
             $opciones['subtemax'] =   $agtaller;
+            $opciones['lugarxxx'] = Tema::combo(336, true, false);
             
-            if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
-                $opciones['lugarxxx'] = Tema::combo(336, true, false);
-            }
             $opciones['tablinde']=false;
             $opciones=$this->getTablas($opciones);
         }

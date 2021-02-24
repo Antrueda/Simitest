@@ -322,15 +322,12 @@ class User extends Authenticatable
                 $queryxxx->whereNotIn('users.id', $dataxxxx['notinxxx']);
             }
 
-            $queryxxx->where('users.sis_esta_id', 1)
-
-
-
-            ;
+            $queryxxx->where('users.sis_esta_id', 1);
         })
-        ->where('sis_depen_user.sis_depen_id', 2)
-        ->where('sis_depen_user.sis_esta_id', 1)
         ->join('sis_depen_user','users.id','=','sis_depen_user.user_id')
+        ->where('sis_depen_user.sis_depen_id', $dataxxxx['dependen'])
+        ->where('sis_depen_user.sis_esta_id', 1)
+
             ->orderBy('s_primer_nombre')
             ->orderBy('s_primer_apellido')
             ->get();

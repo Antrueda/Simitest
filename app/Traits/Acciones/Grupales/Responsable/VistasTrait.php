@@ -17,11 +17,12 @@ trait VistasTrait
     use CombosTrait;
     public function getResponsables($dataxxxx)
     {
+        $dataxxxx['dependen'] = $dataxxxx['padrexxx']->sis_deporigen_id;
         $dataxxxx['notinxxx'] = AgResponsable::select(['user_id'])
             ->where('ag_actividad_id', $dataxxxx['padrexxx']->id)
             ->whereNotIn('user_id', [$dataxxxx['selected']])
             ->get();
-        return User::userCombo($dataxxxx);
+        return User::userComboResponsable($dataxxxx);
     }
 
 
