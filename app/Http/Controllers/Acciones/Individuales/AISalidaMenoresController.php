@@ -344,7 +344,7 @@ class AISalidaMenoresController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
         ->route('aisalidamenores.nuevo', [$padrexxx->id])
-        ->with('info', 'Red actual inactivada correctamente');
+        ->with('info', 'Salida inactivada correctamente');
     }
 
     public function cargos(Request $request, $padrexxx)

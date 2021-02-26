@@ -244,7 +244,7 @@ class AIRetornoSalidaController extends Controller
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos de retorno actualizados con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
-    public function inactivate(SisNnaj $modeloxx)
+    public function inactivate(AiRetornoSalida $modeloxx)
     {
         $this->opciones['rutaxxxx'] = route('csdxxxxx.borrar', $modeloxx->id);
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -258,11 +258,11 @@ class AIRetornoSalidaController extends Controller
     }
 
 
-    public function destroy(Request $request, SisNnaj $modeloxx)
+    public function destroy(Request $request, AiRetornoSalida $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj->id])
-            ->with('info', 'CSD inactivada correctamente');
+            ->with('info', 'Retorno inactivada correctamente');
     }
 }
