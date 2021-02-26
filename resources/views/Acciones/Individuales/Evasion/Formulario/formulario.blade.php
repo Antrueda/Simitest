@@ -147,7 +147,7 @@
 <div class="row">
   <div class="col-md-4">
     {{ Form::label('nnaj_talla', 'Talla (Cms)', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('nnaj_talla', null, ['class' => $errors->first('nnaj_talla') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Talla', 'min' => '0', 'max' => '300']) }}
+    {{ Form::number('nnaj_talla', null, ['class' => $errors->first('nnaj_talla') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Talla', 'min' => '0', 'max' => '300',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('nnaj_talla'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('nnaj_talla') }}
@@ -156,7 +156,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('nnaj_peso', 'Peso (Kg)', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('nnaj_peso', null, ['class' => $errors->first('nnaj_peso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Peso', 'min' => '0', 'max' => '500']) }}
+    {{ Form::number('nnaj_peso', null, ['class' => $errors->first('nnaj_peso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Peso', 'min' => '0', 'max' => '500',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('nnaj_peso'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('nnaj_peso') }}
@@ -276,7 +276,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('cuantos', '¿Cuántos?', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('cuantos', null, ['class' => $errors->first('cuantos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '¿Cuántos?', 'min' => '0', 'max' => '100']) }}
+    {{ Form::number('cuantos', null, ['class' => $errors->first('cuantos') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '¿Cuántos?', 'min' => '0', 'max' => '100',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('cuantos'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('cuantos') }}
@@ -358,7 +358,7 @@
   </div>
   <div class="col-md-4">
     {{ Form::label('radicado', 'Nº de Radicado', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('radicado', null, ['class' => $errors->first('radicado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Radicado', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::number('radicado', null, ['class' => $errors->first('radicado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Radicado', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('radicado'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('radicado') }}

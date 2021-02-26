@@ -25,7 +25,7 @@
   </div>
   <div class="col-md">
     {{ Form::label('persona_doc', 'Número de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('persona_doc', $todoxxxx['document'], ['class' => $errors->first('persona_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de documento', 'min' => '0', 'maxlength' => '10','readonly']) }}
+    {{ Form::number('persona_doc', $todoxxxx['document'], ['class' => $errors->first('persona_doc') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de documento', 'min' => '0', 'maxlength' => '10','readonly',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('persona_doc'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('persona_doc') }}

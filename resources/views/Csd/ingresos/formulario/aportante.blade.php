@@ -10,7 +10,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('mensual', '10.2 Total de Ingresos Mensuales ($)', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('mensual', null, ['class' => $errors->first('mensual') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '$', 'min' => '0', 'max' => '99999999']) }}
+        {{ Form::number('mensual', null, ['class' => $errors->first('mensual') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '$', 'min' => '0', 'max' => '99999999',"onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('mensual'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('mensual') }}
@@ -19,7 +19,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('aporte', '10.3 Aporte que hace al hogar ($)', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('aporte', null, ['class' => $errors->first('aporte') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '$', 'min' => '0', 'max' => '99999999']) }}
+        {{ Form::number('aporte', null, ['class' => $errors->first('aporte') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => '$', 'min' => '0', 'max' => '99999999',"onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('aporte'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('aporte') }}
@@ -35,7 +35,7 @@
                 {{ Form::label('prm_entre_id', 'De', ['class' => 'control-label col-md-8 col-form-label-sm']) }}
             </div>
             <div class="col-md">
-                {{ Form::number('jornada_entre', null, ['class' => $errors->first('jornada_entre') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '12']) }}
+                {{ Form::number('jornada_entre', null, ['class' => $errors->first('jornada_entre') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '12',"onkeypress" => "return soloNumeros(event);"]) }}
             </div>
             <div class="col-md">
                 {{ Form::select('prm_entre_id', $todoxxxx["ampmxxxx"], null, ['class' => $errors->first('prm_entre_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}
@@ -47,7 +47,7 @@
                 {{ Form::label('prm_a_id', 'A', ['class' => 'control-label col-md-8 col-form-label-sm d-none']) }}
             </div>
             <div class="col-md">
-                {{ Form::number('jornada_a', null, ['class' => $errors->first('jornada_a') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '12']) }}
+                {{ Form::number('jornada_a', null, ['class' => $errors->first('jornada_a') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '12',"onkeypress" => "return soloNumeros(event);"]) }}
             </div>
             <div class="col-md">
                 {{ Form::select('prm_a_id', $todoxxxx["ampmxxxx"], null, ['class' => $errors->first('prm_a_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}

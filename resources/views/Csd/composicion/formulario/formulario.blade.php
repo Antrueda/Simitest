@@ -36,7 +36,7 @@
 <div class="form-group col-md-4" id="edadxxxx">
         {{ Form::label('aniosxxx', '1.5 Edad (Años)', ['class' => 'control-label']) }}
         {{ Form::number('aniosxxx', isset($todoxxxx['modeloxx'])?$todoxxxx['modeloxx']->Edad:null, ['class' => $errors->first('aniosxxx') ?
-    'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0', 'max' => '100','id'=>'aniosxxx']) }}
+    'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0', 'max' => '100','id'=>'aniosxxx', "onkeypress" => "return soloNumeros(event);"]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('', 'AÑOS', ['class' => 'control-label']) }}

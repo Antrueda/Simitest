@@ -75,7 +75,7 @@
         {{ Form::label('intensidad', '10.12 ¿Con qué intensidad de horas ejerce la(s) actividad(es)?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="row">
             <div class="col-md">
-                {{ Form::number('intensidad', null, ['class' => $errors->first('intensidad') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '24']) }}
+                {{ Form::number('intensidad', null, ['class' => $errors->first('intensidad') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '1', 'max' => '24',"onkeypress" => "return soloNumeros(event);"]) }}
             </div>
             <div class="col-md">
                  (horas al día)

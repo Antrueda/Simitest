@@ -9,6 +9,7 @@ use App\Models\Indicadores\Area;
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
+use App\Models\Sistema\SisEslug;
 use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
 use App\Models\User;
@@ -62,8 +63,20 @@ trait VistasTrait
             $opciones['agtemaxx'] = Area::combo_temas(['cabecera' => true, 'ajaxxxxx' => false, 'areaxxxx' => $dataxxxx['modeloxx']->area_id]);
             $opciones['tallerxx'] = AgTema::combo_talleres(['cabecera' => true, 'ajaxxxxx' => false, 'agtemaid' => $dataxxxx['modeloxx']->ag_tema_id]);
             $agtaller = AgTaller::combo_subtemas(['cabecera' => true, 'ajaxxxxx' => false, 'agtaller' => $dataxxxx['modeloxx']->ag_taller_id]);
-            $opciones['subtemax'] =   $agtaller;
-            $opciones['lugarxxx'] = Tema::combo(336, true, false);
+            //ddd($dataxxxx['modeloxx']->i_prm_lugar_id);
+            if (count($agtaller) == 1) {
+                $opciones['subtemax'] = [1=>'N/A'];
+                
+            }else{
+                $opciones['subtemax'] =  $agtaller;
+            }
+            if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
+                $opciones['lugarxxx'] =  Parametro::find(235)->combo;
+            }else{
+                $aglugar = SisEslug::combo_lugar(['cabecera' => true, 'ajaxxxxx' => false, 'aglugar' => $dataxxxx['modeloxx']->i_prm_lugar_id]);
+                $opciones['lugarxxx']  =  $aglugar;
+            }
+               
             
             $opciones['tablinde']=false;
             $opciones=$this->getTablas($opciones);

@@ -10,7 +10,7 @@
         {{ Form::label('cantidad', '¿Cuántas sustancias?', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::number('cantidad', null, ['class' => $errors->first('cantidad') ?
             'form-control form-control-sm is-invalid' : 'form-control form-control-sm',
-            'min' => '0', 'max' => '99']) }}
+            'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('cantidad'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('cantidad') }}
@@ -19,7 +19,7 @@
     </div>
     <div class="col-md">
         {{ Form::label('inicio', '16.2 Edad de inicio del consumo de la primera sustancia', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('inicio', null, ['class' => $errors->first('inicio') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Años', 'min' => '0', 'max' => '99']) }}
+        {{ Form::number('inicio', null, ['class' => $errors->first('inicio') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Años', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('inicio'))
             <div class="invalid-feedback d-block">
                 {{ $errors->first('inicio') }}

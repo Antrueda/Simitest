@@ -305,7 +305,7 @@ class AIEvasionController extends Controller
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida creada con exito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Evasión creada con exito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -346,7 +346,7 @@ class AIEvasionController extends Controller
      */
     public function update(AIEvasionesRequest $request, SisNnaj $padrexxx,  AiReporteEvasion $modeloxx)
     {
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida actualizada con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Evasión actualizada con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
     public function inactivate(SisNnaj $padrexxx,AiReporteEvasion $modeloxx)
@@ -369,7 +369,7 @@ class AIEvasionController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
         ->route('aisalidamenores.nuevo', [$padrexxx->id])
-        ->with('info', 'Red actual inactivada correctamente');
+        ->with('info', 'Evasión inactivada correctamente');
     }
 
 

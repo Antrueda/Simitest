@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-md-4">
 				{{ Form::label('dia', 'Día(s)', ['class' => 'control-label col-form-label-sm']) }}
-				{{ Form::number('dia', null, ['class' => $errors->first('dia') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx','data-placeholder' =>'0', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
+				{{ Form::number('dia', null, ['class' => $errors->first('dia') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx','data-placeholder' =>'0', 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '99',$todoxxxx['readonly'],"onkeypress" => "return soloNumeros(event);"]) }}
 				@if($errors->has('dia'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('dia') }}
@@ -24,7 +24,7 @@
 			</div>
 			<div class="col-md-4">
 				{{ Form::label('mes', 'Mes(es)', ['class' => 'control-label col-form-label-sm']) }}
-				{{ Form::number('mes', null, ['class' => $errors->first('mes') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx', 'data-placeholder' =>'0','placeholder' => 'Mes(es)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
+				{{ Form::number('mes', null, ['class' => $errors->first('mes') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx', 'data-placeholder' =>'0','placeholder' => 'Mes(es)', 'min' => '0', 'max' => '99',$todoxxxx['readonly'],"onkeypress" => "return soloNumeros(event);"]) }}
 				@if($errors->has('mes'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('mes') }}
@@ -33,7 +33,7 @@
 			</div>
 			<div class="col-md-4">
 				{{ Form::label('ano', 'Año(s)', ['class' => 'control-label col-form-label-sm']) }}
-				{{ Form::number('ano', null, ['class' => $errors->first('ano') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx','data-placeholder' =>'0', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99',$todoxxxx['readonly']]) }}
+				{{ Form::number('ano', null, ['class' => $errors->first('ano') ? 'form-control form-control-sm is-invalid tiempoxx' : 'form-control form-control-sm tiempoxx','data-placeholder' =>'0', 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '99',$todoxxxx['readonly'],"onkeypress" => "return soloNumeros(event);"]) }}
 				@if($errors->has('ano'))
 					<div class="invalid-feedback d-block">
 			        	{{ $errors->first('ano') }}

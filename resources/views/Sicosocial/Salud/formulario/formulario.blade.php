@@ -83,7 +83,7 @@
 	</div>
 	<div class="col-md-4">
 		{{ Form::label('edad', '11.2.2 ¿A qué edad inició su vida sexual? (años)', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::number('edad', null, ['class' => $errors->first('edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Edad', 'min' => '0', 'max' => '99']) }}
+		{{ Form::number('edad', null, ['class' => $errors->first('edad') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Edad', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
 		@if($errors->has('edad'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('edad') }}
@@ -112,7 +112,7 @@
 	</div>
 	<div class="col-md-2">
 		{{ Form::label('embarazo', '11.2.5 ¿Cuántos?:', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::number('embarazo', null, ['class' => $errors->first('embarazo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Cuántos', 'min' => '0', 'max' => '99']) }}
+		{{ Form::number('embarazo', null, ['class' => $errors->first('embarazo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Cuántos', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
 		@if($errors->has('embarazo'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('embarazo') }}
@@ -130,7 +130,7 @@
 	</div>
 	<div class="col-md-2">
 		{{ Form::label('hijo', '11.2.7 N° Hijos(as)', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::number('hijo', null, ['class' => $errors->first('hijo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Hijos(as)', 'min' => '0', 'max' => '99']) }}
+		{{ Form::number('hijo', null, ['class' => $errors->first('hijo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Hijos(as)', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
 		@if($errors->has('hijo'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('hijo') }}
@@ -148,7 +148,7 @@
 	</div>
 	<div class="col-md-2">
 		{{ Form::label('interrupcion', '11.2.9 ¿Cuántos?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::number('interrupcion', null, ['class' => $errors->first('interrupcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Cuántos', 'min' => '0', 'max' => '99']) }}
+		{{ Form::number('interrupcion', null, ['class' => $errors->first('interrupcion') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Cuántos', 'min' => '0', 'max' => '99',"onkeypress" => "return soloNumeros(event);"]) }}
 		@if($errors->has('interrupcion'))
 			<div class="invalid-feedback d-block">
 	        	{{ $errors->first('interrupcion') }}

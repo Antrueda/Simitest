@@ -101,7 +101,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('dir_generadora', 'Nº Vía Generadora (VG)', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('dir_generadora', null, ['class' => $errors->first('dir_generadora') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número', 'min' => '0', 'max' => '300', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      {{ Form::number('dir_generadora', null, ['class' => $errors->first('dir_generadora') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número', 'min' => '0', 'max' => '300', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',"onkeypress" => "return soloNumeros(event);"]) }}
       @if($errors->has('dir_generadora'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('dir_generadora') }}
@@ -330,7 +330,7 @@
 <div class="row">
  <div class="col-md">
       {{ Form::label('numerocamas', '5.21 Número de camas', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('numerocamas', null, ['class' => $errors->first('numerocamas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10']) }}
+      {{ Form::number('numerocamas', null, ['class' => $errors->first('numerocamas') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','min'=>'0','max'=>'10',"onkeypress" => "return soloNumeros(event);"]) }}
       @if($errors->has('numerocamas'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('numerocamas') }}
