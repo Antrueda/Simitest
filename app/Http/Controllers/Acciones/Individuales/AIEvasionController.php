@@ -174,7 +174,7 @@ class AIEvasionController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['usuarios'] = User::getUsuario(false, false);
-        $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
+        
         $departam=0;
 
         $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
@@ -359,7 +359,7 @@ class AIEvasionController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'], 'padrexxx'=>$padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'], 'padrexxx'=>$padrexxx->fi_datos_basico]);
     }
 
 

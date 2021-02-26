@@ -64,7 +64,7 @@ class NnajUpi extends Model
         ->where('nnaj_upis.sis_esta_id', 1)
         ->get();
         
-        $notinxxx =SisDepen::select(['sis_depens.id', 'sis_depens.nombre'])->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
+        $notinxxx =SisDepen::select(['sis_depens.id', 'sis_depens.nombre','s_direccion','s_telefono'])->join('sis_depen_user', 'sis_depens.id', '=', 'sis_depen_user.sis_depen_id')
         ->where('sis_depen_user.user_id', Auth::user()->id)
         ->wherein('sis_depen_user.sis_depen_id', $notinxxy->toArray())
         ->where('sis_depen_user.sis_esta_id', 1)

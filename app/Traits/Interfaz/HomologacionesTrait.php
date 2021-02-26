@@ -157,8 +157,8 @@ trait HomologacionesTrait
     {
         switch ($dataxxxx['temaxxxx']) {
             case 23:
-                if ($dataxxxx['codigoxx'] == 'S' || $dataxxxx['codigoxx'] == 'N' || $dataxxxx['codigoxx'] == 'ON' || $dataxxxx['codigoxx'] == 'null') {
-                    $valoresx = ['S' => 'SI', 'N' => 'NO', 'ON' => 'SI', 'null' => 'NO'];
+                if ($dataxxxx['codigoxx'] == 'S' || $dataxxxx['codigoxx'] == 'N' || $dataxxxx['codigoxx'] == 'ON' || $dataxxxx['codigoxx'] == 'null'||$dataxxxx['codigoxx'] == 'null') {
+                    $valoresx = ['S' => 'SI', 'N' => 'NO', 'ON' => 'SI', 'null' => 'NO', 'CAE/NE' => 'N/A'];
                     $dataxxxx['codigoxx'] = $valoresx[$dataxxxx['codigoxx']];
                 }
                 break;

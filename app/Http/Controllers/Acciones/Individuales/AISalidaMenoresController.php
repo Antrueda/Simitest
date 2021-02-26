@@ -172,8 +172,7 @@ class AISalidaMenoresController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
 
         $dataxxxx['padrexxx']->s_primer_nombre;
-        $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
-
+        
         $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('prm_reprlega_id',227)->first();
         if ($compofami==null) {
             return redirect()
@@ -268,6 +267,12 @@ class AISalidaMenoresController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
+        $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $padrexxx->id)->where('prm_reprlega_id',227)->first();
+        if ($compofami==null) {
+            return redirect()
+                ->route('ficomposicion', [$padrexxx->id])
+                ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
+        }
         $this->opciones['rutaxxxx'] = route('aisalidamenores.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
@@ -327,7 +332,8 @@ class AISalidaMenoresController extends Controller
     public function inactivate(SisNnaj $padrexxx,AiSalidaMenores $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
-        if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
+        
+             if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
                 [
                     'mostrars' => true, 'accionxx' => 'INACTIVAR', 'routingx' => [$this->opciones['routxxxx'] . '.borrar', []],
@@ -343,7 +349,7 @@ class AISalidaMenoresController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-        ->route('aisalidamenores.nuevo', [$padrexxx->id])
+        ->route('aisalidamenores', [$padrexxx->id])
         ->with('info', 'Salida inactivada correctamente');
     }
 

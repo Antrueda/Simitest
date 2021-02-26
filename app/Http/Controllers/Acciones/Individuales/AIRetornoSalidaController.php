@@ -147,14 +147,6 @@ class AIRetornoSalidaController extends Controller
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'],
         ];
 
-        $salidax = AiSalidaMenores::select('sis_nnaj_id')->where('sis_nnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->first();
-        if ($salidax==null) {
-            return redirect()
-                ->route('aisalidamenores', [$dataxxxx['padrexxx']->sis_nnaj_id])
-                ->with('info', 'No hay ninguna salida registrada');
-        }
-
-        $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['dependen'] = SisDepen::combo(true, false);
@@ -163,6 +155,7 @@ class AIRetornoSalidaController extends Controller
         $this->opciones['vercrear'] = false;
         $parametr = 0;
         if ($dataxxxx['modeloxx'] != '') {
+            
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
@@ -188,6 +181,12 @@ class AIRetornoSalidaController extends Controller
 
     public function create(SisNnaj $padrexxx)
     {
+        $salidax = AiSalidaMenores::select('sis_nnaj_id')->where('sis_nnaj_id', $padrexxx->id)->first();
+        if ($salidax==null) {
+            return redirect()
+                ->route('aisalidamenores', [$padrexxx->id])
+                ->with('info', 'No hay ninguna salida registrada');
+        }
         $this->opciones['rutaxxxx'] = route('airetornosalida.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
@@ -244,9 +243,8 @@ class AIRetornoSalidaController extends Controller
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos de retorno actualizados con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
-    public function inactivate(AiRetornoSalida $modeloxx)
+    public function inactivate(SisNnaj $padrexxx,AiRetornoSalida $modeloxx)
     {
-        $this->opciones['rutaxxxx'] = route('csdxxxxx.borrar', $modeloxx->id);
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
                 [
@@ -254,7 +252,7 @@ class AIRetornoSalidaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 
 
