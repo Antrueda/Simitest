@@ -46,6 +46,10 @@
         <b>TIPO DE POBLACIÓN</b>
         <a class="float-right">{{ $todoxxxx['usuariox']->prmTipoPobla->nombre }}</a>
       </li>
+      <li class="list-group-item">
+        <b>ESTADO CIVIL</b>
+        <a class="float-right">{{ $todoxxxx['usuariox']->nnaj_fi_csd->prmEstadoCivil->nombre }}</a>
+      </li>
 
       <li class="list-group-item">
         <b>UPI</b>

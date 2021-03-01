@@ -11,7 +11,7 @@
     </div>
     <div class="form-group col-md-6">
         {{ Form::label('espaciocant', 'Cantidad', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('espaciocant', null, ['class' => 'form-control form-control-sm','max'=>'20', 'min'=>'0']) }}
+        {{ Form::number('espaciocant', null, ['class' => 'form-control form-control-sm','max'=>'20', 'min'=>'0',"onkeypress" => "return soloNumeros(event);"]) }}
         @if($errors->has('espaciocant'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('espaciocant') }}

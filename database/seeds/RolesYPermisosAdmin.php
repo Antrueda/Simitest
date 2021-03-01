@@ -34,7 +34,7 @@ Role::create(['name' => 'administrador', 'user_crea_id' => 1, 'user_edita_id' =>
     'vsidfpad-leer', 'vsidfpad-crear', 'vsidfpad-editar', 'vsidfpad-borrar',
     'vsidfmad-leer', 'vsidfmad-crear', 'vsidfmad-editar', 'vsidfmad-borrar',
     'agrelacion-leer', 'agrelacion-crear', 'agrelacion-editar', 'agrelacion-borrar',
-
+    'contrase-editar',
 
     'vsirefam-leer', 'vsirefam-crear', 'vsirefam-editar',
     'vsirelac-leer', 'vsirelac-crear', 'vsirelac-editar',

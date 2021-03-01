@@ -7,6 +7,7 @@ use App\Http\Requests\Acciones\Grupales\AgRelacionCrearRequest;
 use App\Http\Requests\Acciones\Grupales\AgRelacionEditarRequest;
 
 use App\Models\Acciones\Grupales\AgActividad;
+use App\Models\Acciones\Grupales\AgCarguedoc;
 use App\Models\Acciones\Grupales\AgRelacion;
 use App\Models\Acciones\Grupales\AgResponsable;
 use App\Traits\Acciones\Grupales\ListadosTrait;
@@ -45,10 +46,7 @@ class AgRelacionController extends Controller
         $this->opciones['pestania'] = $this->getPestanias($this->opciones);
         $this->getBotones(['crear', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$padrexxx->id], 1, 'AGREGAR RECURSO', 'btn btn-sm btn-primary']);
-        $responsa = AgResponsable::where('ag_actividad_id',$padrexxx->id)->get();
-        if(  count($responsa)<=2){
-        $this->getBotones(['crear', ['agrespon.nuevo', [$padrexxx->id]], 2, 'AGREGAR RESPONSABLE', 'btn btn-sm btn-primary']);
-        }
+
         return $this->view($this->opciones,['modeloxx' => '', 'accionxx' => ['crear', 'formulario'], 'padrexxx' => $padrexxx]);
     }
     public function store(AgRelacionCrearRequest $request, AgActividad $padrexxx)
@@ -81,12 +79,10 @@ class AgRelacionController extends Controller
         $this->getBotones(['editar', ['agactividad.editar', [$padrexxx->id]], 2, 'VOLVER ACTIVIDADES', 'btn btn-sm btn-primary']);
         $this->getBotones(['editar', [], 1, 'EDITAR RECURSO', 'btn btn-sm btn-primary']);
         $this->getBotones(['crear', [$this->opciones['routxxxx'] . '.nuevo', [$padrexxx->id]], 2, 'AGREGAR RECURSO', 'btn btn-sm btn-primary']);
-        $this->getBotones(['crear', ['agcargdoc.nuevo',[$padrexxx->id]], 2, 'AGREGAR DOCUMENTOS', 'btn btn-sm btn-primary']);
-        $responsa = AgResponsable::where('ag_actividad_id',$padrexxx->id)->get();
-        if(  count($responsa)<=2){
-        $this->getBotones(['crear', ['agrespon.nuevo', [$padrexxx->id]], 2, 'AGREGAR RESPONSABLE', 'btn btn-sm btn-primary']);
+        $responsa = AgCarguedoc::where('ag_actividad_id',$padrexxx->id)->get();
+        if(  count($responsa)<1){
+            $this->getBotones(['crear', ['agcargdoc.nuevo',[$padrexxx->id]], 2, 'AGREGAR DOCUMENTOS', 'btn btn-sm btn-primary']);
         }
-        
         return $this->view(
             $this->opciones,
             ['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]

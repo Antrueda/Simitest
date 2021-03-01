@@ -35,7 +35,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('s_telefono','Teléfono') }}
-        {{ Form::number('s_telefono', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly']]) }}
+        {{ Form::number('s_telefono', null,['class'=>'form-control form-control-sm',$todoxxxx['readonly'],"onkeypress" => "return soloNumeros(event);"]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('email','Correo Electrónico') }}

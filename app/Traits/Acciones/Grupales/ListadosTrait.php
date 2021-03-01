@@ -147,7 +147,7 @@ trait ListadosTrait
                 ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
                 ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
                 ->where('sis_nnajs.prm_escomfam_id',  227)
-                ->where('nnaj_upis.prm_principa_id',  227)
+             //   ->where('nnaj_upis.prm_principa_id',  227)
                 ->whereNotIn('fi_datos_basicos.id',  $responsa)
                 ->whereIn('nnaj_upis.sis_depen_id', $depende);
 
@@ -182,7 +182,7 @@ trait ListadosTrait
                 ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
                 ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
                 ->where('ag_asistentes.sis_esta_id', 1)
-                ->where('nnaj_upis.prm_principa_id',  227)
+                //->where('nnaj_upis.prm_principa_id',  227)
                 ->where('ag_asistentes.ag_actividad_id', $padrexxx->id);
             return $this->getDtGok($dataxxxx, $request);
         }
@@ -369,7 +369,7 @@ public function getJovenPermiso(Request $request, AiSalidaMayores $padrexxx)
             ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
             ->where('salida_jovenes.sis_esta_id', 1)
-            ->where('nnaj_upis.prm_principa_id',  227)
+          //  ->where('nnaj_upis.prm_principa_id',  227)
 
             ->where('salida_jovenes.ai_salmay_id', $padrexxx->id);
         return $this->getDtSalidas($dataxxxx, $request);

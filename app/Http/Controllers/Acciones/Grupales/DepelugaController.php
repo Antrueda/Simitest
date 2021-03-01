@@ -211,7 +211,7 @@ private function getSeleccionados($objetoxx){
     {
         $dataxxxx = $request->all();
         $dataxxxx['depeluga']=$depeluga;
-        return $this->grabar($dataxxxx, $objetoxx, 'Linea base del NNAJ actualizada con éxito');
+        return $this->grabar($dataxxxx, $objetoxx, 'Se guardo el lisado de Lugares con éxito');
     }
 
     /**

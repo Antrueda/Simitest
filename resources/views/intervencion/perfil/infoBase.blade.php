@@ -20,6 +20,10 @@
         <a class="float-right"><p class="text-muted text-center">{{ $todoxxxx['datobasi']->prmTipoPobla->nombre }}</p></a>
       </li>
       <li class="list-group-item">
+        <b>ESTADO CIVIL</b>
+        <a class="float-right">{{ $todoxxxx['datobasi']->nnaj_fi_csd->prmEstadoCivil->nombre }}</a>
+      </li>
+      <li class="list-group-item">
         <b>EDAD</b>
         <a class="float-right"><a class="float-right"><p class="text-muted text-center">{{ $todoxxxx['datobasi']->nnaj_nacimi->Edad }} Años</p></a></a>
       </li>

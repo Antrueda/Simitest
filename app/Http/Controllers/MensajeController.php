@@ -59,7 +59,7 @@ class MensajeController extends Controller
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJ', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A MENSAJES', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
     }

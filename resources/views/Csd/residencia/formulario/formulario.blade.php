@@ -122,7 +122,7 @@
 <div class="row">
   <div class="col-md">
       {{ Form::label('dir_placa', 'Placa VG', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('dir_placa', null, ['class' => $errors->first('dir_placa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número', 'min' => '0', 'max' => '300', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+      {{ Form::text('dir_placa', null, ['class' => $errors->first('dir_placa') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número', 'min' => '0', 'max' => '300', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;',"onkeypress" => "return soloNumeros(event);"]) }}
       @if($errors->has('dir_placa'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('dir_placa') }}

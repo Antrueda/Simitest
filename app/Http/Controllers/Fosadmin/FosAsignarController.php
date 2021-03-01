@@ -59,7 +59,7 @@ class FosAsignarController extends Controller
         return $this->setFosasignar([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Se realizo la asignación ',
+            'infoxxxx' =>       'Se realizó la asignación ',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -118,7 +118,7 @@ class FosAsignarController extends Controller
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [$modeloxx->fos_tse_id])
-            ->with('info', 'Sub tipo de seguimiento inactivado correctamente');
+            ->with('info', 'Se desactivó la asignación correctamente');
     }
 
     public function activate(FosSeguimiento $modeloxx)

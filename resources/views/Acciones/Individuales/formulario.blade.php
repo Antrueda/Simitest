@@ -38,7 +38,16 @@
             <div class="col-md" style = "text-transform:uppercase;">
                 TIPO POBLACIÓN: {{ $nnaj->prmTipoPobla->nombre }}
             </div>
+            <div class="col-md" style = "text-transform:uppercase;">
+                ESTADO CIVIL: {{ $nnaj->nnaj_fi_csd->prmEstadoCivil->nombre }}
+            </div>
+            <div class="col-md" style = "text-transform:uppercase;">
+           
+            </div>
+      
         </div>
+
+     
     </div>
     <div class="card-body">
         <ul class="nav nav-pills">
