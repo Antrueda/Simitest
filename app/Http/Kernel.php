@@ -67,7 +67,7 @@ class Kernel extends HttpKernel
                 /**
          * politicas de datos
          */
-        'acuerdo'=>\App\Http\Middleware\PoliticaDatosMiddleware::class,
+        // 'acuerdo'=>\App\Http\Middleware\PoliticaDatosMiddleware::class,
     ];
 
     /**

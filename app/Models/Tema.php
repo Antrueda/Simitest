@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Sistema\SisEntidad;
 use Illuminate\Database\Eloquent\Model;
 
 class Tema extends Model {

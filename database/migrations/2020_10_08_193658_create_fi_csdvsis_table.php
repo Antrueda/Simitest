@@ -22,14 +22,14 @@ class CreateFiCsdvsisTable extends Migration
             ->unsigned()->nullable()
             ->comment('VALORACION SICOSOCIAL INICIAL QUE ACTUALIZA LOS DATOS BASICOS DE LA FICHA DE INGRESO');
             $table->foreign('vsi_id')->references('id')->on('vsis');
-            $table->timestamp('created_vsi')->comment('FECHA CREACION DE LA VSI');
-            $table->timestamp('updated_vsi')->comment('FECHA ACTUALIZACION DE LA VSI');
+            $table->timestamp('created_vsi')->nullable()->comment('FECHA CREACION DE LA VSI');
+            $table->timestamp('updated_vsi')->nullable()->comment('FECHA ACTUALIZACION DE LA VSI');
             $table->integer('csd_id')
             ->unsigned()->nullable()
             ->comment('CONSULTA SOCIAL EN DOMICILIO QUE ACTUALIZA LOS DATOS BASICOS DE LA FICHA DE INGRESO');
             $table->foreign('csd_id')->references('id')->on('csds');
-            $table->timestamp('created_csd')->comment('FECHA CREACION DE LA CSD');
-            $table->timestamp('updated_csd')->comment('FECHA ACTUALIZACION DE LA CSD');
+            $table->timestamp('created_csd')->nullable()->comment('FECHA CREACION DE LA CSD');
+            $table->timestamp('updated_csd')->nullable()->comment('FECHA ACTUALIZACION DE LA CSD');
             $table->integer('fi_datos_basico_id')
             ->unsigned()
             ->comment('FICHA DE INGRESO A LA QUE PERTENECE LA ACTUALIZACION');
@@ -44,13 +44,13 @@ class CreateFiCsdvsisTable extends Migration
             $table->integer('vsi_id')
             ->unsigned()->nullable()
             ->comment('VALORACION SICOSOCIAL INICIAL QUE ACTUALIZA LOS DATOS BASICOS DE LA FICHA DE INGRESO');
-            $table->timestamp('created_vsi')->comment('FECHA CREACION DE LA VSI');
-            $table->timestamp('updated_vsi')->comment('FECHA ACTUALIZACION DE LA VSI');
+            $table->timestamp('created_vsi')->nullable()->comment('FECHA CREACION DE LA VSI');
+            $table->timestamp('updated_vsi')->nullable()->comment('FECHA ACTUALIZACION DE LA VSI');
             $table->integer('csd_id')
             ->unsigned()->nullable()
             ->comment('CONSULTA SOCIAL EN DOMICILIO QUE ACTUALIZA LOS DATOS BASICOS DE LA FICHA DE INGRESO');
-            $table->timestamp('created_csd')->comment('FECHA CREACION DE LA CSD');
-            $table->timestamp('updated_csd')->comment('FECHA ACTUALIZACION DE LA CSD');
+            $table->timestamp('created_csd')->nullable()->comment('FECHA CREACION DE LA CSD');
+            $table->timestamp('updated_csd')->nullable()->comment('FECHA ACTUALIZACION DE LA CSD');
             $table->integer('fi_datos_basico_id')
             ->unsigned()
             ->comment('FICHA DE INGRESO A LA QUE PERTENECE LA ACTUALIZACION');

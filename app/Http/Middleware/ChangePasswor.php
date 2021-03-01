@@ -7,10 +7,9 @@ use Illuminate\Support\Facades\Auth;
 
 class ChangePasswor
 {
-    public function getValidar($request, $next)
+    public function getValidar($request, $next,$usuario)
     {
 
-        $usuario = Auth::user();
         $actualxx = strtotime(date("Y-m-d "));
         $cambioxx = strtotime($usuario->password_change_at);
         if ($usuario->password_reset_at != null) { //la contraseña ha sido resetiada
@@ -21,7 +20,12 @@ class ChangePasswor
         if ($actualxx > $cambioxx) {
             return  redirect()->route('contrase.cambiar', Auth::user()->id)
                 ->with('error', 'Para continuar por favor debe actualizar su contraseña');
-        } else {
+        }
+        elseif ($usuario->polidato_at == null) {
+            return  redirect()->route('acuerdo.cambiar', Auth::user()->id)
+            ->with('error', 'Para continuar por favor acepte el acuerdo de confidencialidad');
+        }
+        else {
             return $next($request);
         }
     }
@@ -34,14 +38,27 @@ class ChangePasswor
      */
     public function handle($request, Closure $next)
     {
-        if (isset($request->segments()[1])) {
-            if ($request->segments()[1] == 'cambiocontra') {
-                return $next($request);
-            } else {
-                return $this->getValidar($request, $next);;
-            }
-        } else {
-            return $this->getValidar($request, $next);;
+        $usuario = Auth::user();
+        /**
+         * el usuario esta en la ruta de cambio de contraseña o el acuerdo de confidencialidad
+         */
+        if (isset($request->segments()[1]) &&
+        ($request->segments()[1] == 'cambiocontra' ||
+        $request->segments()[1]=='acuerdo'
+
+        )
+
+        )
+        {
+            return $next($request);
+        }
+
+        elseif (isset($request->segments()[0]) && $request->segments()[0]=="logout") {
+            return $next($request);
+        }
+
+        else {
+            return $this->getValidar($request, $next,$usuario);
         }
     }
 }

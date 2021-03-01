@@ -44,21 +44,13 @@ Route::get('markAsRead', function () {
 Route::post('/mark-as-read', 'AlertaController@markNotification')->name('markNotification');
 
 
-Route::group(['middleware' => ['auth', 'ChangePasswor','acuerdo']], function () {
+Route::group(['middleware' => ['auth', 'ChangePasswor']], function () {
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
     Route::get('cambio', [
         'middleware' => 'ChangePasswor',
         'uses' => 'Auth\LoginController@getCambio'
     ]);
-
-    Route::group(['middleware' => ['auth','PoliticaDatosMiddleware']], function () {
-
-        Route::get('usuario/acuerdo/{objetoxx}', [
-            'uses' => 'Seguridad\Usuario\AcuerdoController@edit',
-            'middleware' => 'PoliticaDatosMiddleware'
-        ])->name('acuerdo.cambiar');
-    });
 
     include_once('Seguridad/web_rol.php');
     include_once('Seguridad/web_usuario.php');
