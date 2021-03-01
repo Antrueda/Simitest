@@ -16,11 +16,14 @@ class SisDepeUsuaCrearRequest extends FormRequest
             'user_id.required' => 'Seleccione un usuario',
             'sis_depen_id.required' => 'Seleccione una dependencia',
             'i_prm_responsable_id.required' => 'Indique si es responsable o no',
+            'sis_esta_id.required' => 'Seleccione un estado',
+            
         ];
         $this->_reglasx = [
             'user_id' => ['required'],
             'i_prm_responsable_id' => ['required'],
             'sis_depen_id' => ['required'],
+            'sis_esta_id' => ['required'],
         ];
     }
     /**

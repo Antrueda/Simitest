@@ -164,6 +164,9 @@ trait ListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.elimasis';
             $request->estadoxx = 'layouts.components.botones.estadosx';
+            $depende =    AgActividad::select(['sis_deporigen_id'])
+            ->where('id', $padrexxx->id)
+            ->get();
             $dataxxxx = AgAsistente::select([
                 'ag_asistentes.id',
                 'fi_datos_basicos.s_primer_nombre',
@@ -183,6 +186,7 @@ trait ListadosTrait
                 ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
                 ->where('ag_asistentes.sis_esta_id', 1)
                 //->where('nnaj_upis.prm_principa_id',  227)
+                ->whereIn('nnaj_upis.sis_depen_id', $depende)
                 ->where('ag_asistentes.ag_actividad_id', $padrexxx->id);
             return $this->getDtGok($dataxxxx, $request);
         }

@@ -15,11 +15,13 @@ class RolUsuarioEditarRequest extends FormRequest
         $this->_mensaje = [
             'model_id.required' => 'Seleccione un usuario',
             'role_id.required' => 'Seleccione un rol',
+            'sis_esta_id.required' => 'Seleccione un estado',
 
         ];
         $this->_reglasx = [
             'model_id' => ['required'],
             'role_id' => ['required'],
+            'sis_esta_id' => ['required'],
         ];
     }
     /**

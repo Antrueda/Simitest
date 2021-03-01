@@ -102,6 +102,7 @@ class AgActividadController extends Controller
 
     public function update(AgActividadEditarRequest $request,  AgActividad $modeloxx)
     {
+        
         return $this->setAgActividad([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
