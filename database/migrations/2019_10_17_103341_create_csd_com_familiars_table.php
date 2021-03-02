@@ -42,7 +42,7 @@ class CreateCsdComFamiliarsTable extends Migration
             $table->integer('prm_cualeps_id')->unsigned()->nullable();
             $table->decimal('sisben', 19, 2)->nullable();
             $table->integer('prm_sisben_id')->unsigned()->nullable();
-            $table->integer('')->unsigned()->nullable();
+            $table->integer('prm_discapacidad_id')->unsigned()->nullable();
             $table->integer('prm_cual_id')->unsigned()->nullable();
             $table->integer('prm_peso_id')->unsigned()->nullable();
             $table->integer('prm_peso_dos_id')->unsigned()->nullable();
