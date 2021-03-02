@@ -199,7 +199,7 @@ class AIEvasionParentescoController extends Controller
     {   
         $request->request->add(['reporte_evasion_id' => $padrexxx->id]);
         $request->request->add(['sis_esta_id' =>1]);
-        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Familiar agregado con exito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
+        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Familiar agregado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
 
     }
 
@@ -246,7 +246,7 @@ class AIEvasionParentescoController extends Controller
      */
     public function update(EvasionParentescoRequest $request, AiReporteEvasion $padrexxx, EvasionParentesco $modeloxx )
     {
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con exito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
+        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
     }
 
     public function inactivate(AiReporteEvasion $padrexxx,EvasionParentesco $modeloxx)

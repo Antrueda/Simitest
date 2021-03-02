@@ -56,7 +56,7 @@ class FTSeguimientoController extends Controller
         return $this->setFostiposeguim([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Tipo seguimiento creados con exito',
+            'infoxxxx' =>       'Tipo seguimiento creados con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -93,7 +93,7 @@ class FTSeguimientoController extends Controller
         return $this->setFostiposeguim([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Tipo de seguiminto editado con exito',
+            'infoxxxx' => 'Tipo de seguiminto editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

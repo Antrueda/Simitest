@@ -140,7 +140,7 @@ class FiSustanciaConsumidaController extends Controller
         $dataxxxx = $request->all();
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Sustancia creada con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Sustancia creada con éxito', $padrexxx);
     }
 
 
@@ -173,7 +173,7 @@ class FiSustanciaConsumidaController extends Controller
      */
     public function update(FiSustanciaConsumidaUpdateRequest $request,  FiDatosBasico $padrexxx, FiSustanciaConsumida $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Sustancia actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Sustancia actualizada con éxito', $padrexxx);
     }
 
     public function inactivate(FiDatosBasico $padrexxx,FiSustanciaConsumida $modeloxx)

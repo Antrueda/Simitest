@@ -136,7 +136,7 @@ class CsdRescomparteController extends Controller
     {   
         $request->request->add(['csd_residencia_id' => $padrexxx->csd->CsdResidencia->id]);
         $request->request->add(['sis_esta_id' =>1]);
-        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Servicio creado con exito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
+        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Servicio creado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
 
     }
 
@@ -182,7 +182,7 @@ class CsdRescomparteController extends Controller
      */
     public function update(CsdRescomparteEditarRequest $request, CsdSisNnaj $padrexxx,CsdRescomparte $modeloxx)
     {
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con exito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
+        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
     }
 
     public function inactivate(CsdSisNnaj $padrexxx,CsdRescomparte $modeloxx)

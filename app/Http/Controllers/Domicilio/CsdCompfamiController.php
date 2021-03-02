@@ -302,7 +302,7 @@ class CsdCompfamiController extends Controller
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->grabar(['requestx'=>$request, 'objetoxx'=>'', 'infoxxxx'=>'Composicion familiar creada con exito', 'padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx'=>$request, 'objetoxx'=>'', 'infoxxxx'=>'Composicion familiar creada con éxito', 'padrexxx'=>$padrexxx]);
     }
 
     /**
@@ -348,7 +348,7 @@ class CsdCompfamiController extends Controller
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
-        return $this->grabar(['requestx'=>$request, 'objetoxx'=>$modeloxx, 'infoxxxx'=>'Composicion familiar actualizada con exito', 'padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx'=>$request, 'objetoxx'=>$modeloxx, 'infoxxxx'=>'Composicion familiar actualizada con éxito', 'padrexxx'=>$padrexxx]);
     }
 
     public function inactivate(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
@@ -377,7 +377,7 @@ class CsdCompfamiController extends Controller
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->grabarObservacion(['requestx'=>$request, 'objetoxx'=>'', 'infoxxxx'=>'Observacion creada con exito', 'padrexxx'=>$padrexxx]);;
+        return $this->grabarObservacion(['requestx'=>$request, 'objetoxx'=>'', 'infoxxxx'=>'Observacion creada con éxito', 'padrexxx'=>$padrexxx]);;
       }
 
       private function grabarObservacion($dataxxxx)
@@ -394,7 +394,7 @@ class CsdCompfamiController extends Controller
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
-        return $this->grabar(['requestx'=>$request, 'objetoxx'=>$modeloxx, 'infoxxxx'=>'Observacion actualizada con exito', 'padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx'=>$request, 'objetoxx'=>$modeloxx, 'infoxxxx'=>'Observacion actualizada con éxito', 'padrexxx'=>$padrexxx]);
       }
 
 

@@ -185,7 +185,7 @@ class FiViolenciaController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Violencia y condición especial creada con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Violencia y condición especial creada con éxito', $padrexxx);
     }
 
     /**
@@ -232,6 +232,6 @@ class FiViolenciaController extends Controller
      */
     public function update(FiViolenciaUpdateRequest $request, FiDatosBasico $padrexxx, FiViolencia $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Violencia y condición especial actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Violencia y condición especial actualizada con éxito', $padrexxx);
     }
 }

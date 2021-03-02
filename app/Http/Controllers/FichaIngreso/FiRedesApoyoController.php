@@ -252,7 +252,7 @@ class FiRedesApoyoController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Red Apoyo creado con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Red Apoyo creado con éxito', $padrexxx);
     }
 
     /**
@@ -297,7 +297,7 @@ class FiRedesApoyoController extends Controller
      */
     public function update(FiRedesApoyoUpdateRequest $request, FiDatosBasico $padrexxx, FiRedApoyoAntecedente $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Red Apoyo actualizado con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Red Apoyo actualizado con éxito', $padrexxx);
     }
 
     public function inactivate(FiDatosBasico $padrexxx,FiRedApoyoAntecedente $modeloxx)

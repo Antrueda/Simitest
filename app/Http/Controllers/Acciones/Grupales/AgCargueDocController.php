@@ -48,7 +48,7 @@ class AgCargueDocController extends Controller
         return $this->setAgCargueDoc([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Documento agregado con exito',
+            'infoxxxx' =>       'Documento agregado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -84,7 +84,7 @@ class AgCargueDocController extends Controller
         return $this->setAgCargueDoc([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Documento editado con exito',
+            'infoxxxx' => 'Documento editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

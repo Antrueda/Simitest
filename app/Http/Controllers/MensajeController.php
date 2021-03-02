@@ -236,7 +236,7 @@ class MensajeController extends Controller
 
     public function update(AlertasEditarRequest $request, Mensajes $objetoxx)
     {
-        return $this->grabar(['requestx'=>$request,'modeloxx'=> $objetoxx,'menssage'=>'Mensaje actualizado con exito'] );
+        return $this->grabar(['requestx'=>$request,'modeloxx'=> $objetoxx,'menssage'=>'Mensaje actualizado con éxito'] );
     }
 
     public function inactivate(Mensajes $objetoxx)

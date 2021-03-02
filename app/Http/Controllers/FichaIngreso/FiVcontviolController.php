@@ -131,7 +131,7 @@ class FiVcontviolController extends Controller
         $request->request->add(['sis_esta_id'=>1]);
         $request->request->add(['tema_id'=>$temaxxxx]);
         $request->request->add(['fi_violencia_id'=>$padrexxx]);
-        return $this->grabar(['requestx'=>$request,'modeloxx'=>'','infoxxxx'=>'Violencia y condición especial creada con exito'] );
+        return $this->grabar(['requestx'=>$request,'modeloxx'=>'','infoxxxx'=>'Violencia y condición especial creada con éxito'] );
     }
 
     /**
@@ -181,6 +181,6 @@ class FiVcontviolController extends Controller
      */
     public function update(FiVcontviolUpdateRequest $request, FiDatosBasico $padrexxx, FiContviol $modeloxx)
     {
-        return $this->grabar(['requestx'=>$request,'modeloxx'=> $modeloxx,'infoxxxx'=>'Violencia y condición especial actualizada con exito'] );
+        return $this->grabar(['requestx'=>$request,'modeloxx'=> $modeloxx,'infoxxxx'=>'Violencia y condición especial actualizada con éxito'] );
     }
 }

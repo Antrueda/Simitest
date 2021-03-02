@@ -256,7 +256,7 @@ class FiSaludController extends Controller
 
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Salud creada con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Salud creada con éxito', $padrexxx);
     }
 
     /**
@@ -302,7 +302,7 @@ class FiSaludController extends Controller
      */
     public function update(FiSaludUpdateRequest $request, FiDatosBasico $padrexxx,FiSalud $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Salud actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Salud actualizada con éxito', $padrexxx);
     }
 
 

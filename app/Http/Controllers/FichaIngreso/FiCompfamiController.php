@@ -284,7 +284,7 @@ class FiCompfamiController extends Controller
      */
     public function store(FiCompfamiCrearRequest $request, FiDatosBasico $padrexxx)
     {
-        return $this->grabar($request->all(), '', 'Composicion familiar creada con exito', $padrexxx);
+        return $this->grabar($request->all(), '', 'Composicion familiar creada con éxito', $padrexxx);
     }
 
     /**
@@ -329,7 +329,7 @@ class FiCompfamiController extends Controller
      */
     public function update(FiCompfamiUpdateRequest $request, FiDatosBasico $padrexxx, FiCompfami $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Composicion familiar actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Composicion familiar actualizada con éxito', $padrexxx);
     }
 
     public function inactivate(FiDatosBasico $padrexxx, FiCompfami $modeloxx)

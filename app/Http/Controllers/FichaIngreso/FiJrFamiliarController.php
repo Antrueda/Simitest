@@ -117,7 +117,7 @@ class FiJrFamiliarController extends Controller
     {
         $dataxxxx=$request->all();
         $dataxxxx['fi_justrest_id']=$padrexxx->id;
-        return $this->grabar($dataxxxx, '', 'Composicion familiar creada con exito');
+        return $this->grabar($dataxxxx, '', 'Composicion familiar creada con éxito');
     }
 
     /**
@@ -156,7 +156,7 @@ class FiJrFamiliarController extends Controller
      */
     public function update(FiJrFamiliarEditarRequest $request,  FiJrFamiliar $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Composicion familiar actualizada con exito');
+        return $this->grabar($request->all(), $modeloxx, 'Composicion familiar actualizada con éxito');
     }
 
     public function inactivate(FiJrFamiliar $modeloxx)

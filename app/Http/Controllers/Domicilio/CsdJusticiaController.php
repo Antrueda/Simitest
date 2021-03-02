@@ -105,7 +105,7 @@ class CsdJusticiaController extends Controller
         $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
-        return $this->grabar($dataxxxx, '', 'Justicia creada con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Justicia creada con éxito', $padrexxx);
     }
 
     /**
@@ -151,7 +151,7 @@ class CsdJusticiaController extends Controller
      */
     public function update(CsdJusticiaEditarRequest $request,  CsdSisNnaj $padrexxx, CsdJusticia $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con éxito', $padrexxx);
     }
 }
 

@@ -311,7 +311,7 @@ class FiJustrestController extends Controller
             $dataxxxx['i_prm_actualmente_pard_id'] = $padrexxx->prm_tipoblaci_id;
         }
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Justicia restaurativa creada con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Justicia restaurativa creada con éxito', $padrexxx);
     }
 
     /**
@@ -358,6 +358,6 @@ class FiJustrestController extends Controller
      */
     public function update(FiJustrestUpdateRequest $request,  FiDatosBasico $padrexxx, FiJustrest $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Justicia Restaurativa actualizada con éxito', $padrexxx);
     }
 }

@@ -127,7 +127,7 @@ public function store(CsdConclusionesCrearRequest $request, CsdSisNnaj $padrexxx
     $dataxxxx = $request->all();
     $dataxxxx['csd_id'] = $padrexxx->csd_id;
     $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-    return $this->grabar($dataxxxx, '', 'Conclusiones registradas con exito', $padrexxx);
+    return $this->grabar($dataxxxx, '', 'Conclusiones registradas con éxito', $padrexxx);
 }
 
 
@@ -163,7 +163,7 @@ public function edit(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
  */
 public function update(CsdConclusionesEditarRequest $request,  CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
 {
-    return $this->grabar($request->all(), $modeloxx, 'Conclusiones actualizadas con exito', $padrexxx);
+    return $this->grabar($request->all(), $modeloxx, 'Conclusiones actualizadas con éxito', $padrexxx);
 }
 
 

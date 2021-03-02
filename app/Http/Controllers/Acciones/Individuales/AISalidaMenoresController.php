@@ -285,7 +285,7 @@ class AISalidaMenoresController extends Controller
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida creada con exito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida creada con éxito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -326,7 +326,7 @@ class AISalidaMenoresController extends Controller
      */
     public function update(AISalidaMenorRequest $request, SisNnaj $padrexxx,  AiSalidaMenores $modeloxx)
     {
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida actualizada con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Salida actualizada con éxito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
     public function inactivate(SisNnaj $padrexxx,AiSalidaMenores $modeloxx)

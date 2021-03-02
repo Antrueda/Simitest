@@ -261,7 +261,7 @@ class CsdResidenciaController extends Controller
         $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
-        return $this->grabar($dataxxxx, '', 'Datos de residencia creados con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Datos de residencia creados con éxito', $padrexxx);
     }
 
 
@@ -309,7 +309,7 @@ class CsdResidenciaController extends Controller
     public function update(CsdResidenciaEditarRequest $request,  CsdSisNnaj $padrexxx, CsdResidencia $modeloxx)
     {
         //ddd($request);
-        return $this->grabar($request->all(), $modeloxx, 'Datos de residencia actualizados con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Datos de residencia actualizados con éxito', $padrexxx);
     }
 
 

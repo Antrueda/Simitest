@@ -260,7 +260,7 @@ class CsdRedesApoyoController extends Controller
         $dataxxxx = $request->all();
         $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
-        return $this->grabar($dataxxxx, '', 'Red Apoyo creado con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Red Apoyo creado con éxito', $padrexxx);
     }
 
     /**
@@ -304,7 +304,7 @@ class CsdRedesApoyoController extends Controller
      */
     public function update(CsdRedApoyoAntecedenteEditarRequest $request, CsdSisNnaj $padrexxx, CsdRedsocPasado $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Red Apoyo actualizado con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Red Apoyo actualizado con éxito', $padrexxx);
     }
 
     public function inactivate(CsdSisNnaj $padrexxx,CsdRedsocPasado $modeloxx)

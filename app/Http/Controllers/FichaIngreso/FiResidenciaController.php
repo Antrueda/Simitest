@@ -159,7 +159,7 @@ class FiResidenciaController extends Controller
 
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Residencia creada con exito');
+        return $this->grabar($dataxxxx, '', 'Residencia creada con éxito');
     }
 
     /**
@@ -209,6 +209,6 @@ class FiResidenciaController extends Controller
      */
     public function update(FiResidenciaUpdateRequest $request, $db, $id)
     {
-        return $this->grabar($request->all(), FiResidencia::where('id', $id)->first(), 'Residencia actualizada con exito');
+        return $this->grabar($request->all(), FiResidencia::where('id', $id)->first(), 'Residencia actualizada con éxito');
     }
 }

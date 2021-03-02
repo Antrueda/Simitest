@@ -166,7 +166,7 @@ class AreadminController extends Controller
     }
     public function store(AreaCrearRequest $request)
     {
-        return $this->grabar($request->all(), '', 'Área creada con exito');
+        return $this->grabar($request->all(), '', 'Área creada con éxito');
     }
 
     /**
@@ -208,7 +208,7 @@ class AreadminController extends Controller
     public function update(AreaEditarRequest $request,  Area $objetoxx)
     {
 
-        return $this->grabar($request->all(), $objetoxx, 'Área actualizada con exito');
+        return $this->grabar($request->all(), $objetoxx, 'Área actualizada con éxito');
     }
 
     public function inactivate(Area $objetoxx)

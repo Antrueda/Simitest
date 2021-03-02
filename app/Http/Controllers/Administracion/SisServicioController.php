@@ -161,7 +161,7 @@ class SisServicioController extends Controller
     public function store(SisServicioCrearRequest $request)
     {
 
-        return $this->grabar($request->all(), '', 'Servicio creado con exito');
+        return $this->grabar($request->all(), '', 'Servicio creado con éxito');
     }
 
     /**
@@ -203,7 +203,7 @@ class SisServicioController extends Controller
     public function update(SisServicioEditarRequest $request,  SisServicio $objetoxx)
     {
 
-        return $this->grabar($request->all(), $objetoxx, 'Servicio actualizado con exito');
+        return $this->grabar($request->all(), $objetoxx, 'Servicio actualizado con éxito');
     }
 
     public function inactivate(SisServicio $objetoxx)

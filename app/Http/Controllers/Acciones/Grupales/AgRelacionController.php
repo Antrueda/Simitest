@@ -56,7 +56,7 @@ class AgRelacionController extends Controller
         return $this->setAgRecurso([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Recurso agregado con exito',
+            'infoxxxx' =>       'Recurso agregado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -95,7 +95,7 @@ class AgRelacionController extends Controller
         return $this->setAgRecurso([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Recurso editado con exito',
+            'infoxxxx' => 'Recurso editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

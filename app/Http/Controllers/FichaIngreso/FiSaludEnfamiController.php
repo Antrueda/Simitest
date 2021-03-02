@@ -183,7 +183,7 @@ class FiSaludEnfamiController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Enfermedad creada con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Enfermedad creada con éxito', $padrexxx);
     }
 
 
@@ -213,7 +213,7 @@ class FiSaludEnfamiController extends Controller
      */
     public function update(FiEnfermedadesFamiliaUpdateRequest $request,  FiDatosBasico $padrexxx, FiEnfermedadesFamilia $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Enfermedad actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Enfermedad actualizada con éxito', $padrexxx);
     }
 
     public function show(FiDatosBasico $padrexxx, FiEnfermedadesFamilia $modeloxx)

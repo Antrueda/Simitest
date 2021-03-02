@@ -52,7 +52,7 @@ class LocalidadController extends Controller
         return $this->setLocalidad([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Localidad creadas con exito',
+            'infoxxxx' => 'Localidad creadas con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -86,7 +86,7 @@ class LocalidadController extends Controller
         return $this->setLocalidad([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Localidad editada con exito',
+            'infoxxxx' => 'Localidad editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

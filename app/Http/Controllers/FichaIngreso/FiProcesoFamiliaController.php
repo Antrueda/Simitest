@@ -91,7 +91,7 @@ class FiProcesoFamiliaController extends Controller
 
   public function store(FiProcesoFamiliaCrearRequest $request)
   {
-    return $this->grabar($request->all(), '', 'Proceso creado con exito');
+    return $this->grabar($request->all(), '', 'Proceso creado con éxito');
   }
 
 
@@ -118,6 +118,6 @@ class FiProcesoFamiliaController extends Controller
    */
   public function update(FiProcesoFamiliaUpdateRequest $request,  $db, $id)
   {
-    return $this->grabar($request->all(), FiProcesoFamilia::where('id', $id)->first(), 'Proceso actualizado con exito');
+    return $this->grabar($request->all(), FiProcesoFamilia::where('id', $id)->first(), 'Proceso actualizado con éxito');
   }
 }

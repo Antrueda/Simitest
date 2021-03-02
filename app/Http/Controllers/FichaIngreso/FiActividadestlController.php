@@ -160,7 +160,7 @@ class FiActividadestlController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Actividades de tiempo libre creadas con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Actividades de tiempo libre creadas con éxito', $padrexxx);
     }
 
     /**
@@ -214,6 +214,6 @@ class FiActividadestlController extends Controller
      */
     public function update(FiActividadestlUpdateRequest $request, FiDatosBasico $padrexxx,  FiActividadestl $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Actividades de tiempo libre actualizadas con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Actividades de tiempo libre actualizadas con éxito', $padrexxx);
     }
 }

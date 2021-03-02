@@ -168,7 +168,7 @@ class CsdRedApoyoActualController extends Controller
         $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
-        return $this->grabar($dataxxxx, '', 'Red Apoyo creado con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Red Apoyo creado con éxito', $padrexxx);
     }
 
     /**
@@ -209,7 +209,7 @@ class CsdRedApoyoActualController extends Controller
      */
     public function update(CsdRedApoyoActualEditarRequest $request,  CsdSisNnaj $padrexxx,  CsdRedsocActual $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Red actual actualizada con exito',$padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Red actual actualizada con éxito',$padrexxx);
     }
 
     public function inactivate(CsdSisNnaj $padrexxx,CsdRedsocActual $modeloxx)

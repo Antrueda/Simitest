@@ -190,7 +190,7 @@ class CsdGeneracionAportanteController extends Controller
         $dataxxxx = $request->all();
         $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Aportante creado con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Aportante creado con éxito', $padrexxx);
     }
 
 
@@ -226,7 +226,7 @@ class CsdGeneracionAportanteController extends Controller
      */
     public function update(CsdGeneracionAportanteEditarRequest $request,  CsdSisNnaj $padrexxx, CsdGeningAporta $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Aportante actualizado con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Aportante actualizado con éxito', $padrexxx);
     }
 
     public function inactivate(CsdSisNnaj $padrexxx,CsdGeningAporta $modeloxx)

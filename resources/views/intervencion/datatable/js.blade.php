@@ -95,7 +95,7 @@
           $(function(){
 
                 var f_combo2 = function(dataxxxx){
-                $('#i_prm_subarea_ajuste_id').empty();
+                $('#i_prm_subarea_ajuste_id,#i_prm_area_ajuste_id').empty();
                 $.ajax({
                 url: "{{ route('is.intervencion.area',$todoxxxx['nnajregi'])}}",
                         type: 'POST',

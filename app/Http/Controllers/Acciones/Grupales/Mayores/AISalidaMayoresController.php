@@ -60,7 +60,7 @@ class AISalidaMayoresController extends Controller
             'requestx' => $request,
             'modeloxx' => '',
             'padrexxx' => $request,
-            'infoxxxx' =>       'Permiso creado con exito, por favor asignar adolecentes y/o jóvenes',
+            'infoxxxx' =>       'Permiso creado con éxito, por favor asignar adolecentes y/o jóvenes',
             //'routxxxx' => 'aisalidamayores.editar'
             'routxxxx' => 'salidajovenes.nuevo'
         ]);
@@ -95,7 +95,7 @@ class AISalidaMayoresController extends Controller
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'padrexxx' => $modeloxx,
-            'infoxxxx' => 'Permiso editado con exito',
+            'infoxxxx' => 'Permiso editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

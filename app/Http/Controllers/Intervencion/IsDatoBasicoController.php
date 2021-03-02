@@ -109,7 +109,7 @@ class IsDatoBasicoController extends Controller
 
     public function store(IsDatosBasicoCrearRequest $request)
     {
-              return $this->grabar($request->all(), '', 'Intervención sicosocial creada con exito');
+              return $this->grabar($request->all(), '', 'Intervención sicosocial creada con éxito');
     }
 
     /**
@@ -144,9 +144,13 @@ class IsDatoBasicoController extends Controller
         $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[2,3]]);
         $this->opciones['tipatenc'] = [];
         $tipatenc = 0;
+        if (auth()->user()->can('intervención sicosocial especializada')) {
+            $tipatenc = 365;
+            }    
         if (auth()->user()->can('isintervencion-psicologo')) {
             $tipatenc = 213;
-        }
+            }
+
         if (auth()->user()->can('isintervencion-social')) {
             $tipatenc = 356;
         }
@@ -262,7 +266,7 @@ class IsDatoBasicoController extends Controller
     public function update(IsDatosBasicoUpdateRequest $request, $db, $id)
     {
 
-        return $this->grabar($request->all(), isDatosBasico::usarioNnaj($id), 'Intervención sicosocial actualizada con exito');
+        return $this->grabar($request->all(), isDatosBasico::usarioNnaj($id), 'Intervención sicosocial actualizada con éxito');
     }
 
     /**

@@ -228,7 +228,7 @@ class CsdController extends Controller
         $request->request->add(['prm_tipofuen_id' => 2315]);
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con exito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con éxito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -275,7 +275,7 @@ class CsdController extends Controller
      */
     public function update(CsdCrearRequest $request, SisNnaj $padrexxx,  Csd $modeloxx)
     {
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con éxito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
     public function inactivate(Csd $modeloxx)

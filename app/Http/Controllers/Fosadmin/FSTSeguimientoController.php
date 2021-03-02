@@ -59,7 +59,7 @@ class FSTSeguimientoController extends Controller
         return $this->setFosSubTiposeg([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Sub tipo de seguimiento creados con exito',
+            'infoxxxx' =>       'Sub tipo de seguimiento creados con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -96,7 +96,7 @@ class FSTSeguimientoController extends Controller
         return $this->setFosSubTiposeg([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Sub tipo de seguimiento editado con exito',
+            'infoxxxx' => 'Sub tipo de seguimiento editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

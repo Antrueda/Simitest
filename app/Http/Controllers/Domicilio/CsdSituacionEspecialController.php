@@ -99,7 +99,7 @@ class CsdSituacionEspecialController extends Controller
         $this->validator($request->all())->validate();
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Situaciones especiales insertadas con exito','padrexxx'=> $padrexxx]);
+        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Situaciones especiales insertadas con éxito','padrexxx'=> $padrexxx]);
     }
 
     protected function validator(array $data){

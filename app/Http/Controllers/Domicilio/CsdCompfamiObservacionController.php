@@ -145,7 +145,7 @@ class CsdCompfamiObservacionController extends Controller
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->grabar(['requestx'=>$request, 'objetoxx'=>'', 'menssage'=>'Observación guardada con exito', 'padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx'=>$request, 'objetoxx'=>'', 'menssage'=>'Observación guardada con éxito', 'padrexxx'=>$padrexxx]);
     }
 
     /**
@@ -190,7 +190,7 @@ class CsdCompfamiObservacionController extends Controller
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
-        return $this->grabar(['requestx'=>$request, 'objetoxx'=>$modeloxx, 'menssage'=>'Observación actualizada con exito', 'padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx'=>$request, 'objetoxx'=>$modeloxx, 'menssage'=>'Observación actualizada con éxito', 'padrexxx'=>$padrexxx]);
 
     }
 

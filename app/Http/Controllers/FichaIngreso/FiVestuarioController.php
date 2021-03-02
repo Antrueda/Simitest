@@ -129,7 +129,7 @@ class FiVestuarioController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Vestuario creado con exito');
+        return $this->grabar($dataxxxx, '', 'Vestuario creado con éxito');
     }
 
     /**
@@ -176,7 +176,7 @@ class FiVestuarioController extends Controller
      */
     public function update(FiVestuarioUpdateRequest $request, $db, $id)
     {
-        return $this->grabar($request->all(), FiVestuarioNnaj::where('id', $id)->first(), 'Vestuario actualizado con exito');
+        return $this->grabar($request->all(), FiVestuarioNnaj::where('id', $id)->first(), 'Vestuario actualizado con éxito');
     }
 
     private function casos($sexoxxxx)

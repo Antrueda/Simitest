@@ -287,7 +287,7 @@ class FosController extends Controller
 
         $dataxxxx = $request->all();
         $dataxxxx['sis_esta_id']=1;
-       return $this->grabar($dataxxxx, '', 'FOS creada con exito', $padrexxx);
+       return $this->grabar($dataxxxx, '', 'FOS creada con éxito', $padrexxx);
     }
 
     private function grabar($dataxxxx, $objetoxx, $infoxxxx,$padrexxx)
@@ -340,7 +340,7 @@ class FosController extends Controller
     public function update(FosDatosBasicoUpdateRequest $request,  FosDatosBasico $modeloxx)
     {
 
-        return $this->grabar($request->all(), $modeloxx, 'FOS actualizada con exito', $modeloxx->SisNnaj);
+        return $this->grabar($request->all(), $modeloxx, 'FOS actualizada con éxito', $modeloxx->SisNnaj);
     }
 
     public function inactivate( FosDatosBasico $modeloxx)

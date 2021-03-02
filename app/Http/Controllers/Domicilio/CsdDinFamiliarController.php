@@ -300,7 +300,7 @@ class CsdDinFamiliarController extends Controller
     {
         return $this->grabar([
             'requestx'=>$requestx,
-            'menssage'=>'Dinamica familiar actualizada con exito',
+            'menssage'=>'Dinamica familiar actualizada con éxito',
             'padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
     }
 }

@@ -55,7 +55,7 @@ class AgResponsableController extends Controller
         return $this->setAgResponsable([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Responsable creados con exito',
+            'infoxxxx' =>       'Responsable creados con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -96,7 +96,7 @@ class AgResponsableController extends Controller
         return $this->setAgResponsable([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Responsable editado con exito',
+            'infoxxxx' => 'Responsable editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

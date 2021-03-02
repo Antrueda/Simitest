@@ -65,7 +65,7 @@ class AgActividadController extends Controller
             'requestx' => $request,
             'modeloxx' => '',
             'padrexxx' => $request,
-            'infoxxxx' =>       'Taller creado con exito',
+            'infoxxxx' =>       'Taller creado con éxito',
             'routxxxx' => 'agrespon.nuevo'
         ]);
     }
@@ -106,7 +106,7 @@ class AgActividadController extends Controller
         return $this->setAgActividad([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Taller editado con exito',
+            'infoxxxx' => 'Taller editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

@@ -62,7 +62,7 @@ class DepartamentoController extends Controller
         return $this->setDepartamento([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Departamento creado con exito',
+            'infoxxxx' =>       'Departamento creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -105,7 +105,7 @@ class DepartamentoController extends Controller
         return $this->setDepartamento([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Departamento editado con exito',
+            'infoxxxx' => 'Departamento editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

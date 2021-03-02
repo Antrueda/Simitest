@@ -111,7 +111,7 @@ class FiContactoController extends Controller
     {
         $dataxxxx=$request->all();
         $dataxxxx['sis_nnaj_id']= $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Contacto y tratamiento de datos creado con exito',$padrexxx);
+        return $this->grabar($dataxxxx, '', 'Contacto y tratamiento de datos creado con éxito',$padrexxx);
     }
 
     /**
@@ -157,7 +157,7 @@ class FiContactoController extends Controller
      */
     public function update(FiContactoUpdateRequest $request, FiDatosBasico $padrexxx,  FiContacto $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Contacto y tratamiento de dato actualizado con exito',$padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Contacto y tratamiento de dato actualizado con éxito',$padrexxx);
     }
 
 

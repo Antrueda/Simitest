@@ -364,6 +364,6 @@ class UsuarioController extends Controller
     {
        $dataxxxx= $request->all();
        $dataxxxx['polidato_at']=date('Y-m-d H:m:s',time());
-        return $this->grabar($dataxxxx, $objetoxx, 'Políticas aceptadas con exito','polidato');
+        return $this->grabar($dataxxxx, $objetoxx, 'Políticas aceptadas con éxito','polidato');
     }
 }

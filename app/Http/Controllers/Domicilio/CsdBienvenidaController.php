@@ -115,7 +115,7 @@ class CsdBienvenidaController extends Controller
         $request->request->add(['prm_tipofuen_id' =>2315]);
         return $this->grabar([
             'requestx'=>$request,
-            'infoxxxx'=>'Bienvenida creada con exito',
+            'infoxxxx'=>'Bienvenida creada con éxito',
             'padrexxx'=>$padrexxx,
             'modeloxx'=>''
             ]);
@@ -167,7 +167,7 @@ class CsdBienvenidaController extends Controller
     {
         return $this->grabar([
             'requestx'=>$request,
-            'infoxxxx'=>'Bienvenida actualizada con exito',
+            'infoxxxx'=>'Bienvenida actualizada con éxito',
             'padrexxx'=>$padrexxx,
             'modeloxx'=>$modeloxx]);
     }

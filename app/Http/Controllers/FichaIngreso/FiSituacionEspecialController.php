@@ -127,7 +127,7 @@ class FiSituacionEspecialController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Situación especial creada con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Situación especial creada con éxito', $padrexxx);
     }
 
     /**
@@ -166,7 +166,7 @@ class FiSituacionEspecialController extends Controller
      */
     public function update(FiSituacionEspecialUpdateRequest $request,  FiDatosBasico $padrexxx,  FiSituacionEspecial $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Situación especial actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Situación especial actualizada con éxito', $padrexxx);
     }
 
 

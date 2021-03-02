@@ -151,7 +151,7 @@ class CsdBasicoController extends Controller
         $request->request->add(['user_crea_id' => Auth::user()->id]);
         $request->request->add(['user_edita_id' => Auth::user()->id]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con exito', 'objetoxx' => '', 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Consulta creada con éxito', 'objetoxx' => '', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -201,6 +201,6 @@ class CsdBasicoController extends Controller
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['csd_id' => $padrexxx->csd_id]);
         $request->request->add(['prm_tipofuen_id' => 2315]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con exito', 'objetoxx' => $modeloxx, 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con éxito', 'objetoxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 }

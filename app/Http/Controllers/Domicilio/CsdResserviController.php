@@ -138,7 +138,7 @@ class CsdResserviController extends Controller
         $request->request->add(['sis_esta_id' => 1]);
         return $this->grabar([
             'requestx' => $request, 
-            'infoxxxx' => 'Servicio creado con exito', 
+            'infoxxxx' => 'Servicio creado con éxito', 
             'padrexxx' => $padrexxx, 
             'modeloxx' => '', 
             ]);
@@ -192,7 +192,7 @@ class CsdResserviController extends Controller
         return $this->grabar([
             'requestx' => $request, 
             'infoxxxx' => 
-            'Servicio actualizado con exito', 
+            'Servicio actualizado con éxito', 
             'padrexxx' => $padrexxx, 
             'modeloxx' => $modeloxx
             ]);

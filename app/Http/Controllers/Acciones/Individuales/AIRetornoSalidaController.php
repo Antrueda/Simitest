@@ -199,7 +199,7 @@ class AIRetornoSalidaController extends Controller
     {
         $request->request->add(['sis_esta_id' => 1]);
         $request->request->add(['sis_nnaj_id' => $padrexxx->id]);
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos de retorno creada con exito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos de retorno creada con éxito', 'modeloxx' => '', 'padrexxx' => $padrexxx]);
     }
 
     /**
@@ -240,7 +240,7 @@ class AIRetornoSalidaController extends Controller
      */
     public function update(AIRetornoSalidaRequest $request, SisNnaj $padrexxx,  AiRetornoSalida $modeloxx)
     {
-        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos de retorno actualizados con exito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
+        return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos de retorno actualizados con éxito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
     public function inactivate(SisNnaj $padrexxx,AiRetornoSalida $modeloxx)

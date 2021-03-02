@@ -109,7 +109,7 @@ class CsdAlimentacionController extends Controller
         $dataxxxx['csd_id'] = $padrexxx->csd_id;
         $dataxxxx['sis_esta_id'] = 1;
         $dataxxxx['prm_tipofuen_id'] = 2315;
-        return $this->grabar($dataxxxx, '', 'Datos de alimentacion creados con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Datos de alimentacion creados con éxito', $padrexxx);
     }
 
     /**
@@ -156,6 +156,6 @@ class CsdAlimentacionController extends Controller
      */
     public function update(CsdAlimentacionEditarRequest $request,  CsdSisNnaj $padrexxx, CsdAlimentacion $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Datos de alimentacion actualizados especial actualizada con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Datos de alimentacion actualizados especial actualizada con éxito', $padrexxx);
     }
 }

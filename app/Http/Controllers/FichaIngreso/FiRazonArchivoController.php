@@ -141,7 +141,7 @@ class FiRazonArchivoController extends Controller
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' => 'Documento creado con exito'
+            'infoxxxx' => 'Documento creado con éxito'
         ]);
     }
 
@@ -184,7 +184,7 @@ class FiRazonArchivoController extends Controller
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Documento actualizado con exito'
+            'infoxxxx' => 'Documento actualizado con éxito'
         ]);
     }
 

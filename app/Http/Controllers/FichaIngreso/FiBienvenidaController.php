@@ -107,7 +107,7 @@ class FiBienvenidaController extends Controller
     {
         $dataxxxx=$request->all();
         $dataxxxx['sis_nnaj_id']=$padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Bienvenida creada con exito',$padrexxx);
+        return $this->grabar($dataxxxx, '', 'Bienvenida creada con éxito',$padrexxx);
     }
 
     /**
@@ -153,6 +153,6 @@ class FiBienvenidaController extends Controller
      */
     public function update(FiBienvenidaUpdateRequest $request, FiDatosBasico $padrexxx,  FiBienvenida $modeloxx)
     {
-        return $this->grabar($request->all(),$modeloxx, 'Bienvenida actualizada con exito',$padrexxx);
+        return $this->grabar($request->all(),$modeloxx, 'Bienvenida actualizada con éxito',$padrexxx);
     }
 }

@@ -131,7 +131,7 @@ class AIEvasionVestuarioController extends Controller
     {   
         $request->request->add(['reporte_evasion_id' => $padrexxx->id]);
         $request->request->add(['sis_esta_id' =>1]);
-        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Espacio creado con exito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
+        return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Espacio creado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
 
     }
 
@@ -178,7 +178,7 @@ class AIEvasionVestuarioController extends Controller
      */
     public function update(EvasionVestuarioRequest $request, AiReporteEvasion $padrexxx, EvasionVestuario $modeloxx )
     {
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con exito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
+        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
     }
 
     public function inactivate(AiReporteEvasion $padrexxx,EvasionVestuario $modeloxx)

@@ -63,7 +63,7 @@ class MunicipioController extends Controller
         return $this->setMunicipio([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Municipio creado con exito',
+            'infoxxxx' =>       'Municipio creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -105,7 +105,7 @@ class MunicipioController extends Controller
         return $this->setMunicipio([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Municipio editado con exito',
+            'infoxxxx' => 'Municipio editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

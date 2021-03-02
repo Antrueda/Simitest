@@ -143,7 +143,7 @@ class FiAutorizacionController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Autorización creada con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Autorización creada con éxito', $padrexxx);
     }
 
     /**
@@ -189,7 +189,7 @@ class FiAutorizacionController extends Controller
      */
     public function update(FiAutorizacionUpdateRequest $request, FiDatosBasico $padrexxx, FiAutorizacion $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Autorización actualizada con exito',$padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Autorización actualizada con éxito',$padrexxx);
     }
 
 

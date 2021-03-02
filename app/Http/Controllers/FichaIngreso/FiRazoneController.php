@@ -141,7 +141,7 @@ class FiRazoneController extends Controller
     public function store(FiRazoneCrearRequest $request, FiDatosBasico $padrexxx)
     {
         $request->request->add(['sis_nnaj_id' => $padrexxx->sis_nnaj_id]);
-        return $this->grabar($request, '', 'Razones para ingreso creados creada con exito', $padrexxx);
+        return $this->grabar($request, '', 'Razones para ingreso creados creada con éxito', $padrexxx);
     }
 
     /**
@@ -184,7 +184,7 @@ class FiRazoneController extends Controller
      */
     public function update(FiRazoneUpdateRequest $request, FiDatosBasico $padrexxx, FiRazone $modeloxx)
     {
-        return $this->grabar($request, $modeloxx, 'Razones para ingreso actualizados con exito', $padrexxx);
+        return $this->grabar($request, $modeloxx, 'Razones para ingreso actualizados con éxito', $padrexxx);
     }
 
     /**

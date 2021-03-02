@@ -58,7 +58,7 @@ class BarrioController extends Controller
         return $this->setBarrio([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Barrio creado con exito',
+            'infoxxxx' =>       'Barrio creado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -96,7 +96,7 @@ class BarrioController extends Controller
         return $this->setBarrio([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'Barrio editado con exito',
+            'infoxxxx' => 'Barrio editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

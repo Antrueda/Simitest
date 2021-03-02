@@ -263,7 +263,7 @@ trait HomologacionesTrait
     public function getParametrosSimiMultivalor($dataxxxx)
     {
 
-
+          trim($dataxxxx['codigoxx']);
         $parametr = [];
         $parasimi = ['codigoxx' => 0];
         if ($dataxxxx['codigoxx'] == 'null') {
@@ -272,6 +272,7 @@ trait HomologacionesTrait
 
         if ($dataxxxx['codigoxx'] != '' || $dataxxxx['codigoxx'] != 0) {
             // buscar el parametro en el antiguo desarrollo
+  
             $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
             switch ($dataxxxx['temaxxxx']) {
                 case 3:
@@ -300,10 +301,10 @@ trait HomologacionesTrait
             if ($parametr == null) {
                 $parametr = Parametro::create([
                     'nombre' => $multival->descripcion,
-                    'sis_esta_id' => Auth::user()->id,
+                    'user_edita_id' => Auth::user()->id,
                     'user_crea_id' => Auth::user()->id,
-                    'user_edita_id' => 1,
-                ]);
+                    'sis_esta_id' => 1,
+                    ]);
             }
         } else {
             switch ($dataxxxx['temaxxxx']) {

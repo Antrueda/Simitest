@@ -156,7 +156,7 @@ class FiConsumoController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Consumo SPA creado con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Consumo SPA creado con éxito', $padrexxx);
     }
 
     /**
@@ -201,6 +201,6 @@ class FiConsumoController extends Controller
      */
     public function update(FiConsumoSpaUpdateRequest $request, FiDatosBasico $padrexxx, FiConsumoSpa $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Consumo SPA actualizado con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Consumo SPA actualizado con éxito', $padrexxx);
     }
 }

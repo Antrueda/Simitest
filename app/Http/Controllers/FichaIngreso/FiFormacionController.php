@@ -142,7 +142,7 @@ class FiFormacionController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Formación creada con exito');
+        return $this->grabar($dataxxxx, '', 'Formación creada con éxito');
     }
 
     /**
@@ -187,6 +187,6 @@ class FiFormacionController extends Controller
      */
     public function update(FiFormacionUpdateRequest $request, $padrexxx, FiFormacion $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Formación actualizada con exito');
+        return $this->grabar($request->all(), $modeloxx, 'Formación actualizada con éxito');
     }
 }

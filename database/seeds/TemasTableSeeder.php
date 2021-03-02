@@ -2128,7 +2128,6 @@ class TemasTableSeeder extends Seeder
             1061 => $camposmagicos,
             1064 => $camposmagicos,
             1065 => $camposmagicos,
-            1066 => $camposmagicos,
             1067 => $camposmagicos,
         ]);
         $tema = Tema::create(['id' => 214, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'nombre' => 'ESTADO AUDICION']);
@@ -3411,8 +3410,13 @@ class TemasTableSeeder extends Seeder
             'parametr' => [2506,2507,2508]
         ]); //363
 
+        $this->getR([
+            'id'=>365,
+            'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO CLINICO',
+            'parametr' => [1060,1061,1064,1065,1066,1067]
+        ]); //363
 
-        //359
+
         // $this->getR([
             // 'id'=>364,
         //     'nombrexx' => '',

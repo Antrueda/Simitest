@@ -164,7 +164,7 @@ class CsdNnajvisitadoController extends Controller
     public function store(CsdVisitadoCrearRequest $request, SisNnaj $padrexxx, Csd $csdxxxxx )
     {
         $request->request->add(['csd_id'=>$csdxxxxx->id]);
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Consulta creada con exito','modeloxx'=>'','padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Consulta creada con éxito','modeloxx'=>'','padrexxx'=>$padrexxx]);
     }
 
     /**
@@ -207,7 +207,7 @@ class CsdNnajvisitadoController extends Controller
     public function update(CsdVisitadoCrearRequest $request, SisNnaj $padrexxx, CsdSisNnaj $modeloxx)
     {
         $request->request->add(['csd_id'=>$modeloxx->csd_id]);
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Datos básicos actualizados con exito','modeloxx'=>$modeloxx,'padrexxx'=>$padrexxx]);
+        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Datos básicos actualizados con éxito','modeloxx'=>$modeloxx,'padrexxx'=>$padrexxx]);
     }
 
     public function inactivate(SisNnaj $padrexxx,CsdSisNnaj $modeloxx)

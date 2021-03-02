@@ -102,7 +102,7 @@ class PermisoController extends Controller
         $permisox = Permissionext::create(['name' => $request->all()['name']]);
 
         return redirect()->route($this->opciones['rutaxxxx'] . '.editar', $permisox->id)
-            ->with('info', 'Permiso guardado con exito');
+            ->with('info', 'Permiso guardado con éxito');
     }
 
     /**
@@ -142,7 +142,7 @@ class PermisoController extends Controller
         $permiso->update($request->all());
 
         return redirect()->route($this->opciones['rutaxxxx'] . '.editar', $permiso->id)
-            ->with('info', 'Permiso actualizado con exito');
+            ->with('info', 'Permiso actualizado con éxito');
     }
 
     public function destroy($id)

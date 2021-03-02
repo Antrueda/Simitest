@@ -53,7 +53,7 @@ class PaisController extends Controller
         return $this->setPais([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'Pais creados con exito',
+            'infoxxxx' =>       'Pais creados con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -88,7 +88,7 @@ class PaisController extends Controller
         return $this->setPais([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'País editado con exito',
+            'infoxxxx' => 'País editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

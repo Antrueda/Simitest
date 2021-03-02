@@ -488,14 +488,14 @@ class FiController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['pasaupis'] = false;
-        return $this->grabar($dataxxxx, '', 'Datos básicos creados con exito');
+        return $this->grabar($dataxxxx, '', 'Datos básicos creados con éxito');
     }
 
     public function adicionar(FiDatosBasicoMigrarCrearRequest $request)
     {
         $dataxxxx = $request->all();
         $dataxxxx['pasaupis'] = true;
-        return $this->grabar($dataxxxx, '', 'Datos básicos creados con exito');
+        return $this->grabar($dataxxxx, '', 'Datos básicos creados con éxito');
     }
     /**
      * Display the specified resource.
@@ -541,7 +541,7 @@ class FiController extends Controller
     public function update(FiDatosBasicoUpdateRequest $request,  FiDatosBasico $objetoxx)
     {
 
-        return $this->grabar($request->all(), $objetoxx, 'Datos básicos actualizados con exito');
+        return $this->grabar($request->all(), $objetoxx, 'Datos básicos actualizados con éxito');
     }
 
     public function inactivate(FiDatosBasico $objetoxx)

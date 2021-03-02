@@ -225,7 +225,7 @@ class InValorInicialController extends Controller
     public function update(InDiagnosticoEditarRequest $request, InLineabaseNnaj $objetoxx)
     {
         $dataxxxx = $request->all();
-        return $this->grabar($dataxxxx, $objetoxx, 'VALORACION INICIAL ASIGNADA CON EXITO!!');
+        return $this->grabar($dataxxxx, $objetoxx, 'VALORACION INICIAL ASIGNADA CON éxito!!');
     }
 
 

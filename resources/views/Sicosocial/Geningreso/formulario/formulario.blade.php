@@ -53,7 +53,7 @@
         {{ Form::label('prm_periodo_id', 'tiempo', ['class' => 'control-label col-form-label-sm d-none']) }}
         <div class="row">
             <div class="col-md">
-                {{ Form::number('cuanto', null, ['class' => $errors->first('cuanto') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0', 'max' => '99',$todoxxxx['cuantoxx'], "onkeypress" => "return soloNumeros(event);"]]) }}
+                {{ Form::number('cuanto', null, ['class' => $errors->first('cuanto') ? 'form-control col-md-6 form-control-sm is-invalid' : 'form-control form-control-sm', 'min' => '0', 'max' => '99',$todoxxxx['cuantoxx'], "onkeypress" => "return soloNumeros(event);"]) }}
             </div>
             <div class="col-md">
                 {{ Form::select('prm_periodo_id', $todoxxxx['tiempoxx'], null, ['class' => $errors->first('prm_periodo_id') ? 'form-control  col-md-6 form-control-sm is-invalid' : 'form-control float-right form-control-sm']) }}

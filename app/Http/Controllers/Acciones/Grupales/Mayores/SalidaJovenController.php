@@ -50,7 +50,7 @@ class SalidaJovenController extends Controller
         return $this->setAgJovenes([
             'requestx' => $request,
             'modeloxx' => '',
-            'infoxxxx' =>       'AJ agregado con exito',
+            'infoxxxx' =>       'AJ agregado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }
@@ -62,7 +62,7 @@ class SalidaJovenController extends Controller
         return $this->setAgJovenes([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'infoxxxx' => 'AJ editado con exito',
+            'infoxxxx' => 'AJ editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
     }

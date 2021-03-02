@@ -151,7 +151,7 @@ class FiGeneracionIngresoController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['sis_nnaj_id'] = $padrexxx->sis_nnaj_id;
-        return $this->grabar($dataxxxx, '', 'Generación de ingresos creado con exito', $padrexxx);
+        return $this->grabar($dataxxxx, '', 'Generación de ingresos creado con éxito', $padrexxx);
     }
 
     /**
@@ -196,6 +196,6 @@ class FiGeneracionIngresoController extends Controller
      */
     public function update(FiGeneracionIngresoUpdateRequest $request, FiDatosBasico $padrexxx,  FiGeneracionIngreso $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Generación de ingresos actualizado con exito', $padrexxx);
+        return $this->grabar($request->all(), $modeloxx, 'Generación de ingresos actualizado con éxito', $padrexxx);
     }
 }
