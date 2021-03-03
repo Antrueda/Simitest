@@ -18,13 +18,9 @@ class VsiAbuSexualEditarRequest extends FormRequest
             'prm_estado_id.required_if' => 'Indique en que estado se encuentrao el proceso terapéutico',
             'prm_momento_ult_id.required_if' => 'En que momento se presento el evento',
             'prm_persona_ult_id.required_if' => 'Que persona se encuentra involucrada',
-            'prm_tipo_id.required' => '¿Cual fue el tipo de evento?',
+            'prm_tipo_id.required_if' => '¿Cual fue el tipo de evento?',
             'prm_tipo_ult_id.required_if' => '¿Cual fue el tipo de evento?',
-            'prm_convive_id.required' => 'Indique si actualmente convive con el agresor',
-            'prm_presencia_id.required' => '¿Hay presencia o cercanía en la vivienda con el agresor?',
-            'prm_reconoce_id.required' => '¿Existe reconocimiento de la situacion por parte de la familia?',
-            'prm_apoyo_id.required' => '¿Existe apoyo de la situacion por parte de familia?',
-            'prm_denuncia_id.required' => 'Indique si se ha presentado denuncia',
+
         ];
         $this->_reglasx = [
             'prm_evento_id' => 'required|exists:parametros,id',
@@ -41,12 +37,12 @@ class VsiAbuSexualEditarRequest extends FormRequest
             'prm_momento_ult_id' => 'required_if:prm_momento_id,1014',
             'prm_persona_ult_id' => 'required_if:prm_momento_id,1014',
             'prm_tipo_ult_id' => 'required_if:prm_momento_id,1014',
-            'prm_tipo_id' => 'required',
-            'prm_convive_id' => 'nullable:prm_tipo_id,338',
-            'prm_presencia_id' => 'nullable:prm_tipo_id,338',
-            'prm_reconoce_id' => 'nullable:prm_tipo_id,338',
-            'prm_apoyo_id' => 'nullable:prm_tipo_id,338',
-            'prm_denuncia_id' => 'nullable:prm_tipo_id,338',
+            'prm_tipo_id' => 'required_if:prm_evento_id,227',
+            'prm_convive_id' => 'nullable',
+            'prm_presencia_id' => 'nullable',
+            'prm_reconoce_id' => 'nullable',
+            'prm_apoyo_id' => 'nullable',
+            'prm_denuncia_id' => 'nullable',
             'informacion' => 'nullable|string|max:4000',
         ];
     }
@@ -79,17 +75,17 @@ class VsiAbuSexualEditarRequest extends FormRequest
     public function validar()
     {
 
-        if($this->prm_tipo_id != 338){
-            // $this->_mensaje['dificultadesa.required'] = 'Indique que tipo de  dificultades';
-            // $this->_mensaje['dificultadesa.required'] = 'Indique que tipo de  dificultades';
-            // $this->_mensaje['dificultadesa.required'] = 'Indique que tipo de  dificultades';
-            // $this->_mensaje['dificultadesa.required'] = 'Indique que tipo de  dificultades';
-            // $this->_mensaje['dificultadesa.required'] = 'Indique que tipo de  dificultades';
-            $this->_reglasx['prm_convive_id'] = 'required';
-            $this->_reglasx['prm_presencia_id'] = 'required';
-            $this->_reglasx['prm_apoyo_id'] = 'required';
-            $this->_reglasx['prm_reconoce_id'] = 'required';
-            $this->_reglasx['prm_denuncia_id'] = 'required';
+        if($this->prm_tipo_id != 338&&$this->prm_evento_id==227){
+            $this->_mensaje['prm_convive_id.required'] = 'Indique si actualmente convive con el agresor';
+            $this->_mensaje['prm_presencia_id.required'] = '¿Hay presencia o cercanía en la vivienda con el agresor?';
+            $this->_mensaje['prm_reconoce_id.required'] = '¿Existe reconocimiento de la situacion por parte de la familia?';
+            $this->_mensaje['prm_apoyo_id.required'] = '¿Existe apoyo de la situacion por parte de familia?';
+            $this->_mensaje['prm_denuncia_id.required'] = 'Indique si se ha presentado denuncia';
+           $this->_reglasx['prm_convive_id'] = 'required';
+           $this->_reglasx['prm_presencia_id'] = 'required';
+           $this->_reglasx['prm_apoyo_id'] = 'required';
+           $this->_reglasx['prm_reconoce_id'] = 'required';
+           $this->_reglasx['prm_denuncia_id'] = 'required';
             
         }
     }

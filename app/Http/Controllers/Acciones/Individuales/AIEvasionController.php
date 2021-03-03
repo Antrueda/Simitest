@@ -368,7 +368,7 @@ class AIEvasionController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-        ->route('aisalidamenores.nuevo', [$padrexxx->id])
+        ->route('aievasion', [$padrexxx->id])
         ->with('info', 'Evasión inactivada correctamente');
     }
 

@@ -433,7 +433,8 @@ trait SalidaTrait
         ])
             ->join('sis_depens as upi', 'ai_reporte_evasions.prm_upi_id', '=', 'upi.id')
             ->join('sis_estas', 'ai_reporte_evasions.sis_esta_id', '=', 'sis_estas.id')
-            ->where('ai_reporte_evasions.sis_nnaj_id', $request->padrexxx);
+            ->where('ai_reporte_evasions.sis_nnaj_id', $request->padrexxx)
+            ->where('ai_reporte_evasions.sis_esta_id',1);
         return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -544,6 +545,7 @@ trait SalidaTrait
             ])
             ->join('parametros as parentesco', 'evasion_parentescos.prm_parentezco_id', '=', 'parentesco.id')
             ->join('sis_estas', 'evasion_parentescos.sis_esta_id', '=', 'sis_estas.id')
+            ->where('evasion_parentescos.sis_esta_id', 1)
             ->where('evasion_parentescos.reporte_evasion_id', $request->padrexxx);
 
         return $this->getDtAcciones($dataxxxx, $request);
@@ -563,6 +565,7 @@ trait SalidaTrait
         ])
             ->join('parametros as vestuario', 'evasion_vestuarios.prm_vestuario_id', '=', 'vestuario.id')
             ->join('sis_estas', 'evasion_vestuarios.sis_esta_id', '=', 'sis_estas.id')
+            ->where('evasion_vestuarios.sis_esta_id', 1)
             ->where('evasion_vestuarios.reporte_evasion_id', $request->padrexxx);
 
         return $this->getDtAcciones($dataxxxx, $request);

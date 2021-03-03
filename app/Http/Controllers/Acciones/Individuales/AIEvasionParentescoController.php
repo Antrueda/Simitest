@@ -267,7 +267,7 @@ class AIEvasionParentescoController extends Controller
         $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route('evasionpar.editar', [$padrexxx->id])
+            ->route('aievasion.editar', [$padrexxx->sis_nnaj_id,$padrexxx->id, ])
             ->with('info', 'Familiar inactivado correctamente');
     }
 }

@@ -251,7 +251,14 @@
     @endif
   </div>
 </div>
-<span>EN CASO DE QUE SALGA CON UNA PERSONA AUTORIZADA POR EL REPRESENTANTE LEGAL</span><br>
+<hr>
+<hr style="border:3px;">
+<div class="row mt-3">
+  <div class="col-md-12">
+    <span>EN CASO DE QUE SALGA CON UNA PERSONA AUTORIZADA POR EL REPRESENTANTE LEGAL</span>
+  </div>
+</div>
+<hr style="border:3px;">
 <div class="row">
   <div class="col-md-3">
     {{ Form::label('prm_carta_id', 'Carta de autorización firmada', ['class' => 'control-label col-form-label-sm']) }}
