@@ -346,7 +346,6 @@ class AISalidaMenoresController extends Controller
 
     public function destroy(SisNnaj $padrexxx, AiSalidaMenores $modeloxx)
     {
-
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
         ->route('aisalidamenores', [$padrexxx->id])

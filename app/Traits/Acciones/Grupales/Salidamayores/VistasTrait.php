@@ -95,8 +95,8 @@ trait VistasTrait
         $opciones['condixxx'] = Tema::combo(272, false, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
-        $opciones['usuariox'] = User::getRes(false, false,0);
-        $opciones['responsa'] = ['' => 'Seleccione'];
+        $opciones['usuariox'] = User::Combo(false, false);
+        $opciones['responsa'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
         $opciones['agtemaxx'] = ['' => 'Seleccione'];
         $opciones['tallerxx'] = ['' => 'Seleccione'];
         $opciones['lugarxxx'] =  Parametro::find(235)->combo;

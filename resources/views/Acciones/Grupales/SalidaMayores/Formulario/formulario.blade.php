@@ -39,16 +39,18 @@
 </div>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-12" style="pointer-events:none;">
 		{{ Form::label('user_doc2_id', 'Responsable de UPI', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('user_doc2_id', $todoxxxx['usuariox'], null, ['class' => $errors->first('user_doc2_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'responsable']) }}
+		{{ Form::select('user_doc2_id', $todoxxxx['usuariox'], null, ['class' => $errors->first('user_doc2_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm','id'=>'responsable','placeholder'=>'Seleccione la UPI/Dependencia para cargar el responsable']) }}
 		@if($errors->has('user_doc2_id'))
 			<div class="invalid-feedback d-block">
 				{{ $errors->first('user_doc2_id') }}
 			</div>
 		@endif
 	</div>
+    
 </div>
+<br>
 
 
 

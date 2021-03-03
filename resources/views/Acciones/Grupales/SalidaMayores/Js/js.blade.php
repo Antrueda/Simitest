@@ -1,5 +1,7 @@
 <script>
   $(document).ready(function(){
+
+
     $('#razones').select2({
       language: "es"
     });
@@ -7,7 +9,7 @@
       language: "es"
     });
     var f_repsable = function(dataxxxx) {
-            $.ajax({
+        $.ajax({
                 url: "{{ route('aisalidamenores.responsa')}}",
                 type: 'GET',
                 data: dataxxxx.dataxxxx,
@@ -19,15 +21,15 @@
                     });
                 },
                 error: function(xhr, status) {
-                    alert('Disculpe, existe un problema as buscar el responsable de la upi');
+                  //  alert('Disculpe, existe un problema al buscar el responsable de la upi');
                 }
             });
         }
         $('#prm_upi_id').change(function() {
-          f_repsable({dataxxxx:{padrexxx:$(this).val(),selected:''}})
+        f_repsable({dataxxxx:{padrexxx:$(this).val(),selected:''}})
         });
         @if(old('prm_upi_id') != null)
-             f_repsable({
+        f_repsable({
                 dataxxxx: {
                     valuexxx: "{{old('responsable')}}",
                     campoxxx: 'responsable',
@@ -36,10 +38,12 @@
         @endif
   
   });
+  
 
   init_contadorTa("descripcion", "contadordescripcion", 4000);
 
-
+  
+  
 function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {
         updateContadorTa(idtextarea, idcontador, max);
@@ -60,4 +64,5 @@ function updateContadorTa(idtextarea, idcontador, max) {
     }
 
 }
+
 </script>
