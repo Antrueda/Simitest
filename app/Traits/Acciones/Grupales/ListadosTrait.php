@@ -341,6 +341,9 @@ public function getJovenPermiso(Request $request, AiSalidaMayores $padrexxx)
         $request->telefono = $this->opciones['rutacarp'] .
             $this->opciones['carpetax'] . '.Botones.telefono';
         $request->estadoxx = 'layouts.components.botones.estadosx';
+        $depende =    AiSalidaMayores::select(['prm_upi_id'])
+        ->where('id', $padrexxx->id)
+        ->get();
         $dataxxxx = SalidaJovene::select([
             'salida_jovenes.id',
             'salida_jovenes.sis_nnaj_id',
@@ -373,7 +376,7 @@ public function getJovenPermiso(Request $request, AiSalidaMayores $padrexxx)
             ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
             ->where('salida_jovenes.sis_esta_id', 1)
-          //  ->where('nnaj_upis.prm_principa_id',  227)
+            ->whereIn('nnaj_upis.sis_depen_id', $depende)
 
             ->where('salida_jovenes.ai_salmay_id', $padrexxx->id);
         return $this->getDtSalidas($dataxxxx, $request);

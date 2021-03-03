@@ -66,7 +66,7 @@
                   f_combo({valuexxx:{{ old('i_prm_area_ajuste_id') }}, selected:'{{ old("i_prm_subarea_ajuste_id") }}'})
                   @endif
 
-                  $("#i_primer_responsable").change(function() {
+            $("#i_primer_responsable").change(function() {
             $.ajax({
                 url: "{{ route('is.intervencion.responsable',$todoxxxx['usuariox'])}}",
                 type: 'GET',

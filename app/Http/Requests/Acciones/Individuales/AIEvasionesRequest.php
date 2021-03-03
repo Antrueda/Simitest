@@ -31,7 +31,7 @@ class AIEvasionesRequest extends FormRequest
             'prm_tinturado_id.required' => 'Indique si es tinturado',
             'tintura.required_if' => 'Indique que color de tintura',
             'prm_tipCabello_id.required' => 'Indique el tipo de cabello',
-            'prm_corCabello_id.required' => 'Indique el corte de cabello',
+            'prm_corCabello_id.required_unless' => 'Indique el corte de cabello',
             'prm_ojos_id.required' => 'Indique el color de ojos',
             'prm_nariz_id.required' => 'Indique la forma de la nariz',
             'prm_tienelunar_id.required' => 'Indique si tiene lunar',

@@ -309,6 +309,7 @@ class CsdRedesApoyoController extends Controller
 
     public function inactivate(CsdSisNnaj $padrexxx,CsdRedsocPasado $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
@@ -321,6 +322,7 @@ class CsdRedesApoyoController extends Controller
     }
     public function destroy(CsdSisNnaj $padrexxx,CsdRedsocPasado $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['routxxxx'], [$padrexxx->id])

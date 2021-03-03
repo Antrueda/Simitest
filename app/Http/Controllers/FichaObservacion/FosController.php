@@ -362,7 +362,7 @@ class FosController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'].'.indexfos', [$modeloxx->id])
+            ->route($this->opciones['permisox'].'.indexfos', [$modeloxx->sis_nnaj_id])
             ->with('info', 'Ficha de observación inactivada correctamente');
     }
 

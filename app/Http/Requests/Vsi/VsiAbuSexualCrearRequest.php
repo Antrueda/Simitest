@@ -20,11 +20,11 @@ class VsiAbuSexualCrearRequest extends FormRequest
             'prm_persona_ult_id.required_if' => 'Que persona se encuentra involucrada',
             'prm_tipo_id.required' => '¿Cual fue el tipo de evento?',
             'prm_tipo_ult_id.required_if' => '¿Cual fue el tipo de evento?',
-            'prm_convive_id.required_if' => 'Indique si actualmente convive con el agresor',
-            'prm_presencia_id.required_if' => '¿Hay presencia o cercanía en la vivienda con el agresor?',
-            'prm_reconoce_id.required_if' => '¿Existe reconocimiento de la situacion por parte de la familia?',
-            'prm_apoyo_id.required_if' => '¿Existe apoyo de la situacion por parte de familia?',
-            'prm_denuncia_id.required_if' => 'Indique si se ha presentado denuncia',
+            'prm_convive_id.required_unless' => 'Indique si actualmente convive con el agresor',
+            'prm_presencia_id.required_unless' => '¿Hay presencia o cercanía en la vivienda con el agresor?',
+            'prm_reconoce_id.required_unless' => '¿Existe reconocimiento de la situacion por parte de la familia?',
+            'prm_apoyo_id.required_unless' => '¿Existe apoyo de la situacion por parte de familia?',
+            'prm_denuncia_id.required_unless' => 'Indique si se ha presentado denuncia',
         ];
         $this->_reglasx = [
             'prm_evento_id' => 'required|exists:parametros,id',
@@ -38,15 +38,15 @@ class VsiAbuSexualCrearRequest extends FormRequest
             'dia_ult' => 'nullable:prm_momento_id,1014|min:0|max:99',
             'mes_ult' => 'nullable:prm_momento_id,1014|min:0|max:99',
             'ano_ult' => 'nullable:prm_momento_id,1014|min:0|max:99',
-            'prm_momento_ult_id' => 'required_if:prm_evento_id,227',
-            'prm_persona_ult_id' => 'required_if:prm_evento_id,227',
-            'prm_tipo_ult_id' => 'required_if:prm_evento_id,227',
+            'prm_momento_ult_id' => 'required_if:prm_momento_id,1014',
+            'prm_persona_ult_id' => 'required_if:prm_momento_id,1014',
+            'prm_tipo_ult_id' => 'required_if:prm_momento_id,1014',
             'prm_tipo_id' => 'required',
-            'prm_convive_id' => 'required_if:prm_tipo_id,338',
-            'prm_presencia_id' => 'required_if:prm_tipo_id,338',
-            'prm_reconoce_id' => 'required_if:prm_tipo_id,338',
-            'prm_apoyo_id' => 'required_if:prm_tipo_id,338',
-            'prm_denuncia_id' => 'required_if:prm_tipo_id,338',
+            'prm_convive_id' => 'nullable:prm_tipo_id,338',
+            'prm_presencia_id' => 'nullable:prm_tipo_id,338',
+            'prm_reconoce_id' => 'nullable:prm_tipo_id,338',
+            'prm_apoyo_id' => 'nullable:prm_tipo_id,338',
+            'prm_denuncia_id' => 'nullable:prm_tipo_id,338',
             'informacion' => 'nullable|string|max:4000',
         ];
     }
@@ -78,6 +78,17 @@ class VsiAbuSexualCrearRequest extends FormRequest
 
     public function validar()
     {
-
+        if($this->prm_tipo_id != 338){
+            // $this->_mensaje['dificultadesa.required'] = 'Indique que tipo de  dificultades';
+            // $this->_mensaje['dificultadesa.required'] = 'Indique que tipo de  dificultades';
+            // $this->_mensaje['dificultadesa.required'] = 'Indique que tipo de  dificultades';
+            // $this->_mensaje['dificultadesa.required'] = 'Indique que tipo de  dificultades';
+            // $this->_mensaje['dificultadesa.required'] = 'Indique que tipo de  dificultades';
+            $this->_reglasx['prm_convive_id'] = 'required';
+            $this->_reglasx['prm_presencia_id'] = 'required';
+            $this->_reglasx['prm_apoyo_id'] = 'required';
+            $this->_reglasx['prm_reconoce_id'] = 'required';
+            $this->_reglasx['prm_denuncia_id'] = 'required';
+        }
     }
 }
