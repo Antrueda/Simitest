@@ -83,7 +83,7 @@
                     });
                 },
                 error: function(xhr, status) {
-                    alert('Disculpe, existe un problema as buscar el responsable de la upi');
+                  //  alert('Disculpe, existe un problema las buscar el responsable de la upi');
                 }
             });
         }
