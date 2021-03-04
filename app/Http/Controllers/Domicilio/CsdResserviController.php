@@ -216,7 +216,7 @@ class CsdResserviController extends Controller
         $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route('csddinfamiliar.nuevo', [$padrexxx->id])
+            ->route('csdresidencia.nuevo', [$padrexxx->id])
             ->with('info', 'Red actual inactivada correctamente');
     }
 }

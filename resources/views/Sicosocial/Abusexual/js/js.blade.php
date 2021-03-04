@@ -10,7 +10,37 @@ function doc(valor) {
         document.getElementById("prm_momento_id").hidden=true;
         document.getElementById("prm_persona_id").hidden=true;
         document.getElementById("prm_tipo_id").hidden=true;
-  
+        document.getElementById("prm_convive_id").hidden=true;
+        document.getElementById("prm_convive_id").value=null;
+        document.getElementById("prm_presencia_id").hidden=true;
+        document.getElementById("prm_presencia_id").value=null;
+        document.getElementById("prm_reconoce_id").hidden=true;
+        document.getElementById("prm_reconoce_id").value=null;
+        document.getElementById("prm_apoyo_id").hidden=true;
+        document.getElementById("prm_apoyo_id").value=null;
+        document.getElementById("prm_denuncia_id").hidden=true;
+        document.getElementById("prm_denuncia_id").value=null;
+        document.getElementById("prm_terapia_id").hidden=true;
+        document.getElementById("prm_terapia_id").value=null;
+        document.getElementById("informacion").hidden=true;
+        document.getElementById("informacion").value=null;
+        document.getElementById("prm_momento_ult_id").hidden=true;
+        document.getElementById("prm_persona_ult_id").hidden=true;
+        document.getElementById("prm_tipo_ult_id").hidden=true;
+        document.getElementById("prm_estado_id").hidden=true;
+        document.getElementById("prm_estado_id").value=null;
+        document.getElementById("dia_ult").hidden=true;
+        document.getElementById("dia_ult").value=null;
+        document.getElementById("mes_ult").hidden=true;
+        document.getElementById("mes_ult").value=null;
+        document.getElementById("ano_ult").hidden=true;
+        document.getElementById("ano_ult").value=null;
+        document.getElementById("prm_momento_id").value=null;
+        document.getElementById("prm_tipo_id").value=null;
+        document.getElementById("prm_terapia_id").value=null;
+        doc1(document.getElementById('prm_momento_id').value = 1013);
+        doc2(document.getElementById('prm_tipo_id').value=338);
+        doc3(document.getElementById('prm_terapia_id').value=228);
     }
     else{
         document.getElementById("dia").hidden=false;
