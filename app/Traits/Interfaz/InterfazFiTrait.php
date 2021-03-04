@@ -6,8 +6,10 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Parametro;
+use App\Models\Simianti\Ge\GeNnaj;
 use App\Models\Simianti\Ge\GeNnajDocumento;
-use PhpParser\Node\Stmt\Foreach_;
+use App\Models\User;
+use App\Traits\Interfaz\HomologacionesSimiAtiguoTrait as HSAT;
 
 /**
  * realiza la comunicación entre las dos bases de datos=>'{$value->s_iso}'que se busca?
@@ -17,6 +19,7 @@ use PhpParser\Node\Stmt\Foreach_;
  */
 trait InterfazFiTrait
 {
+    use HSAT;
     use HomologacionesTrait;
     public function getArmarData($request)
     {
@@ -63,9 +66,9 @@ trait InterfazFiTrait
             ->orderBy('ficha_acercamiento_ingreso.fecha_insercion', 'ASC')
             //->where('ficha_acercamiento_ingreso.estado', 'A')
             ->first();
-           
-              
-           
+
+
+
         $this->getUpisModalidadHT(['idnnajxx' => $dataxxxx->id_nnaj]);
         return $dataxxxx;
     }
@@ -73,13 +76,12 @@ trait InterfazFiTrait
     {
         // ya lo llamo
         $dataxxxx = $this->getArmarData($request);
-        //ddd( $dataxxxx->toArray());
         $objetoxx = new FiDatosBasico;
         $objetoxx->diligenc = explode(' ', $dataxxxx->fecha_apertura)[0];
         $objetoxx->prm_tipoblaci_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_poblacion, 'tablaxxx' => 'TIPOPOB', 'temaxxxx' => 119, 'testerxx' => false])->id;
         $objetoxx->sis_depen_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->id_upi])->id;
-      
-        if($dataxxxx->modalidad!=null){
+
+        if ($dataxxxx->modalidad != null) {
             $objetoxx->sis_servicio_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad,  'sisdepen' => $objetoxx->sis_depen_id, 'datobasi' => true])->id;
         }
 
@@ -133,9 +135,9 @@ trait InterfazFiTrait
         $objetoxx->prm_estado_civil_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->estado_civil, 'tablaxxx' => 'ESTADOC', 'temaxxxx' => 19, 'testerxx' => false])->id;
         $objetoxx->prm_etnia_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->etnia, 'tablaxxx' => 'ETNIA', 'temaxxxx' => 20, 'testerxx' => false])->id;
         $objetoxx->prm_vestimenta_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->condicion_vestido, 'tablaxxx' => 'DICOTOMIAS', 'temaxxxx' => 290, 'testerxx' => false])->id;
-        
+
         $locabari = $this->getBarrio(['idbarrio' => $dataxxxx->id_barrio]);
-        //ddd( $locabari);
+
         $objetoxx->sis_localidad_id = $locabari->sis_localupz->sis_localidad_id;
         $objetoxx->sis_upz_id = $locabari->sis_localupz->id;
         $objetoxx->sis_upzbarri_id = $locabari->id;
@@ -148,7 +150,7 @@ trait InterfazFiTrait
         $upissimi = GeNnajDocumento::join('ge_upi_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $dataxxxx['objetoxx']->nnaj_docu->s_documento)
             ->where('ge_upi_nnaj.estado', 'A')
-            ->where('ge_upi_nnaj.modalidad','!=', null)
+            ->where('ge_upi_nnaj.modalidad', '!=', null)
             ->get();
         foreach ($upissimi as $key => $value) {
             $dataxxxx['idupixxx'] =  $value->id_upi;
@@ -160,6 +162,104 @@ trait InterfazFiTrait
             }
             $dataxxxx['codigoxx'] =  $value->modalidad;
             $this->getAsignarServiciosNnaj($dataxxxx);
+        }
+    }
+    public function getDataGeNnaj($dataxxxx)
+    {
+        $padrexxx = $dataxxxx['padrexxx'];
+        $padrexxx->prm_tipoblaci_id = 651;
+        $maximoxx = GeNnaj::select(['id_nnaj'])->orderBy('id_nnaj', 'DESC')->first()->id_nnaj + 1;
+        $nnajfics = $padrexxx->nnaj_fi_csd;
+        $sexoxxxx = $padrexxx->nnaj_sexo;
+        // ddd($padrexxx->toArray());
+        // ddd(Parametro::find($nnajfics->prm_gsanguino_id)->nombre);
+        $datannaj = [
+
+            'id_nnaj' => $maximoxx,
+            'primer_apellido' => $padrexxx->s_primer_apellido,
+            'segundo_apellido' => $padrexxx->s_segundo_apellido,
+            'primer_nombre' => $padrexxx->s_primer_nombre,
+            'segundo_nombre' => $padrexxx->s_segundo_nombre,
+            'fecha_nacimiento' => $padrexxx->nnaj_nacimi->d_nacimiento,
+            'id_nacimiento' => $padrexxx->nnaj_nacimi->sis_municipio->simianti_id,
+            'apodo' => $padrexxx->s_apodo,
+
+
+            'fecha_insercion' => date('Y-m-d'),
+            'usuario_insercion' => User::find($padrexxx->user_crea_id)->s_documento,
+            'fecha_modificacion' => date('Y-m-d'),
+            'usuario_modificacion' => User::find($padrexxx->user_crea_id)->s_documento,
+            'rh' => Parametro::find($nnajfics->prm_gsanguino_id)->nombre . Parametro::find($nnajfics->prm_factor_rh_id)->nombre,
+            'genero' => $this->setParametrosHSAT([
+                'nnajxxxx' => $padrexxx,
+                'testerxx' => false,
+                'idparame' => $sexoxxxx->prm_identidad_genero_id,
+                'tablaxxx' => 'IDENTIDADG',
+                'temaxxxx' => 12,
+                'tipoxxxx' => 'multival',
+            ]),
+            // 'tablaxxx' => 'TIPO_DOCUMENTO', 'temaxxxx' => 3
+
+            'tipo_documento' => $this->setParametrosHSAT([
+                'nnajxxxx' => $padrexxx,
+                'testerxx' => true,
+                'idparame' => $padrexxx->nnaj_docu->prm_tipodocu_id,
+                'tablaxxx' => 'TIPO_DOCUMENTO',
+                'temaxxxx' => 3,
+                'tipoxxxx' => 'multival',
+            ]),
+            'numero_documento' => $padrexxx->nnaj_docu->s_documento,
+            // 'notaria'=>$padrexxx->,
+            // 'registraduria'=>$padrexxx->,
+            // 'id_lugar_expedicion'=>$padrexxx->,
+            // 'clase_libreta_militar'=>$padrexxx->,
+            // 'estado'=>$padrexxx->,
+            // 'numero_libreta_militar'=>$padrexxx->,
+            // 'ultimo_grado_aprobado'=>$padrexxx->,
+            // 'fecha_nacimiento_estimada'=>$padrexxx->,
+            // 'etnia'=>$padrexxx->,
+            // 'email'=>$padrexxx->,
+            // 'nombre_identitario'=>$padrexxx->,
+            // 'estado_civil'=>$padrexxx->,
+            // 'genero_identifica'=>$padrexxx->,
+            // 'sexo_orienta'=>$padrexxx->,
+            // 'condicion_vestido'=>$padrexxx->,
+            // 'autocuidado'=>$padrexxx->,
+            // 'sin_id_porque'=>$padrexxx->,
+            // 'cuenta_doc'=>$padrexxx->,
+            // 'situacion_mil'=>$padrexxx->,
+            'tipo_poblacion' => $this->setParametrosHSAT([
+                'nnajxxxx' => $padrexxx,
+                'testerxx' => false,
+                'idparame' => $padrexxx->prm_tipoblaci_id,
+                'tablaxxx' => 'TIPOPOB',
+                'temaxxxx' => 119,
+                'tipoxxxx' => 'multival',
+            ]),
+            // 'id_pais_nacimiento'=>$padrexxx->,
+            // 'sis_usuario'=>$padrexxx->,
+        ];
+
+        // ddd($datannaj);
+        return $datannaj;
+    }
+    public function setNnajPNT($dataxxxx)
+    {
+
+
+
+        $padrexxx = $dataxxxx['padrexxx'];
+        $padrexxx->nnaj_docu->s_documento = 2933411;
+
+
+        $nnajxxxx = GeNnaj::join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
+            ->where('ge_nnaj_documento.numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
+        if ($nnajxxxx == null) {
+            $this->getDataGeNnaj($dataxxxx);
+
+            // ddd($padrexxx);
+            // $iiiddi = GeNnaj::create();
+            // ddd($iiiddi);
         }
     }
 }

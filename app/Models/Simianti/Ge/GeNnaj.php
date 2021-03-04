@@ -9,7 +9,7 @@ class GeNnaj extends Model
     protected $connection = 'simiantiguo';
     protected $table = 'ge_nnaj';
     protected $primaryKey = 'id_nnaj';
-
+    public $timestamps = false;
     protected $fillable = [
         'id_nnaj',
         'primer_apellido',

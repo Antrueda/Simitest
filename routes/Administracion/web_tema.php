@@ -20,6 +20,16 @@ Route::group(['prefix' => 'tema'], function () {
 	    'uses' => 'Administracion\TemaController@update',
 	    'middleware' => ['permission:tema-editar']
 	]);
+
+    Route::get('homolagar/{temaxxxx}/{parametr}', [
+	    'uses' => 'Administracion\TemaController@edithomolagar',
+	    'middleware' => ['permission:tema-editar']
+	])->name('tema.homolaga');
+	Route::put('editar/{temaxxxx}/{parametr}', [
+	    'uses' => 'Administracion\TemaController@updatehomolagar',
+	    'middleware' => ['permission:tema-editar']
+	])->name('tema.homolagx');
+
 	Route::put('editar/{id}/{id0}', [
 	    'uses' => 'Administracion\TemaController@updateParametro',
 	    'middleware' => ['permission:tema-crear|tema-editar']

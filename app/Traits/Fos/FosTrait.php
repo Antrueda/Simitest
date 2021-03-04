@@ -87,9 +87,9 @@ trait FosTrait
             ->join('areas', 'fos_datos_basicos.area_id', '=', 'areas.id')
             ->join('fos_tses', 'fos_datos_basicos.fos_tse_id', '=', 'fos_tses.id')
             ->join('fos_stses', 'fos_datos_basicos.fos_stse_id', '=', 'fos_stses.id')
-            ->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx)
-            ->where('fos_datos_basicos.sis_esta_id', 1)
-            ;
+            ->where('fos_datos_basicos.sis_nnaj_id', $request->padrexxx);
+            // ->where('fos_datos_basicos.sis_esta_id', 1)
+
          return $this->getDtAcciones($dataxxxx, $request);
     }
 
@@ -114,6 +114,7 @@ trait FosTrait
         )
             ->join('nnaj_sexos', 'fi_datos_basicos.id', '=', 'nnaj_sexos.fi_datos_basico_id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id');
+
             return $this->getDtAcciones($dataxxxx, $request);
         }
 

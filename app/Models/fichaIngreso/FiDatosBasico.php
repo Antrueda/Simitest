@@ -3,12 +3,10 @@
 namespace App\Models\fichaIngreso;
 
 use App\Models\fichaIngreso\NnajNacimi;
-use App\Models\oracle\GeNnaj;
 use App\Models\Parametro;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisDocfuen;
 use Carbon\Carbon;
-
 use App\Models\Sistema\SisNnaj;
 use App\Models\User;
 use DateTime;
@@ -16,7 +14,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Traits\Interfaz\InterfazFiTrait;
-
 class FiDatosBasico extends Model
 {
     use InterfazFiTrait;

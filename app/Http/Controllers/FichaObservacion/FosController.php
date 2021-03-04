@@ -16,9 +16,7 @@ use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\fichaobservacion\FosDatosBasico;
 use App\Models\fichaobservacion\FosSeguimiento;
-use App\Models\fichaobservacion\FosStse;
 use App\Models\fichaobservacion\FosTse;
-use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisEntidad;
 use App\Models\Sistema\SisEsta;
 use App\Models\Sistema\SisNnaj;
@@ -248,7 +246,7 @@ class FosController extends Controller
         $this->opciones['botoform'][0]['routingx'][1] = $this->opciones['parametr'];
         //$upinnajx=$dataxxxx['padrexxx']->UpiPrincipal;
       //  $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
-   
+
         $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(true,false,$dataxxxx['padrexxx']->id);
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['areacont'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
@@ -257,7 +255,7 @@ class FosController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $dataxxxx['modeloxx']->d_fecha_diligencia=explode(' ',$dataxxxx['modeloxx']->d_fecha_diligencia)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            
+
             $this->opciones['seguixxx'] = FosTse::combo($dataxxxx['modeloxx']->area_id, true, false);
             $this->opciones['tipsegui'] = FosSeguimiento::combo([
                 'ajaxxxxx' => false,

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\FichaIngreso;
 
-
+use App\Exceptions\Interfaz\Simiantiguo\ParametroInvalido;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoMigrarCrearRequest;
@@ -615,12 +615,13 @@ class FiController extends Controller
     public function prueba($departam, Request $request)
     {
         $request->docuagre = 1000943210;
-
+        // throw new ParametroInvalido('Something Went Wrong.');
+        $this->setNnajPNT(['padrexxx'=>FiDatosBasico::first()]);
         // $numbers = random_int(1000000000, 1999999999);
         // echo $this->getCedulaAleatoria();
         // ddd(date('Y-m-d H:m:s'));
 
-        $this->setCmposicionFamiliarCFT($request);
+    ///$this->setCmposicionFamiliarCFT($request);
 
 
 

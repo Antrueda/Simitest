@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Tema;
 use App\Models\Parametro;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class TemaController extends Controller{
@@ -21,7 +22,7 @@ class TemaController extends Controller{
 
     }
 
-    public function index(Request $request){ 
+    public function index(Request $request){
         $datos = $this->datos($request->all());
         $buscar = ($request->buscar) ? $request->buscar : '';
         return view('administracion.tema.index', compact('datos', 'buscar'));
@@ -78,7 +79,7 @@ class TemaController extends Controller{
         return redirect()->route('tema.editar', $id)->with('info', 'Registro Eliminado con éxito');
     }
 
-    protected function datos(array $request){ 
+    protected function datos(array $request){
         return Tema::select('id', 'nombre', 'sis_esta_id')
             ->when(request('buscar'), function($q, $buscar){
                 $buscar=strtoupper ( $buscar);
@@ -108,4 +109,17 @@ class TemaController extends Controller{
             'nombre' => 'required|string|max:120|unique:temas,nombre,'.$id,
         ]);
     }
+
+    public function edithomolagar(Tema $temaxxxx, Parametro $parametr){
+        $temaxxxx->parametro_id=$parametr->id;
+        $temaxxxx->simianti_id=$temaxxxx->parametros->find($temaxxxx->parametro_id)->pivot->simianti_id;
+        return view('administracion.tema.homologar', ['accion' => 'Editar'], compact('temaxxxx','parametr'));
+    }
+    public function updatehomolagar(Request $request, Tema $temaxxxx,  $parametr){
+        $temaxxxx->parametros()->updateExistingPivot($parametr, ['simianti_id' => $request->simianti_id,'user_edita_id'=>Auth::user()->id], false);
+
+
+      return redirect()->route('tema.editar', $temaxxxx->id)->with('info', 'Parámetro homologado con éxito');
+    }
+
 }
