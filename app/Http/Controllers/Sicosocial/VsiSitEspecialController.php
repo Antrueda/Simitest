@@ -65,8 +65,8 @@ class VsiSitEspecialController extends Controller
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
-        $this->opciones['victimaz']='block';
-        $this->opciones['riesgosz']='block';
+        $this->opciones['victimaz']='none';
+        $this->opciones['riesgosz']='none';
         
 
         if ($dataxxxx['modeloxx'] != '') {

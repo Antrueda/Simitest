@@ -35,11 +35,16 @@
         $('#victima_div').hide()
       }
     } 
-    var victimas = "{{old('victimas')[0]}}";
+    <?php 
+      $victimas = count(old('victimas'))==0 ? 0 : old('victimas')[0]  ;
+      $riesgos = count(old('riesgos'))==0 ? 0 : old('riesgos')[0]  ;
+    ?>
+    
+    var victimas = "{{$victimas}}";
     if (victimas != '') {
             victima(victimas)
             if(victimas==853){
-              var riesgos = "{{old('riesgos')[0]}}";
+              var riesgos = "{{$riesgos}}";
               console.log(riesgos);
               riesgo(riesgos)
             }
