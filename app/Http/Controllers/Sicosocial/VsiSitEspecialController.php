@@ -84,7 +84,7 @@ class VsiSitEspecialController extends Controller
                 $this->opciones['victimaz']='block';
                 $this->opciones['riesgosz']='none';
             }
-      
+
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
