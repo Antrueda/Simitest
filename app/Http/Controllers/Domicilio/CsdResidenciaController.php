@@ -10,6 +10,7 @@ use App\Models\consulta\CsdResidencia;
 use App\Models\consulta\pivotes\CsdRescamass;
 use App\Models\consulta\pivotes\CsdResideambiente;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\Parametro;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
@@ -213,7 +214,7 @@ class CsdResidenciaController extends Controller
                 'tablaxxx' => 'datatable520',
                 'permisox' => 'csdrescomparte',
                 'routxxxx' => 'csdrescomparte',
-                'parametr' => [$residenc],
+                'parametr' => [$dataxxxx['padrexxx']->id],
             ],
         ];
 

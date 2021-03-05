@@ -55,7 +55,7 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
     ])->name($routexxx . '.borrar');
     Route::get('nnajsele', [
 		'uses' => $controll . 'Controller@getNnajsele',
-		'middleware' => ['permission:' . $routexxx . '-borrar']
+		'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.nnajsele');
 
     Route::get('depamuni', [

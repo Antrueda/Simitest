@@ -73,7 +73,7 @@ class CsdGeneracionIngresosController extends Controller
                 'titulist' => 'LISTA DE APORTANTES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.indexfooter',
                 'vercrear' => true,
-                'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->csd_id]),
+                'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -143,7 +143,7 @@ class CsdGeneracionIngresosController extends Controller
         $vestuari = CsdGenIngreso::where('csd_id', $padrexxx->csd_id)->first();
         if ($vestuari != null) {
             return redirect()
-                ->route('csdgeningresos.editar', [$padrexxx->csd_id, $vestuari->id]);
+                ->route('csdgeningresos.editar', [$padrexxx->id, $vestuari->id]);
         }
         $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['rutaxxxx']=route($this->opciones['permisox'].'.nuevo',$padrexxx->id);

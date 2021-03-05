@@ -105,7 +105,7 @@ class CsdGeneracionAportanteController extends Controller
                 'titulist' => 'LISTA DE APORTANTES',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.indexfooter',
                 'vercrear' => true,
-                'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->csd_id]),
+                'urlxxxxx' => route('csdgenaporta.listaxxx', [$dataxxxx['padrexxx']->id]),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 2, 'colspanx' => 1],
@@ -207,7 +207,7 @@ class CsdGeneracionAportanteController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdGeningAporta $modeloxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
+
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
             [
@@ -249,4 +249,3 @@ class CsdGeneracionAportanteController extends Controller
             ->with('info', 'Red actual inactivada correctamente');
     }
 }
-//

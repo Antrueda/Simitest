@@ -355,7 +355,8 @@ trait CsdTrait
             ->join('parametros as entre', 'csd_gening_aportas.prm_entre_id', '=', 'entre.id')
             ->join('parametros as jornada', 'csd_gening_aportas.prm_a_id', '=', 'jornada.id')
             ->join('sis_estas', 'csd_gening_aportas.sis_esta_id', '=', 'sis_estas.id')
-            ->where('csd_gening_aportas.csd_id', $request->padrexxx);
+            ->join('csd_sis_nnaj', 'csd_gening_aportas.csd_id', '=', 'csd_sis_nnaj.csd_id')
+            ->where('csd_sis_nnaj.id', $request->padrexxx);
 
         return $this->getDtAportantes($dataxxxx, $request);
     }
