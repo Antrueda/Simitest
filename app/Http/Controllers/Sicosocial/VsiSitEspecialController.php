@@ -65,10 +65,26 @@ class VsiSitEspecialController extends Controller
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
+        $this->opciones['victimaz']='block';
+        $this->opciones['riesgosz']='block';
+        
+
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-           
+            if($dataxxxx['modeloxx']->victimas[0]->id==853){
+                $this->opciones['victimaz']='none';
+                $this->opciones['riesgosz']='block';
+            }
+            if($dataxxxx['modeloxx']->victimas[0]->id==853&&$dataxxxx['modeloxx']->riesgos[0]->id==853){
+                $this->opciones['victimaz']='block';
+                $this->opciones['riesgosz']='block';
+            }
+            if($dataxxxx['modeloxx']->victimas[0]->id!=853){
+                $this->opciones['victimaz']='block';
+                $this->opciones['riesgosz']='none';
+            }
+      
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;

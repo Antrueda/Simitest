@@ -17,32 +17,43 @@
       dropdownParent: $('#riesgos_div'),
       language: "es"
     });
+    
+    var victima = function(valuexxxx){
+      if(valuexxxx==853){
+        $('#riesgos_div').show()
+        $('#victima_div').hide()
+      }else{
+        $('#riesgos_div').hide()
+        $('#victima_div').show()
+      }
+    } 
+
+    var riesgo = function(valuexxxx){
+      if(valuexxxx==853&&$('#victimas').val()==853){
+        $('#victima_div').show()
+      }else{
+        $('#victima_div').hide()
+      }
+    } 
+    var victimas = "{{old('victimas')[0]}}";
+    if (victimas != '') {
+            victima(victimas)
+            if(victimas==853){
+              var riesgos = "{{old('riesgos')[0]}}";
+              console.log(riesgos);
+              riesgo(riesgos)
+            }
+          }
+
+    $('#victimas').change(function(){
+      victima($(this).val())
+     })
+    $('#riesgos').change(function(){
+      riesgo($(this).val())
+    })
 
 
   });
-  function doc(valor) {
-    if (valor != 853) {
-      document.getElementById("riesgos_div").hidden=true;
-      document.getElementById("riesgos").value = [];
-      document.getElementById("prm_victima_id").hidden=false;
-    } else {
-      document.getElementById("riesgos_div").hidden=false;
-      document.getElementById("prm_victima_id").hidden=true;
-      }
-  }
 
-  function doc1(valor) {
-    if (valor != 853) {
-      document.getElementById("prm_victima_id").hidden=true;
-
-    } else {
-      document.getElementById("prm_victima_id").hidden=false;
-    }
-  }
-
-  function carga() {
-    doc(document.getElementById('victimas').value);
-    doc1(document.getElementById('riesgos').value);
-  }
-  window.onload = carga;
+ 
 </script>
