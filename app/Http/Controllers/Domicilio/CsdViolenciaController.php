@@ -16,6 +16,7 @@ use App\Traits\Puede\PuedeTrait;
 
 class CsdViolenciaController extends Controller
 {
+    ///
     private $opciones;
     use PuedeTrait;
     public function __construct()

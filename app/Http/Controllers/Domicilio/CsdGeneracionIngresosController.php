@@ -13,6 +13,7 @@ use App\Traits\Puede\PuedeTrait;
 
 class CsdGeneracionIngresosController extends Controller
 {
+    ///
     use CsdTrait;
     use PuedeTrait;
     private $opciones;

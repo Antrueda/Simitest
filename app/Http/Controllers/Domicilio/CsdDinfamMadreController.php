@@ -196,7 +196,7 @@ class CsdDinfamMadreController extends Controller
     {
         return $this->grabar($request->all(), $modeloxx, 'Relación progenitora actualizada con éxito', $padrexxx);
     }
-
+//
     public function inactivate(CsdSisNnaj $padrexxx,CsdDinfamMadre $modeloxx)
     {
         $this->opciones['csdxxxxx'] = $padrexxx;

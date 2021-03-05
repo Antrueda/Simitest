@@ -207,7 +207,7 @@ class CsdGeneracionAportanteController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdGeningAporta $modeloxx)
     {
-
+        $this->opciones['parametr'] = [$padrexxx->id];
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
             [
@@ -249,3 +249,4 @@ class CsdGeneracionAportanteController extends Controller
             ->with('info', 'Red actual inactivada correctamente');
     }
 }
+//

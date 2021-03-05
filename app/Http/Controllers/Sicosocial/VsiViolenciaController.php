@@ -148,11 +148,11 @@ class VsiViolenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiViolenciaEditarRequest $requestx, VsiViolencia $objetoxx)
+    public function update(VsiViolenciaEditarRequest $requestx, Vsi $objetoxx)
     {
         return $this->grabar([
             'requestx' => $requestx,
-            'modeloxx' => $objetoxx,
+            'modeloxx' => $objetoxx->VsiViolencia,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

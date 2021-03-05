@@ -152,7 +152,7 @@ class CsdReshogarController extends Controller
         $this->opciones['csdxxxxx'] = $padrexxx;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'espacios'], 'padrexxx' => $padrexxx]);
     }
-
+///
     /**
      * Show the form for editing the specified resource.
      *

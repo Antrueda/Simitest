@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CsdCompfamiController extends Controller
 {
+    ///
 
     private $opciones;
     use CsdTrait;

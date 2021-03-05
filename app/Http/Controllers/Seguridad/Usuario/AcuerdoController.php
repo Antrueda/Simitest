@@ -95,7 +95,7 @@ class AcuerdoController extends Controller
     {
 
         User::polidato($dataxxxx['dataxxxx'], $dataxxxx['modeloxx'])->id;
-        return redirect()->route($this->opciones['routxxxx'] . '.editar', $dataxxxx['modeloxx']->id);
+        return  redirect('/');
     }
 
     /**
