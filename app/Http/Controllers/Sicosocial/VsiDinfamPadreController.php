@@ -194,9 +194,10 @@ class VsiDinfamPadreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(VsiDinfamPadreEditarRequest $request, VsiDinfamPadre $objetoxx)
-    {
+    {   
+        $request->request->add(['user_edita_id' => Auth::user()->id]);
         return $this->grabar([
-            'dataxxxx' => $request->all(),
+            'requestx' => $request,
             'modeloxx' => $objetoxx,
             'menssage' => 'Registro actualizado con éxito'
         ]);

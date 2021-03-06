@@ -192,11 +192,11 @@ class VsiFacRiesgoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(VsiFacRiesgoEditarRequest $request, Vsi $objetoxx)
+    public function update(VsiFacRiesgoEditarRequest $request, VsiFacRiesgo $objetoxx)
     {
         return $this->grabar([
             'requestx' => $request,
-            'modeloxx' => $objetoxx->VsiFacRiesgo,
+            'modeloxx' => $objetoxx,
             'menssage' => 'Registro actualizado con éxito'
         ]);
     }

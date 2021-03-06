@@ -243,6 +243,7 @@ class VsiGenIngresosController extends Controller
                 'parentes' =>  Tema::combo(66, false, true),
                 'actividx' =>  Tema::combo(114, false, true),
                 'frecuenc' =>  Tema::combo(110, true, true),
+                'activida' =>  Tema::combo(23, true, true),
             ]];
             return response()->json($respuest);
         }

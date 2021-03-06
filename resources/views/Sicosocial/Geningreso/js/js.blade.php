@@ -38,7 +38,7 @@ $(document).ready(function() {
         }
 
         var f_limpiar = function(valuexxx,psalecte) {
-            $("#dias,#quienes,#labores,#expectativa,#descripcion,#prm_frecuencia_id").empty();
+            $("#dias,#quienes,#labores,#expectativa,#descripcion,#prm_frecuencia_id,#prm_aporta_id").empty();
                 $.ajax({
                     url : "{{ route('vsigener.limpiar') }}",
                     data: {
@@ -59,6 +59,9 @@ $(document).ready(function() {
                         $.each(json[0].frecuenc, function(i, data) {
                             $('#prm_frecuencia_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
                         });
+                        $.each(json[0].activida, function(i, data) {
+                            $('#prm_aporta_id').append('<option  value="' + data.valuexxx + '">' + data.optionxx + '</option>')
+                        });
 
                     },
                     error: function(xhr, status) {
@@ -73,6 +76,7 @@ $(document).ready(function() {
     $("#prm_actividad_id").change(function(){
         f_campos($(this).val(),'');
         f_limpiar($(this).val(),'');
+        $("#aporte,#porque,#cuanto_aporta").val('');
 
     });
     var f_buscarempleo = function(dataxxxx) {
@@ -134,9 +138,7 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=false;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
-        document.getElementById("porque").value='';
         document.getElementById("cuanto_aporta").value='';
-        document.getElementById("aporte").value='';
         document.getElementById("prm_frecuencia_id").value='';
         document.getElementById("prm_laboral_id").value='';
 
@@ -156,11 +158,8 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
-        document.getElementById("porque").value='';
         document.getElementById("cuanto_aporta").value='';
-        document.getElementById("aporte").value='';
-        document.getElementById("prm_aporta_id").value='';
-        document.getElementById("prm_laboral_id").value='';
+    document.getElementById("prm_laboral_id").value='';
 
     }
     if(valor == 628) {
@@ -177,11 +176,8 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=false;
         document.getElementById("prm_aporta_id").hidden=false;
-        document.getElementById("porque").value='';
         document.getElementById("cuanto_aporta").value='';
-        document.getElementById("aporte").value='';
-        document.getElementById("prm_aporta_id").value='';
-        document.getElementById("prm_laboral_id").value='';
+    document.getElementById("prm_laboral_id").value='';
 
     }
     if(valor == 853) {
@@ -198,11 +194,8 @@ function doc(valor){
         document.getElementById("prm_laboral_id").hidden=true;
         document.getElementById("aporte").hidden=true;
         document.getElementById("prm_aporta_id").hidden=true;
-        document.getElementById("porque").value='';
         document.getElementById("cuanto_aporta").value='';
-        document.getElementById("aporte").value='';
-        document.getElementById("prm_aporta_id").value='';
-        document.getElementById("prm_laboral_id").value='';
+    document.getElementById("prm_laboral_id").value='';
     }
     doc1(document.getElementById('prm_no_id').value);
     doc2(document.getElementById('prm_aporta_id').value);
@@ -237,6 +230,8 @@ function doc2(valor){
 
 function carga() {
     doc(document.getElementById('prm_actividad_id').value);
+    doc1(document.getElementById('prm_no_id').value);
+    doc2(document.getElementById('prm_aporta_id').value);
 }
 window.onload=carga;
 init_contadorTa("descripcion", "contadordescripcion", 4000);
