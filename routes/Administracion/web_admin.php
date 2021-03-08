@@ -25,3 +25,4 @@ include_once('web_diasfestivos.php');
 include_once('web_servicios.php');
 include_once('web_ubicacion.php');
 include_once('Carguedocu/web_carguedocu.php');
+include_once('Temas/web_temamodu.php');

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class CreateHTemasTable extends Migration
 {
   private $tablaxxx = 'h_temas';
-  private $tablaxxx2 = 'h_parametro_tema';
+  private $tablaxxx2 = 'h_parametro_temacombo';
   /**
    * Run the migrations.
    *
@@ -26,7 +26,7 @@ class CreateHTemasTable extends Migration
 
     Schema::create($this->tablaxxx2, function (Blueprint $table) {
       $table->integer('parametro_id')->unsigned();
-      $table->integer('tema_id')->unsigned();
+      $table->integer('temacombo_id')->unsigned();
       $table->string('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
       $table = CamposMagicos::h_magicos($table);
     });

@@ -2,7 +2,7 @@
 @section('content')
 <div class="alert alert-warning">
     <strong>{{$tituloxx}}</strong> No se pudo migrar el nnaj:<strong> {{$nnajxxxx}}</strong> al sistema antiguo porque el parametro: <strong>{{$parametr}}</strong> no existe para la tabla: <strong>{{$tablaxxx}}</strong> de <strong>sis_multivalores</strong>,
-    el tema que se utiliza es: <strong>{{$temaxxxx}}</strong>.
+    el combo que se utiliza es: <strong>{{$temaxxxx}}</strong>.
     Por favor enviar pantallazo de este mensaje por correo al administrador del sistema para la homologación.
 </div>
 <div class="row">
@@ -14,7 +14,7 @@
                 </tr>
                 <tr>
                     <th>TABLA</th>
-                    <th>CODIGO</th>
+                    <th>C&Oacute;DIGO ANTIGUO</th>
                     <th>DESCRIPCION</th>
                 </tr>
             </thead>
@@ -38,9 +38,9 @@
                     <th colspan="4" style="text-align: center;">NUEVO</th>
                 </tr>
                 <tr>
-                    <th>ID TEMA</th>
-                    <th>TEMA</th>
-                    <th>ID PARAMETRO</th>
+                    <th>ID COMBO</th>
+                    <th>COMBO (TABLA)</th>
+                    <th>C&Oacute;DIGO NUEVO</th>
                     <th>PARAMETRO</th>
                 </tr>
             </thead>

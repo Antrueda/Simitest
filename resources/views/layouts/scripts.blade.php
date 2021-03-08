@@ -198,6 +198,7 @@
             }
         });
     };
+    $('.tooltipx').tooltip({ placement: "top"});
 </script>
 @include('layouts.mensaje')
 @yield('scripts')

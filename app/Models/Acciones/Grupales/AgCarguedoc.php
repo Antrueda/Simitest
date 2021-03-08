@@ -5,6 +5,7 @@ namespace App\Models\Acciones\Grupales;
 use App\Helpers\Archivos\Archivos;
 use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\Tema;
+use App\Models\Temacombo;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -108,9 +109,9 @@ class AgCarguedoc extends Model
 
 
 
-        $temaxxxy = Tema::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
-            ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
-            ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
+        $temaxxxy = Temacombo::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
+            ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.tema_id')
+            ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
        /*     ->whereNotIn(
                 'parametros.id',
                 FiDocumentosAnexa::select('i_prm_documento_id')
@@ -118,7 +119,7 @@ class AgCarguedoc extends Model
                     ->whereNotIn('i_prm_documento_id', $dataxxxx['selected'])
                     ->get()
             )*/
-            ->where('temas.id', $dataxxxx['temaxxxx'])
+            ->where('temacombos.id', $dataxxxx['temaxxxx'])
             ->get();
         foreach ($temaxxxy as $registro) {
             if ($dataxxxx['ajaxxxxx']) {

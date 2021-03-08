@@ -15,18 +15,16 @@ use App\Models\Simianti\Ge\GeUpiNnaj;
 use App\Models\Simianti\Ge\GeUpiPersonal;
 use App\Models\Simianti\Sis\Municipio;
 use App\Models\Simianti\Sis\SisMultivalore;
-use App\Models\Sistema\AreaUser;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisCargo;
 use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisServicio;
 use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
-use App\Models\Tema;
+use App\Models\Temacombo;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -233,7 +231,7 @@ trait HomologacionesTrait
     public function getValidarParametro($parametr, $dataxxxx, $actualiz, $parasimi)
     {
         // buscar el tema al que se le va a sociar el parametro del antiguo desarrollo
-        $temaxxxx = Tema::where('id', $dataxxxx['temaxxxx'])->first();
+        $temaxxxx = Temacombo::where('id', $dataxxxx['temaxxxx'])->first();
         if (!isset($parametr->id)) {
             if ($dataxxxx['codigoxx'] == '') { // viene del simi atiguo vacío
                 $parametr =  Parametro::find(2503);
@@ -272,7 +270,7 @@ trait HomologacionesTrait
 
         if ($dataxxxx['codigoxx'] != '' || $dataxxxx['codigoxx'] != 0) {
             // buscar el parametro en el antiguo desarrollo
-  
+
             $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
             switch ($dataxxxx['temaxxxx']) {
                 case 3:
@@ -443,7 +441,6 @@ trait HomologacionesTrait
             $sisdepen = GeUpi::find($dataxxxx['sisdepen']);
             $sisdepen = SisDepen::where('nombre', $sisdepen->nombre)->first();
         }
-
         // existe el servicio
         if (isset($servicio->id)) {
             $sisdepen = $this->getValidarUpi($dataxxxx, $sisdepen);
@@ -452,7 +449,6 @@ trait HomologacionesTrait
             $servicio = SisServicio::find(8);
         }
         $servicio = $this->getUnirUpiServicio($sisdepen, $servicio, $dataxxxx);
-
         return $servicio;
     }
     public function getServiciosUpi($dataxxxx)
@@ -470,14 +466,11 @@ trait HomologacionesTrait
         } else {
             $servicio = $this->getValidarUpiServicio($dataxxxx, $servicio);
         }
-
-
         return $servicio;
     }
     public function getUpisModalidadHT($dataxxxx)
     {
         $upismoda = GeUpiNnaj::where('id_nnaj', $dataxxxx['idnnajxx'])->where('modalidad', '!=', null)->get();
-
         foreach ($upismoda as $key => $value) {
             $this->getServiciosUpi(['codigoxx' => $value->modalidad, 'sisdepen' => $value->id_upi, 'datobasi' => false]);
         }

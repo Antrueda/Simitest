@@ -15,7 +15,7 @@ class RolesYPermisosSeeder extends Seeder
             'crear' => 'Permiso que permite crear registro para: ',
             'editar' => 'Permiso que permite editar registro para: ',
             'borrar' => 'Permiso que permite inactivar registro para: ',
-            'descarga'=>'Permiso que permite la descarga de archivos para: ',
+            'descarga' => 'Permiso que permite la descarga de archivos para: ',
             'factorxx' => 'Permioso que permite ver los: ',
             'metaxxxx' => 'Permioso que permite ver las: ',
             'psicologo' => 'Permioso que permite ver contenido de psicologo: ',
@@ -45,7 +45,8 @@ class RolesYPermisosSeeder extends Seeder
     {
         // Restablecer roles y permisos en caché
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
-        require_once('Reportes/RolesYPermisosReportesSeeder.php');// Reportes
+        require_once('Reportes/RolesYPermisosReportesSeeder.php'); // Reportes
+        require_once('Permisos/Temas.php'); // Reportes
         // crear permisos permiso
         $this->getPermisos(['permisox' => 'permiso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Permisos', 'pestania' => 1]);
 
@@ -207,7 +208,6 @@ class RolesYPermisosSeeder extends Seeder
         //Crear areas para VSI Redes Sociales y Apoyo antecedentes institucionales
         $this->getPermisos(['permisox' => 'vsiredpa', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Redes Sociales de Apoyo Antecedentes Institucionales VSI', 'pestania' => 1]);
 
-
         //Crear areas para VSI Situación Especial y ESCNNA
         $this->getPermisos(['permisox' => 'vsisitua', 'permisos' => ['leer', 'crear', 'editar'], 'compleme' => 'Situación Especial y ESCNNA VSI', 'pestania' => 1]);
 
@@ -232,9 +232,9 @@ class RolesYPermisosSeeder extends Seeder
         //permisos para las alertas
         $this->getPermisos(['permisox' => 'alertas', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Alertas', 'pestania' => 1]);
 
-          //permisos para las Mensajes
-          $this->getPermisos(['permisox' => 'mensajes', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Mensajes', 'pestania' => 1]);
-          
+        //permisos para las Mensajes
+        $this->getPermisos(['permisox' => 'mensajes', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Mensajes', 'pestania' => 1]);
+
 
         //Crear areas para VSI Potencialidades y metas
         $this->getPermisos(['permisox' => 'vsimetas', 'permisos' => ['metaxxxx'], 'compleme' => 'Pencialidades y Metas VSI', 'pestania' => 1]);
@@ -258,7 +258,7 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosCsd.php');
 
         //Crear datos básicos para Intervención Sicosocial
-        $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','psicologo','social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'isintervencion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'psicologo', 'social'], 'compleme' => 'Intevension Sicosocial IS', 'pestania' => 1]);
 
 
 
@@ -320,19 +320,19 @@ class RolesYPermisosSeeder extends Seeder
 
         $this->getPermisos(['permisox' => 'agconvenio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Convenios Acciones Grupales', 'pestania' => 1]);
 
-        $this->getPermisos(['permisox' => 'agrelacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Convenios Acciones Grupales', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agrelacion', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Convenios Acciones Grupales', 'pestania' => 1]);
 
-        $this->getPermisos(['permisox' => 'agcargdoc', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Documentos adjuntos', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agcargdoc', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Documentos adjuntos', 'pestania' => 1]);
 
-        
+
 
 
         $this->getPermisos(['permisox' => 'taccform', 'permisos' => ['modulo'], 'compleme' => 'Módulo de talleres y acciones formativas', 'pestania' => 1]);
 
-        $this->getPermisos(['permisox' => 'agactividad', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
-        $this->getPermisos(['permisox' => 'agrespon', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
-        $this->getPermisos(['permisox' => 'agasiste', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
-        $this->getPermisos(['permisox' => 'agrecurs', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agactividad', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agrespon', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agasiste', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agrecurs', 'permisos' => ['leer', 'crear', 'editar', 'borrar', 'activarx'], 'compleme' => 'Actividades Acciones Grupales', 'pestania' => 1]);
 
         /**
          * Permisos para Acciones Individuales
@@ -341,8 +341,8 @@ class RolesYPermisosSeeder extends Seeder
 
         // Permisos para AI Salida Mayores
         $this->getPermisos(['permisox' => 'aisalidamayores', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'salida de mayores acciones Grupales(AI)', 'pestania' => 1]);
-          // Permisos para AI Salida Mayores
-          $this->getPermisos(['permisox' => 'salidajovenes', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Jovenes Salida acciones grupales(AI)', 'pestania' => 1]);
+        // Permisos para AI Salida Mayores
+        $this->getPermisos(['permisox' => 'salidajovenes', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Jovenes Salida acciones grupales(AI)', 'pestania' => 1]);
 
 
 
@@ -442,10 +442,10 @@ class RolesYPermisosSeeder extends Seeder
         require_once('RolesYPermisosEnfermeria.php');
         require_once('Permisos/Fosadmin.php');
 
-         // crear roles y asignar los permisos
-         Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(Permission::all());
+        // crear roles y asignar los permisos
+        Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(Permission::all());
 
-         require_once('RolesYPermisosPsiclinico.php');
+        require_once('RolesYPermisosPsiclinico.php');
 
         Role::create(['name' => 'PRUEBA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         Role::create(['name' => 'aux_administrativo_territorio', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
@@ -468,8 +468,8 @@ class RolesYPermisosSeeder extends Seeder
                 'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
                 'firedactual-borrar', 'territorio-modulo'
             ]);
-            Role::create(['name' => 'PROMOTOR (A) SOCIAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);//10
-            require_once('RolesYPermisosReferente.php');//11 REFERENTE LOCAL
+        Role::create(['name' => 'PROMOTOR (A) SOCIAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //10
+        require_once('RolesYPermisosReferente.php'); //11 REFERENTE LOCAL
 
     }
 }

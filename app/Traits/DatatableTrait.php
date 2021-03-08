@@ -3,7 +3,6 @@
 namespace App\Traits;
 
 use App\Traits\GestionTiempos\ManageTimeTrait;
-use App\Transformers\FiDatosBasicoTransformer;
 use Spatie\Permission\Models\Role;
 use Yajra\DataTables\Facades\DataTables;
 

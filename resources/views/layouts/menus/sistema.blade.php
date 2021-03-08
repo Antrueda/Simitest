@@ -104,23 +104,32 @@
              </a>
          </li>
          @endcan
-         @can('tema-leer')
+         <!-- @can('tema-leer')
          <li class="nav-item">
              <a href="{{ route('tema') }}" class="nav-link">
                  <i class="far fa-object-group nav-icon"></i>
                  <p>Tema</p>
              </a>
          </li>
+         @endcan -->
+
+         @can('temamodu-modulo')
+         <li class="nav-item">
+             <a href="{{ route('temamodu') }}" class="nav-link">
+                 <i class="fas fa-chess-pawn nav-icon"></i>
+                 <p>Temas</p>
+             </a>
+         </li>
          @endcan
 
-         @canany(['parametro-leer'])
+         <!-- @canany(['parametro-leer'])
          <li class="nav-item">
              <a href="{{ route('parametro') }}" class="nav-link">
                  <i class="fas fa-chess-pawn nav-icon"></i>
                  <p>Par&aacute;metro</p>
              </a>
          </li>
-         @endcanany
+         @endcanany -->
 
          @can('siscargo-leer')
          <li class="nav-item">
@@ -147,7 +156,7 @@
          </li>
          @endcan
 
-         
+
          @can('eps-leer')
          <li class="nav-item">
              <a href="{{ route('eps') }}" class="nav-link">

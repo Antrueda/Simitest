@@ -6,6 +6,7 @@ use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Tema;
+use App\Models\Temacombo;
 
 trait CombosTrait
 {
@@ -103,10 +104,10 @@ trait CombosTrait
                 $comboxxx = ['' => 'Seleccione'];
             }
         }
-        $parametr = Tema::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
-            ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
-            ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
-            ->where('temas.id', $dataxxxx['temaxxxx'])
+        $parametr = Temacombo::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
+            ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.tema_id')
+            ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
+            ->where('temacombos.id', $dataxxxx['temaxxxx'])
             ->orderBy('parametros.id', 'asc')
             ->get();
         foreach ($parametr as $registro) {

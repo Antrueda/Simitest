@@ -432,7 +432,7 @@ class SisNnajsSeeder extends Seeder
                 's_apodo' => $faker->firstName,
                 'sis_nnaj_id' => $i + 1,
                 // 'sis_nnaj_id' => '1',
-                'prm_vestimenta_id' => 1,
+                'prm_vestimenta_id' => $faker->randomElement(['2484', '2485']),
                 'prm_tipoblaci_id' => $faker->randomElement(['650', '651', '2323']),
                 'prm_estrateg_id' => $faker->randomElement(['651', '235', '2323']),
                 'sis_esta_id' => '1',
@@ -445,7 +445,7 @@ class SisNnajsSeeder extends Seeder
             ));
             NnajFiCsd::create([
                 'fi_datos_basico_id' => $i + 1,
-                'prm_etnia_id' => 1,
+                'prm_etnia_id' => 161,
                 'prm_poblacion_etnia_id' => 1,
 
                 'prm_gsanguino_id' => $faker->randomElement(['146', '147', '148', '149']),
@@ -495,7 +495,7 @@ class SisNnajsSeeder extends Seeder
                 's_nombre_identitario' => $faker->firstName,
                 'prm_sexo_id' => $faker->randomElement(['20', '21', '22']),
                 'prm_identidad_genero_id' => $faker->randomElement(['23', '24', '25', '26', '27']),
-                'prm_orientacion_sexual_id' => 1,
+                'prm_orientacion_sexual_id' => $faker->randomElement(['27','28','29','30','31']),
                 'sis_docfuen_id' => 2,
                 'sis_esta_id' => 1,
                 'user_crea_id' => 1,
@@ -503,8 +503,8 @@ class SisNnajsSeeder extends Seeder
             ]);
             NnajSitMil::create([
                 'fi_datos_basico_id' => $i + 1,
-                'prm_situacion_militar_id' => 1,
-                'prm_clase_libreta_id' => 1,
+                'prm_situacion_militar_id' => 227,
+                'prm_clase_libreta_id' => 260,
                 'sis_esta_id' => 1,
                 'user_crea_id' => 1,
                 'user_edita_id' => 1,

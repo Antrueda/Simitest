@@ -13,8 +13,8 @@ class Tema extends Model {
     $this->attributes['nombre'] = strtoupper($value);
   }
 
-  public function parametros() {
-    return $this->belongsToMany(Parametro::class)->withPivot('simianti_id');
+  public function temacombos() {
+    return $this->hasMany(Temacombo::class);
   }
 
   /**
@@ -34,12 +34,12 @@ class Tema extends Model {
         $comboxxx = ['' => 'Seleccione'];
       }
     }
-    $parametr = Tema::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
-            ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
-            ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
-            ->where('temas.id', $temaxxxx)
-            ->orderBy('parametros.id', 'asc')
-            ->get();
+
+    $parametr = Temacombo::find($temaxxxx)
+    ->parametros()
+    ->select(['id as valuexxx', 'nombre as optionxx'])
+    ->orderBy('parametros.id', 'asc')
+    ->get();
     foreach ($parametr as $registro) {
       if ($ajaxxxxx) {
         $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->optionxx];
@@ -61,9 +61,9 @@ class Tema extends Model {
     }
 
     $parametr = Tema::select(['parametros.id', 'parametros.nombre'])
-            ->join('parametro_tema', 'temas.id', '=', 'parametro_tema.tema_id')
-            ->join('parametros', 'parametro_tema.parametro_id', '=', 'parametros.id')
-            ->where('temas.id', $temaxxxx)
+            ->join('parametro_temacomb', 'temacobos.id', '=', 'parametro_temacomb.tema_id')
+            ->join('parametros', 'parametro_temacomb.parametro_id', '=', 'parametros.id')
+            ->where('temacobos.id', $temaxxxx)
             ->orderBy('parametros.id', 'desc')
             ->get();
     foreach ($parametr as $registro) {
