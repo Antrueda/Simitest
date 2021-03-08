@@ -38,7 +38,7 @@ class FiBienvenidaController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(418, true, false); // Anterior combo 23
         $this->opciones['dependen'] = SisDepen::combo(true, false);
         $this->opciones['servicio'] = Tema::combo(65, true, false);
     }

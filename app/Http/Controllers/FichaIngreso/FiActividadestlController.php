@@ -36,7 +36,7 @@ class FiActividadestlController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(416, true, false); // Anterior combo 23
 
 
         $this->opciones['reliprac'] = Tema::combo(78, true, false);

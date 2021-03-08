@@ -43,7 +43,7 @@ class FiSaludController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
 
         $this->opciones['estafili'] = Tema::combo(21, true, false);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(431, true, false); // Anterior combo 23
         $this->opciones['tipodisc'] = Tema::combo(24, true, false);
         $this->opciones['condnoap'] = Tema::combo(25, true, false);
         $this->opciones['noapdisc'] = Tema::combo(25, true, false);

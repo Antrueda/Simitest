@@ -48,7 +48,7 @@ class CsdGeneracionAportanteController extends Controller
             $this->opciones['diaseman'] = Tema::combo(124, false, false);
             $this->opciones['ampmxxxx'] = Tema::combo(5, true, false);
             $this->opciones['frecugen'] = Tema::combo(125, true, false);
-            $this->opciones['condicio'] = Tema::combo(23, true, false);
+            $this->opciones['condicio'] = Tema::combo(407, true, false); // Anterior combo 23
             $this->opciones['familiar'] = Tema::combo(66, true, false);
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => ['csdgeningresos.nuevo', []],
@@ -70,7 +70,7 @@ class CsdGeneracionAportanteController extends Controller
     }
     private function view($dataxxxx)
     {
-        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
+        $this->opciones['sinoxxxx'] = Tema::combo(408, true, false); // Anterior combo 23
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];

@@ -36,7 +36,7 @@ class CsdViolenciaController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(415, true, false); // Anterior combo 23
         $this->opciones['condixxx'] = Tema::combo(57, true, false);
 
 

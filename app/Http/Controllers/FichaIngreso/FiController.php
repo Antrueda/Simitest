@@ -167,7 +167,7 @@ class FiController extends Controller
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['tipoblac'] = Tema::combo(119, true, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['situmili'] = Tema::combo(23, true, false);
+        $this->opciones['situmili'] = Tema::combo(366, true, false); // Anterior combo 23
         $this->opciones['tiplibre'] = Tema::combo(33, true, false);
         $this->opciones['estacivi'] = Tema::combo(19, true, false);
         $this->opciones['grupetni'] = Tema::combo(20, true, false);

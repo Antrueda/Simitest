@@ -58,7 +58,7 @@ class VsiEducacionController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
 
-        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
+        $this->opciones['sinoxxxx'] = Tema::combo(445, true, false); // Anterior combo 23
         $this->opciones['motivosx'] = Tema::combo(205, true, false);
         $this->opciones['causasxx'] = Tema::combo(207, false, false);
         $this->opciones['rendimie'] = Tema::combo(206, true, false);

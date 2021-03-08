@@ -4007,6 +4007,563 @@ class TemacomboSeeder extends Seeder
             ]
         ); //363
 
+        $tema = $this->getR(['id' => 366,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 367,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 368,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 369,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 370,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 371,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 372,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 373,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 374,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 375,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 376,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 377,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 378,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 379,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 380,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 381,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 382,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 383,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 384,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 385,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 386,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 387,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 388,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 389,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 390,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 391,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 392,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 393,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 394,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 395,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 396,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 397,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 398,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 399,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 400,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 401,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 402,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 403,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 404,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 405,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 406,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 407,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 408,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 409,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 410,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 411,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 412,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 413,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 414,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 415,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 416,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 417,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 418,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 419,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 420,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 421,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 422,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 423,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 424,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 425,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 426,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 427,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 428,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 429,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 430,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 431,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 432,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 433,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 434,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 435,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 436,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 437,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 438,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 439,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 440,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 441,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 442,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 443,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 444,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 445,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 446,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 447,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 448,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 449,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 450,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 451,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 452,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 453,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 454,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 455,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 456,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 457,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 458,  'nombrexx' => 'SI/NO']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
 
         //$tema = Tema::find(342);
         //$tema = $this->getR([

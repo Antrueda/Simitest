@@ -52,7 +52,7 @@ class VsiRedesApoyoController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
+        $this->opciones['sinoxxxx'] = Tema::combo(450, true, false); // Anterior combo 23
         $this->opciones['personax'] = Tema::combo(70, true, false);
         $this->opciones['accesoxx'] = Tema::combo(71, false, false);
         $this->opciones['motivosx'] = Tema::combo(72, false, false);

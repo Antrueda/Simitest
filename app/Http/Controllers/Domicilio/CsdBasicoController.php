@@ -71,9 +71,9 @@ class CsdBasicoController extends Controller
 
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['document'] = Tema::combo(361, true, false);
-        $this->opciones['neciayud'] = Tema::combo(23, false, false);
-        $this->opciones['docufisi'] = Tema::combo(23, true, false);
-        $this->opciones['situdefi'] = Tema::combo(23, true, false);
+        $this->opciones['neciayud'] = Tema::combo(395, false, false); // Anterior combo 23
+        $this->opciones['docufisi'] = Tema::combo(396, true, false); // Anterior combo 23
+        $this->opciones['situdefi'] = Tema::combo(397, true, false); // Anterior combo 23
         $this->opciones['sindocum'] = Tema::combo(286, true, false);
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['generoxx'] = Tema::combo(12, true, false);

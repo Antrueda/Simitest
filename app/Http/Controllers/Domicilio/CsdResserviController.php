@@ -46,7 +46,7 @@ class CsdResserviController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(414, true, false); // Anterior combo 23
         $this->opciones['servicio'] = Tema::combo(94, true, false);
         $this->opciones['botoform'] = [
             [

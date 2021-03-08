@@ -57,7 +57,7 @@ class VsiAbuSexualController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
 
-        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
+        $this->opciones['sinoxxxx'] = Tema::combo(438, true, false); // Anterior combo 23
         $this->opciones['familiar'] = Tema::combo(66, true, false);
         $this->opciones['eventoxx'] = Tema::combo(202, true, false);
         $this->opciones['sexualxx'] = Tema::combo(203, true, false);

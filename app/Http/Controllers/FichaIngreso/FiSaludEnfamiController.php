@@ -38,7 +38,7 @@ class FiSaludEnfamiController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(433, true, false); // Anterior combo 23
 
         $this->opciones['botoform'][] =
             [

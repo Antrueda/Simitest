@@ -58,7 +58,7 @@ class VsiBasicoController extends Controller
     {
 
         $this->opciones['docuemen'] = Tema::combo(3, true, false);
-        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
+        $this->opciones['sinoxxxx'] = Tema::combo(440, true, false); // Anterior combo 23
         $this->opciones['sindocum'] = Tema::combo(286, true, false);
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['idengene'] = Tema::combo(12, true, false);
