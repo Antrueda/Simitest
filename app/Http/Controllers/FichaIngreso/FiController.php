@@ -521,6 +521,7 @@ class FiController extends Controller
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
             'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
+        
         // if ($respuest) { // if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
         $this->opciones['botoform'][] =
             [
@@ -540,8 +541,9 @@ class FiController extends Controller
      */
     public function update(FiDatosBasicoUpdateRequest $request,  FiDatosBasico $objetoxx)
     {
-
-        return $this->grabar($request->all(), $objetoxx, 'Datos básicos actualizados con éxito');
+        $dataxxxx = $request->all();
+        $dataxxxx['pasaupis'] = false;
+        return $this->grabar($dataxxxx, $objetoxx, 'Datos básicos actualizados con éxito',$dataxxxx['pasaupis'] );
     }
 
     public function inactivate(FiDatosBasico $objetoxx)
