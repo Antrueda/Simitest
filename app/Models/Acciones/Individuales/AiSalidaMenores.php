@@ -79,11 +79,12 @@ class AiSalidaMenores extends Model{
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-
+            $dataxxxx['requestx']->request->add(['hora_salida' =>  $dataxxxx['requestx']->fecha.' '.$dataxxxx['requestx']->hora_salida]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
                 $dataxxxx['requestx']->request->add(['ai_salida_menores_id' => $dataxxxx['modeloxx']->id]);
                 $dataxxxx['objetoxx']=$dataxxxx['modeloxx'];
+                
                 if ($dataxxxx['modeloxx']->condiciones != '') {
                     $dataxxxx['modeloxx']->condiciones->update($dataxxxx['requestx']->all());
                 }else{

@@ -37,7 +37,11 @@ trait VistasTrait
         // indica si se esta actualizando o viendo
         $dataxxxx['selected'] = 0;
         if ($dataxxxx['modeloxx'] != '') {
-            ;
+            $dataxxxx['modeloxx']-> hora_salida= explode(' ',$dataxxxx['modeloxx']-> hora_salida)[1];
+            if($dataxxxx['modeloxx']->horaretorno!=''){
+                $dataxxxx['modeloxx']->horaretorno= explode(' ',$dataxxxx['modeloxx']->horaretorno)[1];
+                $dataxxxx['modeloxx']->fecharetorno=explode(' ',$dataxxxx['modeloxx']->fecharetorno)[0];
+            }
             $this->opciones['compfami'] = FiCompfami::getResponsableSalida($dataxxxx['modeloxx']->sis_nnaj_id, false, false);
             $dataxxxx['modeloxx']->s_primer_apellido=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->s_primer_apellido;
             $dataxxxx['modeloxx']->s_segundo_apellido=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->s_segundo_apellido;

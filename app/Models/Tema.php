@@ -61,10 +61,10 @@ class Tema extends Model {
       }
     }
 
-    $parametr = Tema::select(['parametros.id', 'parametros.nombre'])
-            ->join('parametro_temacomb', 'temacobos.id', '=', 'parametro_temacomb.temacobo_id')
-            ->join('parametros', 'parametro_temacomb.parametro_id', '=', 'parametros.id')
-            ->where('temacobos.id', $temaxxxx)
+    $parametr = Temacombo::select(['parametros.id', 'parametros.nombre'])
+            ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
+            ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
+            ->where('temacombos.id', $temaxxxx)
             ->orderBy('parametros.id', 'desc')
             ->get();
     foreach ($parametr as $registro) {

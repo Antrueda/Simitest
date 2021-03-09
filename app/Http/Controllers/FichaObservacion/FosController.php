@@ -100,7 +100,7 @@ class FosController extends Controller
                     ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                     ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
                     ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
-                    ['data' => 'sexos', 'name' => 'sexos.nombre as sexos'],
+                    ['data' => 'sexoss', 'name' => 'sexos.nombre as sexoss'],
                     ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
                     ['data' => 'upiservicio', 'name' => 'upiservicio'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],

@@ -45,11 +45,11 @@ class SalidaJovenController extends Controller
 
     public function store(SalidajovenesRequest $request, AiSalidaMayores $padrexxx)
     {
-        
-        $request->request->add(['ai_salmay_id' => $padrexxx->id, 'sis_esta_id' => 1]);
+        $request->request->add(['ai_salmay_id' => $padrexxx->id, 'sis_esta_id' => 1,'fecha' => $padrexxx->fecha]);
         return $this->setAgJovenes([
             'requestx' => $request,
             'modeloxx' => '',
+            'padrexxx' => $padrexxx,
             'infoxxxx' =>       'AJ agregado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
@@ -57,11 +57,11 @@ class SalidaJovenController extends Controller
 
     public function update(SalidajovenesRequest $request,  SalidaJovene $modeloxx)
     {
-        
         $request->request->add(['sis_nnaj_id' => $modeloxx->sis_nnaj_id]);
         return $this->setAgJovenes([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
+            'padrexxx' => $modeloxx->ai_salmay,
             'infoxxxx' => 'AJ editado con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editar'
         ]);
