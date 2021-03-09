@@ -189,17 +189,18 @@ trait SalidaTrait
             ->join('sis_estas', 'sis_nnajs.sis_esta_id', '=', 'sis_estas.id')
             ->join('fi_compfamis', 'sis_nnajs.id', '=', 'fi_compfamis.sis_nnaj_id')
             ->where('fi_compfamis.prm_reprlega_id', 227)
-            ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $request->padrexxx)->get())->groupBy([
-                'fi_datos_basicos.sis_nnaj_id', 'fi_datos_basicos.id', 'fi_datos_basicos.s_primer_nombre',
+            ->wherein('sis_nnajs.id', FiCompfami::select('sis_nnaj_id')->where('sis_nnajnnaj_id', $request->padrexxx)->get())->groupBy(
+                'sis_nnajs.id',
+                'fi_datos_basicos.s_primer_nombre',
                 'nnaj_docus.s_documento',
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',
                 'fi_datos_basicos.s_segundo_apellido',
+                'fi_compfamis.s_telefono',
+                'sis_nnajs.sis_esta_id',
                 'nnaj_nacimis.d_nacimiento',
-                'fi_datos_basicos.sis_esta_id',
-                'fi_datos_basicos.created_at',
-                'sis_estas.s_estado',
-                'fi_datos_basicos.user_crea_id',   ]);
+                'sis_nnajs.created_at',
+                'sis_estas.s_estado',);
 
         return $this->getDtAcciones($dataxxxx, $request);
     }
@@ -654,7 +655,8 @@ trait SalidaTrait
             ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->where('sis_nnajs.prm_escomfam_id', 227)
             ->whereIn('nnaj_upis.sis_depen_id', $this->getNotInt())->groupBy([
-                'fi_datos_basicos.sis_nnaj_id', 'fi_datos_basicos.id', 'fi_datos_basicos.s_primer_nombre',
+                'fi_datos_basicos.id',
+                'fi_datos_basicos.s_primer_nombre',
                 'nnaj_docus.s_documento',
                 'fi_datos_basicos.s_segundo_nombre',
                 'fi_datos_basicos.s_primer_apellido',

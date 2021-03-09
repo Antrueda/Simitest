@@ -20,8 +20,10 @@ trait ManageDateTrait
      */
     public function getDiferenciaDias($dataxxxx)
     {
+        //ddd($dataxxxx);
         $fechahoy = Carbon::createFromFormat('Y-m-d', date('Y-m-d'));
         $fechregi = Carbon::createFromFormat('Y-m-d', $dataxxxx['fechregi']);
+        
         $fechlimi=Carbon::createFromFormat('Y-m-d', date('Y-m-d'));
         $fechlimi->subDays($dataxxxx['tiempoxx']);
         $dataxxxx['fechlimi']=$fechlimi->toDateString();
