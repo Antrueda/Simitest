@@ -53,6 +53,12 @@ class VsiRedesApoyoController extends Controller
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['sinoxxxx'] = Tema::combo(450, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxx'] = Tema::combo(515, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxx'] = Tema::combo(516, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxx'] = Tema::combo(517, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxxx'] = Tema::combo(518, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxxxx'] = Tema::combo(519, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxxxxx'] = Tema::combo(520, true, false); // Anterior combo 23
         $this->opciones['personax'] = Tema::combo(70, true, false);
         $this->opciones['accesoxx'] = Tema::combo(71, false, false);
         $this->opciones['motivosx'] = Tema::combo(72, false, false);
@@ -68,7 +74,7 @@ class VsiRedesApoyoController extends Controller
         $this->opciones['archivox']='';
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            
+
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
@@ -76,7 +82,7 @@ class VsiRedesApoyoController extends Controller
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
         }
-        
+
         $this->opciones['rowscols'] = 'rowspancolspan';
         $this->opciones['tablasxx'] = [
             [
@@ -175,7 +181,7 @@ class VsiRedesApoyoController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -192,7 +198,7 @@ class VsiRedesApoyoController extends Controller
      */
     public function store(VsiRedSocialCrearRequest $requestx, $padrexxx)
     {
-        $requestx->request->add(['vsi_id'=> $padrexxx]); 
+        $requestx->request->add(['vsi_id'=> $padrexxx]);
         $requestx->request->add(['sis_esta_id'=> 1]);
         return $this->grabar([
             'requestx' => $requestx,
@@ -210,8 +216,8 @@ class VsiRedesApoyoController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-      
-      
+
+
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -219,7 +225,7 @@ class VsiRedesApoyoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        
+
         return $this->view(['modeloxx' => $objetoxx->VsiRedSocial, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

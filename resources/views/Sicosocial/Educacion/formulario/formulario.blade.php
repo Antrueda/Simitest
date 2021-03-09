@@ -98,7 +98,7 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('prm_dificultad_id', '10.8 ¿Presenta dificultades para seguir instrucciones a la hora de realizar las tareas?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_dificultad_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_dificultad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+		{{ Form::select('prm_dificultad_id', $todoxxxx['sinoxxxxx'], null, ['class' => $errors->first('prm_dificultad_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
 		@if($errors->has('prm_dificultad_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_dificultad_id') }}
@@ -131,7 +131,7 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('prm_leer_id', '10.11 ¿Sabe Leer?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_leer_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_leer_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+		{{ Form::select('prm_leer_id', $todoxxxx['sinoxxxxxx'], null, ['class' => $errors->first('prm_leer_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
 		@if($errors->has('prm_leer_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_leer_id') }}
@@ -140,7 +140,7 @@
 	</div>
 	<div class="col-md-3">
 		{{ Form::label('prm_escribir_id', '10.12 ¿Sabe Escribir?', ['class' => 'control-label col-form-label-sm']) }}
-		{{ Form::select('prm_escribir_id', $todoxxxx['sinoxxxx'], null, ['class' => $errors->first('prm_escribir_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+		{{ Form::select('prm_escribir_id', $todoxxxx['sinoxxxxxxx'], null, ['class' => $errors->first('prm_escribir_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
 		@if($errors->has('prm_escribir_id'))
 			<div class="invalid-feedback d-block">
 			    {{ $errors->first('prm_escribir_id') }}

@@ -44,6 +44,13 @@ class FiSaludController extends Controller
 
         $this->opciones['estafili'] = Tema::combo(21, true, false);
         $this->opciones['condicio'] = Tema::combo(431, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(491, true, false); // Anterior combo 23
+        $this->opciones['condicioxx'] = Tema::combo(492, true, false); // Anterior combo 23
+        $this->opciones['condicioxxx'] = Tema::combo(493, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxx'] = Tema::combo(494, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxxx'] = Tema::combo(495, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxxxx'] = Tema::combo(496, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxxxxx'] = Tema::combo(497, true, false); // Anterior combo 23
         $this->opciones['tipodisc'] = Tema::combo(24, true, false);
         $this->opciones['condnoap'] = Tema::combo(25, true, false);
         $this->opciones['noapdisc'] = Tema::combo(25, true, false);

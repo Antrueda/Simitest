@@ -51,7 +51,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_tiene_certificado_id', '12.4 ¿Cuenta con certificado?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_tiene_certificado_id', $todoxxxx["condiesp"], null, ['class' => 'form-control form-control-sm select2']) }}
+        {{ Form::select('i_prm_tiene_certificado_id', $todoxxxx["condiespx"], null, ['class' => 'form-control form-control-sm select2']) }}
         @if($errors->has('i_prm_tiene_certificado_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_tiene_certificado_id') }}
@@ -86,4 +86,4 @@
         </div>
         @endif
     </div>
-</div> 
+</div>

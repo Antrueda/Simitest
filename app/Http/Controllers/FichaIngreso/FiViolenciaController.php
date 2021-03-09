@@ -41,6 +41,7 @@ class FiViolenciaController extends Controller
 
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['condiesp'] = Tema::combo(436, true, false); // Anterior combo 23
+        $this->opciones['condiespx'] = Tema::combo(498, true, false); // Anterior combo 23
         $this->opciones['conditab'] = Tema::comboDesc(23, false, false);
         $this->opciones['violbasa'] = Tema::comboDesc(349, false, false);
         $this->opciones['lesicome'] = Tema::comboDesc(350, false, false);

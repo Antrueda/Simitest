@@ -76,7 +76,7 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
       {{ Form::label('i_prm_ha_estado_spoa_id', '10.3 ¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_ha_estado_spoa_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::select('i_prm_ha_estado_spoa_id', $todoxxxx["condiciox"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
       {{ Form::label('i_prm_actualmente_spoa_id', '¿Actualmente se encuentra en conflicto con la ley - SPOA?', ['class' => 'control-label col-form-label-sm']) }}
@@ -112,21 +112,21 @@
   <div class="form-row align-items-end">
     <div class="form-group col-md-6">
       {{ Form::label('i_prm_vinculado_violencia_id', '10.4 ¿Se encuentra vinculado a la delincuencia o a la violencia?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_vinculado_violencia_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm','onchange' => 'doc(this.value)']) }}
+      {{ Form::select('i_prm_vinculado_violencia_id', $todoxxxx["condicioxx"], null, ['class' => 'form-control form-control-sm','onchange' => 'doc(this.value)']) }}
     </div>
     <div class="form-group col-md-6">
       {{ Form::label('prm_situacion_id', 'Seleccionar las causas que originaron tal situación', ['class' => 'control-label col-form-label-sm']) }}
-      <div id="prm_situacion_div"> 
+      <div id="prm_situacion_div">
       {{ Form::select('prm_situacion_id[]', $todoxxxx["vincviol"], null, ['class' =>$errors->first('prm_situacion_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'multiple']) }}
     </div>
     </div>
     <div class="form-group col-md-6">
       {{ Form::label('i_prm_riesgo_participar_id', '10.5 ¿Se cuentra en riesgo de participar en actos delictivos?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm','id'=>'i_prm_riesgo_participar_id','onchange' => 'doc1(this.value)']) }}
+      {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["condicioxxx"], null, ['class' => 'form-control form-control-sm','id'=>'i_prm_riesgo_participar_id','onchange' => 'doc1(this.value)']) }}
     </div>
     <div class="form-group col-md-6">
       {{ Form::label('prm_riesgo_id', 'Seleccionar las causas que pueden llegar a materializar el riesgo', ['class' => 'control-label col-form-label-sm']) }}
-      <div id="prm_riesgo_div"> 
+      <div id="prm_riesgo_div">
       {{ Form::select('prm_riesgo_id[]', $todoxxxx["riesviol"], null, ['class' =>$errors->first('prm_riesgo_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple']) }}
     </div>
   </div>
