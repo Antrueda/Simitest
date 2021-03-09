@@ -24,7 +24,7 @@ class CreateHVsiDatosBasicosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(333)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('sis_nnaj_id')->unsigned();
             $table->integer('sis_depen_id')->unsigned();
             $table->date('fecha');
@@ -33,7 +33,7 @@ class CreateHVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
-            $table->increments('id')->start(333)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('parametro_id')->unsigned();
             $table->integer('vsi_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
@@ -41,7 +41,7 @@ class CreateHVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx7}'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
-            $table->increments('id')->start(333)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('parametro_id')->unsigned();
             $table->integer('vsi_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
@@ -49,7 +49,7 @@ class CreateHVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->increments('id')->start(333)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('parametro_id')->unsigned();
             $table->integer('vsi_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
@@ -57,7 +57,7 @@ class CreateHVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->increments('id')->start(333)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('parametro_id')->unsigned();
             $table->integer('vsi_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
@@ -65,7 +65,7 @@ class CreateHVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->increments('id')->start(333)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('parametro_id')->unsigned();
             $table->integer('vsi_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
@@ -73,7 +73,7 @@ class CreateHVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->increments('id')->start(333)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('parametro_id')->unsigned();
             $table->integer('vsi_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);

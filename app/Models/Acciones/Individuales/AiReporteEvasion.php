@@ -122,7 +122,10 @@ class AiReporteEvasion extends Model{
                $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
             }
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-
+            $dataxxxx['requestx']->request->add(['hora_evasion' =>  $dataxxxx['requestx']->fecha_evasion.' '.$dataxxxx['requestx']->hora_evasion]);
+            if($dataxxxx['requestx']->hora_denuncia!=''){
+                $dataxxxx['requestx']->request->add(['hora_denuncia' =>$dataxxxx['requestx']->fecha_denuncia.' '.$dataxxxx['requestx']->hora_denuncia ]);
+            }
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
                 $dataxxxx['requestx']->request->add(['ai_salida_menores_id' => $dataxxxx['modeloxx']->id]);

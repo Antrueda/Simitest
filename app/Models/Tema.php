@@ -62,7 +62,7 @@ class Tema extends Model {
     }
 
     $parametr = Tema::select(['parametros.id', 'parametros.nombre'])
-            ->join('parametro_temacomb', 'temacobos.id', '=', 'parametro_temacomb.tema_id')
+            ->join('parametro_temacomb', 'temacobos.id', '=', 'parametro_temacomb.temacobo_id')
             ->join('parametros', 'parametro_temacomb.parametro_id', '=', 'parametros.id')
             ->where('temacobos.id', $temaxxxx)
             ->orderBy('parametros.id', 'desc')

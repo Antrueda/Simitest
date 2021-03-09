@@ -24,7 +24,7 @@ class CreateAiReporteEvasionTable extends Migration
             $table->integer('prm_upi_id')->unsigned();
             $table->string('lugar_evasion', 120);
             $table->date('fecha_evasion');
-            $table->time('hora_evasion');
+            $table->timestamp('hora_evasion');
 
             $table->Integer('nnaj_talla');
             $table->Integer('nnaj_peso');
@@ -58,7 +58,7 @@ class CreateAiReporteEvasionTable extends Migration
             $table->string('cargo_recibe', 120)->nullable();
             $table->string('placa_recibe', 120)->nullable();
             $table->date('fecha_denuncia')->nullable();
-            $table->time('hora_denuncia')->nullable();
+            $table->timestamp('hora_denuncia')->nullable();
             $table->integer('prm_hor_denuncia_id')->unsigned()->nullable();
             $table->integer('user_crea_id')->unsigned();
             $table->integer('user_edita_id')->unsigned();

@@ -4,13 +4,9 @@ namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\AIEvasionesRequest;
-use App\Http\Requests\Csd\CsdCrearRequest;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
-use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\Pivotes\EvasionParentesco;
 use App\Models\consulta\Csd;
-use App\Models\consulta\pivotes\CsdSisNnaj;
-use App\Models\fichaIngreso\FiCompfami;
 use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisMunicipio;
@@ -174,7 +170,7 @@ class AIEvasionController extends Controller
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['usuarios'] = User::getUsuario(false, false);
-        
+
         $departam=0;
 
         $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
@@ -192,6 +188,14 @@ class AIEvasionController extends Controller
         $parametr = 0;
         $vercrear = false;
         if ($dataxxxx['modeloxx'] != '') {
+            $dataxxxx['modeloxx']->fecha_diligenciamiento=explode(' ',$dataxxxx['modeloxx']->fecha_diligenciamiento)[0];
+            $dataxxxx['modeloxx']->fecha_evasion=explode(' ',$dataxxxx['modeloxx']->fecha_evasion)[0];
+            $dataxxxx['modeloxx']-> hora_evasion= explode(' ',$dataxxxx['modeloxx']-> hora_evasion)[1];
+            if($dataxxxx['modeloxx']-> hora_denuncia!=''){
+                $dataxxxx['modeloxx']-> hora_denuncia= explode(' ',$dataxxxx['modeloxx']-> hora_denuncia)[1];
+                $dataxxxx['modeloxx']->fecha_denuncia=explode(' ',$dataxxxx['modeloxx']->fecha_denuncia)[0];
+            }
+
             foreach (explode('/', $dataxxxx['modeloxx']->s_doc_adjunto) as $value) {
                 $this->opciones['archivox'] = $value;
             }
@@ -199,7 +203,8 @@ class AIEvasionController extends Controller
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
 
-            $departam=$dataxxxx['modeloxx']->sis_departam_id;
+            $departam=$dataxxxx['modeloxx']->municipio->sis_departam_id;
+
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];

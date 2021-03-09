@@ -17,7 +17,7 @@ class CreateSisNnajsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(762)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('prm_escomfam_id')->unsigned()->comment('SABER SI EL REGISTRO QUE ESTA CREANDO ES UN NNAJ O UN COMPONENTE FAMILIAR');
             $table->foreign('prm_escomfam_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);

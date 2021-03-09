@@ -25,7 +25,7 @@ class CreateHAiReporteEvasionsTable extends Migration
             $table->integer('prm_upi_id')->unsigned();
             $table->string('lugar_evasion', 120);
             $table->date('fecha_evasion');
-            $table->time('hora_evasion');
+            $table->timestamp('hora_evasion');
             $table->Integer('nnaj_talla');
             $table->Integer('nnaj_peso');
             $table->string('s_doc_adjunto', 200)->nullable();
@@ -57,7 +57,7 @@ class CreateHAiReporteEvasionsTable extends Migration
             $table->string('cargo_recibe', 120)->nullable();
             $table->string('placa_recibe', 120)->nullable();
             $table->date('fecha_denuncia')->nullable();
-            $table->time('hora_denuncia')->nullable();
+            $table->timestamp('hora_denuncia')->nullable();
             $table->integer('prm_hor_denuncia_id')->unsigned()->nullable();
             $table = CamposMagicos::h_magicos($table);
         });

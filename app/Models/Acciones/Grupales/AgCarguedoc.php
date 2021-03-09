@@ -110,7 +110,7 @@ class AgCarguedoc extends Model
 
 
         $temaxxxy = Temacombo::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
-            ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.tema_id')
+            ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
             ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
        /*     ->whereNotIn(
                 'parametros.id',
