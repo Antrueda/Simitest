@@ -23,7 +23,7 @@ class CreateHAiSalidaMenoresTable extends Migration
             $table->integer('sis_nnaj_id')->unsigned();
             $table->integer('prm_upi_id')->unsigned();
             $table->date('fecha');
-            $table->time('hora_salida');
+            $table->timestamp('hora_salida');
             $table->string('primer_apellido', 120);
             $table->string('segundo_apellido', 120)->nullable();
             $table->string('primer_nombre', 120);
