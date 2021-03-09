@@ -205,7 +205,7 @@ if (isset($todoxxxx['rowscols'])) {
   </div>
   <div class="col-md">
       {{ Form::label('prm_norma_id', '6.15 ¿Al interior de la familia hay normas y límites?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_norma_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_norma_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+      {{ Form::select('prm_norma_id', $todoxxxx["condiciox"], null, ['class' => $errors->first('prm_norma_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
       @if($errors->has('prm_norma_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('prm_norma_id') }}
@@ -216,7 +216,7 @@ if (isset($todoxxxx['rowscols'])) {
 <div class="row">
   <div class="col-md">
       {{ Form::label('prm_conoce_id', '6.16 ¿Los integrantes del nucleo familiar conocen estas normas y límites?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_conoce_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_conoce_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('prm_conoce_id', $todoxxxx["condicioxx"], null, ['class' => $errors->first('prm_conoce_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
       @if($errors->has('prm_conoce_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('prm_conoce_id') }}

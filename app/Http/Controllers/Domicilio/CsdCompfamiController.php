@@ -49,6 +49,13 @@ class CsdCompfamiController extends Controller
         $this->opciones['tipodocu'] = Tema::combo(3, true, false);
         $this->opciones['estafili'] = Tema::combo(21, true, false);
         $this->opciones['condicix'] = Tema::combo(399, true, false); // Anterior combo 23
+        $this->opciones['condicixx'] = Tema::combo(469, true, false); // Anterior combo 23
+        $this->opciones['condicixxx'] = Tema::combo(470, true, false); // Anterior combo 23
+        $this->opciones['condicixxxx'] = Tema::combo(471, true, false); // Anterior combo 23
+        $this->opciones['condicixxxxx'] = Tema::combo(472, true, false); // Anterior combo 23
+        $this->opciones['condicixxxxxx'] = Tema::combo(473, true, false); // Anterior combo 23
+        $this->opciones['condicixxxxxxx'] = Tema::combo(474, true, false); // Anterior combo 23
+        $this->opciones['condicixxxxxxxx'] = Tema::combo(475, true, false); // Anterior combo 23
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['generoxx'] = Tema::combo(12, true, false);
         $this->opciones['orexualx'] = Tema::combo(13, true, false);

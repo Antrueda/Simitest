@@ -51,6 +51,8 @@ class AIEvasionController extends Controller
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
         $this->opciones['condicio'] = Tema::combo(367, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(459, true, false); // Anterior combo 23
+        $this->opciones['condicioxx'] = Tema::combo(460, true, false); // Anterior combo 23
         $this->opciones['contextu'] = Tema::combo(273, true, false);
         $this->opciones['rostroxx'] = Tema::combo(274, true, false);
         $this->opciones['pielxxxx'] = Tema::combo(275, true, false);

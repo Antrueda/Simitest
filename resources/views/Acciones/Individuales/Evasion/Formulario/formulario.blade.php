@@ -267,7 +267,7 @@
 <div class="row"> 
   <div class="col-md-4">
     {{ Form::label('prm_tienelunar_id', 'Lunar', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_tienelunar_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_tienelunar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
+    {{ Form::select('prm_tienelunar_id', $todoxxxx['condiciox'], null, ['class' => $errors->first('prm_tienelunar_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc2(this.value)']) }}
     @if($errors->has('prm_tienelunar_id'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('prm_tienelunar_id') }}
@@ -339,7 +339,7 @@
     {{ Form::label('prm_reporta_id', 'Se realiza llamada a línea de atención', ['class' => 'control-label col-form-label-sm']) }}
     <div class="row">
       <div class="col-md-6">
-        {{ Form::select('prm_reporta_id', $todoxxxx['condicio'], null, ['class' => $errors->first('prm_reporta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc3(this.value)']) }}
+        {{ Form::select('prm_reporta_id', $todoxxxx['condicioxx'], null, ['class' => $errors->first('prm_reporta_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc3(this.value)']) }}
         @if($errors->has('prm_reporta_id'))
           <div class="invalid-feedback d-block">
             {{ $errors->first('prm_reporta_id') }}

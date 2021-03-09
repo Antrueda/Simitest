@@ -45,6 +45,10 @@ class AISalidaMenoresController extends Controller
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
         $this->opciones['condicio'] = Tema::combo(369, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(465, true, false); // Anterior combo 23
+        $this->opciones['condicioxx'] = Tema::combo(466, true, false); // Anterior combo 23
+        $this->opciones['condicioxxx'] = Tema::combo(467, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxx'] = Tema::combo(468, true, false); // Anterior combo 23
         $this->opciones['condicix'] = Tema::combo(25, true, false);
         $this->opciones['ampmxxxx'] = Tema::combo(5, true, false);
         $this->opciones['objetivo'] = Tema::combo(307, false, false);

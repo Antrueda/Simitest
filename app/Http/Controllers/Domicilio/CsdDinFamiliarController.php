@@ -41,6 +41,8 @@ class CsdDinFamiliarController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(403, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(476, true, false); // Anterior combo 23
+        $this->opciones['condicioxx'] = Tema::combo(477, true, false); // Anterior combo 23
         $this->opciones['antecede'] = Tema::combo(97, false, false);
         $this->opciones['familiar'] = Tema::combo(66, true, false);
         $this->opciones['familian'] = Tema::combo(66, false, false);

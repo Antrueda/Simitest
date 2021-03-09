@@ -8,7 +8,7 @@
       <span class="input-group-addon" style="width:auto;">de</span>
       <strong>{{ $todoxxxx['expedici'] }} </strong>
       <span class="input-group-addon" style="width:auto;">, por medio del presente escrito AUTORIZO al Instituto Distrital para la Protección de la Niñez y la Juventud IDIPRON para que YO</span>
-      {{ Form::select('i_prm_autorizo_id', $todoxxxx["condicio"], null, ['class' => 'form-control-sm col-2']) }}
+      {{ Form::select('i_prm_autorizo_id', $todoxxxx["condiciox"], null, ['class' => 'form-control-sm col-2']) }}
       <span class="input-group-addon" style="width:auto;">sea VINCULADO(A) al modelo pedagógico y participe en las diferentes actividades y salidas pedagógicas propias del Instituto o interinstitucionales.</span>
     </div>
   </div>

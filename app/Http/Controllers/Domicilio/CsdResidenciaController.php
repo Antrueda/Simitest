@@ -45,6 +45,7 @@ class CsdResidenciaController extends Controller
 
 
         $this->opciones['condicio'] = Tema::combo(412, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(479, true, false); // Anterior combo 23
         $this->opciones['dircondi'] = Tema::combo(413, true, false); // Anterior combo 23
         $this->opciones['residees'] = Tema::combo(35, true, false);
         $this->opciones['tiporexx'] = Tema::combo(34, true, false);
@@ -287,7 +288,7 @@ class CsdResidenciaController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,  CsdResidencia $modeloxx)
     {
-   
+
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -296,7 +297,7 @@ class CsdResidenciaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 

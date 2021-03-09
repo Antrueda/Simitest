@@ -44,6 +44,7 @@ class CsdJusticiaController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['condicio'] = Tema::combo(410, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(478, true, false); // Anterior combo 23
         $this->opciones['causasxx'] = Tema::combo(120, true, false);
         }
 
@@ -138,7 +139,7 @@ class CsdJusticiaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
            }
-        
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 

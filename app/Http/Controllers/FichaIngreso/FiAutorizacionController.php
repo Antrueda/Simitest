@@ -46,6 +46,7 @@ class FiAutorizacionController extends Controller
         $this->opciones['modalupi'] = Tema::combo(65, false, false);
         $this->opciones['docmened'] = Tema::combo(150, true, false);
         $this->opciones['condicio'] = Tema::combo(417, false, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(483, false, false); // Anterior combo 23
         $this->opciones['tipodili'] = Tema::combo(302, true, false);
     }
 

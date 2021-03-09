@@ -46,6 +46,10 @@ class AIRetornoSalidaController extends Controller
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
         $this->opciones['condicio'] = Tema::combo(368, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(461, true, false); // Anterior combo 23
+        $this->opciones['condicioxx'] = Tema::combo(462, true, false); // Anterior combo 23
+        $this->opciones['condicioxxx'] = Tema::combo(463, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxx'] = Tema::combo(464, true, false); // Anterior combo 23
         $this->opciones['ampmxxxx'] = Tema::combo(5, false, false);
         $this->opciones['document'] = Tema::combo(3, true, false);
         $this->opciones['parentez'] = Tema::combo(66, false, false);
