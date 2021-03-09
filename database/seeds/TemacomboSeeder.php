@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Tema;
 use App\Models\Temacombo;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +14,7 @@ class TemacomboSeeder extends Seeder
                 'user_crea_id' => 1,
                 'user_edita_id' => 1,
                 'nombre' => strtoupper($dataxxxx['nombrexx']),
-                'tema_id' => $dataxxxx['id']
+                'tema_id' => isset($dataxxxx['temaidxx']) ? $dataxxxx['temaidxx'] : $dataxxxx['id']
             ]
         );
         return $tema;
@@ -4007,13 +4006,15 @@ class TemacomboSeeder extends Seeder
             ]
         ); //363
 
+        $tema = $this->getR([
+            'id' => 366,
+            'temaidxx' => 23, // id del tema padre del combo
+            'nombrexx' => '1.15 ¿Tiene definida su situación militar?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
 
-        //$tema = Tema::find(342);
-        //$tema = $this->getR([
-        //'id'=>364,
-        //'nombre' => '',
-        //'simianti'=>0,
-        //'parametr' => []
-        // ); //362
     }
 }

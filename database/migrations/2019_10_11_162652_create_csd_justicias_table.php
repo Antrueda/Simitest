@@ -4,7 +4,7 @@ use App\CamposMagicos\CamposMagicos;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\DB;
+
 
 class CreateCsdJusticiasTable extends Migration
 {
@@ -21,7 +21,7 @@ class CreateCsdJusticiasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->string('proposito', 200)->comment('CAMPO PROPOSITO');
+            $table->string('proposito', 93)->comment('CAMPO PROPOSITO');
             $table->date('fecha')->comment('CAMPO FECHA DE DILIGENCIAMIENTO');
             $table->integer('user_crea_id')->unsigned();
             $table->integer('user_edita_id')->unsigned();

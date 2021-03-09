@@ -20,7 +20,7 @@ class CreateAreaTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre', 120)->unique()->comment('CAMPO DE NOMBRE DEL AREA');
-            $table->string('contexto', 2)->nullable()->comment('CAMPO DEL CONTEXTO DEL AREA');
+            $table->string('contexto', 3)->nullable()->comment('CAMPO DEL CONTEXTO DEL AREA');
             $table->longText('descripcion')->nullable()->comment('CAMPO DE LA DESCRIPCION DEL AREA');
             $table->integer('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');

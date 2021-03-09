@@ -24,7 +24,7 @@ class CreateVsiDatosBasicosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(333)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->integer('sis_depen_id')->unsigned()->comment('CAMPO ID DEPENDENCIA');
             $table->date('fecha')->comment('CAMPO DE FECHA DE DILIGENCIAMIENTO');
@@ -37,7 +37,7 @@ class CreateVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LOS NNAJ CON LAS DEPENDENCIAS REGISTRADAS EN EL SISTEMA'");
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(333)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO ESTADO EMOCIONAL');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
 
@@ -49,7 +49,7 @@ class CreateVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA EMOCIONAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.1 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(333)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA SEXUAL');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
 
@@ -63,7 +63,7 @@ class CreateVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA SEXUAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.2 SECCION AREAS AJUSTES SICOSOCIAL  DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(333)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA COMPORTAMENTAL');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
 
@@ -75,7 +75,7 @@ class CreateVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA COMPORTAMENTAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.3 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(333)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA ACADEMICA');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -86,7 +86,7 @@ class CreateVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA ACADEMICA DE LA PERSONA ENTREVISTADA, PREGUNTA 19.4 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(333)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA SOCIAL');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
             $table->foreign('parametro_id')->references('id')->on('parametros');
@@ -97,7 +97,7 @@ class CreateVsiDatosBasicosTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LAS OPCIONES DEL AREA SOCIAL DE LA PERSONA ENTREVISTADA, PREGUNTA 19.5 SECCION AREAS AJUSTES SICOSOCIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->increments('id')->start(333)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO AREA FAMILIAR');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE VALORACION');
 
