@@ -48,9 +48,9 @@ class FiJustrestController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condspoa'] = Tema::combo(425, true, false); // Anterior combo 23
-        $this->opciones['condicio'] = Tema::combo(426, true, false); // Anterior combo 23
-        $this->opciones['condnoap'] = Tema::combo(427, true, false); // Anterior combo 23
+        $this->opciones['condspoa'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condnoap'] = Tema::combo(23, true, false);
         $this->opciones['actupard'] = Tema::combo(25, true, false);
         $this->opciones['actusrpa'] = Tema::combo(25, true, false);
         $this->opciones['actuspoa'] = Tema::combo(25, true, false);

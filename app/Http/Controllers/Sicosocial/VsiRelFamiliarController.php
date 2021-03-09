@@ -56,7 +56,7 @@ class VsiRelFamiliarController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
 
-        $this->opciones['sinoxxxx'] = Tema::combo(452, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['sinonaxx'] = Tema::combo(25, true, false);
         $this->opciones['familiar'] = Tema::combo(66, true, false);
         $this->opciones['motivosx'] = Tema::combo(174, false, false);

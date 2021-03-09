@@ -37,12 +37,12 @@ class VsiDinfamPadre extends Model{
     public static function transaccion($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
-            
-            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiDinfamPadre::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];

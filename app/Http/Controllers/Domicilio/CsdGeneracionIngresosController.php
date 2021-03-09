@@ -49,7 +49,7 @@ class CsdGeneracionIngresosController extends Controller
             $this->opciones['diaseman'] = Tema::combo(124, false, false);
             $this->opciones['ampmxxxx'] = Tema::combo(5, true, false);
             $this->opciones['frecugen'] = Tema::combo(125, true, false);
-            $this->opciones['condicio'] = Tema::combo(409, true, false); // Anterior combo 23
+            $this->opciones['condicio'] = Tema::combo(23, true, false);
             $this->opciones['familiar'] = Tema::combo(66, true, false);
 
 

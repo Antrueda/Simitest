@@ -91,7 +91,7 @@ trait VistasTrait
         $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false]);
         $opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $opciones['entidadx'] = SisEntidad::combo(true, false);
-        $opciones['condicio'] = Tema::combo(458, true, false); // Anterior combo 23
+        $opciones['condicio'] = Tema::combo(23, true, false);
         $opciones['condixxx'] = Tema::combo(272, false, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);

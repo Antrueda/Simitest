@@ -19,14 +19,15 @@ use Illuminate\Http\Request;
 Route::get('agr/talleres', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     return datatables()
-        ->eloquent(AgTaller::select([
-            'ag_tallers.id', 'ag_tallers.s_taller', 'ag_tallers.s_descripcion',
-            'ag_tallers.sis_esta_id', 'ag_tallers.ag_tema_id', 'sis_estas.s_estado'
-        ])
-            ->join('ag_temas', 'ag_tallers.ag_tema_id', '=', 'ag_temas.id')
-            ->join('sis_estas', 'ag_tallers.sis_esta_id', '=', 'sis_estas.id')
-            ->where('ag_tallers.ag_tema_id',$request->padrexxx)
-            )
+        ->eloquent(
+            AgTaller::select([
+                'ag_tallers.id', 'ag_tallers.s_taller', 'ag_tallers.s_descripcion',
+                'ag_tallers.sis_esta_id', 'ag_tallers.ag_tema_id', 'sis_estas.s_estado'
+            ])
+                ->join('ag_temas', 'ag_tallers.ag_tema_id', '=', 'ag_temas.id')
+                ->join('sis_estas', 'ag_tallers.sis_esta_id', '=', 'sis_estas.id')
+                ->where('ag_tallers.ag_tema_id', $request->padrexxx)
+        )
         ->addColumn('btns', 'Acciones/Grupales/Agtaller/botones/botonesapi')
         ->addColumn('s_estado', $request->estadoxx)
         ->rawColumns(['btns', 's_estado'])
@@ -36,12 +37,12 @@ Route::get('agr/talleres', function (Request $request) {
 Route::get('agr/temas', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     return datatables()
-        ->eloquent(AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre','sis_estas.s_estado'])
+        ->eloquent(AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre', 'sis_estas.s_estado'])
             ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
             ->join('sis_estas', 'ag_temas.sis_esta_id', '=', 'sis_estas.id')
             ->where('ag_temas.sis_esta_id', 1))
 
-        ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi',2)
+        ->addColumn('btns', 'Acciones/Grupales/Agtema/botones/botonesapi', 2)
         ->addColumn('s_estado', $request->estadoxx)
         ->rawColumns(['btns', 's_estado'])
         ->toJson();
@@ -71,8 +72,10 @@ Route::get('ag/contextos', function (Request $request) {
 Route::get('ag/recursos', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     return datatables()
-        ->eloquent(AgRecurso::select(['ag_recursos.id', 'ag_recursos.s_recurso', 'ag_recursos.sis_esta_id',
-         'parametros.nombre as trecurso', 'parametros.nombre as umedidax','sis_estas.s_estado'])
+        ->eloquent(AgRecurso::select([
+            'ag_recursos.id', 'ag_recursos.s_recurso', 'ag_recursos.sis_esta_id',
+            'parametros.nombre as trecurso', 'parametros.nombre as umedidax', 'sis_estas.s_estado'
+        ])
             ->join('parametros', 'ag_recursos.i_prm_trecurso_id', '=', 'parametros.id')
             ->join('sis_estas', 'ag_recursos.sis_esta_id', '=', 'sis_estas.id')
             ->where('ag_recursos.sis_esta_id', 1))
@@ -99,10 +102,12 @@ Route::get('ag/subtemas', function (Request $request) {
         ->eloquent(
             AgSubtema::select([
                 'ag_subtemas.id', 'ag_subtemas.s_subtema', 'ag_tallers.s_taller',
-                'ag_subtemas.s_descripcion', 'ag_subtemas.sis_esta_id', 'ag_subtemas.ag_taller_id', 'sis_estas.s_estado'
+                'ag_subtemas.s_descripcion', 'ag_subtemas.sis_esta_id', 'ag_subtemas.ag_taller_id',
+                'sis_estas.s_estado'
             ])
                 ->join('ag_tallers', 'ag_subtemas.ag_taller_id', '=', 'ag_tallers.id')
                 ->join('sis_estas', 'ag_subtemas.sis_esta_id', '=', 'sis_estas.id')
+                ->where('ag_subtemas.ag_taller_id', $request->padrexxx)
         )
         ->addColumn('btns', $request->botonesx)
         ->addColumn('s_estado', $request->estadoxx)
@@ -169,9 +174,21 @@ Route::get('ag/formativas', function (Request $request) {
 Route::get('agr/tematalleres', function (Request $request) {
     if (!$request->ajax()) return redirect('/');
     return datatables()
-        ->eloquent(AgTema::select(['ag_temas.id', 'ag_temas.s_tema',  'ag_temas.sis_esta_id', 'areas.nombre'])
+        ->eloquent(AgTema::select(
+            [
+                'ag_temas.id',
+                'ag_temas.s_tema',
+                'ag_temas.sis_esta_id',
+                'areas.nombre',
+                'sis_estas.s_estado'
+            ]
+        )
             ->join('areas', 'ag_temas.area_id', '=', 'areas.id')
-            ->where('ag_temas.sis_esta_id', 1))
+            ->join('sis_estas', 'ag_temas.sis_esta_id', '=', 'sis_estas.id')
+            // ->where('ag_temas.sis_esta_id', 1)
+            ->orderBy('ag_temas.sis_esta_id','ASC')
+            )
+
         ->addColumn('btns', $request->botonesx)
         ->rawColumns(['btns'])
         ->toJson();
@@ -204,7 +221,7 @@ Route::get('agr/espaluga', function (Request $request) {
             ])
 
                 ->join('sis_estas', 'sis_eslugs.sis_esta_id', '=', 'sis_estas.id')
-                )
+        )
         ->addColumn('s_estado', $request->estadoxx)
         ->addColumn('btns', $request->botonesx)
         ->rawColumns(['btns', 's_estado'])
@@ -221,7 +238,7 @@ Route::get('agr/dependencias', function (Request $request) {
             ])
 
                 ->join('sis_estas', 'sis_depens.sis_esta_id', '=', 'sis_estas.id')
-                ->where('sis_depens.sis_esta_id',1)
+                ->where('sis_depens.sis_esta_id', 1)
         )
         ->addColumn('s_estado', $request->estadoxx)
         ->addColumn('btns', $request->botonesx)
@@ -237,16 +254,18 @@ Route::get('ag/espacios', function (Request $request) {
     ];
 
 
-       $respusta['dataxxxx'] = SisDepen::getLugares(['cabecera'=>true,'esajaxxx'=>true,
-        'padrexxx'=>$request->padrexxx]);
+    $respusta['dataxxxx'] = SisDepen::getLugares([
+        'cabecera' => true, 'esajaxxx' => true,
+        'padrexxx' => $request->padrexxx
+    ]);
 
-        // $cantidad=count($respusta['dataxxxx']);
-        // if($cantidad==1){
+    // $cantidad=count($respusta['dataxxxx']);
+    // if($cantidad==1){
 
-        // }
+    // }
 
     if ($request->padrexxx == 1) {
-        $respusta['dataxxxx']=[['valuexxx' => 1, 'optionxx' => 'N/A']];
+        $respusta['dataxxxx'] = [['valuexxx' => 1, 'optionxx' => 'N/A']];
         $respusta['readonly'] = false;
     }
     return response()->json($respusta);

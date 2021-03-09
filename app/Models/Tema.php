@@ -39,6 +39,7 @@ class Tema extends Model {
     ->parametros()
     ->select(['id as valuexxx', 'nombre as optionxx'])
     ->orderBy('parametros.id', 'asc')
+    ->where('parametro_temacombo.sis_esta_id',1)
     ->get();
     foreach ($parametr as $registro) {
       if ($ajaxxxxx) {

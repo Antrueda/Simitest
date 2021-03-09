@@ -56,7 +56,7 @@ class VsiSitEspecialController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         
-        $this->opciones['sinoxxxx'] = Tema::combo(454, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['victimax'] = Tema::combo(126, false, false);
         $this->opciones['riesgosx'] = Tema::combo(58, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];

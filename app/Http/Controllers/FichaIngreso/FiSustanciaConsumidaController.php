@@ -36,7 +36,7 @@ class FiSustanciaConsumidaController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
 
         $this->opciones['sustanci'] = Tema::combo(53, true, false);
-        $this->opciones['condicio'] = Tema::combo(432, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => ['ficonsumo.nuevo', []],
             'formhref' => 2, 'tituloxx' => "VOLVER A CONSUMO SPA", 'clasexxx' => 'btn btn-sm btn-primary'

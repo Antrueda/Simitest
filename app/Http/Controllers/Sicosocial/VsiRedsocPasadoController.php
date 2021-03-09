@@ -78,7 +78,7 @@ class VsiRedsocPasadoController extends Controller
         $this->opciones['hijoxxxx'] = 0;
 
 
-        $this->opciones['sinoxxxx'] = Tema::combo(451, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['personax'] = Tema::combo(70, false, false);
         $this->opciones['motivosx'] = Tema::combo(72, false, false);
         $this->opciones['accesoxx'] = Tema::combo(71, false, false);

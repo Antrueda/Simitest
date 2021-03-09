@@ -380,7 +380,7 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 359, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'LIBERTAD ASISTIDA']);
         Parametro::create(['id' => 360, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MARCHAS']);
         Parametro::create(['id' => 361, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'PAGANDO SANCIÓN']);
-        Parametro::create(['id' => 362, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Libertad condiciona']);
+        Parametro::create(['id' => 362, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Libertad condicional']);
         Parametro::create(['id' => 363, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Casa por cárcel']);
         Parametro::create(['id' => 364, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'Prófugo de la justicia']);
         Parametro::create(['id' => 365, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'MAÑANA']);
@@ -994,8 +994,8 @@ class SisParametrosSeeder extends Seeder
         Parametro::create(['id' => 973, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'AMENAZA A SU INTEGRIDAD FÍSICA ']);
         Parametro::create(['id' => 974, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'FALTA DE OPORTUNIDAD DE FORMACIÓN PARA EL TRABAJO']);
         Parametro::create(['id' => 975, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'INFLUENCIA DE PARES NEGATIVOS']);
-        Parametro::create(['id' => 976, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VÍCTIMA ESCNNA.']);
-        Parametro::create(['id' => 977, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESPECTRO AUTISTA.']);
+        Parametro::create(['id' => 976, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VÍCTIMA ESCNNA']);
+        Parametro::create(['id' => 977, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'ESPECTRO AUTISTA']);
         Parametro::create(['id' => 978, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'VIOLENCIAS BASADAS EN GÉNERO/IDENTIDAD DE GÉNERO U ORIENTACIÓN SEXUAL']);
         Parametro::create(['id' => 979, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'TRASTORNOS DEL ESTADO DEL ÁNIMO']);
         Parametro::create(['id' => 980, 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => 'UNA SOLA VEZ']);

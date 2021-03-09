@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Grupales\AgSubtemaCrearRequest;
 use App\Http\Requests\Acciones\Grupales\AgSubtemaEditarRequest;
 use App\Models\Acciones\Grupales\AgSubtema;
-use App\Models\Acciones\Grupales\AgTaller;
-use App\Models\Acciones\Grupales\AgTema;
 use App\Models\Sistema\SisEsta;
 use App\Models\Usuario\Estusuario;
 use Illuminate\Http\Request;
@@ -50,6 +48,7 @@ class AgSubtemaController extends Controller
         $this->opciones['titunuev'] = 'NUEVO SUBTEMA';
         $this->opciones['titulist'] = 'LISTA DE SUBTEMAS';
         $this->opciones['dataxxxx'] = [
+            ['campoxxx' => 'padrexxx', 'dataxxxx' => $agtaller],
             ['campoxxx' => 'botonesx', 'dataxxxx' => 'Acciones.Grupales/Agsubtema/botones/botonesapi'],
             ['campoxxx' => 'estadoxx', 'dataxxxx' => 'layouts/components/botones/estadoxx'],
         ];
@@ -95,7 +94,7 @@ class AgSubtemaController extends Controller
             ['data' => 'btns', 'name' => 'btns'],
             ['data' => 'id', 'name' => 'ag_tallers.id'],
             ['data' => 's_taller', 'name' => 'ag_tallers.s_taller'],
-            ['data' => 's_tema', 'name' => 'ag_tema.s_tema'],
+            ['data' => 's_tema', 'name' => 'ag_temas.s_tema'],
             ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
@@ -112,7 +111,7 @@ class AgSubtemaController extends Controller
             $this->opciones[$nombobje] = $objetoxx;
             $estadoid= $objetoxx->sis_esta_id;
         }
-   
+
         $this->opciones['motivoxx'] = Estusuario::combo([
             'cabecera' => true,
             'esajaxxx' => false,

@@ -88,7 +88,7 @@ class AgTallerController extends Controller
             ['data' => 'id', 'name' => 'ag_temas.id'],
             ['data' => 's_tema', 'name' => 'ag_temas.s_tema'],
             ['data' => 'nombre', 'name' => 'areas.nombre'],
-            ['data' => 'sis_esta_id', 'name' => 'ag_temas.sis_esta_id'],
+            ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
         ];
         return view($this->opciones['rutacarp'] . 'index', ['todoxxxx' => $this->opciones]);
     }

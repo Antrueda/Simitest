@@ -1,7 +1,7 @@
 <?php
 $routexxx='vsidatbi';
 $controll='Sicosocial\VsiDatoVincu';
-Route::group(['prefix' => 'datosbincula'], function () use($routexxx,$controll) {
+Route::group(['prefix' => 'datosvincula'], function () use($routexxx,$controll) {
     Route::get('{padrexxx}', [
         'uses' => $controll . 'Controller@index',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']

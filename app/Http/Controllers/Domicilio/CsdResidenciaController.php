@@ -44,8 +44,8 @@ class CsdResidenciaController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
 
 
-        $this->opciones['condicio'] = Tema::combo(412, true, false); // Anterior combo 23
-        $this->opciones['dircondi'] = Tema::combo(413, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['dircondi'] = Tema::combo(23, true, false);
         $this->opciones['residees'] = Tema::combo(35, true, false);
         $this->opciones['tiporexx'] = Tema::combo(34, true, false);
         $this->opciones['tipodire'] = Tema::combo(36, true, false);

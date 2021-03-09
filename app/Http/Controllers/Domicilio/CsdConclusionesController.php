@@ -55,7 +55,7 @@ class CsdConclusionesController extends Controller
             ->with('info', 'Por favor llene los datos basicos de la consulta primero');
         }
         //ddd($dataxxxx['padrexxx']->csd->CsdDatosBasico);
-        $this->opciones['condicix'] = Tema::combo(402, false, false); // Anterior combo 23
+        $this->opciones['condicix'] = Tema::combo(23, false, false);
         $compfami=CsdComFamiliar::where('csd_id',$dataxxxx['padrexxx']->csd_id)
         ->where('s_documento',$dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
         ->first();

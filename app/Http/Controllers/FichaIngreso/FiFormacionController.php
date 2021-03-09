@@ -40,8 +40,8 @@ class FiFormacionController extends Controller
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
 
-        $this->opciones['actuestu'] = Tema::combo(422, true, false); // Anterior combo 23
-        $this->opciones['condicio'] = Tema::combo(423, true, false); // Anterior combo 23
+        $this->opciones['actuestu'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['motvincu'] = Tema::combo(63, false, false);
         $this->opciones['natuenti'] = Tema::combo(130, true, false);
         $this->opciones['jornestu'] = Tema::combo(151, true, false);

@@ -36,7 +36,7 @@ class CsdDinfamPadreController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
 
         $this->opciones['sustanci'] = Tema::combo(53, true, false);
-        $this->opciones['condicio'] = Tema::combo(405, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['botoform'][] = [
             'mostrars' => true, 'accionxx' => '', 'routingx' => ['csddinfamiliar.nuevo', []],
             'formhref' => 2, 'tituloxx' => "VOLVER A DINAMICA FAMILIAR", 'clasexxx' => 'btn btn-sm btn-primary'
@@ -49,7 +49,7 @@ class CsdDinfamPadreController extends Controller
         $this->opciones['mesxxxxx'] = 0;
         $this->opciones['anoxxxxx'] = 0;
         $this->opciones['hijoxxxx'] = 0;
-        $this->opciones['sinoxxxx'] = Tema::combo(406, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['separaci'] = Tema::combo(176, true, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;

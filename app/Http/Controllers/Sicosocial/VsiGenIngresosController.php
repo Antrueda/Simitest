@@ -69,7 +69,7 @@ class VsiGenIngresosController extends Controller
         $this->opciones['semanaxx'] = Tema::combo(129, false, false);
         $this->opciones['frecuenc'] = Tema::combo(110, true, false);
         $this->opciones['laboralx'] = Tema::combo(117, true, false);
-        $this->opciones['sinoxxxx'] = Tema::combo(447, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['parentes'] = Tema::combo(66, false, false);
         $this->opciones['jorgener'] = Tema::combo(123, true, false);
         $this->opciones['cuantoxx'] = '';
@@ -243,7 +243,7 @@ class VsiGenIngresosController extends Controller
                 'parentes' =>  Tema::combo(66, false, true),
                 'actividx' =>  Tema::combo(114, false, true),
                 'frecuenc' =>  Tema::combo(110, true, true),
-                'activida' =>  Tema::combo(448, true, true), // Anterior combo 23
+                'activida' =>  Tema::combo(23, true, true),
             ]];
             return response()->json($respuest);
         }
