@@ -56,7 +56,7 @@ class IsDatoBasicoController extends Controller
 
         $this->opciones['areajust'] = Tema::combo(212, true, false);
         $this->opciones['arjustpr'] = Tema::combo(212, true, false); // Tema::findOrFail(97)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $this->opciones['arjustpr1'] = Tema::findOrFail(212)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+        
         $this->opciones['subemoci'] = Tema::combo(162, true, false);
         $this->opciones['subfamil'] = Tema::combo(167, true, false);
         $this->opciones['subsexua'] = Tema::combo(163, true, false);
