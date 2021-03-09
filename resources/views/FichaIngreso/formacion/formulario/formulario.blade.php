@@ -9,14 +9,14 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_escribe_id', '4.2 ¿Sabe escribir?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_escribe_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_escribe_id', $todoxxxx["condiciox"], null, ['class' => 'form-control form-control-sm']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_escribe_id') }}
         </div>
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_operacio_id', '4.3 ¿Sabe operaciones básicas matemáticas?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_operacio_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_operacio_id', $todoxxxx["condicioxx"], null, ['class' => 'form-control form-control-sm']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_operacio_id') }}
         </div>
@@ -84,7 +84,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_cerulniv_id', '4.11 ¿Tiene certificado del último nivel de estudio alcanzado?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_cerulniv_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_cerulniv_id', $todoxxxx["condicioxxx"], null, ['class' => 'form-control form-control-sm']) }}
         <div class="invalid-feedback d-block">
             {{ $errors->first('prm_cerulniv_id') }}
         </div>

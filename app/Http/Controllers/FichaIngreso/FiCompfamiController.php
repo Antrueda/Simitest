@@ -50,6 +50,7 @@ class FiCompfamiController extends Controller
         $this->opciones['tipotele'] = Tema::combo(44, true, false);
         $this->opciones['vinculad'] = Tema::combo(287, true, false);
         $this->opciones['convivex'] = Tema::combo(419, true, false); // Anterior combo 23
+        $this->opciones['convivexx'] = Tema::combo(484, true, false); // Anterior combo 23
         $this->opciones['reprlega'] = Tema::combo(420, true, false); // Anterior combo 23
         $this->opciones['ocupacio'] = Tema::combo(156, true, false);
         $this->opciones['tipodocu'] = Tema::combo(3, true, false);

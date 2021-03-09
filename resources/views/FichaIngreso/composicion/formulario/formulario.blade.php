@@ -91,7 +91,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_vinculado_idipron_id', '¿Estuvo vinculado(a) al IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_vinculado_idipron_id', $todoxxxx["convivex"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_vinculado_idipron_id', $todoxxxx["convivexx"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_reprlega_id', '¿Es el representante legal?', ['class' => 'control-label col-form-label-sm']) }}

@@ -434,12 +434,12 @@ class TemasTableSeeder extends Seeder
         $this->getR(['id' => 415, 'nombrexx' => '¿Cuenta con certificado?']);
         $this->getR(['id' => 416, 'nombrexx' => '¿Pertecene a algún grupo, parche u organización?']);
         $this->getR(['id' => 417, 'nombrexx' => 'menor']);
-        $this->getR(['id' => 418, 'nombrexx' => 'SI/NO']);
-        $this->getR(['id' => 419, 'nombrexx' => 'SI/NO']);
-        $this->getR(['id' => 420, 'nombrexx' => 'SI/NO']);
-        $this->getR(['id' => 421, 'nombrexx' => 'SI/NO']);
-        $this->getR(['id' => 422, 'nombrexx' => 'SI/NO']);
-        $this->getR(['id' => 423, 'nombrexx' => 'SI/NO']);
+        $this->getR(['id' => 418, 'nombrexx' => '¿Quieres entrar al IDIPRON?']);
+        $this->getR(['id' => 419, 'nombrexx' => '¿Convive con el NNAJ?']);
+        $this->getR(['id' => 420, 'nombrexx' => '¿Es el representante legal?']);
+        $this->getR(['id' => 421, 'nombrexx' => '¿Consume SPA?']);
+        $this->getR(['id' => 422, 'nombrexx' => '¿Actualmente estudia?']);
+        $this->getR(['id' => 423, 'nombrexx' => '¿Sabe leer?']);
         $this->getR(['id' => 424, 'nombrexx' => 'SI/NO']);
         $this->getR(['id' => 425, 'nombrexx' => 'SI/NO']);
         $this->getR(['id' => 426, 'nombrexx' => 'SI/NO']);
@@ -488,10 +488,10 @@ class TemasTableSeeder extends Seeder
         $this->getR(['id' => 469, 'nombrexx' => 'NNAJ Visitado(s) (as)']);
         $this->getR(['id' => 470, 'nombrexx' => '¿Tiene algún tipo de discapacidad?']);
         $this->getR(['id' => 471, 'nombrexx' => '¿Existe(n) algun(os) integrante(s) de la familia que presente(n) problemas de peso?']);
-        $this->getR(['id' => 472, 'nombrexx' => '¿Sabe leer?']);
+        $this->getR(['id' => 472, 'nombrexx' => '¿Sabe leer? x']);
         $this->getR(['id' => 473, 'nombrexx' => '¿Sabe escribir?']);
         $this->getR(['id' => 474, 'nombrexx' => '¿Sabe operaciones matemáticas básicas?']);
-        $this->getR(['id' => 475, 'nombrexx' => '¿Actualmente estudia?']);
+        $this->getR(['id' => 475, 'nombrexx' => '¿Actualmente estudia? x']);
         $this->getR(['id' => 476, 'nombrexx' => '¿Al interior de la familia hay normas y límites?']);
         $this->getR(['id' => 477, 'nombrexx' => '¿Los integrantes del nucleo familiar conocen estas normas y límites?']);
         $this->getR(['id' => 478, 'nombrexx' => '¿Se encuentra en riesgo de participar en actos delictivos?']);
@@ -500,5 +500,9 @@ class TemasTableSeeder extends Seeder
         $this->getR(['id' => 481, 'nombrexx' => '¿Tiene acceso a recreación?']);
         $this->getR(['id' => 482, 'nombrexx' => '¿Tiene prácticas religiosas?']);
         $this->getR(['id' => 483, 'nombrexx' => 'mayor x']);
+        $this->getR(['id' => 484, 'nombrexx' => '¿Estuvo vinculado(a) al IDIPRON?']);
+        $this->getR(['id' => 485, 'nombrexx' => '¿Sabe escribir? x']);
+        $this->getR(['id' => 486, 'nombrexx' => '¿Sabe operaciones básicas matemáticas?']);
+        $this->getR(['id' => 487, 'nombrexx' => '¿Tiene certificado del último nivel de estudio alcanzado?']);
     }
 }

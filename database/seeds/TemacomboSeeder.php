@@ -4319,37 +4319,37 @@ class TemacomboSeeder extends Seeder
             228 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['id' => 418,  'nombrexx' => 'SI/NO']);
+        $tema = $this->getR(['id' => 418,  'nombrexx' => '¿Quieres entrar al IDIPRON?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['id' => 419,  'nombrexx' => 'SI/NO']);
+        $tema = $this->getR(['id' => 419,  'nombrexx' => '¿Convive con el NNAJ?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['id' => 420,  'nombrexx' => 'SI/NO']);
+        $tema = $this->getR(['id' => 420,  'nombrexx' => '¿Es el representante legal?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['id' => 421,  'nombrexx' => 'SI/NO']);
+        $tema = $this->getR(['id' => 421,  'nombrexx' => '¿Consume SPA?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['id' => 422,  'nombrexx' => 'SI/NO']);
+        $tema = $this->getR(['id' => 422,  'nombrexx' => '¿Actualmente estudia?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['id' => 423,  'nombrexx' => 'SI/NO']);
+        $tema = $this->getR(['id' => 423,  'nombrexx' => '¿Sabe leer?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
@@ -4643,7 +4643,7 @@ class TemacomboSeeder extends Seeder
             228 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['id' => 472,  'nombrexx' => '¿Sabe leer?']);
+        $tema = $this->getR(['id' => 472,  'nombrexx' => '¿Sabe leer? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
@@ -4661,7 +4661,7 @@ class TemacomboSeeder extends Seeder
             228 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['id' => 475,  'nombrexx' => '¿Actualmente estudia?']);
+        $tema = $this->getR(['id' => 475,  'nombrexx' => '¿Actualmente estudia? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
@@ -4710,6 +4710,30 @@ class TemacomboSeeder extends Seeder
         ]);
 
         $tema = $this->getR(['id' => 483,  'nombrexx' => 'mayor x']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 484,  'nombrexx' => '¿Estuvo vinculado(a) al IDIPRON?']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 485,  'nombrexx' => '¿Sabe escribir? x']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 486,  'nombrexx' => '¿Sabe operaciones básicas matemáticas?']);
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR(['id' => 487,  'nombrexx' => '¿Tiene certificado del último nivel de estudio alcanzado?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),

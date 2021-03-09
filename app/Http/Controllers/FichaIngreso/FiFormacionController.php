@@ -42,6 +42,9 @@ class FiFormacionController extends Controller
 
         $this->opciones['actuestu'] = Tema::combo(422, true, false); // Anterior combo 23
         $this->opciones['condicio'] = Tema::combo(423, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(485, true, false); // Anterior combo 23
+        $this->opciones['condicioxx'] = Tema::combo(486, true, false); // Anterior combo 23
+        $this->opciones['condicioxxx'] = Tema::combo(487, true, false); // Anterior combo 23
         $this->opciones['motvincu'] = Tema::combo(63, false, false);
         $this->opciones['natuenti'] = Tema::combo(130, true, false);
         $this->opciones['jornestu'] = Tema::combo(151, true, false);
