@@ -230,7 +230,7 @@ class CsdRedApoyoActualController extends Controller
         $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route('firedapoyo', [$padrexxx->id])
+            ->route('csdredesapoyo', [$padrexxx->id])
             ->with('info', 'Red actual inactivada correctamente');
     }
 }

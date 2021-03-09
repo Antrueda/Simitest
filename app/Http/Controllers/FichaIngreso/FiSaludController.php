@@ -43,7 +43,7 @@ class FiSaludController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
 
         $this->opciones['estafili'] = Tema::combo(21, true, false);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(431, true, false); // Anterior combo 23
         $this->opciones['tipodisc'] = Tema::combo(24, true, false);
         $this->opciones['condnoap'] = Tema::combo(25, true, false);
         $this->opciones['noapdisc'] = Tema::combo(25, true, false);
@@ -152,7 +152,7 @@ class FiSaludController extends Controller
                 $this->opciones['cualmedi'] = 'readonly';
             }
             if ($dataxxxx['modeloxx']->d_puntaje_sisben != '') {//
-                $this->opciones['apsisben'] = Parametro::find(235)->ComboAjaxUno;
+                $this->opciones['apsisben'] = Parametro::find(235)->Combo;
             }
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

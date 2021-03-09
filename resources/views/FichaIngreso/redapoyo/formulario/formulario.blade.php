@@ -12,7 +12,7 @@
   <div class="form-group col-md-6">
     {{ Form::label('i_prm_tiempo_id', '¿Durante cuánto tiempo?', ['class' => 'control-label']) }}
     <div class="input-group">
-      {{ Form::number('i_tiempo', null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::number('i_tiempo', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
       {{ Form::select('i_prm_tiempo_id', $todoxxxx["tipotiem"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
   </div>

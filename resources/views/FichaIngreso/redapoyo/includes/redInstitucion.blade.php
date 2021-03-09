@@ -5,7 +5,7 @@
 <div class="form-group col-md-6">
   {{ Form::label('tiempoBeneficio', '¿Durante cuánto tiempo?', ['class' => 'control-label col-form-label-sm']) }}
   <div class="input-group">
-    {{ Form::number('tiempoBeneficio', null, ['class' => 'form-control form-control-sm']) }}
+    {{ Form::number('tiempoBeneficio', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
     {{ Form::select('durTiempoBen_id', $todoxxxx["sexoxxxx"], null, ['class' => 'form-control form-control-sm', 'required' => 'required']) }}
   </div>
 </div>

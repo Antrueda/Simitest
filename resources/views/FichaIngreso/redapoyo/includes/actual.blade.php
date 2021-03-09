@@ -27,7 +27,7 @@
     <div class="form-group col-md-6">
       {{ Form::label('i_prm_tiempo_id', '¿Durante cuánto tiempo?', ['class' => 'control-label col-form-label-sm']) }}
       <div class="input-group">
-        {{ Form::number('i_tiempo', null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::number('i_tiempo', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
         {{ Form::select('i_prm_tiempo_id', $todoxxxx["sexoxxxx"], null, ['class' => 'form-control form-control-sm', 'required' => 'required']) }}
       </div>
     </div>
@@ -44,7 +44,7 @@
   <div class="form-row align-items-end">
     <div class="form-group col-sm-3">
       {{ Form::label('s_telefono', 'Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('s_telefono', null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::text('s_telefono', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
     </div>
     <div class="form-group col-sm-9">
       {{ Form::label('s_direccion', 'Dirección', ['class' => 'control-label col-form-label-sm']) }}

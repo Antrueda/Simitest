@@ -1,11 +1,11 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         {{ Form::label('i_horas_permanencia_calle', '8.1 ¿Cuánto tiempo al día permanece en la calle?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('i_horas_permanencia_calle', null, ['class' => $errors->first('i_horas_permanencia_calle') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Horas', 'min' => '1', 'max' => '24']) }}
+        {{ Form::number('i_horas_permanencia_calle', null, ['class' => $errors->first('i_horas_permanencia_calle') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Horas', 'min' => '1', 'max' => '24',"onkeypress" => "return soloNumeros(event);"]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_dias_permanencia_calle', '8.2 ¿Cuántos días a la semana?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('i_dias_permanencia_calle', null, ['class' => $errors->first('i_dias_permanencia_calle') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Días', 'min' => '1', 'max' => '7']) }}
+        {{ Form::number('i_dias_permanencia_calle', null, ['class' => $errors->first('i_dias_permanencia_calle') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Días', 'min' => '1', 'max' => '7',"onkeypress" => "return soloNumeros(event);"]) }}
     </div>
 
     <div class="form-group col-md-4">

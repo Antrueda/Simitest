@@ -24,7 +24,7 @@ Agregar familiar
   <div class="form-row align-items-end">
     <div class="form-group col-md-2">
       {{ Form::label('vecesFamiliar', 'Nº de veces', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('vecesFamiliar', null, ['class' => 'form-control form-control-sm']) }}
+      {{ Form::number('vecesFamiliar', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
     </div>
     <div class="form-group col-md-6">
       {{ Form::label('motivoFamiliar', 'Motivo ', ['class' => 'control-label col-form-label-sm']) }}
@@ -33,7 +33,7 @@ Agregar familiar
     <div class="form-group col-md-4">
       {{ Form::label('tiemproceso', '¿Hace cuánto?', ['class' => 'control-label col-form-label-sm']) }}
       <div class="input-group">
-        {{ Form::number('tiemproceso', null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::number('tiemproceso', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
         {{ Form::select('durProceso_id', $todoxxxx["sexoxxxx"], null, ['class' => 'form-control form-control-sm']) }}
       </div>
     </div>
