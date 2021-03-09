@@ -17,7 +17,7 @@ class CreateHCsdComFamObsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
+            $table->increments('id')->start(93)->nocache();
             $table->integer('csd_id')->unsigned();
             $table->longText('observaciones');
             $table->integer('prm_tipofuen_id')->unsigned();

@@ -21,7 +21,7 @@ class CreateCsdAlimentacionTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
+            $table->increments('id')->start(93)->nocache();
             $table->integer('cant_personas')->unsigned();
             $table = CamposMagicos::getForeign($table, 'csd');
             $table = CamposMagicos::getForeign($table, 'prm_horario_id','parametros');
@@ -34,7 +34,7 @@ class CreateCsdAlimentacionTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA ALIMENTACION DE LA FAMILIA A LA QUE PERTENECE EL ENTREVISTADO, SECCION 9 ALIMENTACION DE LA FAMILIA DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
+            $table->increments('id')->start(83)->nocache();
             $table->integer('parametro_id')->unsigned();
             $table->integer('csd_alimentacion_id')->unsigned();
             $table->integer('prm_tipofuen_id')->unsigned();
@@ -47,7 +47,7 @@ class CreateCsdAlimentacionTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE VECES QUE LA FAMILIA COMPRA ALIMENTOS, PREGUNTA 9.2 SECCION 9 ALIMENTACION DE LA FAMILIA DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
+            $table->increments('id')->start(136)->nocache();
             $table->integer('parametro_id')->unsigned();
             $table->integer('csd_alimentacion_id')->unsigned();
             $table->integer('prm_tipofuen_id')->unsigned();
@@ -60,7 +60,7 @@ class CreateCsdAlimentacionTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SITIOS DONDE ES REALIZADA LA COMPRA DE ALIMENTOS, PREGUNTA 9.3 SECCION 9 ALIMENTACION DE LA FAMILIA DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
+            $table->increments('id')->start(478)->nocache();
             $table->integer('parametro_id')->unsigned();
             $table->integer('csd_alimentacion_id')->unsigned();
 
@@ -75,7 +75,7 @@ class CreateCsdAlimentacionTable extends Migration
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE COMIDAS CONSUMIDAS EN EL DIA, PREGUNTA 9.4 SECCION 9 ALIMENTACION DE LA FAMILIA DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
+            $table->increments('id')->start(93)->nocache();
             $table->integer('parametro_id')->unsigned();
             $table->integer('csd_alimentacion_id')->unsigned();
             $table = CamposMagicos::magicos($table);
