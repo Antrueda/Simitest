@@ -142,7 +142,7 @@ class VsiController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
        // $this->opciones['dependen'] = User::getUpiUsuario(false, false);
-        $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(false,false,$dataxxxx['padrexxx']->id);
+        $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(false,false,$dataxxxx['padrexxx']->sis_nnaj_id);
         $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
         $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
