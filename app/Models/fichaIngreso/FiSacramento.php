@@ -11,7 +11,7 @@ class FiSacramento extends Model
 {
     protected $fillable = [
         'fi_actividadestl_id',
-        'i_prm_sacramentos_hechos_id',
+        'prm_sacrhec_id',
         'user_crea_id',
         'user_edita_id',
         'sis_esta_id'
@@ -49,8 +49,8 @@ class FiSacramento extends Model
             ];
             // dd($dataxxxx);
             FiSacramento::where('fi_actividadestl_id', $objetoxx->id)->delete();
-            foreach ($dataxxxx['i_prm_sacramentos_hechos_id'] as $diagener) {
-                $datosxxx['i_prm_sacramentos_hechos_id'] = $diagener;
+            foreach ($dataxxxx['prm_sacrhec_id'] as $diagener) {
+                $datosxxx['prm_sacrhec_id'] = $diagener;
                 FiSacramento::create($datosxxx);
             }
             return $objetoxx;

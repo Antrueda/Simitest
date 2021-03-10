@@ -120,7 +120,7 @@ class SisTcamposSeeder extends Seeder
         SisTcampo::create(['s_campo' => 'i_prm_estrato_id', 's_numero' => '17. ', 'in_pregunta_id' => 79, 'tema_id' => 113, 'sis_tabla_id' => 30, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         SisTcampo::create(['s_campo' => 'i_prm_espacio_parcha_id', 's_numero' => '13. ', 'in_pregunta_id' => 42, 'tema_id' => 312, 'sis_tabla_id' => 30, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         SisTcampo::create(['s_campo' => 'i_prm_riesgo_escnna_id', 's_numero' => '13. ', 'in_pregunta_id' => 12, 'tema_id' => 86, 'sis_tabla_id' => 31, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        SisTcampo::create(['s_campo' => 'i_prm_sacramentos_hechos_id', 's_numero' => '13. ', 'in_pregunta_id' => 2, 'tema_id' => 187, 'sis_tabla_id' => 32, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisTcampo::create(['s_campo' => 'prm_sacrhec_id', 's_numero' => '13. ', 'in_pregunta_id' => 2, 'tema_id' => 187, 'sis_tabla_id' => 32, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         SisTcampo::create(['s_campo' => 'prm_regisalu_id', 's_numero' => '25. ', 'in_pregunta_id' => 55, 'tema_id' => 1, 'sis_tabla_id' => 33, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         SisTcampo::create(['s_campo' => 'prm_tiensisb_id', 's_numero' => '14. ', 'in_pregunta_id' => 53, 'tema_id' => 307, 'sis_tabla_id' => 33, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         SisTcampo::create(['s_campo' => 'prm_tiendisc_id', 's_numero' => '7. ', 'in_pregunta_id' => 35, 'tema_id' => 262, 'sis_tabla_id' => 33, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
