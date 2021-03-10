@@ -218,6 +218,7 @@ class FiController extends Controller
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
+
             $dependen = [];
             foreach ($dataxxxx['modeloxx']->sis_nnaj->nnaj_upis as $key => $value) {
                 if ($value->prm_principa_id = 227) {
@@ -264,7 +265,7 @@ class FiController extends Controller
 
             // /** Nacimiento */
 
-            $dataxxxx['modeloxx']->d_nacimiento = $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento;
+            $dataxxxx['modeloxx']->d_nacimiento =explode(' ',$dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0];
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->nnaj_nacimi->Edad;
             $dataxxxx['modeloxx']->sis_pai_id = $paisxxxx = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departam->sis_pai_id;
             $dataxxxx['modeloxx']->sis_departam_id = $departam = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departam_id;

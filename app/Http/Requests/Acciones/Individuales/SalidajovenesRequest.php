@@ -24,7 +24,7 @@ class SalidajovenesRequest extends FormRequest
             'sis_nnaj_id.required'=>'Seleccione un AJ',
             ];
         $this->_reglasx = [
-            'hora_salida' => 'required|exists:parametros,id',
+            'hora_salida' => 'required',
             'retorna_id' => 'required',
             'telefono' => 'required',
             'fecharetorno' => 'required_if:retorna_id,227',
