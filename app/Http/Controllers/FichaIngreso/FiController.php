@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\FichaIngreso;
 
-use App\Exceptions\Interfaz\Simiantiguo\ParametroInvalido;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoMigrarCrearRequest;
@@ -21,11 +20,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
-use App\Models\Simianti\Ge\IfComposicionFamiliar;
 use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisLocalupz;
-use App\Models\Sistema\SisMenu;
-use App\Models\Sistema\SisUpzbarri;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -79,12 +74,7 @@ class FiController extends Controller
 
     public function index()
     {
-        echo '[<br>';
-        foreach (SisUpzbarri::get() as $key => $value) {
-            echo "['sis_localupz_id' => $value->sis_localupz_id, 'sis_barrio_id' =>$value->sis_barrio_id],// ".($key+1)."<br>";
-        }
-        echo '];';
-exit;
+
         $this->opciones['tablasxx'] = [
             [
                 'forminde' => '',

@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Tema;
-use App\Models\Temacombo;
 use Illuminate\Database\Seeder;
 
 class TemasTableSeeder extends Seeder
@@ -9,9 +8,9 @@ class TemasTableSeeder extends Seeder
     public function getR($dataxxxx)
     {
         foreach ($dataxxxx as $key => $value) {
-            # code...
+            Tema::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => strtoupper($value['nombrexx'])])->id;
         }
-        Tema::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => strtoupper($value['nombrexx'])])->id;
+
     }
     /**
      * Run the database seeds.
