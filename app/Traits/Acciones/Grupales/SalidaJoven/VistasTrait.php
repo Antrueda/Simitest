@@ -25,7 +25,7 @@ trait VistasTrait
         $this->opciones['parametr'][] = $this->opciones['padrexxx']->id;
         $this->getVista($dataxxxx);
         $this->getTablas($dataxxxx);
-        $this->opciones['compfami'] = FiCompfami::getResponsableSalida($dataxxxx['padrexxx'], false, false);
+        $this->opciones['compfami'] = FiCompfami::getResponsableSalida($dataxxxx['padrexxx']->id, false, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['condixxx'] = Tema::combo(272, false, false);
         $this->opciones['autoriza'] = Tema::combo(363, true, false);
