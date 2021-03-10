@@ -15,9 +15,9 @@ class SisDepensSeeder extends Seeder
      */
     public function run()
     {
-        SisDepen::create(['id' => 1, 'nombre' => 'ESPACIOS EXTERNOS', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => 'Calle 15 no 13- 86', 'sis_departam_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '3410017', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0,]);
-        SisDepen::create(['id' => 2, 'nombre' => 'TERRITORIO 1', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => 'Calle 15 no 13- 86', 'sis_departam_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '3410017', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
-        SisDepen::create(['id' => 3, 'nombre' => 'TERRITORIO 2', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => 'Calle 15 no 13- 86', 'sis_departam_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '3410017', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
+        SisDepen::create(['nombre' => 'ESPACIOS EXTERNOS', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => 'Calle 15 no 13- 86', 'sis_departam_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '3410017', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0,]);
+        SisDepen::create([ 'nombre' => 'TERRITORIO 1', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => 'Calle 15 no 13- 86', 'sis_departam_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '3410017', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
+        SisDepen::create([ 'nombre' => 'TERRITORIO 2', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => 'Calle 15 no 13- 86', 'sis_departam_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '3410017', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
         SisDepen::create(['simianti_id'=>13,'id' => 4, 'nombre' => 'UPI ARBORIZADORA ALTA', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => '00003', 'sis_departam_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '003', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
         SisDepen::create(['simianti_id'=>6,'id' => 5, 'nombre' => 'UPI BELEN', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => 'Carrera 1 No. 6D - 88', 'sis_departam_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '5556286 ', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
         SisDepen::create(['simianti_id'=>12,'id' => 6, 'nombre' => 'UPI BOSA', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => 'Carrera 77G No. 63-35 sur', 'sis_departam_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '3006942744', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
@@ -43,7 +43,6 @@ class SisDepensSeeder extends Seeder
         SisDepen::create(['simianti_id'=>18,'id' => 26, 'nombre' => 'UPI SANTA LUCIA', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => 'Diagonal 44 Sur No. 19-21 y Carrera 20 No. 44-98 Sur', 'sis_departam_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '7676265 ', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
         SisDepen::create(['simianti_id'=>17,'id' => 27, 'nombre' => 'UPI SERVITA', 'i_prm_cvital_id' => 1, 'i_prm_tdependen_id' => 1,  'i_prm_sexo_id' => 1, 's_direccion' => 'Avenida Carrera. 7 No. 164-94', 'sis_departam_id' => 1, 'sis_municipio_id' => 1, 'sis_upzbarri_id' => 1, 's_telefono' => '6696024 ', 's_correo' => 'DDDD',  'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0, ]);
         SisDepen::create([
-            'id' => 28,
             'nombre' => 'MIGRACION BASES PLANAS',
             'i_prm_cvital_id' => 1,
             'i_prm_tdependen_id' => 2316,
@@ -62,7 +61,6 @@ class SisDepensSeeder extends Seeder
         $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'i_prm_responsable_id' => 2316];
 
         SisDepen::create([
-            'id' => 29,
             'nombre' => 'CAMINANDO RELAJADO',
             'i_prm_cvital_id' => 1679,
             'i_prm_tdependen_id' => 774,
@@ -81,7 +79,6 @@ class SisDepensSeeder extends Seeder
 
 
         SisDepen::create([
-            'id' => 30,
             'simianti_id'=>11,
             'nombre' => 'UPI LA FLORIDA',
             'i_prm_cvital_id' => 1679,
@@ -96,8 +93,6 @@ class SisDepensSeeder extends Seeder
             'sis_esta_id' => 1,'itiestan'=>10,'itiegabe'=>0,
         ]);
         SisDepen::create([
-            'id' => 31,
-
             'nombre' => 'INFORMACION INCOMPLETA EN EL SIMI ANTIGUO',
             'i_prm_cvital_id' => 1679,
             'i_prm_tdependen_id' => 774,
@@ -109,7 +104,7 @@ class SisDepensSeeder extends Seeder
             's_telefono' => '0',
             's_correo' => 'f',
             'sis_esta_id' => 1,'itiestan'=>0,'itiegabe'=>0,
-        ]);
+        ]);//30
         $camposmagicos = ['user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1, 'i_prm_responsable_id' => 2316];
 
 

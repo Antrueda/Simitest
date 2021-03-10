@@ -8,7 +8,10 @@ class TemasTableSeeder extends Seeder
 {
     public function getR($dataxxxx)
     {
-        Tema::create(['id' => $dataxxxx['id'], 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => strtoupper($dataxxxx['nombrexx'])])->id;
+        foreach ($dataxxxx as $key => $value) {
+            # code...
+        }
+        Tema::create([ 'sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 'nombre' => strtoupper($value['nombrexx'])])->id;
     }
     /**
      * Run the database seeds.
@@ -17,370 +20,375 @@ class TemasTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->getR(['id' => 1, 'nombrexx' => 'Orden Sucesoral']);
-        $this->getR(['id' => 2, 'nombrexx' => 'Documento Soporte Poliza']);
-        $this->getR(['id' => 3, 'nombrexx' => 'Tipo de Documento']);
-        $this->getR(['id' => 4, 'nombrexx' => 'TIPO TIEMPO']);
-        $this->getR(['id' => 5, 'nombrexx' => 'AM/PM']);
-        $this->getR(['id' => 6, 'nombrexx' => 'Frecuencia VSI']);
-        $this->getR(['id' => 7, 'nombrexx' => 'VIOLENCIA DISCRIMINACIÓN']);
-        $this->getR(['id' => 8, 'nombrexx' => 'Frecuencia de Consumo de Alimentos']);
-        $this->getR(['id' => 9, 'nombrexx' => 'Alimentos']);
-        $this->getR(['id' => 10, 'nombrexx' => 'Acción Plan Alimentario']);
-        $this->getR(['id' => 11, 'nombrexx' => 'Sexo']);
-        $this->getR(['id' => 12, 'nombrexx' => 'IDENTIDADE DE GÉNERO']);
-        $this->getR(['id' => 13, 'nombrexx' => 'Orientación Sexual']);
-        $this->getR(['id' => 14, 'nombrexx' => 'Pieza Dental']);
-        $this->getR(['id' => 15, 'nombrexx' => 'Superficie Dental']);
-        $this->getR(['id' => 16, 'nombrexx' => 'Diagnostico Dental']);
-        $this->getR(['id' => 17, 'nombrexx' => 'Grupo Sanguíneo']);
-        $this->getR(['id' => 18, 'nombrexx' => 'RH']);
-        $this->getR(['id' => 19, 'nombrexx' => 'Estado Civil']);
-        $this->getR(['id' => 20, 'nombrexx' => 'Grupo Étnico']);
-        $this->getR(['id' => 21, 'nombrexx' => 'Estado Afiliación']);
-        $this->getR(['id' => 22, 'nombrexx' => 'Entidad Promotora de Salud']);
-        $this->getR(['id' => 23, 'nombrexx' => 'SI/NO']);
-        $this->getR(['id' => 24, 'nombrexx' => 'Tipo Discapacidad']);
-        $this->getR(['id' => 25, 'nombrexx' => 'Condicional No Aplica']);
-        $this->getR(['id' => 26, 'nombrexx' => 'Aplicación Sisben']);
-        $this->getR(['id' => 27, 'nombrexx' => 'Método Anticonceptivo']);
-        $this->getR(['id' => 28, 'nombrexx' => 'Número Comidas']);
-        $this->getR(['id' => 29, 'nombrexx' => 'Motivo Comidas Diarias']);
-        $this->getR(['id' => 30, 'nombrexx' => 'Tipo Proceso']);
-        $this->getR(['id' => 31, 'nombrexx' => 'Por Qué']);
-        $this->getR(['id' => 32, 'nombrexx' => 'Radio Button sino']);
-        $this->getR(['id' => 33, 'nombrexx' => 'Clase Libreta']);
-        $this->getR(['id' => 34, 'nombrexx' => 'RESIDENCIA RHC']);
-        $this->getR(['id' => 35, 'nombrexx' => 'La Residencia es']);
-        $this->getR(['id' => 36, 'nombrexx' => 'Tipo Dirección']);
-        $this->getR(['id' => 37, 'nombrexx' => 'Zona Donde Vive']);
-        $this->getR(['id' => 38, 'nombrexx' => 'Cuadrante']);
-        $this->getR(['id' => 39, 'nombrexx' => 'Alfabeto']);
-        $this->getR(['id' => 40, 'nombrexx' => 'Bis']);
-        $this->getR(['id' => 41, 'nombrexx' => 'Estrato Socioeconómico']);
-        $this->getR(['id' => 42, 'nombrexx' => 'Condiciones del Ambiente']);
-        $this->getR(['id' => 43, 'nombrexx' => 'Eventos médicos']);
-        $this->getR(['id' => 44, 'nombrexx' => 'Tipo Teléfono']);
-        $this->getR(['id' => 45, 'nombrexx' => 'Motivo PARD']);
-        $this->getR(['id' => 46, 'nombrexx' => 'motivo vinculacion SRPA']);
-        $this->getR(['id' => 47, 'nombrexx' => 'medida pedagogica SRPA']);
-        $this->getR(['id' => 48, 'nombrexx' => 'Motivo de la vinculación al SRPA']);
-        $this->getR(['id' => 49, 'nombrexx' => 'sanciones SPOA']);
-        $this->getR(['id' => 50, 'nombrexx' => 'CAUSAS VINCUALCIÓN DELINCUENCIA']);
-        $this->getR(['id' => 51, 'nombrexx' => 'Lugar PARD']);
-        $this->getR(['id' => 52, 'nombrexx' => 'NIVEL DE AVANCE']);
-        $this->getR(['id' => 53, 'nombrexx' => 'Sustancia Psicoactiva']);
-        $this->getR(['id' => 54, 'nombrexx' => 'Frecuencia Uso Sustancia']);
-        $this->getR(['id' => 55, 'nombrexx' => 'Via Administracion']);
-        $this->getR(['id' => 56, 'nombrexx' => 'Plano Afectacion']);
-        $this->getR(['id' => 57, 'nombrexx' => 'condiciones especiales']);
-        $this->getR(['id' => 58, 'nombrexx' => 'RIESGO ESCNNA']);
-        $this->getR(['id' => 59, 'nombrexx' => 'BENEFICIOS']);
-        $this->getR(['id' => 60, 'nombrexx' => 'SITUACIÓN MILITAR']);
-        $this->getR(['id' => 61, 'nombrexx' => 'POBLACIÓN INDÍGENA']);
-        $this->getR(['id' => 62, 'nombrexx' => 'TIPO VIA PRINCIPAL']);
-        $this->getR(['id' => 63, 'nombrexx' => 'MOTIVO VINCULACION IDIPRON']);
-        $this->getR(['id' => 64, 'nombrexx' => 'REPRESENTACION LEGAL']);
-        $this->getR(['id' => 65, 'nombrexx' => 'MODALIDAD']);
-        $this->getR(['id' => 66, 'nombrexx' => 'CONVENCION B, PARENTESCO O PERSONA']);
-        $this->getR(['id' => 67, 'nombrexx' => 'CSD - RÉGIMEN ESPECIAL EN SALUD']);
-        $this->getR(['id' => 68, 'nombrexx' => 'CSD - RÉGIMEN VINCULADO']);
-        $this->getR(['id' => 69, 'nombrexx' => 'ÚLTIMO GRADO CSD']);
-        $this->getR(['id' => 70, 'nombrexx' => 'Presenta dificultades para acceder a alguna red de apoyo? VI']);
-        $this->getR(['id' => 71, 'nombrexx' => 'Motivos de restricción de acceso a espacios, servicio o redes de apoyo VI']);
-        $this->getR(['id' => 72, 'nombrexx' => 'Motivos por el cual se presenta la restricción']);
-        $this->getR(['id' => 73, 'nombrexx' => 'CONVENCIÓN A']);
-        $this->getR(['id' => 74, 'nombrexx' => 'QUÉ PERSONA(S) PARECEN PRODUCIR O EMPEORAR ESTAS DIFICULTADES']);
-        $this->getR(['id' => 75, 'nombrexx' => 'TIEMPO AL DIA']);
-        $this->getR(['id' => 76, 'nombrexx' => 'DIAS SEMANA CANTIDAD']);
-        $this->getR(['id' => 77, 'nombrexx' => 'ACTIVIDADES REALIZADAS']);
-        $this->getR(['id' => 78, 'nombrexx' => 'RELIGION QUE PROFESA']);
-        $this->getR(['id' => 79, 'nombrexx' => 'SACRAMENTOS REALIZADOS']);
-        $this->getR(['id' => 80, 'nombrexx' => 'PROCESOS']);
-        $this->getR(['id' => 81, 'nombrexx' => 'TALLA PANTALON']);
-        $this->getR(['id' => 82, 'nombrexx' => 'TALLA CAMISA']);
-        $this->getR(['id' => 83, 'nombrexx' => 'TALLA ZAPATOS']);
-        $this->getR(['id' => 84, 'nombrexx' => 'AÑO PRESTACION SERVICIO']);
-        $this->getR(['id' => 85, 'nombrexx' => 'TEMA PARAMETRO CORREGIR']);
-        $this->getR(['id' => 86, 'nombrexx' => 'TEMAS INDICADORES']);
-        $this->getR(['id' => 87, 'nombrexx' => 'ANTECEDENTES SALUD VSI']);
-        $this->getR(['id' => 88, 'nombrexx' => 'TIPO DE RED']);
-        $this->getR(['id' => 89, 'nombrexx' => 'SITUACION VULNERACION RIESGO']);
-        $this->getR(['id' => 90, 'nombrexx' => 'MATERIAL PISOS']);
-        $this->getR(['id' => 91, 'nombrexx' => 'MATERIAL MUROS']);
-        $this->getR(['id' => 92, 'nombrexx' => 'CONDICIONES AMBIENTALES CSD']);
-        $this->getR(['id' => 93, 'nombrexx' => 'ESTADO CONDICIONES AMBIENTALES']);
-        $this->getR(['id' => 94, 'nombrexx' => 'SERVICIOS PUBLICOS']);
-        $this->getR(['id' => 95, 'nombrexx' => 'LEGALIDAD']);
-        $this->getR(['id' => 96, 'nombrexx' => 'ESPACIOS HOGAR']);
-        $this->getR(['id' => 97, 'nombrexx' => 'ANTECEDENTES PROBLEMAS SOCIALES']);
-        $this->getR(['id' => 98, 'nombrexx' => 'TIPOLOGIA FAMILIAR']);
-        $this->getR(['id' => 99, 'nombrexx' => 'TIPOLOGIA DE HOGAR']);
-        $this->getR(['id' => 100, 'nombrexx' => 'RAZON TRASLADO']);
-        $this->getR(['id' => 101, 'nombrexx' => 'MOTIVO VINCULACION']);
-        $this->getR(['id' => 102, 'nombrexx' => 'PROBLEMATICA FAMILAR']);
-        $this->getR(['id' => 103, 'nombrexx' => 'FORMA ESTABLECER REGLAS HOGAR']);
-        $this->getR(['id' => 104, 'nombrexx' => 'FORMA ACTUAR NORMAS']);
-        $this->getR(['id' => 105, 'nombrexx' => 'SOLUCION PROBLEMAS CASA']);
-        $this->getR(['id' => 106, 'nombrexx' => 'ACUDE PROBLEMAS CASA']);
-        $this->getR(['id' => 107, 'nombrexx' => 'MODO ACTUAR INCUMPLIMIENTO REGLAS']);
-        $this->getR(['id' => 108, 'nombrexx' => 'MIEMBROS FAMILA DESTACAN']);
-        $this->getR(['id' => 109, 'nombrexx' => 'ACTUA FAMILIA SUCESOS POSITIVOS']);
-        $this->getR(['id' => 110, 'nombrexx' => 'PERIODICIDAD']);
-        $this->getR(['id' => 111, 'nombrexx' => 'DONDE COMPRA ALIMENTOS']);
-        $this->getR(['id' => 112, 'nombrexx' => 'ALIMENTACION DIARIA']);
-        $this->getR(['id' => 113, 'nombrexx' => 'ENTIDAD RECIBE ALIMENTACION']);
-        $this->getR(['id' => 114, 'nombrexx' => 'ACTIVIDAD GENERA INGRESO']);
-        $this->getR(['id' => 115, 'nombrexx' => 'TRABAJO INFORMAL']);
-        $this->getR(['id' => 116, 'nombrexx' => 'OTRAS ACTIVIDADES']);
-        $this->getR(['id' => 117, 'nombrexx' => 'TIPO RELACION LABORAL']);
-        $this->getR(['id' => 118, 'nombrexx' => 'MOTIVO RETIRO']);
-        $this->getR(['id' => 119, 'nombrexx' => 'TIPO POBLACION FI']);
-        $this->getR(['id' => 120, 'nombrexx' => 'CAUSAS VINCULACION DELINCUENCIA']);
-        $this->getR(['id' => 121, 'nombrexx' => 'TIPO RESIDENCIA DUERME']);
-        $this->getR(['id' => 122, 'nombrexx' => 'NINGUNA FUENTE INGRESO']);
-        $this->getR(['id' => 123, 'nombrexx' => 'JORNADA INGRESOS']);
-        $this->getR(['id' => 124, 'nombrexx' => 'DIAS SEMANA NOMBRE']);
-        $this->getR(['id' => 125, 'nombrexx' => 'FRECUENCIA INGRESOS']);
-        $this->getR(['id' => 126, 'nombrexx' => 'VICTIMA ESCNNA']);
-        $this->getR(['id' => 127, 'nombrexx' => 'INICIO HABITANCIA CALLE']);
-        $this->getR(['id' => 128, 'nombrexx' => 'CONTINUACION HABITANCIA CALLE']);
-        $this->getR(['id' => 129, 'nombrexx' => 'DIAS DE SEMANA']);
-        $this->getR(['id' => 130, 'nombrexx' => 'NATURALEZA COL']);
-        $this->getR(['id' => 131, 'nombrexx' => 'CONVENCIÓN D']);
-        $this->getR(['id' => 132, 'nombrexx' => 'TALLA PANTALON CAMISO NIÑO NIÑA']);
-        $this->getR(['id' => 133, 'nombrexx' => 'TALLA CAM NIÑO']);
-        $this->getR(['id' => 134, 'nombrexx' => 'TALLA PAL HOM ADULT']);
-        $this->getR(['id' => 135, 'nombrexx' => 'TALLA PAL MUJ ADULT']);
-        $this->getR(['id' => 136, 'nombrexx' => 'TALLA CAM HOM ADULT']);
-        $this->getR(['id' => 137, 'nombrexx' => 'TALLA CAM MUJ ADULT']);
-        $this->getR(['id' => 138, 'nombrexx' => 'TALLA ZAPATO']);
-        $this->getR(['id' => 139, 'nombrexx' => 'SEXO Y ETARIO']);
-        $this->getR(['id' => 140, 'nombrexx' => 'HORAS LABORALES']);
-        $this->getR(['id' => 141, 'nombrexx' => 'TAMA1']);
-        $this->getR(['id' => 142, 'nombrexx' => 'ÁMBITO VIOLENCIA']);
-        $this->getR(['id' => 143, 'nombrexx' => 'TIPO VIOLENCIA']);
-        $this->getR(['id' => 144, 'nombrexx' => 'SERVICIOS DOMÉSTICOS']);
-        $this->getR(['id' => 145, 'nombrexx' => 'RESIDENCIA CHC']);
-        $this->getR(['id' => 146, 'nombrexx' => 'MANERA CONTACTO IDIPRON']);
-        $this->getR(['id' => 147, 'nombrexx' => 'INGRESOS POR OPCIÓN']);
-        $this->getR(['id' => 148, 'nombrexx' => 'PROBAR']);
-        $this->getR(['id' => 149, 'nombrexx' => 'MOTIVO INGRESO PROTECCION']);
-        $this->getR(['id' => 150, 'nombrexx' => 'DOCUMENTO NNA']);
-        $this->getR(['id' => 151, 'nombrexx' => 'JORNADA ESTUDIO']);
-        $this->getR(['id' => 152, 'nombrexx' => 'TIEMPO EXTENSO']);
-        $this->getR(['id' => 153, 'nombrexx' => 'NIVEL ESTUDIO']);
-        $this->getR(['id' => 154, 'nombrexx' => 'GRADO APROBADO']);
-        $this->getR(['id' => 155, 'nombrexx' => 'DOCUMENTOS ANEXOS INGRESO']);
-        $this->getR(['id' => 156, 'nombrexx' => 'OCUPACIÓN']);
-        $this->getR(['id' => 157, 'nombrexx' => 'REPETIDOS']);
-        $this->getR(['id' => 158, 'nombrexx' => 'QUÉ EMOCIONES LE GENERAN ESTAS DIFICULTADES?  (CONVENCIÓN E) VI']);
-        $this->getR(['id' => 159, 'nombrexx' => 'TIPO PERSONA VINCULACION']);
-        $this->getR(['id' => 160, 'nombrexx' => 'EN QUÉ CONTEXTOS SE LE FACILITA INTERACTUAR CON OTRAS PERSONAS? VI']);
-        $this->getR(['id' => 161, 'nombrexx' => 'JEFATURA HOGAR']);
-        $this->getR(['id' => 162, 'nombrexx' => 'ÁREA EMOCIONAL VSI']);
-        $this->getR(['id' => 163, 'nombrexx' => 'ÁREA SEXUAL VSI']);
-        $this->getR(['id' => 164, 'nombrexx' => 'ÁREA COMPORTAMENTAL VSI']);
-        $this->getR(['id' => 165, 'nombrexx' => 'ÁREA ACADÉMICA VSI']);
-        $this->getR(['id' => 166, 'nombrexx' => 'ÁREA SOCIAL VSI']);
-        $this->getR(['id' => 167, 'nombrexx' => 'ÁREA FAMILIAR']);
-        $this->getR(['id' => 168, 'nombrexx' => 'EN QUÉ CONTEXTOS SE LE DIFICULTA INTERACTUAR CON OTRAS PERSONAS? VI']);
-        $this->getR(['id' => 169, 'nombrexx' => 'CUÁL ES LA DIFICULTAD PARA LOGRAR LA INTERACCIÓN? VI']);
-        $this->getR(['id' => 170, 'nombrexx' => 'CÓMO SE SIENTE LA MAYOR PARTE DEL TIEMPO? VI']);
-        $this->getR(['id' => 171, 'nombrexx' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI']);
-        $this->getR(['id' => 172, 'nombrexx' => 'INDIQUE CUÁL ES LA PERSONA MÁS REPRESENTATIVA DE SU FAMILIA?    (CONVENCIÓN B) VI']);
-        $this->getR(['id' => 173, 'nombrexx' => 'CUÁL ES LA PERSONA CON QUIEN NO TIENE BUENAS RELACIONES EN SU FAMILIA? (CONVENCIÓN B)   VI']);
-        $this->getR(['id' => 174, 'nombrexx' => 'MENCIONE EL/LOS MOTIVOS POR LO CUAL NO EXISTEN BUENAS RELACIONES VI']);
-        $this->getR(['id' => 175, 'nombrexx' => 'CÓMO ES LA RELACIÓN CON SU FAMILIA? VI']);
-        $this->getR(['id' => 176, 'nombrexx' => 'QUÉ TIPO DE DIFICULTADES PRESENTA CON SU PAREJA? VI']);
-        $this->getR(['id' => 177, 'nombrexx' => 'CÓMO AFRONTAN LAS DIFICULTADES? VI']);
-        $this->getR(['id' => 178, 'nombrexx' => 'ENTIDAD EN LA QUE SE DENUNCIA EL DELITO? VI']);
-        $this->getR(['id' => 179, 'nombrexx' => 'PREGUNTAS VALIDADORAS DE LOS INDICADORES']);
-        $this->getR(['id' => 180, 'nombrexx' => 'Motivo presenta SPA']);
-        $this->getR(['id' => 181, 'nombrexx' => 'Expectativa consumo SPA']);
-        $this->getR(['id' => 182, 'nombrexx' => 'CODIFICACIÓN TALLA / EDAD']);
-        $this->getR(['id' => 183, 'nombrexx' => 'ENFERMEDADES']);
-        $this->getR(['id' => 184, 'nombrexx' => 'ACTIVIDAD FÍSICA']);
-        $this->getR(['id' => 185, 'nombrexx' => 'APETITO']);
-        $this->getR(['id' => 186, 'nombrexx' => 'ALIMENTOS ANTES DE INGRESAR AL IDIPRON']);
-        $this->getR(['id' => 187, 'nombrexx' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS ANTES DE INGRESAR AL IDIPRON']);
-        $this->getR(['id' => 188, 'nombrexx' => 'ACCIONES A AUMENTAR']);
-        $this->getR(['id' => 189, 'nombrexx' => 'ACCIONES A DISMINUIR']);
-        $this->getR(['id' => 190, 'nombrexx' => 'ACCIONES PLAN ALIMENTARIO']);
-        $this->getR(['id' => 191, 'nombrexx' => 'CODIFICACIÓN IMC / EDAD']);
-        $this->getR(['id' => 192, 'nombrexx' => 'TIPO DE DEPENDENCIA']);
-        $this->getR(['id' => 193, 'nombrexx' => 'TIPO DE MATRÍCULA']);
-        $this->getR(['id' => 194, 'nombrexx' => 'CÓMO REACCIONA ANTE EVENTOS O SITUACIONES QUE LE GENEREN UN CAMBIO EMOCIONAL SIGNIFICATIVO']);
-        $this->getR(['id' => 195, 'nombrexx' => 'SENTIMIENTOS Y  EMOCIONES  VI']);
-        $this->getR(['id' => 196, 'nombrexx' => 'NIVELES LÍNEA BASE']);
-        $this->getR(['id' => 197, 'nombrexx' => 'HA OCURRIDO EN SU VIDA ALGÚN ACONTECIMIENTO ESTRESANTE O TRAUMÁTICO']);
-        $this->getR(['id' => 198, 'nombrexx' => 'NIVEL DE RIESGO VI']);
-        $this->getR(['id' => 199, 'nombrexx' => 'INDIQUE LOS MOTIVOS O SITUACIONES POR EL CUAL SE HA TENIDO PENSAMIENTOS, AMENAZAS E INTENTOS']);
-        $this->getR(['id' => 200, 'nombrexx' => 'QUÉ TIPO DE CONDUCTAS AUTO LESIVAS? VI']);
-        $this->getR(['id' => 201, 'nombrexx' => 'QUÉ ACTIVACIONES FISIOLÓGICAS LE GENERA? VI']);
-        $this->getR(['id' => 202, 'nombrexx' => 'MOMENTO EVENTO']);
-        $this->getR(['id' => 203, 'nombrexx' => 'TIPO EVENTO SEXUAL NEGATIVO']);
-        $this->getR(['id' => 204, 'nombrexx' => 'ESTADO PROCESO TERAPÉUTICO']);
-        $this->getR(['id' => 205, 'nombrexx' => 'MOTIVO POR EL CUAL NO ESTÁ ESCOLARIZADO']);
-        $this->getR(['id' => 206, 'nombrexx' => 'RENDIMIENTO ACADÉMICO']);
-        $this->getR(['id' => 207, 'nombrexx' => 'CAUSA DE DESERCIÓN']);
-        $this->getR(['id' => 208, 'nombrexx' => 'MATERIAS']);
-        $this->getR(['id' => 209, 'nombrexx' => 'TIPO DE DIFICULTAD']);
-        $this->getR(['id' => 210, 'nombrexx' => 'IDENTIFICA ALGÚN TIPO DE DIFICULTAD']);
-        $this->getR(['id' => 211, 'nombrexx' => 'AREA']);
-        $this->getR(['id' => 212, 'nombrexx' => 'ÁREAS AJUSTE']);
-        $this->getR(['id' => 213, 'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO']);
-        $this->getR(['id' => 214, 'nombrexx' => 'ESTADO AUDICION']);
-        $this->getR(['id' => 215, 'nombrexx' => 'ESTADO HABLA EXPLORACION FUNCIONAL']);
-        $this->getR(['id' => 216, 'nombrexx' => 'IMPRESION DIAGNOSTICA VALORACIÓN INICIAL FONOAUDIOLOGÍA']);
-        $this->getR(['id' => 217, 'nombrexx' => 'TIPO SEGUIMIENTO FONOAUDIOLOGÍA']);
-        $this->getR(['id' => 218, 'nombrexx' => 'TIPO EVOLUCIÓN FONOAUDIOLOGÍA']);
-        $this->getR(['id' => 219, 'nombrexx' => 'IMPRESION DIAGNOSTICA VALORACIÓN TAMIZ AUDITIVO']);
-        $this->getR(['id' => 220, 'nombrexx' => 'REMISIÓN VALORACIÓN INICIAL FONOAUDIOLOGÍA']);
-        $this->getR(['id' => 221, 'nombrexx' => 'REMISIÓN VALORACIÓN TAMIZ AUDITIVO']);
-        $this->getR(['id' => 222, 'nombrexx' => 'MOTIVO ATENCIÓN VALORACIÓN MÉDICA']);
-        $this->getR(['id' => 223, 'nombrexx' => 'PERIODICIDAD PARA VALORACIÓN MÉDICA']);
-        $this->getR(['id' => 224, 'nombrexx' => 'DIAGNÓSTICO DE EVOLUCIÓN']);
-        $this->getR(['id' => 225, 'nombrexx' => 'CONDUCTA PARA VALORACIÓN MÉDICA']);
-        $this->getR(['id' => 226, 'nombrexx' => 'TRAMITE ENTREGA DOCUMENTO']);
-        $this->getR(['id' => 227, 'nombrexx' => 'INSTRUMENTOS NUTRICIÓN']);
-        $this->getR(['id' => 228, 'nombrexx' => 'INSTRUMENTOS FONOAUDIOLOGÍA']);
-        $this->getR(['id' => 229, 'nombrexx' => 'INSTRUMENTOS AUXILIAR DE ENFERMERÍA']);
-        $this->getR(['id' => 230, 'nombrexx' => 'TIPO DE ACCIDENTE']);
-        $this->getR(['id' => 231, 'nombrexx' => 'CAUSA DE ACCIDENTE']);
-        $this->getR(['id' => 232, 'nombrexx' => 'LUGAR DONDE OCURRIO ACCIDENTE']);
-        $this->getR(['id' => 233, 'nombrexx' => 'AGENTE DEL ACCIDENTE']);
-        $this->getR(['id' => 234, 'nombrexx' => 'PARTE DEL CUERPO AFECTADO']);
-        $this->getR(['id' => 235, 'nombrexx' => 'SÍNTOMA PEDICULOSIS']);
-        $this->getR(['id' => 236, 'nombrexx' => 'USO DEL CABELLO']);
-        $this->getR(['id' => 237, 'nombrexx' => 'TIEMPO SUFRE PEDICULOSIS']);
-        $this->getR(['id' => 238, 'nombrexx' => 'TRATAMIENTO PEDICULOSIS']);
-        $this->getR(['id' => 239, 'nombrexx' => 'CONSECUENCIA PEDICULOSIS CABEZA']);
-        $this->getR(['id' => 240, 'nombrexx' => 'CONSECUENCIA PEDICULOSIS CUELLO']);
-        $this->getR(['id' => 241, 'nombrexx' => 'CONSECUENCIA PEDICULOSIS TÓRAX']);
-        $this->getR(['id' => 242, 'nombrexx' => 'CONSECUENCIA PEDICULOSIS BRAZOS Y AXILAS']);
-        $this->getR(['id' => 243, 'nombrexx' => 'CONSECUENCIA PEDICULOSIS PIEL DE TÓRAX']);
-        $this->getR(['id' => 244, 'nombrexx' => 'TIPO DE ACCESO AL SISTEMA']);
-        $this->getR(['id' => 245, 'nombrexx' => 'MOTIVO ATENCIÓN MITIGACIÓN']);
-        $this->getR(['id' => 246, 'nombrexx' => 'DIAGNÓSTICO EVOLUCIÓN MITIGACIÓN']);
-        $this->getR(['id' => 247, 'nombrexx' => 'CONDUCTA MITIGACIÓN']);
-        $this->getR(['id' => 248, 'nombrexx' => 'TRATAMIENTO DENTAL']);
-        $this->getR(['id' => 249, 'nombrexx' => 'CALIFICACIÓN AUTOCUIDADO']);
-        $this->getR(['id' => 250, 'nombrexx' => 'CALIFICACIÓN COMUNICACIÓN']);
-        $this->getR(['id' => 251, 'nombrexx' => 'CALIFICACIÓN HABILIDADES']);
-        $this->getR(['id' => 252, 'nombrexx' => 'CALIFICACIÓN SENSOPERCEPTUAL']);
-        $this->getR(['id' => 253, 'nombrexx' => 'CALIFICACIÓN NEUROSENSORIAL']);
-        $this->getR(['id' => 254, 'nombrexx' => 'PLAN DE MANEJO']);
-        $this->getR(['id' => 255, 'nombrexx' => 'REMISIÓN DESDE TERAPIA']);
-        $this->getR(['id' => 256, 'nombrexx' => 'COMPONENTE NEUROSENSORIAL']);
-        $this->getR(['id' => 257, 'nombrexx' => 'IMPRESIÓN DIAGNÓSTICA']);
-        $this->getR(['id' => 258, 'nombrexx' => 'TEMA A TRABAJAR SEGUIMIENTO TERAPIA']);
-        $this->getR(['id' => 259, 'nombrexx' => 'RESULTADO DE LA INTERVENCIÓN']);
-        $this->getR(['id' => 260, 'nombrexx' => 'NIVEL PERFIL OCUPACIONAL']);
-        $this->getR(['id' => 261, 'nombrexx' => 'MOTIVO DE LA ATENCIÓN']);
-        $this->getR(['id' => 262, 'nombrexx' => 'TIPO DE ACOMPAÑAMIENTO']);
-        $this->getR(['id' => 263, 'nombrexx' => 'TIPO DE APOYO DIAGNÓSTICO']);
-        $this->getR(['id' => 264, 'nombrexx' => 'TIPO DE ESPECIALIDAD MÉDICA']);
-        $this->getR(['id' => 265, 'nombrexx' => 'CALIDAD DEL AFILIADO']);
-        $this->getR(['id' => 266, 'nombrexx' => 'TIPO DE PROCEDIMIENTO']);
-        $this->getR(['id' => 267, 'nombrexx' => 'TIPO DE PYP']);
-        $this->getR(['id' => 268, 'nombrexx' => 'TIPO DE BRIGADA']);
-        $this->getR(['id' => 269, 'nombrexx' => 'TIPO DE CHARLA']);
-        $this->getR(['id' => 270, 'nombrexx' => 'TIPO DE TAMIZAJE']);
-        $this->getR(['id' => 271, 'nombrexx' => 'VACUNA']);
-        $this->getR(['id' => 272, 'nombrexx' => 'RAZONES SALIDA UPI']);
-        $this->getR(['id' => 273, 'nombrexx' => 'CONTEXTURA']);
-        $this->getR(['id' => 274, 'nombrexx' => 'TIPO DE ROSTRO']);
-        $this->getR(['id' => 275, 'nombrexx' => 'COLOR DE PIEL']);
-        $this->getR(['id' => 276, 'nombrexx' => 'COLOR DE CABELLO']);
-        $this->getR(['id' => 277, 'nombrexx' => 'TIPO DE CABELLO']);
-        $this->getR(['id' => 278, 'nombrexx' => 'CORTE DE CABELLO']);
-        $this->getR(['id' => 279, 'nombrexx' => 'COLOR DE OJOS']);
-        $this->getR(['id' => 280, 'nombrexx' => 'NARIZ']);
-        $this->getR(['id' => 281, 'nombrexx' => 'TAMAÑO DEL LUNAR']);
-        $this->getR(['id' => 282, 'nombrexx' => 'TIPO DE CONVENIO']);
-        $this->getR(['id' => 283, 'nombrexx' => 'TIPO RECURSO']);
-        $this->getR(['id' => 284, 'nombrexx' => 'TIPO DEPENDENCIA']);
-        $this->getR(['id' => 285, 'nombrexx' => 'DIRIGIDO A:']);
-        $this->getR(['id' => 286, 'nombrexx' => 'CUENTA DOCUMENTO']);
-        $this->getR(['id' => 287, 'nombrexx' => 'VINCULADO']);
-        $this->getR(['id' => 288, 'nombrexx' => 'UNIDAD DE MEDIDA']);
-        $this->getR(['id' => 289, 'nombrexx' => 'ESTADO TABLAS']);
-        $this->getR(['id' => 290, 'nombrexx' => 'TIPO DE VESTIMENTA']);
-        $this->getR(['id' => 291, 'nombrexx' => 'ESPACIO DONDE PARCHA']);
-        $this->getR(['id' => 292, 'nombrexx' => 'MOTIVOS DE AUSENCIA']);
-        $this->getR(['id' => 293, 'nombrexx' => 'ACONTECIMIENTOS GENERADORES DE AFECTACIONES EMOCIONALES']);
-        $this->getR(['id' => 294, 'nombrexx' => 'POSICIÓN OCUPACIONAL',]);
-        $this->getR(['id' => 295, 'nombrexx' => 'CATEGORIA INDICADORES',]);
-        $this->getR(['id' => 296, 'nombrexx' => 'ACTIVIDAD GENERA INGRESO CHC']);
-        $this->getR(['id' => 297, 'nombrexx' => 'RESPUESTA VALIDACIONES INDICADORES']);
-        $this->getR(['id' => 298, 'nombrexx' => 'ACCIONES VIOLENCIA VI']);
-        $this->getR(['id' => 299, 'nombrexx' => 'TIPO DE RED VI']);
-        $this->getR(['id' => 300, 'nombrexx' => 'MOTIVOS QUE HA TENIDO PARA QUITARSE LA VIDA (VI)']);
-        $this->getR(['id' => 301, 'nombrexx' => 'PROBLEMAS DE SALUD']);
-        $this->getR(['id' => 302, 'nombrexx' => 'TIPO DE DILIGENCIAMIENTO']);
-        $this->getR(['id' => 303, 'nombrexx' => 'ESTADO DE INGRESO']);
-        $this->getR(['id' => 304, 'nombrexx' => 'PRENDAS DE VESTIR']);
-        $this->getR(['id' => 305, 'nombrexx' => 'MATERIAL DE LAS PRENDAS']);
-        $this->getR(['id' => 306, 'nombrexx' => 'LÍNEAS DE ATENCIÓN']);
-        $this->getR(['id' => 307, 'nombrexx' => 'OBJETIVOS DE SALIDA AI']);
-        $this->getR(['id' => 308, 'nombrexx' => 'ESTADO A LA SALIDA AI']);
-        $this->getR(['id' => 309, 'nombrexx' => 'ESTADO DEL REGISTRO',]); //309
-        $this->getR(['id' => 310, 'nombrexx' => 'TIPO DE VINCULACION',]); //310
-        $this->getR(['id' => 311, 'nombrexx' => 'CICLO VITAL',]); //311
-        $this->getR(['id' => 312, 'nombrexx' => 'VSPA - TIPO DE VALORACIÓN',]);
-        $this->getR(['id' => 313, 'nombrexx' => 'VSPA - CONDICIÓN ESCOLAR',]);
-        $this->getR(['id' => 314, 'nombrexx' => 'VSPA - FUENTE DE INGRESOS',]);
-        $this->getR(['id' => 315, 'nombrexx' => 'VSPA - MODALIDAD DE ATENCIÓN',]);
-        $this->getR(['id' => 316, 'nombrexx' => 'VSPA - CÓMO ACUDUDIÓ A LA INSTITUCIÓN',]);
-        $this->getR(['id' => 317, 'nombrexx' => 'VSPA - SITIO HABITUAL DE CONSUMO',]);
-        $this->getR(['id' => 318, 'nombrexx' => 'VSPA - FRECUENCIA DE USO',]);
-        $this->getR(['id' => 319, 'nombrexx' => 'VSPA - IMPACTO NEGATIVO',]);
-        $this->getR(['id' => 320, 'nombrexx' => 'VSPA - TIPO DE DROGA',]);
-        $this->getR(['id' => 321, 'nombrexx' => 'VSPA - CANTIDAD DE CIGARRILLOS',]);
-        $this->getR(['id' => 322, 'nombrexx' => 'VSPA - COMO OBTIENE LA SUSTANCIA',]);
-        $this->getR(['id' => 323, 'nombrexx' => 'VSPA - UNIDAD DE MEDIDA',]);
-        $this->getR(['id' => 324, 'nombrexx' => 'VSPA - ACOSTUMBRA A UTILIZAR LA SUSTANCIA',]);
-        $this->getR(['id' => 325, 'nombrexx' => 'VSPA - ACOSTUMBRA A COMPARTIR AGUJAS',]);
-        $this->getR(['id' => 326, 'nombrexx' => 'RIESGO O VICTIMA ESCNNA',]); //326
-        $this->getR(['id' => 327, 'nombrexx' => '¿CUáLES FUERON LAS RAZONES PARA HABER INICIADO LA HABITANZA EN CALLE?',]); //327
-        $this->getR(['id' => 328, 'nombrexx' => '¿RAZONES POR LAS CUALES CONTINUA LA HABITANZA EN CALLE?',]); //328
-        $this->getR(['id' => 329, 'nombrexx' => 'VMA - TIPO DE TRASTORNO',]);
-        $this->getR(['id' => 330, 'nombrexx' => 'VMA - TIPO DE APETITO',]);
-        $this->getR(['id' => 331, 'nombrexx' => 'VMA - SUDORACIÓN',]);
-        $this->getR(['id' => 332, 'nombrexx' => 'VMA - ESTADO DE ÁNIMO',]);
-        $this->getR(['id' => 333, 'nombrexx' => 'VMA - TRATAMIENTO',]);
-        $this->getR(['id' => 334, 'nombrexx' => 'VMA - CONDUCTA',]);
-        $this->getR(['id' => 335, 'nombrexx' => 'VMA - TIPO DE DIAGNÓSTICO',]);
-        $this->getR(['id' => 336, 'nombrexx' => 'LUGARES/ESPACIOS EXTERNOS',]);
-        $this->getR(['id' => 337, 'nombrexx' => 'TIPO LETRA TITULOS',]);
-        $this->getR(['id' => 338, 'nombrexx' => 'RESPONSABLE DE LA ACTIVIDAD',]);
-        $this->getR(['id' => 339, 'nombrexx' => 'SEXO DEPENDENCIAS',]);
-        $this->getR(['id' => 340, 'nombrexx' => 'FORMULARIO MOTIVO DE ESTADO PARA EL REGISTRO',]);
-        $this->getR(['id' => 341, 'nombrexx' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL',]);
-        $this->getR(['id' => 342, 'nombrexx' => 'HA SIDO VICTIMA DE ATAQUES CON',]);
-        $this->getR(['id' => 343, 'nombrexx' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?',]);
-        $this->getR(['id' => 344, 'nombrexx' => '¿POR LAS ACCIONES EN LAS CUALES PRESUNTAMENTE ESTA EN CONFLICTO CON LA LEY HA ACTUADO EN?',]);
-        $this->getR(['id' => 345, 'nombrexx' => '12.1 ¿Presenta algún tipo de violencia?',]);
-        $this->getR(['id' => 346, 'nombrexx' => '12.1 A Ha ejercido algún tipo de presunta violencia durante la actividad en conflicto con la ley?',]);
-        $this->getR(['id' => 347, 'nombrexx' => 'COMBO VIOLENCIA PARA: (VIOLENCIAS Y CONDICION ESPECIAL)',]);
-        $this->getR(['id' => 348, 'nombrexx' => 'COMBO CONTEXTOS PARA: (VIOLENCIAS Y CONDICION ESPECIAL)',]);
-        $this->getR(['id' => 349, 'nombrexx' => '12.2 El tipo de violencia referenciado corresponde a violencia basada en',]);
-        $this->getR(['id' => 350, 'nombrexx' => '12.1.B  Que tipo de presuntas lesiones ha cometido durante la actividad?',]);
-        $this->getR(['id' => 351, 'nombrexx' => 'condiciones especiales  CR',]);
-        $this->getR(['id' => 352, 'nombrexx' => '¿Es cabeza de familia? cr',]);
-        $this->getR(['id' => 353, 'nombrexx' => '¿Es usted Joven en presunto conflicto con la ley?',]);
-        $this->getR(['id' => 354, 'nombrexx' => 'ESTRATEGIA',]);
-        $this->getR(['id' => 355, 'nombrexx' => 'SIN ESTRATEGIA',]);
-        $this->getR(['id' => 356, 'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL',]);
-        $this->getR(['id' => 357, 'nombrexx' => 'motivo vinculacion SPOA',]);
-        $this->getR(['id' => 358, 'nombrexx' => 'PARENTESCO FI',]);
-        $this->getR(['id' => 359, 'nombrexx' => 'TIPO POBLACION CSD',]);
-        $this->getR(['id' => 360, 'nombrexx' => 'PROBLEMA CSD',]);
-        $this->getR(['id' => 361, 'nombrexx' => 'TIPO DE DOCUMENTO CSD',]);
-        $this->getR(['id' => 362, 'nombrexx' => 'motivo vinculacion justicia',]);
-        $this->getR(['id' => 363, 'nombrexx' => 'Autorización de respuesta',]);
-        $this->getR(['id' => 364, 'nombrexx' => 'Documentos talleres',]);
-        $this->getR(['id' => 365, 'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO CLINICO',]);
+        $dataxxxx =[
+            ['nombrexx' => 'ORDEN SUCESORAL'],// 1
+            ['nombrexx' => 'DOCUMENTO SOPORTE POLIZA'],// 2
+            ['nombrexx' => 'TIPO DE DOCUMENTO'],// 3
+            ['nombrexx' => 'TIPO TIEMPO'],// 4
+            ['nombrexx' => 'AM/PM'],// 5
+            ['nombrexx' => 'FRECUENCIA VSI'],// 6
+            ['nombrexx' => 'VIOLENCIA DISCRIMINACIÓN'],// 7
+            ['nombrexx' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS'],// 8
+            ['nombrexx' => 'ALIMENTOS'],// 9
+            ['nombrexx' => 'ACCIóN PLAN ALIMENTARIO'],// 10
+            ['nombrexx' => 'SEXO'],// 11
+            ['nombrexx' => 'IDENTIDADE DE GÉNERO'],// 12
+            ['nombrexx' => 'ORIENTACIóN SEXUAL'],// 13
+            ['nombrexx' => 'PIEZA DENTAL'],// 14
+            ['nombrexx' => 'SUPERFICIE DENTAL'],// 15
+            ['nombrexx' => 'DIAGNOSTICO DENTAL'],// 16
+            ['nombrexx' => 'GRUPO SANGUíNEO'],// 17
+            ['nombrexx' => 'RH'],// 18
+            ['nombrexx' => 'ESTADO CIVIL'],// 19
+            ['nombrexx' => 'GRUPO ÉTNICO'],// 20
+            ['nombrexx' => 'ESTADO AFILIACIóN'],// 21
+            ['nombrexx' => 'ENTIDAD PROMOTORA DE SALUD'],// 22
+            ['nombrexx' => 'SI/NO'],// 23
+            ['nombrexx' => 'TIPO DISCAPACIDAD'],// 24
+            ['nombrexx' => 'CONDICIONAL NO APLICA'],// 25
+            ['nombrexx' => 'APLICACIóN SISBEN'],// 26
+            ['nombrexx' => 'MéTODO ANTICONCEPTIVO'],// 27
+            ['nombrexx' => 'NúMERO COMIDAS'],// 28
+            ['nombrexx' => 'MOTIVO COMIDAS DIARIAS'],// 29
+            ['nombrexx' => 'TIPO PROCESO'],// 30
+            ['nombrexx' => 'POR QUé'],// 31
+            ['nombrexx' => 'RADIO BUTTON SINO'],// 32
+            ['nombrexx' => 'CLASE LIBRETA'],// 33
+            ['nombrexx' => 'RESIDENCIA RHC'],// 34
+            ['nombrexx' => 'LA RESIDENCIA ES'],// 35
+            ['nombrexx' => 'TIPO DIRECCIóN'],// 36
+            ['nombrexx' => 'ZONA DONDE VIVE'],// 37
+            ['nombrexx' => 'CUADRANTE'],// 38
+            ['nombrexx' => 'ALFABETO'],// 39
+            ['nombrexx' => 'BIS'],// 40
+            ['nombrexx' => 'ESTRATO SOCIOECONóMICO'],// 41
+            ['nombrexx' => 'CONDICIONES DEL AMBIENTE'],// 42
+            ['nombrexx' => 'EVENTOS MéDICOS'],// 43
+            ['nombrexx' => 'TIPO TELéFONO'],// 44
+            ['nombrexx' => 'MOTIVO PARD'],// 45
+            ['nombrexx' => 'MOTIVO VINCULACION SRPA'],// 46
+            ['nombrexx' => 'MEDIDA PEDAGOGICA SRPA'],// 47
+            ['nombrexx' => 'MOTIVO DE LA VINCULACIóN AL SRPA'],// 48
+            ['nombrexx' => 'SANCIONES SPOA'],// 49
+            ['nombrexx' => 'CAUSAS VINCUALCIÓN DELINCUENCIA'],// 50
+            ['nombrexx' => 'LUGAR PARD'],// 51
+            ['nombrexx' => 'NIVEL DE AVANCE'],// 52
+            ['nombrexx' => 'SUSTANCIA PSICOACTIVA'],// 53
+            ['nombrexx' => 'FRECUENCIA USO SUSTANCIA'],// 54
+            ['nombrexx' => 'VIA ADMINISTRACION'],// 55
+            ['nombrexx' => 'PLANO AFECTACION'],// 56
+            ['nombrexx' => 'CONDICIONES ESPECIALES'],// 57
+            ['nombrexx' => 'RIESGO ESCNNA'],// 58
+            ['nombrexx' => 'BENEFICIOS'],// 59
+            ['nombrexx' => 'SITUACIÓN MILITAR'],// 60
+            ['nombrexx' => 'POBLACIÓN INDÍGENA'],// 61
+            ['nombrexx' => 'TIPO VIA PRINCIPAL'],// 62
+            ['nombrexx' => 'MOTIVO VINCULACION IDIPRON'],// 63
+            ['nombrexx' => 'REPRESENTACION LEGAL'],// 64
+            ['nombrexx' => 'MODALIDAD'],// 65
+            ['nombrexx' => 'CONVENCION B, PARENTESCO O PERSONA'],// 66
+            ['nombrexx' => 'CSD - RÉGIMEN ESPECIAL EN SALUD'],// 67
+            ['nombrexx' => 'CSD - RÉGIMEN VINCULADO'],// 68
+            ['nombrexx' => 'ÊLTIMO GRADO CSD'],// 69
+            ['nombrexx' => 'PRESENTA DIFICULTADES PARA ACCEDER A ALGUNA RED DE APOYO? VI'],// 70
+            ['nombrexx' => 'MOTIVOS DE RESTRICCIóN DE ACCESO A ESPACIOS, SERVICIO O REDES DE APOYO VI'],// 71
+            ['nombrexx' => 'MOTIVOS POR EL CUAL SE PRESENTA LA RESTRICCIóN'],// 72
+            ['nombrexx' => 'CONVENCIÓN A'],// 73
+            ['nombrexx' => 'QUÉ PERSONA(S) PARECEN PRODUCIR O EMPEORAR ESTAS DIFICULTADES'],// 74
+            ['nombrexx' => 'TIEMPO AL DIA'],// 75
+            ['nombrexx' => 'DIAS SEMANA CANTIDAD'],// 76
+            ['nombrexx' => 'ACTIVIDADES REALIZADAS'],// 77
+            ['nombrexx' => 'RELIGION QUE PROFESA'],// 78
+            ['nombrexx' => 'SACRAMENTOS REALIZADOS'],// 79
+            ['nombrexx' => 'PROCESOS'],// 80
+            ['nombrexx' => 'TALLA PANTALON'],// 81
+            ['nombrexx' => 'TALLA CAMISA'],// 82
+            ['nombrexx' => 'TALLA ZAPATOS'],// 83
+            ['nombrexx' => 'AÑO PRESTACION SERVICIO'],// 84
+            ['nombrexx' => 'TEMA PARAMETRO CORREGIR'],// 85
+            ['nombrexx' => 'TEMAS INDICADORES'],// 86
+            ['nombrexx' => 'ANTECEDENTES SALUD VSI'],// 87
+            ['nombrexx' => 'TIPO DE RED'],// 88
+            ['nombrexx' => 'SITUACION VULNERACION RIESGO'],// 89
+            ['nombrexx' => 'MATERIAL PISOS'],// 90
+            ['nombrexx' => 'MATERIAL MUROS'],// 91
+            ['nombrexx' => 'CONDICIONES AMBIENTALES CSD'],// 92
+            ['nombrexx' => 'ESTADO CONDICIONES AMBIENTALES'],// 93
+            ['nombrexx' => 'SERVICIOS PUBLICOS'],// 94
+            ['nombrexx' => 'LEGALIDAD'],// 95
+            ['nombrexx' => 'ESPACIOS HOGAR'],// 96
+            ['nombrexx' => 'ANTECEDENTES PROBLEMAS SOCIALES'],// 97
+            ['nombrexx' => 'TIPOLOGIA FAMILIAR'],// 98
+            ['nombrexx' => 'TIPOLOGIA DE HOGAR'],// 99
+            ['nombrexx' => 'RAZON TRASLADO'],// 100
+            ['nombrexx' => 'MOTIVO VINCULACION'],// 101
+            ['nombrexx' => 'PROBLEMATICA FAMILAR'],// 102
+            ['nombrexx' => 'FORMA ESTABLECER REGLAS HOGAR'],// 103
+            ['nombrexx' => 'FORMA ACTUAR NORMAS'],// 104
+            ['nombrexx' => 'SOLUCION PROBLEMAS CASA'],// 105
+            ['nombrexx' => 'ACUDE PROBLEMAS CASA'],// 106
+            ['nombrexx' => 'MODO ACTUAR INCUMPLIMIENTO REGLAS'],// 107
+            ['nombrexx' => 'MIEMBROS FAMILA DESTACAN'],// 108
+            ['nombrexx' => 'ACTUA FAMILIA SUCESOS POSITIVOS'],// 109
+            ['nombrexx' => 'PERIODICIDAD'],// 110
+            ['nombrexx' => 'DONDE COMPRA ALIMENTOS'],// 111
+            ['nombrexx' => 'ALIMENTACION DIARIA'],// 112
+            ['nombrexx' => 'ENTIDAD RECIBE ALIMENTACION'],// 113
+            ['nombrexx' => 'ACTIVIDAD GENERA INGRESO'],// 114
+            ['nombrexx' => 'TRABAJO INFORMAL'],// 115
+            ['nombrexx' => 'OTRAS ACTIVIDADES'],// 116
+            ['nombrexx' => 'TIPO RELACION LABORAL'],// 117
+            ['nombrexx' => 'MOTIVO RETIRO'],// 118
+            ['nombrexx' => 'TIPO POBLACION FI'],// 119
+            ['nombrexx' => 'CAUSAS VINCULACION DELINCUENCIA'],// 120
+            ['nombrexx' => 'TIPO RESIDENCIA DUERME'],// 121
+            ['nombrexx' => 'NINGUNA FUENTE INGRESO'],// 122
+            ['nombrexx' => 'JORNADA INGRESOS'],// 123
+            ['nombrexx' => 'DIAS SEMANA NOMBRE'],// 124
+            ['nombrexx' => 'FRECUENCIA INGRESOS'],// 125
+            ['nombrexx' => 'VICTIMA ESCNNA'],// 126
+            ['nombrexx' => 'INICIO HABITANCIA CALLE'],// 127
+            ['nombrexx' => 'CONTINUACION HABITANCIA CALLE'],// 128
+            ['nombrexx' => 'DIAS DE SEMANA'],// 129
+            ['nombrexx' => 'NATURALEZA COL'],// 130
+            ['nombrexx' => 'CONVENCIÓN D'],// 131
+            ['nombrexx' => 'TALLA PANTALON CAMISO NIÑO NIÑA'],// 132
+            ['nombrexx' => 'TALLA CAM NIÑO'],// 133
+            ['nombrexx' => 'TALLA PAL HOM ADULT'],// 134
+            ['nombrexx' => 'TALLA PAL MUJ ADULT'],// 135
+            ['nombrexx' => 'TALLA CAM HOM ADULT'],// 136
+            ['nombrexx' => 'TALLA CAM MUJ ADULT'],// 137
+            ['nombrexx' => 'TALLA ZAPATO'],// 138
+            ['nombrexx' => 'SEXO Y ETARIO'],// 139
+            ['nombrexx' => 'HORAS LABORALES'],// 140
+            ['nombrexx' => 'TAMA1'],// 141
+            ['nombrexx' => 'ÁMBITO VIOLENCIA'],// 142
+            ['nombrexx' => 'TIPO VIOLENCIA'],// 143
+            ['nombrexx' => 'SERVICIOS DOMÉSTICOS'],// 144
+            ['nombrexx' => 'RESIDENCIA CHC'],// 145
+            ['nombrexx' => 'MANERA CONTACTO IDIPRON'],// 146
+            ['nombrexx' => 'INGRESOS POR OPCIÓN'],// 147
+            ['nombrexx' => 'PROBAR'],// 148
+            ['nombrexx' => 'MOTIVO INGRESO PROTECCION'],// 149
+            ['nombrexx' => 'DOCUMENTO NNA'],// 150
+            ['nombrexx' => 'JORNADA ESTUDIO'],// 151
+            ['nombrexx' => 'TIEMPO EXTENSO'],// 152
+            ['nombrexx' => 'NIVEL ESTUDIO'],// 153
+            ['nombrexx' => 'GRADO APROBADO'],// 154
+            ['nombrexx' => 'DOCUMENTOS ANEXOS INGRESO'],// 155
+            ['nombrexx' => 'OCUPACIÓN'],// 156
+            ['nombrexx' => 'REPETIDOS'],// 157
+            ['nombrexx' => 'QUÉ EMOCIONES LE GENERAN ESTAS DIFICULTADES? (CONVENCIÓN E) VI'],// 158
+            ['nombrexx' => 'TIPO PERSONA VINCULACION'],// 159
+            ['nombrexx' => 'EN QUÉ CONTEXTOS SE LE FACILITA INTERACTUAR CON OTRAS PERSONAS? VI'],// 160
+            ['nombrexx' => 'JEFATURA HOGAR'],// 161
+            ['nombrexx' => 'ÁREA EMOCIONAL VSI'],// 162
+            ['nombrexx' => 'ÁREA SEXUAL VSI'],// 163
+            ['nombrexx' => 'ÁREA COMPORTAMENTAL VSI'],// 164
+            ['nombrexx' => 'ÁREA ACADÉMICA VSI'],// 165
+            ['nombrexx' => 'ÁREA SOCIAL VSI'],// 166
+            ['nombrexx' => 'ÁREA FAMILIAR'],// 167
+            ['nombrexx' => 'EN QUÉ CONTEXTOS SE LE DIFICULTA INTERACTUAR CON OTRAS PERSONAS? VI'],// 168
+            ['nombrexx' => 'CUÁL ES LA DIFICULTAD PARA LOGRAR LA INTERACCIÓN? VI'],// 169
+            ['nombrexx' => 'CÓMO SE SIENTE LA MAYOR PARTE DEL TIEMPO? VI'],// 170
+            ['nombrexx' => 'EN QUÉ CONTEXTO PREDOMINAN ESTOS ESTADOS DE ANIMO? VI'],// 171
+            ['nombrexx' => 'INDIQUE CUÁL ES LA PERSONA MÁS REPRESENTATIVA DE SU FAMILIA? (CONVENCIÓN B) VI'],// 172
+            ['nombrexx' => 'CUÁL ES LA PERSONA CON QUIEN NO TIENE BUENAS RELACIONES EN SU FAMILIA? (CONVENCIÓN B) VI'],// 173
+            ['nombrexx' => 'MENCIONE EL/LOS MOTIVOS POR LO CUAL NO EXISTEN BUENAS RELACIONES VI'],// 174
+            ['nombrexx' => 'CÓMO ES LA RELACIÓN CON SU FAMILIA? VI'],// 175
+            ['nombrexx' => 'QUÉ TIPO DE DIFICULTADES PRESENTA CON SU PAREJA? VI'],// 176
+            ['nombrexx' => 'CÓMO AFRONTAN LAS DIFICULTADES? VI'],// 177
+            ['nombrexx' => 'ENTIDAD EN LA QUE SE DENUNCIA EL DELITO? VI'],// 178
+            ['nombrexx' => 'PREGUNTAS VALIDADORAS DE LOS INDICADORES'],// 179
+            ['nombrexx' => 'MOTIVO PRESENTA SPA'],// 180
+            ['nombrexx' => 'EXPECTATIVA CONSUMO SPA'],// 181
+            ['nombrexx' => 'CODIFICACIÓN TALLA / EDAD'],// 182
+            ['nombrexx' => 'ENFERMEDADES'],// 183
+            ['nombrexx' => 'ACTIVIDAD FÍSICA'],// 184
+            ['nombrexx' => 'APETITO'],// 185
+            ['nombrexx' => 'ALIMENTOS ANTES DE INGRESAR AL IDIPRON'],// 186
+            ['nombrexx' => 'FRECUENCIA DE CONSUMO DE ALIMENTOS ANTES DE INGRESAR AL IDIPRON'],// 187
+            ['nombrexx' => 'ACCIONES A AUMENTAR'],// 188
+            ['nombrexx' => 'ACCIONES A DISMINUIR'],// 189
+            ['nombrexx' => 'ACCIONES PLAN ALIMENTARIO'],// 190
+            ['nombrexx' => 'CODIFICACIÓN IMC / EDAD'],// 191
+            ['nombrexx' => 'TIPO DE DEPENDENCIA'],// 192
+            ['nombrexx' => 'TIPO DE MATRÍCULA'],// 193
+            ['nombrexx' => 'CÓMO REACCIONA ANTE EVENTOS O SITUACIONES QUE LE GENEREN UN CAMBIO EMOCIONAL SIGNIFICATIVO'],// 194
+            ['nombrexx' => 'SENTIMIENTOS Y EMOCIONES VI'],// 195
+            ['nombrexx' => 'NIVELES LÍNEA BASE'],// 196
+            ['nombrexx' => 'HA OCURRIDO EN SU VIDA ALGÊN ACONTECIMIENTO ESTRESANTE O TRAUMÁTICO'],// 197
+            ['nombrexx' => 'NIVEL DE RIESGO VI'],// 198
+            ['nombrexx' => 'INDIQUE LOS MOTIVOS O SITUACIONES POR EL CUAL SE HA TENIDO PENSAMIENTOS, AMENAZAS E INTENTOS'],// 199
+            ['nombrexx' => 'QUÉ TIPO DE CONDUCTAS AUTO LESIVAS? VI'],// 200
+            ['nombrexx' => 'QUÉ ACTIVACIONES FISIOLÓGICAS LE GENERA? VI'],// 201
+            ['nombrexx' => 'MOMENTO EVENTO'],// 202
+            ['nombrexx' => 'TIPO EVENTO SEXUAL NEGATIVO'],// 203
+            ['nombrexx' => 'ESTADO PROCESO TERAPÉUTICO'],// 204
+            ['nombrexx' => 'MOTIVO POR EL CUAL NO ESTÁ ESCOLARIZADO'],// 205
+            ['nombrexx' => 'RENDIMIENTO ACADÉMICO'],// 206
+            ['nombrexx' => 'CAUSA DE DESERCIÓN'],// 207
+            ['nombrexx' => 'MATERIAS'],// 208
+            ['nombrexx' => 'TIPO DE DIFICULTAD'],// 209
+            ['nombrexx' => 'IDENTIFICA ALGÊN TIPO DE DIFICULTAD'],// 210
+            ['nombrexx' => 'AREA'],// 211
+            ['nombrexx' => 'ÁREAS AJUSTE'],// 212
+            ['nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO'],// 213
+            ['nombrexx' => 'ESTADO AUDICION'],// 214
+            ['nombrexx' => 'ESTADO HABLA EXPLORACION FUNCIONAL'],// 215
+            ['nombrexx' => 'IMPRESION DIAGNOSTICA VALORACIÓN INICIAL FONOAUDIOLOGÍA'],// 216
+            ['nombrexx' => 'TIPO SEGUIMIENTO FONOAUDIOLOGÍA'],// 217
+            ['nombrexx' => 'TIPO EVOLUCIÓN FONOAUDIOLOGÍA'],// 218
+            ['nombrexx' => 'IMPRESION DIAGNOSTICA VALORACIÓN TAMIZ AUDITIVO'],// 219
+            ['nombrexx' => 'REMISIÓN VALORACIÓN INICIAL FONOAUDIOLOGÍA'],// 220
+            ['nombrexx' => 'REMISIÓN VALORACIÓN TAMIZ AUDITIVO'],// 221
+            ['nombrexx' => 'MOTIVO ATENCIÓN VALORACIÓN MÉDICA'],// 222
+            ['nombrexx' => 'PERIODICIDAD PARA VALORACIÓN MÉDICA'],// 223
+            ['nombrexx' => 'DIAGNÓSTICO DE EVOLUCIÓN'],// 224
+            ['nombrexx' => 'CONDUCTA PARA VALORACIÓN MÉDICA'],// 225
+            ['nombrexx' => 'TRAMITE ENTREGA DOCUMENTO'],// 226
+            ['nombrexx' => 'INSTRUMENTOS NUTRICIÓN'],// 227
+            ['nombrexx' => 'INSTRUMENTOS FONOAUDIOLOGÍA'],// 228
+            ['nombrexx' => 'INSTRUMENTOS AUXILIAR DE ENFERMERÍA'],// 229
+            ['nombrexx' => 'TIPO DE ACCIDENTE'],// 230
+            ['nombrexx' => 'CAUSA DE ACCIDENTE'],// 231
+            ['nombrexx' => 'LUGAR DONDE OCURRIO ACCIDENTE'],// 232
+            ['nombrexx' => 'AGENTE DEL ACCIDENTE'],// 233
+            ['nombrexx' => 'PARTE DEL CUERPO AFECTADO'],// 234
+            ['nombrexx' => 'SÍNTOMA PEDICULOSIS'],// 235
+            ['nombrexx' => 'USO DEL CABELLO'],// 236
+            ['nombrexx' => 'TIEMPO SUFRE PEDICULOSIS'],// 237
+            ['nombrexx' => 'TRATAMIENTO PEDICULOSIS'],// 238
+            ['nombrexx' => 'CONSECUENCIA PEDICULOSIS CABEZA'],// 239
+            ['nombrexx' => 'CONSECUENCIA PEDICULOSIS CUELLO'],// 240
+            ['nombrexx' => 'CONSECUENCIA PEDICULOSIS TÓRAX'],// 241
+            ['nombrexx' => 'CONSECUENCIA PEDICULOSIS BRAZOS Y AXILAS'],// 242
+            ['nombrexx' => 'CONSECUENCIA PEDICULOSIS PIEL DE TÓRAX'],// 243
+            ['nombrexx' => 'TIPO DE ACCESO AL SISTEMA'],// 244
+            ['nombrexx' => 'MOTIVO ATENCIÓN MITIGACIÓN'],// 245
+            ['nombrexx' => 'DIAGNÓSTICO EVOLUCIÓN MITIGACIÓN'],// 246
+            ['nombrexx' => 'CONDUCTA MITIGACIÓN'],// 247
+            ['nombrexx' => 'TRATAMIENTO DENTAL'],// 248
+            ['nombrexx' => 'CALIFICACIÓN AUTOCUIDADO'],// 249
+            ['nombrexx' => 'CALIFICACIÓN COMUNICACIÓN'],// 250
+            ['nombrexx' => 'CALIFICACIÓN HABILIDADES'],// 251
+            ['nombrexx' => 'CALIFICACIÓN SENSOPERCEPTUAL'],// 252
+            ['nombrexx' => 'CALIFICACIÓN NEUROSENSORIAL'],// 253
+            ['nombrexx' => 'PLAN DE MANEJO'],// 254
+            ['nombrexx' => 'REMISIÓN DESDE TERAPIA'],// 255
+            ['nombrexx' => 'COMPONENTE NEUROSENSORIAL'],// 256
+            ['nombrexx' => 'IMPRESIÓN DIAGNÓSTICA'],// 257
+            ['nombrexx' => 'TEMA A TRABAJAR SEGUIMIENTO TERAPIA'],// 258
+            ['nombrexx' => 'RESULTADO DE LA INTERVENCIÓN'],// 259
+            ['nombrexx' => 'NIVEL PERFIL OCUPACIONAL'],// 260
+            ['nombrexx' => 'MOTIVO DE LA ATENCIÓN'],// 261
+            ['nombrexx' => 'TIPO DE ACOMPAÑAMIENTO'],// 262
+            ['nombrexx' => 'TIPO DE APOYO DIAGNÓSTICO'],// 263
+            ['nombrexx' => 'TIPO DE ESPECIALIDAD MÉDICA'],// 264
+            ['nombrexx' => 'CALIDAD DEL AFILIADO'],// 265
+            ['nombrexx' => 'TIPO DE PROCEDIMIENTO'],// 266
+            ['nombrexx' => 'TIPO DE PYP'],// 267
+            ['nombrexx' => 'TIPO DE BRIGADA'],// 268
+            ['nombrexx' => 'TIPO DE CHARLA'],// 269
+            ['nombrexx' => 'TIPO DE TAMIZAJE'],// 270
+            ['nombrexx' => 'VACUNA'],// 271
+            ['nombrexx' => 'RAZONES SALIDA UPI'],// 272
+            ['nombrexx' => 'CONTEXTURA'],// 273
+            ['nombrexx' => 'TIPO DE ROSTRO'],// 274
+            ['nombrexx' => 'COLOR DE PIEL'],// 275
+            ['nombrexx' => 'COLOR DE CABELLO'],// 276
+            ['nombrexx' => 'TIPO DE CABELLO'],// 277
+            ['nombrexx' => 'CORTE DE CABELLO'],// 278
+            ['nombrexx' => 'COLOR DE OJOS'],// 279
+            ['nombrexx' => 'NARIZ'],// 280
+            ['nombrexx' => 'TAMAÑO DEL LUNAR'],// 281
+            ['nombrexx' => 'TIPO DE CONVENIO'],// 282
+            ['nombrexx' => 'TIPO RECURSO'],// 283
+            ['nombrexx' => 'TIPO DEPENDENCIA'],// 284
+            ['nombrexx' => 'DIRIGIDO A:'],// 285
+            ['nombrexx' => 'CUENTA DOCUMENTO'],// 286
+            ['nombrexx' => 'VINCULADO'],// 287
+            ['nombrexx' => 'UNIDAD DE MEDIDA'],// 288
+            ['nombrexx' => 'ESTADO TABLAS'],// 289
+            ['nombrexx' => 'TIPO DE VESTIMENTA'],// 290
+            ['nombrexx' => 'ESPACIO DONDE PARCHA'],// 291
+            ['nombrexx' => 'MOTIVOS DE AUSENCIA'],// 292
+            ['nombrexx' => 'ACONTECIMIENTOS GENERADORES DE AFECTACIONES EMOCIONALES'],// 293
+            ['nombrexx' => 'POSICIÓN OCUPACIONAL'],// 294
+            ['nombrexx' => 'CATEGORIA INDICADORES'],// 295
+            ['nombrexx' => 'ACTIVIDAD GENERA INGRESO CHC'],// 296
+            ['nombrexx' => 'RESPUESTA VALIDACIONES INDICADORES'],// 297
+            ['nombrexx' => 'ACCIONES VIOLENCIA VI'],// 298
+            ['nombrexx' => 'TIPO DE RED VI'],// 299
+            ['nombrexx' => 'MOTIVOS QUE HA TENIDO PARA QUITARSE LA VIDA (VI)'],// 300
+            ['nombrexx' => 'PROBLEMAS DE SALUD'],// 301
+            ['nombrexx' => 'TIPO DE DILIGENCIAMIENTO'],// 302
+            ['nombrexx' => 'ESTADO DE INGRESO'],// 303
+            ['nombrexx' => 'PRENDAS DE VESTIR'],// 304
+            ['nombrexx' => 'MATERIAL DE LAS PRENDAS'],// 305
+            ['nombrexx' => 'LÍNEAS DE ATENCIÓN'],// 306
+            ['nombrexx' => 'OBJETIVOS DE SALIDA AI'],// 307
+            ['nombrexx' => 'ESTADO A LA SALIDA AI'],// 308
+            ['nombrexx' => 'ESTADO DEL REGISTRO'],// 309
+            ['nombrexx' => 'TIPO DE VINCULACION'],// 310
+            ['nombrexx' => 'CICLO VITAL'],// 311
+            ['nombrexx' => 'VSPA - TIPO DE VALORACIÓN'],// 312
+            ['nombrexx' => 'VSPA - CONDICIÓN ESCOLAR'],// 313
+            ['nombrexx' => 'VSPA - FUENTE DE INGRESOS'],// 314
+            ['nombrexx' => 'VSPA - MODALIDAD DE ATENCIÓN'],// 315
+            ['nombrexx' => 'VSPA - CÓMO ACUDUDIÓ A LA INSTITUCIÓN'],// 316
+            ['nombrexx' => 'VSPA - SITIO HABITUAL DE CONSUMO'],// 317
+            ['nombrexx' => 'VSPA - FRECUENCIA DE USO'],// 318
+            ['nombrexx' => 'VSPA - IMPACTO NEGATIVO'],// 319
+            ['nombrexx' => 'VSPA - TIPO DE DROGA'],// 320
+            ['nombrexx' => 'VSPA - CANTIDAD DE CIGARRILLOS'],// 321
+            ['nombrexx' => 'VSPA - COMO OBTIENE LA SUSTANCIA'],// 322
+            ['nombrexx' => 'VSPA - UNIDAD DE MEDIDA'],// 323
+            ['nombrexx' => 'VSPA - ACOSTUMBRA A UTILIZAR LA SUSTANCIA'],// 324
+            ['nombrexx' => 'VSPA - ACOSTUMBRA A COMPARTIR AGUJAS'],// 325
+            ['nombrexx' => 'RIESGO O VICTIMA ESCNNA'],// 326
+            ['nombrexx' => '¿CUáLES FUERON LAS RAZONES PARA HABER INICIADO LA HABITANZA EN CALLE?'],// 327
+            ['nombrexx' => '¿RAZONES POR LAS CUALES CONTINUA LA HABITANZA EN CALLE?'],// 328
+            ['nombrexx' => 'VMA - TIPO DE TRASTORNO'],// 329
+            ['nombrexx' => 'VMA - TIPO DE APETITO'],// 330
+            ['nombrexx' => 'VMA - SUDORACIÓN'],// 331
+            ['nombrexx' => 'VMA - ESTADO DE ÁNIMO'],// 332
+            ['nombrexx' => 'VMA - TRATAMIENTO'],// 333
+            ['nombrexx' => 'VMA - CONDUCTA'],// 334
+            ['nombrexx' => 'VMA - TIPO DE DIAGNÓSTICO'],// 335
+            ['nombrexx' => 'LUGARES/ESPACIOS EXTERNOS'],// 336
+            ['nombrexx' => 'TIPO LETRA TITULOS'],// 337
+            ['nombrexx' => 'RESPONSABLE DE LA ACTIVIDAD'],// 338
+            ['nombrexx' => 'SEXO DEPENDENCIAS'],// 339
+            ['nombrexx' => 'FORMULARIO MOTIVO DE ESTADO PARA EL REGISTRO'],// 340
+            ['nombrexx' => 'LA DISCAPACIDAD FUE PRODUCIDA POR LA COMISION DE ALGUN ACTO ILEGAL'],// 341
+            ['nombrexx' => 'HA SIDO VICTIMA DE ATAQUES CON'],// 342
+            ['nombrexx' => '¿QUE ACTIVIDADES REALIZA EN SU TIEMPO LIBRE?'],// 343
+            ['nombrexx' => '¿POR LAS ACCIONES EN LAS CUALES PRESUNTAMENTE ESTA EN CONFLICTO CON LA LEY HA ACTUADO EN?'],// 344
+            ['nombrexx' => '12.1 ¿PRESENTA ALGúN TIPO DE VIOLENCIA?'],// 345
+            ['nombrexx' => '12.1 A HA EJERCIDO ALGúN TIPO DE PRESUNTA VIOLENCIA DURANTE LA ACTIVIDAD EN CONFLICTO CON LA LEY?'],// 346
+            ['nombrexx' => 'COMBO VIOLENCIA PARA: (VIOLENCIAS Y CONDICION ESPECIAL)'],// 347
+            ['nombrexx' => 'COMBO CONTEXTOS PARA: (VIOLENCIAS Y CONDICION ESPECIAL)'],// 348
+            ['nombrexx' => '12.2 EL TIPO DE VIOLENCIA REFERENCIADO CORRESPONDE A VIOLENCIA BASADA EN'],// 349
+            ['nombrexx' => '12.1.B QUE TIPO DE PRESUNTAS LESIONES HA COMETIDO DURANTE LA ACTIVIDAD?'],// 350
+            ['nombrexx' => 'CONDICIONES ESPECIALES CR'],// 351
+            ['nombrexx' => '¿ES CABEZA DE FAMILIA? CR'],// 352
+            ['nombrexx' => '¿ES USTED JOVEN EN PRESUNTO CONFLICTO CON LA LEY?'],// 353
+            ['nombrexx' => 'ESTRATEGIA'],// 354
+            ['nombrexx' => 'SIN ESTRATEGIA'],// 355
+            ['nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL'],// 356
+            ['nombrexx' => 'MOTIVO VINCULACION SPOA'],// 357
+            ['nombrexx' => 'PARENTESCO FI'],// 358
+            ['nombrexx' => 'TIPO POBLACION CSD'],// 359
+            ['nombrexx' => 'PROBLEMA CSD'],// 360
+            ['nombrexx' => 'TIPO DE DOCUMENTO CSD'],// 361
+            ['nombrexx' => 'MOTIVO VINCULACION JUSTICIA'],// 362
+            ['nombrexx' => 'AUTORIZACIóN DE RESPUESTA'],// 363
+            ['nombrexx' => 'DOCUMENTOS TALLERES'],// 364
+            ['nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN PSICOLOGO CLINICO'],// 365
+            ];
+
+        $this->getR($dataxxxx);
+
     }
 }

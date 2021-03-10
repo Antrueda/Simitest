@@ -9,7 +9,6 @@ class TemacomboSeeder extends Seeder
     {
         $tema = Temacombo::create(
             [
-                'id' => $dataxxxx['id'],
                 'sis_esta_id' => 1,
                 'user_crea_id' => 1,
                 'user_edita_id' => 1,
