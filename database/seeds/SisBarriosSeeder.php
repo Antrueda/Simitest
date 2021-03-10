@@ -8,7 +8,7 @@ class SisBarriosSeeder extends Seeder
     public function getR($dataxxxx)
     {
         foreach ($dataxxxx as $key => $value) {
-            SisBarrio::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_barrio' => "'" . strtoupper($value['nombrexx']) . "'"]);
+            SisBarrio::create(['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1, 's_barrio' => strtoupper($value['nombrexx']) ]);
         }
     }
     /**

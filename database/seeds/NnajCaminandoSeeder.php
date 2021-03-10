@@ -11,10 +11,6 @@ use App\Models\fichaIngreso\NnajSitMil;
 use App\Models\fichaIngreso\NnajUpi;
 use Illuminate\Database\Seeder;
 
-use App\Models\Sistema\SisNnaj;
-use Illuminate\Support\Facades\DB;
-use Faker\Factory as Faker;
-
 class NnajCaminandoSeeder extends Seeder
 {
     /**
