@@ -17,7 +17,7 @@ class CreateHCsdComFamiliarsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(419)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('csd_id')->unsigned();
             $table->string('s_primer_apellido');
             $table->string('s_segundo_apellido')->nullable();

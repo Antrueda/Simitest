@@ -17,7 +17,7 @@ class CreateFosStsesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(452)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->text('codigo', 6)->nullable();
             $table->string('nombre', 120);
             $table->longText('descripcion')->nullable();
