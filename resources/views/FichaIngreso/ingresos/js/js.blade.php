@@ -5,8 +5,8 @@
             language: "es"
         });
         var f_generar_ingresos = function(dataxxxx){
-           $('#totinmen,#prm_frecingr_id,#prm_jorgeing_id,#s_hora_inicial,#s_hora_final,#prm_diagener_id').val('')
-            $("#prm_trabinfo_id, #prm_otractiv_id, #prm_razgeing_id, #prm_tiprelab_id, #prm_jorgeing_id, #prm_diagener_id,#prm_frecingr_id").empty();
+           $('#totinmen,#s_hora_inicial,#s_hora_final').val('')
+            $("#prm_trabinfo_id, #prm_otractiv_id, #prm_razgeing_id, #prm_tiprelab_id, #prm_jorgeing_id,#prm_frecingr_id").empty();
             if(dataxxxx.valuexxx!=''){
                 $.ajax({
                 url : "{{ route('ajaxx.trabajogenera') }}",
@@ -56,7 +56,7 @@
         }
 
 
-        @if(old('prm_actgeing_id')!=null)
+        @if(old('prm_actgeing_id')!==null)
             f_generar_ingresos({
                 limpiaxx:false,
             valuexxx:{{ isset($todoxxxx['modeloxx']->prm_actgeing_id)? $todoxxxx['modeloxx']->prm_actgeing_id: (old('prm_actgeing_id') !=null ? old('prm_actgeing_id'):0)}},
@@ -64,13 +64,14 @@
             travalue:{{ isset($todoxxxx['modeloxx']->prm_otractiv_id)? $todoxxxx['modeloxx']->prm_otractiv_id: (old('prm_otractiv_id') !=null ? old('prm_actgeing_id'):0)}},
             noivalue:{{ isset($todoxxxx['modeloxx']->prm_razgeing_id)? $todoxxxx['modeloxx']->prm_razgeing_id: (old('prm_razgeing_id') !=null ? old('prm_actgeing_id'):0)}},
             relvalue:{{ isset($todoxxxx['modeloxx']->prm_tiprelab_id)? $todoxxxx['modeloxx']->prm_tiprelab_id: (old('prm_tiprelab_id') !=null ? old('prm_actgeing_id'):0)}}
-            relvalue:{{ isset($todoxxxx['modeloxx']->prm_frecingr_id)? $todoxxxx['modeloxx']->prm_frecingr_id: (old('prm_frecingr_id') !=null ? old('prm_actgeing_id'):0)}}
-            relvalue:{{ isset($todoxxxx['modeloxx']->prm_diagener_id)? $todoxxxx['modeloxx']->prm_diagener_id: (old('prm_diagener_id') !=null ? old('prm_actgeing_id'):0)}}
+            frevalue:{{ isset($todoxxxx['modeloxx']->prm_frecingr_id)? $todoxxxx['modeloxx']->prm_frecingr_id: (old('prm_frecingr_id') !=null ? old('prm_actgeing_id'):0)}}
+            jorvalue:{{ isset($todoxxxx['modeloxx']->prm_jorgeing_id)? $todoxxxx['modeloxx']->prm_jorgeing_id: (old('prm_jorgeing_id') !=null ? old('prm_actgeing_id'):0)}}
+            diaseman:{{ isset($todoxxxx['modeloxx']->prm_diagener_id)? $todoxxxx['modeloxx']->prm_diagener_id: (old('prm_diagener_id') !=null ? old('prm_actgeing_id'):0)}}
         }
 );
         @endif
         $("#prm_actgeing_id").change(function(){
-            f_generar_ingresos({valuexxx:$(this).val(), trivalue:'', travalue:'', noivalue:'', relvalue:'', limpiaxx:true});
+            f_generar_ingresos({valuexxx:$(this).val(), trivalue:'', travalue:'', noivalue:'', relvalue:'',frevalue:'',jorvalue:'', limpiaxx:true});
             f_limpiar($(this).val(),'');
             if($(this).val()!=853){
               f_limpiar($(this).val(),'');

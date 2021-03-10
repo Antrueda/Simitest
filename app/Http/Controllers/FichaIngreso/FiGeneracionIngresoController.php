@@ -71,7 +71,8 @@ class FiGeneracionIngresoController extends Controller
 
         if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) {
             $this->opciones['acgening'] = Tema::combo(296, true, false);
-            $this->opciones['raznogen'] = Parametro::find(235)->ComboAjaxUno;
+            $this->opciones['raznogen'] = Parametro::find(235)->Combo;
+            $this->opciones['jorgener'] = Parametro::find(235)->Combo;
         } else {
             $this->opciones['padrexxx'] = Tema::combo(114, true, false);
         }
