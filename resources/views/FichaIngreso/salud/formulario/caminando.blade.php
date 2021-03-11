@@ -99,7 +99,7 @@
     </div>
 
     <div class="form-group col-md-4">
-        {{ Form::label('prm_conometo_id', '6.13 ¿Tiene conocimiento nnnnn sobre métodos anticonceptivos?', ['class' => 'control-label']) }}
+        {{ Form::label('prm_conometo_id', '6.13 ¿Tiene conocimiento sobre métodos anticonceptivos?', ['class' => 'control-label']) }}
         {{ Form::select('prm_conometo_id', $todoxxxx['condnoap'], null, ['class' => $errors->first('prm_conometo_id') ?
     'form-control select2 form-control-sm is-invalid usameanti' : 'form-control select2 form-control-sm usameanti',
     'data-placeholder' => 'Seleccione Tiene conocimiento sobre métodos anticonceptivos']) }}
