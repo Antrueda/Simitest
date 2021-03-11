@@ -2,17 +2,17 @@
 
 namespace App\Observers;
 
-use App\Models\fichaIngreso\FiSituacionVulneracion;
-use App\Models\fichaIngreso\Logs\HFiSituacionVulneracion;
+use App\Models\fichaIngreso\FiSituVulnera;
+use App\Models\fichaIngreso\Logs\HFiSituVulnera;
 
-class FiSituacionVulneracionObserver
+class FiSituVulneraObserver
 {
     private function getLog($modeloxx)
     {
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['fi_situacion_especial_id'] = $modeloxx->fi_situacion_especial_id;
         $log['prm_situacion_vulnera_id'] = $modeloxx->prm_situacion_vulnera_id;
         // campos por defecto, no borrar.
@@ -25,52 +25,52 @@ class FiSituacionVulneracionObserver
         return $log;
     }
 
-    public function created(FiSituacionVulneracion $modeloxx)
+    public function created(FiSituVulnera $modeloxx)
     {
-        HFiSituacionVulneracion::create($this->getLog($modeloxx));
+        HFiSituVulnera::create($this->getLog($modeloxx));
     }
 
     /**
      * Handle the FiSituacionVulneracion "updated" event.
      *
-     * @param  \App\Models\fichaIngreso\FiSituacionVulneracion  $modeloxx
+     * @param  \App\Models\fichaIngreso\FiSituVulnera  $modeloxx
      * @return void
      */
-    public function updated(FiSituacionVulneracion $modeloxx)
+    public function updated(FiSituVulnera $modeloxx)
     {
-        HFiSituacionVulneracion::create($this->getLog($modeloxx));
+        HFiSituVulnera::create($this->getLog($modeloxx));
     }
 
     /**
      * Handle the FiSituacionVulneracion "deleted" event.
      *
-     * @param  \App\Models\fichaIngreso\FiSituacionVulneracion  $modeloxx
+     * @param  \App\Models\fichaIngreso\FiSituVulnera  $modeloxx
      * @return void
      */
-    public function deleted(FiSituacionVulneracion $modeloxx)
+    public function deleted(FiSituVulnera $modeloxx)
     {
-        HFiSituacionVulneracion::create($this->getLog($modeloxx));
+        HFiSituVulnera::create($this->getLog($modeloxx));
     }
 
     /**
      * Handle the FiSituacionVulneracion "restored" event.
      *
-     * @param  \App\Models\fichaIngreso\FiSituacionVulneracion  $modeloxx
+     * @param  \App\Models\fichaIngreso\FiSituVulnera  $modeloxx
      * @return void
      */
-    public function restored(FiSituacionVulneracion $modeloxx)
+    public function restored(FiSituVulnera $modeloxx)
     {
-        HFiSituacionVulneracion::create($this->getLog($modeloxx));
+        HFiSituVulnera::create($this->getLog($modeloxx));
     }
 
     /**
      * Handle the FiSituacionVulneracion "force deleted" event.
      *
-     * @param  \App\Models\fichaIngreso\FiSituacionVulneracion  $modeloxx
+     * @param  \App\Models\fichaIngreso\FiSituVulnera  $modeloxx
      * @return void
      */
-    public function forceDeleted(FiSituacionVulneracion $modeloxx)
+    public function forceDeleted(FiSituVulnera $modeloxx)
     {
-        HFiSituacionVulneracion::create($this->getLog($modeloxx));
+        HFiSituVulnera::create($this->getLog($modeloxx));
     }
 }

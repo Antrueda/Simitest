@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class FiSituacionVulneracion extends Model{
+class FiSituVulnera extends Model{
   protected $table = 'fi_situ_vulnera';
 
   protected $fillable = [
@@ -31,7 +31,7 @@ class FiSituacionVulneracion extends Model{
   }
   public static function bienvenida($usuariox)
   {
-    $vestuari = ['bienveni' => FiSituacionVulneracion::where('sis_nnaj_id', $usuariox)->first(), 'formular' => false];
+    $vestuari = ['bienveni' => FiSituVulnera::where('sis_nnaj_id', $usuariox)->first(), 'formular' => false];
 
     if ($vestuari['bienveni'] == null) {
       $vestuari['formular'] = true;
@@ -47,7 +47,7 @@ class FiSituacionVulneracion extends Model{
         $objetoxx->update($dataxxxx);
       } else {
         $dataxxxx['user_crea_id'] = Auth::user()->id;
-        $objetoxx = FiSituacionVulneracion::create($dataxxxx);
+        $objetoxx = FiSituVulnera::create($dataxxxx);
       }
       return $objetoxx;
     }, 5);

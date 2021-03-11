@@ -76,7 +76,7 @@ class FiSituacionEspecial extends Model {
 
     //ddd($situacio);
     FiVictimaEscnna::where('fi_situacion_especial_id', $situacio->id)->delete();
-    FiSituacionVulneracion::where('fi_situacion_especial_id', $situacio->id)->delete();
+    FiSituVulnera::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiRiesgoEscnna::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiRazonContinua::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiRazonIniciado::where('fi_situacion_especial_id', $situacio->id)->delete();
@@ -100,7 +100,7 @@ class FiSituacionEspecial extends Model {
     }
     foreach ($dataxxxx['prm_situacion_vulnera_id'] as $registro) {
       $datosxxx['prm_situacion_vulnera_id'] = $registro;
-      FiSituacionVulneracion::create($datosxxx);
+      FiSituVulnera::create($datosxxx);
     }
 
     if (isset($dataxxxx['i_prm_iniciado_id'])) {
@@ -117,12 +117,12 @@ class FiSituacionEspecial extends Model {
   }
 
   public static function transaccion($dataxxxx, $objetoxx) {
-    
+
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
               $dataxxxx['user_edita_id'] = Auth::user()->id;
               //ddd($objetoxx);
               if ($objetoxx != '') {
-                
+
                 $algo = $objetoxx->update($dataxxxx);
               } else {
                 $dataxxxx['user_crea_id'] = Auth::user()->id;

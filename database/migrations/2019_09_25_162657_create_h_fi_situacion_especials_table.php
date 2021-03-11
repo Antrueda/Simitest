@@ -28,7 +28,7 @@ class CreateHFiSituacionEspecialsTable extends Migration
             $table->integer('i_tiempo')->nullable();
             $table->integer('i_prm_ttiempo_id')->nullable()->unsigned();
             $table->integer('prm_presconf_id')->nullable()->unsigned()->comment('13.4 ES USTED JOVEN EN PRESUNTO CONFLICTO CON LA LEY?');
-            
+
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
@@ -36,7 +36,7 @@ class CreateHFiSituacionEspecialsTable extends Migration
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('fi_situacion_especial_id')->unsigned();
-            $table->integer('i_prm_situacion_vulnera_id')->unsigned();
+            $table->integer('prm_situacion_vulnera_id')->unsigned();
            $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
@@ -45,7 +45,7 @@ class CreateHFiSituacionEspecialsTable extends Migration
             $table->increments('id')->start(1)->nocache();
             $table->integer('fi_situacion_especial_id')->unsigned();
             $table->integer('i_prm_victima_escnna_id')->unsigned();
-            
+
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");

@@ -140,7 +140,7 @@ class SisTcamposSeeder extends Seeder
         SisTcampo::create(['s_campo' => 'prm_razcicom_id', 's_numero' => '17. ', 'in_pregunta_id' => 52, 'tema_id' => 96, 'sis_tabla_id' => 33, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         SisTcampo::create(['s_campo' => 'i_prm_tipo_id', 's_numero' => '18. ', 'in_pregunta_id' => 46, 'tema_id' => 124, 'sis_tabla_id' => 34, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         SisTcampo::create(['s_campo' => 'i_prm_ttiempo_id', 's_numero' => '4. ', 'in_pregunta_id' => 13, 'tema_id' => 272, 'sis_tabla_id' => 34, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        SisTcampo::create(['s_campo' => 'i_prm_situacion_vulnera_id', 's_numero' => '1. ', 'in_pregunta_id' => 64, 'tema_id' => 194, 'sis_tabla_id' => 35, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
+        SisTcampo::create(['s_campo' => 'prm_situacion_vulnera_id', 's_numero' => '1. ', 'in_pregunta_id' => 64, 'tema_id' => 194, 'sis_tabla_id' => 35, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         SisTcampo::create(['s_campo' => 'i_prm_sustancia_id', 's_numero' => '17. ', 'in_pregunta_id' => 66, 'tema_id' => 121, 'sis_tabla_id' => 36, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         SisTcampo::create(['s_campo' => 'i_prm_consume_id', 's_numero' => '15. ', 'in_pregunta_id' => 62, 'tema_id' => 200, 'sis_tabla_id' => 36, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
         SisTcampo::create(['s_campo' => 'prm_t_pantalon_id', 's_numero' => '19. ', 'in_pregunta_id' => 36, 'tema_id' => 54, 'sis_tabla_id' => 37, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
