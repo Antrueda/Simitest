@@ -406,7 +406,7 @@ class IsDatoBasicoController extends Controller
     {
         if ($request->ajax()) {
             $actualxx = IsDatosBasico::select([
-                'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id', 'is_datos_basicos.sis_nnaj_id', 'tipoaten.nombre as tipoxxxx',
+                'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id',  'tipoaten.nombre as tipoxxxx',
                 'is_datos_basicos.d_fecha_diligencia', 'sis_depens.nombre', 'users.name','segundo.name as segundo', 'is_datos_basicos.sis_esta_id'
             ])
                 ->join('sis_depens', 'is_datos_basicos.sis_depen_id', '=', 'sis_depens.id')

@@ -58,7 +58,7 @@ class AISalidaMenorRequest extends FormRequest
             'nom1_autorizado'   => 'nullable|string|max:120',
             'nom2_autorizado'   => 'nullable|string|max:120',
             'prm_doc2_id'       => 'nullable|exists:parametros,id',
-            'doc_autorizado'    => 'nullable',
+            'doc_autorizado'    => 'nullable|integer|max:10',
             'prm_parentezco2_id'=> 'nullable|exists:parametros,id',
             'prm_carta_id'      => 'required|exists:parametros,id',
             'prm_copiaDoc_id'   => 'required|exists:parametros,id',
