@@ -49,7 +49,7 @@ class FiVcontviolController extends Controller
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => ['fiviolencia.editar', []],
-                'formhref' => 2, 'tituloxx' => 'VOLVER A VIOLENCIA Y CONDICION ESPECIAL', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 2, 'tituloxx' => 'VOLVER A VIOLENCIA Y CONDICI'.$this->opciones['vocalesx'][3].'N ESPECIAL', 'clasexxx' => 'btn btn-sm btn-primary'
             ],
         ];
     }
