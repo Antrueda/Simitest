@@ -325,6 +325,7 @@ trait DatosBasicosTrait
                 $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 4]);
                 $dataxxxx['requestx']->request->add(['sis_depen_id' => 28]);
                 $dataxxxx['requestx']->request->add(['sis_servicio_id' => 1]);
+                $dataxxxx['diligenc']=explode(' ',$dataxxxx['padrexxx']->csd->fecha)[0];
                 $respuesx = $this->setNnaj($dataxxxx);
                 $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'], 'compfami' => $respuesx['compfami']];
             }
