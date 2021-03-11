@@ -175,6 +175,7 @@ class CsdNnajvisitadoController extends Controller
      */
     public function show(SisNnaj $padrexxx,CsdSisNnaj $modeloxx)
     {
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'visitado'], 'padrexxx' => $padrexxx, 'csdxxxxx' => $modeloxx->csd]);
     }
 
@@ -220,7 +221,7 @@ class CsdNnajvisitadoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico,'csdxxxxx' => $modeloxx->csd]);
     }
 
 

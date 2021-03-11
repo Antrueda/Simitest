@@ -158,7 +158,7 @@ class CsdController extends Controller
             $this->opciones['csdxxxxx'] = $dataxxxx['modeloxx'];
 
             $this->opciones['csdxxxxx'] = CsdSisNnaj::where('sis_nnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('csd_id', $dataxxxx['modeloxx']->id)->first();
-
+            $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
@@ -249,7 +249,7 @@ class CsdController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(SisNnaj $padrexxx, Csd $modeloxx)
-    {      
+    {
         $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
         'nnajxxxx'=>$modeloxx->sis_nnaj_id,
         'permisox'=>$this->opciones['permisox'] . '-editar',
