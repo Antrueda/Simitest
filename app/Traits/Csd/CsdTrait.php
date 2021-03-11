@@ -178,12 +178,12 @@ trait CsdTrait
     public function getTodoComFami($request)
     {
 
-        $notinxxx=CsdComFamiliar::select('sis_nnaj_id')
-        ->join('nnaj_docus','csd_com_familiars.s_documento','=','nnaj_docus.s_documento')
-        ->join('fi_datos_basicos','nnaj_docus.fi_datos_basico_id','=','fi_datos_basicos.id')
-        ->where('csd_id',$request->csdxxxxx)
-        ->groupBy('sis_nnaj_id')
-        ->get();
+        $notinxxx = CsdComFamiliar::select('sis_nnaj_id')
+            ->join('nnaj_docus', 'csd_com_familiars.s_documento', '=', 'nnaj_docus.s_documento')
+            ->join('fi_datos_basicos', 'nnaj_docus.fi_datos_basico_id', '=', 'fi_datos_basicos.id')
+            ->where('csd_id', $request->csdxxxxx)
+            ->groupBy('sis_nnaj_id')
+            ->get();
         $dataxxxx =  SisNnaj::select([
             'sis_nnajs.id',
             'fi_datos_basicos.s_primer_nombre',
@@ -220,7 +220,7 @@ trait CsdTrait
         )
             ->join('sis_estas', 'csd_redsoc_pasados.sis_esta_id', '=', 'sis_estas.id')
             ->join('parametros as tiempo', 'csd_redsoc_pasados.prm_unidad_id', '=', 'tiempo.id')
-            ->where('csd_redsoc_pasados.csd_id',$request->padrexxx);
+            ->where('csd_redsoc_pasados.csd_id', $request->padrexxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
     public function getActualesTrait($request)
@@ -446,11 +446,12 @@ trait CsdTrait
             'csd_resservis.created_at',
             'csd_resservis.sis_esta_id',
             'sis_estas.s_estado',
-
+            'csd_residencias.csd_id',
         ])
             ->join('parametros as servicio', 'csd_resservis.prm_servicio_id', '=', 'servicio.id')
             ->leftJoin('parametros as legal', 'csd_resservis.prm_legalxxx_id', '=', 'legal.id')
             ->join('sis_estas', 'csd_resservis.sis_esta_id', '=', 'sis_estas.id')
+            ->join('csd_residencias', 'csd_resservis.csd_residencia_id', '=', 'csd_residencias.id')
             ->where('csd_resservis.csd_residencia_id', $request->padrexxx);
 
         return $this->getDtAcciones($dataxxxx, $request);
@@ -465,10 +466,11 @@ trait CsdTrait
             'csd_reshogars.created_at',
             'csd_reshogars.sis_esta_id',
             'sis_estas.s_estado',
-
+            'csd_residencias.csd_id',
         ])
             ->join('parametros as espacio', 'csd_reshogars.prm_espacio_id', '=', 'espacio.id')
             ->join('sis_estas', 'csd_reshogars.sis_esta_id', '=', 'sis_estas.id')
+            ->join('csd_residencias', 'csd_reshogars.csd_residencia_id', '=', 'csd_residencias.id')
             ->where('csd_reshogars.csd_residencia_id', $request->padrexxx);
 
         return $this->getDtAcciones($dataxxxx, $request);
@@ -483,11 +485,12 @@ trait CsdTrait
             'csd_rescomparte.created_at',
             'csd_rescomparte.sis_esta_id',
             'sis_estas.s_estado',
-
+            'csd_residencias.csd_id',
         ])
             ->join('parametros as espacio', 'csd_rescomparte.prm_espacio_id', '=', 'espacio.id')
             ->leftJoin('parametros as comparte', 'csd_rescomparte.prm_otrafamilia_id', '=', 'comparte.id')
             ->join('sis_estas', 'csd_rescomparte.sis_esta_id', '=', 'sis_estas.id')
+            ->join('csd_residencias', 'csd_rescomparte.csd_residencia_id', '=', 'csd_residencias.id')
             ->where('csd_rescomparte.csd_residencia_id', $request->padrexxx);
 
         return $this->getDtAcciones($dataxxxx, $request);
