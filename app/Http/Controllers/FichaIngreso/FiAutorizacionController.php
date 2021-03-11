@@ -51,7 +51,7 @@ class FiAutorizacionController extends Controller
 
     private function view($dataxxxx)
     {
-        
+
         $this->opciones['parentes'] = Tema::combo(66, true, false);
         $edad = $dataxxxx['padrexxx']->nnaj_nacimi->Edad;
 
