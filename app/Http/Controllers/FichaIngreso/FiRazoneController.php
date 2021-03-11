@@ -73,7 +73,7 @@ class FiRazoneController extends Controller
 
 
 
-        
+
 
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['depedile'] = [];
@@ -107,6 +107,7 @@ class FiRazoneController extends Controller
     public function create(FiDatosBasico $padrexxx)
     {
         $respusta = $this->setRazonesIngresoIdipronRT(['padrexxx' => $padrexxx]);
+
         if ($respusta != null) {
             return redirect()
                 ->route('firazones.editar', [$padrexxx->id, $respusta->id]);
@@ -163,7 +164,7 @@ class FiRazoneController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx, FiRazone $modeloxx)
     {
-        
+
          $respusta = $this->setRazonesIngresoIdipronRT(['padrexxx' => $padrexxx]);
 
             $this->opciones['botoform'][] =
@@ -171,7 +172,7 @@ class FiRazoneController extends Controller
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
-        
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

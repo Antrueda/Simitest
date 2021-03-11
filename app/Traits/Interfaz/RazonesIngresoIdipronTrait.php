@@ -36,27 +36,23 @@ trait RazonesIngresoIdipronTrait
 
     public function setRazonesIngresoIdipronRT($dataxxxy)
     {
-            $objetoxx = FiRazone::where('sis_nnaj_id', $dataxxxy['padrexxx']->sis_nnaj_id)->first();
-            
-            if (!isset($objetoxx->id)) {
-                $dataxxxx = $this->getRazonesIngresoIdipronRT($dataxxxy);
-                //ddd( $dataxxxx );
-                if ($dataxxxx != null) {
-                    if($dataxxxx->s_porque_ingresar==null){
-                        $dataxxxx->s_porque_ingresar='DATOS TRAIDO POR MEDIO DE LA INTERFAZ';
-                    }
-                    $dataxxxx->sis_depend_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depend_id])->id;
-                    $dataxxxx->sis_depenr_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depenr_id])->id;
-                    $dataxxxx->userd_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userd_id,'idupixxx'=> $dataxxxx->sis_depenr_id])->id;
-                    $dataxxxx->userr_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userr_id,'idupixxx'=> $dataxxxx->sis_depenr_id])->id;
-                    $dataxxxx->sis_nnaj_id = $dataxxxy['padrexxx']->sis_nnaj_id;
-                    $dataxxxx->i_prm_estado_ingreso_id = 1636;
-                    $objetoxx = FiRazone::transaccion($dataxxxx->toArray(), '');
-                }
-           // }
-            
-            return $objetoxx;
-    }
-}
 
+        $objetoxx = FiRazone::where('sis_nnaj_id', $dataxxxy['padrexxx']->sis_nnaj_id)->first();
+        if (!isset($objetoxx->id)) {
+            $dataxxxx = $this->getRazonesIngresoIdipronRT($dataxxxy);
+            if ($dataxxxx != null) {
+                if ($dataxxxx->s_porque_ingresar == null) {
+                    $dataxxxx->s_porque_ingresar = 'DATOS TRAIDO POR MEDIO DE LA INTERFAZ';
+                }
+                $dataxxxx->sis_depend_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depend_id])->id;
+                $dataxxxx->sis_depenr_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->sis_depenr_id])->id;
+                $dataxxxx->userd_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userd_id, 'idupixxx' => $dataxxxx->sis_depenr_id])->id;
+                $dataxxxx->userr_id = $this->getUsuarioHT(['cedulaxx' => $dataxxxx->userr_id, 'idupixxx' => $dataxxxx->sis_depenr_id])->id;
+                $dataxxxx->sis_nnaj_id = $dataxxxy['padrexxx']->sis_nnaj_id;
+                $dataxxxx->i_prm_estado_ingreso_id = 1636;
+                $objetoxx = FiRazone::transaccion($dataxxxx->toArray(), '');
+            }
+        }
+        return $objetoxx;
+    }
 }
