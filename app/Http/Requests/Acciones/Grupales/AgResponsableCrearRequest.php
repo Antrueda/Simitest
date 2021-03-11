@@ -56,15 +56,9 @@ class AgResponsableCrearRequest extends FormRequest
         $responsa = AgResponsable::where('ag_actividad_id', $this->segments()[0])
             ->where('i_prm_responsable_id', 1770)
             ->first();
-            if (isset($responsa->id)) {
-            if ($this->i_prm_responsable_id == $responsa->i_prm_responsable_id) {
-                $this->_mensaje['yarespon.required'] = 'La actividad ya cuenta con un responsable';
-                $this->_reglasx['yarespon'] = 'required';
-            }
+        if (isset($responsa->id)) {
+            $this->_mensaje['yarespon.required'] = 'La actividad ya cuenta con un responsable';
+            $this->_reglasx['yarespon'] = 'required';
         }
-        //$dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-
-
-
     }
 }
