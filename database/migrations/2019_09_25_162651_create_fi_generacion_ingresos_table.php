@@ -24,7 +24,7 @@ class CreateFiGeneracionIngresosTable extends Migration
             $table->string('s_trabajo_formal')->nullable()->comment('FI A.1 MENCIONE TRABAJO FORMAL');
             $table->integer('prm_trabinfo_id')->unsigned()->comment('FI B.1SELECCIONE TRABAJO INFORMAL');
             $table->integer('prm_otractiv_id')->unsigned()->comment('FI C.1 SELECCIONE OTRA ACTIVIDAD');
-            $table->integer('prm_razgeing_id')->unsigned()->comment('FI D.1 PORQUE NO GENERA INGRESOS');
+            $table->integer('prm_razgeing_id')->unsigned()->nullable()->comment('FI D.1 PORQUE NO GENERA INGRESOS');
             $table->integer('diabuemp')->nullable()->comment('FI D.1.1 DIAS BUSCANDO EMPLEO');
             $table->integer('mesbuemp')->nullable()->comment('FI D.1.2 MESES BUSCANDO EMPLEO');
             $table->integer('anobuemp')->nullable()->comment('FI D.1.3 AÑOS BUSCANDO EMPLEO');

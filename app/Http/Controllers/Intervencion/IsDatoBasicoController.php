@@ -167,7 +167,8 @@ class IsDatoBasicoController extends Controller
         $this->opciones['poblindi'] = ['' => 'Seleccione'];
         $this->opciones['neciayud'] = ['' => 'Seleccione'];
         $this->opciones['subareas']['subareax'] = ['' => 'Seleccione'];
-        $this->opciones['problemat'] = Tema::findOrFail(102)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+        $this->opciones['problemat'] = Tema::combo(102, true, false);
+        
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {

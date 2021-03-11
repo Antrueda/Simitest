@@ -9,7 +9,7 @@ class CreateFiSituacionEspecialsTable extends Migration
 {
     private $tablaxxx = 'fi_situacion_especials';
     private $tablaxxx2 = 'fi_riesgo_escnnas';
-    private $tablaxxx3 = 'fi_situacion_vulneracions';
+    private $tablaxxx3 = 'fi_situ_vulnera';
     private $tablaxxx4 = 'fi_victima_escnnas';
     private $tablaxxx5 = 'fi_razon_iniciados';
     private $tablaxxx6 = 'fi_razon_continuas';
@@ -44,13 +44,13 @@ class CreateFiSituacionEspecialsTable extends Migration
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('fi_situacion_especial_id')->unsigned()->comment('CAMPO ID DE SITUACION ESPECIAL');
-            $table->integer('i_prm_situacion_vulnera_id')->unsigned()->comment('CAMPO PARAMETRO SITUACION VULNERABLE');
+            $table->integer('prm_situacion_vulnera_id')->unsigned()->comment('CAMPO PARAMETRO SITUACION VULNERABLE');
             $table->integer('user_crea_id')->unsigned();
             $table->integer('user_edita_id')->unsigned();
             $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->foreign('i_prm_situacion_vulnera_id')->references('id')->on('parametros');
+            $table->foreign('prm_situacion_vulnera_id')->references('id')->on('parametros');
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_situacion_especial_id')->references('id')->on('fi_situacion_especials');

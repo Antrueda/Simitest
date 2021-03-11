@@ -246,7 +246,7 @@ class AIEvasionParentescoController extends Controller
      */
     public function update(EvasionParentescoRequest $request, AiReporteEvasion $padrexxx, EvasionParentesco $modeloxx )
     {
-        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Servicio actualizado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
+        return $this->grabar(['requestx'=>$request,'infoxxxx'=>'Familiar actualizado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>$modeloxx]);
     }
 
     public function inactivate(AiReporteEvasion $padrexxx,EvasionParentesco $modeloxx)

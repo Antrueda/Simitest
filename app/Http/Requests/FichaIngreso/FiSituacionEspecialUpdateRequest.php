@@ -12,10 +12,10 @@ class FiSituacionEspecialUpdateRequest extends FormRequest {
 
   public function __construct() {
     $this->_mensaje = [
-        'i_prm_situacion_vulnera_id.required' => 'Seleccione al menos una situacion de vulneracion',
+        'prm_situacion_vulnera_id.required' => 'Seleccione al menos una situacion de vulneracion',
     ];
     $this->_reglasx = [
-        'i_prm_situacion_vulnera_id' => ['required'],
+        'prm_situacion_vulnera_id' => ['required'],
     ];
   }
 

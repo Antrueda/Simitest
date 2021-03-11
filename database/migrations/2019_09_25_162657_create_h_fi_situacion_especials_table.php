@@ -10,7 +10,7 @@ class CreateHFiSituacionEspecialsTable extends Migration
 {
     private $tablaxxx = 'h_fi_situacion_especials';
     private $tablaxxx2 = 'h_fi_riesgo_escnnas';
-    private $tablaxxx3 = 'h_fi_situacion_vulneracions';
+    private $tablaxxx3 = 'h_fi_situ_vulnera';
     private $tablaxxx4 = 'h_fi_victima_escnnas';
     private $tablaxxx5 = 'h_fi_razon_iniciados';
     private $tablaxxx6 = 'h_fi_razon_continuas';
