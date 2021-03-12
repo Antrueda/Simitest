@@ -26,11 +26,11 @@ class AiReporteEvasionObserver
         $log['prm_contextura_id'] = $modeloxx->prm_contextura_id;
         $log['prm_rostro_id'] = $modeloxx->prm_rostro_id;
         $log['prm_piel_id'] = $modeloxx->prm_piel_id;
-        $log['prm_colCabello_id'] = $modeloxx->prm_colCabello_id;
+        $log['prm_colcabello_id'] = $modeloxx->prm_colcabello_id;
         $log['prm_tinturado_id'] = $modeloxx->prm_tinturado_id;
         $log['tintura'] = $modeloxx->tintura;
-        $log['prm_tipCabello_id'] = $modeloxx->prm_tipCabello_id;
-        $log['prm_corCabello_id'] = $modeloxx->prm_corCabello_id;
+        $log['prm_tipcabello_id'] = $modeloxx->prm_tipcabello_id;
+        $log['prm_corcabello_id'] = $modeloxx->prm_corcabello_id;
         $log['prm_ojos_id'] = $modeloxx->prm_ojos_id;
         $log['prm_nariz_id'] = $modeloxx->prm_nariz_id;
         $log['prm_tienelunar_id'] = $modeloxx->prm_tienelunar_id;
@@ -46,7 +46,7 @@ class AiReporteEvasionObserver
         $log['user_doc1_id'] = $modeloxx->user_doc1_id;
         $log['user_doc2_id'] = $modeloxx->user_doc2_id;
         $log['responsable'] = $modeloxx->responsable;
-        $log['institución'] = $modeloxx->institución;
+        $log['institucion'] = $modeloxx->institucion;
         $log['nombre_recibe'] = $modeloxx->nombre_recibe;
         $log['cargo_recibe'] = $modeloxx->cargo_recibe;
         $log['placa_recibe'] = $modeloxx->placa_recibe;

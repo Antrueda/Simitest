@@ -195,11 +195,11 @@
 </div>
 <div class="row">
   <div class="col-md-4">
-    {{ Form::label('prm_colCabello_id', 'Color de cabello', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_colCabello_id', $todoxxxx['cabellox'], null, ['class' => $errors->first('prm_colCabello_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_colCabello_id'))
+    {{ Form::label('prm_colcabello_id', 'Color de cabello', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_colcabello_id', $todoxxxx['cabellox'], null, ['class' => $errors->first('prm_colcabello_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_colcabello_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_colCabello_id') }}
+        {{ $errors->first('prm_colcabello_id') }}
       </div>
     @endif
   </div>
@@ -226,22 +226,22 @@
     </div>
   </div>
   <div class="col-md-4">
-    {{ Form::label('prm_tipCabello_id', 'Tipo de cabello', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_tipCabello_id', $todoxxxx['cabelloz'], null, ['class' => $errors->first('prm_tipCabello_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
-    @if($errors->has('prm_tipCabello_id'))
+    {{ Form::label('prm_tipcabello_id', 'Tipo de cabello', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_tipcabello_id', $todoxxxx['cabelloz'], null, ['class' => $errors->first('prm_tipcabello_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+    @if($errors->has('prm_tipcabello_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_tipCabello_id') }}
+        {{ $errors->first('prm_tipcabello_id') }}
       </div>
     @endif
   </div>
 </div>
 <div class="row">
   <div class="col-md-4">
-    {{ Form::label('prm_corCabello_id', 'Corte de cabello', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::select('prm_corCabello_id', $todoxxxx['cabelloy'], null, ['class' => $errors->first('prm_corCabello_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-    @if($errors->has('prm_corCabello_id'))
+    {{ Form::label('prm_corcabello_id', 'Corte de cabello', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::select('prm_corcabello_id', $todoxxxx['cabelloy'], null, ['class' => $errors->first('prm_corcabello_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+    @if($errors->has('prm_corcabello_id'))
       <div class="invalid-feedback d-block">
-        {{ $errors->first('prm_corCabello_id') }}
+        {{ $errors->first('prm_corcabello_id') }}
       </div>
     @endif
   </div>
@@ -426,8 +426,8 @@
 <hr>
 <div class="row">
   <div class="col-md-4">
-    {{ Form::label('institución', 'Institución que recibe la denuncia', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::text('institución', null, ['class' => $errors->first('institución') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Institución que recibe la denuncia', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
+    {{ Form::label('institucion', 'Institución que recibe la denuncia', ['class' => 'control-label col-form-label-sm']) }}
+    {{ Form::text('institucion', null, ['class' => $errors->first('institución') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Institución que recibe la denuncia', 'maxlength' => '120', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'style' => 'text-transform:uppercase;']) }}
     @if($errors->has('institución'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('institución') }}

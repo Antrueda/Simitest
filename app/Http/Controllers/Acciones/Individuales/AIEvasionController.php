@@ -332,6 +332,7 @@ class AIEvasionController extends Controller
      */
     public function edit(SisNnaj $padrexxx, AiReporteEvasion $modeloxx)
     {
+        //ddd( $modeloxx);
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [

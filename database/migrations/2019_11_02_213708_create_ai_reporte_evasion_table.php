@@ -31,11 +31,11 @@ class CreateAiReporteEvasionTable extends Migration
             $table->integer('prm_contextura_id')->unsigned();
             $table->integer('prm_rostro_id')->unsigned();
             $table->integer('prm_piel_id')->unsigned();
-            $table->integer('prm_colCabello_id')->unsigned();
+            $table->integer('prm_colcabello_id')->unsigned();
             $table->integer('prm_tinturado_id')->unsigned();
             $table->string('tintura', 120)->nullable();
-            $table->integer('prm_tipCabello_id')->unsigned();
-            $table->integer('prm_corCabello_id')->unsigned()->nullable();
+            $table->integer('prm_tipcabello_id')->unsigned();
+            $table->integer('prm_corcabello_id')->unsigned()->nullable();
             $table->integer('prm_ojos_id')->unsigned();
             $table->integer('prm_nariz_id')->unsigned();
             $table->integer('prm_tienelunar_id')->unsigned();
@@ -53,7 +53,7 @@ class CreateAiReporteEvasionTable extends Migration
             $table->integer('user_doc1_id')->unsigned();
             $table->integer('user_doc2_id')->unsigned();
             $table->integer('responsable')->unsigned();
-            $table->string('institución', 120)->nullable();
+            $table->string('institucion', 120)->nullable();
             $table->string('nombre_recibe', 120)->nullable();
             $table->string('cargo_recibe', 120)->nullable();
             $table->string('placa_recibe', 120)->nullable();
@@ -73,10 +73,10 @@ class CreateAiReporteEvasionTable extends Migration
             $table->foreign('prm_contextura_id','aireva_pk6')->references('id')->on('parametros');
             $table->foreign('prm_rostro_id','aireva_pk7')->references('id')->on('parametros');
             $table->foreign('prm_piel_id','aireva_pk8')->references('id')->on('parametros');
-            $table->foreign('prm_colCabello_id','aireva_pk9')->references('id')->on('parametros');
+            $table->foreign('prm_colcabello_id','aireva_pk9')->references('id')->on('parametros');
             $table->foreign('prm_tinturado_id','aireva_pk10')->references('id')->on('parametros');
-            $table->foreign('prm_tipCabello_id','aireva_pk11')->references('id')->on('parametros');
-            $table->foreign('prm_corCabello_id','aireva_pk12')->references('id')->on('parametros');
+            $table->foreign('prm_tipcabello_id','aireva_pk11')->references('id')->on('parametros');
+            $table->foreign('prm_corcabello_id','aireva_pk12')->references('id')->on('parametros');
             $table->foreign('prm_ojos_id','aireva_pk13')->references('id')->on('parametros');
             $table->foreign('prm_nariz_id','aireva_pk14')->references('id')->on('parametros');
             $table->foreign('prm_tienelunar_id','aireva_pk15')->references('id')->on('parametros');

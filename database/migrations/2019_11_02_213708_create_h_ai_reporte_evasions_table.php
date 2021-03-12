@@ -32,11 +32,11 @@ class CreateHAiReporteEvasionsTable extends Migration
             $table->integer('prm_contextura_id')->unsigned();
             $table->integer('prm_rostro_id')->unsigned();
             $table->integer('prm_piel_id')->unsigned();
-            $table->integer('prm_colCabello_id')->unsigned();
+            $table->integer('prm_colcabello_id')->unsigned();
             $table->integer('prm_tinturado_id')->unsigned();
             $table->string('tintura', 120)->nullable();
-            $table->integer('prm_tipCabello_id')->unsigned();
-            $table->integer('prm_corCabello_id')->unsigned()->nullable();
+            $table->integer('prm_tipcabello_id')->unsigned();
+            $table->integer('prm_corcabello_id')->unsigned()->nullable();
             $table->integer('prm_ojos_id')->unsigned();
             $table->integer('prm_nariz_id')->unsigned();
             $table->integer('prm_tienelunar_id')->unsigned();

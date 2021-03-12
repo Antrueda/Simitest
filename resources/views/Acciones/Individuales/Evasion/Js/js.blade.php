@@ -109,10 +109,10 @@
 
   function doc1(valor){
     if(valor != 1459){
-      document.getElementById("prm_corCabello_id").hidden=false;
+      document.getElementById("prm_corcabello_id").hidden=false;
     } else {
-      document.getElementById("prm_corCabello_id").hidden=true;
-      document.getElementById("prm_corCabello_id").value='';
+      document.getElementById("prm_corcabello_id").hidden=true;
+      document.getElementById("prm_corcabello_id").value='';
     }
   }
 
