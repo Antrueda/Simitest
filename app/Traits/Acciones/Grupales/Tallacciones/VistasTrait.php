@@ -58,7 +58,8 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-
+            $dataxxxx['modeloxx']->d_registro=explode(' ',$dataxxxx['modeloxx']->d_registro)[0];
+            
             $opciones['areaxxxx'] = User::getAreasUser(['cabecera' => true, 'esajaxxx' => false, 'areasele' => $dataxxxx['modeloxx']->area_id]);
             $opciones['agtemaxx'] = Area::combo_temas(['cabecera' => true, 'ajaxxxxx' => false, 'areaxxxx' => $dataxxxx['modeloxx']->area_id]);
             $opciones['tallerxx'] = AgTema::combo_talleres(['cabecera' => true, 'ajaxxxxx' => false, 'agtemaid' => $dataxxxx['modeloxx']->ag_tema_id]);

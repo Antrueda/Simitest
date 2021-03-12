@@ -102,6 +102,7 @@ class CsdResidenciaController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
+            
             //5.20
             if ($dataxxxx['modeloxx']->resobservacion) {
                 $dataxxxx['modeloxx']->observaciones = $dataxxxx['modeloxx']->resobservacion->observaciones;
@@ -119,17 +120,10 @@ class CsdResidenciaController extends Controller
                 $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
             }
 
-
-
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $residenc = $dataxxxx['padrexxx']->csd->CsdResidencia->id;
         }
-
-
-
-
-
 
         $this->opciones['tablasxx'] = [
             [
@@ -138,7 +132,7 @@ class CsdResidenciaController extends Controller
                 'pregunta' => '5.18 ¿Con cuáles de los siguientes servicios públicos, privados o comunales cuenta el lugar de vivienda?',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
                 'vercrear' => $vercrear,
-                'urlxxxxx' => route('csdresservi.otracosa', [$residenc]),
+                'urlxxxxx' => route('csdresservi.otracosa', $this->opciones['parametr']),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -158,7 +152,7 @@ class CsdResidenciaController extends Controller
                 'tablaxxx' => 'datatable',
                 'permisox' => 'csdresservi',
                 'routxxxx' => 'csdresservi',
-                'parametr' => [$dataxxxx['padrexxx']->id],
+                'parametr' => $this->opciones['parametr'],
             ],
             [
                 'titunuev' => 'AGREGAR ESPACIO',
@@ -166,7 +160,7 @@ class CsdResidenciaController extends Controller
                 'pregunta' => '5.19 Espacios de los que disponen en este hogar:',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
                 'vercrear' => $vercrear,
-                'urlxxxxx' => route('csdreshogar.listaxxx', [$residenc]),
+                'urlxxxxx' => route('csdreshogar.listaxxx', $this->opciones['parametr']),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -186,7 +180,7 @@ class CsdResidenciaController extends Controller
                 'tablaxxx' => 'datatable519',
                 'permisox' => 'csdreshogar',
                 'routxxxx' => 'csdreshogar',
-                'parametr' => [$dataxxxx['padrexxx']->id],
+                'parametr' => $this->opciones['parametr'],
             ],
             [
                 'titunuev' => 'AGREGAR ESPACIO QUE COMPARTE',
@@ -194,7 +188,7 @@ class CsdResidenciaController extends Controller
                 'pregunta' => '5.20 ¿La familia comparte con otro hogar o familia, alguno de los siguientes espacios?',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.residenciacsd',
                 'vercrear' => $vercrear,
-                'urlxxxxx' => route('csdrescomparte.listaxxx', [$residenc]),
+                'urlxxxxx' => route('csdrescomparte.listaxxx', $this->opciones['parametr']),
                 'cabecera' => [
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
@@ -214,10 +208,10 @@ class CsdResidenciaController extends Controller
                 'tablaxxx' => 'datatable520',
                 'permisox' => 'csdrescomparte',
                 'routxxxx' => 'csdrescomparte',
-                'parametr' => [$dataxxxx['padrexxx']->id],
+                'parametr' => $this->opciones['parametr'],
             ],
         ];
-
+        //ddd($dataxxxx['padrexxx']->id);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 

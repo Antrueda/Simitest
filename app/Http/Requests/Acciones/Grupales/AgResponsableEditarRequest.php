@@ -58,7 +58,7 @@ class AgResponsableEditarRequest extends FormRequest
             ->where('i_prm_responsable_id', 1770)
             ->whereNotIn('id', [$responsa->id])
             ->first();
-        if (isset($responsa->id)) {
+        if (isset($responsa->id)&&$this->i_prm_responsable_id==1770) {
             $this->_mensaje['yarespon.required'] = 'La actividad ya cuenta con un responsable';
             $this->_reglasx['yarespon'] = 'required';
         }

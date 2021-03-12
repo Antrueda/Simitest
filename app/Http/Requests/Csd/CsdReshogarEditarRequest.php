@@ -51,7 +51,7 @@ class CsdReshogarEditarRequest extends FormRequest
         {
             $registro = CsdReshogar::select('csd_reshogars.id')
             ->join('csd_residencias', 'csd_reshogars.csd_residencia_id', '=', 'csd_residencias.id')
-            ->where('csd_residencias.id',  $this->segments()[0])
+            ->where('csd_residencias.id',  $this->padrexxx->csd->csdresidencia->id)
             ->where('csd_reshogars.prm_espacio_id', $this->prm_espacio_id)
             ->first();
 

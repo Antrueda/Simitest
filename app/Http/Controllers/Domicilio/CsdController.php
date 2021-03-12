@@ -153,12 +153,13 @@ class CsdController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
             $this->opciones['vercrear'] = true;
+            $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
             $this->opciones['csdxxxxx'] = $dataxxxx['modeloxx'];
 
             $this->opciones['csdxxxxx'] = CsdSisNnaj::where('sis_nnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('csd_id', $dataxxxx['modeloxx']->id)->first();
-            $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
+
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
@@ -169,7 +170,7 @@ class CsdController extends Controller
                         'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                     ];
             }
-
+            //ddd($this->opciones['parametr']);
             $this->opciones['tablasxx'] = [
                 [
                     'titunuev' => 'NUEVO NNAJ VISITADO',
@@ -249,7 +250,7 @@ class CsdController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(SisNnaj $padrexxx, Csd $modeloxx)
-    {
+    {      
         $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
         'nnajxxxx'=>$modeloxx->sis_nnaj_id,
         'permisox'=>$this->opciones['permisox'] . '-editar',
@@ -278,9 +279,10 @@ class CsdController extends Controller
         return $this->grabar(['requestx' => $request, 'infoxxxx' => 'Datos básicos actualizados con éxito', 'modeloxx' => $modeloxx, 'padrexxx' => $padrexxx]);
     }
 
-    public function inactivate(Csd $modeloxx)
+    public function inactivate(SisNnaj $padrexxx,Csd $modeloxx)
     {
-        $this->opciones['rutaxxxx'] = route('csdxxxxx.borrar', $modeloxx->id);
+
+
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
                 [
@@ -288,15 +290,16 @@ class CsdController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx->fi_datos_basico]);
     }
 
 
-    public function destroy(Request $request, Csd $modeloxx)
+    public function destroy(SisNnaj $padrexxx, Csd $modeloxx)
     {
+
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj->id])
+            ->route($this->opciones['permisox'], [$padrexxx->fi_datos_basico])
             ->with('info', 'CSD inactivada correctamente');
     }
 }

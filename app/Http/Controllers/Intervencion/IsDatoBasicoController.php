@@ -141,7 +141,7 @@ class IsDatoBasicoController extends Controller
         }
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
         $this->opciones['usuarios'] = User::getUsuario(false, false);
-        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[2,3]]);
+        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[2,3,7]]);
         $this->opciones['tipatenc'] = [];
         $tipatenc = 0;
         if (auth()->user()->can('intervención sicosocial especializada')) {

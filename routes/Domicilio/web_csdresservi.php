@@ -3,12 +3,12 @@
 $routexxx = 'csdresservi';
 $controll = 'Domicilio\CsdResservi';
 Route::group(['prefix' => '{padrexxx}/csdservicio'], function () use ($routexxx, $controll) {
-	Route::get('nuevo', [
+	Route::get('{residenc}/nuevo', [
         'uses' => $controll.'Controller@create',
         'middleware' => ['permission:'.$routexxx.'-crear']
     ])->name($routexxx.'.nuevo');
 
-    Route::post('crear', [
+    Route::post('{residenc}/crear', [
         'uses' => $controll.'Controller@store',
         'middleware' => ['permission:'.$routexxx.'-crear']
     ])->name($routexxx.'.crear');
@@ -25,7 +25,7 @@ Route::group(['prefix' => '{padrexxx}/csdservicio'], function () use ($routexxx,
     ])->name($routexxx . '.borrar');
 
 
-    Route::get('otracosa', [
+    Route::get('{residenc}/otracosa', [
         'uses' => $controll . 'Controller@getListado',
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.otracosa');

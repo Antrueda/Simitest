@@ -51,7 +51,7 @@ class CsdRescomparteCrearRequest extends FormRequest
         {
             $registro = CsdRescomparte::select('csd_rescomparte.id')
             ->join('csd_residencias', 'csd_rescomparte.csd_residencia_id', '=', 'csd_residencias.id')
-            ->where('csd_residencias.id', $this->segments()[0]) 
+            ->where('csd_residencias.id', $this->padrexxx->csd->csdresidencia->id) 
             ->where('csd_rescomparte.prm_espacio_id', $this->prm_espacio_id)
             ->first();
 

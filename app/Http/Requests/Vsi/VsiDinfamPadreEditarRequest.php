@@ -15,12 +15,13 @@ class VsiDinfamPadreEditarRequest extends FormRequest
         $this->_mensaje = [
             'prm_convive_id.required' => 'Seleccione si convive',
             'prm_separa_id.required' => 'Seleccione motivo de la separacion',
+            'hijo.required' => '¿Cuantos hijos?',
         ];
         $this->_reglasx = [
             'prm_convive_id' => 'required|exists:parametros,id',
-            'dia' => 'exclude_if:prm_convive_id,228|min:0|max:30',
-            'mes' => 'exclude_if:prm_convive_id,228|min:0|max:11',
-            'ano' => 'exclude_if:prm_convive_id,228|min:0|max:99',
+            'dia' => 'nullable|min:0|max:30',
+            'mes' => 'nullable|min:0|max:11',
+            'ano' => 'nullable|min:0|max:99',
             'hijo' => 'required|integer|min:0|max:99',
             'prm_separa_id' => 'nullable|exists:parametros,id',
         ];
@@ -53,6 +54,17 @@ class VsiDinfamPadreEditarRequest extends FormRequest
 
     public function validar()
     {
-
+        if($this->prm_convive_id ==227&&$this->mes==null&&$this->ano==null){
+            $this->_mensaje['dia.required'] = 'Ingrese cuantos días';
+            $this->_reglasx['dia'] = 'required';
+        }
+        if($this->prm_convive_id ==227&&$this->dia==null&&$this->ano==null){
+            $this->_mensaje['mes.required'] = 'Ingrese cuantos meses';
+            $this->_reglasx['mes'] = 'required';
+        }
+        if($this->prm_convive_id ==227&&$this->dia==null&&$this->mes==null){
+            $this->_mensaje['ano.required'] = 'Ingrese cuantos años';
+            $this->_reglasx['ano'] = 'required';
+        }
     }
 }
