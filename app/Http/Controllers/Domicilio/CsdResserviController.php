@@ -46,7 +46,7 @@ class CsdResserviController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicio'] = Tema::combo(414, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(434, true, false); // Anterior combo 23
         $this->opciones['servicio'] = Tema::combo(94, true, false);
         $this->opciones['botoform'] = [
             [
@@ -133,14 +133,14 @@ class CsdResserviController extends Controller
 
     public function store(CsdResservicioCrearRequest $request, CsdSisNnaj $padrexxx)
     {
-        
+
         $request->request->add(['csd_residencia_id' => $padrexxx->csd->CsdResidencia->id]);
         $request->request->add(['sis_esta_id' => 1]);
         return $this->grabar([
-            'requestx' => $request, 
-            'infoxxxx' => 'Servicio creado con éxito', 
-            'padrexxx' => $padrexxx, 
-            'modeloxx' => '', 
+            'requestx' => $request,
+            'infoxxxx' => 'Servicio creado con éxito',
+            'padrexxx' => $padrexxx,
+            'modeloxx' => '',
             ]);
     }
 
@@ -154,7 +154,7 @@ class CsdResserviController extends Controller
     {
         //a
         $this->opciones['csdxxxxx'] = $padrexxx;
-        
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'servicios'], 'padrexxx' => $padrexxx]);
     }
 
@@ -166,7 +166,7 @@ class CsdResserviController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
-        
+
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -190,10 +190,10 @@ class CsdResserviController extends Controller
     public function update(CsdResservicioEditRequest $request, CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
         return $this->grabar([
-            'requestx' => $request, 
-            'infoxxxx' => 
-            'Servicio actualizado con éxito', 
-            'padrexxx' => $padrexxx, 
+            'requestx' => $request,
+            'infoxxxx' =>
+            'Servicio actualizado con éxito',
+            'padrexxx' => $padrexxx,
             'modeloxx' => $modeloxx
             ]);
     }

@@ -56,7 +56,7 @@ class VsiActEmocionalController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['sinoxxxx'] = Tema::combo(439, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(485, true, false); // Anterior combo 23
         $this->opciones['motivosx'] = Tema::combo(201, false, false);
 
 
@@ -69,7 +69,7 @@ class VsiActEmocionalController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-          
+
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
@@ -121,7 +121,7 @@ class VsiActEmocionalController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
- 
+
        // $this->opciones['padrexxx'] = $objetoxx->id;
        // $this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -131,13 +131,13 @@ class VsiActEmocionalController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        
+
         return $this->view(['modeloxx' => $objetoxx->VsiActEmocional, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
-        
+
 
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [VsiActEmocional::transaccion($dataxxxx)->vsi_id])

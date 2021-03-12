@@ -89,7 +89,7 @@ class AjaxxController extends Controller
                 'orientac' => ($edadxxxx < 15) ? $noaplica : Tema::combo(13, false, true),
                 'estacivi' => ($edadxxxx < 15) ? Parametro::find(153)->ComboAjaxUno : Tema::combo(19, false, true),
                 'sexoxxxx' =>  Tema::combo(11, false, true),
-                'condicio' => ($edadxxxx < 18) ? $noaplica : Tema::combo(370, false, true), // Anterior combo 23
+                'condicio' => ($edadxxxx < 18) ? $noaplica : Tema::combo(366, false, true), // Anterior combo 23
                 'tiplibre' => ($edadxxxx < 18) ? $noaplica : Tema::combo(33, false, true),
             ]];
             return response()->json($respuest);
@@ -158,22 +158,22 @@ class AjaxxController extends Controller
             switch ($dataxxxx['padrexxx']) {
                 case 227:
                     $respuest = [[
-                        'famfisic' => Tema::combo(371, false, true), // Anterior combo 23
-                        'fampsico' => Tema::combo(372, false, true), // Anterior combo 23
-                        'famsexua' => Tema::combo(373, false, true), // Anterior combo 23
-                        'famecono' => Tema::combo(374, false, true), // Anterior combo 23
-                        'amifisic' => Tema::combo(375, false, true), // Anterior combo 23
-                        'amipsico' => Tema::combo(376, false, true), // Anterior combo 23
-                        'amisexua' => Tema::combo(377, false, true), // Anterior combo 23
-                        'amiecono' => Tema::combo(378, false, true), // Anterior combo 23
-                        'parfisic' => Tema::combo(379, false, true), // Anterior combo 23
-                        'parpsico' => Tema::combo(380, false, true), // Anterior combo 23
-                        'parsexua' => Tema::combo(381, false, true), // Anterior combo 23
-                        'parecono' => Tema::combo(382, false, true), // Anterior combo 23
-                        'comfisic' => Tema::combo(383, false, true), // Anterior combo 23
-                        'compsico' => Tema::combo(384, false, true), // Anterior combo 23
-                        'comsexua' => Tema::combo(385, false, true), // Anterior combo 23
-                        'comecono' => Tema::combo(386, false, true), // Anterior combo 23
+                        'famfisic' => Tema::combo(367, false, true), // Anterior combo 23
+                        'fampsico' => Tema::combo(368, false, true), // Anterior combo 23
+                        'famsexua' => Tema::combo(369, false, true), // Anterior combo 23
+                        'famecono' => Tema::combo(370, false, true), // Anterior combo 23
+                        'amifisic' => Tema::combo(371, false, true), // Anterior combo 23
+                        'amipsico' => Tema::combo(372, false, true), // Anterior combo 23
+                        'amisexua' => Tema::combo(373, false, true), // Anterior combo 23
+                        'amiecono' => Tema::combo(374, false, true), // Anterior combo 23
+                        'parfisic' => Tema::combo(375, false, true), // Anterior combo 23
+                        'parpsico' => Tema::combo(376, false, true), // Anterior combo 23
+                        'parsexua' => Tema::combo(377, false, true), // Anterior combo 23
+                        'parecono' => Tema::combo(378, false, true), // Anterior combo 23
+                        'comfisic' => Tema::combo(379, false, true), // Anterior combo 23
+                        'compsico' => Tema::combo(380, false, true), // Anterior combo 23
+                        'comsexua' => Tema::combo(381, false, true), // Anterior combo 23
+                        'comecono' => Tema::combo(382, false, true), // Anterior combo 23
                     ]];
                     break;
                 case 228:
@@ -206,8 +206,8 @@ class AjaxxController extends Controller
             $dataxxxx = $request->all();
             $respuest = [[
                 'discapac' => $dataxxxx['padrexxx'] == 228 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(24, true, true),
-                'certific' => $dataxxxx['padrexxx'] == 228 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(387, true, true), // Anterior combo 23
-                'independ' => $dataxxxx['padrexxx'] == 228 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(388, true, true), // Anterior combo 23
+                'certific' => $dataxxxx['padrexxx'] == 228 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(383, true, true), // Anterior combo 23
+                'independ' => $dataxxxx['padrexxx'] == 228 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(384, true, true), // Anterior combo 23
                 'discausa' => $dataxxxx['padrexxx'] == 228 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(341, true, true),
                 'victataq' => $dataxxxx['padrexxx'] == 228 ? Parametro::find(235)->ComboAjaxUno : Tema::combo(342, true, true),
 
@@ -353,7 +353,7 @@ class AjaxxController extends Controller
             $dataxxxx = $request->all();
             $edadxxxx = $this->getEdad($request->all());
             $respuest = [[
-                'condicio' => ($dataxxxx['padrexxx'] == 21 || $edadxxxx < 18) ? $noaplica : Tema::combo(389, true, true), // Anterior combo 23
+                'condicio' => ($dataxxxx['padrexxx'] == 21 || $edadxxxx < 18) ? $noaplica : Tema::combo(385, true, true), // Anterior combo 23
                 'tiplibre' => ($dataxxxx['padrexxx'] == 21 || $edadxxxx < 18) ? $noaplica : Tema::combo(33, true, true),
             ]];
             return response()->json($respuest);
@@ -379,7 +379,7 @@ class AjaxxController extends Controller
             }
             $respuest = [[
                 'unosolox' => ($dataxxxx['padrexxx'] == 145) ? 1 : 2,
-                'cuendocu' => ($dataxxxx['padrexxx'] == 145) ? $unosolox : Tema::combo(390, true, true), // Anterior combo 23
+                'cuendocu' => ($dataxxxx['padrexxx'] == 145) ? $unosolox : Tema::combo(386, true, true), // Anterior combo 23
             ]];
             return response()->json($respuest);
         }
@@ -479,7 +479,7 @@ class AjaxxController extends Controller
             $respuest = [[
                 'dptcondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? SisDepartam::find(1)->ComboAjaxUno : SisDepartam::combo(2, true),
                 'muncondi' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? SisMunicipio::find(1)->ComboAjaxUno : [['valuexxx' => '', 'optionxx' => 'Seleccione']],
-                'tiecerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(235)->ComboAjaxUno : Tema::combo(391, true, true), // Anterior combo 23
+                'tiecerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? Parametro::find(235)->ComboAjaxUno : Tema::combo(387, true, true), // Anterior combo 23
                 'dptcerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? SisDepartam::find(1)->ComboAjaxUno : SisDepartam::combo(2, true),
                 'muncerti' => ($dataxxxx['padrexxx'] == 853 || $dataxxxx['padrexxx'] == 455) ? SisMunicipio::find(1)->ComboAjaxUno : [['valuexxx' => '', 'optionxx' => 'Seleccione']],
             ]];
@@ -669,7 +669,7 @@ class AjaxxController extends Controller
                         'tipoviax' => Tema::combo(62, true, true),
                         'nomviapr' => false,
                         'alfviapr' => Tema::combo(39, true, true),
-                        'tienebis' => Tema::combo(392, true, true), // Anterior combo 23
+                        'tienebis' => Tema::combo(388, true, true), // Anterior combo 23
                         'letrabis' => Tema::combo(39, true, true),
                         'cuadravp' => Tema::combo(38, true, true),
                         'numerovg' => false,

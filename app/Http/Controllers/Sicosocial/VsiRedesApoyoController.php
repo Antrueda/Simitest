@@ -52,13 +52,13 @@ class VsiRedesApoyoController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['sinoxxxx'] = Tema::combo(450, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxx'] = Tema::combo(515, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxx'] = Tema::combo(516, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxx'] = Tema::combo(517, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxx'] = Tema::combo(518, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxxx'] = Tema::combo(519, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxxxx'] = Tema::combo(520, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(506, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxx'] = Tema::combo(507, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxx'] = Tema::combo(508, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxx'] = Tema::combo(509, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxxx'] = Tema::combo(510, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxxxx'] = Tema::combo(511, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxxxxx'] = Tema::combo(512, true, false); // Anterior combo 23
         $this->opciones['personax'] = Tema::combo(70, true, false);
         $this->opciones['accesoxx'] = Tema::combo(71, false, false);
         $this->opciones['motivosx'] = Tema::combo(72, false, false);

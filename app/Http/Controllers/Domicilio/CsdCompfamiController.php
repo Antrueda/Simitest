@@ -48,14 +48,14 @@ class CsdCompfamiController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
         $this->opciones['tipodocu'] = Tema::combo(3, true, false);
         $this->opciones['estafili'] = Tema::combo(21, true, false);
-        $this->opciones['condicix'] = Tema::combo(399, true, false); // Anterior combo 23
-        $this->opciones['condicixx'] = Tema::combo(469, true, false); // Anterior combo 23
-        $this->opciones['condicixxx'] = Tema::combo(470, true, false); // Anterior combo 23
-        $this->opciones['condicixxxx'] = Tema::combo(471, true, false); // Anterior combo 23
-        $this->opciones['condicixxxxx'] = Tema::combo(472, true, false); // Anterior combo 23
-        $this->opciones['condicixxxxxx'] = Tema::combo(473, true, false); // Anterior combo 23
-        $this->opciones['condicixxxxxxx'] = Tema::combo(474, true, false); // Anterior combo 23
-        $this->opciones['condicixxxxxxxx'] = Tema::combo(475, true, false); // Anterior combo 23
+        $this->opciones['condicix'] = Tema::combo(408, true, false); // Anterior combo 23
+        $this->opciones['condicixx'] = Tema::combo(409, true, false); // Anterior combo 23
+        $this->opciones['condicixxx'] = Tema::combo(410, true, false); // Anterior combo 23
+        $this->opciones['condicixxxx'] = Tema::combo(411, true, false); // Anterior combo 23
+        $this->opciones['condicixxxxx'] = Tema::combo(412, true, false); // Anterior combo 23
+        $this->opciones['condicixxxxxx'] = Tema::combo(413, true, false); // Anterior combo 23
+        $this->opciones['condicixxxxxxx'] = Tema::combo(414, true, false); // Anterior combo 23
+        $this->opciones['condicixxxxxxxx'] = Tema::combo(415, true, false); // Anterior combo 23
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['generoxx'] = Tema::combo(12, true, false);
         $this->opciones['orexualx'] = Tema::combo(13, true, false);
@@ -72,8 +72,8 @@ class CsdCompfamiController extends Controller
         $this->opciones['parentes'] = Tema::combo(358, true, false);
         $this->opciones['tipotele'] = Tema::combo(44, true, false);
         $this->opciones['vinculad'] = Tema::combo(287, true, false);
-        $this->opciones['convivex'] = Tema::combo(400, true, false); // Anterior combo 23
-        $this->opciones['reprlega'] = Tema::combo(401, true, false); // Anterior combo 23
+        $this->opciones['convivex'] = Tema::combo(416, true, false); // Anterior combo 23
+        $this->opciones['reprlega'] = Tema::combo(417, true, false); // Anterior combo 23
         $this->opciones['ocupacio'] = Tema::combo(156, true, false);
         $this->opciones['nsnoresp'] = Tema::combo(26, true, false);
         $this->opciones['educacio'] = Tema::combo(153, true, false);

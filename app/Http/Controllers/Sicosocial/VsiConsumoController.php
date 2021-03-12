@@ -55,25 +55,25 @@ class VsiConsumoController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-        
-        $this->opciones['sinoxxxx'] = Tema::combo(441, true, false); // Anterior combo 23
+
+        $this->opciones['sinoxxxx'] = Tema::combo(487, true, false); // Anterior combo 23
         $this->opciones['contexto'] = Tema::combo(171, true, false);
         $this->opciones['motivosx'] = Tema::combo(180, true, false);
         $this->opciones['expectat'] = Tema::combo(181, false, false);
         $this->opciones['familiar'] = Tema::combo(66, false, false);
-        
+
 
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
-      
+
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-         
+
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
@@ -90,7 +90,7 @@ class VsiConsumoController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-        
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -125,7 +125,7 @@ class VsiConsumoController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-     
+
         //$this->opciones['padrexxx'] = $objetoxx->id;
         //$this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -134,14 +134,14 @@ class VsiConsumoController extends Controller
                     'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
-            
+
         }
         return $this->view(['modeloxx' => $objetoxx->VsiConsumo, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
-       
+
 
         return redirect()
         ->route($this->opciones['routxxxx'] . '.editar', [VsiConsumo::transaccion($dataxxxx)->vsi_id])

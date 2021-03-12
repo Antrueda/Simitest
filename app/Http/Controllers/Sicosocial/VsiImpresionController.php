@@ -57,9 +57,9 @@ class VsiImpresionController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-      
 
-        $this->opciones['sinoxxxx'] = Tema::combo(449, true, false); // Anterior combo 23
+
+        $this->opciones['sinoxxxx'] = Tema::combo(505, true, false); // Anterior combo 23
         $this->opciones['areasxxx'] = Tema::combo(211, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
@@ -69,7 +69,7 @@ class VsiImpresionController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-            
+
 
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
@@ -129,7 +129,7 @@ class VsiImpresionController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        
+
         return $this->view(['modeloxx' => $objetoxx->VsiConcepto, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

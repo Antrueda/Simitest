@@ -29,7 +29,7 @@ class CreateTemasTable extends Migration
         //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS REGISTRADOS EN EL SISTEMA'");
         Schema::create('temacombos', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
+            $table->string('nombre')->comment('CAMPO DE NOMBRE DEL TEMAS');
             $table->integer('tema_id')->unsigned();
             $table->foreign('tema_id', 'teco_fk1')->references('id')->on('temas');
             $table = CamposMagicos::magicos($table);

@@ -59,7 +59,7 @@ class VsiDinFamiliarController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
 
-        $this->opciones['sinoxxxx'] = Tema::combo(442, false, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(488, false, false); // Anterior combo 23
         $this->opciones['familiax'] = Tema::combo(98, true, false);
         $this->opciones['hogarxxx'] = Tema::combo(99, true, false);
         $this->opciones['familiay'] = Tema::combo(66, false, false);
@@ -171,7 +171,7 @@ class VsiDinFamiliarController extends Controller
                 'routxxxx' => 'vsidfpad',
                 'parametr' => $this->opciones['parametr'] ,
             ]
-         
+
         ];
 
 
@@ -233,7 +233,7 @@ class VsiDinFamiliarController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        
+
         return $this->view(['modeloxx' => $objetoxx->VsiDinFamiliar, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

@@ -48,12 +48,12 @@ class FiJustrestController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condspoa'] = Tema::combo(425, true, false); // Anterior combo 23
-        $this->opciones['condicio'] = Tema::combo(426, true, false); // Anterior combo 23
-        $this->opciones['condiciox'] = Tema::combo(488, true, false); // Anterior combo 23
-        $this->opciones['condicioxx'] = Tema::combo(489, true, false); // Anterior combo 23
-        $this->opciones['condicioxxx'] = Tema::combo(490, true, false); // Anterior combo 23
-        $this->opciones['condnoap'] = Tema::combo(427, true, false); // Anterior combo 23
+        $this->opciones['condspoa'] = Tema::combo(454, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(455, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(456, true, false); // Anterior combo 23
+        $this->opciones['condicioxx'] = Tema::combo(457, true, false); // Anterior combo 23
+        $this->opciones['condicioxxx'] = Tema::combo(458, true, false); // Anterior combo 23
+        $this->opciones['condnoap'] = Tema::combo(459, true, false); // Anterior combo 23
         $this->opciones['actupard'] = Tema::combo(25, true, false);
         $this->opciones['actusrpa'] = Tema::combo(25, true, false);
         $this->opciones['actuspoa'] = Tema::combo(25, true, false);

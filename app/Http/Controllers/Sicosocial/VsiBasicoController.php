@@ -58,7 +58,7 @@ class VsiBasicoController extends Controller
     {
 
         $this->opciones['docuemen'] = Tema::combo(3, true, false);
-        $this->opciones['sinoxxxx'] = Tema::combo(440, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(486, true, false); // Anterior combo 23
         $this->opciones['sindocum'] = Tema::combo(286, true, false);
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['idengene'] = Tema::combo(12, true, false);
@@ -73,11 +73,11 @@ class VsiBasicoController extends Controller
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            
+
             $dataxxxx['modeloxx']->prm_documento_id=$dataxxxx['modeloxx']->nnaj_docu->prm_tipodocu_id;
             $dataxxxx['modeloxx']->prm_doc_fisico_id=$dataxxxx['modeloxx']->nnaj_docu->prm_doc_fisico_id;
             $dataxxxx['modeloxx']->prm_ayuda_id=$dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;
-            
+
             $dataxxxx['modeloxx']->s_documento=$dataxxxx['modeloxx']->nnaj_docu->s_documento;
             $dataxxxx['modeloxx']->s_nombre_identitario=$dataxxxx['modeloxx']->nnaj_sexo->s_nombre_identitario;
             $dataxxxx['modeloxx']->prm_sexo_id=$dataxxxx['modeloxx']->nnaj_sexo->prm_sexo_id;
@@ -85,10 +85,10 @@ class VsiBasicoController extends Controller
             $dataxxxx['modeloxx']->prm_identidad_genero_id=$dataxxxx['modeloxx']->nnaj_sexo->prm_identidad_genero_id;
             $dataxxxx['modeloxx']->prm_orientacion_sexual_id=$dataxxxx['modeloxx']->nnaj_sexo->prm_orientacion_sexual_id;
             $dataxxxx['modeloxx']->d_nacimiento=$dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento;
-            
+
             //nnaj_sexo
             //nnaj_nacimi d_nacimiento
-            
+
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
            // ddd( $this->opciones['modeloxx']);
             //prm_documento_id
@@ -156,11 +156,11 @@ class VsiBasicoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Vsi $objetoxx)
-    { 
+    {
         $this->opciones['vsixxxxx'] = $objetoxx;
         $this->opciones['padrexxx'] = $objetoxx->id;
         $this->opciones['parametr'] = [$objetoxx->id];
-     
+
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -168,9 +168,9 @@ class VsiBasicoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-    
 
-        
+
+
         return $this->view(['modeloxx' => $objetoxx->nnaj->fi_datos_basico, 'accionxx' => 'Editar','padrexxx' => $objetoxx->nnaj->fi_datos_basico
         ]);
     }

@@ -71,9 +71,9 @@ class CsdBasicoController extends Controller
 
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['document'] = Tema::combo(361, true, false);
-        $this->opciones['neciayud'] = Tema::combo(395, false, false); // Anterior combo 23
-        $this->opciones['docufisi'] = Tema::combo(396, true, false); // Anterior combo 23
-        $this->opciones['situdefi'] = Tema::combo(397, true, false); // Anterior combo 23
+        $this->opciones['neciayud'] = Tema::combo(404, false, false); // Anterior combo 23
+        $this->opciones['docufisi'] = Tema::combo(405, true, false); // Anterior combo 23
+        $this->opciones['situdefi'] = Tema::combo(406, true, false); // Anterior combo 23
         $this->opciones['sindocum'] = Tema::combo(286, true, false);
         $this->opciones['sexoxxxx'] = Tema::combo(11, true, false);
         $this->opciones['generoxx'] = Tema::combo(12, true, false);
@@ -184,7 +184,7 @@ class CsdBasicoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

@@ -57,13 +57,13 @@ class VsiAbuSexualController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
 
-        $this->opciones['sinoxxxx'] = Tema::combo(438, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxx'] = Tema::combo(499, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxx'] = Tema::combo(500, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxx'] = Tema::combo(501, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxx'] = Tema::combo(502, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxxx'] = Tema::combo(503, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxxxx'] = Tema::combo(504, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(478, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxx'] = Tema::combo(479, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxx'] = Tema::combo(480, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxx'] = Tema::combo(481, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxxx'] = Tema::combo(482, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxxxx'] = Tema::combo(483, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxxxxxxxx'] = Tema::combo(484, true, false); // Anterior combo 23
         $this->opciones['familiar'] = Tema::combo(66, true, false);
         $this->opciones['eventoxx'] = Tema::combo(202, true, false);
         $this->opciones['sexualxx'] = Tema::combo(203, true, false);

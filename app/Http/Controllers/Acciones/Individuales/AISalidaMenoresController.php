@@ -44,11 +44,11 @@ class AISalidaMenoresController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['condicio'] = Tema::combo(369, true, false); // Anterior combo 23
-        $this->opciones['condiciox'] = Tema::combo(465, true, false); // Anterior combo 23
-        $this->opciones['condicioxx'] = Tema::combo(466, true, false); // Anterior combo 23
-        $this->opciones['condicioxxx'] = Tema::combo(467, true, false); // Anterior combo 23
-        $this->opciones['condicioxxxx'] = Tema::combo(468, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(397, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(398, true, false); // Anterior combo 23
+        $this->opciones['condicioxx'] = Tema::combo(399, true, false); // Anterior combo 23
+        $this->opciones['condicioxxx'] = Tema::combo(400, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxx'] = Tema::combo(401, true, false); // Anterior combo 23
         $this->opciones['condicix'] = Tema::combo(25, true, false);
         $this->opciones['ampmxxxx'] = Tema::combo(5, true, false);
         $this->opciones['objetivo'] = Tema::combo(307, false, false);
@@ -176,7 +176,7 @@ class AISalidaMenoresController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
 
         $dataxxxx['padrexxx']->s_primer_nombre;
-        
+
         $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('prm_reprlega_id',227)->first();
         if ($compofami==null) {
             return redirect()
@@ -189,7 +189,7 @@ class AISalidaMenoresController extends Controller
         $this->opciones['dependez'] = SisDepen::combo(true, false);
         $this->opciones['usuarioz'] = User::comboCargo(true, false);
         $this->opciones['respoupi'] = $dataxxxx['padrexxx']->sis_nnaj->Responsable[0];
-       
+
         $this->opciones['vercrear'] = false;
         $parametr = 0;
         if ($dataxxxx['modeloxx'] != '') {
@@ -336,7 +336,7 @@ class AISalidaMenoresController extends Controller
     public function inactivate(SisNnaj $padrexxx,AiSalidaMenores $modeloxx)
     {
         $this->opciones['parametr'] = [$padrexxx->id];
-        
+
              if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
                 [

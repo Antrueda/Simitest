@@ -45,11 +45,11 @@ class AIRetornoSalidaController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['condicio'] = Tema::combo(368, true, false); // Anterior combo 23
-        $this->opciones['condiciox'] = Tema::combo(461, true, false); // Anterior combo 23
-        $this->opciones['condicioxx'] = Tema::combo(462, true, false); // Anterior combo 23
-        $this->opciones['condicioxxx'] = Tema::combo(463, true, false); // Anterior combo 23
-        $this->opciones['condicioxxxx'] = Tema::combo(464, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(392, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(393, true, false); // Anterior combo 23
+        $this->opciones['condicioxx'] = Tema::combo(394, true, false); // Anterior combo 23
+        $this->opciones['condicioxxx'] = Tema::combo(395, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxx'] = Tema::combo(396, true, false); // Anterior combo 23
         $this->opciones['ampmxxxx'] = Tema::combo(5, false, false);
         $this->opciones['document'] = Tema::combo(3, true, false);
         $this->opciones['parentez'] = Tema::combo(66, false, false);
@@ -159,7 +159,7 @@ class AIRetornoSalidaController extends Controller
         $this->opciones['vercrear'] = false;
         $parametr = 0;
         if ($dataxxxx['modeloxx'] != '') {
-            
+
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;

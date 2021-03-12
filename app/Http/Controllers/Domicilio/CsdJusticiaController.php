@@ -43,8 +43,8 @@ class CsdJusticiaController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicio'] = Tema::combo(410, true, false); // Anterior combo 23
-        $this->opciones['condiciox'] = Tema::combo(478, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(428, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(429, true, false); // Anterior combo 23
         $this->opciones['causasxx'] = Tema::combo(120, true, false);
         }
 

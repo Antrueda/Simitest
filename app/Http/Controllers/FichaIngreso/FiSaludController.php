@@ -43,14 +43,14 @@ class FiSaludController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
 
         $this->opciones['estafili'] = Tema::combo(21, true, false);
-        $this->opciones['condicio'] = Tema::combo(431, true, false); // Anterior combo 23
-        $this->opciones['condiciox'] = Tema::combo(491, true, false); // Anterior combo 23
-        $this->opciones['condicioxx'] = Tema::combo(492, true, false); // Anterior combo 23
-        $this->opciones['condicioxxx'] = Tema::combo(493, true, false); // Anterior combo 23
-        $this->opciones['condicioxxxx'] = Tema::combo(494, true, false); // Anterior combo 23
-        $this->opciones['condicioxxxxx'] = Tema::combo(495, true, false); // Anterior combo 23
-        $this->opciones['condicioxxxxxx'] = Tema::combo(496, true, false); // Anterior combo 23
-        $this->opciones['condicioxxxxxxx'] = Tema::combo(497, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(463, true, false); // Anterior combo 23
+        $this->opciones['condiciox'] = Tema::combo(464, true, false); // Anterior combo 23
+        $this->opciones['condicioxx'] = Tema::combo(465, true, false); // Anterior combo 23
+        $this->opciones['condicioxxx'] = Tema::combo(466, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxx'] = Tema::combo(467, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxxx'] = Tema::combo(468, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxxxx'] = Tema::combo(469, true, false); // Anterior combo 23
+        $this->opciones['condicioxxxxxxx'] = Tema::combo(470, true, false); // Anterior combo 23
         $this->opciones['tipodisc'] = Tema::combo(24, true, false);
         $this->opciones['condnoap'] = Tema::combo(25, true, false);
         $this->opciones['noapdisc'] = Tema::combo(25, true, false);

@@ -82,7 +82,7 @@ class VsiDinfamPadreController extends Controller
         $this->opciones['hijoxxxx'] = 0;
 
 
-        $this->opciones['sinoxxxx'] = Tema::combo(444, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(490, true, false); // Anterior combo 23
         $this->opciones['separaci'] = Tema::combo(176, true, false);
 
 
@@ -170,7 +170,7 @@ class VsiDinfamPadreController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        
+
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
     }
     public function show(VsiDinfamPadre $objetoxx)
@@ -194,7 +194,7 @@ class VsiDinfamPadreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(VsiDinfamPadreEditarRequest $request, VsiDinfamPadre $objetoxx)
-    {   
+    {
         $request->request->add(['user_edita_id' => Auth::user()->id]);
         return $this->grabar([
             'requestx' => $request,
