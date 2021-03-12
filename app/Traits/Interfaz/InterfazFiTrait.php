@@ -255,7 +255,7 @@ trait InterfazFiTrait
                 'tipoxxxx' => 'multival',
             ]),
 
-            'condicion_vestido'=>$this->setParametrosHSAT([
+            'condicion_vestido' => $this->setParametrosHSAT([
                 'nnajxxxx' => $padrexxx,
                 'testerxx' => false,
                 'idparame' => $padrexxx->prm_vestimenta_id,
@@ -265,7 +265,7 @@ trait InterfazFiTrait
             ]),
             // 'autocuidado'=>$padrexxx->,
             // 'sin_id_porque'=>$padrexxx->,
-             'cuenta_doc'=>$this->setParametrosHSAT([
+            'cuenta_doc' => $this->setParametrosHSAT([
                 'nnajxxxx' => $padrexxx,
                 'testerxx' => false,
                 'idparame' => $padrexxx->nnaj_docu->prm_doc_fisico_id,
@@ -289,11 +289,22 @@ trait InterfazFiTrait
         // ddd($datannaj);
         return $datannaj;
     }
+    public function setDocumentoPNT($padrexxx)
+    {
+        $fillable = [
+            'id_nnaj'=>$padrexxx->id_nnaj,
+            'tipo_documento'=>$padrexxx->tipo_documento,
+            'numero_documento'=>$padrexxx->numero_documento,
+            'id_lugar_expedicion'=>$padrexxx->numero_documento,
+            'fecha_insercion'=>$padrexxx->fecha_insercion,
+            'usuario_insercion'=>$padrexxx->usuario_insercion,
+            'fecha_modificacion'=>$padrexxx->fecha_modificacion,
+            'usuario_modificacion'=>$padrexxx->usuario_modificacion,
+            'estado'=>$padrexxx->estado,
+        ];
+    }
     public function setNnajPNT($dataxxxx)
     {
-
-
-
         $padrexxx = $dataxxxx['padrexxx'];
         $padrexxx->nnaj_docu->s_documento = 2933411;
 
@@ -301,10 +312,11 @@ trait InterfazFiTrait
         $nnajxxxx = GeNnaj::join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
         if ($nnajxxxx == null) {
-            $this->getDataGeNnaj($dataxxxx);
+            $datannaj = $this->getDataGeNnaj($dataxxxx);
 
             // ddd($padrexxx);
-            // $iiiddi = GeNnaj::create();
+            $iiiddi = GeNnaj::create($datannaj);
+            GeNnajDocumento::create()
             // ddd($iiiddi);
         }
     }

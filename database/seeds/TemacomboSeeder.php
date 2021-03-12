@@ -369,8 +369,8 @@ class TemacomboSeeder extends Seeder
 
         $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'SI/NO']);
         $tema->parametros()->sync([
-            227 => $this->getCM(['simianti' => '']),
-            228 => $this->getCM(['simianti' => '']),
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 24,  'nombrexx' => 'Tipo Discapacidad']);

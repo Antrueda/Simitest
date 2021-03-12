@@ -13,7 +13,7 @@ Route::group(['prefix' => '{padrexxx}/csdservicio'], function () use ($routexxx,
         'middleware' => ['permission:'.$routexxx.'-crear']
     ])->name($routexxx.'.crear');
 
-    
+
         Route::get('borrar/{modeloxx}', [
         'uses' => $controll.'Controller@inactivate',
         'middleware' => ['permission:'.$routexxx.'-borrar']

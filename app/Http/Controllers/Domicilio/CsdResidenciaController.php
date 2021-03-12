@@ -15,7 +15,6 @@ use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
-use App\Traits\Csd\CcontviolTrait;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
 
@@ -102,7 +101,7 @@ class CsdResidenciaController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
-            
+
             //5.20
             if ($dataxxxx['modeloxx']->resobservacion) {
                 $dataxxxx['modeloxx']->observaciones = $dataxxxx['modeloxx']->resobservacion->observaciones;
@@ -123,8 +122,9 @@ class CsdResidenciaController extends Controller
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $residenc = $dataxxxx['padrexxx']->csd->CsdResidencia->id;
+        }else{
+            $this->opciones['parametr'][1]=0;
         }
-
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'AGREGAR SERVICIO',
@@ -281,7 +281,7 @@ class CsdResidenciaController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx,  CsdResidencia $modeloxx)
     {
-   
+
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -290,7 +290,7 @@ class CsdResidenciaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-        
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 
