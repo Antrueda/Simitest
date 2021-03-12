@@ -173,12 +173,7 @@ class AISalidaMenoresController extends Controller
 
         $dataxxxx['padrexxx']->s_primer_nombre;
         
-        $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $dataxxxx['padrexxx']->sis_nnaj_id)->where('prm_reprlega_id',227)->first();
-        if ($compofami==null) {
-            return redirect()
-                ->route('ficomposicion', [$dataxxxx['padrexxx']->sis_nnaj_id])
-                ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
-        }
+    
 
         $upinnajx=$dataxxxx['padrexxx']->sis_nnaj->UpiPrincipal;
         $this->opciones['dependen'] = [$upinnajx->id=>$upinnajx->nombre];
@@ -333,7 +328,8 @@ class AISalidaMenoresController extends Controller
 
     public function inactivate(SisNnaj $padrexxx,AiSalidaMenores $modeloxx)
     {
-        $this->opciones['parametr'] = [$padrexxx->id];
+
+
         
              if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
@@ -342,7 +338,7 @@ class AISalidaMenoresController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'], 'padrexxx'=>$padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' =>['destroy','destroy'], 'padrexxx'=>$padrexxx->fi_datos_basico]);
     }
 
 
