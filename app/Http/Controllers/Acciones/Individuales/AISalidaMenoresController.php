@@ -328,8 +328,6 @@ class AISalidaMenoresController extends Controller
 
     public function inactivate(SisNnaj $padrexxx,AiSalidaMenores $modeloxx)
     {
-
-
         
              if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =

@@ -15,6 +15,7 @@ class CsdGeneracionIngresosCrearRequest extends FormRequest
         $this->_mensaje = [
             'prm_actividad_id.required' => 'Seleccione tipo de actividad',
             'observacion.required' => 'Por favor ingrese alguna observacion',
+            'prm_dificultad_id.required' => 'Indique si considera que la familia presenta dificultad económica',
             'prm_laboral_id.required_if' => 'Indique tipo de relacion laboral',
             'intensidad.required_unless' => 'Indique con que intencidad de horas ejerce su labor',
             
@@ -29,6 +30,8 @@ class CsdGeneracionIngresosCrearRequest extends FormRequest
             'intensidad' => 'required_unless:prm_actividad_id,853',
             'razon' => 'exclude_if:prm_dificultad_id,228|string|max:4000',
             'observacion' => 'required',
+            'prm_dificultad_id' => 'required',
+            
 
         ];
     }
