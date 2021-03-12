@@ -316,7 +316,7 @@ trait InterfazFiTrait
 
             // ddd($padrexxx);
             $iiiddi = GeNnaj::create($datannaj);
-            GeNnajDocumento::create()
+            // GeNnajDocumento::create()
             // ddd($iiiddi);
         }
     }
