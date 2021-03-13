@@ -39,6 +39,7 @@ class CsdBasicoCrearRequest extends FormRequest
             's_primer_nombre' => 'required|string|max:120',
             's_primer_apellido' => 'required|string|max:120',
             'prm_sexo_id' => 'required|exists:parametros,id',
+            'd_nacimiento' => 'required',
             'prm_identidad_genero_id' => 'required|exists:parametros,id',
             'prm_orientacion_sexual_id' => 'required|exists:parametros,id',
             'prm_tipodocu_id' => 'required|exists:parametros,id',

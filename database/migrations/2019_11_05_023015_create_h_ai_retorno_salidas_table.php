@@ -27,7 +27,7 @@ class CreateHAiRetornoSalidasTable extends Migration
             $table->longText('observaciones')->nullable();
             $table->string('nombres_retorna', 120)->nullable();
             $table->integer('prm_doc_id')->unsigned()->nullable();
-            $table->string('doc_retorna', 10)->nullable();
+            $table->string('doc_retorna', 12)->nullable();
             $table->integer('prm_parentezco_id')->unsigned()->nullable();
             $table->integer('responsable')->unsigned();
             $table->integer('user_doc1_id')->unsigned();

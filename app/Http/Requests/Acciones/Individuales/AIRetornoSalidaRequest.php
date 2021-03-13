@@ -24,6 +24,7 @@ class AIRetornoSalidaRequest extends FormRequest
             'prm_brotes_id.required' => 'Seleccione si tiene brotes',
             'prm_laceracio_id.required' => 'Seleccione si tiene laceraciones o hematomas',
             'user_doc1_id.required' => 'Quien recibe al nna',
+
             
         ];
         $this->_reglasx = [
@@ -34,7 +35,7 @@ class AIRetornoSalidaRequest extends FormRequest
             'observaciones'  => 'required|string|max:4000',
             'nombres_retorna'=> 'nullable|string|max:120',
             'prm_doc_id'     => 'nullable|exists:parametros,id',
-            'doc_retorna'    => 'nullable|integer',
+            'doc_retorna'    => 'nullable|integer|max:12',
             'prm_parentezco_id' => 'nullable|exists:parametros,id',
             'responsable'    => 'required|exists:users,id',
             'user_doc1_id'   => 'required|exists:users,id',
