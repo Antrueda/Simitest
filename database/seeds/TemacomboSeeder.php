@@ -367,7 +367,7 @@ class TemacomboSeeder extends Seeder
             226 => $this->getCM(['simianti' => '']),
         ]);
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Cuenta con el documento físico?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Cuenta con el documento físico?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
@@ -4005,985 +4005,985 @@ class TemacomboSeeder extends Seeder
             ]
         ); //365
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene definida su situación militar?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene definida su situación militar?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//366
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Tintura']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Tintura']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//367
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Laceraciones y hematomas']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Laceraciones y hematomas']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//368
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Condiciones Físicas Óptimas x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Condiciones Físicas Óptimas x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//369
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'condicio']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'condicio']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//370
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'famfisic']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'famfisic']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//371
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'fampsico']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'fampsico']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//372
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'famsexua']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'famsexua']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//373
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'famecono']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'famecono']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//374
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'amifisic']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'amifisic']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//375
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'amipsico']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'amipsico']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//376
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'amisexua']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'amisexua']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//377
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'amiecono']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'amiecono']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//378
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'parfisic']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'parfisic']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//379
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'parpsico']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'parpsico']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//380
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'parsexua']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'parsexua']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//381
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'parecono']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'parecono']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//382
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'comfisic']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'comfisic']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//383
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'compsico']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'compsico']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//384
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'comsexua']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'comsexua']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//385
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'comecono']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'comecono']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//386
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'certific']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'certific']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//387
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'independ']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'independ']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//388
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'condicio x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'condicio x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//389
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'cuendocu']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'cuendocu']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//390
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'tiecerti']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'tiecerti']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//391
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'tienebis']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'tienebis']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//392
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha establecido un horario para el consumo de alimentos?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha establecido un horario para el consumo de alimentos?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//393
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Recibe algún tipo de apoyo alimentario?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Recibe algún tipo de apoyo alimentario?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//394
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'neciayud']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'neciayud']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//395
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Cuenta con el documento físico?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Cuenta con el documento físico?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//396
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene definida su situación militar?x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene definida su situación militar?x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//397
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'condicio xx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'condicio xx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//398
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Convive con el NNAJ?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Convive con el NNAJ?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//399
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'convivex']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'convivex']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//400
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'reprlega']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'reprlega']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//401
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'condicix']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'condicix']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//402
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Usted y su familia siempre han vivido en Bogotá?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Usted y su familia siempre han vivido en Bogotá?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//403
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Convivieron']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Convivieron']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//404
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'condiciox']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'condiciox']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//405
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Convivieron x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Convivieron x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//406
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'condicio xxx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'condicio xxx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//407
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'sinoxxxx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'sinoxxxx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//408
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Considera que la familia presenta dificultades económicas?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Considera que la familia presenta dificultades económicas?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//409
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Se encuentra vinculado a la delincuencia o a la violencia?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Se encuentra vinculado a la delincuencia o a la violencia?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//410
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Comparte?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Comparte?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//411
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'BIS']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'BIS']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//412
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'dircondi']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'dircondi']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//413
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Es Legal?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Es Legal?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//414
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Cuenta con certificado?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Cuenta con certificado?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//415
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Pertecene a algún grupo, parche u organización?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Pertecene a algún grupo, parche u organización?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//416
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'menor']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'menor']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//417
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Quieres entrar al IDIPRON?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Quieres entrar al IDIPRON?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//418
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Convive con el NNAJ?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Convive con el NNAJ?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//419
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Es el representante legal?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Es el representante legal?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//420
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Consume SPA?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Consume SPA?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//421
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Actualmente estudia?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Actualmente estudia?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//422
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Sabe leer?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Sabe leer?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//423
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Vigente']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Vigente']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//424
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha estado privado de la libertad?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha estado privado de la libertad?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//425
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha estado vinculado al Sistema de Responsabilidad Penal Adolescente - SRPA?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha estado vinculado al Sistema de Responsabilidad Penal Adolescente - SRPA?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//426
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos - PARD?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos - PARD?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//427
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Se encuentra vigente?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Se encuentra vigente?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//428
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene lugar de residencia en dónde dormir?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene lugar de residencia en dónde dormir?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//429
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Bis x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Bis x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//430
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene algún tipo de discapacidad?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene algún tipo de discapacidad?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//431
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Ha consumido el último mes?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Ha consumido el último mes?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//432
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'condicio xxxx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'condicio xxxx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//433
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Respuesta']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Respuesta']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//434
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'condicio xxxxx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'condicio xxxxx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//435
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Cuenta con certificado? x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Cuenta con certificado? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//436
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Responsable de la unidad?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Responsable de la unidad?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//437
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿En algún momento de su vida le ha ocurrido algún evento sexual negativo?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿En algún momento de su vida le ha ocurrido algún evento sexual negativo?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//438
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Existe alguna situación, lugar, objeto, persona o actividad en particular que le genere malestar intenso caracterizado por activación fisiológica?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Existe alguna situación, lugar, objeto, persona o actividad en particular que le genere malestar intenso caracterizado por activación fisiológica?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//439
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Cuenta con el documento físico? x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Cuenta con el documento físico? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//440
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha presentado consumo de sustancias Psicoactivas?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha presentado consumo de sustancias Psicoactivas?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//441
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'sinoxxxx x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'sinoxxxx x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//442
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Convivieron xx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Convivieron xx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//443
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Convivieron xxx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Convivieron xxx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//444
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Actualmente estudia? x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Actualmente estudia? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//445
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha ocurrido en su vida algún acontecimiento estresante o traumático que le haya generado afectaciones emocionales?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha ocurrido en su vida algún acontecimiento estresante o traumático que le haya generado afectaciones emocionales?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//446
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿En el hogar usted realiza algún aporte mensual?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿En el hogar usted realiza algún aporte mensual?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//447
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'activida']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'activida']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//448
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Considera pertinente el Ingreso del NNA a IDIPRON']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Considera pertinente el Ingreso del NNA a IDIPRON']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//449
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Presenta alguna red de apoyo?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Presenta alguna red de apoyo?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//450
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'sinoxxxx xx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'sinoxxxx xx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//451
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Se siente a gusto con el tipo de relación?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Se siente a gusto con el tipo de relación?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//452
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha recibido atención psicológica y/o psiquiatría?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha recibido atención psicológica y/o psiquiatría?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//453
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Existe reconocimiento por parte del NNA como víctima de ESCNNA?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Existe reconocimiento por parte del NNA como víctima de ESCNNA?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//454
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'SI/NO']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'SI/NO']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//455
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '4.1 ¿Presenta algún tipo de violencia?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '4.1 ¿Presenta algún tipo de violencia?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//456
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'condicio vistasTrait']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'condicio vistasTrait']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//457
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'condicio vistasTraitx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'condicio vistasTraitx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//458
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Lunar']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Lunar']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//459
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Se realiza llamada a línea de atención']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Se realiza llamada a línea de atención']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//460
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Condiciones Físicas Óptimas']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Condiciones Físicas Óptimas']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//461
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Orientado en sus tres esferas (persona, tiempo, lugar)']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Orientado en sus tres esferas (persona, tiempo, lugar)']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//462
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Enfermedad general']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Enfermedad general']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//463
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Brotes']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Brotes']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//464
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Orientado en sus tres esferas (persona, tiempo, lugar) x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Orientado en sus tres esferas (persona, tiempo, lugar) x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//465
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Enfermedad general x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Enfermedad general x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//466
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Brotes x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Brotes x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//467
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Laceraciones y hematomas x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Laceraciones y hematomas x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//468
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'NNAJ Visitado(s) (as)']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'NNAJ Visitado(s) (as)']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//469
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene algún tipo de discapacidad? x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene algún tipo de discapacidad? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//470
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Existe(n) algun(os) integrante(s) de la familia que presente(n) problemas de peso?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Existe(n) algun(os) integrante(s) de la familia que presente(n) problemas de peso?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//471
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Sabe leer? x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Sabe leer? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//472
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Sabe escribir?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Sabe escribir?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//473
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Sabe operaciones matemáticas básicas?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Sabe operaciones matemáticas básicas?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//474
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Actualmente estudia? xx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Actualmente estudia? xx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//475
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Al interior de la familia hay normas y límites?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Al interior de la familia hay normas y límites?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//476
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Los integrantes del nucleo familiar conocen estas normas y límites?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Los integrantes del nucleo familiar conocen estas normas y límites?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//477
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Se encuentra en riesgo de participar en actos delictivos?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Se encuentra en riesgo de participar en actos delictivos?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//478
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'Hacinamiento']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'Hacinamiento']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//479
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Pertecene a algún grupo, parche u organización? x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Pertecene a algún grupo, parche u organización? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//480
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene acceso a recreación?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene acceso a recreación?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//481
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene prácticas religiosas?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene prácticas religiosas?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//482
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => 'mayor x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => 'mayor x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//483
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Estuvo vinculado(a) al IDIPRON?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Estuvo vinculado(a) al IDIPRON?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//484
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Sabe escribir? x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Sabe escribir? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//485
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Sabe operaciones básicas matemáticas?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Sabe operaciones básicas matemáticas?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//486
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene certificado del último nivel de estudio alcanzado?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene certificado del último nivel de estudio alcanzado?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//487
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//488
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Se encuentra vinculado a la delincuencia o a la violencia? x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Se encuentra vinculado a la delincuencia o a la violencia? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//489
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Se encuentra en riesgo de participar en actos delictivos?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Se encuentra en riesgo de participar en actos delictivos?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//490
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Presenta algún problema de salud?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Presenta algún problema de salud?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//491
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Consume medicamentos de manera permanente?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Consume medicamentos de manera permanente?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//492
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene hijos?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene hijos?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//493
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene algún tipo de discapacidad? xx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene algún tipo de discapacidad? xx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//494
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Presenta algún problema de salud? x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Presenta algún problema de salud? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//495
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Consume medicamentos de manera permanente? x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Consume medicamentos de manera permanente? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//496
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene hijos? x']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene hijos? x']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//497
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Cuenta con certificado? xx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Cuenta con certificado? xx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//498
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Actualmente convive con el presunto agresor?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Actualmente convive con el presunto agresor?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//499
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Hay presencia o cercanía en la vivienda del presunto agresor?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Hay presencia o cercanía en la vivienda del presunto agresor?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//500
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Existe reconocimiento de la situación por parte de la familia?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Existe reconocimiento de la situación por parte de la familia?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//501
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Existe apoyo de la situación por parte de la familia?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Existe apoyo de la situación por parte de la familia?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//502
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Se ha presentado denuncia ante las autoridades competentes?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Se ha presentado denuncia ante las autoridades competentes?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//503
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha recibido apoyo terapéutico?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha recibido apoyo terapéutico?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//504
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Presenta dificultades para seguir instrucciones a la hora de realizar las tareas?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Presenta dificultades para seguir instrucciones a la hora de realizar las tareas?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//505
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Sabe Leer?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Sabe Leer?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//506
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Sabe Escribir?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Sabe Escribir?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//507
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha tenido pensamientos relacionados con morirse?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha tenido pensamientos relacionados con morirse?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//508
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Alguna vez ha tenido pensamientos relacionados con quitarse la vida?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Alguna vez ha tenido pensamientos relacionados con quitarse la vida?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//509
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Alguna vez ha tenido amenazas relacionados con quitarse la vida?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Alguna vez ha tenido amenazas relacionados con quitarse la vida?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//509
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Alguna vez ha tenido intentos relacionados con quitarse la vida?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Alguna vez ha tenido intentos relacionados con quitarse la vida?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//510
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha presentado conductas auto lesivas?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha presentado conductas auto lesivas?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//511
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿En este momento presenta dificultades para conciliar el sueño?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿En este momento presenta dificultades para conciliar el sueño?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//512
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha tenido variación en sus hábitos alimenticios?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha tenido variación en sus hábitos alimenticios?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//513
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿La red de apoyo con la que cuenta actualmente es un factor protector?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿La red de apoyo con la que cuenta actualmente es un factor protector?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//514
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Presenta dificultades para acceder a alguna red de apoyo?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Presenta dificultades para acceder a alguna red de apoyo?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//515
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Existe la ruptura de redes de apoyo por exteorización de su identidad de género?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Existe la ruptura de redes de apoyo por exteorización de su identidad de género?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//516
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Existe la ruptura de redes de apoyo por exteorización de su orientación sexual?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Existe la ruptura de redes de apoyo por exteorización de su orientación sexual?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//517
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha existido restricción para el acceso a espacios, servicios o redes de apoyo?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha existido restricción para el acceso a espacios, servicios o redes de apoyo?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//518
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Recibió servicios de alguna red de apoyo?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Recibió servicios de alguna red de apoyo?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//519
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Se presenta algún tipo de dificultad en su familia?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Se presenta algún tipo de dificultad en su familia?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//520
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha denunciado ante las autoridades competentes la violencia presentada?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha denunciado ante las autoridades competentes la violencia presentada?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//521
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿En algún momento de su vida le han ordenado medicamentos psiquiátricos?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿En algún momento de su vida le han ordenado medicamentos psiquiátricos?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//522
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Dichos medicamentos han sido tomados bajo prescripción médica?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Dichos medicamentos han sido tomados bajo prescripción médica?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//523
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha iniciado su vida sexual?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha iniciado su vida sexual?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//524
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene vida sexual activa?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene vida sexual activa?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//525
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha tenido embarazos?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha tenido embarazos?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//526
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Tiene hijos? xx']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Tiene hijos? xx']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);//527
 
-        $tema = $this->getR(['id' => 23,  'nombrexx' => '¿Ha presentado interrupción del embarazo?']);
+        $tema = $this->getR(['temaidxx' => 23,  'nombrexx' => '¿Ha presentado interrupción del embarazo?']);
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
