@@ -214,7 +214,7 @@ class CsdNnajvisitadoController extends Controller
 
     public function inactivate(SisNnaj $padrexxx,CsdSisNnaj $modeloxx)
     {
-
+     
     
         //$this->opciones['rutaxxxx']=route('csdxxxxx.borrar',$modeloxx->id);
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
@@ -234,7 +234,7 @@ class CsdNnajvisitadoController extends Controller
         $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route('csdxxxxx.editar', [$padrexxx->fi_datos_basico,$modeloxx->id])
+            ->route('csdxxxxx.editar', [$padrexxx->id,$modeloxx->csd->id])
             ->with('info', 'Nnaj visitado inactivado correctamente');
     }
 }

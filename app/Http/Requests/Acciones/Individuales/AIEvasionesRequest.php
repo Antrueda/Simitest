@@ -71,7 +71,7 @@ class AIEvasionesRequest extends FormRequest
             'prm_tinturado_id'  => 'required|exists:parametros,id',
             'tintura'       => 'required_if:prm_tinturado_id,227|max:120',
             'prm_tipcabello_id' => 'required|exists:parametros,id',
-            'prm_corcabello_id' => 'required_unless:prm_tipCabello_id,1459|exists:parametros,id',
+            'prm_corcabello_id' => 'required_unless:prm_tipcabello_id,1459|exists:parametros,id',
             'prm_ojos_id'   => 'required|exists:parametros,id',
             'prm_nariz_id'  => 'required|exists:parametros,id',
             'prm_tienelunar_id' => 'required|exists:parametros,id',
