@@ -64,8 +64,8 @@ class VsiGenIngresosController extends Controller
         $this->opciones['informal'] = Tema::combo(115, TRUE, false);
         $this->opciones['otrosxxx'] = Tema::combo(116, TRUE, false);
         $this->opciones['ningunax'] = Tema::combo(122, TRUE, false);
-        $this->opciones['tiempoxx'] = Tema::combo(4, false, false);
-        $this->opciones['ampmxxxx'] = Tema::combo(5, false, false);
+        $this->opciones['tiempoxx'] = Tema::combo(4, true, false);
+        $this->opciones['ampmxxxx'] = Tema::combo(5, true, false);
         $this->opciones['semanaxx'] = Tema::combo(129, false, false);
         $this->opciones['frecuenc'] = Tema::combo(110, true, false);
         $this->opciones['laboralx'] = Tema::combo(117, true, false);
