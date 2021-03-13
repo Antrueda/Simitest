@@ -28,11 +28,11 @@ class CreateSalidaJovenesTable extends Migration
             $table->integer('responsable_id')->unsigned()->nullable();
             $table->integer('ai_salmay_id')->unsigned();
             $table->integer('autoriza_id')->unsigned()->nullable();
-            $table->time('hora_salida');
+            $table->timestamp('hora_salida');
             $table->integer('telefono');
             $table->integer('retorna_id')->unsigned()->nullable();
             $table->date('fecharetorno')->nullable();
-            $table->time('horaretorno')->nullable();
+            $table->timestamp('horaretorno')->nullable();
             $table->longText('observacion')->nullable();
             $table->foreign('ai_salmay_id')->references('id')->on('ai_salida_mayores');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');

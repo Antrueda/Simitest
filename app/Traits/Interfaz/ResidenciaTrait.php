@@ -64,9 +64,10 @@ trait ResidenciaTrait
         $compfami = FiResidencia::where('sis_nnaj_id', $request['padrexxx']->sis_nnaj_id)->first();
         if (!isset($compfami->id)) {
             $dataxxxx = $this->getDireccionesCFT($request);
-            $dataxxxx->s_telefono_uno = $dataxxxx->s_telefono_uno . ' ' . $dataxxxx->celular1 . ' ' . $dataxxxx->celular1;
+            
 
             if ($dataxxxx != null) {
+                $dataxxxx->s_telefono_uno = $dataxxxx->s_telefono_uno . ' ' . $dataxxxx->celular1 . ' ' . $dataxxxx->celular1;
                 $dataxxxx->i_prm_tipo_via_id = $this->getParametrosSimiMultivalor(
                     [
                         'codigoxx' => $dataxxxx->i_prm_tipo_via_id,

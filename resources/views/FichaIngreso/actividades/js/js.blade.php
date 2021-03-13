@@ -6,7 +6,7 @@
         });
         //SI PRACTICA ALGUNA RELIGIÓN, SELECCIONE CUAL
         var f_practicareligion = function(valuexxx,pselecte){
-            $("#i_prm_religion_practica_id, #i_prm_sacramentos_hechos_id").empty();
+            $("#i_prm_religion_practica_id, #prm_sacrhec_id").empty();
 
             if(valuexxx != ''){
                 $.ajax({
@@ -43,7 +43,7 @@
 
         // SI ES CATÓLICO SELECCIONE CUAL SACRAMENTO TIENE
         var f_cualsacramento = function(valuexxx){
-            $("#i_prm_sacramentos_hechos_id").empty();
+            $("#prm_sacrhec_id").empty();
             if(valuexxx != ''){
                 $.ajax({
                     url : "{{ route('ajaxx.cualsacramento') }}",
@@ -55,7 +55,7 @@
                     dataType : 'json',
                     success : function(json) {
                         $.each(json.comboxxx,function(i,data){
-                            $('#i_prm_sacramentos_hechos_id').append('<option '+json.selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
+                            $('#prm_sacrhec_id').append('<option '+json.selected+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
                         });
                     },
                     error : function(xhr, status) {
@@ -82,4 +82,11 @@
         });
 
     });
+
+    function soloNumeros(e){
+  var keynum = window.event ? window.event.keyCode : e.which;
+  if ((keynum == 8) || (keynum == 46))
+  return true;
+  return /\d/.test(String.fromCharCode(keynum));
+}
 </script>

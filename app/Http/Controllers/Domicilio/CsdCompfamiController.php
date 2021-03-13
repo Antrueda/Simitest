@@ -361,6 +361,7 @@ class CsdCompfamiController extends Controller
 
     public function inactivate(CsdSisNnaj $padrexxx, CsdComFamiliar $modeloxx)
     {
+        $this->opciones['csdxxxxx']=$padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =

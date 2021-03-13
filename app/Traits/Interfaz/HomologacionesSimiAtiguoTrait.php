@@ -3,7 +3,9 @@
 namespace App\Traits\Interfaz;
 
 use App\Exceptions\Interfaz\Simiantiguo\ParametroInvalido;
+use App\Models\Simianti\Sis\Municipio;
 use App\Models\Simianti\Sis\SisMultivalore;
+use App\Models\Sistema\SisMunicipio;
 use App\Models\Temacombo;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
  */
 trait HomologacionesSimiAtiguoTrait
 {
-    /********************** METOSO PARA HOMOLOGACION DE PARAMETROS ********************** */
+    /********************** METODOS PARA HOMOLOGACION DE PARAMETROS ********************** */
 
     public function getDataMultivalor($dataxxxx)
     {
@@ -106,5 +108,12 @@ trait HomologacionesSimiAtiguoTrait
         }
     }
 
-    /********************** FIN METOSO PARA HOMOLOGACION DE PARAMETROS ********************** */
+    /********************** FIN METODOS PARA HOMOLOGACION DE PARAMETROS ********************** */
+
+    /********************** METODOS PARA LA HOMOLOGACION DE MUNICIPIOS ********************** */
+    public function getMunicipiosHSAT($dataxxxx)
+    {
+        $municipi=SisMunicipio::all();
+    }
+    /********************** FIN METODOS PARA LA HOMOLOGACION DE MUNICIPIOS ********************** */
 }

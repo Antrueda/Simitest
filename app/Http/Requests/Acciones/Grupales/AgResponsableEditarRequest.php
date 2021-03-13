@@ -53,16 +53,15 @@ class AgResponsableEditarRequest extends FormRequest
         /**
          * indentificar si ya tiene un responsable diferente al que se está editadndo
          */
-         $responsa = AgResponsable::where('ag_actividad_id', $this->segments()[0])
+        $responsa = AgResponsable::find($this->segments()[2]);
+        $responsa = AgResponsable::where('ag_actividad_id', $responsa->ag_actividad_id)
             ->where('i_prm_responsable_id', 1770)
+            ->whereNotIn('id', [$responsa->id])
             ->first();
-            if (isset($responsa->id)) {
-            if ($this->i_prm_responsable_id == $responsa->i_prm_responsable_id) {
-                $this->_mensaje['yarespon.required'] = 'La actividad ya cuenta con un responsable';
-                $this->_reglasx['yarespon'] = 'required';
-            }
+        if (isset($responsa->id)&&$this->i_prm_responsable_id==1770) {
+            $this->_mensaje['yarespon.required'] = 'La actividad ya cuenta con un responsable';
+            $this->_reglasx['yarespon'] = 'required';
         }
-        $dataxxxx = $this->toArray(); // todo lo que se envia del formulario
-        
+
     }
 }

@@ -19,14 +19,14 @@ class AiReporteEvasion extends Model{
         'departamento_id', 'municipio_id', 'fecha_diligenciamiento', 'prm_upi_id',
         'lugar_evasion', 'fecha_evasion', 'hora_evasion',
         'nnaj_talla', 'nnaj_peso', 'prm_contextura_id', 'prm_rostro_id',
-        'prm_piel_id', 'prm_colCabello_id', 'prm_tinturado_id', 'tintura',
-        'prm_tipCabello_id', 'prm_corCabello_id', 'prm_ojos_id', 'prm_nariz_id',
+        'prm_piel_id', 'prm_colcabello_id', 'prm_tinturado_id', 'tintura',
+        'prm_tipcabello_id', 'prm_corcabello_id', 'prm_ojos_id', 'prm_nariz_id',
         'prm_tienelunar_id', 'cuantos', 'prm_tamlunar_id', 'senias',
         'circunstancias', 'prm_familiar1_id', 'nombre_familiar1', 'direccion_familiar1',
         'tel_familiar1', 'prm_familiar2_id', 'nombre_familiar2', 'direccion_familiar2',
         'tel_familiar2', 'observaciones_fam', 'prm_reporta_id', 'prm_llamada_id',
         'radicado', 'recibe_denuncia', 'user_doc1_id', 'user_doc2_id',
-        'responsable', 'institución', 'nombre_recibe', 'cargo_recibe',
+        'responsable', 'institucion', 'nombre_recibe', 'cargo_recibe',
         'placa_recibe', 'fecha_denuncia', 'hora_denuncia', 'prm_hor_denuncia_id','s_doc_adjunto'
     ];
 
@@ -61,7 +61,7 @@ class AiReporteEvasion extends Model{
     }
 
     public function colCablello(){
-        return $this->belongsTo(Parametro::class, 'prm_colCabello_id');
+        return $this->belongsTo(Parametro::class, 'prm_colcabello_id');
     }
 
     public function tinturado(){
@@ -69,11 +69,11 @@ class AiReporteEvasion extends Model{
     }
 
     public function tipoCabello(){
-        return $this->belongsTo(Parametro::class, 'prm_tipCabello_id');
+        return $this->belongsTo(Parametro::class, 'prm_tipcabello_id');
     }
 
     public function corteCabello(){
-        return $this->belongsTo(Parametro::class, 'prm_corCabello_id');
+        return $this->belongsTo(Parametro::class, 'prm_corcabello_id');
     }
 
     public function ojos(){
@@ -122,7 +122,10 @@ class AiReporteEvasion extends Model{
                $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
             }
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-
+            $dataxxxx['requestx']->request->add(['hora_evasion' =>  $dataxxxx['requestx']->fecha_evasion.' '.$dataxxxx['requestx']->hora_evasion]);
+            if($dataxxxx['requestx']->hora_denuncia!=''){
+                $dataxxxx['requestx']->request->add(['hora_denuncia' =>$dataxxxx['requestx']->fecha_denuncia.' '.$dataxxxx['requestx']->hora_denuncia ]);
+            }
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
                 $dataxxxx['requestx']->request->add(['ai_salida_menores_id' => $dataxxxx['modeloxx']->id]);

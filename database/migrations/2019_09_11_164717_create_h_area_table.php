@@ -19,7 +19,7 @@ class CreateHAreaTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->string('nombre', 120);
-            $table->string('contexto', 2)->nullable();
+            $table->string('contexto', 3)->nullable();
             $table->longText('descripcion')->nullable();
             $table->Integer('estusuario_id')->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);

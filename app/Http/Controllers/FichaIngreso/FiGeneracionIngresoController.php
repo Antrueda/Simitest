@@ -71,7 +71,8 @@ class FiGeneracionIngresoController extends Controller
 
         if ($dataxxxx['padrexxx']->prm_tipoblaci_id == 650) {
             $this->opciones['acgening'] = Tema::combo(296, true, false);
-            $this->opciones['raznogen'] = Parametro::find(235)->ComboAjaxUno;
+            $this->opciones['raznogen'] = Parametro::find(235)->Combo;
+            $this->opciones['jorgener'] = Parametro::find(235)->Combo;
         } else {
             $this->opciones['padrexxx'] = Tema::combo(114, true, false);
         }
@@ -173,17 +174,13 @@ class FiGeneracionIngresoController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx,  FiGeneracionIngreso $modeloxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
-        ]);
-        if ($respuest) {
+ 
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-         }
+         
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $padrexxx->prm_tipoblaci_id == 650 ? 'chcxxxxx' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

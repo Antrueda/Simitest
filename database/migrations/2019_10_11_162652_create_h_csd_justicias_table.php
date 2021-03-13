@@ -21,7 +21,7 @@ class CreateHCsdJusticiasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('proposito', 200);
+            $table->string('proposito', 93);
             $table->date('fecha');
             $table->integer('sis_nnaj_id')->unsigned();
             $table->integer('prm_tipofuen_id')->unsigned();

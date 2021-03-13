@@ -153,7 +153,7 @@ class Traductor
         $motivosx = JovenesMotivo::select(['parametros.nombre', 'jovenes_motivos.parametro_id'])
             ->join('parametros', 'jovenes_motivos.parametro_id', '=', 'parametros.id')
             ->join('salida_jovenes', 'jovenes_motivos.salida_jovenes_id', '=', 'salida_jovenes.id')
-            ->where('salida_jovenes.ai_salmay_id', $dataxxxx['padrexxx'])->groupBy('parametros.nombre')->get();
+            ->where('salida_jovenes.ai_salmay_id', $dataxxxx['padrexxx'])->groupBy('parametros.nombre','jovenes_motivos.parametro_id')->get();
 
         foreach ($motivosx as $key => $value) {
             $contador = JovenesMotivo::join('salida_jovenes', 'jovenes_motivos.salida_jovenes_id', '=', 'salida_jovenes.id')

@@ -222,6 +222,6 @@ class VsiMetapotenController extends Controller
         $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['slotxxxx'].'.metaxxxx', [$objetoxx->vsi_id])
-            ->with('info', 'Razón inactivada correctamente');
+            ->with('info', 'Potencialidad inactivada correctamente');
     }
 }

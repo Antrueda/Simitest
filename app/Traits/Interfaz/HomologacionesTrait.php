@@ -574,7 +574,7 @@ trait HomologacionesTrait
         foreach ($personal as $key => $value) {
             // ddd($value->id_upi);
             $dependen = $this->getUpiSimi(['idupixxx' => $value->id_upi]);
-            $usuariox = $dataxxxx['usuariox']->sis_depens->find($dependen->id);
+            $usuariox = User::find($dataxxxx['usuariox']->id)->sis_depens->find($dependen->id);
 
             if (!isset($usuariox->id)) {
                 $dicotomi = $this->getParametrosSimi(['temaxxxx' => 23, 'codigoxx' => $value->responsable])->id;

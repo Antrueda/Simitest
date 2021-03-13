@@ -37,9 +37,9 @@ class CreateHCsdResidenciasTable extends Migration
             $table->integer('prm_estrato_id')->unsigned()->nullable();
             $table->string('dir_complemento', 300)->nullable();
             $table->integer('sis_upzbarri_id')->unsigned()->nullable();
-            $table->string('telefono_uno', 10)->nullable();
-            $table->string('telefono_dos', 10)->nullable();
-            $table->string('telefono_tres', 10)->nullable();
+            $table->string('telefono_uno', 13)->nullable();
+            $table->string('telefono_dos', 13)->nullable();
+            $table->string('telefono_tres', 13)->nullable();
             $table->string('email')->nullable();
             $table->integer('prm_piso_id')->unsigned();
             $table->integer('prm_muro_id')->unsigned();

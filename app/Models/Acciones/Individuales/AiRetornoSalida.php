@@ -54,7 +54,7 @@ class AiRetornoSalida extends Model{
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-
+            $dataxxxx['requestx']->request->add(['hora_retorno' =>  $dataxxxx['requestx']->fecha.' '.$dataxxxx['requestx']->hora_retorno]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
                 $dataxxxx['requestx']->request->add(['ai_retorno_salida_id' => $dataxxxx['modeloxx']->id]);

@@ -21,7 +21,7 @@ class CreateAiRetornoSalidasTable extends Migration
             $table->integer('sis_nnaj_id')->unsigned();
             $table->integer('prm_upi_id')->unsigned();
             $table->date('fecha');
-            $table->time('hora_retorno');
+            $table->timestamp('hora_retorno');
             $table->longText('descripcion')->nullable();
             $table->longText('observaciones')->nullable();
             $table->string('nombres_retorna', 120)->nullable();
@@ -53,7 +53,6 @@ class CreateAiRetornoSalidasTable extends Migration
             $table->integer('prm_enfermerd_id')->unsigned();
             $table->integer('prm_brotes_id')->unsigned();
             $table->integer('prm_laceracio_id')->unsigned();
-            $table->integer('retorno_id')->unsigned();
             $table->integer('ai_retorno_salida_id')->unsigned();
             $table->integer('user_crea_id')->unsigned();
             $table->integer('user_edita_id')->unsigned();

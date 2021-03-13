@@ -17,7 +17,7 @@ class CreateFosTsesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(167)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('area_id')->unsigned();
             $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');

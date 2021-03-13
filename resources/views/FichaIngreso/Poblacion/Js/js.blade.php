@@ -6,7 +6,7 @@
         $('.select2').select2({
             language: "es"
         });
-        $('#i_prm_situacion_vulnera_id').change(function() {
+        $('#prm_situacion_vulnera_id').change(function() {
                 f_comboSimple({
                     dataxxxx: {
                         padrexxx: $(this).val() == '' ? 0 : $(this).val(),

@@ -14,14 +14,14 @@ class DependenciaApi
         $paciente = SisDepen::select([
             'sis_depens.id',
             'sis_depens.nombre',
-            'parametros.nombre as i_prm_sexo_id',
+            'parametros.nombre as sexo',
             'sis_depens.s_direccion',
             'sis_depens.sis_esta_id',
             'sis_localidads.s_localidad as sis_localidad_id',
             'sis_barrios.s_barrio as sis_barrio_id',
             'sis_depens.s_telefono',
             'sis_estas.s_estado',
-            'sis_depens.s_correo', 'sis_depens.sis_esta_id'
+            'sis_depens.s_correo', 
         ])
             ->join('parametros', 'sis_depens.i_prm_sexo_id', '=', 'parametros.id')
             ->join('sis_upzbarris', 'sis_depens.sis_upzbarri_id', '=', 'sis_upzbarris.id')

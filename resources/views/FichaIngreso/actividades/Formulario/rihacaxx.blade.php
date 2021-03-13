@@ -1,11 +1,11 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         {{ Form::label('i_horas_permanencia_calle', '8.1 ¿Cuánto tiempo al día permanece en la calle?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('i_horas_permanencia_calle', null, ['class' => $errors->first('i_horas_permanencia_calle') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Horas', 'min' => '1', 'max' => '24']) }}
+        {{ Form::number('i_horas_permanencia_calle', null, ['class' => $errors->first('i_horas_permanencia_calle') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Horas', 'min' => '1', 'max' => '24',"onkeypress" => "return soloNumeros(event);"]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_dias_permanencia_calle', '8.2 ¿Cuántos días a la semana?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::number('i_dias_permanencia_calle', null, ['class' => $errors->first('i_dias_permanencia_calle') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Días', 'min' => '1', 'max' => '7']) }}
+        {{ Form::number('i_dias_permanencia_calle', null, ['class' => $errors->first('i_dias_permanencia_calle') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Días', 'min' => '1', 'max' => '7',"onkeypress" => "return soloNumeros(event);"]) }}
     </div>
 
     <div class="form-group col-md-4">
@@ -47,13 +47,13 @@
 
 
     <div class="form-group col-md-4">
-        {{ Form::label('i_prm_sacramentos_hechos_id', '8.8 Indique sacramentos hechos', ['class' => 'control-label']) }}
-        {{ Form::select('i_prm_sacramentos_hechos_id[]', $todoxxxx['sacramen'], null, ['class' => $errors->first('i_prm_sacramentos_hechos_id') ?
-    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple','id'=>'i_prm_sacramentos_hechos_id',
+        {{ Form::label('prm_sacrhec_id', '8.8 Indique sacramentos hechos', ['class' => 'control-label']) }}
+        {{ Form::select('prm_sacrhec_id[]', $todoxxxx['sacramen'], null, ['class' => $errors->first('prm_sacrhec_id') ?
+    'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple','id'=>'prm_sacrhec_id',
     'data-placeholder' => 'Seleccione los sacramentos hechos']) }}
-        @if($errors->has('i_prm_sacramentos_hechos_id'))
+        @if($errors->has('prm_sacrhec_id'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('i_prm_sacramentos_hechos_id') }}
+            {{ $errors->first('prm_sacrhec_id') }}
         </div>
         @endif
     </div>

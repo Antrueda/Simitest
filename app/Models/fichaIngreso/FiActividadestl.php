@@ -34,9 +34,9 @@ class FiActividadestl extends Model
     {
         return $this->belongsToMany(Parametro::class, 'fi_actividad_tiempo_libres', 'fi_actividadestl_id', 'i_prm_actividad_tl_id');
     }
-    public function i_prm_sacramentos_hechos_id()
+    public function prm_sacrhec_id()
     {
-        return $this->belongsToMany(Parametro::class, 'fi_sacramentos', 'fi_actividadestl_id', 'i_prm_sacramentos_hechos_id');
+        return $this->belongsToMany(Parametro::class, 'fi_sacramentos', 'fi_actividadestl_id', 'prm_sacrhec_id');
     }
     public function editor()
     {
@@ -115,7 +115,7 @@ class FiActividadestl extends Model
                 FiActividadTiempoLibre::setActividadtl($objetoxx, $dataxxxx);
             }
 
-            if (isset($dataxxxx['i_prm_sacramentos_hechos_id'])) {
+            if (isset($dataxxxx['prm_sacrhec_id'])) {
                 FiSacramento::setSacramento($objetoxx, $dataxxxx);
             }
 

@@ -42,9 +42,9 @@ class CreateCsdResidenciasTable extends Migration
             $table->integer('prm_estrato_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO ESTRATO');
             $table->string('dir_complemento', 300)->nullable()->comment('CAMPO COMPLEMENTO');
             $table->integer('sis_upzbarri_id')->unsigned()->nullable()->comment('CAMPO ID BARRIO');
-            $table->string('telefono_uno', 10)->nullable()->comment('CAMPO TELEFONO UNO');
-            $table->string('telefono_dos', 10)->nullable()->comment('CAMPO TELEFONO DOS');
-            $table->string('telefono_tres', 10)->nullable()->comment('CAMPO TELEFONO TRES');
+            $table->string('telefono_uno', 13)->nullable()->comment('CAMPO TELEFONO UNO');
+            $table->string('telefono_dos', 13)->nullable()->comment('CAMPO TELEFONO DOS');
+            $table->string('telefono_tres', 13)->nullable()->comment('CAMPO TELEFONO TRES');
             $table->string('email')->nullable()->comment('CAMPO CORREO ELECTRONICO');
             $table->integer('prm_piso_id')->unsigned()->comment('CAMPO TIPO DE PISO');
             $table->integer('prm_muro_id')->unsigned()->comment('CAMPO TIPO DE MURO');

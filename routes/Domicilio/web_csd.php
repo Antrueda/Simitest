@@ -36,15 +36,6 @@ Route::group(['prefix' => '{padrexxx}/csds'], function () use ($routexxx, $contr
         'uses' => $controll . 'Controller@update',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
-
-
-
-
-
-
-
-});
-Route::group(['prefix' => 'csd'], function () use ($routexxx, $controll) {
     Route::get('borrar/{modeloxx}', [
         'uses' => $controll . 'Controller@inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrar']
@@ -54,7 +45,14 @@ Route::group(['prefix' => 'csd'], function () use ($routexxx, $controll) {
         'uses' => $controll . 'Controller@destroy',
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
+
+
+
+
+
+
 });
+
 
 include_once('web_csd_nnajvisitados.php');
 

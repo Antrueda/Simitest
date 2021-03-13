@@ -65,6 +65,7 @@ class FiContactoController extends Controller
         // indica si se esta actualizando o viendo
 
         if ($dataxxxx['modeloxx'] != '') {
+            $dataxxxx['modeloxx']->d_fecha_remite_id=explode(' ',$dataxxxx['modeloxx']->d_fecha_remite_id)[0];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';

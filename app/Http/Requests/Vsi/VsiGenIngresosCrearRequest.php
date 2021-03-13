@@ -44,7 +44,7 @@ class VsiGenIngresosCrearRequest extends FormRequest
             'prm_no_id' => 'required_if:prm_actividad_id,853',
             'cuanto' => 'required_if:prm_no_id,711',
             'prm_periodo_id' => 'required_if:prm_actividad_id,853|required_if:prm_no_id,711',
-            'prm_jornada_genera_ingreso_id'=> 'required_if:prm_actividad_id,853|required_if:prm_no_id,711',
+            'prm_jornada_id'=> 'required_if:prm_actividad_id,853|required_if:prm_no_id,711',
             'jornada_entre' => 'required_unless:prm_actividad_id,853',
             'prm_jor_entre_id' => 'required_unless:prm_actividad_id,853',
             'jornada_a' => 'required_unless:prm_actividad_id,853',

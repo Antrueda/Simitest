@@ -95,7 +95,7 @@ class DependenciaController extends Controller
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
                     ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
-                    ['data' => 'i_prm_sexo_id', 'name' => 'parametros.nombre as i_prm_sexo_id'],
+                    ['data' => 'sexo', 'name' => 'parametros.nombre as sexo'],
                     ['data' => 's_direccion', 'name' => 'sis_depens.s_direccion'],
                     ['data' => 'sis_localidad_id', 'name' => 'sis_localidads.s_localidad as sis_localidad_id'],
                     ['data' => 'sis_barrio_id', 'name' => 'sis_barrios.s_barrio as sis_barrio_id'],

@@ -12,9 +12,9 @@ class FiSacramentoObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['fi_actividadestl_id'] = $modeloxx->fi_actividadestl_id;
-        $log['i_prm_sacramentos_hechos_id'] = $modeloxx->i_prm_sacramentos_hechos_id;
+        $log['prm_sacrhec_id'] = $modeloxx->prm_sacrhec_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

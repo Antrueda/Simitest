@@ -11,7 +11,7 @@
     {{ Form::label('i_cuanto_pard', '¿Hace cuánto?', ['class' => 'control-label col-form-label-sm']) }}
     <div class="row">
 			<div class="col-md-6">
-        {{ Form::number('i_cuanto_pard', null, ['class' => 'form-control form-control-sm', $todoxxxx['readpard'], 'placeholder' => 'Cuantos', 'min' => '0', 'max' => '5000000']) }}
+        {{ Form::number('i_cuanto_pard', null, ['class' => 'form-control form-control-sm', $todoxxxx['readpard'], 'placeholder' => 'Cuantos', 'min' => '0', 'max' => '5000000',"onkeypress" => "return soloNumeros(event);"]) }}
       </div>
       <div class="col-md-6">
         {{ Form::select('i_prm_tipo_tiempo_pard_id', $todoxxxx["titipard"], null, ['class' => 'form-control form-control-sm','id'=>'i_prm_tipo_tiempo_pard_id']) }}
@@ -30,7 +30,7 @@
   </div>
   <div class="form-group col-md-4">
     {{ Form::label('s_telefono_defensor', '10.1C Teléfono', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('s_telefono_defensor', null, ['class' => 'form-control form-control-sm', $todoxxxx['readteld']]) }}
+    {{ Form::number('s_telefono_defensor', null, ['class' => 'form-control form-control-sm', $todoxxxx['readteld'],"onkeypress" => "return soloNumeros(event);"]) }}
   </div>
 </div>
 <div class="form-row align-items-end">

@@ -3,12 +3,12 @@
 $routexxx = 'csdreshogar';
 $controll = 'Domicilio\CsdReshogar';
 Route::group(['prefix' => '{padrexxx}/espacio'], function () use ($routexxx, $controll) {
-	Route::get('nuevo', [
+	Route::get('{residenc}/nuevo', [
         'uses' => $controll.'Controller@create',
         'middleware' => ['permission:'.$routexxx.'-crear']
     ])->name($routexxx.'.nuevo');
 
-    Route::post('crear', [
+    Route::post('{residenc}/crear', [
         'uses' => $controll.'Controller@store',
         'middleware' => ['permission:'.$routexxx.'-crear']
     ])->name($routexxx.'.crear');
@@ -23,7 +23,7 @@ Route::group(['prefix' => '{padrexxx}/espacio'], function () use ($routexxx, $co
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
 
-    Route::get('listaxxx', [
+    Route::get('{residenc}/listaxxx', [
         'uses' => $controll . 'Controller@getListado',
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.listaxxx');

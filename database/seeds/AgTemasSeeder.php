@@ -12,28 +12,18 @@ class AgTemasSeeder extends Seeder
      */
     public function run()
     {
-       AgTema::create(['s_tema'=>'TALLERES CON NNAJ','area_id'=>6,'user_crea_id'=>1,'user_edita_id'=>1,'sis_esta_id'=>1,
-       's_descripcion'=>'SE CREA CRITERIO DE REGISTRO DEL TALLER EDUCATIVO REFERENTE A LA SERTIVIDAD, DONDE SE
-        PROMUEVE LA  ASERTIVADAD  A TRAVES DE LA COMUNICACIÓN INTERPERSONAL DE SENTIMIENTOS, OPINIONES Y 
-        PENSAMIENTOS, ENTRE EL NNAJ Y LAS OTRAS PERSONAS, MEDIANTE COMUNICACIÓN VERBAL, NO VERBAL Y PARAVERBAL, 
-        DE FORMA CLARA Y OPORTUNA.']);
-       AgTema::create(['s_tema'=>'TALLERES CON FAMILIAS','area_id'=>7,'user_crea_id'=>1,'user_edita_id'=>1,'sis_esta_id'=>1,
-       's_descripcion'=>'SE CREA CRITERIO DE CARGUE DE ACTIVIDAD EDUCATIVA, CON EL FIN DE GENERAR UN ESPACIO DE ENCUENTRO CON EL 
-       OBJETIVO DE RECORDAR Y RESALTAR A TODOS LOS MIEMBROS DE LA COMUNIDAD DEL IDIPRON, LA IMPORTANCIA QUE TIENE LA FAMILIA COMO 
-       PILAR DE LA EDUCACIÓN DE LOS NNAJ, Y CÓMO EL TRABAJO EN EQUIPO ENTRE LOS HOGARES Y LA INSTITUCIÓN, ES DE VITAL IMPORTANCIA 
-       PARA LOGRAR DARLES UNA EDUCACIÓN INTEGRAL, SÓLIDA Y A LA VEZ LLENA DE ALEGRÍA Y ARMONÍA A LOS CIUDADANOS DEL FUTURO.']);
-       AgTema::create(['s_tema'=>'CENTROS DE INTERES','area_id'=>8,'user_crea_id'=>1,'user_edita_id'=>1,'sis_esta_id'=>1,
-       's_descripcion'=>'NOMBRE TALLER Y TEMAS PROPIOS DE LA CONVIVENCIA DE VIVIENDA.']);
-    //    AgTema::create(['s_tema'=>'','area_id'=>8,'user_crea_id'=>1,'user_edita_id'=>1,'sis_esta_id'=>1,'s_descripcion'=>'']);
-    //    AgTema::create(['s_tema'=>'','area_id'=>'','user_crea_id'=>1,'user_edita_id'=>1,'sis_esta_id'=>1,'s_descripcion'=>'']);
-
-
-       
-
-
-
-
-
-
+        AgTema::create(['s_tema'=>'TALLERES CON NNAJ /AUTOESQUEMAS','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARÁMETRO CON EL OBJETIVO DE DELIMITAR LA INFORMACIÓN CORRESPONDIENTE A LAS ACTIVIDADES GRUPALES REALIZADAS FRENTE A LAS CARACTERISTICAS DE LOS AUTOESQUEMAS.']);
+        AgTema::create(['s_tema'=>'HABILIDADES SOCIALES','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO CON EL OBJETIVO DE DELIMITAR LA INFORMACIÓN DE ACTIVIDADES GRUPALES CORRESPONDIENTES AL ABORDAJE PSICOSOCIAL EN HABILIDADES SOCIALES.']);
+        AgTema::create(['s_tema'=>'DERECHOS, DEBERES Y CIUDADANIA','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO CON EL OBJETIVO DE ESTABLECER LINEAS CLARAS FRENTE AL ABORDAJE EN DERECHOS Y DEBERES Y LA DIFERENCIA DE UN ABORDAJE DESDE LO PSICOSOCIAL.']);
+        AgTema::create(['s_tema'=>'DIVERSIDAD SEXUAL Y GÉNERO','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO PARA DELIMITAR LAS ACTIVIDADES GRUPALES DESDE LO PSICOSOCIAL FRENTE A TEMAS DE DIVERSIDAD DE GÉNERO Y SEXUALIDAD.']);
+        AgTema::create(['s_tema'=>'PREVENCIÓN Y MANEJO DE CONSUMO DE SPA','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO PARA DELIMITAR LAS ACTIVIDADES GRUPALES DESDE LO PSICOSOCIAL FRENTE A TEMAS DE SUSTANCIAS PSICOACTIVAS, PREVENCIÓN Y ATENCIÓN.']);
+        AgTema::create(['s_tema'=>'PREPARACIÓN PARA LA VIDA LABORAL','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>2, 's_descripcion'=>'HACE REFERENCIA A LAS ACCIONES QUE SE REALIZAN PARA QUE EL NNAJ GENERE HABILIDADES QUE LE PERMITAN UNA INCLUSION EN EL MERCADO LABORAL. SE CREA COMO TALLER CON TEMATICAS RELACIONADAS A: - PROCESOS DE SELECCIÓN (ELABORACIÓN HOJA DE VIDA, PREPARACIÓN DE ENTREVISTAS DE TRABAJO). - LIDERAZGO. - COMUNICACIÓN. - Y AQUELLOS QUE SEAN PERTINENTES PARA TAL FIN.']);
+        AgTema::create(['s_tema'=>'HABILIDADES PARA LA VIDA','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO PARA DELIMITAR LAS ACTIVIDADES GRUPALES DESDE LO PSICOSOCIAL FRENTE A LA PREPARACIÓN DE LOS/LAS JOVENES PARA EGRESOS SATISFACTORIOS.']);
+        AgTema::create(['s_tema'=>'FAMILIA Y/O REDES DE APOYO','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO PARA DELIMITAR LAS ACTIVIDADES GRUPALES DESDE LO PSICOSOCIAL FRENTE AL ABORDAJE CON REDES DE APOYO Y FAMILIA.']);
+        AgTema::create(['s_tema'=>'SALUD MENTAL','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO PARA DELIMITAR LAS ACTIVIDADES GRUPALES DESDE LO PSICOSOCIAL FRENTE AL ABORDAJE EN SALUD MENTAL']);
+        AgTema::create(['s_tema'=>'ESCNNA','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO PARA DELIMITAR LAS ACTIVIDADES GRUPALES DESDE LO PSICOSOCIAL FRENTE AL ABORDAJE EN LA ESCNNA (PREVENCIÓN Y SENSIBILIZACIÓN).']);
+        AgTema::create(['s_tema'=>'COMPETENCIAS TRANSVERSALES','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'SE CREA EL PARAMETRO PARA DELIMITAR LAS ACTIVIDADES GRUPALES DESDE LO PSICOSOCIAL FRENTE AL ABORDAJE EN LA ESCNNA (PREVENCIÓN Y SENSIBILIZACIÓN).']);
+        AgTema::create(['s_tema'=>'VARIOS','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'ESTE PARAMETRO SE ACTIVA PARA ABORDAJES DESDE DIFERENTES ESCENARIOS.']);
+        AgTema::create(['s_tema'=>'ACTIVIDADES DESDE SICOSOCIAL','area_id'=>6,'user_crea_id'=>2,'user_edita_id'=>2,'sis_esta_id'=>1, 's_descripcion'=>'ACTIVIDADES QUE SE REALIZAN DE MANERA GRUPLA YA SEA CON LOS NNAJ O CON FAMILIAS.']);
     }
 }

@@ -45,7 +45,7 @@ use App\Models\fichaIngreso\FiRiesgoEscnna;
 use App\Models\fichaIngreso\FiSacramento;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\FiSituacionEspecial;
-use App\Models\fichaIngreso\FiSituacionVulneracion;
+use App\Models\fichaIngreso\FiSituVulnera;
 use App\Models\fichaIngreso\FiSustanciaConsumida;
 use App\Models\fichaIngreso\FiVestuarioNnaj;
 use App\Models\fichaIngreso\FiVictataq;

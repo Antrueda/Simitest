@@ -102,13 +102,13 @@ class DatabaseSeeder extends Seeder
         $this->call(InLigrusSeeder::class);
         $this->call(InDocPreguntasSeeder::class);
         $this->call(SisFsoportesSeeder::class);
-        // $this->call(FosTsesSeeder::class);
-        // $this->call(FosStsesTestSeeder::class);
-        // $this->call(FosSeguimientosSeeder::class);
+       $this->call(FosTsesSeeder::class);
+        $this->call(FosStsesTestSeeder::class);
+        $this->call(FosSeguimientosSeeder::class);
         $this->call(InRespuestasSeeder::class);
-        // $this->call(AgTemasSeeder::class);
-        // $this->call(AgTallersSeeder::class);
-        // $this->call(AgSubtemasSeeder::class);
+        $this->call(AgTemasSeeder::class);
+        $this->call(AgTallersSeeder::class);
+        $this->call(AgSubtemasSeeder::class);
         $this->call(SisTitulosSeeder::class);
         // $this->call(AgRecursosSeeder::class);
         $this->call(SisObsesSeeder::class);
@@ -163,11 +163,11 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiConsumoExpectativaSeeder::class);  //11 falta
         $this->call(VsiConsumoQuienSeeder::class);  //12 falta
         $this->call(VsiDinfamCalleSeeder::class);  //16 falta
-        $this->call(VsiDinfamConsumoSeeder::class);  //17 falta
-        $this->call(VsiDinfamDelitoSeeder::class);  //19 falta
-        $this->call(VsiDinfamLibertadSeeder::class);  //20 falta
-        $this->call(VsiDinfamPadreSeeder::class);  //22 falta
-        $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
+        // $this->call(VsiDinfamConsumoSeeder::class);  //17 falta
+        // $this->call(VsiDinfamDelitoSeeder::class);  //19 falta
+        // $this->call(VsiDinfamLibertadSeeder::class);  //20 falta
+        // $this->call(VsiDinfamPadreSeeder::class);  //22 falta
+        // $this->call(VsiDinfamProstitucionSeeder::class);  //23 falta
         $this->call(VsiEduDiftipoASeeder::class);  //27 falta
         $this->call(VsiEduDiftipoBSeeder::class);  //28 falta
         $this->call(VsiEstemoAdecuadoSeeder::class);  //31 falta

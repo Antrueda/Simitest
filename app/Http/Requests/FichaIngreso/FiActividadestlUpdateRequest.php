@@ -69,8 +69,8 @@ class FiActividadestlUpdateRequest extends FormRequest
                 $this->_reglasx['i_prm_religion_practica_id'] = ['Required'];
 
                 if ($dataxxxx['i_prm_religion_practica_id'] == 494) {
-                    $this->_mensaje['i_prm_sacramentos_hechos_id.required'] = 'Seleccione cual(es) sacramento(s) tiene';
-                    $this->_reglasx['i_prm_sacramentos_hechos_id'] = 'required';
+                    $this->_mensaje['prm_sacrhec_id.required'] = 'Seleccione cual(es) sacramento(s) tiene';
+                    $this->_reglasx['prm_sacrhec_id'] = 'required';
                 }
 
             }

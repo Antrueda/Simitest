@@ -13,7 +13,11 @@
         {{ Form::label('prm_otractiv_id', 'C.1 (Si Indicó C. OTRAS ACTIVIDADES) Seleccione:', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::select('prm_otractiv_id', $todoxxxx["otractiv"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
-
+   
+    <div class="form-group col-md-4" style="display: none">
+        {{ Form::label('prm_razgeing_id', 'D.1 ¿Por qué no genera ingresos?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_razgeing_id', $todoxxxx["raznogen"], null, ['class' => 'form-control form-control-sm']) }}
+    </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_dias_buscando_empleo_id', 'D.1(a) ¿Hace cuánto?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="row">
@@ -63,5 +67,9 @@
                 {{ Form::text('totinmen', null, ['class' => 'form-control form-control-sm', "onkeypress" => "return soloNumeros(event);", 'placeholder' => '$']) }}
             </div>
         </div>
+    </div>
+    <div class="form-group col-md-4" style="display: none">
+        {{ Form::label('prm_tiprelab_id', '7.5 ¿Tipo de relación laboral?', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::select('prm_tiprelab_id', $todoxxxx["tiporela"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
 </div>

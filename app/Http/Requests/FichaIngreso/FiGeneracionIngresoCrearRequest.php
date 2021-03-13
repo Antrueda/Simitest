@@ -69,12 +69,35 @@ class FiGeneracionIngresoCrearRequest extends FormRequest
                 $this->_mensaje['s_trabajo_formal.required'] = 'Seleccione mencione trabajo formal';
                 $this->_reglasx['s_trabajo_formal'] = 'required';
                 break;
+            case 627:
+                    $this->_reglasx['prm_jorgeing_id'] = 'nullable';
+                    $this->_reglasx['s_hora_inicial'] = 'nullable';
+                    $this->_reglasx['s_hora_final'] = 'nullable';
+                    $this->_reglasx['prm_frecingr_id'] = 'nullable';
+                    $this->_reglasx['totinmen'] = 'nullable';
+                    $this->_reglasx['prm_razgeing_id'] = 'nullable';
+                    $this->_reglasx['prm_tiprelab_id'] = 'nullable';
+                    
+             break;
+             case 628:
+                $this->_reglasx['prm_jorgeing_id'] = 'nullable';
+                $this->_reglasx['s_hora_inicial'] = 'nullable';
+                $this->_reglasx['s_hora_final'] = 'nullable';
+                $this->_reglasx['prm_frecingr_id'] = 'nullable';
+                $this->_reglasx['totinmen'] = 'nullable';
+                $this->_reglasx['prm_razgeing_id'] = 'nullable';
+                $this->_reglasx['prm_tiprelab_id'] = 'nullable';
+                
+            break;
             case 853:
                 $this->_reglasx['prm_jorgeing_id'] = 'nullable';
                 $this->_reglasx['s_hora_inicial'] = 'nullable';
                 $this->_reglasx['s_hora_final'] = 'nullable';
                 $this->_reglasx['prm_frecingr_id'] = 'nullable';
                 $this->_reglasx['totinmen'] = 'nullable';
+                $this->_reglasx['prm_razgeing_id'] = 'nullable';
+                $this->_reglasx['prm_tiprelab_id'] = 'nullable';
+                
                 break;
         }
 

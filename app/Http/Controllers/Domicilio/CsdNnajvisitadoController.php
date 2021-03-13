@@ -80,9 +80,9 @@ class CsdNnajvisitadoController extends Controller
 
     private function view($dataxxxx)
     {
-        $this->opciones['csdxxxxx']=$dataxxxx['csdxxxxx'];
-        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id,$dataxxxx['csdxxxxx']->id];
 
+        $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id,$dataxxxx['csdxxxxx']->id];
+       
         $this->opciones['botoform'][0]['routingx'][1]=$this->opciones['parametr'];
         // $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
@@ -99,9 +99,10 @@ class CsdNnajvisitadoController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             // $this->opciones['pestpadr'] = 3;
             $this->opciones['nnajidxx']=$dataxxxx['modeloxx']->sis_nnaj->fi_datos_basico->NombreCedula;
-
+            
             $this->opciones['csdxxxxx']=$dataxxxx['modeloxx'];
             $this->opciones['modeloxx']=$dataxxxx['modeloxx'];
+            
             $this->opciones['parametr'][2] = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpara'] = [$dataxxxx['modeloxx']->id];
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
@@ -112,6 +113,7 @@ class CsdNnajvisitadoController extends Controller
                     ];
             }
         }
+        
         $this->opciones['tablasxx'] = [
             [
                 'titunuev' => 'NUEVO NNAJ VISITADO',
@@ -212,7 +214,9 @@ class CsdNnajvisitadoController extends Controller
 
     public function inactivate(SisNnaj $padrexxx,CsdSisNnaj $modeloxx)
     {
-        $this->opciones['rutaxxxx']=route('csdxxxxx.borrar',$modeloxx->id);
+
+    
+        //$this->opciones['rutaxxxx']=route('csdxxxxx.borrar',$modeloxx->id);
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =
                 [
@@ -220,15 +224,18 @@ class CsdNnajvisitadoController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $modeloxx->sis_nnaj->fi_datos_basico]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'], 'padrexxx' => $padrexxx,'csdxxxxx'=>$modeloxx]);
     }
 
 
     public function destroy(Request $request, SisNnaj $padrexxx,CsdSisNnaj $modeloxx)
     {
+        
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj->id])
+            ->route('csdxxxxx.editar', [$padrexxx->fi_datos_basico,$modeloxx->id])
             ->with('info', 'Nnaj visitado inactivado correctamente');
     }
 }
+

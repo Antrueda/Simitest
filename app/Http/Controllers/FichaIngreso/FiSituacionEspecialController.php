@@ -80,6 +80,7 @@ class FiSituacionEspecialController extends Controller
      */
     public function getRuta($dataxxxx)
     {
+      
         $archivox = '';
         switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
             case 650:
@@ -93,10 +94,14 @@ class FiSituacionEspecialController extends Controller
                 }
                 break;
         }
+  
         return $archivox;
     }
     public function create(FiDatosBasico $padrexxx)
     {
+        if($padrexxx->prm_tipoblaci_id!=650&&$padrexxx->prm_tipoblaci_id!=651){
+            return redirect()->route('fidatbas.editar',$padrexxx->id)->with('info','Corregir tipo de población y estrategia');
+             }
         $situespe = FiSituacionEspecial::where('sis_nnaj_id', $padrexxx->sis_nnaj_id)->first();
         if (isset($situespe->id)) {
             return redirect()

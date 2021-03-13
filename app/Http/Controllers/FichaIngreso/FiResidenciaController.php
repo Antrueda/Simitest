@@ -53,11 +53,11 @@ class FiResidenciaController extends Controller
         $this->opciones['condambi'] = Tema::combo(42, false, false);
         $this->opciones['tpviapal'] = Tema::combo(62, true, false);
         $this->opciones['esparcha'] = Tema::combo(291, true, false);
+<<<<<<< HEAD
         $this->opciones['dircondi'] = Tema::combo(462, true, false); // Anterior combo 23
+=======
+        $this->opciones['dircondi'] = Tema::combo(23, true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
-
-        $this->opciones['botoform'] = [
-            [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => ['fidatbas', []],
                 'formhref' => 2, 'tituloxx' => 'VOLVER A NNAJ', 'clasexxx' => 'btn btn-sm btn-primary'
             ],

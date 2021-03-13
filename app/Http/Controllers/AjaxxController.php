@@ -637,7 +637,7 @@ class AjaxxController extends Controller
                     ],
                     [
                         'comboxxx' => $dataxxxx['padrexxx'] == 227 ? []  : Parametro::find(235)->ComboAjaxUno,
-                        'nombrexx' => '#i_prm_sacramentos_hechos_id', 'selected' => $dataxxxx['padrexxx'] == 227 ? '' : 'selected'
+                        'nombrexx' => '#prm_sacrhec_id', 'selected' => $dataxxxx['padrexxx'] == 227 ? '' : 'selected'
                     ]
                 ]
 
@@ -651,7 +651,7 @@ class AjaxxController extends Controller
             $dataxxxx = $request->all();
             $respuest = [
                 'comboxxx' => $dataxxxx['padrexxx'] == 494 ? Tema::combo(79, false, true)  : Parametro::find(235)->ComboAjaxUno,
-                'nombrexx' => 'i_prm_sacramentos_hechos_id', 'selected' => $dataxxxx['padrexxx'] == 494 ? '' : 'selected'
+                'nombrexx' => 'prm_sacrhec_id', 'selected' => $dataxxxx['padrexxx'] == 494 ? '' : 'selected'
             ];
             return response()->json($respuest);
         }

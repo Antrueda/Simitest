@@ -56,7 +56,7 @@ class IsDatoBasicoController extends Controller
 
         $this->opciones['areajust'] = Tema::combo(212, true, false);
         $this->opciones['arjustpr'] = Tema::combo(212, true, false); // Tema::findOrFail(97)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
-        $this->opciones['arjustpr1'] = Tema::findOrFail(212)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+        
         $this->opciones['subemoci'] = Tema::combo(162, true, false);
         $this->opciones['subfamil'] = Tema::combo(167, true, false);
         $this->opciones['subsexua'] = Tema::combo(163, true, false);
@@ -141,7 +141,7 @@ class IsDatoBasicoController extends Controller
         }
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
         $this->opciones['usuarios'] = User::getUsuario(false, false);
-        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[2,3]]);
+        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[2,3,7]]);
         $this->opciones['tipatenc'] = [];
         $tipatenc = 0;
         if (auth()->user()->can('intervención sicosocial especializada')) {
@@ -167,7 +167,8 @@ class IsDatoBasicoController extends Controller
         $this->opciones['poblindi'] = ['' => 'Seleccione'];
         $this->opciones['neciayud'] = ['' => 'Seleccione'];
         $this->opciones['subareas']['subareax'] = ['' => 'Seleccione'];
-        $this->opciones['problemat'] = Tema::findOrFail(102)->parametros()->orderBy('nombre')->pluck('nombre', 'id');
+        $this->opciones['problemat'] = Tema::combo(102, true, false);
+        
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($nombobje != '') {
@@ -405,7 +406,7 @@ class IsDatoBasicoController extends Controller
     {
         if ($request->ajax()) {
             $actualxx = IsDatosBasico::select([
-                'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id', 'is_datos_basicos.sis_nnaj_id', 'tipoaten.nombre as tipoxxxx',
+                'is_datos_basicos.id', 'is_datos_basicos.sis_nnaj_id',  'tipoaten.nombre as tipoxxxx',
                 'is_datos_basicos.d_fecha_diligencia', 'sis_depens.nombre', 'users.name','segundo.name as segundo', 'is_datos_basicos.sis_esta_id'
             ])
                 ->join('sis_depens', 'is_datos_basicos.sis_depen_id', '=', 'sis_depens.id')

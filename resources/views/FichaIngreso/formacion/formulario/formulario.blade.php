@@ -56,15 +56,15 @@
         <div class="row">
             <div class="col-md-4">
                 {{ Form::label('diasines', 'Día(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-                {{ Form::number('diasines', null, ['class' => 'form-control form-control-sm', $todoxxxx['readdiax'], 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '30']) }}
+                {{ Form::number('diasines', null, ['class' => 'form-control form-control-sm', $todoxxxx['readdiax'], 'placeholder' => 'Día(s)', 'min' => '0', 'max' => '30',"onkeypress" => "return soloNumeros(event);"]) }}
             </div>
             <div class="col-md-4">
                 {{ Form::label('mesinest', 'Mes(es)', ['class' => 'control-label col-form-label-sm d-none']) }}
-                {{ Form::number('mesinest', null, ['class' => 'form-control form-control-sm', $todoxxxx['readmesx'], 'placeholder' => 'Mes(es)', 'min' => '0', 'max' => '11']) }}
+                {{ Form::number('mesinest', null, ['class' => 'form-control form-control-sm', $todoxxxx['readmesx'], 'placeholder' => 'Mes(es)', 'min' => '0', 'max' => '11',"onkeypress" => "return soloNumeros(event);"]) }}
             </div>
             <div class="col-md-4">
                 {{ Form::label('anosines', 'Año(s)', ['class' => 'control-label col-form-label-sm d-none']) }}
-                {{ Form::number('anosines', null, ['class' => 'form-control form-control-sm', $todoxxxx['readanox'], 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '20']) }}
+                {{ Form::number('anosines', null, ['class' => 'form-control form-control-sm', $todoxxxx['readanox'], 'placeholder' => 'Año(s)', 'min' => '0', 'max' => '20',"onkeypress" => "return soloNumeros(event);"]) }}
             </div>
         </div>
     </div>

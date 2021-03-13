@@ -51,7 +51,7 @@ class CsdResservicioEditRequest extends FormRequest
         {
             $registro = CsdResservi::select('csd_resservis.id')
             ->join('csd_residencias', 'csd_resservis.csd_residencia_id', '=', 'csd_residencias.id')
-            ->where('csd_residencias.id', $this->segments()[0]) 
+            ->where('csd_residencias.id', $this->padrexxx->csd->csdresidencia->id) 
             ->where('csd_resservis.prm_servicio_id', $this->prm_servicio_id)
             ->first();
             

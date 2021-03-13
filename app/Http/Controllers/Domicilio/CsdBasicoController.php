@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Domicilio;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Csd\CsdBasicoCrearRequest;
+use App\Http\Requests\Csd\CsdBasicoEditarRequest;
 use App\Models\consulta\CsdDatosBasico;
 use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\Parametro;
@@ -195,7 +196,7 @@ class CsdBasicoController extends Controller
      * @param  \App\Models\FiDatosBasico $padrexxx
      * @return \Illuminate\Http\Response
      */
-    public function update(CsdBasicoCrearRequest $request, CsdSisNnaj $padrexxx, CsdDatosBasico $modeloxx)
+    public function update(CsdBasicoEditarRequest $request, CsdSisNnaj $padrexxx, CsdDatosBasico $modeloxx)
     {
         $request->request->add(['user_edita_id' => Auth::user()->id]);
         $request->request->add(['sis_esta_id' => 1]);

@@ -184,7 +184,12 @@ class VsiDatoVincuController extends Controller
         }
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
     }
-
+    public function show(VsiDatosVincula $objetoxx)
+    {
+        $this->opciones['parametr'] = [$objetoxx->vsi->id];
+        $this->opciones['padrexxx'] = $objetoxx->id;
+        return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Ver', 'padrexxx' => $objetoxx->vsi]);
+    }
     private function grabar($dataxxxx)
     {
         $datoxxxx = VsiDatosVincula::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx']);

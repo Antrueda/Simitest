@@ -8,14 +8,10 @@ use App\Http\Requests\Vsi\VsiEditarRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Sistema\SisEsta;
-
-
 use App\Traits\Vsi\VsiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\sicosocial\Vsi;
-use App\Models\Sistema\SisDepen;
-use App\Models\User;
 use App\Traits\GestionTiempos\ManageTimeTrait;
 use App\Traits\Puede\PuedeTrait;
 
@@ -142,13 +138,14 @@ class VsiController extends Controller
         $this->opciones['usuariox'] = $dataxxxx['padrexxx'];
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->name;
        // $this->opciones['dependen'] = User::getUpiUsuario(false, false);
-        $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(false,false,$dataxxxx['padrexxx']->id);
+        $this->opciones['dependen'] = NnajUpi::getDependenciasNnajUsuario(false,false,$dataxxxx['padrexxx']->sis_nnaj_id);
         $this->opciones['userxxxx'] = [$dataxxxx['padrexxx']->id => $dataxxxx['padrexxx']->name];
         $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id];
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
+            $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
             $this->opciones['vsixxxxx'] = $dataxxxx['modeloxx'];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr']=3;
@@ -195,7 +192,7 @@ class VsiController extends Controller
         $dataxxxx=$request->all();
         $dataxxxx['sis_nnaj_id']=$padrexxx;
         $dataxxxx['sis_esta_id']=1;
-        
+
         return $this->grabar([
             'dataxxxx' => $dataxxxx,
             'modeloxx' => '',
@@ -232,7 +229,7 @@ class VsiController extends Controller
         'permisox'=>$this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-      
+
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [

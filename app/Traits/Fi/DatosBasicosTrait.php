@@ -40,17 +40,21 @@ trait DatosBasicosTrait
     public function setNnaj($dataxxxx)
     {
         $respuest = $this->setFi($dataxxxx);
-        $dataxxxx = $dataxxxx['requestx']->all();
-        $dataxxxx['objetoxx'] = $respuest['objetoxx'];
-        $dataxxxx['fi_datos_basico_id'] = $dataxxxx['objetoxx']->id;
-        FiCsdvsi::getTransaccion($dataxxxx);
-        NnajSexo::getTransaccion($dataxxxx);
-        NnajNacimi::getTransaccion($dataxxxx);
-        NnajDocu::getTransaccion($dataxxxx);
-        NnajSitMil::getTransaccion($dataxxxx);
-        NnajFiCsd::getTransaccion($dataxxxx);
-        NnajUpi::setUpiDatosBasicos($dataxxxx, $respuest['objetoxx']);
-        FiDiligenc::transaccion($dataxxxx, $respuest['objetoxx']);
+
+        $dataxxxy = $dataxxxx['requestx']->all();
+        if(isset($dataxxxx['diligenc'])){
+            $dataxxxy['diligenc']=$dataxxxx['diligenc'];
+        }
+        $dataxxxy['objetoxx'] = $respuest['objetoxx'];
+        $dataxxxy['fi_datos_basico_id'] = $dataxxxy['objetoxx']->id;
+        FiCsdvsi::getTransaccion($dataxxxy);
+        NnajSexo::getTransaccion($dataxxxy);
+        NnajNacimi::getTransaccion($dataxxxy);
+        NnajDocu::getTransaccion($dataxxxy);
+        NnajSitMil::getTransaccion($dataxxxy);
+        NnajFiCsd::getTransaccion($dataxxxy);
+        NnajUpi::setUpiDatosBasicos($dataxxxy, $respuest['objetoxx']);
+        FiDiligenc::transaccion($dataxxxy, $respuest['objetoxx']);
         return $respuest;
     }
 
@@ -321,6 +325,7 @@ trait DatosBasicosTrait
                 $dataxxxx['requestx']->request->add(['sis_docfuen_id' => 4]);
                 $dataxxxx['requestx']->request->add(['sis_depen_id' => 28]);
                 $dataxxxx['requestx']->request->add(['sis_servicio_id' => 1]);
+                $dataxxxx['diligenc']=explode(' ',$dataxxxx['padrexxx']->csd->fecha)[0];
                 $respuesx = $this->setNnaj($dataxxxx);
                 $respuest = ['respuest' => false, 'document' => $respuesx['objetoxx'], 'compfami' => $respuesx['compfami']];
             }

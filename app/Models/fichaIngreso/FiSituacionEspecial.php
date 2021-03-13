@@ -31,8 +31,8 @@ class FiSituacionEspecial extends Model {
     return $this->hasMany(FiVictimaEscnna::class);
   }
 
-  public function i_prm_situacion_vulnera_id() {
-    return $this->belongsToMany(Parametro::class,'fi_situacion_vulneracions','fi_situacion_especial_id','i_prm_situacion_vulnera_id');
+  public function prm_situacion_vulnera_id() {
+    return $this->belongsToMany(Parametro::class,'fi_situ_vulnera','fi_situacion_especial_id','prm_situacion_vulnera_id');
   }
 
   public function fi_riesgo_escnnas() {
@@ -59,7 +59,7 @@ class FiSituacionEspecial extends Model {
     if ($situacio == null) {
       $vestuari['formular'] = true;
     } else {
-      $vestuari['vulnerax'] = $situacio->fi_situacion_vulneracions;
+      $vestuari['vulnerax'] = $situacio->fi_situ_vulnera;
       if ($situacio->i_prm_tipo_id == 563) {
         $vestuari['escnnaxx'] = $situacio->fi_riesgo_escnnas;
       } else {
@@ -73,8 +73,10 @@ class FiSituacionEspecial extends Model {
   }
 
   private static function grabarOpciones($situacio, $dataxxxx) {
+
+    //ddd($situacio);
     FiVictimaEscnna::where('fi_situacion_especial_id', $situacio->id)->delete();
-    FiSituacionVulneracion::where('fi_situacion_especial_id', $situacio->id)->delete();
+    FiSituVulnera::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiRiesgoEscnna::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiRazonContinua::where('fi_situacion_especial_id', $situacio->id)->delete();
     FiRazonIniciado::where('fi_situacion_especial_id', $situacio->id)->delete();
@@ -96,9 +98,9 @@ class FiSituacionEspecial extends Model {
         }
       }
     }
-    foreach ($dataxxxx['i_prm_situacion_vulnera_id'] as $registro) {
-      $datosxxx['i_prm_situacion_vulnera_id'] = $registro;
-      FiSituacionVulneracion::create($datosxxx);
+    foreach ($dataxxxx['prm_situacion_vulnera_id'] as $registro) {
+      $datosxxx['prm_situacion_vulnera_id'] = $registro;
+      FiSituVulnera::create($datosxxx);
     }
 
     if (isset($dataxxxx['i_prm_iniciado_id'])) {
@@ -115,8 +117,10 @@ class FiSituacionEspecial extends Model {
   }
 
   public static function transaccion($dataxxxx, $objetoxx) {
+
     $usuariox = DB::transaction(function () use ($dataxxxx, $objetoxx) {
               $dataxxxx['user_edita_id'] = Auth::user()->id;
+              //ddd($objetoxx);
               if ($objetoxx != '') {
 
                 $algo = $objetoxx->update($dataxxxx);

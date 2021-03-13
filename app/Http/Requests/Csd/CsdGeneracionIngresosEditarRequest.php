@@ -17,6 +17,7 @@ class CsdGeneracionIngresosEditarRequest extends FormRequest
             'observacion.required' => 'Por favor ingrese alguna observacion',
             'prm_laboral_id.required_if' => 'Indique tipo de relacion laboral',
             'intensidad.required_unless' => 'Indique con que intencidad de horas ejerce su labor',
+            'prm_dificultad_id.required' => 'Indique si considera que la familia presenta dificultad económica',
 
         ];
         $this->_reglasx = [
@@ -28,6 +29,7 @@ class CsdGeneracionIngresosEditarRequest extends FormRequest
             'intensidad' => 'required_unless:prm_actividad_id,853',
             'razon' => 'exclude_if:prm_dificultad_id,228|string|max:4000',
             'observacion' => 'required',
+            'prm_dificultad_id' => 'required',
 
         ];
     }

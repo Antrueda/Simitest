@@ -10,7 +10,7 @@ class EvasionParentesco extends Model
 {
     protected $table = 'evasion_parentescos';
 
-    protected $fillable = ['prm_parentezco_id','primer_apellido','segundo_apellido','primer_nombre','segundo_nombre','tel_familiar' ,'reporte_evasion_id','direccion_familiar','user_crea_id', 'user_edita_id','sis_esta_id'];
+    protected $fillable = ['prm_parentezco_id','primer_apellido','segundo_apellido','primer_nombre','segundo_nombre','s_telefono' ,'reporte_evasion_id','direccion_familiar','user_crea_id', 'user_edita_id','sis_esta_id'];
 
     public function reporte_evasion()
     {

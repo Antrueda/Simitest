@@ -231,6 +231,7 @@ class CsdGeneracionAportanteController extends Controller
 
     public function inactivate(CsdSisNnaj $padrexxx,CsdGeningAporta $modeloxx)
     {
+        $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['parametr'] = [$padrexxx->id];
         if (auth()->user()->can($this->opciones['permisox'] . '-borrar')) {
             $this->opciones['botoform'][] =

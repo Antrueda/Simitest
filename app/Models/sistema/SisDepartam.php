@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SisDepartam extends Model
 {
-    protected $fillable = ['s_departamento', 'sis_pai_id', 's_iso','simianti_id', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['s_departamento', 'sis_pai_id', 's_iso', 'simianti_id', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
 
     public function sis_pai()
@@ -24,16 +24,13 @@ class SisDepartam extends Model
         $comboxxx = [];
         if ($esajaxxx == false) {
             $comboxxx = ['' => 'Seleccione'];
-
         } else {
             $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
         }
 
         foreach (SisDepartam::where(function ($dataxxxx) use ($idpadrex) {
 
-                $dataxxxx->where('sis_pai_id', $idpadrex);
-
-
+            $dataxxxx->where('sis_pai_id', $idpadrex);
         })
             ->get() as $registro) {
             if ($esajaxxx) {

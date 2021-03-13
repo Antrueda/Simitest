@@ -159,7 +159,7 @@ class FiSaludController extends Controller
                 $this->opciones['cualmedi'] = 'readonly';
             }
             if ($dataxxxx['modeloxx']->d_puntaje_sisben != '') {//
-                $this->opciones['apsisben'] = Parametro::find(235)->ComboAjaxUno;
+                $this->opciones['apsisben'] = Parametro::find(235)->Combo;
             }
 
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];

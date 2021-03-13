@@ -13,7 +13,6 @@ class SisInstitucionEdusSeeder extends Seeder
     public function run()
     {
         SisInstitucionEdu::create([
-            'id' => 1,
             's_nombre' => 'N/A COLEGIO',
             's_telefono' => '4815340 / 2315307',
             's_email' => 'colegio@colegio.com',

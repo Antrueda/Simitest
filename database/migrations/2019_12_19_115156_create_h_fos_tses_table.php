@@ -17,7 +17,7 @@ class CreateHFosTsesTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(167)->nocache();
+            $table->increments('id')->start(1)->nocache();
             $table->integer('area_id');
             $table->text('codigo', 6)->nullable();
             $table->string('nombre', 120);

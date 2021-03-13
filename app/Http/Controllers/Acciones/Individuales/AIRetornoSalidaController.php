@@ -159,7 +159,8 @@ class AIRetornoSalidaController extends Controller
         $this->opciones['vercrear'] = false;
         $parametr = 0;
         if ($dataxxxx['modeloxx'] != '') {
-
+            $dataxxxx['modeloxx']->fecha=explode(' ',$dataxxxx['modeloxx']->fecha)[0];
+            $dataxxxx['modeloxx']-> hora_retorno= explode(' ',$dataxxxx['modeloxx']-> hora_retorno)[1];
             $this->opciones['vercrear'] = true;
             $parametr = $dataxxxx['modeloxx']->id;
             $this->opciones['pestpadr'] = 3;
@@ -260,11 +261,11 @@ class AIRetornoSalidaController extends Controller
     }
 
 
-    public function destroy(Request $request, AiRetornoSalida $modeloxx)
+    public function destroy(SisNnaj $padrexxx, AiRetornoSalida $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [$modeloxx->sis_nnaj->id])
+            ->route($this->opciones['permisox'], [$padrexxx->id])
             ->with('info', 'Retorno inactivada correctamente');
     }
 }

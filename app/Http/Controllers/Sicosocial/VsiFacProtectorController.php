@@ -196,7 +196,7 @@ class VsiFacProtectorController extends Controller
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => $objetoxx,
-            'menssage' => 'Registro actualizado con éxito'
+            'menssage' => 'Factor protector actualizado con éxito'
         ]);
     }
     public function inactivate(VsiFacProtector $objetoxx)
@@ -218,6 +218,6 @@ class VsiFacProtectorController extends Controller
         $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['slotxxxx'].'.factorxx', [$objetoxx->vsi_id])
-            ->with('info', 'Razón inactivada correctamente');
+            ->with('info', 'Factor protector inactivado correctamente');
     }
 }

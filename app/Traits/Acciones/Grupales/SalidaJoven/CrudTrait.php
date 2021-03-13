@@ -20,11 +20,17 @@ trait CrudTrait
      */
     public function setAgJovenes($dataxxxx)
     {
+   
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            $dataxxxx['requestx']->request->add(['hora_salida' =>  explode(' ',$dataxxxx['padrexxx']->fecha)[0].' '.$dataxxxx['requestx']->hora_salida]);
+            if($dataxxxx['requestx']->horaretorno!=''){
+                $dataxxxx['requestx']->request->add(['horaretorno' =>explode(' ',$dataxxxx['requestx']->fecharetorno)[0].' '.$dataxxxx['requestx']->horaretorno ]);
+            }
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
+                
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = SalidaJovene::create($dataxxxx['requestx']->all());
             }
