@@ -92,7 +92,7 @@ class FiController extends Controller
                         ['td' => 'SEGUNDO NOMBRE', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'PRIMER APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'SEGUNDO APELLIDO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                     //   ['td' => 'FECHA DE NACIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        //   ['td' => 'FECHA DE NACIMIENTO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'UPI/DEPENDENCIA-SERVICIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
@@ -105,7 +105,7 @@ class FiController extends Controller
                     ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
                     ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
                     ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
-                   // ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
+                    // ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
                     ['data' => 'upiservicio', 'name' => 'upiservicio'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
@@ -157,8 +157,8 @@ class FiController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function combos()
-     {
+    public function combos()
+    {
         $this->opciones['tipodocu'] = Tema::combo(3, true, false);
         $this->opciones['grupsang'] = Tema::combo(17, true, false);
         $this->opciones['factorrh'] = Tema::combo(18, true, false);
@@ -175,8 +175,7 @@ class FiController extends Controller
         $this->opciones['pais_idx'] = SisPai::combo(true, false);
         $this->opciones['localida'] = SisLocalidad::combo();
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
-
-     }
+    }
     private function view($dataxxxx)
     {
         $this->combos();
@@ -265,7 +264,7 @@ class FiController extends Controller
 
             // /** Nacimiento */
 
-            $dataxxxx['modeloxx']->d_nacimiento =explode(' ',$dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0];
+            $dataxxxx['modeloxx']->d_nacimiento = explode(' ', $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0];
             $this->opciones['aniosxxx'] = $dataxxxx['modeloxx']->nnaj_nacimi->Edad;
             $dataxxxx['modeloxx']->sis_pai_id = $paisxxxx = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departam->sis_pai_id;
             $dataxxxx['modeloxx']->sis_departam_id = $departam = $dataxxxx['modeloxx']->nnaj_nacimi->sis_municipio->sis_departam_id;
@@ -542,7 +541,7 @@ class FiController extends Controller
     {
         $dataxxxx = $request->all();
         $dataxxxx['pasaupis'] = false;
-        return $this->grabar($dataxxxx, $objetoxx, 'Datos básicos actualizados con éxito',$dataxxxx['pasaupis'] );
+        return $this->grabar($dataxxxx, $objetoxx, 'Datos básicos actualizados con éxito', $dataxxxx['pasaupis']);
     }
 
     public function inactivate(FiDatosBasico $objetoxx)
@@ -617,12 +616,12 @@ class FiController extends Controller
     {
         $request->docuagre = 1000943210;
         // throw new ParametroInvalido('Something Went Wrong.');
-        $this->setNnajPNT(['padrexxx'=>FiDatosBasico::first()]);
+        $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
         // $numbers = random_int(1000000000, 1999999999);
         // echo $this->getCedulaAleatoria();
         // ddd(date('Y-m-d H:m:s'));
 
-    ///$this->setCmposicionFamiliarCFT($request);
+        ///$this->setCmposicionFamiliarCFT($request);
 
 
 

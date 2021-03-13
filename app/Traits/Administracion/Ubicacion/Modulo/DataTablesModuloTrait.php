@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Administracion\Ubicacion\Modulo;
+namespace App\Traits\Administracion\Temas\Modulo;
 
 
 
@@ -21,7 +21,7 @@ trait DataTablesModuloTrait
 
         ];
         $dataxxxx['ruarchjs'] = [
-
+            ['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tabla']
         ];
         return $dataxxxx;
     }

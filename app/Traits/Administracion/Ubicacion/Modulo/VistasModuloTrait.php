@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Administracion\Ubicacion\Modulo;
+namespace App\Traits\Administracion\Temas\Modulo;
 
 use App\Models\Sistema\SisEsta;
 

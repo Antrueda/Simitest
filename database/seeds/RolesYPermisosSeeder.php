@@ -435,12 +435,12 @@ class RolesYPermisosSeeder extends Seeder
 
 
         require_once('RolesYPermisosAdmin.php');
-        require_once('Permisos/Carguedocu.php');
+        // require_once('Permisos/Carguedocu.php');
         require_once('RolesYPermisosPsicologo.php');
         require_once('RolesYPermisosSocial.php');
         require_once('RolesYPermisosCRelajado.php');
         require_once('RolesYPermisosEnfermeria.php');
-        require_once('Permisos/Fosadmin.php');
+
 
         // crear roles y asignar los permisos
         Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(Permission::all());

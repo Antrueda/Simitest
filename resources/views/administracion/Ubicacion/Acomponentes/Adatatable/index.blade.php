@@ -12,7 +12,7 @@
         </h3>
     </div>
     <div class="card-body">
-        @canany([$todoxxxx['permisox'].'-leer',$todoxxxx['permisox'].'-crear',$todoxxxx['permisox'].'-editar',$todoxxxx['permisox'].'-borrar'])
+        @canany($todoxxxx['permtabl'])
         <div class="table-responsive">
             <table id="{{ $tableName }}" class="table table-bordered   table-sm">
                 <thead>

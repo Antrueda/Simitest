@@ -1,105 +1,74 @@
 <?php
 
-namespace App\Traits\Administracion\Ubicacion;
+namespace App\Traits\Administracion\Temas;
 
 
 trait PestaniasTrait
 {
-    public $pestanix = [
-        'paisxxxx' => [true, []],
-        'departam' => [false, []],
-        'municipi' => [false, []],
-        'localida' => [true, []],
-        'localupz' => [false, []],
-        'upzxxxxx' => [true, []],
-        'barriupz' => [false, []],
-        'barrioxx' => [true, []]
-    ];
+    public $pestania = [
+        ['temaxxxx', '', [],'TEMAS',true,'','Preguntas genéricas de los documentos'],
+        ['comboxxx', '', [],'COMBOS',false,'','Pregunta del documento que se esté'],
+        ['combpara', '', [],'RESPUESTAS',false,'','Respuestas asignadas al combo'],
+        ['parametr', '', [],'PARAMETROS',true,'','Respuestas para asignar'],
 
+    ];
+    /**
+     * permisos que va a manejar cada pestaña
+     *
+     * @param array $dataxxxx
+     * @return $respuest
+     */
     private function getCanany($dataxxxx)
     {
         $permisox = [
-            'paisxxxx' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-            'departam' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-            'municipi' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-            'localida' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-            'upzxxxxx' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
-            'barrioxx' => ['leer', 'crear', 'editar', 'borrar', 'activar'],
+            'leer', 'crear', 'editar', 'borrar', 'activarx'
         ];
-        $cananyxx = [];
-        foreach ($permisox[$dataxxxx['cananyxx']] as $key => $value) {
-            $cananyxx[] = $dataxxxx['cananyxx'] . '-' . $value;
+        $respuest = [];
+        foreach ($permisox as $key => $value) {
+            $respuest[] = $dataxxxx[0] . '-' . $value;
         }
-        return $cananyxx;
+        return $respuest;
     }
 
-    public function setPestanias($dataxxxx)
+    /**
+     * armar la estructura principal de una pestaña
+     *
+     * @param array $dataxxxx
+     * @return $respuest
+     */
+    public function getArmarPestania($dataxxxx)
     {
-        $pestania['paisxxxx'] = [
-            'routexxx' => '',
-            'activexx' => '',
-            'tituloxx' => 'PAISES',
-            'tablaxxx' => 'sis_pais',
-            'datablex' => [],
-            'cananyxx' => $this->getCanany($dataxxxx),
+        $respuest = [
+            'muespest' => false, // indica si se mustra o no
+            'pestania' => [
+                'routexxx' => route($dataxxxx[0].$dataxxxx[1], $dataxxxx[2]), // ruta que tiene la pestaña
+                'activexx' => $dataxxxx[5], // clase que activa la pestaña cuando se esté en ella
+                'tituloxx' => $dataxxxx[3], // titulo con el que se identifica la pestanña
+                'tooltipx' => $dataxxxx[6], // Ayuda para la pestaña
+                'cananyxx' => $this->getCanany($dataxxxx),
+            ]
         ];
-        $pestania['departam'] = [
-            'routexxx' => '',
-            'activexx' => '',
-            'tituloxx' => 'DEPARTAMENTOS',
-            'tablaxxx' => 'sis_departams',
-            'datablex' => [],
-            'cananyxx' => $this->getCanany($dataxxxx),
-        ];
-        $pestania['municipi'] = [
-            'routexxx' => '',
-            'activexx' => '',
-            'tituloxx' => 'MUNICIPIOS',
-            'tablaxxx' => 'sis_municipios',
-            'datablex' => [],
-            'cananyxx' => $this->getCanany($dataxxxx),
-        ];
-        $pestania['localida'] = [
-            'routexxx' => '',
-            'activexx' => '',
-            'tituloxx' => 'LOCALIDADES',
-            'tablaxxx' => 'sis_localidads',
-            'datablex' => [],
-            'cananyxx' => $this->getCanany($dataxxxx),
-        ];
-        $pestania['upzxxxxx'] = [
-            'routexxx' => '',
-            'activexx' => '',
-            'tituloxx' => "UPZ'S",
-            'tablaxxx' => 'sis_upzs',
-            'datablex' => [],
-            'cananyxx' => $this->getCanany($dataxxxx),
-        ];
-        $pestania['barrioxx'] = [
-            'routexxx' => '',
-            'activexx' => '',
-            'tituloxx' => 'BARRIOS',
-            'tablaxxx' => 'sis_barrios',
-            'datablex' => [],
-            'cananyxx' => $this->getCanany($dataxxxx),
-        ];
-        if (isset($pestania[$dataxxxx['slotxxxx']]['activexx'])) {
-            $pestania[$dataxxxx['slotxxxx']]['activexx'] = 'active';
-        }
+        return $respuest;
+    }
+    /**
+     * armar las pestañas que va a tener el módulo
+     *
+     * @param array $dataxxxx
+     * @return $respuest
+     */
+    public function getArmarPestanias($dataxxxx)
+    {
+        $respuest = [];
+        foreach ($this->pestania as $key => $valuexxx) {
+            if ($valuexxx[4]) {
+                $respuest[] = $this->getArmarPestania($valuexxx);
+            }
 
-        return $pestania[$dataxxxx['cananyxx']];
+        }
+        return $respuest;
     }
     public function getPestanias($dataxxxx)
     {
-        $pestania = [];
-        foreach ($this->pestanix as $key => $value) {
-            if ($value[0]) {
-                $dataxxxx['cananyxx'] = $key;
-                $dotosxxx = $this->setPestanias($dataxxxx);
-                $dotosxxx['routexxx'] = route($key, $value[1]);
-                $pestania[] = $dotosxxx;
-            }
-        }
-        return $pestania;
+        $this->opciones['pestania']  = $this->getArmarPestanias($dataxxxx);
     }
 }

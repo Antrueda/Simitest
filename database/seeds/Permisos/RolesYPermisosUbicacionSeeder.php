@@ -15,7 +15,7 @@ class RolesYPermisosUbicacionSeeder extends Seeder
             'crear' => 'Permiso que permite crear registro para: ',
             'editar' => 'Permiso que permite editar registro para: ',
             'borrar' => 'Permiso que permite inactivar registro para: ',
-            'descarga'=>'Permiso que permite la descarga de archivos para: ',
+            'descarga' => 'Permiso que permite la descarga de archivos para: ',
             'factorxx' => 'Permioso que permite ver los: ',
             'metaxxxx' => 'Permioso que permite ver las: ',
             'psicologo' => 'Permioso que permite ver contenido de psicologo: ',
@@ -46,18 +46,7 @@ class RolesYPermisosUbicacionSeeder extends Seeder
         // Restablecer roles y permisos en caché
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        require_once('Ubicacion.php');// ubicaciones: pais, departamentos, municipios, localidades, upzs y barrios
-
-        Role::find(1)->givePermissionTo(['ubicacio-modulo',
-            'paisxxxx-leer', 'paisxxxx-crear', 'paisxxxx-editar', 'paisxxxx-borrar',  'paisxxxx-activarx',
-            'departam-leer', 'departam-crear', 'departam-editar', 'departam-borrar',  'departam-activarx',
-            'municipi-leer', 'municipi-crear', 'municipi-editar', 'municipi-borrar',  'municipi-activarx',
-            'localida-leer', 'localida-crear', 'localida-editar', 'localida-borrar',  'localida-activarx',
-            'upzxxxxx-leer', 'upzxxxxx-crear', 'upzxxxxx-editar', 'upzxxxxx-borrar',  'upzxxxxx-activarx',
-            'barrioxx-leer', 'barrioxx-crear', 'barrioxx-editar', 'barrioxx-borrar',  'barrioxx-activarx',
-            'localupz-leer', 'localupz-crear', 'localupz-editar', 'localupz-borrar',  'localupz-activarx',
-            'barriupz-leer', 'barriupz-crear', 'barriupz-editar', 'barriupz-borrar',  'barriupz-activarx',
-            ]);
+        require_once('Ubicacion.php'); // ubicaciones: pais, departamentos, municipios, localidades, upzs y barrios
 
 
     }
