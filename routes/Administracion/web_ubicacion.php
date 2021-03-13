@@ -1,6 +1,6 @@
 <?php
 $routexxx='ubicacio';
-$controll='Administracion\Ubicacion\Modulo';
+$controll='Administracion\Ubicacion\UbicacionModulo';
 Route::group(['prefix' => 'ubicacion'], function () use($routexxx,$controll){
     Route::get('', [
 		'uses' => $controll.'Controller@index',

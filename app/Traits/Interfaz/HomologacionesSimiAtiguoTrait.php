@@ -2,9 +2,11 @@
 
 namespace App\Traits\Interfaz;
 
+use App\Exceptions\Interfaz\Simiantiguo\MunicipioSAException;
 use App\Exceptions\Interfaz\Simiantiguo\ParametroInvalido;
 use App\Models\Simianti\Sis\Municipio;
 use App\Models\Simianti\Sis\SisMultivalore;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Temacombo;
 use Illuminate\Support\Facades\Auth;
@@ -113,7 +115,26 @@ trait HomologacionesSimiAtiguoTrait
     /********************** METODOS PARA LA HOMOLOGACION DE MUNICIPIOS ********************** */
     public function getMunicipiosHSAT($dataxxxx)
     {
-        $municipi=SisMunicipio::all();
+        $municipi = $dataxxxx['padrexxx']->nnaj_docu->sis_municipio;
+        $departam = SisDepartam::find($municipi->sis_departam_id)->sis_municipios->find($municipi->id)->pivot->simianti_id;
+        $nnajxxxx = $dataxxxx['padrexxx'];
+        $dataxxxy = [
+            'vistaxxx' => 'errors.interfaz.simianti.munianti',
+            'dataxxxx' => [
+                'tituloxx' => 'MUNICIPIO NO ENCONTRADO!',
+                'nnajxxxx' =>
+                $nnajxxxx->s_primer_nombre . ' ' .
+                    $nnajxxxx->s_segundo_nombre . ' ' .
+                    $nnajxxxx->s_primer_apellido . ' ' .
+                    $nnajxxxx->s_segundo_apellido . ' (Documento: ' . $nnajxxxx->nnaj_docu->s_documento . ')',
+                'antiguox' => $municipi,
+
+            ]
+        ];
+
+        if ($departam == null) {
+            throw new MunicipioSAException($dataxxxy);
+        }
     }
     /********************** FIN METODOS PARA LA HOMOLOGACION DE MUNICIPIOS ********************** */
 }

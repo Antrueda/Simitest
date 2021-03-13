@@ -47,10 +47,5 @@ class CarguedocuSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         require_once('Carguedocu.php'); // cargue de ducumentos: fi
-
-        Role::find(1)->givePermissionTo([
-            'cargdocu-modulo',
-            'cardocfi-leer', 'cardocfi-crear', 'cardocfi-editar', 'cardocfi-borrar',  'cardocfi-activarx',
-        ]);
     }
 }

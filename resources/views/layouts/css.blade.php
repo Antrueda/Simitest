@@ -33,7 +33,7 @@
   height: 15px;
   border-radius: 50%;
   font-weight: 700;
-  background: green;
+  background: #3399FF;
   border: 1px solid #737373;
   color: #737373;
   margin: 4px 121px 0 5px;
@@ -52,7 +52,7 @@
 
   font-size: 12px;
   padding: 10px 15px 10px 20px;
-  background: green;
+  background: #3399FF;
   color:black;
   border: 1px solid #737373;
   text-align: left;

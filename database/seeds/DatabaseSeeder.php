@@ -21,10 +21,15 @@ class DatabaseSeeder extends Seeder
         $this->call(SisDocumentosFuentesSeeder::class);
         $this->call(SisMenusSeeder::class);
         $this->call(SisPestaniasSeeder::class);
-        $this->call(RolesYPermisosSeeder::class);
+        /** SEEDERS PARA LOS PERSMISOS */
+        $this->call(FosadminSeeder::class);
         $this->call(RolesYPermisosUbicacionSeeder::class);
-        // $this->call(CarguedocuSeeder::class);
-        // $this->call(FosadminSeeder::class);
+        $this->call(CarguedocuSeeder::class);
+        // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
+        $this->call(RolesYPermisosSeeder::class);
+        /** FIN SEEDERS PARA LOS PERSMISOS */
+
+
         $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
@@ -49,23 +54,23 @@ class DatabaseSeeder extends Seeder
 
         $this->call(SisActividadProcesosSeeder::class);
         $this->call(SisNnajsSeeder::class);
-        $this->call(NnajCaminandoSeeder::class);//nuevo
-        $this->call(FiBienvenidaSeeder::class);//nuevo
-        $this->call(FiResidenciaSeeder::class);//nuevo
-        $this->call(FiFormacionSeeder::class);//nuevo
-        $this->call(FiSaludSeeder::class);//nuevo
-        $this->call(FiGeneracionIngresoSeeder::class);//nuevo
-        $this->call(FiActividadestlSeeder::class);//nuevo
-        $this->call(FiConsumoSpaSeeder::class);//nuevo
-        $this->call(FiRedApoyoActualSeeder::class);//nuevo
-        $this->call(FiRedApoyoAntecedenteSeeder::class);//nuevo
-        $this->call(FiViolenciaSeeder::class);//nuevo
-        $this->call(FiSituacionEspecialSeeder::class);//nuevo
-        $this->call(FiContactoSeeder::class);//nuevo
-        $this->call(FiCompfamiSeeder::class);//nuevo
-        $this->call(FiJustrestSeeder::class);//nuevo
-        $this->call(FiAutorizacionSeeder::class);//nuevo
-        $this->call(FiRazoneSeeder::class);//nuevo
+        $this->call(NnajCaminandoSeeder::class); //nuevo
+        $this->call(FiBienvenidaSeeder::class); //nuevo
+        $this->call(FiResidenciaSeeder::class); //nuevo
+        $this->call(FiFormacionSeeder::class); //nuevo
+        $this->call(FiSaludSeeder::class); //nuevo
+        $this->call(FiGeneracionIngresoSeeder::class); //nuevo
+        $this->call(FiActividadestlSeeder::class); //nuevo
+        $this->call(FiConsumoSpaSeeder::class); //nuevo
+        $this->call(FiRedApoyoActualSeeder::class); //nuevo
+        $this->call(FiRedApoyoAntecedenteSeeder::class); //nuevo
+        $this->call(FiViolenciaSeeder::class); //nuevo
+        $this->call(FiSituacionEspecialSeeder::class); //nuevo
+        $this->call(FiContactoSeeder::class); //nuevo
+        $this->call(FiCompfamiSeeder::class); //nuevo
+        $this->call(FiJustrestSeeder::class); //nuevo
+        $this->call(FiAutorizacionSeeder::class); //nuevo
+        $this->call(FiRazoneSeeder::class); //nuevo
         $this->call(CsdsSeeder::class);
         $this->call(CsdSisNnajSeeder::class);
         $this->call(CsdJusticiasSeeder::class);
@@ -102,7 +107,7 @@ class DatabaseSeeder extends Seeder
         $this->call(InLigrusSeeder::class);
         $this->call(InDocPreguntasSeeder::class);
         $this->call(SisFsoportesSeeder::class);
-       $this->call(FosTsesSeeder::class);
+        $this->call(FosTsesSeeder::class);
         $this->call(FosStsesTestSeeder::class);
         $this->call(FosSeguimientosSeeder::class);
         $this->call(InRespuestasSeeder::class);
@@ -191,6 +196,5 @@ class DatabaseSeeder extends Seeder
         $this->call(VsiSaludSeeder::class);
         $this->call(SisDiaFestivosSeeder::class);
         $this->call(VsiPersonaSeeder::class);
-
     }
 }

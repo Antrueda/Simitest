@@ -282,7 +282,7 @@ trait InterfazFiTrait
                 'temaxxxx' => 119,
                 'tipoxxxx' => 'multival',
             ]),
-            // 'id_pais_nacimiento'=>$padrexxx->,
+            'id_pais_nacimiento'=>$this->getMunicipiosHSAT($dataxxxx),
             // 'sis_usuario'=>$padrexxx->,
         ];
 
@@ -316,6 +316,8 @@ trait InterfazFiTrait
 
             // ddd($padrexxx);
             $iiiddi = GeNnaj::create($datannaj);
+
+
             // GeNnajDocumento::create()
             // ddd($iiiddi);
         }

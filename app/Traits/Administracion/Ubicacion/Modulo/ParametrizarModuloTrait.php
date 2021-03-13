@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Administracion\Ubicacion\Modulo;
+namespace App\Traits\Administracion\Temas\Modulo;
 
 
 
@@ -33,11 +33,11 @@ trait ParametrizarModuloTrait
     {
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'ADMINISTRACIÓN PARA LA UBICACIONES';
+        $this->opciones['tituhead'] = "M{$this->opciones['vocalesx'][4]}DULO";
         $this->opciones['routxxxx'] = $this->opciones['routxxxx'];
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
         $this->opciones['perfilxx'] = 'sinperfi';
-        $this->opciones['rutacarp'] = 'administracion.Ubicacion.';
+        $this->opciones['rutacarp'] = 'administracion.Temas.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
         $this->opciones['carpetax'] = 'Modulo';
