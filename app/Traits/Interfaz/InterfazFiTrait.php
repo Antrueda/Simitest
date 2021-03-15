@@ -270,7 +270,7 @@ trait InterfazFiTrait
                 'testerxx' => false,
                 'idparame' => $padrexxx->nnaj_docu->prm_doc_fisico_id,
                 'tablaxxx' => 'DICOTOMIA',
-                'temaxxxx' => 23,
+                'temaxxxx' => 366,
                 'tipoxxxx' => 'multival',
             ]),
             // 'situacion_mil'=>$padrexxx->,

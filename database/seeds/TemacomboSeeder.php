@@ -4007,14 +4007,20 @@ class TemacomboSeeder extends Seeder
 
         $tema = $this->getR([
             'temaidxx' => 23,
-
-            'nombrexx' => '1.15 ¿Tiene definida su situación militar?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            'nombrexx' => '1.12 ¿Cuenta con el documento físico?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //366
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '']),
             228 => $this->getCM(['simianti' => '']),
         ]);
 
-
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '1.15 ¿Tiene definida su situación militar?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //367
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '']),
+            228 => $this->getCM(['simianti' => '']),
+        ]);
     }
 }
