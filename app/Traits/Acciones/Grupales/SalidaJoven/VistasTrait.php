@@ -25,15 +25,15 @@ trait VistasTrait
         $this->opciones['parametr'][] = $this->opciones['padrexxx']->id;
         $this->getVista($dataxxxx);
         $this->getTablas($dataxxxx);
-        $this->opciones['compfami'] = FiCompfami::getResponsableSalida($dataxxxx['padrexxx'], false, false);
-        $this->opciones['condicio'] = Tema::combo(527, true, false); // Anterior combo 23
+        $this->opciones['compfami'] = FiCompfami::getResponsableSalida($dataxxxx['padrexxx']->id, false, false);
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['condixxx'] = Tema::combo(272, false, false);
         $this->opciones['autoriza'] = Tema::combo(363, true, false);
         $this->opciones['represen'] = Tema::combo(363, true, false);
         $this->opciones['hoyxxxxx'] = Carbon::today()->isoFormat('YYYY-MM-DD');
         $this->opciones['proxxxxx'] = Carbon::today()->add(3, 'Month')->isoFormat('YYYY-MM-DD');
 
-
+        
         // indica si se esta actualizando o viendo
         $dataxxxx['selected'] = 0;
         if ($dataxxxx['modeloxx'] != '') {

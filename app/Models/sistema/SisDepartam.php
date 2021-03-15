@@ -16,7 +16,7 @@ class SisDepartam extends Model
     }
     public function sis_municipios()
     {
-        return $this->belongsToMany(SisMunicipio::class)->withPivot(['simianti_id']);
+        return $this->hasMany(SisMunicipio::class)->withPivot(['simianti_id']);
     }
 
     public static function combo($idpadrex, $esajaxxx)

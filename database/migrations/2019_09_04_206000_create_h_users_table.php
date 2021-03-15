@@ -44,7 +44,7 @@ class CreateHUsersTable extends Migration
             $table->timestamp('polidato_at')->nullable();
             $table->rememberToken();
             $table = CamposMagicos::h_magicos($table);
-            
+
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }

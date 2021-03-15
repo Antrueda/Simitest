@@ -35,8 +35,8 @@ class CsdAlimentacionController extends Controller
             . $this->opciones['permisox'] . '-borrar']);
 
 
-        $this->opciones['horariox'] = Tema::combo(402, true, false); // Anterior combo 23
-        $this->opciones['apoyoxxx'] = Tema::combo(403, true, false); // Anterior combo 23
+        $this->opciones['horariox'] = Tema::combo(23, true, false);
+        $this->opciones['apoyoxxx'] = Tema::combo(23, true, false);
         $this->opciones['frecuenx'] = Tema::combo(110, false, false);
         $this->opciones['lugaresx'] = Tema::combo(111, false, false);
         $this->opciones['alimenta'] = Tema::combo(112, false, false);
@@ -143,7 +143,7 @@ class CsdAlimentacionController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-
+    
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 

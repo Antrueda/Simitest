@@ -57,7 +57,7 @@ class VsiViolenciaController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['sinoxxxz'] = Tema::combo(526, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxz'] = Tema::combo(23, true, false);
         $this->opciones['sinoxxxx'] = Tema::combo(25, true, false);
         $this->opciones['contexto'] = Tema::combo(142, false, false);
         $this->opciones['violenci'] = Tema::combo(7, false, false);
@@ -70,9 +70,9 @@ class VsiViolenciaController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
-
+            
             $this->opciones['fechcrea'] = $dataxxxx['modeloxx']->created_at;
-
+            
             $this->opciones['fechedit'] = $dataxxxx['modeloxx']->updated_at;
             $this->opciones['usercrea'] = $dataxxxx['modeloxx']->creador->name;
             $this->opciones['useredit'] = $dataxxxx['modeloxx']->editor->name;
@@ -103,7 +103,7 @@ class VsiViolenciaController extends Controller
      */
     public function store(VsiViolenciaCrearRequest $requestx, $padrexxx)
     {
-        $requestx->request->add(['vsi_id'=> $padrexxx]);
+        $requestx->request->add(['vsi_id'=> $padrexxx]); 
         $requestx->request->add(['sis_esta_id'=> 1]);
         return $this->grabar([
             'requestx' => $requestx,
@@ -129,8 +129,8 @@ class VsiViolenciaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-
-
+        
+        
         return $this->view(['modeloxx' => $objetoxx->VsiViolencia, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

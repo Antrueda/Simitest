@@ -56,14 +56,7 @@ class VsiSaludController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['sinoxxxx'] = Tema::combo(517, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxx'] = Tema::combo(518, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxx'] = Tema::combo(519, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxx'] = Tema::combo(520, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxx'] = Tema::combo(521, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxxx'] = Tema::combo(522, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxxxx'] = Tema::combo(523, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxxxxx'] = Tema::combo(524, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['motivosx'] = Tema::combo(87, true, false);
         $this->opciones['causasxx'] = Tema::combo(207, false, false);
         $this->opciones['rendimie'] = Tema::combo(206, true, false);
@@ -138,7 +131,7 @@ class VsiSaludController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-
+    
         //$this->opciones['padrexxx'] = $objetoxx->id;
         //$this->opciones['parametr'] = [$objetoxx->vsi_id];
 
@@ -150,7 +143,7 @@ class VsiSaludController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-
+        
         //ddd($objetoxx->VsiSalud);
         return $this->view(['modeloxx' => $objetoxx->VsiSalud, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }

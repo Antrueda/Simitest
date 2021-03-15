@@ -69,7 +69,7 @@ class VsiGenIngresosController extends Controller
         $this->opciones['semanaxx'] = Tema::combo(129, false, false);
         $this->opciones['frecuenc'] = Tema::combo(110, true, false);
         $this->opciones['laboralx'] = Tema::combo(117, true, false);
-        $this->opciones['sinoxxxx'] = Tema::combo(503, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['parentes'] = Tema::combo(66, false, false);
         $this->opciones['jorgener'] = Tema::combo(123, true, false);
         $this->opciones['cuantoxx'] = '';
@@ -82,8 +82,8 @@ class VsiGenIngresosController extends Controller
 
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-
-
+          
+            
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['pestpadr'] = 3;
             if($dataxxxx['modeloxx']->prm_actividad_id==853){
@@ -127,10 +127,10 @@ class VsiGenIngresosController extends Controller
      */
     public function store(VsiGenIngresosCrearRequest $request, $padrexxx)
     {
-
+       
        $request->request->add(['vsi_id' => $padrexxx]);
        $request->request->add(['sis_esta_id'=> 1]);
-
+ 
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => '',
@@ -156,7 +156,7 @@ class VsiGenIngresosController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-
+        
         return $this->view(['modeloxx' => $objetoxx->VsiGenIngreso, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
@@ -176,7 +176,7 @@ class VsiGenIngresosController extends Controller
      */
     public function update(VsiGenIngresosEditarRequest $request, Vsi $objetoxx)
     {
-
+       
         return $this->grabar([
             'requestx' => $request,
             'modeloxx' => $objetoxx->VsiGenIngreso,
@@ -243,7 +243,7 @@ class VsiGenIngresosController extends Controller
                 'parentes' =>  Tema::combo(66, false, true),
                 'actividx' =>  Tema::combo(114, false, true),
                 'frecuenc' =>  Tema::combo(110, true, true),
-                'activida' =>  Tema::combo(504, true, true), // Anterior combo 23
+                'activida' =>  Tema::combo(23, true, true),
             ]];
             return response()->json($respuest);
         }

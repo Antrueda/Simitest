@@ -64,7 +64,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('prm_tieprsal_id', '6.9 ¿Presenta algún problema de salud?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tieprsal_id', $todoxxxx["condiciox"], null, ['class' => 'form-control form-control-sm select2']) }}
+        {{ Form::select('prm_tieprsal_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_probsalu_id', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
@@ -72,7 +72,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_consmedi_id', '6.10 ¿Consume medicamentos de manera permanente?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_consmedi_id', $todoxxxx["condicioxx"], null, ['class' => 'form-control form-control-sm select2']) }}
+        {{ Form::select('prm_consmedi_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_cual_medicamento', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
@@ -80,7 +80,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_tienhijo_id', '6.11 ¿Tiene hijos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tienhijo_id', $todoxxxx["condicioxxx"], null, ['class' => 'form-control form-control-sm select2']) }}
+        {{ Form::select('prm_tienhijo_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm select2']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_numero_hijos', 'No. Hijos(as)', ['class' => 'control-label col-form-label-sm']) }}

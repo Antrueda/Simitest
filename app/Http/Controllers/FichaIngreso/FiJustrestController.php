@@ -48,12 +48,9 @@ class FiJustrestController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condspoa'] = Tema::combo(454, true, false); // Anterior combo 23
-        $this->opciones['condicio'] = Tema::combo(455, true, false); // Anterior combo 23
-        $this->opciones['condiciox'] = Tema::combo(456, true, false); // Anterior combo 23
-        $this->opciones['condicioxx'] = Tema::combo(457, true, false); // Anterior combo 23
-        $this->opciones['condicioxxx'] = Tema::combo(458, true, false); // Anterior combo 23
-        $this->opciones['condnoap'] = Tema::combo(459, true, false); // Anterior combo 23
+        $this->opciones['condspoa'] = Tema::combo(23, true, false);
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
+        $this->opciones['condnoap'] = Tema::combo(23, true, false);
         $this->opciones['actupard'] = Tema::combo(25, true, false);
         $this->opciones['actusrpa'] = Tema::combo(25, true, false);
         $this->opciones['actuspoa'] = Tema::combo(25, true, false);
@@ -343,7 +340,7 @@ class FiJustrestController extends Controller
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-
+         
         $poblacio = $padrexxx->prm_estrateg_id;
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $poblacio == 2323 ? 'relajado' : 'formulario', $poblacio == 2323 ? 'relajajs' : 'js',], 'padrexxx' => $padrexxx]);
     }

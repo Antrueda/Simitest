@@ -49,9 +49,8 @@ class FiCompfamiController extends Controller
         $this->opciones['parentes'] = Tema::combo(358, true, false);
         $this->opciones['tipotele'] = Tema::combo(44, true, false);
         $this->opciones['vinculad'] = Tema::combo(287, true, false);
-        $this->opciones['convivex'] = Tema::combo(443, true, false); // Anterior combo 23
-        $this->opciones['convivexx'] = Tema::combo(444, true, false); // Anterior combo 23
-        $this->opciones['reprlega'] = Tema::combo(445, true, false); // Anterior combo 23
+        $this->opciones['convivex'] = Tema::combo(23, true, false);
+        $this->opciones['reprlega'] = Tema::combo(23, true, false);
         $this->opciones['ocupacio'] = Tema::combo(156, true, false);
         $this->opciones['tipodocu'] = Tema::combo(3, true, false);
         $this->opciones['nacicomp'] = '';
@@ -313,7 +312,7 @@ class FiCompfamiController extends Controller
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-
+         
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

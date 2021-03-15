@@ -1,7 +1,7 @@
 <?php
 $routexxx='municipi';
-$controll='Administracion\Ubicacion\Municipio';
-Route::group(['prefix' => '{padrexxx}/municipios'], function () use($routexxx,$controll){
+$controll='Administracion\Ubicacion\SisMunicipio';
+Route::group(['prefix' => 'municipios'], function () use($routexxx,$controll){
     Route::get('', [
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']

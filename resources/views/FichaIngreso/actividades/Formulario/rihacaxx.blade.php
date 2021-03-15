@@ -24,7 +24,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_pertenece_parche_id', '8.4 ¿Pertecene a algún grupo, parche u organización?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_pertenece_parche_id', $todoxxxx["condiciox"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_pertenece_parche_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_nombre_parche', 'Nombre', ['class' => 'control-label col-form-label-sm']) }}
@@ -32,13 +32,13 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_acceso_recreacion_id', '8.5 ¿Tiene acceso a recreación?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_acceso_recreacion_id', $todoxxxx["condicioxx"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_acceso_recreacion_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
 
 
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_practica_religiosa_id', '8.6 ¿Tiene prácticas religiosas?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_practica_religiosa_id', $todoxxxx["condicioxxx"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_practica_religiosa_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_religion_practica_id', '8.7 ¿Cuál religión practica?', ['class' => 'control-label col-form-label-sm']) }}

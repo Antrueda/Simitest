@@ -1,6 +1,6 @@
 <?php
 $routexxx='paisxxxx';
-$controll='Administracion\Ubicacion\Pais';
+$controll='Administracion\Ubicacion\SisPais';
 Route::group(['prefix' => 'paises'], function () use($routexxx,$controll){
     Route::get('', [
 		'uses' => $controll.'Controller@index',

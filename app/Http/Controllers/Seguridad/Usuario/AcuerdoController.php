@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Seguridad\Usuario;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ChangePasswordEditarRequest;
 use App\Models\Sistema\SisEsta;
+use App\Models\Sistema\SisMunicipio;
 use App\Models\User;
 use App\Models\Usuario\RolUsuario;
 use Illuminate\Support\Facades\Auth;

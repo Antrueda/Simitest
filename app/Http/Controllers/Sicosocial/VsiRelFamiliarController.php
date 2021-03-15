@@ -56,9 +56,7 @@ class VsiRelFamiliarController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
 
-        $this->opciones['sinoxxxx'] = Tema::combo(514, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxx'] = Tema::combo(515, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxx'] = Tema::combo(516, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['sinonaxx'] = Tema::combo(25, true, false);
         $this->opciones['familiar'] = Tema::combo(66, true, false);
         $this->opciones['motivosx'] = Tema::combo(174, false, false);
@@ -129,7 +127,7 @@ class VsiRelFamiliarController extends Controller
     public function edit(Vsi $objetoxx)
     {
 
-
+  
        // $this->opciones['padrexxx'] = $objetoxx->id;
         ///$this->opciones['parametr'] = [$objetoxx->vsi_id];
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
@@ -139,7 +137,7 @@ class VsiRelFamiliarController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-
+        
         return $this->view(['modeloxx' => $objetoxx->VsiRelFamiliar, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

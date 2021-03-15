@@ -55,7 +55,7 @@ class CsdConclusionesController extends Controller
             ->with('info', 'Por favor llene los datos basicos de la consulta primero');
         }
         //ddd($dataxxxx['padrexxx']->csd->CsdDatosBasico);
-        $this->opciones['condicix'] = Tema::combo(418, false, false); // Anterior combo 23
+        $this->opciones['condicix'] = Tema::combo(23, false, false);
         $compfami=CsdComFamiliar::where('csd_id',$dataxxxx['padrexxx']->csd_id)
         ->where('s_documento',$dataxxxx['padrexxx']->csd->CsdDatosBasico->s_documento)
         ->first();
@@ -150,7 +150,7 @@ public function edit(CsdSisNnaj $padrexxx, CsdConclusiones $modeloxx)
             'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
             'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
         ];
-
+    
     return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
 }
 

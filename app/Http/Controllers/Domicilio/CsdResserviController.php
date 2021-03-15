@@ -46,7 +46,7 @@ class CsdResserviController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicio'] = Tema::combo(434, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['servicio'] = Tema::combo(94, true, false);
         $this->opciones['botoform'] = [
             [
@@ -79,15 +79,15 @@ class CsdResserviController extends Controller
         ];
 
         $this->opciones['botoform'][0]['routingx'][1] = [$dataxxxx['padrexxx']->id, $dataxxxx['residenc']->id];
-
+ 
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-
+       
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-
+ 
 
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
@@ -135,14 +135,14 @@ class CsdResserviController extends Controller
 
     public function store(CsdResservicioCrearRequest $request, CsdSisNnaj $padrexxx)
     {
-
+        
         $request->request->add(['csd_residencia_id' => $padrexxx->csd->CsdResidencia->id]);
         $request->request->add(['sis_esta_id' => 1]);
         return $this->grabar([
-            'requestx' => $request,
-            'infoxxxx' => 'Servicio creado con éxito',
-            'padrexxx' => $padrexxx,
-            'modeloxx' => '',
+            'requestx' => $request, 
+            'infoxxxx' => 'Servicio creado con éxito', 
+            'padrexxx' => $padrexxx, 
+            'modeloxx' => '', 
             ]);
     }
 
@@ -156,7 +156,7 @@ class CsdResserviController extends Controller
     {
         //a
         $this->opciones['csdxxxxx'] = $padrexxx;
-
+        
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'servicios'], 'padrexxx' => $padrexxx,'residenc'=>$modeloxx->csd_residencia]);
     }
 
@@ -168,11 +168,7 @@ class CsdResserviController extends Controller
      */
     public function edit(CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
-<<<<<<< HEAD
-
-=======
-
->>>>>>> master
+   
         $this->opciones['csdxxxxx'] = $padrexxx;
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -196,10 +192,10 @@ class CsdResserviController extends Controller
     public function update(CsdResservicioEditRequest $request, CsdSisNnaj $padrexxx, CsdResservi $modeloxx)
     {
         return $this->grabar([
-            'requestx' => $request,
-            'infoxxxx' =>
-            'Servicio actualizado con éxito',
-            'padrexxx' => $padrexxx,
+            'requestx' => $request, 
+            'infoxxxx' => 
+            'Servicio actualizado con éxito', 
+            'padrexxx' => $padrexxx, 
             'modeloxx' => $modeloxx
             ]);
     }

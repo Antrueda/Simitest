@@ -36,7 +36,7 @@ class CsdViolenciaController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicio'] = Tema::combo(435, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['condixxx'] = Tema::combo(57, true, false);
 
 
@@ -152,7 +152,7 @@ class CsdViolenciaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-
+        
         return $this->view(['modeloxx' => $modeloxx, 'accionxx'=>['editar','formulario'], 'padrexxx' => $padrexxx]);
     }
 

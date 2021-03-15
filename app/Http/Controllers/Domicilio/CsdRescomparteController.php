@@ -45,7 +45,7 @@ class CsdRescomparteController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicio'] = Tema::combo(430, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['espaciox'] = Tema::combo(96, true, false);
         $this->opciones['botoform'] = [
             [
@@ -64,12 +64,12 @@ class CsdRescomparteController extends Controller
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
             return $this->getComparte($request);
-
+            
         }
     }
     private function view($dataxxxx)
     {
-
+        
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id, $dataxxxx['residenc']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;
         $this->opciones['pestpara'] = [$dataxxxx['padrexxx']->id];
@@ -88,8 +88,8 @@ class CsdRescomparteController extends Controller
             // $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
 
-
-
+            
+            
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
                     [
@@ -108,9 +108,9 @@ class CsdRescomparteController extends Controller
      */
     public function create(CsdSisNnaj $padrexxx,CsdResidencia $residenc)
     {
-
+        
         $this->opciones['csdxxxxx']=$padrexxx;
-
+       
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -134,7 +134,7 @@ class CsdRescomparteController extends Controller
 
 
     public function store(CsdRescomparteCrearRequest $request,CsdSisNnaj $padrexxx)
-    {
+    {   
         $request->request->add(['csd_residencia_id' => $padrexxx->csd->CsdResidencia->id]);
         $request->request->add(['sis_esta_id' =>1]);
         return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Espacio que comparte creado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
@@ -170,7 +170,7 @@ class CsdRescomparteController extends Controller
                 ];
         }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'comparte', 'js',], 'padrexxx' => $padrexxx,'residenc'=>$modeloxx->csd_residencia]);
-
+    
 
     }
 

@@ -58,10 +58,7 @@ class VsiEducacionController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
 
-        $this->opciones['sinoxxxx'] = Tema::combo(491, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxx'] = Tema::combo(492, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxx'] = Tema::combo(493, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxx'] = Tema::combo(494, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['motivosx'] = Tema::combo(205, true, false);
         $this->opciones['causasxx'] = Tema::combo(207, false, false);
         $this->opciones['rendimie'] = Tema::combo(206, true, false);
@@ -134,7 +131,7 @@ class VsiEducacionController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-
+       
 
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
@@ -143,13 +140,13 @@ class VsiEducacionController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-
+        
         return $this->view(['modeloxx' => $objetoxx->VsiEducacion, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 
     private function grabar($dataxxxx)
     {
-
+        
         $registro = VsiEducacion::transaccion($dataxxxx);
 
         return redirect()

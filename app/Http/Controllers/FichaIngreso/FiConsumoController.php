@@ -40,7 +40,7 @@ class FiConsumoController extends Controller
             . $this->opciones['permisox'] . '-crear|'
             . $this->opciones['permisox'] . '-editar|'
             . $this->opciones['permisox'] . '-borrar']);
-        $this->opciones['condicio'] = Tema::combo(446, true, false); // Anterior combo 23
+        $this->opciones['condicio'] = Tema::combo(23, true, false);
     }
     public function getListado(Request $request, FiDatosBasico $padrexxx)
     {

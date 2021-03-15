@@ -23,7 +23,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_tiendisc_id', '6.4 ¿Tiene algún tipo de discapacidad?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tiendisc_id', $todoxxxx["condicioxxxx"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_tiendisc_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_tipodisca_id', '6.4 a) Indicar tipo', ['class' => 'control-label col-form-label-sm']) }}
@@ -42,7 +42,7 @@
     @endif
     <div class="form-group col-md-4">
         {{ Form::label('prm_tieprsal_id', '6.9 ¿Presenta algún problema de salud?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tieprsal_id', $todoxxxx["condicioxxxxx"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_tieprsal_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_probsalu_id', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
@@ -50,7 +50,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_consmedi_id', '6.10 ¿Consume medicamentos de manera permanente?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_consmedi_id', $todoxxxx["condicioxxxxxx"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_consmedi_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_cual_medicamento', '¿Cuál?', ['class' => 'control-label col-form-label-sm']) }}
@@ -58,7 +58,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('prm_tienhijo_id', '6.11 ¿Tiene hijos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('prm_tienhijo_id', $todoxxxx["condicioxxxxxxx"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('prm_tienhijo_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_numero_hijos', 'No. Hijos(as)', ['class' => 'control-label col-form-label-sm']) }}

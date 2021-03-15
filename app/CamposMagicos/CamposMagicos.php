@@ -27,10 +27,18 @@ class CamposMagicos
         return $table;
     }
 
-    public static function getForeignPk($table, $campoxxx, $pk,$tablaxxx = false)
+    public static function getForeignFk($table, $campoxxx, $pk,$tablaxxx = false)
     {
         $c = CamposMagicos::armarCampo($tablaxxx, $campoxxx);
         $table->integer($c[1])->unsigned();
+        $table->foreign($c[1],$pk)->references('id')->on($c[0]);
+        return $table;
+    }
+
+    public static function getForeignFkNull($table, $campoxxx, $pk,$tablaxxx = false)
+    {
+        $c = CamposMagicos::armarCampo($tablaxxx, $campoxxx);
+        $table->integer($c[1])->nulleable()->unsigned();
         $table->foreign($c[1],$pk)->references('id')->on($c[0]);
         return $table;
     }

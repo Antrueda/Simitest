@@ -321,7 +321,7 @@
       </div>
     </div>
   </div>
-</div>
+</div>  
 <div class="row">
   <div class="col-md-12">
 @include($todoxxxx['rutacarp'].'Acomponentes.Acrud.index')
@@ -339,7 +339,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('prm_hacinam_id', '5.22 Hacinamiento', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_hacinam_id', $todoxxxx["condiciox"], null, ['class' => $errors->first('prm_hacinam_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+      {{ Form::select('prm_hacinam_id', $todoxxxx["condicio"], null, ['class' => $errors->first('prm_hacinam_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
       @if($errors->has('prm_hacinam_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('prm_hacinam_id') }}

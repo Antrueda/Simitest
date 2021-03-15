@@ -46,7 +46,7 @@ class CsdDinfamMadreController extends Controller
         $this->opciones['mesxxxxx'] = 0;
         $this->opciones['anoxxxxx'] = 0;
         $this->opciones['hijoxxxx'] = 0;
-        $this->opciones['sinoxxxx'] = Tema::combo(422, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['separaci'] = Tema::combo(176, true, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->sis_nnaj->fi_datos_basico;

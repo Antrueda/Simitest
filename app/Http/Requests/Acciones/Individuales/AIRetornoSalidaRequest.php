@@ -11,7 +11,7 @@ class AIRetornoSalidaRequest extends FormRequest
     private $_mensaje;
     private $_reglasx;
     use  ManageTimeTrait;
-    
+
     public function __construct()
     {
         $this->_mensaje = [
@@ -25,7 +25,6 @@ class AIRetornoSalidaRequest extends FormRequest
             'prm_laceracio_id.required' => 'Seleccione si tiene laceraciones o hematomas',
             'user_doc1_id.required' => 'Quien recibe al nna',
 
-            
         ];
         $this->_reglasx = [
             'prm_upi_id'     => 'required|exists:sis_depens,id',

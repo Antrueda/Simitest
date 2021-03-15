@@ -55,8 +55,8 @@ class VsiSitEspecialController extends Controller
     private function view($dataxxxx)
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
-
-        $this->opciones['sinoxxxx'] = Tema::combo(525, true, false); // Anterior combo 23
+        
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['victimax'] = Tema::combo(126, false, false);
         $this->opciones['riesgosx'] = Tema::combo(58, false, false);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
@@ -67,7 +67,7 @@ class VsiSitEspecialController extends Controller
         // indica si se esta actualizando o viendo
         $this->opciones['victimaz']='none';
         $this->opciones['riesgosz']='none';
-
+        
 
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -101,7 +101,7 @@ class VsiSitEspecialController extends Controller
      */
     public function create(Vsi $padrexxx)
     {
-
+    
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', [$padrexxx->id]],
@@ -144,7 +144,7 @@ class VsiSitEspecialController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-
+        
         return $this->view(['modeloxx' => $objetoxx->VsiSitEspecial, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

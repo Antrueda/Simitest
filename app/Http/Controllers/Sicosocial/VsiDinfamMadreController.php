@@ -78,7 +78,7 @@ class VsiDinfamMadreController extends Controller
         $this->opciones['hijoxxxx'] = 0;
 
 
-        $this->opciones['sinoxxxx'] = Tema::combo(489, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['separaci'] = Tema::combo(176, true, false);
 
 
@@ -167,7 +167,7 @@ class VsiDinfamMadreController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-
+        
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx->vsi]);
     }
 /**

@@ -1,15 +1,19 @@
 <?php
 
-namespace App\Traits\Administracion\Temas;
+namespace App\Traits\Administracion\Ubicacion;
 
 
 trait PestaniasTrait
 {
     public $pestania = [
-        ['temaxxxx', '', [],'TEMAS',true,'','Preguntas genéricas de los documentos'],
-        ['comboxxx', '', [],'COMBOS',false,'','Pregunta del documento que se esté'],
-        ['combpara', '', [],'RESPUESTAS',false,'','Respuestas asignadas al combo'],
-        ['parametr', '', [],'PARAMETROS',true,'','Respuestas para asignar'],
+        ['paisxxxx', '', [],"PAÍS",true,'','Paises'],
+        ['departam', '', [],'DEPARTAMENTO',true,'','Departamentos'],
+        ['municipi', '', [],'MUNICIPIO',true,'','Municipios'],
+        ['localida', '', [],'LOCALIDAD',true,'','Loacalidades'],
+        ['localupz', '', [],'LOCALIDAD-UPZ',false,'','Unión de la localidad con la upz'],
+        ['upzxxxxx', '', [],'UPZ',true,'','Upz'],
+        ['barriupz', '', [],'UPZ-BARRIO',false,'','Unión de la upz con el barrio'],
+        ['barrioxx', '', [],'BARRIO',true,'','Barrios'],
 
     ];
     /**

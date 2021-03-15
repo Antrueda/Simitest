@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Administracion\Ubicaion;
+namespace App\Http\Controllers\Administracion\Ubicacion;
 
 use App\Http\Controllers\Controller;
-use App\Traits\Administracion\Ubicaion\ListadosTrait;
-use App\Traits\Administracion\Ubicaion\Modulo\DataTablesModuloTrait;
-use App\Traits\Administracion\Ubicaion\Modulo\ParametrizarModuloTrait;
-use App\Traits\Administracion\Ubicaion\Modulo\VistasModuloTrait;
-use App\Traits\Administracion\Ubicaion\PestaniasTrait;
+use App\Traits\Administracion\Ubicacion\ListadosTrait;
+use App\Traits\Administracion\Ubicacion\Modulo\DataTablesModuloTrait;
+use App\Traits\Administracion\Ubicacion\Modulo\ParametrizarModuloTrait;
+use App\Traits\Administracion\Ubicacion\Modulo\VistasModuloTrait;
+use App\Traits\Administracion\Ubicacion\PestaniasTrait;
 
 class UbicacionModuloController extends Controller
 {

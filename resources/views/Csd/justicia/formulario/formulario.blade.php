@@ -20,7 +20,7 @@
   </div>
   <div class="col-md">
       {{ Form::label('prm_riesgo_id', '4.2 ¿Se encuentra en riesgo de participar en actos delictivos?', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::select('prm_riesgo_id',  $todoxxxx["condiciox"], null, ['class' => $errors->first('prm_riesgo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
+      {{ Form::select('prm_riesgo_id',  $todoxxxx["condicio"], null, ['class' => $errors->first('prm_riesgo_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'onchange' => 'doc1(this.value)']) }}
       @if($errors->has('prm_riesgo_id'))
           <div class="invalid-feedback d-block">
               {{ $errors->first('prm_riesgo_id') }}
@@ -37,5 +37,5 @@
       @endif
   </div>
 </div>
-
+  
 

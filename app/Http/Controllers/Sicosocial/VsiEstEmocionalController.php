@@ -57,14 +57,7 @@ class VsiEstEmocionalController extends Controller
     {
         $this->opciones['vsixxxxx'] = $dataxxxx['padrexxx'];
         //$dataxxxx['padrexxx'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
-        $this->opciones['sinoxxxx'] = Tema::combo(495, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxx'] = Tema::combo(496, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxx'] = Tema::combo(497, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxx'] = Tema::combo(498, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxx'] = Tema::combo(499, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxxx'] = Tema::combo(500, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxxxx'] = Tema::combo(501, true, false); // Anterior combo 23
-        $this->opciones['sinoxxxxxxxxxxx'] = Tema::combo(502, true, false); // Anterior combo 23
+        $this->opciones['sinoxxxx'] = Tema::combo(23, true, false);
         $this->opciones['sentimie'] = Tema::combo(170, true, false);
         $this->opciones['contexto'] = Tema::combo(160, false, false);
         $this->opciones['reaccion'] = Tema::combo(194, true, false);
@@ -133,7 +126,7 @@ class VsiEstEmocionalController extends Controller
      */
     public function edit(Vsi $objetoxx)
     {
-
+  
         if (auth()->user()->can($this->opciones['permisox'] . '-editar')) {
             $this->opciones['botoform'][] =
                 [
@@ -141,7 +134,7 @@ class VsiEstEmocionalController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
             }
-
+        
         return $this->view(['modeloxx' => $objetoxx->VsiEstEmocional, 'accionxx' => 'Editar', 'padrexxx' => $objetoxx]);
     }
 

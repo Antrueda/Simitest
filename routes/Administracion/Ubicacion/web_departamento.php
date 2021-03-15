@@ -1,7 +1,7 @@
 <?php
 $routexxx='departam';
-$controll='Administracion\Ubicacion\Departamento';
-Route::group(['prefix' => '{padrexxx}/departamentos'], function () use($routexxx,$controll){
+$controll='Administracion\Ubicacion\SisDepartamento';
+Route::group(['prefix' => 'departamentos'], function () use($routexxx,$controll){
     Route::get('', [
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
@@ -21,9 +21,6 @@ Route::group(['prefix' => '{padrexxx}/departamentos'], function () use($routexxx
 		'uses' => $controll.'Controller@store',
 		'middleware' => ['permission:'.$routexxx.'-crear']
     ])->name($routexxx.'.crear');
-});
-
-Route::group(['prefix' => 'departamento'], function () use($routexxx,$controll){
 
 	Route::get('editar/{modeloxx}', [
 		'uses' => $controll.'Controller@edit',
