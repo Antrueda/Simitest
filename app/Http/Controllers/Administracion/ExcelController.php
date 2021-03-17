@@ -45,7 +45,7 @@ use App\Models\fichaIngreso\FiRiesgoEscnna;
 use App\Models\fichaIngreso\FiSacramento;
 use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\FiSituacionEspecial;
-use App\Models\fichaIngreso\FiSituVulnera;
+use App\Models\fichaIngreso\FiSituacionVulneracion;
 use App\Models\fichaIngreso\FiSustanciaConsumida;
 use App\Models\fichaIngreso\FiVestuarioNnaj;
 use App\Models\fichaIngreso\FiVictataq;
@@ -74,7 +74,7 @@ class ExcelController extends Controller
             'volverax' => '',
             'rutacarp' => 'Administracion.Excel.',
             'tituloxx' => 'Subir: excel',
-            'slotxxxx' => 'excel4',
+            'slotxxxx' => 'excel',
             'carpetax' => 'Excel',
             'indecrea' => false,
             'esindexx' => false
@@ -100,6 +100,7 @@ class ExcelController extends Controller
      */
     public function index()
     {
+
         $this->opciones['tablasxx'][] =
             [
 
@@ -223,7 +224,7 @@ class ExcelController extends Controller
             echo "FiFormacion::create([
                 'id' => {$registro->id},
                 'fi_formacion_id' => {$registro->fi_formacion_id},
-                'prm_motivinc_id' => {$registro->prm_motivinc_id},
+                'i_prm_motivo_vinc_id' => {$registro->i_prm_motivo_vinc_id},
                 'user_crea_id' => {$registro->user_crea_id},
                 'user_edita_id' => {$registro->user_edita_id},
                 'sis_esta_id' => {$registro->sis_esta_id},
@@ -247,7 +248,7 @@ class ExcelController extends Controller
     {
         $excelxxx = $request->file('excelxxx');
         Excel::import(new UserImport(), $excelxxx);
-        return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
+        //return redirect()->route('excel.nuevo')->with('info', 'Registro migracion realizada con éxito');
     }
 }
 

@@ -2,7 +2,7 @@
 
 use Spatie\Permission\Models\Role;
 
-Role::create(['name' => 'AUXILIAR DE ENFERMERÍA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
+Role::find(6)
             ->givePermissionTo([
                 'contrase-editar',
                 'vsinnajs-leer',

@@ -39,9 +39,7 @@ class UsuariosSeeder extends Seeder
             $registro['password_change_at'] = date('Y-m-d', time());
             $registro['password_reset_at'] = date('Y-m-d', time());
         }
-
-
-        User::create($registro)->assignRole($dataxxxx['rolxxxxx']);
+        User::create($registro)->assignRole(strtoupper($dataxxxx['rolxxxxx']));
     }
     /**
      * Run the database seeds.
@@ -111,7 +109,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['cargoxxx'] = '1';
 
         $dataxxxx['emailxxx'] = 'solr@idipron.gov.co';
-        $dataxxxx['rolxxxxx'] = 'aux_administrativo_territorio';
+        $dataxxxx['rolxxxxx'] = 'AUXILIAR ADIMINISTRATIVO TERRITORIO';
         $dataxxxx['namexxxx'] = 'SOL MARINA RODRIGUEZ MARIN';
         $this->getR($dataxxxx); // 5
         $dataxxxx['pnombrex'] = 'LUZ';
@@ -123,7 +121,7 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['cargoxxx'] = '1';
 
         $dataxxxx['emailxxx'] = 'LUZAC@idipron.gov.co';
-        $dataxxxx['rolxxxxx'] = 'aux_administrativo_territorio';
+        $dataxxxx['rolxxxxx'] = 'AUXILIAR ADIMINISTRATIVO TERRITORIO';
         $dataxxxx['namexxxx'] = 'LUZ FARYDE AYA CORRALES';
         $this->getR($dataxxxx); // 6
 

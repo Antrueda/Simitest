@@ -33,7 +33,7 @@ class SisCargosSeeder extends Seeder
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
         SisCargo::create([//6
-            's_cargo' => 'AUXILIAR ENFERMERIA',
+            's_cargo' => 'AUXILIAR DE ENFERMERÍA',
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
         SisCargo::create([//7
@@ -61,11 +61,11 @@ class SisCargosSeeder extends Seeder
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
         SisCargo::create([//13
-            's_cargo' => 'PSICOLOGO(A)',
+            's_cargo' => 'PSICÓLOGO(A)',
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
         SisCargo::create([//14
-            's_cargo' => 'PSICOLOGO(A) CLINICO',
+            's_cargo' => 'PSICÓLOGO(A) CLINICO',
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
         SisCargo::create([//15
@@ -105,7 +105,7 @@ class SisCargosSeeder extends Seeder
 
 
         SisCargo::create([//23
-            's_cargo' => 'RESPONSABLE UPI/AREA',
+            's_cargo' => 'RESPONSABLE UPI/AREA/COORDINADOR',
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
 
@@ -162,7 +162,7 @@ class SisCargosSeeder extends Seeder
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
         SisCargo::create([//36
-            's_cargo' => 'PSICOLOGO-SOCIO LEGAL',
+            's_cargo' => 'PSICÓLOGO-SOCIO LEGAL',
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
         SisCargo::create([//37
@@ -243,7 +243,7 @@ class SisCargosSeeder extends Seeder
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
         SisCargo::create([//53
-            's_cargo' => 'PSICOLOGO CLINICO',
+            's_cargo' => 'PSICÓLOGO CLINICO',
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
 
@@ -270,7 +270,10 @@ class SisCargosSeeder extends Seeder
             's_cargo' => 'CARGO NO IDENTIFICADO',
             'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
         ]);
-
+        SisCargo::create([//59
+            's_cargo' => 'FORMADOR ESTRATEGIA CULTURA CIUDADANA',
+            'sis_esta_id' => '1', 'user_crea_id' => '1', 'user_edita_id' => '1','itiestan'=>10,'itiegabe'=>0
+        ]);
 
 
 

@@ -2,8 +2,7 @@
 
 use Spatie\Permission\Models\Role;
 
-Role::create(['name' => 'TRABAJADOR(A) SOCIAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
-            ->givePermissionTo([
+Role::find(3)->givePermissionTo([
                 'territorio-modulo','acciones-modulo','accindiv-modulo','accigrup-modulo','contrase-editar',
                 'agactividad-leer', 'agactividad-crear', 'agactividad-editar', 'agactividad-borrar',
                 'vsidabas-leer', 'vsidabas-crear', 'vsidabas-editar',

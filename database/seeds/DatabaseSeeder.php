@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
         $this->call(SisDocumentosFuentesSeeder::class);
         $this->call(SisMenusSeeder::class);
         $this->call(SisPestaniasSeeder::class);
+        $this->call(RolesSeeder::class);
         /** SEEDERS PARA LOS PERSMISOS */
+
         $this->call(FosadminSeeder::class);
         $this->call(RolesYPermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
@@ -29,9 +31,9 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesYPermisosSeeder::class);
         /** FIN SEEDERS PARA LOS PERSMISOS */
 
-
         $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosSeeder::class);
+        $this->call(UsuariosUnoSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
         $this->call(TemasTableSeeder::class);
@@ -43,6 +45,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisLocalupzSeeder::class);
         $this->call(SisUpzbarrisSeeder::class);
         $this->call(SisDepensSeeder::class);
+        $this->call(SisDepenUsuaSeeder::class);
         $this->call(SisEntidadsSeeder::class);
         $this->call(SisEnprsaSeeder::class);
         $this->call(SisEntidadSaludsSeeder::class);

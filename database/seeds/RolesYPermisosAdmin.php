@@ -2,7 +2,7 @@
 
 use Spatie\Permission\Models\Role;
 
-Role::create(['name' => 'administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo([
+Role::find(2)->givePermissionTo([
     'vsinnajs-leer',
     'vsidatbi-leer', 'vsidatbi-crear', 'vsidatbi-editar', 'vsidatbi-borrar',
 
@@ -140,9 +140,9 @@ Role::create(['name' => 'administrador', 'user_crea_id' => 1, 'user_edita_id' =>
     'fostipo-leer', 'fostipo-crear', 'fostipo-editar', 'fostipo-borrar',
     'fossubtipo-leer', 'fossubtipo-crear', 'fossubtipo-editar', 'fossubtipo-borrar',
     'agcargdoc-leer', 'agcargdoc-crear', 'agcargdoc-editar', 'agcargdoc-borrar',
-    
+
 
     'alertas-leer', 'alertas-crear', 'alertas-editar', 'alertas-borrar',
     'mensajes-leer', 'mensajes-crear', 'mensajes-editar', 'mensajes-borrar','mensajes-activarx',
-    
+
 ]);

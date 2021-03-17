@@ -443,13 +443,10 @@ class RolesYPermisosSeeder extends Seeder
 
 
         // crear roles y asignar los permisos
-        Role::create(['name' => 'super-administrador', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])->givePermissionTo(Permission::all());
+        Role::find(1)->givePermissionTo(Permission::all());
 
         require_once('RolesYPermisosPsiclinico.php');
-
-        Role::create(['name' => 'PRUEBA', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]);
-        Role::create(['name' => 'aux_administrativo_territorio', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1])
-            ->givePermissionTo([
+        Role::find(8)->givePermissionTo([
 
                 'fivestuario-crear', 'fivestuario-editar', 'fivestuario-borrar', 'firesidencia-leer', 'firesidencia-crear',
                 'firesidencia-editar', 'firesidencia-borrar', 'fiactividades-leer', 'fiactividades-crear', 'fiactividades-editar',
@@ -468,7 +465,6 @@ class RolesYPermisosSeeder extends Seeder
                 'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
                 'firedactual-borrar', 'territorio-modulo'
             ]);
-        Role::create(['name' => 'PROMOTOR (A) SOCIAL', 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1]); //10
         require_once('RolesYPermisosReferente.php'); //11 REFERENTE LOCAL
 
     }
