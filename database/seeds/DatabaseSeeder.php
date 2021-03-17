@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesSeeder::class);
         /** SEEDERS PARA LOS PERSMISOS */
 
-        $this->call(FosadminSeeder::class);
-        $this->call(RolesYPermisosUbicacionSeeder::class);
+        $this->call(PermisosFosadminSeeder::class);
+        $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
