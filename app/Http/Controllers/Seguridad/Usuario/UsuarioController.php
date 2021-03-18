@@ -75,12 +75,6 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-
-        // $respuest = Http::get('http://localhost:8085/usuarios')->json();
-        // echo '<pre>';
-        // print_r($respuest);
-
-        // ddd($respuest);
         $this->opciones['parametr'] = [];
         $this->opciones['tituhead'] = '';
         $this->opciones['botoform'][0]['routingx'][1] = [];
@@ -158,6 +152,8 @@ class UsuarioController extends Controller
         if ($dataxxxx['modeloxx'] != '') {
             $this->opciones['conperfi'] = ''; // indica si la vista va a tener perfil
             $this->opciones['usuariox'] = $dataxxxx['modeloxx'];
+            $dataxxxx['modeloxx']->d_vinculacion=explode(' ',$dataxxxx['modeloxx']->d_vinculacion)[0];
+            $dataxxxx['modeloxx']->d_finvinculacion=explode(' ',$dataxxxx['modeloxx']->d_finvinculacion)[0];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $dataxxxx['modeloxx']->dtiestan = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- {$dataxxxx['modeloxx']->itiestan} days"));
             $dataxxxx['modeloxx']->dtiegabe = date("Y-m-d", strtotime(date('Y-m-d', time()) . "- {$dataxxxx['modeloxx']->itiegabe} days"));
