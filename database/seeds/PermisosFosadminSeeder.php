@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-class RolesYPermisosUbicacionSeeder extends Seeder
+class PermisosFosadminSeeder extends Seeder
 {
     public function getPermisos($dataxxxx)
     {
@@ -15,7 +14,7 @@ class RolesYPermisosUbicacionSeeder extends Seeder
             'crear' => 'Permiso que permite crear registro para: ',
             'editar' => 'Permiso que permite editar registro para: ',
             'borrar' => 'Permiso que permite inactivar registro para: ',
-            'descarga' => 'Permiso que permite la descarga de archivos para: ',
+            'descarga'=>'Permiso que permite la descarga de archivos para: ',
             'factorxx' => 'Permioso que permite ver los: ',
             'metaxxxx' => 'Permioso que permite ver las: ',
             'psicologo' => 'Permioso que permite ver contenido de psicologo: ',
@@ -36,6 +35,7 @@ class RolesYPermisosUbicacionSeeder extends Seeder
             ]);
         }
     }
+
     /**
      * Run the database seeds.
      *
@@ -43,11 +43,52 @@ class RolesYPermisosUbicacionSeeder extends Seeder
      */
     public function run()
     {
-        // Restablecer roles y permisos en caché
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        $this->getPermisos([
+            'permisox' => 'fosadmod',
+            'permisos' => ['modulo'],
+            'compleme' => 'Módulo de FOS',
+            'pestania' => 1
+        ]);
 
-        require_once('Ubicacion.php'); // ubicaciones: pais, departamentos, municipios, localidades, upzs y barrios
+        //permisos para el crud de cague de documentos
+        $this->getPermisos([
+            'permisox' => 'fostipse',
+            'permisos' => [
+                'leer',
+                'crear',
+                'editar',
+                'borrar',
+                'activarx'
+            ],
+            'compleme' => 'FOS tipo de seguimiento',
+            'pestania' => 1
+        ]);
 
+        $this->getPermisos([
+            'permisox' => 'fosubtse',
+            'permisos' => [
+                'leer',
+                'crear',
+                'editar',
+                'borrar',
+                'activarx'
+            ],
+            'compleme' => 'FOS sub tipo de seguimiento',
+            'pestania' => 1
+        ]);
+
+        $this->getPermisos([
+            'permisox' => 'fosasignar',
+            'permisos' => [
+                'leer',
+                'crear',
+                'editar',
+                'borrar',
+                'activarx'
+            ],
+            'compleme' => 'FOS sub tipo de seguimiento',
+            'pestania' => 1
+        ]);
 
     }
 }
