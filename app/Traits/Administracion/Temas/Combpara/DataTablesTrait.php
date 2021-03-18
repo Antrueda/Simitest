@@ -23,7 +23,7 @@ trait DataTablesTrait
                     'titunuev' => "NUEVA RESPUESTA",
                     'titulist' => "LISTA DE RESPUESTAS",
                     'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                    'vercrear' => true,
+                    'vercrear' => false,
                     'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$this->opciones['padrexxx']->id]),
                     'permtabl' => [
                         $this->opciones['permisox'] . '-leer',

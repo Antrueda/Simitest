@@ -30,10 +30,10 @@ class UsuariosSeeder extends Seeder
         $registro['d_vinculacion'] = '2021-02-04';
         $registro['s_documento'] = $dataxxxx['document'];
 
-        $registro['prm_documento_id'] = 1;
+        $registro['prm_documento_id'] = 19;
 
         $registro['sis_municipio_id'] = 1;
-        if (isset($dataxxxx['excepcio'])) {
+        if ($dataxxxx['document'] == '17496705') {
             $registro['password_change_at'] = date("Y-m-d", strtotime(date('Y-m-d') . "+ 1 month"));
         } else {
             $registro['password_change_at'] = date('Y-m-d', time());
@@ -55,7 +55,6 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '17496705';
         $dataxxxx['telefono'] = '3173809970';
         $dataxxxx['cargoxxx'] = '1';
-        $dataxxxx['excepcio'] = '';
         $dataxxxx['emailxxx'] = 'josej@idipron.gov.co';
         $dataxxxx['rolxxxxx'] = 'super-administrador';
         $dataxxxx['namexxxx'] = 'Usuario Super Administrador';
@@ -258,7 +257,6 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['document'] = '53131394';
         $dataxxxx['telefono'] = '3143459735';
         $dataxxxx['cargoxxx'] = '21';
-
         $dataxxxx['emailxxx'] = 'ladydiaz.08@gmail.com';
         $dataxxxx['rolxxxxx'] = 'PROMOTOR (A) SOCIAL';
         $dataxxxx['namexxxx'] = 'LEIDY MABEL DIAZ CAÑIZALES';
