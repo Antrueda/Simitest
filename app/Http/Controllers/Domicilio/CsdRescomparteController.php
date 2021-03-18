@@ -150,7 +150,7 @@ class CsdRescomparteController extends Controller
     public function show(CsdSisNnaj $padrexxx,CsdRescomparte $modeloxx)
     {
         $this->opciones['csdxxxxx']=$padrexxx;
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'comparte'], 'padrexxx' => $padrexxx]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'comparte'], 'padrexxx' => $padrexxx,'residenc'=>$modeloxx->csd_residencia]);
     }
 
     /**
