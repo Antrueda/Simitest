@@ -55,6 +55,7 @@ use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajFiCsd;
 use App\Models\Parametro;
+use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Sistema\SisNnaj;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -160,24 +161,74 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = FiDocumentosAnexa::get();
+        $dataxxxx = GeUpi::get();
         foreach ($dataxxxx as $registro) {
-            echo "FiDocumentosAnexa::create([
-                'id' => {$registro->id},
-                's_ruta' => '{$registro->s_ruta}',
-                'fi_razone_id' => {$registro->fi_razone_id},
-                'i_prm_documento_id' => {$registro->i_prm_documento_id},
-                'user_crea_id' => {$registro->user_crea_id},
-                'user_edita_id' => {$registro->user_edita_id},
-                'sis_esta_id' => {$registro->sis_esta_id},
-                'created_at' => '{$registro->created_at}',
-                'updated_at' => '{$registro->updated_at}',
-
+            echo "SisDepen::create([
+                'nombre' => '{$registro->nombre}',
+                'i_prm_sexo_id' => 2324,
+                's_direccion' => '{$registro->direccion}',
+                's_telefono' => {$registro->telefonos},
+                'i_prm_cvital_id' => 1679,
+                'i_prm_tdependen_id' => 774,
+                'i_prm_sexo_id' => 2324,
+                'user_edita_id' => 1,
+                'user_crea_id' => 1,
+                'sis_esta_id' => 1,
+                'sis_departam_id' => 6,
+                'sis_municipio_id' => 233,
+                'sis_upzbarri_id' => 1510,
+                'itiestan' => 0, 'itiegabe' => 0,
             ]); <br />";;
         }
     }
 
     /*
+    'id_upi',
+            'nombre',
+            'sexo',
+            'direccion',
+            'id_localidad',
+            'id_barrio',
+            'telefonos',
+            'correo_electronico',
+            'fecha_insercion',
+            'usuario_insercion',
+            'fecha_modificacion',
+            'usuario_modificacion',
+            'id_area_padre',
+            'tipo_area',
+            'estado',
+            'ciclo_vital',
+            'codigo_municipio',
+            'tiempo_actualizacion',
+            'tipo_dependencia',
+            'tipo_egreso',
+            'centro_costo',
+            'auxiliar',
+            'capacidad_instalada',
+            'observaciones',
+
+            'id',
+                'nombre',
+                'i_prm_cvital_id',
+                'i_prm_tdependen_id',
+
+                'i_prm_sexo_id',
+                's_direccion',
+                'sis_departam_id',
+                'sis_municipio_id',
+                'estusuario_id',
+                'simianti_id',
+                'sis_upzbarri_id',
+                's_telefono',
+                's_correo',
+                'itiestan',
+                'itiegabe',
+                'itigafin',
+                'user_crea_id',
+                'user_edita_id',
+                'sis_esta_id',
+
 
     public function armarSeeder()
     {

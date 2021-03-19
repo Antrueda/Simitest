@@ -22,10 +22,10 @@ Route::group(['prefix' => 'fi'], function () use($routexxx,$controll){
     ])->name($routexxx.'.agregar');
 
 
-    // Route::get('prueba', [
-	//     'uses' => $controll.'Controller@agregar',
-	//     'middleware' => ['permission:'.$routexxx.'-crear']
-    // ])->name($routexxx.'.prueba');
+    Route::get('prueba', [
+	    'uses' => $controll.'Controller@agregar',
+	    'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.prueba');
 
     Route::post('adicionar', [
 	    'uses' => $controll.'Controller@adicionar',
