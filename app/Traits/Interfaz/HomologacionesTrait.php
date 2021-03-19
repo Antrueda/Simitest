@@ -283,6 +283,27 @@ trait HomologacionesTrait
                         $valoresx = ['S' => 'SI', 'N' => 'NO'];
                         $multival->descripcion = $valoresx[$multival->descripcion];
                     }
+                break;
+                
+                case 20:
+                    if ($multival->descripcion == 'NINGUNO' ) {
+                        $valoresx = ['NINGUNO' => 'NINGUNO DE LOS ANTERIORES'];
+                        $multival->descripcion = $valoresx[$multival->descripcion];
+                    }
+                break;
+
+                case 19:
+                    if ($multival->descripcion == 'UNION LIBRE' ) {
+                        $valoresx = ['UNION LIBRE' => 'UNIÓN LIBRE'];
+                        $multival->descripcion = $valoresx[$multival->descripcion];
+                    }
+                break;
+
+                case 33:
+                        if ($multival->descripcion == 'PRIMERA' || $multival->descripcion == 'SEGUNDA') {
+                            $valoresx = ['PRIMERA' => '1. RA', 'SEGUNDA' => '2. DA'];
+                            $multival->descripcion = $valoresx[$multival->descripcion];
+                        }    
 
                     break;
                 case 20:

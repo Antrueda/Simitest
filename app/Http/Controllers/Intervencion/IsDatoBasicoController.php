@@ -141,7 +141,7 @@ class IsDatoBasicoController extends Controller
         }
         $fechaxxx[2] = cal_days_in_month(CAL_GREGORIAN, $fechaxxx[1], $fechaxxx[0]) + $fechaxxx[2];
         $this->opciones['usuarios'] = User::getUsuario(false, false);
-        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[2,3,7]]);
+        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[4,3,7]]);
         $this->opciones['tipatenc'] = [];
         $tipatenc = 0;
         if (auth()->user()->can('intervención sicosocial especializada')) {
@@ -431,7 +431,7 @@ class IsDatoBasicoController extends Controller
     {
         if ($request->ajax()) {
             $camposxx=['i_primer_responsable'=>'#i_segundo_responsable','i_segundo_responsable'=>'#i_primer_responsable'];
-            $usuarios = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx],'rolxxxxx'=>[2,3]]);
+            $usuarios = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx],'rolxxxxx'=>[4,3,7]]);
             return response()->json(['dataxxxx'=>$usuarios,'comboxxx'=>$camposxx[$request->comboxxx]]);
         }
     }

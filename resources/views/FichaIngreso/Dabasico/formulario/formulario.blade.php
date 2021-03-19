@@ -130,7 +130,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('sis_pai_id', '1.6 País de Nacimiento', ['class' => 'control-label']) }}
-        {{ Form::select('sis_pai_id', $todoxxxx['pais_idx'], null, ['class' => $errors->first('sis_pai_id') ? 'form-control sispaisx form-control-sm is-invalid' : 'form-control sispaisx form-control-sm']) }}
+        {{ Form::select('sis_pai_id', $todoxxxx['pais_idx'], null, ['class' => $errors->first('sis_pai_id') ? 'form-control sispaisx form-control-sm is-invalid' : 'form-control sispaisx form-control-sm','style' => 'text-transform:uppercase;',"onkeyup" => "javascript:this.value=this.value.toUpperCase()"]) }}
         @if($errors->has('sis_pai_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_pai_id') }}
@@ -242,7 +242,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('sis_paiexp_id', '1.14 País de Expedición', ['class' => 'control-label']) }}
-        {{ Form::select('sis_paiexp_id', $todoxxxx['pais_idx'], null, ['class' => $errors->first('sis_paiexp_id') ? 'form-control sispaisx form-control-sm is-invalid' : 'form-control sispaisx form-control-sm']) }}
+        {{ Form::select('sis_paiexp_id', $todoxxxx['pais_idx'], null, ['class' => $errors->first('sis_paiexp_id') ? 'form-control sispaisx form-control-sm is-invalid' : 'form-control sispaisx form-control-sm','style' => 'text-transform:uppercase;',"onkeyup" => "javascript:this.value=this.value.toUpperCase()"]) }}
         @if($errors->has('sis_paiexp_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_paiexp_id') }}

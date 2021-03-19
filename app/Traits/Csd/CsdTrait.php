@@ -434,6 +434,7 @@ trait CsdTrait
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
             ->join('sis_estas', 'csd_sis_nnaj.sis_esta_id', '=', 'sis_estas.id')
             ->where('nnaj_upis.prm_principa_id', 227)
+            ->where('csd_sis_nnaj.sis_esta_id', 1)
             ->where('csd_sis_nnaj.csd_id', $request->csdxxxxx);
         return $this->getDtAcciones($dataxxxx, $request);
     }
