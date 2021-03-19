@@ -17,7 +17,7 @@ class CsdViolencia extends Model{
     'municipio_cond_id', 'prm_certificado_id', 'departamento_cert_id', 'municipio_cert_id',
     'user_crea_id', 'user_edita_id', 'sis_esta_id','prm_tipofuen_id'];
 
-    protected $attributes = ['user_crea_id'=>1,'user_edita_id'=>1];
+    
 
     public function csd(){
         return $this->belongsTo(Csd::class, 'csd_id');

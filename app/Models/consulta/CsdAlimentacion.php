@@ -16,7 +16,7 @@ class CsdAlimentacion extends Model{
     'prm_apoyo_id', 'prm_entidad_id','prm_tipofuen_id'
   ];
 
-  protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+
 
   public function csd(){
     return $this->belongsTo(Csd::class, 'csd_id');
@@ -87,25 +87,25 @@ public static function transaccion($dataxxxx,$objetoxx)
     $objetoxx->prepara()->detach();
     if($dataxxxx['prepara']){
         foreach ($dataxxxx['prepara'] as $d) {
-            $objetoxx->prepara()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+            $objetoxx->prepara()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'prm_tipofuen_id'=>2315]);
         }
     }
     $objetoxx->frecuencia()->detach();
     if($dataxxxx['frecuencia']){
         foreach ($dataxxxx['frecuencia'] as $d) {
-            $objetoxx->frecuencia()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+            $objetoxx->frecuencia()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'prm_tipofuen_id'=>2315]);
         }
     }
     $objetoxx->ingeridas()->detach();
     if($dataxxxx['ingeridas']){
         foreach ($dataxxxx['ingeridas'] as $d) {
-            $objetoxx->ingeridas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+            $objetoxx->ingeridas()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'prm_tipofuen_id'=>2315]);
         }
     }
     $objetoxx->compra()->detach();
     if($dataxxxx['compra']){
         foreach ($dataxxxx['compra'] as $d) {
-            $objetoxx->compra()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+            $objetoxx->compra()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'prm_tipofuen_id'=>2315]);
         }
     }
 

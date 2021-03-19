@@ -14,7 +14,7 @@ class VsiRedSocial extends Model{
         'vsi_id', 'prm_presenta_id', 'prm_protector_id', 'prm_dificultad_id', 'prm_quien_id', 'prm_ruptura_genero_id', 'prm_ruptura_sexual_id', 'prm_acceso_id', 'prm_servicio_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+    
 
     public function vsi(){
         return $this->belongsTo(Vsi::class, 'vsi_id');
@@ -81,21 +81,21 @@ class VsiRedSocial extends Model{
             if ($dataxxxx['requestx']->prm_acceso_id == 228) {
                 $dataxxxx['requestx']->request->add(['accesos'=>[]]);
             }
-            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->motivos()->detach();
                 $dataxxxx['modeloxx']->accesos()->detach();
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiRedSocial::create($dataxxxx['requestx']->all());
             }
 
             foreach ($dataxxxx['requestx']->motivos as $d) {
-                $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
             }
             foreach ($dataxxxx['requestx']->accesos as $d) {
-                $dataxxxx['modeloxx']->accesos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dataxxxx['modeloxx']->accesos()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
             }
 
             return $dataxxxx['modeloxx'];

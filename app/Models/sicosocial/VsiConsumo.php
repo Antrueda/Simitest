@@ -14,7 +14,7 @@ class VsiConsumo extends Model{
         'vsi_id', 'prm_consumo_id', 'cantidad', 'inicio', 'prm_contexto_ini_id', 'prm_consume_id', 'prm_contexto_man_id', 'prm_problema_id', 'porque', 'prm_motivo_id', 'prm_familia_id', 'descripcion', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+    
 
     public function vsi(){
         return $this->belongsTo(Vsi::class, 'vsi_id');
@@ -84,23 +84,24 @@ class VsiConsumo extends Model{
                 $dataxxxx['requestx']->request->add(['quienes' => null]);
             }
 
-            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiConsumo::create($dataxxxx['requestx']->all());
             }
             $dataxxxx['modeloxx']->quienes()->detach();
             if($dataxxxx['requestx']->quienes){
                 foreach ($dataxxxx['requestx']->quienes as $d) {
-                    $dataxxxx['modeloxx']->quienes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->quienes()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
+                
                 }
             }
             $dataxxxx['modeloxx']->expectativas()->detach();
             if($dataxxxx['requestx']->expectativas){
                 foreach ($dataxxxx['requestx']->expectativas as $d) {
-                    $dataxxxx['modeloxx']->expectativas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->expectativas()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             return $dataxxxx['modeloxx'];

@@ -14,7 +14,7 @@ class VsiAbuSexual extends Model{
         'vsi_id', 'prm_evento_id', 'dia', 'mes', 'ano', 'prm_momento_id', 'prm_persona_id', 'prm_tipo_id', 'dia_ult', 'mes_ult', 'ano_ult', 'prm_momento_ult_id', 'prm_persona_ult_id', 'prm_tipo_ult_id', 'prm_convive_id', 'prm_presencia_id', 'prm_reconoce_id', 'prm_apoyo_id', 'prm_denuncia_id', 'prm_terapia_id', 'prm_estado_id', 'informacion', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+    
 
     public function vsi(){
         return $this->belongsTo(Vsi::class, 'vsi_id');
@@ -116,11 +116,11 @@ class VsiAbuSexual extends Model{
                 $dataxxxx['requestx']->request->add(["informacion" => null]);
             }
 
-            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiAbuSexual::create($dataxxxx['requestx']->all());
             }
 

@@ -26,7 +26,7 @@ class CsdComFamiliar extends Model{
     'prm_peso_id',       'prm_peso_dos_id',   'prm_leer_id',       'prm_escribir_id',
     'prm_operaciones_id','prm_aprobado_id',   'prm_educacion_id',  'prm_estudia_id', 'prm_tipofuen_id'
   ];
-  protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+
 
   public function csd(){
     return $this->belongsTo(Csd::class, 'csd_id');

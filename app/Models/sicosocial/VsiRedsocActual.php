@@ -14,7 +14,7 @@ class VsiRedsocActual extends Model{
         'vsi_id', 'prm_tipo_id', 'nombre', 'servicio', 'telefono', 'direccion', 'user_crea_id', 'user_edita_id', 'sis_esta_id',
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+    
 
     public function vsi(){
         return $this->belongsTo(Vsi::class, 'vsi_id');
@@ -36,11 +36,11 @@ class VsiRedsocActual extends Model{
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
 
-            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiRedsocActual::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];

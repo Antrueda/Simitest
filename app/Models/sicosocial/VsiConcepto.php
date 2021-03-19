@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\DB;
 class VsiConcepto extends Model{
     protected $fillable = ['vsi_id', 'concepto', 'prm_ingreso_id', 'porque', 'cual', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
-	protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
-
 	public function vsi(){
         return $this->belongsTo(Vsi::class, 'vsi_id');
     }
@@ -36,18 +34,21 @@ class VsiConcepto extends Model{
 
     public static function transaccion($dataxxxx)
     {
+        
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
-            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+   
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiConcepto::create($dataxxxx['requestx']->all());
+               
             }
             $dataxxxx['modeloxx']->redes()->detach();
             if($dataxxxx['requestx']->redes){
                 foreach ($dataxxxx['requestx']->redes as $d) {
-                    $dataxxxx['modeloxx']->redes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->redes()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
 

@@ -16,7 +16,7 @@ class VsiRelSociale extends Model{
         'sis_esta_id'
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+    
 
     public function vsi(){
         return $this->belongsTo(Vsi::class, 'vsi_id');
@@ -59,11 +59,11 @@ class VsiRelSociale extends Model{
 
             $dataxxxx['modeloxx']->facilitas()->detach();
             foreach ($dataxxxx['requestx']->facilitas as $d) {
-                $dataxxxx['modeloxx']->facilitas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dataxxxx['modeloxx']->facilitas()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
             }
             $dataxxxx['modeloxx']->dificultades()->detach();
             foreach ($dataxxxx['requestx']->dificultades as $d) {
-                $dataxxxx['modeloxx']->dificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dataxxxx['modeloxx']->dificultades()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
             }
             return $dataxxxx['modeloxx'];
         }, 5);

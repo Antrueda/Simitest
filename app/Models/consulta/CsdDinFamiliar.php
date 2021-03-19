@@ -18,7 +18,7 @@ class CsdDinFamiliar extends Model{
     's_doc_adjunto',
     'prm_positivo_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id','prm_tipofuen_id'];
 
-    protected $attributes = ['user_crea_id'=>1,'user_edita_id'=>1];
+
 
     public function csd(){
         return $this->belongsTo(Csd::class, 'csd_id');
@@ -126,42 +126,42 @@ class CsdDinFamiliar extends Model{
         if($rutaxxxx!=false){
            $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
         }
-        $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+        $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
         if ($dataxxxx['modeloxx'] != '') {
             $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
         } else {
-            $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+            $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
             $dataxxxx['modeloxx'] = CsdDinFamiliar::create($dataxxxx['requestx']->all());
         }
         if($dataxxxx['requestx']->antecedentes){
             $dataxxxx['modeloxx']->antecedentes()->detach();
             foreach ($dataxxxx['requestx']->antecedentes as $d) {
-                $dataxxxx['modeloxx']->antecedentes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315 ]);
+                $dataxxxx['modeloxx']->antecedentes()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'prm_tipofuen_id'=>2315]);
             }
         }
         if($dataxxxx['requestx']->problemas){
             $dataxxxx['modeloxx']->problemas()->detach();
             foreach ($dataxxxx['requestx']->problemas as $d) {
-                $dataxxxx['modeloxx']->problemas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+                $dataxxxx['modeloxx']->problemas()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'prm_tipofuen_id'=>2315]);
             }
         }
         if($dataxxxx['requestx']->normas){
             $dataxxxx['modeloxx']->normas()->detach();
             foreach ($dataxxxx['requestx']->normas as $d) {
-                $dataxxxx['modeloxx']->normas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+                $dataxxxx['modeloxx']->normas()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'prm_tipofuen_id'=>2315]);
             }
         }
         if($dataxxxx['requestx']->establecen){
             $dataxxxx['modeloxx']->establecen()->detach();
             foreach ($dataxxxx['requestx']->establecen as $d) {
-                $dataxxxx['modeloxx']->establecen()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+                $dataxxxx['modeloxx']->establecen()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'prm_tipofuen_id'=>2315]);
             }
         }
 
       if($dataxxxx['requestx']->incumple){
             $dataxxxx['modeloxx']->incumple()->detach();
             foreach ($dataxxxx['requestx']->incumple as $d) {
-                $dataxxxx['modeloxx']->incumple()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+                $dataxxxx['modeloxx']->incumple()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'prm_tipofuen_id'=>2315]);
             }
         }
 

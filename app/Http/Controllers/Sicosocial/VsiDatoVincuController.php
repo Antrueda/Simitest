@@ -197,14 +197,14 @@ class VsiDatoVincuController extends Controller
         $datoxxxx->emociones()->detach();
         $datoxxxx->personas()->detach();
         foreach ($dataxxxx['dataxxxx']['situaciones'] as $d) {
-            $datoxxxx->situaciones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $datoxxxx->situaciones()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
         }
         foreach ($dataxxxx['dataxxxx']['emociones'] as $d) {
-            $datoxxxx->emociones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $datoxxxx->emociones()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
         }
 
         foreach ($dataxxxx['dataxxxx']['personas'] as $d) {
-            $datoxxxx->personas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $datoxxxx->personas()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
         }
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$datoxxxx->id])

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class VsiDatosVincula extends Model{
     protected $fillable = ['vsi_id', 'prm_razon_id', 'dia', 'mes', 'ano', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+    
 
     public function vsi(){
         return $this->belongsTo(Vsi::class, 'vsi_id');

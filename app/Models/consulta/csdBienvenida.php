@@ -15,7 +15,7 @@ class CsdBienvenida extends Model{
     'csd_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id', 'prm_persona_id','prm_tipofuen_id'
   ];
 
-  protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+  
 
   public function csd(){
     return $this->belongsTo(Csd::class, 'csd_id');
@@ -53,7 +53,7 @@ class CsdBienvenida extends Model{
           $dataxxxx['modeloxx']->motivos()->detach();
           if($dataxxxx['requestx']->motivos){
             foreach ( $dataxxxx['requestx']->motivos as $d) {
-                  $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1,'prm_tipofuen_id'=>2315]);
+                  $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id,'prm_tipofuen_id'=>2315]);
               }
           }
           return $dataxxxx['modeloxx'];

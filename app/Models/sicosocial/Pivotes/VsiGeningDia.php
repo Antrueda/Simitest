@@ -15,8 +15,5 @@ class VsiGeningDia extends Model
         'sis_esta_id',
     ];
 
-    protected $attributes = [
-        'user_crea_id' => 1,
-        'user_edita_id' => 1
-    ];
+
 }

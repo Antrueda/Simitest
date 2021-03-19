@@ -35,7 +35,7 @@ class VsiRelFamiliar extends Model
         'sis_esta_id',
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+    
 
     public function vsi()
     {
@@ -136,31 +136,31 @@ class VsiRelFamiliar extends Model
                 $dataxxxx['requestx']->prm_responde_id = null;
                 $dataxxxx['requestx']->descripcion1 = null;
             }
-            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 //ddd( $dataxxxx['requestx']->all() );
-                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiRelFamiliar::create($dataxxxx['requestx']->all());
 
             }
             $dataxxxx['modeloxx']->motivos()->detach();
             if($dataxxxx['requestx']->motivos){
                 foreach ($dataxxxx['requestx']->motivos as $d) {
-                   $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                   $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             $dataxxxx['modeloxx']->famDificultades()->detach();
             if($dataxxxx['requestx']->famDificultades){
                 foreach ($dataxxxx['requestx']->famDificultades as $d) {
-                   $dataxxxx['modeloxx']->famDificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                   $dataxxxx['modeloxx']->famDificultades()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             $dataxxxx['modeloxx']->acciones()->detach();
             if($dataxxxx['requestx']->acciones){
                 foreach ($dataxxxx['requestx']->acciones as $d) {
-                   $dataxxxx['modeloxx']->acciones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                   $dataxxxx['modeloxx']->acciones()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
 

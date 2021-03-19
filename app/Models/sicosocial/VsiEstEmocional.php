@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class VsiEstEmocional extends Model{
 	protected $fillable = ['vsi_id', 'prm_siente_id', 'descripcion_siente', 'prm_reacciona_id', 'descripcion_reacciona', 'descripcion_adecuado', 'descripcion_dificulta', 'prm_estresante_id', 'descripcion_estresante', 'prm_morir_id', 'dia_morir', 'mes_morir', 'ano_morir', 'prm_pensamiento_id', 'prm_amenaza_id', 'prm_intento_id', 'ideacion', 'amenaza', 'intento', 'prm_riesgo_id', 'dia_ultimo', 'mes_ultimo', 'ano_ultimo', 'descripcion_motivo', 'prm_lesiva_id', 'descripcion_lesiva', 'prm_sueno_id', 'dia_sueno', 'mes_sueno', 'ano_sueno', 'descripcion_sueno', 'prm_alimenticio_id', 'dia_alimenticio', 'mes_alimenticio', 'ano_alimenticio', 'descripcion_alimenticio', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
 
-	protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+	
 
 	public function vsi(){
         return $this->belongsTo(Vsi::class, 'vsi_id');
@@ -145,20 +145,20 @@ class VsiEstEmocional extends Model{
             $dataxxxx['modeloxx']->adecuados()->detach();
             if($dataxxxx['requestx']->adecuados){
                 foreach ($dataxxxx['requestx']->adecuados as $d) {
-                    $dataxxxx['modeloxx']->adecuados()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->adecuados()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
 
            $dataxxxx['modeloxx']->contexto()->detach();
             if($dataxxxx['requestx']->contexto){
                 foreach ($dataxxxx['requestx']->contexto as $d) {
-                    $dataxxxx['modeloxx']->contexto()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->contexto()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             $dataxxxx['modeloxx']->dificultades()->detach();
             if($dataxxxx['requestx']->dificultades){
                 foreach ($dataxxxx['requestx']->dificultades as $d) {
-                    $dataxxxx['modeloxx']->dificultades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->dificultades()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
 
@@ -166,14 +166,14 @@ class VsiEstEmocional extends Model{
             $dataxxxx['modeloxx']->estresantes()->detach();
             if($dataxxxx['requestx']->estresantes){
                 foreach ($dataxxxx['requestx']->estresantes as $d) {
-                    $dataxxxx['modeloxx']->estresantes()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->estresantes()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
 
             $dataxxxx['modeloxx']->motivos()->detach();
             if($dataxxxx['requestx']->motivos){
                 foreach ($dataxxxx['requestx']->motivos as $d) {
-                    $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->motivos()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
 
@@ -181,7 +181,7 @@ class VsiEstEmocional extends Model{
             $dataxxxx['modeloxx']->lesivas()->detach();
             if($dataxxxx['requestx']->lesivas){
                 foreach ($dataxxxx['requestx']->lesivas as $d) {
-                    $dataxxxx['modeloxx']->lesivas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->lesivas()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
 

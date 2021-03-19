@@ -11,6 +11,7 @@ use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\Auth;
 
 class VsiBienvenidaController extends Controller
 {
@@ -141,7 +142,8 @@ class VsiBienvenidaController extends Controller
         $registro = VsiBienvenida::transaccion($dataxxxx['dataxxxx'], $dataxxxx['modeloxx']);
         $registro->motivos()->detach();
         foreach ($dataxxxx['dataxxxx']['motivos'] as $d) {
-            $registro->motivos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+            $registro->motivos()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
+            
         }
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$registro->vsi_id])

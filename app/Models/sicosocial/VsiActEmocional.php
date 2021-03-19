@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class VsiActEmocional extends Model{
 	protected $fillable = ['vsi_id', 'prm_activa_id', 'descripcion', 'conductual', 'cognitiva', 'user_crea_id', 'user_edita_id', 'sis_esta_id'];
 
-	protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+	
 
 	public function vsi(){
         return $this->belongsTo(Vsi::class, 'vsi_id');
@@ -44,17 +44,17 @@ class VsiActEmocional extends Model{
             }
 
 
-            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiActEmocional::create($dataxxxx['requestx']->all());
             }
             $dataxxxx['modeloxx']->fisiologicas()->detach();
             if($dataxxxx['requestx']->fisiologicas){
                 foreach ($dataxxxx['requestx']->fisiologicas as $d) {
-                    $dataxxxx['modeloxx']->fisiologicas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->fisiologicas()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             return $dataxxxx['modeloxx'];

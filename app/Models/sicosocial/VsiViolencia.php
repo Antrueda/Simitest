@@ -45,7 +45,7 @@ class VsiViolencia extends Model
         'sis_esta_id',
     ];
 
-    protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
+    
 
     public function vsi()
     {
@@ -251,23 +251,23 @@ class VsiViolencia extends Model
                 $request["tipos"] = null;
             }
 
-            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiViolencia::create($dataxxxx['requestx']->all());
             }
             if ($dataxxxx['requestx']->contextos) {
                 $dataxxxx['modeloxx']->contextos()->detach();
                 foreach ($dataxxxx['requestx']->contextos as $d) {
-                    $dataxxxx['modeloxx']->contextos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->contextos()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             if ($dataxxxx['requestx']->tipos) {
                 $dataxxxx['modeloxx']->tipos()->detach();
                 foreach ($dataxxxx['requestx']->tipos as $d) {
-                    $dataxxxx['modeloxx']->tipos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->tipos()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             return $dataxxxx['modeloxx'];

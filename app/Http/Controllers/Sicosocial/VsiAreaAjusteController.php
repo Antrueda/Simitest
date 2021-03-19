@@ -11,6 +11,7 @@ use App\Traits\Vsi\VsiTrait;
 use App\Models\sicosocial\Vsi;
 use App\Models\Tema;
 use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\Auth;
 
 class VsiAreaAjusteController extends Controller
 {
@@ -147,37 +148,37 @@ class VsiAreaAjusteController extends Controller
 
         if($dataxxxx['requestx']->emocionales){
             foreach ($dataxxxx['requestx']->emocionales as $d) {
-                $dataxxxx['modeloxx']->emocionales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dataxxxx['modeloxx']->emocionales()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
             }
         }
        
         if($dataxxxx['requestx']->sexuales){
             foreach ($dataxxxx['requestx']->sexuales as $d) {
-                $dataxxxx['modeloxx']->sexuales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dataxxxx['modeloxx']->sexuales()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
             }
         }
       
         if($dataxxxx['requestx']->comportamentales){
             foreach ($dataxxxx['requestx']->comportamentales as $d) {
-                $dataxxxx['modeloxx']->comportamentales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dataxxxx['modeloxx']->comportamentales()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
             }
         }
       
         if($dataxxxx['requestx']->academicas){
             foreach ($dataxxxx['requestx']->academicas as $d) {
-                $dataxxxx['modeloxx']->academicas()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dataxxxx['modeloxx']->academicas()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
             }
         }
         
         if($dataxxxx['requestx']->sociales){
             foreach ($dataxxxx['requestx']->sociales as $d) {
-                $dataxxxx['modeloxx']->sociales()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dataxxxx['modeloxx']->sociales()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
             }
         }
       
         if($dataxxxx['requestx']->familiares){
             foreach ($dataxxxx['requestx']->familiares as $d) {
-                $dataxxxx['modeloxx']->familiares()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                $dataxxxx['modeloxx']->familiares()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
             }
         }
 

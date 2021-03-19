@@ -21,7 +21,7 @@ class VsiDinFamiliar extends Model{
     'user_edita_id',
     'sis_esta_id'];
 
-    protected $attributes = ['user_crea_id'=>1,'user_edita_id'=>1];
+    
 
     public function vsi(){
         return $this->belongsTo(Vsi::class, 'vsi_id');
@@ -84,59 +84,59 @@ class VsiDinFamiliar extends Model{
             if($rutaxxxx!=false){
                $dataxxxx['requestx']->request->add(['s_doc_adjunto'=> $rutaxxxx]);
             }
-            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = VsiDinFamiliar::create($dataxxxx['requestx']->all());
             }
             if($dataxxxx['requestx']->calles){
                 $dataxxxx['modeloxx']->calles()->detach();
                 foreach ($dataxxxx['requestx']->calles as $d) {
-                    $dataxxxx['modeloxx']->calles()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->calles()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             if($dataxxxx['requestx']->delitos){
                 $dataxxxx['modeloxx']->delitos()->detach();
                 foreach ($dataxxxx['requestx']->delitos as $d) {
-                    $dataxxxx['modeloxx']->delitos()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->delitos()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             if($dataxxxx['requestx']->prostituciones){
                 $dataxxxx['modeloxx']->prostituciones()->detach();
                 foreach ($dataxxxx['requestx']->prostituciones as $d) {
-                    $dataxxxx['modeloxx']->prostituciones()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->prostituciones()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             if($dataxxxx['requestx']->libertades){
                 $dataxxxx['modeloxx']->libertades()->detach();
                 foreach ($dataxxxx['requestx']->libertades as $d) {
-                    $dataxxxx['modeloxx']->libertades()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->libertades()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             if($dataxxxx['requestx']->consumo){
                 $dataxxxx['modeloxx']->consumo()->detach();
                 foreach ($dataxxxx['requestx']->consumo as $d) {
-                    $dataxxxx['modeloxx']->consumo()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->consumo()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             if($dataxxxx['requestx']->salud){
                 $dataxxxx['modeloxx']->salud()->detach();
                 foreach ($dataxxxx['requestx']->salud as $d) {
-                    $dataxxxx['modeloxx']->salud()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->salud()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             if($dataxxxx['requestx']->cuidador){
                 $dataxxxx['modeloxx']->cuidador()->detach();
                 foreach ($dataxxxx['requestx']->cuidador as $d) {
-                    $dataxxxx['modeloxx']->cuidador()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->cuidador()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             if($dataxxxx['requestx']->ausencia){
                 $dataxxxx['modeloxx']->ausencia()->detach();
                 foreach ($dataxxxx['requestx']->ausencia as $d) {
-                    $dataxxxx['modeloxx']->ausencia()->attach($d, ['user_crea_id' => 1, 'user_edita_id' => 1]);
+                    $dataxxxx['modeloxx']->ausencia()->attach($d, ['user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id]);
                 }
             }
             return $dataxxxx['modeloxx'];

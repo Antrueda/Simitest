@@ -52,7 +52,7 @@ class CreateHAiReporteEvasionsTable extends Migration
             $table->integer('user_doc1_id')->unsigned();
             $table->integer('user_doc2_id')->unsigned();
             $table->integer('responsable')->unsigned();
-            $table->string('institución', 120)->nullable();
+            $table->string('institucion', 120)->nullable();
             $table->string('nombre_recibe', 120)->nullable();
             $table->string('cargo_recibe', 120)->nullable();
             $table->string('placa_recibe', 120)->nullable();

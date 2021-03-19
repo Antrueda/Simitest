@@ -81,11 +81,11 @@ class FiDocumentosAnexa extends Model
 
                 $dataxxxx['requestx']->request->add(['s_ruta' => $rutaxxxx]);
             }
-            $dataxxxx['requestx']->user_edita_id = Auth::user()->id;
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if ($dataxxxx['modeloxx'] != '') {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
-                $dataxxxx['requestx']->user_crea_id = Auth::user()->id;
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
                 $dataxxxx['modeloxx'] = FiDocumentosAnexa::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
