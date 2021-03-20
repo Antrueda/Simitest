@@ -161,16 +161,18 @@ class ExcelController extends Controller
 
     public function armarSeeder()
     {
-        $dataxxxx = GeUpi::get();
+        $dataxxxx = GeUpi::wherein('id_upi',[3,30,1,257])->get();
+        //$dataxxxx = GeUpi::wherenotin('id_upi',[13,6,12,19,20,233,10,245,1,2,8,7,3,5,4,140,212,21,16,14,27,9,18,17,45])->get();
         foreach ($dataxxxx as $registro) {
             echo "SisDepen::create([
+                'simianti_id' => '{$registro->id_upi}',
                 'nombre' => '{$registro->nombre}',
                 'i_prm_sexo_id' => 2324,
                 's_direccion' => '{$registro->direccion}',
                 's_telefono' => {$registro->telefonos},
                 'i_prm_cvital_id' => 1679,
                 'i_prm_tdependen_id' => 774,
-                'i_prm_sexo_id' => 2324,
+                
                 'user_edita_id' => 1,
                 'user_crea_id' => 1,
                 'sis_esta_id' => 1,

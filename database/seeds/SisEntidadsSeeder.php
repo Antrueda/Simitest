@@ -105,6 +105,7 @@ class SisEntidadsSeeder extends Seeder
         SisServicio::create(['simianti_id'=>'105','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'CPS MAYORES']);
         SisServicio::create(['simianti_id'=>'96','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'FORMACION TECNICA']);
         SisServicio::create(['simianti_id'=>'APY','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'APOYO CONVENIO 149/2016 TRANS.']);
+        
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'N/A']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,
