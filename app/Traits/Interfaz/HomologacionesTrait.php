@@ -475,7 +475,7 @@ trait HomologacionesTrait
     }
     public function getServiciosUpi($dataxxxx)
     {
-        $dependen = SisDepen::where('simianti_id', $dataxxxx['sisdepen'])->first()->sis_servicios;
+        $dependen = SisDepen::where('simianti_id', $dataxxxx['sisdepen'])->first();
         $servicio = $dependen->where('simianti_id', $dataxxxx['codigoxx'])->first()->id;
         if ($servicio == null) {
             $servicio = SisServicio::where('simianti_id', $dataxxxx['codigoxx'])->first();

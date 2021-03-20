@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Models\sicosocial\Pivotes;
+namespace app\Models\sicosocial\Pivotes;
 use Illuminate\Database\Eloquent\Model;
 
 class VsiRelsolDificulta extends Model
 {
-
     protected $table = 'vsi_relsol_dificulta';
-
     protected $fillable = [
         'parametro_id',
         'vsi_relsocial_id',

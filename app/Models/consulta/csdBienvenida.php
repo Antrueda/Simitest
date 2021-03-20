@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\consulta;
+namespace app\Models\consulta;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CsdBienvenida extends Model{
-  
+
   protected $fillable = [
     'csd_id', 'user_crea_id', 'user_edita_id', 'sis_esta_id', 'prm_persona_id','prm_tipofuen_id'
   ];
 
-  
+
 
   public function csd(){
     return $this->belongsTo(Csd::class, 'csd_id');
@@ -42,14 +42,14 @@ class CsdBienvenida extends Model{
   {
       $objetoxx = DB::transaction(function () use ($dataxxxx) {
           $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
-          
+
           if ($dataxxxx['modeloxx'] != '') {
               $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
           } else {
               $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
               $dataxxxx['modeloxx'] = CsdBienvenida::create($dataxxxx['requestx']->all());
           }
-          
+
           $dataxxxx['modeloxx']->motivos()->detach();
           if($dataxxxx['requestx']->motivos){
             foreach ( $dataxxxx['requestx']->motivos as $d) {

@@ -1,7 +1,7 @@
 <?php
 
-$controll = 'Administracion\Excel';
-// $controll = 'Administracion\Reportes\Excel\Excel';
+// $controll = 'Administracion\Excel';
+$controll = 'Administracion\Reportes\Excel\Excel';
 $routexxx = 'excel';
 Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 
