@@ -1231,7 +1231,21 @@ class UsuariosSeeder extends Seeder
         User::create([ 's_primer_nombre' => 'JORGE', 's_segundo_nombre' => 'MARIO', 's_primer_apellido' => 'GUERRA', 's_segundo_apellido' => 'URIBE', 's_telefono' => 3176612172, 'name' => 'JORGE MARIO GUERRA URIBE', 'email' => 'JORGEGU@IDIPRON.GOV.CO', 'password' => 1032471672, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => 'N/A', 'sis_cargo_id' => 5, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 1032471672, 'prm_documento_id' => 19, 'sis_municipio_id' => 233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2, 'created_at' => '2020-10-06 18:52:45', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2020-11-06', ]);
         User::create([ 's_primer_nombre' => 'JORGE', 's_segundo_nombre' => 'HUMBERTO', 's_primer_apellido' => 'YANDY', 's_segundo_apellido' => 'ESCOBAR', 's_telefono' => 3223919573, 'name' => 'JORGE HUMBERTO YANDY ESCOBAR', 'email' => 'JORGEHYANDY@HOTMAIL.COM', 'password' => 79295236, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => 'N/A', 'sis_cargo_id' => 34, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 79295236, 'prm_documento_id' => 19, 'sis_municipio_id' => 233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2, 'created_at' => '2020-10-06 18:52:45', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2020-11-06', ]);
         User::create([ 's_primer_nombre' => 'JORGE', 's_segundo_nombre' => 'ENRIQUE', 's_primer_apellido' => 'LEAL', 's_segundo_apellido' => 'GONZALEZ', 's_telefono' => 3187839048, 'name' => 'JORGE ENRIQUE LEAL GONZALEZ', 'email' => 'JORGELG@IDIPRON.GOV.CO', 'password' => 79690775, 'prm_tvinculacion_id' => 1674, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => '156648', 'sis_cargo_id' => 13, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 79690775, 'prm_documento_id' => 19, 'sis_municipio_id' => 233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2, 'created_at' => '2020-10-06 18:52:45', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2020-11-06', ]);
-        User::create([ 's_primer_nombre' => 'JORGE', 's_segundo_nombre' => 'ANTONIO', 's_primer_apellido' => 'RUEDA', 's_segundo_apellido' => 'GUZMAN', 's_telefono' => 3057979899, 'name' => 'JORGE ANTONIO RUEDA GUZMAN', 'email' => 'JORGER@IDIPRON.GOV.CO', 'password' => 1090412429, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => '54255-325095', 'sis_cargo_id' => 4, 'd_vinculacion' => '2021-01-31', 'd_finvinculacion' => '2021-05-31', 's_documento' => 1090412429, 'prm_documento_id' => 19, 'sis_municipio_id' => 1063, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2020-10-06 18:52:45', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2021-11-06', ]);
+        
+        $dataxxxx['pnombrex'] = 'JORGE';
+        $dataxxxx['snombrex'] = 'ANTONIO';
+        $dataxxxx['papellid'] = 'RUEDA';
+        $dataxxxx['sapellid'] = 'GUZMAN';
+        $dataxxxx['document'] = '1090412429';
+        $dataxxxx['telefono'] = '3057979899';
+        $dataxxxx['cargoxxx'] = '1';
+        // $dataxxxx['excepcio'] = '';
+        $dataxxxx['emailxxx'] = 'jorgea.rueda@IDIPRON.GOV.CO';
+        $dataxxxx['rolxxxxx'] = 'super-administrador';
+        $dataxxxx['namexxxx'] = 'JORGE ANTONIO RUEDA GUZMAN';
+        $this->getR($dataxxxx); //    
+
+
         User::create([ 's_primer_nombre' => 'JORGE', 's_segundo_nombre' => 'ENRIQUE', 's_primer_apellido' => 'RINCON', 's_segundo_apellido' => 'PEÑA', 's_telefono' => 3227767930, 'name' => 'JORGE ENRIQUE RINCON PEÑA', 'email' => 'JORGERP@IDIPRON.GOV.CO', 'password' => 19262008, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => 'N/A', 'sis_cargo_id' => 42, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 19262008, 'prm_documento_id' => 19, 'sis_municipio_id' => 233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2, 'created_at' => '2020-10-06 18:52:45', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2020-11-06', ]);
         User::create([ 's_primer_nombre' => 'JORGE', 's_segundo_nombre' => 'MAURICIO', 's_primer_apellido' => 'VARGAS', 's_segundo_apellido' => 'MARIN', 's_telefono' => 300367929100, 'name' => 'JORGE MAURICIO VARGAS MARIN', 'email' => 'JORGEV@IDIPRON.GOV.CO', 'password' => 79778161, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => '45925', 'sis_cargo_id' => 45, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 79778161, 'prm_documento_id' => 19, 'sis_municipio_id' => 233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2, 'created_at' => '2020-10-06 18:52:45', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2020-11-06', ]);
         User::create([ 's_primer_nombre' => 'JORGE', 's_segundo_nombre' => '', 's_primer_apellido' => 'DUEÑAS', 's_segundo_apellido' => 'VELASQUEZ', 's_telefono' => 3212357126, 'name' => 'JORGE DUEÑAS VELASQUEZ', 'email' => 'JORGEVELAS897@HOTMAIL.COM', 'password' => 80071020, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => 'N/A', 'sis_cargo_id' => 25, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 80071020, 'prm_documento_id' => 19, 'sis_municipio_id' => 233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 2, 'created_at' => '2020-10-06 18:52:45', 'updated_at' => '2020-10-06 19:03:08', 'password_change_at'=>'2020-11-06', ]);
@@ -2307,8 +2321,20 @@ class UsuariosSeeder extends Seeder
         User::create([ 's_primer_nombre' => 'ZULLY', 's_segundo_nombre' => 'NATALIA', 's_primer_apellido' => 'PEREZ', 's_segundo_apellido' => 'ATARA', 's_telefono' => 3006939521, 'name' => 'ZULLY NATALIA PEREZ ATARA', 'email' => '138', 'password' => 1020790044, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => 'N/A', 'sis_cargo_id' => 25, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 1020790044, 'prm_documento_id' => 19, 'sis_municipio_id' => 233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2020-10-06 19:04:42', 'updated_at' => '2020-10-06 19:04:42', 'password_change_at'=>'2020-11-06', ]);
         User::create([ 's_primer_nombre' => 'ZULMA', 's_segundo_nombre' => 'GICEL', 's_primer_apellido' => 'CORREDOR', 's_segundo_apellido' => 'CAMACHO', 's_telefono' => 3152719608, 'name' => 'ZULMA GICEL CORREDOR CAMACHO', 'email' => 'FOOOO@IDIPRON.GOV.CO', 'password' => 1016012748, 'prm_tvinculacion_id' => 2469, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => 'N/A', 'sis_cargo_id' => 31, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 1016012748, 'prm_documento_id' => 19, 'sis_municipio_id' => 233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2020-10-06 19:04:42', 'updated_at' => '2020-10-06 19:04:42', 'password_change_at'=>'2020-11-06', ]);
         User::create([ 's_primer_nombre' => 'ZULY', 's_segundo_nombre' => 'MARCELA', 's_primer_apellido' => 'ROJAS', 's_segundo_apellido' => 'TOLOSA', 's_telefono' => 3153127289, 'name' => 'ZULY MARCELA ROJAS TOLOSA', 'email' => 'ZULYR@IDIPRON.GOV.CO', 'password' => 52443609, 'prm_tvinculacion_id' => 1673, 'itiestan' => 10, 'itiegabe' => 0, 's_matriculap' => '52443609', 'sis_cargo_id' => 31, 'd_vinculacion' => '1899-12-31', 'd_finvinculacion' => '1899-12-31', 's_documento' => 52443609, 'prm_documento_id' => 19, 'sis_municipio_id' => 233, 'user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'created_at' => '2020-10-06 19:04:42', 'updated_at' => '2020-10-06 19:04:42', 'password_change_at'=>'2020-11-06', ]);
-
-
+        
+        
+        $dataxxxx['pnombrex'] = 'EDWIN';
+        $dataxxxx['snombrex'] = 'DAVID';
+        $dataxxxx['papellid'] = 'SANCHEZ';
+        $dataxxxx['sapellid'] = 'BALBIN';
+        $dataxxxx['document'] = '1032443628';
+        $dataxxxx['telefono'] = '3208803093';
+        $dataxxxx['cargoxxx'] = '1';
+        // $dataxxxx['excepcio'] = '';
+        $dataxxxx['emailxxx'] = 'edwind.sanchez@idipron.gov.co';
+        $dataxxxx['rolxxxxx'] = 'super-administrador';
+        $dataxxxx['namexxxx'] = 'EDWIN DAVID SANCHEZ BALBIN';
+        $this->getR($dataxxxx); // 
 
     }
 

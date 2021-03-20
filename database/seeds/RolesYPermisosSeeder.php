@@ -465,7 +465,7 @@ class RolesYPermisosSeeder extends Seeder
                 'firedactual-leer', 'firedactual-crear', 'firedactual-editar',
                 'firedactual-borrar', 'territorio-modulo'
             ]);
-        require_once('RolesYPermisosReferente.php'); //11 REFERENTE LOCAL
+        //require_once('RolesYPermisosReferente.php'); //11 REFERENTE LOCAL
 
     }
 }
