@@ -5,7 +5,6 @@ namespace App\Models\Sistema;
 use App\Models\Indicadores\Area;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\Pivot;
-use Illuminate\Support\Facades\Auth;
 
 class AreaUser extends Pivot
 {
@@ -33,6 +32,6 @@ class AreaUser extends Pivot
     public function user(){
         return $this->belongsTo(User::class);
     }
-    
-    
+
+
 }

@@ -18,6 +18,7 @@ use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisCargo;
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisDepeServ;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
@@ -155,7 +156,7 @@ trait HomologacionesTrait
     {
         switch ($dataxxxx['temaxxxx']) {
             case 23:
-                if ($dataxxxx['codigoxx'] == 'S' || $dataxxxx['codigoxx'] == 'N' || $dataxxxx['codigoxx'] == 'ON' || $dataxxxx['codigoxx'] == 'null'||$dataxxxx['codigoxx'] == 'null') {
+                if ($dataxxxx['codigoxx'] == 'S' || $dataxxxx['codigoxx'] == 'N' || $dataxxxx['codigoxx'] == 'ON' || $dataxxxx['codigoxx'] == 'null' || $dataxxxx['codigoxx'] == 'null') {
                     $valoresx = ['S' => 'SI', 'N' => 'NO', 'ON' => 'SI', 'null' => 'NO', 'CAE/NE' => 'N/A'];
                     $dataxxxx['codigoxx'] = $valoresx[$dataxxxx['codigoxx']];
                 }
@@ -261,7 +262,7 @@ trait HomologacionesTrait
     public function getParametrosSimiMultivalor($dataxxxx)
     {
 
-          trim($dataxxxx['codigoxx']);
+        trim($dataxxxx['codigoxx']);
         $parametr = [];
         $parasimi = ['codigoxx' => 0];
         if ($dataxxxx['codigoxx'] == 'null') {
@@ -283,27 +284,27 @@ trait HomologacionesTrait
                         $valoresx = ['S' => 'SI', 'N' => 'NO'];
                         $multival->descripcion = $valoresx[$multival->descripcion];
                     }
-                break;
-                
+                    break;
+
                 case 20:
-                    if ($multival->descripcion == 'NINGUNO' ) {
+                    if ($multival->descripcion == 'NINGUNO') {
                         $valoresx = ['NINGUNO' => 'NINGUNO DE LOS ANTERIORES'];
                         $multival->descripcion = $valoresx[$multival->descripcion];
                     }
-                break;
+                    break;
 
                 case 19:
-                    if ($multival->descripcion == 'UNION LIBRE' ) {
+                    if ($multival->descripcion == 'UNION LIBRE') {
                         $valoresx = ['UNION LIBRE' => 'UNIÓN LIBRE'];
                         $multival->descripcion = $valoresx[$multival->descripcion];
                     }
-                break;
+                    break;
 
                 case 33:
-                        if ($multival->descripcion == 'PRIMERA' || $multival->descripcion == 'SEGUNDA') {
-                            $valoresx = ['PRIMERA' => '1. RA', 'SEGUNDA' => '2. DA'];
-                            $multival->descripcion = $valoresx[$multival->descripcion];
-                        }    
+                    if ($multival->descripcion == 'PRIMERA' || $multival->descripcion == 'SEGUNDA') {
+                        $valoresx = ['PRIMERA' => '1. RA', 'SEGUNDA' => '2. DA'];
+                        $multival->descripcion = $valoresx[$multival->descripcion];
+                    }
 
                     break;
                 case 20:
@@ -323,7 +324,7 @@ trait HomologacionesTrait
                     'user_edita_id' => Auth::user()->id,
                     'user_crea_id' => Auth::user()->id,
                     'sis_esta_id' => 1,
-                    ]);
+                ]);
             }
         } else {
             switch ($dataxxxx['temaxxxx']) {
@@ -474,19 +475,27 @@ trait HomologacionesTrait
     }
     public function getServiciosUpi($dataxxxx)
     {
-        if ($dataxxxx['codigoxx'] == 0) {
-            $dataxxxx['codigoxx'] = '';
+        $dependen = SisDepen::where('simianti_id', $dataxxxx['sisdepen'])->first()->sis_servicios;
+        $servicio = $dependen->where('simianti_id', $dataxxxx['codigoxx'])->first()->id;
+        if ($servicio == null) {
+            $servicio = SisServicio::where('simianti_id', $dataxxxx['codigoxx'])->first();
+            $dependen->attach([$servicio->id => [
+                'user_crea_id' => Auth::user()->id,
+                'user_edita_id' => Auth::user()->id,
+                'sis_esta_id' => 1
+            ]]);
         }
-        $servicio = [];
-        if ($dataxxxx['codigoxx'] != '') {
-            // buscar el servicio en el antiguo desarrollo
-            $multival = SisMultivalore::where('tabla', 'MODALIDAD_UPI')->where('codigo', $dataxxxx['codigoxx'])->first();
-            $servicio = SisServicio::where('s_servicio', $multival->descripcion)->first();
 
-            $servicio = $this->getValidarUpiServicio($dataxxxx, $servicio);
-        } else {
-            $servicio = $this->getValidarUpiServicio($dataxxxx, $servicio);
-        }
+        // $servicio = [];
+        // if ($dataxxxx['codigoxx'] != '') {
+        //     // buscar el servicio en el antiguo desarrollo
+        //     $multival = SisMultivalore::where('tabla', 'MODALIDAD_UPI')->where('codigo', $dataxxxx['codigoxx'])->first();
+        //     $servicio = SisServicio::where('s_servicio', $multival->descripcion)->first();
+
+        //     $servicio = $this->getValidarUpiServicio($dataxxxx, $servicio);
+        // } else {
+        //     $servicio = $this->getValidarUpiServicio($dataxxxx, $servicio);
+        // }
         return $servicio;
     }
     public function getUpisModalidadHT($dataxxxx)

@@ -36,6 +36,7 @@ class CreateSisEntidadsTable extends Migration
             $table->string('s_servicio')->unique()->comment('CAMPO DE NOMBRE DEL SERVICIO');
             $table->integer('user_crea_id')->unsigned();
             $table->integer('user_edita_id')->unsigned();
+            $table->string('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table->integer('sis_esta_id')->unsigned()->default(1);
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();

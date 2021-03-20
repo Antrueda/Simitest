@@ -160,7 +160,7 @@ class User extends Authenticatable
     }
     public function sis_depens()
     {
-        return $this->belongsToMany(SisDepen::class)->withTimestamps();
+        return $this->belongsToMany(SisDepen::class)->withTimestamps()->withPivot([  "i_prm_responsable_id", "user_crea_id" ,  "user_edita_id" , "sis_esta_id" ]);
     }
 
     public function prm_tipodocu()
@@ -256,7 +256,7 @@ class User extends Authenticatable
         ->join('sis_depen_user','users.id','=','sis_depen_user.user_id')
         ->where('sis_depen_user.sis_esta_id', 1)
         ->groupBy('users.id','s_primer_nombre','s_documento','s_primer_apellido','s_segundo_apellido','s_segundo_nombre','sis_cargo_id')
-       
+
             ->orderBy('s_primer_nombre')
             ->orderBy('s_primer_apellido')
             ->get();
@@ -287,7 +287,7 @@ class User extends Authenticatable
             }
              $queryxxx->where('users.sis_esta_id', 1);
         })
-        
+
         ->join('model_has_roles','users.id','=','model_has_roles.model_id')
         ->whereIn('model_has_roles.role_id', $dataxxxx['rolxxxxx'])
         ->groupBy('users.id','s_primer_nombre','s_documento','s_primer_apellido','s_segundo_apellido','s_segundo_nombre','sis_cargo_id')

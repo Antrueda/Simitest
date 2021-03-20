@@ -27,18 +27,23 @@ class DatabaseSeeder extends Seeder
         $this->call(PermisosFosadminSeeder::class);
         $this->call(PermisosUbicacionSeeder::class);
         $this->call(CarguedocuSeeder::class);
+
+
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
         $this->call(RolesYPermisosSeeder::class);
+        $this->call(PermisosReferenteLocalSeeder::class);
         /** FIN SEEDERS PARA LOS PERSMISOS */
 
         $this->call(EstusuariosSeeder::class);
         $this->call(UsuariosSeeder::class);
         $this->call(UsuariosUnoSeeder::class);
+        $this->call(RolesUsuarioSeeder::class);
         $this->call(SisDepartamSisPaiSeeder::class);
         $this->call(SisDepartamSisMunicipioSeeder::class);
         $this->call(TemasTableSeeder::class);
         $this->call(TemacomboSeeder::class);
         $this->call(SisAreasSeeder::class);
+        $this->call(AreasUserSeeder::class);
         $this->call(FiNucleoFamiliarsTableSeeder::class);
         $this->call(SisUpzsSeeder::class);
         $this->call(SisBarriosSeeder::class);
@@ -47,6 +52,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SisDepensSeeder::class);
         $this->call(SisDepenUsuaSeeder::class);
         $this->call(SisEntidadsSeeder::class);
+        $this->call(SisDepeServsSeeder::class);
         $this->call(SisEnprsaSeeder::class);
         $this->call(SisEntidadSaludsSeeder::class);
         $this->call(SisInstitucionEdusSeeder::class);

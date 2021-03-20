@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class SisServicio extends Model
 {
-    protected $fillable = ['s_servicio', 'sis_esta_id', 'user_crea_id', 'user_edita_id'];
+    protected $fillable = ['s_servicio', 'sis_esta_id','simianti_id', 'user_crea_id', 'user_edita_id'];
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1];
 
