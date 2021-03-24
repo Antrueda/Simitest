@@ -3078,6 +3078,7 @@ class TemacomboSeeder extends Seeder
             1475 => $this->getCM(['simianti' => '']),
             1476 => $this->getCM(['simianti' => '']),
             1477 => $this->getCM(['simianti' => '']),
+            235 => $this->getCM(['simianti' => '']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 287,  'nombrexx' => 'VINCULADO']);
