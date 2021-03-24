@@ -12,8 +12,6 @@
         </table>
       </td>
     </tr>
-    
-  @endforeach
-
+      @endforeach
 </table>
 

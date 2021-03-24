@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Administracion\Reportes\Excel;
 
 use App\Exports\FiDatosBasicoExport;
 use App\Http\Controllers\Controller;
+use App\Models\Simianti\Ge\GeUpi;
+use App\Models\User;
+use App\Models\Usuario\RolUsuario;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelController extends Controller
@@ -166,4 +169,21 @@ class ExcelController extends Controller
         // return (new FiDatosBasicoExport)->download('invoices.xls');
         // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
     }
+    public function armarSeeder()
+    {
+        $dataxxxx = RolUsuario::get();
+        //$dataxxxx = GeUpi::wherenotin('id_upi',[13,6,12,19,20,233,10,245,1,2,8,7,3,5,4,140,212,21,16,14,27,9,18,17,45])->get();
+        foreach ($dataxxxx as $registro) {
+            echo "RolUsuario::create([
+                'role_id' => {$registro->role_id},
+                'model_id' => {$registro->model_id},
+                'model_type' =>  '{$registro->model_type}',
+                'user_edita_id' => 1,
+                'user_crea_id' => 1,
+                'sis_esta_id' => 1,
+               
+            ]); <br />";;
+        }
+    }
+    //   RolUsuario::create(["role_id" => 9, "model_id" => 12, "model_type" => "App\Models\User", "user_crea_id" => 1, "user_edita_id" => 1, "sis_esta_id" => 1]);
 }

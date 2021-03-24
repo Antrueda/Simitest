@@ -19,6 +19,11 @@
     
   @endforeach
 
+  
 </table>
+
+
+
+
 
 {{-- pruebe --}}
