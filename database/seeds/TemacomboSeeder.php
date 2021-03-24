@@ -3112,8 +3112,8 @@ class TemacomboSeeder extends Seeder
 
         $tema = $this->getR(['temaidxx' => 290,  'nombrexx' => 'TIPO DE VESTIMENTA']);
         $tema->parametros()->sync([
-            2484 => $this->getCM(['simianti' => '']),
-            2485 => $this->getCM(['simianti' => '']),
+            2484 => $this->getCM(['simianti' => '1']),
+            2485 => $this->getCM(['simianti' => '2']),
         ]);
 
 
@@ -4010,8 +4010,9 @@ class TemacomboSeeder extends Seeder
             'nombrexx' => '1.12 ¿Cuenta con el documento físico?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //366
         $tema->parametros()->sync([
-            227 => $this->getCM(['simianti' => '']),
-            228 => $this->getCM(['simianti' => '']),
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+            2497=>$this->getCM(['simianti' => '3']),
         ]);
 
         $tema = $this->getR([
@@ -4019,8 +4020,9 @@ class TemacomboSeeder extends Seeder
             'nombrexx' => '1.15 ¿Tiene definida su situación militar?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
             ]); //367
         $tema->parametros()->sync([
-            227 => $this->getCM(['simianti' => '']),
-            228 => $this->getCM(['simianti' => '']),
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+            2497=>$this->getCM(['simianti' => '3']),
         ]);
     }
 }

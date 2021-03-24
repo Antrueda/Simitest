@@ -116,14 +116,14 @@ trait InterfazFiTrait
             $objetoxx->prm_factor_rh_id = $parametr->id;
         }
         $objetoxx->prm_tipodocu_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_documento, 'tablaxxx' => 'TIPO_DOCUMENTO', 'temaxxxx' => 3, 'testerxx' => false])->id;
-        $objetoxx->prm_doc_fisico_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->cuenta_doc, 'tablaxxx' => 'DICOTOMIA', 'temaxxxx' => 23, 'testerxx' => false])->id;
+        $objetoxx->prm_doc_fisico_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->cuenta_doc, 'tablaxxx' => 'DICOTOMIA', 'temaxxxx' => 366, 'testerxx' => false])->id;
         $objetoxx->s_documento = $dataxxxx->numero_documento;
         $municipi = $this->getMunicipoSimi(['idmunici' => $dataxxxx->id_lugar_expedicion]);
         $objetoxx->sis_municipioexp_id = $municipi->id;
         $objetoxx->sis_departamexp_id = $municipi->sis_departam_id;
         $objetoxx->sis_paiexp_id = $municipi->sis_departam->sis_pai_id;
         if ($dataxxxx->situacion_mil != null) {
-            $objetoxx->prm_situacion_militar_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->situacion_mil, 'tablaxxx' => 'DICOTOMIA', 'temaxxxx' => 23, 'testerxx' => false, 'sexoxxxx' => $dataxxxx->genero])->id;
+            $objetoxx->prm_situacion_militar_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->situacion_mil, 'tablaxxx' => 'DICOTOMIA', 'temaxxxx' => 367, 'testerxx' => true, 'sexoxxxx' => $dataxxxx->genero])->id;
         } else {
             $objetoxx->prm_situacion_militar_id = 235;
         }
@@ -283,7 +283,8 @@ trait InterfazFiTrait
                 'tipoxxxx' => 'multival',
             ]),
             'id_pais_nacimiento'=>$this->getMunicipiosHSAT($dataxxxx),
-            // 'sis_usuario'=>$padrexxx->,
+            's_lugar_focalizacion'=>'SIN DATO',
+            's_nombre_focalizacion'=>'SIN DATO',
         ];
 
         // ddd($datannaj);

@@ -149,6 +149,7 @@ class SisDepensSeeder extends Seeder
             'sis_esta_id' => 1, 'itiestan' => 0, 'itiegabe' => 0,
         ]); // 30
         SisDepen::create([
+            'simianti_id' => 269,
             'nombre' => 'CONVENIO 1849 DE 2020',
             'i_prm_cvital_id' => 1679,
             'i_prm_tdependen_id' => 774,
@@ -162,6 +163,7 @@ class SisDepensSeeder extends Seeder
             'sis_esta_id' => 1, 'itiestan' => 0, 'itiegabe' => 0,
         ]); // 31
         SisDepen::create([
+            'simianti_id' => 272,
             'nombre' => 'CONVENIO 2457/2020',
             'i_prm_cvital_id' => 1679,
             'i_prm_tdependen_id' => 774,
@@ -175,6 +177,7 @@ class SisDepensSeeder extends Seeder
             'sis_esta_id' => 1, 'itiestan' => 0, 'itiegabe' => 0,
         ]); // 32
         SisDepen::create([
+            'simianti_id' => 268,
             'nombre' => 'CONVENIO 305 DE 2020',
             'i_prm_cvital_id' => 1679,
             'i_prm_tdependen_id' => 774,
@@ -190,6 +193,7 @@ class SisDepensSeeder extends Seeder
 
         SisDepen::create([
             'nombre' => 'CONVENIO 447/2020 SDM',
+            'simianti_id' => 263,
             'i_prm_cvital_id' => 1679,
             'i_prm_tdependen_id' => 774,
             'i_prm_sexo_id' => 2324,
@@ -203,6 +207,7 @@ class SisDepensSeeder extends Seeder
         ]); // 34
 
         SisDepen::create([
+            'simianti_id' => 271,
             'nombre' => 'CONVENIO 826 DE 2020',
             'i_prm_cvital_id' => 1679,
             'i_prm_tdependen_id' => 774,
@@ -593,13 +598,13 @@ class SisDepensSeeder extends Seeder
     }
 }
 /*
-        
-             
+
+
                 13,6,12,19,20,233,10,245,1,2,8,7,3,5,4,140,212,21,16,14,27,9,18,17,45
-    
 
 
-  
+
+
 
 
 

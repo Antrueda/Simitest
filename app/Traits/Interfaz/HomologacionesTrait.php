@@ -262,82 +262,108 @@ trait HomologacionesTrait
     public function getParametrosSimiMultivalor($dataxxxx)
     {
 
-        trim($dataxxxx['codigoxx']);
-        $parametr = [];
-        $parasimi = ['codigoxx' => 0];
-        if ($dataxxxx['codigoxx'] == 'null') {
-            $dataxxxx['codigoxx'] = '';
+
+        $comboxxx = Temacombo::where('id', $dataxxxx['temaxxxx'])->first()->parametros;
+        $parametr = '';
+        foreach ($comboxxx as $key => $value) {
+            if ($value->pivot->simianti_id == $dataxxxx['codigoxx']) {
+                $parametr = $value;
+            }
+            // echo $value->id;
+            //  echo $value->pivot->simianti_id;
         }
+        // ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
+        // ->where('temacombos.id', $dataxxxx['temaxxxx'])
 
-        if ($dataxxxx['codigoxx'] != '' || $dataxxxx['codigoxx'] != 0) {
-            // buscar el parametro en el antiguo desarrollo
-
-            $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
-            switch ($dataxxxx['temaxxxx']) {
-                case 3:
-                    $posiciox = substr($dataxxxx['codigoxx'], 0, 1);
-                    $posicioy = substr($dataxxxx['codigoxx'], 1);
-                    $multival->descripcion = $posiciox . '.' . $posicioy . '.';
-                    break;
-                case 23:
-                    if ($multival->descripcion == 'S' || $multival->descripcion == 'N') {
-                        $valoresx = ['S' => 'SI', 'N' => 'NO'];
-                        $multival->descripcion = $valoresx[$multival->descripcion];
-                    }
-                    break;
-
-                case 20:
-                    if ($multival->descripcion == 'NINGUNO') {
-                        $valoresx = ['NINGUNO' => 'NINGUNO DE LOS ANTERIORES'];
-                        $multival->descripcion = $valoresx[$multival->descripcion];
-                    }
-                    break;
-
-                case 19:
-                    if ($multival->descripcion == 'UNION LIBRE') {
-                        $valoresx = ['UNION LIBRE' => 'UNIÓN LIBRE'];
-                        $multival->descripcion = $valoresx[$multival->descripcion];
-                    }
-                    break;
-
-                case 33:
-                    if ($multival->descripcion == 'PRIMERA' || $multival->descripcion == 'SEGUNDA') {
-                        $valoresx = ['PRIMERA' => '1. RA', 'SEGUNDA' => '2. DA'];
-                        $multival->descripcion = $valoresx[$multival->descripcion];
-                    }
-
-                    break;
-                case 20:
-                    if ($multival->descripcion == 'BLANCO') {
-                        $multival->descripcion = $multival->descripcion . '(A)';
-                    }
-                    break;
-                case 290:
-                    $multival->descripcion = substr(explode('(', $multival->descripcion)[0], 0, -1) . 'A';
-                    break;
-            }
-            // buscar el parametro en el nuevo desarrollo
-            $parametr = Parametro::where('nombre', $multival->descripcion)->first();
-            if ($parametr == null) {
-                $parametr = Parametro::create([
-                    'nombre' => $multival->descripcion,
-                    'user_edita_id' => Auth::user()->id,
-                    'user_crea_id' => Auth::user()->id,
-                    'sis_esta_id' => 1,
-                ]);
-            }
-        } else {
-            switch ($dataxxxx['temaxxxx']) {
-                case 23: // tiene documento físico o tiene definida la situación militar
-                    if (isset($dataxxxx['sexoxxxx']) && $dataxxxx['sexoxxxx'] == 'F') { // cuando es una mujer
-                        $parametr = Parametro::find(235);
-                    }
-                    break;
-            }
+        // ->where('parametro_temacombo.simianti_id', trim($dataxxxx['codigoxx']))
+        // ->first();
+        if ($dataxxxx['testerxx']) {
+            // echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
+            // ddd($comboxxx);
         }
+        switch ($dataxxxx['temaxxxx']) {
+            case 367:
+                if ($dataxxxx['codigoxx'] == null) {
+                    $parametr = Parametro::find(235);
+                }
+                break;
+        }
+        // trim($dataxxxx['codigoxx']);
+        // $parametr = [];
+        // $parasimi = ['codigoxx' => 0];
+        // if ($dataxxxx['codigoxx'] == 'null') {
+        //     $dataxxxx['codigoxx'] = '';
+        // }
 
-        // se crea el parametro y se asocia con el tema
-        $parametr = $this->getValidarParametro($parametr, $dataxxxx, true, $parasimi['codigoxx']);
+        // if ($dataxxxx['codigoxx'] != '' || $dataxxxx['codigoxx'] != 0) {
+        //     // buscar el parametro en el antiguo desarrollo
+
+        //     $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
+        //     switch ($dataxxxx['temaxxxx']) {
+        //         case 3:
+        //             $posiciox = substr($dataxxxx['codigoxx'], 0, 1);
+        //             $posicioy = substr($dataxxxx['codigoxx'], 1);
+        //             $multival->descripcion = $posiciox . '.' . $posicioy . '.';
+        //             break;
+        //         case 23:
+        //             if ($multival->descripcion == 'S' || $multival->descripcion == 'N') {
+        //                 $valoresx = ['S' => 'SI', 'N' => 'NO'];
+        //                 $multival->descripcion = $valoresx[$multival->descripcion];
+        //             }
+        //             break;
+
+        //         case 20:
+        //             if ($multival->descripcion == 'NINGUNO') {
+        //                 $valoresx = ['NINGUNO' => 'NINGUNO DE LOS ANTERIORES'];
+        //                 $multival->descripcion = $valoresx[$multival->descripcion];
+        //             }
+        //             break;
+
+        //         case 19:
+        //             if ($multival->descripcion == 'UNION LIBRE') {
+        //                 $valoresx = ['UNION LIBRE' => 'UNIÓN LIBRE'];
+        //                 $multival->descripcion = $valoresx[$multival->descripcion];
+        //             }
+        //             break;
+
+        //         case 33:
+        //             if ($multival->descripcion == 'PRIMERA' || $multival->descripcion == 'SEGUNDA') {
+        //                 $valoresx = ['PRIMERA' => '1. RA', 'SEGUNDA' => '2. DA'];
+        //                 $multival->descripcion = $valoresx[$multival->descripcion];
+        //             }
+
+        //             break;
+        //         case 20:
+        //             if ($multival->descripcion == 'BLANCO') {
+        //                 $multival->descripcion = $multival->descripcion . '(A)';
+        //             }
+        //             break;
+        //         case 290:
+        //             $multival->descripcion = substr(explode('(', $multival->descripcion)[0], 0, -1) . 'A';
+        //             break;
+        //     }
+        //     // buscar el parametro en el nuevo desarrollo
+        //     $parametr = Parametro::where('nombre', $multival->descripcion)->first();
+        //     if ($parametr == null) {
+        //         $parametr = Parametro::create([
+        //             'nombre' => $multival->descripcion,
+        //             'user_edita_id' => Auth::user()->id,
+        //             'user_crea_id' => Auth::user()->id,
+        //             'sis_esta_id' => 1,
+        //         ]);
+        //     }
+        // } else {
+        //     switch ($dataxxxx['temaxxxx']) {
+        //         case 23: // tiene documento físico o tiene definida la situación militar
+        //             if (isset($dataxxxx['sexoxxxx']) && $dataxxxx['sexoxxxx'] == 'F') { // cuando es una mujer
+        //                 $parametr = Parametro::find(235);
+        //             }
+        //             break;
+        //     }
+        // }
+
+        // // se crea el parametro y se asocia con el tema
+        // $parametr = $this->getValidarParametro($parametr, $dataxxxx, true, $parasimi['codigoxx']);
 
         return $parametr;
     }
@@ -476,16 +502,15 @@ trait HomologacionesTrait
     public function getServiciosUpi($dataxxxx)
     {
         $dependen = SisDepen::where('simianti_id', $dataxxxx['sisdepen'])->first();
-        $servicio = $dependen->where('simianti_id', $dataxxxx['codigoxx'])->first()->id;
-        if ($servicio == null) {
-            $servicio = SisServicio::where('simianti_id', $dataxxxx['codigoxx'])->first();
-            $dependen->attach([$servicio->id => [
+        $depeserv = $dependen->sis_servicios()->where('simianti_id', $dataxxxx['codigoxx'])->first();
+        $servicio = SisServicio::where('simianti_id', $dataxxxx['codigoxx'])->first();
+        if ($depeserv == null) {
+            $dependen->sis_servicios()->attach([$servicio->id => [
                 'user_crea_id' => Auth::user()->id,
                 'user_edita_id' => Auth::user()->id,
                 'sis_esta_id' => 1
             ]]);
         }
-
         // $servicio = [];
         // if ($dataxxxx['codigoxx'] != '') {
         //     // buscar el servicio en el antiguo desarrollo
