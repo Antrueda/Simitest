@@ -29,6 +29,7 @@ trait FosTrait
     {
         $dataxxxx =  FiDatosBasico::select([
             'fi_datos_basicos.id',
+            'fi_datos_basicos.sis_nnaj_id',
             'tipodocumento.nombre as tipodocumento',
             'fi_datos_basicos.s_primer_nombre',
             'nnaj_docus.s_documento',
@@ -53,6 +54,7 @@ trait FosTrait
             ->where('sis_nnajs.prm_escomfam_id', 227)
             ->whereIn('nnaj_upis.sis_depen_id', $this->getNotInt())->groupBy([
                 'fi_datos_basicos.id',
+                'fi_datos_basicos.sis_nnaj_id',
                 'tipodocumento.nombre',
                 'fi_datos_basicos.s_primer_nombre',
                 'nnaj_docus.s_documento',

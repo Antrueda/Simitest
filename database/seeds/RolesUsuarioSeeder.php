@@ -40,7 +40,7 @@ class RolesUsuarioSeeder extends Seeder
         RolUsuario::create([ 'role_id' => 9, 'model_id' => 17, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 10, 'model_id' => 10, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 10, 'model_id' => 11, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
-        RolUsuario::create([ 'role_id' => 3, 'model_id' => 2045, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
+        RolUsuario::create([ 'role_id' => 4, 'model_id' => 2045, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 12, 'model_id' => 2052, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 4, 'model_id' => 2119, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 4, 'model_id' => 2065, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
@@ -86,7 +86,7 @@ class RolesUsuarioSeeder extends Seeder
         RolUsuario::create([ 'role_id' => 23, 'model_id' => 2031, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 23, 'model_id' => 2058, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 23, 'model_id' => 2064, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
-        RolUsuario::create([ 'role_id' => 3, 'model_id' => 2122, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
+        RolUsuario::create([ 'role_id' => 4, 'model_id' => 2122, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 24, 'model_id' => 916, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 24, 'model_id' => 1388, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 24, 'model_id' => 631, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
@@ -121,7 +121,7 @@ class RolesUsuarioSeeder extends Seeder
         RolUsuario::create([ 'role_id' => 25, 'model_id' => 2101, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 25, 'model_id' => 2110, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 3, 'model_id' => 2066, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
-        RolUsuario::create([ 'role_id' => 3, 'model_id' => 45, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
+        RolUsuario::create([ 'role_id' => 4, 'model_id' => 45, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 3, 'model_id' => 201, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 4, 'model_id' => 321, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 3, 'model_id' => 398, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
@@ -134,5 +134,6 @@ class RolesUsuarioSeeder extends Seeder
         RolUsuario::create([ 'role_id' => 3, 'model_id' => 2090, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 4, 'model_id' => 2092, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 4, 'model_id' => 2120, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
+        RolUsuario::create([ 'role_id' => 3, 'model_id' => 1952, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
     }
 }

@@ -1,5 +1,5 @@
 <table width='100%' >
-  @foreach(Tr::getUpi(['padrexxx'=>$queryxxx->id]) as $dataxxxx)
+  @foreach(Tr::getUpi(['padrexxx'=>$queryxxx->sis_nnaj_id]) as $dataxxxx)
     <tr>
       <td style="font-size: 15px;">{{$dataxxxx['upixxxxx']->nombre}}</td>
       <td style="font-size: 15px;">
