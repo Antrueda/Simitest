@@ -161,16 +161,10 @@ class SisNnaj extends Model
 
     public function getServicioNnaj($dataxxxx)
     {
-        $principa = '';
-        $servicio= '';
-        foreach ($dataxxxx as $value) {
-            if ($value->prm_principa_id == 227) {
-                $principa = $value->nnaj_deses;
-                foreach ($principa as $d) {
-                    $servicio=$d->sis_servicio->s_servicio;
-            }
-            }
-        }
+        $servicio=$dataxxxx->where('prm_principa_id', 227)
+        ->first()->nnaj_deses
+        ->where('prm_principa_id', 227)
+        ->first()->sis_servicio->s_servicio;
         return  $servicio;
     }
     public function getServicioPrincipalAttribute()
@@ -197,18 +191,18 @@ class SisNnaj extends Model
             $principa->s_segundo_nombre . ' ' .
             $principa->s_primer_apellido . ' ' .
             $principa->s_segundo_apellido;
-            
+
         $respuest = [
             [$principa->id => $principa->s_documento . ' - ' . $nombrexx . ' - ' . $cargoxxx->s_cargo],
             [['valuexxx'=>$dependen->id, 'optionxx'=>  $dependen->nombre]],
             $cargoxxx->s_cargo,
         ];
-        }   
-       
+        }
+
 
         return $respuest;
     }
-    
+
 
     public function nnaj_depes()
     {

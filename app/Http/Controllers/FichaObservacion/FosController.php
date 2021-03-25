@@ -142,14 +142,14 @@ class FosController extends Controller
      */
 
 
-    public function indexFos(SisNnaj $padrexxx)
+    public function indexFos(FiDatosBasico $padrexxx)
     {
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['slotxxxx'] = 'fosxxxxx';
-        $this->opciones['usuariox'] = $padrexxx->fi_datos_basico;
+        $this->opciones['usuariox'] = $padrexxx;
 
-        $this->opciones['parametr'] = [$padrexxx->id];
-        $this->opciones['pestpara'][0] = [$padrexxx->id];
+        $this->opciones['parametr'] = [$padrexxx->sis_nnaj_id];
+        $this->opciones['pestpara'][0] = [$padrexxx->sis_nnaj_id];
         $this->opciones['pestpadr'] = 2;
         $this->opciones['tablasxx'] = [
             [

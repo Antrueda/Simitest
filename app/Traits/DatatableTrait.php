@@ -150,7 +150,7 @@ trait DatatableTrait
 
         );
 
-        $datatabl->rawColumns(['botonexx', 's_estado']);
+        $datatabl->rawColumns(['botonexx', 's_estado','upiservicio']);
         return $datatabl->toJson();
 
     }

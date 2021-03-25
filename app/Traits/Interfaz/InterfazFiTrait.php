@@ -66,10 +66,7 @@ trait InterfazFiTrait
             ->orderBy('ficha_acercamiento_ingreso.fecha_insercion', 'ASC')
             //->where('ficha_acercamiento_ingreso.estado', 'A')
             ->first();
-
-
-
-        $this->getUpisModalidadHT(['idnnajxx' => $dataxxxx->id_nnaj]);
+            // $this->getUpisModalidadHT(['idnnajxx' => $dataxxxx->id_nnaj]);
         return $dataxxxx;
     }
     public function getBuscarNnajAgregar($request)
@@ -141,6 +138,10 @@ trait InterfazFiTrait
         $objetoxx->sis_localidad_id = $locabari->sis_localupz->sis_localidad_id;
         $objetoxx->sis_upz_id = $locabari->sis_localupz->id;
         $objetoxx->sis_upzbarri_id = $locabari->id;
+        $objetoxx->s_lugar_focalizacion='SIN DATO';
+        $objetoxx->s_nombre_focalizacion='SIN DATO';
+
+
         return $objetoxx;
     }
 
@@ -283,8 +284,6 @@ trait InterfazFiTrait
                 'tipoxxxx' => 'multival',
             ]),
             'id_pais_nacimiento'=>$this->getMunicipiosHSAT($dataxxxx),
-            's_lugar_focalizacion'=>'SIN DATO',
-            's_nombre_focalizacion'=>'SIN DATO',
         ];
 
         // ddd($datannaj);

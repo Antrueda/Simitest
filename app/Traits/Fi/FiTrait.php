@@ -13,6 +13,7 @@ use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnaj;
+use App\Models\Simianti\Ge\GeUpiNnaj;
 use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
@@ -152,6 +153,7 @@ trait FiTrait
         $dataxxxx =  FiDatosBasico::select([
             'tipodocumento.nombre as tipodocumento',
             'fi_datos_basicos.id',
+            'fi_datos_basicos.sis_nnaj_id',
             'fi_datos_basicos.s_primer_nombre',
             'nnaj_docus.s_documento',
             'fi_datos_basicos.s_segundo_nombre',
@@ -178,6 +180,10 @@ trait FiTrait
 
     public function getGeNnaj()
     {
+        $inxxxxxx = [];
+        foreach (Auth::user()->sis_depens as $key => $value) {
+            $inxxxxxx[] = $value->simianti_id;
+        }
         $dataxxxx = GeNnaj::query()->select([
             'ge_nnaj.id_nnaj as id',
             'ge_nnaj.tipo_documento as tipodocumento',
@@ -190,10 +196,22 @@ trait FiTrait
             'ge_nnaj.estado',
             'ge_nnaj.fecha_insercion as created_at',
         ])
+            ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
             ->join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
+            ->groupBy([
+                'ge_nnaj.id_nnaj',
+                'ge_nnaj.tipo_documento',
+                'ge_nnaj_documento.numero_documento',
+                'ge_nnaj.primer_nombre',
+                'ge_nnaj.segundo_nombre',
+                'ge_nnaj.primer_apellido',
+                'ge_nnaj.segundo_apellido',
+                'ge_nnaj.estado',
+                'ge_nnaj.fecha_insercion'
+            ])
+            ->whereIn('ge_upi_nnaj.id_upi', $inxxxxxx)
             ->where('ge_nnaj_documento.estado', 'A')
-            ->whereNotIn('ge_nnaj_documento.numero_documento', NnajDocu::select(['s_documento'])->get())
-            ;
+            ->whereNotIn('ge_nnaj_documento.numero_documento', NnajDocu::select(['s_documento'])->get());
         return  $dataxxxx;
     }
     /**
@@ -240,14 +258,14 @@ trait FiTrait
                 })
                 ->first();
 
-                if ($dataxxxx != null) {
-                    $nuevanti = true;
-                }
-            } else {
+            if ($dataxxxx != null) {
                 $nuevanti = true;
             }
-            return $nuevanti;
+        } else {
+            $nuevanti = true;
         }
+        return $nuevanti;
+    }
 
 
     /**
@@ -336,6 +354,7 @@ trait FiTrait
         $userxxxx['user_id'] = Auth::user()->id;
         $dataxxxx =  FiDatosBasico::select([
             'fi_datos_basicos.id',
+            'fi_datos_basicos.sis_nnaj_id',
             'fi_datos_basicos.s_primer_nombre',
             'nnaj_docus.s_documento',
             'nnaj_docus.prm_tipodocu_id',

@@ -20,6 +20,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
+use App\Models\Simianti\Ge\GeNnajDocumento;
+use App\Models\Simianti\Ge\GeUpiNnaj;
 use App\Models\Sistema\SisDepen;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
@@ -220,20 +222,19 @@ class FiController extends Controller
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
 
-            $dependen = [];
-            foreach ($dataxxxx['modeloxx']->sis_nnaj->nnaj_upis as $key => $value) {
-                if ($value->prm_principa_id = 227) {
-                    $dependen = $value;
-                }
-            }
+            $dataxxxx['modeloxx']->sis_depen_id = $dataxxxx['modeloxx']
+                ->sis_nnaj
+                ->nnaj_upis->where('prm_principa_id', 227)
+                ->first()->sis_depen_id;
+
+            $dataxxxx['modeloxx']->sis_servicio_id = $dataxxxx['modeloxx']
+                ->sis_nnaj
+                ->nnaj_upis->where('prm_principa_id', 227)
+                ->first()->nnaj_deses
+                ->where('prm_principa_id', 227)
+                ->first()->sis_servicio_id;
             $dataxxxx['modeloxx']->diligenc = $dataxxxx['modeloxx']->fi_diligenc->diligenc;
-            $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' => $dependen->sis_depen_id]);
-            foreach ($dependen->nnaj_deses as $key => $value) {
-                if ($value->prm_principa_id = 227) {
-                    $dependen = $value;
-                }
-            }
-            $dataxxxx['modeloxx']->sis_servicio_id = $dependen->sis_servicio_id;
+            $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
 
             switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
                 case 650:
@@ -427,13 +428,13 @@ class FiController extends Controller
             $this->opciones['poblindi'] =  Parametro::find(235)->Combo;
         }
 
-        if ($dataxxxx['modeloxx']->prm_doc_fisico_id == 228) {
+        // if ($dataxxxx['modeloxx']->prm_doc_fisico_id == 228) {
 
-            $this->opciones['neciayud'] = Tema::combo(286, true, false);
-        } else {
+        //     $this->opciones['neciayud'] = Tema::combo(286, true, false);
+        // } else {
 
-            $this->opciones['neciayud'] = Parametro::find(235)->Combo;
-        }
+        $this->opciones['neciayud'] = Parametro::find(235)->Combo;
+        // }
 
 
         if ($dataxxxx['modeloxx']->prm_situacion_militar_id != 227) {
@@ -516,6 +517,11 @@ class FiController extends Controller
      */
     public function edit(FiDatosBasico $objetoxx)
     {
+        $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento);
+        if (isset($document->id_nnaj)) {
+            $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj]);
+        }
+
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
@@ -616,9 +622,15 @@ class FiController extends Controller
 
     public function prueba($departam, Request $request)
     {
+        $inxxxxxx = [];
+        foreach (Auth::user()->sis_depens as $key => $value) {
+            $inxxxxxx[] = $value->simianti_id;
+        }
+        $inxxxxxx = GeUpiNnaj::select(['id_nnaj'])->whereIn('id_upi', $inxxxxxx)->groupBy('id_nnaj')->get();
+        ddd($inxxxxxx);
         $request->docuagre = 1000943210;
         // throw new ParametroInvalido('Something Went Wrong.');
-        $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
+        // $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
         // $numbers = random_int(1000000000, 1999999999);
         // echo $this->getCedulaAleatoria();
         // ddd(date('Y-m-d H:m:s'));
@@ -641,6 +653,3 @@ class FiController extends Controller
 
     }
 }
-
-
-
