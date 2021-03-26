@@ -525,7 +525,7 @@ trait HomologacionesTrait
     }
     public function getUpisModalidadHT($dataxxxx)
     {
-        $upismoda = GeUpiNnaj::where('id_nnaj', $dataxxxx['idnnajxx'])->where('modalidad', '!=', null)->get();
+        $upismoda = GeUpiNnaj::where('id_nnaj', $dataxxxx['idnnajxx'])->where('modalidad', '!=', null)->where('estado','A')->get();
         foreach ($upismoda as $key => $value) {
             $this->getServiciosUpi(['codigoxx' => $value->modalidad, 'sisdepen' => $value->id_upi, 'datobasi' => false]);
         }

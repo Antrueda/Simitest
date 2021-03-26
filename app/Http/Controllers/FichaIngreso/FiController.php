@@ -146,9 +146,9 @@ class FiController extends Controller
         $dataxxxx['sis_esta_id'] = 1;
 
         $usuariox = $this->bitacora->grabar($dataxxxx, $objetoxx);
-        if ($dataxxxx['pasaupis']) {
-            $this->getUpisNnajIFT(['objetoxx' => $usuariox]);
-        }
+        // if ($dataxxxx['pasaupis']) {
+        //     $this->getUpisNnajIFT(['objetoxx' => $usuariox]);
+        // }
 
         return redirect()
             ->route($this->opciones['routxxxx'] . '.editar', [$usuariox->id])
@@ -517,7 +517,7 @@ class FiController extends Controller
      */
     public function edit(FiDatosBasico $objetoxx)
     {
-        $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento);
+        $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj]);
         }
