@@ -488,6 +488,10 @@ class SisDepensSeeder extends Seeder
         SisDepen::create(['simianti_id' => '64', 'nombre' => 'EXPERIENCIA CIUDAD BOLIVAR', 'i_prm_sexo_id' => 2324, 's_direccion' => 'ddd', 's_telefono' => 3471496, 'i_prm_cvital_id' => 1679, 'i_prm_tdependen_id' => 774,  'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'sis_departam_id' => 6, 'sis_municipio_id' => 233, 'sis_upzbarri_id' => 1510, 'itiestan' => 0, 'itiegabe' => 0, 's_correo' => 'ddd@idipron.gov.co']);
         SisDepen::create(['simianti_id' => '65', 'nombre' => 'EXPERIENCIA KENNEDY', 'i_prm_sexo_id' => 2324, 's_direccion' => 'ddd', 's_telefono' => 3471496, 'i_prm_cvital_id' => 1679, 'i_prm_tdependen_id' => 774,  'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'sis_departam_id' => 6, 'sis_municipio_id' => 233, 'sis_upzbarri_id' => 1510, 'itiestan' => 0, 'itiegabe' => 0, 's_correo' => 'ddd@idipron.gov.co']);
         SisDepen::create(['simianti_id' => '69', 'nombre' => '446/13 FOPAE', 'i_prm_sexo_id' => 2324, 's_direccion' => 'ddd', 's_telefono' => 00, 'i_prm_cvital_id' => 1679, 'i_prm_tdependen_id' => 774,  'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'sis_departam_id' => 6, 'sis_municipio_id' => 233, 'sis_upzbarri_id' => 1510, 'itiestan' => 0, 'itiegabe' => 0, 's_correo' => 'ddd@idipron.gov.co']);
+        SisDepen::create(['simianti_id' => '266', 'nombre' => 'CONVENIO 297/2020-SDP', 'i_prm_sexo_id' => 2324, 's_direccion' => 'CALLE 61 #7-78', 's_telefono' => '5713779997', 'i_prm_cvital_id' => 1678, 'i_prm_tdependen_id' => 1488,  'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'sis_departam_id' => 6, 'sis_municipio_id' => 231, 'sis_upzbarri_id' => 1494, 'itiestan' => 0, 'itiegabe' => 0, 's_correo' => 'convenios@idipron.gov.co']);
+        SisDepen::create(['simianti_id' => '270', 'nombre' => 'CONVENIO 699 DE 2020', 'i_prm_sexo_id' => 2324, 's_direccion' => 'CALLE 61 #7-78', 's_telefono' => '5713779997', 'i_prm_cvital_id' => 1678, 'i_prm_tdependen_id' => 1488,  'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'sis_departam_id' => 6, 'sis_municipio_id' => 231, 'sis_upzbarri_id' => 1494, 'itiestan' => 0, 'itiegabe' => 0, 's_correo' => 'FREDYH.MARTINEZ@IDIPRON.GOV.CO']);
+        SisDepen::create(['simianti_id' => '273', 'nombre' => ' CONVENIO 362 DE 2020', 'i_prm_sexo_id' => 2324, 's_direccion' => 'CALLE 61 #7-78', 's_telefono' => '5713779997', 'i_prm_cvital_id' => 1678, 'i_prm_tdependen_id' => 1488,  'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, 'sis_departam_id' => 6, 'sis_municipio_id' => 231, 'sis_upzbarri_id' => 1494, 'itiestan' => 0, 'itiegabe' => 0, 's_correo' => 'FREDYH.MARTINEZ@IDIPRON.GOV.CO']);
+
 
 
         $camposmagicos = ['user_crea_id' => 2, 'user_edita_id' => 2, 'sis_esta_id' => 1, 'i_prm_responsable_id' => 2316];
@@ -597,10 +601,7 @@ class SisDepensSeeder extends Seeder
         ]);
     }
 }
-/*
 
-
-                13,6,12,19,20,233,10,245,1,2,8,7,3,5,4,140,212,21,16,14,27,9,18,17,45
 
 
 

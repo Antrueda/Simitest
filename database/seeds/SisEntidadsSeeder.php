@@ -15,22 +15,22 @@ class SisEntidadsSeeder extends Seeder
     public function run()
     {
         $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'user_edita_id' => 1];
-        SisServicio::create(['simianti_id'=>'','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'N/A']);
-        SisServicio::create(['simianti_id'=>'2','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'INTERNADO']);
-        SisServicio::create(['simianti_id'=>'1','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'EXTERNADO']);
-        SisServicio::create(['simianti_id'=>'97','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'ESTÍMULO DE CORRESPONSABILIDAD']);
-        SisServicio::create(['simianti_id'=>'103','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'DISTRITO JOVEN EXTERNADO']);
-        SisServicio::create(['simianti_id'=>'7','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'TERRITORIO']);
-        SisServicio::create(['simianti_id'=>'106','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'DORMIDA TRANSITORIA']);
-        SisServicio::create(['simianti_id'=>'9','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'EGRESO']);
-        SisServicio::create(['simianti_id'=>'8','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'TERRITORIO (COLECTIVO IMAGO)']);
-        SisServicio::create(['simianti_id'=>'10','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'TERRITORIO (COLECTIVO ENTREREDES)']);
-        SisServicio::create(['simianti_id'=>'14','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'TERRITORIO (PROCESO 1)']);
-        SisServicio::create(['simianti_id'=>'3','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'GENERADORA INGRESOS']);
-        SisServicio::create(['simianti_id'=>'4','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'COMEDOR']);
-        SisServicio::create(['simianti_id'=>'5','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'INGRESO']);
-        SisServicio::create(['simianti_id'=>'100','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'CALLES ALTERNATIVAS INTERNADO']);
-        SisServicio::create(['simianti_id'=>'104','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'CPS']);
+        SisServicio::create(['simianti_id'=>'','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'N/A']); // 1
+        SisServicio::create(['simianti_id'=>'2','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'INTERNADO']); // 2
+        SisServicio::create(['simianti_id'=>'1','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'EXTERNADO']); // 3
+        SisServicio::create(['simianti_id'=>'97','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'ESTÍMULO DE CORRESPONSABILIDAD']); // 4
+        SisServicio::create(['simianti_id'=>'103','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'DISTRITO JOVEN EXTERNADO']); // 5
+        SisServicio::create(['simianti_id'=>'7','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'TERRITORIO']); // 6
+        SisServicio::create(['simianti_id'=>'106','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'DORMIDA TRANSITORIA']); // 7
+        SisServicio::create(['simianti_id'=>'9','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'EGRESO']); // 8
+        SisServicio::create(['simianti_id'=>'8','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'TERRITORIO (COLECTIVO IMAGO)']); // 9
+        SisServicio::create(['simianti_id'=>'10','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'TERRITORIO (COLECTIVO ENTREREDES)']); // 10
+        SisServicio::create(['simianti_id'=>'14','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'TERRITORIO (PROCESO 1)']); // 11
+        SisServicio::create(['simianti_id'=>'3','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'GENERADORA INGRESOS']); // 12
+        SisServicio::create(['simianti_id'=>'4','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'COMEDOR']); // 13
+        SisServicio::create(['simianti_id'=>'5','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'INGRESO']); // 14
+        SisServicio::create(['simianti_id'=>'100','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'CALLES ALTERNATIVAS INTERNADO']); // 15
+        SisServicio::create(['simianti_id'=>'104','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'CPS']); // 16
         SisServicio::create(['simianti_id'=>'23','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'REVISION CONTRATACION']);
         SisServicio::create(['simianti_id'=>'GIC','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'GENERACION DE INGRESOS COMUNIDAD']);
         SisServicio::create(['simianti_id'=>'22','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'GARANTIA DE PERMANENCIA']);
@@ -105,7 +105,7 @@ class SisEntidadsSeeder extends Seeder
         SisServicio::create(['simianti_id'=>'105','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'CPS MAYORES']);
         SisServicio::create(['simianti_id'=>'96','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'FORMACION TECNICA']);
         SisServicio::create(['simianti_id'=>'APY','user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'s_servicio' => 'APOYO CONVENIO 149/2016 TRANS.']);
-        
+
         $entidadx = SisEntidad::create(['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1,'nombre' => 'N/A']);
         $entidadx->sis_servicios()->sync([
             1 => $camposmagicos,

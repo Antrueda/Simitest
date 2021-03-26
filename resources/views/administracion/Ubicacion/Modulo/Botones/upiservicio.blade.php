@@ -7,12 +7,10 @@
           @foreach($dataxxxx['servicio'] as $servicio)
           <tr>
             <td style="font-size: 15px;">{{$servicio->s_servicio}}</td>
-          </tr> 
+          </tr>
         @endforeach
         </table>
       </td>
     </tr>
-    
   @endforeach
-
 </table>

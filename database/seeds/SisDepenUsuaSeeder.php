@@ -12,6 +12,74 @@ class SisDepenUsuaSeeder extends Seeder
      */
     public function run()
     {
+        $registro = ["sis_depen_id" => 26, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 254, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 18, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 916, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 27, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 867, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 19, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 667, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 8, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 220, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 13, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 218, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 5, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 330, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 17, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 220, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 25, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 806, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 2, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 766, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 10, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 1175, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 16, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 216, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 15, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 545, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 240, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 187, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 21, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 271, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 24, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 436, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 3, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 758, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 23, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 501, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 12, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 330, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 20, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 513, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 22, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 271, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 6, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 1272, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 30, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 2051, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 28, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 945, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 37, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 2057, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 36, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 397, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 263, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 631, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 34, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 1388, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 264, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 2125, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 35, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 631, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 32, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 2082, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 31, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 2121, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 262, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 289, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+
+
         $registro = ["sis_depen_id" => 29, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2046, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 2, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2046, "user_edita_id" => 1, "sis_esta_id" => 1,];
@@ -80,8 +148,7 @@ class SisDepenUsuaSeeder extends Seeder
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 5, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2050, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
-        $registro = ["sis_depen_id" => 18, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2051, "user_edita_id" => 1, "sis_esta_id" => 1,];
-        SisDepeUsua::create($registro);
+
         $registro = ["sis_depen_id" => 27, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2051, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 12, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2051, "user_edita_id" => 1, "sis_esta_id" => 1,];
@@ -176,16 +243,14 @@ class SisDepenUsuaSeeder extends Seeder
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 27, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2056, "user_edita_id" => 9, "sis_esta_id" => 2,];
         SisDepeUsua::create($registro);
-        $registro = ["sis_depen_id" => 28, "i_prm_responsable_id" => 227, "user_crea_id" => 9, "user_id" => 2056, "user_edita_id" => 9, "sis_esta_id" => 1,];
-        SisDepeUsua::create($registro);
+
         $registro = ["sis_depen_id" => 29, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2056, "user_edita_id" => 9, "sis_esta_id" => 2,];
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 2, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2056, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 3, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2056, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
-        $registro = ["sis_depen_id" => 20, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2057, "user_edita_id" => 1, "sis_esta_id" => 1,];
-        SisDepeUsua::create($registro);
+
         $registro = ["sis_depen_id" => 21, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2058, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 22, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2058, "user_edita_id" => 1, "sis_esta_id" => 1,];
@@ -228,8 +293,8 @@ class SisDepenUsuaSeeder extends Seeder
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 29, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2066, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
-        $registro = ["sis_depen_id" => 30, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 2067, "user_edita_id" => 1, "sis_esta_id" => 1,];
-        SisDepeUsua::create($registro);
+
+
         $registro = ["sis_depen_id" => 29, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2068, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 3, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2069, "user_edita_id" => 1, "sis_esta_id" => 1,];
@@ -296,8 +361,7 @@ class SisDepenUsuaSeeder extends Seeder
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 5, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2072, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
-        $registro = ["sis_depen_id" => 37, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 2073, "user_edita_id" => 1, "sis_esta_id" => 1,];
-        SisDepeUsua::create($registro);
+
         $registro = ["sis_depen_id" => 6, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2074, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 29, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2075, "user_edita_id" => 1, "sis_esta_id" => 1,];
@@ -444,8 +508,8 @@ class SisDepenUsuaSeeder extends Seeder
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 18, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2088, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
-        $registro = ["sis_depen_id" => 20, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 2088, "user_edita_id" => 1, "sis_esta_id" => 1,];
-        SisDepeUsua::create($registro);
+
+
         $registro = ["sis_depen_id" => 29, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2089, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 20, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2090, "user_edita_id" => 1, "sis_esta_id" => 1,];
@@ -478,8 +542,8 @@ class SisDepenUsuaSeeder extends Seeder
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 36, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2097, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
-        $registro = ["sis_depen_id" => 32, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 2098, "user_edita_id" => 1, "sis_esta_id" => 1,];
-        SisDepeUsua::create($registro);
+
+
         $registro = ["sis_depen_id" => 6, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2099, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 16, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2099, "user_edita_id" => 1, "sis_esta_id" => 1,];
@@ -1082,8 +1146,8 @@ class SisDepenUsuaSeeder extends Seeder
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 5, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2040, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
-        $registro = ["sis_depen_id" => 31, "i_prm_responsable_id" => 227, "user_crea_id" => 1, "user_id" => 2041, "user_edita_id" => 1, "sis_esta_id" => 1,];
-        SisDepeUsua::create($registro);
+
+
         $registro = ["sis_depen_id" => 19, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2042, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 3, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2043, "user_edita_id" => 1, "sis_esta_id" => 1,];
