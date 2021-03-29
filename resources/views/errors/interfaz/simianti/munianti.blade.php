@@ -2,7 +2,7 @@
 @section('content')
 <div class="alert alert-warning">
     <strong>{{$tituloxx}}</strong> No se pudo migrar el nnaj:<strong> {{$nnajxxxx}}</strong> al sistema antiguo porque el municipio mostrado en la tabla no existe o no ha sido homologado.
-    Por favor enviar pantallazo de este mensaje por correo al administrador del sistema para la homologación.
+    Por favor enviar pantallazo de este mensaje por correo al administrador del sistema para la homologación al siguiente correo: soportetecnico.nuevosimi@idipron.gov.co.
 </div>
 <div class="row">
 

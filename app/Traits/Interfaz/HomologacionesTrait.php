@@ -2,6 +2,7 @@
 
 namespace App\Traits\Interfaz;
 
+use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajUpi;
@@ -18,7 +19,6 @@ use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisCargo;
 use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisDepeServ;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
@@ -164,12 +164,12 @@ trait HomologacionesTrait
         }
         $parametr = Parametro::where('nombre', $dataxxxx['codigoxx'])->first();
         if ($parametr == null) {
-            $parametr = Parametro::create([
-                'nombre' => $dataxxxx['codigoxx'],
-                'sis_esta_id' => Auth::user()->id,
-                'user_crea_id' => Auth::user()->id,
-                'user_edita_id' => 1,
-            ]);
+            // $parametr = Parametro::create([
+            //     'nombre' => $dataxxxx['codigoxx'],
+            //     'sis_esta_id' => Auth::user()->id,
+            //     'user_crea_id' => Auth::user()->id,
+            //     'user_edita_id' => 1,
+            // ]);
         }
         // se crea el parametro y se asocia con el tema
         $parametr = $this->getValidarParametro($parametr, $dataxxxx, false, 0);
@@ -480,52 +480,44 @@ trait HomologacionesTrait
         }
         return  $sisdepen;
     }
-    public function getValidarUpiServicio($dataxxxx, $servicio)
-    {
-        // encontrar el servicio que se le asigna en datos basicos al nnaj
-        if ($dataxxxx['datobasi']) {
-            $sisdepen = SisDepen::find($dataxxxx['sisdepen']);
-        } else { // asignar los servicios de la upi
-            $sisdepen = GeUpi::find($dataxxxx['sisdepen']);
-            $sisdepen = SisDepen::where('nombre', $sisdepen->nombre)->first();
-        }
-        // existe el servicio
-        if (isset($servicio->id)) {
-            $sisdepen = $this->getValidarUpi($dataxxxx, $sisdepen);
-        } else {
-            $sisdepen = $this->getValidarUpi($dataxxxx, $sisdepen);
-            $servicio = SisServicio::find(8);
-        }
-        $servicio = $this->getUnirUpiServicio($sisdepen, $servicio, $dataxxxx);
-        return $servicio;
-    }
+
     public function getServiciosUpi($dataxxxx)
     {
-        $dependen = SisDepen::find( $dataxxxx['sisdepen']);
-        $depeserv = $dependen->sis_servicios()->where('simianti_id', $dataxxxx['codigoxx'])->first();
-        $servicio = SisServicio::where('simianti_id', $dataxxxx['codigoxx'])->first();
-        if ($depeserv == null) {
-            $dependen->sis_servicios()->attach([$servicio->id => [
-                'user_crea_id' => Auth::user()->id,
-                'user_edita_id' => Auth::user()->id,
-                'sis_esta_id' => 1
-            ]]);
+        $dataxxxx['datobasi'] = false;
+        $dataxxxx['sisdepen'] = 1;
+        if ($dataxxxx['datobasi']) {
+            $dependen = SisDepen::find($dataxxxx['sisdepen']);
+        } else {
+            $dependen = SisDepen::where('simianti_id', $dataxxxx['sisdepen'])->first();
+            // if ($dependen == null) {
+                $dataxxxx['tituloxx'] = 'SERVICIO O UPI NO ENCONTRADO(A)!';
+                $dataxxxx['dependen'] = GeUpi::find($dataxxxx['sisdepen']);
+                $dataxxxx['servicio'] = SisMultivalore::where('tabla','MODALIDAD_UPI')->where('codigo',$dataxxxx['codigoxx'])->first();
+                // ddd();
+                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.depeanti', 'dataxxxx' => $dataxxxx]);
+            // }
         }
-        // $servicio = [];
-        // if ($dataxxxx['codigoxx'] != '') {
-        //     // buscar el servicio en el antiguo desarrollo
-        //     $multival = SisMultivalore::where('tabla', 'MODALIDAD_UPI')->where('codigo', $dataxxxx['codigoxx'])->first();
-        //     $servicio = SisServicio::where('s_servicio', $multival->descripcion)->first();
 
-        //     $servicio = $this->getValidarUpiServicio($dataxxxx, $servicio);
-        // } else {
-        //     $servicio = $this->getValidarUpiServicio($dataxxxx, $servicio);
-        // }
-        return $servicio;
+
+        try {
+
+
+            $depeserv = $dependen->sis_servicios()->where('simianti_id', $dataxxxx['codigoxx'])->first();
+            $servicio = SisServicio::where('simianti_id', $dataxxxx['codigoxx'])->first();
+            if ($depeserv == null) {
+                $dependen->sis_servicios()->attach([$servicio->id => [
+                    'user_crea_id' => Auth::user()->id,
+                    'user_edita_id' => Auth::user()->id,
+                    'sis_esta_id' => 1
+                ]]);
+            }
+            return $servicio;
+        } catch (\Throwable $th) {
+        }
     }
     public function getUpisModalidadHT($dataxxxx)
     {
-        $upismoda = GeUpiNnaj::where('id_nnaj', $dataxxxx['idnnajxx'])->where('modalidad', '!=', null)->where('estado','A')->get();
+        $upismoda = GeUpiNnaj::where('id_nnaj', $dataxxxx['idnnajxx'])->where('modalidad', '!=', null)->where('estado', 'A')->get();
         foreach ($upismoda as $key => $value) {
             $this->getServiciosUpi(['codigoxx' => $value->modalidad, 'sisdepen' => $value->id_upi, 'datobasi' => false]);
         }

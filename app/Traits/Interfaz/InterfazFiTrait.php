@@ -71,7 +71,6 @@ trait InterfazFiTrait
     }
     public function getBuscarNnajAgregar($request)
     {
-        // ya lo llamo
         $dataxxxx = $this->getArmarData($request);
         $objetoxx = new FiDatosBasico;
         $objetoxx->diligenc = explode(' ', $dataxxxx->fecha_apertura)[0];
@@ -79,7 +78,7 @@ trait InterfazFiTrait
         $objetoxx->sis_depen_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->id_upi])->id;
 
         if ($dataxxxx->modalidad != null) {
-            $objetoxx->sis_servicio_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad,  'sisdepen' => $objetoxx->sis_depen_id, 'datobasi' => true])->id;
+            $objetoxx->sis_servicio_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad,  'sisdepen' => $objetoxx->sis_depen_id, 'datobasi' => true,'nnajxxxx'=>$dataxxxx])->id;
         }
 
         $objetoxx->s_primer_nombre = $dataxxxx->primer_nombre;
