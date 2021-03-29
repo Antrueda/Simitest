@@ -483,42 +483,79 @@ trait HomologacionesTrait
 
     public function getServiciosUpi($dataxxxx)
     {
-        $dataxxxx['datobasi'] = false;
-        $dataxxxx['sisdepen'] = 1;
         if ($dataxxxx['datobasi']) {
             $dependen = SisDepen::find($dataxxxx['sisdepen']);
         } else {
             $dependen = SisDepen::where('simianti_id', $dataxxxx['sisdepen'])->first();
-            // if ($dependen == null) {
+            if ($dependen == null) {
                 $dataxxxx['tituloxx'] = 'SERVICIO O UPI NO ENCONTRADO(A)!';
                 $dataxxxx['dependen'] = GeUpi::find($dataxxxx['sisdepen']);
-                $dataxxxx['servicio'] = SisMultivalore::where('tabla','MODALIDAD_UPI')->where('codigo',$dataxxxx['codigoxx'])->first();
-                // ddd();
+                $dataxxxx['servicio'] = SisMultivalore::where('tabla', 'MODALIDAD_UPI')->where('codigo', $dataxxxx['codigoxx'])->first();
                 throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.depeanti', 'dataxxxx' => $dataxxxx]);
-            // }
-        }
-
-
-        try {
-
-
-            $depeserv = $dependen->sis_servicios()->where('simianti_id', $dataxxxx['codigoxx'])->first();
-            $servicio = SisServicio::where('simianti_id', $dataxxxx['codigoxx'])->first();
-            if ($depeserv == null) {
-                $dependen->sis_servicios()->attach([$servicio->id => [
-                    'user_crea_id' => Auth::user()->id,
-                    'user_edita_id' => Auth::user()->id,
-                    'sis_esta_id' => 1
-                ]]);
             }
-            return $servicio;
-        } catch (\Throwable $th) {
+        }
+        $depeserv = $dependen->sis_servicios()->where('simianti_id', $dataxxxx['codigoxx'])->first();
+        $servicio = SisServicio::where('simianti_id', $dataxxxx['codigoxx'])->first();
+        if ($depeserv == null) {
+            $dependen->sis_servicios()->attach([$servicio->id => [
+                'user_crea_id' => Auth::user()->id,
+                'user_edita_id' => Auth::user()->id,
+                'sis_esta_id' => 1
+            ]]);
+        }
+        return $servicio;
+    }
+    /**
+     * Asignar los serviciso que tienen asignado el nnaj el antiguo simi
+     *
+     * @param object $depenanj
+     * @param object $servicio
+     * @return void
+     */
+    public function setServicio($depenanj, $servicio)
+    {
+        $servnnaj = $depenanj->nnaj_deses->where('sis_servicio_id', $servicio->id)->first();
+        if ($servnnaj == null) {
+            $nnajdese = [
+                'sis_servicio_id' => $servicio->id,
+                'nnaj_upi_id' => $depenanj->id,
+                'prm_principa_id' => 228,
+                'user_crea_id' => Auth::user()->id,
+                'user_edita_id' => Auth::user()->id,
+                'sis_esta_id' => 1
+
+            ];
+            NnajDese::create($nnajdese);
         }
     }
+    /**
+     * asignar las upis y serviciso que tiene asignado el nnaj en el antiguo simi
+     *
+     * @param array $dataxxxx
+     * @return void
+     */
     public function getUpisModalidadHT($dataxxxx)
     {
-        $upismoda = GeUpiNnaj::where('id_nnaj', $dataxxxx['idnnajxx'])->where('modalidad', '!=', null)->where('estado', 'A')->get();
+        $upismoda = GeUpiNnaj::where('id_nnaj', $dataxxxx['idnnajxx'])
+            ->where('modalidad', '!=', null)
+            ->where('estado', 'A')
+            ->get();
         foreach ($upismoda as $key => $value) {
+            $servicio = SisServicio::where('simianti_id', $value->modalidad)->first();
+            $dependen = SisDepen::where('simianti_id', $value->id_upi)->first();
+            $depenanj = $dependen->sis_depens->where('sis_nnaj_id', $dataxxxx['sisnnaji'])->first();
+            if ($depenanj == null) {
+                $nnajupix = [
+                    'sis_nnaj_id' => $dataxxxx['sisnnaji'],
+                    'sis_depen_id' => $dependen->id,
+                    'user_crea_id' => Auth::user()->id,
+                    'prm_principa_id' => 228,
+                    'user_edita_id' => Auth::user()->id,
+                    'sis_esta_id' => 1,
+                ];
+                $depenanj = NnajUpi::create($nnajupix);
+            }
+            $this->setServicio($depenanj, $servicio);
             $this->getServiciosUpi(['codigoxx' => $value->modalidad, 'sisdepen' => $value->id_upi, 'datobasi' => false]);
         }
     }
@@ -531,42 +568,6 @@ trait HomologacionesTrait
         return $upinuevo;
     }
 
-    public function getAsignarUpiNnaj($dataxxxx)
-    {
-        NnajUpi::create([
-            'sis_nnaj_id' => $dataxxxx['objetoxx']->sis_nnaj_id,
-            'sis_depen_id' => $dataxxxx['idupixxx'],
-            'user_crea_id' => Auth::user()->id,
-            'prm_principa_id' => 228,
-            'user_edita_id' => Auth::user()->id,
-            'sis_esta_id' => 1,
-        ]);
-    }
-    public function getAsignarServiciosNnaj($dataxxxx)
-    {
-        $servicio = SisMultivalore::where('tabla', 'MODALIDAD_UPI')->where('codigo', $dataxxxx['codigoxx'])->first();
-        $servicio = SisServicio::where('s_servicio', $servicio->descripcion)->first();
-        if ($servicio == null) {
-            $servicio = SisServicio::find(8);
-        }
-        $servnnaj = NnajDese::select(['nnaj_upis.id'])
-            ->join('nnaj_upis', 'nnaj_deses.nnaj_upi_id', '=', 'nnaj_upis.id')
-            ->where('nnaj_deses.sis_servicio_id', $servicio->id)
-            ->where('nnaj_upis.sis_depen_id', $dataxxxx['idupixxx'])
-            ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['objetoxx']->sis_nnaj_id)
-            ->first();
-        if ($servnnaj == null) {
-            $servnnaj = NnajUpi::where('sis_depen_id', $dataxxxx['idupixxx'])->first();
-            NnajDese::create([
-                'sis_servicio_id' => $servicio->id,
-                'nnaj_upi_id' => $servnnaj->id,
-                'prm_principa_id' => 228,
-                'user_crea_id' => Auth::user()->id,
-                'user_edita_id' => Auth::user()->id,
-                'sis_esta_id' => 1,
-            ]);
-        }
-    }
     /**
      * encontrar las upis del usuario en el antiguo simi y asignarlas en el nuevo desarrollo al usuario
      *

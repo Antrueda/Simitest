@@ -143,27 +143,6 @@ trait InterfazFiTrait
 
         return $objetoxx;
     }
-
-
-    public function getUpisNnajIFT($dataxxxx)
-    {
-        $upissimi = GeNnajDocumento::join('ge_upi_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
-            ->where('ge_nnaj_documento.numero_documento', $dataxxxx['objetoxx']->nnaj_docu->s_documento)
-            ->where('ge_upi_nnaj.estado', 'A')
-            ->where('ge_upi_nnaj.modalidad', '!=', null)
-            ->get();
-        foreach ($upissimi as $key => $value) {
-            $dataxxxx['idupixxx'] =  $value->id_upi;
-            $upinnajx = $this->getUpiSimi($dataxxxx);
-            $upinnajy = NnajUpi::where('sis_nnaj_id', $dataxxxx['objetoxx']->sis_nnaj_id)->where('sis_depen_id', $upinnajx->id)->first();
-            $dataxxxx['idupixxx'] =  $upinnajx->id;
-            if (!isset($upinnajy->id)) {
-                $this->getAsignarUpiNnaj($dataxxxx);
-            }
-            $dataxxxx['codigoxx'] =  $value->modalidad;
-            $this->getAsignarServiciosNnaj($dataxxxx);
-        }
-    }
     public function getDataGeNnaj($dataxxxx)
     {
         $padrexxx = $dataxxxx['padrexxx'];
