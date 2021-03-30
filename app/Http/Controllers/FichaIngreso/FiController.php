@@ -589,6 +589,9 @@ class FiController extends Controller
                 case 651:
                     $respuest['comboxxx'] = Tema::combo(354, true, true);
                     break;
+                case 445:
+                $respuest['comboxxx'] = Parametro::find(445)->ComboAjaxUno;
+                break;    
             }
 
             return response()->json($respuest);

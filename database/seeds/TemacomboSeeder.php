@@ -122,13 +122,14 @@ class TemacomboSeeder extends Seeder
             22 => $this->getCM(['simianti' => 'IN']),
         ]);
 
-        $tema = $this->getR(['temaidxx' => 12,  'nombrexx' => 'IDENTIDADE DE GÉNERO']);
+        $tema = $this->getR(['temaidxx' => 12,  'nombrexx' => 'IDENTIDAD DE GÉNERO']);
         $tema->parametros()->sync([
             23 => $this->getCM(['simianti' => 1]),
             24 => $this->getCM(['simianti' => 2]),
             25 => $this->getCM(['simianti' => 3]),
             26 => $this->getCM(['simianti' => 4]),
             27 => $this->getCM(['simianti' => 5]),
+            445 => $this->getCM(['simianti' => '']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 13,  'nombrexx' => 'Orientación Sexual']);
@@ -137,6 +138,7 @@ class TemacomboSeeder extends Seeder
             29 => $this->getCM(['simianti' => '1']),
             30 => $this->getCM(['simianti' => '2']),
             31 => $this->getCM(['simianti' => '3']),
+            445 => $this->getCM(['simianti' => '']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 14,  'nombrexx' => 'Pieza Dental']);
@@ -281,6 +283,7 @@ class TemacomboSeeder extends Seeder
             154 => $this->getCM(['simianti' => '3']),
             155 => $this->getCM(['simianti' => '4']),
             156 => $this->getCM(['simianti' => '']),
+            445 => $this->getCM(['simianti' => '']),
 
         ]);
 
@@ -294,6 +297,7 @@ class TemacomboSeeder extends Seeder
             162 => $this->getCM(['simianti' => 'RSAN']),
             163 => $this->getCM(['simianti' => 'NEGR']),
             164 => $this->getCM(['simianti' => 'N/A']),
+            445 => $this->getCM(['simianti' => '']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 21,  'nombrexx' => 'Estado Afiliación']);
@@ -1394,6 +1398,7 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync([
             650 => $this->getCM(['simianti' => '1']),
             651 => $this->getCM(['simianti' => '2']),
+            445 => $this->getCM(['simianti' => '']),
 
         ]);
 
@@ -3115,6 +3120,7 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync([
             2484 => $this->getCM(['simianti' => '1']),
             2485 => $this->getCM(['simianti' => '2']),
+            445 => $this->getCM(['simianti' => '']),
         ]);
 
 
@@ -3811,12 +3817,16 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync([
             651 => $this->getCM(['simianti' => '']),
             2323 => $this->getCM(['simianti' => '']),
+            445 => $this->getCM(['simianti' => '']),
         ]); //354
         $tema = $this->getR([
             'temaidxx' => 355,
             'nombrexx' => 'SIN ESTRATEGIA',
         ]);
-        $tema->parametros()->sync([235 => $this->getCM(['simianti' => ''])]); //355
+        $tema->parametros()->sync([
+         235 => $this->getCM(['simianti' => '']),
+         445 => $this->getCM(['simianti' => '']),
+         ]); //355
         $tema = $this->getR([
             'temaidxx' => 356,
             'nombrexx' => 'TIPO ATENCIÓN INTERVENCIÓN TRABAJADOR SOCIAL',
@@ -4014,6 +4024,7 @@ class TemacomboSeeder extends Seeder
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
             2497=>$this->getCM(['simianti' => '3']),
+            445 => $this->getCM(['simianti' => '']),
         ]);
 
         $tema = $this->getR([
@@ -4024,6 +4035,7 @@ class TemacomboSeeder extends Seeder
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
             2497=>$this->getCM(['simianti' => '3']),
+            445 => $this->getCM(['simianti' => '']),
         ]);
     }
 }

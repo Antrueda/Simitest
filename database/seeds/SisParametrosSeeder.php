@@ -465,7 +465,7 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'INHALADA'], // 442
             ['nombrexx' => 'INYECTADA'], // 443
             ['nombrexx' => 'DERMICA'], // 444
-            ['nombrexx' => 'SIN DATO REPETIDO CAMBIAR'], // 445
+            ['nombrexx' => 'SIN DATO'], // 445
             ['nombrexx' => 'LABORAL'], // 446
             ['nombrexx' => 'FAMILIA'], // 447
             ['nombrexx' => 'EMOCIONAL'], // 448
