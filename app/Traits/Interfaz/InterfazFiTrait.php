@@ -2,10 +2,12 @@
 
 namespace App\Traits\Interfaz;
 
+use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Parametro;
+use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GeNnaj;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeUpiNnaj;
@@ -27,7 +29,7 @@ trait InterfazFiTrait
     {
         $dataxxxx = GeNnajDocumento::select([
             'ge_nnaj.id_nnaj',
-            'ficha_acercamiento_ingreso.fecha_apertura',
+            // 'ficha_acercamiento_ingreso.fecha_apertura',
             'ge_nnaj.tipo_poblacion',
             'ge_upi_nnaj.id_upi',
             'ge_upi_nnaj.modalidad',
@@ -55,20 +57,27 @@ trait InterfazFiTrait
             'ge_nnaj.etnia',
             'ge_nnaj.condicion_vestido',
             'ge_direcciones.id_barrio',
-            'ficha_acercamiento_ingreso.fecha_insercion as fai',
         ])
             ->join('ge_nnaj', 'ge_nnaj_documento.id_nnaj', '=', 'ge_nnaj.id_nnaj')
             ->join('ge_upi_nnaj', 'ge_nnaj.id_nnaj', '=', 'ge_upi_nnaj.id_nnaj')
-            ->join('ficha_acercamiento_ingreso', 'ge_nnaj.id_nnaj', '=', 'ficha_acercamiento_ingreso.id_nnaj')
             ->join('ge_direcciones', 'ge_nnaj.id_nnaj', '=', 'ge_direcciones.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $request->docuagre)
             ->where('ge_upi_nnaj.estado', 'A')
             ->orderBy('ge_nnaj_documento.fecha_insercion', 'DESC')
             ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
-            ->orderBy('ficha_acercamiento_ingreso.fecha_insercion', 'ASC')
-            //->where('ficha_acercamiento_ingreso.estado', 'A')
             ->first();
-        // $this->getUpisModalidadHT(['idnnajxx' => $dataxxxx->id_nnaj]);
+
+            $fichacer=FichaAcercamientoIngreso::where('id_nnaj', $dataxxxx->id_nnaj)->first();
+            if($fichacer==null){
+                $dataxxxx['tituloxx'] = 'NNJA SIN FICHA!';
+                $dataxxxx['mensajex'] = 'El NNAJ: ' . $dataxxxx->primer_nombre.' '.
+                $dataxxxx->segundo_nombre.' '.
+                $dataxxxx->primer_apellido.' '.
+                $dataxxxx->segundo_apellido.' con docuemento de identidad:  '.$request->docuagre. ' no se puede migrar porque no tiene ficha de ingreso en el antiguo simi';
+                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+            }else{
+                $dataxxxx->fecha_apertura=$fichacer->fecha_apertura;
+            }
         return $dataxxxx;
     }
     public function getBuscarNnajAgregar($request)

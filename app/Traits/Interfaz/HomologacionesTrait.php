@@ -416,6 +416,11 @@ trait HomologacionesTrait
         }
         $depeserv = $dependen->sis_servicios()->where('simianti_id', $dataxxxx['codigoxx'])->first();
         $servicio = SisServicio::where('simianti_id', $dataxxxx['codigoxx'])->first();
+        if ($servicio == null) {
+            $dataxxxx['tituloxx'] = 'SERVICIO NO ENCONTRADO!';
+            $dataxxxx['mensajex'] = 'El servicio: ' . $dataxxxx['servicio']->descripcion . ' código: ' . $dataxxxx['servicio']->codigo . ' no se ha creado u homolagado';
+            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+        }
         if ($depeserv == null) {
             $dependen->sis_servicios()->attach([$servicio->id => [
                 'user_crea_id' => Auth::user()->id,
