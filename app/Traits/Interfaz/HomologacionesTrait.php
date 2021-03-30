@@ -9,7 +9,9 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Indicadores\Area;
 use App\Models\Parametro;
 use App\Models\Simianti\Ba\BaTerritorio;
+use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GeCargo;
+use App\Models\Simianti\Ge\GeNnaj;
 use App\Models\Simianti\Ge\GePersonalIdipron;
 use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Simianti\Ge\GeUpiNnaj;
@@ -261,22 +263,17 @@ trait HomologacionesTrait
      */
     public function getParametrosSimiMultivalor($dataxxxx)
     {
-
-
         $comboxxx = Temacombo::where('id', $dataxxxx['temaxxxx'])->first()->parametros;
         $parametr = '';
-        foreach ($comboxxx as $key => $value) {
-            if ($value->pivot->simianti_id == $dataxxxx['codigoxx']) {
-                $parametr = $value;
+        if ($dataxxxx['codigoxx'] == '') {
+            $parametr = Parametro::find(445);
+        } else {
+            foreach ($comboxxx as $key => $value) {
+                if ($value->pivot->simianti_id == $dataxxxx['codigoxx']) {
+                    $parametr = $value;
+                }
             }
-            // echo $value->id;
-            //  echo $value->pivot->simianti_id;
         }
-        // ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
-        // ->where('temacombos.id', $dataxxxx['temaxxxx'])
-
-        // ->where('parametro_temacombo.simianti_id', trim($dataxxxx['codigoxx']))
-        // ->first();
         if ($dataxxxx['testerxx']) {
             // echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
             // ddd($comboxxx);
@@ -288,83 +285,6 @@ trait HomologacionesTrait
                 }
                 break;
         }
-        // trim($dataxxxx['codigoxx']);
-        // $parametr = [];
-        // $parasimi = ['codigoxx' => 0];
-        // if ($dataxxxx['codigoxx'] == 'null') {
-        //     $dataxxxx['codigoxx'] = '';
-        // }
-
-        // if ($dataxxxx['codigoxx'] != '' || $dataxxxx['codigoxx'] != 0) {
-        //     // buscar el parametro en el antiguo desarrollo
-
-        //     $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])->where('codigo', $dataxxxx['codigoxx'])->first();
-        //     switch ($dataxxxx['temaxxxx']) {
-        //         case 3:
-        //             $posiciox = substr($dataxxxx['codigoxx'], 0, 1);
-        //             $posicioy = substr($dataxxxx['codigoxx'], 1);
-        //             $multival->descripcion = $posiciox . '.' . $posicioy . '.';
-        //             break;
-        //         case 23:
-        //             if ($multival->descripcion == 'S' || $multival->descripcion == 'N') {
-        //                 $valoresx = ['S' => 'SI', 'N' => 'NO'];
-        //                 $multival->descripcion = $valoresx[$multival->descripcion];
-        //             }
-        //             break;
-
-        //         case 20:
-        //             if ($multival->descripcion == 'NINGUNO') {
-        //                 $valoresx = ['NINGUNO' => 'NINGUNO DE LOS ANTERIORES'];
-        //                 $multival->descripcion = $valoresx[$multival->descripcion];
-        //             }
-        //             break;
-
-        //         case 19:
-        //             if ($multival->descripcion == 'UNION LIBRE') {
-        //                 $valoresx = ['UNION LIBRE' => 'UNIÓN LIBRE'];
-        //                 $multival->descripcion = $valoresx[$multival->descripcion];
-        //             }
-        //             break;
-
-        //         case 33:
-        //             if ($multival->descripcion == 'PRIMERA' || $multival->descripcion == 'SEGUNDA') {
-        //                 $valoresx = ['PRIMERA' => '1. RA', 'SEGUNDA' => '2. DA'];
-        //                 $multival->descripcion = $valoresx[$multival->descripcion];
-        //             }
-
-        //             break;
-        //         case 20:
-        //             if ($multival->descripcion == 'BLANCO') {
-        //                 $multival->descripcion = $multival->descripcion . '(A)';
-        //             }
-        //             break;
-        //         case 290:
-        //             $multival->descripcion = substr(explode('(', $multival->descripcion)[0], 0, -1) . 'A';
-        //             break;
-        //     }
-        //     // buscar el parametro en el nuevo desarrollo
-        //     $parametr = Parametro::where('nombre', $multival->descripcion)->first();
-        //     if ($parametr == null) {
-        //         $parametr = Parametro::create([
-        //             'nombre' => $multival->descripcion,
-        //             'user_edita_id' => Auth::user()->id,
-        //             'user_crea_id' => Auth::user()->id,
-        //             'sis_esta_id' => 1,
-        //         ]);
-        //     }
-        // } else {
-        //     switch ($dataxxxx['temaxxxx']) {
-        //         case 23: // tiene documento físico o tiene definida la situación militar
-        //             if (isset($dataxxxx['sexoxxxx']) && $dataxxxx['sexoxxxx'] == 'F') { // cuando es una mujer
-        //                 $parametr = Parametro::find(235);
-        //             }
-        //             break;
-        //     }
-        // }
-
-        // // se crea el parametro y se asocia con el tema
-        // $parametr = $this->getValidarParametro($parametr, $dataxxxx, true, $parasimi['codigoxx']);
-
         return $parametr;
     }
     public function getMunicipoSimi($dataxxxx)
@@ -543,7 +463,7 @@ trait HomologacionesTrait
         foreach ($upismoda as $key => $value) {
             $servicio = SisServicio::where('simianti_id', $value->modalidad)->first();
             $dependen = SisDepen::where('simianti_id', $value->id_upi)->first();
-            $depenanj = $dependen->sis_depens->where('sis_nnaj_id', $dataxxxx['sisnnaji'])->first();
+            $depenanj = $dependen->nnaj_upis->where('sis_nnaj_id', $dataxxxx['sisnnaji'])->first();
             if ($depenanj == null) {
                 $nnajupix = [
                     'sis_nnaj_id' => $dataxxxx['sisnnaji'],
@@ -559,8 +479,6 @@ trait HomologacionesTrait
             $this->getServiciosUpi(['codigoxx' => $value->modalidad, 'sisdepen' => $value->id_upi, 'datobasi' => false]);
         }
     }
-
-
     public function getUpiSimi($dataxxxx)
     {
         // buscar la upi en el nuevo desarrollo

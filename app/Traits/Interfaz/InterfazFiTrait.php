@@ -8,8 +8,10 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnaj;
 use App\Models\Simianti\Ge\GeNnajDocumento;
+use App\Models\Simianti\Ge\GeUpiNnaj;
 use App\Models\User;
 use App\Traits\Interfaz\HomologacionesSimiAtiguoTrait as HSAT;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * realiza la comunicación entre las dos bases de datos=>'{$value->s_iso}'que se busca?
@@ -66,7 +68,7 @@ trait InterfazFiTrait
             ->orderBy('ficha_acercamiento_ingreso.fecha_insercion', 'ASC')
             //->where('ficha_acercamiento_ingreso.estado', 'A')
             ->first();
-            // $this->getUpisModalidadHT(['idnnajxx' => $dataxxxx->id_nnaj]);
+        // $this->getUpisModalidadHT(['idnnajxx' => $dataxxxx->id_nnaj]);
         return $dataxxxx;
     }
     public function getBuscarNnajAgregar($request)
@@ -78,7 +80,7 @@ trait InterfazFiTrait
         $objetoxx->sis_depen_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->id_upi])->id;
 
         if ($dataxxxx->modalidad != null) {
-            $objetoxx->sis_servicio_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad,  'sisdepen' => $objetoxx->sis_depen_id, 'datobasi' => true,'nnajxxxx'=>$dataxxxx])->id;
+            $objetoxx->sis_servicio_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad,  'sisdepen' => $objetoxx->sis_depen_id, 'datobasi' => true, 'nnajxxxx' => $dataxxxx])->id;
         }
 
         $objetoxx->s_primer_nombre = $dataxxxx->primer_nombre;
@@ -137,8 +139,8 @@ trait InterfazFiTrait
         $objetoxx->sis_localidad_id = $locabari->sis_localupz->sis_localidad_id;
         $objetoxx->sis_upz_id = $locabari->sis_localupz->id;
         $objetoxx->sis_upzbarri_id = $locabari->id;
-        $objetoxx->s_lugar_focalizacion='SIN DATO';
-        $objetoxx->s_nombre_focalizacion='SIN DATO';
+        $objetoxx->s_lugar_focalizacion = 'SIN DATO';
+        $objetoxx->s_nombre_focalizacion = 'SIN DATO';
 
 
         return $objetoxx;
@@ -261,7 +263,7 @@ trait InterfazFiTrait
                 'temaxxxx' => 119,
                 'tipoxxxx' => 'multival',
             ]),
-            'id_pais_nacimiento'=>$this->getMunicipiosHSAT($dataxxxx),
+            'id_pais_nacimiento' => $this->getMunicipiosHSAT($dataxxxx),
         ];
 
         // ddd($datannaj);
@@ -270,34 +272,74 @@ trait InterfazFiTrait
     public function setDocumentoPNT($padrexxx)
     {
         $fillable = [
-            'id_nnaj'=>$padrexxx->id_nnaj,
-            'tipo_documento'=>$padrexxx->tipo_documento,
-            'numero_documento'=>$padrexxx->numero_documento,
-            'id_lugar_expedicion'=>$padrexxx->numero_documento,
-            'fecha_insercion'=>$padrexxx->fecha_insercion,
-            'usuario_insercion'=>$padrexxx->usuario_insercion,
-            'fecha_modificacion'=>$padrexxx->fecha_modificacion,
-            'usuario_modificacion'=>$padrexxx->usuario_modificacion,
-            'estado'=>$padrexxx->estado,
+            'id_nnaj' => $padrexxx->id_nnaj,
+            'tipo_documento' => $padrexxx->tipo_documento,
+            'numero_documento' => $padrexxx->numero_documento,
+            'id_lugar_expedicion' => $padrexxx->numero_documento,
+            'fecha_insercion' => $padrexxx->fecha_insercion,
+            'usuario_insercion' => $padrexxx->usuario_insercion,
+            'fecha_modificacion' => $padrexxx->fecha_modificacion,
+            'usuario_modificacion' => $padrexxx->usuario_modificacion,
+            'estado' => $padrexxx->estado,
         ];
     }
     public function setNnajPNT($dataxxxx)
     {
         $padrexxx = $dataxxxx['padrexxx'];
         $padrexxx->nnaj_docu->s_documento = 2933411;
-
-
         $nnajxxxx = GeNnaj::join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
         if ($nnajxxxx == null) {
-            $datannaj = $this->getDataGeNnaj($dataxxxx);
-
-            // ddd($padrexxx);
-            $iiiddi = GeNnaj::create($datannaj);
-
-
-            // GeNnajDocumento::create()
-            // ddd($iiiddi);
+            $nnajxxxx = GeNnaj::where('numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
+            if ($nnajxxxx == null) {
+                $datannaj = $this->getDataGeNnaj($dataxxxx);
+                $nnajxxxx = GeNnaj::create($datannaj);
+            }
+            $fillable = [
+                'id_nnaj' => $nnajxxxx->id_nnaj,
+                'tipo_documento' => $nnajxxxx->tipo_documento,
+                'numero_documento' => $padrexxx->nnaj_docu->s_documento,
+                'notaria' => '',
+                'registraduria' => '',
+                'id_lugar_expedicion' => $padrexxx->nnaj_docu->sis_municipio->simianti_id,
+                'fecha_insercion' => date('Y-m-d'),
+                'usuario_insercion' => Auth::user()->s_documento,
+                'fecha_modificacion' => date('Y-m-d'),
+                'usuario_modificacion' => Auth::user()->s_documento,
+                'estado' => 'A',
+            ];
+            $document = GeNnajDocumento::where('numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
+            if ($document == null) {
+                $document = GeNnajDocumento::create($fillable);
+            }
         }
+        $modalida=$padrexxx->sis_nnaj->nnaj_upis->where('prm_principa_id',227)->first()->sis_servicios;
+        $upinnajx = GeUpiNnaj::where('id_nnaj', $nnajxxxx->id_nnaj)->where('modalidad')->first();
+        if ($upinnajx == null) {
+            $fillable = [
+                'id_upi_nnaj',
+                'id_upi',
+                'motivo',
+                'tiempo',
+                'modalidad',
+                'anio',
+                'id_nnaj',
+                'fecha_insercion',
+                'usuario_insercion',
+                'fecha_modificacion',
+                'usuario_modificacion',
+                'id_valoracion_inicial',
+                'fecha_ingreso',
+                'fecha_egreso',
+                'estado',
+                'origen',
+                'fuente',
+                'flag',
+                'servicio',
+                'estado_compartido',
+            ];
+        }
+
+        ddd($upinnajx);
     }
 }

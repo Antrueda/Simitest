@@ -9,6 +9,7 @@ class GeUpiNnaj extends Model
     protected $connection = 'simiantiguo';
     protected $table = 'ge_upi_nnaj';
     protected $primaryKey = 'id_upi_nnaj';
+    public $timestamps = false;
     protected $fillable = [
         'id_upi_nnaj',
         'id_upi',

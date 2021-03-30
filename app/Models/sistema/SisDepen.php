@@ -2,6 +2,7 @@
 
 namespace App\Models\Sistema;
 
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -192,6 +193,11 @@ class SisDepen extends Model
     public function sis_eslugs()
     {
         return $this->belongsToMany(SisEslug::class)->withTimestamps();
+    }
+
+    public function nnaj_upis()
+    {
+        return $this->hasMany(NnajUpi::class,'sis_depen_id');
     }
 
     public static function getLugares($dataxxxx)

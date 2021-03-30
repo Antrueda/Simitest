@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
-use App\Models\Simianti\Ge\GeUpiNnaj;
 use App\Models\Sistema\SisDepen;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
@@ -60,11 +59,7 @@ class FiController extends Controller
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-
-
-
         $this->bitacora = new FiDatosBasico();
-
         $this->opciones['tituloxx'] = "FICHA DE INGRESO";
         $this->opciones['botoform'] = [
             [
@@ -76,7 +71,6 @@ class FiController extends Controller
 
     public function index()
     {
-
         $this->opciones['tablasxx'] = [
             [
                 'forminde' => '',
@@ -122,8 +116,6 @@ class FiController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
-
-
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -137,7 +129,6 @@ class FiController extends Controller
                 $this->opciones['carpetax'] . '.Botones.upiservicio';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             return $this->getNnajsFi2depen($request); //Por UPI
-
         }
     }
     private function grabar($dataxxxx, $objetoxx, $infoxxxx)
@@ -216,18 +207,18 @@ class FiController extends Controller
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
-
             $dataxxxx['modeloxx']->sis_depen_id = $dataxxxx['modeloxx']
                 ->sis_nnaj
                 ->nnaj_upis->where('prm_principa_id', 227)
                 ->first()->sis_depen_id;
-
-            $dataxxxx['modeloxx']->sis_servicio_id = $dataxxxx['modeloxx']
+            $servicio = $dataxxxx['modeloxx']
                 ->sis_nnaj
                 ->nnaj_upis->where('prm_principa_id', 227)
                 ->first()->nnaj_deses
                 ->where('prm_principa_id', 227)
                 ->first()->sis_servicio_id;
+            $dataxxxx['modeloxx']->sis_servicio_id = $servicio;
+
             $dataxxxx['modeloxx']->diligenc = $dataxxxx['modeloxx']->fi_diligenc->diligenc;
             $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
 
@@ -514,7 +505,7 @@ class FiController extends Controller
     {
         $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
         if (isset($document->id_nnaj)) {
-            $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj,'sisnnaji'=>$objetoxx->sis_nnaj_id]);
+            $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
         }
 
         $respuest = $this->getPuedeTPuede([
@@ -590,8 +581,8 @@ class FiController extends Controller
                     $respuest['comboxxx'] = Tema::combo(354, true, true);
                     break;
                 case 445:
-                $respuest['comboxxx'] = Parametro::find(445)->ComboAjaxUno;
-                break;    
+                    $respuest['comboxxx'] = Parametro::find(445)->ComboAjaxUno;
+                    break;
             }
 
             return response()->json($respuest);
@@ -620,34 +611,6 @@ class FiController extends Controller
 
     public function prueba($departam, Request $request)
     {
-        $inxxxxxx = [];
-        foreach (Auth::user()->sis_depens as $key => $value) {
-            $inxxxxxx[] = $value->simianti_id;
-        }
-        $inxxxxxx = GeUpiNnaj::select(['id_nnaj'])->whereIn('id_upi', $inxxxxxx)->groupBy('id_nnaj')->get();
-        ddd($inxxxxxx);
-        $request->docuagre = 1000943210;
-        // throw new ParametroInvalido('Something Went Wrong.');
-        // $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
-        // $numbers = random_int(1000000000, 1999999999);
-        // echo $this->getCedulaAleatoria();
-        // ddd(date('Y-m-d H:m:s'));
-
-        ///$this->setCmposicionFamiliarCFT($request);
-
-
-
-        // $this->getBuscarNnajAgregar($request);
-
-        // $tablaxxx = 'protected $fillable =[';
-        // foreach (IfComposicionFamiliar::first()->toArray() as $key => $value) {
-        //     $tablaxxx .= "'{$key}',<br>";
-        // }
-        // $tablaxxx .= "];";
-        // echo $tablaxxx;
-
-
-
-
+        $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
     }
 }

@@ -10,7 +10,7 @@ class GeNnajDocumento extends Model
     protected $connection = 'simiantiguo';
     protected $table = 'ge_nnaj_documento';
     protected $primaryKey = 'id_nnaj';
-
+    public $timestamps = false;
     protected $fillable = [
         'id_nnaj',
         'tipo_documento',

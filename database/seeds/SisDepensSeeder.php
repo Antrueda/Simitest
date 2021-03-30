@@ -108,6 +108,7 @@ class SisDepensSeeder extends Seeder
         $camposmagicos = ['user_crea_id' => 1, 'user_edita_id' => 1, 'sis_esta_id' => 1, 'i_prm_responsable_id' => 2316];
 
         SisDepen::create([
+            'simianti_id' => 265,
             'nombre' => 'CAMINANDO RELAJADO',
             'i_prm_cvital_id' => 1679,
             'i_prm_tdependen_id' => 774,

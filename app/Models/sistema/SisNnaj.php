@@ -164,7 +164,12 @@ class SisNnaj extends Model
         $servicio=$dataxxxx->where('prm_principa_id', 227)
         ->first()->nnaj_deses
         ->where('prm_principa_id', 227)
-        ->first()->sis_servicio->s_servicio;
+        ->first();
+        if($servicio!=null){
+            $servicio=$servicio->sis_servicio->s_servicio;
+        }else{
+            $servicio='';
+        }
         return  $servicio;
     }
     public function getServicioPrincipalAttribute()

@@ -115,8 +115,10 @@ trait HomologacionesSimiAtiguoTrait
     /********************** METODOS PARA LA HOMOLOGACION DE MUNICIPIOS ********************** */
     public function getMunicipiosHSAT($dataxxxx)
     {
+
         $municipi = $dataxxxx['padrexxx']->nnaj_docu->sis_municipio;
-        $departam = SisDepartam::find($municipi->sis_departam_id)->sis_municipios->find($municipi->id)->pivot->simianti_id;
+        $departam = SisDepartam::find($municipi->sis_departam_id);
+        $municipy = $departam->sis_municipios->find($municipi->id)->simianti_id;
         $nnajxxxx = $dataxxxx['padrexxx'];
         $dataxxxy = [
             'vistaxxx' => 'errors.interfaz.simianti.munianti',
@@ -132,9 +134,10 @@ trait HomologacionesSimiAtiguoTrait
             ]
         ];
 
-        if ($departam == null) {
+        if ($municipy == null) {
             throw new MunicipioSAException($dataxxxy);
         }
+        return $departam->sis_pai->simianti_id;
     }
     /********************** FIN METODOS PARA LA HOMOLOGACION DE MUNICIPIOS ********************** */
 }
