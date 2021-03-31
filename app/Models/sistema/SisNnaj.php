@@ -172,6 +172,7 @@ class SisNnaj extends Model
         }
         return  $servicio;
     }
+    ////
     public function getServicioPrincipalAttribute()
     {
         return $this->getServicioNnaj($this->nnaj_upis);

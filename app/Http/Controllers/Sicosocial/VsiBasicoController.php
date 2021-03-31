@@ -73,7 +73,7 @@ class VsiBasicoController extends Controller
         $this->opciones['accionxx'] = $dataxxxx['accionxx'];
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            
+            $dataxxxx['modeloxx']->d_nacimiento = explode(' ', $dataxxxx['modeloxx']->nnaj_nacimi->d_nacimiento)[0];
             $dataxxxx['modeloxx']->prm_documento_id=$dataxxxx['modeloxx']->nnaj_docu->prm_tipodocu_id;
             $dataxxxx['modeloxx']->prm_doc_fisico_id=$dataxxxx['modeloxx']->nnaj_docu->prm_doc_fisico_id;
             $dataxxxx['modeloxx']->prm_ayuda_id=$dataxxxx['modeloxx']->nnaj_docu->prm_ayuda_id;

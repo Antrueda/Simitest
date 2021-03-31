@@ -263,7 +263,13 @@ trait HomologacionesTrait
      */
     public function getParametrosSimiMultivalor($dataxxxx)
     {
-        $comboxxx = Temacombo::where('id', $dataxxxx['temaxxxx'])->first()->parametros;
+        $comboxxy = Temacombo::where('id', $dataxxxx['temaxxxx'])->first();
+        $comboxxx = $comboxxy->parametros;
+        
+        if ($dataxxxx['testerxx']) {
+            // echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
+            // ddd($comboxxx);
+       }
         $parametr = '';
         if ($dataxxxx['codigoxx'] == '') {
             $parametr = Parametro::find(445);
@@ -273,6 +279,13 @@ trait HomologacionesTrait
                     $parametr = $value;
                 }
             }
+        }
+        if($parametr == ''){
+            $dataxxxx['tituloxx'] = 'PARAMETRO SIN HOMOLOGAR O NO CREADO EN EL NUEVO DESARROLLO!';
+            $dataxxxx['mensajex'] = 'PARAMETRO: ' .SisMultivalore::where('tabla',$dataxxxx['tablaxxx'])
+            ->where('codigo',$dataxxxx['codigoxx'])->first()->descripcion.' Codigo: '. $dataxxxx['codigoxx'].
+            'En el tema ID: ' .$comboxxy->id.' Nombre: '. $comboxxy->nombre .' no se puede migrar porque no esta creado o no esta homologado en el nuevo desarrollo';
+            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
         }
         if ($dataxxxx['testerxx']) {
             // echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
@@ -284,6 +297,10 @@ trait HomologacionesTrait
                     $parametr = Parametro::find(235);
                 }
                 break;
+        }
+        if ($dataxxxx['testerxx']) {
+             echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
+             ddd($parametr);
         }
         return $parametr;
     }

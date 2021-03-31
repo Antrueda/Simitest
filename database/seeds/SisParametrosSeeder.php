@@ -1560,7 +1560,7 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'AMA DE CASA'], // 1537
             ['nombrexx' => 'AUXILIAR DE COCINA'], // 1538
             ['nombrexx' => 'AUXILIAR DE RESTAURANTE'], // 1539
-            ['nombrexx' => 'AYDANTE DE CONSTRUCCIÓN'], // 1540
+            ['nombrexx' => 'AYUDANTE DE CONSTRUCCIÓN'], // 1540
             ['nombrexx' => 'BENEFICIARIO IDIPRON'], // 1541
             ['nombrexx' => 'CONDUCTOR'], // 1542
             ['nombrexx' => 'CONSTRUCTOR'], // 1543
@@ -1584,11 +1584,11 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'INDEPENDIENTE'], // 1561
             ['nombrexx' => 'JEFE DE COCINA'], // 1562
             ['nombrexx' => 'LAVADOR DE CARROS'], // 1563
-            ['nombrexx' => 'MESTRO DE CONSTRUCCIÓN'], // 1564
+            ['nombrexx' => 'MAESTRO DE CONSTRUCCIÓN'], // 1564
             ['nombrexx' => 'MECÁNICO(A)'], // 1565
             ['nombrexx' => 'MENSAJERO'], // 1566
             ['nombrexx' => 'MESERO(A)'], // 1567
-            ['nombrexx' => 'MÊSICO'], // 1568
+            ['nombrexx' => 'MEDICO(A)'], // 1568
             ['nombrexx' => 'RECICLADOR'], // 1569
             ['nombrexx' => 'RECLUSO'], // 1570
             ['nombrexx' => 'SECRETARIA'], // 1571
