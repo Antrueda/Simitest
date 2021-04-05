@@ -87,11 +87,9 @@ trait InterfazFiTrait
         $objetoxx->diligenc = explode(' ', $dataxxxx->fecha_apertura)[0];
         $objetoxx->prm_tipoblaci_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_poblacion, 'tablaxxx' => 'TIPOPOB', 'temaxxxx' => 119, 'testerxx' => false])->id;
         $objetoxx->sis_depen_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->id_upi])->id;
-
         if ($dataxxxx->modalidad != null) {
             $objetoxx->sis_servicio_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad,  'sisdepen' => $objetoxx->sis_depen_id, 'datobasi' => true, 'nnajxxxx' => $dataxxxx])->id;
         }
-
         $objetoxx->s_primer_nombre = $dataxxxx->primer_nombre;
         $objetoxx->s_segundo_nombre = $dataxxxx->segundo_nombre;
         $objetoxx->s_primer_apellido = $dataxxxx->primer_apellido;
@@ -292,6 +290,7 @@ trait InterfazFiTrait
             'estado' => $padrexxx->estado,
         ];
     }
+
     public function setNnajPNT($dataxxxx)
     {
         $padrexxx = $dataxxxx['padrexxx'];
@@ -322,6 +321,7 @@ trait InterfazFiTrait
                 $document = GeNnajDocumento::create($fillable);
             }
         }
+
         $modalida=$padrexxx->sis_nnaj->nnaj_upis->where('prm_principa_id',227)->first()->sis_servicios;
         $upinnajx = GeUpiNnaj::where('id_nnaj', $nnajxxxx->id_nnaj)->where('modalidad')->first();
         if ($upinnajx == null) {

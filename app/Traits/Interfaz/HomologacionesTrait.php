@@ -265,7 +265,7 @@ trait HomologacionesTrait
     {
         $comboxxy = Temacombo::where('id', $dataxxxx['temaxxxx'])->first();
         $comboxxx = $comboxxy->parametros;
-        
+
         if ($dataxxxx['testerxx']) {
             // echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
             // ddd($comboxxx);
@@ -284,7 +284,7 @@ trait HomologacionesTrait
             $dataxxxx['tituloxx'] = 'PARAMETRO SIN HOMOLOGAR O NO CREADO EN EL NUEVO DESARROLLO!';
             $dataxxxx['mensajex'] = 'PARAMETRO: ' .SisMultivalore::where('tabla',$dataxxxx['tablaxxx'])
             ->where('codigo',$dataxxxx['codigoxx'])->first()->descripcion.' Codigo: '. $dataxxxx['codigoxx'].
-            'En el tema ID: ' .$comboxxy->id.' Nombre: '. $comboxxy->nombre .' no se puede migrar porque no esta creado o no esta homologado en el nuevo desarrollo';
+            ' En el tema ID: ' .$comboxxy->id.' Nombre: '. $comboxxy->nombre .' no se puede migrar porque no esta creado o no esta homologado en el nuevo desarrollo';
             throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
         }
         if ($dataxxxx['testerxx']) {
@@ -299,8 +299,8 @@ trait HomologacionesTrait
                 break;
         }
         if ($dataxxxx['testerxx']) {
-             echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
-             ddd($parametr);
+            //  echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
+            //  ddd($parametr);
         }
         return $parametr;
     }
@@ -518,10 +518,14 @@ trait HomologacionesTrait
     {
         $personal = GeUpiPersonal::where('id_personal', $dataxxxx['document'])->get();
         foreach ($personal as $key => $value) {
-            // ddd($value->id_upi);
             $dependen = $this->getUpiSimi(['idupixxx' => $value->id_upi]);
+            if ($dependen == null) {
+                $upixxxxx=GeUpi::find($value->id_upi);
+                $dataxxxx['tituloxx'] = 'UPI NO ENCONTRADA U HOMOLOGADA!';
+                $dataxxxx['mensajex'] = "La upi: {$upixxxxx->nombre} con id: {$upixxxxx->id_upi} no se pudo asigunar por que no existe o no se ha homologado";
+                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+            }
             $usuariox = User::find($dataxxxx['usuariox']->id)->sis_depens->find($dependen->id);
-
             if (!isset($usuariox->id)) {
                 $dicotomi = $this->getParametrosSimi(['temaxxxx' => 23, 'codigoxx' => $value->responsable])->id;
                 $relacion = [
