@@ -53,28 +53,20 @@ trait HomologacionesTrait
     {
         $respuest = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', $barrioxy->id)->first();
         if (!isset($respuest->id)) {
-            $respuest = SisUpzbarri::create([
-                'sis_localupz_id' => $localupz->id,
-                'sis_barrio_id' => $barrioxy->id,
-                'simianti_id' => 0,
-                'sis_esta_id' => 1,
-                'user_crea_id' => Auth::user()->id,
-                'user_edita_id' => Auth::user()->id,
-            ]);
+            $dataxxxx['tituloxx'] = 'BARRIO SIN HOMOLOGAR O NO CREADO EN EL NUEVO DESARROLLO!';
+            $dataxxxx['mensajex'] = 'BARRIO:  No se puede migrar porque no esta creado o no esta homologado en el nuevo desarrollo' ;
+            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
         }
         return $respuest;
     }
+    //1019122258
 
     public function setLocalidadUpz($upzxxxxy, $localidy)
     {
         if (!isset($upzxxxxy->id)) {
-            $upzxxxxy =  SisLocalupz::create([
-                'sis_upz_id' => $upzxxxxy->id,
-                'sis_localidad_id' => $localidy->id,
-                'sis_esta_id' => 1,
-                'user_crea_id' => Auth::user()->id,
-                'user_edita_id' => Auth::user()->id,
-            ]);
+            $dataxxxx['tituloxx'] = 'LOLCALIDAD UPZ SIN HOMOLOGAR O NO CREADO EN EL NUEVO DESARROLLO!';
+            $dataxxxx['mensajex'] = 'LOLCALIDAD UPZ: No se puede migrar porque no esta creado o no esta homologado en el nuevo desarrollo';
+            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
         }
 
         return $upzxxxxy;

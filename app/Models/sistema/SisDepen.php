@@ -15,7 +15,6 @@ class SisDepen extends Model
         'nombre',
         'i_prm_cvital_id',
         'i_prm_tdependen_id',
-
         'i_prm_sexo_id',
         's_direccion',
         'sis_departam_id',

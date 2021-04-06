@@ -1800,6 +1800,7 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync([
             235 => $this->getCM(['simianti' => '']),
             1262 => $this->getCM(['simianti' => '']),
+            812 => $this->getCM(['simianti' => 'HOGAR']),
             647 => $this->getCM(['simianti' => 'INDEPENDIENTE']),
             1534 => $this->getCM(['simianti' => 'AB']),
             1535 => $this->getCM(['simianti' => 'ADMINISTRADO(A)']),
@@ -3128,6 +3129,7 @@ class TemacomboSeeder extends Seeder
         $tema = $this->getR(['temaidxx' => 291,  'nombrexx' => 'ESPACIO DONDE PARCHA']);
         $tema->parametros()->sync([
             234 => $this->getCM(['simianti' => '']),
+            262 => $this->getCM(['simianti' => '17']),
             398 => $this->getCM(['simianti' => '']),
             437 => $this->getCM(['simianti' => '']),
             1506 => $this->getCM(['simianti' => '4']),
