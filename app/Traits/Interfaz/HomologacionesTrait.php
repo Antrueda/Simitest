@@ -272,6 +272,14 @@ trait HomologacionesTrait
                 }
             }
         }
+        switch ($dataxxxx['temaxxxx']) {
+            case 367:
+                if ($dataxxxx['codigoxx'] == null || $dataxxxx['codigoxx'] == 'null') {
+                    $parametr = Parametro::find(235);
+                }
+                break;
+        }
+
         if($parametr == ''){
             $dataxxxx['tituloxx'] = 'PARAMETRO SIN HOMOLOGAR O NO CREADO EN EL NUEVO DESARROLLO!';
             $dataxxxx['mensajex'] = 'PARAMETRO: ' .SisMultivalore::where('tabla',$dataxxxx['tablaxxx'])
@@ -283,13 +291,7 @@ trait HomologacionesTrait
             // echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
             // ddd($comboxxx);
         }
-        switch ($dataxxxx['temaxxxx']) {
-            case 367:
-                if ($dataxxxx['codigoxx'] == null || $dataxxxx['codigoxx'] == 'null') {
-                    $parametr = Parametro::find(235);
-                }
-                break;
-        }
+
         if ($dataxxxx['testerxx']) {
             //  echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
             //  ddd($parametr);
@@ -496,7 +498,16 @@ trait HomologacionesTrait
     public function getUpiSimi($dataxxxx)
     {
         // buscar la upi en el nuevo desarrollo
+        if($dataxxxx['idupixxx']==3){
+            $dataxxxx['idupixxx']=30;
+        }
         $upinuevo = SisDepen::where('simianti_id', $dataxxxx['idupixxx'])->first();
+        if ($upinuevo == null) {
+            $upixxxxx=GeUpi::find($dataxxxx['idupixxx']);
+            $dataxxxx['tituloxx'] = 'UPI NO ENCONTRADA U HOMOLOGADA!';
+            $dataxxxx['mensajex'] = "La upi: {$upixxxxx->nombre} con id: {$upixxxxx->id_upi} no se pudo asigunar por que no existe o no se ha homologado";
+            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+        }
         return $upinuevo;
     }
 
@@ -511,12 +522,6 @@ trait HomologacionesTrait
         $personal = GeUpiPersonal::where('id_personal', $dataxxxx['document'])->get();
         foreach ($personal as $key => $value) {
             $dependen = $this->getUpiSimi(['idupixxx' => $value->id_upi]);
-            if ($dependen == null) {
-                $upixxxxx=GeUpi::find($value->id_upi);
-                $dataxxxx['tituloxx'] = 'UPI NO ENCONTRADA U HOMOLOGADA!';
-                $dataxxxx['mensajex'] = "La upi: {$upixxxxx->nombre} con id: {$upixxxxx->id_upi} no se pudo asigunar por que no existe o no se ha homologado";
-                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-            }
             $usuariox = User::find($dataxxxx['usuariox']->id)->sis_depens->find($dependen->id);
             if (!isset($usuariox->id)) {
                 $dicotomi = $this->getParametrosSimi(['temaxxxx' => 23, 'codigoxx' => $value->responsable])->id;

@@ -47,21 +47,18 @@
         {{ Form::label('s_correo', 'Correo electrónico', ['class' => 'control-label col-form-label-sm']) }}
         {{ Form::text('s_correo', null, ['class' => 'form-control form-control-sm','style'=>'height:38px', $todoxxxx["readonly"]]) }}
     </div>
-    <div class="form-row">
-        <div class="form-group col-md-12 tooltipx" tabindex="0" data-toggle="tooltip" title="Código de la tabla sis_multivalores
-        ">
-            {{ Form::label('simianti_id', 'Código Antiguo', ['class' => 'control-label']) }}
-            {{ Form::text('simianti_id', null, ['class' => $errors->first('simianti_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
+    <div class="form-group col-md-4">
+        {{ Form::label('simianti_id', 'Código Antiguo', ['class' => 'control-label']) }}
+        {{ Form::text('simianti_id', null, ['class' => $errors->first('simianti_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
                       "onkeyup" => "javascript:this.value=this.value.toUpperCase();"])}}
-            @if($errors->has('simianti_id'))
-            <div class="invalid-feedback d-block">
-                {{ $errors->first('simianti_id') }}
-            </div>
-            @endif
+        @if($errors->has('simianti_id'))
+        <div class="invalid-feedback d-block">
+            {{ $errors->first('simianti_id') }}
         </div>
+        @endif
     </div>
+
     @include('administracion.dependencia.Dependencia.formulario.motivoestado')
     @include('layouts.tiempos')
     @include('layouts.registro')
 </div>
-

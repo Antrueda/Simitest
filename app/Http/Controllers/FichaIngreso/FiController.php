@@ -116,6 +116,13 @@ class FiController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
+        $anterior = 0;
+        //         foreach (FiDatosBasico::get() as $key => $value) {
+        //             if($value->id-$anterior==2){
+        // ddd($value->id.' '.$anterior);
+        //             }
+        //             $anterior=$value->id;
+        //         }
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -216,8 +223,12 @@ class FiController extends Controller
                 ->nnaj_upis->where('prm_principa_id', 227)
                 ->first()->nnaj_deses
                 ->where('prm_principa_id', 227)
-                ->first()->sis_servicio_id;
-            $dataxxxx['modeloxx']->sis_servicio_id = $servicio;
+                ->first();
+            if ($servicio != null) {
+                $dataxxxx['modeloxx']->sis_servicio_id = $servicio->sis_servicio_id;
+            }
+
+
 
             $dataxxxx['modeloxx']->diligenc = $dataxxxx['modeloxx']->fi_diligenc->diligenc;
             $this->opciones['servicio'] = NnajDese::getServiciosNnaj(['cabecera' => true, 'ajaxxxxx' => false, 'padrexxx' =>  $dataxxxx['modeloxx']->sis_depen_id]);
