@@ -120,6 +120,7 @@ trait InterfazFiTrait
             }
             $objetoxx->prm_factor_rh_id = $parametr->id;
         }
+
         $objetoxx->prm_tipodocu_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_documento, 'tablaxxx' => 'TIPO_DOCUMENTO', 'temaxxxx' => 3, 'testerxx' => false])->id;
         $objetoxx->prm_doc_fisico_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->cuenta_doc, 'tablaxxx' => 'DICOTOMIA', 'temaxxxx' => 366, 'testerxx' => false])->id;
         $objetoxx->s_documento = $dataxxxx->numero_documento;

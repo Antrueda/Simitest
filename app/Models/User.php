@@ -254,7 +254,7 @@ class User extends Authenticatable
             // $queryxxx->where('users.sis_esta_id', 1);
         })
         ->join('sis_depen_user','users.id','=','sis_depen_user.user_id')
-        ->where('sis_depen_user.sis_esta_id', 1)
+        ->whereIn('sis_depen_user.sis_esta_id', $dataxxxx['estadosx'])
         ->groupBy('users.id','s_primer_nombre','s_documento','s_primer_apellido','s_segundo_apellido','s_segundo_nombre','sis_cargo_id')
 
             ->orderBy('s_primer_nombre')
@@ -435,9 +435,10 @@ class User extends Authenticatable
 
         return $comboxxx;
     }
-    public static function combo($cabecera, $ajaxxxxx)
+    public static function combo($cabecera, $ajaxxxxx,$estadosx)
     {
-        return User::userCombo(['cabecera' => $cabecera, 'ajaxxxxx' => $ajaxxxxx, 'notinxxx' => false]);
+        $dataxxxx=['cabecera' => $cabecera, 'ajaxxxxx' => $ajaxxxxx, 'notinxxx' => false,'estadosx'=>$estadosx];
+        return User::userCombo($dataxxxx);
     }
 
     public static function comboCargo($cabecera, $ajaxxxxx)

@@ -56,7 +56,7 @@ class FiRazonArchivoController extends Controller
         ];
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
-        $this->opciones['usuarios'] = User::combo(true, false);
+        $this->opciones['usuarios'] = User::combo(true, false,[1]);
         $this->opciones['archivox'] = '';
         $this->opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
         // indica si se esta actualizando o viendo
