@@ -26,7 +26,7 @@
                     type: 'POST',
                     dataType: 'json',
                     success: function(json) {
-                        if (json[0].dptcondi[0].valuexxx == 1) {
+                        if (json[0].valuexxx == 1) {
                             $("#i_prm_municipio_certifica_id,#i_prm_municipio_condicion_id,#i_prm_depto_condicion_id,  #i_prm_tiene_certificado_id, #i_prm_depto_certifica_id").empty();
                         }
                         $.each(json[0].dptcondi, function(i, data) {
