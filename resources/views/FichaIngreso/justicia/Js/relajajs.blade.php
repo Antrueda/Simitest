@@ -273,7 +273,7 @@
        //VINCULADO VIOLENCIA
        var f_vincviolencia = function(valuexxx){
            $("#prm_situacion_id").empty();
-           
+
            if(valuexxx != ''){
                $.ajax({
                    url : "{{ route('ajaxx.vinviolencia') }}",

@@ -12,7 +12,7 @@
         }
        var f_ocultapard = function(dataxxxx){
            $(dataxxxx.camposxx).empty();
-           
+
            if(dataxxxx.valuexxx != ''){
                $.ajax({
                    url : "{{ route('ajaxx.ocultapard') }}",
@@ -129,7 +129,7 @@
         @endif
        var f_ocultasrpa = function(dataxxxx){
             $(dataxxxx.camposxx).empty();
-            
+
             if(dataxxxx.valuexxx != ''){
                $.ajax({
                    url : "{{ route('ajaxx.ocultasrpa') }}",
@@ -462,7 +462,7 @@
    function doc(valor){
         if(valor == 227){
             document.getElementById("prm_situacion_div").hidden=false;
-            
+
         } else {
             document.getElementById("prm_situacion_div").hidden=true;
             document.getElementById("prm_situacion_id").value=[];

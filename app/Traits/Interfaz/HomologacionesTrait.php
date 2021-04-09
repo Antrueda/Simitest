@@ -49,96 +49,46 @@ trait HomologacionesTrait
         } while (!$exiscela);
         return $cedulaxx;
     }
-    public function setBarrioUpz($localupz, $barrioxy)
-    {
-        $respuest = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', $barrioxy->id)->first();
-        if (!isset($respuest->id)) {
-            $dataxxxx['tituloxx'] = 'BARRIO SIN HOMOLOGAR O NO CREADO EN EL NUEVO DESARROLLO!';
-            $dataxxxx['mensajex'] = 'BARRIO:  No se puede migrar porque no esta creado o no esta homologado en el nuevo desarrollo' ;
-            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-        }
-        return $respuest;
-    }
+
     //1019122258
 
-    public function setLocalidadUpz($upzxxxxy, $localidy)
-    {
-        if (!isset($upzxxxxy->id)) {
-            $dataxxxx['tituloxx'] = 'LOLCALIDAD UPZ SIN HOMOLOGAR O NO CREADO EN EL NUEVO DESARROLLO!';
-            $dataxxxx['mensajex'] = 'LOLCALIDAD UPZ: No se puede migrar porque no esta creado o no esta homologado en el nuevo desarrollo';
-            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-        }
-
-        return $upzxxxxy;
-    }
-    public function getUpzInterfaz($upzxxxxy, $localidy, $barrioxy)
-    {
-        $respuest = [];
-        if (!isset($upzxxxxy->id)) {
-            $upzxxxxy = SisUpz::find(121);
-            // si la localidad no existe
-            if (!isset($localidy->id)) {
-                $respuest = SisUpzbarri::find(1928);
-            } else {
-                $localupz = SisLocalupz::where('sis_upz_id', $upzxxxxy->id)->where('sis_localidad_id', $localidy->id)->first();
-                // si la unios de la upz y la localidad no existen
-                // ddd($localupz);
-                if (!isset($localupz->id)) {
-                    $localupz = $this->setLocalidadUpz($upzxxxxy, $localidy);
-                    $respuest = $this->setBarrioUpz($localupz, $barrioxy);
-                } else {
-                    $respuest = $this->setBarrioUpz($localupz, $barrioxy);
-                }
-            }
-        } else {
-            $localupz = SisLocalupz::where('sis_upz_id', $upzxxxxy->id)->where('sis_localidad_id', $localidy->id)->first();
-            $respuest = $this->setBarrioUpz($localupz, $barrioxy);
-        }
-
-        return $respuest;
-    }
     public function getBarrio($dataxxxx)
     {
         // conocer datos del barrio en el antiguo simi
         $barrioxx = BaTerritorio::find($dataxxxx['idbarrio']);
         //ddd( $barrioxx);
         if (!isset($barrioxx->id)) {
-
-            $barrioxy = SisUpzbarri::find(1929);
-            // conocer la upz en el nuevo desarrollo
-            $upzxxxxy = $barrioxy->sis_localupz->sis_upz_id;
-            $localidy = $barrioxy->sis_localupz->sis_localidad_id;
+            $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE!';
+            $dataxxxx['mensajex'] = "El id: {$dataxxxx['idbarrio']} de barrio existe en el antiguo simi.";
+            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
         } else {
             if ($barrioxx->tipo == 'C') {
-
-                $barrioxy = SisUpzbarri::find(1929);
-                // conocer la upz en el nuevo desarrollo
-                $upzxxxxy = $barrioxy->sis_localupz->sis_upz_id;
-                $localidy = $barrioxy->sis_localupz->sis_localidad_id;
-                // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
+                $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
+                $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']}.";
+                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
             } else {
-
-                $upzxxxxx = BaTerritorio::where('id', $barrioxx->id_padre)->first();
-                // conocer la upz en el nuevo desarrollo
-                $upzxxxxy = SisUpz::where('s_upz', $upzxxxxx->nombre)->first();
-                $localidx = BaTerritorio::where('id', $upzxxxxx->id_padre)->first();
-                $localidy = SisLocalidad::where('s_localidad', $localidx->nombre)->first();
-                // saber si el barrio asignado al nnaj en el simi ya se encuentra en el nuevo desarrollo
-                $barrioxy = SisBarrio::where('s_barrio', 'like', '%' . $barrioxx->nombre . '%')->first();
+                $localida = SisLocalidad::where('simianti_id', $barrioxx->padre->padre->id)->first();
+                if ($localida == null) {
+                    $dataxxxx['tituloxx'] = 'LOCALIDAD NO HOMOLOGADA!';
+                    $dataxxxx['mensajex'] = "LOCALIDAD: {$barrioxx->padre->padre->nombre} con id: {$barrioxx->padre->padre->id}.";
+                    throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+                }
+                $upzxxxxx = SisUpz::where('simianti_id', $barrioxx->padre->id)->first();
+                if ($upzxxxxx == null) {
+                    $dataxxxx['tituloxx'] = 'UPZ NO HOMOLOGADA!';
+                    $dataxxxx['mensajex'] = "UPZ: {$barrioxx->padre->nombre} con id: {$barrioxx->padre->id}.";
+                    throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+                }
+                $localupz=SisLocalupz::where('sis_localidad_id',$localida->id)->where('sis_upz_id',$upzxxxxx->id)->first();
+                $upzbarri=SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('simianti_id', $barrioxx->id)->first();
+                if( $upzbarri==null){
+                    $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
+                    $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']} LOCALIDAD-UPZ: {$localupz->id}.";
+                    throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+                }
+                return $upzbarri;
             }
         }
-        $respuest = [];
-        // si el barrio no existe
-        if (!isset($barrioxy->id)) {
-            $barrioxy = SisBarrio::find(1655);
-            // si la upz no exites
-            $respuest = $this->getUpzInterfaz($upzxxxxy, $localidy, $barrioxy);
-        } else {
-            // si la upz no exites
-            $respuest = $this->getUpzInterfaz($upzxxxxy, $localidy, $barrioxy);
-        }
-
-        return $respuest;
     }
     /**
      * validar parametro que se encuentra que no es multivalor
@@ -261,7 +211,7 @@ trait HomologacionesTrait
         if ($dataxxxx['testerxx']) {
             // echo $dataxxxx['temaxxxx'] . ' ' . $dataxxxx['codigoxx'];
             // ddd($comboxxx);
-       }
+        }
         $parametr = '';
         if ($dataxxxx['codigoxx'] == '') {
             $parametr = Parametro::find(445);
@@ -280,11 +230,16 @@ trait HomologacionesTrait
                 break;
         }
 
-        if($parametr == ''){
+        if ($parametr == '') {
+            $messagex = "El parámetro: {$dataxxxx['codigoxx']}  para la tabla: {$dataxxxx['tablaxxx']} no existe. ";
+            $multival = SisMultivalore::where('tabla', $dataxxxx['tablaxxx'])
+                ->where('codigo', $dataxxxx['codigoxx'])->first();
+            if ($multival != null) {
+                $messagex = $multival->descripcion;
+            }
             $dataxxxx['tituloxx'] = 'PARAMETRO SIN HOMOLOGAR O NO CREADO EN EL NUEVO DESARROLLO!';
-            $dataxxxx['mensajex'] = 'PARAMETRO: ' .SisMultivalore::where('tabla',$dataxxxx['tablaxxx'])
-            ->where('codigo',$dataxxxx['codigoxx'])->first()->descripcion.' Codigo: '. $dataxxxx['codigoxx'].
-            ' En el tema ID: ' .$comboxxy->id.' Nombre: '. $comboxxy->nombre .' no se puede migrar porque no esta creado o no esta homologado en el nuevo desarrollo';
+            $dataxxxx['mensajex'] = 'PARAMETRO: ' . $messagex . ' Codigo: ' . $dataxxxx['codigoxx'] .
+                ' En el tema ID: ' . $comboxxy->id . ' Nombre: ' . $comboxxy->nombre . ' no se puede migrar porque no esta creado o no esta homologado en el nuevo desarrollo';
             throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
         }
         if ($dataxxxx['testerxx']) {
@@ -498,12 +453,12 @@ trait HomologacionesTrait
     public function getUpiSimi($dataxxxx)
     {
         // buscar la upi en el nuevo desarrollo
-        if($dataxxxx['idupixxx']==3){
-            $dataxxxx['idupixxx']=30;
+        if ($dataxxxx['idupixxx'] == 3) {
+            $dataxxxx['idupixxx'] = 30;
         }
         $upinuevo = SisDepen::where('simianti_id', $dataxxxx['idupixxx'])->first();
         if ($upinuevo == null) {
-            $upixxxxx=GeUpi::find($dataxxxx['idupixxx']);
+            $upixxxxx = GeUpi::find($dataxxxx['idupixxx']);
             $dataxxxx['tituloxx'] = 'UPI NO ENCONTRADA U HOMOLOGADA!';
             $dataxxxx['mensajex'] = "La upi: {$upixxxxx->nombre} con id: {$upixxxxx->id_upi} no se pudo asigunar por que no existe o no se ha homologado";
             throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);

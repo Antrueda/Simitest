@@ -42,6 +42,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
             'sis_servicio_id.required' => 'Seleccione un servicio',
             'sis_depen_id.required' => 'Seleccione una UPI',
             'diligenc.required' => 'Seleccione una fecha de diligenciamiento',
+            'prm_tipodocu_id.required' => 'Seleccione el tipo de documento',
         ];
         $this->_reglasx = [
             'sinpermi'=>[],
@@ -71,7 +72,7 @@ class FiDatosBasicoCrearRequest extends FormRequest
             'sis_upzbarri_id' => ['required'],
             'sis_servicio_id' => ['required'],
             'sis_depen_id' => ['required'],
-
+            'prm_tipodocu_id' => ['required'],
         ];
     }
     /**
