@@ -13,8 +13,8 @@ return [
       | you may use many connections at once using the Database library.
       |
      */
-    // 'default' => env('DB_CONNECTION', 'oracle'), // solo comentariar
-    'default' => env('DB_CONNECTION', 'mysql'), // conexion de Jorge
+    'default' => env('DB_CONNECTION', 'oracle'), // solo comentariar
+    // 'default' => env('DB_CONNECTION', 'mysql'), // conexion de Jorge
     /*
       |--------------------------------------------------------------------------
       | Database Connections
