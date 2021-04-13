@@ -6,7 +6,36 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoMigrarCrearRequest;
 use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
+use App\Models\fichaIngreso\FiAccione;
+use App\Models\fichaIngreso\FiActividadestl;
+use App\Models\fichaIngreso\FiActividadTiempoLibre;
+use App\Models\fichaIngreso\FiAutorizacion;
+use App\Models\fichaIngreso\FiBienvenida;
+use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\FiCondicionAmbiente;
+use App\Models\fichaIngreso\FiConsumoSpa;
+use App\Models\fichaIngreso\FiContacto;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\FiDiasGeneraIngreso;
+use App\Models\fichaIngreso\FiDiligenc;
+use App\Models\fichaIngreso\FiFormacion;
+use App\Models\fichaIngreso\FiGeneracionIngreso;
+use App\Models\fichaIngreso\FiJrCausasmo;
+use App\Models\fichaIngreso\FiJrCausassi;
+use App\Models\fichaIngreso\FiJustrest;
+use App\Models\fichaIngreso\FiLesicome;
+use App\Models\fichaIngreso\FiProcesoPard;
+use App\Models\fichaIngreso\FiProcesoSpoa;
+use App\Models\fichaIngreso\FiProcesoSrpa;
+use App\Models\fichaIngreso\FiRazone;
+use App\Models\fichaIngreso\FiRedApoyoActual;
+use App\Models\fichaIngreso\FiResidencia;
+use App\Models\fichaIngreso\FiSalud;
+use App\Models\fichaIngreso\FiSituacionEspecial;
+use App\Models\fichaIngreso\FiSituVulnera;
+use App\Models\fichaIngreso\FiSustanciaConsumida;
+use App\Models\fichaIngreso\FiViolbasa;
+use App\Models\fichaIngreso\FiViolencia;
 use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisLocalidad;
@@ -19,9 +48,17 @@ use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\fichaIngreso\NnajDese;
+use App\Models\fichaIngreso\NnajDocu;
+use App\Models\fichaIngreso\NnajFiCsd;
+use App\Models\fichaIngreso\NnajFocali;
+use App\Models\fichaIngreso\NnajNacimi;
+use App\Models\fichaIngreso\NnajSexo;
+use App\Models\fichaIngreso\NnajSitMil;
+use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisNnaj;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -116,13 +153,6 @@ class FiController extends Controller
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
         ];
-        $anterior = 0;
-        //         foreach (FiDatosBasico::get() as $key => $value) {
-        //             if($value->id-$anterior==2){
-        // ddd($value->id.' '.$anterior);
-        //             }
-        //             $anterior=$value->id;
-        //         }
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
@@ -622,6 +652,27 @@ class FiController extends Controller
 
     public function prueba($departam, Request $request)
     {
-        $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
+
+        foreach (FiJrCausassi::get() as $key => $value) {
+            // if ($value->sis_nnaj_id > 761) {
+            // {$value->}
+            // $magicos ="'sis_nnaj_id' => {$value->sis_nnaj_id}, 'user_crea_id' => {$value->user_crea_id}, 'user_edita_id' => {$value->user_edita_id}, 'sis_esta_id' => {$value->sis_esta_id}, 'created_at' => '{$value->created_at}', 'updated_at' => '{$value->updated_at}',";
+            $value->fi_justrest_id;
+            if ($value->fi_justrest_id > 297) {
+                $value->fi_justrest_id--;
+            }
+            $magicos = " 'user_crea_id' => {$value->user_crea_id}, 'user_edita_id' => {$value->user_edita_id}, 'sis_esta_id' => {$value->sis_esta_id}, 'created_at' => '{$value->created_at}', 'updated_at' => '{$value->updated_at}',";
+            echo "FiJrCausassi::create(['prm_situacion_id' => {$value->prm_situacion_id}, 'fi_justrest_id' =>  {$value->fi_justrest_id}, $magicos]); // {$value->id}<br>";
+        }
+
+        // $anterior = 0;
+        // foreach (FiJustrest::get() as $key => $value) {
+        //     if ($value->id - $anterior >= 2) {
+        //        echo ($value->id-1 ).'<br>';
+        //     }
+        //    $anterior = $value->id;
+        // //    echo '<br>';
+        // }
+        // $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
     }
 }
