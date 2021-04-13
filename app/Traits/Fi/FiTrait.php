@@ -182,6 +182,9 @@ trait FiTrait
     {
         $inxxxxxx = [];
         foreach (Auth::user()->sis_depens as $key => $value) {
+            if($value->simianti_id==30){
+                $inxxxxxx[] = 3;
+            }
             $inxxxxxx[] = $value->simianti_id;
         }
         $dataxxxx = GeNnaj::query()->select([
