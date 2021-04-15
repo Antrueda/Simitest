@@ -45,7 +45,7 @@ class FiSaludUpdateRequest extends FormRequest
             'prm_usametod_id' => ['Required'],
             'prm_cualmeto_id' => ['Required'],
             'prm_usovolun_id' => ['Required'],
-            'i_comidas_diarias' => ['Required'],
+            'i_comidas_diarias' => ['Required|integer|min:0|max:5'],
             'prm_razcicom_id' => ['Required'],
         ];
     }

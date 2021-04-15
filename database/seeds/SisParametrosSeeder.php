@@ -343,7 +343,7 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'IN. TRANSMISIÓN SEXUAL'], // 320
             ['nombrexx' => 'CONTROL DE LA FECUNDIDAD'], // 321
             ['nombrexx' => 'ENF. DE LA INFANCIA'], // 322
-            ['nombrexx' => 'QUIRÊRGICOS'], // 323
+            ['nombrexx' => 'QUIRURGICOS'], // 323
             ['nombrexx' => 'TRAUMÁTICOS'], // 324
             ['nombrexx' => 'PATOLÓGICOS'], // 325
             ['nombrexx' => 'HIPERTENSIÓN'], // 326
@@ -2530,6 +2530,7 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'LISTADO DE ASISTENCIA NNAJ-PROFESIONAL'], // 2507
             ['nombrexx' => 'REGISTRO ASISTENCIA A-GDH-FT-010'], // 2508
             ['nombrexx' => 'ESPACIO/LUGAR'], // 2509
+            ['nombrexx' => '2021'], // 2510
         ];
         $this->getR($parametr);
     }

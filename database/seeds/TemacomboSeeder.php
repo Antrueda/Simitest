@@ -571,7 +571,7 @@ class TemacomboSeeder extends Seeder
 
         $tema = $this->getR(['temaidxx' => 43,  'nombrexx' => 'Eventos médicos']);
         $tema->parametros()->sync([
-
+            168 => $this->getCM(['simianti' => '']),
             318 => $this->getCM(['simianti' => '']),
             319 => $this->getCM(['simianti' => '']),
             320 => $this->getCM(['simianti' => '']),
@@ -1002,6 +1002,7 @@ class TemacomboSeeder extends Seeder
 
         $tema = $this->getR(['temaidxx' => 79,  'nombrexx' => 'SACRAMENTOS REALIZADOS']);
         $tema->parametros()->sync([
+            168 => $this->getCM(['simianti' => '']),
             495 => $this->getCM(['simianti' => '']),
             1623 => $this->getCM(['simianti' => '']),
             1624 => $this->getCM(['simianti' => '']),
@@ -1065,7 +1066,9 @@ class TemacomboSeeder extends Seeder
             2225 => $this->getCM(['simianti' => '']),
             2226 => $this->getCM(['simianti' => '']),
             2227 => $this->getCM(['simianti' => '']),
+            2510 => $this->getCM(['simianti' => '']),
             2316 => $this->getCM(['simianti' => '']),
+     
         ]);
 
         $tema = $this->getR(['temaidxx' => 85,  'nombrexx' => 'TEMA PARAMETRO CORREGIR']);

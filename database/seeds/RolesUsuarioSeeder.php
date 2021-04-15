@@ -14,7 +14,7 @@ class RolesUsuarioSeeder extends Seeder
     {
         RolUsuario::create([ 'role_id' => 1, 'model_id' => 1, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 1, 'model_id' => 2, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
-        RolUsuario::create([ 'role_id' => 3, 'model_id' => 3, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
+      //  RolUsuario::create([ 'role_id' => 3, 'model_id' => 3, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 3, 'model_id' => 4, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 5, 'model_id' => 5, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);
         RolUsuario::create([ 'role_id' => 8, 'model_id' => 5, 'model_type' => 'App\Models\User', 'user_edita_id' => 1, 'user_crea_id' => 1, 'sis_esta_id' => 1, ]);

@@ -58,6 +58,9 @@ var f_combo=function(dataxxxx){
     $("#prm_tiendisc_id").change(function(){
         f_combo({padrexxx:$('#prm_discausa_id').val()==''?0:$('#prm_discausa_id').val(),opcionxx:2,discapac:$(this).val()});
     })
+    $("#prm_evenmedi_id").change(function(){
+        f_combo({padrexxx:$(this).val()==''?0:$(this).val(),opcionxx:4});
+    })
 
 });
  function soloLetras(e) {
