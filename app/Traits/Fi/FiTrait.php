@@ -114,7 +114,7 @@ trait FiTrait
                 case 4:
                         $dataxxxx = ['selectxx' => 'prm_evenmedi_id', 'valuexxx' => 168, 'optionxx' => 'NINGUNO', 'padrexxx' => $request->padrexxx, 'temaxxxx' => 43];
                         $respuest = $this->getCombo($dataxxxx);
-                        break;    
+                        break;
             }
             return response()->json($respuest);
         }
@@ -506,7 +506,6 @@ trait FiTrait
             'fi_datos_basicos.s_segundo_nombre',
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
-            'fi_jr_familiars.s_proceso',
             'vigente.nombre as vigente',
             'fi_jr_familiars.i_veces',
             'fi_jr_familiars.s_proceso',
