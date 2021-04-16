@@ -73,18 +73,33 @@ class UsuariosSeeder extends Seeder
         $dataxxxx['namexxxx'] = 'FERNANDO SANABRIA';
         $this->getR($dataxxxx); // 2
 
-        $dataxxxx['pnombrex'] = 'YENNY';
-        $dataxxxx['snombrex'] = 'ANDREA';
-        $dataxxxx['papellid'] = 'CORZO';
-        $dataxxxx['sapellid'] = 'CÁCERES';
-        $dataxxxx['document'] = '1031143437';
-        $dataxxxx['telefono'] = '3173809970';
-        $dataxxxx['cargoxxx'] = '1';
 
-        $dataxxxx['emailxxx'] = 'YENNYCC@idipron.gov.co';
-        $dataxxxx['rolxxxxx'] = 'PSICÓLOGO(A)';
-        $dataxxxx['namexxxx'] = 'YENNY ADREA CORZO CÁCERES';
-        $this->getR($dataxxxx); // 3
+       User::create([
+            's_primer_nombre' => 'YENNY',
+            's_segundo_nombre' => 'ANDREA',
+            's_primer_apellido' => 'CORZO',
+            's_segundo_apellido' => 'CÁCERES',
+            's_telefono' => 3197533728,
+            'name' => 'YENNY ADREA CORZO CÁCERES',
+            'email' => 'YENNYCC@idipron.gov.co',
+            'password' => 1031143437,
+            'prm_tvinculacion_id' => 1673,
+            'itiestan' => 10,
+            'itiegabe' => 0,
+            's_matriculap' => '159236',
+            'sis_cargo_id' => 13,
+            'd_vinculacion' => '2021-03-31',
+            'd_finvinculacion' => '2022-12-31',
+            's_documento' => 1031143437,
+            'prm_documento_id' => 19,
+            'sis_municipio_id' => 231,
+            'user_crea_id' => 1,
+            'user_edita_id' => 1,
+            'sis_esta_id' => 1,
+            'created_at' => '2020-10-06 18:45:06',
+            'updated_at' => '2020-10-06 19:03:08',
+            'password_change_at'=>date('Y-m-d'), ])
+            ->assignRole('PSICÓLOGO(A)'); // 3
 
         $dataxxxx['pnombrex'] = 'EDITH';
         $dataxxxx['snombrex'] = 'JOHANNA';

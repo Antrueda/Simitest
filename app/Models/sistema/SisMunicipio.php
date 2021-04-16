@@ -51,4 +51,9 @@ class SisMunicipio extends Model
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
+
+    public function getComboAjaxUnoAttribute()
+    {
+        return [['valuexxx' => $this->id, 'optionxx' => $this->s_municipio]];
+    }
 }
