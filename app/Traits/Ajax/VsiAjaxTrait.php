@@ -34,17 +34,17 @@ trait VsiAjaxTrait
             'expectativas' => [689, 181],
             'labores' => [853, 114],
             'dificultadex' => [689, 168],
-            'violbasa'=> [235, 349],
-            'especiales'=> [168, 89],
-            'ambientes'=> [168, 42],
-            'comparte'=> [235, 66],
-            'prepara'=> [235, 66],
-            'ingeridas'=> [853, 112],
-            'normas'=> [235, 66],
-            'dificultadez'=> [689, 168],
-            'prm_situacion_vulnera_id'=> [168, 89],
-            'victimas'=> [853, 126],
-            'riesgos'=> [853, 58],
+            'violbasa' => [235, 349],
+            'especiales' => [168, 89],
+            'ambientes' => [168, 42],
+            'comparte' => [235, 66],
+            'prepara' => [235, 66],
+            'ingeridas' => [853, 112],
+            'normas' => [235, 66],
+            'dificultadez' => [689, 168],
+            'prm_situacion_vulnera_id' => [168, 89],
+            'victimas' => [853, 126],
+            'riesgos' => [853, 58],
 
 
         ];
@@ -94,15 +94,14 @@ trait VsiAjaxTrait
     {
         if ($request->ajax()) {
             $respuest = [
-                    'readonly' => false,
-                    'selectxx' => $request->selectxx,
-                    'comboxxx' => $this->combo(['cabecera' => true, 'ajaxxxxx' => true, 'temaxxxx' => 4, 'selected' => is_array($request->selected) ? $request->selected : [$request->selected]])
+                'readonly' => false,
+                'selectxx' => $request->selectxx,
+                'comboxxx' => $this->combo(['cabecera' => true, 'ajaxxxxx' => true, 'temaxxxx' => 4, 'selected' => is_array($request->selected) ? $request->selected : [$request->selected]])
             ];
             if ($request->padrexxx != 711) {
                 $respuest['comboxxx'] = Parametro::find(235)->ComboAjaxUno;
                 $respuest['readonly'] = true;
             }
-
             return response()->json($respuest);
         }
     }
