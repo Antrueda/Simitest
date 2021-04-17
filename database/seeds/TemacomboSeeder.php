@@ -1850,6 +1850,7 @@ class TemacomboSeeder extends Seeder
             1576 => $this->getCM(['simianti' => 'T_SEXUAL']),
             1577 => $this->getCM(['simianti' => 'VENDEDOR']),
             1578 => $this->getCM(['simianti' => '204']),
+            1776 => $this->getCM(['simianti' => 'OFICIOS_V']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 157,  'nombrexx' => 'REPETIDOS']);
