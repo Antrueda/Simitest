@@ -55,7 +55,7 @@ class VsiFacProtectorCrearRequest extends FormRequest
         ->first();
    
     if (isset($registro)) {
-        $this->_mensaje['existexx.required'] = 'La pontencialidad ya existe';
+        $this->_mensaje['existexx.required'] = 'el factor protector ya existe';
         $this->_reglasx['existexx'] = ['Required',];
     }
     }

@@ -1851,6 +1851,11 @@ class TemacomboSeeder extends Seeder
             1577 => $this->getCM(['simianti' => 'VENDEDOR']),
             1578 => $this->getCM(['simianti' => '204']),
             1776 => $this->getCM(['simianti' => 'OFICIOS_V']),
+            2523 => $this->getCM(['simianti' => 'PUBLICISTA']),
+            1349 => $this->getCM(['simianti' => 'QUIMICO FARMACÉUTICO']),
+            2524 => $this->getCM(['simianti' => 'QUINESIÓLOGO']),
+            2525 => $this->getCM(['simianti' => 'VITRALISTA']),
+            637 => $this->getCM(['simianti' => 'PROSTITUCION']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 157,  'nombrexx' => 'REPETIDOS']);
@@ -3918,6 +3923,18 @@ class TemacomboSeeder extends Seeder
                 1479 => $this->getCM(['simianti' => '']),
                 1480 => $this->getCM(['simianti' => '']),
                 1594 => $this->getCM(['simianti' => 'CDF']),
+                2511 => $this->getCM(['simianti' => 'TIA_P']),
+                2512 => $this->getCM(['simianti' => 'TIA_M']),
+                2513 => $this->getCM(['simianti' => 'ABUELA_P']),
+                2514 => $this->getCM(['simianti' => 'ABUELA_M']),
+                2515 => $this->getCM(['simianti' => 'ABUELASTRA']),
+                2516 => $this->getCM(['simianti' => 'AMIGA']),
+                2517 => $this->getCM(['simianti' => 'ABUELO']),
+                2518 => $this->getCM(['simianti' => 'ABUELA']),
+                2519 => $this->getCM(['simianti' => '3']),
+                2520 => $this->getCM(['simianti' => 'CONYUGUE']),
+                2521 => $this->getCM(['simianti' => 'TIO']),
+                2522 => $this->getCM(['simianti' => 'TIA']),
             ]
         ); //358
         $tema = $this->getR([

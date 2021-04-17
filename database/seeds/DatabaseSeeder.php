@@ -60,6 +60,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SisActividadsSeeder::class);
         $this->call(SisMapaProcsSeeder::class);
         $this->call(SisProcesosSeeder::class);
+        $this->call(MensajesSeeder::class);
+        
 
         $this->call(SisActividadProcesosSeeder::class);
         $this->call(SisNnajsSeeder::class);

@@ -72,7 +72,7 @@ class AISalidaMenorRequest extends FormRequest
             'tel_contacto'      => 'required|integer|max:10',
             'causa'             => 'nullable|string|max:4000',
             'nombres_recoge'    => 'required|string|max:120',
-            'doc_recoge'        => 'required|string|max:120',
+            'doc_recoge'        => 'required|integer|max:10',
             'responsable'       => 'required|exists:users,id',
             'user_doc1_id'      => 'required|exists:users,id',
             'objetivo'          => 'required|array',

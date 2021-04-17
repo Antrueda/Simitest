@@ -813,11 +813,11 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'CUÑADA'], // 790
             ['nombrexx' => 'PADRINO'], // 791
             ['nombrexx' => 'MADRINA'], // 792
-            ['nombrexx' => 'TIO/A PATERNO'], // 793
-            ['nombrexx' => 'TIO/A MATERNA'], // 794
-            ['nombrexx' => 'ABUELO/A PATERNO'], // 795
-            ['nombrexx' => 'ABUELO/A MATERNA'], // 796
-            ['nombrexx' => 'ABUELASTRO/A'], // 797
+            ['nombrexx' => 'TIO PATERNO'], // 793
+            ['nombrexx' => 'TIO MATERNA'], // 794
+            ['nombrexx' => 'ABUELO PATERNO'], // 795
+            ['nombrexx' => 'ABUELO MATERNO'], // 796
+            ['nombrexx' => 'ABUELASTRO'], // 797
             ['nombrexx' => 'SUEGRO'], // 798
             ['nombrexx' => 'SUEGRA'], // 799
             ['nombrexx' => 'DEFENSOR DE FAMILIA'], // 800
@@ -2531,6 +2531,23 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'REGISTRO ASISTENCIA A-GDH-FT-010'], // 2508
             ['nombrexx' => 'ESPACIO/LUGAR'], // 2509
             ['nombrexx' => '2021'], // 2510
+            ['nombrexx' => 'TIA PATERNO'], // 2511
+            ['nombrexx' => 'TIA MATERNA'], // 2512
+            ['nombrexx' => 'ABUELA PATERNA'], // 2513
+            ['nombrexx' => 'ABUELA MATERNA'], // 2514
+            ['nombrexx' => 'ABUELASTRA'], // 2515
+            ['nombrexx' => 'AMIGA'], // 2516
+            ['nombrexx' => 'ABUELO'], // 2517
+            ['nombrexx' => 'ABUELA'], // 2518
+            ['nombrexx' => 'CUIDADOR'], // 2519
+            ['nombrexx' => 'CONYUGUE'], // 2520
+            ['nombrexx' => 'TIO'], // 2521
+            ['nombrexx' => 'TIA'], // 2522
+            ['nombrexx' => 'PUBLICISTA'], // 2523
+            ['nombrexx' => 'QUINESIÓLOGO'], // 2524
+            ['nombrexx' => 'VITRALISTA'], // 2525
+
+
         ];
         $this->getR($parametr);
     }
