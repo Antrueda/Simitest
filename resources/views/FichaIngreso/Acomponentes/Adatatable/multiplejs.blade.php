@@ -1,5 +1,5 @@
 <script>
-   var table ='';
+    table ='';
 $(document).ready(function() {
   @foreach ($todoxxxx['tablasxx'] as $tablasxx)
     {{ $tablasxx["tablaxxx"] }} =  $('#{{ $tablasxx["tablaxxx"] }}').DataTable({
