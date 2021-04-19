@@ -33,7 +33,30 @@ class FiDatosBasico extends Model
         'user_edita_id',
     ];
 
+    /**
+     * * Listado de las funciones de relaciones con descripción.
+     * * Si no las tiene dejar el array vacio.
+     * TODO Modificar conforme se necesite
+     */
+    protected $theRelations = [
+        'nnaj_docu'             => 'NnajDocu',
+        'nnaj_sit_mil'          => 'NnajSitMil',
+        'fi_csdvsi'             => 'FiCsdsi',
+        'nnaj_sexo'             => 'NnajSexo',
+        'nnaj_nacimi'           => 'NnajNacimi',
+        'nnaj_fi_csd'           => 'NnajFiCsd',
+        'nnaj_focali'           => 'NnajFocli',
+        'fi_diligenc'           => 'FiDiligenc',
+        'sis_nnaj'              => 'SisNnaj',
+        'prmTipoPobla-nombre'   => 'PrmTipoPobla',
+        'creador-name'          => 'Creador',
+        'editor-name'           => 'Editor',
+        'SisNnaj'               => 'SisNnaj',
+        'sis_docfuen'           => 'SisDocfuen',
+        'prmVestimenta-nombre'  => 'PrmVestimenta'
+    ];
 
+    protected $table = 'fi_datos_basicos';
 
     public function prmVestimenta()
     {
@@ -83,6 +106,8 @@ class FiDatosBasico extends Model
     {
         return $this->belongsTo(SisNnaj::class);
     }
+
+    // ! No esta en la tabla
     public function tipoDocumento()
     {
         return $this->belongsTo(Parametro::class, 'prm_documento_id');
@@ -93,16 +118,18 @@ class FiDatosBasico extends Model
     }
 
 
-
+    // ! No esta en la tabla
     public function gsanguino()
     {
         return $this->belongsTo(Parametro::class, 'prm_gsanguino_id');
     }
 
+    // ! No esta en la tabla
     public function factorh()
     {
         return $this->belongsTo(Parametro::class, 'prm_factor_rh_id');
     }
+    // ! Solo esta sis_nnaj_id
     public function sis_depen_id()
     {
         return $this->belongsToMany(SisDepen::class, 'nnaj_upis', 'sis_nnaj_id', 'sis_depen_id');
@@ -367,5 +394,23 @@ class FiDatosBasico extends Model
     public function sis_docfuen()
     {
         return $this->belongsTo(SisDocfuen::class);
+    }
+
+    /**
+     * Retorna el nombre de la tabla a la cual esta asociado el modelo
+     * @return string $table
+     */
+    public function getTableName()
+    {
+        return $this->table;
+    }
+
+    /**
+     * Retorna las relaciones del modelo
+     * @return array $has_relations
+     */
+    public function getTheRelations()
+    {
+        return $this->theRelations;
     }
 }
