@@ -270,7 +270,7 @@ trait HomologacionesTrait
     }
     public function getCargoHT($dataxxxx)
     {
-        $cargosxx = GeCargo::find($dataxxxx['cargoidx'])->first();
+        $cargosxx = GeCargo::find($dataxxxx['cargoidx']);
         $cargosxy = SisCargo::where('s_cargo', $cargosxx->nombre_cargo)->first();
         if (isset($cargosxy->id)) {
             $cargosxy = SisCargo::find(58);
