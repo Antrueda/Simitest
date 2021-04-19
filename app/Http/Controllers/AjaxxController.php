@@ -233,7 +233,7 @@ class AjaxxController extends Controller
         if ($request->ajax()) {
             $dataxxxx = $request->all();
             $respuest = [[
-                'entidadx' => $dataxxxx['padrexxx'] == 168 ? Parametro::find(235)->ComboAjaxUno : SisEntidadSalud::combo($dataxxxx['padrexxx'], true, true),
+                'entidadx' => $dataxxxx['padrexxx'] == 168 ? SisEntidadSalud::find(103)->ComboAjaxUno : SisEntidadSalud::combo($dataxxxx['padrexxx'], true, true),
             ]];
 
 

@@ -1951,6 +1951,7 @@ class SisUpzbarrisSeeder extends Seeder
             ['simianti_id' =>0, 'sis_localupz_id' =>122, 'sis_barrio_id' =>1653],//1927
             ['simianti_id' =>0, 'sis_localupz_id' =>123, 'sis_barrio_id' =>1655],//1928
             ['simianti_id' => 4000011, 'sis_localupz_id' => 124, 'sis_barrio_id' => 1656], // 1929
+            ['simianti_id' => 180084, 'sis_localupz_id' => 50, 'sis_barrio_id' => 388], // 1930
         ];
         $this->getR($dataxxxx);
     }

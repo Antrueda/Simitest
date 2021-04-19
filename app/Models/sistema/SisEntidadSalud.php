@@ -73,4 +73,13 @@ class SisEntidadSalud extends Model
         }, 5);
         return $usuariox;
     }
+
+    public function getComboAttribute()
+    {
+        return [$this->id => $this->sis_enprsa->s_enprsa];
+    }
+    public function getComboAjaxUnoAttribute()
+    {
+        return [['valuexxx' => $this->id, 'optionxx' => $this->sis_enprsa->s_enprsa, 'selected'=>'selected']];
+    }
 }
