@@ -271,6 +271,11 @@ trait HomologacionesTrait
     public function getCargoHT($dataxxxx)
     {
         $cargosxx = GeCargo::find($dataxxxx['cargoidx']);
+        if($cargosxx==null){
+            $dataxxxx['tituloxx'] = 'CEDULA INCORRECTA!';
+            $dataxxxx['mensajex'] = 'Para el número de cédula: ' . $dataxxxx['cedulaxx'] . ' la información está incompleto en ge_personal_idipron. ';
+            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+        }
         $cargosxy = SisCargo::where('s_cargo', $cargosxx->nombre_cargo)->first();
         if (isset($cargosxy->id)) {
             $cargosxy = SisCargo::find(58);
@@ -301,6 +306,7 @@ trait HomologacionesTrait
     {
         $personax = User::where('s_documento', $dataxxxx['cedulaxx'])->first();
         if (!isset($personax->id)) {
+
             $personax = GePersonalIdipron::select([
                 'area',
                 'tipo as prm_tvinculacion_id',
@@ -330,7 +336,7 @@ trait HomologacionesTrait
                 'temaxxxx' => 3,
                 'testerxx' => false,
             ])->id;
-            $personax->sis_cargo_id = $this->getCargoHT(['cargoidx' => $personax->sis_cargo_id])->id;
+            $personax->sis_cargo_id = $this->getCargoHT(['cargoidx' => $personax->sis_cargo_id,'cedulaxx'=>$dataxxxx['cedulaxx']])->id;
             $personax->sis_municipio_id = $this->getMunicipoSimi(['idmunici' => $personax->sis_municipio_id])->id;
             $personax->itiestan = 10;
             $personax->itiegabe = 0;
