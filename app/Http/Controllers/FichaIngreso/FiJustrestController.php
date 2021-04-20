@@ -29,7 +29,6 @@ class FiJustrestController extends Controller
     use JustrestVistasTrait;
     use FiPestaniasTrait;
 
-
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;

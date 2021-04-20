@@ -1403,7 +1403,7 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync([
             650 => $this->getCM(['simianti' => '1']),
             651 => $this->getCM(['simianti' => '2']),
-            445 => $this->getCM(['simianti' => '']),
+            445 => $this->getCM(['simianti' => '3']),
 
         ]);
 
@@ -4168,5 +4168,78 @@ class TemacomboSeeder extends Seeder
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
         ]);
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '10.4 ¿Se encuentra vinculado a la delincuencia o a la violencia?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //369
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+        ]);
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '10.5 ¿Se cuentra en riesgo de participar en actos delictivos?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //370
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+        ]);
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '¿Actualmente se encuentra vinculado al SRPA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //371
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+        ]);
+        //10.1 ¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos - PARD?
+        $tema = $this->getR([
+            'temaidxx' => 25,
+            'nombrexx' => '10.3 ¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //372
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+            235 => $this->getCM(['simianti' => '3']),
+        ]);    
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '10.1 ¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos - PARD?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //373
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+        ]);
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '10.2 ¿Ha estado vinculado al Sistema de Responsabilidad Penal Adolescente - SRPA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //374
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+            
+        ]);
+
+        $tema = $this->getR([
+            'temaidxx' => 25,
+            'nombrexx' => '10.3A ¿Ha estado privado de la libertad?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //375
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+            235 => $this->getCM(['simianti' => '3']),
+        ]);    
+
+        $tema = $this->getR([
+            'temaidxx' => 25,
+            'nombrexx' => '¿Actualmente se encuentra en conflicto con la ley - SPOA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //376
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+            235 => $this->getCM(['simianti' => '3']),
+        ]);    
+
+
     }
 }

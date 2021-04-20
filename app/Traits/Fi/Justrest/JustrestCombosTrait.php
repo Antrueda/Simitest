@@ -13,15 +13,16 @@ trait JustrestCombosTrait
 
     public function getCombosJCT()
     {
-        $this->opciones['condspoa'] = Tema::combo(23, true, false);
-        $this->opciones['violvinc'] = Tema::combo(23, true, false);
-        $this->opciones['violries'] = Tema::combo(23, true, false);
-        $this->opciones['estaspoa'] = Tema::combo(23, true, false);
-        $this->opciones['condicio'] = Tema::combo(23, true, false);
-        $this->opciones['condnoap'] = Tema::combo(23, true, false);
-        $this->opciones['actupard'] = Tema::combo(25, true, false);
-        $this->opciones['actusrpa'] = Tema::combo(25, true, false);
-        $this->opciones['actuspoa'] = Tema::combo(25, true, false);
+        
+        $this->opciones['violvinc'] = Tema::combo(369, true, false);
+        $this->opciones['violries'] = Tema::combo(370, true, false);
+        $this->opciones['condnoap'] = Tema::combo(373, true, false);
+        $this->opciones['actupard'] = Tema::combo(368, true, false);
+        $this->opciones['actusrpa'] = Tema::combo(371, true, false);
+        $this->opciones['condicio'] = Tema::combo(372, true, false);//N/A
+        $this->opciones['estaspoa'] = Tema::combo(374, true, false);//N/A
+        $this->opciones['actuspoa'] = Tema::combo(376, true, false);//N/A
+        $this->opciones['condspoa'] = Tema::combo(375, true, false);//N/A
         $this->opciones['motipard'] = Tema::combo(45, true, false);
         $this->opciones['motisrpa'] = Tema::combo(46, true, false);
         $this->opciones['sancsrpa'] = Tema::combo(47, true, false);
@@ -35,7 +36,7 @@ trait JustrestCombosTrait
         $this->opciones['titipard'] = Tema::combo(152, true, false);
         $this->opciones['titisrpa'] = Tema::combo(152, true, false);
         $this->opciones['titispoa'] = Tema::combo(152, true, false);
-        $this->opciones['condspoa'] = Tema::combo(25, true, false);
+        
     }
     public function getCHCJCT($dataxxxx)
     {
