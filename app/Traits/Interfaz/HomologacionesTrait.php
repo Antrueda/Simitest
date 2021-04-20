@@ -9,16 +9,13 @@ use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Indicadores\Area;
 use App\Models\Parametro;
 use App\Models\Simianti\Ba\BaTerritorio;
-use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GeCargo;
-use App\Models\Simianti\Ge\GeNnaj;
 use App\Models\Simianti\Ge\GePersonalIdipron;
 use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Simianti\Ge\GeUpiNnaj;
 use App\Models\Simianti\Ge\GeUpiPersonal;
 use App\Models\Simianti\Sis\Municipio;
 use App\Models\Simianti\Sis\SisMultivalore;
-use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisCargo;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisLocalidad;
@@ -444,7 +441,12 @@ trait HomologacionesTrait
             ->get();
         foreach ($upismoda as $key => $value) {
             $servicio = SisServicio::where('simianti_id', $value->modalidad)->first();
+            if($value->id_upi==3){
+                $value->id_upi=30;
+            }
             $dependen = SisDepen::where('simianti_id', $value->id_upi)->first();
+
+
             $depenanj = $dependen->nnaj_upis->where('sis_nnaj_id', $dataxxxx['sisnnaji'])->first();
             if ($depenanj == null) {
                 $nnajupix = [
