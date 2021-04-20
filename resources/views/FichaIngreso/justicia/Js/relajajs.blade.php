@@ -3,12 +3,43 @@
     $('.select2').select2({
             language: "es"
         });
-        var f_selected=function(seledata,selecomb){
-            var selected='';
-            if(seledata==selecomb){
-                selected='selected';
+        var f_camposxx = function(json,dataxxxx) {
+            if (json.messagex[0]) {
+                alert(json.messagex[2])
+                $(json.messagex[1]).focus()
+            } else {
+                // limpar los combos
+                $.each(json.emptyxxx, function(i, d) {
+                    $(d).empty();
+                });
+                // campos que se innabilitan
+                $.each(json.readonly, function(i, d) {
+                    if(dataxxxx.limpiarx){
+                      $(d[0]).val('')
+                    }
+
+                    $(d[0]).prop('readonly', d[1])
+                });
+                $.each(json.combosxx, function(i, d) {
+                    $.each(d[1], function(i, comboxxx) {
+                        $(d[0]).append('<option ' + comboxxx.selected + ' value="' + comboxxx.valuexxx + '">' + comboxxx.optionxx + '</option>')
+                    });
+                });
             }
-            return selected;
+        }
+        var f_fijusticia = function(dataxxxx) {
+            $.ajax({
+                url: "{{ route('fijusticia.pardspoa',$todoxxxx['parametr']) }}",
+                data: dataxxxx,
+                type: 'GET',
+                dataType: 'json',
+                success: function(json) {
+                    f_camposxx(json,dataxxxx);
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existió un problema');
+                },
+            });
         }
         $("#i_prm_actualmente_srpa_id").change(function() {
             var dataxxxx = {

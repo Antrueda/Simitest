@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Administracion\Ubicacion\SisDepartamCrearRequest;
 use App\Http\Requests\Administracion\Ubicacion\SisDepartamEditarRequest;
 use App\Models\Sistema\SisDepartam;
+use App\Models\Sistema\SisPai;
 use App\Traits\Administracion\Ubicacion\CrudTrait;
 use App\Traits\Administracion\Ubicacion\Departamento\DataTablesTrait;
 use App\Traits\Administracion\Ubicacion\Departamento\ParametrizarTrait;
@@ -34,7 +35,7 @@ class SisDepartamentoController extends Controller
         $this->middleware($this->getMware());
     }
 
-    public function index()
+    public function index(SisPai $padrexxx)
     {
         $this->getPestanias([]);
         $this->getTablas();
