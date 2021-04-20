@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\FI\Justrest;
+namespace app\Traits\FI\Justrest;
 
 
 

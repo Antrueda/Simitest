@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Traits\FI\Justrest;
+namespace app\Traits\FI\Justrest;
 
-use App\Models\Tema;
+
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
