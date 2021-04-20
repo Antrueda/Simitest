@@ -14,6 +14,9 @@ trait JustrestCombosTrait
     public function getCombosJCT()
     {
         $this->opciones['condspoa'] = Tema::combo(23, true, false);
+        $this->opciones['violvinc'] = Tema::combo(23, true, false);
+        $this->opciones['violries'] = Tema::combo(23, true, false);
+        $this->opciones['estaspoa'] = Tema::combo(23, true, false);
         $this->opciones['condicio'] = Tema::combo(23, true, false);
         $this->opciones['condnoap'] = Tema::combo(23, true, false);
         $this->opciones['actupard'] = Tema::combo(25, true, false);
@@ -44,7 +47,7 @@ trait JustrestCombosTrait
         $this->opciones['readsrpa'] = '';
         $this->opciones['readspoa'] = '';
         if ($dataxxxx['tipoblac'] == 650) {
-            $this->opciones['condicio'] = Parametro::find(235)->Combo;
+            $this->opciones['estaspoa'] = Parametro::find(235)->Combo;
             $this->opciones['condnoap'] = Parametro::find(235)->Combo;
             $this->opciones['actupard'] = Parametro::find(235)->Combo;
             $this->opciones['actusrpa'] = Parametro::find(235)->Combo;
