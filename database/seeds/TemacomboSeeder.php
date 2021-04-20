@@ -307,6 +307,7 @@ class TemacomboSeeder extends Seeder
             167 => $this->getCM(['simianti' => '']),
             1631 => $this->getCM(['simianti' => '']),
             168 => $this->getCM(['simianti' => '']),
+            235 => $this->getCM(['simianti' => '']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 22,  'nombrexx' => 'Entidad Promotora de Salud']);
@@ -4144,7 +4145,7 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
-            2497=>$this->getCM(['simianti' => '3']),
+            235=>$this->getCM(['simianti' => '4']),
             445 => $this->getCM(['simianti' => '']),
         ]);
 
@@ -4155,7 +4156,7 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
-            2497=>$this->getCM(['simianti' => '3']),
+            235=>$this->getCM(['simianti' => '4']),
             445 => $this->getCM(['simianti' => '']),
         ]);
     }

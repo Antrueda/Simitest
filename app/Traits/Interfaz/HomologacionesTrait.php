@@ -228,6 +228,11 @@ trait HomologacionesTrait
                     $parametr = Parametro::find(235);
                 }
                 break;
+                case 366:
+                    if ($dataxxxx['codigoxx'] == 3 || $dataxxxx['codigoxx'] == 3) {
+                        $parametr = Parametro::find(235);
+                    }
+                    break;
         }
 
         if ($parametr == '') {
