@@ -27,7 +27,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_nombre_defensor', '10.1B Nombre del defensor de familia', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_nombre_defensor', null, ['class' => 'form-control form-control-sm', $todoxxxx['readnomd']]) }}
+        {{ Form::text('s_nombre_defensor', null, ['class' => 'form-control form-control-sm', $todoxxxx['readnomd'], "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_telefono_defensor', '10.1C Teléfono', ['class' => 'control-label col-form-label-sm']) }}
