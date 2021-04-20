@@ -473,7 +473,7 @@ class TemacomboSeeder extends Seeder
             274 => $this->getCM(['simianti' => '13']),
             275 => $this->getCM(['simianti' => '14']),
             276 => $this->getCM(['simianti' => '16']),
-            
+
         ]);
 
         $tema = $this->getR(['temaidxx' => 35,  'nombrexx' => 'La Residencia es']);
@@ -1069,7 +1069,7 @@ class TemacomboSeeder extends Seeder
             2227 => $this->getCM(['simianti' => '']),
             2510 => $this->getCM(['simianti' => '']),
             2316 => $this->getCM(['simianti' => '']),
-     
+
         ]);
 
         $tema = $this->getR(['temaidxx' => 85,  'nombrexx' => 'TEMA PARAMETRO CORREGIR']);
@@ -1943,7 +1943,7 @@ class TemacomboSeeder extends Seeder
             2603 => $this->getCM(['simianti' => 'EMPLEEE']),
 
 
-            
+
         ]);
 
         $tema = $this->getR(['temaidxx' => 157,  'nombrexx' => 'REPETIDOS']);
@@ -3270,7 +3270,7 @@ class TemacomboSeeder extends Seeder
             308 => $this->getCM(['simianti' => '12']),
             1502 => $this->getCM(['simianti' => '27']),
             1505 => $this->getCM(['simianti' => '31']),
-    
+
         ]);
 
 
@@ -4158,6 +4158,15 @@ class TemacomboSeeder extends Seeder
             228 => $this->getCM(['simianti' => '2']),
             235=>$this->getCM(['simianti' => '4']),
             445 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '¿Actualmente se encuentra en el PARD?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //368
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
         ]);
     }
 }
