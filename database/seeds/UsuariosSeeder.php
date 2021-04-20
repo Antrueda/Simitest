@@ -81,7 +81,7 @@ class UsuariosSeeder extends Seeder
             's_segundo_apellido' => 'CÁCERES',
             's_telefono' => 3197533728,
             'name' => 'YENNY ADREA CORZO CÁCERES',
-            'email' => 'YENNYCC@idipron.gov.co',
+            'email' => 'yennya.corzo@idipron.gov.co',
             'password' => 1031143437,
             'prm_tvinculacion_id' => 1673,
             'itiestan' => 10,

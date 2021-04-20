@@ -6,7 +6,7 @@ use App\Models\fichaIngreso\FiJustrest;
 use App\Models\fichaIngreso\FiProcesoPard;
 use App\Models\fichaIngreso\FiProcesoSpoa;
 use App\Models\fichaIngreso\FiProcesoSrpa;
-
+use App\Models\Parametro;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -108,23 +108,24 @@ trait JustrestVistasTrait
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['puedexxx'] = '';
             $dataxxxx['modeloxx'] = $this->getProcesoSpoaJVT($dataxxxx);
+            $dataxxxx['edadxxxx']=$this->opciones['usuariox']->nnaj_nacimi->Edad;
             $this->getValidacionesJVT($dataxxxx);
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
         }
         $this->getTablasVistaJDTT($dataxxxx, ['vercrear' => $vercrear]);
 
         // $this->opciones['cuanspoa']='';
-        // if ($this->opciones['usuariox']->nnaj_nacimi->Edad < 18) {
-        //     $this->opciones['cuanspoa']='readonly';
-        //     $this->opciones['sancspoa'] =
-        //     $this->opciones['actuspoa'] =
-        //     $this->opciones['titispoa'] =
-        //     $this->opciones['motispoa'] =
-        //     $this->opciones['condspoa'] =
-        //     $this->opciones['motispoa'] = Parametro::find(235)->Combo;
-        // }
-
-        //
+        if ($this->opciones['usuariox']->nnaj_nacimi->Edad < 18) {
+            $this->opciones['readspoa']='readonly';
+            $this->opciones['sancspoa'] =
+            $this->opciones['actuspoa'] =
+            $this->opciones['titispoa'] =
+            $this->opciones['motispoa'] =
+            $this->opciones['condicio'] =
+            $this->opciones['condspoa'] =
+            $this->opciones['motispoa'] = Parametro::find(235)->Combo;
+            //condspoa
+        }
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 }
