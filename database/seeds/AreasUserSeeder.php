@@ -144,5 +144,22 @@ class AreasUserSeeder extends Seeder
         $this->getR(['userxxxx' => 398, 'areasxxx' => [6,8]]);
         $this->getR(['userxxxx' => 613, 'areasxxx' => [6,8]]);
         $this->getR(['userxxxx' => 795, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 1978, 'areasxxx' => [7,8]]);
+        $this->getR(['userxxxx' => 2130, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 1436, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 321, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 489, 'areasxxx' => [7,8]]);
+        $this->getR(['userxxxx' => 1989, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 2126, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 2127, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 2128, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 2129, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 2130, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 2131, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 2132, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 2133, 'areasxxx' => [6,8]]);
+        
+        
+        
     }
 }

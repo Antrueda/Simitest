@@ -4192,7 +4192,7 @@ class TemacomboSeeder extends Seeder
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
         ]);
-        //10.1 ¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos - PARD?
+
         $tema = $this->getR([
             'temaidxx' => 25,
             'nombrexx' => '10.3 ¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
