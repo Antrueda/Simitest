@@ -640,7 +640,7 @@ class FiController extends Controller
                     $descripc = $multival->descripcion;
                     $sindatox = true;
                 }
-                if($sindatox && $valuexxx->pivot->simianti_id!='' && $valuexxx->pivot->simianti_id!=0){
+                if($sindatox && $valuexxx->pivot->simianti_id!=''){
                     $sindatox = false;
                 }
                 $this->opciones['paramets'][] = [
