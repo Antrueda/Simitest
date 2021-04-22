@@ -21,7 +21,7 @@
   <hr width=80%>
   <div id="text" class="form-inline">
     <div class="input-group" style="display: inline-block;text-align: justify">
-        <span class="input-group-addon" style="width:auto;">En calidad de </span>
+        <span class="input-group-addon" style="width:auto;">En calidad </span>
         <strong>{{ $todoxxxx['encalida'] }} </strong>
         <span class="input-group-addon" style="width:auto;">del NNA</span>
         <strong>

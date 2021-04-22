@@ -15,11 +15,11 @@ class CsdViolenciaEditarRequest extends FormRequest
 
         $this->_mensaje = [
             'prm_condicion_id.required'=>'Seleccione una condicion',
-            'departamento_cond_id.required'=>'Seleccione el departamento',
-            'municipio_cond_id.required'=>'Seleccione el municipio',
+            'departamento_cond_id.required_if'=>'Seleccione el departamento',
+            'municipio_cond_id.required_if'=>'Seleccione el municipio',
             'prm_certificado_id.required'=>'Seleccione si tiene certificado',
-            'departamento_cert_id.required'=>'Seleccione el departamento',
-            'municipio_cert_id.required'=>'Seleccione el municipio',
+            'departamento_cert_id.required_if'=>'Seleccione el departamento',
+            'municipio_cert_id.required_if'=>'Seleccione el municipio',
           ];
         $this->_reglasx = [
             'prm_condicion_id' => 'required|exists:parametros,id',

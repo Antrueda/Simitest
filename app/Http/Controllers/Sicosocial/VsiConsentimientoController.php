@@ -60,7 +60,7 @@ class VsiConsentimientoController extends Controller
         ;
 
         $this->opciones['usuarios'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[4]]);
-        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[4,3]]);
+        $this->opciones['usuarioz'] = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => false, 'notinxxx' =>0,'rolxxxxx'=>[3]]);
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
         $this->opciones['tituhead'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico->name;
@@ -163,7 +163,7 @@ class VsiConsentimientoController extends Controller
     {
         if ($request->ajax()) {
             $camposxx=['user_doc1_id'=>'#user_doc2_id','user_doc2_id'=>'#user_doc1_id'];
-            $usuarios = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx],'rolxxxxx'=>[4,3]]);
+            $usuarios = User::userComboRol(['cabecera' =>true, 'ajaxxxxx' => true, 'notinxxx' =>[$request->usernotx],'rolxxxxx'=>[3]]);
             return response()->json(['dataxxxx'=>$usuarios,'comboxxx'=>$camposxx[$request->comboxxx]]);
         }
     }
