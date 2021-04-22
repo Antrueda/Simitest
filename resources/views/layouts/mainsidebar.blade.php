@@ -54,6 +54,10 @@
             @include('layouts.menus.reportes')
             @endcanany
 
+             <!-- AYUDA -->
+             @include('layouts.menus.ayuda')
+             <!-- FIN AYUDA -->
+
             <!-- FIN REPORTES -->
         </ul>
     </nav>

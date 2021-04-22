@@ -113,6 +113,7 @@ return [
             'password' => env('DB_PASSWORDO', ''),
             'charset' => 'utf8',
             'prefix' => '',
+            'tns'            => env('DB_TNS', ''),
         ],
         'simiantiguo' => [
             'driver' => 'oracle',

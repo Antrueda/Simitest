@@ -1,4 +1,6 @@
 <?php
+
+require_once('Individuales/web_indimodu.php');
 // require_once('web_accion_gestion.php');
 require_once('web_area.php');
 require_once('web_diagnostico.php');

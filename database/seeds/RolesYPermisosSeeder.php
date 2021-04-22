@@ -21,6 +21,7 @@ class RolesYPermisosSeeder extends Seeder
             'psicologo' => 'Permioso que permite ver contenido de psicologo: ',
             'social' => 'Permioso que permite ver contenido de trabajador social: ',
             'modulo' => 'Permioso que permite ver el menu de: ',
+            'moduloxx' => 'Permioso que permite ver el menu de: ',
             'admin' => 'Permiso para administrar: ',
             'area-admin' => 'Permiso para administrar: ',
             'tipo-admin' => 'Permiso para administrar: ',
@@ -268,6 +269,8 @@ class RolesYPermisosSeeder extends Seeder
         /**
          * permisos para indicadores
          */
+        $this->getPermisos(['permisox' => 'indimodu', 'permisos' => ['moduloxx'], 'compleme' => 'modulo indicadores individuales', 'pestania' => 1]);
+
         // permisos para indicadores
         $this->getPermisos(['permisox' => 'indicador', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Indicadores IN', 'pestania' => 1]);
 

@@ -29,7 +29,7 @@ class InIndividualController extends Controller
       'accionxx' => '',
     ];
 
-    $this->middleware(['permission:'
+      $this->middleware(['permission:'
         . $this->opciones['permisox'] . '-leer|'
         . $this->opciones['permisox'] . '-crear|'
         . $this->opciones['permisox'] . '-editar|'
@@ -65,6 +65,40 @@ class InIndividualController extends Controller
       'user_edita_id' => 1,
       'sis_nnaj_id' => 2
     ];
+    $this->opciones['tablasxx'] = [
+      [
+          'titunuev' => 'NUEVO TEMA',
+          'titulist' => 'LISTA DE TEMAS',
+          'archdttb' =>$this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
+          'vercrear' => true,
+          'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
+          'permtabl' => [
+             $this->opciones['permisox'] . '-leer',
+             $this->opciones['permisox'] . '-crear',
+             $this->opciones['permisox'] . '-editar',
+             $this->opciones['permisox'] . '-borrar',
+             $this->opciones['permisox'] . '-activar',
+          ],
+          'cabecera' => [
+              [
+                  ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
+                  ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                  ['td' => 'TEMA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                  ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+              ]
+          ],
+          'columnsx' => [
+              ['data' => 'botonexx', 'name' => 'botonexx'],
+              ['data' => 'id', 'name' => 'temas.id'],
+              ['data' => 'nombre', 'name' => 'temas.nombre'],
+              ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
+          ],
+          'tablaxxx' => 'datatable',
+          'permisox' =>$this->opciones['permisox'],
+          'routxxxx' =>$this->opciones['routxxxx'],
+          'parametr' => [],
+      ]
+  ];
 
     ///$dataxxxx = IndicadorHelper::asignaLineaBase($dataxxxx);
     //return $dataxxxx;

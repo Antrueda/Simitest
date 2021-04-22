@@ -33,7 +33,7 @@ class IndicadorApi
 
     public static function getAreas($request)
     {
-        $paciente = Area::select(['areas.id', 'areas.nombre', 'sis_estas.s_estado', 'areas.sis_esta_id', 'sis_estas.s_estado'])
+        $paciente = Area::select(['areas.id', 'areas.nombre', 'sis_estas.s_estado', 'areas.sis_esta_id'])
             ->join('sis_estas', 'areas.sis_esta_id', '=', 'sis_estas.id');
         return DatatableHelper::getDt($paciente, $request);
     }
