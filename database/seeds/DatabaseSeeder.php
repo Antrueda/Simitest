@@ -60,24 +60,54 @@ class DatabaseSeeder extends Seeder
         $this->call(SisActividadsSeeder::class);
         $this->call(SisMapaProcsSeeder::class);
         $this->call(SisProcesosSeeder::class);
+        $this->call(MensajesSeeder::class);
+        
 
         $this->call(SisActividadProcesosSeeder::class);
         $this->call(SisNnajsSeeder::class);
-        $this->call(NnajCaminandoSeeder::class); //nuevo
+        // caminando relajado
+        $this->call(SisNnajsCaminandoSeeder::class);
+        $this->call(FiDatosBasicosCaminandoSeeder::class);
+        $this->call(FiDiligencCaminandoSeeder::class); //nuevo
+        $this->call(NnajDocuCaminandoSeeder::class);
+        $this->call(NnajFiCsdCaminandoSeeder::class);
+        $this->call(NnajFocaliCaminandoSeeder::class);
+        $this->call(NnajNacimiCaminandoSeeder::class);
+        $this->call(NnajSexoCaminandoSeeder::class);
+        $this->call(NnajSitMilCaminandoSeeder::class);
+        $this->call(NnajUpiCaminandoSeeder::class);
+        // fin caminando relajado
         $this->call(FiBienvenidaSeeder::class); //nuevo
         $this->call(FiResidenciaSeeder::class); //nuevo
+        $this->call(FiCondicionAmbienteSeeder::class);
         $this->call(FiFormacionSeeder::class); //nuevo
-        $this->call(FiSaludSeeder::class); //nuevo
+        $this->call(FiMotivoVinculacionSeeder::class);
+        $this->call(FiSaludSeeder::class); //ya
+        $this->call(FiEventosMedicoSeeder::class);
+        $this->call(FiVictataqSeeder::class);
+        $this->call(FiDiscausaSeeder::class);
         $this->call(FiGeneracionIngresoSeeder::class); //nuevo
+        $this->call(FiDiasGeneraIngresoSeeder::class);
         $this->call(FiActividadestlSeeder::class); //nuevo
+        $this->call(FiActividadTiempoLibreSeeder::class);
+        $this->call(FiAccioneSeeder::class);
         $this->call(FiConsumoSpaSeeder::class); //nuevo
+        $this->call(FiSustanciaConsumidaSeeder::class);
         $this->call(FiRedApoyoActualSeeder::class); //nuevo
         $this->call(FiRedApoyoAntecedenteSeeder::class); //nuevo
         $this->call(FiViolenciaSeeder::class); //nuevo
+        $this->call(FiLesicomeSeeder::class);
+        $this->call(FiViolbasaSeeder::class);
         $this->call(FiSituacionEspecialSeeder::class); //nuevo
+        $this->call(FiSituVulneraSeeder::class);
         $this->call(FiContactoSeeder::class); //nuevo
         $this->call(FiCompfamiSeeder::class); //nuevo
         $this->call(FiJustrestSeeder::class); //nuevo
+        $this->call(FiJrCausassiSeeder::class);
+        $this->call(FiJrCausasmoSeeder::class);
+        $this->call(FiProcesoPardSeeder::class);
+        $this->call(FiProcesoSpoaSeeder::class);
+        $this->call(FiProcesoSrpaSeeder::class);
         $this->call(FiAutorizacionSeeder::class); //nuevo
         $this->call(FiRazoneSeeder::class); //nuevo
         $this->call(CsdsSeeder::class);

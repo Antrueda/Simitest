@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vsi;
 
+use App\Models\sicosocial\VsiMeta;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiMetaCrearRequest extends FormRequest
@@ -46,6 +47,16 @@ class VsiMetaCrearRequest extends FormRequest
 
     public function validar()
     {
+        //ddd($this->padrexxx);
+        $registro = VsiMeta::select('vsi_metas.meta')
+        ->join('vsis', 'vsi_metas.vsi_id', '=', 'vsis.id')
+        ->where('vsis.id', $this->padrexxx) 
+        ->where('vsi_metas.meta', $this->meta)
+        ->first();
 
+    if (isset($registro)) {
+        $this->_mensaje['existexx.required'] = 'La meta ya existe';
+        $this->_reglasx['existexx'] = ['Required',];
+    }
     }
 }

@@ -77,6 +77,32 @@ class Tema extends Model {
     return $comboxxx;
   }
 
+  public static function comboAsc($temaxxxx, $cabecera, $ajaxxxxx) {
+    $comboxxx = [];
+    if ($cabecera) {
+      if ($ajaxxxxx) {
+        $comboxxx = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+      } else {
+        $comboxxx = ['' => 'Seleccione'];
+      }
+    }
+
+    $parametr = Temacombo::select(['parametros.id', 'parametros.nombre'])
+            ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
+            ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
+            ->where('temacombos.id', $temaxxxx)
+            ->orderBy('parametros.nombre', 'asc')
+            ->get();
+    foreach ($parametr as $registro) {
+      if ($ajaxxxxx) {
+        $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
+      } else {
+        $comboxxx[$registro->id] = $registro->nombre;
+      }
+    }
+    return $comboxxx;
+  }
+
   public function creador() {
     return $this->belongsTo(User::class, 'user_crea_id');
   }

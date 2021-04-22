@@ -1,493 +1,161 @@
 <script>
-   $(function(){
-    $('.select2').select2({
+    $(function() {
+        $('.select2').select2({
             language: "es"
         });
-        var f_selected=function(seledata,selecomb){
-            var selected='';
-            if(seledata==selecomb){
-                selected='selected';
-            }
-            return selected;
-        }
-       var f_ocultapard = function(dataxxxx){
-           $(dataxxxx.camposxx).empty();
-           
-           if(dataxxxx.valuexxx != ''){
-               $.ajax({
-                   url : "{{ route('ajaxx.ocultapard') }}",
-                   data : {
-                           _token: $("input[name='_token']").val(),
-                           'padrexxx':dataxxxx.valuexxx
-                       },
-                   type : 'POST',
-                   dataType : 'json',
-                   success : function(json) {
-                       $('#i_cuanto_pard, #s_nombre_defensor, #s_telefono_defensor, #s_lugar_abierto_pard').val(json[0].valuexxx)
-
-                       $('#i_cuanto_pard').prop('readonly',json[0].tiempard)
-                       $('#s_nombre_defensor').prop('readonly',json[0].nomdefen)
-                       $('#s_telefono_defensor').prop('readonly',json[0].teldefen)
-                       $('#s_lugar_abierto_pard').prop('readonly',json[0].lugapard)
-
-                        if(json[0].titipard[0].valuexxx==1){
-                            $(dataxxxx.camposxx).empty();
-                        }
-
-                        if(dataxxxx.optionxx==1){
-                            $.each(json[0].actupard,function(i,data){
-                                $('#i_prm_actualmente_pard_id').append('<option '+f_selected(data.valuexxx,dataxxxx.actupard)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                            });
-                        }
-
-                        $.each(json[0].titipard,function(i,data){
-                            $('#i_prm_tipo_tiempo_pard_id').append('<option '+f_selected(data.valuexxx,dataxxxx.tipopard)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        });
-                        $.each(json[0].motipard,function(i,data){
-                            $('#i_prm_motivo_pard_id').append('<option '+f_selected(data.valuexxx,dataxxxx.motipard)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        });
-                   },
-                   error : function(xhr, status) {
-                       alert('Disculpe, existió un problema');
-                   },
-               });
-           }
-       }
-
-        @if(old('i_prm_ha_estado_pard_id')!=null && old('i_prm_ha_estado_pard_id')==228 )
-            var actupard='';
-            var tipopard='';
-            var motipard='';
-            @if(old('i_prm_actualmente_pard_id')!=null)
-                actupard={{ old('i_prm_actualmente_pard_id') }};
-            @endif
-            @if(old('i_prm_tipo_tiempo_pard_id')!=null)
-                 tipopard={{ old('i_prm_tipo_tiempo_pard_id') }};
-            @endif
-            @if(old('i_prm_motivo_pard_id')!=null)
-                motipard={{ old('i_prm_motivo_pard_id') }};
-            @endif
-
-            var dataxxxx={
-                valuexxx:{{ old('i_prm_ha_estado_pard_id') }},
-                camposxx:'#i_prm_actualmente_pard_id,#i_prm_tipo_tiempo_pard_id, #i_prm_motivo_pard_id',
-                optionxx:1,
-                actupard:actupard,
-                tipopard:tipopard,
-                motipard:motipard,
-            };
-           f_ocultapard(dataxxxx);
-
-       @endif
-
-
-       $("#i_prm_ha_estado_pard_id").change(function(){
-           var dataxxxx={
-                valuexxx:$(this).val(),
-                camposxx:'#i_prm_actualmente_pard_id,#i_prm_tipo_tiempo_pard_id, #i_prm_motivo_pard_id',
-                optionxx:1,
-                actupard:'',
-                tipopard:'',
-                motipard:'',
-            };
-           f_ocultapard(dataxxxx);
-       });
-
-       $("#i_prm_actualmente_pard_id").change(function(){
-           var dataxxxx={
-                valuexxx:$(this).val(),
-                camposxx:'#i_prm_tipo_tiempo_pard_id, #i_prm_motivo_pard_id',
-                optionxx:2,
-                actupard:'',
-                tipopard:'',
-                motipard:'',
-            };
-           f_ocultapard(dataxxxx);
-       });
-        @if(old('i_prm_ha_estado_pard_id')!=null && old('i_prm_ha_estado_pard_id')!=228)
-            var actupard='';
-            var tipopard='';
-            var motipard='';
-            @if(old('i_prm_actualmente_pard_id')!=null)
-                actupard={{ old('i_prm_actualmente_pard_id') }};
-            @endif
-            @if(old('i_prm_tipo_tiempo_pard_id')!=null)
-                 tipopard={{ old('i_prm_tipo_tiempo_pard_id') }};
-            @endif
-            @if(old('i_prm_motivo_pard_id')!=null)
-                motipard={{ old('i_prm_motivo_pard_id') }};
-            @endif
-            var dataxxxx={
-                valuexxx:{{ old('i_prm_actualmente_pard_id') }},
-                camposxx:'#i_prm_tipo_tiempo_pard_id, #i_prm_motivo_pard_id',
-                optionxx:2,
-                actupard:'',
-                tipopard:tipopard,
-                motipard:motipard,
-            };
-            f_ocultapard(dataxxxx);
-        @endif
-       var f_ocultasrpa = function(dataxxxx){
-            $(dataxxxx.camposxx).empty();
-            
-            if(dataxxxx.valuexxx != ''){
-               $.ajax({
-                   url : "{{ route('ajaxx.ocultasrpa') }}",
-                   data : {
-                           _token: $("input[name='_token']").val(),
-                           'padrexxx':dataxxxx.valuexxx
-                       },
-                    type : 'POST',
-                    dataType : 'json',
-                    success : function(json) {
-                        $('#i_cuanto_srpa').val(json[0].valuexxx)
-
-                        $('#i_cuanto_srpa').prop('readonly',json[0].tiemsrpa)
-                        if(json[0].titisrpa[0].valuexxx==1){
-                            $(dataxxxx.camposxx).empty();
-                        }
-                        if(dataxxxx.optionxx==1){
-                            $.each(json[0].actusrpa,function(i,data){
-                                $('#i_prm_actualmente_srpa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.actusrpa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                            });
-                        }
-                        $.each(json[0].titisrpa,function(i,data){
-                            $('#i_prm_tipo_tiempo_srpa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.tiposrpa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        });
-                        $.each(json[0].motisrpa,function(i,data){
-                            $('#i_prm_motivo_srpa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.motipard)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        });
-                        $.each(json[0].sancsrpa,function(i,data){
-                            $('#i_prm_sancion_srpa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.sancsrpa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        });
-                    },
-                    error : function(xhr, status) {
-                        alert('Disculpe, existió un problema');
-                    },
+        var f_camposxx = function(json,dataxxxx) {
+            if (json.messagex[0]) {
+                alert(json.messagex[2])
+                $(json.messagex[1]).focus()
+            } else {
+                // limpar los combos
+                $.each(json.emptyxxx, function(i, d) {
+                    $(d).empty();
                 });
-            }
-       }
+                // campos que se innabilitan
+                $.each(json.readonly, function(i, d) {
+                    if(dataxxxx.limpiarx){
+                      $(d[0]).val('')
+                    }
 
-        @if(old('i_prm_ha_estado_srpa_id')!=null && old('i_prm_ha_estado_srpa_id')==228)
-            var actusrpa='';
-            var tiposrpa='';
-            var motipard='';
-            var sancsrpa='';
-            @if(old('i_prm_actualmente_srpa_id')!=null)
-                actusrpa:{{ old('i_prm_actualmente_srpa_id') }};
-            @endif
-
-            @if(old('i_prm_tipo_tiempo_srpa_id')!=null)
-                tiposrpa:{{ old('i_prm_tipo_tiempo_srpa_id') }};
-            @endif
-
-            @if(old('i_prm_motivo_srpa_id')!=null)
-                motipard:{{ old('i_prm_motivo_srpa_id') }};
-            @endif
-
-            @if(old('i_prm_sancion_srpa_id')!=null)
-                sancsrpa:{{ old('i_prm_sancion_srpa_id') }};
-            @endif
-            var dataxxxx={
-            valuexxx:{{ old('i_prm_ha_estado_srpa_id') }},
-            camposxx:'#i_prm_actualmente_srpa_id,#i_prm_tipo_tiempo_srpa_id, #i_prm_motivo_srpa_id, #i_prm_sancion_srpa_id',
-            optionxx:1,
-            actusrpa:actusrpa,
-            tiposrpa:tiposrpa,
-            motipard:motipard,
-            sancsrpa:sancsrpa
-        };
-           f_ocultasrpa(dataxxxx);
-        @endif
-
-        @if(old('i_prm_actualmente_srpa_id')!=null && old('i_prm_ha_estado_srpa_id')!=228)
-            var dataxxxx={
-                valuexxx:{{ old('i_prm_actualmente_srpa_id') }},
-                camposxx:'#i_prm_tipo_tiempo_srpa_id, #i_prm_motivo_srpa_id, #i_prm_sancion_srpa_id',
-                optionxx:2,
-                actusrpa:'',
-                tiposrpa:tiposrpa,
-                motipard:motipard,
-                sancsrpa:sancsrpa
-            };
-            f_ocultasrpa(dataxxxx);
-        @endif
-
-
-        $("#i_prm_ha_estado_srpa_id").change(function(){
-            var dataxxxx={
-                valuexxx:$(this).val(),
-                camposxx:'#i_prm_actualmente_srpa_id,#i_prm_tipo_tiempo_srpa_id, #i_prm_motivo_srpa_id, #i_prm_sancion_srpa_id',
-                optionxx:1,
-                actusrpa:'',
-                tiposrpa:'',
-                motipard:'',
-                sancsrpa:''
-            };
-            f_ocultasrpa(dataxxxx);
-        });
-        $("#i_prm_actualmente_srpa_id").change(function(){
-            var dataxxxx={
-                valuexxx:$(this).val(),
-                camposxx:'#i_prm_tipo_tiempo_srpa_id, #i_prm_motivo_srpa_id, #i_prm_sancion_srpa_id',
-                optionxx:2,
-                actusrpa:'',
-                tiposrpa:'',
-                motipard:'',
-                sancsrpa:''
-            };
-            f_ocultasrpa(dataxxxx);
-       });
-       //OCULTA SPOA
-    //    var dataxxxx={
-    //         valuexxx:$(this).val(),
-    //         camposxx:'#i_prm_actualmente_spoa_id,#i_prm_tipo_tiempo_spoa_id, #i_prm_motivo_spoa_id, #i_prm_mod_cumple_pena_id, #i_prm_ha_estado_preso_id',
-    //         optionxx:1,
-    //         actuspoa:'',
-    //         tipospoa:'',
-    //         motispoa:'',
-    //         cumpenax:'',
-    //         estapres:''
-    //     };
-        var f_ocultaspoa = function(dataxxxx){
-            $(dataxxxx.camposxx).empty();
-            if(dataxxxx.valuexxx != ''){
-                $.ajax({
-                    url : "{{ route('ajaxx.ocultaspoa') }}",
-                    data : {
-                            _token: $("input[name='_token']").val(),
-                            'padrexxx':dataxxxx.valuexxx
-                        },
-                    type : 'POST',
-                    dataType : 'json',
-                    success : function(json) {
-
-                        $('#i_cuanto_spoa').val(json[0].valuexxx)
-                        $('#i_cuanto_spoa').prop('readonly',json[0].tiemspoa)
-
-                        if(json[0].titispoa[0].valuexxx==1){
-                            $(dataxxxx.camposxx).empty();
-                        }
-
-                        if(dataxxxx.optionxx==1){
-                            $.each(json[0].actuspoa,function(i,data){
-                                $('#i_prm_actualmente_spoa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.actuspoa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                            });
-                        }
-
-                        $.each(json[0].titispoa,function(i,data){
-                            $('#i_prm_tipo_tiempo_spoa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.actuspoa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        });
-                        $.each(json[0].motispoa,function(i,data){
-                            $('#i_prm_motivo_spoa_id').append('<option '+f_selected(data.valuexxx,dataxxxx.motispoa)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        });
-                        $.each(json[0].cumppena,function(i,data){
-                            $('#i_prm_mod_cumple_pena_id').append('<option '+f_selected(data.valuexxx,dataxxxx.cumpenax)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        });
-                        $.each(json[0].estapres,function(i,data){
-                            $('#i_prm_ha_estado_preso_id').append('<option '+f_selected(data.valuexxx,dataxxxx.estapres)+' value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                        });
-                    },
-                    error : function(xhr, status) {
-                        alert('Disculpe, existió un problema');
-                    },
+                    $(d[0]).prop('readonly', d[1])
+                });
+                $.each(json.combosxx, function(i, d) {
+                    $.each(d[1], function(i, comboxxx) {
+                        $(d[0]).append('<option ' + comboxxx.selected + ' value="' + comboxxx.valuexxx + '">' + comboxxx.optionxx + '</option>')
+                    });
                 });
             }
         }
+        var f_fijusticia = function(dataxxxx) {
+            $.ajax({
+                url: "{{ route('fijusticia.pardspoa',$todoxxxx['parametr']) }}",
+                data: dataxxxx,
+                type: 'GET',
+                dataType: 'json',
+                success: function(json) {
+                    f_camposxx(json,dataxxxx);
+                },
+                error: function(xhr, status) {
+                    alert('Disculpe, existió un problema');
+                },
+            });
+        }
 
-       @if(old('i_prm_ha_estado_spoa_id')!=null && old('i_prm_ha_estado_spoa_id')==228)
-            var actuspoa='';
-            var tipospoa='';
-            var motispoa='';
-            var cumpenax='';
-            var estapres='';
-            @if(old('i_prm_actualmente_spoa_id')!=null)
-                actuspoa={{ old('i_prm_actualmente_spoa_id') }}
-            @endif
-            @if(old('i_prm_tipo_tiempo_spoa_id')!=null)
-                tipospoa={{ old('i_prm_tipo_tiempo_spoa_id') }}
-            @endif
-            @if(old('i_prm_motivo_spoa_id')!=null)
-                motispoa={{ old('i_prm_motivo_spoa_id') }}
-            @endif
-            @if(old('i_prm_mod_cumple_pena_id')!=null)
-                cumpenax={{ old('i_prm_mod_cumple_pena_id') }}
-            @endif
-            @if(old('i_prm_ha_estado_preso_id')!=null)
-                estapres={{ old('i_prm_ha_estado_preso_id') }}
-            @endif
-            var dataxxxx={
-                valuexxx:{{ old('i_prm_ha_estado_spoa_id') }},
-                camposxx:'#i_prm_actualmente_spoa_id,#i_prm_tipo_tiempo_spoa_id, #i_prm_motivo_spoa_id, #i_prm_mod_cumple_pena_id, #i_prm_ha_estado_preso_id',
-                optionxx:1,
-                actuspoa:actuspoa,
-                tipospoa:tipospoa,
-                motispoa:motispoa,
-                cumpenax:cumpenax,
-                estapres:estapres
+        $("#i_prm_actualmente_pard_id").change(function() {
+            var dataxxxx = {
+                valuexxx: $(this).val(),
+                valoruno: $('#i_prm_ha_estado_pard_id').val(),
+                optionxx: 1,
+                selected: {tipotiem:0,motipard:0},
+                limpiarx:true
             };
-           f_ocultaspoa(dataxxxx);
-       @endif
+            f_fijusticia(dataxxxx);
+        });
+        var valoruno = "{{old('i_prm_ha_estado_pard_id')}}";
+        var valuexxx = "{{old('i_prm_actualmente_pard_id')}}";
+        if (valuexxx != '' && valoruno != '') {
+            var dataxxxx = {
+                valuexxx: valuexxx,
+                valoruno: valoruno,
+                optionxx: 1,
+                selected: {tipotiem:"{{old('i_prm_tipo_tiempo_pard_id')}}",motipard:"{{old('i_prm_motivo_pard_id')}}"},
+                limpiarx:false
+            };
+            f_fijusticia(dataxxxx);
+        }
 
-        $("#i_prm_ha_estado_spoa_id").change(function(){
-            var dataxxxx={
-                valuexxx:$(this).val(),
-                camposxx:'#i_prm_actualmente_spoa_id,#i_prm_tipo_tiempo_spoa_id, #i_prm_motivo_spoa_id, #i_prm_mod_cumple_pena_id, #i_prm_ha_estado_preso_id',
-                optionxx:1,
-                actuspoa:'',
-                tipospoa:'',
-                motispoa:'',
-                cumpenax:'',
-                estapres:''
+        $("#i_prm_actualmente_srpa_id").change(function() {
+            var dataxxxx = {
+                valuexxx: $(this).val(),
+                valoruno: $('#i_prm_ha_estado_srpa_id').val(),
+                optionxx: 2,
+                selected: {tipotiem:0,motisrpa:0,sancsrpa:0},
+                limpiarx:true
+
             };
-            f_ocultaspoa(dataxxxx);
+            f_fijusticia(dataxxxx);
         });
 
-        @if(old('i_prm_actualmente_spoa_id')!=null && old('i_prm_ha_estado_spoa_id')!=228)
-            var actuspoa='';
-            var tipospoa='';
-            var motispoa='';
-            var cumpenax='';
-            var estapres='';
+        var valoruno = "{{old('i_prm_ha_estado_srpa_id')}}";
+        var valuexxx = "{{old('i_prm_actualmente_srpa_id')}}";
+        if (valuexxx != '' && valoruno != '') {
+            var dataxxxx = {
+                valuexxx: valuexxx,
+                valoruno: valoruno,
+                optionxx: 2,
+                selected: {tipotiem:"{{old('i_prm_tipo_tiempo_srpa_id')}}",motisrpa:"{{old('i_prm_motivo_srpa_id')}}",sancsrpa:"{{old('i_prm_sancion_srpa_id')}}"},
+                limpiarx:false
+            };
+            f_fijusticia(dataxxxx);
+        }
+        $("#i_prm_actualmente_spoa_id").change(function() {
+            var dataxxxx = {
+                valuexxx: $(this).val(),
+                valoruno: $('#i_prm_ha_estado_spoa_id').val(),
+                optionxx: 3,
+                selected: {tipotiem:0,motispoa:0,modalida:0,privadox:0},
+                limpiarx:true
+            };
+            f_fijusticia(dataxxxx);
+        });
+        var valoruno = "{{old('i_prm_ha_estado_spoa_id')}}";
+        var valuexxx = "{{old('i_prm_actualmente_spoa_id')}}";
+        if (valuexxx != '' && valoruno != '') {
+            var dataxxxx = {
+                valuexxx: valuexxx,
+                valoruno: valoruno,
+                optionxx: 3,
+                selected: {tipotiem:"{{old('i_prm_tipo_tiempo_spoa_id')}}",motispoa:"{{old('i_prm_motivo_spoa_id')}}",modalida:"{{old('i_prm_mod_cumple_pena_id')}}",privadox:"{{old('i_prm_ha_estado_preso_id')}}"},
+                limpiarx:false
+            };
+            f_fijusticia(dataxxxx);
+        }
 
-            if(old('i_prm_tipo_tiempo_spoa_id')!=null){
-                tipospoa={{ old('i_prm_tipo_tiempo_spoa_id') }}
-            }
-            if(old('i_prm_motivo_spoa_id')!=null){
-                motispoa={{ old('i_prm_motivo_spoa_id') }}
-            }
-            if(old('i_prm_mod_cumple_pena_id')!=null){
-                cumpenax={{ old('i_prm_mod_cumple_pena_id') }}
-            }
-            if(old('i_prm_ha_estado_preso_id')!=null){
-                estapres={{ old('i_prm_ha_estado_preso_id') }}
-            }
-            var dataxxxx={
-                valuexxx:{{ old('i_prm_ha_estado_spoa_id') }},
-                camposxx:'#i_prm_tipo_tiempo_spoa_id, #i_prm_motivo_spoa_id, #i_prm_mod_cumple_pena_id, #i_prm_ha_estado_preso_id',
-                optionxx:2,
-                actuspoa:actuspoa,
-                tipospoa:tipospoa,
-                motispoa:motispoa,
-                cumpenax:cumpenax,
-                estapres:estapres
+        //VINCULADO VIOLENCIA
+        $("#i_prm_vinculado_violencia_id").change(function() {
+            var dataxxxx = {
+                valuexxx: $(this).val(),
+                optionxx: 4,
+                selected: {selected:[0]},
             };
-            f_ocultaspoa(dataxxxx);
-        @endif
-        $("#i_prm_actualmente_spoa_id").change(function(){
-            var dataxxxx={
-                valuexxx:$(this).val(),
-                camposxx:'#i_prm_tipo_tiempo_spoa_id, #i_prm_motivo_spoa_id, #i_prm_mod_cumple_pena_id, #i_prm_ha_estado_preso_id',
-                optionxx:2,
-                actuspoa:'',
-                tipospoa:'',
-                motispoa:'',
-                cumpenax:'',
-                estapres:''
-            };
-            f_ocultaspoa(dataxxxx);
+            f_fijusticia(dataxxxx);
         });
 
-       //VINCULADO VIOLENCIA
-       var f_vincviolencia = function(valuexxx){
-           $("#prm_situacion_id").empty();
-           if(valuexxx != ''){
-               $.ajax({
-                   url : "{{ route('ajaxx.vinviolencia') }}",
-                   data : {
-                           _token: $("input[name='_token']").val(),
-                           'padrexxx':valuexxx
-                       },
-                   type : 'POST',
-                   dataType : 'json',
-                   success : function(json) {
-                       if(json[0].vinviole[0].valuexxx==1){
-                           $("#prm_situacion_id").empty();
-                       }
-                       $.each(json[0].vinviole,function(i,data){
-                           $('#prm_situacion_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                       });
-                   },
-                   error : function(xhr, status) {
-                       alert('Disculpe, existió un problema');
-                   },
-               });
-           }
-       }
-
-       @if(old('i_prm_vinculado_violencia_id')!=null)
-           f_vincviolencia({{ old('i_prm_vinculado_violencia_id') }});
-       @endif
-
-       $("#i_prm_vinculado_violencia_id").change(function(){
-           f_vincviolencia($(this).val());
-       });
-
-       //RIESGO VIOLENCIA
-       var f_riesviolencia = function(valuexxx){
-           $("#prm_riesgo_id").empty();
-           if(valuexxx != ''){
-               $.ajax({
-                   url : "{{ route('ajaxx.rieviolencia') }}",
-                   data : {
-                           _token: $("input[name='_token']").val(),
-                           'padrexxx':valuexxx
-                       },
-                   type : 'POST',
-                   dataType : 'json',
-                   success : function(json) {
-                       if(json[0].rieviole[0].valuexxx==1){
-                           $("#prm_riesgo_id").empty();
-                       }
-                       $.each(json[0].rieviole,function(i,data){
-                           $('#prm_riesgo_id').append('<option  value="'+data.valuexxx+'">'+data.optionxx+'</option>')
-                       });
-                   },
-                   error : function(xhr, status) {
-                       alert('Disculpe, existió un problema');
-                   },
-               });
-           }
-       }
-
-       @if(old('i_prm_riesgo_participar_id')!=null)
-           f_riesviolencia({{ old('i_prm_riesgo_participar_id') }});
-       @endif
-
-       $("#i_prm_riesgo_participar_id").change(function(){
-           f_riesviolencia($(this).val());
-       });
-
-   });
-   function doc(valor){
-        if(valor == 227){
-            document.getElementById("prm_situacion_div").hidden=false;
-            
-        } else {
-            document.getElementById("prm_situacion_div").hidden=true;
-            document.getElementById("prm_situacion_id").value=[];
+        var valuexxx = "{{old('i_prm_vinculado_violencia_id')}}";
+        if (valuexxx != '') {
+            var dataxxxx = {
+                valuexxx: valuexxx,
+                optionxx: 4,
+                selected: {selected:json_encode(old('prm_situacion_id'))},
+            };
+            f_fijusticia(dataxxxx);
         }
-    }
-
-    function doc1(valor){
-        if(valor == 227){
-            document.getElementById("prm_riesgo_div").hidden=false;
-        } else {
-            document.getElementById("prm_riesgo_div").hidden=true;
-            document.getElementById("prm_riesgo_id").value=[];
+        //RIESGO VIOLENCIA
+        $("#i_prm_riesgo_participar_id").change(function() {
+            var dataxxxx = {
+                valuexxx: $(this).val(),
+                optionxx: 5,
+                selected: {selected:[0]},
+            };
+            f_fijusticia(dataxxxx);
+        });
+        var valuexxx = "{{old('i_prm_riesgo_participar_id')}}";
+        if (valuexxx != '') {
+            var dataxxxx = {
+                valuexxx: valuexxx,
+                optionxx: 5,
+                selected: {selected:json_encode(old('prm_riesgo_id'))},
+            };
+            f_fijusticia(dataxxxx);
         }
+    });
+
+
+    function soloNumeros(e) {
+        var keynum = window.event ? window.event.keyCode : e.which;
+        if ((keynum == 8) || (keynum == 46))
+            return true;
+        return /\d/.test(String.fromCharCode(keynum));
     }
-
-    function carga() {
-	doc(document.getElementById('i_prm_vinculado_violencia_id').value);
-    doc1(document.getElementById('i_prm_riesgo_participar_id').value);
-}
-window.onload=carga;
-
-function soloNumeros(e){
-  var keynum = window.event ? window.event.keyCode : e.which;
-  if ((keynum == 8) || (keynum == 46))
-  return true;
-  return /\d/.test(String.fromCharCode(keynum));
-}
 </script>

@@ -26,7 +26,7 @@ class FiContactoController extends Controller
         $this->opciones['carpetax'] = 'Contacto';
         $this->opciones['slotxxxx'] = 'ficontacto';
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
-        $this->opciones['tituloxx'] = "CONTACTO CON IDPRON Y TRATAMIENTO DE DATOS";
+        $this->opciones['tituloxx'] = "CONTACTO CON IDIPRON Y TRATAMIENTO DE DATOS";
         $this->opciones['pestpadr'] = 2; // darle prioridad a las pestañas
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['tituhead'] = 'FICHA DE INGRESO';

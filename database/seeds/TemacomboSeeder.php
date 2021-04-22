@@ -307,6 +307,7 @@ class TemacomboSeeder extends Seeder
             167 => $this->getCM(['simianti' => '']),
             1631 => $this->getCM(['simianti' => '']),
             168 => $this->getCM(['simianti' => '']),
+            235 => $this->getCM(['simianti' => '']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 22,  'nombrexx' => 'Entidad Promotora de Salud']);
@@ -457,51 +458,52 @@ class TemacomboSeeder extends Seeder
 
         $tema = $this->getR(['temaidxx' => 34,  'nombrexx' => 'RESIDENCIA RHC']);
         $tema->parametros()->sync([
-            262 => $this->getCM(['simianti' => '']),
-            263 => $this->getCM(['simianti' => '']),
-            264 => $this->getCM(['simianti' => '']),
-            265 => $this->getCM(['simianti' => '']),
-            266 => $this->getCM(['simianti' => '']),
-            267 => $this->getCM(['simianti' => '']),
-            269 => $this->getCM(['simianti' => '']),
-            270 => $this->getCM(['simianti' => '']),
-            271 => $this->getCM(['simianti' => '']),
-            272 => $this->getCM(['simianti' => '']),
-            273 => $this->getCM(['simianti' => '']),
-            274 => $this->getCM(['simianti' => '']),
-            275 => $this->getCM(['simianti' => '']),
-            276 => $this->getCM(['simianti' => '']),
+            262 => $this->getCM(['simianti' => '1']),
+            263 => $this->getCM(['simianti' => '2']),
+            264 => $this->getCM(['simianti' => '3']),
+            265 => $this->getCM(['simianti' => '4']),
+            266 => $this->getCM(['simianti' => '5']),
+            267 => $this->getCM(['simianti' => '6']),
+            509 => $this->getCM(['simianti' => '7']),
+            269 => $this->getCM(['simianti' => '8']),
+            270 => $this->getCM(['simianti' => '9']),
+            271 => $this->getCM(['simianti' => '10']),
+            272 => $this->getCM(['simianti' => '11']),
+            273 => $this->getCM(['simianti' => '12']),
+            274 => $this->getCM(['simianti' => '13']),
+            275 => $this->getCM(['simianti' => '14']),
+            276 => $this->getCM(['simianti' => '16']),
 
-            509 => $this->getCM(['simianti' => '']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 35,  'nombrexx' => 'La Residencia es']);
         $tema->parametros()->sync([
-            278 => $this->getCM(['simianti' => '']),
-            279 => $this->getCM(['simianti' => '']),
-            280 => $this->getCM(['simianti' => '']),
-            281 => $this->getCM(['simianti' => '']),
-            282 => $this->getCM(['simianti' => '']),
-            283 => $this->getCM(['simianti' => '']),
+            235 => $this->getCM(['simianti' => 'N/A1']),
+            278 => $this->getCM(['simianti' => 'PR']),
+            279 => $this->getCM(['simianti' => 'AR']),
+            280 => $this->getCM(['simianti' => '3']),
+            281 => $this->getCM(['simianti' => '4']),
+            282 => $this->getCM(['simianti' => 'FM']),
+            283 => $this->getCM(['simianti' => '6']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 36,  'nombrexx' => 'Tipo Dirección']);
         $tema->parametros()->sync([
-            235 => $this->getCM(['simianti' => '']),
-            285 => $this->getCM(['simianti' => '']),
-            286 => $this->getCM(['simianti' => '']),
+            235 => $this->getCM(['simianti' => '3']),
+            285 => $this->getCM(['simianti' => '1']),
+            286 => $this->getCM(['simianti' => '2']),
         ]);
         $tema = $this->getR(['temaidxx' => 37,  'nombrexx' => 'Zona Donde Vive']);
         $tema->parametros()->sync([
-            287 => $this->getCM(['simianti' => '']),
-            288 => $this->getCM(['simianti' => '']),
-            289 => $this->getCM(['simianti' => '']),
+            287 => $this->getCM(['simianti' => 'UR']),
+            288 => $this->getCM(['simianti' => 'RR']),
+            289 => $this->getCM(['simianti' => 'SI']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 38,  'nombrexx' => 'Cuadrante']);
         $tema->parametros()->sync([
-            290 => $this->getCM(['simianti' => '']),
-            291 => $this->getCM(['simianti' => '']),
+            290 => $this->getCM(['simianti' => 'ESTE']),
+            291 => $this->getCM(['simianti' => 'SUR']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 39,  'nombrexx' => 'Alfabeto']);
@@ -542,35 +544,35 @@ class TemacomboSeeder extends Seeder
 
         $tema = $this->getR(['temaidxx' => 41,  'nombrexx' => 'Estrato Socioeconómico']);
         $tema->parametros()->sync([
-            27 => $this->getCM(['simianti' => '']),
-            246 => $this->getCM(['simianti' => '']),
-            247 => $this->getCM(['simianti' => '']),
-            248 => $this->getCM(['simianti' => '']),
-            300 => $this->getCM(['simianti' => '']),
-            301 => $this->getCM(['simianti' => '']),
-            302 => $this->getCM(['simianti' => '']),
-            303 => $this->getCM(['simianti' => '']),
+            27 => $this->getCM(['simianti' => '8']),
+            246 => $this->getCM(['simianti' => '1']),
+            247 => $this->getCM(['simianti' => '2']),
+            248 => $this->getCM(['simianti' => '3']),
+            300 => $this->getCM(['simianti' => '4']),
+            301 => $this->getCM(['simianti' => '5']),
+            302 => $this->getCM(['simianti' => '6']),
+            303 => $this->getCM(['simianti' => '7']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 42,  'nombrexx' => 'Condiciones del Ambiente']);
         $tema->parametros()->sync([
-            168 => $this->getCM(['simianti' => '']),
-            305 => $this->getCM(['simianti' => '']),
-            306 => $this->getCM(['simianti' => '']),
-            307 => $this->getCM(['simianti' => '']),
-            308 => $this->getCM(['simianti' => '']),
-            309 => $this->getCM(['simianti' => '']),
-            310 => $this->getCM(['simianti' => '']),
-            311 => $this->getCM(['simianti' => '']),
-            312 => $this->getCM(['simianti' => '']),
-            313 => $this->getCM(['simianti' => '']),
-            314 => $this->getCM(['simianti' => '']),
-            315 => $this->getCM(['simianti' => '']),
+            168 => $this->getCM(['simianti' => '12']),
+            305 => $this->getCM(['simianti' => '1']),
+            306 => $this->getCM(['simianti' => '2']),
+            307 => $this->getCM(['simianti' => '3']),
+            308 => $this->getCM(['simianti' => '4']),
+            309 => $this->getCM(['simianti' => '5']),
+            310 => $this->getCM(['simianti' => '6']),
+            311 => $this->getCM(['simianti' => '7']),
+            312 => $this->getCM(['simianti' => '8']),
+            313 => $this->getCM(['simianti' => '9']),
+            314 => $this->getCM(['simianti' => '10']),
+            315 => $this->getCM(['simianti' => '11']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 43,  'nombrexx' => 'Eventos médicos']);
         $tema->parametros()->sync([
-
+            168 => $this->getCM(['simianti' => '']),
             318 => $this->getCM(['simianti' => '']),
             319 => $this->getCM(['simianti' => '']),
             320 => $this->getCM(['simianti' => '']),
@@ -797,13 +799,13 @@ class TemacomboSeeder extends Seeder
 
         $tema = $this->getR(['temaidxx' => 62,  'nombrexx' => 'TIPO VIA PRINCIPAL']);
         $tema->parametros()->sync([
-            276 => $this->getCM(['simianti' => '']),
-            736 => $this->getCM(['simianti' => '']),
-            737 => $this->getCM(['simianti' => '']),
-            739 => $this->getCM(['simianti' => '']),
-            740 => $this->getCM(['simianti' => '']),
-            741 => $this->getCM(['simianti' => '']),
-            742 => $this->getCM(['simianti' => '']),
+            276 => $this->getCM(['simianti' => 'CL']),
+            736 => $this->getCM(['simianti' => 'AV']),
+            737 => $this->getCM(['simianti' => 'KR']),
+            739 => $this->getCM(['simianti' => 'AC']),
+            740 => $this->getCM(['simianti' => 'TV']),
+            741 => $this->getCM(['simianti' => 'AK']),
+            742 => $this->getCM(['simianti' => 'DG']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 63,  'nombrexx' => 'MOTIVO VINCULACION IDIPRON']);
@@ -1001,6 +1003,7 @@ class TemacomboSeeder extends Seeder
 
         $tema = $this->getR(['temaidxx' => 79,  'nombrexx' => 'SACRAMENTOS REALIZADOS']);
         $tema->parametros()->sync([
+            168 => $this->getCM(['simianti' => '']),
             495 => $this->getCM(['simianti' => '']),
             1623 => $this->getCM(['simianti' => '']),
             1624 => $this->getCM(['simianti' => '']),
@@ -1064,7 +1067,9 @@ class TemacomboSeeder extends Seeder
             2225 => $this->getCM(['simianti' => '']),
             2226 => $this->getCM(['simianti' => '']),
             2227 => $this->getCM(['simianti' => '']),
+            2510 => $this->getCM(['simianti' => '']),
             2316 => $this->getCM(['simianti' => '']),
+
         ]);
 
         $tema = $this->getR(['temaidxx' => 85,  'nombrexx' => 'TEMA PARAMETRO CORREGIR']);
@@ -1398,7 +1403,7 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync([
             650 => $this->getCM(['simianti' => '1']),
             651 => $this->getCM(['simianti' => '2']),
-            445 => $this->getCM(['simianti' => '']),
+            445 => $this->getCM(['simianti' => '3']),
 
         ]);
 
@@ -1797,54 +1802,148 @@ class TemacomboSeeder extends Seeder
 
         $tema = $this->getR(['temaidxx' => 156,  'nombrexx' => 'OCUPACIÓN']);
         $tema->parametros()->sync([
-            235 => $this->getCM(['simianti' => '']),
+            235 => $this->getCM(['simianti' => 'N/A']),
             1262 => $this->getCM(['simianti' => '']),
-            647 => $this->getCM(['simianti' => '']),
-            1534 => $this->getCM(['simianti' => '']),
-            1535 => $this->getCM(['simianti' => '']),
-            1536 => $this->getCM(['simianti' => '']),
-            1537 => $this->getCM(['simianti' => '']),
-            1538 => $this->getCM(['simianti' => '']),
-            1539 => $this->getCM(['simianti' => '']),
-            1540 => $this->getCM(['simianti' => '']),
-            1541 => $this->getCM(['simianti' => '']),
-            1542 => $this->getCM(['simianti' => '']),
-            1543 => $this->getCM(['simianti' => '']),
-            1544 => $this->getCM(['simianti' => '']),
-            1545 => $this->getCM(['simianti' => '']),
-            1546 => $this->getCM(['simianti' => '']),
-            1547 => $this->getCM(['simianti' => '']),
-            1548 => $this->getCM(['simianti' => '']),
-            1549 => $this->getCM(['simianti' => '']),
-            1550 => $this->getCM(['simianti' => '']),
-            1551 => $this->getCM(['simianti' => '']),
-            1552 => $this->getCM(['simianti' => '']),
-            1553 => $this->getCM(['simianti' => '']),
-            1554 => $this->getCM(['simianti' => '']),
-            1555 => $this->getCM(['simianti' => '']),
-            1556 => $this->getCM(['simianti' => '']),
-            1557 => $this->getCM(['simianti' => '']),
-            1558 => $this->getCM(['simianti' => '']),
-            1559 => $this->getCM(['simianti' => '']),
-            1560 => $this->getCM(['simianti' => '']),
-            1561 => $this->getCM(['simianti' => '']),
-            1562 => $this->getCM(['simianti' => '']),
-            1563 => $this->getCM(['simianti' => '']),
-            1564 => $this->getCM(['simianti' => '']),
-            1565 => $this->getCM(['simianti' => '']),
-            1566 => $this->getCM(['simianti' => '']),
-            1567 => $this->getCM(['simianti' => '']),
-            1568 => $this->getCM(['simianti' => '']),
-            1569 => $this->getCM(['simianti' => '']),
-            1570 => $this->getCM(['simianti' => '']),
-            1571 => $this->getCM(['simianti' => '']),
-            1572 => $this->getCM(['simianti' => '']),
-            1573 => $this->getCM(['simianti' => '']),
-            1574 => $this->getCM(['simianti' => '']),
-            1575 => $this->getCM(['simianti' => '']),
-            1576 => $this->getCM(['simianti' => '']),
-            1577 => $this->getCM(['simianti' => '']),
-            1578 => $this->getCM(['simianti' => '']),
+            812 => $this->getCM(['simianti' => 'HOGAR']),
+            647 => $this->getCM(['simianti' => 'INDEPENDIENTE']),
+            1534 => $this->getCM(['simianti' => 'AB']),
+            1535 => $this->getCM(['simianti' => 'ADMINISTRADO(A)']),
+            1536 => $this->getCM(['simianti' => 'AGR']),
+            1537 => $this->getCM(['simianti' => 'AMA DE CASA']),
+            1538 => $this->getCM(['simianti' => 'AUX_COCINA']),
+            1539 => $this->getCM(['simianti' => 'AUX_RES']),
+            1540 => $this->getCM(['simianti' => 'AYUDANTE_CONS']),
+            1541 => $this->getCM(['simianti' => 'BEN_IDIPRON']),
+            1542 => $this->getCM(['simianti' => 'COND']),
+            1543 => $this->getCM(['simianti' => 'CONSTRUCTOR(A)']),
+            1544 => $this->getCM(['simianti' => 'DEAMBULAR']),
+            1545 => $this->getCM(['simianti' => 'DESEMP']),
+            1546 => $this->getCM(['simianti' => 'DISC']),
+            1547 => $this->getCM(['simianti' => 'ELC']),
+            1548 => $this->getCM(['simianti' => 'EMP_DIAS']),
+            1549 => $this->getCM(['simianti' => 'EMPLEEE']),
+            1550 => $this->getCM(['simianti' => 'EMPLEO_INFORMAL']),
+            1551 => $this->getCM(['simianti' => 'ESTILISTA']),
+            1552 => $this->getCM(['simianti' => 'ESJ']),
+            1553 => $this->getCM(['simianti' => '202']),
+            1554 => $this->getCM(['simianti' => 'EST_COL']),
+            1555 => $this->getCM(['simianti' => 'EST_UN']),
+            1556 => $this->getCM(['simianti' => 'FLL']),
+            1557 => $this->getCM(['simianti' => '201']),
+            1558 => $this->getCM(['simianti' => 'GUARDIA_SEG']),
+            1559 => $this->getCM(['simianti' => '200']),
+            1560 => $this->getCM(['simianti' => 'IMPULSADOR']),
+            1561 => $this->getCM(['simianti' => 'INDEPENDIENTE']),
+            1562 => $this->getCM(['simianti' => 'JEFE_COCINA']),
+            1563 => $this->getCM(['simianti' => 'LAV_CARROS']),
+            1564 => $this->getCM(['simianti' => 'MAESTRO_CONS']),
+            1565 => $this->getCM(['simianti' => 'MECÁNICO(A)']),
+            1566 => $this->getCM(['simianti' => 'MSJ']),
+            1567 => $this->getCM(['simianti' => '205']),
+            1568 => $this->getCM(['simianti' => 'MÉDICO(A)']),
+            1569 => $this->getCM(['simianti' => '207']),
+            1570 => $this->getCM(['simianti' => 'RECLUSO']),
+            1571 => $this->getCM(['simianti' => 'SECRETARIA']),
+            1572 => $this->getCM(['simianti' => 'SOLD']),
+            1573 => $this->getCM(['simianti' => 'SUPERVISOR']),
+            1574 => $this->getCM(['simianti' => 'TAXISTA']),
+            1575 => $this->getCM(['simianti' => 'TORNERO SOLDADOR']),
+            1576 => $this->getCM(['simianti' => 'T_SEXUAL']),
+            1577 => $this->getCM(['simianti' => 'VENDEDOR']),
+            1578 => $this->getCM(['simianti' => '204']),
+            1776 => $this->getCM(['simianti' => 'OFICIOS_V']),
+            2523 => $this->getCM(['simianti' => 'PUBLICISTA']),//
+            1349 => $this->getCM(['simianti' => 'QUIMICO FARMACÉUTICO']),
+            2524 => $this->getCM(['simianti' => 'QUINESIÓLOGO']),
+            2525 => $this->getCM(['simianti' => 'VITRALISTA']),
+            637 => $this->getCM(['simianti' => 'PROSTITUCION']),
+            1591 => $this->getCM(['simianti' => 'PRÁCTICA DEPORTES']),
+            2526 => $this->getCM(['simianti' => '206']),
+            2177 => $this->getCM(['simianti' => 'EMPLEADA_DOM']),
+            2527 => $this->getCM(['simianti' => 'ZAPATERO']),
+            666 => $this->getCM(['simianti' => 'EMPLEADO_EM']),
+            1695 => $this->getCM(['simianti' => 'PENSIONADO']),
+            2528 => $this->getCM(['simianti' => 'RADIOCOMUNICACION']),
+            2528 => $this->getCM(['simianti' => 'RADIOCOMUNICACION']),
+            2529 => $this->getCM(['simianti' => 'SECRETARIA AUXILIAR CONTABLE']),
+            2530 => $this->getCM(['simianti' => 'SUPERVISORE EN LOGÍSTICA']),
+            2531 => $this->getCM(['simianti' => 'TÉCNICO(A)']),
+            2532 => $this->getCM(['simianti' => 'TECNÓLOGO(A)']),
+            2533 => $this->getCM(['simianti' => 'TERAPEUTA OCUPACIONAL']),
+            2534 => $this->getCM(['simianti' => 'TERAPEUTA RESPIRATORIO']),
+            2535 => $this->getCM(['simianti' => 'TOPÓGRAFO(A)']),
+            2536 => $this->getCM(['simianti' => 'TORNERO INDUSTRIAL Y SOLDADOR']),
+            2537 => $this->getCM(['simianti' => 'TRABAJADOR SOCIAL']),
+            2538 => $this->getCM(['simianti' => 'TRADUCTOR E INTÉRPRETE OFICIAL']),
+            2539 => $this->getCM(['simianti' => 'ZOOTECNISTA']),
+            2540 => $this->getCM(['simianti' => 'ENFEREMERA']),
+            2541 => $this->getCM(['simianti' => 'GUARDERIA']),
+            2542 => $this->getCM(['simianti' => 'INSTITUCIONALIZADO']),
+            2543 => $this->getCM(['simianti' => 'ORNAMENTADOR']),
+            2544 => $this->getCM(['simianti' => 'ZORRERO']),
+            2545 => $this->getCM(['simianti' => 'DESESCOLARIZADO']),
+            2546 => $this->getCM(['simianti' => 'ENSAMBLADOR']),
+            2547 => $this->getCM(['simianti' => 'PINTOR']),
+            2548 => $this->getCM(['simianti' => 'SERVICIO MILITAR']),
+            2549 => $this->getCM(['simianti' => 'RETACAR']),
+            2550 => $this->getCM(['simianti' => 'ANALISTA']),
+            2551 => $this->getCM(['simianti' => 'ANTROPOLOGO(A)']),
+            2552 => $this->getCM(['simianti' => 'ARCHIVISTA(A)']),
+            2553 => $this->getCM(['simianti' => 'ARQUITECTO(A)']),
+            2554 => $this->getCM(['simianti' => 'AUXILIAR']),
+            2555 => $this->getCM(['simianti' => 'BACTERIOLOGO(A)']),
+            2556 => $this->getCM(['simianti' => 'BIBLIOTECOLOGO(A)']),
+            2557 => $this->getCM(['simianti' => 'CIRUJANO(A)']),
+            2558 => $this->getCM(['simianti' => 'CITOHISTOTECNOLOGOS']),
+            2559 => $this->getCM(['simianti' => 'COMUNICADOR(A) SOCIAL']),
+            2560 => $this->getCM(['simianti' => 'CONTADOR(A)']),
+            2561 => $this->getCM(['simianti' => 'PROFESIONAL EN DESARROLLO FAMILIAR']),
+            2562 => $this->getCM(['simianti' => 'DIBUJANTE ARQUITECTONICO']),
+            2563 => $this->getCM(['simianti' => 'DIBUJANTE TECNICO MECANICOS']),
+            2564 => $this->getCM(['simianti' => 'DISEÑADOR(A)']),
+            2565 => $this->getCM(['simianti' => 'DOCTOR(A) EN EDUCACION']),
+            2566 => $this->getCM(['simianti' => 'ECONOMISTA']),
+            2567 => $this->getCM(['simianti' => 'EDAFOLOGO(A)']),
+            2568 => $this->getCM(['simianti' => 'ERGONOMISTA Y DISENADOR(A)']),
+            2569 => $this->getCM(['simianti' => 'FARMACEUTA']),
+            2570 => $this->getCM(['simianti' => 'FILÓSOFO']),
+            1634 => $this->getCM(['simianti' => 'FÍSICO']),
+            2571 => $this->getCM(['simianti' => 'FISIOTERAPEUTA']),
+            2572 => $this->getCM(['simianti' => 'FONOAUDIÓLOGO']),
+            2573 => $this->getCM(['simianti' => 'GEÓMORFOLOGO']),
+            2574 => $this->getCM(['simianti' => 'GERENTE']),
+            2575 => $this->getCM(['simianti' => 'GUIA TURÍSTICO']),
+            2576 => $this->getCM(['simianti' => 'HIGIENISTA ORAL']),
+            2577 => $this->getCM(['simianti' => 'PROFESIONALE EN HOTELERIA Y TURISMO']),
+            2578 => $this->getCM(['simianti' => 'INGENIERO(A)']),
+            2579 => $this->getCM(['simianti' => 'KINESIOLOGO(A)']),
+            2580 => $this->getCM(['simianti' => 'LABORATORISTA DENTAL']),
+            2581 => $this->getCM(['simianti' => 'LICENCIADO(A)']),
+            2582 => $this->getCM(['simianti' => 'LOCUTOR(A)']),
+            2583 => $this->getCM(['simianti' => 'MAESTRO(A) EN ARTES PLASTICAS']),
+            2584 => $this->getCM(['simianti' => 'MERCADOLOGO(A)']),
+            2585 => $this->getCM(['simianti' => 'MÚSICO']),
+            2586 => $this->getCM(['simianti' => 'NUTRICIONISTA DIETISTA']),
+            2587 => $this->getCM(['simianti' => 'ODONTÓLOGO(A)']),
+            2588 => $this->getCM(['simianti' => 'OPERADOR(A) DE MAQUINAS']),
+            2589 => $this->getCM(['simianti' => 'PERIODISTA']),
+            2590 => $this->getCM(['simianti' => 'PRESBITERO']),
+            2591 => $this->getCM(['simianti' => 'PROFESIONAL EN ADMINISTRACIÓN Y FINANZAS']),
+            2592 => $this->getCM(['simianti' => 'PROFESIONAL EN COMERCIO INTERNACIONAL']),
+            2593 => $this->getCM(['simianti' => 'PROFESIONAL EN ESTADÍSTICA']),
+            2594 => $this->getCM(['simianti' => 'PROFESIONAL EN GUIANZA TURISTICA']),
+            2595 => $this->getCM(['simianti' => 'PROFESIONAL EN MERCADEO']),
+            2596 => $this->getCM(['simianti' => 'PROFESIONAL EN SALUD OCUPACIONAL']),
+            2597 => $this->getCM(['simianti' => 'PROFESIONAL NORMALISTA']),
+            2598 => $this->getCM(['simianti' => 'PROMOTOR(A) DE SALUD']),
+            2599 => $this->getCM(['simianti' => 'PSICOORIENTADOR(A)']),
+            2600 => $this->getCM(['simianti' => 'PSIQUIATRA']),
+            2601 => $this->getCM(['simianti' => 'ESCULTOR(A) EN MADERA']),
+            2602 => $this->getCM(['simianti' => 'GEÓLOGO']),
+            2603 => $this->getCM(['simianti' => 'EMPLEEE']),
+
+
+
         ]);
 
         $tema = $this->getR(['temaidxx' => 157,  'nombrexx' => 'REPETIDOS']);
@@ -3127,40 +3226,51 @@ class TemacomboSeeder extends Seeder
         $tema = $this->getR(['temaidxx' => 291,  'nombrexx' => 'ESPACIO DONDE PARCHA']);
         $tema->parametros()->sync([
             234 => $this->getCM(['simianti' => '']),
+            262 => $this->getCM(['simianti' => '17']),
             398 => $this->getCM(['simianti' => '']),
             437 => $this->getCM(['simianti' => '']),
-            1506 => $this->getCM(['simianti' => '']),
-            594 => $this->getCM(['simianti' => '']),
+            1506 => $this->getCM(['simianti' => '4']),
+            594 => $this->getCM(['simianti' => '5']),
             477 => $this->getCM(['simianti' => '']),
-            1504 => $this->getCM(['simianti' => '']),
-            502 => $this->getCM(['simianti' => '']),
+            1504 => $this->getCM(['simianti' => '30']),
+            502 => $this->getCM(['simianti' => '16']),
             503 => $this->getCM(['simianti' => '']),
             504 => $this->getCM(['simianti' => '']),
-            270 => $this->getCM(['simianti' => '']),
+            270 => $this->getCM(['simianti' => '8']),
             506 => $this->getCM(['simianti' => '']),
             507 => $this->getCM(['simianti' => '']),
             508 => $this->getCM(['simianti' => '']),
             509 => $this->getCM(['simianti' => '']),
-            1501 => $this->getCM(['simianti' => '']),
-            511 => $this->getCM(['simianti' => '']),
-            1492 => $this->getCM(['simianti' => '']),
-            513 => $this->getCM(['simianti' => '']),
+            1501 => $this->getCM(['simianti' => '26']),
+            511 => $this->getCM(['simianti' => '10']),
+            1492 => $this->getCM(['simianti' => '11']),
+            513 => $this->getCM(['simianti' => '12']),
             616 => $this->getCM(['simianti' => '']),
             515 => $this->getCM(['simianti' => '']),
             539 => $this->getCM(['simianti' => '']),
-            1493 => $this->getCM(['simianti' => '']),
+            1493 => $this->getCM(['simianti' => '14']),
             570 => $this->getCM(['simianti' => '']),
             595 => $this->getCM(['simianti' => '']),
             598 => $this->getCM(['simianti' => '']),
-            624 => $this->getCM(['simianti' => '']),
-            1499 => $this->getCM(['simianti' => '']),
-            668 => $this->getCM(['simianti' => '']),
+            624 => $this->getCM(['simianti' => '7']),
+            668 => $this->getCM(['simianti' => '23']),
             682 => $this->getCM(['simianti' => '']),
             704 => $this->getCM(['simianti' => '']),
-            706 => $this->getCM(['simianti' => '']),
-            708 => $this->getCM(['simianti' => '']),
-            709 => $this->getCM(['simianti' => '']),
-            1490 => $this->getCM(['simianti' => '']),
+            706 => $this->getCM(['simianti' => '22']),
+            708 => $this->getCM(['simianti' => '6']),
+            709 => $this->getCM(['simianti' => '13']),
+            1490 => $this->getCM(['simianti' => '1']),
+            1503 => $this->getCM(['simianti' => '29']),
+            1495 => $this->getCM(['simianti' => '18']),
+            1496 => $this->getCM(['simianti' => '20']),
+            1497 => $this->getCM(['simianti' => '21']),
+            1498 => $this->getCM(['simianti' => '23']),
+            1499 => $this->getCM(['simianti' => '24']),
+            1500 => $this->getCM(['simianti' => '12']),
+            308 => $this->getCM(['simianti' => '12']),
+            1502 => $this->getCM(['simianti' => '27']),
+            1505 => $this->getCM(['simianti' => '31']),
+
         ]);
 
 
@@ -3863,44 +3973,56 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync(
             [
                 235 => $this->getCM(['simianti' => '']),
-                600 => $this->getCM(['simianti' => '']),
-                770 => $this->getCM(['simianti' => '']),
-                771 => $this->getCM(['simianti' => '']),
-                776 => $this->getCM(['simianti' => '']),
-                777 => $this->getCM(['simianti' => '']),
-                778 => $this->getCM(['simianti' => '']),
-                779 => $this->getCM(['simianti' => '']),
-                780 => $this->getCM(['simianti' => '']),
-                781 => $this->getCM(['simianti' => '']),
-                782 => $this->getCM(['simianti' => '']),
-                783 => $this->getCM(['simianti' => '']),
-                784 => $this->getCM(['simianti' => '']),
-                785 => $this->getCM(['simianti' => '']),
-                786 => $this->getCM(['simianti' => '']),
-                787 => $this->getCM(['simianti' => '']),
-                788 => $this->getCM(['simianti' => '']),
-                789 => $this->getCM(['simianti' => '']),
-                790 => $this->getCM(['simianti' => '']),
-                791 => $this->getCM(['simianti' => '']),
-                792 => $this->getCM(['simianti' => '']),
-                793 => $this->getCM(['simianti' => '']),
-                794 => $this->getCM(['simianti' => '']),
-                795 => $this->getCM(['simianti' => '']),
-                796 => $this->getCM(['simianti' => '']),
-                797 => $this->getCM(['simianti' => '']),
-                798 => $this->getCM(['simianti' => '']),
-                799 => $this->getCM(['simianti' => '']),
-                800 => $this->getCM(['simianti' => '']),
+                600 => $this->getCM(['simianti' => 'VECINO']),
+                770 => $this->getCM(['simianti' => 'PADRE']),
+                771 => $this->getCM(['simianti' => 'MADRE']),
+                776 => $this->getCM(['simianti' => 'HERMANO']),
+                777 => $this->getCM(['simianti' => 'HERMANA']),
+                778 => $this->getCM(['simianti' => 'PRIMO']),
+                779 => $this->getCM(['simianti' => 'PRIMA']),
+                780 => $this->getCM(['simianti' => 'PADRASTRO']),
+                781 => $this->getCM(['simianti' => 'MADRASTRA']),
+                782 => $this->getCM(['simianti' => 'HERMANASTRA']),
+                783 => $this->getCM(['simianti' => 'HERMANASTRO']),
+                784 => $this->getCM(['simianti' => 'CÓNYUGE']),
+                785 => $this->getCM(['simianti' => 'HIJO']),
+                786 => $this->getCM(['simianti' => 'HIJA']),
+                787 => $this->getCM(['simianti' => 'SOBRINO']),
+                788 => $this->getCM(['simianti' => 'SOBRINA']),
+                789 => $this->getCM(['simianti' => 'CUÑADO']),
+                790 => $this->getCM(['simianti' => 'CUÑADA']),
+                791 => $this->getCM(['simianti' => 'PADRINO']),
+                792 => $this->getCM(['simianti' => 'MADRINA']),
+                793 => $this->getCM(['simianti' => 'TIO_P']),
+                794 => $this->getCM(['simianti' => 'TIO_M']),
+                795 => $this->getCM(['simianti' => 'ABUELO_P']),
+                796 => $this->getCM(['simianti' => 'ABUELO_M']),
+                797 => $this->getCM(['simianti' => 'ABUELASTRO']),
+                798 => $this->getCM(['simianti' => 'SUO']),
+                799 => $this->getCM(['simianti' => 'SUE']),
+                800 => $this->getCM(['simianti' => 'DEFENSOR_F']),
                 801 => $this->getCM(['simianti' => '']),
                 802 => $this->getCM(['simianti' => '']),
-                803 => $this->getCM(['simianti' => '']),
+                803 => $this->getCM(['simianti' => 'AMIGO']),
                 805 => $this->getCM(['simianti' => '']),
-                808 => $this->getCM(['simianti' => '']),
-                809 => $this->getCM(['simianti' => '']),
+                808 => $this->getCM(['simianti' => 'ACOMPAÑANTE']),
+                809 => $this->getCM(['simianti' => 'COM']),
                 810 => $this->getCM(['simianti' => '']),
                 1479 => $this->getCM(['simianti' => '']),
                 1480 => $this->getCM(['simianti' => '']),
-                1594 => $this->getCM(['simianti' => '']),
+                1594 => $this->getCM(['simianti' => 'CDF']),
+                2511 => $this->getCM(['simianti' => 'TIA_P']),
+                2512 => $this->getCM(['simianti' => 'TIA_M']),
+                2513 => $this->getCM(['simianti' => 'ABUELA_P']),
+                2514 => $this->getCM(['simianti' => 'ABUELA_M']),
+                2515 => $this->getCM(['simianti' => 'ABUELASTRA']),
+                2516 => $this->getCM(['simianti' => 'AMIGA']),
+                2517 => $this->getCM(['simianti' => 'ABUELO']),
+                2518 => $this->getCM(['simianti' => 'ABUELA']),
+                2519 => $this->getCM(['simianti' => '3']),
+                2520 => $this->getCM(['simianti' => 'CONYUGUE']),
+                2521 => $this->getCM(['simianti' => 'TIO']),
+                2522 => $this->getCM(['simianti' => 'TIA']),
             ]
         ); //358
         $tema = $this->getR([
@@ -4023,7 +4145,7 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
-            2497=>$this->getCM(['simianti' => '3']),
+            235=>$this->getCM(['simianti' => '4']),
             445 => $this->getCM(['simianti' => '']),
         ]);
 
@@ -4034,8 +4156,90 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
-            2497=>$this->getCM(['simianti' => '3']),
+            235=>$this->getCM(['simianti' => '4']),
             445 => $this->getCM(['simianti' => '']),
         ]);
+
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '¿Actualmente se encuentra en el PARD?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //368
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+        ]);
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '10.4 ¿Se encuentra vinculado a la delincuencia o a la violencia?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //369
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+        ]);
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '10.5 ¿Se cuentra en riesgo de participar en actos delictivos?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //370
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+        ]);
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '¿Actualmente se encuentra vinculado al SRPA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //371
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+        ]);
+
+        $tema = $this->getR([
+            'temaidxx' => 25,
+            'nombrexx' => '10.3 ¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //372
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+            235 => $this->getCM(['simianti' => '3']),
+        ]);    
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '10.1 ¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos - PARD?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //373
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+        ]);
+        $tema = $this->getR([
+            'temaidxx' => 23,
+            'nombrexx' => '10.2 ¿Ha estado vinculado al Sistema de Responsabilidad Penal Adolescente - SRPA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //374
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+            
+        ]);
+
+        $tema = $this->getR([
+            'temaidxx' => 25,
+            'nombrexx' => '10.3A ¿Ha estado privado de la libertad?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //375
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+            235 => $this->getCM(['simianti' => '3']),
+        ]);    
+
+        $tema = $this->getR([
+            'temaidxx' => 25,
+            'nombrexx' => '¿Actualmente se encuentra en conflicto con la ley - SPOA?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //376
+        $tema->parametros()->sync([
+            227 => $this->getCM(['simianti' => '1']),
+            228 => $this->getCM(['simianti' => '2']),
+            235 => $this->getCM(['simianti' => '3']),
+        ]);    
+
+
     }
 }

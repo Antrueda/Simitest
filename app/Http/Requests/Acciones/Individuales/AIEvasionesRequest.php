@@ -51,6 +51,7 @@ class AIEvasionesRequest extends FormRequest
             'placa_recibe.required_if' => 'Digite la placa de quien recibe la denuncia',
             'fecha_denuncia.required_if' => 'Indique la fecha de la denuncia',
             'hora_denuncia.required_if' => 'Indique la hora de la denuncia',
+            'recibe_denuncia.required_if' => 'Indique quien recibe la denuncia',
 
 
             ];

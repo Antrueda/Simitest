@@ -77,12 +77,12 @@ trait VistasTrait
                 'permisox' => $dataxxxx['permisox'],
                 'routxxxx' => 'salidajovenes',
                 'parametr' => [$dataxxxx['modeloxx']->id],
-            ];        
-     
+            ];
+
 
     $dataxxxx['ruarchjs'][] =['jsxxxxxx' => $dataxxxx['rutacarp'] . $dataxxxx['carpetax'] . '.Js.tabla'];
     return $dataxxxx;
-    
+
     }
 
     public function view($opciones, $dataxxxx)
@@ -95,7 +95,7 @@ trait VistasTrait
         $opciones['condixxx'] = Tema::combo(272, false, false);
         $opciones['dependen'] = User::getUpiUsuario(true, false);
         $opciones['usuarioz'] = User::getUsuario(false, false);
-        $opciones['usuariox'] = User::Combo(false, false);
+        $opciones['usuariox'] = User::Combo(false, false,[1]);
         $opciones['responsa'] = ['' => 'Seleccione la UPI/Dependencia para cargar el responsable'];
         $opciones['agtemaxx'] = ['' => 'Seleccione'];
         $opciones['tallerxx'] = ['' => 'Seleccione'];
@@ -104,7 +104,7 @@ trait VistasTrait
         $opciones['archivox']='';
         $opciones['dirigido'] = Tema::combo(285, true, false);
         $opciones = $this->getVista($opciones, $dataxxxx);
-        
+
         // indica si se esta actualizando o viendo
         $opciones['padrexxx']=[];
         if ($dataxxxx['modeloxx'] != '') {
@@ -116,11 +116,11 @@ trait VistasTrait
             $opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $opciones['usuariox'] = User::getRes(false, false,$dataxxxx['modeloxx']->user_doc2_id);
-           
+
             if ($dataxxxx['modeloxx']->sis_depdestino_id == 1) {
                 $opciones['lugarxxx'] = Tema::combo(336, true, false);
             }
-         
+
         }
 
         $opciones['tablinde']=false;
@@ -128,7 +128,7 @@ trait VistasTrait
         $opciones=$this->getTablas($vercrear);
 
 
-        
+
 
 
 

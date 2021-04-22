@@ -41,4 +41,9 @@ Route::group(['prefix' => '{padrexxx}/fijusticia'], function () use ($routexxx, 
         'uses' => $controll . 'Controller@destroy',
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
+
+    Route::get('pardspoa', [
+        'uses' => $controll . 'Controller@getJustrestJRT',
+        'middleware' => ['permission:' . $routexxx . '-leer']
+    ])->name($routexxx . '.pardspoa');
 });

@@ -47,7 +47,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'sis_depen_id.required' => 'Seleccione una UPI',
             'diligenc.required' => 'Seleccione una fecha de diligenciamiento',
             'diligenc.date_format' => 'El formato de la fecha es inválido, debe ser: (YYYY-MM-DD)',
-
+            'prm_tipodocu_id.required' => 'Seleccione el tipo de documento',
         ];
         $this->_reglasx = [
             'prm_tipoblaci_id' => ['required'],
@@ -76,6 +76,7 @@ class FiDatosBasicoUpdateRequest extends FormRequest
             'sis_servicio_id' => ['required'],
             'sis_depen_id' => ['required'],
             'diligenc' => ['required','date_format:Y-m-d',new FechaMenor()],
+            'prm_tipodocu_id' => ['required'],
         ];
     }
     /**

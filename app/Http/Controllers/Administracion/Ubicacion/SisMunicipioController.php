@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Administracion\Ubicacion;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Administracion\Ubicacion\SisMunicipioCrearRequest;
 use App\Http\Requests\Administracion\Ubicacion\SisMunicipioEditarRequest;
+use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Traits\Administracion\Ubicacion\CrudTrait;
 use App\Traits\Administracion\Ubicacion\Municipio\DataTablesTrait;
@@ -29,23 +30,27 @@ class SisMunicipioController extends Controller
     {
         $this->opciones['permisox'] = 'municipi';
         $this->opciones['routxxxx'] = 'municipi';
+        $this->pestania[1][4]=true;
         $this->pestania[2][5]='active';
+        $this->pestania[2][4]=true;
         $this->getOpciones();
         $this->middleware($this->getMware());
     }
 
-    public function index()
+    public function index(SisDepartam $padrexxx)
     {
+        $this->pestania[1][2]=[$padrexxx->sis_pai_id];
+        $this->pestania[2][2]=[$padrexxx->id];
         $this->getPestanias([]);
-        $this->getTablas();
+        $this->getTablasIndex($padrexxx);
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);
     }
 
 
-    public function create()
+    public function create(SisDepartam $padrexxx)
     {
         $this->getBotones(['crear', [], 1, "GUARDAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario'],'padrexxx'=>$padrexxx]);
     }
     public function store(SisMunicipioCrearRequest $request)
     {
@@ -61,7 +66,7 @@ class SisMunicipioController extends Controller
 
     public function show(SisMunicipio $modeloxx)
     {
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario']]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['ver', 'formulario'],'padrexxx'=>$modeloxx->sis_departam]);
     }
 
 
@@ -69,7 +74,7 @@ class SisMunicipioController extends Controller
     {
 
         $this->getBotones(['editar', [], 1, "EDITAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'padrexxx'=>$modeloxx->sis_departam]);
     }
 
 
@@ -86,7 +91,7 @@ class SisMunicipioController extends Controller
     public function inactivate(SisMunicipio $modeloxx)
     {
         $this->getBotones(['borrar', [], 1, "INACTIVAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_nnaj]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['destroy', 'destroy'],'padrexxx'=>$modeloxx->sis_departam]);
     }
 
 
@@ -95,21 +100,21 @@ class SisMunicipioController extends Controller
 
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [])
+            ->route($this->opciones['permisox'], [$modeloxx->sis_departam_id])
             ->with('info', $this->opciones['infocont'].' inactivado correctamente');
     }
 
     public function activate(SisMunicipio $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, "ACTIVAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
-        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar']]);
+        return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar'],'padrexxx'=>$modeloxx->sis_departam]);
 
     }
     public function activar(Request $request, SisMunicipio $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-            ->route($this->opciones['permisox'], [])
+            ->route($this->opciones['permisox'], [$modeloxx->sis_departam_id])
             ->with('info', $this->opciones['infocont'].' activado correctamente');
     }
 }

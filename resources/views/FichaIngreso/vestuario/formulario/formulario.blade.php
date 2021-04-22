@@ -72,5 +72,7 @@
       });
     });
   });
+  
+
   </script>
 @endsection

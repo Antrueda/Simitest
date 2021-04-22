@@ -3,6 +3,7 @@
 namespace App\Traits\Administracion\Ubicacion;
 
 use App\Models\Sistema\SisDepartam;
+use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
 use Illuminate\Support\Facades\Auth;
@@ -61,12 +62,12 @@ trait CrudTrait
     }
 
     /**
-     * grabar o actualizar registros para departamentos
+     * grabar o actualizar registros para municipio
      *
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function setMunicipio($dataxxxx)
+    public function setLocalidad($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -74,7 +75,7 @@ trait CrudTrait
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
             } else {
                 $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
-                $dataxxxx['modeloxx'] = SisMunicipio::create($dataxxxx['requestx']->all());
+                $dataxxxx['modeloxx'] = SisDepen::create($dataxxxx['requestx']->all());
             }
             return $dataxxxx['modeloxx'];
         }, 5);

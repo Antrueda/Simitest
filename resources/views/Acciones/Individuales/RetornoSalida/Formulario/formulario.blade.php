@@ -215,7 +215,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('doc_retorna', 'Nº de Documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('doc_retorna', null, ['class' => $errors->first('doc_retorna') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'min' => '0', 'maxlength' => '12',"onkeypress" => "return soloNumeros(event);"]) }}
+    {{ Form::number('doc_retorna', null, ['class' => $errors->first('doc_retorna') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'min' => '0', 'max' => '100000000000',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('doc_retorna'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('doc_retorna') }}

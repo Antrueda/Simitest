@@ -10,6 +10,7 @@ use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Combos\CombosTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -78,11 +79,13 @@ trait VistasTrait
     }
     public function getRecursos($dataxxxx)
     {
+        $dataxxxx['estadosx'] = $dataxxxx['padrexxx']->sis_esta_id;
+        //ddd($dataxxxx['estadosx']);
         $dataxxxx['notinxxx'] = AgRelacion::select(['ag_recurso_id'])
             ->where('ag_actividad_id', $dataxxxx['padrexxx']->id)
             ->whereNotIn('ag_recurso_id', [$dataxxxx['selected']])
             ->get();
-        return User::userCombo($dataxxxx);
+        return User::userComboRelacion($dataxxxx);
     }
 
 

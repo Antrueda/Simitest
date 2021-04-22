@@ -50,7 +50,7 @@ class FiVestuarioController extends Controller
 
         $this->opciones['sexoetar'] = Tema::combo(139, true, false);
 
-        $this->opciones['tallzapa'] = Tema::combo(138, true, false);
+        $this->opciones['tallzapa'] = Tema::comboAsc(138, true, false);
 
         $this->opciones['botoform'] = [
             [
@@ -185,26 +185,26 @@ class FiVestuarioController extends Controller
         switch ($sexoxxxx) {
             case 496: //HOMBRE NIÑO
                 $respuest = [
-                    'tallpant' => Tema::combo(132, true, false),
-                    'tallcami' => Tema::combo(132, true, false),
+                    'tallpant' => Tema::comboAsc(132, true, false),
+                    'tallcami' => Tema::comboAsc(132, true, false),
                 ];
                 break;
             case 505: //HOMBRE ADULTO
                 $respuest = [
-                    'tallpant' => Tema::combo(134, true, false),
-                    'tallcami' => Tema::combo(136, true, false),
+                    'tallpant' => Tema::comboAsc(134, true, false),
+                    'tallcami' => Tema::comboAsc(136, true, false),
                 ];
                 break;
             case 707: //MUJER NIÑA
                 $respuest = [
-                    'tallpant' => Tema::combo(132, true, false),
-                    'tallcami' => Tema::combo(132, true, false),
+                    'tallpant' => Tema::comboAsc(132, true, false),
+                    'tallcami' => Tema::comboAsc(132, true, false),
                 ];
                 break;
             case 705: //MUJER ADULTA
                 $respuest = [
-                    'tallpant' => Tema::combo(135, true, false),
-                    'tallcami' => Tema::combo(137, true, false),
+                    'tallpant' => Tema::comboAsc(135, true, false),
+                    'tallcami' => Tema::comboAsc(137, true, false),
                 ];
                 break;
             default:

@@ -78,7 +78,7 @@ class FiRazoneController extends Controller
         $this->opciones['estadoxx'] = 'ACTIVO';
         $this->opciones['depedile'] = [];
         $dependen = SisDepen::find($dataxxxx['padrexxx']->sis_nnaj->NnajUpiPrincipal)->ResponsableNormal;
-        $this->opciones['usuarios'] = User::combo(true, false);
+        $this->opciones['usuarios'] = User::combo(true, false,[1,2]);
         $this->opciones['usuarioz'] = $dependen[0];
         $this->opciones['deperesp'] = $dependen[2];
         $this->opciones['cargodil'] = '';

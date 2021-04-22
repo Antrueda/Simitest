@@ -73,7 +73,7 @@ trait InterfazFiTrait
                 $dataxxxx['mensajex'] = 'El NNAJ: ' . $dataxxxx->primer_nombre.' '.
                 $dataxxxx->segundo_nombre.' '.
                 $dataxxxx->primer_apellido.' '.
-                $dataxxxx->segundo_apellido.' con docuemento de identidad:  '.$request->docuagre. ' no se puede migrar porque no tiene ficha de ingreso en el antiguo simi';
+                $dataxxxx->segundo_apellido.' con documento de identidad:  '.$request->docuagre. ' no se puede migrar porque no tiene ficha de ingreso en el antiguo simi';
                 throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
             }else{
                 $dataxxxx->fecha_apertura=$fichacer->fecha_apertura;
@@ -87,11 +87,9 @@ trait InterfazFiTrait
         $objetoxx->diligenc = explode(' ', $dataxxxx->fecha_apertura)[0];
         $objetoxx->prm_tipoblaci_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_poblacion, 'tablaxxx' => 'TIPOPOB', 'temaxxxx' => 119, 'testerxx' => false])->id;
         $objetoxx->sis_depen_id = $this->getUpiSimi(['idupixxx' => $dataxxxx->id_upi])->id;
-
         if ($dataxxxx->modalidad != null) {
             $objetoxx->sis_servicio_id = $this->getServiciosUpi(['codigoxx' => $dataxxxx->modalidad,  'sisdepen' => $objetoxx->sis_depen_id, 'datobasi' => true, 'nnajxxxx' => $dataxxxx])->id;
         }
-
         $objetoxx->s_primer_nombre = $dataxxxx->primer_nombre;
         $objetoxx->s_segundo_nombre = $dataxxxx->segundo_nombre;
         $objetoxx->s_primer_apellido = $dataxxxx->primer_apellido;
@@ -122,6 +120,7 @@ trait InterfazFiTrait
             }
             $objetoxx->prm_factor_rh_id = $parametr->id;
         }
+
         $objetoxx->prm_tipodocu_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->tipo_documento, 'tablaxxx' => 'TIPO_DOCUMENTO', 'temaxxxx' => 3, 'testerxx' => false])->id;
         $objetoxx->prm_doc_fisico_id = $this->getParametrosSimiMultivalor(['codigoxx' => $dataxxxx->cuenta_doc, 'tablaxxx' => 'DICOTOMIA', 'temaxxxx' => 366, 'testerxx' => false])->id;
         $objetoxx->s_documento = $dataxxxx->numero_documento;
@@ -292,6 +291,7 @@ trait InterfazFiTrait
             'estado' => $padrexxx->estado,
         ];
     }
+
     public function setNnajPNT($dataxxxx)
     {
         $padrexxx = $dataxxxx['padrexxx'];
@@ -322,6 +322,7 @@ trait InterfazFiTrait
                 $document = GeNnajDocumento::create($fillable);
             }
         }
+
         $modalida=$padrexxx->sis_nnaj->nnaj_upis->where('prm_principa_id',227)->first()->sis_servicios;
         $upinnajx = GeUpiNnaj::where('id_nnaj', $nnajxxxx->id_nnaj)->where('modalidad')->first();
         if ($upinnajx == null) {
@@ -352,3 +353,4 @@ trait InterfazFiTrait
         ddd($upinnajx);
     }
 }
+// kdk

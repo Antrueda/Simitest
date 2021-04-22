@@ -7,8 +7,8 @@ trait PestaniasTrait
 {
     public $pestania = [
         ['paisxxxx', '', [],"PAÍS",true,'','Paises'],
-        ['departam', '', [],'DEPARTAMENTO',true,'','Departamentos'],
-        ['municipi', '', [],'MUNICIPIO',true,'','Municipios'],
+        ['departam', '', [],'DEPARTAMENTO',false,'','Departamentos'],
+        ['municipi', '', [],'MUNICIPIO',false,'','Municipios'],
         ['localida', '', [],'LOCALIDAD',true,'','Loacalidades'],
         ['localupz', '', [],'LOCALIDAD-UPZ',false,'','Unión de la localidad con la upz'],
         ['upzxxxxx', '', [],'UPZ',true,'','Upz'],

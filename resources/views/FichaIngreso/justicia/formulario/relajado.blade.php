@@ -2,7 +2,7 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_ha_estado_srpa_id', '10.2 ¿Ha estado vinculado al Sistema de Responsabilidad Penal Adolescente - SRPA?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_ha_estado_srpa_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_ha_estado_srpa_id', $todoxxxx["estaspoa"], null, ['class' => 'form-control form-control-sm']) }}
         @if($errors->has('i_prm_ha_estado_srpa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_ha_estado_srpa_id') }}
@@ -64,7 +64,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_ha_estado_spoa_id', '10.3 ¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_ha_estado_spoa_id', $todoxxxx["condspoa"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_ha_estado_spoa_id', $todoxxxx["estaspoa"], null, ['class' => 'form-control form-control-sm']) }}
         @if($errors->has('i_prm_ha_estado_spoa_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_ha_estado_spoa_id') }}
@@ -84,7 +84,7 @@
         {{ Form::label('i_cuanto_spoa', '¿Hace cuánto?', ['class' => 'control-label col-form-label-sm']) }}
         <div class="row">
             <div class="col-md-6">
-                {{ Form::number('i_cuanto_spoa', null, ['class' => 'form-control form-control-sm', $todoxxxx['readspoa'], 'placeholder' => 'Cuantos', 'min' => '0', 'max' => '5000000',$todoxxxx['cuanspoa'],"onkeypress" => "return soloNumeros(event);"]) }}
+                {{ Form::number('i_cuanto_spoa', null, ['class' => 'form-control form-control-sm', $todoxxxx['readspoa'], 'placeholder' => 'Cuantos', 'min' => '0', 'max' => '5000000',$todoxxxx['readspoa'],"onkeypress" => "return soloNumeros(event);"]) }}
                 @if($errors->has('i_cuanto_spoa'))
                 <div class="invalid-feedback d-block">
                     {{ $errors->first('i_cuanto_spoa') }}
@@ -134,7 +134,7 @@
 
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_vinculado_violencia_id', '10.4 ¿Se encuentra vinculado a la delincuencia o a la violencia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_vinculado_violencia_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_vinculado_violencia_id', $todoxxxx["violvinc"], null, ['class' => 'form-control form-control-sm']) }}
         @if($errors->has('i_prm_vinculado_violencia_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_vinculado_violencia_id') }}
@@ -154,7 +154,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_riesgo_participar_id', '10.5 ¿Se cuentra en riesgo de participar en actos delictivos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["violries"], null, ['class' => 'form-control form-control-sm']) }}
         @if($errors->has('i_prm_riesgo_participar_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('i_prm_riesgo_participar_id') }}
@@ -173,6 +173,4 @@
         </div>
         @endif
     </div>
-
-
 </div>

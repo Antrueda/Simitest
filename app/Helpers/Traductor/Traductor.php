@@ -205,6 +205,7 @@ class Traductor
             ->join('sis_depen_user', 'users.id', '=', 'sis_depen_user.user_id')
             ->join('nnaj_upis', 'sis_depen_user.sis_depen_id', '=', 'nnaj_upis.sis_depen_id')
             ->where('nnaj_upis.sis_nnaj_id', $dataxxxx['nnajxxxx'])
+            ->where('nnaj_upis.sis_esta_id', 1)
             ->where('sis_depen_user.sis_esta_id', 1)
             ->first();
         if (isset($dependen->id)) {

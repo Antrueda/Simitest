@@ -24,4 +24,8 @@ class BaTerritorio extends Model
         'estado',
         'plan_75',
     ];
+    public function padre()
+    {
+        return $this->belongsTo(BaTerritorio::class,'id_padre');
+    }
 }

@@ -71,7 +71,7 @@ trait InterfazDatatableTrait
                     'orderable' => $value['orderable'],
                     'search' =>
                     [
-                        'value' => $value['search']['value'],
+                        'value' => strtoupper($value['search']['value']),
                         'regex' => $value['search']['regex']
                     ]
                 ];

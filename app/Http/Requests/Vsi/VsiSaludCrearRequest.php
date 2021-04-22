@@ -18,6 +18,9 @@ class VsiSaludCrearRequest extends FormRequest
             'prm_atencion_id.required' => 'Seleccione si ha recibido un tipo de atención psicológica y/o psiquiatría',
             'prm_medicamento_id.required' => 'Indique si le han ordenado algun medicamentoo psiquiátrico',
             'prm_sexual_id.required' => 'Indique si ha iniciado su vida sexual',
+            'prm_embarazo_id.required_if' => 'Indique si ha  tenido embarazos',
+            'prm_interrupcion_id.required_if' => 'Indique si ha presentado alguna interrupción del embarazo medica',
+            
             
         ];
         $this->_reglasx = [

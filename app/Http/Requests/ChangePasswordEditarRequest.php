@@ -25,7 +25,7 @@ class ChangePasswordEditarRequest extends FormRequest
                 'min:8',
                 'required_with:password_confirmation',
                 'same:password_confirmation',
-                'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+                'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%*]).*$/',
             ],
             'password_confirmation' => ['min:8']
         ];

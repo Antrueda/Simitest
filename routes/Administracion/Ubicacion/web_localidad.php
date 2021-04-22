@@ -1,58 +1,58 @@
 <?php
 $routexxx = 'localida';
-$controll = 'Administracion\Ubicacion\Localidad';
+$controll = 'Administracion\Ubicacion\SisLocalidadController@';
 Route::group(['prefix' => 'localidades'], function () use ($routexxx, $controll) {
 
     Route::get('', [
-        'uses' => $controll . 'Controller@index',
+        'uses' => $controll . 'index',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']
     ])->name($routexxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'Controller@listaLocalidades',
+		'uses' => $controll.'listaLocalidades',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
     ])->name($routexxx.'.listaxxx');
 
     Route::get('nuevo', [
-        'uses' => $controll . 'Controller@create',
+        'uses' => $controll . 'create',
         'middleware' => ['permission:' . $routexxx . '-crear']
     ])->name($routexxx . '.nuevo');
 
     Route::post('crear', [
-        'uses' => $controll . 'Controller@store',
+        'uses' => $controll . 'store',
         'middleware' => ['permission:' . $routexxx . '-crear']
     ])->name($routexxx . '.crear');
 
     Route::get('editar/{modeloxx}', [
-        'uses' => $controll . 'Controller@edit',
+        'uses' => $controll . 'edit',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
 
     Route::put('editar/{modeloxx}', [
-        'uses' => $controll . 'Controller@update',
+        'uses' => $controll . 'update',
         'middleware' => ['permission:' . $routexxx . '-editar']
     ])->name($routexxx . '.editar');
 
     Route::get('ver/{modeloxx}', [
-        'uses' => $controll . 'Controller@show',
+        'uses' => $controll . 'show',
         'middleware' => ['permission:' . $routexxx . '-leer']
     ])->name($routexxx . '.ver');
 
     Route::get('borrar/{modeloxx}', [
-        'uses' => $controll . 'Controller@inactivate',
+        'uses' => $controll . 'inactivate',
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
 
     Route::put('borrar/{modeloxx}', [
-        'uses' => $controll . 'Controller@destroy',
+        'uses' => $controll . 'destroy',
         'middleware' => ['permission:' . $routexxx . '-borrar']
     ])->name($routexxx . '.borrar');
     Route::get('activate/{modeloxx}', [
-	    'uses' => $controll.'Controller@activate',
+	    'uses' => $controll.'activate',
 	    'middleware' => ['permission:'.$routexxx.'-activarx']
     ])->name($routexxx.'.activarx');
 
     Route::put('activate/{modeloxx}', [
-		'uses' => $controll . 'Controller@activar',
+		'uses' => $controll . 'activar',
 		'middleware' => ['permission:' . $routexxx . '-activarx']
 	])->name($routexxx . '.activarx');
 });

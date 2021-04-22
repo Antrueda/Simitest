@@ -5,7 +5,6 @@ namespace App\Traits\Combos;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
-use App\Models\Tema;
 use App\Models\Temacombo;
 
 trait CombosTrait
@@ -94,21 +93,16 @@ trait CombosTrait
     * @param  $ajaxxxxx indica si el combo es para devolver en array para objeto json
     * @return $comboxxx
     */
-    public static function combo($dataxxxx)
+    public function getTemacomboCT($dataxxxx)
     {
-        $comboxxx = [];
-        if ($dataxxxx['cabecera']) {
-            if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
-            } else {
-                $comboxxx = ['' => 'Seleccione'];
-            }
-        }
+       $comboxxx = $this->getCabecera($dataxxxx);;
         $parametr = Temacombo::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
             ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
             ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
-            ->where('temacombos.id', $dataxxxx['temaxxxx'])
-            ->orderBy('parametros.id', 'asc')
+            ->where(function($queryxxx)use($dataxxxx){
+                $queryxxx->where('temacombos.id', $dataxxxx['temaxxxx']);
+            })
+            ->orderBy('parametros.nombre', $dataxxxx['orederby'])
             ->get();
         foreach ($parametr as $registro) {
             if ($dataxxxx['ajaxxxxx']) {
@@ -121,7 +115,7 @@ trait CombosTrait
                 $comboxxx[$registro->valuexxx] = $registro->optionxx;
             }
         }
-        return $comboxxx;
+        return ['comboxxx'=>$comboxxx];
     }
 
     public function getResponsablesActividad($dataxxxx)
