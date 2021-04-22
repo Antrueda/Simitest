@@ -626,15 +626,12 @@ class FiController extends Controller
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $tablasxx = [
-            ['temaxxxx' => 119, 'tablaxxx' => 'TIPOPOB'],
-        ];
-        $this->opciones['multivax']=SisMultivalore::where('tabla','TIPOPOB')->get();
+        $this->opciones['multivax']=SisMultivalore::where('tabla',$tablaxxx)->get();
         // ddd($this->opciones['multival']);
         $this->opciones['paramets'] = [];
             $temaxxxx = Temacombo::find($temaxxxx);
             foreach ($temaxxxx->parametros as $key => $valuexxx) {
-                $multival = SisMultivalore::where('descripcion', $valuexxx->nombre)->where('tabla','TIPOPOB')->first();
+                $multival = SisMultivalore::where('descripcion', $valuexxx->nombre)->where('tabla',$tablaxxx)->first();
                 $codigoxx = 0;
                 $sindatox = false;
                 $descripc  = 'no existe en multivalores';
