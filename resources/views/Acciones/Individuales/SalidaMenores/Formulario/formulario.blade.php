@@ -146,7 +146,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('documento', 'No. de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('documento', null, ['class' => $errors->first('documento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'minlength' => '6', 'maxlength' => '11',"onkeypress" => "return soloNumeros(event);"]) }}
+    {{ Form::text('documento', null, ['class' => $errors->first('documento') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'minlength' => '6', 'maxlength' => '11',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('documento'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('documento') }}
@@ -234,7 +234,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('doc_autorizado', 'No. de documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('doc_autorizado', null, ['class' => $errors->first('doc_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'min' => '0', 'max' => '1000000000',"onkeypress" => "return soloNumeros(event);"]) }}
+    {{ Form::text('doc_autorizado', null, ['class' => $errors->first('doc_autorizado') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'minlength' => '6', 'maxlength' => '10',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('doc_autorizado'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('doc_autorizado') }}
@@ -446,7 +446,7 @@
 <div class="row">
     <div class="col-md-3">
       {{ Form::label('tel_contacto', 'Teléfono de contacto', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::number('tel_contacto', null, ['class' => $errors->first('tel_contacto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'min' => '0', 'max' => '9999999999',"onkeypress" => "return soloNumeros(event);"]) }}
+      {{ Form::text('tel_contacto', null, ['class' => $errors->first('tel_contacto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'minlength' => '6', 'maxlength' => '10' ',"onkeypress" => "return soloNumeros(event);"]) }}
       @if($errors->has('tel_contacto'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('tel_contacto') }}
@@ -486,7 +486,7 @@
   </div>
   <div class="col-md-3">
     {{ Form::label('doc_recoge', 'Nº de Documento', ['class' => 'control-label col-form-label-sm']) }}
-    {{ Form::number('doc_recoge', null, ['class' => $errors->first('doc_recoge') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'min' => '0', 'max' => '1000000000',"onkeypress" => "return soloNumeros(event);"]) }}
+    {{ Form::text('doc_recoge', null, ['class' => $errors->first('doc_recoge') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Número de Documento', 'minlength' => '6', 'maxlength' => '10',"onkeypress" => "return soloNumeros(event);"]) }}
     @if($errors->has('doc_recoge'))
     <div class="invalid-feedback d-block">
       {{ $errors->first('doc_recoge') }}

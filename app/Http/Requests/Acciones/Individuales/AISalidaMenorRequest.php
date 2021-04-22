@@ -37,6 +37,7 @@ class AISalidaMenorRequest extends FormRequest
             'prm_carta_id.required'      => 'Campo obligatorio',
             'prm_copiaDoc_id.required'   => 'Campo obligatorio',
             'prm_copiaDoc2_id.required'  => 'Campo obligatorio',
+            'user_doc1_id.required'   => 'Campo obligatorio',
             
 
 
@@ -51,7 +52,7 @@ class AISalidaMenorRequest extends FormRequest
             'primer_nombre'     => 'required|string|max:120',
             'segundo_nombre'    => 'nullable|string|max:120',
             'prm_doc_id'        => 'required|exists:parametros,id',
-            'documento'         => 'required|integer|max:10',
+            'documento'         => 'required|integer',
             'prm_parentezco_id' => 'required|exists:parametros,id',
             'prm_autorizado_id' => 'required|exists:parametros,id',
             'ape1_autorizado'   => 'nullable|string|max:120',
@@ -59,7 +60,7 @@ class AISalidaMenorRequest extends FormRequest
             'nom1_autorizado'   => 'nullable|string|max:120',
             'nom2_autorizado'   => 'nullable|string|max:120',
             'prm_doc2_id'       => 'nullable|exists:parametros,id',
-            'doc_autorizado'    => 'nullable|integer|max:10',
+            'doc_autorizado'    => 'nullable|integer',
             'prm_parentezco2_id'=> 'nullable|exists:parametros,id',
             'prm_carta_id'      => 'required|exists:parametros,id',
             'prm_copiaDoc_id'   => 'required|exists:parametros,id',
@@ -69,10 +70,10 @@ class AISalidaMenorRequest extends FormRequest
             'prm_upi2_id'       => 'required|exists:parametros,id',
             'tiempo'            => 'required|integer',
             'dir_salida'        => 'required|string|max:120',
-            'tel_contacto'      => 'required|integer|max:10',
+            'tel_contacto'      => 'required|integer',
             'causa'             => 'nullable|string|max:4000',
             'nombres_recoge'    => 'required|string|max:120',
-            'doc_recoge'        => 'required|integer|max:10',
+            'doc_recoge'        => 'required|integer',
             'responsable'       => 'required|exists:users,id',
             'user_doc1_id'      => 'required|exists:users,id',
             'objetivo'          => 'required|array',

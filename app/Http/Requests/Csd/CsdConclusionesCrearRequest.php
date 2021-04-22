@@ -14,7 +14,7 @@ class CsdConclusionesCrearRequest extends FormRequest
     {
 
         $this->_mensaje = [
-            'conclusiones.required'=> 'Ingrese una conclusion',
+            'conclusiones.required'=> 'Ingrese una conclusión',
             'persona_nombre.required'=> 'Ingrese el nombre de la persona que diligencio la consulta',
             'persona_doc.required'=> 'Ingrese el numero de documento de la persona que diligencio la consulta',
             'persona_parent_id.required'=> 'Seleccione el parentezco con el NNAJ',

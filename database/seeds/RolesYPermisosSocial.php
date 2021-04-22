@@ -99,6 +99,8 @@ Role::find(4)->givePermissionTo([
                 'aisalidamayores-leer', 'aisalidamayores-crear', 'aisalidamayores-editar', 'aisalidamayores-borrar',
                 'salidajovenes-leer', 'salidajovenes-crear', 'salidajovenes-editar', 'salidajovenes-borrar',
                 'aievasion-leer', 'aievasion-crear', 'aievasion-editar', 'aievasion-borrar',
+                'evasionves-leer', 'evasionves-crear', 'evasionves-editar', 'evasionves-borrar',
+                'evasionpar-leer', 'evasionpar-crear', 'evasionpar-editar', 'evasionpar-borrar',
                 'aisalidamenores-leer', 'aisalidamenores-crear', 'aisalidamenores-editar', 'aisalidamenores-borrar',
                 'airetornosalida-leer', 'airetornosalida-crear', 'airetornosalida-editar', 'airetornosalida-borrar',
                 'taccform-modulo','agtaller-leer', 'agtaller-crear', 'agtaller-editar', 'agtaller-borrar',
