@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Traits\Administracion\Ubicacion\Municipio;
+namespace App\Traits\Administracion\Ubicacion\Localidad;
 
 
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait DataTablesTrait
+trait LocalidadDataTablesTrait
 {
     /**
      * grabar o actualizar registros para paises
@@ -15,16 +15,16 @@ trait DataTablesTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function getTablasIndex($padrexxx)
+    public function getTablas()
     {
 
        $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'NUEVO MUNICIPIO',
-                'titulist' => 'LISTA DE MUNICIPIOS',
+                'titunuev' => 'NUEVA UPI/DEPENDENCIA',
+                'titulist' => 'LISTA DE UPIS/DEPENDENCIAS',
                 'archdttb' =>$this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
                 'permtabl' => [
                    $this->opciones['permisox'] . '-leer',
                    $this->opciones['permisox'] . '-crear',
@@ -36,20 +36,20 @@ trait DataTablesTrait
                     [
                         ['td' => 'ACCIONES', 'widthxxx' => 200, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
-                        ['td' => 'MUNICIPIO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
+                        ['td' => 'UPI/DEPENDENCIA', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                         ['td' => 'ESTADO', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
                     ]
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'sis_municipios.id'],
-                    ['data' => 's_municipio', 'name' => 'sis_municipios.s_municipio'],
+                    ['data' => 'id', 'name' => 'sis_depens.id'],
+                    ['data' => 'nombre', 'name' => 'sis_depens.nombre'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
                 'permisox' =>$this->opciones['permisox'],
                 'routxxxx' =>$this->opciones['routxxxx'],
-                'parametr' => [$padrexxx->id],
+                'parametr' => [],
             ]
         ];
        $this->opciones['ruarchjs'] = [

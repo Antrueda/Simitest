@@ -3,6 +3,7 @@
 namespace App\Traits\Administracion\Ubicacion;
 
 use App\Models\Sistema\SisDepartam;
+use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
 use App\Traits\DatatableTrait;
@@ -35,7 +36,7 @@ trait ListadosTrait
         }
     }
 
-    public function listaDepartamentos(Request $request)
+    public function listaDepartamentos(Request $request, SisPai $padrexxx)
     {
 
         if ($request->ajax()) {
@@ -44,12 +45,13 @@ trait ListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  SisDepartam::select(['sis_departams.id', 'sis_departams.s_departamento', 'sis_departams.sis_esta_id', 'sis_estas.s_estado'])
-                ->join('sis_estas', 'sis_departams.sis_esta_id', '=', 'sis_estas.id');
+                ->join('sis_estas', 'sis_departams.sis_esta_id', '=', 'sis_estas.id')
+                ->where('sis_pai_id', $padrexxx->id);
             return $this->getDt($dataxxxx, $request);
         }
     }
 
-    public function listaMunicipios(Request $request)
+    public function listaMunicipios(Request $request, SisDepartam $padrexxx)
     {
 
         if ($request->ajax()) {
@@ -58,7 +60,22 @@ trait ListadosTrait
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
             $dataxxxx =  SisMunicipio::select(['sis_municipios.id', 'sis_municipios.s_municipio', 'sis_municipios.sis_esta_id', 'sis_estas.s_estado'])
-                ->join('sis_estas', 'sis_municipios.sis_esta_id', '=', 'sis_estas.id');
+                ->join('sis_estas', 'sis_municipios.sis_esta_id', '=', 'sis_estas.id')
+                ->where('sis_departam_id', $padrexxx->id);
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+    public function listaLocalidades(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  SisDepen::select(['sis_depens.id', 'sis_depens.nombre', 'sis_depens.sis_esta_id', 'sis_estas.s_estado'])
+                ->join('sis_estas', 'sis_depens.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
     }

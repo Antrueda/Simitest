@@ -1,21 +1,23 @@
 <?php
 $routexxx='departam';
 $controll='Administracion\Ubicacion\SisDepartamento';
+
 Route::group(['prefix' => 'departamentos'], function () use($routexxx,$controll){
     Route::get('{padrexxx}/lista', [
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
     ])->name($routexxx);
-
-    Route::get('{padrexxx}/nuevo', [
-		'uses' => $controll.'Controller@create',
-		'middleware' => ['permission:'.$routexxx.'-crear']
-	])->name($routexxx.'.nuevo');
-
     Route::get('{padrexxx}/listaxxx', [
 		'uses' => $controll.'Controller@listaDepartamentos',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
     ])->name($routexxx.'.listaxxx');
+});
+
+Route::group(['prefix' => 'departamento'], function () use($routexxx,$controll){
+    Route::get('{padrexxx}/nuevo', [
+		'uses' => $controll.'Controller@create',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
 
 	Route::post('{padrexxx}/crear', [
 		'uses' => $controll.'Controller@store',
