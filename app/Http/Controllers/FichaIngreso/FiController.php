@@ -23,7 +23,9 @@ use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
 use App\Models\Simianti\Ba\BaTerritorio;
 use App\Models\Simianti\Ge\GeNnajDocumento;
+use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Sistema\SisDepen;
+use App\Models\Temacombo;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -616,9 +618,45 @@ class FiController extends Controller
         }
     }
 
-    public function prueba($departam, Request $request)
+    public function prueba($temaxxxx,$tablaxxx, Request $request)
     {
 
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+        $tablasxx = [
+            ['temaxxxx' => 119, 'tablaxxx' => 'TIPOPOB'],
+        ];
+        $this->opciones['paramets'] = [];
+            $temaxxxx = Temacombo::find($temaxxxx);
+            foreach ($temaxxxx->parametros as $key => $valuexxx) {
+                $multival = SisMultivalore::where('descripcion', $valuexxx->nombre)->where('tabla','TIPOPOB')->first();
+                $codigoxx = 0;
+                $sindatox = false;
+                $descripc  = 'no existe en multivalores';
+                if ($multival != null) {
+                    $codigoxx = $multival->codigo;
+                    $descripc = $multival->descripcion;
+                    $sindatox = true;
+                }
+                $this->opciones['paramets'][] = [
+                    'idtemaxx' => $temaxxxx->id,
+                    'temaxxxx' => $temaxxxx->nombre,
+                    'idparame' => $valuexxx->id,
+                    'parametr' => $valuexxx->nombre,
+                    'simianti' => $valuexxx->pivot->simianti_id,
+                    'tablaxxx' => $tablaxxx,
+                    'codigoxx' => $codigoxx,
+                    'descripc' => $descripc,
+                    'sindatox' => $sindatox,
+                ];
+
+        }
+
+
+        return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
         // foreach (FiJrCausassi::get() as $key => $value) {
         //     // if ($value->sis_nnaj_id > 761) {
         //     // {$value->}
@@ -630,16 +668,16 @@ class FiController extends Controller
         //     $magicos = " 'user_crea_id' => {$value->user_crea_id}, 'user_edita_id' => {$value->user_edita_id}, 'sis_esta_id' => {$value->sis_esta_id}, 'created_at' => '{$value->created_at}', 'updated_at' => '{$value->updated_at}',";
         //     echo "FiJrCausassi::create(['prm_situacion_id' => {$value->prm_situacion_id}, 'fi_justrest_id' =>  {$value->fi_justrest_id}, $magicos]); // {$value->id}<br>";
         // }
-        $dependen = SisBarrio::get();
-        foreach ($dependen as $key => $value) {
-            echo $value->s_barrio . '<br>';
-            $barrsimi = BaTerritorio::where('nombre', $value->s_barrio)->where('tipo', 'B')->get();
-            foreach ($barrsimi as $key => $valuex) {
-                echo $valuex->id . ' => ' . $valuex->nombre . ' tipo ' . $valuex->tipo . ' padre ' . $valuex->id_padre . '<br>';
-            }
+        // $dependen = SisBarrio::get();
+        // foreach ($dependen as $key => $value) {
+        //     echo $value->s_barrio . '<br>';
+        //     $barrsimi = BaTerritorio::where('nombre', $value->s_barrio)->where('tipo', 'B')->get();
+        //     foreach ($barrsimi as $key => $valuex) {
+        //         echo $valuex->id . ' => ' . $valuex->nombre . ' tipo ' . $valuex->tipo . ' padre ' . $valuex->id_padre . '<br>';
+        //     }
 
-            # code...
-        }
+        //     # code...
+        // }
         // $anterior = 0;
         // foreach (FiJustrest::get() as $key => $value) {
         //     if ($value->id - $anterior >= 2) {
@@ -649,5 +687,9 @@ class FiController extends Controller
         // //    echo '<br>';
         // }
         // $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
+    }
+    public function homologa($temacomb,$parametr,$codigoxx)
+    {
+        # code...
     }
 }

@@ -836,7 +836,7 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'POR CONDICIÓN'], // 813
             ['nombrexx' => 'POR OPCIÓN'], // 814
             ['nombrexx' => 'POR PROTECCIÓN'], // 815
-            ['nombrexx' => 'CUENTRA PROPIA'], // 816
+            ['nombrexx' => 'CUENTA PROPIA'], // 816
             ['nombrexx' => 'VOZ A VOZ'], // 817
             ['nombrexx' => 'PUBLICIDAD EN UPI'], // 818
             ['nombrexx' => 'PROMOCION EXTERNA'], // 819
