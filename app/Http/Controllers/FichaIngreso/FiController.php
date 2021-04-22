@@ -629,6 +629,8 @@ class FiController extends Controller
         $tablasxx = [
             ['temaxxxx' => 119, 'tablaxxx' => 'TIPOPOB'],
         ];
+        $this->opciones['multivax']=SisMultivalore::where('tabla','TIPOPOB')->get();
+        // ddd($this->opciones['multival']);
         $this->opciones['paramets'] = [];
             $temaxxxx = Temacombo::find($temaxxxx);
             foreach ($temaxxxx->parametros as $key => $valuexxx) {
@@ -688,8 +690,15 @@ class FiController extends Controller
         // }
         // $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
     }
-    public function homologa($temacomb,$parametr,$codigoxx)
+    public function homologa($temacomb,$parametr,$codigoxx,$tablaxxx)
     {
-        # code...
+        $codigoxx=0;
+        $temaxxxx=Temacombo::find($temacomb)
+        ->parametros()
+        ->updateExistingPivot($parametr, ['simianti_id' => $codigoxx,'user_edita_id'=>Auth::user()->id], false);
+        return redirect()
+        ->route('fidatbas.homologx', [$temacomb,$tablaxxx])
+        ->with('info', 'parametro homologado');
+
     }
 }
