@@ -24,7 +24,7 @@
                     <td>{{$paramets['idparame']}}</td>
                     <td>{{$paramets['parametr']}}</td>
                     <td>
-                        @if(($paramets['simianti']==0 || $paramets['simianti']=='') && $paramets['sindatox'] )
+                        @if( $paramets['sindatox'] )
                         <a href="{{route('fidatbas.homologa',[$paramets['idtemaxx'],$paramets['idparame'],$paramets['codigoxx'],$paramets['tablaxxx']])}}" class="btn btn-primary btn-sm" role="button">Homologar</a>
                         @else
                         @if($paramets['simianti']==0 || $paramets['simianti']=='')
