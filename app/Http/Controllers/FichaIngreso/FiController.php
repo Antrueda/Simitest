@@ -692,7 +692,6 @@ class FiController extends Controller
     }
     public function homologa($temacomb,$parametr,$codigoxx,$tablaxxx)
     {
-        $codigoxx=0;
         $temaxxxx=Temacombo::find($temacomb)
         ->parametros()
         ->updateExistingPivot($parametr, ['simianti_id' => $codigoxx,'user_edita_id'=>Auth::user()->id], false);

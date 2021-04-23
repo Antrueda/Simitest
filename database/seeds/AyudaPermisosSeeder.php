@@ -63,12 +63,6 @@ class AyudaPermisosSeeder extends Seeder
             'USER_EDITA_ID' => 1,
             'SIS_ESTA_ID' => 1
         ]);
-
-        $rolsadmin = Role::findByName('SUPER-ADMINISTRADOR');
-        $rolsadmin->givePermissionTo(['ayuda-modulo', 'ayuda-crear', 'ayuda-editar', 'ayuda-leer', 'ayuda-eliminar', 'ayuda-cambiar']);
-
-        $roladmin = Role::findByName('ADMINISTRADOR');
-        $roladmin->givePermissionTo(['ayuda-modulo', 'ayuda-crear', 'ayuda-editar', 'ayuda-leer', 'ayuda-eliminar', 'ayuda-cambiar']);
     }
 }
 
