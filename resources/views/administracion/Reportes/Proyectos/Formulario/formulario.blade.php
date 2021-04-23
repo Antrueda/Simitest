@@ -1,5 +1,5 @@
 <div class="form-row">
-<div class="form-group col-md-6">
+<div class="form-group col-md-6" id="export-form">
         {{ Form::label('yearxxxx', 'Año', ['class' => 'control-label']) }}
         {{ Form::select('yearxxxx', $todoxxxx['aniosxxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
         @if($errors->has('yearxxxx'))
@@ -18,20 +18,20 @@
         @endif
     </div>
     <div class="form-group col-md-6">
-        {!! Form::label('tablrela', 'Tablas Relacionadas', ['class' => 'control-label']) !!}
-        {!! Form::select('tablrela', $todoxxxx['tablrela'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'multiple']) !!}
-        @if($errors->has('tablrela'))
+        {!! Form::label('tablesxx', 'Tablas Principal', ['class' => 'control-label']) !!}
+        {!! Form::select('tablesxx', $todoxxxx['tablesxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'multiple']) !!}
+        @if($errors->has('tablesxx'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('tablrela') }}
+            {{ $errors->first('tablesxx') }}
         </div>
         @endif
     </div>
     <div class="form-group col-md-6">
-        {!! Form::label('camposxx', 'Campos', ['class' => 'control-label']) !!}
-        {!! Form::select('camposxx', $todoxxxx['camposxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'multiple']) !!}
-        @if($errors->has('camposxx'))
+        {!! Form::label('columnsx', 'Tablas Principal', ['class' => 'control-label']) !!}
+        {!! Form::select('columnsx', [], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'multiple']) !!}
+        @if($errors->has('columnsx'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('camposxx') }}
+            {{ $errors->first('columnsx') }}
         </div>
         @endif
     </div>

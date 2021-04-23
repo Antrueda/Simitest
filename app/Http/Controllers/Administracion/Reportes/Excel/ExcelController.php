@@ -7,8 +7,11 @@ use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Simianti\Ge\GeUpi;
+use App\Models\Sistema\SisTabla;
+use App\Models\Sistema\SisTcampo;
 use App\Models\User;
 use App\Models\Usuario\RolUsuario;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -134,10 +137,13 @@ class ExcelController extends Controller
 
         // $db = DB::connection('simiantiguo');
         // $data = $db->select("SELECT * FROM TABLE (mid_general_anual(?, ?, ?))", ['1020733537', '01/09/2020', '30/10/2020']);
+        // dd($data);
+
+        $tablas = SisTabla::pluck('s_tabla', 'id');
         // Obtenemos el primer objeto de la colleccion del modelo principal.
-        $fiDatosBasicos = FiDatosBasico::first();
-        $this->opciones['tablrela'] = $fiDatosBasicos->getTheRelations();
-        $this->opciones['camposxx'] = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()), true);
+        // $fiDatosBasicos = FiDatosBasico::first();
+        // $this->opciones['maintabl'] = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
+        $this->opciones['tablesxx'] = $tablas;
         // dd($this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray())));
 
         if ($dataxxxx['modeloxx'] != '') {
@@ -201,26 +207,51 @@ class ExcelController extends Controller
 
     public function store(Request $request)
     {
-        $headersx = $this->getFields($request->camptabl);
+        $fiDatosBasicos = FiDatosBasico::first();
+        $headersx = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
         ob_end_clean();
         ob_start();
         return Excel::download(new UsersExport($request, $headersx), 'users_report.xlsx');
+    }
+
+    public function getDataFields(Request $request)
+    {
+        // $fiDatosBasicos = FiDatosBasico::first();
+        // $fields = [];
+        // if(isset($request->selected)) {
+        //     foreach($request->selected as $field) {
+        //         $fieldArray = explode('-', $field);
+        //         if(count($fieldArray) > 1){
+        //             $data = clone $fiDatosBasicos;
+        //             foreach ($fieldArray as $value) {
+        //                 $data = $data->$value;
+        //             }
+        //         }else {
+        //             $data = $fiDatosBasicos->$field;
+        //         }
+        //         if(gettype($data) == 'object'){
+        //             $fields[$field] = $this->contructColumnsOptions($data, array_keys($data->toArray()), []);
+        //         }
+        //     }
+        // }
+        // if(count($fields) == 0) {
+        //     return response()->json(['newField' => false]);
+        // } else{
+        //     return response()->json(['newField' => true, 'fields' => $fields]);
+        // }
+        return SisTcampo::whereIn('sis_tabla_id', $request->selected)->pluck('s_campo', 'id');
     }
 
     /**
      * Construye las opciones de las tablas con los comentarios.
      * @param App\Models $model Modelo
      * @param array $modelColumns Columnas del modelo
-     * @param boolean $isMainModel [optional] Si el modelo es el principal
      * @return array
      */
-    public function contructColumnsOptions($model, $modelColumns, $isMainModel = false)
+    public function contructColumnsOptions(object $model, array $modelColumns, array $columnsWithDescription = [])
     {
         // Obtenemos el nombre de la tabla.
         $tableName = $model->getTableName();
-        // Inicialiamos el array asociativo, el cual almacenara el nombre de la columna o relacion como la llave
-        // y el comentario como el valor
-        $columnsWithDescription = [];
         // Recorremos las columnas o atributos del modelo
         foreach($modelColumns as $modelColumn)
         {
@@ -228,19 +259,14 @@ class ExcelController extends Controller
             $comment = DB::select("SELECT COLUMN_NAME, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_NAME = '{$tableName}' AND COLUMN_NAME = '{$modelColumn}'")[0]->COLUMN_COMMENT;
             // Validamos si tiene o no comentario, en caso de no tener se le pasa un string con el nombre de la
             // tabla y la columna
-            if($isMainModel)
+            $modelColumnAsArray = explode('_', $modelColumn);
+            if(!in_array('id', $modelColumnAsArray))
             {
-                $modelColumnAsArray = explode('_', $modelColumn);
-                if(!in_array('id', $modelColumnAsArray))
-                {
-                    $columnsWithDescription[$modelColumn] = trim($comment) === '' ? "Tabla: {$tableName}, columna: {$modelColumn}" : $comment;
-                }
-            } else {
                 $columnsWithDescription[$modelColumn] = trim($comment) === '' ? "Tabla: {$tableName}, columna: {$modelColumn}" : $comment;
             }
         }
         // Verificamos si tiene relaciones, si las tiene unimos las relaciones con las columnas
-        if(!$isMainModel && !empty($model->getTheRelations())) {
+        if(!empty($model->getTheRelations())) {
             $columnsWithDescription = array_merge($columnsWithDescription, $model->getTheRelations());
         }
 

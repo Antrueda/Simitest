@@ -16,7 +16,7 @@ class NnajDocu extends Model
 {
     protected $fillable = [
         's_documento',
-        'fi_datos_basico_id',
+        // 'fi_datos_basico_id',
         'prm_ayuda_id',
         'prm_tipodocu_id',
         'prm_doc_fisico_id',
@@ -26,6 +26,27 @@ class NnajDocu extends Model
         'user_edita_id',
         'sis_docfuen_id',
     ];
+
+    /**
+     * * Listado de las funciones de relaciones (hasOne or belongTo) con descripción.
+     * * Si no las tiene dejar el array vacio.
+     * TODO Modificar conforme se necesite
+     */
+    protected $theRelations = [
+        'fi_datos_basico'       => 'FiDatosBasico',
+        'sis_esta'              => 'SisEsta',
+        'tipoDocumento-nombre'  => 'Tipo de Documento',
+        'docAyuda-nombre'       => 'DocAyuda',
+        'docFisico-nombre'      => 'DocFisico',
+        'sis_municipio'         => 'SisMunicipio',
+        'sis_docfuen'           => 'SisDocfuen',
+        'creador-name'          => 'Creador',
+        'editor-name'           => 'Editor',
+        'docsimianti'           => 'Docsimianti'
+    ];
+
+    protected $table = 'nnaj_docus';
+
     public function fi_datos_basico()
     {
         return $this->belongsTo(FiDatosBasico::class);
@@ -120,5 +141,23 @@ class NnajDocu extends Model
     public function docsimianti()
     {
        return $this->belongsTo(GeNnajDocumento::class,'numero_documento');
+    }
+
+    /**
+     * Retorna el nombre de la tabla a la cual esta asociado el modelo
+     * @return string $table
+     */
+    public function getTableName()
+    {
+        return $this->table;
+    }
+
+    /**
+     * Retorna las relaciones del modelo
+     * @return array $has_relations
+     */
+    public function getTheRelations()
+    {
+        return $this->theRelations;
     }
 }

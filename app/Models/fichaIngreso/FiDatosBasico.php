@@ -34,7 +34,7 @@ class FiDatosBasico extends Model
     ];
 
     /**
-     * * Listado de las funciones de relaciones con descripción.
+     * * Listado de las funciones de relaciones (hasOne or belongTo) con descripción.
      * * Si no las tiene dejar el array vacio.
      * TODO Modificar conforme se necesite
      */

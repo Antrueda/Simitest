@@ -14,9 +14,10 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 		'middleware' => ['permission:' . $routexxx . '-crear']
 	])->name($routexxx . '.exportar');
 
-
-
-
+    Route::post('getDataFields', [
+		'uses' => $controll . 'Controller@getDataFields',
+		'middleware' => ['permission:' . $routexxx . '-crear']
+	])->name($routexxx . '.getDataFields');
 
 
 	Route::get('nuevo', [

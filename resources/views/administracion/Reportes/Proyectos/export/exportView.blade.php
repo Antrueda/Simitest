@@ -10,14 +10,17 @@
         @foreach ($collection as $data)
             <tr>
                 @foreach ($headers as $key => $header)
-                @php
-                    [$table, $column] = explode('-', $key);
-                @endphp
-                @if ($table === 'maintabl')
-                    <th>{{ $data->$column }}</th>
-                @else
-                    <th>{{ $data->$table->$column }}</th>
-                @endif
+                    @php
+                        $valueArray = explode('-', $key);
+                        if(count($valueArray) > 1){
+                            foreach ($valueArray as $value) {
+                                $data = $data->$value
+                            }
+                        } else {
+                            $data = $data->$key
+                        }
+                    @endphp
+                    <th>{{ $data }}</th>
                 @endforeach
             </tr>
         @endforeach
