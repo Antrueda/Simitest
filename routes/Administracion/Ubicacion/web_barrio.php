@@ -1,6 +1,6 @@
 <?php
 $routexxx='barrioxx';
-$controll='Administracion\Ubicacion\Barrio';
+$controll='Administracion\Ubicacion\SisBarrio';
 
 Route::group(['prefix' => 'barrios'], function () use($routexxx,$controll){
     Route::get('', [

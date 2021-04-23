@@ -2,12 +2,12 @@
 
 namespace App\Http\Requests\Administracion\Ubicacion;
 
-use App\Traits\Administracion\Ubicacion\Upzxxxxx\UpzxxxxxRequestTrait;
+use App\Traits\Administracion\Ubicacion\Barrioxx\BarrioxxRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
-class SisUpzCrearRequest extends FormRequest
+class SisBarrioCrearRequest extends FormRequest
 {
-    use UpzxxxxxRequestTrait;
+    use BarrioxxRequestTrait;
     /**
      * Determine if the user is authorized to make this request.
      *
