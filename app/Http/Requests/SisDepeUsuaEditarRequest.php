@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\DepenUsuarioRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SisDepeUsuaEditarRequest extends FormRequest
@@ -47,12 +48,10 @@ class SisDepeUsuaEditarRequest extends FormRequest
      */
     public function rules()
     {
-        $this->validar();
+        $this->_reglasx['sis_depen_id'][1]= new DepenUsuarioRule($this);
+
         return $this->_reglasx;
     }
 
-    public function validar()
-    {
-        $dataxxxx = $this->segments(); // todo lo que se envia del formulario
-    }
+
 }

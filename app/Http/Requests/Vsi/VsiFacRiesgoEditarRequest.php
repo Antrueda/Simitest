@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vsi;
 
+use App\Models\sicosocial\VsiFacRiesgo;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiFacRiesgoEditarRequest extends FormRequest
@@ -46,6 +47,15 @@ class VsiFacRiesgoEditarRequest extends FormRequest
 
     public function validar()
     {
-
+        $registro = VsiFacRiesgo::select('vsi_fac_riesgos.riesgo')
+        ->join('vsis', 'vsi_fac_riesgos.vsi_id', '=', 'vsis.id')
+        ->where('vsis.id', $this->padrexxx) 
+        ->where('vsi_fac_riesgos.riesgo', $this->riesgo)
+        ->first();
+        //ddd( $registro);
+    if (isset($registro)) {
+        $this->_mensaje['existexx.required'] = 'el factor riesgo ya existe';
+        $this->_reglasx['existexx'] = ['Required',];
+    }
     }
 }

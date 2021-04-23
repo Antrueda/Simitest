@@ -13,7 +13,7 @@
                     data.optionxx + '</option>')
             });
         }
-      
+
         $("#i_prm_condicion_presenta_id").change(function() {
             $("#i_prm_depto_condicion_id,  #i_prm_tiene_certificado_id, #i_prm_depto_certifica_id,#i_prm_municipio_condicion_id").empty();
             if ($(this).val() != '') {
@@ -50,7 +50,7 @@
                     },
                 });
             }
-        
+
         });
 
 
@@ -87,9 +87,9 @@
 
         if (deptcond != '') {
             f_municipos('{{ old("i_prm_depto_certifica_id") }}',
-            'i_prm_municipio_certifica_id',
-            '{{ old("i_prm_municipio_certifica_id") }}');
-        }  
+                'i_prm_municipio_certifica_id',
+                '{{ old("i_prm_municipio_certifica_id") }}');
+        }
         var f_departamentos = function(valuexxx, campoxxx, selected) {
 
             $.ajax({
@@ -116,14 +116,14 @@
         });
     });
 
-            $('#violbasa').change(function() {
-                f_comboSimple({
-                    dataxxxx: {
-                        padrexxx: $(this).val() == '' ? 0 : $(this).val(),
-                        selectxx: $(this).prop('id'),
-                    },
-                    urlxxxxx: "{{ route('ajaxx.nomasxxxx') }}",
-                    msnxxxxx:"Disculpe, existió un problema al armar el combo"
-              });
-             });
+    $('#violbasa').change(function() {
+        f_comboSimple({
+            dataxxxx: {
+                padrexxx: $(this).val() == '' ? 0 : $(this).val(),
+                selectxx: $(this).prop('id'),
+            },
+            urlxxxxx: "{{ route('ajaxx.nomasxxxx') }}",
+            msnxxxxx: "Disculpe, existió un problema al armar el combo"
+        });
+    });
 </script>

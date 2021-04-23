@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vsi;
 
+use App\Models\sicosocial\VsiFacProtector;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiFacProtectorCrearRequest extends FormRequest
@@ -46,6 +47,16 @@ class VsiFacProtectorCrearRequest extends FormRequest
 
     public function validar()
     {
-
+      
+        $registro = VsiFacProtector::select('vsi_fac_protectors.protector')
+        ->join('vsis', 'vsi_fac_protectors.vsi_id', '=', 'vsis.id')
+        ->where('vsis.id', $this->padrexxx) 
+        ->where('vsi_fac_protectors.protector', $this->protector)
+        ->first();
+   
+    if (isset($registro)) {
+        $this->_mensaje['existexx.required'] = 'el factor protector ya existe';
+        $this->_reglasx['existexx'] = ['Required',];
+    }
     }
 }

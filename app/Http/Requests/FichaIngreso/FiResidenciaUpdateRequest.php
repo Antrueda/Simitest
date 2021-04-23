@@ -21,6 +21,8 @@ class FiResidenciaUpdateRequest extends FormRequest
             'i_prm_zona_direccion_id.required' => 'Seleccione zona de la residencia',
             'i_prm_estrato_id.required' => 'Seleccione estrato de la residencia donde duerme',
             'i_prm_espacio_parcha_id.required' => 'Seleccione lugar donde parcha',
+            'sis_upz_id.required' => 'Seleccione una UPZ',
+            'sis_upzbarri_id.required' => 'Seleccione un barrio',
             'i_prm_condicion_amb_id.required' => 'Seleccione las condiciones del ambiente',
         ];
         $this->_reglasx = [
@@ -32,6 +34,8 @@ class FiResidenciaUpdateRequest extends FormRequest
             'i_prm_estrato_id' => ['Required'],
             'i_prm_espacio_parcha_id' => ['Required'],
             'i_prm_condicion_amb_id' => ['Required'],
+            'sis_upzbarri_id' => ['Required'],
+            'sis_upz_id' => ['Required'],
         ];
     }
     /**

@@ -27,7 +27,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_nombre_defensor', '10.1B Nombre del defensor de familia', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_nombre_defensor', null, ['class' => 'form-control form-control-sm', $todoxxxx['readnomd']]) }}
+        {{ Form::text('s_nombre_defensor', null, ['class' => 'form-control form-control-sm', $todoxxxx['readnomd'], "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('s_telefono_defensor', '10.1C Teléfono', ['class' => 'control-label col-form-label-sm']) }}
@@ -45,7 +45,7 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_ha_estado_srpa_id', '10.2 ¿Ha estado vinculado al Sistema de Responsabilidad Penal Adolescente - SRPA?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_ha_estado_srpa_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
+        {{ Form::select('i_prm_ha_estado_srpa_id', $todoxxxx["estaspoa"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('i_prm_actualmente_srpa_id', '¿Actualmente se encuentra vinculado al SRPA?', ['class' => 'control-label col-form-label-sm']) }}
@@ -112,22 +112,22 @@
 <div class="form-row align-items-end">
     <div class="form-group col-md-6">
         {{ Form::label('i_prm_vinculado_violencia_id', '10.4 ¿Se encuentra vinculado a la delincuencia o a la violencia?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_vinculado_violencia_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm','onchange' => 'doc(this.value)']) }}
+        {{ Form::select('i_prm_vinculado_violencia_id', $todoxxxx["violvinc"], null, ['class' => 'form-control form-control-sm']) }}
     </div>
     <div class="form-group col-md-6">
         {{ Form::label('prm_situacion_id', 'Seleccionar las causas que originaron tal situación', ['class' => 'control-label col-form-label-sm']) }}
         <div id="prm_situacion_div">
-            {{ Form::select('prm_situacion_id[]', $todoxxxx["vincviol"], null, ['class' =>$errors->first('prm_situacion_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'multiple']) }}
+            {{ Form::select('prm_situacion_id[]', $todoxxxx["vincviol"], null, ['class' =>$errors->first('prm_situacion_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm', 'id'=>'prm_situacion_id','multiple']) }}
         </div>
     </div>
     <div class="form-group col-md-6">
         {{ Form::label('i_prm_riesgo_participar_id', '10.5 ¿Se cuentra en riesgo de participar en actos delictivos?', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm','id'=>'i_prm_riesgo_participar_id','onchange' => 'doc1(this.value)']) }}
+        {{ Form::select('i_prm_riesgo_participar_id', $todoxxxx["violries"], null, ['class' => 'form-control form-control-sm','id'=>'i_prm_riesgo_participar_id']) }}
     </div>
     <div class="form-group col-md-6">
         {{ Form::label('prm_riesgo_id', 'Seleccionar las causas que pueden llegar a materializar el riesgo', ['class' => 'control-label col-form-label-sm']) }}
         <div id="prm_riesgo_div">
-            {{ Form::select('prm_riesgo_id[]', $todoxxxx["riesviol"], null, ['class' =>$errors->first('prm_riesgo_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple']) }}
+            {{ Form::select('prm_riesgo_id[]', $todoxxxx["riesviol"], null, ['class' =>$errors->first('prm_riesgo_id') ? 'form-control select2 form-control-sm is-invalid' : 'form-control select2 form-control-sm','multiple','id'=>'prm_riesgo_id']) }}
         </div>
     </div>
 </div>

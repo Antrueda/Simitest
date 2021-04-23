@@ -73,7 +73,7 @@ trait InterfazFiTrait
                 $dataxxxx['mensajex'] = 'El NNAJ: ' . $dataxxxx->primer_nombre.' '.
                 $dataxxxx->segundo_nombre.' '.
                 $dataxxxx->primer_apellido.' '.
-                $dataxxxx->segundo_apellido.' con docuemento de identidad:  '.$request->docuagre. ' no se puede migrar porque no tiene ficha de ingreso en el antiguo simi';
+                $dataxxxx->segundo_apellido.' con documento de identidad:  '.$request->docuagre. ' no se puede migrar porque no tiene ficha de ingreso en el antiguo simi';
                 throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
             }else{
                 $dataxxxx->fecha_apertura=$fichacer->fecha_apertura;
@@ -353,3 +353,4 @@ trait InterfazFiTrait
         ddd($upinnajx);
     }
 }
+// kdk

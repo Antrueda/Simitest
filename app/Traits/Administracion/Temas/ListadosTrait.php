@@ -2,16 +2,11 @@
 
 namespace App\Traits\Administracion\Temas;
 
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\Parametro;
-use App\Models\Sistema\SisDepeUsua;
-use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\Temacombo;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable

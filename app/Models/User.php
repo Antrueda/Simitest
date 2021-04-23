@@ -341,6 +341,40 @@ class User extends Authenticatable
         return $comboxxx;
     }
 
+    public static function userComboRelacion($dataxxxx)
+    {
+        $comboxxx = [];
+        if ($dataxxxx['cabecera']) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
+            } else {
+                $comboxxx = ['' => 'Seleccione'];
+            }
+        }
+
+        $userxxxx = User::select(['users.id','s_primer_nombre','s_documento','s_primer_apellido','s_segundo_apellido','s_segundo_nombre'])->where(function ($queryxxx) use ($dataxxxx) {
+            if ($dataxxxx['notinxxx'] != false) {
+                $queryxxx->whereNotIn('users.id', $dataxxxx['notinxxx']);
+            }
+
+            $queryxxx->where('users.sis_esta_id', 1);
+        })
+        ->join('sis_depen_user','users.id','=','sis_depen_user.user_id')
+        ->where('sis_depen_user.sis_depen_id', $dataxxxx['estadosx'])
+        ->where('sis_depen_user.sis_esta_id', 1)
+
+            ->orderBy('s_primer_nombre')
+            ->orderBy('s_primer_apellido')
+            ->get();
+        foreach ($userxxxx as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->getDocNombreCompletoAttribute()];
+            } else {
+                $comboxxx[$registro->id] = $registro->getDocNombreCompletoAttribute();
+            }
+        }
+        return $comboxxx;
+    }
 
 
     private static function userComboCargo($dataxxxx)

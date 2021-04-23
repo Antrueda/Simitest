@@ -20,5 +20,8 @@
          @canany(['sistemax-modulo'])
             @include('layouts.menus.sistema')
         @endcanany
+        @canany(['ayuda-modulo'])
+             @include('layouts.menus.admayuda')
+         @endcanany  
     </ul>
 </li>

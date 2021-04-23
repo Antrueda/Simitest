@@ -2,29 +2,25 @@
 $routexxx='municipi';
 $controll='Administracion\Ubicacion\SisMunicipio';
 Route::group(['prefix' => 'municipios'], function () use($routexxx,$controll){
-    Route::get('', [
+    Route::get('{padrexxx}/lista', [
 		'uses' => $controll.'Controller@index',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
     ])->name($routexxx);
-
-    Route::get('nuevo', [
-		'uses' => $controll.'Controller@create',
-		'middleware' => ['permission:'.$routexxx.'-crear']
-	])->name($routexxx.'.nuevo');
-
-    Route::get('listaxxx', [
+    Route::get('{padrexxx}/listaxxx', [
 		'uses' => $controll.'Controller@listaMunicipios',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
     ])->name($routexxx.'.listaxxx');
-
-	Route::post('crear', [
-		'uses' => $controll.'Controller@store',
-		'middleware' => ['permission:'.$routexxx.'-crear']
-    ])->name($routexxx.'.crear');
 });
 Route::group(['prefix' => 'municipio'], function () use($routexxx,$controll){
 
-
+    Route::get('{padrexxx}/nuevo', [
+		'uses' => $controll.'Controller@create',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+	])->name($routexxx.'.nuevo');
+    Route::post('{padrexxx}/crear', [
+		'uses' => $controll.'Controller@store',
+		'middleware' => ['permission:'.$routexxx.'-crear']
+    ])->name($routexxx.'.crear');
 	Route::get('editar/{modeloxx}', [
 		'uses' => $controll.'Controller@edit',
 		'middleware' => ['permission:'.$routexxx.'-editar']

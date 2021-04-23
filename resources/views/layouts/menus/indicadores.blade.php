@@ -23,5 +23,16 @@
                 </a>
             </li>
         @endcan
+
+
+        
+        @can('indimodu-moduloxx')
+        <li class="nav-item">
+            <a href="{{ route('indimodu') }}" class="nav-link">
+            <i class="fas fa-check nav-icon"></i>
+            <p>Individuales Verónica</p>
+            </a>
+        </li>
+    @endcan
     </ul>
 </li>

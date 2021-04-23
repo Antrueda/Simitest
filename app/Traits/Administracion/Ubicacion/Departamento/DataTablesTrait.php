@@ -15,7 +15,7 @@ trait DataTablesTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
-    public function getTablas()
+    public function getTablasIndex($padrexxx)
     {
 
        $this->opciones['tablasxx'] = [
@@ -24,7 +24,7 @@ trait DataTablesTrait
                 'titulist' => 'LISTA DE DEPARTAMENTOS',
                 'archdttb' =>$this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
                 'vercrear' => true,
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', []),
+                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
                 'permtabl' => [
                    $this->opciones['permisox'] . '-leer',
                    $this->opciones['permisox'] . '-crear',
@@ -49,7 +49,7 @@ trait DataTablesTrait
                 'tablaxxx' => 'datatable',
                 'permisox' =>$this->opciones['permisox'],
                 'routxxxx' =>$this->opciones['routxxxx'],
-                'parametr' => [],
+                'parametr' => [$padrexxx->id],
             ]
         ];
        $this->opciones['ruarchjs'] = [

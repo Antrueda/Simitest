@@ -36,5 +36,6 @@ class SisLocalidadsSeeder extends Seeder
         SisLocalidad::create(['id' => 22, 's_localidad' => 'N/A',]);
         SisLocalidad::create(['id' => 23, 's_localidad' => 'LOCALIDA INCORRECTA EN LA BASE PLANA',]);
         SisLocalidad::create(['id' => 24, 's_localidad' => 'LOCALIDAD NO IDENTIFICADA EN EL NUEVO DESARROLLO',]);
+        SisLocalidad::create(['id' => 25, 's_localidad' => 'DISTRITAL','simianti_id' => 40000]);
     }
 }

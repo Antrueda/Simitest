@@ -82,5 +82,6 @@ class SisEntidadSaludsSeeder extends Seeder
         $this->getR(['enprsaid' => 56, 'entidadx' => [1631]]);
         $this->getR(['enprsaid' => 57, 'entidadx' => [1631]]);
         $this->getR(['enprsaid' => 58, 'entidadx' => [1631]]);
+        $this->getR(['enprsaid' => 59, 'entidadx' => [235]]);
     }
 }

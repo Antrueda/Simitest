@@ -45,6 +45,37 @@
   @yield('codigo')
   <!-- End Scripts -->
 
+
+  
+<!-- include summernote css/js-->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.texteditor').summernote({
+                height: 500,
+                minHeight: null,
+                maxHeight: null,
+                shortCuts: false,
+                fontSize: 14,
+                disableDragAndDrop: false,
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['Insert', ['picture']],
+                    ['Other', ['fullscreen', 'codeview']]
+                ],
+            });
+        });
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+    </script>
 </body>
 
 </html>

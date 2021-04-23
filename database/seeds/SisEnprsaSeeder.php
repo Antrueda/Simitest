@@ -63,7 +63,6 @@ class SisEnprsaSeeder extends Seeder
         $this->getR(['enprsaxx' => 'SANITAS S.A. E.P.S.']); //41
         $this->getR(['enprsaxx' => 'SAVIA SALUD EPS']); //42
         $this->getR(['enprsaxx' => 'SERVICIO OCCIDENTAL DE SALUD SOS EPS']); //43
-
         $this->getR(['enprsaxx' => 'SOLSALUD']); //44
         $this->getR(['enprsaxx' => 'Población habitante de calle']); //45
         $this->getR(['enprsaxx' => 'Población ICBF']); //46
@@ -79,6 +78,7 @@ class SisEnprsaSeeder extends Seeder
         $this->getR(['enprsaxx' => 'SISBEN Departamental']); //56
         $this->getR(['enprsaxx' => 'SISBEN Distrital']); //57
         $this->getR(['enprsaxx' => 'Instrumento provisional']); //58
+        $this->getR(['enprsaxx' => 'N/A']); //59
 
 
 

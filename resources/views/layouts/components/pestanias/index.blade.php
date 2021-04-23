@@ -5,6 +5,7 @@ if(isset($todoxxxx['rowscols'])){
     $tablaxxx=$todoxxxx['rowscols'];
 }
 
+
 ?>
 
 @foreach ($todoxxxx['tablasxx'] as $tablasxx)

@@ -64,6 +64,7 @@ class CsdResidenciaController extends Controller
     }
     private function view($dataxxxx)
     {
+    
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
@@ -80,12 +81,13 @@ class CsdResidenciaController extends Controller
         $this->opciones['upzxxxxx'] = ['' => 'Seleccione'];
         $this->opciones['barrioxx'] = $this->opciones['upzxxxxx'];
         $this->opciones['readchcx'] = '';
-        if ($this->opciones['usuariox']->prm_poblacion_id == 650) {
+        
+        if ($this->opciones['usuariox']->prm_tipoblaci_id == 650) {
             $this->opciones['readchcx'] = 'readonly';
-            $this->opciones['residees'] = [1 => 'NO APLICA'];
-            $this->opciones['localida'] = [22 => 'NO APLICA'];
-            $this->opciones['upzxxxxx'] = [134 => 'NO APLICA'];
-            $this->opciones['barrioxx'] = [1 => 'NO APLICA'];
+            $this->opciones['residees'] = [235 => 'N/A'];
+            $this->opciones['localida'] = [22 => 'N/A'];
+            $this->opciones['upzxxxxx'] = [119 => 'N/A'];
+            $this->opciones['barrioxx'] = [1924 => 'N/A'];
             $this->opciones['tiporesi'] = Tema::combo(145, true, false);
         } else {
             $this->opciones['tiporesi'] = Tema::combo(34, true, false);
@@ -99,6 +101,7 @@ class CsdResidenciaController extends Controller
         $vercrear = false;
         $residenc = 0;
         if ($dataxxxx['modeloxx'] != '') {
+
             $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
 
@@ -112,13 +115,14 @@ class CsdResidenciaController extends Controller
             $dataxxxx['modeloxx']->sis_upz_id=$dataxxxx['modeloxx']->sis_upzbarri->sis_localupz_id;
             $this->opciones['barrioxx'] = SisBarrio::combo($dataxxxx['modeloxx']->sis_upz_id, false);
             $vercrear = true;
-            if ($dataxxxx['modeloxx']->i_prm_zona_direccion_id == 289) {
+            /*
+            if ($dataxxxx['modeloxx']->prm_dir_zona_id == 289) {
                 $this->opciones['dircondi'] = Parametro::find(235)->Combo;
-                $this->opciones['cuadrant'] = [1 => 'NO APLICA'];
-                $this->opciones['alfabeto'] = [1 => 'NO APLICA'];
-                $this->opciones['tpviapal'] = [1 => 'NO APLICA'];
+                $this->opciones['cuadrant'] = Parametro::find(235)->Combo;
+                $this->opciones['alfabeto'] = Parametro::find(235)->Combo;
+                $this->opciones['tpviapal'] = Parametro::find(235)->Combo;
             }
-
+*/
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $residenc = $dataxxxx['padrexxx']->csd->CsdResidencia->id;

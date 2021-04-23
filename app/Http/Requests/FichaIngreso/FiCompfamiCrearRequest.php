@@ -25,6 +25,8 @@ class FiCompfamiCrearRequest extends FormRequest
             's_documento.required' => 'Ingrese el número de documento',
             'sis_municipio_id.required' => 'Seleccione un municipio',
             'prm_tipodocu_id.required' => 'Seleccione tipo de documento',
+            's_primer_nombre.required' => 'Ingrese el primer nombre',
+            's_primer_apellido.required' => 'Ingrese el primere apellido',
         ];
 
         $this->_reglasx = [
@@ -38,6 +40,8 @@ class FiCompfamiCrearRequest extends FormRequest
             's_telefono' => ['required'],
             's_documento' => ['required'],
             'sis_municipio_id' => ['required'],
+            's_primer_nombre' => ['required'],
+            's_primer_apellido' => ['required'],
         ];
     }
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vsi;
 
+use App\Models\sicosocial\VsiPotencialidad;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VsiPotencialidadEditarRequest extends FormRequest
@@ -46,6 +47,15 @@ class VsiPotencialidadEditarRequest extends FormRequest
 
     public function validar()
     {
-
+        $registro = VsiPotencialidad::select('vsi_potencialidads.potencialidad')
+        ->join('vsis', 'vsi_potencialidads.vsi_id', '=', 'vsis.id')
+        ->where('vsis.id', $this->padrexxx) 
+        ->where('vsi_potencialidads.potencialidad', $this->potencialidad)
+        ->first();
+   
+    if (isset($registro)) {
+        $this->_mensaje['existexx.required'] = 'La pontencialidad ya existe';
+        $this->_reglasx['existexx'] = ['Required',];
+    }
     }
 }

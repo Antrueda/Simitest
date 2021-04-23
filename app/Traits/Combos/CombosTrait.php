@@ -5,7 +5,10 @@ namespace App\Traits\Combos;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
-use App\Models\Tema;
+use App\Models\Sistema\SisBarrio;
+use App\Models\Sistema\SisLocalupz;
+use App\Models\Sistema\SisUpz;
+use App\Models\Sistema\SisUpzbarri;
 use App\Models\Temacombo;
 
 trait CombosTrait
@@ -94,21 +97,16 @@ trait CombosTrait
     * @param  $ajaxxxxx indica si el combo es para devolver en array para objeto json
     * @return $comboxxx
     */
-    public static function combo($dataxxxx)
+    public function getTemacomboCT($dataxxxx)
     {
-        $comboxxx = [];
-        if ($dataxxxx['cabecera']) {
-            if ($dataxxxx['ajaxxxxx']) {
-                $comboxxx[] = ['valuexxx' => '', 'optionxx' => 'Seleccione'];
-            } else {
-                $comboxxx = ['' => 'Seleccione'];
-            }
-        }
+        $comboxxx = $this->getCabecera($dataxxxx);;
         $parametr = Temacombo::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
             ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
             ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
-            ->where('temacombos.id', $dataxxxx['temaxxxx'])
-            ->orderBy('parametros.id', 'asc')
+            ->where(function ($queryxxx) use ($dataxxxx) {
+                $queryxxx->where('temacombos.id', $dataxxxx['temaxxxx']);
+            })
+            ->orderBy('parametros.nombre', $dataxxxx['orederby'])
             ->get();
         foreach ($parametr as $registro) {
             if ($dataxxxx['ajaxxxxx']) {
@@ -121,7 +119,7 @@ trait CombosTrait
                 $comboxxx[$registro->valuexxx] = $registro->optionxx;
             }
         }
-        return $comboxxx;
+        return ['comboxxx' => $comboxxx];
     }
 
     public function getResponsablesActividad($dataxxxx)
@@ -130,5 +128,45 @@ trait CombosTrait
             if ($dataxxxx['ajax']) {
             }
         }
+    }
+
+    public function getUpzsCT($dataxxxx)
+    {
+        $localida = SisLocalupz::select(['sis_upz_id'])
+            ->where('sis_localidad_id', $dataxxxx['padrexxx'])
+            ->whereNotIn('sis_upz_id', $dataxxxx['selected'])
+            ->get();
+        $dataxxxx['dataxxxx'] = SisUpz::select(['sis_upzs.id as valuexxx', 'sis_upzs.s_upz as optionxx'])
+            ->whereNotIn('id', $localida)
+            ->get();
+            return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
+    }
+
+    public function getCuerpoComboCT($dataxxxx)
+    {
+        $comboxxx = $this->getCabecera($dataxxxx);
+        foreach ($dataxxxx['dataxxxx'] as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $selected = '';
+                if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
+                    $selected = 'selected';
+                }
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->valuexxx . ' ' . $registro->optionxx, 'selected' => $selected];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
+            }
+        }
+        return $comboxxx;
+    }
+    public function getBarriosCT($dataxxxx)
+    {
+        $localida = SisUpzbarri::select(['sis_barrio_id'])
+            ->where('sis_localupz_id', $dataxxxx['padrexxx'])
+            ->whereNotIn('sis_barrio_id', $dataxxxx['selected'])
+            ->get();
+        $dataxxxx['dataxxxx'] = SisBarrio::select(['sis_barrios.id as valuexxx', 'sis_barrios.s_barrio as optionxx'])
+            ->whereNotIn('id', $localida)
+            ->get();
+        return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
     }
 }

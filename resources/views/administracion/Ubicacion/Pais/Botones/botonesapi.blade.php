@@ -29,7 +29,7 @@
         </div>
         @if(auth()->user()->can( $requestx->routexxx[1].'-leer'))
         <div class="dropdown-item">
-            <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[1], [$queryxxx->id]) }}">DEPARTAMETOS</a>
+            <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[1], [$queryxxx->id]) }}">DEPARTAMENTOS</a>
         </div>
         @endif
     </div>

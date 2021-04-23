@@ -11,5 +11,7 @@ require_once('Ubicacion/web_pais.php');
 require_once('Ubicacion/web_departamento.php');
 require_once('Ubicacion/web_municipio.php');
 require_once('Ubicacion/web_localidad.php');
+require_once('Ubicacion/web_localupz.php');
+require_once('Ubicacion/web_upzbarri.php');
 require_once('Ubicacion/web_upz.php');
 require_once('Ubicacion/web_barrio.php');

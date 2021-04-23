@@ -37,6 +37,8 @@ class AISalidaMenorRequest extends FormRequest
             'prm_carta_id.required'      => 'Campo obligatorio',
             'prm_copiaDoc_id.required'   => 'Campo obligatorio',
             'prm_copiaDoc2_id.required'  => 'Campo obligatorio',
+            'user_doc1_id.required'   => 'Campo obligatorio',
+            
 
 
 
@@ -58,7 +60,7 @@ class AISalidaMenorRequest extends FormRequest
             'nom1_autorizado'   => 'nullable|string|max:120',
             'nom2_autorizado'   => 'nullable|string|max:120',
             'prm_doc2_id'       => 'nullable|exists:parametros,id',
-            'doc_autorizado'    => 'nullable|integer|max:10',
+            'doc_autorizado'    => 'nullable|integer',
             'prm_parentezco2_id'=> 'nullable|exists:parametros,id',
             'prm_carta_id'      => 'required|exists:parametros,id',
             'prm_copiaDoc_id'   => 'required|exists:parametros,id',
@@ -71,7 +73,7 @@ class AISalidaMenorRequest extends FormRequest
             'tel_contacto'      => 'required|integer',
             'causa'             => 'nullable|string|max:4000',
             'nombres_recoge'    => 'required|string|max:120',
-            'doc_recoge'        => 'required|string|max:120',
+            'doc_recoge'        => 'required|integer',
             'responsable'       => 'required|exists:users,id',
             'user_doc1_id'      => 'required|exists:users,id',
             'objetivo'          => 'required|array',
