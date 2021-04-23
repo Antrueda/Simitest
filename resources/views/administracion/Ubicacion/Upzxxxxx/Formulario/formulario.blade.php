@@ -1,21 +1,21 @@
 <div class="form-row">
     <div class="form-group col-md-4">
-        {{ Form::label('s_pais', 'País', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_pais', null, ['class' => $errors->first('s_pais') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
+        {{ Form::label('s_upz', 'Upz', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('s_upz', null, ['class' => $errors->first('s_upz') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
                   "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"])}}
-        @if($errors->has('s_pais'))
+        @if($errors->has('s_upz'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('s_pais') }}
+            {{ $errors->first('s_upz') }}
         </div>
         @endif
     </div>
     <div class="form-group col-md-4">
-        {{ Form::label('s_iso', 'ISO', ['class' => 'control-label col-form-label-sm']) }}
-        {{ Form::text('s_iso', null, ['class' => $errors->first('s_iso') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
+        {{ Form::label('s_codigo', 'Código', ['class' => 'control-label col-form-label-sm']) }}
+        {{ Form::text('s_codigo', null, ['class' => $errors->first('s_codigo') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'style' => 'text-transform:uppercase;',
                   "onkeyup" => "javascript:this.value=this.value.toUpperCase();","onkeypress" => "return soloLetras(event);"])}}
-        @if($errors->has('s_iso'))
+        @if($errors->has('s_codigo'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('s_iso') }}
+            {{ $errors->first('s_codigo') }}
         </div>
         @endif
     </div>
@@ -30,3 +30,4 @@
         @endif
     </div>
 </div>
+

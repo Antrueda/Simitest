@@ -56,7 +56,7 @@ class SisUpzbarriController extends Controller
     public function store(SisUpzbarriCrearRequest $request)
     {
         $request->request->add(['sis_esta_id' => 1]);
-        return $this->setBarrio([
+        return $this->setUpzbarri([
             'requestx' => $request,
             'modeloxx' => '',
             'infoxxxx' => $this->opciones['infocont'].' asignado con éxito',
@@ -81,7 +81,7 @@ class SisUpzbarriController extends Controller
 
     public function update(SisUpzbarriEditarRequest $request,  SisUpzbarri $modeloxx)
     {
-        return $this->setBarrio([
+        return $this->setUpzbarri([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
             'infoxxxx' => $this->opciones['infocont'].' editado con éxito',

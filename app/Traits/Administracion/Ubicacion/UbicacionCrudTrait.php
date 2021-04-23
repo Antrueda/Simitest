@@ -2,12 +2,11 @@
 
 namespace App\Traits\Administracion\Ubicacion;
 
-use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisDepartam;
-use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
+use App\Models\Sistema\SisUpz;
 use App\Models\Sistema\SisUpzbarri;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -86,6 +85,22 @@ trait UbicacionCrudTrait
             ->route($dataxxxx['routxxxx'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
+    public function setUpz($dataxxxx)
+    {
+        $respuest = DB::transaction(function () use ($dataxxxx) {
+            $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
+            if (isset($dataxxxx['modeloxx']->id)) {
+                $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());
+            } else {
+                $dataxxxx['requestx']->request->add(['user_crea_id' => Auth::user()->id]);
+                $dataxxxx['modeloxx'] = SisUpz::create($dataxxxx['requestx']->all());
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return redirect()
+            ->route($dataxxxx['routxxxx'], [$respuest->id])
+            ->with('info', $dataxxxx['infoxxxx']);
+    }
     /**
      * grabar o actualizar registros para localidades
      *
@@ -109,7 +124,7 @@ trait UbicacionCrudTrait
             ->with('info', $dataxxxx['infoxxxx']);
     }
 
-    public function setBarrio($dataxxxx)
+    public function setUpzbarri($dataxxxx)
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
@@ -125,4 +140,5 @@ trait UbicacionCrudTrait
             ->route($dataxxxx['routxxxx'], [$respuest->id])
             ->with('info', $dataxxxx['infoxxxx']);
     }
+
 }
