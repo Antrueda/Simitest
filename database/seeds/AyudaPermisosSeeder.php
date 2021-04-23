@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 class AyudaPermisosSeeder extends Seeder
@@ -13,7 +12,6 @@ class AyudaPermisosSeeder extends Seeder
      */
     public function run()
     {
-        app()['cache']->forget('spatie.permission.cache');
 
         Permission::create([
             'name' => 'ayuda-modulo',

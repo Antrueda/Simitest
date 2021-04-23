@@ -55,7 +55,9 @@
             @endcanany
 
              <!-- AYUDA -->
+             @canany(['ayuda-modulo'])
              @include('layouts.menus.ayuda')
+             @endcanany
              <!-- FIN AYUDA -->
 
             <!-- FIN REPORTES -->

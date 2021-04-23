@@ -3,9 +3,10 @@
 namespace App\Rules;
 
 use App\Models\Sistema\SisDepeUsua;
+use App\Models\Sistema\SisLocalupz;
 use Illuminate\Contracts\Validation\Rule;
 
-class DepenUsuarioRule implements Rule
+class LocalidadUpzDuplicadRule implements Rule
 {
     private $requestx;
     /**
@@ -28,7 +29,7 @@ class DepenUsuarioRule implements Rule
     public function passes($attribute, $value)
     {
         $respuest=true;
-        $sisdepeu = SisDepeUsua::where('user_id', $this->requestx->user_id)->where('sis_depen_id', $this->requestx->sis_depen_id)->first();
+        $sisdepeu = SisLocalupz::where('user_id', $this->requestx->user_id)->where('sis_depen_id', $this->requestx->sis_depen_id)->first();
         if ($sisdepeu != null) {
             if ($this->requestx->segments()[3] != $sisdepeu->id) {
                 $respuest=false;
@@ -44,6 +45,6 @@ class DepenUsuarioRule implements Rule
      */
     public function message()
     {
-        return 'La dependencia ya se encuentra en uso';
+        return 'La upz ya se encuentra en uso para la localidad seleccionada';
     }
 }

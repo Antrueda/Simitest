@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Traits\Administracion\Ubicacion\Localidad;
+namespace App\Traits\Administracion\Ubicacion\Localupz;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait LocalidadParametrizarTrait
+trait LocalupzParametrizarTrait
 {
 
     public $opciones;
@@ -40,16 +40,16 @@ trait LocalidadParametrizarTrait
         $this->opciones['rutacarp'] = 'administracion.Ubicacion.';
         $this->opciones['parametr'] = [];
         $this->opciones['routingx'] = [];
-        $this->opciones['carpetax'] = 'Localidad';
+        $this->opciones['carpetax'] = 'Localupz';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
         $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.formulario.formulario';
         /** ruta que arma el formulario */
         $this->opciones['rutarchi'] = $this->opciones['rutacarp'] . 'Acomponentes.Acrud.index';
-        $this->opciones['tituloxx'] = "LOCALIDAD";
-        $this->opciones['titucont'] = "LOCALIDAD";
-        $this->opciones['infocont'] = "Localidad";
+        $this->opciones['tituloxx'] = "LOCALIDAD-UPZ";
+        $this->opciones['titucont'] = "LOCALIDAD-UPZ";
+        $this->opciones['infocont'] = "Localidad-Upz";
 
     }
 

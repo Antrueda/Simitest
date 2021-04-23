@@ -5,6 +5,8 @@ namespace App\Traits\Combos;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
+use App\Models\Sistema\SisLocalupz;
+use App\Models\Sistema\SisUpz;
 use App\Models\Temacombo;
 
 trait CombosTrait
@@ -95,11 +97,11 @@ trait CombosTrait
     */
     public function getTemacomboCT($dataxxxx)
     {
-       $comboxxx = $this->getCabecera($dataxxxx);;
+        $comboxxx = $this->getCabecera($dataxxxx);;
         $parametr = Temacombo::select(['parametros.id as valuexxx', 'parametros.nombre as optionxx'])
             ->join('parametro_temacombo', 'temacombos.id', '=', 'parametro_temacombo.temacombo_id')
             ->join('parametros', 'parametro_temacombo.parametro_id', '=', 'parametros.id')
-            ->where(function($queryxxx)use($dataxxxx){
+            ->where(function ($queryxxx) use ($dataxxxx) {
                 $queryxxx->where('temacombos.id', $dataxxxx['temaxxxx']);
             })
             ->orderBy('parametros.nombre', $dataxxxx['orederby'])
@@ -115,7 +117,7 @@ trait CombosTrait
                 $comboxxx[$registro->valuexxx] = $registro->optionxx;
             }
         }
-        return ['comboxxx'=>$comboxxx];
+        return ['comboxxx' => $comboxxx];
     }
 
     public function getResponsablesActividad($dataxxxx)
@@ -124,5 +126,29 @@ trait CombosTrait
             if ($dataxxxx['ajax']) {
             }
         }
+    }
+
+    public function getUpzsCT($dataxxxx)
+    {
+        $localida = SisLocalupz::select(['sis_upz_id'])
+            ->where('sis_localidad_id', $dataxxxx['padrexxx'])
+            ->whereNotIn('sis_upz_id', $dataxxxx['selected'])
+            ->get();
+        $comboxxx = $this->getCabecera($dataxxxx);
+        $parametr = SisUpz::select(['sis_upzs.id as valuexxx', 'sis_upzs.s_upz as optionxx'])
+            ->whereNotIn('id', $localida)
+            ->get();
+        foreach ($parametr as $registro) {
+            if ($dataxxxx['ajaxxxxx']) {
+                $selected = '';
+                if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
+                    $selected = 'selected';
+                }
+                $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->valuexxx . ' ' . $registro->optionxx, 'selected' => $selected];
+            } else {
+                $comboxxx[$registro->valuexxx] = $registro->valuexxx . ' ' . $registro->optionxx;
+            }
+        }
+        return ['comboxxx' => $comboxxx];
     }
 }

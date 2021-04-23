@@ -3,7 +3,8 @@
 namespace App\Traits\Administracion\Ubicacion;
 
 use App\Models\Sistema\SisDepartam;
-use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisLocalidad;
+use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
 use App\Traits\DatatableTrait;
@@ -13,15 +14,12 @@ use Illuminate\Http\Request;
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
-trait ListadosTrait
+trait UbicacionListadosTrait
 {
     use DatatableTrait;
-
     /**
      * encontrar listar paises
      */
-
-
     public function listaPaises(Request $request)
     {
 
@@ -70,13 +68,31 @@ trait ListadosTrait
     {
 
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'comboxxx'];
+            $request->routexxx = [$this->opciones['routxxxx'], 'localupz'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  SisDepen::select(['sis_depens.id', 'sis_depens.nombre', 'sis_depens.sis_esta_id', 'sis_estas.s_estado'])
-                ->join('sis_estas', 'sis_depens.sis_esta_id', '=', 'sis_estas.id');
+            $dataxxxx =  SisLocalidad::select(['sis_localidads.id', 'sis_localidads.s_localidad', 'sis_localidads.sis_esta_id', 'sis_estas.s_estado'])
+                ->join('sis_estas', 'sis_localidads.sis_esta_id', '=', 'sis_estas.id');
             return $this->getDt($dataxxxx, $request);
         }
     }
+
+    public function listalocalupzs(Request $request,SisLocalidad $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'localupz'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  SisLocalupz::select(['sis_localupzs.id', 'sis_upzs.s_upz', 'sis_localupzs.sis_esta_id', 'sis_estas.s_estado'])
+                ->join('sis_upzs', 'sis_localupzs.sis_upz_id', '=', 'sis_upzs.id')
+                ->join('sis_estas', 'sis_localupzs.sis_esta_id', '=', 'sis_estas.id')
+                ->where('sis_localidad_id',$padrexxx->id)
+                ;
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
+
+
 }

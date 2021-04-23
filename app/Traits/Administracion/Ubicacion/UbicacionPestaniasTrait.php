@@ -3,7 +3,7 @@
 namespace App\Traits\Administracion\Ubicacion;
 
 
-trait PestaniasTrait
+trait UbicacionPestaniasTrait
 {
     public $pestania = [
         ['paisxxxx', '', [],"PAÍS",true,'','Paises'],
