@@ -27,10 +27,5 @@
         <div class="dropdown-item">
             <a class="btn btn-sm btn-primary" href="{{route($requestx->routexxx[0].'.ver', [$queryxxx->id])}}" >VER</a>
         </div>
-        @if(auth()->user()->can( $requestx->routexxx[1].'-leer'))
-        <div class="dropdown-item">
-            <a class="btn btn-sm btn-primary " href="{{ route($requestx->routexxx[1], [$queryxxx->id]) }}">ASIGNAR BARRIOS</a>
-        </div>
-        @endif
     </div>
 </div>

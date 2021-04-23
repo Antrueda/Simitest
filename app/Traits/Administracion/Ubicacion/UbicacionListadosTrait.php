@@ -7,6 +7,7 @@ use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisPai;
+use App\Models\Sistema\SisUpzbarri;
 use App\Traits\DatatableTrait;
 use Illuminate\Http\Request;
 
@@ -81,7 +82,7 @@ trait UbicacionListadosTrait
     public function listalocalupzs(Request $request,SisLocalidad $padrexxx)
     {
         if ($request->ajax()) {
-            $request->routexxx = [$this->opciones['routxxxx'], 'localupz'];
+            $request->routexxx = [$this->opciones['routxxxx'], 'barriupz'];
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
@@ -94,5 +95,19 @@ trait UbicacionListadosTrait
         }
     }
 
-
+    public function listaupzbarris(Request $request,SisLocalupz $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->routexxx = [$this->opciones['routxxxx'], 'barriupz'];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            $dataxxxx =  SisUpzbarri::select(['sis_upzbarris.id', 'sis_barrios.s_barrio', 'sis_upzbarris.sis_esta_id', 'sis_estas.s_estado'])
+            ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
+                ->join('sis_estas', 'sis_upzbarris.sis_esta_id', '=', 'sis_estas.id')
+                ->where('sis_localupz_id',$padrexxx->id)
+                ;
+            return $this->getDt($dataxxxx, $request);
+        }
+    }
 }

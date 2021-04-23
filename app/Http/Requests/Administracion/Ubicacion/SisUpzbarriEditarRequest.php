@@ -2,12 +2,12 @@
 
 namespace App\Http\Requests\Administracion\Ubicacion;
 
-use App\Traits\Administracion\Ubicacion\Localupz\LocalupzRequestTrait;
+use App\Traits\Administracion\Ubicacion\Upzbarri\UpzbarriRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
-class SisLocalupzEditarRequest extends FormRequest
+class SisUpzbarriEditarRequest extends FormRequest
 {
-    use LocalupzRequestTrait;
+    use UpzbarriRequestTrait;
 
     /**
      * Determine if the user is authorized to make this request.

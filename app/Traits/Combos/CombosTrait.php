@@ -5,8 +5,10 @@ namespace App\Traits\Combos;
 use App\Models\Indicadores\InAccionGestion;
 use App\Models\Indicadores\InActsoporte;
 use App\Models\Indicadores\InLineabaseNnaj;
+use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalupz;
 use App\Models\Sistema\SisUpz;
+use App\Models\Sistema\SisUpzbarri;
 use App\Models\Temacombo;
 
 trait CombosTrait
@@ -134,11 +136,16 @@ trait CombosTrait
             ->where('sis_localidad_id', $dataxxxx['padrexxx'])
             ->whereNotIn('sis_upz_id', $dataxxxx['selected'])
             ->get();
-        $comboxxx = $this->getCabecera($dataxxxx);
-        $parametr = SisUpz::select(['sis_upzs.id as valuexxx', 'sis_upzs.s_upz as optionxx'])
+        $dataxxxx['dataxxxx'] = SisUpz::select(['sis_upzs.id as valuexxx', 'sis_upzs.s_upz as optionxx'])
             ->whereNotIn('id', $localida)
             ->get();
-        foreach ($parametr as $registro) {
+            return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
+    }
+
+    public function getCuerpoComboCT($dataxxxx)
+    {
+        $comboxxx = $this->getCabecera($dataxxxx);
+        foreach ($dataxxxx['dataxxxx'] as $registro) {
             if ($dataxxxx['ajaxxxxx']) {
                 $selected = '';
                 if (in_array($registro->valuexxx, $dataxxxx['selected'])) {
@@ -146,9 +153,20 @@ trait CombosTrait
                 }
                 $comboxxx[] = ['valuexxx' => $registro->valuexxx, 'optionxx' => $registro->valuexxx . ' ' . $registro->optionxx, 'selected' => $selected];
             } else {
-                $comboxxx[$registro->valuexxx] = $registro->valuexxx . ' ' . $registro->optionxx;
+                $comboxxx[$registro->valuexxx] = $registro->optionxx;
             }
         }
-        return ['comboxxx' => $comboxxx];
+        return $comboxxx;
+    }
+    public function getBarriosCT($dataxxxx)
+    {
+        $localida = SisUpzbarri::select(['sis_barrio_id'])
+            ->where('sis_localupz_id', $dataxxxx['padrexxx'])
+            ->whereNotIn('sis_barrio_id', $dataxxxx['selected'])
+            ->get();
+        $dataxxxx['dataxxxx'] = SisBarrio::select(['sis_barrios.id as valuexxx', 'sis_barrios.s_barrio as optionxx'])
+            ->whereNotIn('id', $localida)
+            ->get();
+        return ['comboxxx' => $this->getCuerpoComboCT($dataxxxx)];
     }
 }

@@ -2,13 +2,12 @@
 
 namespace App\Http\Requests\Administracion\Ubicacion;
 
-use App\Traits\Administracion\Ubicacion\Localupz\LocalupzRequestTrait;
+use App\Traits\Administracion\Ubicacion\Upzbarri\UpzbarriRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
-class SisLocalupzEditarRequest extends FormRequest
+class SisUpzbarriCrearRequest extends FormRequest
 {
-    use LocalupzRequestTrait;
-
+    use UpzbarriRequestTrait;
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -21,7 +20,7 @@ class SisLocalupzEditarRequest extends FormRequest
 
     public function messages()
     {
-        $_mensaje=$this->getMensajesULT([]);
+        $_mensaje = $this->getMensajesULT([]);
         return $_mensaje;
     }
     /**
@@ -31,7 +30,7 @@ class SisLocalupzEditarRequest extends FormRequest
      */
     public function rules()
     {
-        $_reglasx=$this->getReglasULT([]);
+        $_reglasx = $this->getReglasULT([]);
         return $_reglasx;
     }
 }
