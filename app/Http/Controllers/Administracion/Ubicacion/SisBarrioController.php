@@ -65,7 +65,6 @@ class SisBarrioController extends Controller
 
     public function edit(SisBarrio $modeloxx)
     {
-
         $this->getBotones(['editar', [], 1, "EDITAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
         return $this->getViewLVT(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario']]);
     }

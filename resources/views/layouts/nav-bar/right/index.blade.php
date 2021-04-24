@@ -21,8 +21,14 @@
             </form>
         </div>
     </li>
-
-
+    @can('ayudline-moduloxx')
+    <li class="nav-item dropdown">
+        <a class="nav-link"  href="{{ route('ayudline') }}">
+            <i class="far fa-question-circle" style="font-size:26px"></i>
+            <span class="badge badge-danger navbar-badge"></span>
+        </a>
+    </li>
+    @endcan
     <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
             <i class="far fa-bell" style="font-size:26px"></i>

@@ -53,13 +53,6 @@
             @canany(['reportes-modulo'])
             @include('layouts.menus.reportes')
             @endcanany
-
-             <!-- AYUDA -->
-             @canany(['ayuda-modulo'])
-             @include('layouts.menus.ayuda')
-             @endcanany
-             <!-- FIN AYUDA -->
-
             <!-- FIN REPORTES -->
         </ul>
     </nav>
