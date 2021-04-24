@@ -207,8 +207,22 @@ class ExcelController extends Controller
 
     public function store(Request $request)
     {
-        $fiDatosBasicos = FiDatosBasico::first();
-        $headersx = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
+        $mapRetaltions = [];
+        $tables = SisTabla::whereIn('id', $request->tablesxx)->pluck('s_tabla', 'id');
+        foreach ($tables as $key => $tableName) {
+            $fields = SisTcampo::where('sis_tabla_id', $key)->pluck('s_campo');
+            foreach ($fields as $key => $fieldName) {
+                $fieldNameToArray = explode('_', $fieldName);
+                if(in_array('id', $fieldNameToArray)) {
+                    $fieldToTable = str_replace('_id', 's', $fieldName);
+                    if(in_array($fieldToTable, array_values($tables))) {
+                        $mapRetaltions[] = [$fieldToTable, "$fieldToTable.id", "$tableName.$fieldName"];
+                    }
+                }
+            }
+        }
+        // $fiDatosBasicos = FiDatosBasico::first();
+        // $headersx = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
         ob_end_clean();
         ob_start();
         return Excel::download(new UsersExport($request, $headersx), 'users_report.xlsx');
