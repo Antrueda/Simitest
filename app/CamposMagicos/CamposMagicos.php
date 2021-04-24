@@ -2,6 +2,8 @@
 
 namespace App\CamposMagicos;
 
+use Illuminate\Support\Facades\DB;
+
 class CamposMagicos
 {
     private static function armarCampo($tablaxxx, $campoxxx)
@@ -108,5 +110,16 @@ class CamposMagicos
         $table->timestamps();
         $table->softDeletes();
         return $table;
+    }
+
+    public static function setComentarios($dataxxxx)
+    {
+        $comentar="COMMENT ON TABLE ";
+        $comentar.="'".$dataxxxx['tablaxxx']."' IS ";
+        $comentar.="'TABLA QUE ALMACENA' " ;
+        //  \'TABLA QUE ALMACENA\''. $dataxxxx["comentar"].'\';'
+        // DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+    //   DB::statement("COMMENT ON TABLE H_SIS_NNAJS  IS 'ACTIVIDAD_FAMILIA'");
+
     }
 }

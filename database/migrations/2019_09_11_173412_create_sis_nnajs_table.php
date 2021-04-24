@@ -19,10 +19,13 @@ class CreateSisNnajsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('prm_escomfam_id')->unsigned()->comment('SABER SI EL REGISTRO QUE ESTA CREANDO ES UN NNAJ O UN COMPONENTE FAMILIAR');
+            $table->Integer('simianti_id')->default(0)->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table->foreign('prm_escomfam_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS NNAJ REGISTRADOS EN EL SISTEMA.'");
+        $dataxxxx['tablaxxx']=$this->tablaxxx;
+        $dataxxxx['comentar']='EL LISTADO DE LOS NNAJ REGISTRADOS EN EL SISTEMA';
+        CamposMagicos::setComentarios($dataxxxx);
     }
 
     /**

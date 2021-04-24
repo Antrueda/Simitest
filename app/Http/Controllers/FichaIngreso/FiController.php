@@ -25,10 +25,13 @@ use App\Models\Simianti\Ba\BaTerritorio;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Sis\SisMultivalore;
 use App\Models\Sistema\SisDepen;
+use App\Models\Sistema\SisTabla;
+use App\Models\Sistema\SisTcampo;
 use App\Models\Temacombo;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
+use Illuminate\Support\Facades\DB;
 
 class FiController extends Controller
 {
@@ -618,86 +621,95 @@ class FiController extends Controller
         }
     }
 
-    public function prueba($temaxxxx,$tablaxxx, Request $request)
+    public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
+        // $tables = DB::select('SHOW TABLES');
+        // foreach ($tables as $data) {
+        //     $tablaxxx = explode('_', $data->Tables_in_laravel);
+        //     if ($tablaxxx[0] == 'h') {
+        //         $tablsinh = str_replace('h_', '', $data->Tables_in_laravel);
+        //         $table = SisTabla::where('s_tabla', $tablsinh)->first();
+        //         if ($table == null) {
+        //             $table = SisTabla::create([
+        //                 'sis_docfuen_id'    => 2,
+        //                 's_tabla'           => $tablsinh,
+        //                 's_descripcion'     => $tablsinh,
+        //                 'sis_esta_id'       => 1,
+        //                 'user_crea_id'      => 1,
+        //                 'user_edita_id'     => 1
+        //             ]);
+        //         }
 
+        //         $columnsData = DB::select("SELECT COLUMN_NAME, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_NAME = '{$table->s_tabla}'");
+        //         foreach ($columnsData as $columnData) {
+        //             $campoxxx = explode('_', $columnData->COLUMN_NAME);
+        //             /**
+        //              * solo campos que son parámetros, los campos abiertos no sirven, ni los campos mágicos
+        //              */
+        //             if (in_array('prm', $campoxxx)) {
+        //                SisTcampo::create([
+        //                 's_campo'           => $columnData->COLUMN_NAME,
+        //                 // 's_numero'          => '1',
+        //                 'temacombo_id'    => 1,
+        //                 // 'tema_id'           => 1,
+        //                 'sis_tabla_id'      => $table->id,
+        //                 'user_crea_id'      => 1,
+        //                 'user_edita_id'     => 1,
+        //                 'sis_esta_id'       => 1
+        //             ]);
+        //             }
+
+
+        //         }
+        //     }
+        // }
+
+        // $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-        $this->opciones['multivax']=SisMultivalore::where('tabla',$tablaxxx)->get();
+        $this->opciones['multivax'] = SisMultivalore::where('tabla', $tablaxxx)->get();
         // ddd($this->opciones['multival']);
         $this->opciones['paramets'] = [];
-            $temaxxxx = Temacombo::find($temaxxxx);
-            foreach ($temaxxxx->parametros as $key => $valuexxx) {
-                $multival = SisMultivalore::where('descripcion', $valuexxx->nombre)->where('tabla',$tablaxxx)->first();
-                $codigoxx = 0;
+        $temaxxxx = Temacombo::find($temaxxxx);
+        foreach ($temaxxxx->parametros as $key => $valuexxx) {
+            $multival = SisMultivalore::where('descripcion', $valuexxx->nombre)->where('tabla', $tablaxxx)->first();
+            $codigoxx = 0;
+            $sindatox = false;
+            $descripc  = 'no existe en multivalores';
+            if ($multival != null) {
+                $codigoxx = $multival->codigo;
+                $descripc = $multival->descripcion;
+                $sindatox = true;
+            }
+            if ($sindatox && $valuexxx->pivot->simianti_id != '') {
                 $sindatox = false;
-                $descripc  = 'no existe en multivalores';
-                if ($multival != null) {
-                    $codigoxx = $multival->codigo;
-                    $descripc = $multival->descripcion;
-                    $sindatox = true;
-                }
-                if($sindatox && $valuexxx->pivot->simianti_id!=''){
-                    $sindatox = false;
-                }
-                $this->opciones['paramets'][] = [
-                    'idtemaxx' => $temaxxxx->id,
-                    'temaxxxx' => $temaxxxx->nombre,
-                    'idparame' => $valuexxx->id,
-                    'parametr' => $valuexxx->nombre,
-                    'simianti' => $valuexxx->pivot->simianti_id,
-                    'tablaxxx' => $tablaxxx,
-                    'codigoxx' => $codigoxx,
-                    'descripc' => $descripc,
-                    'sindatox' => $sindatox,
-                ];
-
+            }
+            $this->opciones['paramets'][] = [
+                'idtemaxx' => $temaxxxx->id,
+                'temaxxxx' => $temaxxxx->nombre,
+                'idparame' => $valuexxx->id,
+                'parametr' => $valuexxx->nombre,
+                'simianti' => $valuexxx->pivot->simianti_id,
+                'tablaxxx' => $tablaxxx,
+                'codigoxx' => $codigoxx,
+                'descripc' => $descripc,
+                'sindatox' => $sindatox,
+            ];
         }
 
 
         return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
-        // foreach (FiJrCausassi::get() as $key => $value) {
-        //     // if ($value->sis_nnaj_id > 761) {
-        //     // {$value->}
-        //     // $magicos ="'sis_nnaj_id' => {$value->sis_nnaj_id}, 'user_crea_id' => {$value->user_crea_id}, 'user_edita_id' => {$value->user_edita_id}, 'sis_esta_id' => {$value->sis_esta_id}, 'created_at' => '{$value->created_at}', 'updated_at' => '{$value->updated_at}',";
-        //     $value->fi_justrest_id;
-        //     if ($value->fi_justrest_id > 297) {
-        //         $value->fi_justrest_id--;
-        //     }
-        //     $magicos = " 'user_crea_id' => {$value->user_crea_id}, 'user_edita_id' => {$value->user_edita_id}, 'sis_esta_id' => {$value->sis_esta_id}, 'created_at' => '{$value->created_at}', 'updated_at' => '{$value->updated_at}',";
-        //     echo "FiJrCausassi::create(['prm_situacion_id' => {$value->prm_situacion_id}, 'fi_justrest_id' =>  {$value->fi_justrest_id}, $magicos]); // {$value->id}<br>";
-        // }
-        // $dependen = SisBarrio::get();
-        // foreach ($dependen as $key => $value) {
-        //     echo $value->s_barrio . '<br>';
-        //     $barrsimi = BaTerritorio::where('nombre', $value->s_barrio)->where('tipo', 'B')->get();
-        //     foreach ($barrsimi as $key => $valuex) {
-        //         echo $valuex->id . ' => ' . $valuex->nombre . ' tipo ' . $valuex->tipo . ' padre ' . $valuex->id_padre . '<br>';
-        //     }
-
-        //     # code...
-        // }
-        // $anterior = 0;
-        // foreach (FiJustrest::get() as $key => $value) {
-        //     if ($value->id - $anterior >= 2) {
-        //        echo ($value->id-1 ).'<br>';
-        //     }
-        //    $anterior = $value->id;
-        // //    echo '<br>';
-        // }
-        // $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
     }
-    public function homologa($temacomb,$parametr,$codigoxx,$tablaxxx)
+    public function homologa($temacomb, $parametr, $codigoxx, $tablaxxx)
     {
-        $temaxxxx=Temacombo::find($temacomb)
-        ->parametros()
-        ->updateExistingPivot($parametr, ['simianti_id' => $codigoxx,'user_edita_id'=>Auth::user()->id], false);
+        $temaxxxx = Temacombo::find($temacomb)
+            ->parametros()
+            ->updateExistingPivot($parametr, ['simianti_id' => $codigoxx, 'user_edita_id' => Auth::user()->id], false);
         return redirect()
-        ->route('fidatbas.homologx', [$temacomb,$tablaxxx])
-        ->with('info', 'parametro homologado');
-
+            ->route('fidatbas.homologx', [$temacomb, $tablaxxx])
+            ->with('info', 'parametro homologado');
     }
 }
