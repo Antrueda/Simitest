@@ -17,7 +17,6 @@ trait BarrioxxDataTablesTrait
      */
     public function getTablasIndexBDT()
     {
-
        $this->opciones['tablasxx'] = [
             [
                 'titunuev' => "NUEVO {$this->opciones['titucont']}",

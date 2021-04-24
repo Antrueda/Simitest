@@ -12,12 +12,12 @@ class SisTcampoObserver
         // campos por defecto, no borrar.
         $log = [];
         $log['id_old'] = $modeloxx->id;
-        // campos nuevos traidos desde $fillable -> modelo 
+        // campos nuevos traidos desde $fillable -> modelo
         $log['s_campo'] = $modeloxx->s_campo;
-        $log['s_numero'] = $modeloxx->s_numero;
+        // $log['s_numero'] = $modeloxx->s_numero;
         $log['sis_tabla_id'] = $modeloxx->sis_tabla_id;
-        $log['in_pregunta_id'] = $modeloxx->in_pregunta_id;
-        $log['tema_id'] = $modeloxx->tema_id;
+        // $log['in_pregunta_id'] = $modeloxx->in_pregunta_id;
+        $log['temacombo_id'] = $modeloxx->temacombo_id;
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;

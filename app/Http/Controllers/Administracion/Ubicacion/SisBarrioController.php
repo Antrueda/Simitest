@@ -34,8 +34,6 @@ class SisBarrioController extends Controller
 
     public function index()
     {
-
-
         $this->getPestanias([]);
         $this->getTablasIndexBDT();
         return view($this->opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $this->opciones]);

@@ -13,9 +13,9 @@ class SisTcampo extends Model
 {
     protected $fillable = [
         's_campo',
-        's_numero',
-        'in_pregunta_id',
-        'tema_id',
+        // 's_numero',
+        // 'in_pregunta_id',
+        'temacombo_id',
         'sis_tabla_id',
         'sis_esta_id',
         'user_crea_id',
@@ -48,7 +48,7 @@ class SisTcampo extends Model
     {
         return $this->belongsTo(Tema::class);
     }
-    
+
     public static function comboTabla($padrexxx, $cabecera, $ajaxxxxx)
     {
         $comboxxx = [];

@@ -4,6 +4,7 @@ namespace App\Traits\Interfaz;
 
 use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Parametro;
@@ -11,9 +12,11 @@ use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GeNnaj;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeUpiNnaj;
+use App\Models\Sistema\SisNnaj;
 use App\Models\User;
 use App\Traits\Interfaz\HomologacionesSimiAtiguoTrait as HSAT;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * realiza la comunicación entre las dos bases de datos=>'{$value->s_iso}'que se busca?
@@ -67,17 +70,17 @@ trait InterfazFiTrait
             ->orderBy('ge_upi_nnaj.fecha_insercion', 'ASC')
             ->first();
 
-            $fichacer=FichaAcercamientoIngreso::where('id_nnaj', $dataxxxx->id_nnaj)->first();
-            if($fichacer==null){
-                $dataxxxx['tituloxx'] = 'NNJA SIN FICHA!';
-                $dataxxxx['mensajex'] = 'El NNAJ: ' . $dataxxxx->primer_nombre.' '.
-                $dataxxxx->segundo_nombre.' '.
-                $dataxxxx->primer_apellido.' '.
-                $dataxxxx->segundo_apellido.' con documento de identidad:  '.$request->docuagre. ' no se puede migrar porque no tiene ficha de ingreso en el antiguo simi';
-                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
-            }else{
-                $dataxxxx->fecha_apertura=$fichacer->fecha_apertura;
-            }
+        $fichacer = FichaAcercamientoIngreso::where('id_nnaj', $dataxxxx->id_nnaj)->first();
+        if ($fichacer == null) {
+            $dataxxxx['tituloxx'] = 'NNJA SIN FICHA!';
+            $dataxxxx['mensajex'] = 'El NNAJ: ' . $dataxxxx->primer_nombre . ' ' .
+                $dataxxxx->segundo_nombre . ' ' .
+                $dataxxxx->primer_apellido . ' ' .
+                $dataxxxx->segundo_apellido . ' con documento de identidad:  ' . $request->docuagre . ' no se puede migrar porque no tiene ficha de ingreso en el antiguo simi';
+            throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+        } else {
+            $dataxxxx->fecha_apertura = $fichacer->fecha_apertura;
+        }
         return $dataxxxx;
     }
     public function getBuscarNnajAgregar($request)
@@ -295,7 +298,7 @@ trait InterfazFiTrait
     public function setNnajPNT($dataxxxx)
     {
         $padrexxx = $dataxxxx['padrexxx'];
-        $padrexxx->nnaj_docu->s_documento = 2933411;
+        // $padrexxx->nnaj_docu->s_documento = 2933411;
         $nnajxxxx = GeNnaj::join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
             ->where('ge_nnaj_documento.numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
         if ($nnajxxxx == null) {
@@ -323,34 +326,35 @@ trait InterfazFiTrait
             }
         }
 
-        $modalida=$padrexxx->sis_nnaj->nnaj_upis->where('prm_principa_id',227)->first()->sis_servicios;
+        $dependen = $padrexxx->sis_nnaj->nnaj_upis->where('prm_principa_id', 227)->first();
+        $servicio = $dependen->nnaj_deses->where('prm_principa_id', 227)->first()->sis_servicio;
         $upinnajx = GeUpiNnaj::where('id_nnaj', $nnajxxxx->id_nnaj)->where('modalidad')->first();
         if ($upinnajx == null) {
             $fillable = [
-                'id_upi_nnaj',
-                'id_upi',
-                'motivo',
-                'tiempo',
-                'modalidad',
-                'anio',
-                'id_nnaj',
-                'fecha_insercion',
-                'usuario_insercion',
-                'fecha_modificacion',
-                'usuario_modificacion',
-                'id_valoracion_inicial',
-                'fecha_ingreso',
-                'fecha_egreso',
-                'estado',
-                'origen',
-                'fuente',
-                'flag',
-                'servicio',
-                'estado_compartido',
+                // 'id_upi_nnaj',
+                'id_upi' => $dependen->sis_depen->simianti_id,
+                // 'motivo',
+                // 'tiempo',
+                'modalidad'=>$servicio->simianti_id,
+                // 'anio',
+                'id_nnaj'=>$nnajxxxx->id_nnaj,
+                'fecha_insercion'=>$nnajxxxx->fecha_insercion,
+                'usuario_insercion'=>$nnajxxxx->usuario_insercion,
+                'fecha_modificacion'=>$nnajxxxx->fecha_modificacion,
+                'usuario_modificacion'=>$nnajxxxx->usuario_modificacion,
+                // 'id_valoracion_inicial',
+                // 'fecha_ingreso',
+                // 'fecha_egreso',
+                'estado'=>'A',
+                // 'origen',
+                // 'fuente',
+                // 'flag',
+                // 'servicio',
+                // 'estado_compartido',
             ];
+            GeUpiNnaj::create($fillable);
         }
-
-        ddd($upinnajx);
+        // ddd($upinnajx);
     }
 }
 // kdk
