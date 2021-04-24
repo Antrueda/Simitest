@@ -19,7 +19,7 @@ trait OpcionesGeneralesTrait
         $this->opciones['infocont'] = $dataxxxx['infocont'];
         $this->opciones['titucont'] = $dataxxxx['titucont'];
         $this->opciones['carpetax'] = $dataxxxx['carpetax'];
-        $this->opciones['tituhead'] = "M{$this->opciones['vocalesx'][4]}DULO";
+        $this->opciones['tituhead'] = "M{$this->opciones['vocalesx'][4]}DULO MANUAL DE USUARIOS ONLINE";
         $this->opciones['rutacarp'] = $dataxxxx['rutacarp'];
         $this->opciones['rutacomp'] = $dataxxxx['rutacomp'];
         $this->opciones['tituloxx'] = $dataxxxx['tituloxx'];
