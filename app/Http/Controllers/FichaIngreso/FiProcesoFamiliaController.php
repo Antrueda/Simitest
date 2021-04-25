@@ -10,10 +10,11 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiProcesoFamilia;
 
 use App\Models\Tema;
+use App\Traits\Fi\FiTrait;
 
 class FiProcesoFamiliaController extends Controller
 {
-  private $opciones;
+    use FiTrait;
   public function __construct()
   {
 

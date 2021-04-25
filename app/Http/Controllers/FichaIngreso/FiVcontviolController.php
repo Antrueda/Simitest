@@ -24,8 +24,6 @@ use Illuminate\Http\Request;
 class FiVcontviolController extends Controller
 {
     use FiTrait;
-
-    private $opciones;
     public function __construct()
     {
         $this->opciones['permisox'] = 'ficonvio';

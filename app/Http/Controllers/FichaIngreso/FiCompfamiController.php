@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Auth;
 class FiCompfamiController extends Controller
 {
     use  ManageTimeTrait;
-    private $opciones;
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
@@ -312,7 +311,7 @@ class FiCompfamiController extends Controller
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-         
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

@@ -10,16 +10,17 @@ use App\Models\fichaIngreso\FiViolencia;
 use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
+use App\Traits\Fi\FiTrait;
 use App\Traits\Fi\VcontviolTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
 
 class FiViolenciaController extends Controller
 {
+    use FiTrait;
     use VcontviolTrait;
     use InterfazFiTrait;
     use PuedeTrait;
-    private $opciones;
     public function __construct()
     {
         $this->opciones['permisox'] = 'fiviolencia';

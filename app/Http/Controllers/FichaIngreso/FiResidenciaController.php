@@ -12,16 +12,17 @@ use App\Models\Sistema\SisBarrio;
 use App\Models\Sistema\SisLocalidad;
 use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
+use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Interfaz\ResidenciaTrait;
 use App\Traits\Puede\PuedeTrait;
 
 class FiResidenciaController extends Controller
 {
+    use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
     use ResidenciaTrait;
-    private $opciones;
 
     public function __construct()
     {

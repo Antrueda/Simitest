@@ -21,20 +21,7 @@ trait ParametrizarModuloTrait
         $this->opciones['slotxxxx'] = $this->opciones['permisox'];
     }
 
-    public function getBotones($dataxxxx)
-    {
-        if (auth()->user()->can($this->opciones['permisox'] . '-' . $dataxxxx[0])) {
-            $this->opciones['botoform'][] = [
-                'routingx' => $dataxxxx[1],
-                'formhref' => $dataxxxx[2],
-                'tituloxx' => $dataxxxx[3],
-                'clasexxx' => $dataxxxx[4],
-            ];
-        }else{
-            $this->opciones['botoform'][]=[];
-        }
-        return $this->opciones;
-    }
+
     public function getTablas($dataxxxx)
     {
         $dataxxxx['tablasxx'] = [

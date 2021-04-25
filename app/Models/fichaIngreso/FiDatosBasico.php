@@ -33,6 +33,36 @@ class FiDatosBasico extends Model
         'user_edita_id',
     ];
 
+    public function setSPrimerNombreAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_primer_nombre'] = strtoupper($value);
+        }
+    }
+    public function setSSegundoNombreAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_segundo_nombre'] = strtoupper($value);
+        }
+    }
+    public function setSPrimerApellidoAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_primer_apellido'] = strtoupper($value);
+        }
+    }
+    public function setSSegundoApellidoAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_segundo_apellido'] = strtoupper($value);
+        }
+    }
+    public function setSApodoAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_apodo'] = strtoupper($value);
+        }
+    }
     /**
      * * Listado de las funciones de relaciones (hasOne or belongTo) con descripción.
      * * Si no las tiene dejar el array vacio.
@@ -245,22 +275,12 @@ class FiDatosBasico extends Model
 
         return $objetoxx;
     }
-    public static function getMayusculas($dataxxxx)
-    {
-        $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
-        $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
-        $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
-        $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['s_segundo_apellido']);
-        $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
-        $dataxxxx['s_apodo'] = strtoupper($dataxxxx['s_apodo']);
-        return $dataxxxx;
-    }
+
     public static function getTransactionCsd($dataxxxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx) {
             $objetoxx = $dataxxxx['modeloxx'];
             $dataxxxx = $dataxxxx['requestx']->all();
-            $dataxxxx = FiDatosBasico::getMayusculas($dataxxxx);
             $dt = new DateTime($dataxxxx['d_nacimiento']);
             $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
             $dataxxxx['user_edita_id'] = Auth::user()->id;
@@ -305,74 +325,7 @@ class FiDatosBasico extends Model
 
         return $objetoxx;
     }
-    public function grabar($dataxxxx, $objetoxx)
-    {
 
-        $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['s_primer_nombre'] = strtoupper($dataxxxx['s_primer_nombre']);
-            $dataxxxx['s_segundo_nombre'] = strtoupper($dataxxxx['s_segundo_nombre']);
-            $dataxxxx['s_primer_apellido'] = strtoupper($dataxxxx['s_primer_apellido']);
-            $dataxxxx['s_segundo_apellido'] = strtoupper($dataxxxx['s_segundo_apellido']);
-            $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
-            $dt = new DateTime($dataxxxx['d_nacimiento']);
-            $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
-            $dataxxxx['s_apodo'] = strtoupper($dataxxxx['s_apodo']);
-            $dataxxxx['s_lugar_focalizacion'] = strtoupper($dataxxxx['s_lugar_focalizacion']);
-            $dataxxxx['s_nombre_focalizacion'] = strtoupper($dataxxxx['s_nombre_focalizacion']);
-            $dataxxxx['user_edita_id'] = Auth::user()->id;
-            if ($objetoxx != '') {
-                /** Actualizar registro */
-                $objetoxx->update($dataxxxx);
-                $dataxxxx['fi_datos_basico_id'] = $objetoxx->id;
-                $objetoxx->nnaj_sexo->update($dataxxxx);
-                $objetoxx->nnaj_docu->update($dataxxxx);
-
-                $objetoxx->nnaj_nacimi->update($dataxxxx);
-                $objetoxx->nnaj_sit_mil->update($dataxxxx);
-                $objetoxx->nnaj_focali->update($dataxxxx);
-                $objetoxx->nnaj_fi_csd->update($dataxxxx);
-            } else {
-
-                /** Es un registro nuevo */
-                $dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'prm_escomfam_id' => 227])->id;
-                $dataxxxx['user_crea_id'] = Auth::user()->id;
-                $objetoxx = FiDatosBasico::create($dataxxxx);
-                $dataxxxx['fi_datos_basico_id'] = $objetoxx->id;
-                NnajSexo::create($dataxxxx);
-                NnajNacimi::create($dataxxxx);
-                NnajDocu::create($dataxxxx);
-                NnajSitMil::create($dataxxxx);
-                NnajFocali::create($dataxxxx);
-                NnajFiCsd::create($dataxxxx);
-                /**
-                 * agregar el nnaj a la composocion familiar
-                 */
-                $dataxxxx['sis_nnajnnaj_id'] = $dataxxxx['sis_nnaj_id'];
-                $dataxxxx['i_prm_ocupacion_id'] = 235;
-                $dataxxxx['i_prm_parentesco_id'] = 805;
-                $dataxxxx['i_prm_vinculado_idipron_id'] = 227;
-                $dataxxxx['i_prm_convive_nnaj_id'] = 227;
-                $dataxxxx['prm_reprlega_id'] = 227;
-                if ($objetoxx->nnaj_nacimi->Edad < 18) {
-                    $dataxxxx['prm_reprlega_id'] = 228;
-                }
-                FiCompfami::create($dataxxxx);
-                /**
-                 * agregar las upis cuando es un nnaj traido del antiguo simi
-                 */
-                // if($dataxxxx['pasaupis']){
-                //     $this->getUpisNnajIFT(['objetoxx'=>$objetoxx]);
-                // }
-            }
-
-            NnajUpi::setUpiDatosBasicos($dataxxxx, $objetoxx);
-            FiDiligenc::transaccion($dataxxxx, $objetoxx);
-            //    $this->getInsertarDatosBasicos($dataxxxx, $objetoxx);
-            return $objetoxx;
-        }, 5);
-
-        return $objetoxx;
-    }
 
 
 

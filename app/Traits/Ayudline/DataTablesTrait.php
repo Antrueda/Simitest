@@ -15,6 +15,17 @@ trait DataTablesTrait
      * @param array $dataxxxx
      * @return $usuariox
      */
+    public function getUyudasModuloDT($dataxxxx)
+    {
+
+
+
+        $this->opciones['tablasxx'] = [];
+
+        $this->opciones['ruarchjs'] = [
+
+        ];
+    }
     public function getUyudasIndexADT($dataxxxx)
     {
         $dataxxxx['permtabl'] = [

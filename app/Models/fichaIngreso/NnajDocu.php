@@ -16,7 +16,7 @@ class NnajDocu extends Model
 {
     protected $fillable = [
         's_documento',
-        // 'fi_datos_basico_id',
+        'fi_datos_basico_id',
         'prm_ayuda_id',
         'prm_tipodocu_id',
         'prm_doc_fisico_id',

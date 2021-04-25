@@ -18,7 +18,7 @@ trait VistasTrait
             'tituloxx' => 'AYUDA', // titulo que se mustra en la vista
             'titucont' => 'AYUDA', // texto complementarios en el boton de la tabla
             'infocont' => 'Ayuda', // texto complementarios en el mensaje cuando se guarda o edita el registro
-            'activexx' => 0, // pestaña que debe estar activa
+            'activexx' => 1, // pestaña que debe estar activa
             'permisox' => 'ayuduser', // commplemento del permiso
             'routxxxx' => 'ayuduser' // complemento del route
         ];
@@ -30,6 +30,7 @@ trait VistasTrait
             'vercrear' => false,
             'titunuev' => "NUEVA {$this->opciones['titucont']}",
             'titulist' => "LISTA DE {$this->opciones['titucont']}S",
+            'permisox'=>$this->opciones['permisox'].'-crearxxx',
         ]);
         return $this->indexOGT();
     }

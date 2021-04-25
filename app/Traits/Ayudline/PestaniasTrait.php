@@ -7,6 +7,7 @@ trait PestaniasTrait
 {
 
     public $pestania = [
+        ['ayudline', '', [],"USUARIOS",false,'','Ayudas que se muestran a los usuarios'],
         ['ayuduser', '', [],"USUARIOS",true,'','Ayudas que se muestran a los usuarios'],
         ['ayudadmi', '', [],'ADMINISTRACION',true,'','Departamentos'],
         // ['municipi', '', [],'MUNICIPIO',false,'','Municipios'],

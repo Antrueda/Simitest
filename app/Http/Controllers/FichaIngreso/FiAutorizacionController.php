@@ -10,6 +10,7 @@ use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Parametro;
 use App\Models\Tema;
+use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
 use Carbon\Carbon;
@@ -18,7 +19,7 @@ use Illuminate\Http\Request;
 class FiAutorizacionController extends Controller
 {
 
-    private $opciones;
+    use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
     public function __construct()

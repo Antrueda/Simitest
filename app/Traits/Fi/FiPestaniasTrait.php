@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Traits\FI;
+namespace App\Traits\Fi;
 
 use App\Models\fichaIngreso\FiJustrest;
 

@@ -9,12 +9,13 @@ use App\Models\fichaIngreso\FiCompfami;
 use App\Models\FichaIngreso\FiJrFamiliar;
 use App\Models\fichaIngreso\FiJustrest;
 use App\Models\Tema;
+use App\Traits\Fi\FiTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class FiJrFamiliarController extends Controller
 {
-    private $opciones;
+    use FiTrait;
 
     public function __construct()
     {

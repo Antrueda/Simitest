@@ -10,26 +10,30 @@ use App\Models\Sistema\SisEsta;
 trait VistasModuloTrait
 {
 
-    public function getVista($opciones, $dataxxxx)
+    public function getConfigVistas()
     {
-        $opciones['estadoxx'] = SisEsta::combo(['cabecera' => false, 'esajaxxx' => false]);
-        $opciones['rutarchi'] = $opciones['rutacarp'] . 'Acomponentes.Acrud.' . $dataxxxx['accionxx'][0];
-        $opciones['formular'] = $opciones['rutacarp'] . $opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $opciones['rutacarp'] . $opciones['carpetax'] . '.Js.js']
+        $dataxxxx = [
+            'rutacarp' => 'Ayudline.Frontend.', // ruta en que se encuentra almacenada la carpeta
+            'rutacomp' => 'Ayudline.Acomponentes.', // ruta donde están las configuraciones de las vistas
+            'carpetax' => 'Modulo', // nombre de la carpeta
+            'tituloxx' => 'AYUDA', // titulo que se mustra en la vista
+            'titucont' => 'AYUDA', // texto complementarios en el boton de la tabla
+            'infocont' => 'Ayuda', // texto complementarios en el mensaje cuando se guarda o edita el registro
+            'activexx' => 0, // pestaña que debe estar activa
+            'permisox' => 'ayudline', // commplemento del permiso
+            'routxxxx' => 'ayudline' // complemento del route
         ];
-        return $opciones;
+        $this->getOpcionesOGT($dataxxxx);
     }
-    public function view($opciones, $dataxxxx)
+    public function index()
     {
-        $opciones = $this->getVista($opciones, $dataxxxx);
-        // indica si se esta actualizando o viendo
-        if ($dataxxxx['modeloxx'] != '') {
-            $opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            $opciones['parametr'] = [$dataxxxx['modeloxx']->id];
-            $opciones['routnuev'] = [$opciones['routxxxx'] . '.nuevo', []];
-        }
-        // Se arma el titulo de acuerdo al array opciones
-        return view($opciones['rutacarp'] . 'pestanias', ['todoxxxx' => $opciones]);
+
+        $this->getUyudasModuloDT([
+            'vercrear' => false,
+            'titunuev' => "NUEVA {$this->opciones['titucont']}",
+            'titulist' => "LISTA DE {$this->opciones['titucont']}S",
+            'permisox'=>$this->opciones['permisox'].'-crearxxx',
+        ]);
+        return $this->indexOGT();
     }
 }

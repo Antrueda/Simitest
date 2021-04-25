@@ -1,11 +1,8 @@
 <?php
 
 namespace App\Traits\Interfaz;
-
 use App\Models\fichaIngreso\FiCompfami;
-use App\Models\fichaIngreso\NnajDocu;
 use App\Models\Simianti\Ge\GeNnajDocumento;
-use Maatwebsite\Excel\Concerns\ToArray;
 
 trait ComposicionFamiliarTrait
 {

@@ -9,13 +9,14 @@ use App\Models\Sistema\SisDepen;
 use App\Models\fichaIngreso\FiBienvenida;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Tema;
+use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
 
 class FiBienvenidaController extends Controller
 {
 
-    private $opciones;
+    use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
     public function __construct()

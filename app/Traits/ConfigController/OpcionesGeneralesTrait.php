@@ -74,7 +74,7 @@ trait OpcionesGeneralesTrait
                 'cabecera' => $dataxxxx['cabecera'],
                 'columnsx' => $dataxxxx['columnsx'],
                 'tablaxxx' => $dataxxxx['tablaxxx'],
-                'permisox' => $this->opciones['permisox'].'-crearxxx',
+                'permisox' => $dataxxxx['permisox'],
                 'routxxxx' => $this->opciones['routxxxx'],
                 'parametr' => $dataxxxx['parametr'],
             ];
@@ -109,7 +109,7 @@ trait OpcionesGeneralesTrait
             $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             // $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, "NUEVO {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
-        }else {
+        } else {
             $this->getBotones(['crearxxx', [], 1, "GUARDAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
         }
         // Se arma el titulo de acuerdo al array opciones

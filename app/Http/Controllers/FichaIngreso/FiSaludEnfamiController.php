@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Auth;
 
 class FiSaludEnfamiController extends Controller
 {
-    private $opciones;
     use FiTrait;
     public function __construct()
     {

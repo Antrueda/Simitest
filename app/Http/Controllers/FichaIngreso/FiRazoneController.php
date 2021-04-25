@@ -20,7 +20,7 @@ class FiRazoneController extends Controller
     use FiTrait;
     use PuedeTrait;
     use RazonesIngresoIdipronTrait;
-    private $opciones;
+
 
     public function __construct()
     {
