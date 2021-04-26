@@ -1304,5 +1304,9 @@ class SisDepenUsuaSeeder extends Seeder
         SisDepeUsua::create($registro);
         $registro = ["sis_depen_id" => 12, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 2133, "user_edita_id" => 1, "sis_esta_id" => 1,];
         SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 6, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 861, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
+        $registro = ["sis_depen_id" => 16, "i_prm_responsable_id" => 228, "user_crea_id" => 1, "user_id" => 861, "user_edita_id" => 1, "sis_esta_id" => 1,];
+        SisDepeUsua::create($registro);
     }
 }
