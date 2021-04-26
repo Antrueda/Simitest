@@ -1289,7 +1289,7 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'RECONSTRUCCIÓN'], // 1266
             ['nombrexx' => 'PROFILAXIS'], // 1267
             ['nombrexx' => 'DETARTRAJE'], // 1268
-            ['nombrexx' => 'REUTILIZAR'], // 1269
+            ['nombrexx' => 'INFORMACIÓN CREADA DESDE COMPOSICION FAMILIAR'], // 1269
             ['nombrexx' => 'D - DEPENDIENTE'], // 1270
             ['nombrexx' => 'SD - SEMIDEPENDIENTE'], // 1271
             ['nombrexx' => 'I - INDEPENDIENTE'], // 1272

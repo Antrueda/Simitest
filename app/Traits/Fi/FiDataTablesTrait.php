@@ -9,6 +9,18 @@ namespace App\Traits\Fi;
  */
 trait FiDataTablesTrait
 {
+    public function getGeneralFDT($dataxxxx)
+    {
+        $dataxxxx['permtabl'] = [
+            $this->opciones['permisox'] . '-leer',
+        ];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ];
+        $dataxxxx['urlxxxxx'] = route($this->opciones['routxxxx'] . '.' . $dataxxxx['listaxxx'], $dataxxxx['pararout']);
+        return $dataxxxx;
+    }
+
     /**
      * lisatr los nnajs que tienen ficha de ingreso
      *
@@ -16,9 +28,7 @@ trait FiDataTablesTrait
      */
     public function getDatosBasicosFDT($dataxxxx)
     {
-        $dataxxxx['permtabl'] = [
-            $this->opciones['permisox'] . '-leer',
-        ];
+
 
         $dataxxxx['cabecera'] = [
             [
@@ -49,14 +59,12 @@ trait FiDataTablesTrait
             ['data' => 'upiservicio', 'name' => 'upiservicio'],
             ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
         ];
+
         $dataxxxx['tablaxxx'] = 'datatable';
         $dataxxxx['parametr'] = [];
+        $dataxxxx['listaxxx'] = 'listaxxx';
         $dataxxxx['pararout'] = [];
-        $this->opciones['tablasxx'][] = $this->getTablasOGT($dataxxxx);
-
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
-        ];
+        $this->opciones['tablasxx'][] = $this->getTablasOGT($this->getGeneralFDT($dataxxxx));
     }
 
     /**
@@ -66,9 +74,7 @@ trait FiDataTablesTrait
      */
     public function getComposicionFamiliarFDT($dataxxxx)
     {
-        $dataxxxx['permtabl'] = [
-            $this->opciones['permisox'] . '-leer',
-        ];
+
 
         $dataxxxx['cabecera'] = [
             [
@@ -95,10 +101,8 @@ trait FiDataTablesTrait
         ];
         $dataxxxx['tablaxxx'] = 'datatable';
         $dataxxxx['pararout'] = $dataxxxx['parametr'];
-        $this->opciones['tablasxx'][] = $this->getTablasOGT($dataxxxx);
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
-        ];
+        $dataxxxx['listaxxx'] = 'listodox';
+        $this->opciones['tablasxx'][] = $this->getTablasOGT($this->getGeneralFDT($dataxxxx));
     }
 
     /**
@@ -108,10 +112,6 @@ trait FiDataTablesTrait
      */
     public function getTodoDatosBasicosFDT($dataxxxx)
     {
-        $dataxxxx['permtabl'] = [
-            $this->opciones['permisox'] . '-leer',
-        ];
-
         $dataxxxx['cabecera'] = [
             [
                 ['td' => 'ID', 'widthxxx' => 0, 'rowspanx' => 1, 'colspanx' => 1],
@@ -125,18 +125,18 @@ trait FiDataTablesTrait
         ];
         $dataxxxx['columnsx'] = [
             ['data' => 'id', 'name' => 'sis_nnajs.id'],
-                    ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
-                    ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
-                    ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
-                    ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
-                    ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
-                    ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
+            ['data' => 's_documento', 'name' => 'nnaj_docus.s_documento'],
+            ['data' => 'd_nacimiento', 'name' => 'nnaj_nacimis.d_nacimiento'],
+            ['data' => 's_primer_nombre', 'name' => 'fi_datos_basicos.s_primer_nombre'],
+            ['data' => 's_segundo_nombre', 'name' => 'fi_datos_basicos.s_segundo_nombre'],
+            ['data' => 's_primer_apellido', 'name' => 'fi_datos_basicos.s_primer_apellido'],
+            ['data' => 's_segundo_apellido', 'name' => 'fi_datos_basicos.s_segundo_apellido'],
         ];
         $dataxxxx['tablaxxx'] = 'datatable';
         $dataxxxx['pararout'] = $dataxxxx['parametr'];
-        $this->opciones['tablasxx'][] = $this->getTablasOGT($dataxxxx);
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tablatodos']
-        ];
+        $dataxxxx['listaxxx'] = 'listaxxx';
+        $this->opciones['tablasxx'][] = $this->getTablasOGT($this->getGeneralFDT($dataxxxx));
+        $this->opciones['ruarchjs'][0]['jsxxxxxx'] = str_replace('tabla', 'tablatodos', $this->opciones['ruarchjs'][0]['jsxxxxxx']);
+        $this->opciones['ruarchjs'][1] = ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
     }
 }

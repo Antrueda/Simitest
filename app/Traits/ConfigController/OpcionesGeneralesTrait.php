@@ -60,7 +60,13 @@ trait OpcionesGeneralesTrait
         ];
         return  $permisos;
     }
-
+    /**
+     * arma la estructura base del datatable que se usa en los controladores, este método es llamado en el trait
+     * DataTabeles
+     *
+     * @param array $dataxxxx
+     * @return $tablasx
+     */
     public function getTablasOGT($dataxxxx)
     {
         $tablasx =
@@ -69,7 +75,7 @@ trait OpcionesGeneralesTrait
                 'titulist' => $dataxxxx['titulist'],
                 'archdttb' => $this->opciones['rutacomp'] . 'Adatatable.index',
                 'vercrear' => $dataxxxx['vercrear'],
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', $dataxxxx['pararout']),
+                'urlxxxxx' => $dataxxxx['urlxxxxx'],
                 'permtabl' => $dataxxxx['permtabl'],
                 'cabecera' => $dataxxxx['cabecera'],
                 'columnsx' => $dataxxxx['columnsx'],

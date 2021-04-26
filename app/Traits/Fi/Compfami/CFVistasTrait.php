@@ -51,7 +51,7 @@ trait CFVistasTrait
 
         $compfami = FiCompfami::where('sis_nnajnnaj_id', $padrexxx->sis_nnaj_id)->whereNotIn('sis_nnaj_id', [$padrexxx->sis_nnaj_id])->first();
         if ($compfami == null) {
-            $this->setCmposicionFamiliarCFT(['padrexxx' => $padrexxx]);
+            // $this->setCmposicionFamiliarCFT(['padrexxx' => $padrexxx]);
         }
 
         $this->opciones['parametr'] = [$padrexxx->id];

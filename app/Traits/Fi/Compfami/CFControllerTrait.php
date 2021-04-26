@@ -28,6 +28,7 @@ trait CFControllerTrait
     use InterfazFiTrait;
     use PuedeTrait;
     use ComposicionFamiliarTrait;
+    use CFCrudTrait;
     /**
      * Show the form for creating a new resource.
      *
@@ -40,9 +41,14 @@ trait CFControllerTrait
 
     private function grabar($dataxxxx, $objectx, $infoxxxx, $padrexxx)
     {
+        // $respuest=$this->setFiCompfami(['requestx'=>$dataxxxx->all(),'modeloxx'=>$objectx, 'padrexxx'=>$padrexxx]);
+
+        $dataxxxx=$dataxxxx->all();
         $dataxxxx['sis_nnajnnaj_id'] = $padrexxx->sis_nnaj_id;
+        $respuest=FiCompfami::transaccion($dataxxxx, $objectx);
+        //29729974 1
         return redirect()
-            ->route('ficomposicion.editar', [$padrexxx->id, FiCompfami::transaccion($dataxxxx, $objectx)->id])
+            ->route('ficomposicion.editar', [$padrexxx->id, $respuest->id])
             ->with('info', $infoxxxx);
     }
 
@@ -54,7 +60,7 @@ trait CFControllerTrait
      */
     public function store(FiCompfamiCrearRequest $request, FiDatosBasico $padrexxx)
     {
-        return $this->grabar($request->all(), '', 'Composicion familiar creada con éxito', $padrexxx);
+        return $this->grabar($request, '', 'Composicion familiar creada con éxito', $padrexxx);
     }
 
     /**
@@ -89,7 +95,7 @@ trait CFControllerTrait
      */
     public function update(FiCompfamiUpdateRequest $request, FiDatosBasico $padrexxx, FiCompfami $modeloxx)
     {
-        return $this->grabar($request->all(), $modeloxx, 'Composicion familiar actualizada con éxito', $padrexxx);
+        return $this->grabar($request, $modeloxx, 'Composicion familiar actualizada con éxito', $padrexxx);
     }
     public function getMI($modeloxx)
     {

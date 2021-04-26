@@ -2,6 +2,7 @@
 
 namespace App\Traits\Fi\Compfami;
 
+use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiDiligenc;
 use App\Models\fichaIngreso\NnajDese;
@@ -13,33 +14,36 @@ use App\Models\fichaIngreso\NnajSexo;
 use App\Models\fichaIngreso\NnajSitMil;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Sistema\SisNnaj;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 /**
  * armar el crud principal para todo los datos basicos del nnaj
  */
 trait CrudDatosBasicosNnajTrait
 {
-    private $dataxxxx,  $objetoxx;
     /**
      * editar o crear un nnaj
      *
      * @param array $dataxxxx
-     * @param object $objetoxx
-     * @return $objetoxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
      */
-    public function setSisNnaj($dataxxxx, $objetoxx)
+    public function setSisNnajCDBNT($dataxxxx)
     {
-        if ($objetoxx == null) {
-            $objetoxx = SisNnaj::create([
-                'sis_esta_id' => 1,
-                'user_crea_id' =>  $dataxxxx['user_crea_id'],
-                'user_edita_id' => $dataxxxx['user_edita_id'],
-                'prm_escomfam_id' => $dataxxxx['escomfam']
-            ]);
-        } else {
-            $objetoxx->update($dataxxxx);
-        }
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            if ($dataxxxx['modeloxx'] == null) {
+                $dataxxxx['modeloxx'] = SisNnaj::create([
+                    'sis_esta_id' => 1,
+                    'user_crea_id' =>  Auth::user()->id,
+                    'user_edita_id' => Auth::user()->id,
+                    'prm_escomfam_id' => $dataxxxx['escomfam']
+                ]);
+            } else {
+                $dataxxxx['modeloxx']->update($dataxxxx);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
         return $objetoxx;
     }
 
@@ -47,24 +51,22 @@ trait CrudDatosBasicosNnajTrait
      * crear o editar datos basicos del nnaj
      *
      * @param array $dataxxxx
-     * @param object $objetoxx
-     * @return $objetoxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
      */
-    public function setFiDatosBasico($dataxxxx, $objetoxx)
+    public function setFiDatosBasicojCDBNT($dataxxxx)
     {
-        if ($objetoxx != '') {
-            /** Actualizar registro */
-            $objetoxx->update($dataxxxx);
-        } else {
-            /** Es un registro nuevo */
-            $dataxxxx['sis_nnaj_id'] = SisNnaj::create([
-                'sis_esta_id' => 1,
-                'user_crea_id' =>  $dataxxxx['user_crea_id'],
-                'user_edita_id' => $dataxxxx['user_edita_id'],
-                'prm_escomfam_id' => 228
-            ])->id;
-            $objetoxx = FiDatosBasico::create($dataxxxx);
-        }
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            if ($dataxxxx['modeloxx'] == null) {
+                /** Es un registro nuevo */
+                $dataxxxx['dataxxxx']['sis_nnaj_id'] = $this->setSisNnajCDBNT(['modeloxx'=>null,'escomfam'=>228])->id;
+                $dataxxxx['modeloxx'] = FiDatosBasico::create($dataxxxx['dataxxxx']);
+            } else {
+                /** Actualizar registro */
+                $dataxxxx['modeloxx']->update($dataxxxx);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
         return $objetoxx;
     }
 
@@ -72,16 +74,27 @@ trait CrudDatosBasicosNnajTrait
      * crear o editar informacion de servicio asiganado al nnaj
      *
      * @param array $dataxxxx
-     * @param object $objetoxx
-     * @return $objetoxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
      */
-    public function setNnajDese($dataxxxx, $objetoxx)
+    public function setNnajDesejCDBNT($dataxxxx)
     {
-        if ($objetoxx == null) {
-            $objetoxx = NnajDese::create($dataxxxx);
-        } else {
-            $objetoxx->update($dataxxxx);
-        }
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $registro = [];
+            if ($dataxxxx['sinconob']) {
+                $registro = $dataxxxx['registro'];
+            } else {
+                $registro = $dataxxxx['dataxxxx'];
+                $registro['user_edita_id'] = Auth::user()->id;
+            }
+            if ($dataxxxx['modeloxx'] == null) {
+                $registro['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = NnajDese::create($registro);
+            } else {
+                $dataxxxx['modeloxx']->update($registro);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
         return $objetoxx;
     }
 
@@ -89,16 +102,32 @@ trait CrudDatosBasicosNnajTrait
      * crear o editar informacion de fecha de diligenciamiento de la fi del nnaj
      *
      * @param array $dataxxxx
-     * @param object $objetoxx
-     * @return $objetoxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
      */
-    public function setFiDiligenc($dataxxxx, $objetoxx)
+    public function setFiDiligencjCDBNT($dataxxxx)
     {
-        if ($objetoxx == null) {
-            $objetoxx = FiDiligenc::create($dataxxxx);
-        } else {
-            $objetoxx->update($dataxxxx);
-        }
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $registro = [];
+            // cuando la informacion se llena por composicion familiar
+            if ($dataxxxx['sinconob']) {
+                if ($dataxxxx['modeloxx'] == null) {
+                    $registro = $dataxxxx['registro'];
+                } else {
+                    $registro = $dataxxxx['modeloxx']->toArray();
+                }
+            } else {
+                $registro = $dataxxxx['dataxxxx'];
+                $registro['user_edita_id'] = Auth::user()->id;
+            }
+            if ($dataxxxx['modeloxx'] == null) {
+                $registro['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = FiDiligenc::create($registro);
+            } else {
+                $dataxxxx['modeloxx']->update($registro);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
         return $objetoxx;
     }
 
@@ -106,16 +135,27 @@ trait CrudDatosBasicosNnajTrait
      * crear o editar informacion de identificación del nnaj
      *
      * @param array $dataxxxx
-     * @param object $objetoxx
-     * @return $objetoxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
      */
-    public function setNnajDocu($dataxxxx, $objetoxx)
+    public function setNnajDocujCDBNT($dataxxxx)
     {
-        if ($objetoxx == null) {
-            $objetoxx = NnajDocu::create($dataxxxx);
-        } else {
-            $objetoxx->update($dataxxxx);
-        }
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $registro = [];
+            if ($dataxxxx['sinconob'] && $dataxxxx['modeloxx'] == null) { // indica si crea el objeto o no
+                $registro = $dataxxxx['registro'];
+            } else {
+                $registro = $dataxxxx['dataxxxx'];
+                $registro['user_edita_id'] = Auth::user()->id;
+            }
+            if ($dataxxxx['modeloxx'] == null) {
+                $registro['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = NnajDocu::create($registro);
+            } else {
+                $dataxxxx['modeloxx']->update($registro);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
         return $objetoxx;
     }
 
@@ -124,16 +164,31 @@ trait CrudDatosBasicosNnajTrait
      * crear o editar informacion de datos basicos complementarios del nnaj desde la fi o csd
      *
      * @param array $dataxxxx
-     * @param object $objetoxx
-     * @return $objetoxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
      */
-    public function setNnajFiCsd($dataxxxx, $objetoxx)
+    public function setNnajFiCsdjCDBNT($dataxxxx)
     {
-        if ($objetoxx == null) {
-            $objetoxx = NnajFiCsd::create($dataxxxx);
-        } else {
-            $objetoxx->update($dataxxxx);
-        }
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $registro = [];
+            if ($dataxxxx['sinconob']) {
+                if ($dataxxxx['modeloxx'] == null) {
+                    $registro = $dataxxxx['registro'];
+                } else {
+                    $registro = $dataxxxx['modeloxx']->toArray();
+                }
+            } else {
+                $registro = $dataxxxx['dataxxxx'];
+                $registro['user_edita_id'] = Auth::user()->id;
+            }
+            if ($dataxxxx['modeloxx'] == null) {
+                $registro['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = NnajFiCsd::create($registro);
+            } else {
+                $dataxxxx['modeloxx']->update($registro);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
         return $objetoxx;
     }
 
@@ -141,16 +196,31 @@ trait CrudDatosBasicosNnajTrait
      * crear o editar informacion de focalización del nnaj
      *
      * @param array $dataxxxx
-     * @param object $objetoxx
-     * @return $objetoxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
      */
-    public function setNnajFocali($dataxxxx, $objetoxx)
+    public function setNnajFocalijCDBNT($dataxxxx)
     {
-        if ($objetoxx == null) {
-            $objetoxx = NnajFocali::create($dataxxxx);
-        } else {
-            $objetoxx->update($dataxxxx);
-        }
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $registro = [];
+            if ($dataxxxx['sinconob']) {
+                if ($dataxxxx['modeloxx'] == null) {
+                    $registro = $dataxxxx['registro'];
+                } else {
+                    $registro = $dataxxxx['modeloxx']->toArray();
+                }
+            } else {
+                $registro = $dataxxxx['dataxxxx'];
+                $registro['user_edita_id'] = Auth::user()->id;
+            }
+            if ($dataxxxx['modeloxx'] == null) {
+                $registro['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = NnajFocali::create($registro);
+            } else {
+                $dataxxxx['modeloxx']->update($registro);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
         return $objetoxx;
     }
 
@@ -158,16 +228,28 @@ trait CrudDatosBasicosNnajTrait
      * crear o editar informacion de nacimiento del nnaj
      *
      * @param array $dataxxxx
-     * @param object $objetoxx
-     * @return $objetoxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
      */
-    public function setNnajNacimi($dataxxxx, $objetoxx)
+    public function setNnajNacimijCDBNT($dataxxxx)
     {
-        if ($objetoxx == null) {
-            $objetoxx = NnajNacimi::create($dataxxxx);
-        } else {
-            $objetoxx->update($dataxxxx);
-        }
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $registro = [];
+            if ($dataxxxx['sinconob'] && $dataxxxx['modeloxx'] == null) {
+                $registro = $dataxxxx['registro'];
+            } else {
+                $registro = $dataxxxx['dataxxxx'];
+                $registro['user_edita_id'] = Auth::user()->id;
+            }
+            if ($dataxxxx['modeloxx'] == null) {
+                $registro['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = NnajNacimi::create($registro);
+            } else {
+                $dataxxxx['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx']->update($registro);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
         return $objetoxx;
     }
 
@@ -175,16 +257,27 @@ trait CrudDatosBasicosNnajTrait
      * crear o editar informacion de sexo del nnaj
      *
      * @param array $dataxxxx
-     * @param object $objetoxx
-     * @return $objetoxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
      */
-    public function setNnajSexo($dataxxxx, $objetoxx)
+    public function setNnajSexojCDBNT($dataxxxx)
     {
-        if ($objetoxx == null) {
-            $objetoxx = NnajSexo::create($dataxxxx);
-        } else {
-            $objetoxx->update($dataxxxx);
-        }
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $registro = [];
+            if ($dataxxxx['sinconob'] && $dataxxxx['modeloxx'] == null) {
+                $registro = $dataxxxx['registro'];
+            } else {
+                $registro = $dataxxxx['dataxxxx'];
+                $registro['user_edita_id'] = Auth::user()->id;
+            }
+            if ($dataxxxx['modeloxx'] == null) {
+                $registro['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = NnajSexo::create($registro);
+            } else {
+                $dataxxxx['modeloxx']->update($registro);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
         return $objetoxx;
     }
 
@@ -193,16 +286,31 @@ trait CrudDatosBasicosNnajTrait
      * crear o editar informacion de la situacion militar del nnaj del nnaj
      *
      * @param array $dataxxxx
-     * @param object $objetoxx
-     * @return $objetoxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
      */
-    public function setNnajSitMil($dataxxxx, $objetoxx)
+    public function setNnajSitMiljCDBNT($dataxxxx)
     {
-        if ($objetoxx == null) {
-            $objetoxx = NnajSitMil::create($dataxxxx);
-        } else {
-            $objetoxx->update($dataxxxx);
-        }
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $registro = [];
+            if ($dataxxxx['sinconob']) {
+                if ($dataxxxx['modeloxx'] == null) {
+                    $registro = $dataxxxx['registro'];
+                } else {
+                    $registro = $dataxxxx['modeloxx']->toArray();
+                }
+            } else {
+                $registro = $dataxxxx['dataxxxx'];
+                $registro['user_edita_id'] = Auth::user()->id;
+            }
+            if ($dataxxxx['modeloxx'] == null) {
+                $registro['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = NnajSitMil::create($registro);
+            } else {
+                $dataxxxx['modeloxx']->update($registro);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
         return $objetoxx;
     }
 
@@ -210,16 +318,67 @@ trait CrudDatosBasicosNnajTrait
      * crear o editar informacion de identificación del nnaj
      *
      * @param array $dataxxxx
-     * @param object $objetoxx
-     * @return $objetoxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
      */
-    public function setNnajUpi($dataxxxx, $objetoxx)
+    public function setNnajUpijCDBNT($dataxxxx)
     {
-        if ($objetoxx == null) {
-            $objetoxx = NnajUpi::create($dataxxxx);
-        } else {
-            $objetoxx->update($dataxxxx);
-        }
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $registro = [];
+            if ($dataxxxx['sinconob']) {
+                if ($dataxxxx['modeloxx'] == null) {
+                    $registro = $dataxxxx['registro'];
+                } else {
+                    $registro = $dataxxxx['modeloxx']->toArray();
+                }
+            } else {
+                $registro = $dataxxxx['dataxxxx'];
+                $registro['user_edita_id'] = Auth::user()->id;
+            }
+            if ($dataxxxx['modeloxx'] == null) {
+                $registro['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = NnajUpi::create($registro);
+            } else {
+                $dataxxxx['modeloxx']->update($registro);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
+        return $objetoxx;
+    }
+
+    /**
+     * crear o editar informacion de identificación del nnaj
+     *
+     * @param array $dataxxxx
+     * @param object $dataxxxx['modeloxx']
+     * @return $dataxxxx['modeloxx']
+     */
+    public function setFiCompfamiCDBNT($dataxxxx)
+    {
+        $objetoxx = DB::transaction(function () use ($dataxxxx) {
+            $registro = [];
+            if ($dataxxxx['sinconob']) {  // para cuando el nnaj no se ha crado como componente familiar
+                if ($dataxxxx['modeloxx'] == null) {
+                    $registro = $dataxxxx['registro'];
+                } else {
+                    $registro = $dataxxxx['modeloxx']->toArray();
+                }
+            } else {
+                $registro = $dataxxxx['dataxxxx'];
+                $registro['user_edita_id'] = Auth::user()->id;
+            }
+            if ($dataxxxx['modeloxx'] == null) {
+                if (!$dataxxxx['sinconob']) {
+                    $registro['sis_nnaj_id']=$dataxxxx['registro']['sis_nnaj_id'];
+                    $registro['sis_nnajnnaj_id']=$dataxxxx['registro']['sis_nnajnnaj_id'];
+                 }
+                $registro['user_crea_id'] = Auth::user()->id;
+                $dataxxxx['modeloxx'] = FiCompfami::create($registro);
+            } else {
+                $dataxxxx['modeloxx']->update($registro);
+            }
+            return $dataxxxx['modeloxx'];
+        }, 5);
         return $objetoxx;
     }
 }

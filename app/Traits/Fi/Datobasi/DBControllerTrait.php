@@ -82,7 +82,7 @@ trait DBControllerTrait
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
         }
-
+        $this->setNnajPNT(['padrexxx' => $objetoxx]);
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
@@ -93,7 +93,7 @@ trait DBControllerTrait
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 1, 'tituloxx' => 'EDITAR REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
         // }
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $objetoxx]);
