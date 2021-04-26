@@ -121,8 +121,6 @@ trait FiPestaniasTrait
                 $respuest[] = $this->getArmarPestania($valuexxx);
             }
         }
-
-        // ddd($respuest);
         return $respuest;
     }
     public function getRespuesta($dataxxxx)

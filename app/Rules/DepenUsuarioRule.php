@@ -3,7 +3,6 @@
 namespace app\Rules;
 
 use App\Models\Sistema\SisDepen;
-use App\Models\Sistema\SisLocalupz;
 use Illuminate\Contracts\Validation\Rule;
 
 class DepenUsuarioRule implements Rule

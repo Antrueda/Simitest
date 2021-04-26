@@ -32,7 +32,12 @@ class FiCompfami extends Model
         'user_edita_id',
         'sis_esta_id'
     ];
-
+    public function setSNombreIdentitarioAttribute($value)
+    {
+        if (!empty($value)) {
+            $this->attributes['s_nombre_identitario'] = strtoupper($value);
+        }
+    }
     protected $attributes = ['sis_esta_id' => 1, 'user_crea_id' => 1, 'user_edita_id' => 1];
     public function creador()
     {
@@ -79,7 +84,6 @@ class FiCompfami extends Model
     public static function transaccion($dataxxxx,  $objetoxx)
     {
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {
-            $dataxxxx['s_nombre_identitario'] = strtoupper($dataxxxx['s_nombre_identitario']);
             $dt = new DateTime($dataxxxx['d_nacimiento']);
             $dataxxxx['d_nacimiento'] = $dt->format('Y-m-d');
             $dataxxxx['user_edita_id'] = Auth::user()->id;
@@ -88,13 +92,9 @@ class FiCompfami extends Model
                 $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
                 $objetoxx->update($dataxxxx);
             } else {
-
                 $datosbas = NnajDocu::setDBComposicionFamiliar($dataxxxx, '');
-
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['sis_nnaj_id'] = $datosbas->fi_datos_basico->sis_nnaj_id;
-
-
                 $objetoxx = FiCompfami::create($dataxxxx);
             }
             return $objetoxx;

@@ -4,12 +4,8 @@ namespace App\Traits\Fi\Datobasi;
 
 use App\Models\fichaIngreso\NnajDese;
 use App\Models\Parametro;
-use App\Models\Sistema\SisBarrio;
-use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisMunicipio;
-use App\Models\Sistema\SisUpz;
 use App\Models\Tema;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
@@ -31,11 +27,6 @@ trait DBVistasTrait
             'permisox' => 'fidatbas', // commplemento del permiso
             'routxxxx' => 'fidatbas' // complemento del route
         ];
-
-        // $this->opciones['tituhead'] = 'FICHA DE INGRESO';
-        // $this->opciones['perfilxx'] = 'sinperfi';
-
-        // $this->bitacora = new FiDatosBasico();
         $this->getOpcionesOGT($dataxxxx);
         $this->opciones['pestpadr'] = 1;
         $this->opciones['tituhead'] = "FICHA DE INGRESO";

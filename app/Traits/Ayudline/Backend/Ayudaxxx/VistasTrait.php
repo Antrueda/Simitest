@@ -14,19 +14,17 @@ trait VistasTrait
 {
     public function getConfigVistas()
     {
-        $dataxxxx = [
-            'rutacarp' => 'Ayudline.Backend.', // ruta en que se encuentra almacenada la carpeta
-            'rutacomp' => 'Ayudline.Acomponentes.', // ruta donde están las configuraciones de las vistas
-            'carpetax' => 'Mosayuda', // nombre de la carpeta
-            'tituloxx' => 'AYUDA', // titulo que se mustra en la vista
-            'titucont' =>'AYUDA', // texto complementarios en el boton de la tabla
-            'infocont' =>'Ayuda', // texto complementarios en el mensaje cuando se guarda o edita el registro
-            'activexx' =>2, // pestaña que debe estar activa
-            'permisox'=>'ayudadmi', // commplemento del permiso
-            'routxxxx'=>'ayudadmi' // complemento del route
-        ];
-        $this->getOpcionesOGT($dataxxxx);
 
+        $dataxxxx['rutacarp'] = 'Ayudline.Backend.'; // ruta en que se encuentra almacenada la carpeta
+        $dataxxxx['rutacomp'] = 'Ayudline.Acomponentes.'; // ruta donde están las configuraciones de las vistas
+        $dataxxxx['carpetax'] = 'Mosayuda'; // nombre de la carpeta
+        $dataxxxx['tituloxx'] = 'AYUDA'; // titulo que se mustra en la vista
+        $dataxxxx['titucont'] = 'AYUDA'; // texto complementarios en el boton de la tabla
+        $dataxxxx['infocont'] = 'Ayuda'; // texto complementarios en el mensaje cuando se guarda o edita el registro
+        $dataxxxx['activexx'] = 2; // pestaña que debe estar activa
+        $dataxxxx['permisox'] = 'ayudadmi'; // commplemento del permiso
+        $dataxxxx['routxxxx'] = 'ayudadmi'; // complemento del route
+        $this->getOpcionesOGT($dataxxxx);
     }
 
     /**
@@ -40,7 +38,7 @@ trait VistasTrait
             'vercrear' => true,
             'titunuev' => "NUEVA {$this->opciones['titucont']}",
             'titulist' => "LISTA DE {$this->opciones['titucont']}S",
-            'permisox'=>$this->opciones['permisox'].'-crearxxx',
+            'permisox' => $this->opciones['permisox'] . '-crearxxx',
         ]);
         return $this->indexOGT();
     }
@@ -71,8 +69,8 @@ trait VistasTrait
         return $this->setAyuda([
             'requestx' => $request,
             'modeloxx' => '',
-            'guardado'=>1,
-            'infoxxxx' => $this->opciones['infocont'].' asignada con éxito',
+            'guardado' => 1,
+            'infoxxxx' => $this->opciones['infocont'] . ' asignada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
@@ -111,8 +109,8 @@ trait VistasTrait
         return $this->setAyuda([
             'requestx' => $request,
             'modeloxx' => $modeloxx,
-            'guardado'=>2,
-            'infoxxxx' => $this->opciones['infocont'].' editada con éxito',
+            'guardado' => 2,
+            'infoxxxx' => $this->opciones['infocont'] . ' editada con éxito',
             'routxxxx' => $this->opciones['routxxxx'] . '.editarxx'
         ]);
     }
@@ -131,20 +129,19 @@ trait VistasTrait
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', $this->opciones['infocont'].' inactivado correctamente');
+            ->with('info', $this->opciones['infocont'] . ' inactivado correctamente');
     }
 
     public function activate(Ayuda $modeloxx)
     {
         $this->getBotones(['activarx', [], 1, "ACTIVAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
         return $this->getVista(['modeloxx' => $modeloxx, 'accionxx' => ['activar', 'activar']]);
-
     }
     public function activar(Request $request, Ayuda $modeloxx)
     {
         $modeloxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
         return redirect()
             ->route($this->opciones['permisox'], [])
-            ->with('info', $this->opciones['infocont'].' activado correctamente');
+            ->with('info', $this->opciones['infocont'] . ' activado correctamente');
     }
 }

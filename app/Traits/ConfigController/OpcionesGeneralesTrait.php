@@ -94,21 +94,27 @@ trait OpcionesGeneralesTrait
             $this->opciones['botoform'][] = [];
         }
     }
-
+    public function getVistaPestanias($dataxxxx)
+    {
+        $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . 'Acrud.' . $dataxxxx['accionxx'][0];
+        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
+        $this->opciones['ruarchjs'][] =
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
+        $this->getPestanias($this->opciones);
+    }
+    public function setModelo($dataxxxx)
+    {
+        $this->opciones['parametr'][$dataxxxx['posicion']] = $dataxxxx['modeloxx']->id;
+        $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
+    }
     public function getVista($dataxxxx)
     {
         $this->getBotones(['leerxxxx', [$this->opciones['routxxxx'], $this->opciones['parametr']], 2, "VOLVER A {$this->opciones['titucont']}S", 'btn btn-sm btn-primary']);
-        $this->opciones['rutarchi'] = $this->opciones['rutacomp'] . 'Acrud.' . $dataxxxx['accionxx'][0];
-        $this->opciones['formular'] = $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Formulario.' . $dataxxxx['accionxx'][1];
-        $this->opciones['ruarchjs'] = [
-            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js']
-        ];
-        $this->getPestanias($this->opciones);
+        $this->getVistaPestanias($dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $this->opciones['parametr'] = [$dataxxxx['modeloxx']->id];
-            $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
-            // $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, "NUEVO {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
+            $this->setModelo($dataxxxx);
+            $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, "NUEVO {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
         } else {
             $this->getBotones(['crearxxx', [], 1, "GUARDAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
         }
