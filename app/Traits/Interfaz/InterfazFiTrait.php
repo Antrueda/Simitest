@@ -325,7 +325,7 @@ trait InterfazFiTrait
                 $document = GeNnajDocumento::create($fillable);
             }
         }
-
+// rama de david
         $dependen = $padrexxx->sis_nnaj->nnaj_upis->where('prm_principa_id', 227)->first();
         $servicio = $dependen->nnaj_deses->where('prm_principa_id', 227)->first()->sis_servicio;
         $upinnajx = GeUpiNnaj::where('id_nnaj', $nnajxxxx->id_nnaj)->where('modalidad')->first();
