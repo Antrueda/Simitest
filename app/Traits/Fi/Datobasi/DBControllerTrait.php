@@ -143,11 +143,12 @@ trait DBControllerTrait
 
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
+        $i = 1;
         $tables = DB::select('SHOW TABLES');
         foreach ($tables as $key => $data) {
-            //   $tablaxxx = explode('_', $data->Tables_in_laravel);
-            // if ($tablaxxx[0] != 'h') {
-                 echo "SisTabla::create(['sis_docfuen_id'=>1 , 's_tabla'=>'{$data->Tables_in_laravel}',     's_descripcion'=>'{$data->Tables_in_laravel}','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]);<br>";
+            $tablaxxx = explode('_', $data->Tables_in_laravel);
+            if ($tablaxxx[0] != 'h') {
+                //  echo "SisTabla::create(['sis_docfuen_id'=>1 , 's_tabla'=>'{$data->Tables_in_laravel}',     's_descripcion'=>'{$data->Tables_in_laravel}','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]);<br>";
 
                 //     $tablsinh = str_replace('h_', '', $data->Tables_in_laravel);
                 //     $table = SisTabla::where('s_tabla', $tablsinh)->first();
@@ -163,17 +164,20 @@ trait DBControllerTrait
                 //     }
 
                 $columnsData = DB::select("SELECT COLUMN_NAME, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_NAME = '{$data->Tables_in_laravel}'");
+
                 foreach ($columnsData as $columnData) {
                     if ($columnData->COLUMN_NAME != 'id') {
-                        //         echo    "SisTcampo::create([
-                        //     's_campo'           => '$columnData->COLUMN_NAME',
-                        //     'temacombo_id'    => 1,
-                        //     'sis_tabla_id'      =>" . ($key + 1) . ",
-                        //     'user_crea_id'      => 1,
-                        //     'user_edita_id'     => 1,
-                        //     'sis_esta_id'       => 1
-                        // ]);<br>";
-                        //     }
+                        $campoxxx = explode('_', $columnData->COLUMN_NAME);
+                        if (in_array('prm', $campoxxx)) {
+                            echo    "SisTcampo::create([
+                            's_campo'           => '$columnData->COLUMN_NAME',
+                            'temacombo_id'    => 1,
+                            'sis_tabla_id'      =>" . ($key + 1) . ",
+                            'user_crea_id'      => 1,
+                            'user_edita_id'     => 1,
+                            'sis_esta_id'       => 1
+                            ]);<br>";
+                        }
 
                         // $campoxxx = explode('_', $columnData->COLUMN_NAME);
                         /**
@@ -192,7 +196,7 @@ trait DBControllerTrait
                         // // ]);
                         // }
                     }
-                // }
+                }
             }
         }
 
