@@ -108,7 +108,7 @@ trait OpcionesGeneralesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
         $this->getPestanias($this->opciones);
     }
-    public function setModelo($dataxxxx)
+    public function setModeloOGT($dataxxxx)
     {
         $this->opciones['parametr'][$dataxxxx['posicion']] = $dataxxxx['modeloxx']->id;
         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -119,7 +119,7 @@ trait OpcionesGeneralesTrait
         $this->getVistaPestanias($dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $this->setModelo($dataxxxx);
+            $this->setModeloOGT($dataxxxx);
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, "NUEVO {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
         } else {
             $this->getBotones(['crearxxx', [], 1, "GUARDAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
