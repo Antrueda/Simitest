@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\FichaIngreso;
 
-use App\Models\fichaIngreso\NnajDocu;
 use App\Traits\Fi\Compfami\CFRequestTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
