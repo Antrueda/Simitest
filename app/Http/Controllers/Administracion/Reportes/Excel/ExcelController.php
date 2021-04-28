@@ -208,19 +208,22 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $mapRetaltions = [];
-        $tables = SisTabla::whereIn('id', $request->tablesxx)->pluck('s_tabla', 'id');
+        $tables = SisTabla::whereIn('id', $request->tablesxx)->pluck('s_tabla', 'id')->toArray();
         foreach ($tables as $key => $tableName) {
             $fields = SisTcampo::where('sis_tabla_id', $key)->pluck('s_campo');
             foreach ($fields as $key => $fieldName) {
                 $fieldNameToArray = explode('_', $fieldName);
-                if(in_array('id', $fieldNameToArray)) {
+                if(in_array('id', $fieldNameToArray) && (!in_array('prm', $fieldNameToArray) || !in_array('parametro', $fieldNameToArray))) {
                     $fieldToTable = str_replace('_id', 's', $fieldName);
                     if(in_array($fieldToTable, array_values($tables))) {
                         $mapRetaltions[] = [$fieldToTable, "$fieldToTable.id", "$tableName.$fieldName"];
                     }
+                } else if (in_array('id', $fieldNameToArray) && (in_array('prm', $fieldNameToArray) || in_array('parametro', $fieldNameToArray))) {
+                    $mapRetaltions[] = ['parametros', "parametros.id", "$tableName.$fieldName"];
                 }
             }
         }
+        dd($mapRetaltions);
         // $fiDatosBasicos = FiDatosBasico::first();
         // $headersx = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
         ob_end_clean();

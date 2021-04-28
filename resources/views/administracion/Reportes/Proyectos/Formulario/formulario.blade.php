@@ -19,7 +19,7 @@
     </div>
     <div class="form-group col-md-6">
         {!! Form::label('tablesxx', 'Tablas Principal', ['class' => 'control-label']) !!}
-        {!! Form::select('tablesxx', $todoxxxx['tablesxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'multiple']) !!}
+        {!! Form::select('tablesxx', $todoxxxx['tablesxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'multiple', 'name' => 'tablesxx[]']) !!}
         @if($errors->has('tablesxx'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('tablesxx') }}
