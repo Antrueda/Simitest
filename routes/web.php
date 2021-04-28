@@ -69,23 +69,23 @@ Route::group(['middleware' => ['auth', 'ChangePasswor']], function () {
     include_once('ajaxx.php');
     include_once('Indicadores/web_in.php');
     include_once('Fosadmin/web_modulo.php');
-
+    include_once('Ayudline/web_moduloxx.php');
     /**
      * Rutas del módulo de ayuda
      */
     Route::middleware(['role:SUPER-ADMINISTRADOR|ADMINISTRADOR'])->group(function () {
         Route::resource('ayuda', 'Ayuda\\Administracion\\AyudaAdminController', ['except' => ['show', 'destroy']]);
         Route::get('ayuda/change/{value}', 'Ayuda\\Administracion\\AyudaAdminController@change')->name('ayuda.change');
-        
+
     });
 });
 
 
-Route::prefix('soporte')->group(function () {
-    Route::get('ayuda', 'Ayuda\\Vista\\AyudaController@index')->name('ayuda.vista.index');
-    Route::get('ayuda/todo', 'Ayuda\\Vista\\AyudaController@showAll')->name('ayuda.vista.todo');
-    Route::get('ayuda/{slug}', 'Ayuda\\Vista\\AyudaController@slugfind')->name('ayuda.vista.slug');
-    Route::post('ayuda', 'Ayuda\\Vista\\AyudaController@finder')->name('ayuda.vista.buscar');
-    Route::get('ayuda/buscar/{value}', 'Ayuda\\Vista\\AyudaController@buscador')->name('ayuda.vista.buscando');
-});
+// Route::prefix('soporte')->group(function () {
+//     Route::get('ayuda', 'Ayuda\\Vista\\AyudaController@index')->name('ayuda.vista.index');
+//     Route::get('ayuda/todo', 'Ayuda\\Vista\\AyudaController@showAll')->name('ayuda.vista.todo');
+//     Route::get('ayuda/{slug}', 'Ayuda\\Vista\\AyudaController@slugfind')->name('ayuda.vista.slug');
+//     Route::post('ayuda', 'Ayuda\\Vista\\AyudaController@finder')->name('ayuda.vista.buscar');
+//     Route::get('ayuda/buscar/{value}', 'Ayuda\\Vista\\AyudaController@buscador')->name('ayuda.vista.buscando');
+// });
 

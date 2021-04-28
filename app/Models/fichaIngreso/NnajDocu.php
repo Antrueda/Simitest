@@ -16,7 +16,7 @@ class NnajDocu extends Model
 {
     protected $fillable = [
         's_documento',
-        // 'fi_datos_basico_id',
+        'fi_datos_basico_id',
         'prm_ayuda_id',
         'prm_tipodocu_id',
         'prm_doc_fisico_id',
@@ -98,7 +98,6 @@ class NnajDocu extends Model
                 FiDatosBasico::getDbcomfamiliar($dataxxxx, $padrexxx); // actualizar datos basicos del componente familiar
                 $objetoxx->update($dataxxxx);
             } else {
-
                 $dataxxxx['user_crea_id'] = Auth::user()->id;
                 $dataxxxx['prm_tipoblaci_id'] = 235;
                 $dataxxxx['prm_estrateg_id'] = 235;

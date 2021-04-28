@@ -8,13 +8,14 @@ use App\Http\Requests\FichaIngreso\FiSituacionEspecialUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiSituacionEspecial;
 use App\Models\Tema;
+use App\Traits\Fi\FiTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
 
 class FiSituacionEspecialController extends Controller
 {
-    private $opciones;
+    use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
     public function __construct()
@@ -80,7 +81,7 @@ class FiSituacionEspecialController extends Controller
      */
     public function getRuta($dataxxxx)
     {
-      
+
         $archivox = '';
         switch ($dataxxxx['padrexxx']->prm_tipoblaci_id) {
             case 650:
@@ -94,7 +95,7 @@ class FiSituacionEspecialController extends Controller
                 }
                 break;
         }
-  
+
         return $archivox;
     }
     public function create(FiDatosBasico $padrexxx)

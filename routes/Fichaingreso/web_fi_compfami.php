@@ -7,14 +7,14 @@ Route::group(['prefix' => '{padrexxx}/composicionfami'], function () use($routex
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
     ])->name($routexxx);
     Route::get('listaxxx', [
-		'uses' => $controll.'Controller@getListado',
+		'uses' => $controll.'Controller@getListadoCF',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
-	])->name($routexxx.'.listaxxx');
+	])->name($routexxx.'.listodox');
 
     Route::get('listodox', [
 		'uses' => $controll.'Controller@getListodo',
 		'middleware' => ['permission:'.$routexxx.'-leer|'.$routexxx.'-crear|'.$routexxx.'-editar|'.$routexxx.'-borrar']
-	])->name($routexxx.'.listodox');
+	])->name($routexxx.'.listaxxx');
 	Route::get('nuevo', [
 		'uses' => $controll.'Controller@create',
 		'middleware' => ['permission:'.$routexxx.'-crear']

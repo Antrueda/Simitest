@@ -18,6 +18,7 @@ use App\Models\Sistema\SisDepeUsua;
 use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Models\User;
+use App\Traits\ConfigController\OpcionesGeneralesTrait;
 use App\Traits\DatatableTrait;
 use App\Traits\Interfaz\InterfazDatatableTrait as indatr;
 use Illuminate\Http\Request;
@@ -28,6 +29,8 @@ use Illuminate\Support\Facades\Auth;
  */
 trait FiTrait
 {
+    use OpcionesGeneralesTrait;
+    use FiPestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use indatr;
     use DatatableTrait;
     public function getCombo($dataxxxx)
@@ -588,4 +591,31 @@ trait FiTrait
             return response()->json($respuest);
         }
     }
+
+    public function getListadoCF(Request $request, FiDatosBasico $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->datobasi = $padrexxx->id;
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getCompoFami($request);
+        }
+    }
+
+    public function getListodo(Request $request, FiDatosBasico $padrexxx)
+    {
+        if ($request->ajax()) {
+            $request->padrexxx = $padrexxx->sis_nnaj_id;
+            $request->datobasi = $padrexxx->id;
+            $request->routexxx = [$this->opciones['routxxxx']];
+            $request->botonesx = $this->opciones['rutacarp'] .
+                $this->opciones['carpetax'] . '.Botones.botonesapi';
+            $request->estadoxx = 'layouts.components.botones.estadosx';
+            return $this->getTodoComFami($request);
+        }
+    }
+
 }

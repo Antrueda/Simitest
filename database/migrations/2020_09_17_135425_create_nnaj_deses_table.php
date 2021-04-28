@@ -21,7 +21,7 @@ class CreateNnajDesesTable extends Migration
             $table = CamposMagicos::getForeignFk($table, 'sis_servicio', 'nnds_pk1');
             $table = CamposMagicos::getForeignFk($table, 'nnaj_upi', 'nnds_pk2');
             $table = CamposMagicos::getForeignFk($table, 'prm_principa_id', 'nnds_pk3', 'parametros');
-            $table = CamposMagicos::magicosPk($table, ['nnds_pk', 4, 5, 6]);
+            $table = CamposMagicos::magicosFk($table, ['nnds_pk', 4, 5, 6]);
             $table->unique(['nnaj_upi_id', 'sis_servicio_id'], 'nnds_un1');
         });
 

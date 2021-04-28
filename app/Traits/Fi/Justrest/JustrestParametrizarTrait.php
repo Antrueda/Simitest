@@ -8,23 +8,13 @@ namespace app\Traits\FI\Justrest;
 trait JustrestParametrizarTrait
 {
 
-    public $opciones;
     /**
      * permisos del middleware
      *
 
      * @return $usuariox
      */
-    public function getMware()
-    {
-        $permisos = ['permission:'
-            . $this->opciones['permisox'] . '-leer|'
-            . $this->opciones['permisox'] . '-crear|'
-            . $this->opciones['permisox'] . '-editar|'
-            . $this->opciones['permisox'] . '-borrar|'
-            . $this->opciones['permisox'] . '-activarx'];
-        return  $permisos;
-    }
+
     /**
      * inicializar las opciones con las que se arman las vistas
      *

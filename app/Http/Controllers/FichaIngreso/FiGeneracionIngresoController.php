@@ -18,7 +18,7 @@ class FiGeneracionIngresoController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
-    private $opciones;
+
     public function __construct()
     {
 
@@ -81,7 +81,7 @@ class FiGeneracionIngresoController extends Controller
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['estadoxx'] = $dataxxxx['modeloxx']->sis_esta_id = 1 ? 'ACTIVO' : 'INACTIVO';
-            
+
             if ($dataxxxx['modeloxx']->prm_actgeing_id == 626) {
                 $this->opciones['trabinfo'] = Parametro::find(235)->Combo;
                 $this->opciones['otractiv'] = Parametro::find(235)->Combo;
@@ -119,7 +119,7 @@ class FiGeneracionIngresoController extends Controller
      */
     public function create(FiDatosBasico $padrexxx)
     {
-        
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -174,13 +174,13 @@ class FiGeneracionIngresoController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx,  FiGeneracionIngreso $modeloxx)
     {
- 
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
-         
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', $padrexxx->prm_tipoblaci_id == 650 ? 'chcxxxxx' : 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

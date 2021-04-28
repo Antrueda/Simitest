@@ -446,7 +446,7 @@
 <div class="row">
     <div class="col-md-3">
       {{ Form::label('tel_contacto', 'Teléfono de contacto', ['class' => 'control-label col-form-label-sm']) }}
-      {{ Form::text('tel_contacto', null, ['class' => $errors->first('tel_contacto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'minlength' => '6', 'maxlength' => '10' ',"onkeypress" => "return soloNumeros(event);"]) }}
+      {{ Form::text('tel_contacto', null, ['class' => $errors->first('tel_contacto') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'placeholder' => 'Teléfono', 'minlength' => '6', 'maxlength' => '10' ,"onkeypress" => "return soloNumeros(event);"]) }}
       @if($errors->has('tel_contacto'))
       <div class="invalid-feedback d-block">
         {{ $errors->first('tel_contacto') }}

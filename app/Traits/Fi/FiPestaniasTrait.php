@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Traits\FI;
+namespace App\Traits\Fi;
 
 use App\Models\fichaIngreso\FiJustrest;
 
@@ -121,8 +121,6 @@ trait FiPestaniasTrait
                 $respuest[] = $this->getArmarPestania($valuexxx);
             }
         }
-
-        // ddd($respuest);
         return $respuest;
     }
     public function getRespuesta($dataxxxx)

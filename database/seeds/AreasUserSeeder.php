@@ -158,6 +158,7 @@ class AreasUserSeeder extends Seeder
         $this->getR(['userxxxx' => 2131, 'areasxxx' => [6,8]]);
         $this->getR(['userxxxx' => 2132, 'areasxxx' => [6,8]]);
         $this->getR(['userxxxx' => 2133, 'areasxxx' => [6,8]]);
+        $this->getR(['userxxxx' => 861, 'areasxxx' => [6,8]]);
         
         
         

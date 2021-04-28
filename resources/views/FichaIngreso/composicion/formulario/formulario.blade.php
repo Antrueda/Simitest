@@ -52,7 +52,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('sis_pai_id', 'País de Expedición', ['class' => 'control-label']) }}
-        {{ Form::select('sis_pai_id', $todoxxxx['pais_idx'], null, ['class' => $errors->first('sis_pai_id') ? 'form-control sispaisx form-control-sm is-invalid listarxx' : 'form-control sispaisx form-control-sm listarxx']) }}
+        {{ Form::select('sis_pai_id', $todoxxxx['pais_idx'], null, ['class' => $errors->first('sis_pai_id') ? 'form-control form-control-sm is-invalid listarxx' : 'form-control sispaisx form-control-sm listarxx']) }}
         @if($errors->has('sis_pai_id'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('sis_pai_id') }}

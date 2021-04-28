@@ -13,7 +13,7 @@ class Ayuda extends Model
      *
      * @var string
      */
-    protected $table = 'ayudas';
+    // protected $table = 'ayudas';// cuando se cumple con el standar no es necesario
 
     /**
      * Filtros de los campos que se necesita para crear un objeto
@@ -21,7 +21,12 @@ class Ayuda extends Model
      * @var array
      */
     protected $fillable = [
-        'titulo', 'slug', 'cuerpo', 'status'
+        'titulo',
+        'slug',
+        'cuerpo',
+        'user_crea_id',
+        'user_edita_id',
+        'sis_esta_id'
     ];
 
 
@@ -35,7 +40,7 @@ class Ayuda extends Model
         return $this->attributes['slug'] = Str::slug($this->attributes['titulo']);
     }
     /**
-     * 
+     *
      *Se da formato a la variable Date
      */
     public function getCreatedAtAttribute($date)
@@ -45,5 +50,5 @@ class Ayuda extends Model
             Carbon::parse($date)->toDateTimeString()
         )->format('d-m-Y h:i A');
     }
-    
+
 }

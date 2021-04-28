@@ -7,13 +7,13 @@ use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaCrearRequest;
 use App\Http\Requests\FichaIngreso\FiSustanciaConsumidaUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\fichaIngreso\FiSustanciaConsumida;
-use App\Models\Sistema\SisEsta;
 use App\Models\Tema;
+use App\Traits\Fi\FiTrait;
 use Illuminate\Support\Facades\Auth;
 
 class FiSustanciaConsumidaController extends Controller
 {
-    private $opciones;
+    use FiTrait;
     public function __construct()
     {
 

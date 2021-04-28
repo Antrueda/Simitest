@@ -80,7 +80,7 @@ class CamposMagicos
     }
 
 
-    public static function magicosPk($table,$pk)
+    public static function magicosFk($table,$pk)
     {
         $table->integer('user_crea_id')->unsigned()->default(1)->comment('USUARIO QUE CREAR EL REGISTRO');
         $table->integer('user_edita_id')->unsigned()->default(1)->comment('USUARIO QUE EDITA EL REGISTRO');

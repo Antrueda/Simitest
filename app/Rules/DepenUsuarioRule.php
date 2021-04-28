@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Rules;
+namespace app\Rules;
 
-use App\Models\Sistema\SisDepeUsua;
-use App\Models\Sistema\SisLocalupz;
+use App\Models\Sistema\SisDepen;
 use Illuminate\Contracts\Validation\Rule;
 
-class LocalidadUpzDuplicadRule implements Rule
+class DepenUsuarioRule implements Rule
 {
     private $requestx;
     /**
@@ -29,7 +28,7 @@ class LocalidadUpzDuplicadRule implements Rule
     public function passes($attribute, $value)
     {
         $respuest=true;
-        $sisdepeu = SisLocalupz::where('user_id', $this->requestx->user_id)->where('sis_depen_id', $this->requestx->sis_depen_id)->first();
+        $sisdepeu = SisDepen::find( $this->requestx->sis_depen_id)->getDepeUsua->where('user_id', $this->requestx->user_id)->first();
         if ($sisdepeu != null) {
             if ($this->requestx->segments()[3] != $sisdepeu->id) {
                 $respuest=false;

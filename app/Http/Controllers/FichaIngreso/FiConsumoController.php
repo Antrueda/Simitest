@@ -18,7 +18,6 @@ class FiConsumoController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
-    private $opciones;
     public function __construct()
     {
 

@@ -9,12 +9,13 @@ use App\Models\Tema;
 use App\Models\User;
 use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\Sistema\SisEsta;
+use App\Traits\Fi\FiTrait;
 use Illuminate\Support\Facades\Auth;
 
 class FiRazonArchivoController extends Controller
 {
 
-    private $opciones;
+    use FiTrait;
 
     public function __construct()
     {
