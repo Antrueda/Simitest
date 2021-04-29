@@ -2,35 +2,59 @@
 
 
 <script>
-    var index = 0;
-    const csrf = document.querySelector('meta[name="csrf-token"]').content;
-    function selectorTemplate(title) {
+    function tableTemplate(tableData) {
         return /*html*/`
-        <div class="form-group col-md-6">
-            <label for="campos${index}" class="control-label">${title}</label>
-            <select id="campos${index}" class="form-control form-control-sm select2" multiple></select>
-        </div>
+            <div class="col-4 col-sm-3 border rounded p-2">
+                <h5 class="text-center">${tableData.s_tabla}</h5>
+                <div class="border rounded px-2" style="max-height: 300px; overflow-y: auto">
+                    ${fieldTemplate(tableData.sis_tcampos)}
+                </div>
+            </div>
         `;
     }
+
+    function fieldTemplate (fieldsData) {
+        let template = '';
+        $.each(fieldsData, (index, fieldData) => {
+            console.log(fieldData);
+            template += /*html*/`<div id="${fieldData.id}" draggable="true" ondragstart="">${fieldData.s_campo}</div>`;
+        });
+        return template;
+    }
+
+    function onDragStart(event) {
+        event.dataTransfer.setData('text/plain', event.target.id);
+    }
+
+    function buildTables() {
+        $('#tablesxx').attr('disabled', true);
+        $.ajax({
+            method: 'POST',
+            url: '{{route('excel.getDataFields')}}',
+            data: {
+                selected: $('#tablesxx').val()
+            },
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            success(response) {
+                $.each(response, (index, table) => {
+                    $('#tables').append(tableTemplate(table));
+                });
+            },
+            error(error) {
+                $('#tablesxx').attr('disabled', false);
+            }
+        });
+    }
+
+    function destroyTables() {
+        $('#tables').empty();
+        $('#tablesxx').attr('disabled', false);
+    }
+
     $(function() {
         $('.select2').select2({
             language: "es",
             //theme: 'bootstrap4',
         });
-        $('#tablesxx').on('change', () => {
-            $.ajax({
-                method: 'POST',
-                url: '{{route('excel.getDataFields')}}',
-                data: {
-                    selected: $('#tablesxx').val()
-                },
-                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                success(response) {
-                    $.each(response, (value, text) => {
-                        $('#columnsx').append(new Option(text, value));
-                    });
-                }
-            });
-        })
     });
 </script>
