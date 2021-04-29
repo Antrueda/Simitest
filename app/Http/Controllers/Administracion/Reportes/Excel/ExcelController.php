@@ -208,22 +208,43 @@ class ExcelController extends Controller
     public function store(Request $request)
     {
         $mapRetaltions = [];
-        $tables = SisTabla::whereIn('id', $request->tablesxx)->pluck('s_tabla', 'id')->toArray();
+        $tables = SisTabla::whereIn('id', $request->tablesxx)->pluck('s_tabla')->toArray();
         foreach ($tables as $key => $tableName) {
             $fields = SisTcampo::where('sis_tabla_id', $key)->pluck('s_campo');
             foreach ($fields as $key => $fieldName) {
                 $fieldNameToArray = explode('_', $fieldName);
-                if(in_array('id', $fieldNameToArray) && (!in_array('prm', $fieldNameToArray) || !in_array('parametro', $fieldNameToArray))) {
+                if(count($fieldNameToArray) > 1 && in_array('id', $fieldNameToArray) && (!in_array('prm', $fieldNameToArray) || !in_array('parametro', $fieldNameToArray))) {
                     $fieldToTable = str_replace('_id', 's', $fieldName);
                     if(in_array($fieldToTable, array_values($tables))) {
+                        // dd($fieldToTable);
                         $mapRetaltions[] = [$fieldToTable, "$fieldToTable.id", "$tableName.$fieldName"];
                     }
-                } else if (in_array('id', $fieldNameToArray) && (in_array('prm', $fieldNameToArray) || in_array('parametro', $fieldNameToArray))) {
+                } else if (count($fieldNameToArray) > 1 && in_array('id', $fieldNameToArray) && (in_array('prm', $fieldNameToArray) || in_array('parametro', $fieldNameToArray))) {
                     $mapRetaltions[] = ['parametros', "parametros.id", "$tableName.$fieldName"];
                 }
             }
         }
-        dd($mapRetaltions);
+        $selecctionToProcessing = SisTcampo::select('sis_tablas.id', 'sis_tablas.s_tabla AS table', DB::raw("GROUP_CONCAT(CONCAT(sis_tablas.s_tabla, '.', sis_tcampos.s_campo)) AS fieldToSelect"))->join('sis_tablas', 'sis_tablas.id', 'sis_tcampos.sis_tabla_id')->whereIn('sis_tcampos.id', $request->columnsx)->groupBy('sis_tablas.s_tabla')->get();
+        foreach ($selecctionToProcessing as $tableSelection) {
+            $fields = SisTcampo::where('sis_tabla_id', $tableSelection->id)->pluck('s_campo');
+            foreach ($fields as $key => $fieldName) {
+                $fieldNameToArray = explode('_', $fieldName);
+                if(count($fieldNameToArray) > 1 && in_array('id', $fieldNameToArray)){
+                    if(in_array($fieldToTable, array_values($tables))) {
+                        // dd($fieldToTable);
+                        $mapRetaltions[] = [$fieldToTable, "$fieldToTable.id", "$tableName.$fieldName"];
+                    }
+                }
+            }
+            dd($selecctionToProcessing);
+        }
+        dd($columns);
+        $data = DB::table($request->tablesxx[0])->select($columns);
+        foreach ($mapRetaltions as $key => [$tableToJoin, $fieldToJoinId, $fieldId]) {
+            $data = $data->join($tableToJoin, $fieldToJoinId, $fieldId);
+        }
+
+        dd($data->get());
         // $fiDatosBasicos = FiDatosBasico::first();
         // $headersx = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
         ob_end_clean();
@@ -256,7 +277,11 @@ class ExcelController extends Controller
         // } else{
         //     return response()->json(['newField' => true, 'fields' => $fields]);
         // }
-        return SisTcampo::whereIn('sis_tabla_id', $request->selected)->pluck('s_campo', 'id');
+        $sisTablas = SisTabla::select('id', 's_tabla')->whereIn('id', $request->selected)->get();
+        foreach ($sisTablas as $key => $sisTabla) {
+            $sisTablas[$key]->sis_tcampos = $sisTabla->sis_tcampos;
+        }
+        return $sisTablas;
     }
 
     /**
