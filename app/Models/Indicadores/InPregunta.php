@@ -90,7 +90,7 @@ class InPregunta extends Model
       }
     }
     $notinxxx = [];
-    $docupreg = InDocPregunta::where('in_ligru_id', $dataxxxx['grupoxxx'])
+    $docupreg = InDocPregunta::where('in_ligru_id', $dataxxxx['grupoxxx']->id)
       ->get();
     foreach ($docupreg as $docuprex) {
       $notinxxx[] = $docuprex->sis_tcampo_id;

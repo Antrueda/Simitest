@@ -4,9 +4,12 @@ namespace App\Observers;
 
 use App\Models\Indicadores\Logs\HInBaseFuente;
 use App\Models\Indicadores\InBaseFuente;
+use App\Traits\Utilidades\DefaultItem;
 
 class InBaseFuenteObserver
 {
+    use DefaultItem;
+    
     private function getLog($modeloxx)
     {
         // campos por defecto, no borrar.
@@ -16,7 +19,7 @@ class InBaseFuenteObserver
         $log['in_fuente_id'] = $modeloxx->in_fuente_id;
         $log['sis_docfuen_id'] = $modeloxx->sis_docfuen_id;
         // campos por defecto, no borrar.
-        $log['sis_esta_id'] = $modeloxx->sis_esta_id;
+        $log['sis_esta_id'] = $this->defaultSisEsta($modeloxx->sis_esta_id);
         $log['user_crea_id'] = $modeloxx->user_crea_id;
         $log['metodoxx'] = request()->method();
         $log['user_edita_id'] = $modeloxx->user_edita_id;

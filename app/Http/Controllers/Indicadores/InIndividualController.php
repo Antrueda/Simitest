@@ -65,6 +65,8 @@ class InIndividualController extends Controller
       'user_edita_id' => 1,
       'sis_nnaj_id' => 2
     ];
+    
+
     $this->opciones['tablasxx'] = [
       [
           'titunuev' => 'NUEVO TEMA',
