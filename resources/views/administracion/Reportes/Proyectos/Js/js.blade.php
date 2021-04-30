@@ -2,6 +2,8 @@
 
 
 <script>
+    var colors = [];
+
     function tableTemplate(tableData) {
         return /*html*/`
             <div class="col-4 col-sm-3 border rounded p-2">
@@ -17,13 +19,25 @@
         let template = '';
         $.each(fieldsData, (index, fieldData) => {
             console.log(fieldData);
-            template += /*html*/`<div id="${fieldData.id}" draggable="true" ondragstart="">${fieldData.s_campo}</div>`;
+            template += /*html*/`<div id="${fieldData.id}" draggable="true" ondragstart="onDragStart(event)" ondragover="onDragOver(event)">${fieldData.s_campo}</div>`;
         });
         return template;
     }
 
     function onDragStart(event) {
         event.dataTransfer.setData('text/plain', event.target.id);
+        event.currentTarget.style.backgroundColor = 'yellow';
+    }
+
+    function onDragOver(event) {
+        event.preventDefault();
+    }
+
+    function onDrop(event) {
+        const id = event.dataTransfer.getData('text');
+        if(event.target.id !== id ) {
+
+        }
     }
 
     function buildTables() {
