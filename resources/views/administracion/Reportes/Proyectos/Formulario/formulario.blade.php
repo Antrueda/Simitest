@@ -32,13 +32,8 @@
     </div>
     <div id="tables" class="row col-sm-12">
     </div>
-    <div class="form-group col-md-6">
-        {!! Form::label('columnsx', 'Tablas Principal', ['class' => 'control-label']) !!}
-        {!! Form::select('columnsx', [], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'multiple', 'name' => 'columnsx[]']) !!}
-        @if($errors->has('columnsx'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('columnsx') }}
-        </div>
-        @endif
+    <div class="col-md-6 p-2">
+        {!! Form::label('', 'Campos Seleccionados', ['class' => 'control-label']) !!}
+        <div class="border rounded p-2" id="fieldsSelected"></div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 
 
 <script>
-    var colors = [];
+    var fieldsselected = [];
 
     function tableTemplate(tableData) {
         return /*html*/`
@@ -18,8 +18,7 @@
     function fieldTemplate (fieldsData) {
         let template = '';
         $.each(fieldsData, (index, fieldData) => {
-            console.log(fieldData);
-            template += /*html*/`<div id="${fieldData.id}" draggable="true" ondragstart="onDragStart(event)" ondragover="onDragOver(event)">${fieldData.s_campo}</div>`;
+            template += /*html*/`<div id="${fieldData.id}" draggable="true" ondragstart="onDragStart(event)" ondragover="onDragOver(event)" onmouseup="addToFieldsSelected(event)">${fieldData.s_campo}</div>`;
         });
         return template;
     }
@@ -63,6 +62,30 @@
     function destroyTables() {
         $('#tables').empty();
         $('#tablesxx').attr('disabled', false);
+        $('#fieldsSelected').empty();
+    }
+
+    function addToFieldsSelected(event) {
+        const fieldIndex = fieldsselected.indexOf(event.target.id);
+        if(fieldIndex >= 0){
+            $(`#${event.target.id}`).css('background-color', 'white')
+            fieldsselected.splice(fieldIndex, 1);
+            $(`#field-${event.target.id}`).remove();
+        } else {
+            fieldsselected.push(event.target.id)
+            $(`#${event.target.id}`).css('background-color', 'lightgray')
+            $('#fieldsSelected').append(/*html*/`
+                <div class="bg-primary rounded-pill d-inline-block px-2 pb-1 m-1" id="field-${event.target.id}">
+                    <span class="mr-2 text-danger" onclick="removeFromFieldsSelected(${event.target.id})" style='cursor: pointer;'>x</span>${$(`#${event.target.id}`).text()}
+                </div>
+            `);
+        }
+    }
+
+    function removeFromFieldsSelected(id) {
+        fieldsselected.splice(id, 1);
+        $(`#field-${id}`).remove();
+        $(`#${id}`).css('background-color', 'white')
     }
 
     $(function() {
