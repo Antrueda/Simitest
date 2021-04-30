@@ -100,7 +100,7 @@ class CedulaNnajRule implements Rule
         $compfami = FiCompfami::join('sis_nnajs', 'fi_compfamis.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-            ->whereNotIn('fi_compfamis.id', [$this->requestx->segments()[4]])
+            ->where('fi_compfamis.id','=!', [$this->requestx->segments()[4]])
             ->where('s_documento', $this->requestx->s_documento)
             ->first();
         // verificar que la cédula ya la tenga otro nnaj
@@ -121,10 +121,10 @@ class CedulaNnajRule implements Rule
     {
         $cedulaxx = $this->getOtroComponenteFamiliar();
         if ($this->respuest && $cedulaxx != null) {
-            if ($cedulaxx->fi_datos_basico->sis_nnaj->prm_escomfam_id == 227) {
-                $this->respuest = false;
-                $this->messagex = "El registro que está intentando modificar es de un nnaj y por lo tanto no es posible, la información debe ser modificada por datos básicos";
-            }
+            // if ($cedulaxx->fi_datos_basico->sis_nnaj->prm_escomfam_id == 227) {
+            //     $this->respuest = false;
+            //     $this->messagex = "El registro que está intentando modificar es de un nnaj y por lo tanto no es posible, la información debe ser modificada por datos básicos";
+            // }
         }
     }
 

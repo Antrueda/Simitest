@@ -60,7 +60,13 @@ trait OpcionesGeneralesTrait
         ];
         return  $permisos;
     }
-
+    /**
+     * arma la estructura base del datatable que se usa en los controladores, este método es llamado en el trait
+     * DataTabeles
+     *
+     * @param array $dataxxxx
+     * @return $tablasx
+     */
     public function getTablasOGT($dataxxxx)
     {
         $tablasx =
@@ -69,7 +75,7 @@ trait OpcionesGeneralesTrait
                 'titulist' => $dataxxxx['titulist'],
                 'archdttb' => $this->opciones['rutacomp'] . 'Adatatable.index',
                 'vercrear' => $dataxxxx['vercrear'],
-                'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', $dataxxxx['pararout']),
+                'urlxxxxx' => $dataxxxx['urlxxxxx'],
                 'permtabl' => $dataxxxx['permtabl'],
                 'cabecera' => $dataxxxx['cabecera'],
                 'columnsx' => $dataxxxx['columnsx'],
@@ -102,7 +108,7 @@ trait OpcionesGeneralesTrait
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.js'];
         $this->getPestanias($this->opciones);
     }
-    public function setModelo($dataxxxx)
+    public function setModeloOGT($dataxxxx)
     {
         $this->opciones['parametr'][$dataxxxx['posicion']] = $dataxxxx['modeloxx']->id;
         $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
@@ -113,7 +119,7 @@ trait OpcionesGeneralesTrait
         $this->getVistaPestanias($dataxxxx);
         // indica si se esta actualizando o viendo
         if ($dataxxxx['modeloxx'] != '') {
-            $this->setModelo($dataxxxx);
+            $this->setModeloOGT($dataxxxx);
             $this->getBotones(['crearxxx', [$this->opciones['routxxxx'] . '.nuevoxxx', []], 2, "NUEVO {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
         } else {
             $this->getBotones(['crearxxx', [], 1, "GUARDAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);

@@ -25,10 +25,10 @@ trait DBVistasTrait
             'infocont' => 'Nnaj', // texto complementarios en el mensaje cuando se guarda o edita el registro
             'activexx' => 0, // pestaña que debe estar activa
             'permisox' => 'fidatbas', // commplemento del permiso
-            'routxxxx' => 'fidatbas' // complemento del route
+            'routxxxx' => 'fidatbas', // complemento del route
         ];
         $this->getOpcionesOGT($dataxxxx);
-        $this->opciones['pestpadr'] = 1;
+        $this->opciones['pestpadr'] = 0;
         $this->opciones['tituhead'] = "FICHA DE INGRESO";
     }
     public function index()
@@ -39,7 +39,9 @@ trait DBVistasTrait
             'titulist' => "LISTA DE {$this->opciones['titucont']}",
             'permisox' => $this->opciones['permisox'] . '-crear',
         ]);
-        return $this->indexOGT();
+        $this->opciones['tablasxx'][0]['forminde']='';
+        $respuest=$this->indexOGT();
+        return $respuest;
     }
     public function getListado(Request $request)
     {
