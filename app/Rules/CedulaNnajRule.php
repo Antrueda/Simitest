@@ -48,7 +48,7 @@ class CedulaNnajRule implements Rule
         $objetoxx = NnajDocu::where('s_documento', $this->requestx->s_documento)->first();
         if ($objetoxx != null) {
             $this->datobasi = $objetoxx->fi_datos_basico;
-            $this->messagex = "La cédula: {$this->requestx->s_documento} ya existe y pretences al nnaj: " . $this->getNombre();
+            $this->messagex = "La cédula: {$this->requestx->s_documento} ya existe y pertences al nnaj: " . $this->getNombre();
             $this->respuest = false;
         }
         return $objetoxx;

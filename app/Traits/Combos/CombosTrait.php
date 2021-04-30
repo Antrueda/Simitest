@@ -39,7 +39,7 @@ trait CombosTrait
     public function getInRespuestas($dataxxxx)
     {
         $comboxxx = $this->getCabecera($dataxxxx);
-        $padrexxx = $dataxxxx['padrexxx']->sis_tcampo->tema->parametros;
+        $padrexxx = $dataxxxx['padrexxx']->sis_tcampo->tema->temacombos[0]->parametros;
         foreach ($padrexxx as $registro) {
             if ($dataxxxx['ajaxxxxx']) {
                 $comboxxx[] = ['valuexxx' => $registro->id, 'optionxx' => $registro->nombre];
