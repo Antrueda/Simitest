@@ -44,7 +44,7 @@ trait DBControllerTrait
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 1, 'tituloxx' => 'GUARDAR', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 
         return $this->viewagregar(['modeloxx' => $nnajxxxx, 'accionxx' => ['adicionar', 'formulario']]);
@@ -143,63 +143,63 @@ trait DBControllerTrait
 
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
-        $i = 1;
-        $tables = DB::select('SHOW TABLES');
-        foreach ($tables as $key => $data) {
-            $tablaxxx = explode('_', $data->Tables_in_laravel);
-            if ($tablaxxx[0] != 'h') {
-                //  echo "SisTabla::create(['sis_docfuen_id'=>1 , 's_tabla'=>'{$data->Tables_in_laravel}',     's_descripcion'=>'{$data->Tables_in_laravel}','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]);<br>";
+        // $i = 1;
+        // $tables = DB::select('SHOW TABLES');
+        // foreach ($tables as $key => $data) {
+        //     $tablaxxx = explode('_', $data->Tables_in_laravel);
+        //     if ($tablaxxx[0] != 'h') {
+        //         //  echo "SisTabla::create(['sis_docfuen_id'=>1 , 's_tabla'=>'{$data->Tables_in_laravel}',     's_descripcion'=>'{$data->Tables_in_laravel}','sis_esta_id'=>1,'user_crea_id'=>1,'user_edita_id'=>1,]);<br>";
 
-                //     $tablsinh = str_replace('h_', '', $data->Tables_in_laravel);
-                //     $table = SisTabla::where('s_tabla', $tablsinh)->first();
-                //     if ($table == null) {
-                //         // $table = SisTabla::create([
-                //         //     'sis_docfuen_id'    => 2,
-                //         //     's_tabla'           => $tablsinh,
-                //         //     's_descripcion'     => $tablsinh,
-                //         //     'sis_esta_id'       => 1,
-                //         //     'user_crea_id'      => 1,
-                //         //     'user_edita_id'     => 1
-                //         // ]);
-                //     }
+        //         //     $tablsinh = str_replace('h_', '', $data->Tables_in_laravel);
+        //         //     $table = SisTabla::where('s_tabla', $tablsinh)->first();
+        //         //     if ($table == null) {
+        //         //         // $table = SisTabla::create([
+        //         //         //     'sis_docfuen_id'    => 2,
+        //         //         //     's_tabla'           => $tablsinh,
+        //         //         //     's_descripcion'     => $tablsinh,
+        //         //         //     'sis_esta_id'       => 1,
+        //         //         //     'user_crea_id'      => 1,
+        //         //         //     'user_edita_id'     => 1
+        //         //         // ]);
+        //         //     }
 
-                $columnsData = DB::select("SELECT COLUMN_NAME, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_NAME = '{$data->Tables_in_laravel}'");
+        //         $columnsData = DB::select("SELECT COLUMN_NAME, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_NAME = '{$data->Tables_in_laravel}'");
 
-                foreach ($columnsData as $columnData) {
-                    if ($columnData->COLUMN_NAME != 'id') {
-                        $campoxxx = explode('_', $columnData->COLUMN_NAME);
-                        if (in_array('prm', $campoxxx)) {
-                            echo    "SisTcampo::create([
-                            's_campo'           => '$columnData->COLUMN_NAME',
-                            'temacombo_id'    => 1,
-                            'sis_tabla_id'      =>" . $i . ",
-                            'user_crea_id'      => 1,
-                            'user_edita_id'     => 1,
-                            'sis_esta_id'       => 1
-                            ]);<br>";
-                        }
+        //         foreach ($columnsData as $columnData) {
+        //             if ($columnData->COLUMN_NAME != 'id') {
+        //                 $campoxxx = explode('_', $columnData->COLUMN_NAME);
+        //                 if (in_array('prm', $campoxxx)) {
+        //                     echo    "SisTcampo::create([
+        //                     's_campo'           => '$columnData->COLUMN_NAME',
+        //                     'temacombo_id'    => 1,
+        //                     'sis_tabla_id'      =>" . $i . ",
+        //                     'user_crea_id'      => 1,
+        //                     'user_edita_id'     => 1,
+        //                     'sis_esta_id'       => 1
+        //                     ]);<br>";
+        //                 }
 
-                        // $campoxxx = explode('_', $columnData->COLUMN_NAME);
-                        /**
-                         * solo campos que son parámetros, los campos abiertos no sirven, ni los campos mágicos
-                         */
-                        // if (in_array('prm', $campoxxx)) {
-                        // //    SisTcampo::create([
-                        // //     's_campo'           => $columnData->COLUMN_NAME,
-                        // //     // 's_numero'          => '1',
-                        // //     'temacombo_id'    => 1,
-                        // //     // 'tema_id'           => 1,
-                        // //     'sis_tabla_id'      => $table->id,
-                        // //     'user_crea_id'      => 1,
-                        // //     'user_edita_id'     => 1,
-                        // //     'sis_esta_id'       => 1
-                        // // ]);
-                        // }
-                    }
-                }
-                $i++;
-            }
-        }
+        //                 // $campoxxx = explode('_', $columnData->COLUMN_NAME);
+        //                 /**
+        //                  * solo campos que son parámetros, los campos abiertos no sirven, ni los campos mágicos
+        //                  */
+        //                 // if (in_array('prm', $campoxxx)) {
+        //                 // //    SisTcampo::create([
+        //                 // //     's_campo'           => $columnData->COLUMN_NAME,
+        //                 // //     // 's_numero'          => '1',
+        //                 // //     'temacombo_id'    => 1,
+        //                 // //     // 'tema_id'           => 1,
+        //                 // //     'sis_tabla_id'      => $table->id,
+        //                 // //     'user_crea_id'      => 1,
+        //                 // //     'user_edita_id'     => 1,
+        //                 // //     'sis_esta_id'       => 1
+        //                 // // ]);
+        //                 // }
+        //             }
+        //         }
+        //         $i++;
+        //     }
+        // }
 
         // $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
         $this->opciones['botoform'][] =
@@ -238,7 +238,7 @@ trait DBControllerTrait
         }
 
 
-        // return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
     }
     public function homologa($temacomb, $parametr, $codigoxx, $tablaxxx)
     {

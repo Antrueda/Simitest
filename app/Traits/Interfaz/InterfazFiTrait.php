@@ -4,19 +4,15 @@ namespace App\Traits\Interfaz;
 
 use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\fichaIngreso\NnajDese;
 use App\Models\fichaIngreso\NnajNacimi;
-use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GeNnaj;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Ge\GeUpiNnaj;
-use App\Models\Sistema\SisNnaj;
 use App\Models\User;
 use App\Traits\Interfaz\HomologacionesSimiAtiguoTrait as HSAT;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Schema;
 
 /**
  * realiza la comunicación entre las dos bases de datos=>'{$value->s_iso}'que se busca?
@@ -298,61 +294,66 @@ trait InterfazFiTrait
     public function setNnajPNT($dataxxxx)
     {
         $padrexxx = $dataxxxx['padrexxx'];
-        // $padrexxx->nnaj_docu->s_documento = 2933411;
-        $nnajxxxx = GeNnaj::join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
-            ->where('ge_nnaj_documento.numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
-        if ($nnajxxxx == null) {
-            $nnajxxxx = GeNnaj::where('numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
-            if ($nnajxxxx == null) {
-                $datannaj = $this->getDataGeNnaj($dataxxxx);
-                $nnajxxxx = GeNnaj::create($datannaj);
-            }
-            $fillable = [
-                'id_nnaj' => $nnajxxxx->id_nnaj,
-                'tipo_documento' => $nnajxxxx->tipo_documento,
-                'numero_documento' => $padrexxx->nnaj_docu->s_documento,
-                'notaria' => '',
-                'registraduria' => '',
-                'id_lugar_expedicion' => $padrexxx->nnaj_docu->sis_municipio->simianti_id,
-                'fecha_insercion' => date('Y-m-d'),
-                'usuario_insercion' => Auth::user()->s_documento,
-                'fecha_modificacion' => date('Y-m-d'),
-                'usuario_modificacion' => Auth::user()->s_documento,
-                'estado' => 'A',
-            ];
-            $document = GeNnajDocumento::where('numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
-            if ($document == null) {
-                $document = GeNnajDocumento::create($fillable);
-            }
-        }
-
         $dependen = $padrexxx->sis_nnaj->nnaj_upis->where('prm_principa_id', 227)->first();
-        $servicio = $dependen->nnaj_deses->where('prm_principa_id', 227)->first()->sis_servicio;
-        $upinnajx = GeUpiNnaj::where('id_nnaj', $nnajxxxx->id_nnaj)->where('modalidad')->first();
-        if ($upinnajx == null) {
-            $fillable = [
-                // 'id_upi_nnaj',
-                'id_upi' => $dependen->sis_depen->simianti_id,
-                // 'motivo',
-                // 'tiempo',
-                'modalidad'=>$servicio->simianti_id,
-                // 'anio',
-                'id_nnaj'=>$nnajxxxx->id_nnaj,
-                'fecha_insercion'=>$nnajxxxx->fecha_insercion,
-                'usuario_insercion'=>$nnajxxxx->usuario_insercion,
-                'fecha_modificacion'=>$nnajxxxx->fecha_modificacion,
-                'usuario_modificacion'=>$nnajxxxx->usuario_modificacion,
-                // 'id_valoracion_inicial',
-                // 'fecha_ingreso',
-                // 'fecha_egreso',
-                'estado'=>'A',
-                // 'origen',
-                // 'fuente',
-                // 'flag',
-                // 'servicio',
-                // 'estado_compartido',
-            ];
-            GeUpiNnaj::create($fillable);
+        $servicio = $dependen->nnaj_deses->where('prm_principa_id', 227)->first();
+        if ($servicio != null) {
+
+
+            // $padrexxx->nnaj_docu->s_documento = 2933411;
+            $nnajxxxx = GeNnaj::join('ge_nnaj_documento', 'ge_nnaj.id_nnaj', '=', 'ge_nnaj_documento.id_nnaj')
+                ->where('ge_nnaj_documento.numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
+            if ($nnajxxxx == null) {
+                $nnajxxxx = GeNnaj::where('numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
+                if ($nnajxxxx == null) {
+                    $datannaj = $this->getDataGeNnaj($dataxxxx);
+                    $nnajxxxx = GeNnaj::create($datannaj);
+                }
+                $fillable = [
+                    'id_nnaj' => $nnajxxxx->id_nnaj,
+                    'tipo_documento' => $nnajxxxx->tipo_documento,
+                    'numero_documento' => $padrexxx->nnaj_docu->s_documento,
+                    'notaria' => '',
+                    'registraduria' => '',
+                    'id_lugar_expedicion' => $padrexxx->nnaj_docu->sis_municipio->simianti_id,
+                    'fecha_insercion' => date('Y-m-d'),
+                    'usuario_insercion' => Auth::user()->s_documento,
+                    'fecha_modificacion' => date('Y-m-d'),
+                    'usuario_modificacion' => Auth::user()->s_documento,
+                    'estado' => 'A',
+                ];
+                $document = GeNnajDocumento::where('numero_documento', $padrexxx->nnaj_docu->s_documento)->first();
+                if ($document == null) {
+                    $document = GeNnajDocumento::create($fillable);
+                }
+            }
+
+            $servicio = $servicio->sis_servicio;
+            $upinnajx = GeUpiNnaj::where('id_nnaj', $nnajxxxx->id_nnaj)->where('modalidad')->first();
+            if ($upinnajx == null) {
+                $fillable = [
+                    // 'id_upi_nnaj',
+                    'id_upi' => $dependen->sis_depen->simianti_id,
+                    // 'motivo',
+                    // 'tiempo',
+                    'modalidad' => $servicio->simianti_id,
+                    // 'anio',
+                    'id_nnaj' => $nnajxxxx->id_nnaj,
+                    'fecha_insercion' => $nnajxxxx->fecha_insercion,
+                    'usuario_insercion' => $nnajxxxx->usuario_insercion,
+                    'fecha_modificacion' => $nnajxxxx->fecha_modificacion,
+                    'usuario_modificacion' => $nnajxxxx->usuario_modificacion,
+                    // 'id_valoracion_inicial',
+                    // 'fecha_ingreso',
+                    // 'fecha_egreso',
+                    'estado' => 'A',
+                    // 'origen',
+                    // 'fuente',
+                    // 'flag',
+                    // 'servicio',
+                    // 'estado_compartido',
+                ];
+                GeUpiNnaj::create($fillable);
+            }
         }
         // ddd($upinnajx);
     }
