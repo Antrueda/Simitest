@@ -169,7 +169,7 @@ class InFuenteController extends Controller
         $this->opciones['cardhead'] = 'INDICADOR: ' . $padrexxx->s_indicador;
         $this->opciones['cardheap'] = 'ÁREA: ' . $padrexxx->area->nombre;
         $this->opciones['indicado'] = [$padrexxx->id => $padrexxx->s_indicador];
-        $this->opciones['botoform'][0]['routingx'][1] = [$objetoxx->id];
+        $this->opciones['botoform'][0]['routingx'][1] = [$padrexxx->id];
         $this->opciones['indecrea'] = false;
         $this->opciones['parametr'] = [$padrexxx->id, $objetoxx->id];
 

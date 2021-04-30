@@ -2,10 +2,11 @@
 
 namespace App\Models\Indicadores;
 
-use App\Models\Sistema\SisDocumentoFuente;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Sistema\SisDocfuen;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Sistema\SisDocumentoFuente;
 
 class InBaseFuente extends Model
 {
