@@ -85,7 +85,7 @@ trait DBControllerTrait
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
         }
-        $this->setNnajPNT(['padrexxx' => $objetoxx]);
+        $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
