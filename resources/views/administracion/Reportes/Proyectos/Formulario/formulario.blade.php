@@ -35,5 +35,11 @@
     <div class="col-md-6 p-2">
         {!! Form::label('', 'Campos Seleccionados', ['class' => 'control-label']) !!}
         <div class="border rounded p-2" id="fieldsSelected"></div>
+        <input type="hidden" name="fieldsSelected">
+    </div>
+    <div class="col-md-6 p-2">
+        {!! Form::label('', 'Relaciones Seleccionadas', ['class' => 'control-label']) !!}
+        <div class="border rounded p-2" id="relationsSelected"></div>
+        <input type="hidden" name="relationsSelected">
     </div>
 </div>
