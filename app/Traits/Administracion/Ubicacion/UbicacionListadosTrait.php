@@ -128,7 +128,7 @@ trait UbicacionListadosTrait
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
-            $dataxxxx =  SisUpzbarri::select(['sis_upzbarris.id', 'sis_barrios.s_barrio', 'sis_upzbarris.sis_esta_id', 'sis_estas.s_estado'])
+            $dataxxxx =  SisUpzbarri::select(['sis_upzbarris.id', 'sis_barrios.s_barrio', 'sis_upzbarris.sis_esta_id','sis_upzbarris.simianti_id', 'sis_estas.s_estado'])
             ->join('sis_barrios', 'sis_upzbarris.sis_barrio_id', '=', 'sis_barrios.id')
                 ->join('sis_estas', 'sis_upzbarris.sis_esta_id', '=', 'sis_estas.id')
                 ->where('sis_localupz_id',$padrexxx->id)
