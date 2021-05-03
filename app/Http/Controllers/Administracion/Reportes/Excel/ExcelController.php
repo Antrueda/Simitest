@@ -198,57 +198,57 @@ class ExcelController extends Controller
 
 
 
-        $tablasxx = DB::select('SELECT table_name
-        FROM user_tables
-        ORDER BY table_name ');
-        $posicio = [1, 127, 264, 273, 740, 777, 1351, 1394,1512,1551,1873,1961,2287,2296];
-        $prefijo = ['AG', 'AI', 'CSDS', 'CSD', 'FCV', 'FI', 'FOS', 'IN','IS','MIT','NNAJ','SIS','VSIS','VSI'];
-        $posicix=13;
-        $i = $posicio[$posicix];
-        $j = 1;
-        foreach ($tablasxx as $tablaxxx) {
-            $tablaxxy = $tablaxxx->table_name;
-            $columnsData = DB::select("SELECT table_name, column_name, data_type, data_length
-            FROM USER_TAB_COLUMNS
-            WHERE table_name = '{$tablaxxy}' order by column_name");
-            $campoxxy = explode('_', $tablaxxy);
-            if ($campoxxy[0] != 'H') {
-                if ($campoxxy[0] == strtoupper($prefijo[$posicix])) {
+        // $tablasxx = DB::select('SELECT table_name
+        // FROM user_tables
+        // ORDER BY table_name ');
+        // $posicio = [1, 127, 264, 273, 740, 777, 1351, 1394,1512,1551,1873,1961,2287,2296];
+        // $prefijo = ['AG', 'AI', 'CSDS', 'CSD', 'FCV', 'FI', 'FOS', 'IN','IS','MIT','NNAJ','SIS','VSIS','VSI'];
+        // $posicix=13;
+        // $i = $posicio[$posicix];
+        // $j = 1;
+        // foreach ($tablasxx as $tablaxxx) {
+        //     $tablaxxy = $tablaxxx->table_name;
+        //     $columnsData = DB::select("SELECT table_name, column_name, data_type, data_length
+        //     FROM USER_TAB_COLUMNS
+        //     WHERE table_name = '{$tablaxxy}' order by column_name");
+        //     $campoxxy = explode('_', $tablaxxy);
+        //     if ($campoxxy[0] != 'H') {
+        //         if ($campoxxy[0] == strtoupper($prefijo[$posicix])) {
 
-                    echo "//$tablaxxy<br>";
-                    foreach ($columnsData as $columnData) {
-                        $campoxxx = $columnData->column_name;
-                        if (!in_array($campoxxx, ['ID'])) {
-                            $campxxxx = explode('_', $campoxxx);
-                            $tablrela = '';
-                            $idtarela = '';
-                            $campsele = '';
-                            if (in_array('PRM', $campxxxx)) {
-                                $tablrela = "parametros as param$i";
-                                $idtarela = "param$i.id";
-                                $campsele = "param$i.nombre as nombre$i";
-                            }
-                            // else {
-                            //     $campsele = "$tablaxxy.$campoxxx";
-                            // }
-                            echo "SisTcampo::create([
-                        's_campo'           => '$campoxxx',
-                        's_descripcion'           => '$campoxxx',
-                        'sis_tabla_id'      => $j,
-                        'user_crea_id'      => 1,
-                        'user_edita_id'     => 1,
-                        's_tablrela'=> '$tablrela',
-                        's_idtarela'=> '$idtarela',
-                        's_campsele'=> '$campsele',
-                        'sis_esta_id'       => 1
-                    ]);//$i<br>";
-                            $i++;
-                        }
-                    }
-                }
-                $j++;
-            }
-        }
+        //             echo "//$tablaxxy<br>";
+        //             foreach ($columnsData as $columnData) {
+        //                 $campoxxx = $columnData->column_name;
+        //                 if (!in_array($campoxxx, ['ID'])) {
+        //                     $campxxxx = explode('_', $campoxxx);
+        //                     $tablrela = '';
+        //                     $idtarela = '';
+        //                     $campsele = '';
+        //                     if (in_array('PRM', $campxxxx)) {
+        //                         $tablrela = "parametros as param$i";
+        //                         $idtarela = "param$i.id";
+        //                         $campsele = "param$i.nombre as nombre$i";
+        //                     }
+        //                     // else {
+        //                     //     $campsele = "$tablaxxy.$campoxxx";
+        //                     // }
+        //                     echo "SisTcampo::create([
+        //                 's_campo'           => '$campoxxx',
+        //                 's_descripcion'           => '$campoxxx',
+        //                 'sis_tabla_id'      => $j,
+        //                 'user_crea_id'      => 1,
+        //                 'user_edita_id'     => 1,
+        //                 's_tablrela'=> '$tablrela',
+        //                 's_idtarela'=> '$idtarela',
+        //                 's_campsele'=> '$campsele',
+        //                 'sis_esta_id'       => 1
+        //             ]);//$i<br>";
+        //                     $i++;
+        //                 }
+        //             }
+        //         }
+        //         $j++;
+        //     }
+        // }
 
 
         $this->opciones['botoform'][] =
@@ -257,7 +257,7 @@ class ExcelController extends Controller
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 
-        // return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
     }
     public function setExcel()
     {
