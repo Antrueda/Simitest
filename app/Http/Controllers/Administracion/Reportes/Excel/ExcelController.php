@@ -5,21 +5,20 @@ namespace App\Http\Controllers\Administracion\Reportes\Excel;
 use App\Exports\FiDatosBasicoExport;
 use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Sistema\SisTabla;
 use App\Models\Sistema\SisTcampo;
-use App\Models\User;
+use App\Models\Temacombo;
 use App\Models\Usuario\RolUsuario;
-use Exception;
+use App\Traits\Administracion\Reportes\Excel\ArmarReporteTrait;
+use App\Traits\Administracion\Reportes\Excel\ExcelTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelController extends Controller
 {
-
+    use ExcelTrait;
+    use ArmarReporteTrait;
     private $opciones;
 
     public function __construct()
@@ -123,7 +122,7 @@ class ExcelController extends Controller
     {
         $this->opciones['aniosxxx']  = [];
         for ($i = 2021; $i <= date('Y'); $i++) {
-            $this->opciones['aniosxxx'] [$i] = $i;
+            $this->opciones['aniosxxx'][$i] = $i;
         }
         $this->opciones['mesesxxx'] = [];
         for ($i = 1; $i <= 12; $i++) {
@@ -144,6 +143,7 @@ class ExcelController extends Controller
         // $fiDatosBasicos = FiDatosBasico::first();
         // $this->opciones['maintabl'] = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
         $this->opciones['tablesxx'] = $tablas;
+        $this->opciones['camposxx'] = [];
         // dd($this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray())));
 
         if ($dataxxxx['modeloxx'] != '') {
@@ -171,13 +171,93 @@ class ExcelController extends Controller
     public function getExcel()
     {
 
+
+        // $tables = DB::select('SELECT table_name
+        // FROM user_tables
+        // ORDER BY table_name');
+        // $i=1;
+        // foreach ($tables as $key=> $data) {
+        //     $tablaxxx=strtolower($data->table_name);
+        //     $tablaxxy = explode('_', $tablaxxx);
+        //     /**
+        //      * encontrar las tablas padre
+        //      */
+        //     if ($tablaxxy[0] != 'h') {
+        //         echo "SisTabla::create([
+        //             'sis_docfuen_id'    => 2,
+        //             's_tabla'           => '$tablaxxx',
+        //             's_descripcion'     => '$tablaxxx',
+        //             'sis_esta_id'       => 1,
+        //             'user_crea_id'      => 1,
+        //             'user_edita_id'     => 1
+        //         ]); //$i <br>";
+        //         $i++;
+        //     }
+        // }
+
+
+
+
+        $tablasxx = DB::select('SELECT table_name
+        FROM user_tables
+        ORDER BY table_name ');
+        $posicio = [1, 127, 264, 273, 740, 777, 1351, 1394,1512,1551,1873,1961,2287,2296];
+        $prefijo = ['AG', 'AI', 'CSDS', 'CSD', 'FCV', 'FI', 'FOS', 'IN','IS','MIT','NNAJ','SIS','VSIS','VSI'];
+        $posicix=13;
+        $i = $posicio[$posicix];
+        $j = 1;
+        foreach ($tablasxx as $tablaxxx) {
+            $tablaxxy = $tablaxxx->table_name;
+            $columnsData = DB::select("SELECT table_name, column_name, data_type, data_length
+            FROM USER_TAB_COLUMNS
+            WHERE table_name = '{$tablaxxy}' order by column_name");
+            $campoxxy = explode('_', $tablaxxy);
+            if ($campoxxy[0] != 'H') {
+                if ($campoxxy[0] == strtoupper($prefijo[$posicix])) {
+
+                    echo "//$tablaxxy<br>";
+                    foreach ($columnsData as $columnData) {
+                        $campoxxx = $columnData->column_name;
+                        if (!in_array($campoxxx, ['ID'])) {
+                            $campxxxx = explode('_', $campoxxx);
+                            $tablrela = '';
+                            $idtarela = '';
+                            $campsele = '';
+                            if (in_array('PRM', $campxxxx)) {
+                                $tablrela = "parametros as param$i";
+                                $idtarela = "param$i.id";
+                                $campsele = "param$i.nombre as nombre$i";
+                            }
+                            // else {
+                            //     $campsele = "$tablaxxy.$campoxxx";
+                            // }
+                            echo "SisTcampo::create([
+                        's_campo'           => '$campoxxx',
+                        's_descripcion'           => '$campoxxx',
+                        'sis_tabla_id'      => $j,
+                        'user_crea_id'      => 1,
+                        'user_edita_id'     => 1,
+                        's_tablrela'=> '$tablrela',
+                        's_idtarela'=> '$idtarela',
+                        's_campsele'=> '$campsele',
+                        'sis_esta_id'       => 1
+                    ]);//$i<br>";
+                            $i++;
+                        }
+                    }
+                }
+                $j++;
+            }
+        }
+
+
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
                 'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 
-        return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
+        // return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
     }
     public function setExcel()
     {
@@ -207,49 +287,42 @@ class ExcelController extends Controller
 
     public function store(Request $request)
     {
-        $mapRetaltions = [];
-        $tables = SisTabla::whereIn('id', $request->tablesxx)->pluck('s_tabla')->toArray();
-        foreach ($tables as $key => $tableName) {
-            $fields = SisTcampo::where('sis_tabla_id', $key)->pluck('s_campo');
-            foreach ($fields as $key => $fieldName) {
-                $fieldNameToArray = explode('_', $fieldName);
-                if(count($fieldNameToArray) > 1 && in_array('id', $fieldNameToArray) && (!in_array('prm', $fieldNameToArray) || !in_array('parametro', $fieldNameToArray))) {
-                    $fieldToTable = str_replace('_id', 's', $fieldName);
-                    if(in_array($fieldToTable, array_values($tables))) {
-                        // dd($fieldToTable);
-                        $mapRetaltions[] = [$fieldToTable, "$fieldToTable.id", "$tableName.$fieldName"];
-                    }
-                } else if (count($fieldNameToArray) > 1 && in_array('id', $fieldNameToArray) && (in_array('prm', $fieldNameToArray) || in_array('parametro', $fieldNameToArray))) {
-                    $mapRetaltions[] = ['parametros', "parametros.id", "$tableName.$fieldName"];
-                }
-            }
-        }
-        $selecctionToProcessing = SisTcampo::select('sis_tablas.id', 'sis_tablas.s_tabla AS table', DB::raw("GROUP_CONCAT(CONCAT(sis_tablas.s_tabla, '.', sis_tcampos.s_campo)) AS fieldToSelect"))->join('sis_tablas', 'sis_tablas.id', 'sis_tcampos.sis_tabla_id')->whereIn('sis_tcampos.id', $request->columnsx)->groupBy('sis_tablas.s_tabla')->get();
-        foreach ($selecctionToProcessing as $tableSelection) {
-            $fields = SisTcampo::where('sis_tabla_id', $tableSelection->id)->pluck('s_campo');
-            foreach ($fields as $key => $fieldName) {
-                $fieldNameToArray = explode('_', $fieldName);
-                if(count($fieldNameToArray) > 1 && in_array('id', $fieldNameToArray)){
-                    if(in_array($fieldToTable, array_values($tables))) {
-                        // dd($fieldToTable);
-                        $mapRetaltions[] = [$fieldToTable, "$fieldToTable.id", "$tableName.$fieldName"];
-                    }
-                }
-            }
-            dd($selecctionToProcessing);
-        }
-        dd($columns);
-        $data = DB::table($request->tablesxx[0])->select($columns);
-        foreach ($mapRetaltions as $key => [$tableToJoin, $fieldToJoinId, $fieldId]) {
-            $data = $data->join($tableToJoin, $fieldToJoinId, $fieldId);
-        }
+        $this->getReporteART(['requestx' => $request]);
+        // ddd($mapRetaltions);
 
-        dd($data->get());
-        // $fiDatosBasicos = FiDatosBasico::first();
-        // $headersx = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
-        ob_end_clean();
-        ob_start();
-        return Excel::download(new UsersExport($request, $headersx), 'users_report.xlsx');
+        // $selecctionToProcessing = SisTcampo::
+        // select('sis_tablas.id', 'sis_tablas.s_tabla AS table',
+        // DB::raw("GROUP_CONCAT(CONCAT(sis_tablas.s_tabla, '.', sis_tcampos.s_campo)) AS fieldToSelect"))
+        // ->join('sis_tablas', 'sis_tablas.id', 'sis_tcampos.sis_tabla_id')
+        // ->whereIn('sis_tcampos.id', $request->sis_tcampo_id)
+        // ->groupBy('sis_tablas.s_tabla')->get();
+
+        // ddd($selecctionToProcessing );
+        // foreach ($selecctionToProcessing as $tableSelection) {
+        //     $fields = SisTcampo::where('sis_tabla_id', $tableSelection->id)->pluck('s_campo');
+        //     foreach ($fields as $key => $fieldName) {
+        //         $fieldNameToArray = explode('_', $fieldName);
+        //         if(count($fieldNameToArray) > 1 && in_array('id', $fieldNameToArray)){
+        //             if(in_array($fieldToTable, array_values($tables))) {
+        //                 // dd($fieldToTable);
+        //                 $mapRetaltions[] = [$fieldToTable, "$fieldToTable.id", "$tableName.$fieldName"];
+        //             }
+        //         }
+        //     }
+        //     dd($selecctionToProcessing);
+        // }
+        // dd($columns);
+        // $data = DB::table($request->tablesxx[0])->select($columns);
+        // foreach ($mapRetaltions as $key => [$tableToJoin, $fieldToJoinId, $fieldId]) {
+        //     $data = $data->join($tableToJoin, $fieldToJoinId, $fieldId);
+        // }
+
+        // dd($data->get());
+        // // $fiDatosBasicos = FiDatosBasico::first();
+        // // $headersx = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
+        // ob_end_clean();
+        // ob_start();
+        // return Excel::download(new UsersExport($request, $headersx), 'users_report.xlsx');
     }
 
     public function getDataFields(Request $request)
@@ -295,20 +368,18 @@ class ExcelController extends Controller
         // Obtenemos el nombre de la tabla.
         $tableName = $model->getTableName();
         // Recorremos las columnas o atributos del modelo
-        foreach($modelColumns as $modelColumn)
-        {
+        foreach ($modelColumns as $modelColumn) {
             // Obtenemos el comentario de la columna o atributo
             $comment = DB::select("SELECT COLUMN_NAME, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_NAME = '{$tableName}' AND COLUMN_NAME = '{$modelColumn}'")[0]->COLUMN_COMMENT;
             // Validamos si tiene o no comentario, en caso de no tener se le pasa un string con el nombre de la
             // tabla y la columna
             $modelColumnAsArray = explode('_', $modelColumn);
-            if(!in_array('id', $modelColumnAsArray))
-            {
+            if (!in_array('id', $modelColumnAsArray)) {
                 $columnsWithDescription[$modelColumn] = trim($comment) === '' ? "Tabla: {$tableName}, columna: {$modelColumn}" : $comment;
             }
         }
         // Verificamos si tiene relaciones, si las tiene unimos las relaciones con las columnas
-        if(!empty($model->getTheRelations())) {
+        if (!empty($model->getTheRelations())) {
             $columnsWithDescription = array_merge($columnsWithDescription, $model->getTheRelations());
         }
 

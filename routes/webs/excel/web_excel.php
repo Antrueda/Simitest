@@ -18,7 +18,10 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 		'uses' => $controll . 'Controller@getDataFields',
 		'middleware' => ['permission:' . $routexxx . '-crear']
 	])->name($routexxx . '.getDataFields');
-
+    Route::get('tablcamp', [
+		'uses' => $controll . 'Controller@getTablaCamposET',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.tablcamp');
 
 	Route::get('nuevo', [
 		'uses' => $controll . 'Controller@create',
