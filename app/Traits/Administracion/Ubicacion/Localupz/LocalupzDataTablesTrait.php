@@ -42,8 +42,8 @@ trait LocalupzDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'sis_localupz.id'],
-                    ['data' => 's_upz', 'name' => 'sis_upz.s_upz'],
+                    ['data' => 'id', 'name' => 'sis_localupzs.id'],
+                    ['data' => 's_upz', 'name' => 'sis_upzs.s_upz'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',
