@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exports;
+namespace app\Exports;
 
 use App\Models\Sistema\SisNnaj;
 use Illuminate\Contracts\View\View;
@@ -15,7 +15,7 @@ class SisNnajExport implements  FromView,ShouldAutoSize
 
         $todoxxxx=SisNnaj::
         where('prm_escomfam_id',227)->orderBy('id','ASC')
-        ->where('id','>',394)
+        // ->where('id','>',394)
         ->orderBy('id','ASC')
         ->get();
         return view('administracion.Reportes.Excel.Formulario.nnajxxxx',

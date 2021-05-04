@@ -49,7 +49,16 @@ trait HomologacionesTrait
     }
 
     //1019122258
-
+    public function getBarrioHomologa($dataxxxx, $localupz, $barrioxx)
+    {
+        if ($localupz->id == 90 && $dataxxxx['idbarrio'] == 30043) {
+            $barrioxx->id = 10187;
+        }
+        if ($localupz->id == 64 && $dataxxxx['idbarrio'] == 190233) {
+            $barrioxx->id = 2438;
+        }
+        return $barrioxx;
+    }
     public function getBarrio($dataxxxx)
     {
         if ($dataxxxx['idbarrio'] == 30012) {
@@ -91,9 +100,9 @@ trait HomologacionesTrait
                 throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
             }
             $localupz = SisLocalupz::where('sis_localidad_id', $localida->id)->where('sis_upz_id', $upzxxxxx->id)->first();
-            if ($localupz->id == 90 && $dataxxxx['idbarrio'] == 30043) {
-                $barrioxx->id = 10187;
-            }
+            
+            $barrioxx=$this->getBarrioHomologa($dataxxxx, $localupz, $barrioxx);
+
             if ($barrioxx->id == 208207 || $barrioxx->id == 0) {
                 $upzbarri = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', 1653)->first();
             } else {
