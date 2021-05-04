@@ -81,19 +81,26 @@ trait DBVistaAuxTrait
         // indica si se esta actualizando o viendo
         $this->opciones['aniosxxx'] = '';
         if ($dataxxxx['modeloxx'] != '') {
-            $dataxxxx['modeloxx']->sis_depen_id = $dataxxxx['modeloxx']
+            $upixxxxx = $dataxxxx['modeloxx']
                 ->sis_nnaj
-                ->nnaj_upis->where('prm_principa_id', 227)
-                ->first()->sis_depen_id;
-            $servicio = $dataxxxx['modeloxx']
-                ->sis_nnaj
-                ->nnaj_upis->where('prm_principa_id', 227)
-                ->first()->nnaj_deses
+                ->nnaj_upis
                 ->where('prm_principa_id', 227)
-                ->first();
-            if ($servicio != null) {
-                $dataxxxx['modeloxx']->sis_servicio_id = $servicio->sis_servicio_id;
+                ->first()
+                ; //ddd($upixxxxx);
+                $dataxxxx['modeloxx']->sis_depen_id =0;
+            if ($upixxxxx != null) {
+                $dataxxxx['modeloxx']->sis_depen_id = $upixxxxx->sis_depen_id;
+                $servicio = $dataxxxx['modeloxx']
+                    ->sis_nnaj
+                    ->nnaj_upis->where('prm_principa_id', 227)
+                    ->first()->nnaj_deses
+                    ->where('prm_principa_id', 227)
+                    ->first();
+                if ($servicio != null) {
+                    $dataxxxx['modeloxx']->sis_servicio_id = $servicio->sis_servicio_id;
+                }
             }
+
 
 
 
@@ -275,7 +282,7 @@ trait DBVistaAuxTrait
                     'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        $this->opciones['poblindi'] = Tema::combo(61, true, false); 
+        $this->opciones['poblindi'] = Tema::combo(61, true, false);
         switch ($dataxxxx['modeloxx']->prm_tipoblaci_id) {
             case 650:
                 $this->opciones['estrateg'] =  Parametro::find(235)->Combo;

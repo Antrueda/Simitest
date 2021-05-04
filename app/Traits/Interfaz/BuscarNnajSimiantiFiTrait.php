@@ -233,6 +233,7 @@ trait BuscarNnajSimiantiFiTrait
      */
     public function getNnajFiCsdBNSFT($objetoxx, $dataxxxx)
     {
+
         if ($dataxxxx->rh != null) {
             $factorrh = substr($dataxxxx->rh, -1);
             $grupsang = str_replace($factorrh, "", $dataxxxx->rh);
