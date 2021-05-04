@@ -275,7 +275,7 @@ trait DBVistaAuxTrait
                     'formhref' => 2, 'tituloxx' => 'IR A CREAR NUEVO REGISTRO', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
         }
-        $this->opciones['poblindi'] = Tema::combo(61, true, false);
+        $this->opciones['poblindi'] = Tema::combo(61, true, false); 
         switch ($dataxxxx['modeloxx']->prm_tipoblaci_id) {
             case 650:
                 $this->opciones['estrateg'] =  Parametro::find(235)->Combo;

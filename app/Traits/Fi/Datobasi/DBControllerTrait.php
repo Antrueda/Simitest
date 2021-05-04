@@ -33,14 +33,16 @@ trait DBControllerTrait
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                'formhref' => 1, 'tituloxx' => 'GUARDAR', 'clasexxx' => 'btn btn-sm btn-primary'
             ];
 
         return $this->view(['modeloxx' => '', 'accionxx' => ['crear', 'formulario']]);
     }
     public function agregar(Request $request)
     {
-        $nnajxxxx = $this->getBuscarNnajAgregar($request);
+
+        $dataxxxx = ["docuagre" => $request->docuagre, 'buscarxx' => true];
+        $nnajxxxx = $this->getBuscarNnajAgregar($dataxxxx);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

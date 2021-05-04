@@ -12,10 +12,15 @@ trait ActualizarNnajFiTrait
 {
     public function pruebaANFT($dataxxxx)
     {
-        $objetoxx = $this->getBuscarNnajAgregar(['docuagre' => $dataxxxx['padrexxx']->nnaj_docu->s_documento]);
-
         $padrexxx = $dataxxxx['padrexxx'];
-        if ($objetoxx != null && $padrexxx->sis_nnaj<1) {
+        $objetoxx = $this->getBuscarNnajAgregar(['docuagre' => $dataxxxx['padrexxx']->nnaj_docu->s_documento,'buscarxx'=>false]);
+        // if (Auth::user()->s_documento == 17496705) {
+        //     // ddd($sisdepen);
+        //     // $sisdepen->update();
+        //     ddd($padrexxx->sis_nnaj->toArray(), $objetoxx->toArray());
+        // }
+
+        if ($objetoxx != null && $padrexxx->sis_nnaj->simianti_id < 1) {
 
             $padrexxx->s_primer_nombre = $objetoxx->s_primer_nombre;
             $padrexxx->s_segundo_nombre = $objetoxx->s_segundo_nombre;

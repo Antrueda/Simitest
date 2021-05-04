@@ -4,11 +4,13 @@ namespace App\Traits\Interfaz;
 
 use App\Exceptions\Interfaz\SimiantiguoException;
 use App\Models\fichaIngreso\FiDatosBasico;
+use App\Models\fichaIngreso\NnajDocu;
 use App\Models\fichaIngreso\NnajNacimi;
 use App\Models\Parametro;
 use App\Models\Simianti\Ge\FichaAcercamientoIngreso;
 use App\Models\Simianti\Ge\GeDireccione;
 use App\Models\Simianti\Ge\GeNnajDocumento;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * realiza la búsqueda de un nnaj en el antiguo simi para migrarlo al nuevo desarrollo
@@ -64,6 +66,10 @@ trait BuscarNnajSimiantiFiTrait
     public function getArmarData($requestx)
     {
         $dataxxxx = $this->getGeNnajCNSFT($requestx);
+        $document = NnajDocu::where('s_documento', $requestx['docuagre'])->first();
+        if (Auth::user()->s_documento == 17496705) {
+            // ddd($document->toArray());
+        }
         if ($dataxxxx != null) {
             $dataxxxx->id_barrio = '';
             $direccio = GeDireccione::where('id_nnaj', $dataxxxx->id_nnaj)->first();
@@ -71,6 +77,7 @@ trait BuscarNnajSimiantiFiTrait
                 $dataxxxx->id_barrio = $direccio->id_barrio;
             }
             $fichacer = FichaAcercamientoIngreso::where('id_nnaj', $dataxxxx->id_nnaj)->first();
+
             if ($fichacer == null) {
                 $dataxxxx['tituloxx'] = 'NNJA SIN FICHA!';
                 $dataxxxx['mensajex'] = 'El NNAJ: ' . $dataxxxx->primer_nombre . ' ' .
@@ -81,6 +88,8 @@ trait BuscarNnajSimiantiFiTrait
             } else {
                 $dataxxxx->fecha_apertura = $fichacer->fecha_apertura;
             }
+        } else {
+            // $dataxxxx  = null;
         }
         return $dataxxxx;
     }
@@ -353,8 +362,7 @@ trait BuscarNnajSimiantiFiTrait
             $objetoxx = $this->getNnajDocuBNSFT($objetoxx, $dataxxxx);
             $objetoxx = $this->getNnajSitMilBNSFT($objetoxx, $dataxxxx);
             $objetoxx = $this->getNnajFocaliBNSFT($objetoxx, $dataxxxx);
-        }else{
-
+        } else {
         }
 
         return $objetoxx;

@@ -52,6 +52,9 @@ trait HomologacionesTrait
 
     public function getBarrio($dataxxxx)
     {
+        if ($dataxxxx['idbarrio'] == 30012) {
+            $dataxxxx['idbarrio'] == 30011;
+        }
         // conocer datos del barrio en el antiguo simi
         $barrioxx = BaTerritorio::find($dataxxxx['idbarrio']);
         //ddd( $barrioxx);
@@ -60,6 +63,7 @@ trait HomologacionesTrait
             $dataxxxx['mensajex'] = "El id: {$dataxxxx['idbarrio']} de barrio existe en el antiguo simi.";
             throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
         } else {
+
             // ddd($barrioxx);
             // if ($barrioxx->tipo == 'C') {
             //     $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
@@ -256,6 +260,18 @@ trait HomologacionesTrait
                     $parametr = Parametro::find(153);
                 }
                 break;
+
+            case 33:
+
+                if ($dataxxxx['codigoxx'] == 'null') {
+                    $parametr = Parametro::find(153);
+                }
+                break;
+            case 13:
+                if ($dataxxxx['codigoxx'] == 5) {
+                    $parametr = Parametro::find(445);
+                }
+                break;
         }
 
         if ($parametr == '') {
@@ -448,7 +464,6 @@ trait HomologacionesTrait
                 'user_crea_id' => Auth::user()->id,
                 'user_edita_id' => Auth::user()->id,
                 'sis_esta_id' => 1
-
             ];
             NnajDese::create($nnajdese);
         }
@@ -466,6 +481,9 @@ trait HomologacionesTrait
             ->where('estado', 'A')
             ->get();
         foreach ($upismoda as $key => $value) {
+            if ($value->modalidad == 107) {
+                $value->modalidad = 7;
+            }
             $servicio = SisServicio::where('simianti_id', $value->modalidad)->first();
             if ($value->id_upi == 3) {
                 $value->id_upi = 30;
