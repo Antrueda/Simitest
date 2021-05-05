@@ -8,6 +8,9 @@ use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Sis\SisMultivalore;
+use App\Models\Simianti\Sis\SisSpa;
+use App\Models\Simianti\Tr\TrSeguiConsumoSpa;
+use App\Models\Simianti\Tr\TrVespa;
 use App\Models\Sistema\SisTabla;
 use App\Models\Sistema\SisTcampo;
 use App\Models\Temacombo;
@@ -141,10 +144,20 @@ trait DBControllerTrait
             ->with('info', 'NNAJ inactivado correctamente');
     }
 
-
+    public function getArmaCamposTabalSimiAnti()
+    {
+        //     echo 'protected $fillable = [<br>';
+        //     $dd=SisSpa::first();
+        //     foreach ($dd->toArray() as $key => $value) {
+        //        echo "'$key',<br>";
+        //     }
+        // echo '];';
+        //     ddd($dd->toArray());
+    }
 
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
+        $this->getArmaCamposTabalSimiAnti();
         // $i = 1;
         // $tables = DB::select('SHOW TABLES');
         // foreach ($tables as $key => $data) {
