@@ -18,13 +18,13 @@ class CreateHAgResponsablesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('i_prm_responsable_id')->unsigned();
-            $table->integer('ag_actividad_id')->unsigned();
-            $table->integer('sis_obse_id')->unsigned()->nullable();
-            $table->integer('user_id')->unsigned();
+            $table->integer('i_prm_responsable_id')->unsigned()->comment('PARAMETRO RESPONSABLE O ACOMPAÑANTE');
+            $table->integer('ag_actividad_id')->unsigned()->comment('LLAVE FORANEA DE LA ACTIVIDAD');
+            $table->integer('sis_obse_id')->unsigned()->nullable()->comment('LLAVE FORANEA DE OBSERVACIONES');
+            $table->integer('user_id')->unsigned()->comment('ID DEL USUARIO RESPONSABLE');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

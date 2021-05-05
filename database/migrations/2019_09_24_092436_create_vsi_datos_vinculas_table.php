@@ -31,7 +31,7 @@ class CreateVsiDatosVinculasTable extends Migration
       
       $table = CamposMagicos::magicos($table);
     });
-   //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RAZONES DE VINCULACIÓN AL IDIPRON DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.11 A 1.13'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS RAZONES DE VINCULACIÓN AL IDIPRON DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.11 A 1.13'");
 
     Schema::create($this->tablaxxx2, function (Blueprint $table) {
       $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -42,30 +42,30 @@ class CreateVsiDatosVinculasTable extends Migration
       $table->unique(['parametro_id', 'vsi_datos_vincula_id'],'sitvin_pk1');
       $table = CamposMagicos::magicos($table);
     });
-   //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LAS SITUACIONES, CONDICIONES O ACTIVIDADES QUE PARACEN PRODUCIR O EMPEORAR LAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.14'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LAS SITUACIONES, CONDICIONES O ACTIVIDADES QUE PARACEN PRODUCIR O EMPEORAR LAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.14'");
 
     Schema::create($this->tablaxxx3, function (Blueprint $table) {
       $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO EMOCIONES');
-      $table->integer('vsi_datos_vincula_id')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->integer('vsi_datos_vincula_id')->unsigned()->comment('CAMPO ID DE DATOS VINCULA');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
       $table->unique(['parametro_id', 'vsi_datos_vincula_id'],'emovin_pk1');
       $table = CamposMagicos::magicos($table);
     });
-   //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LAS EMOCIONES QUE LE GENERAN ESTAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.15'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LAS EMOCIONES QUE LE GENERAN ESTAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.15'");
 
 
     Schema::create($this->tablaxxx4, function (Blueprint $table) {
       $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DIFICULTADES');
-      $table->integer('vsi_datos_vincula_id')->unsigned();
+      $table->integer('vsi_datos_vincula_id')->unsigned()->comment('CAMPO ID DE DATOS VINCULA');
       $table->foreign('parametro_id')->references('id')->on('parametros');
       $table->foreign('vsi_datos_vincula_id')->references('id')->on('vsi_datos_vinculas');
       $table->unique(['parametro_id', 'vsi_datos_vincula_id'],'person_pk1');
       $table = CamposMagicos::magicos($table);
     });
-   //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LAS PERSONAS QUE LE GENERAN ESTAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.15'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LAS PERSONAS QUE LE GENERAN ESTAS DIFICULTADES DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL, PREGUNTA 1.15'");
   }
 
   /**

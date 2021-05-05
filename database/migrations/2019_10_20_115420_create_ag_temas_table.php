@@ -18,15 +18,15 @@ class CreateAgTemasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->String('s_tema');
-            $table->integer('area_id')->unsigned();
-            $table->longText('s_descripcion');
+            $table->String('s_tema')->comment('NOMBRE DEL TEMA');;
+            $table->integer('area_id')->unsigned()->comment('LLAVE FORANEA DEL AREA');
+            $table->longText('s_descripcion')->comment('DESCRIPCION DEL TEMA');
             $table->foreign('area_id')->references('id')->on('areas');
             $table->integer('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS DE LAS ACTIVIDADES GRUPALES'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS TEMAS DE LAS ACTIVIDADES GRUPALES'");
     }
 
     /**

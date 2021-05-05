@@ -18,14 +18,13 @@ class CreateHFosTsesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('area_id');
-            $table->text('codigo', 6)->nullable();
-            $table->string('nombre', 120);
-            $table->longText('descripcion')->nullable();
+            $table->integer('area_id')->unsigned()->comment('CAMPO ID AREA');
+            $table->string('nombre', 120)->comment('NOMBRE TIPO DE SEGUIMIENTO');
+            $table->longText('descripcion')->nullable()->comment('DESCRIPCION TIPO DE SEGUIMIENTO');
             $table->integer('estusuario_id')->nullable()->unsigned()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

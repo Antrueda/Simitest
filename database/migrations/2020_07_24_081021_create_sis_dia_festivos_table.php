@@ -18,10 +18,10 @@ class CreateSisDiaFestivosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->id();
-            $table->date('diafestivo')->uniqid();
+            $table->date('diafestivo')->uniqid()->comment('CAMPO DIA FESTIVO');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS DÍAS FESTIVOS DEL AÑO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS DÍAS FESTIVOS DEL AÑO'");
     }
 
     /**

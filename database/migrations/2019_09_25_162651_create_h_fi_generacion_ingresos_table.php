@@ -36,7 +36,7 @@ class CreateHFiGeneracionIngresosTable extends Migration
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA GENERACIÓN DE INGRESO');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
@@ -44,7 +44,7 @@ class CreateHFiGeneracionIngresosTable extends Migration
             $table->integer('prm_diagener_id')->unsigned()->comment('FI 7.3 DIA GENERA INGRESO');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
     }
 
     /**

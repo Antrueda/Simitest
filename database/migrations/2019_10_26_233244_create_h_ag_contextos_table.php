@@ -18,12 +18,12 @@ class CreateHAgContextosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->String('s_contexto');
-            $table->String('s_descripcion');
+            $table->String('s_contexto')->comment('NOMBRE DEL CONTEXTO PEDAGOGICO');
+            $table->String('s_descripcion')->comment('DESCRIPCION DEL CONTEXTO');
             $table->integer('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

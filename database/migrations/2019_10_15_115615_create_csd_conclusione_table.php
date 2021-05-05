@@ -17,17 +17,17 @@ class CreateCsdConclusioneTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('csd_id')->unsigned();
-            $table->longText('conclusiones');
-            $table->string('persona_nombre');
-            $table->string('persona_doc');
-            $table->integer('persona_parent_id')->unsigned();
-            $table->integer('user_doc1_id')->unsigned();
-            $table->integer('user_doc2_id')->unsigned()->nullable();
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->longText('conclusiones')->comment('CAMPO DE TEXTO DE CONCLUSIONES');
+            $table->string('persona_nombre')->comment('CAMPO DE TEXTO DEL NOMBRE DE LA PERSONA QUE SE LE HIZO LA CONSULTA');
+            $table->string('persona_doc')->comment('CAMPO DE TEXTO DEL DOCUMENTO DE LA PERSONA QUE SE LE HIZO LA CONSULTA');
+            $table->integer('persona_parent_id')->unsigned()->comment('PARAMETRO DEL PARENTESCO');
+            $table->integer('user_doc1_id')->unsigned()->comment('ID DE LA PERSONA QUE DILIGENCIO LA CONSULTA');
+            $table->integer('user_doc2_id')->unsigned()->nullable()->comment('ID DE LA SEGUNDA PERSONA QUE DILIGENCIO LA CONSULTA');
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table->foreign('prm_tipofuen_id','csdcon_pk1')->references('id')->on('parametros');
             $table->foreign('sis_esta_id','csdcon_pk2')->references('id')->on('sis_estas');
             $table->timestamps();
@@ -39,7 +39,7 @@ class CreateCsdConclusioneTable extends Migration
             $table->foreign('user_crea_id','csdcon_pk7')->references('id')->on('users');
             $table->foreign('user_edita_id','csdcon_pk8')->references('id')->on('users');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS CONCLUSIONRES DE LA VISITA SOCIAL EN DOMICILIO DE UNA PERSONA ENTREVISTADA, SECCION 12 CONCLUSIONES DE CONSULTA SOCIAL EN DOMICILIO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS CONCLUSIONRES DE LA VISITA SOCIAL EN DOMICILIO DE UNA PERSONA ENTREVISTADA, SECCION 12 CONCLUSIONES DE CONSULTA SOCIAL EN DOMICILIO'");
     }
 
     /**

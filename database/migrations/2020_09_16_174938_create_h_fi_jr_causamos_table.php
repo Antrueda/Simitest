@@ -18,11 +18,11 @@ class CreateHFiJrCausamosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('prm_riesgo_id')->unsigned();
-            $table->integer('fi_justrest_id')->unsigned();
+            $table->integer('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE RIESGO');
+            $table->integer('prm_riesgo_id')->unsigned()->comment('PARAMETRO RIESGO');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
     
 

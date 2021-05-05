@@ -18,18 +18,18 @@ class CreateHSisInstitucionEdusTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('s_nombre');
-            $table->string('s_telefono');
-            $table->string('s_email');
-            $table->integer('sis_municipio_id')->unsigned();
-            $table->integer('sis_departam_id')->unsigned();
-            $table->integer('i_prm_sector_id')->unsigned();
-            $table->integer('i_usr_rector_id')->unsigned();
-            $table->integer('i_usr_secretario_id')->unsigned();
-            $table->integer('i_usr_coord_academico_id')->unsigned();
+            $table->string('s_nombre')->comment('CAMPO NOMBRE DE INSTITUCION');
+            $table->string('s_telefono')->comment('CAMPO TELEFONO');
+            $table->string('s_email')->comment('CAMPO EMAIL');
+            $table->integer('sis_municipio_id')->unsigned()->comment('CAMPO ID MUNICIPIO');
+            $table->integer('sis_departam_id')->unsigned()->comment('CAMPO ID DEPARTAMENTO');
+            $table->integer('i_prm_sector_id')->unsigned()->comment('CAMPO PARAMETRO SECTOR');
+            $table->integer('i_usr_rector_id')->unsigned()->comment('CAMPO ID RECTOR');
+            $table->integer('i_usr_secretario_id')->unsigned()->comment('CAMPO ID SECRETARIO');
+            $table->integer('i_usr_coord_academico_id')->unsigned()->comment('CAMPO ID COORDINADOR ACADEMMICO');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

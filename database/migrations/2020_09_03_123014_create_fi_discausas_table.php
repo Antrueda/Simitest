@@ -25,7 +25,7 @@ class CreateFiDiscausasTable extends Migration
             $table->foreign('prm_discausa_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RESPUESTAS A LA PReGUNTA: {$this->commentx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RESPUESTAS A LA PReGUNTA: {$this->commentx}'");
 
     }
 

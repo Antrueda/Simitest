@@ -19,13 +19,13 @@ class CreateFosSeguimientosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('fos_tse_id')->unsigned();
-            $table->integer('fos_stses_id')->unsigned();
+            $table->integer('fos_tse_id')->unsigned()->comment('NUMERO DE ID DE TIPO DE SEGUIMIENTO');
+            $table->integer('fos_stses_id')->unsigned()->comment('NUMERO DE ID DE SUBTIPO DE SEGUIMIENTO');
             $table->foreign('fos_tse_id')->references('id')->on('fos_tses');
             $table->foreign('fos_stses_id')->references('id')->on('fos_stses');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DEL SUBTIPO DE SEGUIMIENTO REALIZADO DE LA PERSONA ENTREVISTADA, FICHA DE OBSERVACION'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DEL SUBTIPO DE SEGUIMIENTO REALIZADO DE LA PERSONA ENTREVISTADA, FICHA DE OBSERVACION'");
   
     }
     /**

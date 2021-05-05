@@ -18,14 +18,14 @@ class CreateInFuentesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('in_linea_base_id')->unsigned();
-            $table->integer('in_indicador_id')->unsigned();
+            $table->integer('in_linea_base_id')->unsigned()->comment('ID LINEA BASE');
+            $table->integer('in_indicador_id')->unsigned()->comment('ID INDICADOR');
             $table->foreign('in_linea_base_id')->references('id')->on('in_linea_bases');
             $table->foreign('in_indicador_id')->references('id')->on('in_indicadors');
             $table->unique(['in_indicador_id', 'in_linea_base_id']);
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON CON LOS INDICADOR OBSERVADO POR EL FUNCIONARIO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON CON LOS INDICADOR OBSERVADO POR EL FUNCIONARIO'");
     }
 
     /**

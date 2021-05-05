@@ -19,7 +19,6 @@ class CreateFiGeneracionIngresosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-
             $table->integer('prm_actgeing_id')->unsigned()->comment('FI 7.1 ACTIVIDAD REALIZA GENERAR INGRESO');
             $table->string('s_trabajo_formal')->nullable()->comment('FI A.1 MENCIONE TRABAJO FORMAL');
             $table->integer('prm_trabinfo_id')->unsigned()->comment('FI B.1SELECCIONE TRABAJO INFORMAL');
@@ -34,7 +33,6 @@ class CreateFiGeneracionIngresosTable extends Migration
             $table->integer('prm_frecingr_id')->nullable()->unsigned()->comment('FI 7.4.1 FRECUENCIA RECIBE INGRESO');
             $table->integer('totinmen')->nullable()->comment('FI 7.4.2 TOTAL INGRESO MENSUAL');
             $table->integer('prm_tiprelab_id')->unsigned()->comment('FI 7.5 TIPO RELACION LABORAL');
-
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA GENERACIÓN DE INGRESO');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('prm_trabinfo_id')->references('id')->on('parametros');
@@ -45,7 +43,7 @@ class CreateFiGeneracionIngresosTable extends Migration
             $table->foreign('prm_tiprelab_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA GENERACION DE LOS INGRESOS POR PARTE LA PERSONA ENTREVISTADA, SECCION 7 GENERACION DE INGRESOS DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA GENERACION DE LOS INGRESOS POR PARTE LA PERSONA ENTREVISTADA, SECCION 7 GENERACION DE INGRESOS DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -55,7 +53,7 @@ class CreateFiGeneracionIngresosTable extends Migration
             $table->foreign('prm_diagener_id')->references('id')->on('parametros');
             CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE DIAS EN LOS QUE SE REALIZA LA GENERACION DE LOS INGRESOS POR PARTE LA PERSONA ENTREVISTADA, PREGUNTA 7.3 SECCION 7 GENERACION DE INGRESOS DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE DIAS EN LOS QUE SE REALIZA LA GENERACION DE LOS INGRESOS POR PARTE LA PERSONA ENTREVISTADA, PREGUNTA 7.3 SECCION 7 GENERACION DE INGRESOS DE LA FICHA DE INGRESO'");
     }
 
     /**

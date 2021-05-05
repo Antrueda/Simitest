@@ -27,9 +27,9 @@ class CreateSisPaissTable extends Migration
         });
 
         Schema::create('h_sis_pais', function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->string('s_iso');
-            $table->string('s_pais');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('s_iso')->comment('CAMPO DE LAS SIGLAS DEL PAIS');
+            $table->string('s_pais')->comment('CAMPO DE NOMBRE DEL PAIS');
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
 
             $table = CamposMagicos::h_magicos($table);

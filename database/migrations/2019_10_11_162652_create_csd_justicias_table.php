@@ -21,13 +21,13 @@ class CreateCsdJusticiasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->string('proposito', 93)->comment('CAMPO PROPOSITO');
+            $table->string('proposito', 93)->comment('CAMPO DE TEXTO PROPOSITO DE CONSULTA');
             $table->date('fecha')->comment('CAMPO FECHA DE DILIGENCIAMIENTO');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_nnaj_id')->unsigned();
-            $table->integer('prm_tipofuen_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('ID DEL NNAJ');
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
@@ -35,7 +35,7 @@ class CreateCsdJusticiasTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS CONSULTAS EN DOMICILIO ASOCIADAS A UNA PERSONA ENTREVISTADA, CONSULTA SOCIAL EN DOMICILIO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS CONSULTAS EN DOMICILIO ASOCIADAS A UNA PERSONA ENTREVISTADA, CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -48,7 +48,7 @@ class CreateCsdJusticiasTable extends Migration
             $table->unique(['csd_id', 'sis_nnaj_id']);
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL NUMERO CONSECUTIVO DEL DILIGENCIAMIENTO DE UNA CONSULTA SOCIAL EN DOMICILIO Y SERVIRA PARA AGRUPAR A LAS 12 SECCIONES DE ESTE FORMATO, CONSULTA SOCIAL EN DOMICILIO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL NUMERO CONSECUTIVO DEL DILIGENCIAMIENTO DE UNA CONSULTA SOCIAL EN DOMICILIO Y SERVIRA PARA AGRUPAR A LAS 12 SECCIONES DE ESTE FORMATO, CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -67,7 +67,7 @@ class CreateCsdJusticiasTable extends Migration
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA JUSTICIA RESTAURATIVA DE LA PERSONA ENTEVISTADA, SECCION 4 JUSTICIA RESTAURATIVA DE CONSULTA SOCIAL EN DOMICILIO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA JUSTICIA RESTAURATIVA DE LA PERSONA ENTEVISTADA, SECCION 4 JUSTICIA RESTAURATIVA DE CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -81,7 +81,7 @@ class CreateCsdJusticiasTable extends Migration
             $table->unique(['parametro_id', 'csd_id']);
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE RELACIONA LA PERSONA ENTREVISTADA CON EL NUMERO CONSECUTIVO DE DILIGENCIAMIENTO DE UNA CONSULTA SOCIAL EN DOMICILIO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE RELACIONA LA PERSONA ENTREVISTADA CON EL NUMERO CONSECUTIVO DE DILIGENCIAMIENTO DE UNA CONSULTA SOCIAL EN DOMICILIO'");
     }
 
     /**

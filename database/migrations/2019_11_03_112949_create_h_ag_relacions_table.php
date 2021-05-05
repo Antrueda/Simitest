@@ -18,12 +18,12 @@ class CreateHAgRelacionsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('ag_actividad_id')->unsigned();
-            $table->integer('ag_recurso_id')->unsigned();
-            $table->integer('i_cantidad');
+            $table->integer('ag_actividad_id')->unsigned()->comment('LLAVE FORANEA DE LA ACTIVIDAD');
+            $table->integer('ag_recurso_id')->unsigned()->comment('LLAVE FORANEA DEL RECURSO');
+            $table->integer('i_cantidad')->comment('CANTIDAD DEL RECURSO');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

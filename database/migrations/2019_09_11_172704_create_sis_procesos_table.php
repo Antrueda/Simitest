@@ -19,11 +19,11 @@ class CreateSisProcesosTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('sis_proceso_id')->unsigned()->nullable()->comment('CAMPO DE ID DE PROCESO');
             $table->integer('sis_mapa_proc_id')->unsigned()->comment('CAMPO DE ID MAPA DE PROCESO');
-            $table->integer('prm_proceso_id')->unsigned()->comment('N');
+            $table->integer('prm_proceso_id')->unsigned()->comment('CAMPO PARAMETRO TIPO DE PROCESO');
             $table->string('nombre')->comment('CAMPO NOMBRE DEL PROCESO');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 
@@ -33,7 +33,7 @@ class CreateSisProcesosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS PROCESOS DEL SISTEMA EN RELACIÓN CON EL MAPA DE PROCESOS.'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS PROCESOS DEL SISTEMA EN RELACIÓN CON EL MAPA DE PROCESOS.'");
     }
 
     /**

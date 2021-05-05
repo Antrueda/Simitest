@@ -20,9 +20,9 @@ class CreateFiConsumoSpasTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('i_prm_consume_spa_id')->unsigned()->comment('CAMPO SI CONSUME SPA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID DE NNAJ');
-            $table->integer('user_crea_id')->unsigned(); 
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA'); 
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -30,7 +30,7 @@ class CreateFiConsumoSpasTable extends Migration
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('i_prm_consume_spa_id')->references('id')->on('parametros');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA SI LA PERSONA ENTREVISTADA ACTUALMENTE CONSUME SPA, SECCION 11 CONSUMO SPA DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE REGISTRA SI LA PERSONA ENTREVISTADA ACTUALMENTE CONSUME SPA, SECCION 11 CONSUMO SPA DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -40,7 +40,7 @@ class CreateFiConsumoSpasTable extends Migration
             $table->integer('i_prm_consume_id')->nullable()->unsigned()->comment('REGISTRO SI CONTINUA CONSUMIENDO');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');//->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -49,7 +49,7 @@ class CreateFiConsumoSpasTable extends Migration
             $table->foreign('fi_consumo_spa_id')->references('id')->on('fi_consumo_spas');
             $table->foreign('i_prm_consume_id')->references('id')->on('parametros');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE TIENE EL LISTADO DE LAS SUSTANCIAS SPA CONSUMIDAS POR LA PERSONA ENTREVISTADA, SECCION 11 CONSUMO SPA DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE TIENE EL LISTADO DE LAS SUSTANCIAS SPA CONSUMIDAS POR LA PERSONA ENTREVISTADA, SECCION 11 CONSUMO SPA DE LA FICHA DE INGRESO'");
     }
 
     /**

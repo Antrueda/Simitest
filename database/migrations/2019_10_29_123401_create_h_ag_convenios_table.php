@@ -18,16 +18,16 @@ class CreateHAgConveniosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('s_convenio');
-            $table->integer('i_prm_tconvenio_id')->unsigned();
-            $table->integer('i_prm_entidad_id')->unsigned();
-            $table->string('s_descripcion');
-            $table->integer('i_nconvenio');
-            $table->dateTime('d_subscrip');
-            $table->dateTime('d_terminac');
+            $table->string('s_convenio')->comment('NOMBRE DEL CONVENIO');
+            $table->integer('i_prm_tconvenio_id')->unsigned()->comment('TIPO DE CONVENIO');
+            $table->integer('i_prm_entidad_id')->unsigned()->comment('TIPO DE ENTIDAD');
+            $table->string('s_descripcion')->comment('DESCRIPCION DEL CONVENIO');;
+            $table->integer('i_nconvenio')->comment('NUMERO DE CONVENIO');
+            $table->dateTime('d_subscrip')->comment('FECHA DE SUBSCRIPCION');
+            $table->dateTime('d_terminac')->comment('FECHA DE TERMINACION');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

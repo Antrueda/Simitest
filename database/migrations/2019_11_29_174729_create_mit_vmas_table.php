@@ -221,7 +221,7 @@ class CreateMitVmasTable extends Migration
             $table->foreign('user_doc1_id')->references('id')->on('users');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LAS ALUCINOGENAS CONSUMIDAS POR LA PERSONA ENTREVISTADA, MITIGACION'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LAS ALUCINOGENAS CONSUMIDAS POR LA PERSONA ENTREVISTADA, MITIGACION'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->integer('parametro_id')->unsigned();
@@ -231,7 +231,7 @@ class CreateMitVmasTable extends Migration
             $table->unique(['parametro_id', 'mit_vma_id']);
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE DETALLES ASOCIADOS A LOS ALUCINOGENOS DE LA PERSONA ENTREVISTADA, MITIGACION'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE DETALLES ASOCIADOS A LOS ALUCINOGENOS DE LA PERSONA ENTREVISTADA, MITIGACION'");
     }
 
     public function down()

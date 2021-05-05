@@ -18,11 +18,11 @@ class CreateSisActividadSisDocumentoFuenteTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('sis_actividad_id')->unsigned();
-            $table->integer('sis_docfuen_id')->unsigned();
+            $table->integer('sis_actividad_id')->unsigned()->comment('LLAVE FORANEA TABLA sis_actividads');
+            $table->integer('sis_docfuen_id')->unsigned()->comment('LLAVE FORANEA TABLA sis_docfuen');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LAS ACTIVIDADES Y LOS FORMATOS REGISTRADOS EN EL SISTEMA'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE LAS ACTIVIDADES Y LOS FORMATOS REGISTRADOS EN EL SISTEMA'");
     }
 
     /**

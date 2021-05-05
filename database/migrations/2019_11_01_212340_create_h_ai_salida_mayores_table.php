@@ -20,13 +20,13 @@ class CreateHAiSalidaMayoresTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             //$table->integer('sis_nnaj_id')->unsigned();
-            $table->date('fecha');
-            $table->integer('prm_upi_id')->unsigned();
-            $table->integer('user_doc1_id')->unsigned();
-            $table->integer('user_doc2_id')->unsigned();
+            $table->date('fecha')->comment('CAMPO FECHA DE LA SALIDA O PERMISO');
+            $table->integer('prm_upi_id')->unsigned()->comment('CAMPO PARAMETRO UPI O DEPENDENCIA');
+            $table->integer('user_doc1_id')->unsigned()->comment('CAMPO PERSONA QUE DILIGENCIA');
+            $table->integer('user_doc2_id')->unsigned()->comment('CAMPO RESPONSABLE DE LA UPI O DEPENDENCIA');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
     
     }

@@ -25,7 +25,7 @@ class CreateNnajFocalisTable extends Migration
             $table = CamposMagicos::getForeign($table, 'sis_docfuen');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA INFORMACION DE FOCALIZACION DEL NNAJ.'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA INFORMACION DE FOCALIZACION DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
@@ -36,7 +36,7 @@ class CreateNnajFocalisTable extends Migration
             $table->Integer('sis_docfuen_id');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**

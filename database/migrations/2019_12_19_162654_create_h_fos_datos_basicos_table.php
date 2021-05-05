@@ -18,19 +18,19 @@ class CreateHFosDatosBasicosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('sis_nnaj_id')->unsigned();
-            $table->integer('sis_depen_id')->unsigned();
-            $table->date('d_fecha_diligencia');
-            $table->integer('area_id')->unsigned();
-            $table->integer('fos_tse_id')->unsigned();
-            $table->integer('fos_stse_id')->unsigned();
+            $table->integer('sis_nnaj_id')->unsigned()->comment('ID DEL NNAJ');
+            $table->integer('sis_depen_id')->unsigned()->comment('ID DE UPI O DEPENDENCIA');
+            $table->date('d_fecha_diligencia')->comment('FECHA DE DILIGENCIAMIENTO');
+            $table->integer('area_id')->unsigned()->comment('ID DE AREA');
+            $table->integer('fos_tse_id')->unsigned()->comment('ID TIPO DE SEGUIMIENTO');
+            $table->integer('fos_stse_id')->unsigned()->comment('ID SUBTIPO DE SEGUIMIENTO');
+            $table->text('s_observacion')->comment('CAMPO DE TEXTO OBSERVACION');
+            $table->integer('fi_compfami_id')->unsigned()->nullable()->comment('CAMPO ID ACUDIENTE');
+            $table->integer('i_responsable')->unsigned()->comment('CAMPO DE ID RESPONSABLE');
             $table->integer('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD')->nullable();
-            $table->integer('i_responsable')->unsigned();
-            $table->text('s_observacion');
-            $table->integer('fi_compfami_id')->unsigned()->nullable();
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

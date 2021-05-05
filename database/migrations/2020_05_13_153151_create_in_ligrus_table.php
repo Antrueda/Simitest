@@ -18,11 +18,11 @@ class CreateInLigrusTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('in_base_fuente_id')->unsigned();
+            $table->integer('in_base_fuente_id')->unsigned()->comment('ID DE BASE FUENTE');
             $table->foreign('in_base_fuente_id')->references('id')->on('in_base_fuentes');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE UNA PERSONA BENEFICIARIA DEL IDIRPON CON EL ESTADO ACTIVO O INACTIVO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE UNA PERSONA BENEFICIARIA DEL IDIRPON CON EL ESTADO ACTIVO O INACTIVO'");
     }
 
     /**

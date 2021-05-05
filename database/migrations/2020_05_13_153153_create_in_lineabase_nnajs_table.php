@@ -17,12 +17,12 @@ class CreateInLineabaseNnajsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('in_fuente_id')->unsigned();
-            $table->integer('i_prm_categoria_id')->unsigned()->default(246);
-            $table->integer('sis_nnaj_id')->unsigned();
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('in_fuente_id')->unsigned()->comment('ID DE FUENTE');
+            $table->integer('i_prm_categoria_id')->unsigned()->default(246)->comment('ID PARAMETRO CATEGORIA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('ID DE NNAJ');
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('i_prm_categoria_id')->references('id')->on('parametros');
@@ -31,7 +31,7 @@ class CreateInLineabaseNnajsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CLASIFICACION DE LA LINEA DE BASE DE LOS NNAJ BENEFICIARIOS DEL IDIPRON'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CLASIFICACION DE LA LINEA DE BASE DE LOS NNAJ BENEFICIARIOS DEL IDIPRON'");
     }
 
     /**

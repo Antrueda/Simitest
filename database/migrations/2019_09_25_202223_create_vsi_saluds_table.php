@@ -33,9 +33,9 @@ class CreateVsiSaludsTable extends Migration
             $table->integer('embarazo')->unsigned()->nullable()->comment('CAMPO SEMANAS DE EMBARAZO');
             $table->integer('hijo')->unsigned()->nullable()->comment('CAMPO NUMERICO HIJOS');
             $table->integer('interrupcion')->unsigned()->nullable()->comment('CAMPO CUANTAS INTERRUPCIONES');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 
@@ -52,7 +52,7 @@ class CreateVsiSaludsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA SALUD DEL NNAJ.'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA SALUD DEL NNAJ.'");
     }
 
     /**

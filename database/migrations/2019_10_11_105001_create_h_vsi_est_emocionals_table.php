@@ -24,94 +24,94 @@ class CreateHVsiEstEmocionalsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('vsi_id')->unsigned();
-            $table->integer('prm_siente_id')->unsigned();
-            $table->longText('descripcion_siente');
-            $table->integer('prm_reacciona_id')->unsigned()->nullable();
-            $table->longText('descripcion_reacciona');
-            $table->longText('descripcion_adecuado')->nullable();;
-            $table->longText('descripcion_dificulta')->nullable();;
-            $table->integer('prm_estresante_id')->unsigned();
-            $table->longText('descripcion_estresante')->nullable();
-            $table->integer('prm_morir_id')->unsigned();
-            $table->integer('dia_morir')->unsigned()->nullable();
-            $table->integer('mes_morir')->unsigned()->nullable();
-            $table->integer('ano_morir')->unsigned()->nullable();
-            $table->integer('prm_pensamiento_id')->unsigned()->nullable();
-            $table->integer('prm_amenaza_id')->unsigned()->nullable();
-            $table->integer('prm_intento_id')->unsigned()->nullable();
-            $table->integer('ideacion')->unsigned()->nullable();
-            $table->integer('amenaza')->unsigned()->nullable();
-            $table->integer('intento')->unsigned()->nullable();
-            $table->integer('prm_riesgo_id')->unsigned()->nullable();
-            $table->integer('dia_ultimo')->unsigned()->nullable();
-            $table->integer('mes_ultimo')->unsigned()->nullable();
-            $table->integer('ano_ultimo')->unsigned()->nullable();
-            $table->longText('descripcion_motivo')->nullable();
-            $table->integer('prm_lesiva_id')->unsigned()->nullable();
-            $table->longText('descripcion_lesiva')->nullable();
-            $table->integer('prm_sueno_id')->unsigned();
-            $table->integer('dia_sueno')->unsigned()->nullable();
-            $table->integer('mes_sueno')->unsigned()->nullable();
-            $table->integer('ano_sueno')->unsigned()->nullable();
-            $table->longText('descripcion_sueno')->nullable();
-            $table->integer('prm_alimenticio_id')->unsigned();
-            $table->integer('dia_alimenticio')->unsigned()->nullable();
-            $table->integer('mes_alimenticio')->unsigned()->nullable();
-            $table->integer('ano_alimenticio')->unsigned()->nullable();
-            $table->longText('descripcion_alimenticio')->nullable();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->integer('prm_siente_id')->unsigned()->comment('CAMPO PARAMETRO DE COMO SE SIENTE');
+            $table->longText('descripcion_siente')->comment('CAMPO DESCRIPCION DE COMO SE SIENTE');
+            $table->integer('prm_reacciona_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO DE COMO REACCIONA');
+            $table->longText('descripcion_reacciona')->comment('CAMPO DESCRIPCION DE COMO REACCIONA');
+            $table->longText('descripcion_adecuado')->nullable()->comment('CAMPO DESCRIPCION COMO REACCIONA ADECUADAMENTE');
+            $table->longText('descripcion_dificulta')->nullable()->comment('CAMPO DESCRIPCION DE QUE SE LE DIFICULTA');
+            $table->integer('prm_estresante_id')->unsigned()->comment('CAMPO PARAMETRO SI SE LE HA PRESENTADO ALGUN ACONTECIMIENTO ESTRESANTE');
+            $table->longText('descripcion_estresante')->nullable()->comment('CAMPO DESCRIPCION EL ACONTECIMIENTO ESTRESANTE');
+            $table->integer('prm_morir_id')->unsigned()->comment('CAMPO SI HA TENIDO PENSAMIENTOS CON MORIRSE');
+            $table->integer('dia_morir')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS DIAS');
+            $table->integer('mes_morir')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS MESES');
+            $table->integer('ano_morir')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS AÑOS');
+            $table->integer('prm_pensamiento_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO PENSAMIENTOS DE QUITARSE LA VIDA');
+            $table->integer('prm_amenaza_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO AMENAZAS CON QUITARSE LA VIDA');
+            $table->integer('prm_intento_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO INTENTOS DE QUITARSE LA VIDA');
+            $table->integer('ideacion')->unsigned()->nullable()->comment('CAMPO POR IDEACION');
+            $table->integer('amenaza')->unsigned()->nullable()->comment('CAMPO POR AMENAZA');
+            $table->integer('intento')->unsigned()->nullable()->comment('CAMPO POR INTENTO');
+            $table->integer('prm_riesgo_id')->unsigned()->nullable()->comment('CAMPO NIVEL DE RIESGO');
+            $table->integer('dia_ultimo')->unsigned()->nullable()->comment('CAMPO ULTIMO DIA QUE INTENTO QUITARSE LA VIDA');
+            $table->integer('mes_ultimo')->unsigned()->nullable()->comment('CAMPO ULTIMO MES QUE INTENTO QUITARSE LA VIDA');
+            $table->integer('ano_ultimo')->unsigned()->nullable()->comment('CAMPO ULTIMO AÑO QUE INTENTO QUITARSE LA VIDA');
+            $table->longText('descripcion_motivo')->nullable()->comment('CAMPO DESCRIPCION DEL MOTIVO QUE INTENTO QUITARSE LA VIDA');
+            $table->integer('prm_lesiva_id')->unsigned()->nullable()->comment('CAMPO CONDUCTAS AUTO LESIVA');
+            $table->longText('descripcion_lesiva')->nullable()->comment('CAMPO DESCRIPCION DE CONDUCTAS AUTO LESIVAS');
+            $table->integer('prm_sueno_id')->unsigned()->comment('CAMPO PROBLEMAS DE SUEÑO');
+            $table->integer('dia_sueno')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS DIAS TIENE PROBLEMAS DE SUEÑO');
+            $table->integer('mes_sueno')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS MESES TIENE PROBLEMAS DE SUEÑO');
+            $table->integer('ano_sueno')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS AÑOS TIENE PROBLEMAS DE SUEÑO');
+            $table->longText('descripcion_sueno')->nullable()->comment('CAMPO DESCRIPCION DEL PROBLEMA DE SUEÑO');
+            $table->integer('prm_alimenticio_id')->unsigned()->comment('CAMPO VARIACION EN HABITOS ALIMENTICIOS ALIMENTICIOS');
+            $table->integer('dia_alimenticio')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS DIAS TIENE VARIACION EN HABITOS ALIMENTICIOS');
+            $table->integer('mes_alimenticio')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS MESES TIENE VARIACION EN HABITOS ALIMENTICIOS');
+            $table->integer('ano_alimenticio')->unsigned()->nullable()->comment('CAMPO DESDE HACE CUANTOS AÑOS TIENE VARIACION EN HABITOS ALIMENTICIOS');
+            $table->longText('descripcion_alimenticio')->nullable()->comment('CAMPO DESCRIPCION DE VARIACION DE HABITOS ALIMENTICIOS');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_estemocional_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO SENTIMIENTOS QUE LOGRA EXPRESAR ADECUADAMENTE');
+            $table->integer('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_estemocional_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO SENTIMIENTOS QUE SE LE DIFICULTA EXPRESAR ADECUADAMENTE');
+            $table->integer('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_estemocional_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO ACONTECIMIENTOS ESTRESANTES');
+            $table->integer('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_estemocional_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO PENSAMIENTOS RELACIONADOS CON SUICIDIO');
+            $table->integer('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_estemocional_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO CONDUCTAS AUTO LESIVAS');
+            $table->integer('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_estemocional_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO CONTEXTO');
+            $table->integer('vsi_estemocional_id')->unsigned()->comment('CAMPO ID ESTADO EMOCIONAL');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");
     }
 
     /**

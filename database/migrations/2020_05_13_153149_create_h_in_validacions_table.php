@@ -18,13 +18,13 @@ class CreateHInValidacionsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('in_pregunta_id')->unsigned();
-            $table->integer('in_fuente_id')->unsigned();
-            $table->integer('sis_tabla_id')->unsigned();
+            $table->integer('in_pregunta_id')->unsigned()->comment('ID PREGUNTA');
+            $table->integer('in_fuente_id')->unsigned()->comment('ID FUENTE');
+            $table->integer('sis_tabla_id')->unsigned()->comment('ID TABLA');
             $table->integer('sis_tcampo_id')->unsigned()->unique();
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

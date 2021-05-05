@@ -45,7 +45,7 @@ class CreateSisDepensTable extends Migration
             $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS DEPENDENCIAS DEL IDIPRON CONTENIENDO LOS DATOS DE UBICACIÓN Y DE CONTACTO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS DEPENDENCIAS DEL IDIPRON CONTENIENDO LOS DATOS DE UBICACIÓN Y DE CONTACTO'");
     }
 
     /**

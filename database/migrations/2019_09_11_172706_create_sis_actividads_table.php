@@ -19,9 +19,9 @@ class CreateSisActividadsTable extends Migration
       $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
       $table->string('nombre')->comment('CAMPO DE NOMBRE');
       $table->integer('sis_docfuen_id')->unsigned()->comment('CAMPO DE ID DOCUMENTO FUENTE');
-      $table->integer('user_crea_id')->unsigned();
-      $table->integer('user_edita_id')->unsigned();
-      $table->integer('sis_esta_id')->unsigned()->default(1);
+      $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+      $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+      $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
 
@@ -30,7 +30,7 @@ class CreateSisActividadsTable extends Migration
       $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');
       $table->unique(['nombre', 'sis_docfuen_id'],'sisact_un1');
     });
-   //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS ACTIVIDADES DEL SISTEMA.'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS ACTIVIDADES DEL SISTEMA.'");
   }
 
   /**

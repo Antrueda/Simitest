@@ -18,10 +18,10 @@ class CreateInLineaBasesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('s_linea_base', 300)->unique();
+            $table->string('s_linea_base', 300)->unique()->comment('NOMBRE DE LA LINEA BASE');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS DESCRIPCIONES DE LA LINEA DE BASE'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS DESCRIPCIONES DE LA LINEA DE BASE'");
     }
 
     /**

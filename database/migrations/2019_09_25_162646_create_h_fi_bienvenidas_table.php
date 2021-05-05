@@ -17,16 +17,14 @@ class CreateHFiBienvenidasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('i_prm_quiere_entrar_id')->unsigned();
-            
-            
-            $table->text('s_porque_quiere_entrar');
-            $table->text('s_que_gustaria_hacer');
-            $table->integer('sis_nnaj_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('i_prm_quiere_entrar_id')->unsigned()->comment('CAMPO PARAMETRO DE ENTRAR AL IDIPRON');
+            $table->text('s_porque_quiere_entrar')->comment('CAMPO POR QUE QUIERE ENTRAR AL IDIPRON');
+            $table->text('s_que_gustaria_hacer')->comment('CAMPO QUE LE GUSTARIA HACER EN EL IDIPRON');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID NNAJ');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

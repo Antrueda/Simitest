@@ -23,13 +23,13 @@ class CreateEstusuariosTable extends Migration
 
             $table->integer('user_crea_id')->unsigned()->default(1);
             $table->integer('user_edita_id')->unsigned()->default(1);
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->foreign('prm_formular_id')->references('id')->on('parametros');
             $table->timestamps();
             $table->softDeletes();
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ESTADOS PARA LOS USUARIOS'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ESTADOS PARA LOS USUARIOS'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->id();
@@ -37,7 +37,7 @@ class CreateEstusuariosTable extends Migration
             $table->integer('prm_formular_id')->unsigned()->comment('FORMULARIO AL QUE SE LE VA ASIGNAR EL MOTIVO DEL ESTADO');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**

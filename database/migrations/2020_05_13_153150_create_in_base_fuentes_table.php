@@ -18,14 +18,14 @@ class CreateInBaseFuentesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('in_fuente_id')->unsigned();
-            $table->integer('sis_docfuen_id')->unsigned();
+            $table->integer('in_fuente_id')->unsigned()->comment('ID FUENTE');
+            $table->integer('sis_docfuen_id')->unsigned()->comment('ID DOCUMENTO FUENTE');
             $table->foreign('in_fuente_id')->references('id')->on('in_fuentes');
             $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');
             $table->unique(['in_fuente_id', 'sis_docfuen_id']);
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA AL RELACION ENTRE LA LINEA DE BASE DE CON EL SOPORTE DOCUMENTAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA AL RELACION ENTRE LA LINEA DE BASE DE CON EL SOPORTE DOCUMENTAL'");
     }
 
     /**

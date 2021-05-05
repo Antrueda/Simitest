@@ -20,11 +20,11 @@ class CreateParametrosTable extends Migration
       $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL PARAMETRO');
       $table->Integer('user_crea_id');
       $table->integer('user_edita_id');
-      $table->integer('sis_esta_id')->unsigned()->default(1);
+      $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
     });
-   //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS PARAMETROS DEL SISTEMA'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS PARAMETROS DEL SISTEMA'");
   }
 
   /**

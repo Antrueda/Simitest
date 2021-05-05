@@ -23,7 +23,7 @@ class CreateSisDocumentoFuentesTable extends Migration
             $table->integer('sis_esta_id')->default(1);
             $table->timestamps();
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LOS DOCUMENTOS DEL SISTEMA'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LOS DOCUMENTOS DEL SISTEMA'");
     }
 
     /**

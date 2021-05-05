@@ -17,15 +17,15 @@ class CreateHVsiConsentimientosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('vsi_id')->unsigned();
-            $table->integer('user_doc1_id')->unsigned();
-            $table->string('cargo1');
-            $table->integer('user_doc2_id')->unsigned();
-            $table->string('cargo2');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->integer('user_doc1_id')->unsigned()->comment('CAMPO PRIMER RESPONSABLE');
+            $table->string('cargo1')->comment('CAMPO CARGO DEL PRIMER RESPONSABLE');
+            $table->integer('user_doc2_id')->unsigned()->comment('CAMPO SEGUNDO RESPONSABLE O RESPONSABLE DE LA UPI');
+            $table->string('cargo2')->comment('CAMPO DEL RESPONSABLE DE LA UPI');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

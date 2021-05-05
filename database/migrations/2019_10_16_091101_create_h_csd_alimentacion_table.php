@@ -23,50 +23,50 @@ class CreateHCsdAlimentacionTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('csd_id')->unsigned();
-            $table->integer('cant_personas')->unsigned();
+            $table->integer('cant_personas')->unsigned()->comment('CAMPO CANTIDAD DE PERSONA');
             $table->integer('prm_horario_id')->unsigned();
             $table->integer('prm_apoyo_id')->unsigned();
             $table->integer('prm_entidad_id')->unsigned()->nullable();
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('csd_alimentacion_id')->unsigned();
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO COMPRA DE ALIMENTOS');
+            $table->integer('csd_alimentacion_id')->unsigned()->comment('CAMPO ID ALIMENTACION');
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('csd_alimentacion_id')->unsigned();
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO SITIO DONDE COMPRA DE ALIMENTOS');
+            $table->integer('csd_alimentacion_id')->unsigned()->comment('CAMPO ID ALIMENTACION');
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('csd_alimentacion_id')->unsigned();
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO CANTIDAD DE COMIDAS AL DIA');
+            $table->integer('csd_alimentacion_id')->unsigned()->comment('CAMPO ID ALIMENTACION');
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('csd_alimentacion_id')->unsigned();
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO PERSONAS QUE PREPARAN LOS ALIMENTOS');
+            $table->integer('csd_alimentacion_id')->unsigned()->comment('CAMPO ID ALIMENTACION');
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
     }
 
     public function down()

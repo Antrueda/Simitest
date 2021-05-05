@@ -27,17 +27,17 @@ class CreateSisMenusTable extends Migration
             $table->timestamps();
             $table->unique(['sis_menu_id','s_menu'],'sismen_un1');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CONFIGURACION PARA LOS MENUS DEL PANEL LATERAL IZQUIERDA'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA CONFIGURACION PARA LOS MENUS DEL PANEL LATERAL IZQUIERDA'");
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->string('s_menu');
-            $table->string('s_icono');
-            $table->integer('sis_docfuen_id')->nullable();
-            $table->integer('sis_menu_id')->nullable();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('sis_menu_id')->unsigned()->nullable()->comment('CAMPO DEL ID DEL MENU');
+            $table->string('s_menu')->comment('CAMPO NOMBRE DEL MENU');
+            $table->string('s_icono')->comment('CAMPO NOMBRE DEL ICONO');
+            $table->integer('sis_docfuen_id')->unsigned()->nullable();
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA h_{$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA h_{$this->tablaxxx}'");
     }
 
     /**

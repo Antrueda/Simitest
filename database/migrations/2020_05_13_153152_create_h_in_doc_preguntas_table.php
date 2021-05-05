@@ -18,11 +18,11 @@ class CreateHInDocPreguntasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('in_ligru_id')->unsigned();
-            $table->integer('sis_tcampo_id')->unsigned();
+            $table->integer('in_ligru_id')->unsigned()->comment('LLAVE FORANEA TABLA in_ligrus');
+            $table->integer('sis_tcampo_id')->unsigned()->comment('LLAVE FORANEA TABLA sis_tcampos');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

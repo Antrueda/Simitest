@@ -18,23 +18,23 @@ class CreateHVsiConceptosTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('vsi_id')->unsigned();
-            $table->longText('concepto');
-            $table->integer('prm_ingreso_id')->unsigned()->nullable();
-            $table->longText('porque')->nullable();
-            $table->string('cual', 120)->nullable();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->longText('concepto')->comment('CAMPO ABIERTO CONCEPTO');
+            $table->integer('prm_ingreso_id')->unsigned()->nullable()->comment('CAMPO CONSIDERA PERTINENTE EL INGRESO AL IDIPRON');
+            $table->longText('porque')->nullable()->comment('CAMPO ABIERTO DE POR QUE');
+            $table->string('cual', 120)->nullable()->comment('CAMPO CUALES REDES INTERINSTITUCIONAL');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_concepto_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACE LA RED INSTITUCIONAL');
+            $table->integer('vsi_concepto_id')->unsigned()->comment('CAMPO ID DE CONCEPTO');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
     }
 
     /**

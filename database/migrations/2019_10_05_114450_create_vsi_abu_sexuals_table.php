@@ -39,9 +39,9 @@ class CreateVsiAbuSexualsTable extends Migration
             $table->integer('prm_terapia_id')->unsigned()->nullable()->comment('CAMPO HA RECIBIDO ALGUN TIPO DE APOYO TERAPEUTICO');
             $table->integer('prm_estado_id')->unsigned()->nullable()->comment('CAMPO ESTADO DEL PROGRESO DEL APOYO TERAPEUTICO');
             $table->longText('informacion')->nullable()->comment('CAMPO INFORMACION RELEVANTE ADICIONAL');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 
@@ -63,7 +63,7 @@ class CreateVsiAbuSexualsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES DEL PRESUNTO ABUSO SEXUAL QUE PUDO EXPERIMENTAR LA PERSONA ENTREVISTADA, SECCIÓN 14 PRESUNTO ABUSO SEXUAL DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA DETALLES DEL PRESUNTO ABUSO SEXUAL QUE PUDO EXPERIMENTAR LA PERSONA ENTREVISTADA, SECCIÓN 14 PRESUNTO ABUSO SEXUAL DE LA FICHA SICOSOCIAL'");
     }
 
     /**

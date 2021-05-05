@@ -34,7 +34,7 @@ class CreateFiFormacionsTable extends Migration
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA FORMACION');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -50,7 +50,7 @@ class CreateFiFormacionsTable extends Migration
             $table->foreign('prm_ultgrapr_id')->references('id')->on('parametros');
             $table->foreign('prm_cerulniv_id')->references('id')->on('parametros');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA EDUCACIÓN ADQUIRIDA POR LA PERSONA ENTREVISTADA, SECCION 4 ESCUELA DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA EDUCACIÓN ADQUIRIDA POR LA PERSONA ENTREVISTADA, SECCION 4 ESCUELA DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -58,7 +58,7 @@ class CreateFiFormacionsTable extends Migration
             $table->integer('prm_motivinc_id')->unsigned()->comment('FI 4.12 MOTIVOS DESEA VINCULARSE AL IDIPRON');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -66,7 +66,7 @@ class CreateFiFormacionsTable extends Migration
             $table->foreign('fi_formacion_id')->references('id')->on('fi_formacions');
             $table->foreign('prm_motivinc_id')->references('id')->on('parametros');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS MOTIVOS PARA VINCULARSE AL IDIPRON POR PARTE DE LA PERSONA ENTREVISTADA, PREGUNTA 4.12 SECCION 4 ESCUELA DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS MOTIVOS PARA VINCULARSE AL IDIPRON POR PARTE DE LA PERSONA ENTREVISTADA, PREGUNTA 4.12 SECCION 4 ESCUELA DE LA FICHA DE INGRESO'");
     }
 
     /**

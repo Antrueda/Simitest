@@ -43,13 +43,13 @@ class CreateRedesApoyosTable extends Migration
       $table->foreign('anioPrestServicio_id')->references('id')->on('parametros');
       $table->foreign('servBenePersona_id')->references('id')->on('parametros');
 
-      $table->integer('user_crea_id')->unsigned();
-      $table->integer('user_edita_id')->unsigned();
+      $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+      $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
       $table->integer('sis_esta_id')->unsigned();
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->timestamps();
     });
-   //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS SERVICIOS BRINDADOS A LOS BENEFICIARIOS POR PARTE DE ENTIDADES DISTINTAS A IDIPRON.'");
+   DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LOS SERVICIOS BRINDADOS A LOS BENEFICIARIOS POR PARTE DE ENTIDADES DISTINTAS A IDIPRON.'");
   }
 
   /**

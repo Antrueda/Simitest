@@ -17,14 +17,14 @@ class CreateHSisMapaProcsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('version')->unsigned();
-            $table->integer('sis_entidad_id')->unsigned();
-            $table->date('vigencia');
-            $table->date('cierre');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('version')->unsigned()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE ENTIDAD');
+            $table->date('vigencia')->comment('CAMPO FECHA DE VIGENCIA');
+            $table->date('cierre')->comment('CAMPO DE FECHA DE CIERRE');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

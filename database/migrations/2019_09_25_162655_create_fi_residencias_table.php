@@ -45,7 +45,7 @@ class CreateFiResidenciasTable extends Migration
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA RESIDENCIA');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas')->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -67,7 +67,7 @@ class CreateFiResidenciasTable extends Migration
             $table->foreign('i_prm_espacio_parcha_id')->references('id')->on('parametros');
             $table->foreign('sis_upzbarri_id')->references('id')->on('sis_upzbarris');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE UBICACION Y DE CONTACTO DE LA PERSONA ENTREVISTADA, SECCION 3 RESIDENCIA DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE UBICACION Y DE CONTACTO DE LA PERSONA ENTREVISTADA, SECCION 3 RESIDENCIA DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -75,14 +75,14 @@ class CreateFiResidenciasTable extends Migration
             $table->integer('i_prm_condicion_amb_id')->unsigned()->comment('FI 3.16 CONDICIONES DEL AMBIENTE');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('fi_residencia_id')->references('id')->on('fi_residencias');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES DEL AMBIENTE Y DE RIESGO CERCA DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 3.16 SECCION 3 RESIDENCIA DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES DEL AMBIENTE Y DE RIESGO CERCA DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 3.16 SECCION 3 RESIDENCIA DE LA FICHA DE INGRESO'");
     }
 
     /**

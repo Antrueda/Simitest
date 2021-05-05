@@ -27,9 +27,9 @@ class CreateFiActividadestlsTable extends Migration
             $table->integer('i_prm_practica_religiosa_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO PRACTICA RELIGIOSA');
             $table->integer('i_prm_religion_practica_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO RELIGION QUE PRACTICA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID NNAJ');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -40,7 +40,7 @@ class CreateFiActividadestlsTable extends Migration
             $table->foreign('i_prm_practica_religiosa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_religion_practica_id')->references('id')->on('parametros');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE ALGUNOS DETALLES DE LAS ACTIVIDADES REALIZADAS POR LA PERSONA ENTREVISTADA EN SU TIEMPO LIBRE, SECCION 8 DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE ALGUNOS DETALLES DE LAS ACTIVIDADES REALIZADAS POR LA PERSONA ENTREVISTADA EN SU TIEMPO LIBRE, SECCION 8 DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -48,7 +48,7 @@ class CreateFiActividadestlsTable extends Migration
             $table->integer('i_prm_actividad_tl_id')->unsigned()->comment('FI 8.3 ACTIVIDADES TIEMPO LIBRE');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -56,7 +56,7 @@ class CreateFiActividadestlsTable extends Migration
             $table->foreign('fi_actividadestl_id')->references('id')->on('fi_actividadestls');
             $table->foreign('i_prm_actividad_tl_id')->references('id')->on('parametros');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE LAS ACTIVIDADES REALIZADAS POR LA PERSONA ENTREVISTADA EN SU TIEMPO LIBRE, PREGUNTA 8.3 SECCION 8 DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE LAS ACTIVIDADES REALIZADAS POR LA PERSONA ENTREVISTADA EN SU TIEMPO LIBRE, PREGUNTA 8.3 SECCION 8 DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -64,7 +64,7 @@ class CreateFiActividadestlsTable extends Migration
             $table->integer('prm_sacrhec_id')->unsigned()->comment('FI 8.8 SACRAMENTOS HECHOS');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -72,7 +72,7 @@ class CreateFiActividadestlsTable extends Migration
             $table->foreign('fi_actividadestl_id')->references('id')->on('fi_actividadestls');
             $table->foreign('prm_sacrhec_id')->references('id')->on('parametros');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS SACRAMENTOS REALIZADOS POR LA PERSONA ENTREVISTADA, PREGUNTA 8.8 SECCION 8 DE LA FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS SACRAMENTOS REALIZADOS POR LA PERSONA ENTREVISTADA, PREGUNTA 8.8 SECCION 8 DE LA FICHA DE INGRESO'");
     }
 
     /**

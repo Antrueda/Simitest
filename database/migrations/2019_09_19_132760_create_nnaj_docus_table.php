@@ -28,20 +28,20 @@ class CreateNnajDocusTable extends Migration
             $table = CamposMagicos::magicos($table);
             $table->unique(['s_documento']);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA IDENTIFICACION DEL NNAJ.'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA IDENTIFICACION DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->string('s_documento');
-            $table->Integer('fi_datos_basico_id');
-            $table->Integer('prm_tipodocu_id');
-            $table->Integer('prm_doc_fisico_id');
-            $table->Integer('prm_ayuda_id');
-            $table->Integer('sis_municipio_id');
-            $table->Integer('sis_docfuen_id');
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('s_documento')->comment('CAMPO NUMERO DE DOCUMENTO');
+            $table->Integer('fi_datos_basico_id')->comment('CAMPO ID NNAJ');
+            $table->Integer('prm_tipodocu_id')->comment('CAMPO PARAMETRO TIPO DE DOCUMENTO');
+            $table->Integer('prm_doc_fisico_id')->comment('CAMPO PARAMETROTIENE DOCUMENTO FISICO');
+            $table->Integer('prm_ayuda_id')->comment('CAMPO PARAMETRO POR QUE RAZON');
+            $table->Integer('sis_municipio_id')->comment('CAMPO ID MUNICIPIO');
+            $table->Integer('sis_docfuen_id')->comment('CAMPO DOCUMENTO FUENTE');
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
     /**

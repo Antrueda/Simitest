@@ -22,13 +22,11 @@ class CreateFiJustrestsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('i_prm_vinculado_violencia_id')->unsigned()->comment('FI 10.4.1 ESTA VINCULADO A DELINCUENCIA O VIOLENCIA');
-          
             $table->integer('i_prm_riesgo_participar_id')->unsigned()->comment('FI 10.5.1 ESTA EN RIESGO DE PARTICIPAR ACTOS DELICTIVOS');
-          
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA JUSTICIA RESTAURATIVA');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas')->comment('ESTADO DEL REGISTRO');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -39,7 +37,7 @@ class CreateFiJustrestsTable extends Migration
             $table->foreign('i_prm_riesgo_participar_id')->references('id')->on('parametros');
         
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS MOTIVOS PARA ESTAR VINCULADO A LA DELINCUENCIA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS MOTIVOS PARA ESTAR VINCULADO A LA DELINCUENCIA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -54,7 +52,7 @@ class CreateFiJustrestsTable extends Migration
             $table->string('s_lugar_abierto_pard')->nullable()->comment('FI 10.1.6 LUGAR ABIERTO EL PARD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -65,7 +63,7 @@ class CreateFiJustrestsTable extends Migration
             $table->foreign('i_prm_tipo_tiempo_pard_id')->references('id')->on('parametros');
             $table->foreign('i_prm_motivo_pard_id')->references('id')->on('parametros');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE PARD DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE PARD DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -78,7 +76,7 @@ class CreateFiJustrestsTable extends Migration
             $table->integer('i_prm_sancion_srpa_id')->nullable()->unsigned()->comment('FI 10.2.5 SANCIÓN PEDAGÓGICA SRPA');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -90,7 +88,7 @@ class CreateFiJustrestsTable extends Migration
             $table->foreign('i_prm_motivo_srpa_id')->references('id')->on('parametros');
             $table->foreign('i_prm_sancion_srpa_id')->references('id')->on('parametros');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SRPA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SRPA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -104,7 +102,7 @@ class CreateFiJustrestsTable extends Migration
             $table->integer('i_prm_ha_estado_preso_id')->nullable()->unsigned()->comment('FI 10.3.6 HA ESTADO PRIVADO DE LA LIBERTAD');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -117,7 +115,7 @@ class CreateFiJustrestsTable extends Migration
             $table->foreign('i_prm_mod_cumple_pena_id')->references('id')->on('parametros');
             $table->foreign('i_prm_ha_estado_preso_id')->references('id')->on('parametros');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE SPOA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE SPOA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -131,7 +129,7 @@ class CreateFiJustrestsTable extends Migration
             $table->integer('i_prm_tipo_tiempo_id')->unsigned()->comment('TIPO DE TIEMPO');
             $table->integer('user_crea_id')->unsigned()->comment('USUARIO QUE CREA EL REGISTRO');
             $table->integer('user_edita_id')->unsigned()->comment('USUARIO QUE EDITA EL REGISTRO');
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');
@@ -141,7 +139,7 @@ class CreateFiJustrestsTable extends Migration
             $table->foreign('i_prm_vigente_id')->references('id')->on('parametros');
             $table->foreign('i_prm_tipo_tiempo_id')->references('id')->on('parametros');
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE MIEMBROS DE LA FAMILIA QUE TIENEN ESTAN EN PROCESO DE JUSTICIA RESTAURATIVA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA EL LISTADO DE MIEMBROS DE LA FAMILIA QUE TIENEN ESTAN EN PROCESO DE JUSTICIA RESTAURATIVA DE LA PERSONA ENTREVISTADA, SECCION 10 FICHA DE INGRESO'");
     }
 
     /**

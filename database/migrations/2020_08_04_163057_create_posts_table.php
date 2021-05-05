@@ -24,7 +24,7 @@ class CreatePostsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS POSTS PUBLICADOS EN EL SISTEMA'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS POSTS PUBLICADOS EN EL SISTEMA'");
 
     }
 

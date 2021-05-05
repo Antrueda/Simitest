@@ -25,7 +25,7 @@ class CreateNnajUpisTable extends Migration
             $table->unique(['sis_depen_id','sis_nnaj_id'],'nnup_un1');
             $table = CamposMagicos::magicosFk($table,['nnup_pk',4,5,6]);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA UPI DEL NNAJ.'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA UPI DEL NNAJ.'");
 
         Schema::create('h_' . $this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
@@ -34,7 +34,7 @@ class CreateNnajUpisTable extends Migration
             $table->integer('prm_principa_id')->unsigned();
             $table = CamposMagicos::h_magicos($table);
         });
-       //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
+       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");
     }
 
 

@@ -33,7 +33,7 @@ class CreateVsiRelSocialesTable extends Migration
             $table = CamposMagicos::magicos($table);
 
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RELACIONES FAMILIARES DE LA PERSONA ENTREVISTADA, SECCION 6 RELACIONES SOCIALES DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RELACIONES FAMILIARES DE LA PERSONA ENTREVISTADA, SECCION 6 RELACIONES SOCIALES DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -45,7 +45,7 @@ class CreateVsiRelSocialesTable extends Migration
             $table->unique(['parametro_id', 'vsi_relsocial_id']);
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS FACTORES QUE FACILITAN INTERACTUAR CON OTRAS PERSONAS, PREGUNTA 6.1 SECCION 6 RELACIONES SOCIALES DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS FACTORES QUE FACILITAN INTERACTUAR CON OTRAS PERSONAS, PREGUNTA 6.1 SECCION 6 RELACIONES SOCIALES DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -57,7 +57,7 @@ class CreateVsiRelSocialesTable extends Migration
             $table->unique(['parametro_id', 'vsi_relsocial_id']);
             $table = CamposMagicos::magicos($table);
         });
-       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE CONTIENE EL LISTADO DE OS FACTORES QUE DIFICULTAN INTERACTUAR CON OTRAS PERSONAS, PREGUNTA 6.3 SECCION 6 RELACIONES SOCIALES DE LA FICHA SICOSOCIAL'");
+       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE CONTIENE EL LISTADO DE OS FACTORES QUE DIFICULTAN INTERACTUAR CON OTRAS PERSONAS, PREGUNTA 6.3 SECCION 6 RELACIONES SOCIALES DE LA FICHA SICOSOCIAL'");
     }
 
     /**
