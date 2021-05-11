@@ -26,7 +26,7 @@ class CreateSisDepartamSisMunicipioTable extends Migration
             $table->unique(['sis_departam_id','sis_municipio_id'],'depmun_un1');
             $table = CamposMagicos::magicos($table);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RALACION DE LOS DEPARTAMENTOS CON LOS MUNICIPIOS'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RALACION DE LOS DEPARTAMENTOS CON LOS MUNICIPIOS'");
     }
 
     /**

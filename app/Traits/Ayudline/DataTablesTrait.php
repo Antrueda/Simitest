@@ -26,6 +26,18 @@ trait DataTablesTrait
 
         ];
     }
+
+    public function getGeneralDTT($dataxxxx)
+    {
+        $dataxxxx['permtabl'] = [
+            $this->opciones['permisox'] . '-leer',
+        ];
+        $this->opciones['ruarchjs'] = [
+            ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']
+        ];
+        $dataxxxx['urlxxxxx'] = route($this->opciones['routxxxx'] . '.' . $dataxxxx['listaxxx'], $dataxxxx['pararout']);
+        return $dataxxxx;
+    }
     public function getUyudasIndexADT($dataxxxx)
     {
         $dataxxxx['permtabl'] = [
@@ -51,7 +63,8 @@ trait DataTablesTrait
         $dataxxxx['tablaxxx'] = 'datatable';
         $dataxxxx['parametr'] = [];
         $dataxxxx['pararout'] = [];
-        $this->opciones['tablasxx'][] = $this->getTablasOGT($dataxxxx);
+        $dataxxxx['listaxxx'] = 'listaxxx';
+        $this->opciones['tablasxx'][] = $this->getTablasOGT($this->getGeneralDTT($dataxxxx));
 
         $this->opciones['ruarchjs'] = [
             ['jsxxxxxx' => $this->opciones['rutacarp'] . $this->opciones['carpetax'] . '.Js.tabla']

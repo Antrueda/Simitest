@@ -25,7 +25,7 @@ class CreateInFuentesTable extends Migration
             $table->unique(['in_indicador_id', 'in_linea_base_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON CON LOS INDICADOR OBSERVADO POR EL FUNCIONARIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA RELACION ENTRE LA LINEA DE BASE DE LOS BENEFICIARIOS DE LOS SERVICIOS DEL IDIPRON CON LOS INDICADOR OBSERVADO POR EL FUNCIONARIO'");
     }
 
     /**

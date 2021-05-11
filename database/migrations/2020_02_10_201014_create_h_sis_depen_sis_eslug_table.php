@@ -22,7 +22,7 @@ class CreateHSisDepenSisEslugTable extends Migration
             $table->integer('sis_depen_id')->unsigned()->comment('ID DE DEPENDENCIA O UPI');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

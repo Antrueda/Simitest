@@ -31,7 +31,7 @@ class CreateCsdComFamObsTable extends Migration
             $table->foreign('user_crea_id','cofaob_pk4')->references('id')->on('users');
             $table->foreign('user_edita_id','cofaob_pk5')->references('id')->on('users');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS OBSERVACIONES REALIZADAS POR EL FUNCIONARIO AL NUCLEO FAMILIAR DE LA PERSONA PERSONA ENTREVISTADA, SECCION 7 COMPOSICION FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS OBSERVACIONES REALIZADAS POR EL FUNCIONARIO AL NUCLEO FAMILIAR DE LA PERSONA PERSONA ENTREVISTADA, SECCION 7 COMPOSICION FAMILIAR DE CONSULTA SOCIAL EN DOMICILIO'");
     }
 
     /**

@@ -30,7 +30,7 @@ class CreateSisEslusTable extends Migration
             $table->unique(['s_espaluga']);
             $table->timestamps();
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ESPACIOS DONDE SE REALIZAN ACTIVIDADES DIRIGIDAS A LOS BENEFICIARIOS DEL IDIPRON'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS ESPACIOS DONDE SE REALIZAN ACTIVIDADES DIRIGIDAS A LOS BENEFICIARIOS DEL IDIPRON'");
     }
 
     /**

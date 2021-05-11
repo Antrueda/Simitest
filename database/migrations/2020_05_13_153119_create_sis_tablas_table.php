@@ -24,7 +24,7 @@ class CreateSisTablasTable extends Migration
             $table->foreign('sis_docfuen_id')->references('id')->on('sis_docfuens');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LAS TABLAS RELACIONADAS CON LOS FORMATOS PUBLICADOS EN EL SISTEMA'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS NOMBRES DE LAS TABLAS RELACIONADAS CON LOS FORMATOS PUBLICADOS EN EL SISTEMA'");
     }
 
     /**

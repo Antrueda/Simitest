@@ -78,7 +78,7 @@ class CreateVsiViolenciasTable extends Migration
             $table->foreign('prm_dis_ori_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE DETALLES DE LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA, SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE DETALLES DE LA VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA, SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -89,7 +89,7 @@ class CreateVsiViolenciasTable extends Migration
             $table->unique(['parametro_id', 'vsi_violencia_id'],'vsvico_un1');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DEL CONTEXTO DE DISCRIMINACION DE LA PERSONA ENTREVISTADA, PREGUNTA 4.4 SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DEL CONTEXTO DE DISCRIMINACION DE LA PERSONA ENTREVISTADA, PREGUNTA 4.4 SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -101,7 +101,7 @@ class CreateVsiViolenciasTable extends Migration
             $table->unique(['parametro_id', 'vsi_violencia_id'],'vsviti_un1');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DEL TIPO DE VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA, PREGUNTA 4.5 SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DEL TIPO DE VIOLENCIA EXPERIMENTADA POR LA PERSONA ENTREVISTADA, PREGUNTA 4.5 SECCIÓN 4 VIOLENCIAS Y CONDICION ESPECIAL DE LA FICHA SICOSOCIAL'");
     }
 
     /**

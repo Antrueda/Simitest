@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('s_segundo_apellido')->nullable()->comment('CAMPO SEGUNDO APELLIDO');
             $table->string('email')->unique()->comment('CAMPO CORREO ELECTRONICO');
             $table->string('s_documento')->comment('CAMPO NUMERO DE DOCUMENTO');
-            $table->String('password')->comment('CAMPO DE LA CONTRASENIA');
+            $table->string('password');//->comment('CAMPO DE LA CONTRASENIA');
             $table->string('s_telefono')->comment('CAMPO DEL TELEFONO DE CONTACTO');
             $table->string('s_matriculap')->nullable()->comment('CAMPO TARJETA PROFESIONAL');
             $table->date('d_vinculacion')->comment('CAMPO FECHA DE VINCULACION');
@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable()->comment('CAMPO CON LA FECHA DE CUANDO FUE VERIFICADO EL CORREO');
             $table->date('password_change_at')->comment('FECHA PARA EL PROXIMO CAMBIO DE CONTRASEÑA');
             $table->date('password_reset_at')->nullable()->comment('FECHA EN QUE SE REALIZA EL RECETEO DE LA CONTRASEÑA');
-            
+
             $table->rememberToken();
             $table->timestamps();
             $table->integer('user_crea_id')->nullable()->unsigned();
@@ -57,7 +57,7 @@ class CreateUsersTable extends Migration
             $table->unique(['s_documento']);
             $table->timestamp('polidato_at')->nullable();
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS USUARIOS REGISTRADOS EN EL SISTEMA'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS USUARIOS REGISTRADOS EN EL SISTEMA'");
     }
 
     /**

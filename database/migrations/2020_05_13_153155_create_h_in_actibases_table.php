@@ -23,7 +23,7 @@ class CreateHInActibasesTable extends Migration
             $table->integer('i_prm_tiempo_id')->unsigned()->comment('CAMPO PARAMETROS TIPO DE TIEMPO');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

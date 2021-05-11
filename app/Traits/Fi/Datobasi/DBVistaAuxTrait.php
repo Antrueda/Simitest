@@ -42,7 +42,7 @@ trait DBVistaAuxTrait
 
     private function view($dataxxxx)
     {
-        $this->combos();
+
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {
@@ -226,7 +226,7 @@ trait DBVistaAuxTrait
 
     private function viewagregar($dataxxxx)
     {
-        $this->combos();
+
         $fechaxxx = explode('-', date('Y-m-d'));
 
         if ($fechaxxx[1] < 12) {

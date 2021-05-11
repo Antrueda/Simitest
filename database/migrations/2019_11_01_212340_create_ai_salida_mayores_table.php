@@ -33,7 +33,7 @@ class CreateAiSalidamayoresTable extends Migration
             $table->foreign('user_crea_id', 'aisama_pk5')->references('id')->on('users');
             $table->foreign('user_edita_id', 'aisama_pk6')->references('id')->on('users');
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA DESCRIPCIÓN DE LA SALIA DE UN BENEFICIARIO DE LOS SERVICIOS DE UNA UPI'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA DESCRIPCIÓN DE LA SALIA DE UN BENEFICIARIO DE LOS SERVICIOS DE UNA UPI'");
 
     }
 

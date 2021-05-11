@@ -79,7 +79,7 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('prm_orden_id','csdres_pk10')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA UBICACION Y CONTACTO DE LA PERSONA ENTREVISTADA, SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA UBICACION Y CONTACTO DE LA PERSONA ENTREVISTADA, SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -92,7 +92,7 @@ class CreateCsdResidenciasTable extends Migration
             $table->unique(['parametro_id', 'csd_residencia_id'],'creamb_pk1');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE CONDICIONES AMBIENTALES Y DE SALUBRIDAD DE LA VIVIENDA DE LA PERSONA ENTREVISTADA, PREGUNTA 5.17 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -104,7 +104,7 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SERVICIOS Y ESTADO, PREGUNTA 5.18 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE SERVICIOS Y ESTADO, PREGUNTA 5.18 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -115,7 +115,7 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE ESPACIOS QUE DISPONE EL HOGAR, PREGUNTA 5.19'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA EL LISTADO DE ESPACIOS QUE DISPONE EL HOGAR, PREGUNTA 5.19'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -125,7 +125,7 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA SI COMPARTE CAMAS '");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA SI COMPARTE CAMAS '");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -134,7 +134,7 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LAS OBSERVACIONES REALIZADAS POR EL FUNCIONARIO A LA RESIDENCIA'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LAS OBSERVACIONES REALIZADAS POR EL FUNCIONARIO A LA RESIDENCIA'");
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -146,7 +146,7 @@ class CreateCsdResidenciasTable extends Migration
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA EL SI COMPARTE LOS ESPACIO CON OTRA FAMILIA, PREGUNTA 5.20 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA EL SI COMPARTE LOS ESPACIO CON OTRA FAMILIA, PREGUNTA 5.20 SECCION 5 DE LA CONSULTA SOCIAL EN DOMICILIO'");
 
     }
 

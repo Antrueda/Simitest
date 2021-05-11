@@ -25,7 +25,7 @@ class CreateHUsersTable extends Migration
             $table->string('s_segundo_apellido')->nullable()->comment('CAMPO SEGUNDO APELLIDO');
             $table->string('email')->comment('CAMPO CORREO ELECTRONICO');
             $table->string('s_documento')->comment('CAMPO NUMERO DE DOCUMENTO');
-            $table->String('password')->comment('CAMPO DE LA CONTRASENIA');
+            $table->String('password');//->comment('CAMPO DE LA CONTRASENIA');
             $table->string('s_telefono')->comment('CAMPO DEL TELEFONO DE CONTACTO');
             $table->string('s_matriculap')->nullable()->comment('CAMPO TARJETA PROFESIONAL');
             $table->timestamp('email_verified_at')->nullable()->comment('CAMPO CON LA FECHA DE CUANDO FUE VERIFICADO EL CORREO');
@@ -46,7 +46,7 @@ class CreateHUsersTable extends Migration
             $table = CamposMagicos::h_magicos($table);
 
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

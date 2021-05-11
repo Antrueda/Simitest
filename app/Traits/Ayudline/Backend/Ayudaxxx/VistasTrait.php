@@ -85,7 +85,7 @@ trait VistasTrait
     public function edit(Ayuda $modeloxx)
     {
         $this->getBotones(['editarxx', [], 1, "EDITAR {$this->opciones['titucont']}", 'btn btn-sm btn-primary']);
-        return $this->getVista(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario']]);
+        return $this->getVista(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'],'posicion'=>0]);
     }
 
     public function show(Ayuda $modeloxx)

@@ -28,7 +28,7 @@ class CreateVsiConceptosTable extends Migration
             $table->foreign('prm_ingreso_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA IMPRESIÓN DIAGNÓSTICA Y EL ANÁLISIS SOCIAL DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LA IMPRESIÓN DIAGNÓSTICA Y EL ANÁLISIS SOCIAL DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -39,7 +39,7 @@ class CreateVsiConceptosTable extends Migration
             $table->unique(['parametro_id', 'vsi_concepto_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LA RED INSTITUCIONAL DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LA RED INSTITUCIONAL DE LA PERSONA ENTREVISTADA CON LA VALORACIÓN SICOSOCIAL'");
     }
 
     /**

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class CreateHAiSalidaMayoresTable extends Migration
 {
     private $tablaxxx = 'h_ai_salida_mayores';
-    
+
     /**
      * Run the migrations.
      *
@@ -26,14 +26,14 @@ class CreateHAiSalidaMayoresTable extends Migration
             $table->integer('user_doc2_id')->unsigned()->comment('CAMPO RESPONSABLE DE LA UPI O DEPENDENCIA');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
-    
+
     }
 
     public function down()
     {
-        
+
         Schema::dropIfExists($this->tablaxxx);
     }
 }

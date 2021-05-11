@@ -27,6 +27,7 @@ trait DBControllerTrait
 
     public function create()
     {
+        $this->combos();
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -37,7 +38,7 @@ trait DBControllerTrait
     }
     public function agregar(Request $request)
     {
-
+        $this->combos();
         $dataxxxx = ["docuagre" => $request->docuagre, 'buscarxx' => true];
         $nnajxxxx = $this->getBuscarNnajAgregar($dataxxxx);
         $this->opciones['botoform'][] =
@@ -69,6 +70,7 @@ trait DBControllerTrait
      */
     public function show(FiDatosBasico $objetoxx)
     {
+        $this->combos();
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
     }
 
@@ -80,6 +82,7 @@ trait DBControllerTrait
      */
     public function edit(FiDatosBasico $objetoxx)
     {
+        $this->combos();
         $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
@@ -151,8 +154,10 @@ trait DBControllerTrait
 
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
-        $this->getArmaCamposTabalSimiAnti();
 
+// php artisan vendor:publish --provider="BeyondCode\QueryDetector\QueryDetectorServiceProvider"
+
+        $this->getArmaCamposTabalSimiAnti();
         $this->getRocorrerCedula();
         // $i = 1;
         // $tables = DB::select('SHOW TABLES');
@@ -249,7 +254,7 @@ trait DBControllerTrait
         }
 
 
-        // return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
+        return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
     }
     public function homologa($temacomb, $parametr, $codigoxx, $tablaxxx)
     {

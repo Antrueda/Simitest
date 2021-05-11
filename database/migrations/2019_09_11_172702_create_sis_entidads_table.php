@@ -28,7 +28,7 @@ class CreateSisEntidadsTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS ENTIDADES REGISTRADAS EN EL SISTEMA.'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS ENTIDADES REGISTRADAS EN EL SISTEMA.'");
 
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
@@ -45,7 +45,7 @@ class CreateSisEntidadsTable extends Migration
             $table->integer('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS SERVICIOS INSTITUCIONALES'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS SERVICIOS INSTITUCIONALES'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->integer('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE LA ENTIDAD');
@@ -56,7 +56,7 @@ class CreateSisEntidadsTable extends Migration
             $table->foreign('sis_servicio_id')->references('id')->on('sis_servicios');
             $table->unique(['sis_entidad_id', 'sis_servicio_id'],'entser_pk1');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE ENTIDADES Y SERVICIOS INSTITUCIONALES'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LA RELACIÓN ENTRE ENTIDADES Y SERVICIOS INSTITUCIONALES'");
     }
 
     /**

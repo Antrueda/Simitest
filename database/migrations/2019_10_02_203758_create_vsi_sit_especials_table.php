@@ -26,7 +26,7 @@ class CreateVsiSitEspecialsTable extends Migration
             $table->foreign('prm_victima_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA PERSONA VICTIMA DE ESCCNA, SECCIÓN 15 SITUACION ESPECIAL Y ESCNNA DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA PERSONA VICTIMA DE ESCCNA, SECCIÓN 15 SITUACION ESPECIAL Y ESCNNA DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -38,7 +38,7 @@ class CreateVsiSitEspecialsTable extends Migration
             $table->unique(['parametro_id', 'vsi_sitespecial_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE LISTADO DE LAS OPCIONES DE VICTIMA DE ESCCNA, PREGUNTA 15.1 SECCIÓN 15 SITUACION ESPECIAL Y ESCNNA DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE LISTADO DE LAS OPCIONES DE VICTIMA DE ESCCNA, PREGUNTA 15.1 SECCIÓN 15 SITUACION ESPECIAL Y ESCNNA DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -50,7 +50,7 @@ class CreateVsiSitEspecialsTable extends Migration
             $table->unique(['parametro_id', 'vsi_sitespecial_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE CONTIENE LISTADO DE LAS OPCIONES DE RIESGO DE ESCCNA, PREGUNTA 15.2 SECCIÓN 15 SITUACION ESPECIAL Y ESCNNA DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE CONTIENE LISTADO DE LAS OPCIONES DE RIESGO DE ESCCNA, PREGUNTA 15.2 SECCIÓN 15 SITUACION ESPECIAL Y ESCNNA DE LA FICHA SICOSOCIAL'");
     }
 
     /**

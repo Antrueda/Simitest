@@ -28,7 +28,7 @@ class CreateHVsiDatosVinculasTable extends Migration
         $table->Integer('ano')->unsigned()->nullable()->comment('CAMPO ANO');
         $table = CamposMagicos::h_magicos($table);
       });
-     DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+     //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
       Schema::create($this->tablaxxx2, function (Blueprint $table) {
         $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -36,7 +36,7 @@ class CreateHVsiDatosVinculasTable extends Migration
         $table->integer('vsi_datos_vincula_id')->unsigned()->comment('CAMPO ID DE DATOS VINCULA');
         $table = CamposMagicos::h_magicos($table);
       });
-     DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+     //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
       Schema::create($this->tablaxxx3, function (Blueprint $table) {
         $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -44,15 +44,15 @@ class CreateHVsiDatosVinculasTable extends Migration
         $table->integer('vsi_datos_vincula_id')->unsigned()->comment('CAMPO ID DE DATOS VINCULA');
         $table = CamposMagicos::h_magicos($table);
       });
-     DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
-      
+     //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
+
       Schema::create($this->tablaxxx4, function (Blueprint $table) {
         $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
         $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DIFICULTADES');
         $table->integer('vsi_datos_vincula_id')->unsigned()->comment('CAMPO ID DE DATOS VINCULA');
         $table = CamposMagicos::h_magicos($table);
       });
-     DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
+     //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
     }
 
     /**

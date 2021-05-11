@@ -10,7 +10,7 @@ class CreateFiContviolsTable extends Migration
 {
     private $tablaxxx = 'fi_contviols';
     private $commentx = '12.1 A Ha ejercido  algún tipo de presunta violencia durante la actividad en conflicto con la ley?';
-   
+
     /**
      * Run the migrations.
      *
@@ -32,7 +32,7 @@ class CreateFiContviolsTable extends Migration
             $table->foreign('tema_id')->references('id')->on('temas');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RESPUESTAS A LA PReGUNTA: ".strtoupper($this->commentx)."'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RESPUESTAS A LA PReGUNTA: ".strtoupper($this->commentx)."'");
 
     }
 

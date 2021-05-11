@@ -10,7 +10,7 @@ class CreateHSisDocumentoFuentesTable extends Migration
 {
     private $tablaxxx = 'h_sis_docfuens';
     /**
-     *  
+     *
      * Run the migrations.
      *
      * @return void
@@ -22,7 +22,7 @@ class CreateHSisDocumentoFuentesTable extends Migration
             $table->string('nombre')->comment('CAMPO NOMBRE DEL DOCUMENTO FUENTE');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

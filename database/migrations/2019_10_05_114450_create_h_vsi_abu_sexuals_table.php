@@ -42,7 +42,7 @@ class CreateHVsiAbuSexualsTable extends Migration
             $table->longText('informacion')->nullable()->comment('CAMPO INFORMACION RELEVANTE ADICIONAL');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

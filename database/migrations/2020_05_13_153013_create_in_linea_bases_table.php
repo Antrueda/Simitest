@@ -21,7 +21,7 @@ class CreateInLineaBasesTable extends Migration
             $table->string('s_linea_base', 300)->unique()->comment('NOMBRE DE LA LINEA BASE');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS DESCRIPCIONES DE LA LINEA DE BASE'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO DE LAS DESCRIPCIONES DE LA LINEA DE BASE'");
     }
 
     /**

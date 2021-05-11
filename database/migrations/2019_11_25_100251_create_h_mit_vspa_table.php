@@ -60,7 +60,7 @@ class CreateHMitVspaTable extends Migration
             $table->integer('user_doc1_id')->unsigned()->comment('ID DE USUARIO QUE DILIGENCIA');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
@@ -139,7 +139,7 @@ class CreateHMitVspaTable extends Migration
             $table->integer('prm_imp_dmi_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO IMPACTO NEGATIVO EN LA VIDA');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
@@ -158,7 +158,7 @@ class CreateHMitVspaTable extends Migration
             $table->integer('prm_cuatro_doce_id')->unsigned()->nullable()->comment('4.12 ¿Ha frecuentado espacios de fiesta donde hay expendio de sustancias psicoactivas y trabajo sexual? (Zonas de tolerancia, prostíbulos, amanecederos)');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
@@ -177,7 +177,7 @@ class CreateHMitVspaTable extends Migration
             $table->integer('prm_cinco_doce_id')->unsigned()->nullable()->comment('5.12 Alteraciones de salud mental');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
@@ -190,7 +190,7 @@ class CreateHMitVspaTable extends Migration
             $table->integer('prm_seis_seis_id')->unsigned()->nullable()->comment('6.6 Espiritualidad');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
     }
 
     /**

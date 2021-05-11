@@ -22,7 +22,7 @@ class CreateHSisDepenSisServicioTable extends Migration
             $table->integer('sis_servicio_id')->unsigned()->comment('CAMPO ID DE SERVICIO');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

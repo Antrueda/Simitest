@@ -70,7 +70,7 @@ class CreateFiSaludsTable extends Migration
             $table->foreign('prm_razcicom_id')->references('id')->on('parametros');
             $table->foreign('sis_entidad_salud_id')->references('id')->on('sis_entidad_saluds');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DEL REGIMEN AL QUE ESTA AFILIADO, DISCAPACIDAD, ENTRE OTROS DE LA PERSONA ENTREVISTADA, SECCION 6 SALUD DE LA FICHA DE INGRESO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DEL REGIMEN AL QUE ESTA AFILIADO, DISCAPACIDAD, ENTRE OTROS DE LA PERSONA ENTREVISTADA, SECCION 6 SALUD DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -92,7 +92,7 @@ class CreateFiSaludsTable extends Migration
             $table->foreign('prm_recimedi_id')->references('id')->on('parametros');
             $table->foreign('prm_rectrata_id')->references('id')->on('parametros');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE MEDICAMENTOS Y ENFERMEDADES DE LOS MIEMBROS DE LA FAMILIA DE LA PERSONA ENTREVISTADA, SECCION 6 SALUD DE LA FICHA DE INGRESO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA EL LISTADO DE MEDICAMENTOS Y ENFERMEDADES DE LOS MIEMBROS DE LA FAMILIA DE LA PERSONA ENTREVISTADA, SECCION 6 SALUD DE LA FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -108,7 +108,7 @@ class CreateFiSaludsTable extends Migration
             $table->foreign('fi_salud_id')->references('id')->on('fi_saluds');
             $table->foreign('prm_evenmedi_id')->references('id')->on('parametros');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE MEVENTOS MEDICOS DE LA PERSONA ENTREVISTADA, SECCION 6 SALUD DE LA FICHA DE INGRESO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA EL LISTADO DE MEVENTOS MEDICOS DE LA PERSONA ENTREVISTADA, SECCION 6 SALUD DE LA FICHA DE INGRESO'");
     }
 
     /**

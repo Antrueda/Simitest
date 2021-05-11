@@ -38,12 +38,12 @@ class CreateFcvGeneracioningresosTable extends Migration
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('prm_trabinfo_id')->references('id')->on('parametros');
             $table->foreign('prm_otractiv_id')->references('id')->on('parametros');
-            
+
             $table->foreign('prm_jorgeing_id')->references('id')->on('parametros');
             $table->foreign('prm_frecingr_id')->references('id')->on('parametros');
             $table->foreign('prm_tiprelab_id')->references('id')->on('parametros');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA GENERACION DE LOS INGRESOS POR PARTE LA PERSONA ENTREVISTADA, SECCION 7 GENERACION DE INGRESOS DE LA FICHA DE INGRESO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LOS DETALLES DE LA GENERACION DE LOS INGRESOS POR PARTE LA PERSONA ENTREVISTADA, SECCION 7 GENERACION DE INGRESOS DE LA FICHA DE INGRESO'");
 
     }
 

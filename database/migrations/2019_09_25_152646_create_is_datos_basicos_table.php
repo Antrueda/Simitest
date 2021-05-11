@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class CreateIsDatosBasicosTable extends Migration
 {
     private $tablaxxx = 'is_datos_basicos';
-    
+
     /**
      * Run the migrations.
      *
@@ -85,7 +85,7 @@ class CreateIsDatosBasicosTable extends Migration
             $table->foreign('i_prm_area_proxima_id')->references('id')->on('parametros');
             $table->foreign('sis_depen_id')->references('id')->on('sis_depens');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE UNA SESIÓN DE INTERVENCION, INTERVENCION SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DATOS DE UNA SESIÓN DE INTERVENCION, INTERVENCION SICOSOCIAL'");
 
 
     }
@@ -97,7 +97,7 @@ class CreateIsDatosBasicosTable extends Migration
      */
     public function down()
     {
-        
+
         Schema::dropIfExists($this->tablaxxx);
     }
 }

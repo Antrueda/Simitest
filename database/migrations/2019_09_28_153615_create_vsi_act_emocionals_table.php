@@ -28,7 +28,7 @@ class CreateVsiActEmocionalsTable extends Migration
             $table->foreign('prm_activa_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS DESCRIPCIONES DE SITUACIÓN, LUGAR, OBJETO O PERSONA QUE GENERA MALESTAR INTENSO EN LA PERSONA ENTREVISTADA, SECCIÓN 13 ACTIVIDAD EMOCIONAL DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LAS DESCRIPCIONES DE SITUACIÓN, LUGAR, OBJETO O PERSONA QUE GENERA MALESTAR INTENSO EN LA PERSONA ENTREVISTADA, SECCIÓN 13 ACTIVIDAD EMOCIONAL DE LA FICHA SICOSOCIAL'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
@@ -39,7 +39,7 @@ class CreateVsiActEmocionalsTable extends Migration
             $table->unique(['parametro_id', 'vsi_actemocional_id']);
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA ACTIVACIÓN FISIOLOGICA QUE PUEDE SUFRIR LA PERSONA ENREVISTADA EN RESPUESTA A UNA SITUACIÓN, LUGAR, OBJETO O PERSONA QUE GENERA MALESTAR INTENSO EN LA PERSONA ENTREVISTADA, PREGUNTA 13.2 SECCIÓN 13 ACTIVIDAD EMOCIONAL DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LA ACTIVACIÓN FISIOLOGICA QUE PUEDE SUFRIR LA PERSONA ENREVISTADA EN RESPUESTA A UNA SITUACIÓN, LUGAR, OBJETO O PERSONA QUE GENERA MALESTAR INTENSO EN LA PERSONA ENTREVISTADA, PREGUNTA 13.2 SECCIÓN 13 ACTIVIDAD EMOCIONAL DE LA FICHA SICOSOCIAL'");
     }
 
     /**

@@ -6,7 +6,7 @@ use App\Models\Ayuda\Ayuda;
 use App\Traits\Ayudline\Backend\Ayudaxxx\CargarImagenTrait;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Str;
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
  */
@@ -23,6 +23,7 @@ trait CrudTrait
     {
         $respuest = DB::transaction(function () use ($dataxxxx) {
 
+            $dataxxxx['requestx']->request->add(['slug' => Str::slug($dataxxxx['requestx']->titulo)]);
             $dataxxxx['requestx']->request->add(['user_edita_id' => Auth::user()->id]);
             if (isset($dataxxxx['modeloxx']->id)) {
                 $dataxxxx['modeloxx']->update($dataxxxx['requestx']->all());

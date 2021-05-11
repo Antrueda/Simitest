@@ -36,7 +36,7 @@ class CreateFiRedesApoyosTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS ANTECEDENTES INSTITUCIONALES DE LOS SERVICIOS RECIBIDOS POR LA PERSONA ENTREVISTADA, SECCION 9 REDES DE APOYO DE FICHA DE INGRESO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS ANTECEDENTES INSTITUCIONALES DE LOS SERVICIOS RECIBIDOS POR LA PERSONA ENTREVISTADA, SECCION 9 REDES DE APOYO DE FICHA DE INGRESO'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
@@ -56,7 +56,7 @@ class CreateFiRedesApoyosTable extends Migration
             $table->foreign('user_edita_id')->references('id')->on('users');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE LAS REDES DE APOYO ACTUALES CON LOS SERVICIOS O BENEFICIOS QUE ACTUALMENTE RECIBE LA PERSONA ENTREVISTADA, SECCION 9 REDES DE APOYO DE FICHA DE INGRESO'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE CONTIENE EL LISTADO DE LAS REDES DE APOYO ACTUALES CON LOS SERVICIOS O BENEFICIOS QUE ACTUALMENTE RECIBE LA PERSONA ENTREVISTADA, SECCION 9 REDES DE APOYO DE FICHA DE INGRESO'");
     }
 
     /**

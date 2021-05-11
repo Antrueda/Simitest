@@ -34,7 +34,7 @@ class CreateVsiRedsocPasadosTable extends Migration
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS ANTECEDENTES INSTITUCIONALES DE LAS REDES SOCIALES REDES DE CONTACTO POR LA PERSONA ENTREVISTADA, PREGUNTA 7.2 SECCIÓN 7 REDES SOCIALES DE APOYO DE LA FICHA SICOSOCIAL'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE EL LISTADO DE LOS ANTECEDENTES INSTITUCIONALES DE LAS REDES SOCIALES REDES DE CONTACTO POR LA PERSONA ENTREVISTADA, PREGUNTA 7.2 SECCIÓN 7 REDES SOCIALES DE APOYO DE LA FICHA SICOSOCIAL'");
     }
 
     /**

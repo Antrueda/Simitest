@@ -10,7 +10,7 @@ class CreateFiLesicomesTable extends Migration
 {
     private $tablaxxx = 'fi_lesicomes';
     private $commentx = '12.1.B QUE TIPO DE PRESUNTAS LESIONES HA COMETIDO DURANTE LA ACTIVIDAD';
-   
+
     /**
      * Run the migrations.
      *
@@ -26,7 +26,7 @@ class CreateFiLesicomesTable extends Migration
             $table->foreign('prm_lesicome_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RESPUESTAS A LA PReGUNTA: ".strtoupper($this->commentx)."'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RESPUESTAS A LA PReGUNTA: ".strtoupper($this->commentx)."'");
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->id();
@@ -34,7 +34,7 @@ class CreateFiLesicomesTable extends Migration
             $table->integer('prm_lesicome_id')->unsigned()->comment(strtoupper($this->commentx));
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

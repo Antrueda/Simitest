@@ -22,7 +22,7 @@ class CreateHAreaUserTable extends Migration
             $table->integer('user_id')->unsigned()->comment('ID DE USUARIO QUE SE LE ASIGNA EL AREA');
             $table = CamposMagicos::h_magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
     }
 
     /**

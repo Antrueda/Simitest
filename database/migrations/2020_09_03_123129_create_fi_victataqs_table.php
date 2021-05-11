@@ -25,7 +25,7 @@ class CreateFiVictataqsTable extends Migration
             $table->foreign('prm_victataq_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RESPUESTAS A LA PREGUNTA: {$this->commentx}'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE CONTIENE LAS RESPUESTAS A LA PREGUNTA: {$this->commentx}'");
 
     }
 

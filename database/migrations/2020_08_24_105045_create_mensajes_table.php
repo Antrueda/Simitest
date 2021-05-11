@@ -31,7 +31,7 @@ class CreateMensajesTable extends Migration
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');
             $table->timestamps();
         });
-       DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS MENSAJES PUBLICADOS EN EL SISTEMA'");
+       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS DETALLES DE LOS MENSAJES PUBLICADOS EN EL SISTEMA'");
     }
 
     /**

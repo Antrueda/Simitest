@@ -42,7 +42,7 @@ class CreateSalidaJovenesTable extends Migration
             $table = CamposMagicos::magicos($table);
             ;
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA QUIENES ASISTEN A LAS ACTIVIDADES ASOCIADOS A LOS TALLERES DENTRO DE LAS ACCIONES GRUPALES'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA QUIENES ASISTEN A LAS ACTIVIDADES ASOCIADOS A LOS TALLERES DENTRO DE LAS ACCIONES GRUPALES'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->integer('parametro_id')->unsigned();
@@ -53,7 +53,7 @@ class CreateSalidaJovenesTable extends Migration
             $table->foreign('salida_jovenes_id')->references('id')->on('salida_jovenes');
             $table->unique(['parametro_id', 'salida_jovenes_id']);
         });
-        DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS PORMENORES DE LA SALIA DE UN BENEFICIARIO DE LOS SERVICIOS DE UNA UPI'");
+        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS PORMENORES DE LA SALIA DE UN BENEFICIARIO DE LOS SERVICIOS DE UNA UPI'");
     }
 
     /**
