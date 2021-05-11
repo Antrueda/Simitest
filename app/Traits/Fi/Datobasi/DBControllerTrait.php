@@ -8,15 +8,9 @@ use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Sis\SisMultivalore;
-use App\Models\Simianti\Sis\SisSpa;
-use App\Models\Simianti\Tr\TrSeguiConsumoSpa;
-use App\Models\Simianti\Tr\TrVespa;
-use App\Models\Sistema\SisTabla;
-use App\Models\Sistema\SisTcampo;
 use App\Models\Temacombo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -158,6 +152,8 @@ trait DBControllerTrait
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
         $this->getArmaCamposTabalSimiAnti();
+
+        $this->getRocorrerCedula();
         // $i = 1;
         // $tables = DB::select('SHOW TABLES');
         // foreach ($tables as $key => $data) {
@@ -253,7 +249,7 @@ trait DBControllerTrait
         }
 
 
-        return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
+        // return $this->view(['modeloxx' => '', 'accionxx' => ['homologa', 'homologa']]);
     }
     public function homologa($temacomb, $parametr, $codigoxx, $tablaxxx)
     {

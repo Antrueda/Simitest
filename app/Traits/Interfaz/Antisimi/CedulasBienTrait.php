@@ -2,9 +2,7 @@
 
 namespace App\Traits\Interfaz\Antisimi;
 
-use App\Models\fichaIngreso\NnajUpi;
-use App\Models\Simianti\Ge\GeNnajDocumento;
-use Illuminate\Support\Facades\Auth;
+use App\Models\fichaIngreso\NnajDocu;
 
 /**
  * actuliza un nnaj en el nuevo desarrollo con la información que se encuentra en el antiguo simi
@@ -390,7 +388,7 @@ trait CedulasBienTrait
     1026276088,
     1026585636,
     1028782484,
-    1066085699,
+    1066058699,
     1086047267,
     1073669065,
     1086724711,
@@ -407,7 +405,7 @@ trait CedulasBienTrait
     1033678294,
     1077975571';
 
-private $cedulmal='4644654,
+    private $cedulmal = '4644654,
 26612675,
 29729974,
 31541100,
@@ -802,9 +800,53 @@ private $cedulmal='4644654,
 10300678294,
 10779755741';
 
-public function get()
-{
-    # code...
-}
+    public function getRocorrerCedula()
+    {
+        // $dataxxxx = NnajDocu::where('s_documento','4644654')->first()->fi_datos_basico;
+        // // $dataxxxx=$this->pruebaANFT(['padrexxx'=>$dataxxxx ]);
+        // $dataxxxx=$this->getBuscarNnajAgregar(['docuagre'=>'1077975571']);
+        // ddd($dataxxxx);
+        //     $cedubien
+        //    $cedulma
+        $this->cedubien = explode(',', $this->cedubien);
+        $this->cedulmal = explode(',', $this->cedulmal);
+        foreach ($this->cedubien as $key => $value) {
+            if ($value != $this->cedulmal[$key]) {
+                $dataxxxx = NnajDocu::where('s_documento', trim($this->cedulmal[$key]))->first(['id']);
+                if ($dataxxxx != null) {
+                    if (NnajDocu::where('s_documento', trim($value))->first(['id']) == null) {
+                        echo $value . ' ' . $this->cedulmal[$key] . '<br>';
+                        $dataxxxx->update(['s_documento' => trim($value)]);
+                    } else {
+                        // echo $value . ' ' . $this->cedulmal[$key] . '<br>';
+                    }
+                }
+            } else {
+                $dataxxxx = NnajDocu::where('s_documento', trim($value))
+                ->with(['fi_datos_basico' => function($query) {
+                    $query->select('id');
+                    return $query;
+                }])
+                ->first(['id as id1']);
+                   ;
+                 ddd($dataxxxx);
+                if ($dataxxxx == null) {
 
+                    echo 'q' . trim($value) . 'p ' . $this->cedulmal[$key] . '<br>';
+                }else{
+                    // echo $dataxxxx->simianti_id.' => '.$value . ' ' . $this->cedulmal[$key] . '<br>';
+                    // echo 'q' . trim($value) . 'p ' . $this->cedulmal[$key] . $dataxxxx. '<br>';
+                    if ($dataxxxx->simianti_id < 1) {   
+                        $notinxxx=['1031138139'];
+                        if(!in_array(trim($value), $notinxxx)){
+                           
+                            // $this->pruebaANFT(['padrexxx' => $dataxxxx]);
+                        }
+                        
+                   }
+                }
+                
+            }
+        }
+    }
 }
