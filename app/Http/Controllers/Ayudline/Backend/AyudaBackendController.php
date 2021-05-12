@@ -19,10 +19,20 @@ class AyudaBackendController extends Controller
     /**
      * Lista de limitaciones y permisos otorgados de operaciones.
      */
+    public function getMware()
+    {
+        $permisos = ['permission:'
+            . $this->opciones['permisox'] . '-leerxxxx|'
+            . $this->opciones['permisox'] . '-crearxxx|'
+            . $this->opciones['permisox'] . '-editarxx|'
+            . $this->opciones['permisox'] . '-borrarxx|'
+            . $this->opciones['permisox'] . '-activarx'];
+        return  $permisos;
+    }
     public function __construct()
     {
         $this->getConfigVistas();
-        $this->middleware($this->getMwareN());
+        $this->middleware($this->getMware());
     }
 
 }

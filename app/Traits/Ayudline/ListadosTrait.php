@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
  */
 trait ListadosTrait
 {
-    use OpcionesGeneralesTrait;
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use DatatableTrait;
     public function getAyudasLT($request)
