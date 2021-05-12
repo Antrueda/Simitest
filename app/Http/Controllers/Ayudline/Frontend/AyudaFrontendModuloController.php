@@ -15,11 +15,19 @@ class AyudaFrontendModuloController extends Controller
     use ParametrizarModuloTrait; // trait donde se inicializan las opciones de configuracion
     use VistasModuloTrait; // trait que arma la logica para lo metodos: crud
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
+    public function getMware($permmidd)
+    {
+        $permisos = [
+            'permission:'
+                . $permmidd . '-moduloxx'
+        ];
+        return  $permisos;
+    }
 
     public function __construct()
     {
         $this->getConfigVistas();
-        $this->middleware($this->getMwareModulo('ayudline'));
+        $this->middleware($this->getMware('ayudline'));
 
     }
 }
