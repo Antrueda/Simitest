@@ -21,12 +21,12 @@ class FiSustanciaConsumida extends Model
 
     protected $attributes = ['user_crea_id' => 1, 'user_edita_id' => 1,'sis_esta_id'=>1];
 
-    public function creador()
+    public function user_crea()
     {
         return $this->belongsTo(User::class, 'user_crea_id');
     }
 
-    public function editor()
+    public function user_edita()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
     }
@@ -44,5 +44,9 @@ class FiSustanciaConsumida extends Model
             return $objetoxx;
         }, 5);
         return $usuariox;
+    }
+    public function fi_consumo_spa()
+    {
+        return $this->belongsTo(FiConsumoSpa::class);
     }
 }

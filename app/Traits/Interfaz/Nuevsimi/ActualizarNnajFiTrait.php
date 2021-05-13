@@ -138,6 +138,7 @@ trait ActualizarNnajFiTrait
             $nnajxxxx->simianti_id = GeNnajDocumento::where('numero_documento', $objetoxx->s_documento)->first()->id_nnaj;
             $nnajxxxx->user_edita_id = Auth::user()->id;
             $nnajxxxx->updated_at = date('Y-m-d H:m:s');
+            $nnajxxxx->prm_nuevoreg_id = 228;
             $nnajxxxx->update();
 
             // if (Auth::user()->s_documento == 17496705) {

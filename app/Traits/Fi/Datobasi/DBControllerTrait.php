@@ -53,6 +53,8 @@ trait DBControllerTrait
     {
         $dataxxxx = $request->all();
         $dataxxxx['pasaupis'] = false;
+        $dataxxxx['simianti_id'] = 0;
+        $dataxxxx['prm_nuevoreg_id'] = 227;
         return $this->setDatosBasicos($dataxxxx, '', 'Datos básicos creados con éxito');
     }
 
@@ -87,7 +89,10 @@ trait DBControllerTrait
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
         }
-        $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
+        if ($objetoxx->sis_nnaj->prm_nuevoreg_id == 228) {
+            $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
+        }
+
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
@@ -143,6 +148,37 @@ trait DBControllerTrait
 
     public function getArmaCamposTabalSimiAnti()
     {
+
+// $tamacomb = Temacombo::find(53);
+
+        // foreach (SisSpa::get(['id_spa', 'nombre_spa']) as $key => $value) {
+        //     $parametu = Parametro::where('nombre', $value->nombre_spa)->first();
+        //     if ($parametu == null) {
+        //         $parametu = new Parametro();
+        //         $parametu->nombre = $value->nombre_spa;
+        //         $parametu->sis_esta_id = 1;
+        //         $parametu->user_crea_id = Auth::user()->id;
+        //         $parametu->user_edita_id = Auth::user()->id;
+        //     } else {
+        //         $paraexis = $tamacomb->parametros->where('nombre', $value->nombre_spa)->first();
+        //         if ($paraexis != null) {
+        //             echo "$value->id_spa {$value->nombre_spa}<br>";
+        //             $tamacomb->parametros()->updateExistingPivot($paraexis->id, ['simianti_id' => $value->id_spa, 'user_edita_id' => Auth::user()->id], false);
+        //         }
+        //     }
+        // }
+        // echo '<br>';
+        // foreach ($tamacomb->parametros as $key => $value) {
+        //     if ($value->pivot->simianti_id < 1) {
+        //         echo "{$value->nombre} <br>";
+        //     }
+        // }
+
+        // // $tamacomb->parametros()
+        // // ->updateExistingPivot(406, ['simianti_id' => 3, 'user_edita_id' => Auth::user()->id], false);
+        // ddd(4);
+
+
         //     echo 'protected $fillable = [<br>';
         //     $dd=SisSpa::first();
         //     foreach ($dd->toArray() as $key => $value) {
@@ -155,7 +191,7 @@ trait DBControllerTrait
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
 
-// php artisan vendor:publish --provider="BeyondCode\QueryDetector\QueryDetectorServiceProvider"
+        // php artisan vendor:publish --provider="BeyondCode\QueryDetector\QueryDetectorServiceProvider"
 
         $this->getArmaCamposTabalSimiAnti();
         $this->getRocorrerCedula();

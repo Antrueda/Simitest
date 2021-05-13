@@ -9,8 +9,9 @@ class TrSeguiConsumoSpa extends Model
     protected $table = 'tr_segui_consumo_spa';
     protected $primaryKey = 'id_segui_consumo_spa';
     protected $connection = 'simiantiguo';
-
+    public $timestamps = false;
     protected $fillable = [
+        'id_segui_consumo_spa',
         'id_vespa',
         'tipo_droga',
         'frecuencia_uso_ingreso',

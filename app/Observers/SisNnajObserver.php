@@ -17,6 +17,8 @@ class SisNnajObserver
         // campos por defecto, no borrar.
         $log['sis_esta_id'] = $modeloxx->sis_esta_id;
         $log['user_crea_id'] = $modeloxx->user_crea_id;
+        $log['simianti_id'] = $modeloxx->simianti_id;
+        $log['prm_nuevoreg_id'] = $modeloxx->prm_nuevoreg_id;
         $log['metodoxx'] = request()->method();
         $log['user_edita_id'] = $modeloxx->user_edita_id;
         $log['rutaxxxx'] = request()->fullUrl();

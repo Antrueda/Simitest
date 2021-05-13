@@ -685,19 +685,19 @@ class TemacomboSeeder extends Seeder
 
         $tema = $this->getR(['temaidxx' => 53,  'nombrexx' => 'Sustancia Psicoactiva']);
         $tema->parametros()->sync([
-            402 => $this->getCM(['simianti' => '']),
-            403 => $this->getCM(['simianti' => '']),
-            404 => $this->getCM(['simianti' => '']),
-            405 => $this->getCM(['simianti' => '']),
-            406 => $this->getCM(['simianti' => '']),
-            760 => $this->getCM(['simianti' => '']),
-            1606 => $this->getCM(['simianti' => '']),
-            1603 => $this->getCM(['simianti' => '']),
-            1613 => $this->getCM(['simianti' => '']),
-            1617 => $this->getCM(['simianti' => '']),
-            1618 => $this->getCM(['simianti' => '']),
-            1621 => $this->getCM(['simianti' => '']),
-            2460 => $this->getCM(['simianti' => '']),
+            402 => $this->getCM(['simianti' => '2']),
+            403 => $this->getCM(['simianti' => '1']),
+            404 => $this->getCM(['simianti' => '5']),
+            405 => $this->getCM(['simianti' => '6']),
+            406 => $this->getCM(['simianti' => '3']),
+            760 => $this->getCM(['simianti' => '7']),
+            1606 => $this->getCM(['simianti' => '9']),
+            1603 => $this->getCM(['simianti' => '25']),
+            1613 => $this->getCM(['simianti' => '28']),
+            1617 => $this->getCM(['simianti' => '10']),
+            1618 => $this->getCM(['simianti' => '16']),
+            1621 => $this->getCM(['simianti' => '18']),
+            // 2460 => $this->getCM(['simianti' => '']),
             2461 => $this->getCM(['simianti' => '']),
             2462 => $this->getCM(['simianti' => '']),
             2463 => $this->getCM(['simianti' => '']),
@@ -4201,7 +4201,7 @@ class TemacomboSeeder extends Seeder
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
             235 => $this->getCM(['simianti' => '3']),
-        ]);    
+        ]);
         $tema = $this->getR([
             'temaidxx' => 23,
             'nombrexx' => '10.1 ¿Ha estado en Proceso Administrativo de Restablecimiento de Derechos - PARD?' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
@@ -4217,7 +4217,7 @@ class TemacomboSeeder extends Seeder
         $tema->parametros()->sync([
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
-            
+
         ]);
 
         $tema = $this->getR([
@@ -4228,7 +4228,7 @@ class TemacomboSeeder extends Seeder
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
             235 => $this->getCM(['simianti' => '3']),
-        ]);    
+        ]);
 
         $tema = $this->getR([
             'temaidxx' => 25,
@@ -4238,7 +4238,7 @@ class TemacomboSeeder extends Seeder
             227 => $this->getCM(['simianti' => '1']),
             228 => $this->getCM(['simianti' => '2']),
             235 => $this->getCM(['simianti' => '3']),
-        ]);    
+        ]);
 
 
     }
