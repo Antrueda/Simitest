@@ -73,7 +73,7 @@ class FiConsumoController extends Controller
             $this->opciones['puedexxx'] = '';
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
 
-            if ($dataxxxx['modeloxx']->i_prm_consume_spa_id==227) {
+            if ($dataxxxx['modeloxx']->i_prm_consume_spa_id == 227) {
                 $vercrear = true;
             }
         }
@@ -177,18 +177,21 @@ class FiConsumoController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx, FiConsumoSpa $modeloxx)
     {
-        $consumox=$this->setConsumoCST(['consumox'=>$modeloxx]);
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
+        $consumox = $this->setConsumoCST(['consumox' => $modeloxx]);
+        $respuest = $this->getPuedeTPuede([
+            'casoxxxx' => 1,
+            'nnajxxxx' => $modeloxx->sis_nnaj_id,
+            'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-         }
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }else {
+            $this->opciones['botoform']=[];
+        }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 
