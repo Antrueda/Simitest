@@ -697,13 +697,11 @@ class TemacomboSeeder extends Seeder
             1617 => $this->getCM(['simianti' => '10']),
             1618 => $this->getCM(['simianti' => '16']),
             1621 => $this->getCM(['simianti' => '18']),
-            // 2460 => $this->getCM(['simianti' => '']),
-            2461 => $this->getCM(['simianti' => '']),
-            2462 => $this->getCM(['simianti' => '']),
-            2463 => $this->getCM(['simianti' => '']),
-            2464 => $this->getCM(['simianti' => '']),
-            2465 => $this->getCM(['simianti' => '']),
-
+            2461 => $this->getCM(['simianti' => '31']),
+            2462 => $this->getCM(['simianti' => '32']),
+            2463 => $this->getCM(['simianti' => '33']),
+            2464 => $this->getCM(['simianti' => '34']),
+            2465 => $this->getCM(['simianti' => '35']),
         ]);
 
         $tema = $this->getR(['temaidxx' => 54,  'nombrexx' => 'Frecuencia Uso Sustancia']);
