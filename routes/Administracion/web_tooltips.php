@@ -4,4 +4,4 @@ Route::group(['prefix' => 'tema'], function () {
 	    'uses' => 'Tooltips\TooltipsController@getTooltips',
 	])->name('tooltips');
 	
-});
+});     

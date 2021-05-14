@@ -1,30 +1,23 @@
 <?php
-$controll = 'Acciones\Grupales\AgActividad';
-$routxxxx = 'agactividad';
-Route::group(['prefix' => 'agactividad'], function () use($controll,$routxxxx) {
+$routxxxx = 'imatricula';
+$controll = 'Acciones\Grupales\Matricula\Matricula';
+Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {
     Route::get('', [
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
-    Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@listaActividades',
+    Route::get('jovenes', [
+        'uses' => $controll . 'Controller@getNnaj',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.imatriculannaj');
+	Route::get('{padrexxx}/jovenes', [
+        'uses' => $controll . 'Controller@getNnaj',
+        'middleware' => ['permission:' . $routxxxx . '-leer']
+	])->name($routxxxx . '.matriculannaj');
+	Route::get('listaxxx', [
+        'uses' => $controll . 'Controller@getSalidasMayoresGrupales',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
-    Route::get('{padrexxx}/responsable', [
-        'uses' => $controll . 'Controller@listaResponsables',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.responsa');
-
-    Route::get('{padrexxx}/asistentes', [
-        'uses' => $controll . 'Controller@getAsistente',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.agasiste');
-
-    Route::get('{padrexxx}/documento', [
-        'uses' => $controll . 'Controller@listaDocumentos',
-        'middleware' => ['permission:' . $routxxxx . '-leer']
-    ])->name($routxxxx . '.agcargdoc');
-
 
 	Route::get('nuevo', [
 	    'uses' => $controll.'Controller@create',
@@ -67,10 +60,7 @@ Route::group(['prefix' => 'agactividad'], function () use($controll,$routxxxx) {
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
 
+
 });
-require_once('web_ag_responsable.php');
-require_once('web_ag_asistentes.php');
-require_once('web_ag_relacion.php');
-require_once('web_agcargdoc.php');
 
-
+require_once('web_matriculannnaj.php');

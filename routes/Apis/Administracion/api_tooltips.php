@@ -14,8 +14,8 @@ Route::get('tooltip/tooltip', function (Request $request) {
 	if ($request->idxxxxxx > 0) {
 		switch ($request->casosxxx) {
 			case 'fos_stse_id':
-				$fosstsex = FosSeguimiento::where('id', $request->idxxxxxx)->first();
-				$respuest = ['tooltipx' => $fosstsex->fos_stses->descripcion];
+				$fosstsex = FosStse::where('id', $request->idxxxxxx)->first();
+				$respuest = ['tooltipx' => $fosstsex->descripcion];
 				break;
 			case 'fos_tse_id':
 				$fostsexx = FosTse::where('id', $request->idxxxxxx)->first();

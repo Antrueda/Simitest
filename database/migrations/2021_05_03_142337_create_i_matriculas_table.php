@@ -18,8 +18,6 @@ class CreateIMatriculasTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->date('fecha')->nullable()->comment('FECHA QUE RETORNA EL NNA');
-            
-            $table->integer('prm_grado')->unsigned()->nullable()->comment('PARAMETRO TIPO DE AUTORIZACION');
             $table->longText('observaciones')->nullable()->comment('OBSERVACION DE LA SALIDA');
             $table->integer('prm_upi_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
             //$table->integer('prm_serv_id')->unsigned()->comment('CAMPO PARAMETRO DEPENDENCIA O UPI');
@@ -29,7 +27,6 @@ class CreateIMatriculasTable extends Migration
             $table->foreign('responsable_id')->references('id')->on('users');
             $table->foreign('user_doc1')->references('id')->on('users');
             $table->foreign('user_doc2')->references('id')->on('users');
-            $table->foreign('prm_grado')->references('id')->on('parametros');
             $table->foreign('prm_upi_id')->references('id')->on('sis_depens');
 //            $table->foreign('prm_serv_id')->references('id')->on('sis_servicio');
             $table = CamposMagicos::magicos($table);

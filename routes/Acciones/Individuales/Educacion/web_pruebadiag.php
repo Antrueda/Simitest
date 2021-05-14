@@ -1,7 +1,7 @@
 <?php
-$routexxx = 'aisalidamenores';
-$controll = 'Acciones\Individuales\AISalidaMenores';
-Route::group(['prefix' => '{padrexxx}/salidamenores'], function () use ($controll, $routexxx) {
+$routexxx = 'pruediag';
+$controll = 'Acciones\Individuales\Educacion\Diagnostico';
+Route::group(['prefix' => '{padrexxx}/pruediag'], function () use ($controll, $routexxx) {
     Route::get('', [
         'uses' => $controll . 'Controller@index',
         'middleware' => ['permission:' . $routexxx . '-leer|' . $routexxx . '-crear|' . $routexxx . '-editar|' . $routexxx . '-borrar']

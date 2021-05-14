@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Acciones\Individuales;
+namespace App\Http\Controllers\Acciones\Individuales\Educacion;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\AISalidaMenorRequest;
@@ -16,14 +16,14 @@ use App\Models\Tema;
 use App\Models\User;
 use App\Traits\Acciones\Individuales\EducacionTrait;
 
-class PruebaDiagnosticaController extends Controller
+class DiagnosticoController extends Controller
 {
     use EducacionTrait;
     private $opciones;
 
     public function __construct()
     {
-        $this->opciones['permisox'] = 'aisalidamenores';
+        $this->opciones['permisox'] = 'pruediag';
         $this->middleware(['permission:'
             . $this->opciones['permisox'] . '-leer|'
             . $this->opciones['permisox'] . '-crear|'
@@ -32,12 +32,12 @@ class PruebaDiagnosticaController extends Controller
 
         $this->opciones['vocalesx'] = ['Á', 'É', 'Í', 'Ó', 'Ú'];
         $this->opciones['pestpadr'] = 1; // darle prioridad a las pestañas
-        $this->opciones['tituhead'] = 'SALIDAS Y PERMISOS CON ACOMPAÑAMIENTO Y/O REPRESENTANTE LEGAL';
-        $this->opciones['routxxxx'] = 'aisalidamenores';
-        $this->opciones['slotxxxx'] = 'aisalidamenores';
+        $this->opciones['tituhead'] = 'PRUEBA DIAGNOSTICA';
+        $this->opciones['routxxxx'] = 'pruediag';
+        $this->opciones['slotxxxx'] = 'pruediag';
         $this->opciones['perfilxx'] = 'conperfi';
         $this->opciones['rutacarp'] = 'Acciones.';
-        $this->opciones['carpetax'] = 'Individuales.SalidaMenores';
+        $this->opciones['carpetax'] = 'Individuales.Educacion.Diagnostica';
         /** botones que se presentan en los formularios */
         $this->opciones['botonesx'] = $this->opciones['rutacarp'] . 'Acomponentes.Botones.botonesx';
         /** informacion que se va a mostrar en la vista */
@@ -58,7 +58,7 @@ class PruebaDiagnosticaController extends Controller
 
         $this->opciones['estrateg'] = ['' => 'Seleccione'];
 
-        $this->opciones['tituloxx'] = "SALIDAS Y PERMISOS CON ACOMPAÑAMIENTO Y/O REPRESENTANTE LEGAL";
+        $this->opciones['tituloxx'] = "PRUEBA DIAGNOSTICA";
         $this->opciones['botoform'] = [
             [
                 'mostrars' => true, 'accionxx' => '', 'routingx' => [$this->opciones['routxxxx'], []],
@@ -72,10 +72,10 @@ class PruebaDiagnosticaController extends Controller
 
         $this->opciones['tablasxx'] = [
             [
-                'titunuev' => 'REGISTRAR NUEVA SALIDA',
-                'titulist' => 'LISTA DE SALIDAS',
+                'titunuev' => 'REGISTRAR PRUEBA',
+                'titulist' => 'LISTA DE PRUEBA',
                 'archdttb' => $this->opciones['rutacarp'] . 'Acomponentes.Adatatable.index',
-                'vercrear' =>  (isset($this->opciones['usuariox']) && $this->opciones['usuariox']->nnaj_nacimi->edad <= 18) ? true : false,
+                'vercrear' => true,
                 'urlxxxxx' => route($this->opciones['routxxxx'] . '.listaxxx', [$padrexxx->id]),
                 'cabecera' => [
                     [
@@ -265,13 +265,7 @@ class PruebaDiagnosticaController extends Controller
     public function create(SisNnaj $padrexxx)
     {
         
-        $compofami = FiCompfami::select('sis_nnajnnaj_id')->where('sis_nnajnnaj_id', $padrexxx->id)->where('prm_reprlega_id',227)->first();
-        if ($compofami==null) {
-            return redirect()
-                ->route('ficomposicion', [$padrexxx->id])
-                ->with('info', 'No hay un componente familiar mayor de edad, por favor créelo');
-        }
-        $this->opciones['rutaxxxx'] = route('aisalidamenores.nuevo', $padrexxx->id);
+        $this->opciones['rutaxxxx'] = route('pruediag.nuevo', $padrexxx->id);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -345,7 +339,7 @@ class PruebaDiagnosticaController extends Controller
     {
         $modeloxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
         return redirect()
-        ->route('aisalidamenores', [$padrexxx->id])
+        ->route('pruediag', [$padrexxx->id])
         ->with('info', 'Salida inactivada correctamente');
     }
 
