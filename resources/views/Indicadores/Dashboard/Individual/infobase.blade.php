@@ -10,7 +10,7 @@
       {{ $todoxxxx['datobasi']->s_primer_apellido }}
       {{ $todoxxxx['datobasi']->s_segundo_apellido }}
       </h3>
-    <p class="text-muted text-center">{{ $todoxxxx['datobasi']->poblacion->nombre }}</p>
+
     <ul class="list-group list-group-unbordered mb-3">
       <li class="list-group-item">
         <b>Teléfono</b> {{ Indicadores::holamundo() }}
