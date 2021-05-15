@@ -279,7 +279,6 @@ class ExcelController extends Controller
                 'user_edita_id' => 1,
                 'user_crea_id' => 1,
                 'sis_esta_id' => 1,
-
             ]); <br />";;
         }
     }
@@ -287,39 +286,29 @@ class ExcelController extends Controller
 
     public function store(Request $request)
     {
-        $this->getReporteART(['requestx' => $request]);
-        // ddd($mapRetaltions);
+        $sisTcampos = SisTcampo::select('sis_tablas.s_tabla', 'sis_tcampos.s_campo', 'sis_tcampos.s_tablrela', 'sis_tcampos.s_idtarela', 'sis_tcampos.s_campsele')
+        ->join('sis_tablas', 'sis_tablas.id', 'sis_tcampos.sis_tabla_id')
+        ->whereIn('sis_tcampos.id', $request->sis_tcampo_id)->groupBy('sis_tablas.s_tabla')->get();
+        dd($sisTcampos);
+        $data = DB::table($sisTcampos[0]->s_tabla);
+        $fields = [];
+        $relations = [];
+        foreach ($sisTcampos as $sisTcampo) {
+            $fields[] = $sisTcampo->s_campsele;
+            if ($sisTcampo->s_tablrela != '') {
+                $relations[] = [$sisTcampo->s_tablrela, $sisTcampo->s_idtarela, "$sisTcampo->s_tabla.$sisTcampo->s_campo"];
+            }
+        }
 
-        // $selecctionToProcessing = SisTcampo::
-        // select('sis_tablas.id', 'sis_tablas.s_tabla AS table',
-        // DB::raw("GROUP_CONCAT(CONCAT(sis_tablas.s_tabla, '.', sis_tcampos.s_campo)) AS fieldToSelect"))
-        // ->join('sis_tablas', 'sis_tablas.id', 'sis_tcampos.sis_tabla_id')
-        // ->whereIn('sis_tcampos.id', $request->sis_tcampo_id)
-        // ->groupBy('sis_tablas.s_tabla')->get();
+        $data->select($fields);
+        foreach($relations as $relation) {
+            [$s_tablrela, $s_idtarela, $s_campo] = $relation;
+            $data = $data->join($s_tablrela, $s_idtarela, $s_campo);
+        }
 
-        // ddd($selecctionToProcessing );
-        // foreach ($selecctionToProcessing as $tableSelection) {
-        //     $fields = SisTcampo::where('sis_tabla_id', $tableSelection->id)->pluck('s_campo');
-        //     foreach ($fields as $key => $fieldName) {
-        //         $fieldNameToArray = explode('_', $fieldName);
-        //         if(count($fieldNameToArray) > 1 && in_array('id', $fieldNameToArray)){
-        //             if(in_array($fieldToTable, array_values($tables))) {
-        //                 // dd($fieldToTable);
-        //                 $mapRetaltions[] = [$fieldToTable, "$fieldToTable.id", "$tableName.$fieldName"];
-        //             }
-        //         }
-        //     }
-        //     dd($selecctionToProcessing);
-        // }
-        // dd($columns);
-        // $data = DB::table($request->tablesxx[0])->select($columns);
-        // foreach ($mapRetaltions as $key => [$tableToJoin, $fieldToJoinId, $fieldId]) {
-        //     $data = $data->join($tableToJoin, $fieldToJoinId, $fieldId);
-        // }
+        $data = $data->get();
 
-        // dd($data->get());
-        // // $fiDatosBasicos = FiDatosBasico::first();
-        // // $headersx = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
+        dd($data);
         // ob_end_clean();
         // ob_start();
         // return Excel::download(new UsersExport($request, $headersx), 'users_report.xlsx');
