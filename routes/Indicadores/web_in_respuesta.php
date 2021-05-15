@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-$controll = 'Indicadores\Ajustes\InLigruTemacomboController';
+$controll = 'Indicadores\Ajustes\InLigruTemacomboParametroController';
 $permisox = 'documentoFuente';
-$routexxx = 'grupregu';
-Route::group(['prefix' => 'preguntas'], function () use ($controll, $routexxx, $permisox) {
+$routexxx = 'temarespuesta';
+Route::group(['prefix' => 'temarespuesta'], function () use ($controll, $routexxx, $permisox) {
 	Route::get('{padrexxx}', [
 		'uses' => $controll . '@index',
 		'middleware' => ['permission:' . $permisox . '-leer|' . $permisox . '-crear|' . $permisox . '-editar|' . $permisox . '-borrar']
@@ -34,7 +34,4 @@ Route::group(['prefix' => 'preguntas'], function () use ($controll, $routexxx, $
 		'uses' => $controll . '@destroy',
 		'middleware' => ['permission:' . $permisox . '-borrar']
 	])->name($routexxx . '.borrar');
-	Route::get('combos', [
-		'uses' => $controll . '@getCombos',
-	])->name($routexxx . '.combos');
 });

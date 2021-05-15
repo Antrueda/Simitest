@@ -27,6 +27,7 @@ class InIndividualController extends Controller
       'tablname' => 'inindividual',
       'indecrea' => false,
       'accionxx' => '',
+      'routxxxx' => 'ind.individual'
     ];
 
       $this->middleware(['permission:'
@@ -185,4 +186,6 @@ class InIndividualController extends Controller
     $this->opciones['datobasi'] = $objetoxx;
     return $this->view($objetoxx,  'modeloxx', 'Ver', $this->opciones['rutacarp']);
   }
+
+
 }

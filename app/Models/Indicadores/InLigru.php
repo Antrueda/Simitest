@@ -2,6 +2,7 @@
 
 namespace App\Models\Indicadores;
 
+use App\Models\Indicadores\Ajustes\InLigruTemacombos;
 use App\Models\Sistema\SisEsta;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -53,5 +54,10 @@ class InLigru extends Model
       return $objetoxx;
     }, 5);
     return $usuariox;
+  }
+
+  public function grupotemacombo()
+  {
+    return $this->hasMany(InLigruTemacombos::class);
   }
 }
