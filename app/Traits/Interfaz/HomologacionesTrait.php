@@ -109,7 +109,7 @@ trait HomologacionesTrait
         if ($localupz->id == 81 && $dataxxxx['idbarrio'] == 4632) {
             $barrioxx->id =      70254;
         }
-        
+
         if ($localupz->id == 65 && $dataxxxx['idbarrio'] == 2460) {
             $barrioxx->id = 2568;
         }
@@ -122,7 +122,7 @@ trait HomologacionesTrait
             $barrioxx->id = 70288;
         }
 
-         
+
         return $barrioxx;
     }
     public function getBarrio($dataxxxx)
@@ -175,9 +175,26 @@ trait HomologacionesTrait
                 $upzbarri = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('simianti_id', $barrioxx->id)->first();
             }
             if ($upzbarri == null) {
-                $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
-                $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']} Localidad:{$localupz->sis_localidad->s_localidad}, UPZ: {$localupz->sis_upz->s_upz} y LOCALIDAD-UPZ: {$localupz->id}.";
-                throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
+                $barrcrea = SisBarrio::where( 's_barrio' ,$barrioxx->nombre)->first();
+                if ($barrcrea == null) {
+                    $barrcrea = SisBarrio::create([
+                        's_barrio' => $barrioxx->nombre,
+                        'sis_esta_id' => 1,
+                        'user_crea_id' => Auth::user()->id,
+                        'user_edita_id' => Auth::user()->id
+                    ]);
+                    $upzbarri=SisUpzbarri::create([
+                        'sis_localupz_id' => $localupz->id,
+                        'sis_barrio_id' => $barrcrea->id,
+                        'simianti_id' => $dataxxxx['idbarrio'],
+                        'sis_esta_id' => 1,
+                        'user_crea_id' => Auth::user()->id,
+                        'user_edita_id' => Auth::user()->id
+                    ]);
+                }
+                // $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
+                // $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']} Localidad:{$localupz->sis_localidad->s_localidad}, UPZ: {$localupz->sis_upz->s_upz} y LOCALIDAD-UPZ: {$localupz->id}.";
+                // throw new SimiantiguoException(['vistaxxx' => 'errors.interfaz.simianti.errorgeneral', 'dataxxxx' => $dataxxxx]);
             }
             return $upzbarri;
             // }
