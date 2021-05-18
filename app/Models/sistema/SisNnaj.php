@@ -19,6 +19,8 @@ use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\fichaIngreso\FiRazone;
 use App\Models\fichaIngreso\NnajUpi;
+use App\Models\Indicadores\InLineaBase;
+use App\Models\Indicadores\InLineabaseNnaj;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\Salud\Mitigacion\Vspa;
 
@@ -226,5 +228,10 @@ class SisNnaj extends Model
     public function csd_sis_nnaj()
     {
         return $this->hasOne(CsdSisNnaj::class);
+    }
+
+    public function in_lineabase_nnajs()
+    {
+        return $this->hasMany(InLineabaseNnaj::class);
     }
 }
