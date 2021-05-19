@@ -22,58 +22,54 @@
   </style>
 
 <div class="form-row">
-<div class="form-group col-md-6" id="export-form">
-        {{ Form::label('yearxxxx', 'Año', ['class' => 'control-label']) }}
-        {{ Form::select('yearxxxx', $todoxxxx['aniosxxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('yearxxxx'))
+    <div class="col-sm-12 d-flex flex-wrap mb-3">
+        <div class="col-sm-12">
+            <h5><strong>Pestañas</strong></h5>
+        </div>
+        <div class="custom-control custom-checkbox mx-2">
+            {!! Form::checkbox('pestannas[]', 1, null, ['class' => 'custom-control-input', 'id' => 'datos_basicos']) !!}
+            {!! Form::label('datos_basicos', 'Datos Basicos', ['class' => 'custom-control-label']) !!}
+        </div>
+        <div class="custom-control custom-checkbox mx-2">
+            {!! Form::checkbox('pestannas[]', 2, null, ['class' => 'custom-control-input', 'id' => 'residencia']) !!}
+            {!! Form::label('residencia', 'Residencia', ['class' => 'custom-control-label']) !!}
+        </div>
+        <div class="custom-control custom-checkbox mx-2">
+            {!! Form::checkbox('pestannas[]', 3, null, ['class' => 'custom-control-input', 'id' => 'escuela']) !!}
+            {!! Form::label('escuela', 'Escuela', ['class' => 'custom-control-label']) !!}
+        </div>
+        <div class="custom-control custom-checkbox mx-2">
+            {!! Form::checkbox('pestannas[]', 4, null, ['class' => 'custom-control-input', 'id' => 'salud']) !!}
+            {!! Form::label('salud', 'Salud', ['class' => 'custom-control-label']) !!}
+        </div>
+        <div class="custom-control custom-checkbox mx-2">
+            {!! Form::checkbox('pestannas[]', 5, null, ['class' => 'custom-control-input', 'id' => 'generacion_de_ingreso']) !!}
+            {!! Form::label('generacion_de_ingreso', 'Generacion de Ingresos', ['class' => 'custom-control-label']) !!}
+        </div>
+        <div class="custom-control custom-checkbox mx-2">
+            {!! Form::checkbox('pestannas[]', 6, null, ['class' => 'custom-control-input', 'id' => 'actividades_de_tiempo_libre']) !!}
+            {!! Form::label('actividades_de_tiempo_libre', 'Generacion de Ingresos', ['class' => 'custom-control-label']) !!}
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <h5><strong>Intervalo de Fecha</strong></h5>
+    </div>
+    <div class="form-group col-md-6" id="export-form">
+        {{ Form::label('dateinit', 'Fecha inicial:', ['class' => 'control-label']) }}
+        {{ Form::date('dateinit', $todoxxxx['dateinit'], null, ['class' => $errors->first('dateinit') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('dateinit'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('yearxxxx') }}
+            {{ $errors->first('dateinit') }}
         </div>
         @endif
     </div>
     <div class="form-group col-md-6">
-        {{ Form::label('monthxxx', 'Mes', ['class' => 'control-label']) }}
-        {{ Form::select('monthxxx', $todoxxxx['mesesxxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
-        @if($errors->has('monthxxx'))
+        {{ Form::label('dateendx', 'Fecha final:', ['class' => 'control-label']) }}
+        {{ Form::date('dateendx', $todoxxxx['dateendx'], null, ['class' => $errors->first('dateendx') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        @if($errors->has('dateendx'))
         <div class="invalid-feedback d-block">
-            {{ $errors->first('monthxxx') }}
+            {{ $errors->first('dateendx') }}
         </div>
         @endif
     </div>
-
-    <div class="form-group col-md-6">
-        {!! Form::label('sis_tabla_id', 'Tablas', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_tabla_id[]', $todoxxxx['tablesxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'multiple', 'id' => 'sis_tabla_id']) !!}
-        @if($errors->has('sis_tabla_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('sis_tabla_id') }}
-        </div>
-        @endif
-    </div>
-    <div class="form-group col-md-6">
-        {!! Form::label('sis_tcampo_id', 'Campos', ['class' => 'control-label']) !!}
-        {!! Form::select('sis_tcampo_id[]', $todoxxxx['camposxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'multiple', 'id' => 'sis_tcampo_id']) !!}
-        @if($errors->has('sis_tcampo_id'))
-        <div class="invalid-feedback d-block">
-            {{ $errors->first('sis_tcampo_id') }}
-        </div>
-        @endif
-    </div>
-
-    <!-- <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn-sm btn-primary mx-2" onclick="buildTables()">Seleccionar</button>
-        <button type="button" class="btn btn-sm btn-primary mx-2" onclick="destroyTables()">Limpiar</button>
-    </div>
-    <div id="tables" class="row col-sm-12">
-    </div>
-    <div class="col-md-6 p-2">
-        {!! Form::label('', 'Campos Seleccionados', ['class' => 'control-label']) !!}
-        <div class="border rounded p-2" id="fieldsSelected"></div>
-        <input type="hidden" name="fieldsSelected">
-    </div>
-    <div class="col-md-6 p-2">
-        {!! Form::label('', 'Relaciones Seleccionadas', ['class' => 'control-label']) !!}
-        <div class="border rounded p-2" id="relationsSelected"></div>
-        <input type="hidden" name="relationsSelected">
-    </div> -->
 </div>

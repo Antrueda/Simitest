@@ -11,11 +11,24 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class WalkingRelaxedExport implements FromView, ShouldAutoSize, WithStyles
 {
+    private $pestannas;
+    private $dateinit;
+    private $dateendx;
+
+    public function __construct($datafilter)
+    {
+        $this->pestannas = $datafilter['pestannas'];
+        $this->dateinit = $datafilter['dateinit'];
+        $this->dateendx = $datafilter['dateendx'];
+    }
+
     public function view(): View
     {
-        $sisNnajs = SisNnaj::all();
+        $sisNnajs = SisNnaj::join('fi_datos_basicos', 'fi_datos_basicos.sis_nnaj_id', 'sis_nnajs.id')->where('fi_datos_basicos.prm_tipoblaci_id', 2323)->whereDate('sis_nnajs.created_at', '>=', $this->dateinit)->whereDate('sis_nnajs.created_at', '<=', $this->dateendx)->get();
+
         return view('administracion.Reportes.Proyectos.export.walkingRelaxedExportView', [
             'sisNnajs'      => $sisNnajs,
+            'pestannas'      => $this->pestannas
         ]);
     }
 

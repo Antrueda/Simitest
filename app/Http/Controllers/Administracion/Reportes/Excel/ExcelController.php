@@ -13,6 +13,7 @@ use App\Models\Temacombo;
 use App\Models\Usuario\RolUsuario;
 use App\Traits\Administracion\Reportes\Excel\ArmarReporteTrait;
 use App\Traits\Administracion\Reportes\Excel\ExcelTrait;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
@@ -146,6 +147,9 @@ class ExcelController extends Controller
         // $this->opciones['maintabl'] = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
         $this->opciones['tablesxx'] = $tablas;
         $this->opciones['camposxx'] = [];
+        $date = Carbon::now();
+        $this->opciones['dateinit'] = $date->subMonth()->toDateString();
+        $this->opciones['dateendx'] = $date->addMonth()->toDateString();
         // dd($this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray())));
 
         if ($dataxxxx['modeloxx'] != '') {
@@ -318,16 +322,16 @@ class ExcelController extends Controller
 
         // dd($data);
 
-        ob_end_clean();
-        ob_start();
-        return Excel::download(new WalkingRelaxedExport(), 'data_report.xlsx');
+        // ob_end_clean();
+        // ob_start();
+        // return Excel::download(new WalkingRelaxedExport(), 'data_report.xlsx');
     }
 
-    public function getRepCamRel()
+    public function getRepCamRel(Request $request)
     {
         ob_end_clean();
         ob_start();
-        return Excel::download(new WalkingRelaxedExport(), 'data_report.xlsx');
+        return Excel::download(new WalkingRelaxedExport($request->except('_token')), 'data_report.xlsx');
     }
 
     public function viewRepCamRel()
