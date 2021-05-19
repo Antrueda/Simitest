@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Administracion\Reportes\Excel;
 
+use App\Exports\DataExport;
 use App\Exports\FiDatosBasicoExport;
 use App\Exports\UsersExport;
+use App\Exports\WalkingRelaxedExport;
 use App\Http\Controllers\Controller;
 use App\Models\Sistema\SisTabla;
 use App\Models\Sistema\SisTcampo;
@@ -286,32 +288,57 @@ class ExcelController extends Controller
 
     public function store(Request $request)
     {
-        $sisTcampos = SisTcampo::select('sis_tablas.s_tabla', 'sis_tcampos.s_campo', 'sis_tcampos.s_tablrela', 'sis_tcampos.s_idtarela', 'sis_tcampos.s_campsele')
-        ->join('sis_tablas', 'sis_tablas.id', 'sis_tcampos.sis_tabla_id')
-        ->whereIn('sis_tcampos.id', $request->sis_tcampo_id)->groupBy('sis_tablas.s_tabla')->get();
-        dd($sisTcampos);
-        $data = DB::table($sisTcampos[0]->s_tabla);
-        $fields = [];
-        $relations = [];
-        foreach ($sisTcampos as $sisTcampo) {
-            $fields[] = $sisTcampo->s_campsele;
-            if ($sisTcampo->s_tablrela != '') {
-                $relations[] = [$sisTcampo->s_tablrela, $sisTcampo->s_idtarela, "$sisTcampo->s_tabla.$sisTcampo->s_campo"];
-            }
-        }
+        // $sis_tcampo_id = [];
+        // foreach ($request->sis_tcampo_id as $sis_tcampo) {
+        //     $sis_tcampo_id[] = explode('_', $sis_tcampo)[1];
+        // }
 
-        $data->select($fields);
-        foreach($relations as $relation) {
-            [$s_tablrela, $s_idtarela, $s_campo] = $relation;
-            $data = $data->join($s_tablrela, $s_idtarela, $s_campo);
-        }
+        // $sisTcampos = SisTcampo::select('sis_tablas.s_tabla', 'sis_tcampos.s_campo', 'sis_tcampos.s_tablrela', 'sis_tcampos.s_idtarela', 'sis_tcampos.s_campsele')
+        // ->join('sis_tablas', 'sis_tablas.id', 'sis_tcampos.sis_tabla_id')
+        // ->whereIn('sis_tcampos.id', $sis_tcampo_id)->get();
 
-        $data = $data->get();
+        // $data = DB::table($sisTcampos[0]->s_tabla);
+        // $fields = [];
+        // $relations = [];
+        // foreach ($sisTcampos as $sisTcampo) {
+        //     $fields[] = $sisTcampo->s_campsele;
+        //     if ($sisTcampo->s_tablrela != '') {
+        //         $relations[] = [$sisTcampo->s_tablrela, $sisTcampo->s_idtarela, "$sisTcampo->s_tabla.$sisTcampo->s_campo"];
+        //     }
+        // }
 
-        dd($data);
-        // ob_end_clean();
-        // ob_start();
-        // return Excel::download(new UsersExport($request, $headersx), 'users_report.xlsx');
+        // $data->select($fields);
+        // foreach($relations as $relation) {
+        //     [$s_tablrela, $s_idtarela, $s_campo] = $relation;
+        //     $data = $data->join($s_tablrela, $s_idtarela, $s_campo);
+        // }
+        // dd($data->toSql());
+
+        // $data = $data->get();
+
+        // dd($data);
+
+        ob_end_clean();
+        ob_start();
+        return Excel::download(new WalkingRelaxedExport(), 'data_report.xlsx');
+    }
+
+    public function getRepCamRel()
+    {
+        ob_end_clean();
+        ob_start();
+        return Excel::download(new WalkingRelaxedExport(), 'data_report.xlsx');
+    }
+
+    public function viewRepCamRel()
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+        return $this->view(['modeloxx' => '', 'accionxx' => ['grepcamr', 'grepcamr']]);
     }
 
     public function getDataFields(Request $request)

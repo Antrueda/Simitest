@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use App\Models\Sistema\SisDocfuen;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -61,6 +62,11 @@ class NnajSitMil extends Model
     public function sis_docfuen()
     {
         return $this->belongsTo(SisDocfuen::class);
+    }
+
+    public function prm_situacion_militar()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_situacion_militar_id');
     }
 
 }

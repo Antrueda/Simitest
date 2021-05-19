@@ -57,6 +57,8 @@ class RolesYPermisosSeeder extends Seeder
         // crear permisos rol
         $this->getPermisos(['permisox' => 'permirol', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'permisos de un rol', 'pestania' => 1]);
 
+        //Permiso Reporte Caminando relajado
+        $this->getPermisos(['permisox' => 'repcamre', 'permisos' => ['leer'], 'compleme' => 'permisos de un rol', 'pestania' => 1]);
 
         /**
          * Creación de Permisos para el crud de estados de los usuarios

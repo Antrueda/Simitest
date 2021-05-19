@@ -63,7 +63,7 @@ class FiGeneracionIngreso extends Model{
       'user_edita_id'=>Auth::user()->id,
       'sis_esta_id'=>1,
     ];
-    
+
     foreach($dataxxxx['prm_diagener_id'] as $diagener){
       $datosxxx['prm_diagener_id']=$diagener;
       FiDiasGeneraIngreso::create($datosxxx);
@@ -88,4 +88,45 @@ class FiGeneracionIngreso extends Model{
     }, 5);
     return $usuariox;
   }
+
+  public function prm_actgeing()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_actgeing_id');
+  }
+
+  public function prm_trabinfo()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_trabinfo_id');
+  }
+
+  public function prm_otractiv()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_otractiv_id');
+  }
+
+  public function prm_razgeing()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_razgeing_id');
+  }
+
+  public function prm_jorgeing()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_jorgeing_id');
+  }
+
+  public function prm_frecingr()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_frecingr_id');
+  }
+
+  public function prm_tiprelab()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_tiprelab_id');
+  }
+
+  public function fi_dias_genera_ingresos()
+  {
+      return $this->hasMany(FiDiasGeneraIngreso::class, 'fi_generacion_ingreso_id');
+  }
+
 }

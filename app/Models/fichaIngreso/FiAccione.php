@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -33,5 +34,10 @@ class FiAccione extends Model
             }
             return $dataxxxx['modeloxx'];
         }, 5);
+    }
+
+    public function prm_accione()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_accione_id');
     }
 }
