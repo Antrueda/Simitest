@@ -51,7 +51,7 @@ class InfuenteCrearRequest extends FormRequest
 
     public function validar()
     {
-        $registro = InFuente::where('in_indicador_id', $this->segments()[1])->where('in_linea_base_id', $this->in_linea_base_id)->first();
+        $registro = InFuente::where('in_indicador_id', request()->in_indicador_id)->where('in_linea_base_id', $this->in_linea_base_id)->first();
         if (isset($registro->id)) {
             $this->_reglasx['existexx'][] = 'required';
             $this->_mensaje['existexx.required'] = 'Línea base ya está asignada';

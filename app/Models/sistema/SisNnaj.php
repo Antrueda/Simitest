@@ -15,9 +15,14 @@ use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\fichaIngreso\FiActividadestl;
+use App\Models\fichaIngreso\FiActividadTiempoLibre;
 use App\Models\fichaIngreso\FiCompfami;
 use App\Models\fichaIngreso\FiDocumentosAnexa;
+use App\Models\fichaIngreso\FiFormacion;
+use App\Models\fichaIngreso\FiGeneracionIngreso;
 use App\Models\fichaIngreso\FiRazone;
+use App\Models\fichaIngreso\FiSalud;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\Salud\Mitigacion\Vspa;
@@ -227,4 +232,25 @@ class SisNnaj extends Model
     {
         return $this->hasOne(CsdSisNnaj::class);
     }
+
+    public function fi_formacions()
+    {
+        return $this->hasOne(FiFormacion::class, 'sis_nnaj_id');
+    }
+
+    public function fi_saluds()
+    {
+        return $this->hasOne(FiSalud::class, 'sis_nnaj_id');
+    }
+
+    public function fi_generacion_ingresos()
+    {
+        return $this->hasOne(FiGeneracionIngreso::class, 'sis_nnaj_id');
+    }
+
+    public function fi_actividadestls()
+    {
+        return $this->hasOne(FiActividadestl::class, 'sis_nnaj_id');
+    }
+
 }

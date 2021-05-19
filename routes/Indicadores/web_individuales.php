@@ -36,4 +36,10 @@ Route::get('gest/{objetoxx}', [
 	    'uses' => 'Indicadores\InIndividualController@evolucion',
 	    'middleware' => ['permission:inindividual-leer']
 	])->name('ind.individual.evol');
+
+	Route::get('listaxxx', [
+		'uses' => 'Indicadores\InIndividualController@getListado',
+		'middleware' => ['permission:inindividual-leer']
+    ])->name('ind.individual.listaxxx');
+
 });

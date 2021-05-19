@@ -50,9 +50,10 @@ class InBaseFuenteCrearRequest extends FormRequest
     }
 
     public function validar()
+    
     {
         $registro=InBaseFuente::
-        where('in_fuente_id',$this->segments()[1])
+        where('in_fuente_id',request()->in_fuente_id)
         ->where('sis_docfuen_id',$this->sis_docfuen_id)
         ->first();
         if(isset($registro->id)){

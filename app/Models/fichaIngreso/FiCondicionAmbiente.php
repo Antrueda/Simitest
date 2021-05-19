@@ -36,7 +36,7 @@ class FiCondicionAmbiente extends Model
     return $this->belongsTo(User::class, 'user_edita_id');
   }
   public static function getCondicionAbiente($residenc)
-  { 
+  {
     $vestuari = ['condsele' => [], 'formular' => false];
 
     if ($residenc == 0) {
@@ -60,5 +60,10 @@ class FiCondicionAmbiente extends Model
       return $objetoxx;
     }, 5);
     return $usuariox;
+  }
+
+  public function i_prm_condicion_amb()
+  {
+      return $this->belongsTo(Parametro::class, 'i_prm_condicion_amb_id');
   }
 }

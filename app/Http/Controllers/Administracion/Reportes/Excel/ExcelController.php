@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers\Administracion\Reportes\Excel;
 
+use App\Exports\DataExport;
 use App\Exports\FiDatosBasicoExport;
 use App\Exports\UsersExport;
+use App\Exports\WalkingRelaxedExport;
 use App\Http\Controllers\Controller;
-use App\Models\fichaIngreso\FiDatosBasico;
-use App\Models\Simianti\Ge\GeUpi;
 use App\Models\Sistema\SisTabla;
 use App\Models\Sistema\SisTcampo;
-use App\Models\User;
+use App\Models\Temacombo;
 use App\Models\Usuario\RolUsuario;
-use Exception;
+use App\Traits\Administracion\Reportes\Excel\ArmarReporteTrait;
+use App\Traits\Administracion\Reportes\Excel\ExcelTrait;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelController extends Controller
 {
-
+    use ExcelTrait;
+    use ArmarReporteTrait;
     private $opciones;
 
     public function __construct()
@@ -123,7 +125,7 @@ class ExcelController extends Controller
     {
         $this->opciones['aniosxxx']  = [];
         for ($i = 2021; $i <= date('Y'); $i++) {
-            $this->opciones['aniosxxx'] [$i] = $i;
+            $this->opciones['aniosxxx'][$i] = $i;
         }
         $this->opciones['mesesxxx'] = [];
         for ($i = 1; $i <= 12; $i++) {
@@ -144,6 +146,10 @@ class ExcelController extends Controller
         // $fiDatosBasicos = FiDatosBasico::first();
         // $this->opciones['maintabl'] = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
         $this->opciones['tablesxx'] = $tablas;
+        $this->opciones['camposxx'] = [];
+        $date = Carbon::now();
+        $this->opciones['dateinit'] = $date->subMonth()->toDateString();
+        $this->opciones['dateendx'] = $date->addMonth()->toDateString();
         // dd($this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray())));
 
         if ($dataxxxx['modeloxx'] != '') {
@@ -170,6 +176,86 @@ class ExcelController extends Controller
     }
     public function getExcel()
     {
+
+
+        // $tables = DB::select('SELECT table_name
+        // FROM user_tables
+        // ORDER BY table_name');
+        // $i=1;
+        // foreach ($tables as $key=> $data) {
+        //     $tablaxxx=strtolower($data->table_name);
+        //     $tablaxxy = explode('_', $tablaxxx);
+        //     /**
+        //      * encontrar las tablas padre
+        //      */
+        //     if ($tablaxxy[0] != 'h') {
+        //         echo "SisTabla::create([
+        //             'sis_docfuen_id'    => 2,
+        //             's_tabla'           => '$tablaxxx',
+        //             's_descripcion'     => '$tablaxxx',
+        //             'sis_esta_id'       => 1,
+        //             'user_crea_id'      => 1,
+        //             'user_edita_id'     => 1
+        //         ]); //$i <br>";
+        //         $i++;
+        //     }
+        // }
+
+
+
+
+        // $tablasxx = DB::select('SELECT table_name
+        // FROM user_tables
+        // ORDER BY table_name ');
+        // $posicio = [1, 127, 264, 273, 740, 777, 1351, 1394,1512,1551,1873,1961,2287,2296];
+        // $prefijo = ['AG', 'AI', 'CSDS', 'CSD', 'FCV', 'FI', 'FOS', 'IN','IS','MIT','NNAJ','SIS','VSIS','VSI'];
+        // $posicix=13;
+        // $i = $posicio[$posicix];
+        // $j = 1;
+        // foreach ($tablasxx as $tablaxxx) {
+        //     $tablaxxy = $tablaxxx->table_name;
+        //     $columnsData = DB::select("SELECT table_name, column_name, data_type, data_length
+        //     FROM USER_TAB_COLUMNS
+        //     WHERE table_name = '{$tablaxxy}' order by column_name");
+        //     $campoxxy = explode('_', $tablaxxy);
+        //     if ($campoxxy[0] != 'H') {
+        //         if ($campoxxy[0] == strtoupper($prefijo[$posicix])) {
+
+        //             echo "//$tablaxxy<br>";
+        //             foreach ($columnsData as $columnData) {
+        //                 $campoxxx = $columnData->column_name;
+        //                 if (!in_array($campoxxx, ['ID'])) {
+        //                     $campxxxx = explode('_', $campoxxx);
+        //                     $tablrela = '';
+        //                     $idtarela = '';
+        //                     $campsele = '';
+        //                     if (in_array('PRM', $campxxxx)) {
+        //                         $tablrela = "parametros as param$i";
+        //                         $idtarela = "param$i.id";
+        //                         $campsele = "param$i.nombre as nombre$i";
+        //                     }
+        //                     // else {
+        //                     //     $campsele = "$tablaxxy.$campoxxx";
+        //                     // }
+        //                     echo "SisTcampo::create([
+        //                 's_campo'           => '$campoxxx',
+        //                 's_descripcion'           => '$campoxxx',
+        //                 'sis_tabla_id'      => $j,
+        //                 'user_crea_id'      => 1,
+        //                 'user_edita_id'     => 1,
+        //                 's_tablrela'=> '$tablrela',
+        //                 's_idtarela'=> '$idtarela',
+        //                 's_campsele'=> '$campsele',
+        //                 'sis_esta_id'       => 1
+        //             ]);//$i<br>";
+        //                     $i++;
+        //                 }
+        //             }
+        //         }
+        //         $j++;
+        //     }
+        // }
+
 
         $this->opciones['botoform'][] =
             [
@@ -199,7 +285,6 @@ class ExcelController extends Controller
                 'user_edita_id' => 1,
                 'user_crea_id' => 1,
                 'sis_esta_id' => 1,
-
             ]); <br />";;
         }
     }
@@ -207,11 +292,57 @@ class ExcelController extends Controller
 
     public function store(Request $request)
     {
-        $fiDatosBasicos = FiDatosBasico::first();
-        $headersx = $this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray()));
+        // $sis_tcampo_id = [];
+        // foreach ($request->sis_tcampo_id as $sis_tcampo) {
+        //     $sis_tcampo_id[] = explode('_', $sis_tcampo)[1];
+        // }
+
+        // $sisTcampos = SisTcampo::select('sis_tablas.s_tabla', 'sis_tcampos.s_campo', 'sis_tcampos.s_tablrela', 'sis_tcampos.s_idtarela', 'sis_tcampos.s_campsele')
+        // ->join('sis_tablas', 'sis_tablas.id', 'sis_tcampos.sis_tabla_id')
+        // ->whereIn('sis_tcampos.id', $sis_tcampo_id)->get();
+
+        // $data = DB::table($sisTcampos[0]->s_tabla);
+        // $fields = [];
+        // $relations = [];
+        // foreach ($sisTcampos as $sisTcampo) {
+        //     $fields[] = $sisTcampo->s_campsele;
+        //     if ($sisTcampo->s_tablrela != '') {
+        //         $relations[] = [$sisTcampo->s_tablrela, $sisTcampo->s_idtarela, "$sisTcampo->s_tabla.$sisTcampo->s_campo"];
+        //     }
+        // }
+
+        // $data->select($fields);
+        // foreach($relations as $relation) {
+        //     [$s_tablrela, $s_idtarela, $s_campo] = $relation;
+        //     $data = $data->join($s_tablrela, $s_idtarela, $s_campo);
+        // }
+        // dd($data->toSql());
+
+        // $data = $data->get();
+
+        // dd($data);
+
+        // ob_end_clean();
+        // ob_start();
+        // return Excel::download(new WalkingRelaxedExport(), 'data_report.xlsx');
+    }
+
+    public function getRepCamRel(Request $request)
+    {
         ob_end_clean();
         ob_start();
-        return Excel::download(new UsersExport($request, $headersx), 'users_report.xlsx');
+        return Excel::download(new WalkingRelaxedExport($request->except('_token')), 'data_report.xlsx');
+    }
+
+    public function viewRepCamRel()
+    {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+
+        return $this->view(['modeloxx' => '', 'accionxx' => ['grepcamr', 'grepcamr']]);
     }
 
     public function getDataFields(Request $request)
@@ -239,7 +370,11 @@ class ExcelController extends Controller
         // } else{
         //     return response()->json(['newField' => true, 'fields' => $fields]);
         // }
-        return SisTcampo::whereIn('sis_tabla_id', $request->selected)->pluck('s_campo', 'id');
+        $sisTablas = SisTabla::select('id', 's_tabla')->whereIn('id', $request->selected)->get();
+        foreach ($sisTablas as $key => $sisTabla) {
+            $sisTablas[$key]->sis_tcampos = $sisTabla->sis_tcampos;
+        }
+        return $sisTablas;
     }
 
     /**
@@ -253,20 +388,18 @@ class ExcelController extends Controller
         // Obtenemos el nombre de la tabla.
         $tableName = $model->getTableName();
         // Recorremos las columnas o atributos del modelo
-        foreach($modelColumns as $modelColumn)
-        {
+        foreach ($modelColumns as $modelColumn) {
             // Obtenemos el comentario de la columna o atributo
             $comment = DB::select("SELECT COLUMN_NAME, COLUMN_COMMENT FROM information_schema.COLUMNS WHERE TABLE_NAME = '{$tableName}' AND COLUMN_NAME = '{$modelColumn}'")[0]->COLUMN_COMMENT;
             // Validamos si tiene o no comentario, en caso de no tener se le pasa un string con el nombre de la
             // tabla y la columna
             $modelColumnAsArray = explode('_', $modelColumn);
-            if(!in_array('id', $modelColumnAsArray))
-            {
+            if (!in_array('id', $modelColumnAsArray)) {
                 $columnsWithDescription[$modelColumn] = trim($comment) === '' ? "Tabla: {$tableName}, columna: {$modelColumn}" : $comment;
             }
         }
         // Verificamos si tiene relaciones, si las tiene unimos las relaciones con las columnas
-        if(!empty($model->getTheRelations())) {
+        if (!empty($model->getTheRelations())) {
             $columnsWithDescription = array_merge($columnsWithDescription, $model->getTheRelations());
         }
 
