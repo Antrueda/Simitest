@@ -8,7 +8,7 @@ use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\sistema\SisTabla;
 use Illuminate\Http\Request;
 
-class InIndividualController extends Controller
+class InIndividualController_bk extends Controller
 {
   private $opciones;
   public function __construct()
@@ -69,10 +69,7 @@ class InIndividualController extends Controller
   private function view($objetoxx, $nombobje, $accionxx, $vistaxxx)
   {
 
-    $this->opciones['indicado'] = []; // adptarlo a lo que usted está desarrollado
-
-    // con esto se pinta la estructura de excel según mi idea
-    // $this->opciones['indicado'] = IndicadorHelper::getIndicadores($objetoxx->sis_nnaj_id, 1);
+    $this->opciones['indicado'] = IndicadorHelper::getIndicadores($objetoxx->sis_nnaj_id, 1);
 
     $this->opciones['esindexx'] = false;
     $this->opciones['estadoxx'] = 'ACTIVO';
