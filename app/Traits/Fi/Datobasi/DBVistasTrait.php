@@ -7,6 +7,7 @@ use App\Models\Parametro;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Tema;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Este trait permite armar las consultas para ubicacion que arman las datatable
@@ -33,6 +34,8 @@ trait DBVistasTrait
     }
     public function index()
     {
+        // $permissionNames = Auth::user()->permissions; ddd($permissionNames->first());
+        // Auth::user()->givePermissionTo('territorio-modulo');
         $this->getDatosBasicosFDT([
             'vercrear' => true,
             'titunuev' => "NUEVO {$this->opciones['titucont']}",
