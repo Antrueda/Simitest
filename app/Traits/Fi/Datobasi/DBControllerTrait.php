@@ -75,6 +75,9 @@ trait DBControllerTrait
      */
     public function show(FiDatosBasico $objetoxx)
     {
+        if ($objetoxx->sis_nnaj->simianti_id <1) {
+            $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
+        }
         $this->combos();
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
     }

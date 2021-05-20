@@ -346,6 +346,9 @@ trait HomologacionesTrait
                 if ($dataxxxx['codigoxx'] == 3 || $dataxxxx['codigoxx'] == 3) {
                     $parametr = Parametro::find(235);
                 }
+                if ($dataxxxx['codigoxx'] == null || $dataxxxx['codigoxx'] == 'null') {
+                    $parametr = Parametro::find(445);
+                }
                 break;
             case 19:
                 if ($dataxxxx['codigoxx'] == 5) {
@@ -355,7 +358,7 @@ trait HomologacionesTrait
 
             case 33:
 
-                if ($dataxxxx['codigoxx'] == 'null' || $dataxxxx['codigoxx'] == 'NT') {
+                if ($dataxxxx['codigoxx'] == null || $dataxxxx['codigoxx'] == 'null' || $dataxxxx['codigoxx'] == 'NT') {
                     $parametr = Parametro::find(235);
                 }
                 break;
