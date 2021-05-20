@@ -4,7 +4,6 @@ namespace App\Traits\Ayudline;
 
 use App\Models\Ayuda\Ayuda;
 use App\Traits\DatatableTrait;
-use App\Traits\ConfigController\OpcionesGeneralesTrait;
 use Illuminate\Http\Request;
 
 
