@@ -76,7 +76,7 @@ trait DBControllerTrait
     public function show(FiDatosBasico $objetoxx)
     {
         if ($objetoxx->sis_nnaj->simianti_id <1) {
-            $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
+            $objetoxx=$this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
         }
         $this->combos();
         return $this->view(['modeloxx' => $objetoxx, 'accionxx' => ['ver', 'formulario'], 'padrexxx' => $objetoxx]);
@@ -96,7 +96,7 @@ trait DBControllerTrait
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
         }
         if ($objetoxx->sis_nnaj->simianti_id <1) {
-            $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
+            $objetoxx= $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
         }
 
         $respuest = $this->getPuedeTPuede([

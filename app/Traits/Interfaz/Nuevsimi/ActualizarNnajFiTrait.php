@@ -146,6 +146,7 @@ trait ActualizarNnajFiTrait
             //     // $sisdepen->update();
             //     ddd($padrexxx->sis_nnaj->toArray(), $objetoxx->toArray());
             // }
+            return $padrexxx;
         }
     }
 }

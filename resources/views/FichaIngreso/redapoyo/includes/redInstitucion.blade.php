@@ -3,9 +3,9 @@
   {{ Form::select('entidadAtiendeActual_id', $todoxxxx["sexoxxxx"], null, ['class' => 'form-control form-control-sm', 'required' => 'required']) }}
 </div>
 <div class="form-group col-md-6">
-  {{ Form::label('tiempoBeneficio', '¿Durante cuánto tiempo?', ['class' => 'control-label col-form-label-sm']) }}
+  {{ Form::label('tiempoBeneficio', '¿Durante cuánto tissempo?', ['class' => 'control-label col-form-label-sm']) }}
   <div class="input-group">
-    {{ Form::number('tiempoBeneficio', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
+    {{ Form::number('tiempoBeneficio', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);",'min' => '0']) }}
     {{ Form::select('durTiempoBen_id', $todoxxxx["sexoxxxx"], null, ['class' => 'form-control form-control-sm', 'required' => 'required']) }}
   </div>
 </div>
