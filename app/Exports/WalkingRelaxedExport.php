@@ -14,17 +14,19 @@ class WalkingRelaxedExport implements FromView, ShouldAutoSize, WithStyles
     private $pestannas;
     private $dateinit;
     private $dateendx;
+    private $upixxxxx;
 
     public function __construct($datafilter)
     {
         $this->pestannas = $datafilter['pestannas'];
         $this->dateinit = $datafilter['dateinit'];
         $this->dateendx = $datafilter['dateendx'];
+        $this->upixxxxx = $datafilter['upi'];
     }
 
     public function view(): View
     {
-        $sisNnajs = SisNnaj::join('fi_datos_basicos', 'fi_datos_basicos.sis_nnaj_id', 'sis_nnajs.id')->where('fi_datos_basicos.prm_tipoblaci_id', 2323)->whereDate('sis_nnajs.created_at', '>=', $this->dateinit)->whereDate('sis_nnajs.created_at', '<=', $this->dateendx)->get();
+        $sisNnajs = SisNnaj::join('fi_datos_basicos', 'fi_datos_basicos.sis_nnaj_id', 'sis_nnajs.id')->join('nnaj_upis', 'nnaj_upis.sis_nnaj_id', 'sis_nnajs.id')->where('nnaj_upis.sis_depen_id', $this->upixxxxx)->where('fi_datos_basicos.prm_tipoblaci_id', 2323)->whereDate('sis_nnajs.created_at', '>=', $this->dateinit)->whereDate('sis_nnajs.created_at', '<=', $this->dateendx)->get();
 
         return view('administracion.Reportes.Proyectos.export.walkingRelaxedExportView', [
             'sisNnajs'      => $sisNnajs,

@@ -155,4 +155,14 @@ class FiSituacionEspecial extends Model {
     return $usuariox;
   }
 
+  public function prm_presconf()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_presconf_id');
+  }
+
+  public function fi_situ_vulnera()
+  {
+      return $this->hasMany(FiSituVulnera::class, 'fi_situacion_especial_id');
+  }
+
 }

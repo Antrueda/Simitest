@@ -55,4 +55,9 @@ class FiConsumoSpa extends Model{
     }, 5);
     return $usuariox;
   }
+
+  public function fi_sustancia_consumidas()
+  {
+      return $this->hasMany(FiSustanciaConsumida::class, 'fi_consumo_spa_id');
+  }
 }
