@@ -18,11 +18,18 @@ use App\Models\consulta\pivotes\CsdSisNnaj;
 use App\Models\fichaIngreso\FiActividadestl;
 use App\Models\fichaIngreso\FiActividadTiempoLibre;
 use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDocumentosAnexa;
 use App\Models\fichaIngreso\FiFormacion;
 use App\Models\fichaIngreso\FiGeneracionIngreso;
+use App\Models\fichaIngreso\FiJustrest;
+use App\Models\fichaIngreso\FiLesicome;
 use App\Models\fichaIngreso\FiRazone;
+use App\Models\fichaIngreso\FiRedApoyoActual;
+use App\Models\fichaIngreso\FiRedApoyoAntecedente;
 use App\Models\fichaIngreso\FiSalud;
+use App\Models\fichaIngreso\FiSituacionEspecial;
+use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Salud\Mitigacion\Vma\MitVma;
 use App\Models\Salud\Mitigacion\Vspa;
@@ -251,6 +258,36 @@ class SisNnaj extends Model
     public function fi_actividadestls()
     {
         return $this->hasOne(FiActividadestl::class, 'sis_nnaj_id');
+    }
+
+    public function fi_red_apoyo_actuals()
+    {
+        return $this->hasMany(FiRedApoyoActual::class, 'sis_nnaj_id');
+    }
+
+    public function fi_red_apoyo_antecedentes()
+    {
+        return $this->hasMany(FiRedApoyoAntecedente::class, 'sis_nnaj_id');
+    }
+
+    public function fi_justrests()
+    {
+        return $this->hasOne(FiJustrest::class, 'sis_nnaj_id');
+    }
+
+    public function fi_consumo_spas()
+    {
+        return $this->hasOne(FiConsumoSpa::class, 'sis_nnaj_id');
+    }
+
+    public function fi_violencias()
+    {
+        return $this->hasOne(FiViolencia::class, 'sis_nnaj_id');
+    }
+
+    public function fi_situacion_especials()
+    {
+        return $this->hasOne(FiSituacionEspecial::class, 'sis_nnaj_id');
     }
 
 }

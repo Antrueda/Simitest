@@ -2,11 +2,12 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use Illuminate\Database\Eloquent\Model;
 
 class FiJrCausassi extends Model
 {
-   
+
 
     protected $fillable = [
         'prm_situacion_id',
@@ -16,6 +17,9 @@ class FiJrCausassi extends Model
         'sis_esta_id',
     ];
 
-   
+   public function prm_situacion()
+   {
+       return $this->belongsTo(Parametro::class, 'prm_situacion_id');
+   }
 }
 

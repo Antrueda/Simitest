@@ -7,6 +7,7 @@ use App\Exports\FiDatosBasicoExport;
 use App\Exports\UsersExport;
 use App\Exports\WalkingRelaxedExport;
 use App\Http\Controllers\Controller;
+use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisTabla;
 use App\Models\Sistema\SisTcampo;
 use App\Models\Temacombo;
@@ -150,6 +151,8 @@ class ExcelController extends Controller
         $date = Carbon::now();
         $this->opciones['dateinit'] = $date->subMonth()->toDateString();
         $this->opciones['dateendx'] = $date->addMonth()->toDateString();
+        $this->opciones['upisxxxx'] = SisDepen::pluck('nombre', 'id')->toArray();
+
         // dd($this->contructColumnsOptions($fiDatosBasicos, array_keys($fiDatosBasicos->toArray())));
 
         if ($dataxxxx['modeloxx'] != '') {

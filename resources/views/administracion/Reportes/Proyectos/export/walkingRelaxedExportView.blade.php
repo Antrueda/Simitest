@@ -1,6 +1,8 @@
 <table>
     <thead>
         <tr>
+            <th>Fecha de creacion</th>
+            <th>Identificación</th>
             @if (in_array(1, $pestannas))
                 <th>1.5 Edad</th>
                 <th>1.6 Pais de Nacimiento</th>
@@ -85,15 +87,56 @@
                 <th>8.8 Indique sacramentos hechos</th>
             @endif
 
+            @if (in_array(7, $pestannas))
+                <th>9</th>
+                <th>9.2</th>
+            @endif
 
+            @if (in_array(8, $pestannas))
+                <td>10.2 ¿Ha estado vinculado al Sistema de Responsabilidad Penal Adolescente - SRPA?</td>
+                <td>¿Actualmente se encuentra vinculado al SRPA?</td>
+                <td>¿Hace cuánto?</td>
+                <td>Motivo de la vinculación al SRPA</td>
+                <td>¿Qué sanción pedagógica se encuentra cumpliendo?</td>
+                <td>10.3 ¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA?</td>
+                <td>¿Actualmente se encuentra en conflicto con la ley - SPOA?</td>
+                <td>¿Hace cuánto?</td>
+                <td>Motivo de la vinculación al SPOA</td>
+                <td>¿En qué modalidad de cumplimiento de la pena se encuentra?</td>
+                <td>10.3A ¿Ha estado privado de la libertad?</td>
+                <td>10.4 ¿Se encuentra vinculado a la delincuencia o a la violencia?</td>
+                <td>Seleccionar las causas que originaron tal situación</td>
+                <td>10.5 ¿Se cuentra en riesgo de participar en actos delictivos?</td>
+                <td>Seleccionar las causas que pueden llegar a materializar el riesgo</td>
+            @endif
 
+            @if (in_array(9, $pestannas))
+                <td>Sustancia</td>
+                <td>Edad uso por primera vez</td>
+                <td>Ha consumido el último mes?</td>
+            @endif
 
+            @if (in_array(10, $pestannas))
+                <td>12.1 ¿Presenta algún tipo de violencia?</td>
+                <td>12.1 A Ha ejercido algún tipo de presunta violencia durante la actividad en conflicto con la ley?</td>
+                <td>12.1.B Que tipo de presuntas lesiones ha cometido durante la actividad?</td>
+                <td>12.2 El tipo de violencia referenciado corresponde a violencia basada en ?</td>
+                <td>12.3 ¿Qué condición especial presenta?</td>
+                <td>12.5 ¿Es cabeza de familia?</td>
+            @endif
+
+            <td>13.1 Situaciones de vulneraciones</td>
+            <td>13.2 Víctima ESCNNA</td>
+            <td>13.3 Riesgo ESCNNA</td>
+            <td>13.4 ¿Es usted Joven en presunto conflicto con la ley?</td>
 
         </tr>
     </thead>
     <tbody>
         @foreach ($sisNnajs as $sisNnaj)
             <tr>
+                <td>{{$sisNnaj->created_at}}</td>
+                <td>{{$sisNnaj->nnaj_docu->s_documento}}</td>
                 {{-- ** INFORMACIÓN BASICA ** --}}
                 @if (count($pestannas) == 0 || in_array(1, $pestannas))
                     {{-- 1.5 Edad --}}
@@ -356,6 +399,179 @@
                         <td>Sin evaluar</td>
                         <td>Sin evaluar</td>
                         <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                    @endif
+                @endif
+
+                {{-- ** REDES DE APOYO ** --}}
+                @if (in_array(7, $pestannas))
+                    @if (!is_null($sisNnaj->fi_red_apoyo_actuals))
+                        {{-- 9 --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_red_apoyo_actuals as $fi_red_apoyo_actual)
+                                {{ "{$fi_red_apoyo_actual->i_prm_tipo_red->nombre}, " }}
+                            @endforeach
+                        </td>
+                        {{-- 9.2 --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_red_apoyo_antecedentes as $fi_red_apoyo_antecedente)
+                                {{ "{$fi_red_apoyo_antecedente->s_servicio}, " }}
+                            @endforeach
+                        </td>
+                    @else
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                    @endif
+                @endif
+
+                {{-- ** JUSTICIA RESTAURATIVA ** --}}
+                @if (in_array(8, $pestannas))
+                    @if (!is_null($sisNnaj->fi_justrests))
+                        {{-- 10.2 ¿Ha estado vinculado al Sistema de Responsabilidad Penal Adolescente - SRPA? --}}
+                        <td>{{$sisNnaj->fi_justrests->fi_proceso_srpas->i_prm_ha_estado_srpa->nombre}}</td>
+                        {{-- ¿Actualmente se encuentra vinculado al SRPA? --}}
+                        <td>{{$sisNnaj->fi_justrests->fi_proceso_srpas->i_prm_actualmente_srpa->nombre}}</td>
+                        {{-- ¿Hace cuánto? --}}
+                        <td>{{$sisNnaj->fi_justrests->fi_proceso_srpas->i_cuanto_srpa}} - {{$sisNnaj->fi_justrests->fi_proceso_srpas->i_prm_tipo_tiempo_srpa->nombre}}</td>
+                        {{-- Motivo de la vinculación al SRPA --}}
+                        <td>{{$sisNnaj->fi_justrests->fi_proceso_srpas->i_prm_motivo_srpa->nombre}}</td>
+                        {{-- ¿Qué sanción pedagógica se encuentra cumpliendo? --}}
+                        <td>{{$sisNnaj->fi_justrests->fi_proceso_srpas->i_prm_sancion_srpa->nombre}}</td>
+                        {{-- 10.3 ¿Ha estado vinculado al Sistema Penal Oral Acusatorio - SPOA? --}}
+                        <td>{{$sisNnaj->fi_justrests->fi_proceso_spoas->i_prm_ha_estado_spoa->nombre}}</td>
+                        {{-- ¿Actualmente se encuentra en conflicto con la ley - SPOA? --}}
+                        <td>{{$sisNnaj->fi_justrests->fi_proceso_spoas->i_prm_actualmente_spoa->nombre}}</td>
+                        {{-- ¿Hace cuánto? --}}
+                        <td>{{$sisNnaj->fi_justrests->fi_proceso_spoas->i_cuanto_spoa}} - {{$sisNnaj->fi_justrests->fi_proceso_spoas->i_prm_tipo_tiempo_spoa->nombre}}</td>
+                        {{-- Motivo de la vinculación al SPOA --}}
+                        <td>{{$sisNnaj->fi_justrests->fi_proceso_spoas->i_prm_motivo_spoa->nombre}}</td>
+                        {{-- ¿En qué modalidad de cumplimiento de la pena se encuentra? --}}
+                        <td>{{$sisNnaj->fi_justrests->fi_proceso_spoas->i_prm_mod_cumple_pena->nombre}}</td>
+                        {{-- 10.3A ¿Ha estado privado de la libertad? --}}
+                        <td>{{$sisNnaj->fi_justrests->fi_proceso_spoas->i_prm_ha_estado_preso->nombre}}</td>
+                        {{-- 10.4 ¿Se encuentra vinculado a la delincuencia o a la violencia? --}}
+                        <td>{{$sisNnaj->fi_justrests->i_prm_vinculado_violencia->nombre}}</td>
+                        {{-- Seleccionar las causas que originaron tal situación --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_justrests->fi_jr_causassis as $fi_jr_causassi)
+                                {{ "{$fi_jr_causassi->->prm_situacion->nombre}, " }}
+                            @endforeach
+                        </td>
+                        {{-- 10.5 ¿Se cuentra en riesgo de participar en actos delictivos? --}}
+                        <td>{{$sisNnaj->fi_justrests->i_prm_riesgo_participar->nombre}}</td>
+                        {{-- Seleccionar las causas que pueden llegar a materializar el riesgo --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_justrests->fi_jr_causasmos as $fi_jr_causasmo)
+                                {{ "{$fi_jr_causasmo->->prm_riesgo->nombre}, " }}
+                            @endforeach
+                        </td>
+                    @else
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                    @endif
+                @endif
+
+                {{-- ** CONSUMO DE SPA ** --}}
+                @if (in_array(9, $pestannas))
+                    @if (!is_null($sisNnaj->fi_consumo_spas))
+                        {{-- Sustancia --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_consumo_spas->fi_sustancia_consumidas as $fi_sustancia_consumida)
+                                {{ "{$fi_sustancia_consumida->->i_prm_sustancia->nombre}, " }}
+                            @endforeach
+                        </td>
+                        {{-- Edad uso por primera vez --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_consumo_spas->fi_sustancia_consumidas as $fi_sustancia_consumida)
+                                {{ "{$fi_sustancia_consumida->->i_edad_uso}, " }}
+                            @endforeach
+                        </td>
+                        {{-- Ha consumido el último mes? --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_consumo_spas->fi_sustancia_consumidas as $fi_sustancia_consumida)
+                                {{ "{$fi_sustancia_consumida->i_prm_consume->nombre}, " }}
+                            @endforeach
+                        </td>
+                    @else
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                    @endif
+                @endif
+
+                {{-- ** VIOLENCIAS Y CONDICIÓN ESPECIAL ** --}}
+                @if (in_array(10, $pestannas))
+                    @if (!is_null($sisNnaj->fi_violencias))
+                        {{-- 12.1 ¿Presenta algún tipo de violencia? --}}
+                        <td>{{$sisNnaj->fi_violencias->i_prm_presenta_violencia->nombre}}</td>
+                        {{-- 12.1 A Ha ejercido algún tipo de presunta violencia durante la actividad en conflicto con la ley? --}}
+                        <td>{{$sisNnaj->fi_violencias->prm_ejerviol->nombre}}</td>
+                        {{-- 12.1.B Que tipo de presuntas lesiones ha cometido durante la actividad? --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_violencias->fi_lesicomes as $fi_lesicome)
+                                {{ "{$fi_lesicome->prm_lesicome->nombre}, " }}
+                            @endforeach
+                        </td>
+                        {{-- 12.2 El tipo de violencia referenciado corresponde a violencia basada en ? --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_violencias->fi_violbasas as $fi_violbasa)
+                                {{ "{$fi_violbasa->prm_violbasa->nombre}, " }}
+                            @endforeach
+                        </td>
+                        {{-- 12.3 ¿Qué condición especial presenta? --}}
+                        <td>{{$sisNnaj->fi_violencias->i_prm_condicion_presenta->nombre}}</td>
+                        {{-- 12.5 ¿Es cabeza de familia? --}}
+                        <td>{{$sisNnaj->fi_violencias->prm_cabefami->nombre}}</td>
+                    @else
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                        <td>Sin evaluar</td>
+                    @endif
+                @endif
+
+                {{-- ** TIPO DE POBLACIÓN ** --}}
+                @if (in_array(11, $pestannas))
+                    @if (!is_null($sisNnaj->fi_situacion_especials))
+                        {{-- 13.1 Situaciones de vulneraciones --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_situacion_especials->fi_situ_vulnera as $fi_situ_vulner)
+                                {{ "{$fi_situ_vulner->prm_situacion_vulnera->nombre}, " }}
+                            @endforeach
+                        </td>
+                        {{-- 13.2 Víctima ESCNNA --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_situacion_especials->fi_victima_escnnas as $fi_victima_escnna)
+                                {{ "{$fi_victima_escnna->i_prm_victima_escnna->nombre}, " }}
+                            @endforeach
+                        </td>
+                        {{-- 13.3 Riesgo ESCNNA --}}
+                        <td>
+                            @foreach ($sisNnaj->fi_situacion_especials->fi_riesgo_escnnas as $fi_riesgo_escnna)
+                                {{ "{$fi_riesgo_escnna->i_prm_riesgo_escnna->nombre}, " }}
+                            @endforeach
+                        </td>
+                        {{-- 13.4 ¿Es usted Joven en presunto conflicto con la ley? --}}
+                        <td>{{$sisNnaj->fi_situacion_especials}}</td>
+                    @else
                         <td>Sin evaluar</td>
                         <td>Sin evaluar</td>
                         <td>Sin evaluar</td>
