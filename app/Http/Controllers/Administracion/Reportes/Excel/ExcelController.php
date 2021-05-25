@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Administracion\Reportes\Excel;
 
+use App\Exports\CaminandoRelajado\ReporteGeneralCaminandoRelajadoExport;
 use App\Exports\DataExport;
 use App\Exports\FiDatosBasicoExport;
 use App\Exports\UsersExport;
@@ -334,7 +335,7 @@ class ExcelController extends Controller
     {
         ob_end_clean();
         ob_start();
-        return Excel::download(new WalkingRelaxedExport($request->except('_token')), 'data_report.xlsx');
+        return (new ReporteGeneralCaminandoRelajadoExport($request->except('_token')))->download('reporte-general.xlsx');
     }
 
     public function viewRepCamRel()

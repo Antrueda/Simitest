@@ -24,7 +24,7 @@
 <div class="form-row">
     <div class="form-group col-md-4" id="export-form">
         {{ Form::label('dateinit', 'Fecha inicial:', ['class' => 'control-label']) }}
-        {{ Form::date('dateinit', $todoxxxx['dateinit'], null, ['class' => $errors->first('dateinit') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::date('dateinit', $todoxxxx['dateinit'], null, ['class' => $errors->first('dateinit') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'required', 'max' =>  $todoxxxx['dateendx']]) }}
         @if($errors->has('dateinit'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('dateinit') }}
@@ -33,7 +33,7 @@
     </div>
     <div class="form-group col-md-4">
         {{ Form::label('dateendx', 'Fecha final:', ['class' => 'control-label']) }}
-        {{ Form::date('dateendx', $todoxxxx['dateendx'], null, ['class' => $errors->first('dateendx') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm']) }}
+        {{ Form::date('dateendx', $todoxxxx['dateendx'], null, ['class' => $errors->first('dateendx') ? 'form-control form-control-sm is-invalid' : 'form-control form-control-sm', 'required', 'min' => $todoxxxx['dateinit']]) }}
         @if($errors->has('dateendx'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('dateendx') }}
@@ -42,7 +42,7 @@
     </div>
     <div class="form-group col-md-4">
         {!! Form::label('upi', 'UPIS', ['class' => 'control-label']) !!}
-        {!! Form::select('upi', $todoxxxx['upisxxxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una unidad']) !!}
+        {!! Form::select('upi', $todoxxxx['upisxxxx'], null, ['class' => $errors->first('prm_doc_fisico_id') ? 'form-control form-control-sm is-invalid select2' : 'form-control form-control-sm select2', 'placeholder' => 'Seleccione una unidad', 'required']) !!}
         @if($errors->has('upi'))
         <div class="invalid-feedback d-block">
             {{ $errors->first('upi') }}
