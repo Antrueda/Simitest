@@ -168,22 +168,23 @@ trait HomologacionesTrait
             $localupz = SisLocalupz::where('sis_localidad_id', $localida->id)->where('sis_upz_id', $upzxxxxx->id)->first();
 
             $barrioxx = $this->getBarrioHomologa($dataxxxx, $localupz, $barrioxx);
-
             if ($barrioxx->id == 208207 || $barrioxx->id == 0) {
                 $upzbarri = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', 1653)->first();
             } else {
                 $upzbarri = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('simianti_id', $barrioxx->id)->first();
             }
+
             if ($upzbarri == null) {
-                $barrcrea = SisBarrio::where( 's_barrio' ,$barrioxx->nombre)->first();
+                $nombrexx = strtoupper($barrioxx->nombre);
+                $barrcrea = SisBarrio::where('s_barrio', $nombrexx)->first();
                 if ($barrcrea == null) {
                     $barrcrea = SisBarrio::create([
-                        's_barrio' => $barrioxx->nombre,
+                        's_barrio' => $nombrexx,
                         'sis_esta_id' => 1,
                         'user_crea_id' => Auth::user()->id,
                         'user_edita_id' => Auth::user()->id
                     ]);
-                    $upzbarri=SisUpzbarri::create([
+                    $upzbarri = SisUpzbarri::create([
                         'sis_localupz_id' => $localupz->id,
                         'sis_barrio_id' => $barrcrea->id,
                         'simianti_id' => $dataxxxx['idbarrio'],
@@ -191,6 +192,21 @@ trait HomologacionesTrait
                         'user_crea_id' => Auth::user()->id,
                         'user_edita_id' => Auth::user()->id
                     ]);
+                } else {
+                    $upzbarrx = SisUpzbarri::where('sis_localupz_id', $localupz->id)->where('sis_barrio_id', $barrcrea->id)->first();
+                    if ($upzbarrx == null) {
+                        $upzbarrx = SisUpzbarri::create([
+                            'sis_localupz_id' => $localupz->id,
+                            'sis_barrio_id' => $barrcrea->id,
+                            'simianti_id' => $dataxxxx['idbarrio'],
+                            'sis_esta_id' => 1,
+                            'user_crea_id' => Auth::user()->id,
+                            'user_edita_id' => Auth::user()->id
+                        ]);
+                    }else {
+                        $upzbarrx->update(['simianti_id' => $dataxxxx['idbarrio'],'user_edita_id'=>Auth::user()->id]);
+                    }
+                    $upzbarri=$upzbarrx;
                 }
                 // $dataxxxx['tituloxx'] = 'EL BARRIO NO EXISTE O NO SE HA HOMOLOGADO!';
                 // $dataxxxx['mensajex'] = "BARRIO: $barrioxx->nombre con id: {$dataxxxx['idbarrio']} Localidad:{$localupz->sis_localidad->s_localidad}, UPZ: {$localupz->sis_upz->s_upz} y LOCALIDAD-UPZ: {$localupz->id}.";

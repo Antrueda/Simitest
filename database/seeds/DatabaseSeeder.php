@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
 
 
         // CUALQUIER SEEDER DE PERMISO SE DEBE CARGAR ANTES DE ESTE
+        $this->call(InvalorInicialPermisoSeeder::class);
         $this->call(RolesYPermisosSeeder::class);
         $this->call(PermisosReferenteLocalSeeder::class);
         /** FIN SEEDERS PARA LOS PERSMISOS */
