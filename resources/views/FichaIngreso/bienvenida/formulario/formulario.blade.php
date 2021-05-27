@@ -1,6 +1,10 @@
 <div class="form-row align-items-end">
   <div class="form-group col-md-4">
+    @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
     {{ Form::label('i_prm_quiere_entrar_id', '15.1 ¿Quieres entrar al IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
+    @else
+    {{ Form::label('i_prm_quiere_entrar_id', '14.1 ¿Quieres entrar al IDIPRON?', ['class' => 'control-label col-form-label-sm']) }}
+    @endif
     {{ Form::select('i_prm_quiere_entrar_id', $todoxxxx["condicio"], null, ['class' => 'form-control form-control-sm']) }}
   </div>
 </div>

@@ -18,6 +18,7 @@ use App\Models\Sistema\SisDepartam;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisMunicipio;
 use App\Models\Sistema\SisNnaj;
+use App\Models\Tema;
 use App\Traits\DatatableTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -476,6 +477,8 @@ public function getNnajsele(Request $request)
             $request->botonesx = $this->opciones['rutacarp'] .
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = 'layouts.components.botones.estadosx';
+            $request->contado = $this->opciones['rutacarp'] .
+            $this->opciones['carpetax'] . '.Botones.contado';
             $dataxxxx =  IMatricula::select([
             'i_matriculas.id',
             'i_matriculas.fecha',
@@ -487,7 +490,7 @@ public function getNnajsele(Request $request)
             ->join('sis_depens as upi', 'i_matriculas.prm_upi_id', '=', 'upi.id')
             ->join('users', 'i_matriculas.user_doc1', '=', 'users.id')
             ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id');
-            return $this->getDtGeneral($dataxxxx, $request);
+            return $this->getDtMatri($dataxxxx, $request);
         }
 }
 
@@ -541,64 +544,49 @@ public function getNnaj(Request $request, IMatricula $padrexxx)
 
 
 
-public function getNnajMatricula(Request $request, AiSalidaMayores $padrexxx)
+public function getNnajMatricula(Request $request, IMatricula $padrexxx)
 {
     if ($request->ajax()) {
-        $request->routexxx = ['salidajovenes'];
-        $hoyxxxx = Carbon::today()->isoFormat('YYYY-MM-DD');
-        $mayores = explode('-',$hoyxxxx);
-        $mayorex = $mayores[0] - 14;
-        $mayorex = $mayorex .'-'.$mayores[1] .'-'.$mayores[2];
+        $request->routexxx = ['imatriculannaj'];
         $request->botonesx = $this->opciones['rutacarp'] .
-            $this->opciones['carpetax'] . '.Botones.elimasis';
-        $request->razonesx = $this->opciones['rutacarp'] .
-            $this->opciones['carpetax'] . '.Botones.razonesx';
-        $request->responsx = $this->opciones['rutacarp'] .
-            $this->opciones['carpetax'] . '.Botones.responsx';
-        $request->edadxxxx = $this->opciones['rutacarp'] .
-            $this->opciones['carpetax'] . '.Botones.edadxxxx';
-        $request->telefono = $this->opciones['rutacarp'] .
-            $this->opciones['carpetax'] . '.Botones.telefono';
+        $this->opciones['carpetax'] . '.Botones.elimasis';
         $request->estadoxx = 'layouts.components.botones.estadosx';
-        $depende =    AiSalidaMayores::select(['prm_upi_id'])
-        ->where('id', $padrexxx->id)
-        ->get();
-        $dataxxxx = SalidaJovene::select([
-            'salida_jovenes.id',
-            'salida_jovenes.sis_nnaj_id',
+        $dataxxxx = IMatriculaNnaj::select([
+            'i_matricula_nnajs.id',
+            'i_matricula_nnajs.sis_nnaj_id',
             'fi_datos_basicos.s_primer_nombre',
             'fi_datos_basicos.id as fidatosbasicos',
+            'tipodocu.nombre as tipodocu',
+            'grupo.nombre as grupo',
+            'grado.nombre as grado',
+            'estrategia.nombre as estrategia',
             'fi_datos_basicos.s_segundo_nombre',
             'fi_datos_basicos.s_primer_apellido',
             'fi_datos_basicos.s_segundo_apellido',
             'nnaj_sexos.s_nombre_identitario',
-            'salida_jovenes.telefono',
-            'salida_jovenes.hora_salida',
-            'autoriza.nombre as autoriza',
-            'salida_jovenes.responsable_id',
-            'salida_jovenes.fecharetorno',
-            'salida_jovenes.horaretorno',
-            'salida_jovenes.observacion',
-            'salida_jovenes.sis_esta_id',
+            'i_matricula_nnajs.observaciones',
+            'i_matricula_nnajs.sis_esta_id',
+            'nnaj_nacimis.d_nacimiento',
             'nnaj_docus.s_documento',
             'sis_depens.nombre',
             'sis_estas.s_estado',
         ])
-            ->join('sis_nnajs', 'salida_jovenes.sis_nnaj_id', '=', 'sis_nnajs.id')
-            ->join('parametros as autoriza', 'salida_jovenes.autoriza_id', '=', 'autoriza.id')
+            ->join('sis_nnajs', 'i_matricula_nnajs.sis_nnaj_id', '=', 'sis_nnajs.id')
+            ->join('parametros as estrategia', 'i_matricula_nnajs.prm_estra', '=', 'estrategia.id')
+            ->join('parametros as grupo', 'i_matricula_nnajs.prm_grupo', '=', 'grupo.id')
+            ->join('parametros as grado', 'i_matricula_nnajs.prm_grado', '=', 'grado.id')
             ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
-            ->join('ai_salida_mayores', 'salida_jovenes.ai_salmay_id', '=', 'ai_salida_mayores.id')
-            ->join('sis_estas', 'ai_salida_mayores.sis_esta_id', '=', 'sis_estas.id')
-            ->join('nnaj_docus', 'salida_jovenes.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
-            ->join('nnaj_sexos', 'salida_jovenes.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
-
+            ->join('i_matriculas', 'i_matricula_nnajs.imatricula_id', '=', 'i_matriculas.id')
+            ->join('sis_estas', 'i_matriculas.sis_esta_id', '=', 'sis_estas.id')
+            ->join('nnaj_docus', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_docus.fi_datos_basico_id')
+            ->join('parametros as tipodocu', 'nnaj_docus.prm_tipodocu_id', '=', 'tipodocu.id')
+            ->join('nnaj_nacimis', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_nacimis.fi_datos_basico_id')
+            ->join('nnaj_sexos', 'i_matricula_nnajs.sis_nnaj_id', '=', 'nnaj_sexos.fi_datos_basico_id')
             ->join('nnaj_upis', 'fi_datos_basicos.sis_nnaj_id', '=', 'nnaj_upis.sis_nnaj_id')
             ->join('sis_depens', 'nnaj_upis.sis_depen_id', '=', 'sis_depens.id')
-            ->where('salida_jovenes.sis_esta_id', 1)
-            ->whereIn('nnaj_upis.sis_depen_id', $depende)
-
-            ->where('salida_jovenes.ai_salmay_id', $padrexxx->id);
-        return $this->getDtSalidas($dataxxxx, $request);
+            ->where('i_matricula_nnajs.sis_esta_id', 1)
+           ->where('i_matricula_nnajs.imatricula_id', 1);
+        return $this->getDt($dataxxxx, $request);
     }
 }
 function getAgregarNnajs(Request $request, IMatricula $padrexxx)
@@ -606,12 +594,37 @@ function getAgregarNnajs(Request $request, IMatricula $padrexxx)
     if ($request->ajax()) {
         $respuest = [];
         $dataxxxx = $request->all();
-        $dataxxxx['ai_salmay_id'] = $padrexxx->id;
+        $dataxxxx['imatricula_id'] = $padrexxx->id;
         $dataxxxx['sis_esta_id'] = 1;
         SalidaJovene::transaccion($dataxxxx, '');
         return response()->json($respuest);
     }
 }
 
+function getGrupo(Request $request)
+{
+    if ($request->ajax()) {
+        $respuest = [];
+        switch ($request->optionxx) {
+            case 2:
+                $respuest = ['grupo' => Tema::combo(387, false, true),];
+                break;
+            case 3:
+                $respuest = ['grupo' => Tema::combo(384, false, true),];
+                break;
+            case 4:
+                $respuest = ['grupo' => Tema::combo(386, false, true),];
+                break;
+            case 5:
+                $respuest = ['grupo' => Tema::combo(385, false, true),];
+                break;
+            case 6:
+                $respuest = ['grupo' => Tema::combo(383, false, true),];
+                break;        
+  
+        }
+        return response()->json($respuest);
+    }
+}
 
 }

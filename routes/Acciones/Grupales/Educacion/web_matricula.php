@@ -6,16 +6,16 @@ Route::group(['prefix' => 'matricula'], function () use ($controll, $routxxxx) {
 	    'uses' => $controll.'Controller@index',
 	    'middleware' => ['permission:'.$routxxxx.'-leer|'.$routxxxx.'-crear|'.$routxxxx.'-editar|'.$routxxxx.'-borrar']
     ])->name($routxxxx);
-    Route::get('jovenes', [
-        'uses' => $controll . 'Controller@getNnaj',
+    Route::get('nnajs', [
+        'uses' => $controll . 'Controller@getNnajMatricula',
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.imatriculannaj');
-	Route::get('{padrexxx}/jovenes', [
-        'uses' => $controll . 'Controller@getNnaj',
+	Route::get('{padrexxx}/nnajs', [
+        'uses' => $controll . 'Controller@getNnajMatricula',
         'middleware' => ['permission:' . $routxxxx . '-leer']
 	])->name($routxxxx . '.matriculannaj');
 	Route::get('listaxxx', [
-        'uses' => $controll . 'Controller@getSalidasMayoresGrupales',
+        'uses' => $controll . 'Controller@getMatricula',
         'middleware' => ['permission:' . $routxxxx . '-leer']
     ])->name($routxxxx . '.listaxxx');
 
