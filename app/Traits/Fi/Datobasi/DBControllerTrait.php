@@ -8,6 +8,8 @@ use App\Http\Requests\FichaIngreso\FiDatosBasicoUpdateRequest;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Simianti\Ge\GeNnajDocumento;
 use App\Models\Simianti\Sis\SisMultivalore;
+use App\Models\Simianti\Sis\SisSpa;
+use App\Models\Sistema\SisNnaj;
 use App\Models\Temacombo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +40,9 @@ trait DBControllerTrait
     }
     public function agregar(Request $request)
     {
-        $nnajxxxx = $this->getBuscarNnajAgregar(['docuagre'=>$request->docuagre]);
+        $this->combos();
+        $dataxxxx = ["docuagre" => $request->docuagre, 'buscarxx' => true];
+        $nnajxxxx = $this->getBuscarNnajAgregar($dataxxxx);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -95,7 +99,14 @@ trait DBControllerTrait
         if (isset($document->id_nnaj)) {
             $this->getUpisModalidadHT(['idnnajxx' => $document->id_nnaj, 'sisnnaji' => $objetoxx->sis_nnaj_id]);
         }
-        $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
+
+        if ($objetoxx->sis_nnaj->simianti_id < 1 && $objetoxx->sis_nnaj_id < 395) {
+            $objetoxx = $this->setNnajAnguoSimiIFT(['padrexxx' => $objetoxx]);
+        }elseif ($objetoxx->sis_nnaj->simianti_id < 1) {
+            $document = GeNnajDocumento::where('numero_documento', $objetoxx->nnaj_docu->s_documento)->first();
+            $objetoxx->sis_nnaj->update(['simianti_id'=>$document->id_nnaj,'user_edita_id'=>Auth::user()->id]);
+        }
+
         $respuest = $this->getPuedeTPuede([
             'casoxxxx' => 1,
             'nnajxxxx' => $objetoxx->sis_nnaj_id,
@@ -198,6 +209,11 @@ trait DBControllerTrait
 
     public function prueba($temaxxxx, $tablaxxx, Request $request)
     {
+
+        // php artisan vendor:publish --provider="BeyondCode\QueryDetector\QueryDetectorServiceProvider"
+
+        $this->getArmaCamposTabalSimiAnti();
+        // $this->getRocorrerCedula();
         // $i = 1;
         // $tables = DB::select('SHOW TABLES');
         // foreach ($tables as $key => $data) {
@@ -255,6 +271,8 @@ trait DBControllerTrait
         //         $i++;
         //     }
         // }
+
+        // $this->setNnajPNT(['padrexxx' => FiDatosBasico::first()]);
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],

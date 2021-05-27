@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -52,5 +53,10 @@ class FiSituVulnera extends Model{
       return $objetoxx;
     }, 5);
     return $usuariox;
+  }
+
+  public function prm_situacion_vulnera()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_situacion_vulnera_id');
   }
 }

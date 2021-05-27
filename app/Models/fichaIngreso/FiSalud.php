@@ -147,4 +147,75 @@ class FiSalud extends Model{
   {
       return $this->BelongsToMany(Parametro::class,'fi_victataqs','fi_salud_id','prm_victataq_id');
   }
+
+  public function prm_regisalu()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_regisalu_id');
+  }
+
+  public function prm_tiendisc()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_tiendisc_id');
+  }
+
+  public function prm_tipodisca()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_tipodisca_id');
+  }
+
+  public function prm_dispeind()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_dispeind_id');
+  }
+
+  public function prm_probsalu()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_probsalu_id');
+  }
+
+  public function prm_tienhijo()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_tienhijo_id');
+  }
+
+  public function prm_conometo()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_conometo_id');
+  }
+
+  public function prm_usametod()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_usametod_id');
+  }
+
+  public function prm_cualmeto()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_cualmeto_id');
+  }
+
+  public function prm_usovolun()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_usovolun_id');
+  }
+
+  public function prm_razcicom()
+  {
+      return $this->belongsTo(Parametro::class, 'prm_razcicom_id');
+  }
+
+  public function fi_victataqs()
+  {
+      return $this->hasMany(FiVictataq::class, 'fi_salud_id');
+  }
+
+  public function fi_discausas()
+  {
+      return $this->hasMany(FiDiscausa::class, 'fi_salud_id');
+  }
+
+  public function fi_eventos_medicos()
+  {
+      return $this->hasMany(FiEventosMedico::class, 'fi_salud_id');
+  }
+
 }

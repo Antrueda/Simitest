@@ -32,8 +32,10 @@ class CreateTemasTable extends Migration
             $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
             $table->integer('tema_id')->unsigned();
             $table->foreign('tema_id', 'teco_fk1')->references('id')->on('temas');
+            $table->integer('sis_tcampo_id')->nullable()->unsigned()->comment('CAMPO CON EL QUE SE RELACIONA EN LA TABLA DONDE ES UTILIZADO EL TEMACOMBO');
             $table = CamposMagicos::magicos($table);
         });
+
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->integer('parametro_id')->unsigned()->comment('ID DEL PARAMETRO');
             $table->integer('temacombo_id')->unsigned()->comment('ID DEL TEMACOMBO');

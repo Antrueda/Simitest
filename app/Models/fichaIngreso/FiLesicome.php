@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use App\Models\Sistema\SisEsta;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -32,5 +33,10 @@ class FiLesicome extends Model
     public function editor()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
+    public function prm_lesicome()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_lesicome_id');
     }
 }

@@ -90,10 +90,10 @@ class IndicadorHelper
     public static function asignaLineaBase($dataxxxx)
     {
         /**
-         *  saber si la respuesta es una array ok 
-         *  verificar si la respuesta existe en la tabla in_respuestas   ok 
-         *  debo saber de que instrumento vienen los datos y de que item 
-         * 
+         *  saber si la respuesta es una array ok
+         *  verificar si la respuesta existe en la tabla in_respuestas   ok
+         *  debo saber de que instrumento vienen los datos y de que item
+         *
          *  */
 
         /**
@@ -114,7 +114,7 @@ class IndicadorHelper
         if ($dataxxxx['sis_tabla_id'] == 9)
             $errorxxx = '';
         $inbasefu = InDocPregunta::
-        //join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
+            //join('sis_tablas', 'in_doc_preguntas.sis_tabla_id', '=', 'sis_tablas.id')
             join('sis_tcampos', 'in_doc_preguntas.sis_tcampo_id', '=', 'sis_tcampos.id')
             ->join('in_ligrus', 'in_doc_preguntas.in_ligru_id', '=', 'in_ligrus.id')
             ->join('in_base_fuentes', 'in_ligrus.in_base_fuente_id' . $errorxxx, '=', 'in_base_fuentes.id')
@@ -154,7 +154,7 @@ class IndicadorHelper
 
             if ($actibase) {
                 /**
-                 * verificar 
+                 * verificar
                  */
                 $nnajbase = InLineabaseNnaj::where('sis_nnaj_id', $dataxxxx['sis_nnaj_id'])
                     ->where('in_fuente_id', $basefuent->in_fuente_id)
@@ -221,8 +221,8 @@ class IndicadorHelper
      *           'keyxxxxx' => $key, // posicion donde estan realizando las validaciones
      *           'totalxxx' => $totalxxx, // se almacena el total del indicador
      *           'indicado' => $indicado, // indicador que se esta aramando
-     *           'posicion' => 'indicont', 
-     *           'cantidad' => 'cantindi', 
+     *           'posicion' => 'indicont',
+     *           'cantidad' => 'cantindi',
      *           'indihelp' => $indihelp
      *       ]
      */

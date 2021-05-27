@@ -133,13 +133,8 @@ trait BuscarNnajSimiantiFiTrait
     /**
      * armar datos para la tabla sis_nnaj datos de la tabla principal de los nnajs
      *
-<<<<<<< HEAD
-     * @param objete $objetoxx
-     * @param objete $dataxxxx (getArmarData)
-=======
      * @param object $objetoxx
      * @param object $dataxxxx (getArmarData)
->>>>>>> master
      * @return $objetoxx
      */
     public function getSisNnajBNSFT($objetoxx, $dataxxxx)
