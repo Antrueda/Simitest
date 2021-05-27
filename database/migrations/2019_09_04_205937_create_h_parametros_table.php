@@ -18,7 +18,7 @@ class CreateHParametrosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('nombre');
+            $table->string('nombre')->comment('CAMPO DE NOMBRE DEL PARAMETRO');
             $table = CamposMagicos::h_magicos($table);
         });
       //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA  {$this->tablaxxx}'");

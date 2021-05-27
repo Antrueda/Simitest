@@ -19,25 +19,24 @@ class CreateCsdGenIngresosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('csd_id')->unsigned();
-            $table->longText('observacion')->nullable();
-            $table->integer('prm_actividad_id')->unsigned();
-            $table->string('trabaja')->nullable();
-            $table->integer('prm_informal_id')->unsigned()->nullable();
-            $table->integer('prm_otra_id')->unsigned()->nullable();
-            $table->integer('prm_laboral_id')->unsigned()->nullable();
-            $table->integer('prm_frecuencia_id')->unsigned()->nullable();
-            $table->integer('intensidad')->unsigned()->nullable();
-            $table->integer('prm_dificultad_id')->unsigned();
-            $table->longText('razon')->nullable();
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->longText('observacion')->nullable()->comment('CAMPO DE TEXTO OBSERVACIONES');
+            $table->integer('prm_actividad_id')->unsigned()->comment('CAMPO PARAMETRO TIPO DE ACTIVIDAD');
+            $table->string('trabaja')->nullable()->comment('CAMPO TEXTO TRABAJO FORMAL');
+            $table->integer('prm_informal_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO TIPO DE TRABAJO INFORMAL');
+            $table->integer('prm_otra_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO TIPO ACTIVIDAD');
+            $table->integer('prm_laboral_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO TIPO DE RELACION LABORAL');
+            $table->integer('prm_frecuencia_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO TIPO DE FRENCUENCIA');
+            $table->integer('intensidad')->unsigned()->nullable()->comment('CAMPO INTENSIDAD');
+            $table->integer('prm_dificultad_id')->unsigned()->comment('CAMPO PARAMETRO DIFICULTAD');
+            $table->longText('razon')->nullable()->comment('CAMPO DE TEXTO RAZON');
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
-
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_actividad_id')->references('id')->on('parametros');
             $table->foreign('prm_informal_id')->references('id')->on('parametros');

@@ -18,15 +18,15 @@ class CreateHTemasTable extends Migration
   public function up()
   {
     Schema::create($this->tablaxxx, function (Blueprint $table) {
-      $table->increments('id')->start(1)->nocache();
-      $table->string('nombre');
+      $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+      $table->string('nombre')->comment('CAMPO DE NOMBRE DEL TEMAS');
       $table = CamposMagicos::h_magicos($table);
     });
    //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
     Schema::create($this->tablaxxx2, function (Blueprint $table) {
-      $table->integer('parametro_id')->unsigned();
-      $table->integer('temacombo_id')->unsigned();
+      $table->integer('parametro_id')->unsigned()->comment('ID DEL PARAMETRO');
+      $table->integer('temacombo_id')->unsigned()->comment('ID DEL TEMACOMBO');
       $table->string('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
       $table = CamposMagicos::h_magicos($table);
     });

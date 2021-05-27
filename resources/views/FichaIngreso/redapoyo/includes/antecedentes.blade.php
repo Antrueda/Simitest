@@ -6,7 +6,7 @@ addAntecedente
 Agregar Red de Apoyo Antecedente
 @endslot
 <div class="form-row align-items-end">
-  <div class="form-group col-md-6"> 
+  <div class="form-group col-md-6">
     {{ Form::label('sis_entidad_id', 'Entidad', ['class' => 'control-label']) }}
     {{ Form::select('sis_entidad_id', $todoxxxx["endidadx"], null, ['class' => 'form-control form-control-sm', 'required' => 'required']) }}
   </div>
@@ -19,7 +19,7 @@ Agregar Red de Apoyo Antecedente
   <div class="form-group col-md-6">
     {{ Form::label('i_prm_tiempo_id', '¿Durante cuánto tiempo?', ['class' => 'control-label']) }}
     <div class="input-group">
-      {{ Form::number('i_tiempo', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);"]) }}
+      {{ Form::number('i_tiempo', null, ['class' => 'form-control form-control-sm',"onkeypress" => "return soloNumeros(event);",'min' => '0']) }}
       {{ Form::select('i_prm_tiempo_id', $todoxxxx["sexoxxxx"], null, ['class' => 'form-control form-control-sm', 'required' => 'required']) }}
     </div>
   </div>

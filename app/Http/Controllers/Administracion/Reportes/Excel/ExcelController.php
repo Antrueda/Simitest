@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Administracion\Reportes\Excel;
 use App\Exports\CaminandoRelajado\ReporteGeneralCaminandoRelajadoExport;
 use App\Exports\DataExport;
 use App\Exports\FiDatosBasicoExport;
+use App\Exports\SisNnajExport;
 use App\Exports\UsersExport;
-use App\Exports\WalkingRelaxedExport;
+use App\Exports\UsuariosExport;
 use App\Http\Controllers\Controller;
 use App\Models\Sistema\SisDepen;
 use App\Models\Sistema\SisTabla;
@@ -180,7 +181,13 @@ class ExcelController extends Controller
     }
     public function getExcel()
     {
+        $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Usuarios', 'routingx' => [$this->opciones['routxxxx'] . '.usuarios', []],
+                'formhref' => 2, 'tituloxx' => 'Usuarios-upi', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
 
+<<<<<<< HEAD
 
         // $tables = DB::select('SELECT table_name
         // FROM user_tables
@@ -261,6 +268,13 @@ class ExcelController extends Controller
         // }
 
 
+=======
+            $this->opciones['botoform'][] =
+            [
+                'mostrars' => true, 'accionxx' => 'Usuarios', 'routingx' => [$this->opciones['routxxxx'] . '.nnajxxxx', []],
+                'formhref' => 2, 'tituloxx' => 'Nnajs-upi', 'clasexxx' => 'btn btn-sm btn-primary'
+            ];
+>>>>>>> master
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'Generar', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -271,12 +285,38 @@ class ExcelController extends Controller
     }
     public function setExcel()
     {
+
         return (new FiDatosBasicoExport)->download('invoices.xlsx');
         // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
         // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
         // return (new FiDatosBasicoExport)->download('invoices.xls');
         // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
     }
+
+
+    public function repousuarios()
+    {
+        if (ob_get_contents()) ob_end_clean();
+        ob_start();
+        return Excel::download(new UsuariosExport(), 'usuarios .xlsx');
+        // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
+        // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return (new FiDatosBasicoExport)->download('invoices.xls');
+        // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+    }
+
+    public function nnajxxxx()
+    {
+        if (ob_get_contents()) ob_end_clean();
+        ob_start();
+        return Excel::download(new SisNnajExport(), 'nnajx .xlsx');
+        // return (new FiDatosBasicoExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
+        // return (new FiDatosBasicoExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        // return (new FiDatosBasicoExport)->download('invoices.xls');
+        // return Excel::download(new FiDatosBasicoExport, 'users-collection.xlsx');
+    }
+
+
     public function armarSeeder()
     {
         $dataxxxx = RolUsuario::get();

@@ -19,23 +19,23 @@ class CreateHCsdGeningAportasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('csd_id')->unsigned();
-            $table->integer('prm_aporta_id')->unsigned();
-            $table->integer('mensual');
-            $table->integer('aporte');
-            $table->Integer('jornada_entre')->unsigned();
-            $table->integer('prm_entre_id')->unsigned();
-            $table->Integer('jornada_a')->unsigned();
-            $table->integer('prm_a_id')->unsigned();
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->integer('prm_aporta_id')->unsigned()->comment('CAMPO PARAMETRO APORTA');
+            $table->integer('mensual')->comment('CAMPO INGRESO MENSUAL');
+            $table->integer('aporte')->comment('CAMPO APORTE');
+            $table->Integer('jornada_entre')->unsigned()->comment('CAMPO JORNADA ENTRE');
+            $table->integer('prm_entre_id')->unsigned()->comment('CAMPO PARAMETRO JORNADA');
+            $table->Integer('jornada_a')->unsigned()->comment('CAMPO JORNADA HASTA');
+            $table->integer('prm_a_id')->unsigned()->comment('CAMPO PARAMETRO JORNADA');
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('csd_geningreso_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO DIAS');
+            $table->integer('csd_geningreso_id')->unsigned()->comment('CAMPO GENERACION DE INGRESO');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

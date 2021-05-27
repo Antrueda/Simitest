@@ -18,7 +18,7 @@ class CreateSisObsesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->String('s_observ', 1000);
+            $table->String('s_observ', 1000)->comment('CAMPO DE TEXTO OBSERVACION');
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA EL LISTADO GENERICOS DE LAS OBSERVACIONES PARA DIVERSAS ACTIVIADADES POSIBLES DENTRO DEL SISTEMA'");

@@ -19,14 +19,14 @@ class CreateFiJrCausamosTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE RIESGO');
-            $table->integer('prm_riesgo_id')->unsigned();
+            $table->integer('prm_riesgo_id')->unsigned()->comment('PARAMETRO RIESGO');
             $table->foreign('fi_justrest_id')->references('id')->on('fi_justrests');
             $table->foreign('prm_riesgo_id')->references('id')->on('parametros');
-            
+
             $table = CamposMagicos::magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA DE CAUSAS RIESGO DE FICHA DE INGRESO JUSTICIA RESTAURATIVA'");
-    
+
     }
 
     /**

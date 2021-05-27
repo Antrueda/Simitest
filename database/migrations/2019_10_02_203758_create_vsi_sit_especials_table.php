@@ -21,7 +21,7 @@ class CreateVsiSitEspecialsTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
-            $table->integer('prm_victima_id')->unsigned()->nullable();
+            $table->integer('prm_victima_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO VICTIMA');
             $table->foreign('vsi_id')->references('id')->on('vsis');
             $table->foreign('prm_victima_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);

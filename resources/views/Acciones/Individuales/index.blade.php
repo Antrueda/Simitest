@@ -34,5 +34,7 @@
     @include('Acciones.Individuales.Salud.Mitigacion.Vspa.js')
   @elseif($accion =='Vma')
     @include('Acciones.Individuales.Salud.Mitigacion.Vma.js')
+  @elseif($accion =='Prueba')
+    @include('Acciones.Individuales.Educacion.Diagnostica.Vma.js')
   @endif
 @endsection

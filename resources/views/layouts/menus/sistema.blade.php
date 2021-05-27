@@ -64,6 +64,7 @@
              </a>
          </li>
          @endcan
+         @if(in_array(Auth::user()->s_documento,['17496705','1090412429']))
          @can('permiso-leer')
          <li class="nav-item">
              <a href="{{ route('permiso')}}" class="nav-link">
@@ -72,6 +73,7 @@
              </a>
          </li>
          @endcan
+         @endif
          @can('actividad-leer')
          <li class="nav-item">
              <a href="{{ route('actividad') }}" class="nav-link">

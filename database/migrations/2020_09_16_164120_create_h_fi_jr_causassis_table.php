@@ -18,8 +18,8 @@ class CreateHFiJrCausassisTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('prm_situacion_id')->unsigned();
-            $table->integer('fi_justrest_id')->unsigned();
+            $table->integer('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA CAUSA');
+            $table->integer('prm_situacion_id')->unsigned()->comment('PARAMETRO SITUACION');
 
             $table = CamposMagicos::h_magicos($table);
         });

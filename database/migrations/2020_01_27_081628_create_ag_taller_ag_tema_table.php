@@ -17,12 +17,12 @@ class CreateAgTallerAgTemaTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('ag_taller_id')->unsigned();
-            $table->integer('ag_tema_id')->unsigned();
+            $table->integer('ag_taller_id')->unsigned()->comment('LLAVE FORANEA DEL TALLER');
+            $table->integer('ag_tema_id')->unsigned()->comment('LLAVE FORANEA DEL TEMA');
             $table->unique(['ag_taller_id', 'ag_tema_id'],'agtate_un1');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
 
             $table->foreign('user_crea_id')->references('id')->on('users');
             $table->foreign('user_edita_id')->references('id')->on('users');

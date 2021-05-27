@@ -18,9 +18,9 @@ class CreateAgTallersTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->String('s_taller');
-            $table->text('s_descripcion');
-            $table->integer('ag_tema_id')->unsigned();
+            $table->String('s_taller')->comment('NOMBRE DEL TALLER');
+            $table->text('s_descripcion')->comment('DESCRIPCION DEL TALLER');
+            $table->integer('ag_tema_id')->unsigned()->comment('LLAVE FORANEA DEL TEMA');
             $table->foreign('ag_tema_id')->references('id')->on('ag_temas');
             $table->integer('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table->foreign('estusuario_id')->references('id')->on('estusuarios');

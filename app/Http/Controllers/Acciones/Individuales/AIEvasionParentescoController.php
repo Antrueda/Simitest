@@ -4,15 +4,11 @@ namespace App\Http\Controllers\Acciones\Individuales;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Acciones\Individuales\EvasionParentescoRequest;
-use App\Http\Requests\Csd\CsdReshogarCrearRequest;
-use App\Http\Requests\Csd\CsdReshogarEditarRequest;
 use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\Pivotes\EvasionParentesco;
 use App\Models\Sistema\SisEsta;
-use App\Models\Sistema\SisNnaj;
 use App\Models\Tema;
 use App\Traits\Acciones\SalidaTrait;
-use App\Traits\Csd\CsdTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,6 +25,7 @@ class AIEvasionParentescoController extends Controller
     use SalidaTrait;
 
     private $opciones;
+
     public function __construct()
     {
         $this->opciones['permisox'] = 'evasionpar';
@@ -69,12 +66,12 @@ class AIEvasionParentescoController extends Controller
                 $this->opciones['carpetax'] . '.Botones.botonesapi';
             $request->estadoxx = $this->opciones['rutacarp'] . 'Acomponentes.Botones.estadosx';
             return $this->getParentesco($request);
-            
+
         }
     }
     private function view($dataxxxx)
     {
-        
+
         $this->opciones['parametr'] = [$dataxxxx['padrexxx']->id];
         $this->opciones['parametx'] = [$dataxxxx['padrexxx']->sis_nnaj_id];
         $this->opciones['usuariox'] = $dataxxxx['padrexxx']->nnaj->fi_datos_basico;
@@ -95,7 +92,7 @@ class AIEvasionParentescoController extends Controller
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
             $this->opciones['parametr'][1] = $dataxxxx['modeloxx']->id;
             $familiar = EvasionParentesco::where('reporte_evasion_id', $dataxxxx['padrexxx']->id)->get();
-           
+
             if(count($familiar)<2){
             if (auth()->user()->can($this->opciones['permisox'] . '-crear')) {
                 $this->opciones['botoform'][] =
@@ -170,8 +167,8 @@ class AIEvasionParentescoController extends Controller
 
     public function create(AiReporteEvasion $padrexxx)
     {
-        
-        
+
+
         $this->opciones['rutaxxxx']=route('evasionpar'.'.nuevo',$padrexxx->id);
         $this->opciones['botoform'][] =
             [
@@ -196,7 +193,7 @@ class AIEvasionParentescoController extends Controller
 
 
     public function store(EvasionParentescoRequest $request,AiReporteEvasion $padrexxx)
-    {   
+    {
         $request->request->add(['reporte_evasion_id' => $padrexxx->id]);
         $request->request->add(['sis_esta_id' =>1]);
         return $this->grabar(['requestx'=>$request, 'infoxxxx'=>'Familiar agregado con éxito','padrexxx'=>$padrexxx,'modeloxx'=>'']);
@@ -223,7 +220,7 @@ class AIEvasionParentescoController extends Controller
      */
     public function edit(AiReporteEvasion $padrexxx, EvasionParentesco $modeloxx)
     {
-        
+
         $this->opciones['csdxxxxx'] = $padrexxx;
         $this->opciones['botoform'][] =
             [

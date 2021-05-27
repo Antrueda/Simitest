@@ -24,9 +24,9 @@ class CreateVsiRedsocPasadosTable extends Migration
             $table->integer('mes')->nullable()->comment('CAMPO MES');
             $table->integer('ano')->nullable()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('ano_prestacion')->comment('CAMPO AÑO DE PRESTACION DE SERVICIO');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 

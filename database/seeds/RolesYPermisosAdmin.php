@@ -141,6 +141,13 @@ Role::find(2)->givePermissionTo([
     'fossubtipo-leer', 'fossubtipo-crear', 'fossubtipo-editar', 'fossubtipo-borrar',
     'agcargdoc-leer', 'agcargdoc-crear', 'agcargdoc-editar', 'agcargdoc-borrar',
 
+    //Educación
+    'pruediag-leer', 'pruediag-crear', 'pruediag-editar', 'pruediag-borrar',
+    'pruediagpre-leer', 'pruediagpre-crear', 'pruediagpre-editar', 'pruediagpre-borrar',
+    'imatricula-leer', 'imatricula-crear', 'imatricula-editar', 'imatricula-borrar',
+    'imatriculannaj-leer', 'imatriculannaj-crear', 'imatriculannaj-editar', 'imatriculannaj-borrar',
+    
+
 
     'alertas-leer', 'alertas-crear', 'alertas-editar', 'alertas-borrar',
     'mensajes-leer', 'mensajes-crear', 'mensajes-editar', 'mensajes-borrar','mensajes-activarx',

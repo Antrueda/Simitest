@@ -9,6 +9,7 @@ use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDatosBasico;
 use App\Models\Tema;
 use App\Traits\Fi\FiTrait;
+use App\Traits\Interfaz\Antisimi\ConsumoSpaTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
 use Illuminate\Http\Request;
@@ -18,9 +19,9 @@ class FiConsumoController extends Controller
     use FiTrait;
     use InterfazFiTrait;
     use PuedeTrait;
+    use ConsumoSpaTrait;
     public function __construct()
     {
-
         $this->opciones['permisox'] = 'ficonsumo';
         $this->opciones['routxxxx'] = 'ficonsumo';
         $this->opciones['rutacarp'] = 'FichaIngreso.';
@@ -72,7 +73,7 @@ class FiConsumoController extends Controller
             $this->opciones['puedexxx'] = '';
             $this->opciones['modeloxx'] = $dataxxxx['modeloxx'];
 
-            if ($dataxxxx['modeloxx']->i_prm_consume_spa_id==227) {
+            if ($dataxxxx['modeloxx']->i_prm_consume_spa_id == 227) {
                 $vercrear = true;
             }
         }
@@ -127,7 +128,6 @@ class FiConsumoController extends Controller
             return redirect()
                 ->route('ficonsumo.editar', [$padrexxx->id, $vestuari->id]);
         }
-
         $this->opciones['botoform'][] =
             [
                 'mostrars' => true, 'accionxx' => 'GUARDAR', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
@@ -177,17 +177,21 @@ class FiConsumoController extends Controller
      */
     public function edit(FiDatosBasico $padrexxx, FiConsumoSpa $modeloxx)
     {
-        $respuest=$this->getPuedeTPuede(['casoxxxx'=>1,
-        'nnajxxxx'=>$modeloxx->sis_nnaj_id,
-        'permisox'=>$this->opciones['permisox'] . '-editar',
+        $consumox = $this->setConsumoCST(['consumox' => $modeloxx]);
+        $respuest = $this->getPuedeTPuede([
+            'casoxxxx' => 1,
+            'nnajxxxx' => $modeloxx->sis_nnaj_id,
+            'permisox' => $this->opciones['permisox'] . '-editar',
         ]);
         if ($respuest) {
-        $this->opciones['botoform'][] =
-            [
-                'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
-                'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
-            ];
-         }
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'EDITAR REGISTRO', 'routingx' => [$this->opciones['routxxxx'] . '.editar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        }else {
+            $this->opciones['botoform']=[];
+        }
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario'], 'padrexxx' => $padrexxx]);
     }
 

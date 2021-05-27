@@ -18,9 +18,9 @@ class CreateHSisDepenUserTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('user_id')->unsigned();
-            $table->integer('sis_depen_id')->unsigned();
-            $table->integer('i_prm_responsable_id')->unsigned();
+            $table->integer('user_id')->unsigned()->comment('CAMPO ID USUARIO');
+            $table->integer('sis_depen_id')->unsigned()->comment('CAMPO ID DEPENDENCIA');
+            $table->integer('i_prm_responsable_id')->unsigned()->comment('CAMPO PARAMETRO RESPONSABLE DE LA UPI O DEPENDENCIA');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

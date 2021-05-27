@@ -21,9 +21,9 @@ class CreateSisMapaProcsTable extends Migration
             $table->integer('sis_entidad_id')->unsigned()->comment('CAMPO DE ID DE ENTIDAD');
             $table->date('vigencia')->comment('CAMPO FECHA DE VIGENCIA');
             $table->date('cierre')->comment('CAMPO DE FECHA DE CIERRE');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 

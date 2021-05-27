@@ -24,11 +24,10 @@ class CreateFiContactosTable extends Migration
             $table->date('d_fecha_remite_id')->nullable()->comment('CAMPO FECHA QUE REMITE');
             $table->integer('i_prm_motivo_contacto_id')->nullable()->unsigned()->comment('CAMPO MOTIVO DE CONTACTO');
             $table->integer('i_prm_aut_tratamiento_id')->unsigned()->comment('CAMPO AUTORIZA AL IDIPRON');
-
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID DEL NNAJ');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');

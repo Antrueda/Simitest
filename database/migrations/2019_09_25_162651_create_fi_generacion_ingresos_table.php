@@ -19,7 +19,6 @@ class CreateFiGeneracionIngresosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-
             $table->integer('prm_actgeing_id')->unsigned()->comment('FI 7.1 ACTIVIDAD REALIZA GENERAR INGRESO');
             $table->string('s_trabajo_formal')->nullable()->comment('FI A.1 MENCIONE TRABAJO FORMAL');
             $table->integer('prm_trabinfo_id')->unsigned()->comment('FI B.1SELECCIONE TRABAJO INFORMAL');
@@ -34,7 +33,6 @@ class CreateFiGeneracionIngresosTable extends Migration
             $table->integer('prm_frecingr_id')->nullable()->unsigned()->comment('FI 7.4.1 FRECUENCIA RECIBE INGRESO');
             $table->integer('totinmen')->nullable()->comment('FI 7.4.2 TOTAL INGRESO MENSUAL');
             $table->integer('prm_tiprelab_id')->unsigned()->comment('FI 7.5 TIPO RELACION LABORAL');
-
             $table->integer('sis_nnaj_id')->unsigned()->comment('NNAJ AL QUE SE LE ASIGNA LA GENERACIÓN DE INGRESO');
             $table->foreign('sis_nnaj_id')->references('id')->on('sis_nnajs');
             $table->foreign('prm_trabinfo_id')->references('id')->on('parametros');

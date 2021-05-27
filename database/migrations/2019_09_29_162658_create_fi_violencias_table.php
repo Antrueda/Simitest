@@ -20,8 +20,8 @@ class CreateFiViolenciasTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('i_prm_presenta_violencia_id')->unsigned()->comment('FI 12.1 PRESENTA ALGÚN TIPO DE VIOLENCIA');
             $table->integer('prm_ejerviol_id')->unsigned()->nullable()->comment('FI 12.1 A HA EJERCIDO ALGUN TIPO DE PRESUNTA VIOLENCIA DURANTE LA ACTIVIDAD EN CONFLICTO CON LA LEY');
-            
-           
+
+
             $table->integer('i_prm_violencia_genero_id')->unsigned()->nullable()->comment('FI 12.2 EL TIPO DE VIOLENCIA REFERENCIADO CORRESPONDE A VIOLENCIA BASADA EN GÉNERO/IDENTIDAD DE GÉNERO');
             $table->integer('i_prm_condicion_presenta_id')->unsigned()->comment('FI 12.3 CONDICIÓN ESPECIAL PRESENTA');
             $table->integer('i_prm_depto_condicion_id')->nullable()->unsigned()->comment('FI DEPARTAMENTO CONDICION ESPECIAL');

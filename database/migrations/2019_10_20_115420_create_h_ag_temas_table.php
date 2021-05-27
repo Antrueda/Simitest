@@ -18,9 +18,9 @@ class CreateHAgTemasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->String('s_tema');
-            $table->integer('area_id')->unsigned();
-            $table->longText('s_descripcion');
+            $table->String('s_tema')->comment('NOMBRE DEL TEMA');;
+            $table->integer('area_id')->unsigned()->comment('LLAVE FORANEA DEL AREA');
+            $table->longText('s_descripcion')->comment('DESCRIPCION DEL TEMA');
             $table->integer('estusuario_id')->unsigned()->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });

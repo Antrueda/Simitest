@@ -18,13 +18,13 @@ class CreateHFiAutorizacionsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('i_prm_autorizo_id')->unsigned();
-            $table->integer('fi_compfami_id')->unsigned();
-            $table->integer('i_prm_parentesco_id')->unsigned();
-            $table->date('d_autorizacion');
-            $table->integer('i_prm_tipo_diligencia_id')->unsigned();
-            $table->integer('sis_nnaj_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('i_prm_autorizo_id')->unsigned()->comment('CAMPO PARAMETRO AUTORIZO');
+            $table->integer('fi_compfami_id')->unsigned()->comment('CAMPO DE ID DEL COMPONENTE FAMILIAR');
+            $table->integer('i_prm_parentesco_id')->unsigned()->comment('CAMPO PARENTESCO');
+            $table->date('d_autorizacion')->comment('CAMPO FECHA DE AUTORIZACION');
+            $table->integer('i_prm_tipo_diligencia_id')->unsigned()->comment('CAMPO TIPO DE DILIGENCIA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
