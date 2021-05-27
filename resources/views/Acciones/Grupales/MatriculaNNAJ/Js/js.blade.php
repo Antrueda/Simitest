@@ -6,8 +6,11 @@
             //theme: 'bootstrap4'
         });
 });
+
+
+        
 });
-init_contadorTa("observacion", "contadorobservacion", 4000);
+init_contadorTa("observaciones", "contadorobservaciones", 500);
 
 function init_contadorTa(idtextarea, idcontador, max) {
     $("#" + idtextarea).keyup(function() {

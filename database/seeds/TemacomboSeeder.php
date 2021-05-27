@@ -4239,6 +4239,151 @@ class TemacomboSeeder extends Seeder
             235 => $this->getCM(['simianti' => '3']),
         ]);
 
+        $tema = $this->getR([
+            'temaidxx' => 366,
+            'nombrexx' => 'GRUPO' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //377
+        $tema->parametros()->sync([
+            2607 => $this->getCM(['simianti' => '']),
+            2608 => $this->getCM(['simianti' => '']),
+            2609 => $this->getCM(['simianti' => '']),
+            2610 => $this->getCM(['simianti' => '']),
+            2611 => $this->getCM(['simianti' => '']),
+        ]);
 
+        $tema = $this->getR([
+            'temaidxx' => 367,
+            'nombrexx' => 'GRADO EDUCACION' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //378
+        $tema->parametros()->sync([
+            2604 => $this->getCM(['simianti' => '']),
+            2605 => $this->getCM(['simianti' => '']),
+            302 => $this->getCM(['simianti' => '']),
+            840 => $this->getCM(['simianti' => '']),
+            518 => $this->getCM(['simianti' => '']),
+            841 => $this->getCM(['simianti' => '']),
+            519 => $this->getCM(['simianti' => '']),
+            33 => $this->getCM(['simianti' => '']),
+        ]);
+        $tema = $this->getR([
+            'temaidxx' => 367,
+            'nombrexx' => 'GRADO EDUCACION MOLINOS' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //379
+        $tema->parametros()->sync([
+            2604 => $this->getCM(['simianti' => '']),
+            2605 => $this->getCM(['simianti' => '']),
+            302 => $this->getCM(['simianti' => '']),
+            840 => $this->getCM(['simianti' => '']),
+            518 => $this->getCM(['simianti' => '']),
+            841 => $this->getCM(['simianti' => '']),
+            519 => $this->getCM(['simianti' => '']),
+            33 => $this->getCM(['simianti' => '']),
+        ]);
+        $tema = $this->getR([
+            'temaidxx' => 367,
+            'nombrexx' => 'GRADO EDUCACION SANTA LUCIA' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //380
+        $tema->parametros()->sync([
+            2604 => $this->getCM(['simianti' => '']),
+            2605 => $this->getCM(['simianti' => '']),
+            302 => $this->getCM(['simianti' => '']),
+            840 => $this->getCM(['simianti' => '']),
+            518 => $this->getCM(['simianti' => '']),
+        ]);    
+
+        $tema = $this->getR([
+            'temaidxx' => 367,
+            'nombrexx' => 'GRADO EDUCACION LA 32' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //381
+        $tema->parametros()->sync([
+            841 => $this->getCM(['simianti' => '']),
+            519 => $this->getCM(['simianti' => '']),
+            33 => $this->getCM(['simianti' => '']),
+        ]);    
+
+        $tema = $this->getR([
+            'temaidxx' => 354,
+            'nombrexx' => 'ESTRATEGIA EDUCACION'
+        ]);
+        $tema->parametros()->sync([
+            1668 => $this->getCM(['simianti' => '']),
+            2606 => $this->getCM(['simianti' => '']),
+          ]); //382
+
+          $tema = $this->getR([
+            'temaidxx' => 366,
+            'nombrexx' => 'GRUPO TERRITORIO' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //383
+        $tema->parametros()->sync([
+            2610 => $this->getCM(['simianti' => '']),
+        ]);    
+
+        $tema = $this->getR([
+            'temaidxx' => 366,
+            'nombrexx' => 'GRUPO EXTERNADO' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //384
+        $tema->parametros()->sync([
+            2610 => $this->getCM(['simianti' => '']),
+            2611 => $this->getCM(['simianti' => '']),
+        ]);
+        
+        $tema = $this->getR([
+            'temaidxx' => 366,
+            'nombrexx' => 'GRUPO DISTRITO JOVEN' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //385
+        $tema->parametros()->sync([
+            2610 => $this->getCM(['simianti' => '']),
+            2611 => $this->getCM(['simianti' => '']),
+        ]);    
+        
+        $tema = $this->getR([
+            'temaidxx' => 366,
+            'nombrexx' => 'GRUPO ESTIMULO DE CORRESPONSABILIDAD ' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //386
+        $tema->parametros()->sync([
+            2607 => $this->getCM(['simianti' => '']),
+            2608 => $this->getCM(['simianti' => '']),
+            2609 => $this->getCM(['simianti' => '']),
+        ]);    
+
+        $tema = $this->getR([
+            'temaidxx' => 366,
+            'nombrexx' => 'GRUPO INTERNADO' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //387
+        $tema->parametros()->sync([
+            2611 => $this->getCM(['simianti' => '']),
+        ]);    
+        $tema = $this->getR([
+        'temaidxx' => 208,  
+        'nombrexx' => 'PRESABER'
+        ]); //388
+        $tema->parametros()->sync([
+            996 => $this->getCM(['simianti' => '']),
+            997 => $this->getCM(['simianti' => '']),
+            998 => $this->getCM(['simianti' => '']),
+            999 => $this->getCM(['simianti' => '']),
+            1000 => $this->getCM(['simianti' => '']),
+            1001 => $this->getCM(['simianti' => '']),
+            1002 => $this->getCM(['simianti' => '']),
+            1003 => $this->getCM(['simianti' => '']),
+            1854 => $this->getCM(['simianti' => '']),
+            2612 => $this->getCM(['simianti' => '']),
+            2613 => $this->getCM(['simianti' => '']),
+        ]);
+
+        $tema = $this->getR([
+            'temaidxx' => 367,
+            'nombrexx' => 'GRADO PRUEBA DIAGNOSTICA' // esto se debe cambiar por el contenido de la pregunta en el formulario que se asigna el combo
+            ]); //389
+        $tema->parametros()->sync([
+            2614 => $this->getCM(['simianti' => '']),
+            302 => $this->getCM(['simianti' => '']),
+            840 => $this->getCM(['simianti' => '']),
+            518 => $this->getCM(['simianti' => '']),
+            841 => $this->getCM(['simianti' => '']),
+            519 => $this->getCM(['simianti' => '']),
+            33 => $this->getCM(['simianti' => '']),
+        ]);
     }
+
 }

@@ -1,13 +1,21 @@
 <div class="form-row align-items-end">
   <div class="form-group col-md-12">
-    {{ Form::label('qRazones', '17.1 Razones para ingresar al idipron/observaciones', ['class' => 'control-label col-form-label-sm']) }}
+    @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
+    {{ Form::label('qRazones', '17. Razones para ingresar al idipron/observaciones', ['class' => 'control-label col-form-label-sm']) }}
+    @else
+    {{ Form::label('qRazones', '16. Razones para ingresar al idipron/observaciones', ['class' => 'control-label col-form-label-sm']) }}
+    @endif
     {{ Form::textarea('s_porque_ingresar', null, ['rows' => 4, 'cols' => 40, 'style' => 'resize:none', 'id' => 's_porque_ingresar', 'class' => 'md-textarea form-control', "onkeyup" => "javascript:this.value=this.value.toUpperCase();"]) }}
     <p id="contadorporqueingresar">0/4000</p>
   </div>
 </div>
 <div class="form-row align-items-end">
   <div class="form-group col-md-6">
-    {{ Form::label('userd_id', '17.3 Persona que diligencia', ['class' => 'control-label ']) }}
+    @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
+    {{ Form::label('userd_id', '17.1 Persona que diligencia', ['class' => 'control-label ']) }}
+    @else
+    {{ Form::label('userd_id', '16.1 Persona que diligencia', ['class' => 'control-label ']) }}
+    @endif
     {{ Form::select('userd_id', $todoxxxx['usuarios'], null, ['class' => $errors->first('userd_id') ?
     'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos',
     'data-placeholder' => 'Digite la persona que diligencia','id'=>'userd_id']) }}
@@ -38,7 +46,11 @@
 <div class="form-row align-items-end">
 
   <div class="form-group col-md-6">
-    {{ Form::label('userr_id', '17.4 Persona Responsable / Encargado', ['class' => 'control-label']) }}
+    @if($todoxxxx['usuariox']->prm_tipoblaci_id == 651||$todoxxxx['usuariox']->prm_tipoblaci_id == 2323)
+    {{ Form::label('userr_id', '17.2 Persona Responsable / Encargado', ['class' => 'control-label']) }}
+    @else
+    {{ Form::label('userr_id', '16.2 Persona Responsable / Encargado', ['class' => 'control-label']) }}
+    @endif
     {{ Form::select('userr_id', $todoxxxx['usuarioz'], null, ['class' => $errors->first('userr_id') ?
     'form-control select2 form-control-sm is-invalid cargos' : 'form-control select2 form-control-sm cargos',
     'data-placeholder' => 'Digite el responsable']) }}
