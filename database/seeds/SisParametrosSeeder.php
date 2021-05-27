@@ -426,7 +426,7 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'BEBIDAS ALCOHÓLICAS'], // 403
             ['nombrexx' => 'MARIHUANA'], // 404
             ['nombrexx' => 'COCAINA, CRACK Y/O PACO'], // 405
-            ['nombrexx' => 'INHALANTES'], // 406
+            ['nombrexx' => 'DISOLVENTES COMBUSTBLES O PEGANTES INHALANTES'], // 406
             ['nombrexx' => 'NOCHE'], // 407
             ['nombrexx' => 'LÁMINAS DE ZINC'], // 408
             ['nombrexx' => 'MATERIAL NO CONVENCIONAL (POLISOMBRA, CARTÓN, PLÁSTICO, MATERIAL DE RECICLAJE)'], // 409
@@ -2480,7 +2480,7 @@ class SisParametrosSeeder extends Seeder
             ['nombrexx' => 'FAMILIA Y (YO)NNAJ'], // 2457
             ['nombrexx' => 'MIGRACIONN'], // 2458
             ['nombrexx' => 'TUSI'], // 2459
-            ['nombrexx' => 'CAMBIAR INHALANTES POR (DISOLVENTES COMBUSTBLES O PEGANTES INHALANTES)'], // 2460
+            ['nombrexx' => 'REUTILIZAR'], // 2460
             ['nombrexx' => 'MARIHUANA CRIPI O CRIPA'], // 2461
             ['nombrexx' => 'POPPER'], // 2462
             ['nombrexx' => 'LCD (DIETALIMIDA DEL ÁCIDO LISÉRGICO)'], // 2463

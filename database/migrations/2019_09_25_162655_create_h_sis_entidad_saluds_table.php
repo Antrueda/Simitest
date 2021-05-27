@@ -17,9 +17,9 @@ class CreateHSisEntidadSaludsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('sis_enprsa_id')->unsigned();
-            $table->integer('i_prm_tentidad_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('sis_enprsa_id')->unsigned()->comment('CAMPO ID DE EPS');
+            $table->integer('i_prm_tentidad_id')->unsigned()->comment('CAMPO DE ID TIPO DE ENTIDAD');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

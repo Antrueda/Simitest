@@ -25,7 +25,7 @@ class CreateSisEnprsasTable extends Migration
 
         Schema::create('h_'.$this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('s_enprsa');
+            $table->string('s_enprsa')->comment('CAMPO EPS');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `h_{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

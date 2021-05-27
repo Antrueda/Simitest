@@ -19,7 +19,7 @@ class CreateFiJrCausassisTable extends Migration
             Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
             $table->integer('fi_justrest_id')->unsigned()->comment('REGISTRO JUSTICIA RESTAURATIVA AL QUE SE LE ASIGNA CAUSA');
-            $table->integer('prm_situacion_id')->unsigned();
+            $table->integer('prm_situacion_id')->unsigned()->comment('PARAMETRO SITUACION');
             $table->foreign('fi_justrest_id')->references('id')->on('fi_justrests');
             $table->foreign('prm_situacion_id')->references('id')->on('parametros');
 

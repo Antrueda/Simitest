@@ -17,10 +17,10 @@ class CreateHAreaTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->string('nombre', 120);
-            $table->string('contexto', 3)->nullable();
-            $table->longText('descripcion')->nullable();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->string('nombre', 120)->comment('CAMPO DE NOMBRE DEL AREA');
+            $table->string('contexto', 3)->nullable()->comment('CAMPO DEL CONTEXTO DEL AREA');
+            $table->longText('descripcion')->nullable()->comment('CAMPO DE LA DESCRIPCION DEL AREA');
             $table->Integer('estusuario_id')->nullable()->comment('OBSERVACION DEL ESTADO DEL REGISTROS');
             $table = CamposMagicos::h_magicos($table);
         });

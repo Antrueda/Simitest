@@ -18,9 +18,9 @@ class CreateHAgRecursosTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->String('s_recurso');
-            $table->integer('i_prm_trecurso_id');
-            $table->integer('i_prm_umedida_id');
+            $table->String('s_recurso')->comment('NOMBRE DEL RECURSO');
+            $table->integer('i_prm_trecurso_id')->comment('TIPO DE RECURSO');
+            $table->integer('i_prm_umedida_id')->comment('UNIDAD DE MEDIDA DEL RECURSO');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

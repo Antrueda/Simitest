@@ -194,4 +194,34 @@ class FiResidencia extends Model
     {
        return $this->belongsToMany(Parametro::class,'fi_condicion_ambientes','fi_residencia_id','i_prm_condicion_amb_id');
     }
+
+    public function i_prm_tiene_dormir()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_tiene_dormir_id');
+    }
+
+    public function i_prm_tipo_duerme()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_tipo_duerme_id');
+    }
+
+    public function i_prm_tipo_tenencia()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_tipo_tenencia_id');
+    }
+
+    public function i_prm_estrato()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_estrato_id');
+    }
+
+    public function i_prm_espacio_parcha()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_espacio_parcha_id');
+    }
+
+    public function fi_condicion_ambientes()
+    {
+        return $this->hasMany(FiCondicionAmbiente::class);
+    }
 }

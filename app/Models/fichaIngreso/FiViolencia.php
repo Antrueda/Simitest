@@ -119,4 +119,39 @@ class FiViolencia extends Model
         }, 5);
         return $usuariox;
     }
+
+    public function i_prm_presenta_violencia()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_presenta_violencia_id');
+    }
+
+    public function prm_ejerviol()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_ejerviol_id');
+    }
+
+    public function i_prm_violencia_genero()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_violencia_genero_id');
+    }
+
+    public function i_prm_condicion_presenta()
+    {
+        return $this->belongsTo(Parametro::class, 'i_prm_condicion_presenta_id');
+    }
+
+    public function prm_cabefami()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_cabefami_id');
+    }
+
+    public function fi_violbasas()
+    {
+        return $this->hasMany(FiViolbasa::class, 'fi_violencia_id');
+    }
+
+    public function fi_lesicomes()
+    {
+        return $this->hasMany(FiLesicome::class, 'fi_violencia_id');
+    }
 }

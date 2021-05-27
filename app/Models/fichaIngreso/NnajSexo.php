@@ -60,6 +60,8 @@ class NnajSexo extends Model
         }, 5);
         return $objetoxx;
     }
+
+   
     public function prmSexo()
     {
         return $this->belongsTo(Parametro::class, 'prm_sexo_id');

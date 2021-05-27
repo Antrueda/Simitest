@@ -23,58 +23,58 @@ class CreateHVsiEducacionsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('vsi_id')->unsigned();
-            $table->integer('prm_estudia_id')->unsigned();
-            $table->Integer('dia')->unsigned()->nullable();
-            $table->Integer('mes')->unsigned()->nullable();
-            $table->Integer('ano')->unsigned()->nullable();
-            $table->integer('prm_motivo_id')->unsigned()->nullable();
-            $table->integer('prm_rendimiento_id')->unsigned()->nullable();
-            $table->integer('prm_dificultad_id')->unsigned()->nullable();
-            $table->integer('prm_leer_id')->unsigned()->nullable();
-            $table->integer('prm_escribir_id')->unsigned()->nullable();
-            $table->longText('descripcion')->nullable();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO DE ID DE VALORACION');
+            $table->integer('prm_estudia_id')->unsigned()->comment('CAMPO PARAMETRO ESTUDIA ');
+            $table->Integer('dia')->unsigned()->nullable()->comment('CAMPO DIA');
+            $table->Integer('mes')->unsigned()->nullable()->comment('CAMPO MES');
+            $table->Integer('ano')->unsigned()->nullable()->comment('CAMPO AÑO');
+            $table->integer('prm_motivo_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO DEL MOTIVO QUE NO ESTUDIA');
+            $table->integer('prm_rendimiento_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO DE RENDIMIENTO');
+            $table->integer('prm_dificultad_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO DE DIFICULTAD');
+            $table->integer('prm_leer_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO SI SABE LEER');
+            $table->integer('prm_escribir_id')->unsigned()->nullable()->comment('CAMPO PARAMETRO SI SABE ESCRIBIR');
+            $table->longText('descripcion')->nullable()->comment('CAMPO DE DESCRIPCION');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_educacion_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DE CAUSAS');
+            $table->integer('vsi_educacion_id')->unsigned()->comment('CAMPO DE ID DE EDUCACION');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_educacion_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DE FORTALEZAS');
+            $table->integer('vsi_educacion_id')->unsigned()->comment('CAMPO DE ID DE EDUCACION');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_educacion_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DE DIFICULTADES');
+            $table->integer('vsi_educacion_id')->unsigned()->comment('CAMPO DE ID DE EDUCACION');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_educacion_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO DE DIFICULTADES EXPERIMENTADAS');
+            $table->integer('vsi_educacion_id')->unsigned()->comment('CAMPO DE ID DE EDUCACION');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_educacion_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO TIPO DE DIFICULTADES');
+            $table->integer('vsi_educacion_id')->unsigned()->comment('CAMPO DE ID DE EDUCACION');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");

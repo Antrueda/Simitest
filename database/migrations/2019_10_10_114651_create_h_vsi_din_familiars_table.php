@@ -25,78 +25,78 @@ class CreateHVsiDinFamiliarsTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('vsi_id')->unsigned();
-            $table->integer('prm_familiar_id')->nullable()->unsigned();
-            $table->integer('prm_hogar_id')->nullable()->unsigned();
-            $table->longText('lugar')->nullable();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('vsi_id')->unsigned()->comment('CAMPO ID DE LA VALORACION');
+            $table->integer('prm_familiar_id')->nullable()->unsigned()->comment('TIPOLOGIA FAMILIAR');
+            $table->integer('prm_hogar_id')->nullable()->unsigned()->comment('TIPOLOGIA DEL HOGAR');
+            $table->longText('lugar')->nullable()->comment('DESCRIPCION DEL LUGAR');
             $table->integer('prm_motivo_id')->unsigned()->nullable();
-            $table->string('s_doc_adjunto', 150)->nullable();
-            $table->longText('descripcion');
+            $table->string('s_doc_adjunto', 150)->nullable()->comment('CAMPO DATO ADJUNTO, GENOGRAMA');
+            $table->longText('descripcion')->comment('DESCRIPCION DE LA COMPOSICION FAMILIAR');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_dinfamiliar_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN HABITABILIDAD EN CALLE');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");
 
         Schema::create($this->tablaxxx3, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_dinfamiliar_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN CONDUCTAS DELICTIVAS');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx3}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx3}'");
 
         Schema::create($this->tablaxxx4, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_dinfamiliar_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN PROSTITUCION');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx4}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx4}'");
 
         Schema::create($this->tablaxxx5, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_dinfamiliar_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN PRIVACION DE LA LIBERTAD');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx5}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx5}'");
 
         Schema::create($this->tablaxxx6, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_dinfamiliar_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN CONSUMO DE SPA');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx6}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx6}'");
 
         Schema::create($this->tablaxxx7, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_dinfamiliar_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES CON ANTECEDENTES EN SALUD MENTAL');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx7}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx7}'");
 
         Schema::create($this->tablaxxx8, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_dinfamiliar_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA FAMILIARES QUE ASUMEN CUIDADO DE MENORES DE 18 AÑOS');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx8}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx8}'");
 
         Schema::create($this->tablaxxx9, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('vsi_dinfamiliar_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO QUE ALMACENA MOTIVOS DE LA AUSENCIA DE REPRESENTANTES LEGALES');
+            $table->integer('vsi_dinfamiliar_id')->unsigned()->comment('CAMPO ID DINAMICA FAMILIAR');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx9}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx9}'");

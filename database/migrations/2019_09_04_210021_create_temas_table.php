@@ -20,9 +20,9 @@ class CreateTemasTable extends Migration
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
         });
@@ -32,11 +32,13 @@ class CreateTemasTable extends Migration
             $table->string('nombre')->unique()->comment('CAMPO DE NOMBRE DEL TEMAS');
             $table->integer('tema_id')->unsigned();
             $table->foreign('tema_id', 'teco_fk1')->references('id')->on('temas');
+            $table->integer('sis_tcampo_id')->nullable()->unsigned()->comment('CAMPO CON EL QUE SE RELACIONA EN LA TABLA DONDE ES UTILIZADO EL TEMACOMBO');
             $table = CamposMagicos::magicos($table);
         });
+
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('temacombo_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('ID DEL PARAMETRO');
+            $table->integer('temacombo_id')->unsigned()->comment('ID DEL TEMACOMBO');
             $table->string('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('temacombo_id')->references('id')->on('temacombos');

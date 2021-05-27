@@ -27,7 +27,7 @@ class CreateSisLocalidadsTable extends Migration
 
         Schema::create('h_sis_localidads', function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->string('s_localidad');
+            $table->string('s_localidad')->unique()->comment('CAMPO NOMBRE DE LA LOCALIDAD');
             $table->Integer('simianti_id')->nullable()->comment('IDENTIFICADOR EN EL SIMI ANTIGUO');
             $table = CamposMagicos::h_magicos($table);
         });

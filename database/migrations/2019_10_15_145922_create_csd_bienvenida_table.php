@@ -19,11 +19,11 @@ class CreateCsdBienvenidaTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('csd_id')->unsigned();
-            $table->integer('prm_persona_id')->unsigned();
+            $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->integer('prm_persona_id')->unsigned()->comment('PARAMETRO TIPO DE PERSONA');
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_persona_id')->references('id')->on('parametros');
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });
@@ -31,12 +31,12 @@ class CreateCsdBienvenidaTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('csd_bienvenida_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('PARAMETRO DE MOTIVOS');
+            $table->integer('csd_bienvenida_id')->unsigned()->comment('CAMPO ID DE CSD BIENVENIDA');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_bienvenida_id')->references('id')->on('csd_bienvenidas');
             $table->unique(['parametro_id', 'csd_bienvenida_id']);
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table = CamposMagicos::magicos($table);
         });

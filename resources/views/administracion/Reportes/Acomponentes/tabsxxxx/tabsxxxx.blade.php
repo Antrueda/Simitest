@@ -51,6 +51,10 @@
                         <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='fidatbas') ?' active' : '' }}
         text-sm" href="{{ route('fidatbas') }}">RETORNOS</a></li>
                         @endcanany
+                        @canany(['repcamre-leer'])
+                        <li class="nav-item"><a class="nav-link{{ ($todoxxxx['slotxxxx']=='excel') ?' active' : '' }}
+        text-sm" href="{{ route('excel.vrepcamr') }}">Reporte Caminado Relajado</a></li>
+                        @endcanany
                     </ul>
                 </div>
                 <div class="card-body">

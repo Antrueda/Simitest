@@ -10,7 +10,7 @@ class CreateFiContviolsTable extends Migration
 {
     private $tablaxxx = 'fi_contviols';
     private $commentx = '12.1 A Ha ejercido  algún tipo de presunta violencia durante la actividad en conflicto con la ley?';
-   
+
     /**
      * Run the migrations.
      *

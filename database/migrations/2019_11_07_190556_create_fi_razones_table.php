@@ -19,13 +19,13 @@ class CreateFiRazonesTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->text('s_porque_ingresar');
-            $table->integer('userd_id')->unsigned();
-            $table->integer('sis_depend_id')->unsigned();
-            $table->integer('userr_id')->unsigned();
-            $table->integer('sis_depenr_id')->unsigned();
-            $table->integer('i_prm_estado_ingreso_id')->unsigned();
-            $table->integer('sis_nnaj_id')->unsigned();
+            $table->text('s_porque_ingresar')->comment('CAMPO DE TEXTO POR QUE QUIERE INGRESAR');
+            $table->integer('userd_id')->unsigned()->comment('CAMPO ID USUARIO QUE DILIGENCIA');
+            $table->integer('sis_depend_id')->unsigned()->comment('CAMPO ID UPI O DEPENDENCIA');
+            $table->integer('userr_id')->unsigned()->comment('CAMPO ID USUARIO RESPONSABLE');
+            $table->integer('sis_depenr_id')->unsigned()->comment('CAMPO UPI RESPONSABLE');
+            $table->integer('i_prm_estado_ingreso_id')->unsigned()->comment('CAMPO PARAMETRO ESTADO DE INGRESO');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO ID NNAJ');
             $table->foreign('userd_id')->references('id')->on('users');
             $table->foreign('userr_id')->references('id')->on('users');
             $table->foreign('sis_depend_id')->references('id')->on('sis_depens');

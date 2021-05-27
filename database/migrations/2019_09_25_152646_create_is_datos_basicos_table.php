@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class CreateIsDatosBasicosTable extends Migration
 {
     private $tablaxxx = 'is_datos_basicos';
-    
+
     /**
      * Run the migrations.
      *
@@ -52,9 +52,9 @@ class CreateIsDatosBasicosTable extends Migration
             $table->date('d_fecha_proxima')->nullable()->comment('CAMPO FECHA PROXIMA INTERVENCION');
             $table->integer('i_primer_responsable')->unsigned()->comment('PRIMER RESPONSABLE');
             $table->integer('i_segundo_responsable')->nullable()->unsigned()->comment('SEGUNDO RESPONSABLE');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
 
@@ -97,7 +97,7 @@ class CreateIsDatosBasicosTable extends Migration
      */
     public function down()
     {
-        
+
         Schema::dropIfExists($this->tablaxxx);
     }
 }

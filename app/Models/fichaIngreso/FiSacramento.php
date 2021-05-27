@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -55,5 +56,10 @@ class FiSacramento extends Model
             }
             return $objetoxx;
         }, 5);
+    }
+
+    public function prm_sacrhec()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_sacrhec_id');
     }
 }

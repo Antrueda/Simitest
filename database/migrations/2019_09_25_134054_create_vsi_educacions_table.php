@@ -32,9 +32,9 @@ class CreateVsiEducacionsTable extends Migration
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
             $table->integer('vsi_id')->unsigned()->comment('CAMPO DE ID DE VALORACION');
             $table->integer('prm_estudia_id')->unsigned()->comment('CAMPO PARAMETRO ESTUDIA ');
-            $table->Integer('dia')->unsigned()->nullable();
-            $table->Integer('mes')->unsigned()->nullable();
-            $table->Integer('ano')->unsigned()->nullable();
+            $table->Integer('dia')->unsigned()->nullable()->comment('CAMPO DIA');
+            $table->Integer('mes')->unsigned()->nullable()->comment('CAMPO MES');
+            $table->Integer('ano')->unsigned()->nullable()->comment('CAMPO AÑO');
             $table->integer('prm_motivo_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO DEL MOTIVO QUE NO ESTUDIA');
             $table->integer('prm_rendimiento_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO DE RENDIMIENTO');
             $table->integer('prm_dificultad_id')->unsigned()->nullable()->comment('CAMPO DE PARAMETRO DE DIFICULTAD');

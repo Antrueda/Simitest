@@ -213,4 +213,8 @@ class Traductor
         }
         return $puedcarg;
     }
+    public static function active($dataxxxx)
+    {
+        return request()->is($dataxxxx['pathxxxx']) ? 'active' : '';
+    }
 }

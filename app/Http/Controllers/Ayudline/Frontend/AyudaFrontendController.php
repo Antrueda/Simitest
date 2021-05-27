@@ -16,10 +16,18 @@ class AyudaFrontendController extends Controller
     use CrudTrait; // trait donde se hace el crud de localidades
     use DataTablesTrait; // trait donde se arman las datatables que se van a utilizar
     use VistasTrait; // trait que arma la logica para lo metodos: crud
+    public function getMware()
+    {
+        $permisos = ['permission:'
+            . $this->opciones['permisox'] . '-leerxxxx|'];
+        return  $permisos;
+    }
+
+
     public function __construct()
     {
         $this->getConfigVistas();
-        $this->middleware($this->getMwareN());
+        $this->middleware($this->getMware());
     }
 
 }

@@ -17,16 +17,14 @@ class CreateFiVestuarioNnajsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
             $table->integer('prm_t_pantalon_id')->unsigned()->comment('CAMPO TIPO DE PANTALON');
             $table->integer('prm_t_camisa_id')->unsigned()->comment('CAMPO TIPO DE CAMISA');
             $table->integer('prm_t_zapato_id')->unsigned()->comment('CAMPO TIPO DE ZAPATO');
             $table->integer('prm_sexo_etario_id')->unsigned()->comment('CAMPO TALLA DE ROPA');
             $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID DE NNAJ');
-
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
             $table->foreign('user_crea_id')->references('id')->on('users');

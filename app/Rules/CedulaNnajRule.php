@@ -48,7 +48,7 @@ class CedulaNnajRule implements Rule
         $objetoxx = NnajDocu::where('s_documento', $this->requestx->s_documento)->first();
         if ($objetoxx != null) {
             $this->datobasi = $objetoxx->fi_datos_basico;
-            $this->messagex = "La cédula: {$this->requestx->s_documento} ya existe y pretences al nnaj: " . $this->getNombre();
+            $this->messagex = "La cédula: {$this->requestx->s_documento} ya existe y pertences al nnaj: " . $this->getNombre();
             $this->respuest = false;
         }
         return $objetoxx;
@@ -97,10 +97,11 @@ class CedulaNnajRule implements Rule
      */
     public function getOtroComponenteFamiliar()
     {
+        // ddd( $this->requestx->segments()[4]);
         $compfami = FiCompfami::join('sis_nnajs', 'fi_compfamis.sis_nnaj_id', '=', 'sis_nnajs.id')
             ->join('fi_datos_basicos', 'sis_nnajs.id', '=', 'fi_datos_basicos.sis_nnaj_id')
             ->join('nnaj_docus', 'fi_datos_basicos.id', '=', 'nnaj_docus.fi_datos_basico_id')
-            ->where('fi_compfamis.id','=!', [$this->requestx->segments()[4]])
+            ->whereNotIn('fi_compfamis.id', [$this->requestx->segments()[4]])
             ->where('s_documento', $this->requestx->s_documento)
             ->first();
         // verificar que la cédula ya la tenga otro nnaj

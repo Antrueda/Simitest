@@ -17,7 +17,7 @@ class CsdJusticiaController extends Controller
 {
     use FiTrait;
     use PuedeTrait;
-    private $opciones;
+    // private $opciones;
     public function __construct()
     {
 
@@ -138,7 +138,7 @@ class CsdJusticiaController extends Controller
                     'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
                 ];
            }
-        
+
         return $this->view(['modeloxx' => $modeloxx, 'accionxx' => ['editar', 'formulario', 'js',], 'padrexxx' => $padrexxx]);
     }
 
