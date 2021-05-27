@@ -83,9 +83,9 @@ class CreateCsdResidenciasTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
-            $table->integer('parametro_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO DE PARAMETRO AMBIENTE');
             $table->integer('csd_residencia_id')->unsigned()->comment('CAMPO ID DE CSD RESIDENCIA');
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_residencia_id')->references('id')->on('csd_residencias');

@@ -19,6 +19,13 @@ use Illuminate\Support\Facades\Auth;
  */
 trait CFControllerTrait
 {
+    public $opciones = [
+        'parametr' => [],
+        'routingx' => [],
+        'vocalesx' => ['Á', 'É', 'Í', 'Ó', 'Ú'],
+        'perfilxx' => 'sinperfi',
+
+    ];
 
     use ManageTimeTrait;
     use FiTrait; // administara todo los listados de las datatable y se accede al trait general

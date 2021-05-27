@@ -8,6 +8,7 @@ use App\Http\Requests\Acciones\Grupales\AgRecursoEditarRequest;
 use App\Models\Acciones\Grupales\AgRecurso;
 use App\Models\Tema;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AgRecursoController extends Controller
 {
@@ -152,11 +153,61 @@ class AgRecursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function destroy(AgRecurso $objetoxx)
+    // {
+    //     $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
+    //     $objetoxx->save();
+    //     $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
+    //     return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
+    // }
+
+    public function inactivate(AgRecurso $objetoxx)
+    {
+     
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'INACTIVAR', 'routingx' => [$this->opciones['routxxxx'] . '.borrar', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        
+        //return $this->view(['modeloxx' => $objetoxx, 'accionxx' =>['destroy','destroy']]);
+        return $this->view($objetoxx,  'modeloxx', 'INACTIVAR', 'destroy');
+    }
+
+
     public function destroy(AgRecurso $objetoxx)
     {
-        $objetoxx->sis_esta_id = ($objetoxx->sis_esta_id == 2) ? 1 : 2;
-        $objetoxx->save();
-        $activado = $objetoxx->sis_esta_id == 2 ? 'inactivado' : 'activado';
-        return redirect()->route('li')->with('info', 'Registro ' . $activado . ' con éxito');
+        //ddd($objetoxx);
+        $objetoxx->update(['sis_esta_id' => 2, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+        ->route('agrecurso')
+        ->with('info', 'Recurso inactivado correctamente');
     }
+
+    public function activate(AgRecurso $objetoxx)
+    {
+     
+            $this->opciones['botoform'][] =
+                [
+                    'mostrars' => true, 'accionxx' => 'ACTIVAR', 'routingx' => [$this->opciones['routxxxx'] . '.activarx', []],
+                    'formhref' => 1, 'tituloxx' => '', 'clasexxx' => 'btn btn-sm btn-primary'
+                ];
+        
+        //return $this->view(['modeloxx' => $objetoxx, 'accionxx' =>['destroy','destroy']]);
+        return $this->view($objetoxx,  'modeloxx', 'ACTIVAR', 'activarx');
+    }
+
+
+    public function activar(AgRecurso $objetoxx)
+    {
+       // ddd($objetoxx);
+        $objetoxx->update(['sis_esta_id' => 1, 'user_edita_id' => Auth::user()->id]);
+        return redirect()
+        ->route('agrecurso')
+        ->with('info', 'Recurso activado correctamente');
+    }
+
+
+
+    
 }

@@ -8,6 +8,7 @@ use App\Traits\Fi\Datobasi\DBControllerTrait;
 use App\Traits\Fi\Datobasi\DBCrudTrait;
 use App\Traits\Fi\FiDataTablesTrait;
 use App\Traits\Fi\Datobasi\DBVistasTrait;
+use App\Traits\Interfaz\Antisimi\CedulasBienTrait;
 use App\Traits\Interfaz\ComposicionFamiliarTrait;
 use App\Traits\Interfaz\InterfazFiTrait;
 use App\Traits\Puede\PuedeTrait;
@@ -22,6 +23,7 @@ class FiController extends Controller
     use InterfazFiTrait;
     use PuedeTrait;
     use ComposicionFamiliarTrait;
+    use CedulasBienTrait;
 
     public function __construct()
     {

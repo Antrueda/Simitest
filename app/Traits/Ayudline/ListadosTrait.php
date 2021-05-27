@@ -4,7 +4,6 @@ namespace App\Traits\Ayudline;
 
 use App\Models\Ayuda\Ayuda;
 use App\Traits\DatatableTrait;
-use App\Traits\ConfigController\OpcionesGeneralesTrait;
 use Illuminate\Http\Request;
 
 
@@ -13,7 +12,6 @@ use Illuminate\Http\Request;
  */
 trait ListadosTrait
 {
-    use OpcionesGeneralesTrait;
     use PestaniasTrait; // trit que construye las pestañas que va a tener el modulo con respectiva logica
     use DatatableTrait;
     public function getAyudasLT($request)

@@ -15,9 +15,21 @@ use App\Models\Acciones\Individuales\AiReporteEvasion;
 use App\Models\Acciones\Individuales\AiSalidaMenores;
 use App\Models\Acciones\Individuales\AiRetornoSalida;
 use App\Models\consulta\pivotes\CsdSisNnaj;
+use App\Models\fichaIngreso\FiActividadestl;
+use App\Models\fichaIngreso\FiActividadTiempoLibre;
 use App\Models\fichaIngreso\FiCompfami;
+use App\Models\fichaIngreso\FiConsumoSpa;
 use App\Models\fichaIngreso\FiDocumentosAnexa;
+use App\Models\fichaIngreso\FiFormacion;
+use App\Models\fichaIngreso\FiGeneracionIngreso;
+use App\Models\fichaIngreso\FiJustrest;
+use App\Models\fichaIngreso\FiLesicome;
 use App\Models\fichaIngreso\FiRazone;
+use App\Models\fichaIngreso\FiRedApoyoActual;
+use App\Models\fichaIngreso\FiRedApoyoAntecedente;
+use App\Models\fichaIngreso\FiSalud;
+use App\Models\fichaIngreso\FiSituacionEspecial;
+use App\Models\fichaIngreso\FiViolencia;
 use App\Models\fichaIngreso\NnajUpi;
 use App\Models\Indicadores\InLineaBase;
 use App\Models\Indicadores\InLineabaseNnaj;
@@ -26,7 +38,7 @@ use App\Models\Salud\Mitigacion\Vspa;
 
 class SisNnaj extends Model
 {
-    protected $fillable = ['sis_esta_id', 'user_crea_id', 'user_edita_id', 'prm_escomfam_id'];
+    protected $fillable = ['sis_esta_id', 'user_crea_id', 'user_edita_id', 'prm_escomfam_id','simianti_id','prm_nuevoreg_id'];
 
     public function fi_datos_basico()
     {
@@ -230,8 +242,54 @@ class SisNnaj extends Model
         return $this->hasOne(CsdSisNnaj::class);
     }
 
-    public function in_lineabase_nnajs()
+    public function fi_formacions()
     {
-        return $this->hasMany(InLineabaseNnaj::class);
+        return $this->hasOne(FiFormacion::class, 'sis_nnaj_id');
     }
+
+    public function fi_saluds()
+    {
+        return $this->hasOne(FiSalud::class, 'sis_nnaj_id');
+    }
+
+    public function fi_generacion_ingresos()
+    {
+        return $this->hasOne(FiGeneracionIngreso::class, 'sis_nnaj_id');
+    }
+
+    public function fi_actividadestls()
+    {
+        return $this->hasOne(FiActividadestl::class, 'sis_nnaj_id');
+    }
+
+    public function fi_red_apoyo_actuals()
+    {
+        return $this->hasMany(FiRedApoyoActual::class, 'sis_nnaj_id');
+    }
+
+    public function fi_red_apoyo_antecedentes()
+    {
+        return $this->hasMany(FiRedApoyoAntecedente::class, 'sis_nnaj_id');
+    }
+
+    public function fi_justrests()
+    {
+        return $this->hasOne(FiJustrest::class, 'sis_nnaj_id');
+    }
+
+    public function fi_consumo_spas()
+    {
+        return $this->hasOne(FiConsumoSpa::class, 'sis_nnaj_id');
+    }
+
+    public function fi_violencias()
+    {
+        return $this->hasOne(FiViolencia::class, 'sis_nnaj_id');
+    }
+
+    public function fi_situacion_especials()
+    {
+        return $this->hasOne(FiSituacionEspecial::class, 'sis_nnaj_id');
+    }
+
 }

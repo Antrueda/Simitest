@@ -42,8 +42,8 @@ trait LocalidadDataTablesTrait
                 ],
                 'columnsx' => [
                     ['data' => 'botonexx', 'name' => 'botonexx'],
-                    ['data' => 'id', 'name' => 'sis_localidad.id'],
-                    ['data' => 's_localidad', 'name' => 'sis_localidad.s_localidad'],
+                    ['data' => 'id', 'name' => 'sis_localidads.id'],
+                    ['data' => 's_localidad', 'name' => 'sis_localidads.s_localidad'],
                     ['data' => 's_estado', 'name' => 'sis_estas.s_estado'],
                 ],
                 'tablaxxx' => 'datatable',

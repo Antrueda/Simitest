@@ -57,6 +57,8 @@ class RolesYPermisosSeeder extends Seeder
         // crear permisos rol
         $this->getPermisos(['permisox' => 'permirol', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'permisos de un rol', 'pestania' => 1]);
 
+        //Permiso Reporte Caminando relajado
+        $this->getPermisos(['permisox' => 'repcamre', 'permisos' => ['leer'], 'compleme' => 'permisos de un rol', 'pestania' => 1]);
 
         /**
          * Creación de Permisos para el crud de estados de los usuarios
@@ -319,7 +321,7 @@ class RolesYPermisosSeeder extends Seeder
 
         $this->getPermisos(['permisox' => 'agcontexto', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Contextos Acciones Grupales', 'pestania' => 1]);
 
-        $this->getPermisos(['permisox' => 'agrecurso', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Recursos Acciones Grupales', 'pestania' => 1]);
+        $this->getPermisos(['permisox' => 'agrecurso', 'permisos' => ['leer', 'crear', 'editar', 'borrar','activarx'], 'compleme' => 'Recursos Acciones Grupales', 'pestania' => 1]);
 
         $this->getPermisos(['permisox' => 'agconvenio', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Convenios Acciones Grupales', 'pestania' => 1]);
 
@@ -434,6 +436,17 @@ class RolesYPermisosSeeder extends Seeder
         $this->getPermisos(['permisox' => 'fostipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Tipo FOS', 'pestania' => 1]);
 
         $this->getPermisos(['permisox' => 'fossubtipo', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+
+        //Permisos para Educacion(Acciones individuales)
+        //Permisos para Prueba Diagnostica
+        $this->getPermisos(['permisox' => 'pruediag', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+        //Permisos para Prueba Diagnostica Presaber
+        $this->getPermisos(['permisox' => 'pruediagpre', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+
+        //Permisos para Matricula
+        $this->getPermisos(['permisox' => 'imatricula', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
+          //Permisos para Matricula NNAJ
+        $this->getPermisos(['permisox' => 'imatriculannaj', 'permisos' => ['leer', 'crear', 'editar', 'borrar'], 'compleme' => 'Subtipo FOS', 'pestania' => 1]);
 
 
 

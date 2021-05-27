@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class CreateHIsDatosBasicosTable extends Migration
 {
     private $tablaxxx = 'h_is_datos_basicos';
-    
+
     /**
      * Run the migrations.
      *
@@ -57,7 +57,7 @@ class CreateHIsDatosBasicosTable extends Migration
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
-       
+
     }
 
     /**
@@ -67,7 +67,7 @@ class CreateHIsDatosBasicosTable extends Migration
      */
     public function down()
     {
-        
+
         Schema::dropIfExists($this->tablaxxx);
     }
 }

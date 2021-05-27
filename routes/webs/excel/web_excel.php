@@ -18,6 +18,19 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 		'uses' => $controll . 'Controller@getDataFields',
 		'middleware' => ['permission:' . $routexxx . '-crear']
 	])->name($routexxx . '.getDataFields');
+
+
+    Route::get('viewrepcamre', [
+        'uses' => $controll . 'Controller@viewRepCamRel',
+		'middleware' => ['permission:' . $routexxx . '-crear']
+        ])->name($routexxx . '.vrepcamr');
+
+    Route::post('getrepcamre', [
+        'uses' => $controll . 'Controller@getRepCamRel',
+        'middleware' => ['permission:' . $routexxx . '-crear']
+    ])->name($routexxx . '.grepcamr');
+
+
     Route::get('tablcamp', [
 		'uses' => $controll . 'Controller@getTablaCamposET',
 		'middleware' => ['permission:' . $routexxx . '-leer']
@@ -54,5 +67,17 @@ Route::group(['prefix' => 'excel'], function () use ($controll, $routexxx) {
 		'middleware' => ['permission:' . $routexxx . '-borrar']
 	])->name($routexxx . '.borrar');
 
+
+	Route::get('usuarios', [
+		'uses' => $controll . 'Controller@repousuarios',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.usuarios');
+
+	Route::get('nnajxxxx', [
+		'uses' => $controll . 'Controller@nnajxxxx',
+		'middleware' => ['permission:' . $routexxx . '-leer']
+	])->name($routexxx . '.nnajxxxx');
+
+	
 
 });

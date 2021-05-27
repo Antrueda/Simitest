@@ -62,6 +62,7 @@ trait ParametrizarModuloTrait
         }else{
             $this->opciones['botoform'][]=[];
         }
+
         return $this->opciones;
     }
 }

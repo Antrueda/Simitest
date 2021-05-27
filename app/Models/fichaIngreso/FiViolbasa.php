@@ -2,6 +2,7 @@
 
 namespace App\Models\fichaIngreso;
 
+use App\Models\Parametro;
 use Illuminate\Database\Eloquent\Model;
 
 class FiViolbasa extends Model
@@ -30,5 +31,10 @@ class FiViolbasa extends Model
     public function editor()
     {
         return $this->belongsTo(User::class, 'user_edita_id');
+    }
+
+    public function prm_violbasa()
+    {
+        return $this->belongsTo(Parametro::class, 'prm_violbasa_id');
     }
 }

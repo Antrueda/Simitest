@@ -18,20 +18,20 @@ class CreateCsdGeningAportasTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('csd_id')->unsigned();
-            $table->integer('prm_aporta_id')->unsigned();
-            $table->integer('mensual');
-            $table->integer('aporte');
-            $table->Integer('jornada_entre')->unsigned();
-            $table->integer('prm_entre_id')->unsigned();
-            $table->Integer('jornada_a')->unsigned();
-            $table->integer('prm_a_id')->unsigned();
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
+            $table->integer('csd_id')->unsigned()->comment('CAMPO ID DE CONSULTA');
+            $table->integer('prm_aporta_id')->unsigned()->comment('CAMPO PARAMETRO APORTA');
+            $table->integer('mensual')->comment('CAMPO INGRESO MENSUAL');
+            $table->integer('aporte')->comment('CAMPO APORTE');
+            $table->Integer('jornada_entre')->unsigned()->comment('CAMPO JORNADA ENTRE');
+            $table->integer('prm_entre_id')->unsigned()->comment('CAMPO PARAMETRO JORNADA');
+            $table->Integer('jornada_a')->unsigned()->comment('CAMPO JORNADA HASTA');
+            $table->integer('prm_a_id')->unsigned()->comment('CAMPO PARAMETRO JORNADA');
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('csd_id')->references('id')->on('csds');
             $table->foreign('prm_aporta_id')->references('id')->on('parametros');
@@ -44,10 +44,10 @@ class CreateCsdGeningAportasTable extends Migration
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('parametro_id')->unsigned();
-            $table->integer('csd_geningreso_id')->unsigned();
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
+            $table->integer('parametro_id')->unsigned()->comment('CAMPO PARAMETRO DIAS');
+            $table->integer('csd_geningreso_id')->unsigned()->comment('CAMPO GENERACION DE INGRESO');
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
             $table->foreign('parametro_id')->references('id')->on('parametros');
             $table->foreign('csd_geningreso_id')->references('id')->on('csd_gening_aportas');
             $table->unique(['parametro_id', 'csd_geningreso_id']);

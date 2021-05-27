@@ -18,9 +18,9 @@ class CreateHInLineabaseNnajsTable extends Migration
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
             $table->increments('id')->start(1)->nocache();
-            $table->integer('in_fuente_id')->unsigned();
-            $table->integer('i_prm_categoria_id')->unsigned()->default(246);
-            $table->integer('sis_nnaj_id')->unsigned();
+            $table->integer('in_fuente_id')->unsigned()->comment('ID DE FUENTE');
+            $table->integer('i_prm_categoria_id')->unsigned()->default(246)->comment('ID PARAMETRO CATEGORIA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('ID DE NNAJ');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");

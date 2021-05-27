@@ -22,9 +22,9 @@ class CreatePermissionTables extends Migration
       $table->string('descripcion')->nullable()->comment('CAMPO DE DESCRIPCION DEL PERMISO');
       $table->string('guard_name')->comment('N');
       $table->integer('sis_pestania_id')->unsigned()->comment('CAMPO DE ID DE LA PESTAÑA');
-      $table->integer('user_crea_id')->unsigned();
-      $table->integer('user_edita_id')->unsigned();
-      $table->integer('sis_esta_id')->unsigned()->default(1);
+      $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+      $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+      $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->foreign('sis_pestania_id')->references('id')->on('sis_pestanias');
       $table->timestamps();
@@ -34,9 +34,9 @@ class CreatePermissionTables extends Migration
       $table->increments('id');
       $table->string('name');
       $table->string('guard_name');
-      $table->integer('user_crea_id')->unsigned();
-      $table->integer('user_edita_id')->unsigned();
-      $table->integer('sis_esta_id')->unsigned()->default(1);
+      $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+      $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+      $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
       $table->integer('estusuario_id')->unsigned()->nullable();
       $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
       $table->foreign('estusuario_id')->references('id')->on('estusuarios');

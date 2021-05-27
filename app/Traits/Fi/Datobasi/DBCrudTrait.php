@@ -46,9 +46,18 @@ trait DBCrudTrait
      */
     public function setCrearNnaj()
     {
-        $this->dataxxxx['sis_nnaj_id'] = SisNnaj::create(['sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id, 'user_edita_id' => Auth::user()->id, 'prm_escomfam_id' => 227])->id;
+        $this->dataxxxx['sis_nnaj_id'] = SisNnaj::create(
+            [
+                'sis_esta_id' => 1, 'user_crea_id' => Auth::user()->id,
+                'user_edita_id' => Auth::user()->id,
+                'prm_escomfam_id' => 227,
+                "simianti_id" => 0,
+                "prm_nuevoreg_id" => 227
+            ]
+        )->id;
         $this->dataxxxx['user_crea_id'] = Auth::user()->id;
         $this->objetoxx = FiDatosBasico::create($this->dataxxxx);
+
         $this->dataxxxx['fi_datos_basico_id'] = $this->objetoxx->id;
         NnajSexo::create($this->dataxxxx);
         NnajNacimi::create($this->dataxxxx);
@@ -79,7 +88,7 @@ trait DBCrudTrait
      * crear o actuliar datos basicos
      *
      */
-    public function setDatosBasicos($dataxxxx, $objetoxx,$infoxxxx) // grabar de datos basicos
+    public function setDatosBasicos($dataxxxx, $objetoxx, $infoxxxx) // grabar de datos basicos
     {
 
         $objetoxx = DB::transaction(function () use ($dataxxxx, $objetoxx) {

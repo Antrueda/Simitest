@@ -18,19 +18,19 @@ class CreateHFiConsumoSpasTable extends Migration
     public function up()
     {
         Schema::create($this->tablaxxx, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('i_prm_consume_spa_id')->unsigned();
-            $table->integer('sis_nnaj_id')->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('i_prm_consume_spa_id')->unsigned()->comment('CAMPO SI CONSUME SPA');
+            $table->integer('sis_nnaj_id')->unsigned()->comment('CAMPO DE ID DE NNAJ');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx}'");
 
         Schema::create($this->tablaxxx2, function (Blueprint $table) {
-            $table->increments('id')->start(1)->nocache();
-            $table->integer('fi_consumo_spa_id')->unsigned();//->comment('REGISTRO CONSUMO SPA AL QUE SE LE ASIGNA LA SUSTANCIA');
-            $table->integer('i_prm_sustancia_id')->nullable()->unsigned();
-            $table->integer('i_edad_uso')->nullable()->unsigned();
-            $table->integer('i_prm_consume_id')->nullable()->unsigned();
+            $table->increments('id')->start(1)->nocache()->comment('CAMPO DE LLAVE PRIMARIA DE LA TABLA');
+            $table->integer('fi_consumo_spa_id')->unsigned()->comment('REGISTRO CONSUMO SPA AL QUE SE LE ASIGNA LA SUSTANCIA');
+            $table->integer('i_prm_sustancia_id')->nullable()->unsigned()->comment('REGISTRO TIPO DE SUSTANCIA');
+            $table->integer('i_edad_uso')->nullable()->unsigned()->comment('REGISTRO EDAD DE CUANDO INICIO A CONSUMIR');
+            $table->integer('i_prm_consume_id')->nullable()->unsigned()->comment('REGISTRO SI CONTINUA CONSUMIENDO');
             $table = CamposMagicos::h_magicos($table);
         });
        //DB::statement("ALTER TABLE `{$this->tablaxxx2}` comment 'TABLA QUE ALMACENA LOS LOGS DE LA TABLA {$this->tablaxxx2}'");

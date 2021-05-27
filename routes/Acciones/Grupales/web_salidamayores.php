@@ -59,6 +59,10 @@ Route::group(['prefix' => 'salidamayores'], function () use ($controll, $routxxx
         'uses' => $controll . 'Controller@activar',
         'middleware' => ['permission:' . $routxxxx . '-activarx']
     ])->name($routxxxx . '.activarx');
+	Route::get('responsa', [
+        'uses' => $controll . 'Controller@getResponsable',
+        'middleware' => ['permission:' . $routxxxx . '-borrar']
+    ])->name($routxxxx . '.responsa');
 
 });
 

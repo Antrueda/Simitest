@@ -24,10 +24,10 @@ class CreateCsdViolenciasTable extends Migration
             $table->integer('prm_certificado_id')->unsigned()->nullable()->comment('CAMPO ID SI TIENE CERTIFICADO');
             $table->integer('departamento_cert_id')->unsigned()->nullable()->comment('CAMPO ID DE DEPARTAMENTO DE CERTIFICADO');
             $table->integer('municipio_cert_id')->unsigned()->nullable()->comment('CAMPO ID DE DE MUNICIPIO DE CERTIFICADO');
-            $table->integer('user_crea_id')->unsigned();
-            $table->integer('user_edita_id')->unsigned();
-            $table->integer('sis_esta_id')->unsigned()->default(1);
-            $table->integer('prm_tipofuen_id')->unsigned();
+            $table->integer('user_crea_id')->unsigned()->comment('ID DE USUARIO QUE CREA');
+            $table->integer('user_edita_id')->unsigned()->comment('ID DE USUARIO QUE EDITA');
+            $table->integer('sis_esta_id')->unsigned()->default(1)->comment('CAMPO DE ID ESTADO');
+            $table->integer('prm_tipofuen_id')->unsigned()->comment('TIPO DE FUENTE DE LA INFORMACION');
             $table->foreign('prm_tipofuen_id')->references('id')->on('parametros');
             $table->foreign('sis_esta_id')->references('id')->on('sis_estas');
             $table->timestamps();

@@ -77,8 +77,8 @@ Route::get('ag/recursos', function (Request $request) {
             'parametros.nombre as trecurso', 'parametros.nombre as umedidax', 'sis_estas.s_estado'
         ])
             ->join('parametros', 'ag_recursos.i_prm_trecurso_id', '=', 'parametros.id')
-            ->join('sis_estas', 'ag_recursos.sis_esta_id', '=', 'sis_estas.id')
-            ->where('ag_recursos.sis_esta_id', 1))
+            ->join('sis_estas', 'ag_recursos.sis_esta_id', '=', 'sis_estas.id'))
+            
         ->addColumn('btns', 'Acciones/Grupales/Agrecurso/botones/botonesapi')
         ->addColumn('s_estado', $request->estadoxx)
         ->rawColumns(['btns', 's_estado'])
